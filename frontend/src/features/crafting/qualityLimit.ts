@@ -1,3 +1,4 @@
+import { augmentQualityMaximum } from './augmentRules'
 import { basePolicy } from './baseRegistry'
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
@@ -15,7 +16,7 @@ export function maximumQuality(
   definitions: Record<string, Definition>,
 ): number | null {
   if (basePolicy(state.baseItemId)?.qualityLimit !== true) return null
-  let maximum = 20
+  let maximum = augmentQualityMaximum(state)
   for (const instance of state.explicits) {
     if (!Object.hasOwn(instance.values, stat)) continue
     const d = definitions[instance.modifierId]

@@ -83,7 +83,10 @@ public final class WorkbenchStateReader {
     var observations = input.get("observations");
     if (observations != null && !observations.isNull()) {
       if (!observations.isObject()
-          || observations.size() != 3
+          || (observations.size() != 3 && observations.size() != 4)
+          || (observations.size() == 4 && !observations.has("augmentEffectScale"))
+          || (observations.hasNonNull("augmentEffectScale")
+              && !observations.get("augmentEffectScale").isNumber())
           || !observations.has("socketCount")
           || !observations.path("augmentEffects").isArray()
           || !observations.path("grantedSkills").isArray())
@@ -134,7 +137,7 @@ public final class WorkbenchStateReader {
         && !sockets.isNull()
         && (!sockets.isIntegralNumber() || !sockets.canConvertToInt()))
       throw new IllegalArgumentException("Integral socket count required");
-    var modifierFields = Set.of("modifierId", "values", "fractured");
+    var modifierFields = Set.of("modifierId", "values", "fractured", "crafted");
     var quality = input.get("catalystQuality");
     if (quality != null && !quality.isNull()) {
       if (!quality.isObject()
@@ -159,6 +162,9 @@ public final class WorkbenchStateReader {
                   if (!modifierFields.contains(name))
                     throw new WorkbenchController.UnsupportedItemProperties();
                 });
+        for (String flag : List.of("fractured", "crafted"))
+          if (instance.has(flag) && !instance.get(flag).isBoolean())
+            throw new WorkbenchController.UnsupportedItemProperties();
         var values = instance.get("values");
         if (values == null || !values.isObject())
           throw new WorkbenchController.UnsupportedItemProperties();

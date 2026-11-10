@@ -1,3 +1,4 @@
+import { effectiveDefinitions } from '../augmentRules'
 import { useQuery } from '@tanstack/react-query'
 import { loadModifierPools } from '../workbenchReferenceApi'
 import { referenceMessages } from '../referenceMessages'
@@ -51,7 +52,17 @@ export function ModifierPoolPanel({
   const sides = useMemo(
     () =>
       catalog && reference.data
-        ? modifierPoolSections(catalog, reference.data).map((side) => ({
+        ? modifierPoolSections(
+            {
+              ...catalog,
+              modifiers: effectiveDefinitions(
+                state!,
+                catalog.modifiers,
+                mode === 'static',
+              ),
+            },
+            reference.data,
+          ).map((side) => ({
             ...side,
             groups: side.groups
               .map((group) => {
@@ -82,7 +93,7 @@ export function ModifierPoolPanel({
               .sort((a, b) => a.label.localeCompare(b.label, locale)),
           }))
         : [],
-    [catalog, locale, reference.data],
+    [catalog, locale, reference.data, state, mode],
   )
   const number = useMemo(() => new Intl.NumberFormat(locale), [locale])
   const percent = useMemo(

@@ -95,8 +95,8 @@ class CraftingRegistryLoaderTest {
     ((ObjectNode) registry).remove("ruleset");
     // Equipment completion advances the engine descriptors; verify them, then restore the frozen
     // baseline.
-    assertEquals("solar-workbench-abyss-essence-v17", registry.path("ruleVersion").asText());
-    assertEquals("solar-uniform-assumptions-v11", registry.path("ledgerVersion").asText());
+    assertEquals("solar-workbench-abyss-essence-v18", registry.path("ruleVersion").asText());
+    assertEquals("solar-uniform-assumptions-v12", registry.path("ledgerVersion").asText());
     ((ObjectNode) registry).put("ruleVersion", "solar-workbench-abyss-essence-v16");
     ((ObjectNode) registry).put("ledgerVersion", "solar-uniform-assumptions-v10");
     ((ObjectNode) registry.path("workbenchBases").path("solar"))

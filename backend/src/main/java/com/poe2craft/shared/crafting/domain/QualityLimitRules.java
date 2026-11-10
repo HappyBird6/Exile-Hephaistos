@@ -18,7 +18,8 @@ public final class QualityLimitRules {
     if (state == null || !new ItemStateValidator(catalog).validate(state).isEmpty())
       throw new IllegalArgumentException("Unsupported state for quality limit");
     if (!BaseRegistry.qualityLimit(state.baseItemId())) return null;
-    int maximum = 20;
+    int maximum =
+        Math.max(20, com.poe2craft.shared.item.AugmentCraftingRules.maximumQuality(state));
     for (var instance : state.explicits()) {
       if (!instance.values().containsKey(STAT_ID)) continue;
       var definition = catalog.find(instance.modifierId()).orElseThrow();

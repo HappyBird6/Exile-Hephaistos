@@ -21,7 +21,7 @@ const itemFields = new Set([
   'observations',
   'sanctification',
 ])
-const modifierFields = new Set(['modifierId', 'values', 'fractured'])
+const modifierFields = new Set(['modifierId', 'values', 'fractured', 'crafted'])
 export function supportsConcreteStateShape(value: unknown): boolean {
   if (
     !value ||
@@ -52,7 +52,7 @@ export function supportsConcreteStateShape(value: unknown): boolean {
   if (
     item.desecrated !== undefined &&
     (!Array.isArray(item.desecrated) ||
-      item.desecrated.length > 6 ||
+      item.desecrated.length > 7 ||
       !item.desecrated.every((slot: unknown) => {
         if (!slot || typeof slot !== 'object' || Array.isArray(slot))
           return false

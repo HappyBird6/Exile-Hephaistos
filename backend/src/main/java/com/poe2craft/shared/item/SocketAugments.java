@@ -48,6 +48,10 @@ public final class SocketAugments {
     }
   }
 
+  public static String kind(String id) {
+    return definition(id).path("kind").asText();
+  }
+
   private static JsonNode definition(String id) {
     for (var entry : CATALOG) if (entry.path("id").asText().equals(id)) return entry;
     throw new IllegalArgumentException("Unknown Augment");
@@ -92,6 +96,10 @@ public final class SocketAugments {
         || !state.desecrated().isEmpty())
       throw new IllegalArgumentException(
           "Augment installation requires verified ordinary equipment");
+    var previous =
+        state.installedAugments().stream().filter(a -> a.slotIndex() == slot).findFirst();
+    if (previous.isPresent() && AugmentCraftingRules.socketBound(previous.get().augmentId()))
+      throw new IllegalArgumentException("Socket-bound Augments cannot be removed or replaced");
     var next = new java.util.ArrayList<>(state.installedAugments());
     next.removeIf(a -> a.slotIndex() == slot);
     next.add(new ItemState.InstalledAugment(slot, id));

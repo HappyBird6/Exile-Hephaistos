@@ -5014,5 +5014,70 @@
     "name": "Zalatl's Soul Core of Insulation",
     "lines": ["Boots: +40% of Armour also applies to Lightning Damage"],
     "sourceUrl": "https://poe2db.tw/us/Zalatls_Soul_Core_of_Insulation"
+  },
+  "Astrids_Creativity": {
+    "name": "Astrid's Creativity",
+    "lines": ["All Equipment: Can have 1 additional Crafted Modifiers"],
+    "sourceUrl": "https://poe2db.tw/us/Astrids_Creativity"
+  },
+  "Serles_Triumph": {
+    "name": "Serle's Triumph",
+    "lines": [
+      "All Equipment: +1 Suffix Modifier allowed, local maximum mods allowed + [1]"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Serles_Triumph"
+  },
+  "Legacy_of_Serles_Grit": {
+    "name": "Legacy of Serle's Grit",
+    "lines": ["One Hand Maces: Maximum Quality is 40%"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Serles_Grit"
+  },
+  "Legacy_of_Runeseekers_Call": {
+    "name": "Legacy of Runeseeker's Call",
+    "lines": ["Wands: 75% increased effect of Socketed Runes"],
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Runeseekers_Call"
+  },
+  "Fox_Idol": {
+    "name": "Fox Idol",
+    "lines": [
+      "Body Armours: Idols socketed in this item gain the benefits of their Bonded modifiers, display additional socketable mods for idols [1]",
+      "Sceptres: 50% increased Presence Area of Effect"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Fox_Idol"
+  },
+  "Raven-Touched_Shard": {
+    "name": "Raven-Touched Shard",
+    "lines": ["Helmets: Raven-Touched"],
+    "sourceUrl": "https://poe2db.tw/us/Raven-Touched_Shard"
+  },
+  "Uhtreds_Sidereus": {
+    "name": "Uhtred's Sidereus",
+    "lines": ["Boots: Can roll Chronomancy modifiers"],
+    "sourceUrl": "https://poe2db.tw/us/Uhtreds_Sidereus"
+  },
+  "Kolrs_Hunt": {
+    "name": "Kolr's Hunt",
+    "lines": ["Gloves: Can roll Marksman modifiers"],
+    "sourceUrl": "https://poe2db.tw/us/Kolrs_Hunt"
+  },
+  "Voranas_Carnage": {
+    "name": "Vorana's Carnage",
+    "lines": ["Helmets: Can roll Berserking modifiers"],
+    "sourceUrl": "https://poe2db.tw/us/Voranas_Carnage"
+  },
+  "Thruds_Might": {
+    "name": "Thrud's Might",
+    "lines": ["Weapon: Can roll Destruction modifiers"],
+    "sourceUrl": "https://poe2db.tw/us/Thruds_Might"
+  },
+  "Medveds_Tending": {
+    "name": "Medved's Tending",
+    "lines": ["Body Armours: Can roll Soul modifiers"],
+    "sourceUrl": "https://poe2db.tw/us/Medveds_Tending"
+  },
+  "Katlas_Gloom": {
+    "name": "Katla's Gloom",
+    "lines": ["Gloves: Can roll Decay modifiers"],
+    "sourceUrl": "https://poe2db.tw/us/Katlas_Gloom"
   }
 }

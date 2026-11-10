@@ -1,3 +1,5 @@
+import { observedAugmentEffects } from './augmentEffects'
+import { socketIsBound, visibleAugmentText } from './augmentRules'
 import data from './augments.json'
 import display from '../../shared/i18n/augmentDisplay.json'
 import { basePolicy } from './baseRegistry'
@@ -55,7 +57,8 @@ export const augmentName = (id: string) => {
 export function augmentEffect(id: string, base: string): string | undefined {
   const a = augments.find((a) => a.id === id)
   const effects = a?.effects[basePolicy(base)?.itemClass ?? '']
-  return effects?.[getLocale()] ?? effects?.en
+  const text = effects?.[getLocale()] ?? effects?.en
+  return text ? visibleAugmentText(text) : text
 }
 export function withinAugmentLimit(
   installed: NonNullable<ConcreteItem['installedAugments']>,
@@ -88,6 +91,7 @@ export function canInstallAugment(
     Number.isInteger(slot) &&
     slot >= 0 &&
     slot < (state.augmentSockets ?? 0) &&
+    !socketIsBound(state, slot) &&
     !state.conditions.length &&
     !state.observations &&
     !state.desecrated?.length &&
@@ -172,7 +176,7 @@ export async function installAugment(
               .filter(
                 ([k, v]) =>
                   v != null &&
-                  !(k === 'fractured' && v === false) &&
+                  !(['fractured', 'crafted'].includes(k) && v === false) &&
                   !(k === 'desecrated' && Array.isArray(v) && !v.length),
               )
               .sort(([a], [b]) => a.localeCompare(b))
@@ -236,7 +240,7 @@ export function socketText() {
 /** Unknown identity is a display label; the observed effect stays independent of affix rolls. */
 export function unidentifiedRuneEffects(state: ConcreteItem): ItemCardLine[] {
   const itemClass = basePolicy(state.baseItemId)?.itemClass ?? ''
-  return (state.observations?.augmentEffects ?? []).map((source, index) => {
+  return observedAugmentEffects(state).map((source, index) => {
     const text = source
       .replace(/^\{.*?}\s*/, '')
       .replace(/\s*\(rune\)$/, '')

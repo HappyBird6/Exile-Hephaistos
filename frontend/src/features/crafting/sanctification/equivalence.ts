@@ -25,11 +25,13 @@ export function sameRolls(
     modifierId: string
     values: Record<string, number>
     fractured?: boolean
+    crafted?: boolean
   }[],
   b: readonly {
     modifierId: string
     values: Record<string, number>
     fractured?: boolean
+    crafted?: boolean
   }[],
 ): boolean {
   return (
@@ -38,6 +40,7 @@ export function sameRolls(
       (m, index) =>
         m.modifierId === b[index]?.modifierId &&
         Boolean(m.fractured) === Boolean(b[index]?.fractured) &&
+        Boolean(m.crafted) === Boolean(b[index]?.crafted) &&
         equivalent(m.values, b[index]?.values),
     )
   )

@@ -44092,5 +44092,1239 @@
       }
     ],
     "bonded": []
+  },
+  "Legacy_of_Serles_Grit": {
+    "ordinary": [
+      {
+        "classes": ["One Hand Maces"],
+        "locales": {
+          "en": [
+            {
+              "template": "Maximum Quality is {v0}%",
+              "values": ["40"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "최대 퀄리티 {v0}%",
+              "values": ["40"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "品质上限为 {v0}%",
+              "values": ["40"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "最大品質為{v0}%",
+              "values": ["40"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "品質の最大値 {v0}%",
+              "values": ["40"]
+            }
+          ],
+          "es": [
+            {
+              "template": "La calidad máxima es {v0}%",
+              "values": ["40"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "Максимальное качество равно {v0}%",
+              "values": ["40"]
+            }
+          ],
+          "th": [
+            {
+              "template": "ค่าคุณภาพสูงสุด กลายเป็น {v0}%",
+              "values": ["40"]
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": [
+      {
+        "classes": ["One Hand Maces"],
+        "locales": {
+          "en": [
+            {
+              "template": "Skills which Empower an Attack have {v0}% chance to not count that Attack",
+              "values": ["20"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "공격을 강화하는 스킬이 {v0}%의 확률로 해당 공격이 강화 횟수를 소모하지 않게 함",
+              "values": ["20"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "强化攻击的技能有 {v0}% 的几率不计算该次攻击",
+              "values": ["20"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "強化攻擊的技能有{v0}%機率不計該次攻擊",
+              "values": ["20"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "アタックを強化するスキルは{v0}%の確率でそのアタックをカウントしない",
+              "values": ["20"]
+            }
+          ],
+          "es": [
+            {
+              "template": "Las habilidades que potencian un ataque tienen un {v0}% de probabilidad de no contar ese ataque",
+              "values": ["20"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "Умения, улучшающие атаку с {v0}% шансом не будут учитывать эту атаку",
+              "values": ["20"]
+            }
+          ],
+          "th": [
+            {
+              "template": "สกิลที่เสริมฤทธิ์ให้กับการโจมตี มีโอกาสไม่นับการโจมตีนั้น {v0}%",
+              "values": ["20"]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Kolrs_Hunt": {
+    "ordinary": [
+      {
+        "classes": ["Gloves"],
+        "locales": {
+          "en": [
+            {
+              "template": "Can roll Marksman modifiers",
+              "values": []
+            }
+          ],
+          "ko": [
+            {
+              "template": "지정사수 속성 부여 가능",
+              "values": []
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "可以重置神射手词缀",
+              "values": []
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "可以骰出射手詞綴",
+              "values": []
+            }
+          ],
+          "ja": [
+            {
+              "template": "マークスマンモッドをロールできるようになる",
+              "values": []
+            }
+          ],
+          "es": [
+            {
+              "template": "Puede generar modificadores de tirador",
+              "values": []
+            }
+          ],
+          "ru": [
+            {
+              "template": "Позволяет получить свойства Меткого стрелка",
+              "values": []
+            }
+          ],
+          "th": [
+            {
+              "template": "สุ่มม็อด Marksman ได้",
+              "values": []
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": [
+      {
+        "classes": ["Gloves"],
+        "locales": {
+          "en": [
+            {
+              "template": "{v0}% increased Projectile Damage",
+              "values": ["20"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "투사체 피해 {v0}% 증가",
+              "values": ["20"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "投射物伤害提高 {v0}%",
+              "values": ["20"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "增加{v0}%投射物傷害",
+              "values": ["20"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "投射物ダメージが{v0}%増加する",
+              "values": ["20"]
+            }
+          ],
+          "es": [
+            {
+              "template": "Daño de proyectiles aumentado un {v0}%",
+              "values": ["20"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "{v0}% увеличение урона снарядов",
+              "values": ["20"]
+            }
+          ],
+          "th": [
+            {
+              "template": "เพิ่มความเสียหาย โพรเจกไทล์ {v0}%",
+              "values": ["20"]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Voranas_Carnage": {
+    "ordinary": [
+      {
+        "classes": ["Helmets"],
+        "locales": {
+          "en": [
+            {
+              "template": "Can roll Berserking modifiers",
+              "values": []
+            }
+          ],
+          "ko": [
+            {
+              "template": "광폭화 속성 부여 가능",
+              "values": []
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "可以重置盛怒词缀",
+              "values": []
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "可以骰出狂戰詞綴",
+              "values": []
+            }
+          ],
+          "ja": [
+            {
+              "template": "バーサークモッドをロールできるようになる",
+              "values": []
+            }
+          ],
+          "es": [
+            {
+              "template": "Puede generar modificadores de arrebatado",
+              "values": []
+            }
+          ],
+          "ru": [
+            {
+              "template": "Позволяет получить свойства Неистовства",
+              "values": []
+            }
+          ],
+          "th": [
+            {
+              "template": "สุ่มม็อด Berserking ได้",
+              "values": []
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": [
+      {
+        "classes": ["Helmets"],
+        "locales": {
+          "en": [
+            {
+              "template": "Gain {v0} Rage on Melee Hit",
+              "values": ["2"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "근접 명중 시 격노 {v0} 획득",
+              "values": ["2"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "近战击中时获得 {v0} 怒火",
+              "values": ["2"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "近戰擊中時，獲得{v0}層盛怒",
+              "values": ["2"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "近接ヒット時に憤怒を{v0}獲得する",
+              "values": ["2"]
+            }
+          ],
+          "es": [
+            {
+              "template": "Ganas {v0} de furia al impactar cuerpo a cuerpo",
+              "values": ["2"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "Дарует {v0} свирепости при нанесении удара в ближнем бою",
+              "values": ["2"]
+            }
+          ],
+          "th": [
+            {
+              "template": "ได้รับสถานะ คลั่ง {v0} ระดับ เมื่อปะทะ ประชิด",
+              "values": ["2"]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Medveds_Tending": {
+    "ordinary": [
+      {
+        "classes": ["Body Armours"],
+        "locales": {
+          "en": [
+            {
+              "template": "Can roll Soul modifiers",
+              "values": []
+            }
+          ],
+          "ko": [
+            {
+              "template": "영혼 속성 부여 가능",
+              "values": []
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "可以重置灵魂词缀",
+              "values": []
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "可以骰出靈魂詞綴",
+              "values": []
+            }
+          ],
+          "ja": [
+            {
+              "template": "ソウルモッドをロールできるようになる",
+              "values": []
+            }
+          ],
+          "es": [
+            {
+              "template": "Puede generar modificadores de alma",
+              "values": []
+            }
+          ],
+          "ru": [
+            {
+              "template": "Позволяет получить свойства Души",
+              "values": []
+            }
+          ],
+          "th": [
+            {
+              "template": "สุ่มม็อด Soul ได้",
+              "values": []
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": [
+      {
+        "classes": ["Body Armours"],
+        "locales": {
+          "en": [
+            {
+              "template": "{v0}% increased maximum Life, {v1}% increased maximum Mana",
+              "values": ["3", "3"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "최대 생명력 {v0}% 증가, 최대 마나 {v1}% 증가",
+              "values": ["3", "3"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "生命上限提高 {v0}%, 魔力上限提高 {v1}%",
+              "values": ["3", "3"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "增加{v0}%最大生命, 增加{v1}%最大魔力",
+              "values": ["3", "3"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "最大ライフが{v0}%増加する, 最大マナが{v1}%増加する",
+              "values": ["3", "3"]
+            }
+          ],
+          "es": [
+            {
+              "template": "Vida máxima aumentada un {v0}%, Maná máximo aumentado un {v1}%",
+              "values": ["3", "3"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "{v0}% увеличение максимума здоровья, {v1}% увеличение максимума маны",
+              "values": ["3", "3"]
+            }
+          ],
+          "th": [
+            {
+              "template": "เพิ่มพลังชีวิตสูงสุด {v0}%, เพิ่มมานาสูงสุด {v1}%",
+              "values": ["3", "3"]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Katlas_Gloom": {
+    "ordinary": [
+      {
+        "classes": ["Gloves"],
+        "locales": {
+          "en": [
+            {
+              "template": "Can roll Decay modifiers",
+              "values": []
+            }
+          ],
+          "ko": [
+            {
+              "template": "부패 속성 부여 가능",
+              "values": []
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "可以重置腐蚀词缀",
+              "values": []
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "可以骰出衰敗詞綴",
+              "values": []
+            }
+          ],
+          "ja": [
+            {
+              "template": "腐敗モッドをロールできるようになる",
+              "values": []
+            }
+          ],
+          "es": [
+            {
+              "template": "Puede generar modificadores de decaimiento",
+              "values": []
+            }
+          ],
+          "ru": [
+            {
+              "template": "Позволяет получить свойства Разложения",
+              "values": []
+            }
+          ],
+          "th": [
+            {
+              "template": "สุ่มม็อด Decay ได้",
+              "values": []
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": [
+      {
+        "classes": ["Gloves"],
+        "locales": {
+          "en": [
+            {
+              "template": "{v0}% reduced Effect of Non-Damaging Ailments on you",
+              "values": ["25"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "플레이어에게 적용되는 비-피해 상태 이상 효과 {v0}% 감소",
+              "values": ["25"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "你受到的非伤害性异常状态的效果降低 {v0}%",
+              "values": ["25"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "減少{v0}%你身上的非傷害型異常狀態效果",
+              "values": ["25"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "プレイヤーに対する非ダメージ性状態異常の効果が{v0}%減少する",
+              "values": ["25"]
+            }
+          ],
+          "es": [
+            {
+              "template": "Efecto de los estados alterados no dañinos reducido un {v0}% sobre ti",
+              "values": ["25"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "{v0}% ослабление эффекта не наносящих урон состояний на вас",
+              "values": ["25"]
+            }
+          ],
+          "th": [
+            {
+              "template": "ลดผลของ สถานะเจ็บป่วยไร้ความเสียหาย ต่อตัวคุณ {v0}%",
+              "values": ["25"]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Serles_Triumph": {
+    "ordinary": [
+      {
+        "classes": [
+          "Bows",
+          "Crossbows",
+          "One Hand Maces",
+          "Two Hand Maces",
+          "Quarterstaves",
+          "Spears",
+          "Talismans",
+          "Wands",
+          "Staves",
+          "Gloves",
+          "Boots",
+          "Helmets",
+          "Body Armours",
+          "Shields",
+          "Bucklers"
+        ],
+        "locales": {
+          "en": [
+            {
+              "template": "{v0} Suffix Modifier allowed, local maximum mods allowed + [1]",
+              "values": ["+1"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "접미어 속성 부여의 최대 개수 {v0}개, local maximum mods allowed + [1]",
+              "values": ["+1"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "允许的后缀 {v0}, local maximum mods allowed + [1]",
+              "values": ["+1"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "允許後綴{v0}, local maximum mods allowed + [1]",
+              "values": ["+1"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "サフィックスモッド {v0}個, local maximum mods allowed + [1]",
+              "values": ["+1"]
+            }
+          ],
+          "es": [
+            {
+              "template": "{v0} modificador de sufijo permitido, local maximum mods allowed + [1]",
+              "values": ["+1"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "{v0} допустимых свойств-суффиксов, local maximum mods allowed + [1]",
+              "values": ["+1"]
+            }
+          ],
+          "th": [
+            {
+              "template": "มี ม็อดซัฟฟิกซ์ ได้สูงสุด {v0} อย่าง, local maximum mods allowed + [1]",
+              "values": ["+1"]
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": []
+  },
+  "Fox_Idol": {
+    "ordinary": [
+      {
+        "classes": ["Body Armours"],
+        "locales": {
+          "en": [
+            {
+              "template": "Idols socketed in this item gain the benefits of their Bonded modifiers, display additional socketable mods for idols [1]",
+              "values": []
+            }
+          ],
+          "ko": [
+            {
+              "template": "이 아이템에 장착한 우상이 결속된 속성의 효과를 받음, display additional socketable mods for idols [1]",
+              "values": []
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "镶嵌在该物品上的雕像获得其自身的绑定词缀的强化效果, display additional socketable mods for idols [1]",
+              "values": []
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "鑲嵌在此物品中的魔偶獲得其命定詞綴的加成效果, display additional socketable mods for idols [1]",
+              "values": []
+            }
+          ],
+          "ja": [
+            {
+              "template": "このアイテムにソケットされたアイドルはその絆モッドの恩恵を獲得する, display additional socketable mods for idols [1]",
+              "values": []
+            }
+          ],
+          "es": [
+            {
+              "template": "Los ídolos engarzados en este objeto ganan los beneficios de sus modificadores chamánicos, display additional socketable mods for idols [1]",
+              "values": []
+            }
+          ],
+          "ru": [
+            {
+              "template": "Размещенные в этом предмете идолы получают преимущества от своих связанных свойств, display additional socketable mods for idols [1]",
+              "values": []
+            }
+          ],
+          "th": [
+            {
+              "template": "เทวรูป ที่ใส่ในไอเทมนี้ ได้รับผลจาก ม็อดสายสัมพันธ์ ด้วย, display additional socketable mods for idols [1]",
+              "values": []
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": [
+      {
+        "classes": ["Body Armours"],
+        "locales": {
+          "en": [
+            {
+              "template": "{v0}% to Quality of all Skills",
+              "values": ["+5"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "모든 스킬의 퀄리티 {v0}%",
+              "values": ["+5"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "所有技能品质 {v0}%",
+              "values": ["+5"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "{v0}%至全部技能的品質",
+              "values": ["+5"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "全てのスキルの品質 {v0}%",
+              "values": ["+5"]
+            }
+          ],
+          "es": [
+            {
+              "template": "{v0}% a la calidad de todas las habilidades",
+              "values": ["+5"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "{v0}% к качеству всех умений",
+              "values": ["+5"]
+            }
+          ],
+          "th": [
+            {
+              "template": "ค่าคุณภาพของ สกิล ทุกสกิล {v0}%",
+              "values": ["+5"]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Raven-Touched_Shard": {
+    "ordinary": [
+      {
+        "classes": ["Helmets"],
+        "locales": {
+          "en": [
+            {
+              "template": "Raven-Touched",
+              "values": []
+            }
+          ],
+          "ko": [
+            {
+              "template": "큰까마귀의 손길에 닿음",
+              "values": []
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "渡鸦触碰",
+              "values": []
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "渡鴉所觸",
+              "values": []
+            }
+          ],
+          "ja": [
+            {
+              "template": "レイヴンタッチ",
+              "values": []
+            }
+          ],
+          "es": [
+            {
+              "template": "Tocado por el cuervo",
+              "values": []
+            }
+          ],
+          "ru": [
+            {
+              "template": "Касание Ворона",
+              "values": []
+            }
+          ],
+          "th": [
+            {
+              "template": "สัมผัสเรเวน",
+              "values": []
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": []
+  },
+  "Legacy_of_Runeseekers_Call": {
+    "ordinary": [
+      {
+        "classes": ["Wands"],
+        "locales": {
+          "en": [
+            {
+              "template": "{v0}% increased effect of Socketed Runes",
+              "values": ["75"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "장착된 룬의 효과 {v0}% 증가",
+              "values": ["75"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "镶嵌的符文效果提高 {v0}%",
+              "values": ["75"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "增加{v0}%鑲嵌的符文效果",
+              "values": ["75"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "ソケットされているルーンの効果が{v0}%増加する",
+              "values": ["75"]
+            }
+          ],
+          "es": [
+            {
+              "template": "Efecto de las runas engarzadas aumentado un {v0}%",
+              "values": ["75"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "{v0}% усиление эффекта размещенных рун",
+              "values": ["75"]
+            }
+          ],
+          "th": [
+            {
+              "template": "เพิ่มผลของ อักขระที่ใส่ {v0}%",
+              "values": ["75"]
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": [
+      {
+        "classes": ["Wands"],
+        "locales": {
+          "en": [
+            {
+              "template": "{v0} to maximum Mana",
+              "values": ["+100"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "마나 최대치 {v0}",
+              "values": ["+100"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "{v0} 魔力上限",
+              "values": ["+100"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "{v0}最大魔力",
+              "values": ["+100"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "最大マナ {v0}",
+              "values": ["+100"]
+            }
+          ],
+          "es": [
+            {
+              "template": "{v0} al maná máximo",
+              "values": ["+100"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "{v0} к максимуму маны",
+              "values": ["+100"]
+            }
+          ],
+          "th": [
+            {
+              "template": "มานาสูงสุด {v0}",
+              "values": ["+100"]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Uhtreds_Sidereus": {
+    "ordinary": [
+      {
+        "classes": ["Boots"],
+        "locales": {
+          "en": [
+            {
+              "template": "Can roll Chronomancy modifiers",
+              "values": []
+            }
+          ],
+          "ko": [
+            {
+              "template": "시간술 속성 부여 가능",
+              "values": []
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "可以重置塑时术师词缀",
+              "values": []
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "可以骰出時空術師詞綴",
+              "values": []
+            }
+          ],
+          "ja": [
+            {
+              "template": "クロノマンシーモッドをロールできるようになる",
+              "values": []
+            }
+          ],
+          "es": [
+            {
+              "template": "Puede generar modificadores de cronomancia",
+              "values": []
+            }
+          ],
+          "ru": [
+            {
+              "template": "Позволяет получить свойства Хрономантии",
+              "values": []
+            }
+          ],
+          "th": [
+            {
+              "template": "สุ่มม็อด Chronomancy ได้",
+              "values": []
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": [
+      {
+        "classes": ["Boots"],
+        "locales": {
+          "en": [
+            {
+              "template": "{v0}% increased Cooldown Recovery Rate",
+              "values": ["10"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "재사용 대기시간 회복 속도 {v0}% 증가",
+              "values": ["10"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "冷却回复速度提高 {v0}%",
+              "values": ["10"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "增加{v0}%冷卻時間恢復率",
+              "values": ["10"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "クールダウン解消レートが{v0}%増加する",
+              "values": ["10"]
+            }
+          ],
+          "es": [
+            {
+              "template": "Velocidad de recuperación del enfriamiento aumentada un {v0}%",
+              "values": ["10"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "{v0}% повышение скорости перезарядки умений",
+              "values": ["10"]
+            }
+          ],
+          "th": [
+            {
+              "template": "เพิ่มความเร็วในการฟื้นฟูคูลดาวน์ {v0}%",
+              "values": ["10"]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "Astrids_Creativity": {
+    "ordinary": [
+      {
+        "classes": [
+          "Bows",
+          "Crossbows",
+          "One Hand Maces",
+          "Two Hand Maces",
+          "Quarterstaves",
+          "Spears",
+          "Talismans",
+          "Wands",
+          "Staves",
+          "Gloves",
+          "Boots",
+          "Helmets",
+          "Body Armours",
+          "Shields",
+          "Bucklers"
+        ],
+        "locales": {
+          "en": [
+            {
+              "template": "Can have {v0} additional Crafted Modifiers",
+              "values": ["1"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "제작 속성 부여 추가 {v0}개 보유 가능",
+              "values": ["1"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "可以有{v0} 个额外工艺词缀",
+              "values": ["1"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "可以有{v0}個額外工藝詞綴",
+              "values": ["1"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "クラフトモッドを追加で{v0}個持つことができる",
+              "values": ["1"]
+            }
+          ],
+          "es": [
+            {
+              "template": "Puede tener {v0} modificadores de fabricación adicionales",
+              "values": ["1"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "Может иметь дополнительных ремесленных свойств: {v0}",
+              "values": ["1"]
+            }
+          ],
+          "th": [
+            {
+              "template": "สามารถมี ม็อดคราฟท์ ได้ เพิ่มเติม {v0} อย่าง",
+              "values": ["1"]
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": []
+  },
+  "Thruds_Might": {
+    "ordinary": [
+      {
+        "classes": [
+          "Bows",
+          "Crossbows",
+          "One Hand Maces",
+          "Two Hand Maces",
+          "Quarterstaves",
+          "Spears",
+          "Talismans",
+          "Wands",
+          "Staves"
+        ],
+        "locales": {
+          "en": [
+            {
+              "template": "Can roll Destruction modifiers",
+              "values": []
+            }
+          ],
+          "ko": [
+            {
+              "template": "파괴 속성 부여 가능",
+              "values": []
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "可以选取毁灭词缀",
+              "values": []
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "可骰出毀滅詞綴",
+              "values": []
+            }
+          ],
+          "ja": [
+            {
+              "template": "デストラクションモッドをロールできるようになる",
+              "values": []
+            }
+          ],
+          "es": [
+            {
+              "template": "Puede generar modificadores de destrucción",
+              "values": []
+            }
+          ],
+          "ru": [
+            {
+              "template": "Позволяет получать свойства Разрушения",
+              "values": []
+            }
+          ],
+          "th": [
+            {
+              "template": "สุ่มม็อด Destruction ได้",
+              "values": []
+            }
+          ]
+        }
+      }
+    ],
+    "bonded": [
+      {
+        "classes": [
+          "Bows",
+          "Crossbows",
+          "One Hand Maces",
+          "Two Hand Maces",
+          "Quarterstaves",
+          "Spears",
+          "Talismans",
+          "Wands",
+          "Staves"
+        ],
+        "locales": {
+          "en": [
+            {
+              "template": "{v0}% to all Elemental Resistances",
+              "values": ["+5"]
+            }
+          ],
+          "ko": [
+            {
+              "template": "모든 원소 저항 {v0}%",
+              "values": ["+5"]
+            }
+          ],
+          "zh-CN": [
+            {
+              "template": "所有元素抗性 {v0}%",
+              "values": ["+5"]
+            }
+          ],
+          "zh-TW": [
+            {
+              "template": "{v0}%全元素抗性",
+              "values": ["+5"]
+            }
+          ],
+          "ja": [
+            {
+              "template": "全ての元素耐性 {v0}%",
+              "values": ["+5"]
+            }
+          ],
+          "es": [
+            {
+              "template": "{v0}% a todas las resistencias elementales",
+              "values": ["+5"]
+            }
+          ],
+          "ru": [
+            {
+              "template": "{v0}% к сопротивлению всем стихиям",
+              "values": ["+5"]
+            }
+          ],
+          "th": [
+            {
+              "template": "ค่าต้านทาน ทุกธาตุ {v0}%",
+              "values": ["+5"]
+            }
+          ]
+        }
+      }
+    ]
   }
 }

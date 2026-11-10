@@ -95,7 +95,7 @@ class SocketAugmentsTest {
                             new ItemState.InstalledAugment(0, "Storm_Rune"))))
         .isInstanceOf(IllegalArgumentException.class);
     assertThat(empty(2).installedAugments()).isEmpty();
-    assertThat(SocketAugments.catalog()).hasSize(277);
+    assertThat(SocketAugments.catalog()).hasSize(289);
   }
 
   @Test
@@ -121,7 +121,7 @@ class SocketAugmentsTest {
             .isEqualTo(old.installedAugments().get(0));
       }
     }
-    assertThat(selectable).isEqualTo(232);
+    assertThat(selectable).isEqualTo(244);
     assertThat(SocketAugments.catalog().findValuesAsText("id"))
         .contains("Lesser_Tempered_Rune", "Tempered_Rune", "Greater_Tempered_Rune")
         .doesNotContain("Perfect_Tempered_Rune");
@@ -171,8 +171,7 @@ class SocketAugmentsTest {
     var single = SocketAugments.install(weapon, 0, "Soul_Core_of_Vizoma");
     assertThatThrownBy(() -> SocketAugments.install(single, 1, "Soul_Core_of_Vizoma"))
         .isInstanceOf(IllegalArgumentException.class);
-    for (var id :
-        List.of("Cadigans_Epiphany", "Serles_Triumph", "Masterwork_Rune", "Fox_Idol", "Owl_Idol")) {
+    for (var id : List.of("Cadigans_Epiphany", "Masterwork_Rune", "Owl_Idol")) {
       assertThatThrownBy(() -> SocketAugments.install(empty(2), 0, id))
           .isInstanceOf(IllegalArgumentException.class);
     }

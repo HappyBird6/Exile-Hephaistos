@@ -1,3 +1,4 @@
+import { socketBound, visibleAugmentText } from './augmentRules'
 import { augments } from './socketAugments'
 import type { Locale } from '../../shared/i18n/i18n'
 import { uiText } from '../../shared/i18n/i18n'
@@ -39,7 +40,10 @@ export function augmentFeedbackLines(
     for (const itemClass of classes) {
       const text =
         entry.effects[itemClass]?.[locale] ?? entry.effects[itemClass]?.en
-      if (text) effects.set(text, [...(effects.get(text) ?? []), itemClass])
+      if (text) {
+        const visible = visibleAugmentText(text)
+        effects.set(visible, [...(effects.get(visible) ?? []), itemClass])
+      }
     }
     return [...effects].map(
       ([effect, parts]) =>
@@ -54,6 +58,19 @@ export function augmentFeedbackLines(
       entry.properties[locale]?.[propertyIndex] ??
       entry.properties.en![propertyIndex]
     if (property) lines.push(property)
+  }
+  if (socketBound(id)) {
+    const tags: Record<Locale, string> = {
+      en: 'Socket-bound',
+      ko: '홈 귀속',
+      'zh-CN': '插槽绑定',
+      'zh-TW': '插槽綁定',
+      ja: 'ソケットに固定',
+      es: 'Ligado al engarce',
+      ru: 'Привязано к гнезду',
+      th: 'ผูกกับรู',
+    }
+    lines.push(tags[locale])
   }
   return lines
 }

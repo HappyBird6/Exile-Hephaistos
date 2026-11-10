@@ -39,7 +39,7 @@ it('retains enough per-minute precision to recover the original integer instead 
   ).toContain('13.183333333333334')
 })
 it('covers all reviewed definitions at minimum, midpoint and maximum without private stat syntax or bare unresolved placeholders', () => {
-  expect(Object.keys(definitions)).toHaveLength(3237)
+  expect(Object.keys(definitions)).toHaveLength(3406)
   for (const definition of Object.values(definitions)) {
     for (const point of [0, 0.5, 1]) {
       const values = Object.fromEntries(

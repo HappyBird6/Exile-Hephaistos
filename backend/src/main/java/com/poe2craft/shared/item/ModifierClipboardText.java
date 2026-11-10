@@ -182,6 +182,6 @@ final class ModifierClipboardText {
   }
 
   private static String normalize(String text) {
-    return text.trim().replaceAll("\\s+", " ");
+    return text.trim().replaceAll("\\s+", " ").replaceAll("\\bsecond\\b", "seconds");
   }
 }

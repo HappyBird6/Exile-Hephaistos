@@ -795,11 +795,11 @@ export function verifiedHistoryState(
         )) ||
       !Array.isArray(state.implicits) ||
       state.implicits.length !== initial.state.implicits.length ||
-      state.implicits.some((m) => m.fractured) ||
+      state.implicits.some((m) => m.fractured || m.crafted) ||
       state.implicits[0]?.modifierId !==
         initial.state.implicits[0]?.modifierId ||
       !Array.isArray(state.explicits) ||
-      state.explicits.length > 6 ||
+      state.explicits.length > 7 ||
       state.explicits.filter((m) => m.fractured).length > 1 ||
       (state.explicits.some((m) => m.fractured) && state.rarity !== 'RARE')
     )
@@ -817,6 +817,8 @@ export function verifiedHistoryState(
         (index >= state.implicits.length &&
           instance.fractured !== undefined &&
           typeof instance.fractured !== 'boolean') ||
+        (instance.crafted !== undefined &&
+          typeof instance.crafted !== 'boolean') ||
         !instance.values ||
         Object.keys(instance.values).length !== definition.stats.length ||
         !definition.stats.every(
@@ -878,7 +880,11 @@ export function verifiedHistoryState(
       )
     )
       return false
-    const capacity = baseAffixCapacity(state.baseItemId, state.rarity)
+    const capacity = baseAffixCapacity(
+      state.baseItemId,
+      state.rarity,
+      state.installedAugments,
+    )
     return isWorkbenchJewel(state.baseItemId)
       ? reviewedBasicJewel(state)
       : p <= capacity.prefixes && s <= capacity.suffixes

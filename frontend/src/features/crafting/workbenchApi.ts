@@ -1,3 +1,4 @@
+import { effectiveDefinitions, isCraftedModifier } from './augmentRules'
 import equipmentCurrencies from './equipmentCurrencies.json'
 import { observedSanctified } from './sanctification/sanctification'
 import type { Sanctification } from './sanctification/sanctification'
@@ -845,6 +846,7 @@ export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
   explicits: {
     modifierId: string
     values: Record<string, number>
+    crafted?: boolean
     fractured?: boolean
   }[]
 }
@@ -908,7 +910,7 @@ export async function mapSolarText(
             (v.state.conditions[0] === 'CORRUPTED' &&
               v.state.desecrated?.length))
         )) ||
-      v.state.explicits.length > 6 ||
+      v.state.explicits.length > 7 ||
       ![...v.state.implicits, ...v.state.explicits].every(
         (m) =>
           m &&
@@ -1052,6 +1054,7 @@ export async function applyCurrency(
   activeOmens: string[],
   rulesetIdentity: string,
 ): Promise<AppliedItem> {
+  definitions = effectiveDefinitions(state, definitions)
   if (!supportsConcreteStateShape(state))
     throw new Error(
       'This item contains unsupported properties. Its state has not been changed.',
@@ -1153,6 +1156,7 @@ export async function applyCurrency(
       (m, i) =>
         m.modifierId === b[i]?.modifierId &&
         Boolean(m.fractured) === Boolean(b[i]?.fractured) &&
+        Boolean(m.crafted) === Boolean(b[i]?.crafted) &&
         sameValues(m.values, b[i]?.values),
     )
   const validValues = (values: Record<string, number>) =>
@@ -1178,7 +1182,7 @@ export async function applyCurrency(
       action.includes('LIQUID_') &&
       (!isWorkbenchJewel(state.baseItemId) ||
         state.explicits.some((m) =>
-          definitions[m.modifierId]?.tags?.includes('crafted'),
+          isCraftedModifier(m, definitions[m.modifierId]),
         ))) ||
     (catalystActionType(action) === null &&
       !qualityCapChangeMatches(state, v, definitions)) ||
@@ -1311,12 +1315,13 @@ export async function applyCurrency(
       : JSON.stringify([...next.conditions].sort()) !==
         JSON.stringify([...state.conditions].sort())) ||
     !Array.isArray(next.explicits) ||
-    next.explicits.length > 6 ||
+    next.explicits.length > 7 ||
     !next.explicits.every(
       (m) =>
         definitions[m.modifierId] &&
         validValues(m.values) &&
         (m.fractured === undefined || typeof m.fractured === 'boolean') &&
+        (m.crafted === undefined || typeof m.crafted === 'boolean') &&
         definitions[m.modifierId]!.stats?.length ===
           Object.keys(m.values).length &&
         definitions[m.modifierId]!.stats?.every(
@@ -1433,7 +1438,11 @@ export async function applyCurrency(
     if (d.affixType === 'PREFIX') prefixes++
     else suffixes++
   }
-  const capacity = baseAffixCapacity(next.baseItemId, next.rarity)
+  const capacity = baseAffixCapacity(
+    next.baseItemId,
+    next.rarity,
+    next.installedAugments,
+  )
   const expectedRarity =
     baseAction === 'TRANSMUTATION'
       ? 'MAGIC'

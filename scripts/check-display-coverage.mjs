@@ -49,6 +49,34 @@ const terms = JSON.parse(
 const mods = JSON.parse(
   fs.readFileSync("frontend/src/shared/i18n/modifierTemplates.json", "utf8"),
 );
+assert.deepEqual(
+  JSON.parse(
+    fs.readFileSync(
+      "backend/src/main/resources/catalog/augment-crafting.json",
+      "utf8",
+    ),
+  ),
+  JSON.parse(
+    fs.readFileSync(
+      "frontend/src/features/crafting/augmentCrafting.json",
+      "utf8",
+    ),
+  ),
+);
+assert.deepEqual(
+  JSON.parse(
+    fs.readFileSync(
+      "backend/src/main/resources/catalog/augment-effect-templates.json",
+      "utf8",
+    ),
+  ),
+  JSON.parse(
+    fs.readFileSync(
+      "frontend/src/features/crafting/augmentEffectTemplates.json",
+      "utf8",
+    ),
+  ),
+);
 const results = { locales: {}, catalogDefinitions: 0, compoundBindings: 0 };
 const defs = {};
 for (const dir of fs.readdirSync("backend/src/main/resources/catalog")) {
@@ -67,6 +95,13 @@ for (const dir of fs.readdirSync("backend/src/main/resources/catalog")) {
     for (const d of c.modifiers ?? []) defs[d.id] = d;
   }
 }
+for (const d of JSON.parse(
+  fs.readFileSync(
+    "backend/src/main/resources/catalog/augment-crafting.json",
+    "utf8",
+  ),
+).modifiers)
+  defs[d.id] = d;
 for (const [baseKey, base] of Object.entries(
   JSON.parse(
     fs.readFileSync(

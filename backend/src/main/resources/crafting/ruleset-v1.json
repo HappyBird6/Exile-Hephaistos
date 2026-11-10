@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "rulesetVersion": "reviewed-equipment-0.5.5-v6",
+  "rulesetVersion": "reviewed-equipment-0.5.5-v7",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "provenance": "Bundled source-reviewed project snapshots; retrieval dates differ by resource. No verified current GGG season or patch mapping. See docs/catalog-data-maintenance.md.",
-  "engineRuleVersion": "solar-workbench-abyss-essence-v17",
-  "ledgerVersion": "solar-uniform-assumptions-v11",
+  "engineRuleVersion": "solar-workbench-abyss-essence-v18",
+  "ledgerVersion": "solar-uniform-assumptions-v12",
   "files": {
     "catalog/absent-amulet/base.raw.json": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816",
     "catalog/absent-amulet/catalog.json": "9d441cd97f945b964f3d55ba602f9515b8808c78deaa71845e59dd46e6465d69",
@@ -44,7 +44,9 @@
     "catalog/attuned-wand/essence-proof.json": "b268ae3f49d4213d8251ef4d5a5915a9075a6fe920a1faa8116d5fc2e63423b5",
     "catalog/attuned-wand/perfect-essences.catalog.json": "f9fffab0a509e6b34dd6a1f825ac73dca9dae017fc010282c69c8d4c18837a8f",
     "catalog/attuned-wand/perfect-essences.raw.json": "662df7573407ee448428d062a800bc641a23850262517f93c82fdb1e92b44bd7",
-    "catalog/augments.json": "8da857542ee264abb83ee666947c67de9c617e3d60c37f9e6d717824f08f4793",
+    "catalog/augment-crafting.json": "b7682775801de1d67d8d27f2d1856fe7673bfcf0afbf8de5fa5e4a10f9e2383a",
+    "catalog/augment-effect-templates.json": "4492b27988319bb246c496beb4f2b4329ddfed3adab164e723121ec7f3648908",
+    "catalog/augments.json": "bff852a461053b397a5a8541cecd51cedb0fdf47ea9c45436e3e41e861c2e41f",
     "catalog/austere-garb/base.raw.json": "93570d397a4175eb09ec53497294bad4ff25bbf38238de09e4b8d766e153b4b9",
     "catalog/austere-garb/catalog.json": "67379e6744ad3c52920b03ab0a08fc3f6fb6b317ca11db15b0acb8cbcc03713c",
     "catalog/austere-garb/details.raw.json": "0532a38a4385c1f613b26ed5d2ce548c2723a4ae5ccf60e7143ef33cecc21f9d",
@@ -609,7 +611,7 @@
     "crafting/goalfilter/definitions-v3-readonly.json": "370f5d76382cd5735a1862ee5bd2ffd637f9150f777052b91849bd8417c50d48",
     "crafting/goalfilter/definitions-v4-readonly.json": "2eaf293caf99cd63415e4e52badd98cee3e2730d72c2fc4130ebcaa6454d6e36",
     "crafting/goalfilter/definitions-v5-readonly.json": "01f0dcb28e930f5c6c1e511dd177f54f4ee46a430c764929d632312e9599be07",
-    "crafting/registry-v2.json": "0d564e8709b38bbd768a5861859018e20d761edf94c2b88774423a9cfea104ae",
+    "crafting/registry-v2.json": "80da782f26fce6ea1e433bb99efadeeb92b4fe4cc97b91e65b902d959902e127",
     "crafting/supported-base-sets-v1.json": "29042686b98093f3a367c19f5f44c855c633a059bde7ce052ca49487ec91f7d6",
     "crafting/workbench-definitions-v1.json": "11e41d35c66c4896190df23c57867a04185e41d6f3c54d45017d486a456841c2"
   }

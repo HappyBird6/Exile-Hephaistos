@@ -39,6 +39,7 @@ export interface Bucket {
   implicits: {
     modifierId: string
     values: Record<string, number>
+    crafted?: boolean
     fractured?: boolean
   }[]
   modifierIds: string[]

@@ -77,7 +77,11 @@ export async function loadModifierPools(
 function checkpoint(value: ConcreteItem): unknown {
   const modifiers = (entries: ConcreteItem['explicits']) =>
     entries
-      .map((m) => ({ ...m, fractured: m.fractured ?? false }))
+      .map((m) => ({
+        ...m,
+        fractured: m.fractured ?? false,
+        crafted: m.crafted ?? false,
+      }))
       .sort((a, b) => a.modifierId.localeCompare(b.modifierId))
   return {
     ...value,

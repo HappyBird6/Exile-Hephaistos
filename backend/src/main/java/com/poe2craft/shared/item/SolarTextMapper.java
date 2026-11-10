@@ -238,9 +238,7 @@ public final class SolarTextMapper {
               : ModifierDefinition.Layer.EXPLICIT;
       var matches = new ArrayList<ModifierInstance>();
       for (var definition : catalog.modifiers().values()) {
-        if ((modifier.type() == ItemModels.ModifierType.CRAFTED
-                && !definition.tags().contains("crafted"))
-            || (definition.tags().contains("reveal_only")
+        if ((definition.tags().contains("reveal_only")
                 && modifier.type() != ItemModels.ModifierType.DESECRATED)
             || definition.layer() != layer
             || (modifier.affixName() != null && !modifier.affixName().equals(definition.name()))
@@ -254,7 +252,10 @@ public final class SolarTextMapper {
               new ModifierInstance(
                   match.modifierId(),
                   match.values(),
-                  modifier.type() == ItemModels.ModifierType.FRACTURED));
+                  modifier.type() == ItemModels.ModifierType.FRACTURED,
+                  modifier.type() == ItemModels.ModifierType.CRAFTED
+                      || (modifier.metadata() != null
+                          && modifier.metadata().raw().contains("Crafted "))));
       }
       if (matches.size() > 1) {
         var first = catalog.find(matches.getFirst().modifierId()).orElseThrow();
@@ -343,7 +344,15 @@ public final class SolarTextMapper {
     if (conditions.contains(ItemState.Condition.CORRUPTED) && desecrated.isEmpty())
       issues.add(new Issue(0, "Special item conditions are not supported."));
     if (!issues.isEmpty()) return new Result(false, null, issues);
-    var resolved = SocketAugmentText.resolve(catalog.base().id(), observedSockets, augmentEffects);
+    double multiplier =
+        1
+            + java.util.stream.Stream.concat(implicits.stream(), explicits.stream())
+                    .mapToLong(m -> m.values().getOrDefault("local_socketed_items_effect_+%", 0L))
+                    .sum()
+                / 100.0;
+    var resolved =
+        SocketAugmentText.resolve(catalog.base().id(), observedSockets, augmentEffects, multiplier);
+    double observedScale = SocketAugmentEffects.runeMultiplier(resolved.installed(), multiplier);
     Integer maximumSockets = BaseRegistry.socketExecutionMaximum(catalog.base().id());
     if (observedSockets != null && maximumSockets != null && observedSockets <= maximumSockets)
       sockets = observedSockets;
@@ -351,7 +360,11 @@ public final class SolarTextMapper {
     var observations =
         unresolvedSocketCount == null && resolved.unidentified().isEmpty() && skills.isEmpty()
             ? null
-            : new ItemObservations(unresolvedSocketCount, resolved.unidentified(), skills);
+            : new ItemObservations(
+                unresolvedSocketCount,
+                resolved.unidentified(),
+                skills,
+                !resolved.unidentified().isEmpty() && observedScale != 1 ? observedScale : null);
     var state =
         new ItemState(
                 catalog.metadata().snapshotId(),

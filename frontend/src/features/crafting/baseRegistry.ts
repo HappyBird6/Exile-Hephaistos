@@ -1,3 +1,5 @@
+import { socketSuffixBonus } from './augmentRules'
+import type { ConcreteItem } from './workbenchApi'
 import bases from './topBases.json'
 import policies from './basePolicies.json'
 export type WorkbenchBaseKey = keyof typeof bases | keyof typeof policies.legacy
@@ -101,6 +103,7 @@ export function newBaseSelectionAllowed(key: string): boolean {
 export function baseAffixCapacity(
   id: string,
   rarity: string,
+  installed: ConcreteItem['installedAugments'] = [],
 ): { prefixes: number; suffixes: number } {
   if (rarity === 'NORMAL') return { prefixes: 0, suffixes: 0 }
   const limits = Object.values(topEntries).find(
@@ -109,11 +112,11 @@ export function baseAffixCapacity(
   return rarity === 'MAGIC'
     ? {
         prefixes: limits?.magicPrefixes ?? 1,
-        suffixes: limits?.magicSuffixes ?? 1,
+        suffixes: (limits?.magicSuffixes ?? 1) + socketSuffixBonus(installed),
       }
     : {
         prefixes: limits?.rarePrefixes ?? 3,
-        suffixes: limits?.rareSuffixes ?? 3,
+        suffixes: (limits?.rareSuffixes ?? 3) + socketSuffixBonus(installed),
       }
 }
 

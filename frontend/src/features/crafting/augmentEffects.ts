@@ -1,3 +1,9 @@
+import {
+  augmentRule,
+  structuralAugment,
+  hasIdolBonded,
+  visibleAugmentText,
+} from './augmentRules'
 import data from './augments.json'
 import display from '../../shared/i18n/augmentDisplay.json'
 import templates from './augmentEffectTemplates.json'
@@ -56,13 +62,32 @@ export function installedAugmentEffects(
   bonded: boolean
 }[] {
   const itemClass = basePolicy(state.baseItemId)?.itemClass ?? ''
-  const multiplier = socketEffectMultiplier(state)
+  const genericMultiplier = socketEffectMultiplier(state)
   return (state.installedAugments ?? []).flatMap((installed) => {
     const entry = data.find((a) => a.id === installed.augmentId)
     if (!entry || !(itemClass in entry.effects)) return []
+    const peerRuneEffect =
+      entry.kind === 'Rune'
+        ? (state.installedAugments ?? [])
+            .filter((a) => a.slotIndex !== installed.slotIndex)
+            .reduce(
+              (sum, a) =>
+                sum +
+                Math.round(
+                  (augmentRule(a.augmentId).runeEffectPercent ?? 0) *
+                    genericMultiplier,
+                ),
+              0,
+            )
+        : 0
+    const multiplier = genericMultiplier + peerRuneEffect / 100
+    const activeBonded =
+      bonded || (entry.kind === 'Idol' && hasIdolBonded(state))
     return (
-      bonded ? (['ordinary', 'bonded'] as const) : (['ordinary'] as const)
+      activeBonded ? (['ordinary', 'bonded'] as const) : (['ordinary'] as const)
     ).flatMap((group) => {
+      const effectMultiplier =
+        group === 'ordinary' && structuralAugment(entry.id) ? 1 : multiplier
       const effects = source[entry.id]?.[group]?.find((row) =>
         row.classes.includes(itemClass),
       )?.locales
@@ -73,12 +98,16 @@ export function installedAugmentEffects(
           {
             slot: installed.slotIndex,
             id: entry.id,
-            text: localized
-              .map((effect) => renderAugmentEffect(effect, multiplier))
-              .join('\n'),
-            english: english
-              .map((effect) => renderAugmentEffect(effect, multiplier))
-              .join('\n'),
+            text: visibleAugmentText(
+              localized
+                .map((effect) => renderAugmentEffect(effect, effectMultiplier))
+                .join('\n'),
+            ),
+            english: visibleAugmentText(
+              english
+                .map((effect) => renderAugmentEffect(effect, effectMultiplier))
+                .join('\n'),
+            ),
             bonded: group === 'bonded',
           },
         ]
@@ -110,5 +139,41 @@ export function installedAugmentEffects(
           ]
         : []
     })
+  })
+}
+
+/** Unidentified copied effects are treated as Rune effects, anchored at their imported strength. */
+export function observedAugmentEffects(
+  state: ConcreteItem,
+  bonded = false,
+): string[] {
+  const generic = socketEffectMultiplier(state)
+  const amount =
+    generic +
+    (state.installedAugments ?? []).reduce(
+      (sum, a) =>
+        sum +
+        Math.round((augmentRule(a.augmentId).runeEffectPercent ?? 0) * generic),
+      0,
+    ) /
+      100
+  const ratio = amount / (state.observations?.augmentEffectScale ?? 1)
+  const effects = (state.observations?.augmentEffects ?? []).map((text) =>
+    ratio === 1
+      ? text
+      : text.replace(/-?\d+(?:\.\d+)?/g, (n) =>
+          String(Math.round(Number(n) * ratio)),
+        ),
+  )
+  const renderedBonded = installedAugmentEffects(state, 'en', bonded)
+    .filter((e) => e.bonded)
+    .flatMap((e) => e.english.split('\n'))
+  return effects.filter((line) => {
+    const index = renderedBonded.indexOf(
+      line.replace(/\s*\(rune\)$/, '').trim(),
+    )
+    if (index < 0) return true
+    renderedBonded.splice(index, 1)
+    return false
   })
 }

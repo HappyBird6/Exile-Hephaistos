@@ -68,7 +68,8 @@ public final class ModifierReferenceService {
     var resolver = new ModifierPoolResolver(catalog);
     for (var d : catalog.modifiers().values()) {
       if (d.layer() != ModifierDefinition.Layer.EXPLICIT) continue;
-      if (d.weight() > 0 && !d.tags().contains("reveal_only")) {
+      if ((d.weight() > 0 || d.tags().contains("augment_pool"))
+          && !d.tags().contains("reveal_only")) {
         var reasons = dynamic ? exclusions(state, abyss, resolver, d, false) : List.<String>of();
         if (dynamic && !natural.contains(d.id()) && reasons.isEmpty())
           reasons = List.of("STATE_RESTRICTION");

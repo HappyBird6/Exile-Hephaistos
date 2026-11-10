@@ -6,10 +6,10 @@ import { maximumQuality } from './qualityLimit'
 export const equipmentQualityPolicy =
   'user-selected-equipment-quality-maximum-v2'
 
-// Only the reviewed ordinary equipment cap applies; Amulet catalyst caps do not.
+// Equipment currencies use the equipped cap; jewellery catalyst quality is separate.
 function equipmentQualityMaximum(state: ConcreteItem): number | null {
   const maximum = maximumQuality(state, {})
-  return maximum === 20 ? maximum : null
+  return maximum
 }
 
 export function isEquipmentQualityAction(action: WorkbenchAction) {

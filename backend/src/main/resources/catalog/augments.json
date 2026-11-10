@@ -33808,5 +33808,1149 @@
     },
     "sourceUrl": "https://poe2db.tw/us/Zalatls_Soul_Core_of_Insulation",
     "selectionEnabled": true
+  },
+  {
+    "id": "Astrids_Creativity",
+    "names": {
+      "en": "Astrid's Creativity",
+      "ko": "아스트리드의 창의성",
+      "zh-CN": "阿斯特丽德的创造",
+      "zh-TW": "阿斯垂德的創造",
+      "ja": "アストリッドの創造性",
+      "es": "Creatividad de Astrid"
+    },
+    "effects": {
+      "Bows": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Crossbows": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "One Hand Maces": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Two Hand Maces": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Quarterstaves": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Spears": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Talismans": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Wands": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Staves": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Gloves": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Boots": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Helmets": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Body Armours": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Shields": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      },
+      "Bucklers": {
+        "en": "Can have 1 additional Crafted Modifiers",
+        "ko": "제작 속성 부여 추가 1개 보유 가능",
+        "zh-CN": "可以有1 个额外工艺词缀",
+        "zh-TW": "可以有1個額外工藝詞綴",
+        "ja": "クラフトモッドを追加で1個持つことができる",
+        "es": "Puede tener 1 modificadores de fabricación adicionales"
+      }
+    },
+    "sources": {
+      "Bows": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Crossbows": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "One Hand Maces": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Two Hand Maces": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Quarterstaves": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Spears": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Talismans": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Wands": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Staves": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Gloves": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Boots": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Helmets": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Body Armours": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Shields": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      },
+      "Bucklers": {
+        "en": "https://poe2db.tw/us/Astrids_Creativity",
+        "ko": "https://poe2db.tw/kr/Astrids_Creativity",
+        "zh-CN": "https://poe2db.tw/cn/Astrids_Creativity",
+        "zh-TW": "https://poe2db.tw/tw/Astrids_Creativity",
+        "ja": "https://poe2db.tw/jp/Astrids_Creativity",
+        "es": "https://poe2db.tw/sp/Astrids_Creativity"
+      }
+    },
+    "image": "/assets/augments/Astrids_Creativity.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1"],
+      "es": ["Tamaño de la pila: 1 / 10", "Limitado a: 1"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Astrids_Creativity",
+    "limit": {
+      "count": 1,
+      "group": "Astrids_Creativity"
+    }
+  },
+  {
+    "id": "Serles_Triumph",
+    "names": {
+      "en": "Serle's Triumph",
+      "ko": "세를의 승리",
+      "zh-CN": "瑟尔的凯旋",
+      "zh-TW": "瑟雷的凱旋",
+      "ja": "セールの凱旋",
+      "es": "Triunfo de Serle"
+    },
+    "effects": {
+      "Bows": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Crossbows": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "One Hand Maces": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Two Hand Maces": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Quarterstaves": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Spears": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Talismans": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Wands": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Staves": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Gloves": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Boots": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Helmets": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Body Armours": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Shields": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      },
+      "Bucklers": {
+        "en": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+        "ko": "접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]",
+        "zh-CN": "允许的后缀 +1, local maximum mods allowed + [1]",
+        "zh-TW": "允許後綴+1, local maximum mods allowed + [1]",
+        "ja": "サフィックスモッド +1個, local maximum mods allowed + [1]",
+        "es": "+1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      }
+    },
+    "sources": {
+      "Bows": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Crossbows": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "One Hand Maces": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Two Hand Maces": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Quarterstaves": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Spears": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Talismans": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Wands": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Staves": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Gloves": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Boots": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Helmets": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Body Armours": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Shields": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      },
+      "Bucklers": {
+        "en": "https://poe2db.tw/us/Serles_Triumph",
+        "ko": "https://poe2db.tw/kr/Serles_Triumph",
+        "zh-CN": "https://poe2db.tw/cn/Serles_Triumph",
+        "zh-TW": "https://poe2db.tw/tw/Serles_Triumph",
+        "ja": "https://poe2db.tw/jp/Serles_Triumph",
+        "es": "https://poe2db.tw/sp/Serles_Triumph"
+      }
+    },
+    "image": "/assets/augments/Serles_Triumph.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1"],
+      "es": ["Tamaño de la pila: 1 / 10", "Limitado a: 1"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Serles_Triumph",
+    "limit": {
+      "count": 1,
+      "group": "Serles_Triumph"
+    }
+  },
+  {
+    "id": "Legacy_of_Serles_Grit",
+    "names": {
+      "en": "Legacy of Serle's Grit",
+      "ko": "세를의 근성의 유산",
+      "zh-CN": "瑟尔的坚毅之遗产",
+      "zh-TW": "傳承．瑟雷之握",
+      "ja": "サールの根性の遺産",
+      "es": "Legado de Determinación de Serle"
+    },
+    "effects": {
+      "One Hand Maces": {
+        "en": "Maximum Quality is 40%",
+        "ko": "최대 퀄리티 40%",
+        "zh-CN": "品质上限为 40%",
+        "zh-TW": "最大品質為40%",
+        "ja": "品質の最大値 40%",
+        "es": "La calidad máxima es 40%"
+      }
+    },
+    "sources": {
+      "One Hand Maces": {
+        "en": "https://poe2db.tw/us/Legacy_of_Serles_Grit",
+        "ko": "https://poe2db.tw/kr/Legacy_of_Serles_Grit",
+        "zh-CN": "https://poe2db.tw/cn/Legacy_of_Serles_Grit",
+        "zh-TW": "https://poe2db.tw/tw/Legacy_of_Serles_Grit",
+        "ja": "https://poe2db.tw/jp/Legacy_of_Serles_Grit",
+        "es": "https://poe2db.tw/sp/Legacy_of_Serles_Grit"
+      }
+    },
+    "image": "/assets/augments/Legacy_of_Serles_Grit.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Limited to: 1 Aldur's Legacy", "Requires:  Level 65"],
+      "ko": ["중복 사용 제한: 1 알두르의 유산", "요구 사항:  레벨 65"],
+      "zh-CN": ["仅限: 1 奥杜尔的遗产", "需求：  等级 65"],
+      "zh-TW": ["僅限: 1 阿德爾的傳承", "需求:  等級 65"],
+      "ja": ["個数制限: アルダーの遺産 1個", "装備条件： レベル 65"],
+      "es": ["Limitado a: 1 Legado de Aldur", "Requiere:  Nivel 65"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Serles_Grit",
+    "limit": {
+      "count": 1,
+      "group": "Aldur's Legacy"
+    }
+  },
+  {
+    "id": "Legacy_of_Runeseekers_Call",
+    "names": {
+      "en": "Legacy of Runeseeker's Call",
+      "ko": "룬 탐구자의 소명의 유산",
+      "zh-CN": "符文猎手的呼唤之遗产",
+      "zh-TW": "傳承．符文探求者之喚",
+      "ja": "ルーンシーカーの呼び声の遺産",
+      "es": "Legado de Llamada del buscador de runas"
+    },
+    "effects": {
+      "Wands": {
+        "en": "75% increased effect of Socketed Runes",
+        "ko": "장착된 룬의 효과 75% 증가",
+        "zh-CN": "镶嵌的符文效果提高 75%",
+        "zh-TW": "增加75%鑲嵌的符文效果",
+        "ja": "ソケットされているルーンの効果が75%増加する",
+        "es": "Efecto de las runas engarzadas aumentado un 75%"
+      }
+    },
+    "sources": {
+      "Wands": {
+        "en": "https://poe2db.tw/us/Legacy_of_Runeseekers_Call",
+        "ko": "https://poe2db.tw/kr/Legacy_of_Runeseekers_Call",
+        "zh-CN": "https://poe2db.tw/cn/Legacy_of_Runeseekers_Call",
+        "zh-TW": "https://poe2db.tw/tw/Legacy_of_Runeseekers_Call",
+        "ja": "https://poe2db.tw/jp/Legacy_of_Runeseekers_Call",
+        "es": "https://poe2db.tw/sp/Legacy_of_Runeseekers_Call"
+      }
+    },
+    "image": "/assets/augments/Legacy_of_Runeseekers_Call.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Limited to: 1 Aldur's Legacy", "Requires:  Level 65"],
+      "ko": ["중복 사용 제한: 1 알두르의 유산", "요구 사항:  레벨 65"],
+      "zh-CN": ["仅限: 1 奥杜尔的遗产", "需求：  等级 65"],
+      "zh-TW": ["僅限: 1 阿德爾的傳承", "需求:  等級 65"],
+      "ja": ["個数制限: アルダーの遺産 1個", "装備条件： レベル 65"],
+      "es": ["Limitado a: 1 Legado de Aldur", "Requiere:  Nivel 65"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Legacy_of_Runeseekers_Call",
+    "limit": {
+      "count": 1,
+      "group": "Aldur's Legacy"
+    }
+  },
+  {
+    "id": "Fox_Idol",
+    "names": {
+      "en": "Fox Idol",
+      "ko": "여우 우상",
+      "zh-CN": "狐狸雕像",
+      "zh-TW": "狐狸魔偶",
+      "ja": "キツネのアイドル",
+      "es": "Ídolo del zorro"
+    },
+    "effects": {
+      "Body Armours": {
+        "en": "Idols socketed in this item gain the benefits of their Bonded modifiers, display additional socketable mods for idols [1]",
+        "ko": "이 아이템에 장착한 우상이 결속된 속성의 효과를 받음, display additional socketable mods for idols [1]",
+        "zh-CN": "镶嵌在该物品上的雕像获得其自身的绑定词缀的强化效果, display additional socketable mods for idols [1]",
+        "zh-TW": "鑲嵌在此物品中的魔偶獲得其命定詞綴的加成效果, display additional socketable mods for idols [1]",
+        "ja": "このアイテムにソケットされたアイドルはその絆モッドの恩恵を獲得する, display additional socketable mods for idols [1]",
+        "es": "Los ídolos engarzados en este objeto ganan los beneficios de sus modificadores chamánicos, display additional socketable mods for idols [1]"
+      }
+    },
+    "sources": {
+      "Body Armours": {
+        "en": "https://poe2db.tw/us/Fox_Idol",
+        "ko": "https://poe2db.tw/kr/Fox_Idol",
+        "zh-CN": "https://poe2db.tw/cn/Fox_Idol",
+        "zh-TW": "https://poe2db.tw/tw/Fox_Idol",
+        "ja": "https://poe2db.tw/jp/Fox_Idol",
+        "es": "https://poe2db.tw/sp/Fox_Idol"
+      }
+    },
+    "image": "/assets/augments/Fox_Idol.webp",
+    "selectionEnabled": true,
+    "kind": "Idol",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1"],
+      "es": ["Tamaño de la pila: 1 / 10", "Limitado a: 1"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Fox_Idol",
+    "limit": {
+      "count": 1,
+      "group": "Fox_Idol"
+    }
+  },
+  {
+    "id": "Raven-Touched_Shard",
+    "names": {
+      "en": "Raven-Touched Shard",
+      "ko": "큰까마귀의 손길에 닿은 파편",
+      "zh-CN": "渡鸦之触碎片",
+      "zh-TW": "渡鴉碎片",
+      "ja": "レイヴンタッチシャード",
+      "es": "Esquirla tocada por el cuervo"
+    },
+    "effects": {
+      "Helmets": {
+        "en": "Raven-Touched",
+        "ko": "큰까마귀의 손길에 닿음",
+        "zh-CN": "渡鸦触碰",
+        "zh-TW": "渡鴉所觸",
+        "ja": "レイヴンタッチ",
+        "es": "Tocado por el cuervo"
+      }
+    },
+    "sources": {
+      "Helmets": {
+        "en": "https://poe2db.tw/us/Raven-Touched_Shard",
+        "ko": "https://poe2db.tw/kr/Raven-Touched_Shard",
+        "zh-CN": "https://poe2db.tw/cn/Raven-Touched_Shard",
+        "zh-TW": "https://poe2db.tw/tw/Raven-Touched_Shard",
+        "ja": "https://poe2db.tw/jp/Raven-Touched_Shard",
+        "es": "https://poe2db.tw/sp/Raven-Touched_Shard"
+      }
+    },
+    "image": "/assets/augments/Raven-Touched_Shard.webp",
+    "selectionEnabled": true,
+    "kind": "Congealed_Mist",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1", "Requires:  Level 60"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1", "요구 사항:  레벨 60"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1", "需求：  等级 60"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1", "需求:  等級 60"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1", "装備条件： レベル 60"],
+      "es": [
+        "Tamaño de la pila: 1 / 10",
+        "Limitado a: 1",
+        "Requiere:  Nivel 60"
+      ]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Raven-Touched_Shard",
+    "limit": {
+      "count": 1,
+      "group": "Raven-Touched_Shard"
+    }
+  },
+  {
+    "id": "Uhtreds_Sidereus",
+    "names": {
+      "en": "Uhtred's Sidereus",
+      "ko": "우트레드의 성좌",
+      "zh-CN": "乌崔德的星辰",
+      "zh-TW": "烏特雷的星空",
+      "ja": "ウートレドの星読み",
+      "es": "Estrella de Uhtred"
+    },
+    "effects": {
+      "Boots": {
+        "en": "Can roll Chronomancy modifiers",
+        "ko": "시간술 속성 부여 가능",
+        "zh-CN": "可以重置塑时术师词缀",
+        "zh-TW": "可以骰出時空術師詞綴",
+        "ja": "クロノマンシーモッドをロールできるようになる",
+        "es": "Puede generar modificadores de cronomancia"
+      }
+    },
+    "sources": {
+      "Boots": {
+        "en": "https://poe2db.tw/us/Uhtreds_Sidereus",
+        "ko": "https://poe2db.tw/kr/Uhtreds_Sidereus",
+        "zh-CN": "https://poe2db.tw/cn/Uhtreds_Sidereus",
+        "zh-TW": "https://poe2db.tw/tw/Uhtreds_Sidereus",
+        "ja": "https://poe2db.tw/jp/Uhtreds_Sidereus",
+        "es": "https://poe2db.tw/sp/Uhtreds_Sidereus"
+      }
+    },
+    "image": "/assets/augments/Uhtreds_Sidereus.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1"],
+      "es": ["Tamaño de la pila: 1 / 10", "Limitado a: 1"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Uhtreds_Sidereus",
+    "limit": {
+      "count": 1,
+      "group": "Uhtreds_Sidereus"
+    }
+  },
+  {
+    "id": "Kolrs_Hunt",
+    "names": {
+      "en": "Kolr's Hunt",
+      "ko": "콜르의 사냥",
+      "zh-CN": "克尔的狩猎",
+      "zh-TW": "克洛爾的狩獵",
+      "ja": "コルの狩り",
+      "es": "Cacería de Kolr"
+    },
+    "effects": {
+      "Gloves": {
+        "en": "Can roll Marksman modifiers",
+        "ko": "지정사수 속성 부여 가능",
+        "zh-CN": "可以重置神射手词缀",
+        "zh-TW": "可以骰出射手詞綴",
+        "ja": "マークスマンモッドをロールできるようになる",
+        "es": "Puede generar modificadores de tirador"
+      }
+    },
+    "sources": {
+      "Gloves": {
+        "en": "https://poe2db.tw/us/Kolrs_Hunt",
+        "ko": "https://poe2db.tw/kr/Kolrs_Hunt",
+        "zh-CN": "https://poe2db.tw/cn/Kolrs_Hunt",
+        "zh-TW": "https://poe2db.tw/tw/Kolrs_Hunt",
+        "ja": "https://poe2db.tw/jp/Kolrs_Hunt",
+        "es": "https://poe2db.tw/sp/Kolrs_Hunt"
+      }
+    },
+    "image": "/assets/augments/Kolrs_Hunt.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1"],
+      "es": ["Tamaño de la pila: 1 / 10", "Limitado a: 1"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Kolrs_Hunt",
+    "limit": {
+      "count": 1,
+      "group": "Kolrs_Hunt"
+    }
+  },
+  {
+    "id": "Voranas_Carnage",
+    "names": {
+      "en": "Vorana's Carnage",
+      "ko": "보라나의 학살",
+      "zh-CN": "沃拉娜的屠戮",
+      "zh-TW": "沃拉娜的殘殺",
+      "ja": "ヴォラナの虐殺",
+      "es": "Matanza de Vorana"
+    },
+    "effects": {
+      "Helmets": {
+        "en": "Can roll Berserking modifiers",
+        "ko": "광폭화 속성 부여 가능",
+        "zh-CN": "可以重置盛怒词缀",
+        "zh-TW": "可以骰出狂戰詞綴",
+        "ja": "バーサークモッドをロールできるようになる",
+        "es": "Puede generar modificadores de arrebatado"
+      }
+    },
+    "sources": {
+      "Helmets": {
+        "en": "https://poe2db.tw/us/Voranas_Carnage",
+        "ko": "https://poe2db.tw/kr/Voranas_Carnage",
+        "zh-CN": "https://poe2db.tw/cn/Voranas_Carnage",
+        "zh-TW": "https://poe2db.tw/tw/Voranas_Carnage",
+        "ja": "https://poe2db.tw/jp/Voranas_Carnage",
+        "es": "https://poe2db.tw/sp/Voranas_Carnage"
+      }
+    },
+    "image": "/assets/augments/Voranas_Carnage.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1"],
+      "es": ["Tamaño de la pila: 1 / 10", "Limitado a: 1"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Voranas_Carnage",
+    "limit": {
+      "count": 1,
+      "group": "Voranas_Carnage"
+    }
+  },
+  {
+    "id": "Thruds_Might",
+    "names": {
+      "en": "Thrud's Might",
+      "ko": "스루드의 완력",
+      "zh-CN": "斯鲁德的神力",
+      "zh-TW": "索魯德的強權",
+      "ja": "スルードの力",
+      "es": "Poder de Thrud"
+    },
+    "effects": {
+      "Bows": {
+        "en": "Can roll Destruction modifiers",
+        "ko": "파괴 속성 부여 가능",
+        "zh-CN": "可以选取毁灭词缀",
+        "zh-TW": "可骰出毀滅詞綴",
+        "ja": "デストラクションモッドをロールできるようになる",
+        "es": "Puede generar modificadores de destrucción"
+      },
+      "Crossbows": {
+        "en": "Can roll Destruction modifiers",
+        "ko": "파괴 속성 부여 가능",
+        "zh-CN": "可以选取毁灭词缀",
+        "zh-TW": "可骰出毀滅詞綴",
+        "ja": "デストラクションモッドをロールできるようになる",
+        "es": "Puede generar modificadores de destrucción"
+      },
+      "One Hand Maces": {
+        "en": "Can roll Destruction modifiers",
+        "ko": "파괴 속성 부여 가능",
+        "zh-CN": "可以选取毁灭词缀",
+        "zh-TW": "可骰出毀滅詞綴",
+        "ja": "デストラクションモッドをロールできるようになる",
+        "es": "Puede generar modificadores de destrucción"
+      },
+      "Two Hand Maces": {
+        "en": "Can roll Destruction modifiers",
+        "ko": "파괴 속성 부여 가능",
+        "zh-CN": "可以选取毁灭词缀",
+        "zh-TW": "可骰出毀滅詞綴",
+        "ja": "デストラクションモッドをロールできるようになる",
+        "es": "Puede generar modificadores de destrucción"
+      },
+      "Quarterstaves": {
+        "en": "Can roll Destruction modifiers",
+        "ko": "파괴 속성 부여 가능",
+        "zh-CN": "可以选取毁灭词缀",
+        "zh-TW": "可骰出毀滅詞綴",
+        "ja": "デストラクションモッドをロールできるようになる",
+        "es": "Puede generar modificadores de destrucción"
+      },
+      "Spears": {
+        "en": "Can roll Destruction modifiers",
+        "ko": "파괴 속성 부여 가능",
+        "zh-CN": "可以选取毁灭词缀",
+        "zh-TW": "可骰出毀滅詞綴",
+        "ja": "デストラクションモッドをロールできるようになる",
+        "es": "Puede generar modificadores de destrucción"
+      },
+      "Talismans": {
+        "en": "Can roll Destruction modifiers",
+        "ko": "파괴 속성 부여 가능",
+        "zh-CN": "可以选取毁灭词缀",
+        "zh-TW": "可骰出毀滅詞綴",
+        "ja": "デストラクションモッドをロールできるようになる",
+        "es": "Puede generar modificadores de destrucción"
+      },
+      "Wands": {
+        "en": "Can roll Destruction modifiers",
+        "ko": "파괴 속성 부여 가능",
+        "zh-CN": "可以选取毁灭词缀",
+        "zh-TW": "可骰出毀滅詞綴",
+        "ja": "デストラクションモッドをロールできるようになる",
+        "es": "Puede generar modificadores de destrucción"
+      },
+      "Staves": {
+        "en": "Can roll Destruction modifiers",
+        "ko": "파괴 속성 부여 가능",
+        "zh-CN": "可以选取毁灭词缀",
+        "zh-TW": "可骰出毀滅詞綴",
+        "ja": "デストラクションモッドをロールできるようになる",
+        "es": "Puede generar modificadores de destrucción"
+      }
+    },
+    "sources": {
+      "Bows": {
+        "en": "https://poe2db.tw/us/Thruds_Might",
+        "ko": "https://poe2db.tw/kr/Thruds_Might",
+        "zh-CN": "https://poe2db.tw/cn/Thruds_Might",
+        "zh-TW": "https://poe2db.tw/tw/Thruds_Might",
+        "ja": "https://poe2db.tw/jp/Thruds_Might",
+        "es": "https://poe2db.tw/sp/Thruds_Might"
+      },
+      "Crossbows": {
+        "en": "https://poe2db.tw/us/Thruds_Might",
+        "ko": "https://poe2db.tw/kr/Thruds_Might",
+        "zh-CN": "https://poe2db.tw/cn/Thruds_Might",
+        "zh-TW": "https://poe2db.tw/tw/Thruds_Might",
+        "ja": "https://poe2db.tw/jp/Thruds_Might",
+        "es": "https://poe2db.tw/sp/Thruds_Might"
+      },
+      "One Hand Maces": {
+        "en": "https://poe2db.tw/us/Thruds_Might",
+        "ko": "https://poe2db.tw/kr/Thruds_Might",
+        "zh-CN": "https://poe2db.tw/cn/Thruds_Might",
+        "zh-TW": "https://poe2db.tw/tw/Thruds_Might",
+        "ja": "https://poe2db.tw/jp/Thruds_Might",
+        "es": "https://poe2db.tw/sp/Thruds_Might"
+      },
+      "Two Hand Maces": {
+        "en": "https://poe2db.tw/us/Thruds_Might",
+        "ko": "https://poe2db.tw/kr/Thruds_Might",
+        "zh-CN": "https://poe2db.tw/cn/Thruds_Might",
+        "zh-TW": "https://poe2db.tw/tw/Thruds_Might",
+        "ja": "https://poe2db.tw/jp/Thruds_Might",
+        "es": "https://poe2db.tw/sp/Thruds_Might"
+      },
+      "Quarterstaves": {
+        "en": "https://poe2db.tw/us/Thruds_Might",
+        "ko": "https://poe2db.tw/kr/Thruds_Might",
+        "zh-CN": "https://poe2db.tw/cn/Thruds_Might",
+        "zh-TW": "https://poe2db.tw/tw/Thruds_Might",
+        "ja": "https://poe2db.tw/jp/Thruds_Might",
+        "es": "https://poe2db.tw/sp/Thruds_Might"
+      },
+      "Spears": {
+        "en": "https://poe2db.tw/us/Thruds_Might",
+        "ko": "https://poe2db.tw/kr/Thruds_Might",
+        "zh-CN": "https://poe2db.tw/cn/Thruds_Might",
+        "zh-TW": "https://poe2db.tw/tw/Thruds_Might",
+        "ja": "https://poe2db.tw/jp/Thruds_Might",
+        "es": "https://poe2db.tw/sp/Thruds_Might"
+      },
+      "Talismans": {
+        "en": "https://poe2db.tw/us/Thruds_Might",
+        "ko": "https://poe2db.tw/kr/Thruds_Might",
+        "zh-CN": "https://poe2db.tw/cn/Thruds_Might",
+        "zh-TW": "https://poe2db.tw/tw/Thruds_Might",
+        "ja": "https://poe2db.tw/jp/Thruds_Might",
+        "es": "https://poe2db.tw/sp/Thruds_Might"
+      },
+      "Wands": {
+        "en": "https://poe2db.tw/us/Thruds_Might",
+        "ko": "https://poe2db.tw/kr/Thruds_Might",
+        "zh-CN": "https://poe2db.tw/cn/Thruds_Might",
+        "zh-TW": "https://poe2db.tw/tw/Thruds_Might",
+        "ja": "https://poe2db.tw/jp/Thruds_Might",
+        "es": "https://poe2db.tw/sp/Thruds_Might"
+      },
+      "Staves": {
+        "en": "https://poe2db.tw/us/Thruds_Might",
+        "ko": "https://poe2db.tw/kr/Thruds_Might",
+        "zh-CN": "https://poe2db.tw/cn/Thruds_Might",
+        "zh-TW": "https://poe2db.tw/tw/Thruds_Might",
+        "ja": "https://poe2db.tw/jp/Thruds_Might",
+        "es": "https://poe2db.tw/sp/Thruds_Might"
+      }
+    },
+    "image": "/assets/augments/Thruds_Might.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1"],
+      "es": ["Tamaño de la pila: 1 / 10", "Limitado a: 1"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Thruds_Might",
+    "limit": {
+      "count": 1,
+      "group": "Thruds_Might"
+    }
+  },
+  {
+    "id": "Medveds_Tending",
+    "names": {
+      "en": "Medved's Tending",
+      "ko": "메드베드의 보살핌",
+      "zh-CN": "梅德维德的照料",
+      "zh-TW": "梅德偉的照料",
+      "ja": "メドヴェッドの世話",
+      "es": "Cuidado de Medved"
+    },
+    "effects": {
+      "Body Armours": {
+        "en": "Can roll Soul modifiers",
+        "ko": "영혼 속성 부여 가능",
+        "zh-CN": "可以重置灵魂词缀",
+        "zh-TW": "可以骰出靈魂詞綴",
+        "ja": "ソウルモッドをロールできるようになる",
+        "es": "Puede generar modificadores de alma"
+      }
+    },
+    "sources": {
+      "Body Armours": {
+        "en": "https://poe2db.tw/us/Medveds_Tending",
+        "ko": "https://poe2db.tw/kr/Medveds_Tending",
+        "zh-CN": "https://poe2db.tw/cn/Medveds_Tending",
+        "zh-TW": "https://poe2db.tw/tw/Medveds_Tending",
+        "ja": "https://poe2db.tw/jp/Medveds_Tending",
+        "es": "https://poe2db.tw/sp/Medveds_Tending"
+      }
+    },
+    "image": "/assets/augments/Medveds_Tending.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1"],
+      "es": ["Tamaño de la pila: 1 / 10", "Limitado a: 1"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Medveds_Tending",
+    "limit": {
+      "count": 1,
+      "group": "Medveds_Tending"
+    }
+  },
+  {
+    "id": "Katlas_Gloom",
+    "names": {
+      "en": "Katla's Gloom",
+      "ko": "카틀라의 순흑",
+      "zh-CN": "卡塔拉的阴霾",
+      "zh-TW": "卡特拉的愁悵",
+      "ja": "カトラの陰鬱",
+      "es": "Melancolía de Katla"
+    },
+    "effects": {
+      "Gloves": {
+        "en": "Can roll Decay modifiers",
+        "ko": "부패 속성 부여 가능",
+        "zh-CN": "可以重置腐蚀词缀",
+        "zh-TW": "可以骰出衰敗詞綴",
+        "ja": "腐敗モッドをロールできるようになる",
+        "es": "Puede generar modificadores de decaimiento"
+      }
+    },
+    "sources": {
+      "Gloves": {
+        "en": "https://poe2db.tw/us/Katlas_Gloom",
+        "ko": "https://poe2db.tw/kr/Katlas_Gloom",
+        "zh-CN": "https://poe2db.tw/cn/Katlas_Gloom",
+        "zh-TW": "https://poe2db.tw/tw/Katlas_Gloom",
+        "ja": "https://poe2db.tw/jp/Katlas_Gloom",
+        "es": "https://poe2db.tw/sp/Katlas_Gloom"
+      }
+    },
+    "image": "/assets/augments/Katlas_Gloom.webp",
+    "selectionEnabled": true,
+    "kind": "Rune",
+    "properties": {
+      "en": ["Stack Size: 1 / 10", "Limited to: 1"],
+      "ko": ["중첩 개수: 1 / 10", "중복 사용 제한: 1"],
+      "zh-CN": ["堆叠数量: 1 / 10", "仅限: 1"],
+      "zh-TW": ["堆疊數量: 1 / 10", "僅限: 1"],
+      "ja": ["スタック数: 1 / 10", "個数制限: 1"],
+      "es": ["Tamaño de la pila: 1 / 10", "Limitado a: 1"]
+    },
+    "sourceUrl": "https://poe2db.tw/us/Katlas_Gloom",
+    "limit": {
+      "count": 1,
+      "group": "Katlas_Gloom"
+    }
   }
 ]

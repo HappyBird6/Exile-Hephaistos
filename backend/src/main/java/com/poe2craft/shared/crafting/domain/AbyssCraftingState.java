@@ -16,7 +16,7 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
     slots = List.copyOf(slots);
     if (!item.explicits().isEmpty())
       throw new IllegalArgumentException("Explicit instances belong in slots, not twice in item");
-    if (slots.size() > 6 || slots.stream().map(Slot::id).distinct().count() != slots.size())
+    if (slots.size() > 7 || slots.stream().map(Slot::id).distinct().count() != slots.size())
       throw new IllegalArgumentException("Invalid explicit slots");
     if (offer != null
         && slots.stream().noneMatch(s -> s.id().equals(offer.slotId()) && s.desecrated()))

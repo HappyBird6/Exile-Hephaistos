@@ -447,14 +447,10 @@ public final class CatalogCraftingService implements CraftingOperations {
   }
 
   public ItemCatalog abyssCatalog(ItemState state) {
-    return reviewedCatalogs().stream()
-        .filter(
-            c ->
-                c.base().id().equals(state.baseItemId())
-                    && c.metadata().snapshotId().equals(state.snapshotId()))
-        .findFirst()
-        .map(ManualRevealCatalog::enrich)
-        .orElseThrow(() -> new IllegalArgumentException("Unsupported Abyss catalog"));
+    var catalog = simulator(state).catalog();
+    if (!catalog.metadata().snapshotId().equals(state.snapshotId()))
+      throw new IllegalArgumentException("Unsupported item snapshot");
+    return catalog;
   }
 
   public AbyssCraftingPlan abyssPlan(
@@ -522,6 +518,10 @@ public final class CatalogCraftingService implements CraftingOperations {
   }
 
   public WorkbenchSimulator simulator(ItemState state) {
+    return baseSimulator(state).forItem(state);
+  }
+
+  private WorkbenchSimulator baseSimulator(ItemState state) {
     if (state != null && topBaseSimulators.containsKey(state.baseItemId()))
       return topBaseSimulators.get(state.baseItemId());
     if (state != null && basicJewelSimulators.containsKey(state.baseItemId()))

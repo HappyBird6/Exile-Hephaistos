@@ -86,7 +86,7 @@ it('enforces ordinary limited Idols and shared Ancient limits for the actual rep
   expect(canInstallAugment(old, 'Soul_Core_of_Vizoma', 0)).toBe(false)
 })
 it('registers all ordinary tiers and Soul Cores with sourced effects and six names', () => {
-  expect(augments).toHaveLength(277)
+  expect(augments).toHaveLength(289)
   expect(augments.filter((a) => a.id.startsWith('Soul_Core_of_'))).toHaveLength(
     16,
   )
@@ -150,7 +150,7 @@ it('rejects malformed, duplicate, unknown and excess installed slots without era
   ).toBe(true)
 })
 it('limits reviewed four-tier families to Perfect while retaining Tempered, Soul Cores and old installed tiers', async () => {
-  expect(selectableAugments).toHaveLength(232)
+  expect(selectableAugments).toHaveLength(244)
   expect(
     selectableAugments.filter((a) => a.id.startsWith('Perfect_')),
   ).toHaveLength(15)

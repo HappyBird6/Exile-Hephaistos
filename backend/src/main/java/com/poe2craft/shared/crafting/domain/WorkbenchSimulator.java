@@ -1,5 +1,6 @@
 package com.poe2craft.shared.crafting.domain;
 
+import com.poe2craft.shared.item.AugmentCraftingRules;
 import com.poe2craft.shared.item.BaseRegistry;
 import com.poe2craft.shared.item.BasicJewel;
 import com.poe2craft.shared.item.CatalystQuality;
@@ -22,9 +23,11 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v17";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v11";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v18";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v12";
   private final ItemCatalog catalog;
+  private final Map<String, WorkbenchSimulator> socketSamplers =
+      new java.util.concurrent.ConcurrentHashMap<>();
   private final QualityCapChangePolicy qualityCapChangePolicy;
   private final AdditionRules additionRules;
   private final Set<String> coupledModifierIds;
@@ -124,7 +127,10 @@ public final class WorkbenchSimulator {
     this.essenceTargetOverrides = Map.copyOf(reviewed);
     var coupled = new HashSet<>(coupledModifierIds);
     this.catalog.modifiers().values().stream()
-        .filter(d -> d.id().startsWith("equipment:") && d.stats().size() > 1)
+        .filter(
+            d ->
+                (d.id().startsWith("equipment:") || d.tags().contains("augment_pool"))
+                    && d.stats().size() > 1)
         .map(ModifierDefinition::id)
         .forEach(coupled::add);
     this.coupledModifierIds = Set.copyOf(coupled);
@@ -149,6 +155,25 @@ public final class WorkbenchSimulator {
         essenceTargetOverrides,
         replacementTargetOverrides,
         qualityCapChangePolicy);
+  }
+
+  public ItemCatalog catalog() {
+    return catalog;
+  }
+
+  public WorkbenchSimulator forItem(ItemState state) {
+    if (catalog.augmentContextApplied() || !AugmentCraftingRules.affectsSampling(state))
+      return this;
+    String key =
+        AugmentCraftingRules.suffixBonus(state)
+            + ":"
+            + new TreeSet<>(AugmentCraftingRules.pools(state));
+    return socketSamplers.computeIfAbsent(
+        key, ignored -> forCatalog(AugmentCraftingRules.forItem(catalog, state)));
+  }
+
+  private boolean craftsModifier(WorkbenchCurrency action) {
+    return !essenceTargets(action).isEmpty() || !replacementTargets(action).isEmpty();
   }
 
   private List<String> essenceTargets(WorkbenchCurrency action) {
@@ -352,6 +377,10 @@ public final class WorkbenchSimulator {
       return blocked(
           action,
           "Installed Augment effects are preserved. Provide their names and counts before crafting; their crafting effects are not resolved.");
+    if (craftsModifier(action)
+        && state.explicits().stream().filter(m -> AugmentCraftingRules.crafted(m, catalog)).count()
+            >= AugmentCraftingRules.craftedLimit(state))
+      return blocked(action, "Crafted modifier limit reached.");
     if (action.catalystType() != null) {
       if (action.refinedCatalyst()) {
         if (!BaseRegistry.refinedCatalyst(state.baseItemId()))
@@ -374,12 +403,6 @@ public final class WorkbenchSimulator {
           "This operation remains outside the reviewed Jewel basic currency and Liquid scope.");
     if (action.isLiquid() && replacementTargets(action).isEmpty())
       return blocked(action, "No sourced Liquid outcome for this Jewel category and base.");
-    if (action.isLiquid()
-        && state.explicits().stream()
-            .anyMatch(m -> catalog.find(m.modifierId()).orElseThrow().tags().contains("crafted")))
-      return blocked(
-          action,
-          "Remove the existing Crafted modifier first; repeated Liquid replacement semantics need verification.");
     if (qualityCapChangePolicy == QualityCapChangePolicy.REJECT_OVERCAP
         && state.catalystQuality() != null
         && (action.baseAction() == CraftingAction.ANNULMENT
@@ -410,7 +433,10 @@ public final class WorkbenchSimulator {
         return blocked(action, "Item level is below the currency's minimum modifier level.");
       if (state.rarity() != ItemState.Rarity.RARE)
         return blocked(action, "Exalted Orb requires a Rare item.");
-      if (state.explicits().size() > 4)
+      if (state.explicits().size()
+          > new ItemStateValidator(catalog).slots(state).maxPrefixes()
+              + new ItemStateValidator(catalog).slots(state).maxSuffixes()
+              - 2)
         return blocked(
             action,
             "Greater Exaltation is supported only with at least two free explicit slots; the one-slot interaction needs verification.");
@@ -765,6 +791,12 @@ public final class WorkbenchSimulator {
     boolean addition = action.baseAction() == CraftingAction.EXALTED;
     boolean annulment = action == WorkbenchCurrency.ANNULMENT;
     boolean replacement = !replacementTargets(action).isEmpty();
+    if (replacement
+        && state.knownItem().explicits().stream()
+                .filter(m -> AugmentCraftingRules.crafted(m, catalog))
+                .count()
+            >= AugmentCraftingRules.craftedLimit(state.item()))
+      return AbyssCraftingPlan.blocked("CRAFTED_LIMIT");
     if ((!addition && !annulment && !replacement)
         || action == WorkbenchCurrency.ESSENCE_ABYSS
         || action.isLiquid()) return AbyssCraftingPlan.blocked("ABYSS_OPERATION_UNSUPPORTED");
@@ -824,6 +856,7 @@ public final class WorkbenchSimulator {
       }
     }
     var instance = roll(chosen, random, new ArrayList<>());
+    if (!replacementTargets(action).isEmpty()) instance = instance.asCrafted();
     String id = branch.removedSlotId();
     if (id == null) {
       int index = 0;
@@ -1178,7 +1211,7 @@ public final class WorkbenchSimulator {
               null,
               omen == null ? action.replacementSource() : "https://poe2db.tw/us/" + omen.id(),
               action.isLiquid()
-                  ? "USER-APPROVED SIMULATOR MODEL: uniform among removals that leave a legal Crafted side and family. Failed branches are excluded before sampling; actual game retry/failure and removal weights are unknown. One Crafted modifier per item."
+                  ? "USER-APPROVED SIMULATOR MODEL: uniform among removals that leave a legal Crafted side and family. Failed branches are excluded before sampling; actual game retry/failure and removal weights are unknown. Crafted capacity follows the equipped Augments."
                   : "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights."));
       var afterRemoval = copy(state, state.rarity(), state.implicits(), explicits);
       var targets =
@@ -1205,7 +1238,7 @@ public final class WorkbenchSimulator {
                 action.isLiquid()
                     ? "USER-APPROVED SIMULATOR MODEL: 1/N among valid sourced Liquid outcomes after this removal and side/family eligibility. Actual outcome weights are unavailable."
                     : "Uniform among the sourced modifier outcomes; no published essence choice weights. Zero ordinary spawn weight is not an essence selection weight."));
-      var rolled = roll(definition, random, assumptions);
+      var rolled = roll(definition, random, assumptions).asCrafted();
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / targets.size()));
     } else if (!essenceTargets(action).isEmpty()) {
@@ -1225,13 +1258,15 @@ public final class WorkbenchSimulator {
                 null,
                 action.essenceChoiceSource(),
                 "Uniform among the sourced modifier outcomes; no published essence choice weights. Ordinary affix pool weights are not asserted to be essence choice weights."));
-      var rolled = roll(definition, random, assumptions);
+      var rolled = roll(definition, random, assumptions).asCrafted();
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / candidates.size()));
     } else if (action == WorkbenchCurrency.FRACTURING) {
       int index = random.nextInt(explicits.size());
       var chosen = explicits.get(index);
-      explicits.set(index, new ModifierInstance(chosen.modifierId(), chosen.values(), true));
+      explicits.set(
+          index,
+          new ModifierInstance(chosen.modifierId(), chosen.values(), true, chosen.crafted()));
       events.add(
           new Event("FRACTURE", chosen.modifierId(), chosen.values(), 1.0 / explicits.size()));
       assumptions.add(
@@ -1298,7 +1333,7 @@ public final class WorkbenchSimulator {
           var d = catalog.find(current.modifierId()).orElseThrow();
           if (d.stats().stream().anyMatch(s -> s.max() > s.min())) {
             var roll = roll(d, random, assumptions);
-            explicits.set(i, roll);
+            explicits.set(i, current.crafted() ? roll.asCrafted() : roll);
             events.add(new Event("REROLL_EXPLICIT", d.id(), roll.values(), 1));
           }
         }

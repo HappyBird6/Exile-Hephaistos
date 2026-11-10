@@ -52,7 +52,7 @@ public final class EquipmentCurrencyCatalog {
     var ids = new LinkedHashSet<String>();
     targets(catalog.base().id()).values().forEach(ids::addAll);
     ids.removeAll(catalog.modifiers().keySet());
-    if (ids.isEmpty()) return catalog;
+    if (ids.isEmpty()) return AugmentCraftingRules.enrich(catalog);
     var definitions = new ArrayList<>(catalog.modifiers().values());
     DATA.definitions().stream().filter(d -> ids.contains(d.id())).forEach(definitions::add);
     var old = catalog.metadata();
@@ -86,6 +86,7 @@ public final class EquipmentCurrencyCatalog {
             old.suffixWeight());
     var compatible = new ArrayList<>(catalog.compatibleSnapshotIds());
     compatible.add(old.snapshotId());
-    return new ItemCatalog(metadata, catalog.base(), definitions, compatible);
+    return AugmentCraftingRules.enrich(
+        new ItemCatalog(metadata, catalog.base(), definitions, compatible));
   }
 }

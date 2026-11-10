@@ -6470,6 +6470,83 @@
       "lines": ["Boots: +40% of Armour also applies to Lightning Damage"],
       "sourceUrl": "https://poe2db.tw/us/Zalatls_Soul_Core_of_Insulation",
       "itemKey": "Zalatls_Soul_Core_of_Insulation"
+    },
+    "Astrids_Creativity": {
+      "name": "Astrid's Creativity",
+      "lines": ["All Equipment: Can have 1 additional Crafted Modifiers"],
+      "sourceUrl": "https://poe2db.tw/us/Astrids_Creativity",
+      "itemKey": "Astrids_Creativity"
+    },
+    "Serles_Triumph": {
+      "name": "Serle's Triumph",
+      "lines": [
+        "All Equipment: +1 Suffix Modifier allowed, local maximum mods allowed + [1]"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Serles_Triumph",
+      "itemKey": "Serles_Triumph"
+    },
+    "Legacy_of_Serles_Grit": {
+      "name": "Legacy of Serle's Grit",
+      "lines": ["One Hand Maces: Maximum Quality is 40%"],
+      "sourceUrl": "https://poe2db.tw/us/Legacy_of_Serles_Grit",
+      "itemKey": "Legacy_of_Serles_Grit"
+    },
+    "Legacy_of_Runeseekers_Call": {
+      "name": "Legacy of Runeseeker's Call",
+      "lines": ["Wands: 75% increased effect of Socketed Runes"],
+      "sourceUrl": "https://poe2db.tw/us/Legacy_of_Runeseekers_Call",
+      "itemKey": "Legacy_of_Runeseekers_Call"
+    },
+    "Fox_Idol": {
+      "name": "Fox Idol",
+      "lines": [
+        "Body Armours: Idols socketed in this item gain the benefits of their Bonded modifiers, display additional socketable mods for idols [1]",
+        "Sceptres: 50% increased Presence Area of Effect"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Fox_Idol",
+      "itemKey": "Fox_Idol"
+    },
+    "Raven-Touched_Shard": {
+      "name": "Raven-Touched Shard",
+      "lines": ["Helmets: Raven-Touched"],
+      "sourceUrl": "https://poe2db.tw/us/Raven-Touched_Shard",
+      "itemKey": "Raven-Touched_Shard"
+    },
+    "Uhtreds_Sidereus": {
+      "name": "Uhtred's Sidereus",
+      "lines": ["Boots: Can roll Chronomancy modifiers"],
+      "sourceUrl": "https://poe2db.tw/us/Uhtreds_Sidereus",
+      "itemKey": "Uhtreds_Sidereus"
+    },
+    "Kolrs_Hunt": {
+      "name": "Kolr's Hunt",
+      "lines": ["Gloves: Can roll Marksman modifiers"],
+      "sourceUrl": "https://poe2db.tw/us/Kolrs_Hunt",
+      "itemKey": "Kolrs_Hunt"
+    },
+    "Voranas_Carnage": {
+      "name": "Vorana's Carnage",
+      "lines": ["Helmets: Can roll Berserking modifiers"],
+      "sourceUrl": "https://poe2db.tw/us/Voranas_Carnage",
+      "itemKey": "Voranas_Carnage"
+    },
+    "Thruds_Might": {
+      "name": "Thrud's Might",
+      "lines": ["Weapon: Can roll Destruction modifiers"],
+      "sourceUrl": "https://poe2db.tw/us/Thruds_Might",
+      "itemKey": "Thruds_Might"
+    },
+    "Medveds_Tending": {
+      "name": "Medved's Tending",
+      "lines": ["Body Armours: Can roll Soul modifiers"],
+      "sourceUrl": "https://poe2db.tw/us/Medveds_Tending",
+      "itemKey": "Medveds_Tending"
+    },
+    "Katlas_Gloom": {
+      "name": "Katla's Gloom",
+      "lines": ["Gloves: Can roll Decay modifiers"],
+      "sourceUrl": "https://poe2db.tw/us/Katlas_Gloom",
+      "itemKey": "Katlas_Gloom"
     }
   },
   "ko": {
@@ -12837,6 +12914,83 @@
       "lines": ["장화: 방어도의 +40%가 번개 피해에도 적용"],
       "sourceUrl": "https://poe2db.tw/kr/Zalatls_Soul_Core_of_Insulation",
       "itemKey": "Zalatls_Soul_Core_of_Insulation"
+    },
+    "Astrids_Creativity": {
+      "name": "아스트리드의 창의성",
+      "lines": ["모든 장비: 제작 속성 부여 추가 1개 보유 가능"],
+      "sourceUrl": "https://poe2db.tw/kr/Astrids_Creativity",
+      "itemKey": "Astrids_Creativity"
+    },
+    "Serles_Triumph": {
+      "name": "세를의 승리",
+      "lines": [
+        "모든 장비: 접미어 속성 부여의 최대 개수 +1개, local maximum mods allowed + [1]"
+      ],
+      "sourceUrl": "https://poe2db.tw/kr/Serles_Triumph",
+      "itemKey": "Serles_Triumph"
+    },
+    "Legacy_of_Serles_Grit": {
+      "name": "세를의 근성의 유산",
+      "lines": ["한손 철퇴: 최대 퀄리티 40%"],
+      "sourceUrl": "https://poe2db.tw/kr/Legacy_of_Serles_Grit",
+      "itemKey": "Legacy_of_Serles_Grit"
+    },
+    "Legacy_of_Runeseekers_Call": {
+      "name": "룬 탐구자의 소명의 유산",
+      "lines": ["마법봉: 장착된 룬의 효과 75% 증가"],
+      "sourceUrl": "https://poe2db.tw/kr/Legacy_of_Runeseekers_Call",
+      "itemKey": "Legacy_of_Runeseekers_Call"
+    },
+    "Fox_Idol": {
+      "name": "여우 우상",
+      "lines": [
+        "갑옷: 이 아이템에 장착한 우상이 결속된 속성의 효과를 받음, display additional socketable mods for idols [1]",
+        "셉터: 접근 효과 범위 50% 증가"
+      ],
+      "sourceUrl": "https://poe2db.tw/kr/Fox_Idol",
+      "itemKey": "Fox_Idol"
+    },
+    "Raven-Touched_Shard": {
+      "name": "큰까마귀의 손길에 닿은 파편",
+      "lines": ["투구: 큰까마귀의 손길에 닿음"],
+      "sourceUrl": "https://poe2db.tw/kr/Raven-Touched_Shard",
+      "itemKey": "Raven-Touched_Shard"
+    },
+    "Uhtreds_Sidereus": {
+      "name": "우트레드의 성좌",
+      "lines": ["장화: 시간술 속성 부여 가능"],
+      "sourceUrl": "https://poe2db.tw/kr/Uhtreds_Sidereus",
+      "itemKey": "Uhtreds_Sidereus"
+    },
+    "Kolrs_Hunt": {
+      "name": "콜르의 사냥",
+      "lines": ["장갑: 지정사수 속성 부여 가능"],
+      "sourceUrl": "https://poe2db.tw/kr/Kolrs_Hunt",
+      "itemKey": "Kolrs_Hunt"
+    },
+    "Voranas_Carnage": {
+      "name": "보라나의 학살",
+      "lines": ["투구: 광폭화 속성 부여 가능"],
+      "sourceUrl": "https://poe2db.tw/kr/Voranas_Carnage",
+      "itemKey": "Voranas_Carnage"
+    },
+    "Thruds_Might": {
+      "name": "스루드의 완력",
+      "lines": ["무기: 파괴 속성 부여 가능"],
+      "sourceUrl": "https://poe2db.tw/kr/Thruds_Might",
+      "itemKey": "Thruds_Might"
+    },
+    "Medveds_Tending": {
+      "name": "메드베드의 보살핌",
+      "lines": ["갑옷: 영혼 속성 부여 가능"],
+      "sourceUrl": "https://poe2db.tw/kr/Medveds_Tending",
+      "itemKey": "Medveds_Tending"
+    },
+    "Katlas_Gloom": {
+      "name": "카틀라의 순흑",
+      "lines": ["장갑: 부패 속성 부여 가능"],
+      "sourceUrl": "https://poe2db.tw/kr/Katlas_Gloom",
+      "itemKey": "Katlas_Gloom"
     }
   },
   "zh-CN": {
@@ -19043,6 +19197,81 @@
       "lines": ["鞋子: +40% 的护甲同样作用于闪电伤害"],
       "sourceUrl": "https://poe2db.tw/cn/Zalatls_Soul_Core_of_Insulation",
       "itemKey": "Zalatls_Soul_Core_of_Insulation"
+    },
+    "Astrids_Creativity": {
+      "name": "阿斯特丽德的创造",
+      "lines": ["所有装备: 可以有1 个额外工艺词缀"],
+      "sourceUrl": "https://poe2db.tw/cn/Astrids_Creativity",
+      "itemKey": "Astrids_Creativity"
+    },
+    "Serles_Triumph": {
+      "name": "瑟尔的凯旋",
+      "lines": ["所有装备: 允许的后缀 +1, local maximum mods allowed + [1]"],
+      "sourceUrl": "https://poe2db.tw/cn/Serles_Triumph",
+      "itemKey": "Serles_Triumph"
+    },
+    "Legacy_of_Serles_Grit": {
+      "name": "瑟尔的坚毅之遗产",
+      "lines": ["单手锤: 品质上限为 40%"],
+      "sourceUrl": "https://poe2db.tw/cn/Legacy_of_Serles_Grit",
+      "itemKey": "Legacy_of_Serles_Grit"
+    },
+    "Legacy_of_Runeseekers_Call": {
+      "name": "符文猎手的呼唤之遗产",
+      "lines": ["法杖: 镶嵌的符文效果提高 75%"],
+      "sourceUrl": "https://poe2db.tw/cn/Legacy_of_Runeseekers_Call",
+      "itemKey": "Legacy_of_Runeseekers_Call"
+    },
+    "Fox_Idol": {
+      "name": "狐狸雕像",
+      "lines": [
+        "护甲: 镶嵌在该物品上的雕像获得其自身的绑定词缀的强化效果, display additional socketable mods for idols [1]",
+        "权杖: 在场范围提高 50%"
+      ],
+      "sourceUrl": "https://poe2db.tw/cn/Fox_Idol",
+      "itemKey": "Fox_Idol"
+    },
+    "Raven-Touched_Shard": {
+      "name": "渡鸦之触碎片",
+      "lines": ["头盔: 渡鸦触碰"],
+      "sourceUrl": "https://poe2db.tw/cn/Raven-Touched_Shard",
+      "itemKey": "Raven-Touched_Shard"
+    },
+    "Uhtreds_Sidereus": {
+      "name": "乌崔德的星辰",
+      "lines": ["鞋子: 可以重置塑时术师词缀"],
+      "sourceUrl": "https://poe2db.tw/cn/Uhtreds_Sidereus",
+      "itemKey": "Uhtreds_Sidereus"
+    },
+    "Kolrs_Hunt": {
+      "name": "克尔的狩猎",
+      "lines": ["手套: 可以重置神射手词缀"],
+      "sourceUrl": "https://poe2db.tw/cn/Kolrs_Hunt",
+      "itemKey": "Kolrs_Hunt"
+    },
+    "Voranas_Carnage": {
+      "name": "沃拉娜的屠戮",
+      "lines": ["头盔: 可以重置盛怒词缀"],
+      "sourceUrl": "https://poe2db.tw/cn/Voranas_Carnage",
+      "itemKey": "Voranas_Carnage"
+    },
+    "Thruds_Might": {
+      "name": "斯鲁德的神力",
+      "lines": ["武器: 可以选取毁灭词缀"],
+      "sourceUrl": "https://poe2db.tw/cn/Thruds_Might",
+      "itemKey": "Thruds_Might"
+    },
+    "Medveds_Tending": {
+      "name": "梅德维德的照料",
+      "lines": ["护甲: 可以重置灵魂词缀"],
+      "sourceUrl": "https://poe2db.tw/cn/Medveds_Tending",
+      "itemKey": "Medveds_Tending"
+    },
+    "Katlas_Gloom": {
+      "name": "卡塔拉的阴霾",
+      "lines": ["手套: 可以重置腐蚀词缀"],
+      "sourceUrl": "https://poe2db.tw/cn/Katlas_Gloom",
+      "itemKey": "Katlas_Gloom"
     }
   },
   "zh-TW": {
@@ -25229,6 +25458,81 @@
       "lines": ["鞋子: +40%的護甲值也會套用至閃電傷害"],
       "sourceUrl": "https://poe2db.tw/tw/Zalatls_Soul_Core_of_Insulation",
       "itemKey": "Zalatls_Soul_Core_of_Insulation"
+    },
+    "Astrids_Creativity": {
+      "name": "阿斯垂德的創造",
+      "lines": ["所有裝備: 可以有1個額外工藝詞綴"],
+      "sourceUrl": "https://poe2db.tw/tw/Astrids_Creativity",
+      "itemKey": "Astrids_Creativity"
+    },
+    "Serles_Triumph": {
+      "name": "瑟雷的凱旋",
+      "lines": ["所有裝備: 允許後綴+1, local maximum mods allowed + [1]"],
+      "sourceUrl": "https://poe2db.tw/tw/Serles_Triumph",
+      "itemKey": "Serles_Triumph"
+    },
+    "Legacy_of_Serles_Grit": {
+      "name": "傳承．瑟雷之握",
+      "lines": ["單手錘: 最大品質為40%"],
+      "sourceUrl": "https://poe2db.tw/tw/Legacy_of_Serles_Grit",
+      "itemKey": "Legacy_of_Serles_Grit"
+    },
+    "Legacy_of_Runeseekers_Call": {
+      "name": "傳承．符文探求者之喚",
+      "lines": ["法杖: 增加75%鑲嵌的符文效果"],
+      "sourceUrl": "https://poe2db.tw/tw/Legacy_of_Runeseekers_Call",
+      "itemKey": "Legacy_of_Runeseekers_Call"
+    },
+    "Fox_Idol": {
+      "name": "狐狸魔偶",
+      "lines": [
+        "胸甲: 鑲嵌在此物品中的魔偶獲得其命定詞綴的加成效果, display additional socketable mods for idols [1]",
+        "權杖: 增加50%存在範圍的範圍效果"
+      ],
+      "sourceUrl": "https://poe2db.tw/tw/Fox_Idol",
+      "itemKey": "Fox_Idol"
+    },
+    "Raven-Touched_Shard": {
+      "name": "渡鴉碎片",
+      "lines": ["頭部: 渡鴉所觸"],
+      "sourceUrl": "https://poe2db.tw/tw/Raven-Touched_Shard",
+      "itemKey": "Raven-Touched_Shard"
+    },
+    "Uhtreds_Sidereus": {
+      "name": "烏特雷的星空",
+      "lines": ["鞋子: 可以骰出時空術師詞綴"],
+      "sourceUrl": "https://poe2db.tw/tw/Uhtreds_Sidereus",
+      "itemKey": "Uhtreds_Sidereus"
+    },
+    "Kolrs_Hunt": {
+      "name": "克洛爾的狩獵",
+      "lines": ["手套: 可以骰出射手詞綴"],
+      "sourceUrl": "https://poe2db.tw/tw/Kolrs_Hunt",
+      "itemKey": "Kolrs_Hunt"
+    },
+    "Voranas_Carnage": {
+      "name": "沃拉娜的殘殺",
+      "lines": ["頭部: 可以骰出狂戰詞綴"],
+      "sourceUrl": "https://poe2db.tw/tw/Voranas_Carnage",
+      "itemKey": "Voranas_Carnage"
+    },
+    "Thruds_Might": {
+      "name": "索魯德的強權",
+      "lines": ["武器: 可骰出毀滅詞綴"],
+      "sourceUrl": "https://poe2db.tw/tw/Thruds_Might",
+      "itemKey": "Thruds_Might"
+    },
+    "Medveds_Tending": {
+      "name": "梅德偉的照料",
+      "lines": ["胸甲: 可以骰出靈魂詞綴"],
+      "sourceUrl": "https://poe2db.tw/tw/Medveds_Tending",
+      "itemKey": "Medveds_Tending"
+    },
+    "Katlas_Gloom": {
+      "name": "卡特拉的愁悵",
+      "lines": ["手套: 可以骰出衰敗詞綴"],
+      "sourceUrl": "https://poe2db.tw/tw/Katlas_Gloom",
+      "itemKey": "Katlas_Gloom"
     }
   },
   "ja": {
@@ -31646,6 +31950,83 @@
       "lines": ["靴: アーマーの+40%が雷ダメージにも適用される"],
       "sourceUrl": "https://poe2db.tw/jp/Zalatls_Soul_Core_of_Insulation",
       "itemKey": "Zalatls_Soul_Core_of_Insulation"
+    },
+    "Astrids_Creativity": {
+      "name": "アストリッドの創造性",
+      "lines": ["全ての装備品: クラフトモッドを追加で1個持つことができる"],
+      "sourceUrl": "https://poe2db.tw/jp/Astrids_Creativity",
+      "itemKey": "Astrids_Creativity"
+    },
+    "Serles_Triumph": {
+      "name": "セールの凱旋",
+      "lines": [
+        "全ての装備品: サフィックスモッド +1個, local maximum mods allowed + [1]"
+      ],
+      "sourceUrl": "https://poe2db.tw/jp/Serles_Triumph",
+      "itemKey": "Serles_Triumph"
+    },
+    "Legacy_of_Serles_Grit": {
+      "name": "サールの根性の遺産",
+      "lines": ["片手メイス: 品質の最大値 40%"],
+      "sourceUrl": "https://poe2db.tw/jp/Legacy_of_Serles_Grit",
+      "itemKey": "Legacy_of_Serles_Grit"
+    },
+    "Legacy_of_Runeseekers_Call": {
+      "name": "ルーンシーカーの呼び声の遺産",
+      "lines": ["ワンド: ソケットされているルーンの効果が75%増加する"],
+      "sourceUrl": "https://poe2db.tw/jp/Legacy_of_Runeseekers_Call",
+      "itemKey": "Legacy_of_Runeseekers_Call"
+    },
+    "Fox_Idol": {
+      "name": "キツネのアイドル",
+      "lines": [
+        "鎧: このアイテムにソケットされたアイドルはその絆モッドの恩恵を獲得する, display additional socketable mods for idols [1]",
+        "セプター: 存在下の効果範囲が50%増加する"
+      ],
+      "sourceUrl": "https://poe2db.tw/jp/Fox_Idol",
+      "itemKey": "Fox_Idol"
+    },
+    "Raven-Touched_Shard": {
+      "name": "レイヴンタッチシャード",
+      "lines": ["兜: レイヴンタッチ"],
+      "sourceUrl": "https://poe2db.tw/jp/Raven-Touched_Shard",
+      "itemKey": "Raven-Touched_Shard"
+    },
+    "Uhtreds_Sidereus": {
+      "name": "ウートレドの星読み",
+      "lines": ["靴: クロノマンシーモッドをロールできるようになる"],
+      "sourceUrl": "https://poe2db.tw/jp/Uhtreds_Sidereus",
+      "itemKey": "Uhtreds_Sidereus"
+    },
+    "Kolrs_Hunt": {
+      "name": "コルの狩り",
+      "lines": ["手袋: マークスマンモッドをロールできるようになる"],
+      "sourceUrl": "https://poe2db.tw/jp/Kolrs_Hunt",
+      "itemKey": "Kolrs_Hunt"
+    },
+    "Voranas_Carnage": {
+      "name": "ヴォラナの虐殺",
+      "lines": ["兜: バーサークモッドをロールできるようになる"],
+      "sourceUrl": "https://poe2db.tw/jp/Voranas_Carnage",
+      "itemKey": "Voranas_Carnage"
+    },
+    "Thruds_Might": {
+      "name": "スルードの力",
+      "lines": ["武器: デストラクションモッドをロールできるようになる"],
+      "sourceUrl": "https://poe2db.tw/jp/Thruds_Might",
+      "itemKey": "Thruds_Might"
+    },
+    "Medveds_Tending": {
+      "name": "メドヴェッドの世話",
+      "lines": ["鎧: ソウルモッドをロールできるようになる"],
+      "sourceUrl": "https://poe2db.tw/jp/Medveds_Tending",
+      "itemKey": "Medveds_Tending"
+    },
+    "Katlas_Gloom": {
+      "name": "カトラの陰鬱",
+      "lines": ["手袋: 腐敗モッドをロールできるようになる"],
+      "sourceUrl": "https://poe2db.tw/jp/Katlas_Gloom",
+      "itemKey": "Katlas_Gloom"
     }
   },
   "es": {
@@ -38075,6 +38456,85 @@
       "lines": ["Botas: +40% de la armadura también se aplica al daño de rayo"],
       "sourceUrl": "https://poe2db.tw/sp/Zalatls_Soul_Core_of_Insulation",
       "itemKey": "Zalatls_Soul_Core_of_Insulation"
+    },
+    "Astrids_Creativity": {
+      "name": "Creatividad de Astrid",
+      "lines": [
+        "Todo el equipamiento: Puede tener 1 modificadores de fabricación adicionales"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/Astrids_Creativity",
+      "itemKey": "Astrids_Creativity"
+    },
+    "Serles_Triumph": {
+      "name": "Triunfo de Serle",
+      "lines": [
+        "Todo el equipamiento: +1 modificador de sufijo permitido, local maximum mods allowed + [1]"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/Serles_Triumph",
+      "itemKey": "Serles_Triumph"
+    },
+    "Legacy_of_Serles_Grit": {
+      "name": "Legado de Determinación de Serle",
+      "lines": ["Mazas a una mano: La calidad máxima es 40%"],
+      "sourceUrl": "https://poe2db.tw/sp/Legacy_of_Serles_Grit",
+      "itemKey": "Legacy_of_Serles_Grit"
+    },
+    "Legacy_of_Runeseekers_Call": {
+      "name": "Legado de Llamada del buscador de runas",
+      "lines": ["Varitas: Efecto de las runas engarzadas aumentado un 75%"],
+      "sourceUrl": "https://poe2db.tw/sp/Legacy_of_Runeseekers_Call",
+      "itemKey": "Legacy_of_Runeseekers_Call"
+    },
+    "Fox_Idol": {
+      "name": "Ídolo del zorro",
+      "lines": [
+        "Armaduras corporales: Los ídolos engarzados en este objeto ganan los beneficios de sus modificadores chamánicos, display additional socketable mods for idols [1]",
+        "Cetros: Área de efecto de la presencia aumentada un 50%"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/Fox_Idol",
+      "itemKey": "Fox_Idol"
+    },
+    "Raven-Touched_Shard": {
+      "name": "Esquirla tocada por el cuervo",
+      "lines": ["Cascos: Tocado por el cuervo"],
+      "sourceUrl": "https://poe2db.tw/sp/Raven-Touched_Shard",
+      "itemKey": "Raven-Touched_Shard"
+    },
+    "Uhtreds_Sidereus": {
+      "name": "Estrella de Uhtred",
+      "lines": ["Botas: Puede generar modificadores de cronomancia"],
+      "sourceUrl": "https://poe2db.tw/sp/Uhtreds_Sidereus",
+      "itemKey": "Uhtreds_Sidereus"
+    },
+    "Kolrs_Hunt": {
+      "name": "Cacería de Kolr",
+      "lines": ["Guantes: Puede generar modificadores de tirador"],
+      "sourceUrl": "https://poe2db.tw/sp/Kolrs_Hunt",
+      "itemKey": "Kolrs_Hunt"
+    },
+    "Voranas_Carnage": {
+      "name": "Matanza de Vorana",
+      "lines": ["Cascos: Puede generar modificadores de arrebatado"],
+      "sourceUrl": "https://poe2db.tw/sp/Voranas_Carnage",
+      "itemKey": "Voranas_Carnage"
+    },
+    "Thruds_Might": {
+      "name": "Poder de Thrud",
+      "lines": ["Arma: Puede generar modificadores de destrucción"],
+      "sourceUrl": "https://poe2db.tw/sp/Thruds_Might",
+      "itemKey": "Thruds_Might"
+    },
+    "Medveds_Tending": {
+      "name": "Cuidado de Medved",
+      "lines": ["Armaduras corporales: Puede generar modificadores de alma"],
+      "sourceUrl": "https://poe2db.tw/sp/Medveds_Tending",
+      "itemKey": "Medveds_Tending"
+    },
+    "Katlas_Gloom": {
+      "name": "Melancolía de Katla",
+      "lines": ["Guantes: Puede generar modificadores de decaimiento"],
+      "sourceUrl": "https://poe2db.tw/sp/Katlas_Gloom",
+      "itemKey": "Katlas_Gloom"
     }
   },
   "ru": {
@@ -43677,6 +44137,85 @@
       ],
       "itemKey": "Zalatls_Soul_Core_of_Insulation",
       "sourceUrl": "https://poe2db.tw/ru/Zalatls_Soul_Core_of_Insulation"
+    },
+    "Astrids_Creativity": {
+      "name": "Изобретательность Астрид",
+      "lines": [
+        "Всё снаряжение: Может иметь дополнительных ремесленных свойств: 1"
+      ],
+      "sourceUrl": "https://poe2db.tw/ru/Astrids_Creativity",
+      "itemKey": "Astrids_Creativity"
+    },
+    "Serles_Triumph": {
+      "name": "Триумф Серли",
+      "lines": [
+        "Всё снаряжение: +1 допустимых свойств-суффиксов, local maximum mods allowed + [1]"
+      ],
+      "sourceUrl": "https://poe2db.tw/ru/Serles_Triumph",
+      "itemKey": "Serles_Triumph"
+    },
+    "Legacy_of_Serles_Grit": {
+      "name": "Наследие Выдержки Серли",
+      "lines": ["Одноручные булавы: Максимальное качество равно 40%"],
+      "sourceUrl": "https://poe2db.tw/ru/Legacy_of_Serles_Grit",
+      "itemKey": "Legacy_of_Serles_Grit"
+    },
+    "Legacy_of_Runeseekers_Call": {
+      "name": "Наследие Клича искателя рун",
+      "lines": ["Жезлы: 75% усиление эффекта размещенных рун"],
+      "sourceUrl": "https://poe2db.tw/ru/Legacy_of_Runeseekers_Call",
+      "itemKey": "Legacy_of_Runeseekers_Call"
+    },
+    "Fox_Idol": {
+      "name": "Идол лисы",
+      "lines": [
+        "Нательные доспехи: Размещенные в этом предмете идолы получают преимущества от своих связанных свойств, display additional socketable mods for idols [1]",
+        "Скипетры: 50% увеличение области действия присутствия"
+      ],
+      "sourceUrl": "https://poe2db.tw/ru/Fox_Idol",
+      "itemKey": "Fox_Idol"
+    },
+    "Raven-Touched_Shard": {
+      "name": "Осколок Ворона",
+      "lines": ["Шлемы: Касание Ворона"],
+      "sourceUrl": "https://poe2db.tw/ru/Raven-Touched_Shard",
+      "itemKey": "Raven-Touched_Shard"
+    },
+    "Uhtreds_Sidereus": {
+      "name": "Сидерий Утреда",
+      "lines": ["Обувь: Позволяет получить свойства Хрономантии"],
+      "sourceUrl": "https://poe2db.tw/ru/Uhtreds_Sidereus",
+      "itemKey": "Uhtreds_Sidereus"
+    },
+    "Kolrs_Hunt": {
+      "name": "Охота Колра",
+      "lines": ["Перчатки: Позволяет получить свойства Меткого стрелка"],
+      "sourceUrl": "https://poe2db.tw/ru/Kolrs_Hunt",
+      "itemKey": "Kolrs_Hunt"
+    },
+    "Voranas_Carnage": {
+      "name": "Резня Вораны",
+      "lines": ["Шлемы: Позволяет получить свойства Неистовства"],
+      "sourceUrl": "https://poe2db.tw/ru/Voranas_Carnage",
+      "itemKey": "Voranas_Carnage"
+    },
+    "Thruds_Might": {
+      "name": "Сила Трада",
+      "lines": ["Оружие: Позволяет получать свойства Разрушения"],
+      "sourceUrl": "https://poe2db.tw/ru/Thruds_Might",
+      "itemKey": "Thruds_Might"
+    },
+    "Medveds_Tending": {
+      "name": "Присмотр Медведя",
+      "lines": ["Нательные доспехи: Позволяет получить свойства Души"],
+      "sourceUrl": "https://poe2db.tw/ru/Medveds_Tending",
+      "itemKey": "Medveds_Tending"
+    },
+    "Katlas_Gloom": {
+      "name": "Мрачность Катлы",
+      "lines": ["Перчатки: Позволяет получить свойства Разложения"],
+      "sourceUrl": "https://poe2db.tw/ru/Katlas_Gloom",
+      "itemKey": "Katlas_Gloom"
     }
   },
   "th": {
@@ -49213,6 +49752,85 @@
       ],
       "itemKey": "Zalatls_Soul_Core_of_Insulation",
       "sourceUrl": "https://poe2db.tw/th/Zalatls_Soul_Core_of_Insulation"
+    },
+    "Astrids_Creativity": {
+      "name": "ความสร้างสรรค์ของแอสทริด",
+      "lines": [
+        "ไอเทมสวมใส่ทั้งหมด: สามารถมี ม็อดคราฟท์ ได้ เพิ่มเติม 1 อย่าง"
+      ],
+      "sourceUrl": "https://poe2db.tw/th/Astrids_Creativity",
+      "itemKey": "Astrids_Creativity"
+    },
+    "Serles_Triumph": {
+      "name": "ชัยชนะของเซอร์ล",
+      "lines": [
+        "ไอเทมสวมใส่ทั้งหมด: มี ม็อดซัฟฟิกซ์ ได้สูงสุด +1 อย่าง, local maximum mods allowed + [1]"
+      ],
+      "sourceUrl": "https://poe2db.tw/th/Serles_Triumph",
+      "itemKey": "Serles_Triumph"
+    },
+    "Legacy_of_Serles_Grit": {
+      "name": "มรดกแห่ง Serle's Grit",
+      "lines": ["กระบองมือเดียว: ค่าคุณภาพสูงสุด กลายเป็น 40%"],
+      "sourceUrl": "https://poe2db.tw/th/Legacy_of_Serles_Grit",
+      "itemKey": "Legacy_of_Serles_Grit"
+    },
+    "Legacy_of_Runeseekers_Call": {
+      "name": "มรดกแห่ง Runeseeker's Call",
+      "lines": ["ไม้กายสิทธิ์: เพิ่มผลของ อักขระที่ใส่ 75%"],
+      "sourceUrl": "https://poe2db.tw/th/Legacy_of_Runeseekers_Call",
+      "itemKey": "Legacy_of_Runeseekers_Call"
+    },
+    "Fox_Idol": {
+      "name": "เทวรูป จิ้งจอก",
+      "lines": [
+        "เสื้อเกราะ: เทวรูป ที่ใส่ในไอเทมนี้ ได้รับผลจาก ม็อดสายสัมพันธ์ ด้วย, display additional socketable mods for idols [1]",
+        "คทา: เพิ่มพื้นที่ส่งผลของ ระยะปรากฏกาย 50%"
+      ],
+      "sourceUrl": "https://poe2db.tw/th/Fox_Idol",
+      "itemKey": "Fox_Idol"
+    },
+    "Raven-Touched_Shard": {
+      "name": "สะเก็ดสัมผัสเรเวน",
+      "lines": ["หมวก: สัมผัสเรเวน"],
+      "sourceUrl": "https://poe2db.tw/th/Raven-Touched_Shard",
+      "itemKey": "Raven-Touched_Shard"
+    },
+    "Uhtreds_Sidereus": {
+      "name": "ห้วงดาราของเออห์เทร็ด",
+      "lines": ["รองเท้า: สุ่มม็อด Chronomancy ได้"],
+      "sourceUrl": "https://poe2db.tw/th/Uhtreds_Sidereus",
+      "itemKey": "Uhtreds_Sidereus"
+    },
+    "Kolrs_Hunt": {
+      "name": "การล่าของโคลร์",
+      "lines": ["ถุงมือ: สุ่มม็อด Marksman ได้"],
+      "sourceUrl": "https://poe2db.tw/th/Kolrs_Hunt",
+      "itemKey": "Kolrs_Hunt"
+    },
+    "Voranas_Carnage": {
+      "name": "การนองเลือดของวอราน่า",
+      "lines": ["หมวก: สุ่มม็อด Berserking ได้"],
+      "sourceUrl": "https://poe2db.tw/th/Voranas_Carnage",
+      "itemKey": "Voranas_Carnage"
+    },
+    "Thruds_Might": {
+      "name": "ความองอาจของธรัด",
+      "lines": ["อาวุธ: สุ่มม็อด Destruction ได้"],
+      "sourceUrl": "https://poe2db.tw/th/Thruds_Might",
+      "itemKey": "Thruds_Might"
+    },
+    "Medveds_Tending": {
+      "name": "การดูแลของเม็ดเว็ด",
+      "lines": ["เสื้อเกราะ: สุ่มม็อด Soul ได้"],
+      "sourceUrl": "https://poe2db.tw/th/Medveds_Tending",
+      "itemKey": "Medveds_Tending"
+    },
+    "Katlas_Gloom": {
+      "name": "ความมืดมัวของแคทล่า",
+      "lines": ["ถุงมือ: สุ่มม็อด Decay ได้"],
+      "sourceUrl": "https://poe2db.tw/th/Katlas_Gloom",
+      "itemKey": "Katlas_Gloom"
     }
   }
 }

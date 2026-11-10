@@ -1,4 +1,8 @@
-import { installedAugmentEffects } from './augmentEffects'
+import { isCraftedModifier } from './augmentRules'
+import {
+  installedAugmentEffects,
+  observedAugmentEffects,
+} from './augmentEffects'
 import { bondedEnabled } from './bonded'
 import { defenceDisplay } from './defenceDisplay'
 import bases from './topBases.json'
@@ -51,13 +55,15 @@ export function currentItemText(
   if (sockets)
     lines.push('--------', `Sockets: ${Array(sockets).fill('S').join(' ')}`)
   const computed = defenceDisplay(state, definitions, 'en', bondedEnabled())
-    .properties.map((line) => line.text.replaceAll('–', '-'))
+    .properties.map((line) =>
+      line.text.replaceAll('–', '-').replace(/,(?=\d{3}(?:\D|$))/g, ''),
+    )
     .filter((line) => !line.includes('Unknown'))
   if (computed.length) lines.push('--------', ...computed)
   const effects = installedAugmentEffects(state, 'en', bondedEnabled()).flatMap(
     (effect) => effect.english.split('\n').map((line) => `${line} (rune)`),
   )
-  effects.push(...(state.observations?.augmentEffects ?? []))
+  effects.push(...observedAugmentEffects(state, bondedEnabled()))
   if (effects.length) lines.push('--------', ...effects)
   const recordedSkills = state.observations?.grantedSkills
   const selectedBase = Object.values(bases).find(
@@ -116,7 +122,7 @@ export function currentItemText(
         : ''
       if (!implicit)
         lines.push(
-          `{ ${slot ? 'Desecrated ' : `${mod.fractured ? 'Fractured ' : ''}${d.tags?.includes('crafted') ? 'Crafted ' : ''}`}${d.affixType === 'PREFIX' ? 'Prefix' : 'Suffix'} Modifier "${d.name}"${d.tier > 0 ? ` (Tier: ${d.tier})` : ''}${scaling} }`,
+          `{ ${slot ? 'Desecrated ' : `${mod.fractured ? 'Fractured ' : ''}${isCraftedModifier(mod, d) ? 'Crafted ' : ''}`}${d.affixType === 'PREFIX' ? 'Prefix' : 'Suffix'} Modifier "${d.name}"${d.tier > 0 ? ` (Tier: ${d.tier})` : ''}${scaling} }`,
         )
       else if (enhanced) lines.push(`{ Implicit Modifier${scaling} }`)
       lines.push(

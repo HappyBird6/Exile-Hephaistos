@@ -72,14 +72,7 @@ public final class ItemStateValidator {
               "",
               "Sapphire socket and fractured states remain unsupported"));
     if (BasicJewel.supportedCrafting(state.baseItemId())
-        && state.explicits().stream()
-                .filter(
-                    m ->
-                        catalog
-                            .find(m.modifierId())
-                            .map(d -> d.tags().contains("crafted"))
-                            .orElse(false))
-                .count()
+        && state.explicits().stream().filter(m -> AugmentCraftingRules.crafted(m, catalog)).count()
             > 1)
       errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Only one Crafted modifier is allowed"));
     if (state.equipmentQuality() != null
@@ -130,6 +123,10 @@ public final class ItemStateValidator {
     }
     validateModifiers(state.implicits(), Layer.IMPLICIT, errors, state.observedSanctified());
     validateModifiers(state.explicits(), Layer.EXPLICIT, errors, state.observedSanctified());
+    if (state.implicits().stream().anyMatch(ModifierInstance::crafted)
+        || state.explicits().stream().filter(m -> AugmentCraftingRules.crafted(m, catalog)).count()
+            > 2)
+      errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Invalid Crafted modifier state"));
     if (state.implicits().stream().anyMatch(ModifierInstance::fractured)
         || state.explicits().stream().filter(ModifierInstance::fractured).count() > 1
         || (state.explicits().stream().anyMatch(ModifierInstance::fractured)
@@ -262,6 +259,8 @@ public final class ItemStateValidator {
           case RARE -> catalog.base().rareSuffixes();
           default -> throw new IllegalArgumentException("Unsupported rarity");
         };
+    if (!catalog.augmentContextApplied() && state.rarity() != ItemState.Rarity.NORMAL)
+      maxSuffixes += AugmentCraftingRules.suffixBonus(state);
     if (BasicJewel.supportedCrafting(state.baseItemId())
         && state.rarity() == ItemState.Rarity.RARE) {
       var ids = state.explicits().stream().map(ModifierInstance::modifierId).toList();

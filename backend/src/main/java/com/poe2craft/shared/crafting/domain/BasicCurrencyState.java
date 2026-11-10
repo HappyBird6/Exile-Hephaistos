@@ -142,6 +142,9 @@ public record BasicCurrencyState(ItemState item, Provenance provenance) {
     for (var modifier : modifiers) {
       string(out, modifier.modifierId());
       out.writeBoolean(modifier.fractured());
+      if (modifier.crafted()) {
+        out.writeUTF("crafted");
+      }
       out.writeInt(modifier.values().size());
       for (var entry : new TreeMap<>(modifier.values()).entrySet()) {
         string(out, entry.getKey());

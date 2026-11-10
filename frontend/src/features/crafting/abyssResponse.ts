@@ -1,3 +1,4 @@
+import { socketSuffixBonus } from './augmentRules'
 import { isWorkbenchJewel, reviewedBasicJewel } from './basicJewel'
 import { sameObservations } from './itemObservations'
 import type { Initial } from './craftingApi'
@@ -16,7 +17,11 @@ export function validAbyssResponse(
     if (!object(v) || typeof v.modifierId !== 'string' || !object(v.values))
       return false
     const d = initial.modifiers[v.modifierId]
-    if (!d || (v.fractured !== undefined && typeof v.fractured !== 'boolean'))
+    if (
+      !d ||
+      (v.fractured !== undefined && typeof v.fractured !== 'boolean') ||
+      (v.crafted !== undefined && typeof v.crafted !== 'boolean')
+    )
       return false
     const values = v.values
     return (
@@ -105,7 +110,7 @@ export function validAbyssResponse(
       JSON.stringify(item.conditions) !== JSON.stringify(source.conditions))
   )
     return false
-  if (value.slots.length > 6 || value.slots.some((s) => !object(s)))
+  if (value.slots.length > 7 || value.slots.some((s) => !object(s)))
     return false
   const slots = value.slots as Record<string, unknown>[]
   if (new Set(slots.map((s) => s.id)).size !== slots.length) return false
@@ -137,7 +142,8 @@ export function validAbyssResponse(
     (slots.filter((s) => s.side === 'PREFIX').length >
       (initial.baseRules?.rarePrefixes ?? 3) ||
       slots.filter((s) => s.side === 'SUFFIX').length >
-        (initial.baseRules?.rareSuffixes ?? 3))
+        (initial.baseRules?.rareSuffixes ?? 3) +
+          socketSuffixBonus(source.installedAugments))
   )
     return false
   if (

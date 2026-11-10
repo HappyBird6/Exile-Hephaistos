@@ -29,7 +29,7 @@ public record StateBucket(
     Objects.requireNonNull(rarity);
     implicits = List.copyOf(implicits);
     if (implicits.size() > 1
-        || modifierIds.size() > 6
+        || modifierIds.size() > 7
         || modifierIds.stream().anyMatch(id -> id == null || id.length() > 160)) {
       throw new IllegalArgumentException("Invalid bucket modifiers");
     }

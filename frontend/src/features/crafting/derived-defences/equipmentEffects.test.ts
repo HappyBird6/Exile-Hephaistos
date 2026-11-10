@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it } from 'vitest'
 import bases from '../topBases.json'
+import clipboardBindings from '../../../shared/i18n/modifierTemplates.json'
 import { derivedWeapons } from './derivedWeapons'
 import { derivedDefences } from './derivedDefences'
 import { installedAugmentEffects, renderAugmentEffect } from '../augmentEffects'
@@ -158,4 +159,42 @@ describe('final equipment properties', () => {
     expect(uiText('Amulet', 'ko')).toBe('목걸이')
     expect(uiText('Boots', 'ko')).toBe('장화')
   })
+})
+
+it('exports large equipment totals without UI thousands separators in the game clipboard', () => {
+  const armour = Object.values(bases).find((b) => b.armour === 570)!
+  const bindings = Object.entries(clipboardBindings.definitions)
+  const chosen = [
+    'local_base_physical_damage_reduction_rating',
+    'local_physical_damage_reduction_rating_+%',
+  ].map(
+    (stat) =>
+      bindings
+        .filter(([, b]) => b.stats.length === 1 && b.stats[0]?.id === stat)
+        .sort((a, b) => b[1].stats[0]!.max - a[1].stats[0]!.max)[0]!,
+  )
+  const defs: Record<string, Definition> = Object.fromEntries(
+    chosen.map(([id, b]) => [
+      id,
+      {
+        id,
+        name: id,
+        text: b.englishText,
+        stats: b.stats,
+        tier: 1,
+        affixType: 'PREFIX',
+        familyIds: [id],
+      },
+    ]),
+  )
+  const item = {
+    ...state(armour.id),
+    explicits: chosen.map(([id, b]) => ({
+      modifierId: id,
+      values: { [b.stats[0]!.id]: b.stats[0]!.max },
+    })),
+  }
+  const text = currentItemText(item, defs, armour.name, 'Body Armours')
+  expect(text).toMatch(/Armour: [0-9]{4}/)
+  expect(text).not.toMatch(/Armour: [0-9]+,[0-9]/)
 })

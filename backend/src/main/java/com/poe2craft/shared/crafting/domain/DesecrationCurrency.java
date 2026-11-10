@@ -60,7 +60,7 @@ public final class DesecrationCurrency {
     if (!Set.of("Omen_of_Putrefaction").equals(omens)
         || observedSides == null
         || observedSides.isEmpty()
-        || observedSides.size() > 6
+        || observedSides.size() > 7
         || observedSides.stream().anyMatch(s -> s == null || s == AffixType.NONE))
       throw new IllegalArgumentException("Record the observed slots for Putrefaction alone");
     if (item.explicits().stream().anyMatch(m -> m.fractured()))

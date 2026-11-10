@@ -67,9 +67,8 @@ export function modifierClipboardText(
         : undefined))
     : undefined
   if (verified && converters) {
-    return visibleClipboardText(templates[binding.template]!.template).replace(
-      /\{v(\d+)\}/g,
-      (_match, index: string) => {
+    return visibleClipboardText(templates[binding.template]!.template)
+      .replace(/\{v(\d+)\}/g, (_match, index: string) => {
         const i = Number(index),
           converter = converters[i]
         if (
@@ -95,8 +94,8 @@ export function modifierClipboardText(
           text +
           (bounds && !observed ? `(${bounds[1]}-${bounds[2]})` : '')
         )
-      },
-    )
+      })
+      .replace(/\b1(\([^)]*\))? seconds\b/g, '1$1 second')
   }
   const represented = new Set<string>()
   const text = definition.text.replace(

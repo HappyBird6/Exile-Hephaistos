@@ -1,4 +1,5 @@
 export interface ItemObservations {
+  augmentEffectScale?: number | null
   socketCount: number | null
   augmentEffects: string[]
   grantedSkills: { name: string; level: number | null }[]
@@ -10,7 +11,13 @@ export function observationsShape(
   if (typeof value !== 'object' || Array.isArray(value)) return false
   const v = value as Record<string, unknown>
   return (
-    Object.keys(v).length === 3 &&
+    (Object.keys(v).length === 3 ||
+      (Object.keys(v).length === 4 && 'augmentEffectScale' in v)) &&
+    (v.augmentEffectScale == null ||
+      (typeof v.augmentEffectScale === 'number' &&
+        Number.isFinite(v.augmentEffectScale) &&
+        v.augmentEffectScale >= 0.01 &&
+        v.augmentEffectScale <= 1000)) &&
     (v.socketCount === null ||
       (Number.isInteger(v.socketCount) &&
         Number(v.socketCount) >= 0 &&
@@ -44,6 +51,7 @@ export function sameObservations(a: unknown, b: unknown): boolean {
       ? null
       : [
           v.socketCount,
+          v.augmentEffectScale ?? null,
           v.augmentEffects,
           v.grantedSkills.map((s) => [s.name, s.level]),
         ]

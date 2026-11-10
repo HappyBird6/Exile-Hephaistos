@@ -1,3 +1,4 @@
+import { isCraftedModifier, craftedLimitMessages } from './augmentRules'
 import { useBonded, setBonded, bondedLabel } from './bonded'
 import { installedAugmentEffects } from './augmentEffects'
 import type { Item } from './itemModels'
@@ -1252,7 +1253,9 @@ export function CraftingPage() {
         }
       } else
         failApply(
-          translate('craft.blocked', { reason: result.reason ?? '' }, 'en'),
+          result.reason === 'Crafted modifier limit reached.'
+            ? craftedLimitMessages[locale]
+            : translate('craft.blocked', { reason: result.reason ?? '' }, 'en'),
         )
     } catch (error) {
       if (
@@ -1669,7 +1672,7 @@ export function CraftingPage() {
                             (slot) => slot.modifierId === m.modifierId,
                           )
                         ? ('desecrated' as const)
-                        : d.tags?.includes('crafted')
+                        : isCraftedModifier(m, d)
                           ? ('crafted' as const)
                           : ('explicit' as const),
                   affixLabel:

@@ -212,7 +212,11 @@ export async function applyBone(
   const result = value as AbyssState
   const fresh = result.slots.filter((s) => s.desecrated)
   const retained = result.slots.filter((s) => !s.desecrated)
-  const capacity = baseAffixCapacity(state.baseItemId, state.rarity)
+  const capacity = baseAffixCapacity(
+    state.baseItemId,
+    state.rarity,
+    state.installedAugments,
+  )
   const full =
     state.explicits.length ===
     (isWorkbenchJewel(state.baseItemId)

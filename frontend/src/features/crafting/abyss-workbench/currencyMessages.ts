@@ -1,3 +1,4 @@
+import { craftedLimitMessages } from '../augmentRules'
 const messages = {
   en: [
     'This currency cannot be used on the current item.',
@@ -54,6 +55,11 @@ export function abyssCurrencyReason(
   reason: string,
   locale: keyof typeof messages,
 ): string {
+  if (
+    reason === 'CRAFTED_LIMIT' ||
+    reason === 'Crafted modifier limit reached.'
+  )
+    return craftedLimitMessages[locale]
   const index =
     reason === 'ITEM_CONDITION'
       ? 2

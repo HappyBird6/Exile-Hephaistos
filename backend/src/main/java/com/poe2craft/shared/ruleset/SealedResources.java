@@ -20,6 +20,8 @@ public final class SealedResources {
           "catalog/attuned-wand/perfect-essences.raw.json",
           "catalog/base-policies.json",
           "catalog/equipment-currencies.json",
+          "catalog/augment-crafting.json",
+          "catalog/augment-effect-templates.json",
           "catalog/crude-bow/base.raw.json",
           "catalog/crude-bow/catalog.json",
           "catalog/crude-bow/details.raw.json",

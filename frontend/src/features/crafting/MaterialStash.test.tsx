@@ -4,7 +4,13 @@ import {
   outerMaterialTab,
 } from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import {
+  fireEvent,
+  render,
+  screen,
+  within,
+  waitFor,
+} from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
@@ -35,7 +41,7 @@ describe('Material stash and shared favorites', () => {
     show()
     fireEvent.click(tab('Augments'))
     const list = within(document.getElementById('material-list')!)
-    expect(list.getAllByRole('button')).toHaveLength(232)
+    expect(list.getAllByRole('button')).toHaveLength(244)
     for (const name of [
       'Lesser Desert Rune',
       'Desert Rune',
@@ -324,8 +330,11 @@ describe('Material stash and shared favorites', () => {
     )
   })
 
-  it('closes the modal on its backdrop and cancels browser context menus only in the bench', () => {
+  it('closes the modal on its backdrop and cancels browser context menus only in the bench', async () => {
     show()
+    await waitFor(() =>
+      expect(screen.getByRole('button', { name: 'Edit item' })).toBeEnabled(),
+    )
     fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
     fireEvent.click(screen.getByRole('dialog'))
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
@@ -384,7 +393,7 @@ describe('Material stash and shared favorites', () => {
       ['Alloy', 13],
       ['Omen', 18],
       ['Catalysts', 26],
-      ['Liquid Emotions', 27],
+      ['Liquid Emotions', 26],
     ] as const) {
       fireEvent.click(tab(label))
       expect(tab(label)).toHaveAttribute('aria-selected', 'true')
@@ -439,7 +448,7 @@ describe('Material stash and shared favorites', () => {
         ),
       ).not.toBeInTheDocument()
     }
-    expect(materials).toHaveLength(457)
+    expect(materials).toHaveLength(469)
     expect(new Set(materials.map((item) => item.id)).size).toBe(
       materials.length,
     )
@@ -500,7 +509,7 @@ describe('Material stash and shared favorites', () => {
     ).toHaveTextContent('Select a currency from the stash first.')
   })
 
-  it('navigates tabs by keyboard and closes input with focus returned to its trigger', () => {
+  it('navigates tabs by keyboard and closes input with focus returned to its trigger', async () => {
     show()
     tab('Currency').focus()
     fireEvent.keyDown(tab('Currency'), { key: 'ArrowRight' })
@@ -510,6 +519,7 @@ describe('Material stash and shared favorites', () => {
     fireEvent.keyDown(tab('Augments'), { key: 'ArrowRight' })
     expect(tab('Currency')).toHaveFocus()
     const edit = screen.getByRole('button', { name: 'Edit item' })
+    await waitFor(() => expect(edit).toBeEnabled())
     fireEvent.click(edit)
     expect(
       screen.getByRole('button', { name: 'Close item input' }),

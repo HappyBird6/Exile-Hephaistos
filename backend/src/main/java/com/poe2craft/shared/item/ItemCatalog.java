@@ -9,6 +9,7 @@ import java.util.Optional;
 
 /** A validated immutable data snapshot. No database, HTTP, or probability calculation. */
 public final class ItemCatalog {
+  private final boolean augmentContextApplied;
   private final Metadata metadata;
   private final BaseItem base;
   private final Map<String, ModifierDefinition> modifiers;
@@ -23,6 +24,16 @@ public final class ItemCatalog {
       BaseItem base,
       List<ModifierDefinition> definitions,
       List<String> compatibleSnapshotIds) {
+    this(metadata, base, definitions, compatibleSnapshotIds, false);
+  }
+
+  public ItemCatalog(
+      Metadata metadata,
+      BaseItem base,
+      List<ModifierDefinition> definitions,
+      List<String> compatibleSnapshotIds,
+      boolean augmentContextApplied) {
+    this.augmentContextApplied = augmentContextApplied;
     this.metadata = Objects.requireNonNull(metadata);
     this.base = Objects.requireNonNull(base);
     this.compatibleSnapshotIds = List.copyOf(compatibleSnapshotIds);
@@ -62,6 +73,10 @@ public final class ItemCatalog {
         throw new IllegalArgumentException("Snapshot counts or weight totals differ: " + type);
       }
     }
+  }
+
+  public boolean augmentContextApplied() {
+    return augmentContextApplied;
   }
 
   public Metadata metadata() {

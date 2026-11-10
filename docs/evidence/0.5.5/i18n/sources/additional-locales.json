@@ -38256,6 +38256,222 @@
       "sha256": "cce7d584e2bc090d3f9e636e64c13c507d97da14ac095a861458518c70435c23",
       "numericSpans": ["+40"],
       "englishNumericSpans": ["+40"]
+    },
+    {
+      "englishText": "Can have 1 additional Crafted Modifiers",
+      "locale": "ru",
+      "localizedText": "Может иметь дополнительных ремесленных свойств: 1",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": ["1"],
+      "englishNumericSpans": ["1"]
+    },
+    {
+      "englishText": "Can have 1 additional Crafted Modifiers",
+      "locale": "th",
+      "localizedText": "สามารถมี ม็อดคราฟท์ ได้ เพิ่มเติม 1 อย่าง",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": ["1"],
+      "englishNumericSpans": ["1"]
+    },
+    {
+      "englishText": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+      "locale": "ru",
+      "localizedText": "+1 допустимых свойств-суффиксов, local maximum mods allowed + [1]",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": ["+1"],
+      "englishNumericSpans": ["+1"]
+    },
+    {
+      "englishText": "+1 Suffix Modifier allowed, local maximum mods allowed + [1]",
+      "locale": "th",
+      "localizedText": "มี ม็อดซัฟฟิกซ์ ได้สูงสุด +1 อย่าง, local maximum mods allowed + [1]",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": ["+1"],
+      "englishNumericSpans": ["+1"]
+    },
+    {
+      "englishText": "Maximum Quality is 40%",
+      "locale": "ru",
+      "localizedText": "Максимальное качество равно 40%",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": ["40"],
+      "englishNumericSpans": ["40"]
+    },
+    {
+      "englishText": "Maximum Quality is 40%",
+      "locale": "th",
+      "localizedText": "ค่าคุณภาพสูงสุด กลายเป็น 40%",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": ["40"],
+      "englishNumericSpans": ["40"]
+    },
+    {
+      "englishText": "75% increased effect of Socketed Runes",
+      "locale": "ru",
+      "localizedText": "75% усиление эффекта размещенных рун",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": ["75"],
+      "englishNumericSpans": ["75"]
+    },
+    {
+      "englishText": "75% increased effect of Socketed Runes",
+      "locale": "th",
+      "localizedText": "เพิ่มผลของ อักขระที่ใส่ 75%",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": ["75"],
+      "englishNumericSpans": ["75"]
+    },
+    {
+      "englishText": "Idols socketed in this item gain the benefits of their Bonded modifiers, display additional socketable mods for idols [1]",
+      "locale": "ru",
+      "localizedText": "Размещенные в этом предмете идолы получают преимущества от своих связанных свойств, display additional socketable mods for idols [1]",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Idols socketed in this item gain the benefits of their Bonded modifiers, display additional socketable mods for idols [1]",
+      "locale": "th",
+      "localizedText": "เทวรูป ที่ใส่ในไอเทมนี้ ได้รับผลจาก ม็อดสายสัมพันธ์ ด้วย, display additional socketable mods for idols [1]",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Raven-Touched",
+      "locale": "ru",
+      "localizedText": "Касание Ворона",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Raven-Touched",
+      "locale": "th",
+      "localizedText": "สัมผัสเรเวน",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Chronomancy modifiers",
+      "locale": "ru",
+      "localizedText": "Позволяет получить свойства Хрономантии",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Chronomancy modifiers",
+      "locale": "th",
+      "localizedText": "สุ่มม็อด Chronomancy ได้",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Marksman modifiers",
+      "locale": "ru",
+      "localizedText": "Позволяет получить свойства Меткого стрелка",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Marksman modifiers",
+      "locale": "th",
+      "localizedText": "สุ่มม็อด Marksman ได้",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Berserking modifiers",
+      "locale": "ru",
+      "localizedText": "Позволяет получить свойства Неистовства",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Berserking modifiers",
+      "locale": "th",
+      "localizedText": "สุ่มม็อด Berserking ได้",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Destruction modifiers",
+      "locale": "ru",
+      "localizedText": "Позволяет получать свойства Разрушения",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Destruction modifiers",
+      "locale": "th",
+      "localizedText": "สุ่มม็อด Destruction ได้",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Soul modifiers",
+      "locale": "ru",
+      "localizedText": "Позволяет получить свойства Души",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Soul modifiers",
+      "locale": "th",
+      "localizedText": "สุ่มม็อด Soul ได้",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Decay modifiers",
+      "locale": "ru",
+      "localizedText": "Позволяет получить свойства Разложения",
+      "url": "https://poe2db.tw/ru/Augment",
+      "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310",
+      "numericSpans": [],
+      "englishNumericSpans": []
+    },
+    {
+      "englishText": "Can roll Decay modifiers",
+      "locale": "th",
+      "localizedText": "สุ่มม็อด Decay ได้",
+      "url": "https://poe2db.tw/th/Augment",
+      "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1",
+      "numericSpans": [],
+      "englishNumericSpans": []
     }
   ]
 }

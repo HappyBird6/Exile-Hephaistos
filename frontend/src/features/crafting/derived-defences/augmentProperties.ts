@@ -1,4 +1,7 @@
-import { installedAugmentEffects } from '../augmentEffects'
+import {
+  installedAugmentEffects,
+  observedAugmentEffects,
+} from '../augmentEffects'
 import type { ConcreteItem } from '../workbenchApi'
 
 /** Item-local effects only: conditional combat and character stats do not change equipment totals. */
@@ -24,7 +27,7 @@ export function augmentPropertyBonuses(state: ConcreteItem, bonded: boolean) {
   )
   // Imported unidentified Runes still carry their observed numeric effects.
   lines.push(
-    ...(state.observations?.augmentEffects ?? []).map((line) =>
+    ...observedAugmentEffects(state, bonded).map((line) =>
       line.replace(/\s*\(rune\)$/, '').trim(),
     ),
   )

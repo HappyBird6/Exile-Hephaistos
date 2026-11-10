@@ -21,6 +21,11 @@ public final class SocketAugmentText {
           Pattern.CASE_INSENSITIVE);
 
   public static Resolution resolve(String base, Integer sockets, List<String> source) {
+    return resolve(base, sockets, source, 1);
+  }
+
+  public static Resolution resolve(
+      String base, Integer sockets, List<String> source, double multiplier) {
     if (source.isEmpty()) return new Resolution(List.of(), List.of());
     var maximum = BaseRegistry.socketExecutionMaximum(base);
     if (sockets == null || maximum == null || sockets < 1 || sockets > maximum)
@@ -44,41 +49,86 @@ public final class SocketAugmentText {
         return new Resolution(List.of(), List.copyOf(source));
       }
     }
+    // Recover unique structural effects first, even when other socket identities are ambiguous.
+    var known = new ArrayList<ItemState.InstalledAugment>();
+    var remaining = new ArrayList<>(source);
+    for (var entry : SocketAugments.catalog()) {
+      String id = entry.path("id").asText();
+      if (!SocketAugments.supports(base, id)
+          || (!SocketAugmentEffects.structural(id)
+              && AugmentCraftingRules.effect(id).runeEffectPercent() == 0
+              && !AugmentCraftingRules.effect(id).idolBonded())) continue;
+      var rendered = SocketAugmentEffects.render(base, id, List.of(), multiplier, false);
+      if (rendered.isEmpty()) continue;
+      var trial = new ArrayList<>(remaining);
+      boolean matches = true;
+      for (var line : rendered) {
+        int index = -1;
+        for (int i = 0; i < trial.size(); i++)
+          if (normalize(trial.get(i)).equals(normalize(line))) {
+            index = i;
+            break;
+          }
+        if (index < 0) {
+          matches = false;
+          break;
+        }
+        trial.remove(index);
+      }
+      if (matches && known.size() < sockets) {
+        known.add(new ItemState.InstalledAugment(known.size(), id));
+        remaining = trial;
+      }
+    }
+    try {
+      SocketAugments.validate(base, sockets, known);
+    } catch (IllegalArgumentException invalid) {
+      return new Resolution(List.of(), List.copyOf(source));
+    }
+    if (known.stream().anyMatch(a -> AugmentCraftingRules.effect(a.augmentId()).idolBonded())) {
+      for (var augment : known) {
+        if (!SocketAugments.kind(augment.augmentId()).equals("Idol")) continue;
+        var ordinary =
+            SocketAugmentEffects.render(base, augment.augmentId(), known, multiplier, false);
+        var combined =
+            new ArrayList<>(
+                SocketAugmentEffects.render(base, augment.augmentId(), known, multiplier, true));
+        combined.removeAll(ordinary);
+        for (var line : combined) {
+          for (int i = 0; i < remaining.size(); i++)
+            if (normalize(remaining.get(i)).equals(normalize(line))) {
+              remaining.remove(i);
+              break;
+            }
+        }
+      }
+    }
+    if (remaining.isEmpty()) return new Resolution(List.copyOf(known), List.of());
     var target = new TreeMap<String, List<BigDecimal>>();
-    for (var line : source) {
+    for (var line : remaining) {
       var effect = effect(line);
-      if (effect == null) return direct(base, sockets, source);
+      if (effect == null) return new Resolution(List.copyOf(known), List.copyOf(remaining));
       target.merge(effect.key(), effect.values(), SocketAugmentText::add);
     }
     var candidates = new ArrayList<Candidate>();
-    String itemClass = BaseRegistry.itemClass(base);
     for (var entry : SocketAugments.catalog()) {
-      if (!SocketAugments.supports(base, entry.path("id").asText())) continue;
-      var effect = effect(entry.path("effects").path(itemClass).path("en").asText());
+      String id = entry.path("id").asText();
+      if (!SocketAugments.supports(base, id)
+          || SocketAugmentEffects.structural(id)
+          || AugmentCraftingRules.effect(id).runeEffectPercent() > 0) continue;
+      var rendered = SocketAugmentEffects.render(base, id, known, multiplier, false);
+      var effect = effect(String.join("\n", rendered));
       if (effect != null
           && target.containsKey(effect.key())
           && fits(effect.values(), target.get(effect.key())))
-        candidates.add(new Candidate(entry.path("id").asText(), effect));
+        candidates.add(new Candidate(id, effect));
     }
     candidates.sort(Comparator.comparing(Candidate::id));
     var solutions = new ArrayList<List<ItemState.InstalledAugment>>();
-    search(base, sockets, candidates, 0, target, new ArrayList<>(), solutions);
+    search(base, sockets, candidates, 0, target, new ArrayList<>(known), solutions);
     return solutions.size() == 1
         ? new Resolution(solutions.getFirst(), List.of())
-        : new Resolution(List.of(), List.copyOf(source));
-  }
-
-  private static Resolution direct(String base, int sockets, List<String> source) {
-    if (sockets != 1) return new Resolution(List.of(), List.copyOf(source));
-    String text = normalize(String.join("\n", source));
-    var matches = new ArrayList<String>();
-    for (var entry : SocketAugments.catalog())
-      if (SocketAugments.supports(base, entry.path("id").asText())
-          && normalize(entry.path("effects").path(BaseRegistry.itemClass(base)).path("en").asText())
-              .equals(text)) matches.add(entry.path("id").asText());
-    return matches.size() == 1
-        ? new Resolution(List.of(new ItemState.InstalledAugment(0, matches.getFirst())), List.of())
-        : new Resolution(List.of(), List.copyOf(source));
+        : new Resolution(List.copyOf(known), List.copyOf(remaining));
   }
 
   private static void search(
@@ -141,7 +191,8 @@ public final class SocketAugmentText {
   }
 
   private static String normalize(String text) {
-    return text.replaceAll("(?m)^\\{.*?}\\s*", "")
+    return SocketAugmentEffects.visible(text)
+        .replaceAll("(?m)^\\{.*?}\\s*", "")
         .replaceAll("\\s*\\(rune\\)", "")
         .trim()
         .replaceAll("\\s+", " ")
@@ -167,18 +218,28 @@ public final class SocketAugmentText {
 
   public static List<String> effects(ItemState state) {
     var result = new ArrayList<String>();
+    double multiplier = SocketAugmentEffects.multiplier(state);
+    boolean idolBonded =
+        state.installedAugments().stream()
+            .anyMatch(a -> AugmentCraftingRules.effect(a.augmentId()).idolBonded());
     for (var installed : state.installedAugments())
-      for (var entry : SocketAugments.catalog())
-        if (entry.path("id").asText().equals(installed.augmentId()))
-          result.addAll(
-              entry
-                  .path("effects")
-                  .path(BaseRegistry.itemClass(state.baseItemId()))
-                  .path("en")
-                  .asText()
-                  .lines()
-                  .toList());
-    if (state.observations() != null) result.addAll(state.observations().augmentEffects());
+      result.addAll(
+          SocketAugmentEffects.render(
+              state.baseItemId(),
+              installed.augmentId(),
+              state.installedAugments(),
+              multiplier,
+              idolBonded && SocketAugments.kind(installed.augmentId()).equals("Idol")));
+    if (state.observations() != null) {
+      double anchor =
+          state.observations().augmentEffectScale() == null
+              ? 1
+              : state.observations().augmentEffectScale();
+      double ratio =
+          SocketAugmentEffects.runeMultiplier(state.installedAugments(), multiplier) / anchor;
+      for (var line : state.observations().augmentEffects())
+        result.add(SocketAugmentEffects.observed(line, ratio));
+    }
     return List.copyOf(result);
   }
 

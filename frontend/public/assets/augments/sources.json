@@ -1582,5 +1582,65 @@
     "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/SoulCores/NewSoulCoreLightning.webp",
     "retrievedAt": "2026-11-05",
     "sha256": "fc90d2f5e0c101415cbbd0dc7ddd9850d8dc51bacf4ae9b3ebe67019964de99a"
+  },
+  "Astrids_Creativity": {
+    "page": "https://poe2db.tw/us/Astrids_Creativity",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune1.webp",
+    "sha256": "2661036c0ea34efd4dfbea66bd87d65009e73241ae780bd3ea6f942b78a44b81"
+  },
+  "Serles_Triumph": {
+    "page": "https://poe2db.tw/us/Serles_Triumph",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRune2.webp",
+    "sha256": "687016347a02d8ce253c04fa128374ca9af276f23024ed386996aaad1a2edc14"
+  },
+  "Legacy_of_Serles_Grit": {
+    "page": "https://poe2db.tw/us/Legacy_of_Serles_Grit",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Legacy_of_Runeseekers_Call": {
+    "page": "https://poe2db.tw/us/Legacy_of_Runeseekers_Call",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneUniqueFragment.webp",
+    "sha256": "89a94d99c9fb02857a30712757e1c78eb65b9734b09f70857455b6e937076342"
+  },
+  "Fox_Idol": {
+    "page": "https://poe2db.tw/us/Fox_Idol",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/TormentedSpiritSocketables/AzmeriSocketableFox.webp",
+    "sha256": "dd216cae82b18c7198645190f9a3b0beeef1177f68c112524fcf838e5a46013e"
+  },
+  "Raven-Touched_Shard": {
+    "page": "https://poe2db.tw/us/Raven-Touched_Shard",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Delirium/DeliriumEndgameSocketable.webp",
+    "sha256": "e643d8f812b5f8f643cca364416f9893d5dc69b52971e6e6f18c5241dcc7eaa5"
+  },
+  "Uhtreds_Sidereus": {
+    "page": "https://poe2db.tw/us/Uhtreds_Sidereus",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneTime.webp",
+    "sha256": "6f442d7abdf9d3e883204daaf176a727d3ea88062c85b238b124e8374249021a"
+  },
+  "Kolrs_Hunt": {
+    "page": "https://poe2db.tw/us/Kolrs_Hunt",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneDex.webp",
+    "sha256": "691241491cdfccac6f6d05646733c4ea27262e8e48eff0dd5b555ace131309be"
+  },
+  "Voranas_Carnage": {
+    "page": "https://poe2db.tw/us/Voranas_Carnage",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRunePhysical.webp",
+    "sha256": "f86023269710743754a263fe0cd87b66e8ae2955fabd9efb81cdf2659eb7f59f"
+  },
+  "Thruds_Might": {
+    "page": "https://poe2db.tw/us/Thruds_Might",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneFire.webp",
+    "sha256": "e3ec0a52e7bc34fb2fbb8a6cd57d1e14e47b4bc3b8241340df4322d67cd63951"
+  },
+  "Medveds_Tending": {
+    "page": "https://poe2db.tw/us/Medveds_Tending",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneCold.webp",
+    "sha256": "1fd8658b0c28b02f94d8366082deeeed9ed047e4ac8dede4b2e66c394ce07922"
+  },
+  "Katlas_Gloom": {
+    "page": "https://poe2db.tw/us/Katlas_Gloom",
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/GameWarpRuneChaos.webp",
+    "sha256": "ffc31db80d19fe67ba47c39501d76f7bb13c8a7a3cd6ebfc3cecb98c6267968d"
   }
 }

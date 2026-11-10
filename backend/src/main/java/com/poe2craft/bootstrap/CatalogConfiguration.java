@@ -39,6 +39,18 @@ public class CatalogConfiguration {
     abstract ItemObservations observations();
   }
 
+  abstract static class ObservationJson {
+    @com.fasterxml.jackson.annotation.JsonInclude(
+        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+    abstract Double augmentEffectScale();
+  }
+
+  abstract static class ModifierJson {
+    @com.fasterxml.jackson.annotation.JsonInclude(
+        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT)
+    abstract boolean crafted();
+  }
+
   abstract static class DesecrationJson {
     @com.fasterxml.jackson.annotation.JsonInclude(
         com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
@@ -55,6 +67,8 @@ public class CatalogConfiguration {
     return builder ->
         builder
             .mixIn(ItemState.class, ItemStateJson.class)
+            .mixIn(ItemObservations.class, ObservationJson.class)
+            .mixIn(com.poe2craft.shared.item.ModifierInstance.class, ModifierJson.class)
             .mixIn(ItemState.DesecratedSlot.class, DesecrationJson.class)
             .mixIn(AbyssCraftingState.Slot.class, DesecrationJson.class);
   }
