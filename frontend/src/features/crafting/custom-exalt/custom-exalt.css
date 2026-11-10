@@ -1,8 +1,9 @@
 .custom-exalt-toggle.currency-slot {
-  left: 32.2%;
-  top: 61.818%;
-  margin-top: 1.185%;
-  width: 5.53%;
+  /* 70% of a 74-unit cell, half the previous 25.5-unit gap, with a shared bottom at 414. */
+  left: calc(295.75 / 935 * 100%);
+  top: calc(362.2 / 550 * 100%);
+  margin-top: 0;
+  width: calc(51.8 / 935 * 100%);
   border-width: 2px;
   cursor: pointer;
 }
@@ -113,4 +114,22 @@
   font-size: 12px;
   font-variant-numeric: tabular-nums;
   margin-left: 5px;
+}
+
+.custom-exalt-toggle.currency-slot img {
+  filter: grayscale(1) drop-shadow(1px 3px 2px #000);
+}
+.custom-exalt-toggle.currency-slot.is-selected img {
+  filter: drop-shadow(1px 3px 2px #000);
+}
+.wb-session-notation__currency {
+  display: inline-flex;
+  flex: none;
+  align-items: flex-end;
+  gap: 2px;
+}
+.wb-session-notation__currency .wb-session-notation__rank {
+  font-size: 12px;
+  line-height: 1;
+  margin: 0;
 }

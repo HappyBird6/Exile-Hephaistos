@@ -170,9 +170,6 @@
 .wb-history-preview .crafting-cost-line {
   margin: 4px 0 10px;
 }
-.crafting-cost-line__partial {
-  color: #d7aa66;
-}
 @media (max-width: 700px) {
   .craft-page .craft-header .workspace-nav {
     flex-wrap: wrap;

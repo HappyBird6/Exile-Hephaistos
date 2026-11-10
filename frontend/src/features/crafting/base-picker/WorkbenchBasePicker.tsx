@@ -61,6 +61,13 @@ function BasePickerContent({
   const [search, setSearch] = useState('')
   const [hovered, setHovered] = useState<WorkbenchBaseKey | null>(null)
   const [focused, setFocused] = useState<WorkbenchBaseKey | null>(null)
+  const isPreviewTarget = (target: EventTarget | null) =>
+    target instanceof Element &&
+    target.closest('.wb-base-picker__preview')?.id === `${fieldId}-preview`
+  function clearPointerPreview() {
+    setHovered(null)
+    setFocused(null)
+  }
   const choices = workbenchBaseChoices(locale)
   const subtypes = [
     ...new Set(
@@ -211,13 +218,18 @@ function BasePickerContent({
           className="wb-base-picker__options wb-scrollbar"
           role="group"
           aria-label={t('ui.equipment_base')}
-          onMouseLeave={(event) => {
+          onMouseMove={(event) => {
             if (!(
-              event.relatedTarget instanceof Element &&
-              event.relatedTarget.closest('.wb-base-picker__preview')?.id ===
-                `${fieldId}-preview`
+              event.target instanceof Element &&
+              event.target.closest('.wb-base-picker__option')
             ))
-              setHovered(null)
+              clearPointerPreview()
+          }}
+          onScroll={() => {
+            if (hovered !== null) clearPointerPreview()
+          }}
+          onMouseLeave={(event) => {
+            if (!isPreviewTarget(event.relatedTarget)) clearPointerPreview()
           }}
           onBlur={(event) => {
             if (
@@ -243,6 +255,9 @@ function BasePickerContent({
               disabled={disabled}
               onClick={() => onChange(choice.key)}
               onMouseEnter={() => setHovered(choice.key)}
+              onMouseLeave={(event) => {
+                if (!isPreviewTarget(event.relatedTarget)) clearPointerPreview()
+              }}
               onPointerDown={(event) => {
                 if (event.pointerType === 'touch') setHovered(choice.key)
               }}

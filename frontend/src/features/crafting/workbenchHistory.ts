@@ -171,7 +171,6 @@ export function updateFilmMetadata(
         ? {
             ...film,
             ...metadata,
-            updatedAt: new Date().toISOString(),
             ...(metadata.favorite === true
               ? { favoriteAt: new Date().toISOString() }
               : {}),
@@ -706,7 +705,7 @@ export function viewFrame(films: Films, cursor: number): Films {
     Number.isInteger(cursor) &&
     cursor >= 0 &&
     cursor < film.frames.length
-    ? { ...updateFilmMetadata(films, film.id, {}), cursor }
+    ? { ...films, cursor }
     : films
 }
 

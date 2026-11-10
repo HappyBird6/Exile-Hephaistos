@@ -223,17 +223,19 @@ export function NotationResources({
           />
         ))}
         {step.consumedOmenIds.length > 0 && <span aria-hidden="true">+</span>}
-        {currencyRank(workbenchCurrencyActions[step.currencyId]) && (
-          <span className="wb-session-notation__rank" aria-hidden="true">
-            {currencyRank(workbenchCurrencyActions[step.currencyId])}
-          </span>
-        )}
-        <ResourceIcon
-          custom={!!step.customExalt}
-          id={step.currencyId}
-          resource={registry.get(step.currencyId)}
-          focusable={focusable}
-        />
+        <span className="wb-session-notation__currency">
+          <ResourceIcon
+            custom={!!step.customExalt}
+            id={step.currencyId}
+            resource={registry.get(step.currencyId)}
+            focusable={focusable}
+          />
+          {currencyRank(workbenchCurrencyActions[step.currencyId]) && (
+            <span className="wb-session-notation__rank" aria-hidden="true">
+              {currencyRank(workbenchCurrencyActions[step.currencyId])}
+            </span>
+          )}
+        </span>
         {step.customExalt && (
           <span
             className="wb-session-notation__chance"

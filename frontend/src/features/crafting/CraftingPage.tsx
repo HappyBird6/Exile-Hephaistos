@@ -749,7 +749,7 @@ export function CraftingPage() {
     draft.setBase(state.itemLevel, base)
     saveFilms(
       {
-        ...updateFilmMetadata(sourceHistory, selectedFilm.id, {}),
+        ...sourceHistory,
         active: selectedFilm.id,
         cursor: nextCursor,
       },
@@ -2107,7 +2107,7 @@ export function CraftingPage() {
                                 ...currency,
                                 name: currencyNames[currency.id],
                               }
-                              if (!openCustomExalt(resource)) choose(resource)
+                              choose(resource)
                             }}
                             onClick={(event) => {
                               if (mutationLocked()) return
@@ -2116,7 +2116,7 @@ export function CraftingPage() {
                                 ...currency,
                                 name: currencyNames[currency.id],
                               }
-                              if (!openCustomExalt(resource)) choose(resource)
+                              choose(resource)
                             }}
                           >
                             <CurrencyImage {...currency} name={currencyName} />
@@ -2145,6 +2145,9 @@ export function CraftingPage() {
                       className={`currency-slot custom-exalt-toggle ${customExaltEnabled ? 'is-selected' : ''}`}
                       aria-label={customExaltMessages[locale].title}
                       aria-pressed={customExaltEnabled}
+                      data-feedback-tooltip={
+                        customExaltMessages[locale].description
+                      }
                       disabled={workbenchBusy}
                       onClick={() => {
                         if (!mutationLocked())
@@ -2928,9 +2931,6 @@ export function CraftingPage() {
           }}
           disabled={workbenchBusy || filmState.blockedSaving}
           error={filmState.error ? uiText(filmState.error) : ''}
-          onInteract={(id) =>
-            commitLibraryHistory(updateFilmMetadata(filmState.history, id, {}))
-          }
           onNewCraft={(id) => {
             const selected = filmState.history.films.find((f) => f.id === id),
               frame = selected?.frames.at(-1)
@@ -3024,7 +3024,16 @@ export function CraftingPage() {
         priorityMaterialId={cursor?.id ?? null}
         priorityAnchor={feedbackAnchor}
         contextKey={feedbackContextKey}
-        priorityMaterialHint={repeatHint}
+        priorityMaterialHint={
+          customExaltEnabled &&
+          cursor &&
+          isExaltedAction(workbenchCurrencyActions[cursor.id])
+            ? {
+                materialId: cursor.id,
+                text: customExaltMessages[locale].description,
+              }
+            : repeatHint
+        }
         interactionLocked={workbenchBusy}
         isInteractionLocked={mutationLocked}
       >

@@ -47,7 +47,7 @@
 }
 .workbench-stash__resources {
   /* Four rows, including three 5px gaps; later rows remain scrollable. */
-  --stash-row-height: calc((100cqi - 12px) / 4);
+  --stash-row-height: calc((100cqi - 9px) / 3);
   height: calc(4 * var(--stash-row-height) + 15px);
   flex: none;
   grid-auto-rows: var(--stash-row-height);
@@ -55,7 +55,7 @@
   overflow-y: auto;
   overscroll-behavior: contain;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-content: start;
   gap: 5px 3px;
   padding-right: 3px;
@@ -203,17 +203,30 @@
   aspect-ratio: 935 / 20;
   margin-bottom: 0;
 }
-/* Outside the content box so category navigation never narrows the stash. */
-.workbench-stash {
-  --stash-nav-size: clamp(24px, 3.6vw, 38px);
+/* Preserve the original outer allocation and clearance beside the currency cells. */
+.workbench-stash-frame {
+  --stash-nav-size: 55px;
+  /* Keep the existing left rail clearance; its growth uses the stash's own track. */
+  --stash-nav-reserved-width: clamp(24px, 3.6vw, 38px);
+  --stash-nav-growth: calc(
+    var(--stash-nav-size) + 4px - var(--stash-nav-reserved-width)
+  );
   position: relative;
-  min-height: calc(7 * var(--stash-nav-size) + 20px);
+  flex: none;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: var(--stash-nav-growth) minmax(0, 1fr);
+}
+.workbench-stash {
+  grid-column: 2;
+  min-height: calc(7 * var(--stash-nav-size) + 26px);
 }
 .workbench-stash__nav {
   position: absolute;
-  top: -1px;
-  right: 100%;
-  width: var(--stash-nav-size);
+  top: 0;
+  right: calc(100% - var(--stash-nav-growth));
+  width: calc(var(--stash-nav-size) + 4px);
+  height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -227,10 +240,13 @@
 .workbench-stash__nav button {
   display: grid;
   place-items: center;
-  width: 100%;
+  width: var(--stash-nav-size);
+  height: var(--stash-nav-size);
+  box-sizing: border-box;
+  flex: none;
   min-width: 0;
   aspect-ratio: 1;
-  padding: 3px;
+  padding: 5px;
   border: 1px solid transparent;
   border-left: 3px solid transparent;
   border-radius: 2px;

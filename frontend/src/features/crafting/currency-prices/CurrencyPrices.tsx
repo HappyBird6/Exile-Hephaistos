@@ -201,11 +201,6 @@ export function CraftingCostLine({
         value={priced ? cost.divine : null}
         prefix={priced && cost.incomplete ? '≥ ' : ''}
       />
-      {cost.incomplete && (
-        <span className="crafting-cost-line__partial" aria-label={details}>
-          *
-        </span>
-      )}
     </div>
   )
 }

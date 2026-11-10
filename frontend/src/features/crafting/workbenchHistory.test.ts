@@ -753,7 +753,7 @@ it('refuses duplicate session IDs before they can replace an original or reach b
   expect(repo.load()).toEqual(history)
 })
 
-it('orders sessions by interaction time and favorites by registration time without reordering stored records', async () => {
+it('orders sessions by crafting time and favorites by registration time without reordering stored records', async () => {
   const { orderedFilms } = await import('./workbenchHistory')
   const root = concreteInitial(initialFixture)
   const history = startFilm(
@@ -860,4 +860,40 @@ it('preserves the hidden slot constraints and offer through augment installation
     { slotIndex: 0, augmentId: 'Perfect_Iron_Rune' },
   ])
   expect(currentFrame(history)!.abyss?.item.installedAugments).toBeUndefined()
+})
+
+it('leaves the crafting timestamp unchanged when browsing or renaming, then promotes the session after an actual craft', async () => {
+  const { orderedFilms } = await import('./workbenchHistory')
+  let history = startFilm(
+    startFilm(emptyFilms(), root, 'older', 'fixture-ruleset'),
+    root,
+    'newer',
+    'fixture-ruleset',
+  )
+  history.films[0]!.updatedAt = '2000-01-01T00:00:00Z'
+  history.films[1]!.updatedAt = '2000-01-02T00:00:00Z'
+  history = { ...history, active: 'older', cursor: 0 }
+  history = viewFrame(history, 0)
+  history = updateFilmMetadata(history, 'older', {
+    title: 'Renamed',
+    favorite: true,
+  })
+  expect(orderedFilms(history.films).map((f) => f.id)).toEqual([
+    'newer',
+    'older',
+  ])
+  expect(history.films[0]!.updatedAt).toBe('2000-01-01T00:00:00Z')
+  const response = await fixtureFetch('/api/v1/crafting/workbench/apply', {
+    body: JSON.stringify({ state: root, action: 'TRANSMUTATION' }),
+  })
+  history = recordCraft(
+    history,
+    root,
+    (await response.json()) as AppliedItem,
+    'unused',
+  )
+  expect(orderedFilms(history.films).map((f) => f.id)).toEqual([
+    'older',
+    'newer',
+  ])
 })

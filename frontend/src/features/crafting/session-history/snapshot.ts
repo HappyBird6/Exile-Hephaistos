@@ -44,7 +44,10 @@ async function capturePages(root: HTMLElement): Promise<Blob[]> {
     }
     if (source.matches('.crafting-cost-line, .coin-amount')) {
       // Freeze the measured currency row: SVG foreignObject may otherwise wrap its final coin.
-      target.style.setProperty('flex-wrap', 'nowrap', 'important')
+      const coins = Array.from(source.querySelectorAll(':scope > .coin-amount'))
+      const rows = coins.map((coin) => coin.getBoundingClientRect().top)
+      if (rows.every((top) => Math.abs(top - (rows[0] ?? top)) < 1))
+        target.style.setProperty('flex-wrap', 'nowrap', 'important')
       target.style.setProperty('flex-shrink', '0', 'important')
       target.style.setProperty(
         'min-width',

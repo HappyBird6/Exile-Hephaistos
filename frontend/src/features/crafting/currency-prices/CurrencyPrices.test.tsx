@@ -1,3 +1,6 @@
+import { concreteInitial } from '../workbenchApi'
+import { initialFixture } from '../../../shared/test/craftingFixtures'
+import type { Film } from '../workbenchHistory'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
   fireEvent,
@@ -165,4 +168,45 @@ it('keeps unavailable prices distinct from zero and disables refresh while pendi
   expect(screen.getByRole('button', { name: 'Refresh prices' })).toBeDisabled()
   expect(page.container.textContent).not.toContain('500')
   await waitFor(() => expect(screen.getByText('—')).toBeVisible())
+})
+
+it('uses only the lower-bound sign for partial totals without an extra marker', () => {
+  const root = { ...concreteInitial(initialFixture), rarity: 'RARE' as const }
+  const film = {
+    id: 'partial',
+    createdAt: '2026-11-10',
+    frames: [
+      { state: root, action: null },
+      {
+        state: {
+          ...root,
+          explicits: [{ modifierId: 'p', values: { life: 15 } }],
+        },
+        action: 'EXALTED',
+        manual: {
+          action: 'EXALTED',
+          rulesetIdentity: 'fixture-ruleset',
+          consumedOmens: ['Omen_of_Sinistral_Exaltation'],
+        },
+      },
+    ],
+  } as Film
+  const page = render(
+    <CurrencyPriceContext.Provider
+      value={{
+        data: view,
+        pending: false,
+        refreshing: false,
+        error: false,
+        refresh: () => {},
+      }}
+    >
+      <CraftingCostLine film={film} cursor={1} />
+    </CurrencyPriceContext.Provider>,
+  )
+  expect(page.container.textContent).toContain('≥')
+  expect(
+    page.container.querySelector('.crafting-cost-line__partial'),
+  ).toBeNull()
+  expect(page.container.textContent).not.toContain('*')
 })

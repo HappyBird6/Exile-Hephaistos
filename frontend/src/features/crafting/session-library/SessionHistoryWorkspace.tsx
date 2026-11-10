@@ -22,7 +22,6 @@ export type SessionHistoryWorkspaceProps = Omit<
   undo?: { title: string; expiresAt: number; onUndo: () => void }
   onContinue: (id: string) => void
   onNewCraft?: (id: string) => void
-  onInteract?: (id: string) => void
   onImport: (document: SessionDocument) => string | null
   error?: string
   active?: boolean
@@ -32,7 +31,6 @@ export type SessionHistoryWorkspaceProps = Omit<
 export function SessionHistoryWorkspace({
   onContinue,
   onNewCraft,
-  onInteract,
   onImport,
   onRename,
   undo,
@@ -126,7 +124,6 @@ export function SessionHistoryWorkspace({
               favoritesOnly={filter === 'favorites'}
               onSelect={(id) => {
                 setSelectedId(id)
-                onInteract?.(id)
                 if (window.innerWidth <= 760)
                   preview.current?.scrollIntoView({ block: 'nearest' })
               }}

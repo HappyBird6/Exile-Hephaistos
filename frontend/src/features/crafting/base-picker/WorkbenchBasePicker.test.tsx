@@ -110,6 +110,22 @@ it('filters equipment subcategories, previews on hover/focus and validates compa
   expect(
     screen.getByRole('region', { name: 'Base information' }),
   ).toHaveTextContent('Requires: Level 80, 101 Str')
+  const options = dialog.querySelector('.wb-base-picker__options')!
+  fireEvent.mouseLeave(mitts, { relatedTarget: options })
+  expect(
+    screen.getByRole('region', { name: 'Base information' }),
+  ).toHaveTextContent('Solar Amulet')
+  fireEvent.mouseEnter(mitts)
+  fireEvent.mouseMove(options)
+  expect(
+    screen.getByRole('region', { name: 'Base information' }),
+  ).toHaveTextContent('Solar Amulet')
+  fireEvent.mouseEnter(mitts)
+  fireEvent.scroll(options)
+  expect(
+    screen.getByRole('region', { name: 'Base information' }),
+  ).toHaveTextContent('Solar Amulet')
+  fireEvent.mouseEnter(mitts)
   fireEvent.mouseLeave(mitts)
   expect(
     screen.getByRole('region', { name: 'Base information' }),

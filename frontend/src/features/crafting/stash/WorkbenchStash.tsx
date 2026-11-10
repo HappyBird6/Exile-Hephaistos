@@ -118,72 +118,76 @@ export function WorkbenchStash({
     )
   }
   return (
-    <section className="workbench-stash" aria-label={t('ui.currency_stash')}>
+    <div className="workbench-stash-frame">
       {tabs}
-      <div
-        className="workbench-stash__panel"
-        id="material-list"
-        role="tabpanel"
-        aria-labelledby={`tab-${activeTab}`}
-      >
-        <input
-          type="search"
-          className="workbench-stash__search"
-          aria-label={t('material.search', {
-            category:
-              activeTab === 'Augments'
-                ? socketText().tab
-                : t(`stash.${activeTab}`),
-          })}
-          placeholder={t('ui.search')}
-          value={search}
-          disabled={disabled}
-          onChange={(event) =>
-            setSearches((current) => ({
-              ...current,
-              [activeTab]: event.target.value,
-            }))
-          }
-        />
-        <label className="workbench-stash__filter">
+      <section className="workbench-stash" aria-label={t('ui.currency_stash')}>
+        <div
+          className="workbench-stash__panel"
+          id="material-list"
+          role="tabpanel"
+          aria-labelledby={`tab-${activeTab}`}
+        >
           <input
-            type="checkbox"
-            checked={filterEnabled}
+            type="search"
+            className="workbench-stash__search"
+            aria-label={t('material.search', {
+              category:
+                activeTab === 'Augments'
+                  ? socketText().tab
+                  : t(`stash.${activeTab}`),
+            })}
+            placeholder={t('ui.search')}
+            value={search}
             disabled={disabled}
-            onChange={(event) => setFilterEnabled(event.target.checked)}
+            onChange={(event) =>
+              setSearches((current) => ({
+                ...current,
+                [activeTab]: event.target.value,
+              }))
+            }
           />
-          <span>{t('material.filter_by_item_type')}</span>
-        </label>
-        <div className="workbench-stash__resources wb-scrollbar">
-          {activeTab === 'Essence'
-            ? [...(specials.length ? [specials] : []), ...rows].map(
-                (row, index) => (
-                  <div
-                    className="essence-row"
-                    key={index}
-                    role={index === 0 && specials.length ? 'group' : undefined}
-                    aria-label={
-                      index === 0 && specials.length
-                        ? t('ui.special_essences')
-                        : undefined
-                    }
-                  >
-                    {row
-                      .filter((entry) => entry !== undefined)
-                      .map(resourceButton)}
-                  </div>
-                ),
-              )
-            : visible.map(resourceButton)}
-          {(activeTab === 'Essence'
-            ? rows.length === 0 && specials.length === 0
-            : visible.length === 0) && (
-            <p className="workbench-stash__empty">
-              {t('ui.no_materials_found')}
-            </p>
-          )}
+          <label className="workbench-stash__filter">
+            <input
+              type="checkbox"
+              checked={filterEnabled}
+              disabled={disabled}
+              onChange={(event) => setFilterEnabled(event.target.checked)}
+            />
+            <span>{t('material.filter_by_item_type')}</span>
+          </label>
+          <div className="workbench-stash__resources wb-scrollbar">
+            {activeTab === 'Essence'
+              ? [...(specials.length ? [specials] : []), ...rows].map(
+                  (row, index) => (
+                    <div
+                      className="essence-row"
+                      key={index}
+                      role={
+                        index === 0 && specials.length ? 'group' : undefined
+                      }
+                      aria-label={
+                        index === 0 && specials.length
+                          ? t('ui.special_essences')
+                          : undefined
+                      }
+                    >
+                      {row
+                        .filter((entry) => entry !== undefined)
+                        .map(resourceButton)}
+                    </div>
+                  ),
+                )
+              : visible.map(resourceButton)}
+            {(activeTab === 'Essence'
+              ? rows.length === 0 && specials.length === 0
+              : visible.length === 0) && (
+              <p className="workbench-stash__empty">
+                {t('ui.no_materials_found')}
+              </p>
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   )
 }

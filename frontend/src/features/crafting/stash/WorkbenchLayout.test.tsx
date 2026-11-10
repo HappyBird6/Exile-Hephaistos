@@ -302,7 +302,8 @@ describe('single canvas category selector and favorites inside the coordinate pl
     fireEvent.keyDown(within(selector).getAllByRole('tab')[1]!, { key: 'Home' })
     expect(document.querySelector('.stash-canvas')).toContainElement(selector)
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
-    expect(right).toContainElement(selector)
+    expect(right.parentElement).toHaveClass('workbench-stash-frame')
+    expect(right.parentElement).toContainElement(selector)
     expect(document.querySelector('.stash-heading')).toBeNull()
     expect(screen.queryByRole('checkbox', { name: 'Show tooltips' })).toBeNull()
     const fixedShelf = document.querySelector<HTMLElement>('.currency-catalog')!
@@ -420,7 +421,10 @@ describe('single canvas category selector and favorites inside the coordinate pl
       ),
     ).toBe('935/550')
     expect(getComputedStyle(right.parentElement!).position).toBe('relative')
-    expect(right.parentElement).toHaveClass('workbench-stash-column')
+    expect(right.parentElement).toHaveClass('workbench-stash-frame')
+    expect(right.parentElement?.parentElement).toHaveClass(
+      'workbench-stash-column',
+    )
     expect(
       getComputedStyle(document.querySelector('.stash-viewport')!).overflowX,
     ).toBe('clip')
@@ -472,7 +476,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
           expect(style[property]).toBe(editStyle[property])
       }
       expect(compact(getComputedStyle(controls).gridTemplateRows)).toBe(
-        'repeat(3,minmax(0,1fr))',
+        'repeat(4,minmax(0,1fr))',
       )
       expect(document.querySelector('.workbench-session-entry')).toBeNull()
       expect(
@@ -551,14 +555,14 @@ describe('single canvas category selector and favorites inside the coordinate pl
     expect(document.querySelector('.wb-history-nav')).toBeVisible()
   })
 
-  it('stretches the canvas with the right column while keeping the lower controls on one track', () => {
+  it('keeps the canvas height independent of the right column while preserving the lower controls track', () => {
     show()
     const viewport = document.querySelector('.stash-viewport')!
     const content = document.querySelector('.stash-canvas__content')!
     const favorites = document.querySelector('.workbench-stash__favorites')!
     const controls = document.querySelector('.workbench-item-controls')!
     const stash = document.querySelector('.workbench-stash-column')!
-    expect(getComputedStyle(viewport).alignSelf).toBe('stretch')
+    expect(getComputedStyle(viewport).alignSelf).toBe('start')
     expect(getComputedStyle(viewport).display).toBe('flex')
     expect(getComputedStyle(content).display).toBe('grid')
     expect(getComputedStyle(favorites).gridRow).toBe('3')

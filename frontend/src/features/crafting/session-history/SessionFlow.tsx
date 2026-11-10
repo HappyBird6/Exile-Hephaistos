@@ -68,10 +68,7 @@ export function SessionFlow({
         aria-hidden="true"
         style={{
           gridRow: 2,
-          gridColumn:
-            columns > 1 && film.frames.length > columns
-              ? `1 / ${columns * 2 - 1}`
-              : '1 / -1',
+          gridColumn: 1,
         }}
       >
         <div className="session-flow-summary__content">
