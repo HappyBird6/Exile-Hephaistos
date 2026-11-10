@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.poe2craft.bootstrap.CatalogConfiguration;
 import com.poe2craft.bootstrap.http.CraftingErrors;
+import com.poe2craft.shared.crafting.application.CatalogCraftingService;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ManualRevealCatalog;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
@@ -16,6 +17,7 @@ import com.poe2craft.shared.item.text.ItemTextService;
 import com.poe2craft.shared.ruleset.api.RulesetBoundary;
 import com.poe2craft.workbench.api.WorkbenchController;
 import java.util.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -28,7 +30,38 @@ import org.springframework.test.web.servlet.MockMvc;
 class AbyssControllerTest {
   @Autowired MockMvc mvc;
   @Autowired ObjectMapper json;
-  final HysteriaEssenceTest fixture = new HysteriaEssenceTest();
+  @Autowired CatalogCraftingService crafting;
+  private CurrentCatalogFixture fixture;
+
+  @BeforeEach
+  void currentCatalogFixture() {
+    fixture = new CurrentCatalogFixture();
+  }
+
+  // HTTP boundaries validate the current full catalog, not the legacy domain-test subset.
+  private final class CurrentCatalogFixture {
+    final com.poe2craft.shared.item.ItemCatalog catalog = crafting.abyssCatalog(rare(82, ""));
+
+    ItemState rare(int level, String locked, String... ids) {
+      var root = crafting.initial("solar", level, true).state();
+      return new ItemState(
+          root.snapshotId(),
+          root.baseItemId(),
+          level,
+          ItemState.Rarity.RARE,
+          root.implicits(),
+          Arrays.stream(ids)
+              .map(
+                  id -> {
+                    var definition = catalog.find(id).orElseThrow();
+                    var values = new HashMap<String, Long>();
+                    definition.stats().forEach(stat -> values.put(stat.id(), stat.min()));
+                    return new ModifierInstance(id, values, id.equals(locked));
+                  })
+              .toList(),
+          root.conditions());
+    }
+  }
 
   @Test
   void directChoiceUsesEligiblePoolAndRestoresWithoutThreeCandidates() throws Exception {

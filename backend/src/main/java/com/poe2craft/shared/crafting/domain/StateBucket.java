@@ -41,6 +41,11 @@ public record StateBucket(
     if (item.catalystQuality() != null)
       throw new IllegalArgumentException(
           "Catalyst quality cannot be projected into an affix-only bucket");
+    return forModifierEligibility(item);
+  }
+
+  /** Candidate eligibility ignores numeric quality; this projection must not replace the item. */
+  public static StateBucket forModifierEligibility(ItemState item) {
     return new StateBucket(
         item.snapshotId(),
         item.baseItemId(),

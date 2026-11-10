@@ -117,6 +117,10 @@ public final class ModifierReferenceService {
                             && slot.side() == ModifierDefinition.AffixType.SUFFIX)
                 .count();
     return resolver.exclusions(
-        StateBucket.from(state), d, reservedPrefixes, reservedSuffixes, replacingHidden);
+        StateBucket.forModifierEligibility(state),
+        d,
+        reservedPrefixes,
+        reservedSuffixes,
+        replacingHidden);
   }
 }

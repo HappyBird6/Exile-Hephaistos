@@ -854,6 +854,14 @@ it('preserves the hidden slot constraints and offer through augment installation
       rulesetIdentity: 'fixture-ruleset',
     } as import('./workbenchApi').AppliedItem,
     'new',
+    undefined,
+    {
+      ...abyss,
+      item: {
+        ...abyss.item,
+        installedAugments: [{ slotIndex: 0, augmentId: 'Perfect_Iron_Rune' }],
+      },
+    },
   )
   expect(currentFrame(next)!.abyss?.slots).toEqual(abyss.slots)
   expect(currentFrame(next)!.abyss?.item.installedAugments).toEqual([

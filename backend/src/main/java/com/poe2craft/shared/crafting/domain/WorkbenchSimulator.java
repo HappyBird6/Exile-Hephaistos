@@ -348,6 +348,13 @@ public final class WorkbenchSimulator {
     return ids.stream().sorted().map(WorkbenchOmen::fromId).toList();
   }
 
+  /** The operation's omen set is shared by ordinary and user-selected execution. */
+  public Set<String> triggeredOmens(WorkbenchCurrency action, Set<String> activeOmens) {
+    return matching(action, parseOmens(activeOmens)).stream()
+        .map(WorkbenchOmen::id)
+        .collect(java.util.stream.Collectors.toCollection(TreeSet::new));
+  }
+
   private List<WorkbenchOmen> matching(WorkbenchCurrency action, List<WorkbenchOmen> omens) {
     return omens.stream()
         .filter(
@@ -442,9 +449,11 @@ public final class WorkbenchSimulator {
             "Greater Exaltation is supported only with at least two free explicit slots; the one-slot interaction needs verification.");
       var originalTags =
           matches.contains(WorkbenchOmen.HOMOGENISING_EXALTATION)
-              ? additionRules.existingTags(affixBucket(state))
+              ? additionRules.existingTags(StateBucket.forModifierEligibility(state))
               : Set.<String>of();
-      var first = additionRules.poolWithTags(affixBucket(state), action, originalTags);
+      var first =
+          additionRules.poolWithTags(
+              StateBucket.forModifierEligibility(state), action, originalTags);
       if (first.isEmpty()) return blocked(action, "No verified first addition pool.");
       for (var candidate : first) {
         var next = new ArrayList<>(state.explicits());
@@ -453,7 +462,8 @@ public final class WorkbenchSimulator {
         next.add(new ModifierInstance(candidate.id(), values));
         if (additionRules
             .poolWithTags(
-                affixBucket(copy(state, state.rarity(), state.implicits(), next)),
+                StateBucket.forModifierEligibility(
+                    copy(state, state.rarity(), state.implicits(), next)),
                 action,
                 originalTags)
             .isEmpty())
@@ -464,7 +474,7 @@ public final class WorkbenchSimulator {
     if (AdditionRules.isAddition(action)) {
       var plan =
           additionRules.plan(
-              affixBucket(state),
+              StateBucket.forModifierEligibility(state),
               action,
               omens.stream().map(WorkbenchOmen::id).collect(java.util.stream.Collectors.toSet()));
       return new Availability(action, plan.available(), plan.reason());
@@ -690,7 +700,7 @@ public final class WorkbenchSimulator {
 
   public List<ModifierDefinition> pool(
       ItemState state, WorkbenchCurrency currency, WorkbenchOmen omen) {
-    return additionRules.pool(affixBucket(state), currency, omen);
+    return additionRules.pool(StateBucket.forModifierEligibility(state), currency, omen);
   }
 
   private List<ModifierInstance> removalCandidates(ItemState state, WorkbenchOmen omen) {
@@ -771,8 +781,7 @@ public final class WorkbenchSimulator {
     if (!state.item().conditions().isEmpty()) return AbyssCraftingPlan.blocked("ITEM_CONDITION");
     state.validate(catalog);
     validate(state.knownItem());
-    if (state.offer() != null || state.item().catalystQuality() != null)
-      return AbyssCraftingPlan.blocked("RESOLVE_OFFER_OR_QUALITY_BEFORE_CURRENCY");
+    if (state.offer() != null) return AbyssCraftingPlan.blocked("RESOLVE_OFFER_BEFORE_CURRENCY");
     if (action == null || state.item().rarity() != ItemState.Rarity.RARE)
       return AbyssCraftingPlan.blocked("RARITY_NOT_APPLICABLE");
     var omens = parseOmens(activeOmens);
@@ -1131,9 +1140,9 @@ public final class WorkbenchSimulator {
     if (WorkbenchOmen.verifiedDoubleAddition(matched)) {
       var tags =
           matched.stream().anyMatch(WorkbenchOmen::homogenising)
-              ? additionRules.existingTags(affixBucket(original))
+              ? additionRules.existingTags(StateBucket.forModifierEligibility(original))
               : Set.<String>of();
-      return additionRules.poolWithTags(affixBucket(state), action, tags);
+      return additionRules.poolWithTags(StateBucket.forModifierEligibility(state), action, tags);
     }
     return pool(state, action, matched.isEmpty() ? null : matched.getFirst());
   }
@@ -1479,7 +1488,9 @@ public final class WorkbenchSimulator {
         int additions = WorkbenchOmen.verifiedDoubleAddition(matched) ? 2 : 1;
         var homogenising = matched.stream().anyMatch(WorkbenchOmen::homogenising);
         var originalTags =
-            homogenising ? additionRules.existingTags(affixBucket(state)) : Set.<String>of();
+            homogenising
+                ? additionRules.existingTags(StateBucket.forModifierEligibility(state))
+                : Set.<String>of();
         for (int i = 0; i < additions; i++) {
           var intermediate = copy(state, rarity, implicits, explicits);
           var candidates =
@@ -1489,7 +1500,9 @@ public final class WorkbenchSimulator {
                       ? basicPlan.candidatesFor(intermediate)
                       : WorkbenchOmen.verifiedDoubleAddition(matched)
                           ? additionRules.poolWithTags(
-                              affixBucket(intermediate), action, originalTags)
+                              StateBucket.forModifierEligibility(intermediate),
+                              action,
+                              originalTags)
                           : pool(
                               intermediate,
                               action,
@@ -1715,19 +1728,6 @@ public final class WorkbenchSimulator {
             .withAugments(state.installedAugments());
     var limit = QualityLimitRules.describe(without, catalog);
     return limit == null || state.catalystQuality().amount() > limit.maximumQuality();
-  }
-
-  // Affix probabilities use canonical rolls/tags only; quality is retained by copy, outside this
-  // projection.
-  private static StateBucket affixBucket(ItemState state) {
-    return new StateBucket(
-        state.snapshotId(),
-        state.baseItemId(),
-        state.itemLevel(),
-        state.rarity(),
-        state.implicits(),
-        state.explicits().stream().map(ModifierInstance::modifierId).toList(),
-        state.conditions());
   }
 
   private static ItemState copy(

@@ -1,3 +1,8 @@
+import { sameItemState } from './crafting-state/itemIdentity'
+import {
+  resolveCraftingState,
+  withSlotItemMetadata,
+} from './crafting-state/craftingState'
 import { categoryImageIds } from './stash/categoryImages'
 import { CustomExaltDialog } from './custom-exalt/CustomExaltDialog'
 import { applyCustomExalt } from './custom-exalt/api'
@@ -551,8 +556,10 @@ export function CraftingPage() {
             storedFrame.state,
             initial.data,
           ) &&
-            JSON.stringify(storedAbyssItem(storedFrame.abyss)) ===
-              JSON.stringify(storedFrame.state)))
+            sameItemState(
+              storedAbyssItem(storedFrame.abyss),
+              storedFrame.state,
+            )))
       : false
   const restoredState =
     restoredValid && initial.data && storedFrame ? storedFrame.state : undefined
@@ -1044,10 +1051,10 @@ export function CraftingPage() {
         applied.result,
         filmId(),
         initial.data.compatibilityId,
+        applied.abyss,
       )
       const frame = currentFrame(next)!
       frame.customExalt = structuredClone(applied.choice)
-      if (applied.abyss) frame.abyss = structuredClone(applied.abyss)
       if (!saveFilms(next, request.revision, true)) throw Error('Save failed')
       client.setQueryData(workbenchKey, applied.result)
       draft.setActiveOmens(applied.result.remainingOmens)
@@ -1327,21 +1334,23 @@ export function CraftingPage() {
         )
         if (!repeatContextCurrent()) return
         result.remainingOmens = [...draft.activeOmens]
-        client.setQueryData(workbenchKey, result)
         const history =
           filmState.revision === revision
             ? filmState.history
             : { ...filmState.history, active: null, cursor: 0 }
-        saveFilms(
-          recordCraft(
-            history,
-            state,
-            result,
-            filmId(),
-            initial.data.compatibilityId,
+        const next = recordCraft(
+          history,
+          state,
+          result,
+          filmId(),
+          initial.data.compatibilityId,
+          withSlotItemMetadata(
+            resolveCraftingState(state, initial.data, storedFrame?.abyss).abyss,
+            result.state,
           ),
-          revision,
         )
+        if (!saveFilms(next, revision)) throw Error('Save failed')
+        client.setQueryData(workbenchKey, result)
         setAnnouncement(augmentName(selection.id))
         setSelected(null)
         setHeld(null)
@@ -1351,8 +1360,11 @@ export function CraftingPage() {
       }
       if (!action) throw new Error(t('notice.no_rule'))
       if (state.desecrated?.length || storedFrame?.abyss) {
-        const source =
-          storedFrame?.abyss ?? abyssFromConcrete(state, initial.data)
+        const source = resolveCraftingState(
+          state,
+          initial.data,
+          storedFrame?.abyss,
+        ).abyss!
         const result = await applyAbyssCurrency(
           source,
           action,

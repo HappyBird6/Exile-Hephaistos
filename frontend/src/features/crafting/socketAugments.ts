@@ -1,3 +1,4 @@
+import { sameItemState } from './crafting-state/itemIdentity'
 import type { Definition } from './craftingApi'
 import { observedAugmentEffects } from './augmentEffects'
 import { socketIsBound, visibleAugmentText } from './augmentRules'
@@ -167,28 +168,11 @@ export async function installAugment(
     { slotIndex: slot, augmentId: id },
   ].sort((a, b) => a.slotIndex - b.slotIndex)
   const expected = { ...state, installedAugments: installed }
-  const stable = (v: unknown): unknown =>
-    Array.isArray(v)
-      ? v.map(stable)
-      : v && typeof v === 'object'
-        ? Object.fromEntries(
-            Object.entries(v)
-              .filter(
-                ([k, v]) =>
-                  v != null &&
-                  !(['fractured', 'crafted'].includes(k) && v === false) &&
-                  !(k === 'desecrated' && Array.isArray(v) && !v.length),
-              )
-              .sort(([a], [b]) => a.localeCompare(b))
-              .map(([k, v]) => [k, stable(v)]),
-          )
-        : v
-  const normalized = (s: ConcreteItem) => JSON.stringify(stable(s))
   if (
     result.rulesetIdentity !== identity ||
     !result.applied ||
     result.action !== 'INSTALL_AUGMENT' ||
-    normalized(result.state) !== normalized(expected) ||
+    !sameItemState(result.state, expected) ||
     result.events.length ||
     result.consumedOmens.length ||
     !augmentShape(result.state as unknown as Record<string, unknown>)

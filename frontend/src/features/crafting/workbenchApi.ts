@@ -1,3 +1,4 @@
+import { currencyOmens } from './crafting-state/activeOmens'
 import { effectiveDefinitions, isCraftedModifier } from './augmentRules'
 import equipmentCurrencies from './equipmentCurrencies.json'
 import { observedSanctified } from './sanctification/sanctification'
@@ -1054,6 +1055,8 @@ export async function applyCurrency(
   activeOmens: string[],
   rulesetIdentity: string,
 ): Promise<AppliedItem> {
+  const omenContext = currencyOmens(activeOmens)
+  activeOmens = omenContext.requested
   definitions = effectiveDefinitions(state, definitions)
   if (!supportsConcreteStateShape(state))
     throw new Error(
@@ -2152,7 +2155,7 @@ export async function applyCurrency(
     throw new Error(
       'Could not verify the Fractured modifier. Your item is unchanged. Please retry.',
     )
-  return v
+  return { ...v, remainingOmens: omenContext.restore(v.remainingOmens) }
 }
 
 export function rolledText(

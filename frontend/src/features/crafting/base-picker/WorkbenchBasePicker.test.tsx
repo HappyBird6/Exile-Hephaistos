@@ -116,12 +116,14 @@ it('filters equipment subcategories, previews on hover/focus and validates compa
     screen.getByRole('region', { name: 'Base information' }),
   ).toHaveTextContent('Solar Amulet')
   fireEvent.mouseEnter(mitts)
-  fireEvent.mouseMove(options)
+  fireEvent.mouseLeave(options)
   expect(
     screen.getByRole('region', { name: 'Base information' }),
   ).toHaveTextContent('Solar Amulet')
   fireEvent.mouseEnter(mitts)
-  fireEvent.scroll(options)
+  fireEvent.mouseLeave(mitts, {
+    relatedTarget: screen.getByRole('region', { name: 'Base information' }),
+  })
   expect(
     screen.getByRole('region', { name: 'Base information' }),
   ).toHaveTextContent('Solar Amulet')

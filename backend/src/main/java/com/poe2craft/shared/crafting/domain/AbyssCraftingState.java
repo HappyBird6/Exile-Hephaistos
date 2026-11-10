@@ -339,6 +339,58 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
       throw new IllegalArgumentException("Sanctified items cannot be modified");
   }
 
+  /**
+   * Reconcile a known-value operation without losing hidden slots, reveal constraints or an offer.
+   */
+  public AbyssCraftingState withKnownItem(
+      ItemState nextItem, Set<String> removedModifierIds, ItemCatalog catalog) {
+    var slots = new ArrayList<AbyssCraftingState.Slot>();
+    slots().stream().filter(s -> s.modifier() == null).forEach(slots::add);
+    int index = 0;
+    for (var modifier : nextItem.explicits()) {
+      var previous =
+          this.slots().stream()
+              .filter(
+                  s ->
+                      s.modifier() != null
+                          && !removedModifierIds.contains(s.modifier().modifierId())
+                          && s.modifier().modifierId().equals(modifier.modifierId()))
+              .findFirst();
+      if (previous.isPresent()) {
+        var s = previous.get();
+        slots.add(
+            new AbyssCraftingState.Slot(
+                s.id(),
+                s.side(),
+                modifier,
+                s.desecrated(),
+                s.minimumModifierLevel(),
+                s.revealPool()));
+      } else {
+        String id;
+        do {
+          id = "currency-" + index++;
+        } while (occupiedSlotId(id));
+        slots.add(
+            new AbyssCraftingState.Slot(
+                id,
+                catalog.find(modifier.modifierId()).orElseThrow().affixType(),
+                modifier,
+                false));
+      }
+    }
+    var retainedOffer = offer();
+    if (retainedOffer != null && slots.stream().noneMatch(s -> s.id().equals(offer().slotId())))
+      retainedOffer = null;
+    var next = new AbyssCraftingState(withExplicits(nextItem, List.of()), slots, retainedOffer);
+    next.validate(catalog);
+    return next;
+  }
+
+  private boolean occupiedSlotId(String id) {
+    return slots.stream().anyMatch(s -> s.id().equals(id));
+  }
+
   static ItemState withExplicits(ItemState s, List<ModifierInstance> modifiers) {
     return new ItemState(
             s.snapshotId(),

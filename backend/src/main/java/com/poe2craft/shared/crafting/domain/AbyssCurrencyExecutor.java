@@ -2,7 +2,6 @@ package com.poe2craft.shared.crafting.domain;
 
 import com.poe2craft.shared.item.BasicJewel;
 import com.poe2craft.shared.item.ItemCatalog;
-import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ManualRevealCatalog;
 import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
@@ -67,72 +66,15 @@ public final class AbyssCurrencyExecutor {
             || action == WorkbenchCurrency.ARTIFICER
             || action.catalystType() != null;
     try {
+      if (action.baseAction() == CraftingAction.EXALTED)
+        return exaltTransition(state, action, omens, random, null).outcome();
       // The concrete sampler knows existing item values, quality, socket and omen rules.
       // Hidden slots are opaque and can only bypass it for operations that cannot change slots.
-      if (!hidden || valuesOnly) {
-        var result = simulator.apply(state.knownItem(), action, omens, random);
-        if (!result.applied()) return blocked(state, action, omens, result.reason());
-        var removedIds =
-            result.events().stream()
-                .filter(e -> e.kind().equals("REMOVE"))
-                .map(WorkbenchSimulator.Event::modifierId)
-                .toList();
-        var slots = new ArrayList<AbyssCraftingState.Slot>();
-        if (hidden) state.slots().stream().filter(s -> s.modifier() == null).forEach(slots::add);
-        int index = 0;
-        for (var modifier : result.state().explicits()) {
-          var previous =
-              state.slots().stream()
-                  .filter(
-                      s ->
-                          s.modifier() != null
-                              && !removedIds.contains(s.modifier().modifierId())
-                              && s.modifier().modifierId().equals(modifier.modifierId()))
-                  .findFirst();
-          if (previous.isPresent()) {
-            var s = previous.get();
-            slots.add(
-                new AbyssCraftingState.Slot(
-                    s.id(),
-                    s.side(),
-                    modifier,
-                    s.desecrated(),
-                    s.minimumModifierLevel(),
-                    s.revealPool()));
-          } else {
-            String id;
-            do {
-              id = "currency-" + index++;
-            } while (containsId(state, id));
-            slots.add(
-                new AbyssCraftingState.Slot(
-                    id,
-                    catalog.find(modifier.modifierId()).orElseThrow().affixType(),
-                    modifier,
-                    false));
-          }
-        }
-        var offer = state.offer();
-        if (offer != null && slots.stream().noneMatch(s -> s.id().equals(state.offer().slotId())))
-          offer = null;
-        var next =
-            new AbyssCraftingState(
-                AbyssCraftingState.withExplicits(result.state(), List.of()), slots, offer);
-        next.validate(catalog);
-        return new Result(
-            next, action, true, result.reason(), result.consumedOmens(), result.remainingOmens());
-      }
+      if (!hidden || valuesOnly)
+        return concreteTransition(state, action, omens, random, null).outcome();
       // Known slot-changing rules already count hidden slots, protect fractures and enforce
       // families.
-      var matching = new TreeSet<String>();
-      for (var id : omens) {
-        var omen = WorkbenchOmen.fromId(id);
-        if (omen.trigger() == action
-            || (action.baseAction() != null && omen.trigger().baseAction() == action.baseAction())
-            || (omen.trigger() == WorkbenchCurrency.ESSENCE_HYSTERIA
-                && !action.isLiquid()
-                && !action.replacementEssenceModifiers().isEmpty())) matching.add(id);
-      }
+      var matching = simulator.triggeredOmens(action, omens);
       if (action.baseAction() == CraftingAction.CHAOS) {
         var effects = matching.stream().map(WorkbenchOmen::fromId).toList();
         if (effects.contains(WorkbenchOmen.WHITTLING))
@@ -198,49 +140,154 @@ public final class AbyssCurrencyExecutor {
             List.copyOf(matching),
             omens.stream().filter(id -> !matching.contains(id)).sorted().toList());
       }
-      // Catalyst quality is retained metadata under the concrete sampler's current policy;
-      // the legacy Abyss sampler's quality guard must not become a blanket craft prohibition.
-      var i = state.item();
-      var sampling =
-          i.catalystQuality() == null
-              ? state
-              : new AbyssCraftingState(
-                  new ItemState(
-                          i.snapshotId(),
-                          i.baseItemId(),
-                          i.itemLevel(),
-                          i.rarity(),
-                          i.implicits(),
-                          i.explicits(),
-                          i.conditions(),
-                          i.augmentSockets(),
-                          null,
-                          i.desecrated(),
-                          i.equipmentQuality(),
-                          i.observations())
-                      .withAugments(i.installedAugments()),
-                  state.slots(),
-                  state.offer());
-      var plan = simulator.abyssPlan(sampling, action, matching);
-      if (!plan.available()) return blocked(state, action, omens, plan.reason());
-      var sampled = simulator.applyAbyss(sampling, action, matching, random);
-      var next = new AbyssCraftingState(state.item(), sampled.slots(), sampled.offer());
-      next.validate(catalog);
-      return new Result(
-          next,
-          action,
-          true,
-          "",
-          List.copyOf(matching),
-          omens.stream().filter(id -> !matching.contains(id)).sorted().toList());
+      return hiddenTransition(state, action, omens, random, null).outcome();
     } catch (IllegalArgumentException unsupported) {
       // The original immutable state and every omen survive a rejected transition.
       return blocked(state, action, omens, "ABYSS_CURRENCY_UNAVAILABLE");
     }
   }
 
-  private static boolean containsId(AbyssCraftingState state, String id) {
-    return state.slots().stream().anyMatch(s -> s.id().equals(id));
+  /** Receipt and slot state are produced atomically from the same accepted operation. */
+  public record Transition(Result outcome, WorkbenchSimulator.Result receipt) {}
+
+  public List<WorkbenchSimulator.ExaltChoice> exaltChoices(
+      AbyssCraftingState state, WorkbenchCurrency action, Set<String> activeOmens) {
+    requireExalt(action);
+    state.validate(catalog);
+    if (!state.item().conditions().isEmpty()) return List.of();
+    if (!hasHidden(state)) return simulator.exaltChoices(state.knownItem(), action, activeOmens);
+    var plan = simulator.abyssPlan(state, action, simulator.triggeredOmens(action, activeOmens));
+    if (!plan.available()) return List.of();
+    var candidates = plan.branches().getFirst().candidates();
+    double total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
+    return candidates.stream()
+        .map(d -> new WorkbenchSimulator.ExaltChoice(d.id(), d.weight() / total))
+        .toList();
+  }
+
+  public Transition applyChosenExalt(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> activeOmens,
+      String modifierId,
+      RandomGenerator random) {
+    requireExalt(action);
+    if (modifierId == null
+        || exaltChoices(state, action, activeOmens).stream()
+            .noneMatch(c -> c.modifierId().equals(modifierId)))
+      throw new IllegalArgumentException("Choose an eligible Exalted modifier");
+    return exaltTransition(
+        state, action, activeOmens == null ? Set.of() : activeOmens, random, modifierId);
+  }
+
+  private Transition exaltTransition(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
+      RandomGenerator random,
+      String selected) {
+    return hasHidden(state)
+        ? hiddenTransition(state, action, omens, random, selected)
+        : concreteTransition(state, action, omens, random, selected);
+  }
+
+  private Transition concreteTransition(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
+      RandomGenerator random,
+      String selected) {
+    var result =
+        selected == null
+            ? simulator.apply(state.knownItem(), action, omens, random)
+            : simulator.applyCustomExalt(state.knownItem(), action, omens, random, selected);
+    if (!result.applied())
+      return new Transition(blocked(state, action, omens, result.reason()), null);
+    var removed =
+        result.events().stream()
+            .filter(e -> e.kind().equals("REMOVE"))
+            .map(WorkbenchSimulator.Event::modifierId)
+            .collect(java.util.stream.Collectors.toSet());
+    var next = state.withKnownItem(result.state(), removed, catalog);
+    return transition(
+        next,
+        action,
+        result.reason(),
+        result.events(),
+        result.assumptions(),
+        result.consumedOmens(),
+        result.remainingOmens());
+  }
+
+  private Transition hiddenTransition(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
+      RandomGenerator random,
+      String selected) {
+    var matching = simulator.triggeredOmens(action, omens);
+    var plan = simulator.abyssPlan(state, action, matching);
+    if (!plan.available())
+      return new Transition(blocked(state, action, omens, plan.reason()), null);
+    var next =
+        selected == null
+            ? simulator.applyAbyss(state, action, matching, random)
+            : simulator.applyCustomExalt(state, action, matching, random, selected);
+    var consumed = matching.stream().sorted().toList();
+    var remaining = omens.stream().filter(id -> !matching.contains(id)).sorted().toList();
+    var events = new ArrayList<WorkbenchSimulator.Event>();
+    for (var m : next.knownItem().explicits())
+      if (state.knownItem().explicits().stream()
+          .noneMatch(old -> old.modifierId().equals(m.modifierId()))) {
+        var candidates = plan.branches().getFirst().candidates();
+        double total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
+        double probability =
+            plan.branches().getFirst().uniformSelection()
+                ? 1.0 / candidates.size()
+                : candidates.stream()
+                        .filter(d -> d.id().equals(m.modifierId()))
+                        .mapToLong(ModifierDefinition::weight)
+                        .sum()
+                    / total;
+        events.add(new WorkbenchSimulator.Event("ADD", m.modifierId(), m.values(), probability));
+      }
+    return transition(next, action, "", events, List.of(), consumed, remaining);
+  }
+
+  private Transition transition(
+      AbyssCraftingState next,
+      WorkbenchCurrency action,
+      String reason,
+      List<WorkbenchSimulator.Event> events,
+      List<WorkbenchSimulator.Assumption> assumptions,
+      List<String> consumed,
+      List<String> remaining) {
+    next.validate(catalog);
+    var outcome = new Result(next, action, true, reason, consumed, remaining);
+    var receipt =
+        new WorkbenchSimulator.Result(
+            simulator.ruleVersion(),
+            simulator.ledgerVersion(),
+            next.item().snapshotId(),
+            next.storedItem(),
+            action,
+            true,
+            reason,
+            events,
+            assumptions,
+            consumed,
+            remaining,
+            QualityLimitRules.describe(next.storedItem(), catalog));
+    return new Transition(outcome, receipt);
+  }
+
+  private static boolean hasHidden(AbyssCraftingState state) {
+    return state.slots().stream().anyMatch(s -> s.modifier() == null);
+  }
+
+  private static void requireExalt(WorkbenchCurrency action) {
+    if (action == null || action.baseAction() != CraftingAction.EXALTED)
+      throw new IllegalArgumentException("Exalted currency required");
   }
 
   private static Result blocked(

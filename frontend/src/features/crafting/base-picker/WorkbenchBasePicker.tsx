@@ -61,10 +61,7 @@ function BasePickerContent({
   const [search, setSearch] = useState('')
   const [hovered, setHovered] = useState<WorkbenchBaseKey | null>(null)
   const [focused, setFocused] = useState<WorkbenchBaseKey | null>(null)
-  const isPreviewTarget = (target: EventTarget | null) =>
-    target instanceof Element &&
-    target.closest('.wb-base-picker__preview')?.id === `${fieldId}-preview`
-  function clearPointerPreview() {
+  function restoreSelectedPreview() {
     setHovered(null)
     setFocused(null)
   }
@@ -218,19 +215,7 @@ function BasePickerContent({
           className="wb-base-picker__options wb-scrollbar"
           role="group"
           aria-label={t('ui.equipment_base')}
-          onMouseMove={(event) => {
-            if (!(
-              event.target instanceof Element &&
-              event.target.closest('.wb-base-picker__option')
-            ))
-              clearPointerPreview()
-          }}
-          onScroll={() => {
-            if (hovered !== null) clearPointerPreview()
-          }}
-          onMouseLeave={(event) => {
-            if (!isPreviewTarget(event.relatedTarget)) clearPointerPreview()
-          }}
+          onMouseLeave={restoreSelectedPreview}
           onBlur={(event) => {
             if (
               !event.currentTarget.contains(event.relatedTarget) &&
@@ -255,9 +240,7 @@ function BasePickerContent({
               disabled={disabled}
               onClick={() => onChange(choice.key)}
               onMouseEnter={() => setHovered(choice.key)}
-              onMouseLeave={(event) => {
-                if (!isPreviewTarget(event.relatedTarget)) clearPointerPreview()
-              }}
+              onMouseLeave={restoreSelectedPreview}
               onPointerDown={(event) => {
                 if (event.pointerType === 'touch') setHovered(choice.key)
               }}
@@ -287,7 +270,7 @@ function BasePickerContent({
             label={messages.preview}
             item={previewItem}
             slug={preview.slug}
-            onMouseLeave={() => setHovered(null)}
+            onMouseLeave={restoreSelectedPreview}
             onBlur={(event) => {
               if (
                 !event.currentTarget.contains(event.relatedTarget) &&

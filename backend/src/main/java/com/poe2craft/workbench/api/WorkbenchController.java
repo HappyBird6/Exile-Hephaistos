@@ -78,9 +78,7 @@ public final class WorkbenchController {
       throw new IllegalArgumentException("Integral socket index required");
     var state = concreteState(request.state(), true);
     var catalog = simulator.abyssCatalog(state);
-    if (!new ItemStateValidator(catalog).validate(state).isEmpty())
-      throw new IllegalArgumentException("Validated equipment required");
-    if (!state.desecrated().isEmpty()) AbyssCraftingState.from(state, catalog).validate(catalog);
+    com.poe2craft.shared.crafting.domain.CraftingItemState.resolve(state, null, catalog);
     var next = SocketAugments.install(state, request.slotIndex().intValue(), request.augmentId());
     return new AugmentResult(
         "socket-augments-v1",

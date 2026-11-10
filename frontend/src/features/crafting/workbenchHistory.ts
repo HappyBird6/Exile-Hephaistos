@@ -2,7 +2,7 @@ import {
   observedSanctified,
   validSanctification,
 } from './sanctification/sanctification'
-import type { AbyssState } from './AbyssPanel'
+import type { AbyssState } from './crafting-state/types'
 import { baseAffixCapacity } from './baseRegistry'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import { isWorkbenchJewel, reviewedBasicJewel } from './basicJewel'
@@ -13,7 +13,7 @@ import type { AppliedItem, ConcreteItem } from './workbenchApi'
 import { coupledModelsMatch, workbenchActionNames } from './workbenchApi'
 import { isRulesetIdentity } from './rulesetIdentity'
 import { validAbyssResponse } from './abyssResponse'
-import { equivalent } from './sanctification/equivalence'
+import { itemFromSlots, sameItemState } from './crafting-state/itemIdentity'
 import type { ChaosRepeatWitness } from './chaos-repeat/api/types'
 import {
   readChaosRepeatReceipt,
@@ -82,7 +82,7 @@ function validRepeatFrame(frame: Frame): boolean {
       !!frame.abyss &&
       supportsConcreteStateShape(frame.abyss.item) &&
       Array.isArray(frame.abyss.slots) &&
-      equivalent(frame.state, storedAbyssItem(frame.abyss))
+      sameItemState(frame.state, storedAbyssItem(frame.abyss))
     )
   } catch {
     return false
@@ -405,7 +405,7 @@ function forkFilm(
   compatibilityId?: string,
 ): Films {
   const source = currentFilm(films)
-  const matches = equivalent(currentFrame(films)?.state, before)
+  const matches = sameItemState(currentFrame(films)?.state, before)
   const next = startFilm(
     films,
     before,
@@ -462,8 +462,17 @@ export function recordCraft(
   result: AppliedItem,
   id: string,
   compatibilityId?: string,
+  abyss?: AbyssState,
 ): Films {
   if (!result.applied) return films
+  if (
+    (abyss && !sameItemState(itemFromSlots(abyss), result.state)) ||
+    (((sameItemState(currentFrame(films)?.state, before) &&
+      currentFrame(films)?.abyss) ||
+      result.state.desecrated?.length) &&
+      !abyss)
+  )
+    throw Error('Missing or inconsistent crafting checkpoint')
   let next = films
   const film = currentFilm(next)
   if (
@@ -476,7 +485,7 @@ export function recordCraft(
   if (
     !film ||
     next.cursor !== film.frames.length - 1 ||
-    !equivalent(currentFrame(next)?.state, before)
+    !sameItemState(currentFrame(next)?.state, before)
   )
     next = forkFilm(next, before, id, result.rulesetIdentity, compatibilityId)
   const active = currentFilm(next)!
@@ -484,18 +493,7 @@ export function recordCraft(
     ...active.frames,
     {
       state: structuredClone(result.state),
-      ...(result.action === 'INSTALL_AUGMENT' && currentFrame(next)?.abyss
-        ? {
-            abyss: {
-              ...structuredClone(currentFrame(next)!.abyss!),
-              item: {
-                ...structuredClone(result.state),
-                explicits: [],
-                desecrated: [],
-              },
-            },
-          }
-        : {}),
+      ...(abyss ? { abyss: structuredClone(abyss) } : {}),
       rulesetIdentity: result.rulesetIdentity,
       action: result.action,
       evidence: structuredClone({
@@ -650,7 +648,7 @@ export function recordAbyss(
   const film = currentFilm(films)
   if (film && filmRulesetStatus(film, rulesetIdentity) !== 'current')
     throw new Error('Saved ruleset is unverified')
-  const matches = equivalent(currentFrame(films)?.state, before)
+  const matches = sameItemState(currentFrame(films)?.state, before)
   const next =
     film && films.cursor === film.frames.length - 1 && matches
       ? films
@@ -679,25 +677,7 @@ export function recordAbyss(
   }
 }
 
-export function storedAbyssItem(state: AbyssState): ConcreteItem {
-  return {
-    ...state.item,
-    explicits: state.slots.flatMap((slot) =>
-      slot.modifier ? [slot.modifier] : [],
-    ),
-    desecrated: state.slots
-      .filter((slot) => slot.desecrated)
-      .map((slot) => ({
-        id: slot.id,
-        side: slot.side,
-        modifierId: slot.modifier?.modifierId ?? null,
-        ...(slot.revealPool ? { revealPool: slot.revealPool } : {}),
-        ...(slot.minimumModifierLevel != null
-          ? { minimumModifierLevel: slot.minimumModifierLevel }
-          : {}),
-      })),
-  }
-}
+export const storedAbyssItem = itemFromSlots
 
 export function viewFrame(films: Films, cursor: number): Films {
   const film = currentFilm(films)

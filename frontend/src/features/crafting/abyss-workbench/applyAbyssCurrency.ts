@@ -1,8 +1,8 @@
-import type { AbyssState } from '../AbyssPanel'
+import type { AbyssState } from '../crafting-state/types'
 import type { Initial } from '../craftingApi'
-import type { ConcreteItem, WorkbenchAction } from '../workbenchApi'
+import type { WorkbenchAction } from '../workbenchApi'
 import { validAbyssResponse } from '../abyssResponse'
-import { boneConsumedOmens } from '../desecrationCurrency'
+import { currencyOmens } from '../crafting-state/activeOmens'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import { supportsConcreteStateShape } from '../workbenchStateShape'
 import { storedAbyssItem } from '../workbenchHistory'
@@ -37,53 +37,7 @@ const canonical = (value: unknown): string =>
       : v,
   )
 
-/** Saved offers belong to the frame; this fallback is only for common states without an offer. */
-export function abyssFromConcrete(
-  state: ConcreteItem,
-  initial: Initial,
-): AbyssState {
-  const result: AbyssState = {
-    item: { ...state, explicits: [], desecrated: [] },
-    slots: [
-      ...state.explicits.map((modifier, index) => {
-        const marked = state.desecrated?.find(
-          (slot) => slot.modifierId === modifier.modifierId,
-        )
-        const side = initial.modifiers[modifier.modifierId]?.affixType
-        if (side !== 'PREFIX' && side !== 'SUFFIX')
-          throw new Error('Invalid modifier side')
-        return {
-          id: marked?.id ?? `explicit-${index}`,
-          side,
-          modifier,
-          desecrated: !!marked,
-          ...(marked?.minimumModifierLevel == null
-            ? {}
-            : { minimumModifierLevel: marked.minimumModifierLevel }),
-          ...(marked?.revealPool == null
-            ? {}
-            : { revealPool: marked.revealPool }),
-        }
-      }),
-      ...(state.desecrated ?? [])
-        .filter((slot) => slot.modifierId === null)
-        .map((slot) => ({
-          id: slot.id,
-          side: slot.side,
-          modifier: null,
-          desecrated: true,
-          ...(slot.minimumModifierLevel == null
-            ? {}
-            : { minimumModifierLevel: slot.minimumModifierLevel }),
-          ...(slot.revealPool == null ? {} : { revealPool: slot.revealPool }),
-        })),
-    ],
-    offer: null,
-  }
-  if (!validAbyssResponse('import', result, state, initial))
-    throw new Error('Invalid Abyss state')
-  return result
-}
+export { abyssFromConcrete } from '../crafting-state/craftingState'
 
 /** No input mutation; the caller commits only after its revision/cancellation guard. */
 export async function applyAbyssCurrency(
@@ -94,8 +48,8 @@ export async function applyAbyssCurrency(
   signal: AbortSignal,
   errorMessage: string,
 ): Promise<AbyssCurrencyResult> {
-  const dormant = boneConsumedOmens(activeOmens)
-  const triggered = activeOmens.filter((id) => !dormant.includes(id))
+  const omenContext = currencyOmens(activeOmens)
+  const triggered = omenContext.requested
   const response = await fetch('/api/v1/crafting/workbench/abyss/currency', {
     method: 'POST',
     signal,
@@ -176,6 +130,6 @@ export async function applyAbyssCurrency(
   return {
     ...value,
     state: value.applied ? value.state : state,
-    remainingOmens: [...value.remainingOmens, ...dormant],
+    remainingOmens: omenContext.restore(value.remainingOmens),
   }
 }

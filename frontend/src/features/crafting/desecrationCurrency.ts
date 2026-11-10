@@ -1,4 +1,4 @@
-import type { AbyssState } from './AbyssPanel'
+import type { AbyssState } from './crafting-state/types'
 import type { Initial } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 import { validAbyssResponse } from './abyssResponse'
@@ -6,18 +6,12 @@ import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import { baseAffixCapacity } from './baseRegistry'
 import { isWorkbenchJewel, jewelCapacity } from './basicJewel'
 
-export const desecrationOmenIds = [
-  'Omen_of_Sinistral_Necromancy',
-  'Omen_of_Dextral_Necromancy',
-  'Omen_of_the_Liege',
-  'Omen_of_the_Sovereign',
-  'Omen_of_the_Blackblooded',
-  'Omen_of_Putrefaction',
-] as const
-export const boneConsumedOmens = (activeOmens: readonly string[]) =>
-  activeOmens.filter((id) => desecrationOmenIds.some((omen) => omen === id))
-export const boneRemainingOmens = (activeOmens: readonly string[]) =>
-  activeOmens.filter((id) => !desecrationOmenIds.some((omen) => omen === id))
+import { boneConsumedOmens } from './crafting-state/activeOmens'
+export {
+  desecrationOmenIds,
+  boneConsumedOmens,
+  boneRemainingOmens,
+} from './crafting-state/activeOmens'
 
 export const boneNames = {
   Preserved_Cranium: 'Preserved Cranium',

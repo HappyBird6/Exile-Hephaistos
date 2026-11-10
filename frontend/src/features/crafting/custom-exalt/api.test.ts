@@ -75,3 +75,75 @@ it('accepts omitted nullable properties and false flags but refuses changes to e
     ),
   ).rejects.toThrow('Invalid custom Exalted result')
 })
+
+it.each([
+  { activeOmens: [] },
+  { activeOmens: ['Omen_of_Sinistral_Necromancy'] },
+])(
+  'accepts reordered revealed slots and preserves $activeOmens',
+  async ({ activeOmens }) => {
+    const suffix = { modifierId: 's', values: { strength: 6 } }
+    const prefix = { modifierId: 'p', values: { life: 15 } }
+    const state = {
+      ...concreteInitial(initialFixture),
+      rarity: 'RARE' as const,
+      explicits: [suffix],
+      desecrated: [
+        { id: 'revealed', side: 'SUFFIX' as const, modifierId: 's' },
+      ],
+    }
+    const source = {
+      item: { ...state, explicits: [], desecrated: [] },
+      slots: [
+        {
+          id: 'revealed',
+          side: 'SUFFIX' as const,
+          modifier: suffix,
+          desecrated: true,
+        },
+      ],
+      offer: null,
+    }
+    vi.stubGlobal('fetch', () =>
+      Promise.resolve(
+        jsonResponse({
+          result: {
+            state: { ...state, explicits: [prefix, suffix] },
+            action: 'EXALTED',
+            ruleVersion: 'test',
+            ledgerVersion: 'test',
+            snapshotId: state.snapshotId,
+            applied: true,
+            reason: '',
+            events: [],
+            assumptions: [],
+            consumedOmens: [],
+            remainingOmens: [],
+          },
+          choice: { modifierId: 'p', probability: 0.1 },
+          abyss: {
+            ...source,
+            slots: [
+              ...source.slots,
+              {
+                id: 'added',
+                side: 'PREFIX',
+                modifier: prefix,
+                desecrated: false,
+              },
+            ],
+          },
+        }),
+      ),
+    )
+    const result = await applyCustomExalt(
+      { state, abyss: source, action: 'EXALTED', activeOmens },
+      initialFixture,
+      new AbortController().signal,
+      'p',
+    )
+    expect(result.result.remainingOmens).toEqual(activeOmens)
+    expect(result.result.state.explicits).toHaveLength(2)
+    expect(result.abyss?.slots[0]).toEqual(source.slots[0])
+  },
+)

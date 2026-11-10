@@ -177,4 +177,66 @@ class CustomExaltControllerTest {
     assertThat(result.state().explicits().getFirst().modifierId())
         .isEqualTo(choices.getFirst().modifierId());
   }
+
+  @Test
+  void hiddenAndRevealedExaltsShareQualityAndUnrelatedOmenSupportWithOrdinaryCrafting()
+      throws Exception {
+    for (boolean hidden : List.of(false, true))
+      for (boolean quality : List.of(false, true))
+        for (String action : List.of("EXALTED", "GREATER_EXALTED", "PERFECT_EXALTED")) {
+          var root = rare("solar");
+          if (quality)
+            root =
+                crafting
+                    .apply(root, WorkbenchCurrency.CATALYST_FLESH, Set.of(), new Random(17))
+                    .state();
+          var catalog = crafting.abyssCatalog(root);
+          var definition =
+              catalog.modifiers().values().stream()
+                  .filter(
+                      d ->
+                          d.layer() == ModifierDefinition.Layer.EXPLICIT
+                              && d.weight() > 0
+                              && d.affixType() == ModifierDefinition.AffixType.SUFFIX)
+                  .findFirst()
+                  .orElseThrow();
+          var values = new HashMap<String, Long>();
+          definition.stats().forEach(r -> values.put(r.id(), r.min()));
+          var modifier = new ModifierInstance(definition.id(), values);
+          var state =
+              new ItemState(
+                      root.snapshotId(),
+                      root.baseItemId(),
+                      root.itemLevel(),
+                      root.rarity(),
+                      root.implicits(),
+                      hidden ? List.of() : List.of(modifier),
+                      root.conditions(),
+                      root.augmentSockets(),
+                      root.catalystQuality())
+                  .withDesecrated(
+                      List.of(
+                          new ItemState.DesecratedSlot(
+                              "preserved",
+                              definition.affixType(),
+                              hidden ? null : definition.id())));
+          var body = new LinkedHashMap<String, Object>();
+          body.put("state", state);
+          body.put("abyss", AbyssCraftingState.from(state, catalog));
+          body.put("action", action);
+          body.put("activeOmens", Set.of("Omen_of_Whittling"));
+          var choices = call("custom-exalt/choices", body);
+          assertThat(choices.size())
+              .as("hidden=%s quality=%s action=%s", hidden, quality, action)
+              .isPositive();
+          body.put("modifierId", choices.get(0).path("modifierId").asText());
+          var applied = call("custom-exalt/apply", body);
+          assertThat(applied.path("result").path("state").path("desecrated"))
+              .isEqualTo(json.valueToTree(state.desecrated()));
+          assertThat(applied.path("result").path("remainingOmens"))
+              .isEqualTo(json.readTree("[\"Omen_of_Whittling\"]"));
+          assertThat(applied.path("result").path("state").path("catalystQuality"))
+              .isEqualTo(json.valueToTree(state.catalystQuality()));
+        }
+  }
 }

@@ -328,4 +328,25 @@ class WorkbenchReferenceControllerTest {
                   .content(json.writeValueAsBytes(Map.of("state", rare()))))
           .andExpect(status().isUnprocessableEntity());
   }
+
+  @Test
+  void candidateReferencePreservesCatalystQualityWithKnownAndHiddenSlots() throws Exception {
+    var plain = rare();
+    var quality =
+        crafting.apply(plain, WorkbenchCurrency.CATALYST_FLESH, Set.of(), new Random(23)).state();
+    for (boolean hidden : List.of(false, true)) {
+      var state =
+          hidden
+              ? quality.withDesecrated(
+                  List.of(
+                      new ItemState.DesecratedSlot(
+                          "hidden", ModifierDefinition.AffixType.SUFFIX, null)))
+              : quality;
+      var before = json.valueToTree(state);
+      var response = request("modifier-pools", Map.of("state", state, "dynamic", true));
+      assertThat(response.path("entries").size()).isPositive();
+      assertThat(json.<JsonNode>valueToTree(state)).isEqualTo(before);
+      assertThat(state.catalystQuality()).isEqualTo(quality.catalystQuality());
+    }
+  }
 }

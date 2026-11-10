@@ -23,20 +23,8 @@ import { RevealIcon } from './abyss-workbench/RevealIcon'
 import { RevealPopover } from './abyss-workbench/RevealPopover'
 import { abyssWorkbenchMessages } from './abyss-workbench/messages'
 
-type Modifier = ConcreteItem['explicits'][number]
-type Slot = {
-  revealPool?: string | null
-  minimumModifierLevel?: 40 | null
-  id: string
-  side: 'PREFIX' | 'SUFFIX'
-  modifier: Modifier | null
-  desecrated: boolean
-}
-export type AbyssState = {
-  item: ConcreteItem
-  slots: Slot[]
-  offer: { slotId: string; candidates: Modifier[] } | null
-}
+import type { AbyssState, Modifier } from './crafting-state/types'
+export type { AbyssState } from './crafting-state/types'
 type Chance = { targetWeight: number; totalWeight: number }
 type Comparison = {
   baseline: Chance
