@@ -1,3 +1,4 @@
+import { modifierMagnitudeValues } from '../modifierMagnitudes'
 import type { ConcreteItem } from '../workbenchApi'
 import type { Definition } from '../craftingApi'
 import bases from '../topBases.json'
@@ -63,7 +64,7 @@ export function derivedDefences(
   const base =
     (Object.values(bases).find((b) => b.id === state.baseItemId) as
       Partial<Record<Defence, number>> | undefined) ?? legacy[state.baseItemId]
-  const augments = augmentPropertyBonuses(state, bonded)
+  const augments = augmentPropertyBonuses(state, bonded, definitions)
   const result: Partial<Record<Defence, DefenceResult>> = {}
   for (const key of ['armour', 'evasion', 'energyShield', 'ward'] as const) {
     const amount = base?.[key] ?? 0
@@ -74,7 +75,12 @@ export function derivedDefences(
       for (const modifier of state[layer]) {
         const definition = definitions[modifier.modifierId]
         if (!definition) continue
-        const values = sanctifiedValues(state, modifier, layer)
+        const values = modifierMagnitudeValues(
+          state,
+          definition,
+          sanctifiedValues(state, modifier, layer),
+          layer,
+        )
         for (const stat of definition.stats ?? []) {
           const value = values[stat.id]
           if (value === undefined) continue

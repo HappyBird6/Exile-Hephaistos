@@ -203,7 +203,19 @@ public final class SolarTextMapper {
       groups.computeIfAbsent(identity, ignored -> new ArrayList<>()).add(line);
     }
     boolean finalValues = conditions.contains(ItemState.Condition.SANCTIFIED);
-    for (var group : groups.values()) {
+    var ordered = new ArrayList<>(groups.values());
+    ordered.sort(
+        java.util.Comparator.comparingInt(
+            g ->
+                g.stream()
+                        .anyMatch(
+                            m ->
+                                m.text()
+                                    .toLowerCase(java.util.Locale.ROOT)
+                                    .contains("modifier magnitudes"))
+                    ? 0
+                    : 1));
+    for (var group : ordered) {
       var modifier = group.getFirst();
       if (modifier.metadata() != null
           && ((modifier.metadata().raw().startsWith("{ Fractured ")
@@ -245,8 +257,17 @@ public final class SolarTextMapper {
             || (modifier.tier() != null && modifier.tier() != definition.tier())
             || (modifier.affix() != null
                 && !modifier.affix().equals(definition.affixType().name()))) continue;
-        var scale = clipboardScale(definition, catalystQuality, modifier.metadata());
-        var match = match(definition, text, scale, finalValues);
+        var scale =
+            clipboardScale(definition, catalystQuality, modifier.metadata())
+                .multiply(
+                    ModifierMagnitudes.clipboardFactor(
+                        definition, explicits, modifier.metadata(), finalValues));
+        var match =
+            !finalValues
+                    && ModifierMagnitudes.provider(definition)
+                    && !ModifierMagnitudes.rawMetadata(modifier.metadata())
+                ? ModifierMagnitudes.matchProvider(definition, text, explicits)
+                : match(definition, text, scale, finalValues);
         if (match != null)
           matches.add(
               new ModifierInstance(
@@ -285,7 +306,10 @@ public final class SolarTextMapper {
                         return ModifierClipboardText.match(
                                     d,
                                     text,
-                                    clipboardScale(d, quality, modifier.metadata()),
+                                    clipboardScale(d, quality, modifier.metadata())
+                                        .multiply(
+                                            ModifierMagnitudes.clipboardFactor(
+                                                d, explicits, modifier.metadata(), finalValues)),
                                     false,
                                     finalValues)
                                 != null
@@ -344,12 +368,19 @@ public final class SolarTextMapper {
     if (conditions.contains(ItemState.Condition.CORRUPTED) && desecrated.isEmpty())
       issues.add(new Issue(0, "Special item conditions are not supported."));
     if (!issues.isEmpty()) return new Result(false, null, issues);
-    double multiplier =
-        1
-            + java.util.stream.Stream.concat(implicits.stream(), explicits.stream())
-                    .mapToLong(m -> m.values().getOrDefault("local_socketed_items_effect_+%", 0L))
-                    .sum()
-                / 100.0;
+    double multiplier = 1;
+    for (var modifier : implicits)
+      multiplier += modifier.values().getOrDefault("local_socketed_items_effect_+%", 0L) / 100.0;
+    for (var modifier : explicits)
+      if (modifier.values().containsKey("local_socketed_items_effect_+%"))
+        multiplier +=
+            modifier.values().get("local_socketed_items_effect_+%")
+                * (finalValues
+                    ? 1
+                    : ModifierMagnitudes.factor(
+                            explicits, catalog.find(modifier.modifierId()).orElseThrow())
+                        .doubleValue())
+                / 100;
     var resolved =
         SocketAugmentText.resolve(catalog.base().id(), observedSockets, augmentEffects, multiplier);
     double observedScale = SocketAugmentEffects.runeMultiplier(resolved.installed(), multiplier);

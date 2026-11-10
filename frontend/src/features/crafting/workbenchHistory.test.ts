@@ -207,7 +207,8 @@ describe('one-frame Chaos repeat history', () => {
       initialFixture,
     )
     expect(branched.films).toHaveLength(2)
-    expect(branched.films[0]).toBe(original)
+    expect(branched.films[0]!.frames).toBe(original.frames)
+    expect(branched.films[0]!.sourceDocument).toBe(original.sourceDocument)
     expect(JSON.stringify(original)).toBe(bytes)
     expect(currentFilm(branched)?.frames).toHaveLength(2)
     expect(currentFilm(branched)?.sourceDocument).toBe('exact\r\nsource')
@@ -750,4 +751,53 @@ it('refuses duplicate session IDs before they can replace an original or reach b
   ).toThrow('Duplicate session IDs')
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
   expect(repo.load()).toEqual(history)
+})
+
+it('orders sessions by interaction time and favorites by registration time without reordering stored records', async () => {
+  const { orderedFilms } = await import('./workbenchHistory')
+  const root = concreteInitial(initialFixture)
+  const history = startFilm(
+    startFilm(emptyFilms(), root, 'older', 'fixture-ruleset'),
+    root,
+    'newer',
+    'fixture-ruleset',
+  )
+  history.films[0]!.createdAt = '2026-11-01T00:00:00Z'
+  history.films[0]!.updatedAt = '2026-11-03T00:00:00Z'
+  history.films[0]!.favoriteAt = '2026-11-01T00:00:00Z'
+  history.films[1]!.createdAt = '2026-11-02T00:00:00Z'
+  history.films[1]!.updatedAt = '2026-11-02T00:00:00Z'
+  history.films[1]!.favoriteAt = '2026-11-04T00:00:00Z'
+  expect(orderedFilms(history.films).map((f) => f.id)).toEqual([
+    'older',
+    'newer',
+  ])
+  expect(orderedFilms(history.films, true).map((f) => f.id)).toEqual([
+    'newer',
+    'older',
+  ])
+  expect(history.films.map((f) => f.id)).toEqual(['older', 'newer'])
+})
+
+it('resets only the active session to its exact initial item while preserving other sessions', async () => {
+  const { resetCurrentFilm } = await import('./workbenchHistory')
+  const root = concreteInitial(initialFixture)
+  let history = startFilm(
+    startFilm(emptyFilms(), root, 'saved', 'fixture-ruleset'),
+    root,
+    'active',
+    'fixture-ruleset',
+  )
+  const active = currentFilm(history)!
+  active.frames.push({ ...active.frames[0]!, action: 'DIVINE' })
+  history = { ...history, cursor: 1 }
+  const raw = JSON.stringify(history),
+    reset = resetCurrentFilm(history)
+  expect(reset.films).toHaveLength(2)
+  expect(reset.films[0]).toBe(history.films[0])
+  expect(reset.active).toBe('active')
+  expect(currentFilm(reset)!.frames).toHaveLength(1)
+  expect(currentFrame(reset)!.state).toEqual(root)
+  expect(reset.cursor).toBe(0)
+  expect(JSON.stringify(history)).toBe(raw)
 })

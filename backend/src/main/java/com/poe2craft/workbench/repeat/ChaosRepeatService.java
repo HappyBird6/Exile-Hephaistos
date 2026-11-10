@@ -103,16 +103,7 @@ public final class ChaosRepeatService {
       var initial = input.state().displayItem();
       if (!initial.conditions().isEmpty() || initial.rarity() != ItemState.Rarity.RARE)
         throw RepeatRejected.input();
-      var catalog =
-          input.state() instanceof Abyss
-              ? workbench.abyssCatalog(initial)
-              : workbench.reviewedCatalogs().stream()
-                  .filter(
-                      c ->
-                          c.base().id().equals(initial.baseItemId())
-                              && c.metadata().snapshotId().equals(initial.snapshotId()))
-                  .findFirst()
-                  .orElseThrow(RepeatRejected::input);
+      var catalog = workbench.abyssCatalog(initial);
       if (input.state() instanceof Abyss abyss) abyss.abyss().validate(catalog);
       else {
         if (!initial.desecrated().isEmpty()

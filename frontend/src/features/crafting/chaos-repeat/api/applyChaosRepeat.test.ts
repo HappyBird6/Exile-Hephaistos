@@ -563,3 +563,17 @@ describe('batch response validation', () => {
     ).toBe('invalid-response')
   })
 })
+
+it('accepts a crafted item for a 1000-use batch and retains its verified transport', async () => {
+  const request = requestFor()
+  request.maximumUses = 1000
+  if (request.state.kind !== 'CONCRETE') throw new Error('fixture')
+  request.state.item.explicits[0]!.crafted = true
+  const fetch = mockBatch((value) => {
+    value.termination = 'LIMIT'
+    value.actualUses = 1000
+  })
+  const result = await applyChaosRepeat(request, repeatInitial, signal())
+  expect(fetch).toHaveBeenCalledOnce()
+  expect(result.kind).toBe('completed')
+})

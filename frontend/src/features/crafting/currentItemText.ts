@@ -1,3 +1,7 @@
+import {
+  modifierMagnitudePercent,
+  modifierMagnitudeValues,
+} from './modifierMagnitudes'
 import { isCraftedModifier } from './augmentRules'
 import {
   installedAugmentEffects,
@@ -60,10 +64,15 @@ export function currentItemText(
     )
     .filter((line) => !line.includes('Unknown'))
   if (computed.length) lines.push('--------', ...computed)
-  const effects = installedAugmentEffects(state, 'en', bondedEnabled()).flatMap(
-    (effect) => effect.english.split('\n').map((line) => `${line} (rune)`),
+  const effects = installedAugmentEffects(
+    state,
+    'en',
+    bondedEnabled(),
+    definitions,
+  ).flatMap((effect) =>
+    effect.english.split('\n').map((line) => `${line} (rune)`),
   )
-  effects.push(...observedAugmentEffects(state, bondedEnabled()))
+  effects.push(...observedAugmentEffects(state, bondedEnabled(), definitions))
   if (effects.length) lines.push('--------', ...effects)
   const recordedSkills = state.observations?.grantedSkills
   const selectedBase = Object.values(bases).find(
@@ -104,7 +113,16 @@ export function currentItemText(
       const text = modifierClipboardText(
         d,
         state.sanctification
-          ? sanctifiedValues(state, mod, implicit ? 'implicits' : 'explicits')
+          ? modifierMagnitudeValues(
+              state,
+              d,
+              sanctifiedValues(
+                state,
+                mod,
+                implicit ? 'implicits' : 'explicits',
+              ),
+              implicit ? 'implicits' : 'explicits',
+            )
           : mod.values,
         state.sanctification != null || observedSanctified(state),
       )
@@ -117,9 +135,33 @@ export function currentItemText(
         quality.amount > 0 &&
         !d.tags?.includes('unscalable') &&
         catalystTypes[quality.type].tags.some((tag) => d.tags?.includes(tag))
+      const magnitude = modifierMagnitudePercent(
+        state,
+        d,
+        implicit ? 'implicits' : 'explicits',
+      )
+      const magnitudeLabel =
+        d.tags
+          ?.filter((tag) =>
+            [
+              'physical',
+              'fire',
+              'cold',
+              'lightning',
+              'chaos',
+              'elemental',
+              'damage',
+              'mana',
+              'speed',
+              'critical',
+            ].includes(tag),
+          )
+          .join(', ') ?? ''
       const scaling = enhanced
         ? ` — ${labels[quality.type]} — ${quality.amount}% Increased`
-        : ''
+        : magnitude > 0 && !state.sanctification
+          ? ` — ${magnitudeLabel} — ${Number(magnitude.toFixed(8))}% Increased`
+          : ''
       if (!implicit)
         lines.push(
           `{ ${slot ? 'Desecrated ' : `${mod.fractured ? 'Fractured ' : ''}${isCraftedModifier(mod, d) ? 'Crafted ' : ''}`}${d.affixType === 'PREFIX' ? 'Prefix' : 'Suffix'} Modifier "${d.name}"${d.tier > 0 ? ` (Tier: ${d.tier})` : ''}${scaling} }`,

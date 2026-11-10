@@ -1,4 +1,4 @@
-import type { FocusEventHandler, MouseEventHandler } from 'react'
+import type { FocusEventHandler, MouseEventHandler, ReactNode } from 'react'
 import { ItemCard } from '../ItemCard'
 import type { ItemCardData } from '../itemCardData'
 
@@ -10,11 +10,13 @@ export function BasePreviewPanel({
   slug,
   onMouseLeave,
   onBlur,
+  children,
 }: {
   id: string
   label: string
   item: ItemCardData
   slug: string
+  children?: ReactNode
   onMouseLeave: MouseEventHandler<HTMLElement>
   onBlur: FocusEventHandler<HTMLElement>
 }) {
@@ -29,6 +31,7 @@ export function BasePreviewPanel({
       onBlur={onBlur}
     >
       <ItemCard item={item} baseItemId={slug} />
+      {children}
     </aside>
   )
 }

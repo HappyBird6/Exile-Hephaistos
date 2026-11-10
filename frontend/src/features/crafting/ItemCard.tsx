@@ -51,6 +51,9 @@ function Lines({
               ? { ...candidateTitle, tabIndex: 0 }
               : {})}
           >
+            {line.sourceLabel && (
+              <span className="item-card__source">{line.sourceLabel}</span>
+            )}
             {line.lastCurrencyAffected && (
               <span
                 className="item-card__last-currency-mark"

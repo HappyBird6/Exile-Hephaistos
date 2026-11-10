@@ -1,3 +1,4 @@
+import { modifierMagnitudeRatio } from '../modifierMagnitudes'
 import type { Definition } from '../craftingApi'
 import type { ConcreteItem } from '../workbenchApi'
 import { catalystProjection, catalystTypes } from '../catalystQuality'
@@ -35,6 +36,7 @@ export function preciseModifierProjection(
       ? jewelEffect(state, definition.affixType)
       : 0
   const factors = state.sanctification?.[layer][modifier.modifierId] ?? {}
+  const magnitude = modifierMagnitudeRatio(state, definition, layer)
   const ratios: Record<string, { numerator: bigint; denominator: bigint }> = {}
   const values: Record<string, number> = {}
   for (const [id, source] of Object.entries(modifier.values)) {
@@ -42,8 +44,9 @@ export function preciseModifierProjection(
       BigInt(source) *
       BigInt(100 + quality) *
       BigInt(100 + effect) *
-      BigInt(factors[id] ?? 100)
-    const denominator = 1_000_000n
+      BigInt(factors[id] ?? 100) *
+      magnitude.numerator
+    const denominator = 1_000_000n * magnitude.denominator
     ratios[id] = { numerator, denominator }
     values[id] = Number(numerator) / Number(denominator)
   }

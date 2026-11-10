@@ -26,6 +26,6 @@ public final class RepeatRejected extends IllegalArgumentException {
         422,
         "INVALID_CHAOS_REPEAT_REQUEST",
         "Provide a canonical supported item, UUID requestId, Chaos action, known unique omens, one"
-            + " of the six site locales, and an integer maximumUses from 1 to 1000 (default 100).");
+            + " of the eight site locales, and an integer maximumUses from 1 to 1000 (default 100).");
   }
 }

@@ -59,6 +59,8 @@ export type Film = {
 
   id: string
   createdAt: string
+  updatedAt?: string
+  favoriteAt?: string
   /** Library metadata is optional so original v1 records remain untouched. */
   title?: string
   favorite?: boolean
@@ -164,7 +166,16 @@ export function updateFilmMetadata(
   return {
     ...films,
     films: films.films.map((film) =>
-      film.id === id ? { ...film, ...metadata } : film,
+      film.id === id
+        ? {
+            ...film,
+            ...metadata,
+            updatedAt: new Date().toISOString(),
+            ...(metadata.favorite === true
+              ? { favoriteAt: new Date().toISOString() }
+              : {}),
+          }
+        : film,
     ),
   }
 }
@@ -374,6 +385,7 @@ export function startFilm(
         rulesetIdentity,
         ...(compatibilityId ? { compatibilityId } : {}),
         createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
         ...(sourceDocument !== undefined ? { sourceDocument } : {}),
         frames: [
           { state: structuredClone(root), action: null, rulesetIdentity },
@@ -490,7 +502,9 @@ export function recordCraft(
   return {
     ...next,
     films: next.films.map((entry) =>
-      entry.id === active.id ? { ...entry, frames } : entry,
+      entry.id === active.id
+        ? { ...entry, frames, updatedAt: new Date().toISOString() }
+        : entry,
     ),
     cursor: frames.length - 1,
   }
@@ -557,7 +571,9 @@ export function recordChaosRepeat(
     return {
       ...next,
       films: next.films.map((film) =>
-        film === active ? { ...film, frames } : film,
+        film === active
+          ? { ...film, frames, updatedAt: new Date().toISOString() }
+          : film,
       ),
     }
   }
@@ -642,7 +658,11 @@ export function recordAbyss(
   const frames = [...active.frames, frame]
   return {
     ...next,
-    films: next.films.map((f) => (f.id === active.id ? { ...f, frames } : f)),
+    films: next.films.map((f) =>
+      f.id === active.id
+        ? { ...f, frames, updatedAt: new Date().toISOString() }
+        : f,
+    ),
     cursor: frames.length - 1,
   }
 }
@@ -673,7 +693,7 @@ export function viewFrame(films: Films, cursor: number): Films {
     Number.isInteger(cursor) &&
     cursor >= 0 &&
     cursor < film.frames.length
-    ? { ...films, cursor }
+    ? { ...updateFilmMetadata(films, film.id, {}), cursor }
     : films
 }
 
@@ -890,5 +910,38 @@ export function verifiedHistoryState(
       : p <= capacity.prefixes && s <= capacity.suffixes
   } catch {
     return false
+  }
+}
+
+/** Sort a copy; existing session and frame order in storage remains intact. */
+export function orderedFilms(films: Film[], favorites = false): Film[] {
+  const time = (film: Film) =>
+    Date.parse(
+      (favorites ? film.favoriteAt : film.updatedAt) ?? film.createdAt,
+    ) ||
+    Date.parse(film.createdAt) ||
+    0
+  return films
+    .map((film, index) => ({ film, index }))
+    .sort((a, b) => time(b.film) - time(a.film) || b.index - a.index)
+    .map(({ film }) => film)
+}
+
+/** Discard only the active session's actions; return to its exact initial item without creating an archive session. */
+export function resetCurrentFilm(films: Films): Films {
+  const active = currentFilm(films)
+  if (!active || !active.frames.length) return films
+  return {
+    ...films,
+    cursor: 0,
+    films: films.films.map((f) =>
+      f.id === active.id
+        ? {
+            ...f,
+            frames: [structuredClone(f.frames[0]!)],
+            updatedAt: new Date().toISOString(),
+          }
+        : f,
+    ),
   }
 }

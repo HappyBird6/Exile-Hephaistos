@@ -168,3 +168,75 @@
     min-width: 30px;
   }
 }
+
+.wb-base-affixes {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+.wb-base-affix {
+  min-width: 0;
+  margin: 0;
+  padding: 8px;
+  border: 1px solid #494033;
+  border-radius: 4px;
+  background: #191d18;
+}
+.wb-base-affix legend {
+  padding: 0 5px;
+  color: #cdb77f;
+  font-size: 12px;
+}
+.wb-base-affix__choice {
+  display: flex;
+  gap: 5px;
+}
+.wb-base-affix__choice select {
+  flex: 1;
+  width: 0;
+  font-size: 12px;
+}
+.wb-base-affix__choice button {
+  flex: none;
+  padding: 4px 8px;
+}
+.wb-base-affix__rolls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+.wb-base-affix__rolls input {
+  width: 75px;
+  min-width: 0;
+}
+.wb-base-affix__selected {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 7px;
+  font-size: 12px;
+}
+.wb-base-affix__selected > span {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.wb-base-affix__selected small {
+  display: block;
+  color: #b7a47a;
+  text-align: right;
+}
+.wb-base-affix__selected button {
+  flex: none;
+  padding: 2px 6px;
+}
+.wb-base-affix:disabled {
+  opacity: 0.5;
+}
+.wb-base-picker__preview .item-card__source {
+  float: right;
+  margin-left: 7px;
+  font-size: 10px;
+  color: #b7a47a;
+}

@@ -40,7 +40,7 @@ export function defenceDisplay(
             : formatAttributeNumber(value.value, locale)),
       })
   }
-  const weapons = derivedWeapons(state, bonded)
+  const weapons = derivedWeapons(state, bonded, definitions)
   const weaponLabels = propertyLabels(locale)
   if (weapons) {
     for (const key of [

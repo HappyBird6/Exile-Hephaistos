@@ -23,8 +23,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v18";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v12";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v19";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v13";
   private final ItemCatalog catalog;
   private final Map<String, WorkbenchSimulator> socketSamplers =
       new java.util.concurrent.ConcurrentHashMap<>();

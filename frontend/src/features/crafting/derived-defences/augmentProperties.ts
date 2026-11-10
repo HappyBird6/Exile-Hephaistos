@@ -1,3 +1,4 @@
+import type { Definition } from '../craftingApi'
 import {
   installedAugmentEffects,
   observedAugmentEffects,
@@ -5,7 +6,11 @@ import {
 import type { ConcreteItem } from '../workbenchApi'
 
 /** Item-local effects only: conditional combat and character stats do not change equipment totals. */
-export function augmentPropertyBonuses(state: ConcreteItem, bonded: boolean) {
+export function augmentPropertyBonuses(
+  state: ConcreteItem,
+  bonded: boolean,
+  definitions: Record<string, Definition> = {},
+) {
   const values = {
     armour: 0,
     evasion: 0,
@@ -22,12 +27,15 @@ export function augmentPropertyBonuses(state: ConcreteItem, bonded: boolean) {
     lightning: [0, 0],
     chaos: [0, 0],
   }
-  const lines = installedAugmentEffects(state, 'en', bonded).flatMap((e) =>
-    e.english.split('\n'),
-  )
+  const lines = installedAugmentEffects(
+    state,
+    'en',
+    bonded,
+    definitions,
+  ).flatMap((e) => e.english.split('\n'))
   // Imported unidentified Runes still carry their observed numeric effects.
   lines.push(
-    ...observedAugmentEffects(state, bonded).map((line) =>
+    ...observedAugmentEffects(state, bonded, definitions).map((line) =>
       line.replace(/\s*\(rune\)$/, '').trim(),
     ),
   )

@@ -1,0 +1,57 @@
+{
+  "source": "https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/blob/dev/src/Classes/Item.lua",
+  "sha256": "adbf835b11a26d282ab503e0d2d7507726a3a39a95af11613de5cf6683b33154",
+  "rules": [
+    "All requested tags must match; Explicit Elemental Damage requires both elemental and damage.",
+    "Only explicit modifiers are selected. Unscalable and granted-skill modifiers are excluded.",
+    "Each provider uses its original value once. Matching providers themselves can be scaled for display without feeding back into provider strength.",
+    "Matching increases add before multiplying an affected modifier. Source rolls remain unchanged."
+  ],
+  "images": [
+    {
+      "base": "Metadata/Items/Amulets/FourAmuletDelirium2",
+      "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/Basetypes/DistortedAmulet.webp",
+      "sha256": "d4ad70826edd2ed826595679a9c578aba51077a90d859664cdf5c54677cfe061"
+    },
+    {
+      "base": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+      "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyInt06.webp",
+      "sha256": "d776e9036403b8abef741795ef80ed2058f4bab4e67045d0ec9a83c90c2b74ac"
+    },
+    {
+      "base": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+      "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDexInt06.webp",
+      "sha256": "1d34242ac9f6555d6a78da14e2270ab0d0276976789d8e27b76dec986746d07e"
+    },
+    {
+      "base": "Metadata/Items/Rings/FourRingB1",
+      "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Tul.webp",
+      "sha256": "3f449a6da2d1781c2fceeeaee90b42ea8f1a397b53587b8c2839b3fc9b080c03"
+    },
+    {
+      "base": "Metadata/Items/Rings/FourRingB5",
+      "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Chayula.webp",
+      "sha256": "519e7c12438c6e9e9cf32791b52f300e9f9f0c5f7524f8fccd3fc370d0f9eaaa"
+    },
+    {
+      "base": "Metadata/Items/Rings/FourRingLake1",
+      "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing1.webp",
+      "sha256": "aa883deccf34009afc8758ad74a6bed56b398415414205d9391c7ef532c70615"
+    },
+    {
+      "base": "Metadata/Items/Rings/FourRingLake2",
+      "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing2.webp",
+      "sha256": "eaf58bc8aff847674cc178ef1062f62747602ea0a4a743a90cbb8dfecec068ed"
+    },
+    {
+      "base": "Metadata/Items/Rings/FourRingLake3",
+      "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing3.webp",
+      "sha256": "6138adb61b12e9d29e1e0fa2fd5606ad44eaf1b6260c45218a5aca827c71afd7"
+    },
+    {
+      "base": "Metadata/Items/Rings/FourRingLake4",
+      "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/LakeRing4.webp",
+      "sha256": "c9fd18da2fb352f0276cdd91699b5cce031f5739df92105c7029a2302fe5eb30"
+    }
+  ]
+}

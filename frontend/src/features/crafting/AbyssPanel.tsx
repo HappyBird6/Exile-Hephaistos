@@ -691,19 +691,36 @@ export function AbyssPanel({
                   !
                 </span>
               )}
-              <select
-                aria-label={directCopy[1]}
-                value={candidate?.modifierId ?? ''}
-                disabled={busy || eligible.isFetching}
-                onChange={(event) => choose(event.target.value)}
-              >
-                <option value="">—</option>
-                {candidateDefinitions.map((d) => (
-                  <option key={d.id} value={d.id}>
-                    {label(d)}
-                  </option>
-                ))}
-              </select>
+              <div className="abyss-reveal-picker__choice">
+                <select
+                  aria-label={directCopy[1]}
+                  value={candidate?.modifierId ?? ''}
+                  disabled={busy || eligible.isFetching}
+                  onChange={(event) => choose(event.target.value)}
+                >
+                  <option value="">—</option>
+                  {candidateDefinitions.map((d) => (
+                    <option key={d.id} value={d.id}>
+                      {label(d)}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  type="button"
+                  aria-label={copy.reveal}
+                  disabled={
+                    busy ||
+                    !candidate ||
+                    !eligible.data?.includes(candidate.modifierId) ||
+                    eligible.isFetching
+                  }
+                  onClick={() =>
+                    submit('select', { slotId: selected.id, candidate })
+                  }
+                >
+                  ✓
+                </button>
+              </div>
               <div className="abyss-reveal-picker__rolls">
                 {candidate &&
                   initial.modifiers[candidate.modifierId]?.stats?.map(
@@ -746,21 +763,6 @@ export function AbyssPanel({
                       )
                     },
                   )}
-                <button
-                  type="button"
-                  aria-label={copy.reveal}
-                  disabled={
-                    busy ||
-                    !candidate ||
-                    !eligible.data?.includes(candidate.modifierId) ||
-                    eligible.isFetching
-                  }
-                  onClick={() =>
-                    submit('select', { slotId: selected.id, candidate })
-                  }
-                >
-                  ✓
-                </button>
               </div>
             </fieldset>
           </RevealPopover>

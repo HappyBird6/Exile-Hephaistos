@@ -4761,5 +4761,61 @@
     "Katlas_Gloom": {
       "pool": "decay"
     }
-  }
+  },
+  "magnitudeRules": [
+    {
+      "stat": "heist_enchantment_physical_mod_effect_+%",
+      "tags": ["physical"],
+      "description": "(10—15)% increased Explicit Physical Modifier magnitudes",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    },
+    {
+      "stat": "heist_enchantment_fire_mod_effect_+%",
+      "tags": ["elemental", "fire"],
+      "description": "(15—20)% increased Explicit Fire Modifier magnitudes",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    },
+    {
+      "stat": "heist_enchantment_lightning_mod_effect_+%",
+      "tags": ["elemental", "lightning"],
+      "description": "(15—20)% increased Explicit Lightning Modifier magnitudes",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    },
+    {
+      "stat": "heist_enchantment_cold_mod_effect_+%",
+      "tags": ["elemental", "cold"],
+      "description": "(15—20)% increased Explicit Cold Modifier magnitudes",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    },
+    {
+      "stat": "local_explicit_elemental_damage_mod_effect_+%",
+      "tags": ["elemental", "damage"],
+      "description": "(15—20)% increased Explicit Elemental Damage Modifier magnitudes",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    },
+    {
+      "stat": "heist_enchantment_chaos_mod_effect_+%",
+      "tags": ["chaos"],
+      "description": "(15—20)% increased Explicit Chaos Modifier magnitudes",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    },
+    {
+      "stat": "heist_enchantment_mana_mod_effect_+%",
+      "tags": ["mana"],
+      "description": "(25—30)% increased Explicit Mana Modifier magnitudes",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    },
+    {
+      "stat": "heist_enchantment_speed_mod_effect_+%",
+      "tags": ["speed"],
+      "description": "(25—30)% increased Explicit Speed Modifier magnitudes",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    },
+    {
+      "stat": "heist_enchantment_critical_mod_effect_+%",
+      "tags": ["critical"],
+      "description": "(20—30)% increased Explicit Critical Modifier magnitudes",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    }
+  ]
 }

@@ -1,3 +1,9 @@
+import { freshCraftMessages } from './session-library/freshCraftMessages'
+import { resetCurrentFilm } from './workbenchHistory'
+import { checkSessionCompatibility } from './workbenchReferenceApi'
+import { startingItem } from './base-picker/baseAffixSetup'
+import type { StartingAffix } from './base-picker/baseAffixSetup'
+import { loadModifierPools } from './workbenchReferenceApi'
 import { isCraftedModifier, craftedLimitMessages } from './augmentRules'
 import { useBonded, setBonded, bondedLabel } from './bonded'
 import { installedAugmentEffects } from './augmentEffects'
@@ -50,6 +56,7 @@ import {
   baseTexts,
   baseClass,
   baseStartingRarity,
+  baseKeyForItem,
   clipboardBase,
   supersededBases,
 } from './baseRegistry'
@@ -153,7 +160,7 @@ import {
   filmRulesetStatus,
   updateFilmMetadata,
 } from './workbenchHistory'
-import type { Films } from './workbenchHistory'
+import type { Films, Film, Frame } from './workbenchHistory'
 import {
   basicJewelBases,
   isWorkbenchJewel,
@@ -564,7 +571,8 @@ export function CraftingPage() {
     level: number,
     base: WorkbenchBaseKey = 'solar',
     catalystQuality: CatalystQuality | null = null,
-    jewelRarity: 'NORMAL' | 'MAGIC' | 'RARE' = 'NORMAL',
+    baseRarity: 'NORMAL' | 'MAGIC' | 'RARE' = 'NORMAL',
+    affixes: StartingAffix[] = [],
   ) {
     if (mutationLocked()) return
     setObservedPreview(null)
@@ -586,13 +594,7 @@ export function CraftingPage() {
       )
         return
       const root = {
-        ...concreteInitial(data),
-        ...(Object.hasOwn(workbenchJewelBases, base)
-          ? {
-              rarity: jewelRarity,
-              explicits: [],
-            }
-          : {}),
+        ...startingItem(data, baseRarity, affixes),
         ...(catalystQuality ? { catalystQuality } : {}),
       }
       if (!verifiedHistoryState(root, data))
@@ -616,6 +618,78 @@ export function CraftingPage() {
       setAnnouncement(t('notice.load_base'))
     } finally {
       if (request === placementRequest.current) placementPending.current = false
+    }
+  }
+  async function newCraftFromFrame(sourceFilm: Film, frame: Frame) {
+    if (mutationLocked() || filmState.blockedSaving) return
+    const base = baseKeyForItem(frame.state.baseItemId)
+    if (!base) return
+    const revision = useItemDraft.getState().baseRevision,
+      request = ++placementRequest.current
+    placementPending.current = true
+    const controller = new AbortController()
+    applyingRequest.current?.abort()
+    applyingRequest.current = controller
+    try {
+      const catalog = await client.fetchQuery({
+        queryKey: [
+          'crafting',
+          'initial',
+          base,
+          frame.state.itemLevel,
+          'manual',
+        ],
+        queryFn: ({ signal }) =>
+          loadInitial(frame.state.itemLevel, signal, base, true),
+        staleTime: 60_000,
+      })
+      let state = frame.state,
+        abyss = frame.abyss
+      if (
+        frame.rulesetIdentity !== catalog.rulesetIdentity ||
+        !verifiedHistoryState(state, catalog)
+      ) {
+        const checked = await checkSessionCompatibility(
+          catalog,
+          state,
+          abyss,
+          sourceFilm.compatibilityId,
+          controller.signal,
+        )
+        if (!checked.compatible || !checked.state)
+          throw new Error('Incompatible item state')
+        state = checked.state
+        abyss = checked.abyss ?? undefined
+      }
+      if (
+        request !== placementRequest.current ||
+        revision !== useItemDraft.getState().baseRevision ||
+        controller.signal.aborted
+      )
+        return
+      const next = startFilm(
+        filmState.history,
+        state,
+        filmId(),
+        catalog.rulesetIdentity,
+        undefined,
+        catalog.compatibilityId,
+      )
+      if (abyss) currentFilm(next)!.frames[0]!.abyss = structuredClone(abyss)
+      placementPending.current = false
+      if (applyingRequest.current === controller) applyingRequest.current = null
+      if (commitLibraryHistory(next)) {
+        setView('workbench')
+        setObservedPreview(null)
+        setSelected(null)
+        setHeld(null)
+        setAnnouncement('')
+      }
+    } catch {
+      if (!controller.signal.aborted) setAnnouncement(t('notice.load_base'))
+    } finally {
+      if (request === placementRequest.current) placementPending.current = false
+      if (applyingRequest.current === controller) applyingRequest.current = null
     }
   }
   function restoreFilm(
@@ -663,7 +737,7 @@ export function CraftingPage() {
     draft.setBase(state.itemLevel, base)
     saveFilms(
       {
-        ...sourceHistory,
+        ...updateFilmMetadata(sourceHistory, selectedFilm.id, {}),
         active: selectedFilm.id,
         cursor: nextCursor,
       },
@@ -741,10 +815,46 @@ export function CraftingPage() {
     [draft.baseRevision, draft.source],
   )
   const [baseLevel, setBaseLevel] = useState('82')
-  const [jewelRarity, setJewelRarity] = useState<'NORMAL' | 'MAGIC' | 'RARE'>(
+  const [baseRarity, setBaseRarity] = useState<'NORMAL' | 'MAGIC' | 'RARE'>(
     'NORMAL',
   )
   const [baseChoice, setBaseChoice] = useState<WorkbenchBaseKey>('solar')
+  const [baseAffixes, setBaseAffixes] = useState<StartingAffix[]>([])
+  const setupLevel = Number(baseLevel)
+  const setupLevelValid =
+    baseLevel.trim() !== '' &&
+    Number.isInteger(setupLevel) &&
+    setupLevel >= 1 &&
+    setupLevel <= 100
+  const setupInitial = useQuery({
+    queryKey: ['crafting', 'initial', baseChoice, setupLevel, 'manual'],
+    queryFn: ({ signal }) => loadInitial(setupLevel, signal, baseChoice, true),
+    enabled: leftMenu === 'base' && setupLevelValid,
+    staleTime: 60_000,
+    retry: false,
+  })
+  const setupReference = useQuery({
+    queryKey: [
+      'crafting',
+      'base-start-modifiers',
+      baseChoice,
+      setupLevel,
+      setupInitial.data?.rulesetIdentity,
+    ],
+    queryFn: ({ signal }) =>
+      loadModifierPools(
+        setupInitial.data!,
+        concreteInitial(setupInitial.data!),
+        false,
+        signal,
+      ),
+    enabled: leftMenu === 'base' && !!setupInitial.data && setupLevelValid,
+    staleTime: 60_000,
+    retry: false,
+  })
+  const setupItem = setupInitial.data
+    ? startingItem(setupInitial.data, baseRarity, baseAffixes)
+    : undefined
   const inputToggle = useRef<HTMLButtonElement>(null)
   const inputClose = useRef<HTMLButtonElement>(null)
   const restoreInputFocus = useRef(false)
@@ -1538,8 +1648,13 @@ export function CraftingPage() {
                   text,
                 })),
               ...defences.properties,
-              ...unidentifiedRuneEffects(concrete),
-              ...installedAugmentEffects(concrete, locale, bonded).map((a) => ({
+              ...unidentifiedRuneEffects(concrete, initial.data!.modifiers),
+              ...installedAugmentEffects(
+                concrete,
+                locale,
+                bonded,
+                initial.data!.modifiers,
+              ).map((a) => ({
                 id: `socket-effect-${a.slot}-${a.bonded ? 'bonded' : 'ordinary'}`,
                 text: `${a.bonded ? bondedLabel[locale] : augmentName(a.id)}: ${a.text}`,
                 kind: 'rune' as const,
@@ -2013,9 +2128,13 @@ export function CraftingPage() {
                       aria-controls="workbench-base-picker"
                       onClick={() => {
                         if (mutationLocked()) return
-                        setBaseChoice(
-                          supersededBases[catalogBase] ?? catalogBase,
-                        )
+                        const nextBase =
+                          supersededBases[catalogBase] ?? catalogBase
+                        if (nextBase !== baseChoice) {
+                          setBaseRarity(baseStartingRarity(nextBase))
+                          setBaseAffixes([])
+                        }
+                        setBaseChoice(nextBase)
                         setLeftMenu(leftMenu === 'base' ? null : 'base')
                       }}
                     >
@@ -2051,10 +2170,42 @@ export function CraftingPage() {
                       onClick={() => {
                         if (mutationLocked()) return
                         invalidateInput()
-                        void startBase(catalogLevel, catalogBase)
+                        const next = supersededBases[catalogBase] ?? catalogBase
+                        setBaseChoice(next)
+                        setBaseRarity(baseStartingRarity(next))
+                        setBaseLevel(String(catalogLevel))
+                        setBaseAffixes([])
+                        setLeftMenu('base')
+                        setAnnouncement('')
+                        setSelected(null)
+                        setHeld(null)
                       }}
                     >
                       {t('ui.new_craft')}
+                    </button>
+                    <button
+                      type="button"
+                      className="item-input-toggle"
+                      disabled={
+                        workbenchBusy || !film || film.frames.length <= 1
+                      }
+                      onClick={() => {
+                        if (mutationLocked()) return
+                        invalidateInput()
+                        if (
+                          commitLibraryHistory(
+                            resetCurrentFilm(filmState.history),
+                          )
+                        ) {
+                          draft.setActiveOmens([])
+                          setObservedPreview(null)
+                          setSelected(null)
+                          setHeld(null)
+                          setAnnouncement('')
+                        }
+                      }}
+                    >
+                      {freshCraftMessages[locale].reset}
                     </button>
                   </div>
                   <div className="workbench-stash-column">
@@ -2474,6 +2625,10 @@ export function CraftingPage() {
                 cursor={filmState.history.cursor}
                 resources={stashResources}
                 onNavigate={browse}
+                onNewCraft={() => {
+                  if (film && storedFrame)
+                    void newCraftFromFrame(film, storedFrame)
+                }}
                 disabled={workbenchBusy}
               />
             </div>
@@ -2489,46 +2644,74 @@ export function CraftingPage() {
             value={baseChoice}
             onChange={(value) => {
               if (!mutationLocked()) {
-                if (value !== baseChoice) setJewelRarity('NORMAL')
+                if (value !== baseChoice) {
+                  setBaseRarity(baseStartingRarity(value))
+                  setBaseAffixes([])
+                }
                 setBaseChoice(value)
               }
             }}
             level={baseLevel}
             onLevelChange={(value) => {
-              if (!mutationLocked()) setBaseLevel(value)
+              if (!mutationLocked()) {
+                setBaseLevel(value)
+                setBaseAffixes([])
+              }
             }}
             disabled={workbenchBusy}
-            {...(Object.hasOwn(workbenchJewelBases, baseChoice)
-              ? { selectedRarity: jewelRarity }
-              : {})}
+            selectedRarity={baseRarity}
+            valid={
+              !!setupItem &&
+              !!setupInitial.data &&
+              verifiedHistoryState(setupItem, setupInitial.data)
+            }
+            setup={
+              setupItem && setupInitial.data
+                ? {
+                    initial: setupInitial.data,
+                    item: setupItem,
+                    reference: setupReference.data,
+                    affixes: baseAffixes,
+                    onChange: setBaseAffixes,
+                    disabled: workbenchBusy,
+                  }
+                : undefined
+            }
             extraControls={
-              <>
-                {Object.hasOwn(workbenchJewelBases, baseChoice) && (
-                  <>
-                    <label htmlFor="jewel-rarity">{t('ui.rarity')}</label>
-                    <select
-                      id="jewel-rarity"
-                      value={jewelRarity}
-                      disabled={workbenchBusy}
-                      onChange={(e) => {
-                        if (!mutationLocked())
-                          setJewelRarity(
-                            e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
-                          )
-                      }}
-                    >
-                      <option value="NORMAL">{t('ui.normal')}</option>
-                      <option value="MAGIC">{t('ui.magic')}</option>
-                      <option value="RARE">{t('ui.rare')}</option>
-                    </select>
-                  </>
-                )}
-              </>
+              <label htmlFor="base-rarity">
+                {t('ui.rarity')}
+                <select
+                  id="base-rarity"
+                  aria-label={t('ui.rarity')}
+                  value={baseRarity}
+                  disabled={
+                    workbenchBusy || baseStartingRarity(baseChoice) === 'RARE'
+                  }
+                  onChange={(e) => {
+                    if (!mutationLocked()) {
+                      setBaseRarity(
+                        e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
+                      )
+                      setBaseAffixes([])
+                    }
+                  }}
+                >
+                  <option value="NORMAL">{t('ui.normal')}</option>
+                  <option value="MAGIC">{t('ui.magic')}</option>
+                  <option value="RARE">{t('ui.rare')}</option>
+                </select>
+              </label>
             }
             onPlace={() => {
               if (mutationLocked()) return
               invalidateInput()
-              void startBase(Number(baseLevel), baseChoice, null, jewelRarity)
+              void startBase(
+                Number(baseLevel),
+                baseChoice,
+                null,
+                baseRarity,
+                baseAffixes,
+              )
               setSelected(null)
               setLeftMenu(null)
             }}
@@ -2611,6 +2794,14 @@ export function CraftingPage() {
           }}
           disabled={workbenchBusy || filmState.blockedSaving}
           error={filmState.error ? uiText(filmState.error) : ''}
+          onInteract={(id) =>
+            commitLibraryHistory(updateFilmMetadata(filmState.history, id, {}))
+          }
+          onNewCraft={(id) => {
+            const selected = filmState.history.films.find((f) => f.id === id),
+              frame = selected?.frames.at(-1)
+            if (selected && frame) void newCraftFromFrame(selected, frame)
+          }}
           onContinue={(id) => {
             if (mutationLocked()) return
             setObservedPreview(null)

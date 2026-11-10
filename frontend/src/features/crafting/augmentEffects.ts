@@ -1,3 +1,5 @@
+import { modifierMagnitudeValues } from './modifierMagnitudes'
+import type { Definition } from './craftingApi'
 import {
   augmentRule,
   structuralAugment,
@@ -32,21 +34,37 @@ export function renderAugmentEffect(
 }
 
 /** One shared numeric sum for item properties and socket-effect strength. */
-export function itemStatValues(state: ConcreteItem): Record<string, number> {
+export function itemStatValues(
+  state: ConcreteItem,
+  definitions: Record<string, Definition> = {},
+): Record<string, number> {
   const values: Record<string, number> = {}
   for (const layer of ['implicits', 'explicits'] as const)
     for (const modifier of state[layer])
       for (const [id, value] of Object.entries(
-        sanctifiedValues(state, modifier, layer),
+        definitions[modifier.modifierId]
+          ? modifierMagnitudeValues(
+              state,
+              definitions[modifier.modifierId]!,
+              sanctifiedValues(state, modifier, layer),
+              layer,
+            )
+          : sanctifiedValues(state, modifier, layer),
       ))
         values[id] = (values[id] ?? 0) + value
   return values
 }
 
-export function socketEffectMultiplier(state: ConcreteItem): number {
+export function socketEffectMultiplier(
+  state: ConcreteItem,
+  definitions: Record<string, Definition> = {},
+): number {
   return Math.max(
     0,
-    1 + (itemStatValues(state)['local_socketed_items_effect_+%'] ?? 0) / 100,
+    1 +
+      (itemStatValues(state, definitions)['local_socketed_items_effect_+%'] ??
+        0) /
+        100,
   )
 }
 
@@ -54,6 +72,7 @@ export function installedAugmentEffects(
   state: ConcreteItem,
   locale: Locale,
   bonded = false,
+  definitions: Record<string, Definition> = {},
 ): {
   slot: number
   id: string
@@ -62,7 +81,7 @@ export function installedAugmentEffects(
   bonded: boolean
 }[] {
   const itemClass = basePolicy(state.baseItemId)?.itemClass ?? ''
-  const genericMultiplier = socketEffectMultiplier(state)
+  const genericMultiplier = socketEffectMultiplier(state, definitions)
   return (state.installedAugments ?? []).flatMap((installed) => {
     const entry = data.find((a) => a.id === installed.augmentId)
     if (!entry || !(itemClass in entry.effects)) return []
@@ -146,8 +165,9 @@ export function installedAugmentEffects(
 export function observedAugmentEffects(
   state: ConcreteItem,
   bonded = false,
+  definitions: Record<string, Definition> = {},
 ): string[] {
-  const generic = socketEffectMultiplier(state)
+  const generic = socketEffectMultiplier(state, definitions)
   const amount =
     generic +
     (state.installedAugments ?? []).reduce(
@@ -165,7 +185,12 @@ export function observedAugmentEffects(
           String(Math.round(Number(n) * ratio)),
         ),
   )
-  const renderedBonded = installedAugmentEffects(state, 'en', bonded)
+  const renderedBonded = installedAugmentEffects(
+    state,
+    'en',
+    bonded,
+    definitions,
+  )
     .filter((e) => e.bonded)
     .flatMap((e) => e.english.split('\n'))
   return effects.filter((line) => {

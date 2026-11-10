@@ -1,3 +1,4 @@
+import { freshCraftMessages } from '../session-library/freshCraftMessages'
 import { RevealIcon } from '../abyss-workbench/RevealIcon'
 import { revealAction } from '../abyss-workbench/revealAction'
 import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
@@ -19,6 +20,7 @@ export type SessionNotationProps = {
   /** Full display registry, including retained legacy resources and omens. */
   resources: readonly WorkbenchResource[]
   onNavigate?: (frameIndex: number) => void
+  onNewCraft?: () => void
   disabled?: boolean
 }
 
@@ -82,6 +84,7 @@ export function SessionNotation({
   cursor,
   resources,
   onNavigate,
+  onNewCraft,
   disabled = false,
 }: SessionNotationProps) {
   const { locale, name } = useI18n()
@@ -166,6 +169,16 @@ export function SessionNotation({
       )}
       {notation.incompleteOmens && (
         <p className="wb-session-notation__limitation">{text.omensMissing}</p>
+      )}
+      {film && onNewCraft && (
+        <button
+          type="button"
+          className="wb-session-notation__new-craft"
+          disabled={disabled}
+          onClick={onNewCraft}
+        >
+          {freshCraftMessages[locale].fromCurrent}
+        </button>
       )}
     </section>
   )

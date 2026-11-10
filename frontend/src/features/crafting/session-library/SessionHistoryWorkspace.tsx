@@ -1,3 +1,5 @@
+import { orderedFilms } from '../workbenchHistory'
+import { freshCraftMessages } from './freshCraftMessages'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
@@ -19,6 +21,8 @@ export type SessionHistoryWorkspaceProps = Omit<
   onRename: (id: string, title: string) => boolean
   undo?: { title: string; expiresAt: number; onUndo: () => void }
   onContinue: (id: string) => void
+  onNewCraft?: (id: string) => void
+  onInteract?: (id: string) => void
   onImport: (document: SessionDocument) => string | null
   error?: string
   active?: boolean
@@ -27,6 +31,8 @@ export type SessionHistoryWorkspaceProps = Omit<
 /** Preview selection is independent of the active simulation and its stored cursor. */
 export function SessionHistoryWorkspace({
   onContinue,
+  onNewCraft,
+  onInteract,
   onImport,
   onRename,
   undo,
@@ -46,9 +52,10 @@ export function SessionHistoryWorkspace({
   )
   const preview = useRef<HTMLElement>(null)
   const importPreview = useRef<HTMLDivElement>(null)
-  const visible = library.history.films.filter(
-    (film) => filter === 'library' || film.favorite === true,
-  )
+  const visible = orderedFilms(
+    library.history.films,
+    filter === 'favorites',
+  ).filter((film) => filter === 'library' || film.favorite === true)
   const selected =
     visible.find((film) => film.id === selectedId) ??
     visible.find((film) => film.id === library.history.active) ??
@@ -119,6 +126,7 @@ export function SessionHistoryWorkspace({
               favoritesOnly={filter === 'favorites'}
               onSelect={(id) => {
                 setSelectedId(id)
+                onInteract?.(id)
                 if (window.innerWidth <= 760)
                   preview.current?.scrollIntoView({ block: 'nearest' })
               }}
@@ -155,6 +163,15 @@ export function SessionHistoryWorkspace({
                     >
                       {text.resume} <span aria-hidden="true">→</span>
                     </button>
+                    {onNewCraft && (
+                      <button
+                        type="button"
+                        disabled={library.disabled}
+                        onClick={() => onNewCraft(selected.id)}
+                      >
+                        {freshCraftMessages[locale].fromItem}
+                      </button>
+                    )}
                     <a href={localHistoryUrl(selected.id, 'history', filter)}>
                       {historyMessages[locale].title}{' '}
                       <span aria-hidden="true">↗</span>

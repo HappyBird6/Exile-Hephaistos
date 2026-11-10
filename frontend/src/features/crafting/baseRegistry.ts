@@ -209,3 +209,9 @@ export const selectableBaseKeys = (
 ).filter(
   (key) => !Object.hasOwn(supersededBases, key) && newBaseSelectionAllowed(key),
 )
+
+export function baseKeyForItem(id: string): WorkbenchBaseKey | undefined {
+  return (Object.entries(topEntries).find(([, b]) => b.id === id)?.[0] ??
+    Object.entries(legacyEntries).find(([, b]) => b.id === id)?.[0]) as
+    WorkbenchBaseKey | undefined
+}

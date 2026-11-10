@@ -29,13 +29,24 @@ public final class SocketAugmentEffects {
   }
 
   public static double multiplier(ItemState state) {
+    return multiplier(state, null);
+  }
+
+  public static double multiplier(ItemState state, ItemCatalog catalog) {
     double sum = 0;
     for (boolean implicit : List.of(true, false))
       for (var modifier : implicit ? state.implicits() : state.explicits()) {
         if (modifier.values().containsKey("local_socketed_items_effect_+%"))
           sum +=
-              QualitySanctification.value(
-                      state, modifier, "local_socketed_items_effect_+%", implicit)
+              (catalog == null
+                      ? QualitySanctification.value(
+                          state, modifier, "local_socketed_items_effect_+%", implicit)
+                      : ModifierMagnitudes.value(
+                          state,
+                          catalog.find(modifier.modifierId()).orElseThrow(),
+                          modifier,
+                          "local_socketed_items_effect_+%",
+                          implicit))
                   .doubleValue();
       }
     return Math.max(0, 1 + sum / 100);

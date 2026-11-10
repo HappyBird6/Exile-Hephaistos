@@ -1,3 +1,6 @@
+import { BaseAffixEditor } from './BaseAffixEditor'
+import type { BaseAffixEditorProps } from './BaseAffixEditor'
+import { startingPreview } from './baseAffixSetup'
 import { useId, useState } from 'react'
 import type { ReactNode } from 'react'
 import { useI18n, uiText } from '../../../shared/i18n/i18n'
@@ -20,7 +23,8 @@ export type WorkbenchBasePickerProps = Omit<ShelfOverlayProps, 'onClose'> & {
   onLevelChange: (level: string) => void
   onPlace: () => void
   disabled?: boolean
-  /** Optional manual jewel rarity control; never observed item modifiers. */
+  /** Starting rarity and affixes are staged until the base is placed. */
+  setup?: BaseAffixEditorProps | undefined
   extraControls?: ReactNode
   valid?: boolean
   selectedRarity?: 'NORMAL' | 'MAGIC' | 'RARE'
@@ -47,6 +51,7 @@ function BasePickerContent({
   valid = true,
   selectedRarity,
   imageForBase,
+  setup,
 }: WorkbenchBasePickerProps) {
   const { locale, t } = useI18n()
   const messages = basePickerMessages[locale]
@@ -82,11 +87,19 @@ function BasePickerContent({
     Number.isInteger(numericLevel) &&
     numericLevel >= 1 &&
     numericLevel <= 100
-  const previewItem = preview
+  let previewItem = preview
     ? basePreview(preview, levelValid ? numericLevel : null, locale)
     : null
   if (previewItem && preview?.key === value && selectedRarity)
     previewItem.rarity = selectedRarity
+  if (preview && preview.key === value && setup)
+    previewItem = startingPreview(
+      preview,
+      setup.initial,
+      setup.item,
+      setup.affixes,
+      locale,
+    )
   return (
     <LeftShelfOverlay
       id={id}
@@ -270,7 +283,14 @@ function BasePickerContent({
               )
                 setFocused(null)
             }}
-          />
+          >
+            {setup && preview.key === value && (
+              <BaseAffixEditor
+                key={`${value}:${level}:${selectedRarity}`}
+                {...setup}
+              />
+            )}
+          </BasePreviewPanel>
         )}
       </div>
     </LeftShelfOverlay>

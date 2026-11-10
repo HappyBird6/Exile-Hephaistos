@@ -1,10 +1,15 @@
+import type { Definition } from '../craftingApi'
 import bases from '../topBases.json'
 import { itemStatValues } from '../augmentEffects'
 import { augmentPropertyBonuses } from './augmentProperties'
 import type { ConcreteItem } from '../workbenchApi'
 
 export type Damage = 'physical' | 'fire' | 'cold' | 'lightning' | 'chaos'
-export function derivedWeapons(state: ConcreteItem, bonded = false) {
+export function derivedWeapons(
+  state: ConcreteItem,
+  bonded = false,
+  definitions: Record<string, Definition> = {},
+) {
   const base = Object.values(bases).find((b) => b.id === state.baseItemId)
   const lines =
     base && 'sourceProperties' in base ? base.sourceProperties.en : []
@@ -23,8 +28,8 @@ export function derivedWeapons(state: ConcreteItem, bonded = false) {
     !properties.some((s) => /^Physical Damage:/.test(s))
   )
     return undefined
-  const stats = itemStatValues(state)
-  const runes = augmentPropertyBonuses(state, bonded)
+  const stats = itemStatValues(state, definitions)
+  const runes = augmentPropertyBonuses(state, bonded, definitions)
   const quality = state.equipmentQuality
   const damage: Partial<Record<Damage, [number, number] | null>> = {}
   for (const key of [

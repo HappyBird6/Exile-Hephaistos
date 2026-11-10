@@ -1,3 +1,4 @@
+import { orderedFilms } from '../workbenchHistory'
 import { useState } from 'react'
 import { useI18n, gameName } from '../../../shared/i18n/i18n'
 import { BaseImage } from '../base-picker/BaseImage'
@@ -44,7 +45,7 @@ export function SessionLibrary({
       {!history.films.some((film) => !favoritesOnly || film.favorite) && (
         <p>{favoritesOnly ? text.emptyFavorites : text.empty}</p>
       )}
-      {history.films
+      {orderedFilms(history.films, favoritesOnly)
         .filter((film) => !favoritesOnly || film.favorite)
         .map((film) => {
           const title = sessionTitle(film, locale)

@@ -1,3 +1,4 @@
+import { modifierMagnitudeValues } from './modifierMagnitudes'
 import { hasVerifiedClipboardValues } from './item-text/modifierClipboardText'
 import { basePolicy } from './baseRegistry'
 import ringManifest from './topBases.json'
@@ -100,7 +101,7 @@ const integerStats = new Set([
   'evasion_rating_+%',
   'base_cast_speed_+%',
 ])
-export function catalystProjection(
+function baseCatalystProjection(
   d: Definition,
   values: Record<string, number>,
   quality?: CatalystQuality | null,
@@ -175,4 +176,17 @@ export function catalystProjection(
   if (!Object.values(displayed).every(Number.isSafeInteger))
     return { values, status: 'UNREVIEWED_NUMERIC_SEMANTICS' }
   return { values: displayed, status: 'SCALED_INTEGER' }
+}
+
+/** Shared item-card projection: typed quality first, then source-tagged explicit magnitudes. */
+export function catalystProjection(
+  d: Definition,
+  values: Record<string, number>,
+  quality?: CatalystQuality | null,
+  state?: ConcreteItem,
+) {
+  const result = baseCatalystProjection(d, values, quality, state)
+  return state
+    ? { ...result, values: modifierMagnitudeValues(state, d, result.values) }
+    : result
 }

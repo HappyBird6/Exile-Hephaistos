@@ -26,7 +26,8 @@ public final class AugmentCraftingRules {
       Set<String> craftedModifierIds,
       List<ModifierDefinition> modifiers,
       Map<String, Map<String, Map<String, Integer>>> pools,
-      Map<String, Effect> effects) {}
+      Map<String, Effect> effects,
+      List<ModifierMagnitudes.Rule> magnitudeRules) {}
 
   private static final Effect NONE = new Effect(0, 0, 0, 0, false, null, null);
   private static final Document DATA = load();
@@ -42,6 +43,10 @@ public final class AugmentCraftingRules {
     } catch (java.io.IOException e) {
       throw new ExceptionInInitializerError(e);
     }
+  }
+
+  public static List<ModifierMagnitudes.Rule> magnitudeRules() {
+    return DATA.magnitudeRules();
   }
 
   public static Effect effect(String id) {

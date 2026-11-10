@@ -91,11 +91,17 @@ it.each(['NORMAL', 'MAGIC', 'RARE'] as const)(
     fireEvent.change(screen.getByLabelText('Rarity'), {
       target: { value: rarity },
     })
+    await waitFor(() =>
+      expect(
+        within(dialog).getByRole('button', { name: 'Select base' }),
+      ).toBeEnabled(),
+    )
     fireEvent.click(within(dialog).getByRole('button', { name: 'Select base' }))
     await waitFor(() => {
-      expect(screen.queryByRole('status')?.textContent).not.toContain(
-        'Could not',
-      )
+      expect(
+        document.querySelector('.craft-page > .sr-only[role="status"]')
+          ?.textContent,
+      ).not.toContain('Could not')
       const saved = JSON.parse(localStorage.getItem(historyStorageKey)!)
       expect(saved.films).toHaveLength(2)
       const added = saved.films.find((f: { id: string }) => f.id !== 'old')

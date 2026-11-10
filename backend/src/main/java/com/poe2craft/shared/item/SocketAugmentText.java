@@ -217,8 +217,12 @@ public final class SocketAugmentText {
   }
 
   public static List<String> effects(ItemState state) {
+    return effects(state, null);
+  }
+
+  public static List<String> effects(ItemState state, ItemCatalog catalog) {
     var result = new ArrayList<String>();
-    double multiplier = SocketAugmentEffects.multiplier(state);
+    double multiplier = SocketAugmentEffects.multiplier(state, catalog);
     boolean idolBonded =
         state.installedAugments().stream()
             .anyMatch(a -> AugmentCraftingRules.effect(a.augmentId()).idolBonded());

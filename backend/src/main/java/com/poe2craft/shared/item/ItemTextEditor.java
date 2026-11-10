@@ -48,10 +48,11 @@ public final class ItemTextEditor {
                                 before.baseItemId(), "Grants Skill: " + skill.name()));
     if (!java.util.Objects.equals(expectedSockets, nextSockets)
         || (!(before.installedAugments().isEmpty()
-                && SocketAugmentText.effects(next).isEmpty()
+                && SocketAugmentText.effects(next, catalog).isEmpty()
                 && previousObserved != null)
             && !SocketAugmentText.sameEffects(
-                SocketAugmentText.effects(before), SocketAugmentText.effects(next)))
+                SocketAugmentText.effects(before, catalog),
+                SocketAugmentText.effects(next, catalog)))
         || !sameSkills)
       return blocked(
           "Socket and Rune lines are protected; use the socket controls to change installed augments.");

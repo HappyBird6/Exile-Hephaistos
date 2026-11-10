@@ -153,6 +153,18 @@ public final class ChaosOptionDisplay {
       ModifierDefinition definition,
       ModifierInstance modifier,
       List<Issue> issues) {
+    var values = baseProject(state, definition, modifier, issues);
+    double factor =
+        com.poe2craft.shared.item.ModifierMagnitudes.factor(state, definition, false).doubleValue();
+    if (factor != 1) values.replaceAll((id, value) -> value * factor);
+    return values;
+  }
+
+  private Map<String, Double> baseProject(
+      ItemState state,
+      ModifierDefinition definition,
+      ModifierInstance modifier,
+      List<Issue> issues) {
     var source = modifier.values();
     Map<String, Double> values = new LinkedHashMap<>();
     source.forEach((id, value) -> values.put(id, value.doubleValue()));

@@ -281,4 +281,25 @@ class ChaosRepeatControllerTest {
         .isNotEqualTo(expected);
     assertThat(source.path("locale").asText()).isEqualTo("ko");
   }
+
+  @Test
+  void optionalFalseModifierFlagsRemainOptionalAtTheStrictHttpBoundary() throws Exception {
+    for (boolean abyss : List.of(false, true)) {
+      var body = request(abyss);
+      removeFlags(body);
+      body.put("pattern", "__no_possible_option__");
+      body.put("maximumUses", 1000);
+      var response = send(body, 200);
+      assertThat(response.path("actualUses").intValue()).isEqualTo(1000);
+    }
+    var body = request(false);
+    ((ObjectNode) body.path("state").path("item").path("explicits").get(0)).putNull("crafted");
+    send(body, 422);
+  }
+
+  private void removeFlags(JsonNode node) {
+    if (node.isObject() && node.has("modifierId") && node.has("values"))
+      ((ObjectNode) node).remove(List.of("crafted", "fractured"));
+    if (node.isContainerNode()) node.elements().forEachRemaining(this::removeFlags);
+  }
 }

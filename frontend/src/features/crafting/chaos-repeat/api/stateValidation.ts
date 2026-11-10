@@ -37,7 +37,7 @@ export function sameRepeatValue(a: unknown, b: unknown): boolean {
         .filter(
           ([key, entry]) =>
             !(nullableWireFields.has(key) && entry == null) &&
-            !(key === 'fractured' && entry === false) &&
+            !(['fractured', 'crafted'].includes(key) && entry === false) &&
             !(
               key === 'desecrated' &&
               Array.isArray(entry) &&
@@ -57,10 +57,11 @@ export function repeatItem(state: ChaosRepeatState): ConcreteItem {
 function modifierShape(value: unknown, initial: Initial): boolean {
   if (
     !object(value) ||
-    !onlyKeys(value, ['modifierId', 'values', 'fractured']) ||
+    !onlyKeys(value, ['modifierId', 'values', 'fractured', 'crafted']) ||
     typeof value.modifierId !== 'string' ||
     !object(value.values) ||
-    (value.fractured !== undefined && typeof value.fractured !== 'boolean')
+    (value.fractured !== undefined && typeof value.fractured !== 'boolean') ||
+    (value.crafted !== undefined && typeof value.crafted !== 'boolean')
   )
     return false
   const definition = initial.modifiers[value.modifierId]

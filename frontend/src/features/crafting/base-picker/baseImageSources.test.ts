@@ -10,31 +10,7 @@ it('renders every selectable identity from verified local art including the user
   const missing = workbenchBaseChoices('en').filter(
     (choice) => !baseImageSource(choice.baseItemId),
   )
-  expect(missing.map((base) => base.name).sort()).toEqual(
-    [
-      'Distorted Amulet',
-      "Falconer's Jacket",
-      'Flowing Raiment',
-      'Biostatic Ring',
-      'Oneiric Ring',
-      'Dusk Ring',
-      'Gloam Ring',
-      'Penumbra Ring',
-      'Tenebrous Ring',
-    ].sort(),
-  )
-  for (const base of missing) {
-    const source = (
-      sources as Record<string, { cacheBlocked?: string; status?: string }>
-    )[base.baseItemId]
-    if (
-      ['Distorted Amulet', "Falconer's Jacket", 'Flowing Raiment'].includes(
-        base.name,
-      )
-    )
-      expect(source?.cacheBlocked).toContain('HTTP 403')
-    else expect(source?.status).toContain('one download attempt: HTTPError')
-  }
+  expect(missing).toEqual([])
   expect(baseImageSource('Metadata/Items/Quivers/FourQuiver2')).toContain(
     'c8809e1438f9f231be94.webp',
   )

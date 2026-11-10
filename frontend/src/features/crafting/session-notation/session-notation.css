@@ -145,3 +145,29 @@
   border-color: #c8a968;
   background: #393024;
 }
+
+.wb-session-notation__new-craft {
+  display: block;
+  width: 100%;
+  min-height: 3.7em;
+  margin-top: 7px;
+  padding: 8px 12px;
+  border: 1px solid #6b5a37;
+  border-radius: 3px;
+  background: #28251c;
+  color: #dfce9f;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+.wb-session-notation__new-craft:hover:not(:disabled) {
+  border-color: #c6a666;
+  background: #353020;
+}
+.wb-session-notation__new-craft:disabled {
+  opacity: 0.5;
+  cursor: default;
+}

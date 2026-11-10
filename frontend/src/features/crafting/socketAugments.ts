@@ -1,3 +1,4 @@
+import type { Definition } from './craftingApi'
 import { observedAugmentEffects } from './augmentEffects'
 import { socketIsBound, visibleAugmentText } from './augmentRules'
 import data from './augments.json'
@@ -238,26 +239,31 @@ export function socketText() {
 }
 
 /** Unknown identity is a display label; the observed effect stays independent of affix rolls. */
-export function unidentifiedRuneEffects(state: ConcreteItem): ItemCardLine[] {
+export function unidentifiedRuneEffects(
+  state: ConcreteItem,
+  definitions: Record<string, Definition> = {},
+): ItemCardLine[] {
   const itemClass = basePolicy(state.baseItemId)?.itemClass ?? ''
-  return observedAugmentEffects(state).map((source, index) => {
-    const text = source
-      .replace(/^\{.*?}\s*/, '')
-      .replace(/\s*\(rune\)$/, '')
-      .trim()
-    const matches = augments.filter(
-      (entry) => entry.effects[itemClass]?.en === text,
-    )
-    const translations = new Set(
-      matches
-        .map((entry) => entry.effects[itemClass]?.[getLocale()])
-        .filter(Boolean),
-    )
-    const effect = translations.size === 1 ? [...translations][0]! : text
-    return {
-      id: `observed-augment-${index}`,
-      text: `${translate('base.unidentified_rune')}: ${effect}`,
-      kind: 'rune',
-    }
-  })
+  return observedAugmentEffects(state, false, definitions).map(
+    (source, index) => {
+      const text = source
+        .replace(/^\{.*?}\s*/, '')
+        .replace(/\s*\(rune\)$/, '')
+        .trim()
+      const matches = augments.filter(
+        (entry) => entry.effects[itemClass]?.en === text,
+      )
+      const translations = new Set(
+        matches
+          .map((entry) => entry.effects[itemClass]?.[getLocale()])
+          .filter(Boolean),
+      )
+      const effect = translations.size === 1 ? [...translations][0]! : text
+      return {
+        id: `observed-augment-${index}`,
+        text: `${translate('base.unidentified_rune')}: ${effect}`,
+        kind: 'rune',
+      }
+    },
+  )
 }

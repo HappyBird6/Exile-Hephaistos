@@ -76,7 +76,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                   .map((text, i) => ({ id: `base-${i}`, text }))
               : []),
             ...defences.properties,
-            ...unidentifiedRuneEffects(state),
+            ...unidentifiedRuneEffects(state, definitions),
             ...(state.observations?.grantedSkills ?? []).map((skill, i) => ({
               id: `observed-skill-${i}`,
               text:
@@ -117,11 +117,13 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                   },
                 ]
               : []),
-            ...installedAugmentEffects(state, locale, bonded).map((a) => ({
-              id: `augment-${a.slot}-${a.bonded ? 'bonded' : 'ordinary'}`,
-              text: `${a.bonded ? bondedLabel[locale] : augmentName(a.id)}: ${a.text}`,
-              kind: 'rune' as const,
-            })),
+            ...installedAugmentEffects(state, locale, bonded, definitions).map(
+              (a) => ({
+                id: `augment-${a.slot}-${a.bonded ? 'bonded' : 'ordinary'}`,
+                text: `${a.bonded ? bondedLabel[locale] : augmentName(a.id)}: ${a.text}`,
+                kind: 'rune' as const,
+              }),
+            ),
           ],
           requirements:
             valid && base

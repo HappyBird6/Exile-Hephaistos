@@ -178,7 +178,7 @@ public final class WorkbenchStateReader {
       }
     }
     // modifierIds is legacy derived bucket metadata, never an authoritative item property.
-    return json.convertValue(input, ItemState.class);
+    return json.convertValue(withModifierDefaults(input), ItemState.class);
   }
 
   public AbyssCraftingState abyssState(JsonNode input) {
@@ -192,13 +192,31 @@ public final class WorkbenchStateReader {
               .with(
                   com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
               .without(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_FLOAT_AS_INT)
-              .readValue(input.traverse(json));
+              .readValue(withModifierDefaults(input).traverse(json));
       var result = (AbyssCraftingState) state;
       result.validate(simulator.abyssCatalog(result.item()));
       return result;
     } catch (java.io.IOException invalid) {
       throw new IllegalArgumentException("Invalid Abyss state");
     }
+  }
+
+  /**
+   * Only omitted legacy modifier flags get defaults; explicit nulls and wrong types stay invalid.
+   */
+  private JsonNode withModifierDefaults(JsonNode input) {
+    var copy = input.deepCopy();
+    addModifierDefaults(copy);
+    return copy;
+  }
+
+  private void addModifierDefaults(JsonNode node) {
+    if (node.isObject() && node.path("modifierId").isTextual() && node.path("values").isObject()) {
+      var modifier = (com.fasterxml.jackson.databind.node.ObjectNode) node;
+      for (String flag : List.of("fractured", "crafted"))
+        if (!modifier.has(flag)) modifier.put(flag, false);
+    }
+    if (node.isContainerNode()) node.elements().forEachRemaining(this::addModifierDefaults);
   }
 
   private void validateAbyssNumbers(JsonNode node) {
