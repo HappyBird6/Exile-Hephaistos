@@ -7,6 +7,7 @@ import com.poe2craft.shared.crafting.domain.WorkbenchDefinitions;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.crafting.infrastructure.ReviewedEssencesLoader;
 import com.poe2craft.shared.crafting.infrastructure.WorkbenchDefinitionsLoader;
+import com.poe2craft.shared.item.EquipmentCurrencyCatalog;
 import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemObservations;
 import com.poe2craft.shared.item.ItemState;
@@ -65,7 +66,7 @@ public class CatalogConfiguration {
 
   @Bean
   ItemCatalog itemCatalog(WorkbenchDefinitions definitions) {
-    return ItemCatalogLoader.loadDefault();
+    return EquipmentCurrencyCatalog.enrich(ItemCatalogLoader.loadDefault());
   }
 
   @Bean
