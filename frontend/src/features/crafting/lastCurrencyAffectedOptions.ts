@@ -9,7 +9,7 @@ import {
 } from './workbenchHistory'
 import { isBone } from './desecrationCurrency'
 import { validAbyssResponse } from './abyssResponse'
-import { equivalent } from './sanctification/equivalence'
+import { sameItemState } from './crafting-state/itemIdentity'
 import { catalystProjection } from './catalystQuality'
 import { preciseModifierProjection } from './sanctification/preciseModifierProjection'
 
@@ -72,7 +72,7 @@ export function lastCurrencyAffectedOptions(
     step.rulesetIdentity === initial.rulesetIdentity &&
     step.abyss &&
     validAbyssResponse('validate', step.abyss, step.abyss.item, initial) &&
-    equivalent(storedAbyssItem(step.abyss), after)
+    sameItemState(storedAbyssItem(step.abyss), after)
   if (!evidence && !manualCurrency) return none
   const affected = new Set(
     evidence?.events

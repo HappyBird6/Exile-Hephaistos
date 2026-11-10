@@ -3,7 +3,6 @@ package com.poe2craft.shared.crafting.application;
 import com.poe2craft.shared.crafting.domain.AbyssCraftingPlan;
 import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.crafting.domain.AbyssCurrencyExecutor;
-import com.poe2craft.shared.crafting.domain.BeltEssenceTargets;
 import com.poe2craft.shared.crafting.domain.BodyEssenceTargets;
 import com.poe2craft.shared.crafting.domain.BowEssenceTargets;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
@@ -26,7 +25,6 @@ import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ManualRevealCatalog;
 import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
-import com.poe2craft.shared.item.SapphireJewel;
 import com.poe2craft.shared.item.SolarAmulet;
 import java.util.*;
 import java.util.random.RandomGenerator;
@@ -58,16 +56,29 @@ public final class CatalogCraftingService implements CraftingOperations {
   private final ItemCatalog sapphire;
   private final WorkbenchSimulator sapphireSimulator;
 
-  /** The same immutable catalogs used by starting items, including registered equipment. */
+  private record RegisteredBase(ItemCatalog catalog, WorkbenchSimulator simulator) {}
+
+  private final Map<String, RegisteredBase> byKey = new LinkedHashMap<>();
+  private final Map<String, RegisteredBase> byItemId = new LinkedHashMap<>();
+
+  private void register(String key, ItemCatalog catalog, WorkbenchSimulator simulator) {
+    if (catalog == null) return;
+    if (simulator == null
+        || !simulator.catalog().base().id().equals(catalog.base().id())
+        || byKey.containsKey(key)
+        || byItemId.containsKey(catalog.base().id()))
+      throw new IllegalArgumentException(
+          "Duplicate or inconsistent Workbench base registration: " + key);
+    var entry = new RegisteredBase(catalog, simulator);
+    byKey.put(key, entry);
+    byItemId.put(catalog.base().id(), entry);
+  }
+
   public List<ItemCatalog> reviewedCatalogs() {
-    var catalogs = new TreeMap<String, ItemCatalog>();
-    java.util.stream.Stream.of(
-            solar, stocky, bow, wand, body, sceptre, belt, helmet, ring, sapphire)
-        .filter(Objects::nonNull)
-        .forEach(c -> catalogs.put(c.base().id(), c));
-    basicJewels.values().forEach(c -> catalogs.put(c.base().id(), c));
-    topBases.values().forEach(c -> catalogs.put(c.base().id(), c));
-    return List.copyOf(catalogs.values());
+    return byItemId.values().stream()
+        .map(RegisteredBase::catalog)
+        .sorted(Comparator.comparing(c -> c.base().id()))
+        .toList();
   }
 
   public CatalogCraftingService(
@@ -374,6 +385,18 @@ public final class CatalogCraftingService implements CraftingOperations {
             coupled,
             StockyEssenceTargets.VERIFIED,
             StockyEssenceTargets.REPLACEMENTS);
+    register("solar", this.solar, this.solarSimulator);
+    register("stocky", this.stocky, this.stockySimulator);
+    register("bow", this.bow, this.bowSimulator);
+    register("wand", this.wand, this.wandSimulator);
+    register("body", this.body, this.bodySimulator);
+    register("sceptre", this.sceptre, this.sceptreSimulator);
+    register("belt", this.belt, this.beltSimulator);
+    register("helmet", this.helmet, this.helmetSimulator);
+    register("ring", this.ring, this.ringSimulator);
+    register("sapphire", this.sapphire, this.sapphireSimulator);
+    basicJewels.forEach((key, c) -> register(key, c, basicJewelSimulators.get(c.base().id())));
+    topBases.forEach((key, c) -> register(key, c, topBaseSimulators.get(c.base().id())));
   }
 
   public Initial initial(String base, int level) {
@@ -476,45 +499,9 @@ public final class CatalogCraftingService implements CraftingOperations {
   }
 
   private ItemCatalog catalog(String base) {
-    if (topBases.containsKey(base)) return topBases.get(base);
-    if (basicJewels.containsKey(base)) return basicJewels.get(base);
-    return switch (base) {
-      case "sapphire" -> {
-        if (sapphire == null) throw new IllegalArgumentException("Sapphire catalog unavailable");
-        yield sapphire;
-      }
-      case "ring" -> {
-        if (ring == null) throw new IllegalArgumentException("Ring catalog unavailable");
-        yield ring;
-      }
-      case "helmet" -> {
-        if (helmet == null) throw new IllegalArgumentException("Helmet catalog unavailable");
-        yield helmet;
-      }
-      case "belt" -> {
-        if (belt == null) throw new IllegalArgumentException("Belt catalog unavailable");
-        yield belt;
-      }
-      case "solar" -> solar;
-      case "stocky" -> stocky;
-      case "sceptre" -> {
-        if (sceptre == null) throw new IllegalArgumentException("Sceptre catalog unavailable");
-        yield sceptre;
-      }
-      case "body" -> {
-        if (body == null) throw new IllegalArgumentException("Body Armour catalog unavailable");
-        yield body;
-      }
-      case "wand" -> {
-        if (wand == null) throw new IllegalArgumentException("Wand catalog unavailable");
-        yield wand;
-      }
-      case "bow" -> {
-        if (bow == null) throw new IllegalArgumentException("Bow catalog unavailable");
-        yield bow;
-      }
-      default -> throw new IllegalArgumentException("Unsupported Workbench base");
-    };
+    var entry = byKey.get(base);
+    if (entry == null) throw new IllegalArgumentException("Unsupported Workbench base: " + base);
+    return entry.catalog();
   }
 
   public WorkbenchSimulator simulator(ItemState state) {
@@ -522,34 +509,10 @@ public final class CatalogCraftingService implements CraftingOperations {
   }
 
   private WorkbenchSimulator baseSimulator(ItemState state) {
-    if (state != null && topBaseSimulators.containsKey(state.baseItemId()))
-      return topBaseSimulators.get(state.baseItemId());
-    if (state != null && basicJewelSimulators.containsKey(state.baseItemId()))
-      return basicJewelSimulators.get(state.baseItemId());
-    if (state != null
-        && state.baseItemId().equals(SapphireJewel.BASE_ID)
-        && sapphireSimulator != null) return sapphireSimulator;
-    if (state != null
-        && state.baseItemId().equals(RingEssenceTargets.BASE_ID)
-        && ringSimulator != null) return ringSimulator;
-    if (state != null
-        && state.baseItemId().equals(HelmetEssenceTargets.BASE_ID)
-        && helmetSimulator != null) return helmetSimulator;
-    if (state != null
-        && state.baseItemId().equals(BeltEssenceTargets.BASE_ID)
-        && beltSimulator != null) return beltSimulator;
     if (state == null) throw new IllegalArgumentException("State required");
-    if (state.baseItemId().equals(SolarAmulet.BASE_ID)) return solarSimulator;
-    if (state.baseItemId().equals(STOCKY_BASE_ID)) return stockySimulator;
-    if (state.baseItemId().equals(SceptreEssenceTargets.BASE_ID) && sceptreSimulator != null)
-      return sceptreSimulator;
-    if (state.baseItemId().equals(BodyEssenceTargets.BASE_ID) && bodySimulator != null)
-      return bodySimulator;
-    if (state.baseItemId().equals(WandEssenceTargets.BASE_ID) && wandSimulator != null)
-      return wandSimulator;
-    if (state.baseItemId().equals(BowEssenceTargets.BASE_ID) && bowSimulator != null)
-      return bowSimulator;
-    throw new IllegalArgumentException("Unsupported Workbench base");
+    var entry = byItemId.get(state.baseItemId());
+    if (entry == null) throw new IllegalArgumentException("Unsupported Workbench base");
+    return entry.simulator();
   }
 
   /**
@@ -569,7 +532,7 @@ public final class CatalogCraftingService implements CraftingOperations {
       Map<WorkbenchCurrency, List<String>> fixed,
       Map<WorkbenchCurrency, List<String>> replacements) {
     catalog = EquipmentCurrencyCatalog.enrich(catalog);
-    if (!BaseRegistry.require(key).id().equals(catalog.base().id()) || topBases.containsKey(key))
+    if (!BaseRegistry.require(key).id().equals(catalog.base().id()) || byKey.containsKey(key))
       throw new IllegalArgumentException("Unreviewed or duplicate base registration");
     var simulator =
         new WorkbenchSimulator(
@@ -581,8 +544,7 @@ public final class CatalogCraftingService implements CraftingOperations {
                 .collect(java.util.stream.Collectors.toSet()),
             fixed,
             replacements);
-    topBases.put(key, catalog);
-    topBaseSimulators.put(catalog.base().id(), simulator);
+    register(key, catalog, simulator);
   }
 
   public WorkbenchSimulator.Result apply(
@@ -595,27 +557,7 @@ public final class CatalogCraftingService implements CraftingOperations {
   }
 
   public QualityDisplay qualityDisplay(ItemState state) {
-    if (topBaseSimulators.containsKey(state.baseItemId())) {
-      var selected =
-          topBases.values().stream()
-              .filter(c -> c.base().id().equals(state.baseItemId()))
-              .findFirst()
-              .orElseThrow();
-      return new QualityDisplay(
-          CatalystQualityDisplay.VERSION,
-          state,
-          QualityLimitRules.describe(state, selected),
-          CatalystQualityDisplay.describe(state, selected));
-    }
-    var selected =
-        java.util.stream.Stream.concat(
-                basicJewels.values().stream(),
-                java.util.stream.Stream.of(
-                    solar, stocky, bow, wand, body, sceptre, belt, helmet, ring, sapphire))
-            .filter(java.util.Objects::nonNull)
-            .filter(c -> c.base().id().equals(state.baseItemId()))
-            .findFirst()
-            .orElseThrow(() -> new IllegalArgumentException("Unsupported base"));
+    var selected = baseSimulator(state).catalog();
     return new QualityDisplay(
         CatalystQualityDisplay.VERSION,
         state,

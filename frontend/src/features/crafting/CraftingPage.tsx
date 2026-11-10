@@ -1149,11 +1149,12 @@ export function CraftingPage() {
       client.getQueryData(initialKey) === initial.data &&
       latestRepeatContext.current === repeatContext &&
       (restoredState !== undefined ||
-        JSON.stringify(
+        sameItemState(
           client.getQueryData<AppliedItem>(workbenchKey)?.state ??
             client.getQueryData<MappingResult>(mappingKey)?.state ??
             concreteInitial(initial.data!),
-        ) === JSON.stringify(state))
+          state,
+        ))
     try {
       if (repeatingChaos) {
         setRepeatErrors({})
@@ -1710,8 +1711,7 @@ export function CraftingPage() {
   const craftEvidence =
     storedFrame && initial.data
       ? verifiedFrameEvidence(storedFrame, initial.data)
-      : workbench.data &&
-          JSON.stringify(concrete) === JSON.stringify(workbench.data.state)
+      : workbench.data && sameItemState(concrete, workbench.data.state)
         ? workbench.data
         : undefined
   const evidenceInvalid =

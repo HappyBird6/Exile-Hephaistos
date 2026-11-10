@@ -15,10 +15,12 @@
     "lint": "eslint . --max-warnings 0",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "pretest": "node ../scripts/check-display-coverage.mjs",
+    "pretest": "npm run check:workbench-data && node ../scripts/check-display-coverage.mjs",
     "test:translation-coverage": "node ../scripts/check-display-coverage.mjs",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "check:workbench-data": "node ../scripts/sync-workbench-data.mjs --check && node ../scripts/update-ruleset-manifest.mjs --check",
+    "prebuild": "npm run check:workbench-data && node ../scripts/check-display-coverage.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "5.103.1",

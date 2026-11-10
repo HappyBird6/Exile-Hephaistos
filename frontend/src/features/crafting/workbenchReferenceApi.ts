@@ -2,7 +2,7 @@ import type { Initial } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 import type { AbyssState } from './AbyssPanel'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
-import { equivalent } from './sanctification/equivalence'
+import { sameItemState, sameRevealOffer } from './crafting-state/itemIdentity'
 import { storedAbyssItem, verifiedHistoryState } from './workbenchHistory'
 import { validAbyssResponse } from './abyssResponse'
 
@@ -73,34 +73,6 @@ export async function loadModifierPools(
     throw new Error('Invalid modifier reference')
   return data
 }
-/** Normalize only omitted wire defaults; rolls, properties and unknown keys stay intact. */
-function checkpoint(value: ConcreteItem): unknown {
-  const modifiers = (entries: ConcreteItem['explicits']) =>
-    entries
-      .map((m) => ({
-        ...m,
-        fractured: m.fractured ?? false,
-        crafted: m.crafted ?? false,
-      }))
-      .sort((a, b) => a.modifierId.localeCompare(b.modifierId))
-  return {
-    ...value,
-    implicits: modifiers(value.implicits),
-    explicits: modifiers(value.explicits),
-    conditions: [...value.conditions].sort(),
-    augmentSockets: value.augmentSockets ?? null,
-    catalystQuality: value.catalystQuality ?? null,
-    equipmentQuality: value.equipmentQuality ?? null,
-    observations: value.observations ?? null,
-    sanctification: value.sanctification ?? null,
-    installedAugments: value.installedAugments ?? [],
-    desecrated: (value.desecrated ?? []).map((s) => ({
-      ...s,
-      minimumModifierLevel: s.minimumModifierLevel ?? null,
-      revealPool: s.revealPool ?? null,
-    })),
-  }
-}
 export type SessionCompatibility = {
   compatible: boolean
   sameRules: boolean
@@ -140,24 +112,24 @@ export async function checkSessionCompatibility(
       (initial.compatibilityId !== undefined &&
         initial.compatibilityId !== data.compatibilityId) ||
       !verifiedHistoryState(data.state, initial) ||
-      !equivalent(checkpoint(rebased), checkpoint(data.state)) ||
+      !sameItemState(rebased, data.state) ||
       (data.sameRules && data.compatibilityId !== compatibilityId) ||
       (!!abyss && !data.abyss) ||
       (data.abyss &&
         (!validAbyssResponse('validate', data.abyss, data.state, initial) ||
-          !equivalent(
-            checkpoint(data.state),
-            checkpoint(storedAbyssItem(data.abyss)),
-          ) ||
+          !sameItemState(data.state, storedAbyssItem(data.abyss)) ||
           (abyss &&
-            (!equivalent(
-              checkpoint({
+            (!sameItemState(
+              {
                 ...abyss.item,
                 snapshotId: initial.metadata.snapshotId,
-              }),
-              checkpoint(data.abyss.item),
+              },
+              data.abyss.item,
             ) ||
-              !equivalent(abyss.offer ?? null, data.abyss.offer ?? null)))))
+              !sameRevealOffer(
+                abyss.offer ?? null,
+                data.abyss.offer ?? null,
+              )))))
     )
       throw new Error('Invalid continued checkpoint')
   }
