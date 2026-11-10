@@ -1,6 +1,9 @@
 import augments from './augments.json'
 import bases from './topBases.json'
-import { sanctifiedValues } from './sanctification/sanctification'
+import {
+  observedSanctified,
+  sanctifiedValues,
+} from './sanctification/sanctification'
 import { catalystTypes } from './catalystQuality'
 import { modifierClipboardText } from './item-text/modifierClipboardText'
 import type { ConcreteItem } from './workbenchApi'
@@ -96,7 +99,7 @@ export function currentItemText(
         state.sanctification
           ? sanctifiedValues(state, mod, implicit ? 'implicits' : 'explicits')
           : mod.values,
-        state.sanctification != null,
+        state.sanctification != null || observedSanctified(state),
       )
       const slot = !implicit
         ? desecrated.find((slot) => slot.modifierId === mod.modifierId)

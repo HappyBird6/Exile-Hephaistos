@@ -63,8 +63,10 @@ public final class CatalystQualityDisplay {
                     Set.of(
                         "attack_minimum_added_physical_damage",
                         "attack_maximum_added_physical_damage"));
+    boolean bound = ModifierClipboardText.hasVerifiedValues(d);
     boolean reviewed =
-        ironImplicit
+        bound
+            || ironImplicit
             || ReviewedRings.reviewedImplicit(d)
             || ReviewedAmulets.reviewedImplicit(d)
             || (d.id().startsWith("sapphire:") && d.stats().size() == 1)
@@ -72,8 +74,9 @@ public final class CatalystQualityDisplay {
                 && d.stats().size() == 1
                 && INTEGER_STATS.contains(d.stats().getFirst().id()));
     if (!reviewed
-        || d.stats().stream().anyMatch(s -> s.min() < 0)
-        || m.values().values().stream().anyMatch(v -> v < 0))
+        || (!bound
+            && (d.stats().stream().anyMatch(s -> s.min() < 0)
+                || m.values().values().stream().anyMatch(v -> v < 0))))
       return new Projection(m.modifierId(), m.values(), m.values(), "UNREVIEWED_NUMERIC_SEMANTICS");
     var scaled = new java.util.TreeMap<String, Long>();
     m.values()

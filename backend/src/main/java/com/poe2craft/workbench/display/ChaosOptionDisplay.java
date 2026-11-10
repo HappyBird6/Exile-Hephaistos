@@ -169,8 +169,11 @@ public final class ChaosOptionDisplay {
       issues.add(new Issue(Code.JEWEL_EFFECT_AND_QUALITY_PROVISIONAL, definition.id(), false));
     // Unlike CatalystQualityDisplay, the frontend identifies jewel projection by modifier ID, and
     // display_cast_speed_percent is reviewed only for the specific sapphire:of-enchanting modifier.
+    var binding = templates.binding(definition);
+    boolean bound = binding != null && binding.valueStats() != null;
     boolean reviewed =
-        basic
+        bound
+            || basic
             || definition.stats().size() == 1
                 && (definition.id().startsWith("sapphire:")
                     || definition.id().equals("sapphire:suffix:of-enchanting")
@@ -179,6 +182,7 @@ public final class ChaosOptionDisplay {
                         && INTEGER_STATS.contains(definition.stats().getFirst().id()));
     if (!reviewed
         || !basic
+            && !bound
             && (definition.stats().stream().anyMatch(s -> s.min() < 0)
                 || source.values().stream().anyMatch(v -> v < 0))) {
       issues.add(new Issue(Code.UNREVIEWED_QUALITY, definition.id(), false));

@@ -797,7 +797,7 @@
       }
     },
     {
-      "inputId": "catalyst-known-and-unreviewed",
+      "inputId": "catalyst-source-unit-scaling",
       "locale": "en",
       "result": {
         "locale": "en",
@@ -816,22 +816,16 @@
             "modifierId": "amulet:suffix:of-convalescence",
             "affixType": "SUFFIX",
             "fractured": false,
-            "text": "13.2 Life Regeneration per second",
-            "lines": ["13.2 Life Regeneration per second"],
+            "text": "15.8 Life Regeneration per second",
+            "lines": ["15.8 Life Regeneration per second"],
             "textKind": "option-sentence"
           }
         ],
-        "issues": [
-          {
-            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
-            "modifierId": "amulet:suffix:of-convalescence",
-            "explicitIndex": 1
-          }
-        ]
+        "issues": []
       }
     },
     {
-      "inputId": "catalyst-known-and-unreviewed",
+      "inputId": "catalyst-source-unit-scaling",
       "locale": "ko",
       "result": {
         "locale": "ko",
@@ -850,22 +844,16 @@
             "modifierId": "amulet:suffix:of-convalescence",
             "affixType": "SUFFIX",
             "fractured": false,
-            "text": "1초마다 생명력 13.2 재생",
-            "lines": ["1초마다 생명력 13.2 재생"],
+            "text": "1초마다 생명력 15.8 재생",
+            "lines": ["1초마다 생명력 15.8 재생"],
             "textKind": "option-sentence"
           }
         ],
-        "issues": [
-          {
-            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
-            "modifierId": "amulet:suffix:of-convalescence",
-            "explicitIndex": 1
-          }
-        ]
+        "issues": []
       }
     },
     {
-      "inputId": "catalyst-known-and-unreviewed",
+      "inputId": "catalyst-source-unit-scaling",
       "locale": "zh-CN",
       "result": {
         "locale": "zh-CN",
@@ -884,22 +872,16 @@
             "modifierId": "amulet:suffix:of-convalescence",
             "affixType": "SUFFIX",
             "fractured": false,
-            "text": "生命每秒再生 13.2",
-            "lines": ["生命每秒再生 13.2"],
+            "text": "生命每秒再生 15.8",
+            "lines": ["生命每秒再生 15.8"],
             "textKind": "option-sentence"
           }
         ],
-        "issues": [
-          {
-            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
-            "modifierId": "amulet:suffix:of-convalescence",
-            "explicitIndex": 1
-          }
-        ]
+        "issues": []
       }
     },
     {
-      "inputId": "catalyst-known-and-unreviewed",
+      "inputId": "catalyst-source-unit-scaling",
       "locale": "zh-TW",
       "result": {
         "locale": "zh-TW",
@@ -918,22 +900,16 @@
             "modifierId": "amulet:suffix:of-convalescence",
             "affixType": "SUFFIX",
             "fractured": false,
-            "text": "13.2每秒生命回復",
-            "lines": ["13.2每秒生命回復"],
+            "text": "15.8每秒生命回復",
+            "lines": ["15.8每秒生命回復"],
             "textKind": "option-sentence"
           }
         ],
-        "issues": [
-          {
-            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
-            "modifierId": "amulet:suffix:of-convalescence",
-            "explicitIndex": 1
-          }
-        ]
+        "issues": []
       }
     },
     {
-      "inputId": "catalyst-known-and-unreviewed",
+      "inputId": "catalyst-source-unit-scaling",
       "locale": "ja",
       "result": {
         "locale": "ja",
@@ -952,22 +928,16 @@
             "modifierId": "amulet:suffix:of-convalescence",
             "affixType": "SUFFIX",
             "fractured": false,
-            "text": "毎秒13.2のライフを自動回復する",
-            "lines": ["毎秒13.2のライフを自動回復する"],
+            "text": "毎秒15.8のライフを自動回復する",
+            "lines": ["毎秒15.8のライフを自動回復する"],
             "textKind": "option-sentence"
           }
         ],
-        "issues": [
-          {
-            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
-            "modifierId": "amulet:suffix:of-convalescence",
-            "explicitIndex": 1
-          }
-        ]
+        "issues": []
       }
     },
     {
-      "inputId": "catalyst-known-and-unreviewed",
+      "inputId": "catalyst-source-unit-scaling",
       "locale": "es",
       "result": {
         "locale": "es",
@@ -986,22 +956,16 @@
             "modifierId": "amulet:suffix:of-convalescence",
             "affixType": "SUFFIX",
             "fractured": false,
-            "text": "Regeneras 13,2 de vida por segundo",
-            "lines": ["Regeneras 13,2 de vida por segundo"],
+            "text": "Regeneras 15,8 de vida por segundo",
+            "lines": ["Regeneras 15,8 de vida por segundo"],
             "textKind": "option-sentence"
           }
         ],
-        "issues": [
-          {
-            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
-            "modifierId": "amulet:suffix:of-convalescence",
-            "explicitIndex": 1
-          }
-        ]
+        "issues": []
       }
     },
     {
-      "inputId": "catalyst-known-and-unreviewed",
+      "inputId": "catalyst-source-unit-scaling",
       "locale": "ru",
       "result": {
         "locale": "ru",
@@ -1020,22 +984,16 @@
             "modifierId": "amulet:suffix:of-convalescence",
             "affixType": "SUFFIX",
             "fractured": false,
-            "text": "Регенерация 13,2 здоровья в секунду",
-            "lines": ["Регенерация 13,2 здоровья в секунду"],
+            "text": "Регенерация 15,8 здоровья в секунду",
+            "lines": ["Регенерация 15,8 здоровья в секунду"],
             "textKind": "option-sentence"
           }
         ],
-        "issues": [
-          {
-            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
-            "modifierId": "amulet:suffix:of-convalescence",
-            "explicitIndex": 1
-          }
-        ]
+        "issues": []
       }
     },
     {
-      "inputId": "catalyst-known-and-unreviewed",
+      "inputId": "catalyst-source-unit-scaling",
       "locale": "th",
       "result": {
         "locale": "th",
@@ -1054,18 +1012,12 @@
             "modifierId": "amulet:suffix:of-convalescence",
             "affixType": "SUFFIX",
             "fractured": false,
-            "text": "ฟื้นฟูพลังชีวิต 13.2 ต่อวินาที",
-            "lines": ["ฟื้นฟูพลังชีวิต 13.2 ต่อวินาที"],
+            "text": "ฟื้นฟูพลังชีวิต 15.8 ต่อวินาที",
+            "lines": ["ฟื้นฟูพลังชีวิต 15.8 ต่อวินาที"],
             "textKind": "option-sentence"
           }
         ],
-        "issues": [
-          {
-            "code": "UNREVIEWED_NUMERIC_SEMANTICS",
-            "modifierId": "amulet:suffix:of-convalescence",
-            "explicitIndex": 1
-          }
-        ]
+        "issues": []
       }
     },
     {

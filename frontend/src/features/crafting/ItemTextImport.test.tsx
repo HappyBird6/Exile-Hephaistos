@@ -267,72 +267,58 @@ it('does not create a duplicate session for unchanged text', async () => {
   )
 })
 
-it('shows recognized but non-recoverable game values without corrupting a saved session or enabling currency actions', async () => {
+it('imports Sanctified current values as a saved locked item without reconstructing old rolls', async () => {
   const input = await open()
-  const before = localStorage.getItem(historyStorageKey)
+  const original = history().films[0]
   const source =
-    'Item Class: Amulets\nRarity: Rare\nUncertain game item\nSolar Amulet\n--------\nItem Level: 82\n--------\n+17 to maximum Life\n--------\nSanctified'
-  vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) => {
+    'Item Class: Amulets\nRarity: Rare\nImported Item\nSolar Amulet\n--------\nItem Level: 82\n--------\n+18 to Spirit (implicit)\n--------\n+24 to maximum Life\n--------\nSanctified'
+  const frozen = {
+    ...root,
+    rarity: 'RARE' as const,
+    implicits: [
+      { modifierId: 'implicit', values: { base_spirit_from_equipment: 18 } },
+    ],
+    explicits: [{ modifierId: 'p', values: { life: 24 } }],
+    conditions: ['SANCTIFIED' as const],
+    sanctification: null,
+  }
+  const fetcher = vi.fn((url: RequestInfo | URL, init?: RequestInit) => {
     if (String(url).endsWith('/items/parse')) {
       const parsed = parsedTextFixture(source)
-      const line = parsed.text.lines.find(
-        (line) => line.raw === '+17 to maximum Life',
-      )!
       return Promise.resolve(
-        jsonResponse({
-          ...parsed,
-          displayName: 'Uncertain game item',
-          modifiers: [
-            {
-              text: line.raw,
-              type: 'EXPLICIT',
-              source: line,
-              metadata: null,
-              affix: null,
-              tier: null,
-              affixName: null,
-            },
-          ],
-          flags: [parsed.text.lines.at(-1)!],
-        }),
+        jsonResponse({ ...parsed, flags: [parsed.text.lines.at(-1)!] }),
       )
     }
-    if (String(url).endsWith('/edit-text'))
+    if (String(url).endsWith('/map-text'))
       return Promise.resolve(
-        jsonResponse({
-          mapped: false,
-          state: null,
-          issues: [
-            {
-              lineNumber: 0,
-              message: 'Special item conditions are not supported.',
-            },
-          ],
-        }),
+        jsonResponse({ mapped: true, state: frozen, issues: [] }),
       )
     return editorFixtureFetch(url, init)
   })
+  vi.stubGlobal('fetch', fetcher)
   fireEvent.change(input, { target: { value: source } })
   apply()
-  await waitFor(() =>
-    expect(document.querySelector('#item-input-panel')).not.toHaveAttribute(
-      'open',
-    ),
-  )
+  await waitFor(() => expect(history().films).toHaveLength(2))
+  expect(history().films[0]).toEqual(original)
+  expect(history().films[1].frames[0].state).toEqual(frozen)
   expect(document.querySelector('.bench-item-card')).toHaveTextContent(
-    '+17 to maximum Life',
+    '+24 to maximum Life',
   )
   expect(document.querySelector('.bench-item-card')).toHaveTextContent(
     'Sanctified',
   )
+  expect(document.querySelector('.bench-item-card')).not.toHaveTextContent(
+    'original text',
+  )
   expect(
-    within(document.querySelector('.bench-item-card') as HTMLElement).getByRole(
-      'status',
-    ),
-  ).toHaveTextContent('original text')
-  expect(localStorage.getItem(historyStorageKey)).toBe(before)
+    fetcher.mock.calls.some(([url]) => String(url).endsWith('/edit-text')),
+  ).toBe(false)
   fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
   expect(
-    screen.getByRole('textbox', { name: 'Item text copied from the game' }),
-  ).toHaveValue(source)
+    (
+      screen.getByRole('textbox', {
+        name: 'Item text copied from the game',
+      }) as HTMLTextAreaElement
+    ).value,
+  ).toContain('+24 to maximum Life')
 })

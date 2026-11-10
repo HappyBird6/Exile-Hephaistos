@@ -86,7 +86,7 @@ class SolarTextMapperTest {
   }
 
   @Test
-  void typedQualityOnlyImportsWhenNoInverseScalingIsRequired() {
+  void typedQualityInvertsItsKnownScaleAndRetainsTheNearestReachableRoll() {
     for (int amount : java.util.List.of(0, 20)) {
       var source =
           text("+20% to Maximum Quality")
@@ -101,8 +101,9 @@ class SolarTextMapperTest {
         text("+17 to maximum Life")
             .replace("Item Level: 82", "Quality (Life Modifiers): +20%\nItem Level: 82");
     var result = mapper.map(parser.parseText(source));
-    assertThat(result.state()).isNull();
-    assertThat(result.issues()).anyMatch(i -> i.message().contains("original unscaled rolls"));
+    assertThat(result.issues()).isEmpty();
+    assertThat(result.state().explicits().getFirst().values())
+        .containsEntry("base_maximum_life", 14L);
     var zero = mapper.map(parser.parseText(source.replace("+20%", "+0%")));
     assertThat(zero.issues()).isEmpty();
     assertThat(zero.state().explicits().getFirst().values()).containsValue(17L);
@@ -126,11 +127,12 @@ class SolarTextMapperTest {
   }
 
   @Test
-  void scaledDisplayValuesAreRefusedUntilRoundingAndQuantizationAreVerified() {
+  void roundedPerSecondValuesCanContinueWithNearestSourceRoll() {
     String text = text("20 Life Regeneration per second");
     var result = mapper.map(parser.parseText(text));
-    assertThat(result.mapped()).isFalse();
-    assertThat(result.state()).isNull();
+    assertThat(result.issues()).isEmpty();
+    assertThat(result.state().explicits().getFirst().values())
+        .containsEntry("base_life_regeneration_rate_per_minute", 1200L);
     assertThat(parser.parseText(text).text().originalText()).isEqualTo(text);
   }
 

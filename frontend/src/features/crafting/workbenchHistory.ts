@@ -1,4 +1,7 @@
-import { validSanctification } from './sanctification/sanctification'
+import {
+  observedSanctified,
+  validSanctification,
+} from './sanctification/sanctification'
 import type { AbyssState } from './AbyssPanel'
 import { baseAffixCapacity } from './baseRegistry'
 import { supportsConcreteStateShape } from './workbenchStateShape'
@@ -819,8 +822,9 @@ export function verifiedHistoryState(
         !definition.stats.every(
           (stat) =>
             Number.isSafeInteger(instance.values[stat.id]) &&
-            instance.values[stat.id]! >= stat.min &&
-            instance.values[stat.id]! <= stat.max,
+            (observedSanctified(state) ||
+              (instance.values[stat.id]! >= stat.min &&
+                instance.values[stat.id]! <= stat.max)),
         )
       )
         return false

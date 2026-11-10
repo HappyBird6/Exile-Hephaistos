@@ -11,6 +11,8 @@ public final class ItemTextEditor {
     catalog = ManualRevealCatalog.enrich(catalog);
     var originalIssues = ItemTextStateValidation.validate(before, catalog);
     if (!originalIssues.isEmpty()) return blocked("The original item state is invalid.");
+    if (before.conditions().contains(ItemState.Condition.SANCTIFIED))
+      return blocked("Sanctified items cannot be modified.");
     if (!mapped.mapped()) return mapped;
     var next = mapped.state();
     if (!before.baseItemId().equals(next.baseItemId())

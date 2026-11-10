@@ -74,13 +74,37 @@ export async function validateItemText({
       }
     const catalog = await catalogFor(base, parsed.itemLevel)
     signal.throwIfAborted()
-    const mapped = await mapSolarText(
+    const sameBaseBefore =
+      before?.baseItemId === catalog.state.baseItemId ? before : undefined
+    const importingSanctified =
+      parsed.flags.some((line) => line.raw === 'Sanctified') &&
+      !before?.conditions.includes('SANCTIFIED')
+    const editableBefore = importingSanctified ? undefined : sameBaseBefore
+    let mapped = await mapSolarText(
       text,
       signal,
       catalog.modifiers,
       catalog.rulesetIdentity,
-      before?.baseItemId === catalog.state.baseItemId ? before : undefined,
+      editableBefore,
     )
+    // A complete replacement starts a new film; inherited editor-only metadata must not block it.
+    if (
+      !mapped.mapped &&
+      editableBefore &&
+      !editableBefore.conditions.includes('SANCTIFIED') &&
+      mapped.issues.some((issue) =>
+        /Socket and Rune lines|catalyst quality and special conditions|Modifier edits cannot reconstruct/.test(
+          issue.message,
+        ),
+      )
+    ) {
+      mapped = await mapSolarText(
+        text,
+        signal,
+        catalog.modifiers,
+        catalog.rulesetIdentity,
+      )
+    }
     if (
       (!mapped.mapped || !mapped.state) &&
       parsed.modifiers.length > 0 &&
@@ -95,9 +119,7 @@ export async function validateItemText({
           line.raw.startsWith('Grants Skill:'),
       ) &&
       mapped.issues.every((issue) =>
-        /Special item conditions|special item conditions|source-unit conversion|Catalyst-affected|catalyst-affected|Multiple catalog tiers|Implicits must match/.test(
-          issue.message,
-        ),
+        /Special item conditions|special item conditions/.test(issue.message),
       )
     )
       return { ok: true, observed: parsed, catalog, base }

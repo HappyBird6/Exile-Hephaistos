@@ -1,3 +1,4 @@
+import { hasVerifiedClipboardValues } from './item-text/modifierClipboardText'
 import { basePolicy } from './baseRegistry'
 import ringManifest from './topBases.json'
 const ringImplicitIds = Object.fromEntries(
@@ -143,7 +144,9 @@ export function catalystProjection(
     Object.keys(values).length === 2 &&
     Object.hasOwn(values, 'attack_minimum_added_physical_damage') &&
     Object.hasOwn(values, 'attack_maximum_added_physical_damage')
+  const bound = hasVerifiedClipboardValues(d)
   const reviewed =
+    bound ||
     ironImplicit ||
     (d.layer === 'IMPLICIT' && Object.values(ringImplicitIds).includes(d.id)) ||
     (d.id.startsWith('sapphire:') && d.stats?.length === 1) ||
@@ -157,8 +160,10 @@ export function catalystProjection(
   if (
     !reviewed ||
     !d.stats ||
-    d.stats.some((s) => s.min < 0) ||
-    Object.values(values).some((v) => !Number.isSafeInteger(v) || v < 0)
+    (!bound && d.stats.some((s) => s.min < 0)) ||
+    Object.values(values).some(
+      (v) => !Number.isSafeInteger(v) || (!bound && v < 0),
+    )
   )
     return { values, status: 'UNREVIEWED_NUMERIC_SEMANTICS' }
   const displayed = Object.fromEntries(

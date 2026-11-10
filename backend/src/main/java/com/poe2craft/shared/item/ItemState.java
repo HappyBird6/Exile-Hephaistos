@@ -429,6 +429,11 @@ public record ItemState(
   }
 
   /** Preserved on input, but not supported by the initial base-affix model. */
+  /** Imported Sanctified values are already final; no original roll or factor is reconstructed. */
+  public boolean observedSanctified() {
+    return conditions.contains(Condition.SANCTIFIED) && sanctification == null;
+  }
+
   public enum Condition {
     CORRUPTED,
     MIRRORED,

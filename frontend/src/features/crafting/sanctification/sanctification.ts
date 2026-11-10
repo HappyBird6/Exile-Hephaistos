@@ -148,3 +148,7 @@ export function sanctificationTransitionMatches(
     result.assumptions[0]?.id === 'sanctification-independent-stat-percent-v1'
   )
 }
+
+/** Frozen game imports contain their final values instead of invented original rolls and factors. */
+export const observedSanctified = (state: ConcreteItem): boolean =>
+  state.conditions.includes('SANCTIFIED') && state.sanctification == null

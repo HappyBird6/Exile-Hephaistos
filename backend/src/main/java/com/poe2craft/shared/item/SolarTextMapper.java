@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 /**
- * Strict catalog-backed clipboard mapping. Ambiguity or unsupported evidence blocks the whole item.
+ * Catalog-backed current-item mapping; known display scaling is inverted to a usable nearest roll.
  */
 public final class SolarTextMapper {
   private static final Pattern RANGE =
@@ -115,6 +115,7 @@ public final class SolarTextMapper {
                 details.minimumLevel(),
                 details.pool()));
       } else if (line.raw().equals("Corrupted")) conditions.add(ItemState.Condition.CORRUPTED);
+      else if (line.raw().equals("Sanctified")) conditions.add(ItemState.Condition.SANCTIFIED);
       else issues.add(new Issue(line.number(), "Special item conditions are not supported."));
     }
     Integer equipmentQuality = null;
@@ -200,6 +201,7 @@ public final class SolarTextMapper {
               : line.metadata().number();
       groups.computeIfAbsent(identity, ignored -> new ArrayList<>()).add(line);
     }
+    boolean finalValues = conditions.contains(ItemState.Condition.SANCTIFIED);
     for (var group : groups.values()) {
       var modifier = group.getFirst();
       if (modifier.metadata() != null
@@ -244,7 +246,8 @@ public final class SolarTextMapper {
             || (modifier.tier() != null && modifier.tier() != definition.tier())
             || (modifier.affix() != null
                 && !modifier.affix().equals(definition.affixType().name()))) continue;
-        var match = match(definition, text);
+        var scale = clipboardScale(definition, catalystQuality, modifier.metadata());
+        var match = match(definition, text, scale, finalValues);
         if (match != null)
           matches.add(
               new ModifierInstance(
@@ -254,26 +257,41 @@ public final class SolarTextMapper {
       }
       if (matches.size() > 1) {
         var first = catalog.find(matches.getFirst().modifierId()).orElseThrow();
-        boolean aliases =
+        boolean sameEffect =
             matches.stream()
                 .allMatch(
                     candidate -> {
                       var other = catalog.find(candidate.modifierId()).orElseThrow();
-                      return first.sourceUrl().equals(other.sourceUrl())
-                          && first.text().equals(other.text())
-                          && first.stats().equals(other.stats())
-                          && first.tags().equals(other.tags())
+                      return first.tags().equals(other.tags())
                           && first.familyIds().equals(other.familyIds())
                           && first.affixType() == other.affixType()
                           && first.layer() == other.layer()
-                          && first.tier() == other.tier()
-                          && first.requiredItemLevel() == other.requiredItemLevel()
-                          && matches.getFirst().values().equals(candidate.values());
+                          && first.stats().stream()
+                              .map(ModifierDefinition.StatRange::id)
+                              .toList()
+                              .equals(
+                                  other.stats().stream()
+                                      .map(ModifierDefinition.StatRange::id)
+                                      .toList());
                     });
-        if (aliases) {
+        if (sameEffect) {
+          var quality = catalystQuality;
           matches.sort(
               java.util.Comparator.comparingInt(
-                      (ModifierInstance candidate) ->
+                      (ModifierInstance candidate) -> {
+                        var d = catalog.find(candidate.modifierId()).orElseThrow();
+                        return ModifierClipboardText.match(
+                                    d,
+                                    text,
+                                    clipboardScale(d, quality, modifier.metadata()),
+                                    false,
+                                    finalValues)
+                                != null
+                            ? 0
+                            : 1;
+                      })
+                  .thenComparingInt(
+                      candidate ->
                           catalog.find(candidate.modifierId()).orElseThrow().weight() > 0 ? 0 : 1)
                   .thenComparing(ModifierInstance::modifierId));
           var canonical = matches.getFirst();
@@ -293,21 +311,6 @@ public final class SolarTextMapper {
       else {
         var matched = matches.getFirst();
         var definition = catalog.find(matched.modifierId()).orElseThrow();
-        if (catalystQuality != null
-            && catalystQuality.amount() > 0
-            && catalystQuality.type().matches(definition.tags())
-            && !definition.tags().contains("unscalable")
-            && !matched.values().containsKey("local_maximum_quality_+")
-            && !(modifier.metadata() != null
-                && Pattern.compile("(?:—|-)\\s+" + catalystQuality.amount() + "% Increased\\s*}")
-                    .matcher(modifier.metadata().raw())
-                    .find())) {
-          issues.add(
-              new Issue(
-                  modifier.source().number(),
-                  "Catalyst-affected values require original unscaled rolls and verified rounding; displayed values cannot be treated as raw rolls."));
-          continue;
-        }
         (layer == ModifierDefinition.Layer.IMPLICIT ? implicits : explicits).add(matched);
         if (modifier.type() == ItemModels.ModifierType.DESECRATED) {
           var details =
@@ -321,7 +324,9 @@ public final class SolarTextMapper {
                   definition.affixType(),
                   matched.modifierId(),
                   details.minimumLevel(),
-                  details.pool()));
+                  details.pool() == null && definition.tags().contains("otherworldly")
+                      ? "ALTERED"
+                      : details.pool()));
         }
       }
     }
@@ -334,7 +339,7 @@ public final class SolarTextMapper {
         implicits.add(new ModifierInstance(innate.id(), values));
       }
     }
-    if (!conditions.isEmpty() && desecrated.isEmpty())
+    if (conditions.contains(ItemState.Condition.CORRUPTED) && desecrated.isEmpty())
       issues.add(new Issue(0, "Special item conditions are not supported."));
     if (!issues.isEmpty()) return new Result(false, null, issues);
     var resolved = SocketAugmentText.resolve(catalog.base().id(), observedSockets, augmentEffects);
@@ -409,8 +414,23 @@ public final class SolarTextMapper {
     };
   }
 
-  private ModifierInstance match(ModifierDefinition definition, String text) {
-    var converted = ModifierClipboardText.match(definition, text);
+  private static BigDecimal clipboardScale(
+      ModifierDefinition definition, CatalystQuality quality, ItemModels.TextLine metadata) {
+    if (quality == null
+        || quality.amount() == 0
+        || !quality.type().matches(definition.tags())
+        || definition.tags().contains("unscalable")
+        || definition.stats().stream().anyMatch(stat -> stat.id().equals("local_maximum_quality_+"))
+        || (metadata != null
+            && Pattern.compile("(?:—|-)\\s+" + quality.amount() + "% Increased\\s*}")
+                .matcher(metadata.raw())
+                .find())) return BigDecimal.ONE;
+    return BigDecimal.valueOf(100 + quality.amount(), 2);
+  }
+
+  private ModifierInstance match(
+      ModifierDefinition definition, String text, BigDecimal scale, boolean finalValues) {
+    var converted = ModifierClipboardText.match(definition, text, scale, true, finalValues);
     if (converted != null) return converted;
     String source = normalize(ModifierClipboardText.visibleText(definition.text())),
         valueText = normalize(text);
@@ -446,14 +466,23 @@ public final class SolarTextMapper {
           .append("\\))?");
       end = range.end();
     }
+    if (scale.compareTo(BigDecimal.ONE) != 0 && bindings.isEmpty()) return null;
     regex.append(Pattern.quote(source.substring(end))).append("$");
     var actual = Pattern.compile(regex.toString()).matcher(valueText);
     if (!actual.matches()) return null;
     try {
       for (int i = 0; i < bindings.size(); i++) {
         var stat = bindings.get(i);
-        long raw = new BigDecimal(actual.group(i + 1)).longValueExact();
-        if (raw < stat.min() || raw > stat.max()) return null;
+        Long raw =
+            ModifierClipboardText.sourceRoll(
+                new BigDecimal(actual.group(i + 1)),
+                BigDecimal.ONE,
+                scale,
+                finalValues ? Long.MIN_VALUE : stat.min(),
+                finalValues ? Long.MAX_VALUE : stat.max(),
+                true,
+                finalValues);
+        if (raw == null) return null;
         values.put(stat.id(), raw);
       }
       if (values.size() != definition.stats().size()) return null;

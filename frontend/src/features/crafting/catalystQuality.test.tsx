@@ -80,7 +80,9 @@ it('selects a typed Ring film from an active Solar film without losing either ro
     </QueryClientProvider>,
   )
   fireEvent.click(screen.getByRole('tab', { name: 'History' }))
-  fireEvent.click(screen.getByRole('button', { name: /Select session:.*1/ }))
+  fireEvent.click(
+    screen.getByRole('button', { name: /Select session:.*Iron Ring/ }),
+  )
   fireEvent.click(
     screen.getByRole('button', { name: 'Continue in simulation' }),
   )

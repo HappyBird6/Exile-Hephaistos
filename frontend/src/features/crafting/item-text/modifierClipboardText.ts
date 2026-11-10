@@ -22,6 +22,24 @@ export const visibleClipboardText = (text: string) =>
     .join('\n')
 const range = /\((-?\d+(?:\.\d+)?)\s*[—–-]\s*(-?\d+(?:\.\d+)?)\)/g
 
+export function hasVerifiedClipboardValues(definition: Definition): boolean {
+  const binding = bindings[definition.id]
+  return (
+    !!binding &&
+    binding.englishText === definition.text &&
+    binding.stats.length === definition.stats?.length &&
+    binding.stats.every((stat, i) => {
+      const actual = definition.stats?.[i]
+      return (
+        actual?.id === stat.id &&
+        actual.min === stat.min &&
+        actual.max === stat.max
+      )
+    }) &&
+    Array.isArray(binding.valueStats)
+  )
+}
+
 /** English advanced clipboard syntax, without the screen's one-decimal rounding. */
 export function modifierClipboardText(
   definition: Definition,

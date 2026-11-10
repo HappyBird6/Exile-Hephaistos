@@ -128,8 +128,8 @@ public final class ItemStateValidator {
         : !state.implicits().isEmpty()) {
       errors.add(new Violation(Code.INVALID_IMPLICIT, "", "Implicits must match the catalog base"));
     }
-    validateModifiers(state.implicits(), Layer.IMPLICIT, errors);
-    validateModifiers(state.explicits(), Layer.EXPLICIT, errors);
+    validateModifiers(state.implicits(), Layer.IMPLICIT, errors, state.observedSanctified());
+    validateModifiers(state.explicits(), Layer.EXPLICIT, errors, state.observedSanctified());
     if (state.implicits().stream().anyMatch(ModifierInstance::fractured)
         || state.explicits().stream().filter(ModifierInstance::fractured).count() > 1
         || (state.explicits().stream().anyMatch(ModifierInstance::fractured)
@@ -154,13 +154,16 @@ public final class ItemStateValidator {
             new Violation(Code.AFFIX_CAPACITY_EXCEEDED, "", "Explicit affix capacity exceeded"));
       }
     }
+    if (state.observedSanctified() && state.rarity() != ItemState.Rarity.RARE)
+      errors.add(
+          new Violation(Code.UNSUPPORTED_STATE, "", "Sanctified imports require Rare rarity"));
     if (state.sanctification() != null && !QualitySanctification.valid(state, catalog))
       errors.add(new Violation(Code.UNSUPPORTED_STATE, "", "Invalid sanctification projection"));
     return List.copyOf(errors);
   }
 
   private void validateModifiers(
-      List<ModifierInstance> instances, Layer layer, List<Violation> errors) {
+      List<ModifierInstance> instances, Layer layer, List<Violation> errors, boolean finalValues) {
     var ids = new HashSet<String>();
     var families = new HashSet<String>();
     for (var instance : instances) {
@@ -188,7 +191,7 @@ public final class ItemStateValidator {
       for (var stat : definition.stats()) {
         expected.add(stat.id());
         Long value = instance.values().get(stat.id());
-        if (value != null && !stat.contains(value)) {
+        if (!finalValues && value != null && !stat.contains(value)) {
           errors.add(new Violation(Code.VALUE_OUT_OF_RANGE, id, "Stat out of range: " + stat.id()));
         }
       }

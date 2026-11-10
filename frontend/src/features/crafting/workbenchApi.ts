@@ -1,3 +1,4 @@
+import { observedSanctified } from './sanctification/sanctification'
 import type { Sanctification } from './sanctification/sanctification'
 import { equivalent } from './sanctification/equivalence'
 import { sanctificationTransitionMatches } from './sanctification/sanctification'
@@ -886,8 +887,9 @@ export async function mapSolarText(
         v.state.conditions.length !== 0 &&
         !(
           v.state.conditions.length === 1 &&
-          v.state.conditions[0] === 'CORRUPTED' &&
-          v.state.desecrated?.length
+          (v.state.conditions[0] === 'SANCTIFIED' ||
+            (v.state.conditions[0] === 'CORRUPTED' &&
+              v.state.desecrated?.length))
         )) ||
       v.state.explicits.length > 6 ||
       ![...v.state.implicits, ...v.state.explicits].every(
@@ -901,8 +903,8 @@ export async function mapSolarText(
           definitions[m.modifierId]!.stats!.every(
             (s) =>
               Number.isSafeInteger(m.values[s.id]) &&
-              m.values[s.id]! >= s.min &&
-              m.values[s.id]! <= s.max,
+              (observedSanctified(v.state!) ||
+                (m.values[s.id]! >= s.min && m.values[s.id]! <= s.max)),
           ),
       ))
   )

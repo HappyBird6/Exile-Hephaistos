@@ -31,7 +31,7 @@ class FrontendOptionGoldenTest {
           "compound-newline",
           "compound-template-newline",
           "revealed-and-hidden",
-          "catalyst-known-and-unreviewed",
+          "catalyst-source-unit-scaling",
           "unbound-source-units");
 
   private static JsonNode read(String name) throws Exception {

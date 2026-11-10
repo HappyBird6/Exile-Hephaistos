@@ -286,6 +286,7 @@ it('records or verifies the machine-readable output and exact display source has
       'frontend/src/features/crafting/ItemCard.tsx',
       'frontend/src/features/crafting/localizedModifiers.ts',
       'frontend/src/features/crafting/catalystQuality.ts',
+      'frontend/src/features/crafting/item-text/modifierClipboardText.ts',
       'frontend/src/features/crafting/qualityRoundingPolicy.ts',
       'frontend/src/features/crafting/basicJewel.ts',
       'frontend/src/features/crafting/sanctification/preciseModifierProjection.ts',
