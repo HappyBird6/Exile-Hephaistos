@@ -1,6 +1,8 @@
 import type { MessageKey } from '../../../shared/i18n/i18n'
 import { clipboardBase } from '../baseRegistry'
 import type { WorkbenchBaseKey } from '../baseRegistry'
+import type { Item } from '../itemModels'
+import { recognizedClipboardSentence } from '../item-text/modifierClipboardText'
 import type { Initial } from '../craftingApi'
 import {
   ItemTextApiError,
@@ -20,6 +22,7 @@ export type ItemTextProblem = {
 
 export type ValidatedItemText =
   | { ok: true; state: ConcreteItem; catalog: Initial; base: WorkbenchBaseKey }
+  | { ok: true; observed: Item; catalog: Initial; base: WorkbenchBaseKey }
   | { ok: false; problems: ItemTextProblem[] }
 
 /** Validation has no draft, history or displayed-item side effects. */
@@ -78,6 +81,26 @@ export async function validateItemText({
       catalog.rulesetIdentity,
       before?.baseItemId === catalog.state.baseItemId ? before : undefined,
     )
+    if (
+      (!mapped.mapped || !mapped.state) &&
+      parsed.modifiers.length > 0 &&
+      parsed.modifiers.every(
+        (modifier) =>
+          modifier.type === 'RUNE' ||
+          recognizedClipboardSentence(modifier.text, catalog.modifiers),
+      ) &&
+      parsed.unparsedLines.every(
+        (line) =>
+          /^\{ .*Modifier.* }$/.test(line.raw) ||
+          line.raw.startsWith('Grants Skill:'),
+      ) &&
+      mapped.issues.every((issue) =>
+        /Special item conditions|special item conditions|source-unit conversion|Catalyst-affected|catalyst-affected|Multiple catalog tiers|Implicits must match/.test(
+          issue.message,
+        ),
+      )
+    )
+      return { ok: true, observed: parsed, catalog, base }
     if (!mapped.mapped || !mapped.state)
       return {
         ok: false,

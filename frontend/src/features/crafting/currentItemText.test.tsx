@@ -156,11 +156,12 @@ it('updates socket and installed Rune text from state without altering its ident
     'Gloves',
   )
   expect(text).toContain('Sockets: S S')
-  expect(text).toContain('Rune: Slot 2: Perfect Desert Rune')
+  expect(text).toContain('+22% to Fire Resistance (rune)')
+  expect(text).not.toContain('Rune: Slot')
   expect(state.installedAugments[0]!.augmentId).toBe('Perfect_Desert_Rune')
 })
 
-it('exports revealed markers and hidden slot constraints without changing the item', () => {
+it('exports game desecration markers without adding private reveal constraints', () => {
   const state = {
     ...root,
     rarity: 'RARE' as const,
@@ -193,15 +194,12 @@ it('exports revealed markers and hidden slot constraints without changing the it
     'Solar Amulet',
     'Amulets',
   )
-  expect(text).toContain(
-    '{ Desecrated Prefix Modifier "Healthy" (Tier: 1) (Minimum Modifier Level: 40) (Reveal Pool: ALTERED) }',
-  )
-  expect(text).toContain('+17 to maximum Life (desecrated)')
-  expect(text).toContain('+6 to Strength')
-  expect(text).not.toContain('+6 to Strength (desecrated)')
-  expect(text).toContain(
-    'Desecrated Suffix (Minimum Modifier Level: 40) (Reveal Pool: ULAMAN)',
-  )
+  expect(text).toContain('{ Desecrated Prefix Modifier "Healthy" (Tier: 1) }')
+  expect(text).toContain('+17(10-20) to maximum Life (desecrated)')
+  expect(text).toContain('+6(5-8) to Strength')
+  expect(text).not.toContain('+6(5-8) to Strength (desecrated)')
+  expect(text).toContain('Desecrated Suffix')
+  expect(text).not.toMatch(/Minimum Modifier Level|Reveal Pool/)
   expect(text).toMatch(/Corrupted$/)
   expect(JSON.stringify(state)).toBe(before)
 })
@@ -239,4 +237,27 @@ it('accepts supported corrupted desecration imports while blocking unrelated spe
       ),
     ).rejects.toThrow()
   }
+})
+
+it('copies Sanctified effect values and the game flag without inventing an original-roll payload', () => {
+  const state = {
+    ...root,
+    explicits: [{ modifierId: 'p', values: { life: 17 } }],
+    conditions: ['SANCTIFIED'] as ['SANCTIFIED'],
+    sanctification: {
+      policy: 'independent-stat-percent-v1' as const,
+      implicits: {},
+      explicits: { p: { life: 120 } },
+    },
+  }
+  const text = currentItemText(
+    state,
+    initialFixture.modifiers,
+    'Solar Amulet',
+    'Amulets',
+  )
+  expect(text).toContain('+20.4 to maximum Life')
+  expect(text).toMatch(/Sanctified$/)
+  expect(text).not.toContain('120%')
+  expect(state.explicits[0]!.values.life).toBe(17)
 })

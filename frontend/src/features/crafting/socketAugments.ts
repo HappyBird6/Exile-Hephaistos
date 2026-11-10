@@ -1,7 +1,8 @@
 import data from './augments.json'
 import display from '../../shared/i18n/augmentDisplay.json'
 import { basePolicy } from './baseRegistry'
-import { getLocale } from '../../shared/i18n/i18n'
+import { getLocale, translate } from '../../shared/i18n/i18n'
+import type { ItemCardLine } from './itemCardData'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
 
@@ -230,4 +231,29 @@ const messages = {
 export function socketText() {
   const m = messages[getLocale()]
   return { tab: m[0], socket: m[1], empty: m[2], unsupported: m[3] }
+}
+
+/** Unknown identity is a display label; the observed effect stays independent of affix rolls. */
+export function unidentifiedRuneEffects(state: ConcreteItem): ItemCardLine[] {
+  const itemClass = basePolicy(state.baseItemId)?.itemClass ?? ''
+  return (state.observations?.augmentEffects ?? []).map((source, index) => {
+    const text = source
+      .replace(/^\{.*?}\s*/, '')
+      .replace(/\s*\(rune\)$/, '')
+      .trim()
+    const matches = augments.filter(
+      (entry) => entry.effects[itemClass]?.en === text,
+    )
+    const translations = new Set(
+      matches
+        .map((entry) => entry.effects[itemClass]?.[getLocale()])
+        .filter(Boolean),
+    )
+    const effect = translations.size === 1 ? [...translations][0]! : text
+    return {
+      id: `observed-augment-${index}`,
+      text: `${translate('base.unidentified_rune')}: ${effect}`,
+      kind: 'rune',
+    }
+  })
 }

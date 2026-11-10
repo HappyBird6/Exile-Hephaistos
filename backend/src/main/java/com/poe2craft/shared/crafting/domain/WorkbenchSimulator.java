@@ -320,6 +320,8 @@ public final class WorkbenchSimulator {
     }
     if (state.observations() != null
         && state.observations().needsAugmentResolution()
+        && com.poe2craft.shared.item.SocketAugmentText.affectsCrafting(
+            state.observations().augmentEffects())
         && !(action == WorkbenchCurrency.DIVINE && omens.contains(WorkbenchOmen.SANCTIFICATION)))
       return blocked(
           action,

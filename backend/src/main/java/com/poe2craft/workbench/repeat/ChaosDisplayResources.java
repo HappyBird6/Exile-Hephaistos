@@ -5,22 +5,20 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ModifierDefinition;
+import com.poe2craft.shared.item.ModifierTextResources;
 import com.poe2craft.workbench.display.ChaosOptionDisplay;
 import com.poe2craft.workbench.display.DisplayLocale;
 import com.poe2craft.workbench.display.DisplayTemplates;
 import java.io.IOException;
-import org.springframework.core.io.ClassPathResource;
 
 /** Exact build-time frontend input, pinned independently of the immutable game ruleset manifest. */
 public final class ChaosDisplayResources {
-  public static final String TEMPLATE_SHA256 =
-      "f3a708659cbc5df501a8be9c30591846464ffe132a8759af9a2984f7db8bc772";
+  public static final String TEMPLATE_SHA256 = ModifierTextResources.TEMPLATE_SHA256;
   private final JsonNode bindings;
   private final ChaosOptionDisplay display;
 
   public ChaosDisplayResources(ObjectMapper json) {
-    try (var stream =
-        new ClassPathResource("chaosrepeat/modifierTemplates.json").getInputStream()) {
+    try (var stream = new java.io.ByteArrayInputStream(ModifierTextResources.read())) {
       var bytes = stream.readAllBytes();
       var templates = DisplayTemplates.parse(bytes, TEMPLATE_SHA256, json);
       bindings = json.readTree(bytes).path("definitions");

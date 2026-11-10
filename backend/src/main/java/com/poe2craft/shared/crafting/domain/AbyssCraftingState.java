@@ -126,7 +126,10 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
   }
 
   public void validate(ItemCatalog catalog) {
-    if (item.observations() != null && item.observations().needsAugmentResolution())
+    if (item.observations() != null
+        && item.observations().needsAugmentResolution()
+        && com.poe2craft.shared.item.SocketAugmentText.affectsCrafting(
+            item.observations().augmentEffects()))
       throw new IllegalArgumentException(
           "Installed Augment names and counts must be resolved before crafting; observations are preserved.");
     var validationItem = knownItem();

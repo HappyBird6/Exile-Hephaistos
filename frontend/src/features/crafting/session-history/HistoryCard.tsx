@@ -1,3 +1,4 @@
+import { unidentifiedRuneEffects } from '../socketAugments'
 import basePolicies from '../basePolicies.json'
 import type { WorkbenchBaseKey } from '../baseRegistry'
 import type { ItemCardLine } from '../itemCardData'
@@ -72,10 +73,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                   .map((text, i) => ({ id: `base-${i}`, text }))
               : []),
             ...defences.properties,
-            ...(state.observations?.augmentEffects ?? []).map((text, i) => ({
-              id: `observed-augment-${i}`,
-              text,
-            })),
+            ...unidentifiedRuneEffects(state),
             ...(state.observations?.grantedSkills ?? []).map((skill, i) => ({
               id: `observed-skill-${i}`,
               text:

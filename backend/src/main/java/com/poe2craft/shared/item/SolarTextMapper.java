@@ -81,13 +81,18 @@ public final class SolarTextMapper {
         attachedMetadata.add(modifier.metadata().number());
     for (var modifier : item.modifiers())
       if (modifier.metadata() != null
+          && modifier.type() == ItemModels.ModifierType.IMPLICIT
+          && modifier.metadata().raw().startsWith("{ Implicit Modifier"))
+        attachedMetadata.add(modifier.metadata().number());
+    for (var modifier : item.modifiers())
+      if (modifier.metadata() != null
           && modifier.affix() != null
           && modifier.affixName() != null
-          && modifier.tier() != null
           && modifier
               .metadata()
               .raw()
-              .matches("^\\{ (?:(?:Fractured|Desecrated) )?(?:Prefix|Suffix) Modifier \".*"))
+              .matches(
+                  "^\\{ (?:(?:Fractured|Desecrated|Crafted) )*(?:Prefix|Suffix) Modifier \".*"))
         attachedMetadata.add(modifier.metadata().number());
     for (var line : item.unparsedLines())
       if (!attachedMetadata.contains(line.number())
@@ -169,7 +174,7 @@ public final class SolarTextMapper {
           issues.add(new Issue(property.source().number(), "Invalid quality amount."));
       } else if (property.key().equals("Sockets") && property.value().trim().matches("S(?: S)*")) {
         observedSockets = property.value().trim().split(" ").length;
-        // The observed count does not assert a crafting capacity or enable Artificer's Orb.
+        // Observed count is retained; crafting capacity still comes from the reviewed base policy.
       } else if (property.key().equals("Rune") && !property.value().isBlank()) {
         augmentEffects.add(property.source().raw());
       } else
@@ -187,7 +192,12 @@ public final class SolarTextMapper {
             (line.metadata() == null ? "" : line.metadata().raw() + "\n") + line.source().raw());
         continue;
       }
-      int identity = line.metadata() == null ? line.source().number() : line.metadata().number();
+      int identity =
+          line.metadata() == null
+              ? (line.type() == ItemModels.ModifierType.IMPLICIT
+                  ? -1 - line.source().section()
+                  : line.source().number())
+              : line.metadata().number();
       groups.computeIfAbsent(identity, ignored -> new ArrayList<>()).add(line);
     }
     for (var group : groups.values()) {
@@ -210,11 +220,12 @@ public final class SolarTextMapper {
           group.stream()
               .map(ItemModels.Modifier::text)
               .map(this::normalize)
-              .collect(java.util.stream.Collectors.joining(""));
+              .collect(java.util.stream.Collectors.joining("\n"));
       if (modifier.type() != ItemModels.ModifierType.IMPLICIT
           && modifier.type() != ItemModels.ModifierType.EXPLICIT
           && modifier.type() != ItemModels.ModifierType.FRACTURED
-          && modifier.type() != ItemModels.ModifierType.DESECRATED) {
+          && modifier.type() != ItemModels.ModifierType.DESECRATED
+          && modifier.type() != ItemModels.ModifierType.CRAFTED) {
         issues.add(new Issue(modifier.source().number(), "Unsupported modifier layer."));
         continue;
       }
@@ -224,7 +235,9 @@ public final class SolarTextMapper {
               : ModifierDefinition.Layer.EXPLICIT;
       var matches = new ArrayList<ModifierInstance>();
       for (var definition : catalog.modifiers().values()) {
-        if ((definition.tags().contains("reveal_only")
+        if ((modifier.type() == ItemModels.ModifierType.CRAFTED
+                && !definition.tags().contains("crafted"))
+            || (definition.tags().contains("reveal_only")
                 && modifier.type() != ItemModels.ModifierType.DESECRATED)
             || definition.layer() != layer
             || (modifier.affixName() != null && !modifier.affixName().equals(definition.name()))
@@ -238,6 +251,35 @@ public final class SolarTextMapper {
                   match.modifierId(),
                   match.values(),
                   modifier.type() == ItemModels.ModifierType.FRACTURED));
+      }
+      if (matches.size() > 1) {
+        var first = catalog.find(matches.getFirst().modifierId()).orElseThrow();
+        boolean aliases =
+            matches.stream()
+                .allMatch(
+                    candidate -> {
+                      var other = catalog.find(candidate.modifierId()).orElseThrow();
+                      return first.sourceUrl().equals(other.sourceUrl())
+                          && first.text().equals(other.text())
+                          && first.stats().equals(other.stats())
+                          && first.tags().equals(other.tags())
+                          && first.familyIds().equals(other.familyIds())
+                          && first.affixType() == other.affixType()
+                          && first.layer() == other.layer()
+                          && first.tier() == other.tier()
+                          && first.requiredItemLevel() == other.requiredItemLevel()
+                          && matches.getFirst().values().equals(candidate.values());
+                    });
+        if (aliases) {
+          matches.sort(
+              java.util.Comparator.comparingInt(
+                      (ModifierInstance candidate) ->
+                          catalog.find(candidate.modifierId()).orElseThrow().weight() > 0 ? 0 : 1)
+                  .thenComparing(ModifierInstance::modifierId));
+          var canonical = matches.getFirst();
+          matches.clear();
+          matches.add(canonical);
+        }
       }
       if (matches.size() != 1)
         issues.add(
@@ -255,7 +297,11 @@ public final class SolarTextMapper {
             && catalystQuality.amount() > 0
             && catalystQuality.type().matches(definition.tags())
             && !definition.tags().contains("unscalable")
-            && !matched.values().containsKey("local_maximum_quality_+")) {
+            && !matched.values().containsKey("local_maximum_quality_+")
+            && !(modifier.metadata() != null
+                && Pattern.compile("(?:—|-)\\s+" + catalystQuality.amount() + "% Increased\\s*}")
+                    .matcher(modifier.metadata().raw())
+                    .find())) {
           issues.add(
               new Issue(
                   modifier.source().number(),
@@ -279,13 +325,27 @@ public final class SolarTextMapper {
         }
       }
     }
+    if (implicits.isEmpty() && catalog.base().hasImplicit()) {
+      var innate = catalog.find(catalog.base().implicitModifierId()).orElseThrow();
+      if (ModifierClipboardText.visibleText(innate.text()).isBlank()
+          && innate.stats().stream().allMatch(stat -> stat.min() == stat.max())) {
+        var values = new LinkedHashMap<String, Long>();
+        innate.stats().forEach(stat -> values.put(stat.id(), stat.min()));
+        implicits.add(new ModifierInstance(innate.id(), values));
+      }
+    }
     if (!conditions.isEmpty() && desecrated.isEmpty())
       issues.add(new Issue(0, "Special item conditions are not supported."));
     if (!issues.isEmpty()) return new Result(false, null, issues);
+    var resolved = SocketAugmentText.resolve(catalog.base().id(), observedSockets, augmentEffects);
+    Integer maximumSockets = BaseRegistry.socketExecutionMaximum(catalog.base().id());
+    if (observedSockets != null && maximumSockets != null && observedSockets <= maximumSockets)
+      sockets = observedSockets;
+    var unresolvedSocketCount = sockets == null ? observedSockets : null;
     var observations =
-        observedSockets == null && augmentEffects.isEmpty() && skills.isEmpty()
+        unresolvedSocketCount == null && resolved.unidentified().isEmpty() && skills.isEmpty()
             ? null
-            : new ItemObservations(observedSockets, augmentEffects, skills);
+            : new ItemObservations(unresolvedSocketCount, resolved.unidentified(), skills);
     var state =
         new ItemState(
                 catalog.metadata().snapshotId(),
@@ -299,7 +359,8 @@ public final class SolarTextMapper {
                 catalystQuality)
             .withDesecrated(desecrated)
             .withEquipmentQuality(equipmentQuality)
-            .withObservations(observations);
+            .withObservations(observations)
+            .withAugments(resolved.installed());
     for (var message : ItemTextStateValidation.validate(state, catalog))
       issues.add(new Issue(0, message));
     return new Result(issues.isEmpty(), issues.isEmpty() ? state : null, issues);
@@ -349,7 +410,10 @@ public final class SolarTextMapper {
   }
 
   private ModifierInstance match(ModifierDefinition definition, String text) {
-    String source = normalize(definition.text()), valueText = normalize(text);
+    var converted = ModifierClipboardText.match(definition, text);
+    if (converted != null) return converted;
+    String source = normalize(ModifierClipboardText.visibleText(definition.text())),
+        valueText = normalize(text);
     var values = new LinkedHashMap<String, Long>();
     for (var stat : definition.stats())
       if (stat.min() == stat.max()) values.put(stat.id(), stat.min());

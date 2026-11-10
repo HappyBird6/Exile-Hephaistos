@@ -23,28 +23,38 @@ public final class ItemTextEditor {
             || before.rarity() != next.rarity()))
       return blocked(
           "Modifier edits cannot reconstruct desecrated slots or sanctification factors.");
-    var expectedRunes = new java.util.ArrayList<String>();
-    for (var installed : before.installedAugments()) {
-      for (var entry : SocketAugments.catalog()) {
-        if (entry.path("id").asText().equals(installed.augmentId()))
-          expectedRunes.add(
-              "Rune: Slot "
-                  + (installed.slotIndex() + 1)
-                  + ": "
-                  + entry.path("names").path("en").asText());
-      }
-    }
     var observed = next.observations();
-    if ((observed == null
-            && ((before.augmentSockets() != null && before.augmentSockets() > 0)
-                || !expectedRunes.isEmpty()))
-        || (observed != null
-            && (!java.util.Objects.equals(observed.socketCount(), before.augmentSockets())
-                || !observed.augmentEffects().equals(expectedRunes)
-                || !observed.grantedSkills().isEmpty())))
+    var previousObserved = before.observations();
+    Integer expectedSockets =
+        before.augmentSockets() != null
+            ? before.augmentSockets()
+            : previousObserved == null ? null : previousObserved.socketCount();
+    Integer nextSockets =
+        next.augmentSockets() != null
+            ? next.augmentSockets()
+            : observed == null ? null : observed.socketCount();
+    boolean sameSkills =
+        observed == null
+            || observed.grantedSkills().isEmpty()
+            || (previousObserved != null
+                && observed.grantedSkills().equals(previousObserved.grantedSkills()))
+            || observed.grantedSkills().stream()
+                .allMatch(
+                    skill ->
+                        skill.level() == null
+                            && BaseRegistry.recognizesGrantedSkill(
+                                before.baseItemId(), "Grants Skill: " + skill.name()));
+    if (!java.util.Objects.equals(expectedSockets, nextSockets)
+        || (!(before.installedAugments().isEmpty()
+                && SocketAugmentText.effects(next).isEmpty()
+                && previousObserved != null)
+            && !SocketAugmentText.sameEffects(
+                SocketAugmentText.effects(before), SocketAugmentText.effects(next)))
+        || !sameSkills)
       return blocked(
           "Socket and Rune lines are protected; use the socket controls to change installed augments.");
-    if (next.catalystQuality() != null
+    if ((next.catalystQuality() != null
+            && !java.util.Objects.equals(next.catalystQuality(), before.catalystQuality()))
         || (!next.conditions().isEmpty() && !next.conditions().equals(before.conditions())))
       return blocked(
           "Edit raw rolls only; catalyst quality and special conditions are retained separately.");

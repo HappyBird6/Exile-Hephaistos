@@ -486,7 +486,9 @@
     "input.review": "Check these lines",
     "crafts.few": "{count} crafts",
     "crafts.many": "{count} crafts",
-    "base.movement_speed": "Base Movement Speed: {value}"
+    "base.movement_speed": "Base Movement Speed: {value}",
+    "base.unidentified_rune": "Unidentified Rune",
+    "notice.observed_item": "The item is shown from its original text. Crafting requires details that could not be confirmed."
   },
   "ko": {
     "language": "언어",
@@ -975,7 +977,9 @@
     "input.review": "확인할 부분",
     "crafts.few": "제작 {count}회",
     "crafts.many": "제작 {count}회",
-    "base.movement_speed": "기본 이동 속도: {value}"
+    "base.movement_speed": "기본 이동 속도: {value}",
+    "base.unidentified_rune": "미확인 룬",
+    "notice.observed_item": "확정할 수 없는 정보가 있어 원문으로 표시합니다. 해당 정보가 필요한 제작은 사용할 수 없습니다."
   },
   "zh-CN": {
     "language": "语言",
@@ -1464,7 +1468,9 @@
     "input.review": "需要检查的内容",
     "crafts.few": "制作 {count} 次",
     "crafts.many": "制作 {count} 次",
-    "base.movement_speed": "基础移动速度: {value}"
+    "base.movement_speed": "基础移动速度: {value}",
+    "base.unidentified_rune": "未识别符文",
+    "notice.observed_item": "部分信息无法确认，正在显示原文。需要这些信息的制作暂不可用。"
   },
   "zh-TW": {
     "language": "語言",
@@ -1953,7 +1959,9 @@
     "input.review": "需要檢查的內容",
     "crafts.few": "製作 {count} 次",
     "crafts.many": "製作 {count} 次",
-    "base.movement_speed": "基礎移動速度: {value}"
+    "base.movement_speed": "基礎移動速度: {value}",
+    "base.unidentified_rune": "未識別符文",
+    "notice.observed_item": "部分資訊無法確認，目前顯示原文。需要這些資訊的製作暫時無法使用。"
   },
   "ja": {
     "language": "言語",
@@ -2442,7 +2450,9 @@
     "input.review": "確認が必要な箇所",
     "crafts.few": "クラフト{count}回",
     "crafts.many": "クラフト{count}回",
-    "base.movement_speed": "基本移動スピード: {value}"
+    "base.movement_speed": "基本移動スピード: {value}",
+    "base.unidentified_rune": "未特定のルーン",
+    "notice.observed_item": "確定できない情報があるため原文を表示しています。その情報が必要なクラフトは利用できません。"
   },
   "es": {
     "language": "Idioma",
@@ -2931,7 +2941,9 @@
     "input.review": "Revisa estas partes",
     "crafts.few": "{count} fabricaciones",
     "crafts.many": "{count} fabricaciones",
-    "base.movement_speed": "Velocidad de movimiento base: {value}"
+    "base.movement_speed": "Velocidad de movimiento base: {value}",
+    "base.unidentified_rune": "Runa sin identificar",
+    "notice.observed_item": "Se muestra el texto original. Las acciones que requieren datos sin confirmar no están disponibles."
   },
   "ru": {
     "language": "Язык",
@@ -3420,7 +3432,9 @@
     "input.review": "Проверьте эти строки",
     "crafts.few": "{count} создания",
     "crafts.many": "{count} созданий",
-    "base.movement_speed": "Базовая скорость передвижения: {value}"
+    "base.movement_speed": "Базовая скорость передвижения: {value}",
+    "base.unidentified_rune": "Неопознанная руна",
+    "notice.observed_item": "Показан исходный текст предмета. Крафт, требующий неподтверждённых данных, недоступен."
   },
   "th": {
     "language": "ภาษา",
@@ -3909,6 +3923,8 @@
     "input.review": "ตรวจสอบบรรทัดเหล่านี้",
     "crafts.few": "คราฟต์ {count} ครั้ง",
     "crafts.many": "คราฟต์ {count} ครั้ง",
-    "base.movement_speed": "ความเร็วเคลื่อนที่พื้นฐาน: {value}"
+    "base.movement_speed": "ความเร็วเคลื่อนที่พื้นฐาน: {value}",
+    "base.unidentified_rune": "รูนที่ยังระบุชนิดไม่ได้",
+    "notice.observed_item": "แสดงไอเทมจากข้อความต้นฉบับ การคราฟต์ที่ต้องใช้ข้อมูลซึ่งยังยืนยันไม่ได้จะใช้งานไม่ได้"
   }
 }

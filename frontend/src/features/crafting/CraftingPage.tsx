@@ -1,3 +1,5 @@
+import type { Item } from './itemModels'
+import { unidentifiedRuneEffects } from './socketAugments'
 import { LeagueMark } from './currency-prices/LeagueMark'
 import { CurrencyPriceContext } from './currency-prices/context'
 import { useCurrencyPrices } from './currency-prices/useCurrencyPrices'
@@ -182,6 +184,7 @@ export function CraftingPage() {
   const client = useQueryClient()
   const market = useCurrencyPrices()
   const draft = useItemDraft()
+  const [observedPreview, setObservedPreview] = useState<Item | null>(null)
   const imported = useItemTextImport()
   const importedBase = imported.data
     ? clipboardBase(
@@ -208,7 +211,7 @@ export function CraftingPage() {
     }
   })
   const storedFrame =
-    filmState.revision === draft.baseRevision
+    !observedPreview && filmState.revision === draft.baseRevision
       ? currentFrame(filmState.history)
       : undefined
   const storedLevel = storedFrame?.state?.itemLevel
@@ -508,7 +511,7 @@ export function CraftingPage() {
     queryFn: skipToken,
   })
   const activeFilm =
-    filmState.revision === draft.baseRevision
+    !observedPreview && filmState.revision === draft.baseRevision
       ? currentFilm(filmState.history)
       : undefined
   const rulesetStatus =
@@ -532,10 +535,11 @@ export function CraftingPage() {
   const restoredState =
     restoredValid && initial.data && storedFrame ? storedFrame.state : undefined
   const canCraft =
+    !observedPreview &&
     (draft.source === 'base' || mapping.data?.mapped === true) &&
     (!storedFrame || restoredValid)
   const film =
-    filmState.revision === draft.baseRevision
+    !observedPreview && filmState.revision === draft.baseRevision
       ? currentFilm(filmState.history)
       : undefined
   const repeatContext = JSON.stringify([
@@ -560,6 +564,7 @@ export function CraftingPage() {
     jewelRarity: 'NORMAL' | 'MAGIC' | 'RARE' = 'NORMAL',
   ) {
     if (mutationLocked()) return
+    setObservedPreview(null)
     const request = ++placementRequest.current
     const revision = useItemDraft.getState().baseRevision
     placementPending.current = true
@@ -618,6 +623,7 @@ export function CraftingPage() {
     if (mutationLocked()) return
     const selectedFilm = sourceHistory.films.find((entry) => entry.id === id)
     if (!selectedFilm) return
+    setObservedPreview(null)
     const nextCursor = cursor ?? selectedFilm.frames.length - 1
     const state = selectedFilm.frames[nextCursor]!.state
     const base =
@@ -673,6 +679,7 @@ export function CraftingPage() {
     if (activeChanged && next.active)
       restoreFilm(next.active, next, next.cursor)
     else if (activeChanged) {
+      setObservedPreview(null)
       draft.setBase(catalogLevel, catalogBase)
       setFilmState({
         ...filmState,
@@ -712,6 +719,7 @@ export function CraftingPage() {
   const lastDeletion = filmState.history.pendingDeletion ?? null
   function browse(cursor: number) {
     if (mutationLocked()) return
+    setObservedPreview(null)
     saveFilms(viewFrame(filmState.history, cursor))
     setFailedApplication(null)
     setRepeatNotice(null)
@@ -873,7 +881,9 @@ export function CraftingPage() {
         return
       }
       failApply(
-        'The item has not changed. Pasted items are display-only. Select the Solar Amulet base to explore probabilities.',
+        observedPreview
+          ? t('notice.observed_item')
+          : 'The item has not changed. Pasted items are display-only. Select the Solar Amulet base to explore probabilities.',
       )
       return
     }
@@ -1311,6 +1321,17 @@ export function CraftingPage() {
         setEditorProblems(result.problems)
         return
       }
+      if ('observed' in result) {
+        client.setQueryData(['workbench', 'current-item'], result.observed)
+        draft.setBase(result.observed.itemLevel ?? 82, result.base)
+        draft.acceptText(text)
+        setObservedPreview(result.observed)
+        setSelected(null)
+        setHeld(null)
+        setInputOpen(false)
+        restoreInputFocus.current = true
+        return
+      }
       const nextRevision = revision + 1
       if (
         !saveFilms(
@@ -1329,6 +1350,7 @@ export function CraftingPage() {
         setEditorProblems([{ code: 'notice.history_save' }])
         return
       }
+      setObservedPreview(null)
       draft.setBase(result.state.itemLevel, result.base)
       draft.resetText(
         currentItemText(
@@ -1410,15 +1432,18 @@ export function CraftingPage() {
     setHeld(null)
   }
 
-  const item = draft.source === 'text' ? imported.data : undefined
+  const item =
+    observedPreview ?? (draft.source === 'text' ? imported.data : undefined)
   const displayedName =
     draft.source === 'base'
       ? name(baseSlugs[catalogBase], baseName)
       : (item?.displayName ?? 'Pasted item')
   const cursor = held ?? selected
-  const concrete = storedFrame
-    ? restoredState
-    : (workbench.data?.state ?? mapping.data?.state)
+  const concrete = observedPreview
+    ? undefined
+    : storedFrame
+      ? restoredState
+      : (workbench.data?.state ?? mapping.data?.state)
   const augmentReady = Boolean(
     !workbenchBusy &&
     canCraft &&
@@ -1435,14 +1460,16 @@ export function CraftingPage() {
     initial.data?.state.baseItemId === stashBaseId
       ? initial.data?.baseMaterialActions
       : undefined
-  const generatedText = initial.data
-    ? currentItemText(
-        concrete ?? concreteInitial(initial.data),
-        initial.data.modifiers,
-        baseName,
-        baseClass(catalogBase),
-      )
-    : null
+  const generatedText = observedPreview
+    ? observedPreview.text.originalText
+    : initial.data
+      ? currentItemText(
+          concrete ?? concreteInitial(initial.data),
+          initial.data.modifiers,
+          baseName,
+          baseClass(catalogBase),
+        )
+      : null
   const textContext = JSON.stringify([
     draft.baseRevision,
     filmState.history.active,
@@ -1506,6 +1533,7 @@ export function CraftingPage() {
                   text,
                 })),
               ...defences.properties,
+              ...unidentifiedRuneEffects(concrete),
               ...(concrete.installedAugments?.length
                 ? [
                     ...concrete.installedAugments.map((a) => ({
@@ -2321,8 +2349,8 @@ export function CraftingPage() {
                 </div>
               </div>
               <div className="bench-item-card">
-                {!!concrete?.observations?.augmentEffects.length && (
-                  <p>{t('notice.resolve_augments')}</p>
+                {observedPreview && (
+                  <p role="status">{t('notice.observed_item')}</p>
                 )}
                 {filmState.error && (
                   <p role="alert">{uiText(filmState.error)}</p>
@@ -2581,6 +2609,7 @@ export function CraftingPage() {
           error={filmState.error ? uiText(filmState.error) : ''}
           onContinue={(id) => {
             if (mutationLocked()) return
+            setObservedPreview(null)
             restoreFilm(id)
             setView('workbench')
             document.getElementById('workspace-workbench')?.focus()

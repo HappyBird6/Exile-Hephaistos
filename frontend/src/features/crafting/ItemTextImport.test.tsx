@@ -266,3 +266,73 @@ it('does not create a duplicate session for unchanged text', async () => {
     'open',
   )
 })
+
+it('shows recognized but non-recoverable game values without corrupting a saved session or enabling currency actions', async () => {
+  const input = await open()
+  const before = localStorage.getItem(historyStorageKey)
+  const source =
+    'Item Class: Amulets\nRarity: Rare\nUncertain game item\nSolar Amulet\n--------\nItem Level: 82\n--------\n+17 to maximum Life\n--------\nSanctified'
+  vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url).endsWith('/items/parse')) {
+      const parsed = parsedTextFixture(source)
+      const line = parsed.text.lines.find(
+        (line) => line.raw === '+17 to maximum Life',
+      )!
+      return Promise.resolve(
+        jsonResponse({
+          ...parsed,
+          displayName: 'Uncertain game item',
+          modifiers: [
+            {
+              text: line.raw,
+              type: 'EXPLICIT',
+              source: line,
+              metadata: null,
+              affix: null,
+              tier: null,
+              affixName: null,
+            },
+          ],
+          flags: [parsed.text.lines.at(-1)!],
+        }),
+      )
+    }
+    if (String(url).endsWith('/edit-text'))
+      return Promise.resolve(
+        jsonResponse({
+          mapped: false,
+          state: null,
+          issues: [
+            {
+              lineNumber: 0,
+              message: 'Special item conditions are not supported.',
+            },
+          ],
+        }),
+      )
+    return editorFixtureFetch(url, init)
+  })
+  fireEvent.change(input, { target: { value: source } })
+  apply()
+  await waitFor(() =>
+    expect(document.querySelector('#item-input-panel')).not.toHaveAttribute(
+      'open',
+    ),
+  )
+  expect(document.querySelector('.bench-item-card')).toHaveTextContent(
+    '+17 to maximum Life',
+  )
+  expect(document.querySelector('.bench-item-card')).toHaveTextContent(
+    'Sanctified',
+  )
+  expect(
+    within(document.querySelector('.bench-item-card') as HTMLElement).getByRole(
+      'status',
+    ),
+  ).toHaveTextContent('original text')
+  expect(localStorage.getItem(historyStorageKey)).toBe(before)
+  fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
+  expect(
+    screen.getByRole('textbox', { name: 'Item text copied from the game' }),
+  ).toHaveValue(source)
+})

@@ -7,12 +7,14 @@ import {
   selectableAugments,
   isSelectableAugment,
   canInstallAugment,
+  unidentifiedRuneEffects,
 } from './socketAugments'
 import {
   initialFixture,
   jsonResponse,
 } from '../../shared/test/craftingFixtures'
 import { concreteInitial } from './workbenchApi'
+import { setLocale } from '../../shared/i18n/i18n'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 
 afterEach(() => vi.unstubAllGlobals())
@@ -233,4 +235,31 @@ it('accepts only the requested slot transition and rejects a forged unrelated ch
       new AbortController().signal,
     ),
   ).rejects.toThrow()
+})
+
+it('shows an unidentified Rune effect without choosing an identity or allowing blind replacement', () => {
+  setLocale('ko')
+  const observed = {
+    ...state,
+    baseItemId: 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1',
+    observations: {
+      socketCount: null,
+      augmentEffects: ['+150 to Accuracy Rating (rune)'],
+      grantedSkills: [],
+    },
+  }
+  const before = JSON.stringify(observed)
+  try {
+    expect(unidentifiedRuneEffects(observed)).toEqual([
+      {
+        id: 'observed-augment-0',
+        text: '미확인 룬: 정확도 +150',
+        kind: 'rune',
+      },
+    ])
+    expect(canInstallAugment(observed, 'Perfect_Vision_Rune', 0)).toBe(false)
+    expect(JSON.stringify(observed)).toBe(before)
+  } finally {
+    setLocale('en')
+  }
 })

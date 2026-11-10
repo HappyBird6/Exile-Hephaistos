@@ -11,7 +11,7 @@ const templateBytes = fs.readFileSync(
   "frontend/src/shared/i18n/modifierTemplates.json",
 );
 const runtimeSource = fs.readFileSync(
-  "backend/src/main/java/com/poe2craft/workbench/repeat/ChaosDisplayResources.java",
+  "backend/src/main/java/com/poe2craft/shared/item/ModifierTextResources.java",
   "utf8",
 );
 const runtimeHash = runtimeSource.match(/TEMPLATE_SHA256\s*=\s*"([a-f0-9]{64})"/);
