@@ -480,7 +480,10 @@
     "server.clipboard_modifier_edit": "Modifier edits cannot reconstruct desecrated slots or sanctification factors.",
     "server.clipboard_sockets": "Socket and Rune lines are protected; use the socket controls to change installed augments.",
     "server.clipboard_raw_rolls": "Edit raw rolls only; catalyst quality and special conditions are retained separately.",
-    "server.clipboard_desecrated": "Invalid desecrated slot, reveal pool or item state."
+    "server.clipboard_desecrated": "Invalid desecrated slot, reveal pool or item state.",
+    "input.apply": "Apply",
+    "input.applying": "Applying…",
+    "input.review": "Check these lines"
   },
   "ko": {
     "language": "언어",
@@ -963,7 +966,10 @@
     "server.clipboard_modifier_edit": "옵션을 수정해서 훼손 슬롯이나 신성화 배율을 복원할 수 없습니다.",
     "server.clipboard_sockets": "소켓과 룬 정보는 보호됩니다. 장착물을 바꾸려면 소켓 조작 기능을 사용하세요.",
     "server.clipboard_raw_rolls": "원래 옵션 수치만 수정하세요. 기폭제 품질과 특수 상태는 별도로 보존됩니다.",
-    "server.clipboard_desecrated": "훼손 슬롯, 드러내기 후보군 또는 아이템 상태가 올바르지 않습니다."
+    "server.clipboard_desecrated": "훼손 슬롯, 드러내기 후보군 또는 아이템 상태가 올바르지 않습니다.",
+    "input.apply": "적용",
+    "input.applying": "적용 중…",
+    "input.review": "확인할 부분"
   },
   "zh-CN": {
     "language": "语言",
@@ -1446,7 +1452,10 @@
     "server.clipboard_modifier_edit": "修改词缀无法重建亵渎槽位或神圣化倍率。",
     "server.clipboard_sockets": "插槽和符文信息受保护。请使用插槽控件更改已安装物。",
     "server.clipboard_raw_rolls": "只能修改原始词缀数值。催化品质和特殊状态会单独保留。",
-    "server.clipboard_desecrated": "亵渎槽位、揭示候选池或物品状态无效。"
+    "server.clipboard_desecrated": "亵渎槽位、揭示候选池或物品状态无效。",
+    "input.apply": "应用",
+    "input.applying": "正在应用…",
+    "input.review": "需要检查的内容"
   },
   "zh-TW": {
     "language": "語言",
@@ -1929,7 +1938,10 @@
     "server.clipboard_modifier_edit": "修改詞綴無法重建褻瀆欄位或神聖化倍率。",
     "server.clipboard_sockets": "插槽與符文資訊受保護。請使用插槽控制項變更已安裝物。",
     "server.clipboard_raw_rolls": "只能修改原始詞綴數值。催化品質與特殊狀態會分別保留。",
-    "server.clipboard_desecrated": "褻瀆欄位、揭示候選池或物品狀態無效。"
+    "server.clipboard_desecrated": "褻瀆欄位、揭示候選池或物品狀態無效。",
+    "input.apply": "套用",
+    "input.applying": "正在套用…",
+    "input.review": "需要檢查的內容"
   },
   "ja": {
     "language": "言語",
@@ -2412,7 +2424,10 @@
     "server.clipboard_modifier_edit": "モッドの編集では冒涜スロットや聖別の倍率を復元できません。",
     "server.clipboard_sockets": "ソケットとルーンの情報は保護されています。装着物の変更にはソケットの操作機能を使用してください。",
     "server.clipboard_raw_rolls": "元のモッド数値のみ編集してください。カタリスト品質と特殊状態は別に保持されます。",
-    "server.clipboard_desecrated": "冒涜スロット、開示候補プール、またはアイテム状態が無効です。"
+    "server.clipboard_desecrated": "冒涜スロット、開示候補プール、またはアイテム状態が無効です。",
+    "input.apply": "適用",
+    "input.applying": "適用中…",
+    "input.review": "確認が必要な箇所"
   },
   "es": {
     "language": "Idioma",
@@ -2895,6 +2910,9 @@
     "server.clipboard_modifier_edit": "Editar modificadores no permite reconstruir los espacios profanados ni los multiplicadores de santificación.",
     "server.clipboard_sockets": "La información de engarces y runas está protegida. Usa los controles de engarces para cambiar los elementos instalados.",
     "server.clipboard_raw_rolls": "Edita solo los valores originales. La calidad del catalizador y los estados especiales se conservan por separado.",
-    "server.clipboard_desecrated": "El espacio profanado, el conjunto de candidatos de revelación o el estado del objeto no es válido."
+    "server.clipboard_desecrated": "El espacio profanado, el conjunto de candidatos de revelación o el estado del objeto no es válido.",
+    "input.apply": "Aplicar",
+    "input.applying": "Aplicando…",
+    "input.review": "Revisa estas partes"
   }
 }

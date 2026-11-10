@@ -192,9 +192,8 @@ it('keeps item controls in the simulation and exposes a separate History tab', (
   expect(document.querySelector('.wb-session-library-buttons')).toBeNull()
   expect(document.querySelector('.preview-badge')).toBeNull()
   expect(document.querySelector('.placement-label')).toBeNull()
-  expect(document.querySelector('.craft-footer')).toContainElement(
-    document.querySelector('.locale-disclosure'),
-  )
+  expect(document.querySelector('.locale-disclosure')).toBeNull()
+  expect(document.querySelector('.craft-footer')).toHaveTextContent('PoE2DB')
   expect(
     document.querySelectorAll('.workbench-film-controls__arrow'),
   ).toHaveLength(2)
@@ -248,7 +247,7 @@ it('renders original shelf positions and an unscaled viewport cursor', () => {
   expect(document.querySelector('main')).toHaveClass('craft-page--workbench')
 })
 
-it('returns focus to the relocated base and edit buttons after overlay close and input cancellation', () => {
+it('returns focus to the relocated base and edit buttons after overlay close and input cancellation', async () => {
   show()
   const base = screen.getByRole('button', { name: 'Select base' })
   base.focus()
@@ -260,19 +259,21 @@ it('returns focus to the relocated base and edit buttons after overlay close and
   expect(base).toHaveFocus()
   expect(base).toHaveAttribute('aria-expanded', 'false')
   const edit = screen.getByRole('button', { name: 'Edit item' })
+  await waitFor(() => expect(edit).toBeEnabled())
   edit.focus()
   fireEvent.click(edit)
-  const input = screen.getByRole('dialog', { name: 'Starting item' })
+  const input = screen.getByRole('dialog', { name: 'Edit item' })
   expect(edit).toHaveAttribute('aria-controls', input.id)
   expect(edit).toHaveAttribute('aria-expanded', 'true')
   expect(screen.getByRole('button', { name: 'Close item input' })).toHaveFocus()
+  const displayedText = useItemDraft.getState().text
   fireEvent.change(within(input).getByRole('textbox'), {
     target: { value: 'Draft to keep' },
   })
   fireEvent.keyDown(window, { key: 'Escape' })
   expect(edit).toHaveFocus()
   expect(edit).toHaveAttribute('aria-expanded', 'false')
-  expect(useItemDraft.getState().text).toBe('Draft to keep')
+  expect(useItemDraft.getState().text).toBe(displayedText)
   fireEvent.click(edit)
   fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
   expect(edit).toHaveFocus()

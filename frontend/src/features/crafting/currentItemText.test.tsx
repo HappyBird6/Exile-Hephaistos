@@ -10,6 +10,7 @@ import {
 } from '../../shared/test/craftingFixtures'
 import { concreteInitial, mapSolarText } from './workbenchApi'
 import { currentItemText } from './currentItemText'
+import { editorFixtureFetch } from './item-editor/fixtures.test-support'
 import { startFilm, emptyFilms, historyStorageKey } from './workbenchHistory'
 let client: QueryClient
 const root = concreteInitial(initialFixture)
@@ -30,7 +31,7 @@ beforeEach(() => {
       ),
     ),
   )
-  vi.stubGlobal('fetch', fixtureFetch)
+  vi.stubGlobal('fetch', editorFixtureFetch)
 })
 afterEach(() => {
   client.clear()
@@ -71,7 +72,7 @@ it('applies a validated edit atomically and keeps the previous original document
             issues: [],
           }),
         )
-      : fixtureFetch(url, init),
+      : editorFixtureFetch(url, init),
   )
   fireEvent.change(input, {
     target: {
@@ -80,7 +81,7 @@ it('applies a validated edit atomically and keeps the previous original document
         .text.replace('Item Level: 82', 'Item Level: 81'),
     },
   })
-  fireEvent.click(screen.getByRole('button', { name: 'Apply text edits' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Apply' }))
   await waitFor(() =>
     expect(
       JSON.parse(localStorage.getItem(historyStorageKey)!).films,
@@ -98,13 +99,14 @@ it('keeps dirty input and discards a cancelled late edit response', async () => 
       ? new Promise<Response>((resolve) => {
           finish = resolve
         })
-      : fixtureFetch(url, init),
+      : editorFixtureFetch(url, init),
   )
   const text = useItemDraft
     .getState()
     .text.replace('Item Level: 82', 'Item Level: 81')
   fireEvent.change(input, { target: { value: text } })
-  fireEvent.click(screen.getByRole('button', { name: 'Apply text edits' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Apply' }))
+  await waitFor(() => expect(finish).toBeDefined())
   fireEvent.change(input, { target: { value: text + '\nnew draft' } })
   await act(async () => {
     finish(
@@ -132,7 +134,7 @@ it('does not submit an unfinished IME composition', async () => {
   const fetcher = vi.fn(fixtureFetch)
   vi.stubGlobal('fetch', fetcher)
   fireEvent.compositionStart(input)
-  fireEvent.click(screen.getByRole('button', { name: 'Apply text edits' }))
+  fireEvent.click(screen.getByRole('button', { name: 'Apply' }))
   expect(
     fetcher.mock.calls.some(([url]) => String(url).endsWith('/edit-text')),
   ).toBe(false)

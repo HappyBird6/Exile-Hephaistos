@@ -8,7 +8,9 @@ import {
 import { SessionContinuation } from './session-library/SessionContinuation'
 import { revealAction } from './abyss-workbench/revealAction'
 import { currentItemText } from './currentItemText'
-import { textEditMessages } from './textEditMessages'
+import { ItemTextEditorContent } from './item-editor/ItemTextEditorContent'
+import { validateItemText } from './item-editor/validateItemText'
+import type { ItemTextProblem } from './item-editor/validateItemText'
 import { appendDocument } from './session-history/transfer'
 import {
   augmentMaterials,
@@ -41,6 +43,7 @@ import { AbyssPanel } from './AbyssPanel'
 import { readSupport, saveSupport } from './method-search/supportStorage'
 import {
   baseSlugs,
+  baseTexts,
   baseClass,
   baseStartingRarity,
   clipboardBase,
@@ -127,7 +130,6 @@ import {
   workbenchCurrencyActions,
   workbenchOmens,
   compatibleOmenPair,
-  mapSolarText,
 } from './workbenchApi'
 import type { AppliedItem, MappingResult } from './workbenchApi'
 import {
@@ -1259,57 +1261,43 @@ export function CraftingPage() {
       }
     }
   }
-  const [editError, setEditError] = useState<{
-    kind: 'stale' | 'blocked'
-    issues?: string[]
-  } | null>(null)
+  const [editorProblems, setEditorProblems] = useState<ItemTextProblem[]>([])
   const [editContext, setEditContext] = useState<string | null>(null)
   const composing = useRef(false)
   useEffect(() => () => editRequest.current?.abort(), [])
-  async function applyTextEdit() {
-    if (
-      mutationLocked() ||
-      editRequest.current ||
-      composing.current ||
-      !concrete ||
-      !initial.data
-    )
+  async function applyItemText() {
+    if (mutationLocked() || composing.current || !initial.data) return
+    if (editContext !== textContext) {
+      draft.resetText(generatedText ?? draft.currentText.text)
+      setEditContext(textContext)
+      setEditorProblems([])
       return
-    const context = JSON.stringify([
-      draft.baseRevision,
-      filmState.history.active,
-      filmState.history.cursor,
-      concrete,
-      initial.data.rulesetIdentity,
-    ])
-    if (editContext !== context) {
-      setEditError({ kind: 'stale' })
+    }
+    if (concrete && draft.text === generatedText) {
+      closeInput()
       return
     }
     const request = new AbortController()
     editRequest.current = request
     setEditPending(true)
-    setEditError(null)
+    setEditorProblems([])
     const text = draft.text
     const generation = inputRequestGeneration.current
     const requestLocale = getLocale()
     const history = filmState.history
     const revision = draft.baseRevision
-    const initialData = initial.data
     try {
-      if (!text.trim() || new TextEncoder().encode(text).length > 16 * 1024)
-        throw new Error('Invalid item text')
-      // Unchanged documents preserve every opaque field, even when mapping is lossy.
-      const result =
-        text === generatedText
-          ? { mapped: true, state: concrete, issues: [] }
-          : await mapSolarText(
-              text,
-              request.signal,
-              initialData.modifiers,
-              initialData.rulesetIdentity,
-              concrete,
-            )
+      const result = await validateItemText({
+        text,
+        signal: request.signal,
+        ...(concrete ? { before: concrete } : {}),
+        catalogFor: (base, level) =>
+          client.fetchQuery({
+            queryKey: ['crafting', 'initial', base, level, 'manual'],
+            queryFn: () => loadInitial(level, request.signal, base, true),
+            staleTime: 60_000,
+          }),
+      })
       if (
         request.signal.aborted ||
         getLocale() !== requestLocale ||
@@ -1319,149 +1307,48 @@ export function CraftingPage() {
         inputFilm.current.history !== history
       )
         return
-      if (
-        !result.mapped ||
-        !result.state ||
-        !verifiedHistoryState(result.state, initialData)
-      ) {
-        setEditError({
-          kind: 'blocked',
-          issues: result.issues.map((i) => i.message),
-        })
+      if (!result.ok) {
+        setEditorProblems(result.problems)
         return
       }
+      const nextRevision = revision + 1
       if (
         !saveFilms(
           startFilm(
             history,
             result.state,
             filmId(),
-            initialData.rulesetIdentity,
+            result.catalog.rulesetIdentity,
             text,
-            initialData.compatibilityId,
+            result.catalog.compatibilityId,
           ),
-          revision,
+          nextRevision,
           true,
         )
-      )
+      ) {
+        setEditorProblems([{ code: 'notice.history_save' }])
         return
-      draft.resetText(text)
+      }
+      draft.setBase(result.state.itemLevel, result.base)
+      draft.resetText(
+        currentItemText(
+          result.state,
+          result.catalog.modifiers,
+          baseTexts[result.base]!.split('\n').at(-1)!,
+          baseClass(result.base),
+        ),
+      )
       setSelected(null)
       setHeld(null)
       setInputOpen(false)
-      ;(inputOpener.current ?? inputToggle.current)?.focus()
+      restoreInputFocus.current = true
     } catch {
-      if (!request.signal.aborted) setEditError({ kind: 'blocked' })
+      if (!request.signal.aborted)
+        setEditorProblems([{ code: 'input.connection' }])
     } finally {
       if (editRequest.current === request) {
         editRequest.current = null
         setEditPending(false)
-      }
-    }
-  }
-  async function importText() {
-    if (mutationLocked()) return
-    const generation = ++inputRequestGeneration.current
-    const original = useItemDraft.getState()
-    const originalLocale = getLocale()
-    const history = filmState.history
-    const filmRevision = filmState.revision
-    const accepted = await imported.submit(
-      original.text,
-      () =>
-        generation === inputRequestGeneration.current &&
-        !inputMutationLocked() &&
-        getLocale() === originalLocale &&
-        inputFilm.current.history === history &&
-        inputFilm.current.revision === filmRevision,
-    )
-    const current = useItemDraft.getState()
-    const sameItemContext = accepted
-      ? current.baseRevision === original.baseRevision + 1 &&
-        current.source === 'text' &&
-        current.currentText.text === original.text
-      : current.baseRevision === original.baseRevision &&
-        current.source === original.source &&
-        current.currentText === original.currentText
-    // The hook rejects stale server data; the Page must also discard its own
-    // cancelled continuation before it can clear a newer currency selection.
-    if (
-      generation !== inputRequestGeneration.current ||
-      inputMutationLocked() ||
-      !sameItemContext ||
-      current.text !== original.text ||
-      getLocale() !== originalLocale ||
-      inputFilm.current.history !== history ||
-      inputFilm.current.revision !== filmRevision
-    )
-      return
-    if (accepted) {
-      saveFilms({ ...history, active: null, cursor: 0 }, current.baseRevision)
-      closeInput()
-    }
-    setSelected(null)
-    setHeld(null)
-  }
-  async function enableCrafting() {
-    if (mutationLocked() || !imported.data || !importedBase || !initial.data)
-      return
-    const controller = new AbortController()
-    const revision = draft.baseRevision
-    applyingRequest.current = controller
-    setApplying({ controller, revision: draft.baseRevision })
-    try {
-      const result = await mapSolarText(
-        imported.data.text.originalText,
-        controller.signal,
-        initial.data.modifiers,
-        initial.data.rulesetIdentity,
-      )
-      if (
-        controller.signal.aborted ||
-        useItemDraft.getState().baseRevision !== revision
-      )
-        return
-      if (
-        result.mapped &&
-        (result.state?.snapshotId !== initial.data.metadata.snapshotId ||
-          result.state?.baseItemId !== initial.data.state.baseItemId ||
-          !result.state ||
-          !verifiedHistoryState(result.state, initial.data))
-      )
-        throw new Error(t('error.catalog_mismatch'))
-      client.setQueryData(mappingKey, result)
-      if (result.mapped && result.state)
-        saveFilms(
-          startFilm(
-            filmState.history,
-            result.state,
-            filmId(),
-            initial.data.rulesetIdentity,
-            imported.data.text.originalText,
-            initial.data.compatibilityId,
-          ),
-          revision,
-        )
-      setAnnouncement(
-        result.mapped
-          ? t(
-              result.state?.observations?.augmentEffects.length
-                ? 'notice.resolve_augments'
-                : 'notice.import_ready',
-            )
-          : t('notice.mapping_blocked'),
-      )
-    } catch (error) {
-      if (!controller.signal.aborted)
-        setAnnouncement(
-          error instanceof Error
-            ? serviceText(error.message)
-            : t('error.mapping'),
-        )
-    } finally {
-      if (applyingRequest.current === controller) {
-        applyingRequest.current = null
-        setApplying(null)
       }
     }
   }
@@ -1476,6 +1363,8 @@ export function CraftingPage() {
     if (inputMutationLocked()) return
     invalidateInput()
     restoreInputFocus.current = true
+    draft.resetText(generatedText ?? draft.currentText.text)
+    setEditorProblems([])
     setInputOpen(false)
     ;(inputOpener.current ?? inputToggle.current)?.focus()
   }
@@ -1546,15 +1435,14 @@ export function CraftingPage() {
     initial.data?.state.baseItemId === stashBaseId
       ? initial.data?.baseMaterialActions
       : undefined
-  const generatedText =
-    concrete && initial.data
-      ? currentItemText(
-          concrete,
-          initial.data.modifiers,
-          baseName,
-          baseClass(catalogBase),
-        )
-      : null
+  const generatedText = initial.data
+    ? currentItemText(
+        concrete ?? concreteInitial(initial.data),
+        initial.data.modifiers,
+        baseName,
+        baseClass(catalogBase),
+      )
+    : null
   const textContext = JSON.stringify([
     draft.baseRevision,
     filmState.history.active,
@@ -2114,15 +2002,21 @@ export function CraftingPage() {
                       type="button"
                       ref={inputToggle}
                       className="item-input-toggle"
-                      disabled={workbenchBusy}
+                      disabled={workbenchBusy || !initial.data}
                       aria-expanded={inputOpen}
                       aria-controls="item-input-panel"
                       onClick={(event) => {
                         if (mutationLocked()) return
                         inputOpener.current = event.currentTarget
-                        if (!draft.textDirty) setEditContext(textContext)
-                        setEditError(null)
-                        setInputOpen((open) => !open)
+                        if (inputOpen) {
+                          closeInput()
+                          return
+                        }
+                        invalidateInput()
+                        draft.resetText(generatedText ?? draft.currentText.text)
+                        setEditContext(textContext)
+                        setEditorProblems([])
+                        setInputOpen(true)
                       }}
                     >
                       {t('ui.edit_item')}
@@ -2350,15 +2244,6 @@ export function CraftingPage() {
                       ) : null}
                     </fieldset>
                   )}
-                {draft.source === 'text' && !mapping.data?.mapped && (
-                  <button
-                    type="button"
-                    onClick={() => void enableCrafting()}
-                    disabled={workbenchBusy || !initial.data || !importedBase}
-                  >
-                    {t('ui.enable_solar_crafting')}
-                  </button>
-                )}
               </div>
               <div className="workbench-input-status">
                 {mapping.data?.issues.map((issue, index) => (
@@ -2438,19 +2323,6 @@ export function CraftingPage() {
               <div className="bench-item-card">
                 {!!concrete?.observations?.augmentEffects.length && (
                   <p>{t('notice.resolve_augments')}</p>
-                )}
-                {film?.sourceDocument !== undefined && (
-                  <details>
-                    <summary>{t('film.original_paste')}</summary>
-                    <pre
-                      style={{
-                        whiteSpace: 'pre-wrap',
-                        overflowWrap: 'anywhere',
-                      }}
-                    >
-                      {film.sourceDocument}
-                    </pre>
-                  </details>
                 )}
                 {filmState.error && (
                   <p role="alert">{uiText(filmState.error)}</p>
@@ -2639,105 +2511,30 @@ export function CraftingPage() {
               if (event.target === event.currentTarget) closeInput()
             }}
             id="item-input-panel"
-            className="item-input-panel detail-body"
-            aria-label={t('ui.starting_item')}
-            aria-busy={imported.pending}
+            className="item-input-panel item-editor-dialog detail-body"
+            aria-label={t('ui.edit_item')}
+            aria-busy={editPending}
           >
-            <div className="item-input-content">
-              <button
-                ref={inputClose}
-                type="button"
-                className="input-close"
-                aria-label={t('ui.close_item_input')}
+            {inputOpen && (
+              <ItemTextEditorContent
+                value={draft.text}
+                pending={editPending}
                 disabled={inputBusy}
-                onClick={closeInput}
-              >
-                ×
-              </button>
-              <div className="input-heading">
-                <h3>{t('ui.starting_item')}</h3>
-                <span>01</span>
-              </div>
-              <div className="text-form">
-                <label htmlFor="item-text">
-                  {t('ui.item_text_copied_from_the_game')}
-                </label>
-                {inputOpen && (
-                  <textarea
-                    id="item-text"
-                    value={draft.text}
-                    disabled={inputBusy}
-                    onCompositionStart={() => {
-                      composing.current = true
-                    }}
-                    onCompositionEnd={() => {
-                      composing.current = false
-                    }}
-                    onChange={(event) => {
-                      if (inputMutationLocked()) return
-                      invalidateInput()
-                      draft.setText(event.target.value)
-                    }}
-                    placeholder={t('input.placeholder')}
-                    aria-invalid={Boolean(imported.error)}
-                    aria-describedby={
-                      imported.error ? 'import-error' : undefined
-                    }
-                  />
-                )}
-                {generatedText !== null && (
-                  <>
-                    <p>{textEditMessages[locale].note}</p>
-                    {draft.textDirty && editContext !== textContext && (
-                      <p role="alert">{textEditMessages[locale].stale}</p>
-                    )}
-                    {editError && (
-                      <p role="alert">
-                        {textEditMessages[locale][editError.kind]}{' '}
-                        {editError.issues
-                          ?.map((message) => serviceText(message))
-                          .join(' ')}
-                      </p>
-                    )}
-                    <button
-                      type="button"
-                      disabled={workbenchBusy || editPending}
-                      onClick={applyTextEdit}
-                    >
-                      {textEditMessages[locale].apply}
-                    </button>
-                    <button
-                      type="button"
-                      disabled={workbenchBusy || editPending}
-                      onClick={() => {
-                        invalidateInput()
-                        draft.resetText(generatedText)
-                        setEditContext(textContext)
-                        setEditError(null)
-                      }}
-                    >
-                      {textEditMessages[locale].reload}
-                    </button>
-                  </>
-                )}
-                {imported.error && (
-                  <p id="import-error" role="alert">
-                    {imported.error}
-                  </p>
-                )}
-                <button
-                  type="button"
-                  className="primary-action"
-                  onClick={importText}
-                  disabled={workbenchBusy || editPending}
-                >
-                  {imported.pending
-                    ? t('ui.analyzing_item')
-                    : t('ui.analyze_item')}{' '}
-                  <span aria-hidden="true">↗</span>
-                </button>
-              </div>
-            </div>
+                problems={editorProblems}
+                closeRef={inputClose}
+                onClose={closeInput}
+                onApply={() => void applyItemText()}
+                onCompositionChange={(value) => {
+                  composing.current = value
+                }}
+                onChange={(text) => {
+                  if (inputMutationLocked()) return
+                  invalidateInput()
+                  draft.setText(text)
+                  setEditorProblems([])
+                }}
+              />
+            )}
           </dialog>
         </div>
         <ModifierPoolPanel
