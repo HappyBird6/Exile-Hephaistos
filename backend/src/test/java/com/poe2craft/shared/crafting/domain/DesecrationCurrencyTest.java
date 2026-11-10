@@ -267,7 +267,7 @@ class DesecrationCurrencyTest {
   }
 
   @Test
-  void markedItemRequiresSeparateHigherTierRuleRatherThanKeepingTheMark() {
+  void markedItemKeepsItsMarkAndAllowsOrdinaryManualDesecration() {
     var base = BaseRegistry.require("adherent");
     var catalog = ItemCatalogLoader.loadTopBase(base.key());
     var marked =
@@ -294,12 +294,11 @@ class DesecrationCurrencyTest {
                     .contains(c)
                 ? "Rib"
                 : "Jawbone";
-    assertThatThrownBy(
-            () ->
-                DesecrationCurrency.apply(
-                    item, "Preserved_" + kind, AffixType.PREFIX, null, Set.of(), catalog))
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessageContaining("higher-tier");
+    var result =
+        DesecrationCurrency.apply(
+            item, "Preserved_" + kind, AffixType.PREFIX, null, Set.of(), catalog);
+    assertThat(result.storedItem().explicits()).containsExactlyElementsOf(item.explicits());
+    assertThat(result.slots()).anyMatch(slot -> slot.desecrated() && slot.modifier() == null);
   }
 
   @Test

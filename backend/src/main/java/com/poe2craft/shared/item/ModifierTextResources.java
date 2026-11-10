@@ -11,7 +11,7 @@ public final class ModifierTextResources {
   private ModifierTextResources() {}
 
   public static final String TEMPLATE_SHA256 =
-      "f3a708659cbc5df501a8be9c30591846464ffe132a8759af9a2984f7db8bc772";
+      "37144b63e3beedf58213fbeba6abd7f8e76a3209acaa829857780320447deebb";
 
   public static byte[] read() throws IOException {
     try (var stream =

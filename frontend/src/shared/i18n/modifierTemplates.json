@@ -54005,6 +54005,825 @@
           "divisor": -1
         }
       ]
+    },
+    "equipment:suffix:alloy-presence-area-of-effect1": {
+      "stats": [
+        {
+          "id": "presence_area_+%",
+          "min": 35,
+          "max": 50
+        }
+      ],
+      "englishText": "(35—50)% increased Presence Area of Effect",
+      "values": ["(35—50)"],
+      "template": "equipment.AlloyPresenceAreaOfEffect1",
+      "sourceCode": "AlloyPresenceAreaOfEffect1",
+      "valueStats": [
+        {
+          "id": "presence_area_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-reduced-slow-potency1": {
+      "stats": [
+        {
+          "id": "base_slow_potency_+%",
+          "min": -30,
+          "max": -15
+        }
+      ],
+      "englishText": "(15—30)% reduced Slowing Potency of Debuffs on You",
+      "values": ["(15—30)"],
+      "template": "equipment.AlloyReducedSlowPotency1",
+      "sourceCode": "AlloyReducedSlowPotency1",
+      "valueStats": [
+        {
+          "id": "base_slow_potency_+%",
+          "divisor": -1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-mana-cost-efficiency1": {
+      "stats": [
+        {
+          "id": "base_mana_cost_efficiency_+%",
+          "min": 18,
+          "max": 29
+        }
+      ],
+      "englishText": "(18—29)% increased Mana Cost Efficiency",
+      "values": ["(18—29)"],
+      "template": "equipment.AlloyManaCostEfficiency1",
+      "sourceCode": "AlloyManaCostEfficiency1",
+      "valueStats": [
+        {
+          "id": "base_mana_cost_efficiency_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-archon-duration1": {
+      "stats": [
+        {
+          "id": "archon_duration_+%",
+          "min": 35,
+          "max": 42
+        }
+      ],
+      "englishText": "(35—42)% increased Archon Buff duration",
+      "values": ["(35—42)"],
+      "template": "equipment.AlloyArchonDuration1",
+      "sourceCode": "AlloyArchonDuration1",
+      "valueStats": [
+        {
+          "id": "archon_duration_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-spell-area-of-effect1": {
+      "stats": [
+        {
+          "id": "spell_area_of_effect_+%",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "englishText": "Spell Skills have (10—15)% increased Area of Effect",
+      "values": ["(10—15)"],
+      "template": "equipment.AlloySpellAreaOfEffect1",
+      "sourceCode": "AlloySpellAreaOfEffect1",
+      "valueStats": [
+        {
+          "id": "spell_area_of_effect_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-temporary-minion-skill-limit1": {
+      "stats": [
+        {
+          "id": "temporary_minion_limit_+",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "englishText": "Temporary Minion Skills have +(1—2) to Limit of Minions summoned",
+      "values": ["+(1—2)"],
+      "template": "equipment.AlloyTemporaryMinionSkillLimit1",
+      "sourceCode": "AlloyTemporaryMinionSkillLimit1",
+      "valueStats": [
+        {
+          "id": "temporary_minion_limit_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-skill-effect-duration1": {
+      "stats": [
+        {
+          "id": "skill_effect_duration_+%",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "englishText": "(15—19)% increased Skill Effect Duration",
+      "values": ["(15—19)"],
+      "template": "equipment.AlloySkillEffectDuration1",
+      "sourceCode": "AlloySkillEffectDuration1",
+      "valueStats": [
+        {
+          "id": "skill_effect_duration_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-spirit-on-boots1": {
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "englishText": "+(10—15) to Spirit",
+      "values": ["+(10—15)"],
+      "template": "equipment.AlloySpiritOnBoots1",
+      "sourceCode": "AlloySpiritOnBoots1",
+      "valueStats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-maximum-runic-ward-weapon1": {
+      "stats": [
+        {
+          "id": "base_maximum_ward",
+          "min": 51,
+          "max": 74
+        }
+      ],
+      "englishText": "+(51—74) to maximum Runic Ward",
+      "values": ["+(51—74)"],
+      "template": "equipment.AlloyMaximumRunicWardWeapon1",
+      "sourceCode": "AlloyMaximumRunicWardWeapon1",
+      "valueStats": [
+        {
+          "id": "base_maximum_ward",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-ailment-magnitude1": {
+      "stats": [
+        {
+          "id": "ailment_effect_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Magnitude of Ailments you inflict",
+      "values": ["(20—30)"],
+      "template": "equipment.AlloyAilmentMagnitude1",
+      "sourceCode": "AlloyAilmentMagnitude1",
+      "valueStats": [
+        {
+          "id": "ailment_effect_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-effect-of-socketed-augments1": {
+      "stats": [
+        {
+          "id": "local_socketed_items_effect_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased effect of Socketed Augment Items",
+      "values": ["(20—30)"],
+      "template": "equipment.AlloyEffectOfSocketedAugments1",
+      "sourceCode": "AlloyEffectOfSocketedAugments1",
+      "valueStats": [
+        {
+          "id": "local_socketed_items_effect_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-accuracy-attack-speed-hybrid1": {
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 327,
+          "max": 427
+        },
+        {
+          "id": "local_attack_speed_+%",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "englishText": "+(327—427) to Accuracy Rating\n(5—8)% increased Attack Speed",
+      "values": ["+(327—427)", "(5—8)"],
+      "template": "equipment.AlloyAccuracyAttackSpeedHybrid1",
+      "sourceCode": "AlloyAccuracyAttackSpeedHybrid1",
+      "valueStats": [
+        {
+          "id": "accuracy_rating",
+          "divisor": 1
+        },
+        {
+          "id": "local_attack_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1": {
+      "stats": [
+        {
+          "id": "base_all_attributes",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "englishText": "(15—20)% increased Physical Damage\n+(7—10) to all Attributes",
+      "values": ["(15—20)", "+(7—10)"],
+      "template": "equipment.AlloyAttributeIncreasedLocalPhysicalDamageHybrid1",
+      "sourceCode": "AlloyAttributeIncreasedLocalPhysicalDamageHybrid1",
+      "valueStats": [
+        {
+          "id": "local_physical_damage_+%",
+          "divisor": 1
+        },
+        {
+          "id": "base_all_attributes",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-mark-effect": {
+      "stats": [
+        {
+          "id": "mark_effect_+%",
+          "min": 40,
+          "max": 50
+        }
+      ],
+      "englishText": "(40—50)% increased Effect of your Mark Skills",
+      "values": ["(40—50)"],
+      "template": "equipment.AlloyMarkEffect",
+      "sourceCode": "AlloyMarkEffect",
+      "valueStats": [
+        {
+          "id": "mark_effect_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-maximum-runic-ward1": {
+      "stats": [
+        {
+          "id": "base_maximum_ward",
+          "min": 37,
+          "max": 49
+        }
+      ],
+      "englishText": "+(37—49) to maximum Runic Ward",
+      "values": ["+(37—49)"],
+      "template": "equipment.AlloyMaximumRunicWard1",
+      "sourceCode": "AlloyMaximumRunicWard1",
+      "valueStats": [
+        {
+          "id": "base_maximum_ward",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-attack-speed-ring1": {
+      "stats": [
+        {
+          "id": "attack_speed_+%",
+          "min": 7,
+          "max": 9
+        }
+      ],
+      "englishText": "(7—9)% increased Attack Speed",
+      "values": ["(7—9)"],
+      "template": "equipment.AlloyAttackSpeedRing1",
+      "sourceCode": "AlloyAttackSpeedRing1",
+      "valueStats": [
+        {
+          "id": "attack_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-effect-of-resistance-mods1": {
+      "stats": [
+        {
+          "id": "heist_enchantment_resistance_mod_effect_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Explicit Resistance Modifier magnitudes",
+      "values": ["(20—30)"],
+      "template": "equipment.AlloyEffectOfResistanceMods1",
+      "sourceCode": "AlloyEffectOfResistanceMods1",
+      "valueStats": [
+        {
+          "id": "heist_enchantment_resistance_mod_effect_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-puppet-master-chance1": {
+      "stats": [
+        {
+          "id": "surpassing_chance_%_to_gain_1_puppeteer_stack_on_using_command_skill",
+          "min": 30,
+          "max": 50
+        }
+      ],
+      "englishText": "(30—50)% Surpassing Chance to gain a Puppet Master stack whenever you use a Command Skill",
+      "values": ["(30—50)"],
+      "template": "equipment.AlloyPuppetMasterChance1",
+      "sourceCode": "AlloyPuppetMasterChance1",
+      "valueStats": [
+        {
+          "id": "surpassing_chance_%_to_gain_1_puppeteer_stack_on_using_command_skill",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-minion-damaging-ailment-magnitude1": {
+      "stats": [
+        {
+          "id": "minion_base_damaging_ailment_effect_+%",
+          "min": 40,
+          "max": 49
+        }
+      ],
+      "englishText": "Minions have (40—49)% increased Magnitude of Damaging Ailments",
+      "values": ["(40—49)"],
+      "template": "equipment.AlloyMinionDamagingAilmentMagnitude1",
+      "sourceCode": "AlloyMinionDamagingAilmentMagnitude1",
+      "valueStats": [
+        {
+          "id": "minion_base_damaging_ailment_effect_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-maximum-elemental-infusions1": {
+      "stats": [
+        {
+          "id": "additional_maximum_infusion_stacks",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1 to maximum number of Elemental Infusions",
+      "values": ["+1"],
+      "template": "equipment.AlloyMaximumElementalInfusions1",
+      "sourceCode": "AlloyMaximumElementalInfusions1",
+      "valueStats": [
+        {
+          "id": "additional_maximum_infusion_stacks",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-puppeteer-stacks1": {
+      "stats": [
+        {
+          "id": "max_puppet_master_stacks_+",
+          "min": 4,
+          "max": 5
+        }
+      ],
+      "englishText": "+(4—5) maximum stacks of Puppet Master",
+      "values": ["(4—5)"],
+      "template": "equipment.AlloyPuppeteerStacks1",
+      "sourceCode": "AlloyPuppeteerStacks1",
+      "valueStats": [
+        {
+          "id": "max_puppet_master_stacks_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1": {
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire_while_missing_ward",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "englishText": "Gain (21—26)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "values": ["(21—26)"],
+      "template": "equipment.AlloyDamageAsExtraFireWhileMissingRunicWard1",
+      "sourceCode": "AlloyDamageAsExtraFireWhileMissingRunicWard1",
+      "valueStats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire_while_missing_ward",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-exposure-effect1": {
+      "stats": [
+        {
+          "id": "exposure_effect_+%",
+          "min": 40,
+          "max": 50
+        }
+      ],
+      "englishText": "(40—50)% increased Exposure Effect",
+      "values": ["(40—50)"],
+      "template": "equipment.AlloyExposureEffect1",
+      "sourceCode": "AlloyExposureEffect1",
+      "valueStats": [
+        {
+          "id": "exposure_effect_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-spell-level-mana-hybrid1": {
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 142,
+          "max": 188
+        },
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+(142—188) to maximum Mana\n+1 to Level of all Spell Skills",
+      "values": ["+(142—188)", "+1"],
+      "template": "equipment.AlloySpellLevelManaHybrid1",
+      "sourceCode": "AlloySpellLevelManaHybrid1",
+      "valueStats": [
+        {
+          "id": "base_maximum_mana",
+          "divisor": 1
+        },
+        {
+          "id": "spell_skill_gem_level_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1": {
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 26,
+          "max": 31
+        },
+        {
+          "id": "non_skill_base_elemental_damage_%_to_gain_as_cold",
+          "min": 7,
+          "max": 11
+        }
+      ],
+      "englishText": "(26—31)% increased Cast Speed\nGain (7—11)% of Elemental Damage as Extra Cold Damage",
+      "values": ["(26—31)", "(7—11)"],
+      "template": "equipment.AlloyCastSpeedDamageAsExtraColdHybridOneHand1",
+      "sourceCode": "AlloyCastSpeedDamageAsExtraColdHybridOneHand1",
+      "valueStats": [
+        {
+          "id": "base_cast_speed_+%",
+          "divisor": 1
+        },
+        {
+          "id": "non_skill_base_elemental_damage_%_to_gain_as_cold",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-elemental-skill-limit1": {
+      "stats": [
+        {
+          "id": "elemental_skill_limit_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "+1 to Limit for Elemental Skills",
+      "values": ["+1"],
+      "template": "equipment.AlloyElementalSkillLimit1",
+      "sourceCode": "AlloyElementalSkillLimit1",
+      "valueStats": [
+        {
+          "id": "elemental_skill_limit_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-runic-ward-recharge-rate1": {
+      "stats": [
+        {
+          "id": "ward_regeneration_rate_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "englishText": "(15—20)% increased Runic Ward Regeneration Rate",
+      "values": ["(15—20)"],
+      "template": "equipment.AlloyRunicWardRechargeRate1",
+      "sourceCode": "AlloyRunicWardRechargeRate1",
+      "valueStats": [
+        {
+          "id": "ward_regeneration_rate_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-recover-runic-ward-on-charm-use1": {
+      "stats": [
+        {
+          "id": "recover_X_ward_on_charm_use",
+          "min": 32,
+          "max": 45
+        }
+      ],
+      "englishText": "Recover (32—45) Runic Ward when a Charm is used",
+      "values": ["(32—45)"],
+      "template": "equipment.AlloyRecoverRunicWardOnCharmUse1",
+      "sourceCode": "AlloyRecoverRunicWardOnCharmUse1",
+      "valueStats": [
+        {
+          "id": "recover_X_ward_on_charm_use",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-flask-charges-per-second1": {
+      "stats": [
+        {
+          "id": "generate_x_charges_for_any_flask_per_minute",
+          "min": 45,
+          "max": 60
+        }
+      ],
+      "englishText": "Flasks gain (0.75—1) charges per Second",
+      "values": ["(0.75—1)"],
+      "template": "equipment.AlloyFlaskChargesPerSecond1",
+      "sourceCode": "AlloyFlaskChargesPerSecond1",
+      "valueStats": [
+        {
+          "id": "generate_x_charges_for_any_flask_per_minute",
+          "divisor": 60
+        }
+      ]
+    },
+    "equipment:suffix:alloy-ballista-limit1": {
+      "stats": [
+        {
+          "id": "additional_ballista_totems_allowed",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "englishText": "+2 to maximum number of Summoned Ballista Totems",
+      "values": ["+2"],
+      "template": "equipment.AlloyBallistaLimit1",
+      "sourceCode": "AlloyBallistaLimit1",
+      "valueStats": [
+        {
+          "id": "additional_ballista_totems_allowed",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-runic-ward-on-block1": {
+      "stats": [
+        {
+          "id": "recover_X_ward_on_block",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "englishText": "Recover (10—15) Runic Ward when you Block",
+      "values": ["(10—15)"],
+      "template": "equipment.AlloyRunicWardOnBlock1",
+      "sourceCode": "AlloyRunicWardOnBlock1",
+      "valueStats": [
+        {
+          "id": "recover_X_ward_on_block",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-totem-placement-speed1": {
+      "stats": [
+        {
+          "id": "summon_totem_cast_speed_+%",
+          "min": 30,
+          "max": 49
+        }
+      ],
+      "englishText": "(30—49)% increased Totem Placement speed",
+      "values": ["(30—49)"],
+      "template": "equipment.AlloyTotemPlacementSpeed1",
+      "sourceCode": "AlloyTotemPlacementSpeed1",
+      "valueStats": [
+        {
+          "id": "summon_totem_cast_speed_+%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-chance-to-chain1": {
+      "stats": [
+        {
+          "id": "local_additional_attack_chain_chance_%",
+          "min": 25,
+          "max": 35
+        }
+      ],
+      "englishText": "(25—35)% chance to Chain an additional time",
+      "values": ["(25—35)"],
+      "template": "equipment.AlloyChanceToChain1",
+      "sourceCode": "AlloyChanceToChain1",
+      "valueStats": [
+        {
+          "id": "local_additional_attack_chain_chance_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-retain-glory1": {
+      "stats": [
+        {
+          "id": "chance_to_retain_40%_of_glory_on_use_%",
+          "min": 60,
+          "max": 75
+        }
+      ],
+      "englishText": "(60—75)% chance for Skills to retain 40% of Glory on use",
+      "values": ["(60—75)"],
+      "template": "equipment.AlloyRetainGlory1",
+      "sourceCode": "AlloyRetainGlory1",
+      "valueStats": [
+        {
+          "id": "chance_to_retain_40%_of_glory_on_use_%",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-bell-limit1": {
+      "stats": [
+        {
+          "id": "bell_hit_limit",
+          "min": 4,
+          "max": 5
+        }
+      ],
+      "englishText": "Tempest Bells are destroyed after an additional (4—5) Hits",
+      "values": ["(4—5)"],
+      "template": "equipment.AlloyBellLimit1",
+      "sourceCode": "AlloyBellLimit1",
+      "valueStats": [
+        {
+          "id": "bell_hit_limit",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-melee-strike-range1": {
+      "stats": [
+        {
+          "id": "local_weapon_range_+",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "englishText": "+(8—10) to Weapon Range",
+      "values": ["+(8—10)"],
+      "template": "equipment.AlloyMeleeStrikeRange1",
+      "sourceCode": "AlloyMeleeStrikeRange1",
+      "valueStats": [
+        {
+          "id": "local_weapon_range_+",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:prefix:alloy-damage-as-extra-fire-two-hand-while-missing-runic-ward1": {
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire_while_missing_ward",
+          "min": 42,
+          "max": 52
+        }
+      ],
+      "englishText": "Gain (42—52)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "values": ["(42—52)"],
+      "template": "equipment.AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1",
+      "sourceCode": "AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1",
+      "valueStats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire_while_missing_ward",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1": {
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 39,
+          "max": 47
+        },
+        {
+          "id": "non_skill_base_elemental_damage_%_to_gain_as_cold",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "englishText": "(39—47)% increased Cast Speed\nGain (11—16)% of Elemental Damage as Extra Cold Damage",
+      "values": ["(39—47)", "(11—16)"],
+      "template": "equipment.AlloyCastSpeedDamageAsExtraColdHybrid1",
+      "sourceCode": "AlloyCastSpeedDamageAsExtraColdHybrid1",
+      "valueStats": [
+        {
+          "id": "base_cast_speed_+%",
+          "divisor": 1
+        },
+        {
+          "id": "non_skill_base_elemental_damage_%_to_gain_as_cold",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-natures-archon1": {
+      "stats": [
+        {
+          "id": "chance_%_to_gain_archon_of_nature_on_overgrowing_plant",
+          "min": 25,
+          "max": 50
+        }
+      ],
+      "englishText": "(25—50)% chance to gain Nature's Archon when your Plants Overgrow",
+      "values": ["(25—50)"],
+      "template": "equipment.AlloyNaturesArchon1",
+      "sourceCode": "AlloyNaturesArchon1",
+      "valueStats": [
+        {
+          "id": "chance_%_to_gain_archon_of_nature_on_overgrowing_plant",
+          "divisor": 1
+        }
+      ]
+    },
+    "equipment:suffix:alloy-lightning-damage-ignites1": {
+      "stats": [
+        {
+          "id": "lightning_damage_can_ignite",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "englishText": "Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes",
+      "values": [],
+      "template": "equipment.AlloyLightningDamageIgnites1",
+      "sourceCode": "AlloyLightningDamageIgnites1",
+      "valueStats": []
+    },
+    "rawhide-belt:implicit:base": {
+      "stats": [
+        {
+          "id": "flask_life_to_recover_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "englishText": "(20—30)% increased Life Recovery from Flasks",
+      "values": ["(20—30)"],
+      "template": "equipment.rawhide-implicit",
+      "sourceCode": "https://poe2db.tw/us/Rawhide_Belt",
+      "valueStats": [
+        {
+          "id": "flask_life_to_recover_+%",
+          "divisor": 1
+        }
+      ]
     }
   },
   "templates": {
@@ -64400,6 +65219,206 @@
       "base-audit.tenebrous-ring.implicit": {
         "name": "Tenebrous Ring",
         "template": "{v0} Prefix Modifiers allowed\n{v1} Suffix Modifiers allowed"
+      },
+      "equipment.AlloyPresenceAreaOfEffect1": {
+        "template": "{v0}% increased Presence Area of Effect",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyReducedSlowPotency1": {
+        "template": "{v0}% reduced Slowing Potency of Debuffs on You",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyLocalWardIncreasePercent1": {
+        "template": "{v0}% increased Runic Ward",
+        "name": "Verisium"
+      },
+      "equipment.AlloyManaCostEfficiency1": {
+        "template": "{v0}% increased Mana Cost Efficiency",
+        "name": "Verisium"
+      },
+      "equipment.AlloyArchonDuration1": {
+        "template": "{v0}% increased Archon Buff duration",
+        "name": "of the Stars"
+      },
+      "equipment.AlloySpellAreaOfEffect1": {
+        "template": "Spell Skills have {v0}% increased Area of Effect",
+        "name": "of the Stars"
+      },
+      "equipment.EssenceLocalRuneAndSoulCoreEffect1": {
+        "template": "{v0}% increased effect of Socketed Augment Items",
+        "name": "of the Essence"
+      },
+      "equipment.AlloyAttackSpeedIfMissingWardRecently1": {
+        "template": "{v0}% increased Attack Speed while missing Runic Ward",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyRemnantPickupRange1": {
+        "template": "Remnants can be collected from {v0}% further away",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyCastSpeedGloves1": {
+        "template": "{v0}% increased Cast Speed",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyDamagingAilmentDuration1": {
+        "template": "{v0}% increased Duration of Damaging Ailments on Enemies",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyElementalPenetration1": {
+        "template": "Damage Penetrates {v0}% Elemental Resistances",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyAttackAreaOfEffect1": {
+        "template": "{v0}% increased Area of Effect for Attacks",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyTemporaryMinionSkillLimit1": {
+        "template": "Temporary Minion Skills have {v0} to Limit of Minions summoned",
+        "name": "of the Stars"
+      },
+      "equipment.AlloySkillEffectDuration1": {
+        "template": "{v0}% increased Skill Effect Duration",
+        "name": "of the Stars"
+      },
+      "equipment.AlloySpiritOnBoots1": {
+        "template": "{v0} to Spirit",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMaximumRunicWardWeapon1": {
+        "template": "{v0} to maximum Runic Ward",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyAilmentMagnitude1": {
+        "template": "{v0}% increased Magnitude of Ailments you inflict",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyEffectOfSocketedAugments1": {
+        "template": "{v0}% increased effect of Socketed Augment Items",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyAccuracyAttackSpeedHybrid1": {
+        "template": "{v0} to Accuracy Rating\n{v1}% increased Attack Speed",
+        "name": "Verisium"
+      },
+      "equipment.AlloyAttributeIncreasedLocalPhysicalDamageHybrid1": {
+        "template": "{v0}% increased Physical Damage\n{v1} to all Attributes",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMarkEffect": {
+        "template": "{v0}% increased Effect of your Mark Skills",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMaximumRunicWard1": {
+        "template": "{v0} to maximum Runic Ward",
+        "name": "Verisium"
+      },
+      "equipment.AlloyAttackSpeedRing1": {
+        "template": "{v0}% increased Attack Speed",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyEffectOfResistanceMods1": {
+        "template": "{v0}% increased Explicit Resistance Modifier magnitudes",
+        "name": "Verisium"
+      },
+      "equipment.AlloyMaximumRunicWardPercent1": {
+        "template": "{v0}% increased maximum Runic Ward",
+        "name": "Verisium"
+      },
+      "equipment.AlloyPuppetMasterChance1": {
+        "template": "{v0}% Surpassing Chance to gain a Puppet Master stack whenever you use a Command Skill",
+        "name": "Verisium"
+      },
+      "equipment.AlloyMinionDamagingAilmentMagnitude1": {
+        "template": "Minions have {v0}% increased Magnitude of Damaging Ailments",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMaximumElementalInfusions1": {
+        "template": "{v0} to maximum number of Elemental Infusions",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyPuppeteerStacks1": {
+        "template": "+{v0} maximum stacks of Puppet Master",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyDamageAsExtraFireWhileMissingRunicWard1": {
+        "template": "Gain {v0}% of Damage as Extra Fire Damage while you are missing Runic Ward",
+        "name": "Verisium"
+      },
+      "equipment.AlloyExposureEffect1": {
+        "template": "{v0}% increased Exposure Effect",
+        "name": "of the Stars"
+      },
+      "equipment.AlloySpellLevelManaHybrid1": {
+        "template": "{v0} to maximum Mana\n{v1} to Level of all Spell Skills",
+        "name": "Verisium"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybridOneHand1": {
+        "template": "{v0}% increased Cast Speed\nGain {v1}% of Elemental Damage as Extra Cold Damage",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyElementalSkillLimit1": {
+        "template": "{v0} to Limit for Elemental Skills",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyRunicWardRechargeRate1": {
+        "template": "{v0}% increased Runic Ward Regeneration Rate",
+        "name": "Verisium"
+      },
+      "equipment.AlloyRecoverRunicWardOnCharmUse1": {
+        "template": "Recover {v0} Runic Ward when a Charm is used",
+        "name": "Verisium"
+      },
+      "equipment.AlloyFlaskChargesPerSecond1": {
+        "template": "Flasks gain {v0} charges per Second",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyBallistaLimit1": {
+        "template": "{v0} to maximum number of Summoned Ballista Totems",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyRunicWardOnBlock1": {
+        "template": "Recover {v0} Runic Ward when you Block",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyTotemPlacementSpeed1": {
+        "template": "{v0}% increased Totem Placement speed",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyChanceToChain1": {
+        "template": "{v0}% chance to Chain an additional time",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyRetainGlory1": {
+        "template": "{v0}% chance for Skills to retain 40% of Glory on use",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyBellLimit1": {
+        "template": "Tempest Bells are destroyed after an additional {v0} Hits",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMeleeStrikeRange1": {
+        "template": "{v0} to Weapon Range",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1": {
+        "template": "Gain {v0}% of Damage as Extra Fire Damage while you are missing Runic Ward",
+        "name": "Verisium"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybrid1": {
+        "template": "{v0}% increased Cast Speed\nGain {v1}% of Elemental Damage as Extra Cold Damage",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyNaturesArchon1": {
+        "template": "{v0}% chance to gain Nature's Archon when your Plants Overgrow",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyLightningDamageIgnites1": {
+        "template": "Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes",
+        "name": "of the Stars"
+      },
+      "equipment.rawhide-implicit": {
+        "template": "{v0}% increased Life Recovery from Flasks",
+        "name": ""
       }
     },
     "ko": {
@@ -74794,6 +75813,206 @@
       "manual-reveal.reveal:AbyssModJewelPrefixBleedChanceAndMagnitude": {
         "template": "출혈 유발 확률 15% 증가\n유발하는 출혈의 강도 {v0}% 증가",
         "name": "무광의"
+      },
+      "equipment.AlloyPresenceAreaOfEffect1": {
+        "template": "접근 효과 범위 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyReducedSlowPotency1": {
+        "template": "디버프의 감속 효력 {v0}% 감소",
+        "name": "- 별"
+      },
+      "equipment.AlloyLocalWardIncreasePercent1": {
+        "template": "룬 수호 {v0}% 증가",
+        "name": "베리시움"
+      },
+      "equipment.AlloyManaCostEfficiency1": {
+        "template": "마나 소모 효율 {v0}% 증가",
+        "name": "베리시움"
+      },
+      "equipment.AlloyArchonDuration1": {
+        "template": "집정관 버프 지속시간 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloySpellAreaOfEffect1": {
+        "template": "주문 스킬의 효과 범위 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.EssenceLocalRuneAndSoulCoreEffect1": {
+        "template": "장착된 아이템의 효과 {v0}% 증가",
+        "name": "- 에센스"
+      },
+      "equipment.AlloyAttackSpeedIfMissingWardRecently1": {
+        "template": "룬 수호가 없는 동안 공격 속도 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyRemnantPickupRange1": {
+        "template": "잔류물을 {v0}% 더 먼 곳에서 획득 가능",
+        "name": "- 별"
+      },
+      "equipment.AlloyCastSpeedGloves1": {
+        "template": "시전 속도 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyDamagingAilmentDuration1": {
+        "template": "적에게 적용되는 피해를 주는 상태 이상의 지속시간 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyElementalPenetration1": {
+        "template": "피해가 {v0}%의 원소 저항 관통",
+        "name": "- 별"
+      },
+      "equipment.AlloyAttackAreaOfEffect1": {
+        "template": "공격 효과 범위 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyTemporaryMinionSkillLimit1": {
+        "template": "소환한 소환수의 일시적 소환수 스킬 제한 {v0}",
+        "name": "- 별"
+      },
+      "equipment.AlloySkillEffectDuration1": {
+        "template": "스킬 효과 지속시간 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloySpiritOnBoots1": {
+        "template": "정신력 {v0}",
+        "name": "- 별"
+      },
+      "equipment.AlloyMaximumRunicWardWeapon1": {
+        "template": "최대 룬 수호 {v0}",
+        "name": "- 별"
+      },
+      "equipment.AlloyAilmentMagnitude1": {
+        "template": "플레이어가 유발하는 상태 이상의 강도 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyEffectOfSocketedAugments1": {
+        "template": "장착된 아이템의 효과 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyAccuracyAttackSpeedHybrid1": {
+        "template": "정확도 {v0}\n공격 속도 {v1}% 증가",
+        "name": "베리시움"
+      },
+      "equipment.AlloyAttributeIncreasedLocalPhysicalDamageHybrid1": {
+        "template": "물리 피해 {v0}% 증가\n모든 능력치 {v1}",
+        "name": "- 별"
+      },
+      "equipment.AlloyMarkEffect": {
+        "template": "플레이어의 징표 스킬의 효과 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyMaximumRunicWard1": {
+        "template": "최대 룬 수호 {v0}",
+        "name": "베리시움"
+      },
+      "equipment.AlloyAttackSpeedRing1": {
+        "template": "공격 속도 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyEffectOfResistanceMods1": {
+        "template": "비고정 저항 속성 부여 규모 {v0}% 증가",
+        "name": "베리시움"
+      },
+      "equipment.AlloyMaximumRunicWardPercent1": {
+        "template": "최대 룬 수호 {v0}% 증가",
+        "name": "베리시움"
+      },
+      "equipment.AlloyPuppetMasterChance1": {
+        "template": "명령 스킬을 사용할 때마다 {v0}%의 초과 확률로 인형사 중첩 획득",
+        "name": "베리시움"
+      },
+      "equipment.AlloyMinionDamagingAilmentMagnitude1": {
+        "template": "소환수의 피해를 주는 상태 이상의 강도 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyMaximumElementalInfusions1": {
+        "template": "원소 주입 수치 최대치 {v0}",
+        "name": "- 별"
+      },
+      "equipment.AlloyPuppeteerStacks1": {
+        "template": "인형사 최대 중첩 +{v0}",
+        "name": "- 별"
+      },
+      "equipment.AlloyDamageAsExtraFireWhileMissingRunicWard1": {
+        "template": "룬 수호가 없을 때 피해의 {v0}%를 추가 화염 피해로 획득",
+        "name": "베리시움"
+      },
+      "equipment.AlloyExposureEffect1": {
+        "template": "노출 효과 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloySpellLevelManaHybrid1": {
+        "template": "마나 최대치 {v0}\n모든 주문 스킬 레벨 {v1}",
+        "name": "베리시움"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybridOneHand1": {
+        "template": "시전 속도 {v0}% 증가\n원소 피해의 {v1}%를 추가 냉기 피해로 획득",
+        "name": "- 별"
+      },
+      "equipment.AlloyElementalSkillLimit1": {
+        "template": "원소 스킬 제한 {v0}",
+        "name": "- 별"
+      },
+      "equipment.AlloyRunicWardRechargeRate1": {
+        "template": "룬 수호 재생 속도 {v0}% 증가",
+        "name": "베리시움"
+      },
+      "equipment.AlloyRecoverRunicWardOnCharmUse1": {
+        "template": "호신부 사용 시 룬 수호 {v0}% 회복",
+        "name": "베리시움"
+      },
+      "equipment.AlloyFlaskChargesPerSecond1": {
+        "template": "플라스크가 1초마다 충전 {v0} 획득",
+        "name": "- 별"
+      },
+      "equipment.AlloyBallistaLimit1": {
+        "template": "소환 가능한 쇠뇌 토템 최대 개수 {v0}",
+        "name": "- 별"
+      },
+      "equipment.AlloyRunicWardOnBlock1": {
+        "template": "막아낼 시 룬 수호 {v0} 회복",
+        "name": "- 별"
+      },
+      "equipment.AlloyTotemPlacementSpeed1": {
+        "template": "토템 설치 속도 {v0}% 증가",
+        "name": "- 별"
+      },
+      "equipment.AlloyChanceToChain1": {
+        "template": "{v0}%의 확률로 1회 추가 연쇄",
+        "name": "- 별"
+      },
+      "equipment.AlloyRetainGlory1": {
+        "template": "스킬 사용 시 {v0}% 확률로 영광의 40%를 유지",
+        "name": "- 별"
+      },
+      "equipment.AlloyBellLimit1": {
+        "template": "폭풍의 종이 추가 {v0}회 명중 후 파괴됨",
+        "name": "- 별"
+      },
+      "equipment.AlloyMeleeStrikeRange1": {
+        "template": "무기 공격 범위 {v0}",
+        "name": "- 별"
+      },
+      "equipment.AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1": {
+        "template": "룬 수호가 없을 때 피해의 {v0}%를 추가 화염 피해로 획득",
+        "name": "베리시움"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybrid1": {
+        "template": "시전 속도 {v0}% 증가\n원소 피해의 {v1}%를 추가 냉기 피해로 획득",
+        "name": "- 별"
+      },
+      "equipment.AlloyNaturesArchon1": {
+        "template": "식물이 과성장하면 {v0}% 확률로 자연의 집정관 획득",
+        "name": "- 별"
+      },
+      "equipment.AlloyLightningDamageIgnites1": {
+        "template": "명중의 번개 피해가 인화성 및 점화 강도에도 반영",
+        "name": "- 별"
+      },
+      "equipment.rawhide-implicit": {
+        "template": "플라스크로 회복하는 생명력 {v0}% 증가",
+        "name": ""
       }
     },
     "zh-CN": {
@@ -85188,6 +86407,206 @@
       "manual-reveal.reveal:AbyssModJewelPrefixBleedChanceAndMagnitude": {
         "template": "施加流血的几率提高 15%\n你施加的流血幅度提高 {v0}%",
         "name": "暗光"
+      },
+      "equipment.AlloyPresenceAreaOfEffect1": {
+        "template": "在场范围提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyReducedSlowPotency1": {
+        "template": "你受到的异常状态的减速强度降低 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyLocalWardIncreasePercent1": {
+        "template": "符文结界提高 {v0}%",
+        "name": "维金"
+      },
+      "equipment.AlloyManaCostEfficiency1": {
+        "template": "魔力消耗效能提高 {v0}%",
+        "name": "维金"
+      },
+      "equipment.AlloyArchonDuration1": {
+        "template": "执政官增益状态持续时间提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloySpellAreaOfEffect1": {
+        "template": "法术技能的效果区域提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.EssenceLocalRuneAndSoulCoreEffect1": {
+        "template": "镶嵌的增幅器物品效果提高 {v0}%",
+        "name": "精华之"
+      },
+      "equipment.AlloyAttackSpeedIfMissingWardRecently1": {
+        "template": "损失符文结界时攻击速度提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyRemnantPickupRange1": {
+        "template": "残片收集距离延长 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyCastSpeedGloves1": {
+        "template": "施法速度提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyDamagingAilmentDuration1": {
+        "template": "敌人受到伤害性异常状态的持续时间提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyElementalPenetration1": {
+        "template": "伤害穿透 {v0}% 元素抗性",
+        "name": "群星之"
+      },
+      "equipment.AlloyAttackAreaOfEffect1": {
+        "template": "攻击技能的效果区域提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyTemporaryMinionSkillLimit1": {
+        "template": "临时召唤生物技能的召唤生物上限 {v0}",
+        "name": "群星之"
+      },
+      "equipment.AlloySkillEffectDuration1": {
+        "template": "技能效果持续时间提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloySpiritOnBoots1": {
+        "template": "{v0} 精魂",
+        "name": "群星之"
+      },
+      "equipment.AlloyMaximumRunicWardWeapon1": {
+        "template": "{v0} 符文结界上限",
+        "name": "群星之"
+      },
+      "equipment.AlloyAilmentMagnitude1": {
+        "template": "你造成的异常状态强度提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyEffectOfSocketedAugments1": {
+        "template": "镶嵌的增幅器物品效果提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyAccuracyAttackSpeedHybrid1": {
+        "template": "{v0} 命中值\n攻击速度提高 {v1}%",
+        "name": "维金"
+      },
+      "equipment.AlloyAttributeIncreasedLocalPhysicalDamageHybrid1": {
+        "template": "物理伤害提高 {v0}%\n全属性 {v1}",
+        "name": "群星之"
+      },
+      "equipment.AlloyMarkEffect": {
+        "template": "你的印记技能效果提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyMaximumRunicWard1": {
+        "template": "{v0} 符文结界上限",
+        "name": "维金"
+      },
+      "equipment.AlloyAttackSpeedRing1": {
+        "template": "攻击速度提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyEffectOfResistanceMods1": {
+        "template": "外延抗性词缀增幅提高 {v0}%",
+        "name": "维金"
+      },
+      "equipment.AlloyMaximumRunicWardPercent1": {
+        "template": "符文结界上限提高 {v0}%",
+        "name": "维金"
+      },
+      "equipment.AlloyPuppetMasterChance1": {
+        "template": "使用命令技能时，有 {v0}% 的溢出几率获得一层傀儡大师",
+        "name": "维金"
+      },
+      "equipment.AlloyMinionDamagingAilmentMagnitude1": {
+        "template": "召唤生物的伤害性异常状态强度提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyMaximumElementalInfusions1": {
+        "template": "元素灌注数量上限 {v0}",
+        "name": "群星之"
+      },
+      "equipment.AlloyPuppeteerStacks1": {
+        "template": "+{v0} 傀儡大师层数上限",
+        "name": "群星之"
+      },
+      "equipment.AlloyDamageAsExtraFireWhileMissingRunicWard1": {
+        "template": "损失符文结界时，获得等同于伤害 {v0}% 的额外火焰伤害",
+        "name": "维金"
+      },
+      "equipment.AlloyExposureEffect1": {
+        "template": "曝露效果提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloySpellLevelManaHybrid1": {
+        "template": "{v0} 魔力上限\n所有法术技能等级 {v1}",
+        "name": "维金"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybridOneHand1": {
+        "template": "施法速度提高 {v0}%\n获得相当于元素伤害 {v1}% 的额外冰霜伤害",
+        "name": "群星之"
+      },
+      "equipment.AlloyElementalSkillLimit1": {
+        "template": "元素技能上限 {v0}",
+        "name": "群星之"
+      },
+      "equipment.AlloyRunicWardRechargeRate1": {
+        "template": "符文结界再生率提高 {v0}%",
+        "name": "维金"
+      },
+      "equipment.AlloyRecoverRunicWardOnCharmUse1": {
+        "template": "使用咒符时，回复 {v0} 层符文结界",
+        "name": "维金"
+      },
+      "equipment.AlloyFlaskChargesPerSecond1": {
+        "template": "药剂每秒获得 {v0} 次充能",
+        "name": "群星之"
+      },
+      "equipment.AlloyBallistaLimit1": {
+        "template": "{v0} 召唤弩炮图腾数量上限",
+        "name": "群星之"
+      },
+      "equipment.AlloyRunicWardOnBlock1": {
+        "template": "格挡时回复 {v0} 层符文结界",
+        "name": "群星之"
+      },
+      "equipment.AlloyTotemPlacementSpeed1": {
+        "template": "你的图腾放置速度提高 {v0}%",
+        "name": "群星之"
+      },
+      "equipment.AlloyChanceToChain1": {
+        "template": "{v0}% 的几率额外连锁一次",
+        "name": "群星之"
+      },
+      "equipment.AlloyRetainGlory1": {
+        "template": "使用技能时，有 {v0}% 的几率保留 40% 的荣耀",
+        "name": "群星之"
+      },
+      "equipment.AlloyBellLimit1": {
+        "template": "风雷钟在受到 {v0} 次额外击中后被摧毁",
+        "name": "群星之"
+      },
+      "equipment.AlloyMeleeStrikeRange1": {
+        "template": "{v0} 武器范围",
+        "name": "群星之"
+      },
+      "equipment.AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1": {
+        "template": "损失符文结界时，获得等同于伤害 {v0}% 的额外火焰伤害",
+        "name": "维金"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybrid1": {
+        "template": "施法速度提高 {v0}%\n获得相当于元素伤害 {v1}% 的额外冰霜伤害",
+        "name": "群星之"
+      },
+      "equipment.AlloyNaturesArchon1": {
+        "template": "植物蔓生时，有 {v0}% 的几率获得自然执政官",
+        "name": "群星之"
+      },
+      "equipment.AlloyLightningDamageIgnites1": {
+        "template": "击中造成的闪电伤害也会作用于易燃和点燃强度",
+        "name": "群星之"
+      },
+      "equipment.rawhide-implicit": {
+        "template": "药剂的生命回复提高 {v0}%",
+        "name": ""
       }
     },
     "zh-TW": {
@@ -95582,6 +97001,206 @@
       "manual-reveal.reveal:AbyssModJewelPrefixBleedChanceAndMagnitude": {
         "template": "造成流血的機率增加15%\n你造成的流血幅度增加{v0}%",
         "name": "黯光的"
+      },
+      "equipment.AlloyPresenceAreaOfEffect1": {
+        "template": "增加{v0}%存在範圍的範圍效果",
+        "name": "星辰之"
+      },
+      "equipment.AlloyReducedSlowPotency1": {
+        "template": "減少{v0}%你身上的減益效果緩速程度",
+        "name": "星辰之"
+      },
+      "equipment.AlloyLocalWardIncreasePercent1": {
+        "template": "增加{v0}%符文保護",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyManaCostEfficiency1": {
+        "template": "增加{v0}%魔力消耗效用",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyArchonDuration1": {
+        "template": "增加{v0}%統治者持續時間",
+        "name": "星辰之"
+      },
+      "equipment.AlloySpellAreaOfEffect1": {
+        "template": "法術技能增加{v0}%範圍效果",
+        "name": "星辰之"
+      },
+      "equipment.EssenceLocalRuneAndSoulCoreEffect1": {
+        "template": "增加{v0}%鑲嵌的物品效果",
+        "name": "精髓之"
+      },
+      "equipment.AlloyAttackSpeedIfMissingWardRecently1": {
+        "template": "當擁有失去的符文保護時增加{v0}%攻擊速度",
+        "name": "星辰之"
+      },
+      "equipment.AlloyRemnantPickupRange1": {
+        "template": "痕跡可從{v0}%更遠距離撿拾",
+        "name": "星辰之"
+      },
+      "equipment.AlloyCastSpeedGloves1": {
+        "template": "增加{v0}%施法速度",
+        "name": "星辰之"
+      },
+      "equipment.AlloyDamagingAilmentDuration1": {
+        "template": "增加{v0}%敵人身上的傷害型異常狀態持續時間",
+        "name": "星辰之"
+      },
+      "equipment.AlloyElementalPenetration1": {
+        "template": "傷害穿透{v0}%元素抗性",
+        "name": "星辰之"
+      },
+      "equipment.AlloyAttackAreaOfEffect1": {
+        "template": "攻擊增加{v0}%範圍效果",
+        "name": "星辰之"
+      },
+      "equipment.AlloyTemporaryMinionSkillLimit1": {
+        "template": "暫時召喚物技能具有 {v0} 召出召喚物上限",
+        "name": "星辰之"
+      },
+      "equipment.AlloySkillEffectDuration1": {
+        "template": "增加{v0}%技能效果持續時間",
+        "name": "星辰之"
+      },
+      "equipment.AlloySpiritOnBoots1": {
+        "template": "{v0}精魂",
+        "name": "星辰之"
+      },
+      "equipment.AlloyMaximumRunicWardWeapon1": {
+        "template": "{v0}最大符文保護",
+        "name": "星辰之"
+      },
+      "equipment.AlloyAilmentMagnitude1": {
+        "template": "增加{v0}%你所施加之異常狀態的幅度",
+        "name": "星辰之"
+      },
+      "equipment.AlloyEffectOfSocketedAugments1": {
+        "template": "增加{v0}%鑲嵌的物品效果",
+        "name": "星辰之"
+      },
+      "equipment.AlloyAccuracyAttackSpeedHybrid1": {
+        "template": "{v0}命中值\n增加{v1}%攻擊速度",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyAttributeIncreasedLocalPhysicalDamageHybrid1": {
+        "template": "增加{v0}%物理傷害\n{v1}點全部能力值",
+        "name": "星辰之"
+      },
+      "equipment.AlloyMarkEffect": {
+        "template": "增加{v0}%你的印記技能效果",
+        "name": "星辰之"
+      },
+      "equipment.AlloyMaximumRunicWard1": {
+        "template": "{v0}最大符文保護",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyAttackSpeedRing1": {
+        "template": "增加{v0}%攻擊速度",
+        "name": "星辰之"
+      },
+      "equipment.AlloyEffectOfResistanceMods1": {
+        "template": "增加{v0}%變動抗性詞綴的大小",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyMaximumRunicWardPercent1": {
+        "template": "增加{v0}%最大符文保護",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyPuppetMasterChance1": {
+        "template": "每當你使用號令技能時，有{v0}%滿溢機率獲得一層傀儡大師",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyMinionDamagingAilmentMagnitude1": {
+        "template": "增加{v0}%召喚物所施加之傷害型異常狀態的幅度",
+        "name": "星辰之"
+      },
+      "equipment.AlloyMaximumElementalInfusions1": {
+        "template": "{v0}最大元素灌注數量",
+        "name": "星辰之"
+      },
+      "equipment.AlloyPuppeteerStacks1": {
+        "template": "+{v0}最大魁儡大師層數",
+        "name": "星辰之"
+      },
+      "equipment.AlloyDamageAsExtraFireWhileMissingRunicWard1": {
+        "template": "當你損失符文保護時，獲得{v0}%傷害的額外火焰傷害",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyExposureEffect1": {
+        "template": "增加{v0}%曝曬效果",
+        "name": "星辰之"
+      },
+      "equipment.AlloySpellLevelManaHybrid1": {
+        "template": "{v0}最大魔力\n全部法術技能等級{v1}",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybridOneHand1": {
+        "template": "增加{v0}%施法速度\n獲得等同於{v1}%元素傷害的額外冰冷傷害",
+        "name": "星辰之"
+      },
+      "equipment.AlloyElementalSkillLimit1": {
+        "template": "元素技能的上限{v0}",
+        "name": "星辰之"
+      },
+      "equipment.AlloyRunicWardRechargeRate1": {
+        "template": "增加{v0}%符文保護回復率",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyRecoverRunicWardOnCharmUse1": {
+        "template": "使用護符時恢復{v0}點符文保護",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyFlaskChargesPerSecond1": {
+        "template": "藥劑每秒獲得{v0}充能",
+        "name": "星辰之"
+      },
+      "equipment.AlloyBallistaLimit1": {
+        "template": "召喚砲塔圖騰最大數量{v0}",
+        "name": "星辰之"
+      },
+      "equipment.AlloyRunicWardOnBlock1": {
+        "template": "你格擋時恢復{v0}點符文保護",
+        "name": "星辰之"
+      },
+      "equipment.AlloyTotemPlacementSpeed1": {
+        "template": "增加{v0}%圖騰設置速度",
+        "name": "星辰之"
+      },
+      "equipment.AlloyChanceToChain1": {
+        "template": "有{v0}%機率額外連鎖一次",
+        "name": "星辰之"
+      },
+      "equipment.AlloyRetainGlory1": {
+        "template": "技能有{v0}%機率在使用後保持40%的榮耀",
+        "name": "星辰之"
+      },
+      "equipment.AlloyBellLimit1": {
+        "template": "風暴之鐘會於{v0}次額外擊中後被破壞",
+        "name": "星辰之"
+      },
+      "equipment.AlloyMeleeStrikeRange1": {
+        "template": "{v0}武器距離",
+        "name": "星辰之"
+      },
+      "equipment.AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1": {
+        "template": "當你損失符文保護時，獲得{v0}%傷害的額外火焰傷害",
+        "name": "維里西姆"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybrid1": {
+        "template": "增加{v0}%施法速度\n獲得等同於{v1}%元素傷害的額外冰冷傷害",
+        "name": "星辰之"
+      },
+      "equipment.AlloyNaturesArchon1": {
+        "template": "當你的植物過度生長時有{v0}%機率獲得自然統治者",
+        "name": "星辰之"
+      },
+      "equipment.AlloyLightningDamageIgnites1": {
+        "template": "擊中造成的閃電傷害也會貢獻至易燃和點燃幅度",
+        "name": "星辰之"
+      },
+      "equipment.rawhide-implicit": {
+        "template": "增加{v0}%藥劑的生命恢復",
+        "name": ""
       }
     },
     "ja": {
@@ -105976,6 +107595,206 @@
       "manual-reveal.reveal:AbyssModJewelPrefixBleedChanceAndMagnitude": {
         "template": "出血を付与する確率が15%増加する\n自身が付与する出血の強度が{v0}%増加する",
         "name": "ライトレス"
+      },
+      "equipment.AlloyPresenceAreaOfEffect1": {
+        "template": "存在下の効果範囲が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyReducedSlowPotency1": {
+        "template": "プレイヤーに対する減速のデバフのポテンシャルが{v0}%減少する",
+        "name": "星々の"
+      },
+      "equipment.AlloyLocalWardIncreasePercent1": {
+        "template": "ルーンワードが{v0}%増加する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyManaCostEfficiency1": {
+        "template": "マナコスト効率が{v0}%増加する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyArchonDuration1": {
+        "template": "アルコンの持続時間が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloySpellAreaOfEffect1": {
+        "template": "スペルスキルの効果範囲が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.EssenceLocalRuneAndSoulCoreEffect1": {
+        "template": "ソケットされているアイテムの効果が{v0}%増加する",
+        "name": "エッセンスの"
+      },
+      "equipment.AlloyAttackSpeedIfMissingWardRecently1": {
+        "template": "ルーンワードが最大値未満の間アタックスピードが{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyRemnantPickupRange1": {
+        "template": "レムナントは{v0}%遠くからでも拾える",
+        "name": "星々の"
+      },
+      "equipment.AlloyCastSpeedGloves1": {
+        "template": "キャストスピードが{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyDamagingAilmentDuration1": {
+        "template": "敵に付与したダメージ性状態異常の持続時間が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyElementalPenetration1": {
+        "template": "ダメージは{v0}%の元素耐性を貫通する",
+        "name": "星々の"
+      },
+      "equipment.AlloyAttackAreaOfEffect1": {
+        "template": "アタックの効果範囲が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyTemporaryMinionSkillLimit1": {
+        "template": "一時的ミニオンスキルは召喚できるミニオンの上限 {v0}",
+        "name": "星々の"
+      },
+      "equipment.AlloySkillEffectDuration1": {
+        "template": "スキル効果持続時間が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloySpiritOnBoots1": {
+        "template": "スピリット {v0}",
+        "name": "星々の"
+      },
+      "equipment.AlloyMaximumRunicWardWeapon1": {
+        "template": "最大ルーンワード {v0}",
+        "name": "星々の"
+      },
+      "equipment.AlloyAilmentMagnitude1": {
+        "template": "プレイヤーが付与した状態異常の強度が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyEffectOfSocketedAugments1": {
+        "template": "ソケットされているアイテムの効果が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyAccuracyAttackSpeedHybrid1": {
+        "template": "命中力 {v0}\nアタックスピードが{v1}%増加する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyAttributeIncreasedLocalPhysicalDamageHybrid1": {
+        "template": "物理ダメージが{v0}%増加する\n全ての能力値 {v1}",
+        "name": "星々の"
+      },
+      "equipment.AlloyMarkEffect": {
+        "template": "プレイヤーの呪印スキルの効果が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyMaximumRunicWard1": {
+        "template": "最大ルーンワード {v0}",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyAttackSpeedRing1": {
+        "template": "アタックスピードが{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyEffectOfResistanceMods1": {
+        "template": "明示耐性モッドの強さが{v0}%増加する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyMaximumRunicWardPercent1": {
+        "template": "最大ルーンワードが{v0}%増加する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyPuppetMasterChance1": {
+        "template": "コマンドスキルを使用した時に{v0}%の超過可能確率でパペットマスターのスタックを1獲得する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyMinionDamagingAilmentMagnitude1": {
+        "template": "ミニオンはダメージ性状態異常の強度が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyMaximumElementalInfusions1": {
+        "template": "エレメンタルインフュージョンの最大数 {v0}",
+        "name": "星々の"
+      },
+      "equipment.AlloyPuppeteerStacks1": {
+        "template": "パペットマスターの最大スタック数 +{v0}",
+        "name": "星々の"
+      },
+      "equipment.AlloyDamageAsExtraFireWhileMissingRunicWard1": {
+        "template": "ルーンワードが最大値未満の間ダメージの{v0}%を追加火ダメージとして獲得する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyExposureEffect1": {
+        "template": "曝露の効果が{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloySpellLevelManaHybrid1": {
+        "template": "最大マナ {v0}\n全てのスペルスキルのレベル {v1}",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybridOneHand1": {
+        "template": "キャストスピードが{v0}%増加する\n元素ダメージの{v1}%を追加冷気ダメージとして獲得する",
+        "name": "星々の"
+      },
+      "equipment.AlloyElementalSkillLimit1": {
+        "template": "元素スキルの上限 {v0}",
+        "name": "星々の"
+      },
+      "equipment.AlloyRunicWardRechargeRate1": {
+        "template": "ルーンワードの自動回復レートが{v0}%増加する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyRecoverRunicWardOnCharmUse1": {
+        "template": "チャーム使用時に{v0}のルーンワードを回復する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyFlaskChargesPerSecond1": {
+        "template": "フラスコは毎秒{v0}のチャージを獲得する",
+        "name": "星々の"
+      },
+      "equipment.AlloyBallistaLimit1": {
+        "template": "バリスタトーテムの最大召喚数 {v0}",
+        "name": "星々の"
+      },
+      "equipment.AlloyRunicWardOnBlock1": {
+        "template": "ブロック時に{v0}のルーンワードを回復する",
+        "name": "星々の"
+      },
+      "equipment.AlloyTotemPlacementSpeed1": {
+        "template": "トーテム設置スピードが{v0}%増加する",
+        "name": "星々の"
+      },
+      "equipment.AlloyChanceToChain1": {
+        "template": "{v0}%の確率で追加で1回連鎖する",
+        "name": "星々の"
+      },
+      "equipment.AlloyRetainGlory1": {
+        "template": "スキル使用時に{v0}%の確率でグローリーの40%を保持する",
+        "name": "星々の"
+      },
+      "equipment.AlloyBellLimit1": {
+        "template": "テンペストベルはヒットを追加で{v0}回受けた後壊れる",
+        "name": "星々の"
+      },
+      "equipment.AlloyMeleeStrikeRange1": {
+        "template": "武器の攻撃範囲 {v0}",
+        "name": "星々の"
+      },
+      "equipment.AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1": {
+        "template": "ルーンワードが最大値未満の間ダメージの{v0}%を追加火ダメージとして獲得する",
+        "name": "ヴェリシウムの"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybrid1": {
+        "template": "キャストスピードが{v0}%増加する\n元素ダメージの{v1}%を追加冷気ダメージとして獲得する",
+        "name": "星々の"
+      },
+      "equipment.AlloyNaturesArchon1": {
+        "template": "プラントが生い茂った時に{v0}%の確率で自然のアルコンを獲得する",
+        "name": "星々の"
+      },
+      "equipment.AlloyLightningDamageIgnites1": {
+        "template": "ヒットによる雷ダメージが可燃性および発火の強度にも寄与する",
+        "name": "星々の"
+      },
+      "equipment.rawhide-implicit": {
+        "template": "フラスコによるライフ回復量が{v0}%増加する",
+        "name": ""
       }
     },
     "es": {
@@ -116370,6 +118189,206 @@
       "manual-reveal.reveal:GenesisTreeBeltArchonUndeathOnOfferingUse": {
         "template": "{v0}% de probabilidad de obtener Arconte de la no muerte cuando creas una ofrenda",
         "name": "de eternidad"
+      },
+      "equipment.AlloyPresenceAreaOfEffect1": {
+        "template": "Área de efecto de la presencia aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyReducedSlowPotency1": {
+        "template": "La potencia ralentizadora de los efectos nocivos está reducida un {v0}% sobre ti",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyLocalWardIncreasePercent1": {
+        "template": "Barrera rúnica aumentada un {v0}%",
+        "name": "de verisium"
+      },
+      "equipment.AlloyManaCostEfficiency1": {
+        "template": "Eficiencia del costo de maná aumentada un {v0}%",
+        "name": "de verisium"
+      },
+      "equipment.AlloyArchonDuration1": {
+        "template": "Duración de los arcontes aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloySpellAreaOfEffect1": {
+        "template": "Las habilidades de hechizos tienen su área de efecto aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.EssenceLocalRuneAndSoulCoreEffect1": {
+        "template": "Efecto de los objetos engarzados aumentado un {v0}%",
+        "name": "de la esencia "
+      },
+      "equipment.AlloyAttackSpeedIfMissingWardRecently1": {
+        "template": "Velocidad de ataque aumentada un {v0}% mientras no tengas barrera rúnica",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyRemnantPickupRange1": {
+        "template": "Los remanentes se pueden recolectar desde un {v0}% más lejos",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyCastSpeedGloves1": {
+        "template": "Velocidad de lanzamiento de hechizos aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyDamagingAilmentDuration1": {
+        "template": "Duración de los estados alterados en los enemigos aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyElementalPenetration1": {
+        "template": "El daño penetra el {v0}% de las resistencias elementales",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyAttackAreaOfEffect1": {
+        "template": "Área de efecto de los ataques aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyTemporaryMinionSkillLimit1": {
+        "template": "Las habilidades de esbirros temporales tienen {v0} al límite de esbirros invocados",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloySkillEffectDuration1": {
+        "template": "Duración de los efectos de las habilidades aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloySpiritOnBoots1": {
+        "template": "{v0} al espíritu",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyMaximumRunicWardWeapon1": {
+        "template": "{v0} a la barrera rúnica máxima",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyAilmentMagnitude1": {
+        "template": "Magnitud de los estados alterados que aplicas aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyEffectOfSocketedAugments1": {
+        "template": "Efecto de los objetos engarzados aumentado un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyAccuracyAttackSpeedHybrid1": {
+        "template": "{v0} a la precisión\nVelocidad de ataque aumentada un {v1}%",
+        "name": "de verisium"
+      },
+      "equipment.AlloyAttributeIncreasedLocalPhysicalDamageHybrid1": {
+        "template": "Daño físico aumentado un {v0}%\n{v1} a todos los atributos",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyMarkEffect": {
+        "template": "Efecto de tus habilidades de señal aumentado un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyMaximumRunicWard1": {
+        "template": "{v0} a la barrera rúnica máxima",
+        "name": "de verisium"
+      },
+      "equipment.AlloyAttackSpeedRing1": {
+        "template": "Velocidad de ataque aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyEffectOfResistanceMods1": {
+        "template": "Magnitudes de los modificadores de resistencia explícitos aumentadas un {v0}%",
+        "name": "de verisium"
+      },
+      "equipment.AlloyMaximumRunicWardPercent1": {
+        "template": "Barrera rúnica máxima aumentada un {v0}%",
+        "name": "de verisium"
+      },
+      "equipment.AlloyPuppetMasterChance1": {
+        "template": "{v0}% de probabilidad sobrepasante de ganar una acumulación de Maestro titiritero cuando usas una habilidad de orden",
+        "name": "de verisium"
+      },
+      "equipment.AlloyMinionDamagingAilmentMagnitude1": {
+        "template": "Los esbirros tienen la magnitud de los estados alterados dañinos aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyMaximumElementalInfusions1": {
+        "template": "{v0} a la cantidad máxima de infusiones elementales",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyPuppeteerStacks1": {
+        "template": "+{v0} al máximo de acumulaciones de Maestro titiritero",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyDamageAsExtraFireWhileMissingRunicWard1": {
+        "template": "Ganas el {v0}% del daño como daño de fuego extra mientras no tengas barrera rúnica",
+        "name": "de verisium"
+      },
+      "equipment.AlloyExposureEffect1": {
+        "template": "Efecto de la exposición aumentado un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloySpellLevelManaHybrid1": {
+        "template": "{v0} al maná máximo\n{v1} al nivel de todas las habilidades de hechizos",
+        "name": "de verisium"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybridOneHand1": {
+        "template": "Velocidad de lanzamiento de hechizos aumentada un {v0}%\nGanas el {v1}% del daño elemental como daño de hielo extra",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyElementalSkillLimit1": {
+        "template": "{v0} al límite de las habilidades elementales",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyRunicWardRechargeRate1": {
+        "template": "Velocidad de regeneración de la barrera rúnica aumentada un {v0}%",
+        "name": "de verisium"
+      },
+      "equipment.AlloyRecoverRunicWardOnCharmUse1": {
+        "template": "Recuperas {v0} de barrera rúnica cuando se usa un vial",
+        "name": "de verisium"
+      },
+      "equipment.AlloyFlaskChargesPerSecond1": {
+        "template": "Los frascos ganan {v0} cargas por segundo",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyBallistaLimit1": {
+        "template": "{v0} a la cantidad máxima de tótems balista que puedes invocar",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyRunicWardOnBlock1": {
+        "template": "Recuperas {v0} de barrera rúnica cuando bloqueas",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyTotemPlacementSpeed1": {
+        "template": "Velocidad de colocación de tótems aumentada un {v0}%",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyChanceToChain1": {
+        "template": "{v0}% de probabilidad de encadenarse una vez adicional",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyRetainGlory1": {
+        "template": "{v0}% de probabilidad de que las habilidades retengan el 40% de la gloria al usarse",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyBellLimit1": {
+        "template": "Las campanas de tempestad se destruyen después de recibir {v0} impactos adicionales",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyMeleeStrikeRange1": {
+        "template": "{v0} al alcance del arma",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1": {
+        "template": "Ganas el {v0}% del daño como daño de fuego extra mientras no tengas barrera rúnica",
+        "name": "de verisium"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybrid1": {
+        "template": "Velocidad de lanzamiento de hechizos aumentada un {v0}%\nGanas el {v1}% del daño elemental como daño de hielo extra",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyNaturesArchon1": {
+        "template": "{v0}% de probabilidad de ganar Arconte de la naturaleza cuando tus plantas se vuelven frondosas",
+        "name": "de las estrellas"
+      },
+      "equipment.AlloyLightningDamageIgnites1": {
+        "template": "El daño de rayo de los impactos también contribuye a las magnitudes de la inflamabilidad y la quemadura",
+        "name": "de las estrellas"
+      },
+      "equipment.rawhide-implicit": {
+        "template": "Recuperación de vida con frascos aumentada un {v0}%",
+        "name": ""
       }
     },
     "ru": {
@@ -126764,6 +128783,206 @@
       "sapphire-source-a6b816fdd11bd31d": {
         "template": "{v0}% к максимальному сопротивлению холоду",
         "name": "мамонта"
+      },
+      "equipment.AlloyPresenceAreaOfEffect1": {
+        "template": "{v0}% увеличение области действия присутствия",
+        "name": "звёзд"
+      },
+      "equipment.AlloyReducedSlowPotency1": {
+        "template": "{v0}% ослабление влияния замедления от отрицательных эффектов на вас",
+        "name": "звёзд"
+      },
+      "equipment.AlloyLocalWardIncreasePercent1": {
+        "template": "{v0}% увеличение рунического барьера",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyManaCostEfficiency1": {
+        "template": "{v0}% увеличение эффективности расхода маны",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyArchonDuration1": {
+        "template": "{v0}% увеличение длительности эффекта Архонта",
+        "name": "звёзд"
+      },
+      "equipment.AlloySpellAreaOfEffect1": {
+        "template": "{v0}% увеличение области действия умений чар",
+        "name": "звёзд"
+      },
+      "equipment.EssenceLocalRuneAndSoulCoreEffect1": {
+        "template": "{v0}% усиление эффекта размещенных предметов",
+        "name": "сущности"
+      },
+      "equipment.AlloyAttackSpeedIfMissingWardRecently1": {
+        "template": "{v0}% повышение скорости атаки при недостающем руническом барьере",
+        "name": "звёзд"
+      },
+      "equipment.AlloyRemnantPickupRange1": {
+        "template": "Сгустки можно собрать с на {v0}% большего расстояния",
+        "name": "звёзд"
+      },
+      "equipment.AlloyCastSpeedGloves1": {
+        "template": "{v0}% повышение скорости сотворения чар",
+        "name": "звёзд"
+      },
+      "equipment.AlloyDamagingAilmentDuration1": {
+        "template": "{v0}% увеличение длительности наносящих урон состояний на врагах",
+        "name": "звёзд"
+      },
+      "equipment.AlloyElementalPenetration1": {
+        "template": "Урон пробивает {v0}% сопротивления стихиям",
+        "name": "звёзд"
+      },
+      "equipment.AlloyAttackAreaOfEffect1": {
+        "template": "{v0}% увеличение области действия атак",
+        "name": "звёзд"
+      },
+      "equipment.AlloyTemporaryMinionSkillLimit1": {
+        "template": "{v0} к лимиту приспешников, призываемых умениями временных приспешников",
+        "name": "звёзд"
+      },
+      "equipment.AlloySkillEffectDuration1": {
+        "template": "{v0}% увеличение длительности эффекта умения",
+        "name": "звёзд"
+      },
+      "equipment.AlloySpiritOnBoots1": {
+        "template": "{v0} к духу",
+        "name": "звёзд"
+      },
+      "equipment.AlloyMaximumRunicWardWeapon1": {
+        "template": "{v0} к максимуму рунического барьера",
+        "name": "звёзд"
+      },
+      "equipment.AlloyAilmentMagnitude1": {
+        "template": "{v0}% увеличение силы накладываемых вами состояний",
+        "name": "звёзд"
+      },
+      "equipment.AlloyEffectOfSocketedAugments1": {
+        "template": "{v0}% усиление эффекта размещенных предметов",
+        "name": "звёзд"
+      },
+      "equipment.AlloyAccuracyAttackSpeedHybrid1": {
+        "template": "{v0} к меткости\n{v1}% повышение скорости атаки",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyAttributeIncreasedLocalPhysicalDamageHybrid1": {
+        "template": "{v0}% увеличение физического урона\n{v1} ко всем характеристикам",
+        "name": "звёзд"
+      },
+      "equipment.AlloyMarkEffect": {
+        "template": "{v0}% усиление эффекта ваших умений меток",
+        "name": "звёзд"
+      },
+      "equipment.AlloyMaximumRunicWard1": {
+        "template": "{v0} к максимуму рунического барьера",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyAttackSpeedRing1": {
+        "template": "{v0}% повышение скорости атаки",
+        "name": "звёзд"
+      },
+      "equipment.AlloyEffectOfResistanceMods1": {
+        "template": "{v0}% повышение значений добавленных свойств сопротивлений",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyMaximumRunicWardPercent1": {
+        "template": "{v0}% увеличение максимума рунического барьера",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyPuppetMasterChance1": {
+        "template": "{v0}% к превосходящему шансу получить заряд Кукловода, когда вы используете умение-приказ",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyMinionDamagingAilmentMagnitude1": {
+        "template": "Приспешники имеют {v0}% увеличение силы наносящих урон состояний",
+        "name": "звёзд"
+      },
+      "equipment.AlloyMaximumElementalInfusions1": {
+        "template": "{v0} к максимальному количеству стихийных насыщений",
+        "name": "звёзд"
+      },
+      "equipment.AlloyPuppeteerStacks1": {
+        "template": "+{v0} к максимуму зарядов Кукловода",
+        "name": "звёзд"
+      },
+      "equipment.AlloyDamageAsExtraFireWhileMissingRunicWard1": {
+        "template": "Дарует {v0}% от урона в виде дополнительного урона огня, пока у вас неполный рунический барьер",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyExposureEffect1": {
+        "template": "{v0}% усиление эффекта восприимчивости",
+        "name": "звёзд"
+      },
+      "equipment.AlloySpellLevelManaHybrid1": {
+        "template": "{v0} к максимуму маны\n{v1} к уровню всех камней умений чар",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybridOneHand1": {
+        "template": "{v0}% повышение скорости сотворения чар\nДарует {v1}% урона от стихий в виде дополнительного урона от холода",
+        "name": "звёзд"
+      },
+      "equipment.AlloyElementalSkillLimit1": {
+        "template": "{v0} к лимиту для стихийных умений",
+        "name": "звёзд"
+      },
+      "equipment.AlloyRunicWardRechargeRate1": {
+        "template": "{v0}% повышение скорости регенерации рунического барьера",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyRecoverRunicWardOnCharmUse1": {
+        "template": "Восстанавливает {v0} рунического барьера при использовании оберега",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyFlaskChargesPerSecond1": {
+        "template": "Флаконы получают зарядов в секунду: {v0}",
+        "name": "звёзд"
+      },
+      "equipment.AlloyBallistaLimit1": {
+        "template": "{v0} к максимальному количеству призванных тотемов-баллист",
+        "name": "звёзд"
+      },
+      "equipment.AlloyRunicWardOnBlock1": {
+        "template": "Восстанавливает {v0} рунического барьера когда вы блокируете удар",
+        "name": "звёзд"
+      },
+      "equipment.AlloyTotemPlacementSpeed1": {
+        "template": "{v0}% повышение скорости установки тотемов",
+        "name": "звёзд"
+      },
+      "equipment.AlloyChanceToChain1": {
+        "template": "{v0}% шанс нанести дополнительный удар по цепи",
+        "name": "звёзд"
+      },
+      "equipment.AlloyRetainGlory1": {
+        "template": "{v0}% шанс сохранить 40% Славы при использовании умений",
+        "name": "звёзд"
+      },
+      "equipment.AlloyBellLimit1": {
+        "template": "Колокола бури уничтожаются после {v0} дополнительных ударов",
+        "name": "звёзд"
+      },
+      "equipment.AlloyMeleeStrikeRange1": {
+        "template": "{v0} к дальности оружия",
+        "name": "звёзд"
+      },
+      "equipment.AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1": {
+        "template": "Дарует {v0}% от урона в виде дополнительного урона огня, пока у вас неполный рунический барьер",
+        "name": "<if:MS>{Веризиевый}<elif:FS>{Веризиевая}<elif:NS>{Веризиевое}<elif:MP>{Веризиевые}<elif:FP>{Веризиевые}<elif:NP>{Веризиевые}"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybrid1": {
+        "template": "{v0}% повышение скорости сотворения чар\nДарует {v1}% урона от стихий в виде дополнительного урона от холода",
+        "name": "звёзд"
+      },
+      "equipment.AlloyNaturesArchon1": {
+        "template": "{v0}% шанс получить Архонта природы при разрастании ваших растений",
+        "name": "звёзд"
+      },
+      "equipment.AlloyLightningDamageIgnites1": {
+        "template": "Урон от молнии от ударов также влияет на силу Горючести и поджога",
+        "name": "звёзд"
+      },
+      "equipment.rawhide-implicit": {
+        "template": "{v0}% увеличение восстановления здоровья от флаконов",
+        "name": ""
       }
     },
     "th": {
@@ -137158,6 +139377,206 @@
       "sapphire-source-a6b816fdd11bd31d": {
         "template": "ค่าต้านทาน น้ำแข็ง สูงสุด {v0}%",
         "name": "of the Mammoth"
+      },
+      "equipment.AlloyPresenceAreaOfEffect1": {
+        "template": "เพิ่มพื้นที่ส่งผลของ ระยะปรากฏกาย {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyReducedSlowPotency1": {
+        "template": "ลดศักยภาพความเชื่องช้าของ ดีบัฟ ต่อตัวคุณ {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyLocalWardIncreasePercent1": {
+        "template": "เพิ่มวอร์ดอักขระ {v0}%",
+        "name": "Verisium"
+      },
+      "equipment.AlloyManaCostEfficiency1": {
+        "template": "เพิ่มประสิทธิภาพการใช้งานมานา {v0}%",
+        "name": "Verisium"
+      },
+      "equipment.AlloyArchonDuration1": {
+        "template": "เพิ่มระยะเวลาของสถานะ อาร์คอน {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloySpellAreaOfEffect1": {
+        "template": "สกิลเวท มีพื้นที่ส่งผล เพิ่มขึ้น {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.EssenceLocalRuneAndSoulCoreEffect1": {
+        "template": "เพิ่มผลของ ไอเทมวัตถุฝังที่ใส่รู {v0}%",
+        "name": "of the Essence"
+      },
+      "equipment.AlloyAttackSpeedIfMissingWardRecently1": {
+        "template": "เพิ่มความเร็วในการโจมตี {v0}% ขณะที่วอร์ดอักขระหายไป",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyRemnantPickupRange1": {
+        "template": "หยาด สามารถเก็บได้จากระยะที่ไกลกว่าเดิม {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyCastSpeedGloves1": {
+        "template": "เพิ่มความเร็วในการร่าย {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyDamagingAilmentDuration1": {
+        "template": "เพิ่มระยะเวลาของ สถานะเจ็บป่วยมีความเสียหาย ต่อศัตรู {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyElementalPenetration1": {
+        "template": "ความเสียหาย เจาะต้านทาน ธาตุ {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyAttackAreaOfEffect1": {
+        "template": "เพิ่มพื้นที่ส่งผลของ การโจมตี {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyTemporaryMinionSkillLimit1": {
+        "template": "สกิลมิเนียนชั่วคราว มีจำนวนจำกัดของ มิเนียนอัญเชิญ {v0}",
+        "name": "of the Stars"
+      },
+      "equipment.AlloySkillEffectDuration1": {
+        "template": "เพิ่มระยะเวลาส่งผลของสกิล {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloySpiritOnBoots1": {
+        "template": "พลังวิญญาณ {v0}",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMaximumRunicWardWeapon1": {
+        "template": "วอร์ดอักขระสูงสุด {v0}",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyAilmentMagnitude1": {
+        "template": "เพิ่มจำนวนค่าของ สถานะเจ็บป่วย ที่คุณสร้าง {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyEffectOfSocketedAugments1": {
+        "template": "เพิ่มผลของ ไอเทมวัตถุฝังที่ใส่รู {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyAccuracyAttackSpeedHybrid1": {
+        "template": "อัตราความแม่นยำ {v0}\nเพิ่มความเร็วในการโจมตี {v1}%",
+        "name": "Verisium"
+      },
+      "equipment.AlloyAttributeIncreasedLocalPhysicalDamageHybrid1": {
+        "template": "เพิ่มความเสียหาย กายภาพ {v0}%\n{v1} ค่าคุณสมบัติทุกชนิด",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMarkEffect": {
+        "template": "เพิ่มผลของ สกิลคำแช่ง {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMaximumRunicWard1": {
+        "template": "วอร์ดอักขระสูงสุด {v0}",
+        "name": "Verisium"
+      },
+      "equipment.AlloyAttackSpeedRing1": {
+        "template": "เพิ่มความเร็วในการโจมตี {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyEffectOfResistanceMods1": {
+        "template": "เพิ่มจำนวนค่าของ ม็อดหลัก ค่าต้านทาน {v0}%",
+        "name": "Verisium"
+      },
+      "equipment.AlloyMaximumRunicWardPercent1": {
+        "template": "เพิ่มวอร์ดอักขระสูงสุด {v0}%",
+        "name": "Verisium"
+      },
+      "equipment.AlloyPuppetMasterChance1": {
+        "template": "มีโอกาสได้รับสถานะ ผู้เชิดหุ่น 1 ระดับ {v0}% เมื่อคุณใช้สกิลสั่งการ โดยไม่จำกัดโอกาสสูงสุด",
+        "name": "Verisium"
+      },
+      "equipment.AlloyMinionDamagingAilmentMagnitude1": {
+        "template": "มิเนียน มีจำนวนค่าของ สถานะเจ็บป่วยมีความเสียหาย เพิ่มขึ้น {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMaximumElementalInfusions1": {
+        "template": "จำนวนสูงสุดของ ชุบพลังธาตุ {v0}",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyPuppeteerStacks1": {
+        "template": "จำนวนสูงสุดของสถานะ ผู้เชิดหุ่น +{v0}",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyDamageAsExtraFireWhileMissingRunicWard1": {
+        "template": "นำความเสียหาย {v0}% ไปเสริมเป็น ไฟ ขณะที่วอร์ดอักขระของคุณหายไป",
+        "name": "Verisium"
+      },
+      "equipment.AlloyExposureEffect1": {
+        "template": "เพิ่มผลของสถานะ พ่ายแก่ธาตุ {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloySpellLevelManaHybrid1": {
+        "template": "มานาสูงสุด {v0}\nเลเวลของ สกิลเวท ทุกสกิล {v1}",
+        "name": "Verisium"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybridOneHand1": {
+        "template": "เพิ่มความเร็วในการร่าย {v0}%\nนำความเสียหาย ธาตุ {v1}% ไปเสริมเป็น น้ำแข็ง",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyElementalSkillLimit1": {
+        "template": "จำนวนจำกัด {v0} สำหรับ สกิลธาตุ",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyRunicWardRechargeRate1": {
+        "template": "เพิ่มความเร็วในการ ฟื้นฟูวอร์ดอักขระ {v0}%",
+        "name": "Verisium"
+      },
+      "equipment.AlloyRecoverRunicWardOnCharmUse1": {
+        "template": "เติมวอร์ดอักขระ {v0} เมื่อใช้ของขลัง",
+        "name": "Verisium"
+      },
+      "equipment.AlloyFlaskChargesPerSecond1": {
+        "template": "ขวดยา ได้รับ {v0} ชาร์จต่อวินาที",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyBallistaLimit1": {
+        "template": "จำนวน โทเทมเครื่องยิงอัญเชิญ สูงสุด {v0} เสา",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyRunicWardOnBlock1": {
+        "template": "เติมวอร์ดอักขระ {v0} เมื่อคุณบล็อค",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyTotemPlacementSpeed1": {
+        "template": "เพิ่มความเร็วในการวางโทเทม {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyChanceToChain1": {
+        "template": "มีโอกาส ชิ่ง เพิ่มเติม 1 ครั้ง {v0}%",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyRetainGlory1": {
+        "template": "สกิลมีโอกาส {v0}% ที่จะเก็บบารมีเอาไว้ 40% เมื่อใช้งาน",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyBellLimit1": {
+        "template": "ระฆังวายุ ถูกทำลายหลังจากที่ได้รับการปะทะ เพิ่มเติม {v0} ครั้ง",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyMeleeStrikeRange1": {
+        "template": "ระยะอาวุธ {v0}",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1": {
+        "template": "นำความเสียหาย {v0}% ไปเสริมเป็น ไฟ ขณะที่วอร์ดอักขระของคุณหายไป",
+        "name": "Verisium"
+      },
+      "equipment.AlloyCastSpeedDamageAsExtraColdHybrid1": {
+        "template": "เพิ่มความเร็วในการร่าย {v0}%\nนำความเสียหาย ธาตุ {v1}% ไปเสริมเป็น น้ำแข็ง",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyNaturesArchon1": {
+        "template": "มีโอกาสได้รับสถานะ อาร์คอนพงไพร {v0}% เมื่อต้นไม้ของคุณงอกเงย",
+        "name": "of the Stars"
+      },
+      "equipment.AlloyLightningDamageIgnites1": {
+        "template": "ความเสียหาย ปะทะ สายฟ้า ส่งผลต่อ จำนวนค่าของสถานะ ไวไฟและลุกไหม้ เช่นกัน",
+        "name": "of the Stars"
+      },
+      "equipment.rawhide-implicit": {
+        "template": "เพิ่มการ เติมพลังชีวิต จากขวดยา {v0}%",
+        "name": ""
       }
     }
   }

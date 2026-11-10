@@ -146,6 +146,8 @@ it('does not submit an unfinished IME composition', async () => {
 it('updates socket and installed Rune text from state without altering its identity', () => {
   const state = {
     ...root,
+    baseItemId: 'Metadata/Items/Armours/Gloves/FourGlovesStr1',
+    implicits: [],
     augmentSockets: 2,
     installedAugments: [{ slotIndex: 1, augmentId: 'Perfect_Desert_Rune' }],
   }

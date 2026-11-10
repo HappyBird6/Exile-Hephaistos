@@ -47,6 +47,7 @@ export interface Bucket {
 export interface Definition {
   requiredItemLevel?: number
   weight?: number
+  sourceUrl?: string
   id: string
   name: string
   text: string

@@ -17,6 +17,17 @@ class SolarTextMapperTest {
   }
 
   @Test
+  void runicWardHeaderIsAnObservationAndDoesNotAlterRawAffixValues() {
+    var source =
+        text("+17 to maximum Life")
+            .replace("Item Level: 82", "Runic Ward: 59.4 (augmented)\nItem Level: 82");
+    var mapped = mapper.map(parser.parseText(source));
+    assertThat(mapped.mapped()).isTrue();
+    assertThat(mapped.issues()).isEmpty();
+    assertThat(mapped.state().explicits().getFirst().values()).containsValue(17L);
+  }
+
+  @Test
   void allKnownCatalystLabelsAtZeroPreserveRawValuesAndUnknownLabelsStayBlocked() {
     for (String type :
         java.util.List.of(

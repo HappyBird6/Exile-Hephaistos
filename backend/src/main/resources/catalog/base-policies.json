@@ -702,7 +702,7 @@
       "catalystQuality": false,
       "maximumQualityBreach": false,
       "socketExecutionMaximum": null,
-      "divine": false
+      "divine": true
     },
     "helmet": {
       "id": "Metadata/Items/Armours/Helmets/FourHelmetStr1",

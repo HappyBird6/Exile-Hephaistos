@@ -3,6 +3,7 @@ package com.poe2craft.shared.crafting.domain;
 import com.poe2craft.shared.item.BaseRegistry;
 import com.poe2craft.shared.item.BasicJewel;
 import com.poe2craft.shared.item.CatalystQuality;
+import com.poe2craft.shared.item.EquipmentCurrencyCatalog;
 import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
@@ -21,8 +22,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v16";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v10";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v17";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v11";
   private final ItemCatalog catalog;
   private final QualityCapChangePolicy qualityCapChangePolicy;
   private final AdditionRules additionRules;
@@ -92,6 +93,12 @@ public final class WorkbenchSimulator {
           }
           replacements.put(action, List.copyOf(ids));
         });
+    EquipmentCurrencyCatalog.targets(catalog.base().id())
+        .forEach(
+            (action, ids) -> {
+              if (ids.stream().allMatch(id -> this.catalog.find(id).isPresent()))
+                replacements.put(WorkbenchCurrency.valueOf(action), ids);
+            });
     this.replacementTargetOverrides = Map.copyOf(replacements);
     var reviewed = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
     essenceTargetOverrides.forEach(
@@ -115,17 +122,33 @@ public final class WorkbenchSimulator {
           reviewed.put(action, List.copyOf(ids));
         });
     this.essenceTargetOverrides = Map.copyOf(reviewed);
-    this.coupledModifierIds = Set.copyOf(coupledModifierIds);
+    var coupled = new HashSet<>(coupledModifierIds);
+    this.catalog.modifiers().values().stream()
+        .filter(d -> d.id().startsWith("equipment:") && d.stats().size() > 1)
+        .map(ModifierDefinition::id)
+        .forEach(coupled::add);
+    this.coupledModifierIds = Set.copyOf(coupled);
     for (var id : this.coupledModifierIds) {
       var definition =
-          catalog
+          this.catalog
               .find(id)
               .orElseThrow(() -> new IllegalArgumentException("Unknown coupled modifier"));
       if (definition.stats().size() < 2)
         throw new IllegalArgumentException("Coupled opt-in requires multiple source stats");
     }
     Objects.requireNonNull(engine);
-    additionRules = new AdditionRules(catalog);
+    additionRules = new AdditionRules(this.catalog);
+  }
+
+  /** Preserve configured roll, target and quality-cap policies when adding reviewed outcomes. */
+  public WorkbenchSimulator forCatalog(ItemCatalog enriched) {
+    return new WorkbenchSimulator(
+        enriched,
+        new CraftingEngine(enriched),
+        coupledModifierIds,
+        essenceTargetOverrides,
+        replacementTargetOverrides,
+        qualityCapChangePolicy);
   }
 
   private List<String> essenceTargets(WorkbenchCurrency action) {
@@ -166,7 +189,10 @@ public final class WorkbenchSimulator {
   }
 
   public String ruleVersion() {
-    return baseRuleVersion()
+    return (EquipmentCurrencyCatalog.targets(catalog.base().id()).isEmpty()
+            ? ""
+            : "equipment-currency-v1-")
+        + baseRuleVersion()
         + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1"
         + (qualityCapChangePolicy == QualityCapChangePolicy.PRESERVE_EXISTING
             ? "-quality-cap-preserve-v2"
@@ -658,6 +684,14 @@ public final class WorkbenchSimulator {
           eligible.stream()
               .filter(m -> !locked.contains(catalog.find(m.modifierId()).orElseThrow().affixType()))
               .toList();
+    }
+    if (omens.contains(WorkbenchOmen.LIGHT)) {
+      var desecratedIds =
+          state.desecrated().stream()
+              .map(ItemState.DesecratedSlot::modifierId)
+              .filter(Objects::nonNull)
+              .collect(java.util.stream.Collectors.toSet());
+      eligible = eligible.stream().filter(m -> desecratedIds.contains(m.modifierId())).toList();
     }
     var omen = omens.stream().filter(o -> o.affix() != null).findFirst().orElse(null);
     if (omen != null && omen.affix() != null)

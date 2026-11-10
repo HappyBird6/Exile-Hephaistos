@@ -14,7 +14,9 @@ const runtimeSource = fs.readFileSync(
   "backend/src/main/java/com/poe2craft/shared/item/ModifierTextResources.java",
   "utf8",
 );
-const runtimeHash = runtimeSource.match(/TEMPLATE_SHA256\s*=\s*"([a-f0-9]{64})"/);
+const runtimeHash = runtimeSource.match(
+  /TEMPLATE_SHA256\s*=\s*"([a-f0-9]{64})"/,
+);
 assert(runtimeHash, "Backend runtime display template SHA-256 pin is missing");
 assert.equal(
   createHash("sha256").update(templateBytes).digest("hex"),
@@ -198,6 +200,23 @@ for (const [baseKey, base] of Object.entries(
       assert(base.requirements[l], `${l}:top-base-requirements:${base.id}`);
   }
 }
+const equipmentCurrencyPath =
+  "backend/src/main/resources/catalog/equipment-currencies.json";
+const equipmentCurrencies = JSON.parse(
+  fs.readFileSync(equipmentCurrencyPath, "utf8"),
+);
+assert.deepEqual(
+  equipmentCurrencies,
+  JSON.parse(
+    fs.readFileSync(
+      "frontend/src/features/crafting/equipmentCurrencies.json",
+      "utf8",
+    ),
+  ),
+  "Equipment currency registry mirror differs",
+);
+for (const definition of equipmentCurrencies.definitions)
+  defs[definition.id] = definition;
 results.catalogDefinitions = Object.keys(defs).length;
 const reveal = JSON.parse(
   fs.readFileSync(

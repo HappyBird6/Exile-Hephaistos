@@ -167,7 +167,12 @@ public enum WorkbenchCurrency {
   ESSENCE_INFINITE,
   GREATER_ESSENCE_INFINITE,
   ARMOURERS_SCRAP,
-  BLACKSMITHS_WHETSTONE;
+  BLACKSMITHS_WHETSTONE,
+  PROTECTIVE_ALLOY,
+  CELESTIAL_ALLOY,
+  TRANSCENDENT_ALLOY,
+  THE_RUNEBINDERS_ALLOY,
+  THE_RUNEFATHERS_ALLOY;
 
   private WorkbenchDefinitions.Currency definition() {
     return WorkbenchDefinitions.active().currency(this);
@@ -203,6 +208,11 @@ public enum WorkbenchCurrency {
 
   public boolean isAlloy() {
     return Set.of(
+            PROTECTIVE_ALLOY,
+            CELESTIAL_ALLOY,
+            TRANSCENDENT_ALLOY,
+            THE_RUNEBINDERS_ALLOY,
+            THE_RUNEFATHERS_ALLOY,
             RUNIC_ALLOY,
             PRISMATIC_ALLOY,
             EXPANSIVE_ALLOY,

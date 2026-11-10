@@ -20,6 +20,7 @@ import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.BaseRegistry;
 import com.poe2craft.shared.item.BasicJewel;
 import com.poe2craft.shared.item.CatalystQualityDisplay;
+import com.poe2craft.shared.item.EquipmentCurrencyCatalog;
 import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ManualRevealCatalog;
@@ -226,6 +227,17 @@ public final class CatalogCraftingService implements CraftingOperations {
       ItemCatalog emerald,
       ItemCatalog diamond,
       ItemCatalog... timeLost) {
+    solar = EquipmentCurrencyCatalog.enrich(solar);
+    stocky = EquipmentCurrencyCatalog.enrich(stocky);
+    if (bow != null) bow = EquipmentCurrencyCatalog.enrich(bow);
+    if (wand != null) wand = EquipmentCurrencyCatalog.enrich(wand);
+    if (body != null) body = EquipmentCurrencyCatalog.enrich(body);
+    if (sceptre != null) sceptre = EquipmentCurrencyCatalog.enrich(sceptre);
+    if (belt != null) belt = EquipmentCurrencyCatalog.enrich(belt);
+    if (helmet != null) helmet = EquipmentCurrencyCatalog.enrich(helmet);
+    if (ring != null) ring = EquipmentCurrencyCatalog.enrich(ring);
+    timeLost =
+        Arrays.stream(timeLost).map(EquipmentCurrencyCatalog::enrich).toArray(ItemCatalog[]::new);
     var extras = new ItemCatalog[] {ruby, emerald, diamond};
     var names = new String[] {"ruby", "emerald", "diamond"};
     for (int i = 0; i < extras.length; i++)
@@ -348,7 +360,7 @@ public final class CatalogCraftingService implements CraftingOperations {
                     .collect(java.util.stream.Collectors.toSet()),
                 BowEssenceTargets.VERIFIED);
     this.solar = solar;
-    this.solarSimulator = solarSimulator;
+    this.solarSimulator = solarSimulator.forCatalog(solar);
     this.stocky = stocky;
     var coupled =
         stocky.modifiers().values().stream()
@@ -395,9 +407,10 @@ public final class CatalogCraftingService implements CraftingOperations {
                                     1L,
                                     "attack_maximum_added_physical_damage",
                                     4L)))
-                        : (BaseRegistry.supports(catalog.base().id())
-                                    && BaseRegistry.policy(catalog.base().id())
-                                        .initializeImplicit())
+                        : (base.equals("belt")
+                                    || (BaseRegistry.supports(catalog.base().id())
+                                        && BaseRegistry.policy(catalog.base().id())
+                                            .initializeImplicit()))
                                 && catalog.base().hasImplicit()
                             ? List.of(
                                 new ModifierInstance(
@@ -555,6 +568,7 @@ public final class CatalogCraftingService implements CraftingOperations {
       ItemCatalog catalog,
       Map<WorkbenchCurrency, List<String>> fixed,
       Map<WorkbenchCurrency, List<String>> replacements) {
+    catalog = EquipmentCurrencyCatalog.enrich(catalog);
     if (!BaseRegistry.require(key).id().equals(catalog.base().id()) || topBases.containsKey(key))
       throw new IllegalArgumentException("Unreviewed or duplicate base registration");
     var simulator =

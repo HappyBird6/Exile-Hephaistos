@@ -1,4 +1,6 @@
-import augments from './augments.json'
+import { installedAugmentEffects } from './augmentEffects'
+import { bondedEnabled } from './bonded'
+import { defenceDisplay } from './defenceDisplay'
 import bases from './topBases.json'
 import {
   observedSanctified,
@@ -48,14 +50,13 @@ export function currentItemText(
   const sockets = state.augmentSockets ?? state.observations?.socketCount
   if (sockets)
     lines.push('--------', `Sockets: ${Array(sockets).fill('S').join(' ')}`)
-  const effects = (state.installedAugments ?? []).flatMap((installed) => {
-    const entry = augments.find((a) => a.id === installed.augmentId)
-    const effect = (
-      entry?.effects as Record<string, { en: string }> | undefined
-    )?.[itemClass]?.en
-    if (!effect) throw new Error('Unknown installed rune effect')
-    return effect.split('\n').map((line) => `${line} (rune)`)
-  })
+  const computed = defenceDisplay(state, definitions, 'en', bondedEnabled())
+    .properties.map((line) => line.text.replaceAll('–', '-'))
+    .filter((line) => !line.includes('Unknown'))
+  if (computed.length) lines.push('--------', ...computed)
+  const effects = installedAugmentEffects(state, 'en', bondedEnabled()).flatMap(
+    (effect) => effect.english.split('\n').map((line) => `${line} (rune)`),
+  )
   effects.push(...(state.observations?.augmentEffects ?? []))
   if (effects.length) lines.push('--------', ...effects)
   const recordedSkills = state.observations?.grantedSkills

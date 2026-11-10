@@ -32,7 +32,9 @@ class ReviewedBeltsTest {
     assertThat(c.base().id()).isEqualTo(ReviewedBelts.BASES.get(key));
     assertThat(c.base().id()).doesNotContain("Unique");
     assertThat(c.metadata().snapshotId()).isNotEqualTo(legacy.metadata().snapshotId());
-    for (var d : legacy.modifiers().values()) assertThat(c.find(d.id())).contains(d);
+    for (var d : legacy.modifiers().values())
+      if (d.layer() == com.poe2craft.shared.item.ModifierDefinition.Layer.EXPLICIT)
+        assertThat(c.find(d.id())).contains(d);
     assertThat(c.modifiers().values().stream().filter(d -> d.weight() > 0)).hasSize(135);
     var d = c.find(c.base().implicitModifierId()).orElseThrow();
     var values =

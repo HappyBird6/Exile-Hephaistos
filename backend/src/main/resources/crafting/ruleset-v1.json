@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "rulesetVersion": "reviewed-equipment-20261028-v5",
+  "rulesetVersion": "reviewed-equipment-0.5.5-v6",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "provenance": "Bundled source-reviewed project snapshots; retrieval dates differ by resource. No verified current GGG season or patch mapping. See docs/catalog-data-maintenance.md.",
-  "engineRuleVersion": "solar-workbench-abyss-essence-v16",
-  "ledgerVersion": "solar-uniform-assumptions-v10",
+  "engineRuleVersion": "solar-workbench-abyss-essence-v17",
+  "ledgerVersion": "solar-uniform-assumptions-v11",
   "files": {
     "catalog/absent-amulet/base.raw.json": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816",
     "catalog/absent-amulet/catalog.json": "9d441cd97f945b964f3d55ba602f9515b8808c78deaa71845e59dd46e6465d69",
@@ -51,7 +51,7 @@
     "catalog/azure-amulet/base.raw.json": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816",
     "catalog/azure-amulet/catalog.json": "39bc4642a9b96fff1e0fbf6942cdd752598563ca66498778e0dd8fe7a7c37a2d",
     "catalog/azure-amulet/details.raw.json": "e89cd63007e21a4eca38f023324c3aa8fc91cca1f50dbd212cc57cd9d977a84f",
-    "catalog/base-policies.json": "2b8f101a14d5a7f6aaccfc7a32b3e8365420400bb738665cb0860ad5b553ae87",
+    "catalog/base-policies.json": "4fd709c0dd48f8497841346ec14db96ec5dcfba2c56147b3a06e93283f44b645",
     "catalog/biostatic-ring/base.raw.json": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0",
     "catalog/biostatic-ring/catalog.json": "6e4cfb305e932accd020f48e814e9b6c042b83461806f132160269522c37c430",
     "catalog/biostatic-ring/details.raw.json": "31f9aa0dc4ad66a5ef85023a3e986915b34e66c51ce05463b165f0dab2b10882",
@@ -164,6 +164,7 @@
     "catalog/engraved-crossbow/base.raw.json": "0fdfd3720354ea286672c365df1b78432aca2170c3c81712b4d8e4d82e8425bf",
     "catalog/engraved-crossbow/catalog.json": "40f81153decb7ad24fc786f1cbf0a4a00ec16fc4ecbe976a18a85df75a4b6770",
     "catalog/engraved-crossbow/details.raw.json": "21fb3e293cf3fe5bdbd0052031b5dd114a3c04450fc0ce26ef3ed5452b4717ff",
+    "catalog/equipment-currencies.json": "4ff5143fef2b713afd1f6e03de2f078825691f8ad9d1ac6cbbf780aa1c1cf99e",
     "catalog/faithful-leggings/base.raw.json": "7d50e96456cb66b92d8475f8ef2fef6f6d239392fb18537aa75a110b6d41088d",
     "catalog/faithful-leggings/catalog.json": "6dc3243538c2e77b6a69c1ff620bdf765ffc9b01632d4942419cc099773bdccb",
     "catalog/faithful-leggings/details.raw.json": "b27067a47a84428f3705b85fe430747a447bf04e1f283a713c969674be93adb2",
@@ -370,7 +371,7 @@
     "catalog/ravenous-staff/details.raw.json": "ed57ab3ea4f40d1639120806dbf4b30a05722b54b68a5e3b19d148ff4350b204",
     "catalog/rawhide-belt/base-proof.json": "a7a18b1d7b570bbffc9506ceb0bc4470a7eb2e6b1a1f56ae031b4641c7a69146",
     "catalog/rawhide-belt/base.raw.json": "2ee4229e650b26a3bf08c3c22ba33a847a5359b647c24c6694bf25679fa4f990",
-    "catalog/rawhide-belt/catalog.json": "6f3888ca9f8110ab1894ebdba4f0bf764c9372155922124567b44f606d2e81f5",
+    "catalog/rawhide-belt/catalog.json": "a6d2f019e005bcac366aac2d9382f19311b8a0a53c76e2fcfa10023c1c14c334",
     "catalog/rawhide-belt/details.raw.json": "f122833551ab451f269d991f6f9a0ea470da0813b25603afb930feff21f7d226",
     "catalog/rawhide-belt/essence-proof.json": "46792dfd05dcb1e6fd8b4fd9be9af5258345a5aac9bfe1cc6b2ff5878c851358",
     "catalog/rawhide-belt/perfect-essences.catalog.json": "103360c3613dfece140b7d868b9af79200afba8a4a083eeedc7d7c8c456eedd3",
@@ -608,8 +609,8 @@
     "crafting/goalfilter/definitions-v3-readonly.json": "370f5d76382cd5735a1862ee5bd2ffd637f9150f777052b91849bd8417c50d48",
     "crafting/goalfilter/definitions-v4-readonly.json": "2eaf293caf99cd63415e4e52badd98cee3e2730d72c2fc4130ebcaa6454d6e36",
     "crafting/goalfilter/definitions-v5-readonly.json": "01f0dcb28e930f5c6c1e511dd177f54f4ee46a430c764929d632312e9599be07",
-    "crafting/registry-v2.json": "b1b07fff3e91754878be1e451f562010eff4c9ab49d50068ad1084a30af64c6d",
+    "crafting/registry-v2.json": "0d564e8709b38bbd768a5861859018e20d761edf94c2b88774423a9cfea104ae",
     "crafting/supported-base-sets-v1.json": "29042686b98093f3a367c19f5f44c855c633a059bde7ce052ca49487ec91f7d6",
-    "crafting/workbench-definitions-v1.json": "989feeecb50523ebe5a34fdc7bea93d8031130e230ee894804abdfc8196fcb76"
+    "crafting/workbench-definitions-v1.json": "11e41d35c66c4896190df23c57867a04185e41d6f3c54d45017d486a456841c2"
   }
 }

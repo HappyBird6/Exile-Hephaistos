@@ -66,7 +66,10 @@ export function topBase(key: string): TopBase | undefined {
 }
 export function basePropertyLines(key: string, locale: Locale): string[] {
   const base = topBase(key)
-  const properties = (base?.sourceProperties?.[locale] ?? []).map((line) =>
+  const source = base?.sourceProperties?.[locale] ?? []
+  const fixedCharmSlot =
+    base && ['invoking-belt', 'sinew-belt', 'forking-belt'].includes(key)
+  const properties = (fixedCharmSlot ? [] : source).map((line) =>
     line.startsWith('Base Movement Speed:')
       ? translate(
           'base.movement_speed',

@@ -130,7 +130,7 @@ public final class WorkbenchDefinitions {
             case SINISTRAL_ALCHEMY, DEXTRAL_ALCHEMY -> WorkbenchCurrency.ALCHEMY;
             case SINISTRAL_CORONATION, DEXTRAL_CORONATION, HOMOGENISING_CORONATION ->
                 WorkbenchCurrency.REGAL;
-            case GREATER_ANNULMENT, SINISTRAL_ANNULMENT, DEXTRAL_ANNULMENT ->
+            case GREATER_ANNULMENT, SINISTRAL_ANNULMENT, DEXTRAL_ANNULMENT, LIGHT ->
                 WorkbenchCurrency.ANNULMENT;
             case SINISTRAL_CRYSTALLISATION, DEXTRAL_CRYSTALLISATION ->
                 WorkbenchCurrency.ESSENCE_HYSTERIA;

@@ -12,12 +12,15 @@ const definitions = {
   [target]: {
     ...initialFixture.modifiers.p!,
     id: target,
+    sourceUrl:
+      'https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1',
     familyIds: ['RunicWardPercent'],
-    stats: [{ id: 'runic_ward', min: 6, max: 10 }],
+    stats: [{ id: 'maximum_ward_+%', min: 6, max: 10 }],
   },
 }
 const before: ConcreteItem = {
   ...concreteInitial(initialFixture),
+  baseItemId: 'Metadata/Items/Amulets/FourAmulet9',
   rarity: 'RARE',
   explicits: [
     { modifierId: 'p', values: { life: 17 } },
@@ -35,7 +38,7 @@ const result: AppliedItem = {
   state: {
     ...before,
     explicits: [
-      { modifierId: target, values: { runic_ward: 8 } },
+      { modifierId: target, values: { 'maximum_ward_+%': 8 } },
       before.explicits[1]!,
     ],
   },
@@ -44,13 +47,24 @@ const result: AppliedItem = {
     {
       kind: 'ADD',
       modifierId: target,
-      values: { runic_ward: 8 },
+      values: { 'maximum_ward_+%': 8 },
       selectionProbability: 1,
     },
   ],
   consumedOmens: [],
   remainingOmens: ['Omen_of_Sinistral_Crystallisation', 'Omen_of_the_Blessed'],
   assumptions: [
+    {
+      id: 'uniform-integer-roll-v1',
+      candidateUnit: 'maximum_ward_+%',
+      n: 5,
+      candidates: [],
+      min: 6,
+      max: 10,
+      sourceUrl:
+        'https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1',
+      reason: 'Uniform source integers',
+    },
     {
       id: 'uniform-removal-v1',
       candidateUnit: 'eligible explicit modifier instance',

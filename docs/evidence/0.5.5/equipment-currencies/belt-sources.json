@@ -1,0 +1,66 @@
+{
+  "en": {
+    "url": "https://poe2db.tw/us/Rawhide_Belt",
+    "sha256": "d26333b87a17886525e25a07c0ccfe5f200978321b192b5adf6b68f73043e4db",
+    "template": "{v0}% increased Life Recovery from Flasks",
+    "values": [
+      "(20—30)"
+    ]
+  },
+  "ko": {
+    "url": "https://poe2db.tw/kr/Rawhide_Belt",
+    "sha256": "f77278b7b8f8cfcc5db226dd7785be3da1d979f1aa9bc63c8d3ce8a3b44578d9",
+    "template": "플라스크로 회복하는 생명력 {v0}% 증가",
+    "values": [
+      "(20—30)"
+    ]
+  },
+  "zh-CN": {
+    "url": "https://poe2db.tw/cn/Rawhide_Belt",
+    "sha256": "bbf073a0990f24f524777883a2cadd8eedd82a676aac6a46df9df75e1e69f8c4",
+    "template": "药剂的生命回复提高 {v0}%",
+    "values": [
+      "(20—30)"
+    ]
+  },
+  "zh-TW": {
+    "url": "https://poe2db.tw/tw/Rawhide_Belt",
+    "sha256": "a2ddb99f7e68f417dd8500f4805217931532fd35474f442af94b63572a31825e",
+    "template": "增加{v0}%藥劑的生命恢復",
+    "values": [
+      "(20—30)"
+    ]
+  },
+  "ja": {
+    "url": "https://poe2db.tw/jp/Rawhide_Belt",
+    "sha256": "6a4f668827f0408ce90ce31a968a8d7cdbc7e44abadb5ad2f573bdc093c1a43c",
+    "template": "フラスコによるライフ回復量が{v0}%増加する",
+    "values": [
+      "(20—30)"
+    ]
+  },
+  "es": {
+    "url": "https://poe2db.tw/sp/Rawhide_Belt",
+    "sha256": "01cccdf04190fbe04f3c1e89b32f39a8425f7f0a880fd86a28bf57c32f545a17",
+    "template": "Recuperación de vida con frascos aumentada un {v0}%",
+    "values": [
+      "(20—30)"
+    ]
+  },
+  "ru": {
+    "url": "https://poe2db.tw/ru/Rawhide_Belt",
+    "sha256": "6d73042902266f5e92c60b436542ec3ff00003724e773fac9e413bfb69b3d1f7",
+    "template": "{v0}% увеличение восстановления здоровья от флаконов",
+    "values": [
+      "(20—30)"
+    ]
+  },
+  "th": {
+    "url": "https://poe2db.tw/th/Rawhide_Belt",
+    "sha256": "183a97d79d6ff764448aed30d51ad3ed78f7e7a11b413dc40ced2e44fad2d21a",
+    "template": "เพิ่มการ เติมพลังชีวิต จากขวดยา {v0}%",
+    "values": [
+      "(20—30)"
+    ]
+  }
+}

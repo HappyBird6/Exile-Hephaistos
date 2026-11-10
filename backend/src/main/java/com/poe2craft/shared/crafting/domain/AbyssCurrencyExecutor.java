@@ -44,6 +44,21 @@ public final class AbyssCurrencyExecutor {
     state.validate(catalog);
     if (!state.item().conditions().isEmpty())
       return blocked(state, action, omens, "ITEM_CONDITION");
+    if (action == WorkbenchCurrency.ANNULMENT && omens.contains(WorkbenchOmen.LIGHT.id())) {
+      if (omens.stream().map(WorkbenchOmen::fromId).filter(o -> o.trigger() == action).count() != 1)
+        return blocked(state, action, omens, "ABYSS_OMEN_COMBINATION_UNSUPPORTED");
+      var candidates =
+          state.removalCandidates(null).stream()
+              .filter(AbyssCraftingState.Slot::desecrated)
+              .toList();
+      if (candidates.isEmpty()) return blocked(state, action, omens, "NO_ELIGIBLE_REMOVAL");
+      var removed = candidates.get(random.nextInt(candidates.size()));
+      var next = state.remove(removed.id(), null, catalog);
+      var remaining = new TreeSet<>(omens);
+      remaining.remove(WorkbenchOmen.LIGHT.id());
+      return new Result(
+          next, action, true, "", List.of(WorkbenchOmen.LIGHT.id()), List.copyOf(remaining));
+    }
     boolean hidden = state.slots().stream().anyMatch(s -> s.modifier() == null);
     boolean valuesOnly =
         action == WorkbenchCurrency.DIVINE

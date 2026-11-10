@@ -1,9 +1,10 @@
 import type { ConcreteItem } from '../workbenchApi'
 import type { Definition } from '../craftingApi'
 import bases from '../topBases.json'
+import { augmentPropertyBonuses } from './augmentProperties'
 import { sanctifiedValues } from '../sanctification/sanctification'
 
-export type Defence = 'armour' | 'evasion' | 'energyShield'
+export type Defence = 'armour' | 'evasion' | 'energyShield' | 'ward'
 export type DefenceResult = {
   base: number
   flat: number
@@ -15,6 +16,10 @@ const statRules: Record<
   Defence,
   { flat: readonly string[]; increased: readonly string[] }
 > = {
+  ward: {
+    flat: ['base_maximum_ward', 'local_base_ward'],
+    increased: ['local_ward_+%', 'maximum_ward_+%'],
+  },
   armour: {
     flat: ['local_base_physical_damage_reduction_rating'],
     increased: [
@@ -53,16 +58,15 @@ const legacy: Record<string, Partial<Record<Defence, number>>> = {
 export function derivedDefences(
   state: ConcreteItem,
   definitions: Record<string, Definition>,
+  bonded = false,
 ): Partial<Record<Defence, DefenceResult>> {
   const base =
     (Object.values(bases).find((b) => b.id === state.baseItemId) as
       Partial<Record<Defence, number>> | undefined) ?? legacy[state.baseItemId]
-  if (!base || !state.baseItemId.startsWith('Metadata/Items/Armours/'))
-    return {}
+  const augments = augmentPropertyBonuses(state, bonded)
   const result: Partial<Record<Defence, DefenceResult>> = {}
-  for (const key of ['armour', 'evasion', 'energyShield'] as const) {
-    const amount = base[key] ?? 0
-    if (amount <= 0) continue
+  for (const key of ['armour', 'evasion', 'energyShield', 'ward'] as const) {
+    const amount = base?.[key] ?? 0
     let flat = 0,
       increased = 0
     const rule = statRules[key]
@@ -79,7 +83,11 @@ export function derivedDefences(
         }
       }
     }
-    const quality = state.equipmentQuality ?? null
+    if (amount + flat + augments[key] <= 0) continue
+    const quality =
+      key === 'ward'
+        ? (state.equipmentQuality ?? 0)
+        : (state.equipmentQuality ?? null)
     result[key] = {
       base: amount,
       flat,
@@ -88,7 +96,11 @@ export function derivedDefences(
       value:
         quality === null
           ? null
-          : (amount + flat) * (1 + increased / 100) * (1 + quality / 100),
+          : (amount + flat) *
+              (1 + increased / 100) *
+              (1 + quality / 100) *
+              (1 + augments[`${key}Percent`] / 100) +
+            augments[key],
     }
   }
   return result

@@ -149,6 +149,30 @@ export async function applyAbyssCurrency(
         canonical(value.state) !== canonical(state)))
   )
     throw new Error(errorMessage)
+  if (
+    value.applied &&
+    action === 'ANNULMENT' &&
+    triggered.includes('Omen_of_Light')
+  ) {
+    const removed = state.slots.filter(
+      (old) => !value.state.slots.some((slot) => slot.id === old.id),
+    )
+    const preserved = state.slots.filter((old) =>
+      removed.every((slot) => slot.id !== old.id),
+    )
+    if (
+      removed.length !== 1 ||
+      !removed[0]!.desecrated ||
+      removed[0]!.modifier?.fractured ||
+      canonical(preserved) !== canonical(value.state.slots) ||
+      canonical(state.item) !== canonical(value.state.item) ||
+      canonical(value.consumedOmens) !== canonical(['Omen_of_Light']) ||
+      (state.offer &&
+        removed[0]!.id !== state.offer.slotId &&
+        canonical(state.offer) !== canonical(value.state.offer))
+    )
+      throw new Error(errorMessage)
+  }
   return {
     ...value,
     state: value.applied ? value.state : state,

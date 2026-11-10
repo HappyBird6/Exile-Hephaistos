@@ -136,6 +136,7 @@ public final class SolarTextMapper {
                   "Evasion Rating",
                   "Evasion",
                   "Energy Shield",
+                  "Runic Ward",
                   "Spirit",
                   "Physical Damage",
                   "Elemental Damage",

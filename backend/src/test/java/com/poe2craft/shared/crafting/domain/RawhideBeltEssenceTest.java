@@ -42,7 +42,9 @@ class RawhideBeltEssenceTest {
         BeltEssenceTargets.BASE_ID,
         level,
         rarity,
-        List.of(),
+        List.of(
+            new ModifierInstance(
+                catalog.base().implicitModifierId(), Map.of("flask_life_to_recover_+%", 20L))),
         Arrays.stream(ids)
             .map(
                 id -> {
@@ -142,7 +144,7 @@ class RawhideBeltEssenceTest {
             before.baseItemId(),
             82,
             before.rarity(),
-            List.of(),
+            before.implicits(),
             List.of(locked, before.explicits().getLast()),
             Set.of());
     assertThat(simulator.apply(state, action, Set.of(), new Random(17)).state().explicits())
@@ -162,13 +164,13 @@ class RawhideBeltEssenceTest {
 
   @Test
   void completeWeightedPoolNoSpecialSpawnAndNoImplicitLottery() {
-    assertThat(catalog.modifiers()).hasSize(136);
+    assertThat(catalog.modifiers()).hasSize(137);
     assertThat(catalog.modifiers().values().stream().filter(d -> d.weight() > 0)).hasSize(135);
     assertThat(catalog.metadata().prefixCount()).isEqualTo(53);
     assertThat(catalog.metadata().suffixCount()).isEqualTo(83);
     assertThat(catalog.metadata().prefixWeight()).isEqualTo(49600);
     assertThat(catalog.metadata().suffixWeight()).isEqualTo(70700);
-    assertThat(catalog.base().hasImplicit()).isFalse();
+    assertThat(catalog.base().hasImplicit()).isTrue();
     assertThat(catalog.modifiers().values().stream().filter(d -> d.stats().size() > 1)).hasSize(7);
     for (int i = 0; i < 60; i++) {
       var r =
@@ -183,7 +185,7 @@ class RawhideBeltEssenceTest {
               m -> assertThat(catalog.find(m.modifierId()).orElseThrow().weight()).isPositive());
       assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     }
-    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(47);
+    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(48);
     assertThat(
             simulator
                 .apply(
@@ -214,13 +216,16 @@ class RawhideBeltEssenceTest {
     assertThat(service.initial("belt", 82).qualityLimit()).isNull();
     assertThat(service.initial("belt", 82).ruleVersion())
         .isEqualTo(
-            "belt-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
-    assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
-    assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
-    assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);
+            "equipment-currency-v1-belt-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+    assertThat(service.initial("bow", 82).modifiers())
+        .containsAllEntriesOf(ItemCatalogLoader.loadBow().modifiers());
+    assertThat(service.initial("wand", 82).modifiers())
+        .containsAllEntriesOf(ItemCatalogLoader.loadWand().modifiers());
+    assertThat(service.initial("stocky", 82).modifiers())
+        .containsAllEntriesOf(StockyCraftingFixture.stocky().modifiers());
     assertThat(service.initial("belt", 82).metadata().sourceUrl())
         .isEqualTo("https://poe2db.tw/us/Belts");
-    assertThat(service.initial("solar", 82).modifiers()).hasSize(218);
+    assertThat(service.initial("solar", 82).modifiers()).containsAllEntriesOf(solar.modifiers());
     assertThat(
             new WorkbenchSimulator(solar, new CraftingEngine(solar))
                 .apply(
@@ -233,7 +238,7 @@ class RawhideBeltEssenceTest {
   }
 
   @Test
-  void divineIsAtomicUnsupportedAndQualityStaysUnknown() {
+  void blessedDivineRerollsOnlyVerifiedFlaskRecoveryAndQualityStaysUnknown() {
     var before =
         state(
             82,
@@ -242,13 +247,14 @@ class RawhideBeltEssenceTest {
             "rawhide-belt:suffix:of-the-brute");
     var omens = Set.of(WorkbenchOmen.BLESSED.id());
     var r = simulator.apply(before, WorkbenchCurrency.DIVINE, omens, new Random(1));
-    assertThat(r.applied()).isFalse();
-    assertThat(r.state()).isEqualTo(before);
-    assertThat(r.events()).isEmpty();
-    assertThat(r.consumedOmens()).isEmpty();
-    assertThat(r.remainingOmens()).containsExactlyElementsOf(omens);
+    assertThat(r.applied()).isTrue();
+    assertThat(r.state().explicits()).isEqualTo(before.explicits());
+    assertThat(r.state().implicits().getFirst().values().get("flask_life_to_recover_+%"))
+        .isBetween(20L, 30L);
+    assertThat(r.consumedOmens()).containsExactly(WorkbenchOmen.BLESSED.id());
+    assertThat(r.remainingOmens()).isEmpty();
     assertThat(QualityLimitRules.describe(before, catalog)).isNull();
     assertThat(simulator.actions(before, Set.of()))
-        .noneMatch(a -> a.action() == WorkbenchCurrency.DIVINE);
+        .anyMatch(a -> a.action() == WorkbenchCurrency.DIVINE && a.available());
   }
 }

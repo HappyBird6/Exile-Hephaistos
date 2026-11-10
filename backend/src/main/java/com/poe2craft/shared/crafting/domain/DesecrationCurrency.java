@@ -63,17 +63,9 @@ public final class DesecrationCurrency {
         || observedSides.size() > 6
         || observedSides.stream().anyMatch(s -> s == null || s == AffixType.NONE))
       throw new IllegalArgumentException("Record the observed slots for Putrefaction alone");
-    if (item.explicits().stream()
-        .anyMatch(
-            m ->
-                m.fractured()
-                    || catalog
-                        .find(m.modifierId())
-                        .orElseThrow()
-                        .text()
-                        .equals("Bears the Mark of the Abyssal Lord")))
+    if (item.explicits().stream().anyMatch(m -> m.fractured()))
       throw new IllegalArgumentException(
-          "Putrefaction with fractured or marked modifiers needs verified interaction rules");
+          "Putrefaction with fractured modifiers needs verified interaction rules");
     AbyssCraftingState.from(item, catalog);
     var empty =
         new ItemState(
@@ -247,15 +239,6 @@ public final class DesecrationCurrency {
           "No candidate can satisfy both item and minimum modifier levels");
     if (side == null || side == AffixType.NONE)
       throw new IllegalArgumentException("Observed affix side required");
-    if (item.explicits().stream()
-        .anyMatch(
-            m ->
-                catalog
-                    .find(m.modifierId())
-                    .map(d -> d.text().equals("Bears the Mark of the Abyssal Lord"))
-                    .orElse(false)))
-      throw new IllegalArgumentException(
-          "Marked items require a separately verified higher-tier reveal rule");
     var before = AbyssCraftingState.from(item, catalog);
     var capacity = new ItemStateValidator(catalog).slots(item);
     boolean full = before.slots().size() == capacity.maxPrefixes() + capacity.maxSuffixes();

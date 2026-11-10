@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { useEffect, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { currencies } from '../currencies'
@@ -165,8 +166,10 @@ export function CurrencyPriceFooter({ materialId }: { materialId: string }) {
 export function CraftingCostLine({
   film,
   cursor,
+  children,
 }: {
   film: Film | undefined
+  children?: ReactNode
   cursor: number
 }) {
   const market = useCurrencyMarket()
@@ -184,6 +187,9 @@ export function CraftingCostLine({
       aria-label={text.spent}
       title={details}
     >
+      {children && (
+        <div className="crafting-cost-line__controls">{children}</div>
+      )}
       <CoinAmount
         kind="Exalted_Orb"
         value={priced ? cost.exalted : null}

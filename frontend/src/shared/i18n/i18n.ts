@@ -1,6 +1,7 @@
 import { useSyncExternalStore } from 'react'
 import messages from './messages.json'
 import terms from './gameTerms.json'
+import itemClasses from './itemClassNames.json'
 
 export const locales = [
   'en',
@@ -179,6 +180,8 @@ export function localizedSource(url: string, locale = getLocale()) {
 }
 // Transitional adapter for existing service strings. Game identities never use this lookup.
 export function uiText(english: string, locale = getLocale()) {
+  const itemClass = itemClasses[english as keyof typeof itemClasses]
+  if (itemClass) return itemClass[locale]
   const key = uiKeys.get(english)
   return key ? translate(key, {}, locale) : english
 }

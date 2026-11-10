@@ -1996,6 +1996,83 @@
       "replacementModifiers": [],
       "replacementEssenceSource": null,
       "replacementSource": null
+    },
+    {
+      "id": "PROTECTIVE_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1",
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1",
+        "equipment:suffix:alloy-runic-ward-on-block1"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Protective_Alloy"
+    },
+    {
+      "id": "CELESTIAL_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1",
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Celestial_Alloy"
+    },
+    {
+      "id": "TRANSCENDENT_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1",
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1",
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/Transcendent_Alloy"
+    },
+    {
+      "id": "THE_RUNEBINDERS_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "equipment:suffix:alloy-ballista-limit1",
+        "equipment:suffix:alloy-elemental-skill-limit1",
+        "equipment:suffix:alloy-mark-effect",
+        "equipment:suffix:alloy-natures-archon1",
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/The_Runebinders_Alloy"
+    },
+    {
+      "id": "THE_RUNEFATHERS_ALLOY",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [
+        "equipment:suffix:alloy-bell-limit1",
+        "equipment:suffix:alloy-lightning-damage-ignites1",
+        "equipment:suffix:alloy-melee-strike-range1",
+        "equipment:suffix:alloy-retain-glory1"
+      ],
+      "replacementEssenceSource": null,
+      "replacementSource": "https://poe2db.tw/us/The_Runefathers_Alloy"
     }
   ],
   "omens": [
@@ -2129,6 +2206,13 @@
       "key": "SANCTIFICATION",
       "id": "Omen_of_Sanctification",
       "trigger": "DIVINE",
+      "affix": null,
+      "supportsTieredCurrency": false
+    },
+    {
+      "key": "LIGHT",
+      "id": "Omen_of_Light",
+      "trigger": "ANNULMENT",
       "affix": null,
       "supportsTieredCurrency": false
     }

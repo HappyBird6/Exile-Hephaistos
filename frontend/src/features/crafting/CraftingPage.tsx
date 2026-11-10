@@ -1,3 +1,5 @@
+import { useBonded, setBonded, bondedLabel } from './bonded'
+import { installedAugmentEffects } from './augmentEffects'
 import type { Item } from './itemModels'
 import { unidentifiedRuneEffects } from './socketAugments'
 import { LeagueMark } from './currency-prices/LeagueMark'
@@ -17,7 +19,6 @@ import { appendDocument } from './session-history/transfer'
 import {
   augmentMaterials,
   augmentName,
-  augmentEffect,
   socketText,
   installAugment,
   isSelectableAugment,
@@ -180,6 +181,7 @@ function filmId() {
 
 export function CraftingPage() {
   const { t, name, locale } = useI18n()
+  const bonded = useBonded()
   const [boneCounts, setBoneCounts] = useState([0, 0])
   const client = useQueryClient()
   const market = useCurrencyPrices()
@@ -1508,8 +1510,8 @@ export function CraftingPage() {
         )
       : new Set<string>()
   const defences =
-    concrete && initial.data && !concrete.installedAugments?.length
-      ? defenceDisplay(concrete, initial.data.modifiers, locale)
+    concrete && initial.data
+      ? defenceDisplay(concrete, initial.data.modifiers, locale, bonded)
       : { properties: [], replacedSourceIndexes: new Set<number>() }
   const card =
     item && !concrete
@@ -1534,23 +1536,13 @@ export function CraftingPage() {
                 })),
               ...defences.properties,
               ...unidentifiedRuneEffects(concrete),
-              ...(concrete.installedAugments?.length
-                ? [
-                    ...concrete.installedAugments.map((a) => ({
-                      id: 'socket-effect-' + a.slotIndex,
-                      text:
-                        augmentName(a.augmentId) +
-                        ': ' +
-                        augmentEffect(a.augmentId, concrete.baseItemId),
-                    })),
-                  ]
-                : []),
+              ...installedAugmentEffects(concrete, locale, bonded).map((a) => ({
+                id: `socket-effect-${a.slot}-${a.bonded ? 'bonded' : 'ordinary'}`,
+                text: `${a.bonded ? bondedLabel[locale] : augmentName(a.id)}: ${a.text}`,
+                kind: 'rune' as const,
+              })),
               ...(catalogBase === 'belt'
                 ? [
-                    {
-                      id: 'belt-implicit',
-                      text: t('base.flask'),
-                    },
                     {
                       id: 'belt-charm',
                       text: t('base.charms'),
@@ -2464,7 +2456,16 @@ export function CraftingPage() {
                   />
                 )}
               </div>
-              <CraftingCostLine film={film} cursor={filmState.history.cursor} />
+              <CraftingCostLine film={film} cursor={filmState.history.cursor}>
+                <button
+                  type="button"
+                  className="bonded-toggle"
+                  aria-pressed={bonded}
+                  onClick={() => setBonded(!bonded)}
+                >
+                  {bondedLabel[locale]}
+                </button>
+              </CraftingCostLine>
               <SessionNotation
                 film={film}
                 cursor={filmState.history.cursor}

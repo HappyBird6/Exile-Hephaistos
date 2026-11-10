@@ -13,6 +13,15 @@ public final class AutomaticCurrencyPolicy {
           WorkbenchCurrency.ARMOURERS_SCRAP.name(), "EXTRA:Armourers_Scrap",
           WorkbenchCurrency.BLACKSMITHS_WHETSTONE.name(), "EXTRA:Blacksmiths_Whetstone");
 
+  // These additions are available only in the manual workbench; the approved roster stays frozen.
+  private static final Set<String> MANUAL_ONLY_CURRENCIES =
+      Set.of(
+          "PROTECTIVE_ALLOY",
+          "CELESTIAL_ALLOY",
+          "TRANSCENDENT_ALLOY",
+          "THE_RUNEBINDERS_ALLOY",
+          "THE_RUNEFATHERS_ALLOY");
+
   public enum Decision {
     USE,
     CONDITIONAL,
@@ -119,12 +128,15 @@ public final class AutomaticCurrencyPolicy {
     }
     if (indexed.keySet().stream().filter(id -> !id.contains(":")).count()
                 + MANUAL_CURRENCY_POLICY_IDS.size()
+                + MANUAL_ONLY_CURRENCIES.size()
             != WorkbenchCurrency.values().length
         || Arrays.stream(WorkbenchCurrency.values())
             .anyMatch(
                 currency ->
-                    !indexed.containsKey(
-                        MANUAL_CURRENCY_POLICY_IDS.getOrDefault(currency.name(), currency.name())))
+                    !MANUAL_ONLY_CURRENCIES.contains(currency.name())
+                        && !indexed.containsKey(
+                            MANUAL_CURRENCY_POLICY_IDS.getOrDefault(
+                                currency.name(), currency.name())))
         || MANUAL_CURRENCY_POLICY_IDS.values().stream()
             .anyMatch(id -> indexed.get(id).decision() != Decision.EXCLUDED))
       throw new IllegalArgumentException("Policy must cover every defined currency");
@@ -144,6 +156,7 @@ public final class AutomaticCurrencyPolicy {
 
   public Verdict evaluate(String id, Context context) {
     Objects.requireNonNull(context);
+    if (MANUAL_ONLY_CURRENCIES.contains(id) || "OMEN:LIGHT".equals(id)) return Verdict.EXCLUDED;
     var entry = entries.get(MANUAL_CURRENCY_POLICY_IDS.getOrDefault(id, id));
     if (entry == null) return Verdict.UNREVIEWED;
     if (entry.decision() == Decision.EXCLUDED) return Verdict.EXCLUDED;

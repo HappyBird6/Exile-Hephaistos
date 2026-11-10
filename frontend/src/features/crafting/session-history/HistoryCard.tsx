@@ -1,3 +1,5 @@
+import { useBonded, bondedLabel } from '../bonded'
+import { installedAugmentEffects } from '../augmentEffects'
 import { unidentifiedRuneEffects } from '../socketAugments'
 import basePolicies from '../basePolicies.json'
 import type { WorkbenchBaseKey } from '../baseRegistry'
@@ -14,7 +16,7 @@ import type { Film, Frame } from '../workbenchHistory'
 import { localizedModifierText } from '../localizedModifiers'
 import { catalystProjection } from '../catalystQuality'
 import { preciseModifierProjection } from '../sanctification/preciseModifierProjection'
-import { augmentName, augmentEffect, socketText } from '../socketAugments'
+import { augmentName, socketText } from '../socketAugments'
 import { defenceDisplay } from '../defenceDisplay'
 import { historyMessages } from './messages'
 
@@ -27,6 +29,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
     (Object.entries(basePolicies.legacy).find(
       ([, v]) => v.id === state.baseItemId,
     )?.[0] as WorkbenchBaseKey | undefined)
+  const bonded = useBonded()
   const initial = useQuery({
     queryKey: ['history-catalog', base, state.itemLevel],
     enabled: !!base,
@@ -41,8 +44,8 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
     verifiedHistoryState(state, initial.data)
   const definitions = initial.data?.modifiers
   const defences =
-    valid && definitions && !state.installedAugments?.length
-      ? defenceDisplay(state, definitions, locale)
+    valid && definitions
+      ? defenceDisplay(state, definitions, locale, bonded)
       : { properties: [], replacedSourceIndexes: new Set<number>() }
   if (!supported)
     return (
@@ -114,9 +117,10 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                   },
                 ]
               : []),
-            ...(state.installedAugments ?? []).map((a) => ({
-              id: `augment-${a.slotIndex}`,
-              text: `${a.slotIndex + 1}. ${augmentName(a.augmentId)}: ${(valid ? augmentEffect(a.augmentId, state.baseItemId) : undefined) ?? a.augmentId}`,
+            ...installedAugmentEffects(state, locale, bonded).map((a) => ({
+              id: `augment-${a.slot}-${a.bonded ? 'bonded' : 'ordinary'}`,
+              text: `${a.bonded ? bondedLabel[locale] : augmentName(a.id)}: ${a.text}`,
+              kind: 'rune' as const,
             })),
           ],
           requirements:

@@ -31,9 +31,17 @@ public final class WorkbenchDefinitionsLoader {
     var ids = new HashMap<String, List<ModifierDefinition>>();
     var mapper = BundledJson.mapper();
     for (var path : SealedResources.requiredPaths()) {
-      if (!path.startsWith("catalog/") || !path.endsWith("catalog.json")) continue;
+      if (!path.startsWith("catalog/")
+          || !(path.endsWith("catalog.json") || path.equals("catalog/equipment-currencies.json")))
+        continue;
       try (var catalog = SealedResources.open("/" + path)) {
-        for (var modifier : mapper.readTree(catalog).path("modifiers")) {
+        for (var modifier :
+            mapper
+                .readTree(catalog)
+                .path(
+                    path.equals("catalog/equipment-currencies.json")
+                        ? "definitions"
+                        : "modifiers")) {
           var target = mapper.treeToValue(modifier, ModifierDefinition.class);
           // IDs can recur in different base catalogs with different sourced ranges/weights.
           // Validate references without merging or rewriting the actual catalog definitions.

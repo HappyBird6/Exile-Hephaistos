@@ -1,3 +1,4 @@
+import equipmentCurrencies from './equipmentCurrencies.json'
 import { observedSanctified } from './sanctification/sanctification'
 import type { Sanctification } from './sanctification/sanctification'
 import { equivalent } from './sanctification/equivalence'
@@ -135,6 +136,11 @@ export type WorkbenchAction =
   | 'PERFECT_ESSENCE_GROUNDING'
   | 'PERFECT_ESSENCE_OPULENCE'
   | 'ESSENCE_BREACH'
+  | 'PROTECTIVE_ALLOY'
+  | 'CELESTIAL_ALLOY'
+  | 'TRANSCENDENT_ALLOY'
+  | 'THE_RUNEBINDERS_ALLOY'
+  | 'THE_RUNEFATHERS_ALLOY'
   | 'RUNIC_ALLOY'
   | 'EXPANSIVE_ALLOY'
   | 'CYCLONIC_ALLOY'
@@ -469,6 +475,11 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Perfect_Essence_of_Grounding: 'PERFECT_ESSENCE_GROUNDING',
   Perfect_Essence_of_Opulence: 'PERFECT_ESSENCE_OPULENCE',
   Essence_of_the_Breach: 'ESSENCE_BREACH',
+  Protective_Alloy: 'PROTECTIVE_ALLOY',
+  Celestial_Alloy: 'CELESTIAL_ALLOY',
+  Transcendent_Alloy: 'TRANSCENDENT_ALLOY',
+  The_Runebinders_Alloy: 'THE_RUNEBINDERS_ALLOY',
+  The_Runefathers_Alloy: 'THE_RUNEFATHERS_ALLOY',
   Runic_Alloy: 'RUNIC_ALLOY',
   Expansive_Alloy: 'EXPANSIVE_ALLOY',
   Cyclonic_Alloy: 'CYCLONIC_ALLOY',
@@ -621,6 +632,11 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   PERFECT_ESSENCE_GROUNDING: 'Perfect Essence of Grounding',
   PERFECT_ESSENCE_OPULENCE: 'Perfect Essence of Opulence',
   ESSENCE_BREACH: 'Essence of the Breach',
+  PROTECTIVE_ALLOY: 'Protective Alloy',
+  CELESTIAL_ALLOY: 'Celestial Alloy',
+  TRANSCENDENT_ALLOY: 'Transcendent Alloy',
+  THE_RUNEBINDERS_ALLOY: 'The Runebinders Alloy',
+  THE_RUNEFATHERS_ALLOY: 'The Runefathers Alloy',
   RUNIC_ALLOY: 'Runic Alloy',
   EXPANSIVE_ALLOY: 'Expansive Alloy',
   CYCLONIC_ALLOY: 'Cyclonic Alloy',
@@ -663,6 +679,7 @@ for (const [id, base] of Object.entries(currencyActions)) {
   }
 }
 export const workbenchOmens = [
+  { id: 'Omen_of_Light', trigger: 'ANNULMENT' },
   {
     id: 'Omen_of_Sanctification',
     effect: 'Sanctify a Rare item',
@@ -1100,26 +1117,31 @@ export async function applyCurrency(
     (b) =>
       (workbenchJewelBases as Record<string, string>)[b] === state.baseItemId,
   )
-  const replacementTargets = action.includes('LIQUID_')
-    ? baseName
-      ? ((liquidTargets as Record<string, Record<string, string[]>>)[
-          baseName
-        ]?.[action] ?? [])
-      : []
-    : reviewedTargets
-      ? (reviewedTargets.replacements[action] ??
-        ([
-          'PERFECT_ESSENCE_GROUNDING',
-          'PERFECT_ESSENCE_OPULENCE',
-          'ESSENCE_ABYSS',
-        ].includes(action)
-          ? stockyReplacementTargets[action]
-          : []) ??
-        [])
-      : ((state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-          ? (stockyReplacementTargets[action] ??
-            replacementEssenceModifiers[action])
-          : replacementEssenceModifiers[action]) ?? [])
+  const equipmentTargets = (
+    equipmentCurrencies.targets as Record<string, Record<string, string[]>>
+  )[state.baseItemId]?.[action]
+  const replacementTargets =
+    equipmentTargets ??
+    (action.includes('LIQUID_')
+      ? baseName
+        ? ((liquidTargets as Record<string, Record<string, string[]>>)[
+            baseName
+          ]?.[action] ?? [])
+        : []
+      : reviewedTargets
+        ? (reviewedTargets.replacements[action] ??
+          ([
+            'PERFECT_ESSENCE_GROUNDING',
+            'PERFECT_ESSENCE_OPULENCE',
+            'ESSENCE_ABYSS',
+          ].includes(action)
+            ? stockyReplacementTargets[action]
+            : []) ??
+          [])
+        : ((state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+            ? (stockyReplacementTargets[action] ??
+              replacementEssenceModifiers[action])
+            : replacementEssenceModifiers[action]) ?? []))
   const sameModifiers = (
     a: ConcreteItem['explicits'],
     b: ConcreteItem['explicits'],
@@ -1199,9 +1221,6 @@ export async function applyCurrency(
       topBase(reviewedKey ?? '')?.family !== 'belts' &&
       state.baseItemId !== 'Metadata/Items/Belts/FourBelt1') ||
     (v.applied &&
-      action === 'DIVINE' &&
-      state.baseItemId === 'Metadata/Items/Belts/FourBelt1') ||
-    (v.applied &&
       action === 'PERFECT_ESSENCE_MIND' &&
       state.baseItemId !== 'Metadata/Items/Rings/FourRing1' &&
       !['rings', 'amulets'].includes(
@@ -1213,7 +1232,6 @@ export async function applyCurrency(
       !['helmet', 'helmets'].includes(
         topBase(reviewedKey ?? '')?.family ?? '',
       )) ||
-    (v.applied && action === 'PRISMATIC_ALLOY' && state.itemLevel < 45) ||
     (v.applied &&
       [
         'PERFECT_ESSENCE_BODY',
@@ -1222,14 +1240,6 @@ export async function applyCurrency(
       ].includes(action) &&
       state.baseItemId !== 'Metadata/Items/Armours/BodyArmours/FourBodyStr1' &&
       topBase(reviewedKey ?? '')?.family !== 'body') ||
-    (v.applied &&
-      ['EXPANSIVE_ALLOY', 'ADAPTIVE_ALLOY', 'SOVEREIGN_ALLOY'].includes(
-        action,
-      ) &&
-      state.itemLevel < 25) ||
-    (v.applied &&
-      ['CYCLONIC_ALLOY', 'MYSTIC_ALLOY', 'SWIFT_ALLOY'].includes(action) &&
-      state.itemLevel < 45) ||
     (v.applied &&
       [
         'PERFECT_ESSENCE_MIND',
@@ -1252,24 +1262,23 @@ export async function applyCurrency(
       ].includes(action) &&
       state.itemLevel < 72) ||
     (v.applied &&
-      [
-        'ESSENCE_HORROR',
-        'EXPANSIVE_ALLOY',
-        'CYCLONIC_ALLOY',
-        'MYSTIC_ALLOY',
-        'ADAPTIVE_ALLOY',
-        'SWIFT_ALLOY',
-        'SOVEREIGN_ALLOY',
-        'PRISMATIC_ALLOY',
-        'PERFECT_ESSENCE_GROUNDING',
-        'PERFECT_ESSENCE_OPULENCE',
-      ].includes(action) &&
-      state.baseItemId !== 'Metadata/Items/Armours/Gloves/FourGlovesStr1' &&
-      state.baseItemId !==
-        'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1' &&
-      !['bows', 'crossbows'].includes(
-        topBase(reviewedKey ?? '')?.family ?? '',
-      )) ||
+      (action.endsWith('_ALLOY') || action === 'ESSENCE_HORROR') &&
+      (!equipmentTargets?.length ||
+        !equipmentTargets.every((id) => {
+          const expected = equipmentCurrencies.definitions.find(
+            (d) => d.id === id,
+          )
+          const actual = definitions[id]
+          return (
+            expected &&
+            actual &&
+            state.itemLevel >= expected.requiredItemLevel &&
+            (actual.sourceUrl == null
+              ? !id.startsWith('equipment:')
+              : actual.sourceUrl === expected.sourceUrl) &&
+            JSON.stringify(actual.stats) === JSON.stringify(expected.stats)
+          )
+        }))) ||
     v.action !== action ||
     typeof v.applied !== 'boolean' ||
     typeof v.reason !== 'string' ||
@@ -1497,16 +1506,7 @@ export async function applyCurrency(
   if (v.applied && replacementTargets.length > 0) {
     const matching = workbenchOmens.filter(
       (o) =>
-        ![
-          'RUNIC_ALLOY',
-          'ADAPTIVE_ALLOY',
-          'SWIFT_ALLOY',
-          'SOVEREIGN_ALLOY',
-          'PRISMATIC_ALLOY',
-          'EXPANSIVE_ALLOY',
-          'CYCLONIC_ALLOY',
-          'MYSTIC_ALLOY',
-        ].includes(action) &&
+        !action.endsWith('_ALLOY') &&
         !action.includes('LIQUID_') &&
         o.trigger === 'ESSENCE_HYSTERIA' &&
         activeOmens.includes(o.id),
@@ -1614,6 +1614,35 @@ export async function applyCurrency(
       throw new Error(
         'Could not verify the essence replacement. Your item is unchanged. Please retry.',
       )
+    if (equipmentTargets) {
+      const expected = equipmentCurrencies.definitions.find(
+        (d) => d.id === added?.modifierId,
+      )
+      const range = expected?.stats.length === 1 ? expected.stats[0] : undefined
+      if (range) {
+        const models = v.assumptions.filter((a) =>
+          [
+            'uniform-integer-roll-v1',
+            'assumed-source-integer-roll-v1',
+          ].includes(a.id),
+        )
+        if (
+          models.length !== (range.min === range.max ? 0 : 1) ||
+          models.some(
+            (a) =>
+              a.candidateUnit !== range.id ||
+              a.min !== range.min ||
+              a.max !== range.max ||
+              a.n !== range.max - range.min + 1 ||
+              a.candidates.length !== 0 ||
+              a.sourceUrl !== expected!.sourceUrl,
+          )
+        )
+          throw new Error(
+            'Could not verify the equipment modifier roll model. Your item is unchanged. Please retry.',
+          )
+      }
+    }
     if (
       [
         'PERFECT_ESSENCE_MIND',
@@ -1640,7 +1669,8 @@ export async function applyCurrency(
         'SWIFT_ALLOY',
         'SOVEREIGN_ALLOY',
         'PRISMATIC_ALLOY',
-      ].includes(action)
+      ].includes(action) &&
+      (!equipmentTargets || added?.modifierId.startsWith('stocky-mitts:'))
     ) {
       const range = definitions[added!.modifierId]?.stats?.[0]
       const expectedSource =
@@ -1878,6 +1908,26 @@ export async function applyCurrency(
       throw new Error(
         'Could not verify the Whittling removal candidates. Your item is unchanged. Please retry.',
       )
+  }
+  if (
+    v.applied &&
+    action === 'ANNULMENT' &&
+    activeOmens.includes('Omen_of_Light')
+  ) {
+    const removed = v.events.filter((event) => event.kind === 'REMOVE')
+    const marked = state.desecrated?.map((slot) => slot.modifierId) ?? []
+    if (
+      removed.length !== 1 ||
+      !marked.includes(removed[0]!.modifierId) ||
+      v.events.length !== 1 ||
+      v.consumedOmens.length !== 1 ||
+      v.consumedOmens[0] !== 'Omen_of_Light' ||
+      !sameModifiers(
+        state.explicits.filter((m) => m.modifierId !== removed[0]!.modifierId),
+        next.explicits,
+      )
+    )
+      throw new Error('Could not verify the Desecrated modifier removal.')
   }
   const legacyFive = legacyFiveIds.filter(
     (id) =>

@@ -1,0 +1,42 @@
+[
+  {
+    "locale": "en",
+    "url": "https://poe2db.tw/us/Augment",
+    "sha256": "254b9b59780e5651c07a87e9130806180f4a6870f115c015c77fe01a363bb906"
+  },
+  {
+    "locale": "ko",
+    "url": "https://poe2db.tw/kr/Augment",
+    "sha256": "6712b1c9b674d6be9163a183b0c30e623099fe3a55248d4b6757379b278f1387"
+  },
+  {
+    "locale": "zh-CN",
+    "url": "https://poe2db.tw/cn/Augment",
+    "sha256": "f1e48626ba4827d2b8b3cd9a0a257e8815643335ecd90dee202c1db8fcefca54"
+  },
+  {
+    "locale": "zh-TW",
+    "url": "https://poe2db.tw/tw/Augment",
+    "sha256": "68765acd4b8ab762b358af3f0b23e5c5cf485b542a004b292de3995db0939d5d"
+  },
+  {
+    "locale": "ja",
+    "url": "https://poe2db.tw/jp/Augment",
+    "sha256": "a6b365470e77e36a676d8abfdaf9073efab8ef05c18df3f66bce9b2df6754653"
+  },
+  {
+    "locale": "es",
+    "url": "https://poe2db.tw/sp/Augment",
+    "sha256": "c5046d4ab4e78df12ccd31c98391f8b742e653345a9f18c380220d8978d472dc"
+  },
+  {
+    "locale": "ru",
+    "url": "https://poe2db.tw/ru/Augment",
+    "sha256": "5beb1e5594103a366321726c164b5c3a840e0535f006e39e66c2f951568ee310"
+  },
+  {
+    "locale": "th",
+    "url": "https://poe2db.tw/th/Augment",
+    "sha256": "eecee6bdb2262396019581cb8c42875e07966d67d815de641b0cdb09f29a51f1"
+  }
+]

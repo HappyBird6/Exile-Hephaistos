@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "snapshotId": "poe2db-rawhide-belt-normal-20261003-2ee4229e650b",
+    "snapshotId": "poe2db-rawhide-belt-implicit-v1-d26333b87a17",
     "retrievedAt": "2026-10-03T16:47:38.798Z",
     "sourceUrl": "https://poe2db.tw/us/Belts",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
@@ -15,13 +15,39 @@
     "id": "Metadata/Items/Belts/FourBelt1",
     "name": "Rawhide Belt",
     "sourceUrl": "https://poe2db.tw/us/Rawhide_Belt",
-    "implicitModifierId": "",
+    "implicitModifierId": "rawhide-belt:implicit:base",
     "magicPrefixes": 1,
     "magicSuffixes": 1,
     "rarePrefixes": 3,
     "rareSuffixes": 3
   },
   "modifiers": [
+    {
+      "id": "rawhide-belt:implicit:base",
+      "name": "Rawhide Belt",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BeltFlaskRecovery"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "text": "(20—30)% increased Life Recovery from Flasks",
+      "stats": [
+        {
+          "id": "flask_life_to_recover_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Rawhide_Belt"
+    },
     {
       "id": "rawhide-belt:suffix:of-the-brute",
       "name": "of the Brute",

@@ -1,5 +1,6 @@
 // Product scope only; retained catalogs and saved films are never rewritten.
 export const deferredServiceIds = new Set([
+  'Liquid_Verisium',
   'Arcanists_Etcher',
   'Essence_of_Delirium',
   'Essence_of_Insanity',

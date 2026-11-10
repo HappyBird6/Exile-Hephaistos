@@ -48,6 +48,20 @@ class AutomaticCurrencyPolicyTest {
             "OMEN:SINISTRAL_CRYSTALLISATION",
             "OMEN:DEXTRAL_CRYSTALLISATION");
     for (var currency : WorkbenchCurrency.values()) {
+      if (Set.of(
+              "PROTECTIVE_ALLOY",
+              "CELESTIAL_ALLOY",
+              "TRANSCENDENT_ALLOY",
+              "THE_RUNEBINDERS_ALLOY",
+              "THE_RUNEFATHERS_ALLOY")
+          .contains(currency.name())) {
+        assertThat(
+                policy.evaluate(
+                    currency.name(), new Context("bows", Purpose.GOAL_ACQUISITION, currency)))
+            .isEqualTo(Verdict.EXCLUDED);
+        assertThat(policy.candidates()).noneMatch(e -> e.id().equals(currency.name()));
+        continue;
+      }
       String sourceId =
           switch (currency) {
             case ARMOURERS_SCRAP -> "EXTRA:Armourers_Scrap";
@@ -57,6 +71,14 @@ class AutomaticCurrencyPolicyTest {
       assertThat(policy.document().entries()).anyMatch(e -> e.id().equals(sourceId));
     }
     for (var omen : WorkbenchOmen.values()) {
+      if (omen == WorkbenchOmen.LIGHT) {
+        assertThat(
+                policy.evaluate(
+                    "OMEN:LIGHT",
+                    new Context("amulets", Purpose.GOAL_ACQUISITION, WorkbenchCurrency.ANNULMENT)))
+            .isEqualTo(Verdict.EXCLUDED);
+        continue;
+      }
       if (omen == WorkbenchOmen.SANCTIFICATION) {
         assertThat(
                 policy.evaluate(
