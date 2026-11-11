@@ -46,7 +46,7 @@ class RequestLogStoreTest {
                 "Asia/Seoul",
                 40,
                 30,
-                1073741824L,
+                maximum,
                 100000));
     return new RequestLogStore(jdbc, transactions, new ObjectMapper(), settings);
   }
