@@ -27,7 +27,7 @@ if (result.kind === 'completed' || result.kind === 'partial') {
   activeOmens: string[]
   pattern: string
   locale: Locale
-  maximumUses?: number // default 100, cap 1000
+  maximumUses?: number // defaults and bounds: shared/contracts/public.ts
 }
 ```
 
@@ -41,16 +41,16 @@ if (result.kind === 'completed' || result.kind === 'partial') {
 - `invalid-response`: binding/schema/evidence 불일치. fallback 결과나 receipt가 없다.
 
 `lastRejection`은 `{code:'CURRENCY_INAPPLICABLE', reason}` 또는 null,
-`failure`는 `{code:'REPEAT_EXECUTION_FAILED', stage:'APPLY'|'MATCHER'}` 또는 null이다.
+`failure`는 `{code:'REPEAT_EXECUTION_FAILED', stage:'APPLY'|'MATCHER'|'STOP_SIGNAL'}` 또는 null이다.
 Page는 code와 소유 locale 문구를 사용하며 임의 응답 문자열을 오류 UI로 그대로 전달하지 않는다.
 
 ## 요청·응답 검증
 
 요청과 catalog를 await 전에 복제한다. 요청 body를 `JSON.stringify`로 정확히 한 번
 만들고 그 문자열의 UTF-8 bytes에 SHA256을 계산한다. fetch에는 같은 문자열을 보낸다.
-기본 N을 생략한 요청은 body에도 생략하며 응답의 유효 N=100을 확인한다.
+기본 N을 생략한 요청은 body에도 생략하며 응답의 공용 계약의 생략 기본값을 확인한다.
 서버 requestId/raw digest/action/locale/N/matcherVersion과 HTTP/body ruleset을 대조한다.
-자동 retry·서버 idempotency·cache는 없다.
+클라이언트는 자동 retry하지 않는다. 서버는 요청 ID 영수증과 취소·시간 예산을 관리한다.
 
 matcherVersion은 `chaos-repeat-re2j-1.8-find-ci-v1`이다. frontend에서 사용자 regex를
 JavaScript RegExp로 다시 실행하지 않는다. MATCH는 신뢰된 서버의 매칭 결과이며,

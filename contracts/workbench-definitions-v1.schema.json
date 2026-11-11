@@ -18,8 +18,8 @@
     },
     "currencies": {
       "type": "array",
-      "minItems": 160,
-      "maxItems": 160,
+      "minItems": 171,
+      "maxItems": 171,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -196,7 +196,18 @@
               "GREATER_ESSENCE_OPULENCE",
               "LESSER_ESSENCE_INFINITE",
               "ESSENCE_INFINITE",
-              "GREATER_ESSENCE_INFINITE"
+              "GREATER_ESSENCE_INFINITE",
+              "VAAL_ARMOURERS_INFUSER",
+              "VAAL_BLACKSMITHS_INFUSER",
+              "VAAL_ARCANISTS_INFUSER",
+              "VAAL_CATALYSING_INFUSER",
+              "ARMOURERS_SCRAP",
+              "BLACKSMITHS_WHETSTONE",
+              "PROTECTIVE_ALLOY",
+              "CELESTIAL_ALLOY",
+              "TRANSCENDENT_ALLOY",
+              "THE_RUNEBINDERS_ALLOY",
+              "THE_RUNEFATHERS_ALLOY"
             ]
           },
           "baseAction": {
@@ -263,8 +274,8 @@
     },
     "omens": {
       "type": "array",
-      "minItems": 18,
-      "maxItems": 18,
+      "minItems": 20,
+      "maxItems": 20,
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -295,7 +306,9 @@
               "SINISTRAL_ERASURE",
               "DEXTRAL_ERASURE",
               "WHITTLING",
-              "BLESSED"
+              "BLESSED",
+              "SANCTIFICATION",
+              "LIGHT"
             ]
           },
           "id": {

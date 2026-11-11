@@ -31,7 +31,8 @@ class RequestLogStoreTest {
     var settings = mock(BackendSettings.class);
     when(settings.adminLogs())
         .thenReturn(
-            new BackendSettings.AdminLogs(7, 10000, 500, 2000, 60000, 5000, path.toString()));
+            new BackendSettings.AdminLogs(
+                7, 10000, 500, 2000, 60000, 5000, path.toString(), "Asia/Seoul", 40));
     return new RequestLogStore(jdbc, transactions, new ObjectMapper(), settings);
   }
 

@@ -53,3 +53,8 @@ Docker 서비스는 localhost에만 노출한다. 관리자 API는 비밀번호 
 아이템 JSON 기본값은 `workbench/api/ItemStateWireDefaults`에서 공통 처리한다. 선택적 boolean 상태 플래그는 생략 시 false이고, 명시적 null/문자열은 거절한다. 반복 API만의 아이템 필드 예외나 기본값 목록을 추가하지 않는다. 새 필드의 기본값이 false가 아니거나 수치·객체라면 과거 저장 상태의 의미를 먼저 정하고 공통 읽기 계약에 명시한다.
 
 상태 필드나 JSON 직렬화 정책 변경 시 실제 Spring 직렬화 결과를 단일·반복 제작의 공통 읽기 경로에 재입력하는 계약 검사를 수행한다. 카오스 반복은 일반/훼손 양쪽, 상태 필드 생략·명시·잘못된 타입, 최대 1,000회 실행, 처리 후 상태 보존을 포함한다. 규칙/지원 범위/표시 정책 변경은 관련 버전·해시·현재 안내 문구도 함께 검토한다.
+
+
+## 가변 정책의 원본
+
+API 횟수·본문·패턴 제한과 지원 언어는 `backend/src/main/resources/contracts/`, 게임 데이터는 backend catalog/crafting JSON, 운영 값은 `backend-settings.yaml`에서 관리한다. frontend mirror·Nginx 반복 본문 제한·지원 범위 요약은 원본에서 생성하고 직접 수정하지 않는다. 원본을 바꾼 뒤 `node scripts/sync-public-contracts.mjs --write` 및 관련 mirror/seal 갱신 후 `--check`로 drift를 확인한다. 절차는 [데이터 유지보수](docs/catalog-data-maintenance.md)의 마지막 절을 따른다. 새 정책은 의미가 같은 값의 소비처를 연결하며 서로 다른 도메인의 우연히 같은 숫자를 하나로 묶지 않는다. 과거 fixture/evidence는 현재 정책으로 덮어쓰지 않는다.

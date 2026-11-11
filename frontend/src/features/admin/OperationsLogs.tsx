@@ -5,13 +5,7 @@ import { adminMessages } from './messages'
 import { logMessages } from './logMessages'
 export type AdminSection =
   'dashboard' | 'requests' | 'errors' | 'limited' | 'archives'
-const koreaDate = (now = new Date()) =>
-  new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Seoul',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(now)
+import { logCalendar, retainedDate, type LogPolicy } from './logCalendar'
 type Minute = {
   minute: string
   requests: number
@@ -47,15 +41,18 @@ type Logs = {
 type Archive = {
   rows: { id: string; filename: string; row_count: number; bytes: number }[]
   totals: { files: number; bytes: number; rows: number }
+  pageSize: number
   freeBytes: number
 }
 const emptyFilters = { ip: '', visitor: '', route: '', status: '' }
 export function OperationsLogs({
+  policy,
   credential,
   epoch,
   section,
   onSection,
 }: {
+  policy: LogPolicy
   credential: string
   epoch: number
   section: AdminSection
@@ -64,32 +61,37 @@ export function OperationsLogs({
   const { locale } = useI18n(),
     t = logMessages[locale],
     a = adminMessages[locale]
-  const [today, setToday] = useState(koreaDate),
-    [date, setDate] = useState(koreaDate),
+  const [calendar, setCalendar] = useState(() => logCalendar(policy)),
+    [date, setDate] = useState(() => logCalendar(policy).today),
     [page, setPage] = useState(1),
     [draft, setDraft] = useState(emptyFilters),
     [filters, setFilters] = useState(emptyFilters),
-    [hour, setHour] = useState(
-      new Date().toLocaleString('en-GB', {
-        timeZone: 'Asia/Seoul',
-        hour: '2-digit',
-        hour12: false,
-      }),
-    ),
+    [hour, setHour] = useState(() => logCalendar(policy).hour),
     [downloadError, setDownloadError] = useState('')
   useEffect(() => {
     const timer = window.setInterval(() => {
-      const next = koreaDate()
-      setToday((previous) => {
-        if (previous !== next) {
-          setDate((selected) => (selected === previous ? next : selected))
+      const next = logCalendar(policy)
+      setCalendar((previous) => {
+        if (
+          previous.today !== next.today ||
+          previous.minimum !== next.minimum
+        ) {
+          setDate((selected) => retainedDate(selected, previous.today, next))
           setPage(1)
         }
-        return next
+        if (previous.hour !== next.hour || previous.today !== next.today)
+          setHour((selected) =>
+            selected === previous.hour ? next.hour : selected,
+          )
+        return previous.today === next.today &&
+          previous.hour === next.hour &&
+          previous.minimum === next.minimum
+          ? previous
+          : next
       })
     }, 1000)
     return () => clearInterval(timer)
-  }, [])
+  }, [policy.previousDays, policy.timeZone, policy])
   const [previousSection, setPreviousSection] = useState(section)
   if (previousSection !== section) {
     setPreviousSection(section)
@@ -97,8 +99,7 @@ export function OperationsLogs({
     setDraft(emptyFilters)
     setFilters(emptyFilters)
   }
-  const minimum = new Date(today + 'T00:00:00Z')
-  minimum.setUTCDate(minimum.getUTCDate() - 7)
+  const { today, minimum } = calendar
   const get = async <T,>(path: string, signal: AbortSignal): Promise<T> => {
     const response = await fetch(path, {
       signal,
@@ -176,7 +177,7 @@ export function OperationsLogs({
                 </article>
               ))}
             </div>
-            {pagination(archives.data.totals.files, 40)}
+            {pagination(archives.data.totals.files, archives.data.pageSize)}
             <ul className="admin-archive-list">
               {archives.data.rows.map((row) => (
                 <li key={row.id}>
@@ -242,7 +243,7 @@ export function OperationsLogs({
           <input
             aria-label={t.date}
             type="date"
-            min={minimum.toISOString().slice(0, 10)}
+            min={minimum}
             max={today}
             value={date}
             onChange={(e) => {
@@ -258,7 +259,9 @@ export function OperationsLogs({
           {a.refresh}
         </button>
       </div>
-      <p className="admin-note">{t.retention}</p>
+      <p className="admin-note">
+        {t.retention.replace('{days}', String(policy.previousDays))}
+      </p>
       {query.error && <p role="alert">{query.error.message}</p>}
       {data && (
         <>
@@ -452,7 +455,7 @@ export function OperationsLogs({
                   </section>
                 ))}
               </div>
-              {pagination(data.summary.requests ?? 0, 40)}
+              {pagination(data.summary.requests ?? 0, data.pageSize)}
               <div className="admin-table-scroll">
                 <table className="admin-log-table">
                   <thead>
@@ -476,7 +479,7 @@ export function OperationsLogs({
                         <td>
                           {new Date(row.occurred_at).toLocaleTimeString(
                             locale,
-                            { timeZone: 'Asia/Seoul', hour12: false },
+                            { timeZone: policy.timeZone, hour12: false },
                           )}
                         </td>
                         <td>{row.method}</td>

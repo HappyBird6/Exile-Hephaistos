@@ -22,6 +22,7 @@ function renderLogs(section: 'requests' | 'dashboard' = 'requests') {
   return render(
     <QueryClientProvider client={client}>
       <OperationsLogs
+        policy={{ previousDays: 7, timeZone: 'Asia/Seoul', pageSize: 40 }}
         credential="Basic test"
         epoch={1}
         section={section}
@@ -80,6 +81,11 @@ it('switches the selected current day at Korean midnight', async () => {
     await vi.advanceTimersByTimeAsync(2000)
   })
   expect(screen.getByLabelText('Date (Korea)')).toHaveValue('2026-11-11')
+  // The new day's query resolves after React commits the date change.
+  await act(async () => {
+    await vi.advanceTimersByTimeAsync(20)
+  })
+  expect(screen.getByLabelText('Hour')).toHaveValue('00')
   expect(screen.getByLabelText('Date (Korea)')).toHaveAttribute(
     'min',
     '2026-11-04',

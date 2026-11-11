@@ -19,7 +19,7 @@
     "test:translation-coverage": "node ../scripts/check-display-coverage.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check:workbench-data": "node ../scripts/sync-workbench-data.mjs --check && node ../scripts/update-ruleset-manifest.mjs --check",
+    "check:workbench-data": "node ../scripts/sync-public-contracts.mjs --check && node ../scripts/sync-workbench-data.mjs --check && node ../scripts/update-ruleset-manifest.mjs --check",
     "prebuild": "npm run check:workbench-data && node ../scripts/check-display-coverage.mjs"
   },
   "dependencies": {

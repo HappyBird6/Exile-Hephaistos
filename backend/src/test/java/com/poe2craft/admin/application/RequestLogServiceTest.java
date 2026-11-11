@@ -14,7 +14,9 @@ class RequestLogServiceTest {
     var store = mock(RequestLogRepository.class);
     var settings = mock(BackendSettings.class);
     when(settings.adminLogs())
-        .thenReturn(new BackendSettings.AdminLogs(7, 100, 50, 2000, 60000, 5000, "unused"));
+        .thenReturn(
+            new BackendSettings.AdminLogs(
+                7, 100, 50, 2000, 60000, 5000, "unused", "Asia/Seoul", 40));
     var before =
         new RequestLogService(
             store, settings, Clock.fixed(Instant.parse("2026-11-10T14:59:59Z"), ZoneOffset.UTC));
@@ -44,7 +46,9 @@ class RequestLogServiceTest {
     var store = mock(RequestLogRepository.class);
     var settings = mock(BackendSettings.class);
     when(settings.adminLogs())
-        .thenReturn(new BackendSettings.AdminLogs(7, 100, 50, 2000, 60000, 5000, "unused"));
+        .thenReturn(
+            new BackendSettings.AdminLogs(
+                7, 100, 50, 2000, 60000, 5000, "unused", "Asia/Seoul", 40));
     when(store.query(any())).thenReturn(Map.of());
     var service = new RequestLogService(store, settings);
     var event =

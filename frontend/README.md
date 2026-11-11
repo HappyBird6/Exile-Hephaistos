@@ -1,6 +1,6 @@
 # Frontend
 
-React·TypeScript strict·Vite 기반 제작 작업대다. `/`는 Workbench·최대 6옵션 Craft Support, `/admin`은 관리 도구가 없는 최소 페이지다. 표시 언어는 English, 한국어, 简体中文, 繁體中文, 日本語, Español이며 기본 언어는 한국어다. 영어 아이템 복사 텍스트 파서는 UI 번역과 별개다.
+React·TypeScript strict·Vite 기반 제작 작업대다. `/`는 Workbench·최대 6옵션 Craft Support, `/admin`은 서버 비밀번호로 보호되는 운영 대시보드·요청 로그·압축 파일 다운로드 페이지다. 지원 언어와 기본 언어는 공용 locale 계약을 따른다. 영어 아이템 복사 텍스트 파서는 UI 번역과 별개다.
 
 ## 구조
 

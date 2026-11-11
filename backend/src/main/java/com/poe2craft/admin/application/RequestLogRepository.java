@@ -5,7 +5,6 @@ import java.time.*;
 import java.util.*;
 
 public interface RequestLogRepository {
-  ZoneId SEOUL = ZoneId.of("Asia/Seoul");
 
   record Filters(
       LocalDate date,

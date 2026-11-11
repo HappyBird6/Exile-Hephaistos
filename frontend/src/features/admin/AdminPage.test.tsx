@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { expect, it, vi } from 'vitest'
 import { AdminPage } from './AdminPage'
 const dashboard = {
+  logPolicy: { previousDays: 7, timeZone: 'Asia/Seoul', pageSize: 40 },
   observedAt: '2026-11-11T01:00:00Z',
   uptimeSeconds: 600,
   requests: 42,

@@ -1,3 +1,4 @@
+import { repeatContract } from '../../../../shared/contracts/public'
 import { createHash } from 'node:crypto'
 import { initialFixture } from '../../../../shared/test/craftingFixtures'
 import { concreteInitial } from '../../workbenchApi'
@@ -112,7 +113,7 @@ export function envelopeFor(
       requestSha256: createHash('sha256').update(body, 'utf8').digest('hex'),
       action: request.action,
       locale: request.locale,
-      maximumUses: request.maximumUses ?? 100,
+      maximumUses: request.maximumUses ?? repeatContract.defaultUses,
       matcherVersion: chaosRepeatMatcherVersion,
     },
     finalState,

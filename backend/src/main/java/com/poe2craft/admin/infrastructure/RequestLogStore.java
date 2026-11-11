@@ -16,7 +16,8 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 @Repository
 public class RequestLogStore implements com.poe2craft.admin.application.RequestLogRepository {
-  public static final ZoneId SEOUL = ZoneId.of("Asia/Seoul");
+  private final ZoneId zone;
+  private final int pageSize;
   private final JdbcTemplate jdbc;
   private final TransactionTemplate transaction;
   private final ObjectMapper json;
@@ -27,6 +28,8 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
       PlatformTransactionManager manager,
       ObjectMapper json,
       BackendSettings settings) {
+    zone = ZoneId.of(settings.adminLogs().timeZone());
+    pageSize = settings.adminLogs().pageSize();
     this.jdbc = jdbc;
     this.transaction = new TransactionTemplate(manager);
     this.json = json;
@@ -57,8 +60,8 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
   public Map<String, Object> query(Filters f) {
     var args = new ArrayList<Object>();
     String where = " WHERE occurred_at >= ? AND occurred_at < ?";
-    args.add(Timestamp.from(f.date().atStartOfDay(SEOUL).toInstant()));
-    args.add(Timestamp.from(f.date().plusDays(1).atStartOfDay(SEOUL).toInstant()));
+    args.add(Timestamp.from(f.date().atStartOfDay(zone).toInstant()));
+    args.add(Timestamp.from(f.date().plusDays(1).atStartOfDay(zone).toInstant()));
     if (f.kind().equals("errors")) where += " AND status >= 500";
     if (f.kind().equals("limited")) where += " AND status = 429";
     if (!f.ip().isBlank()) {
@@ -87,11 +90,13 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
             parameters);
     var minutes =
         jdbc.queryForList(
-            "SELECT to_char(occurred_at AT TIME ZONE 'Asia/Seoul','HH24:MI') AS minute, count(*) AS requests, count(*) FILTER(WHERE status >=500) AS errors, count(*) FILTER(WHERE status=429) AS limited, round(avg(duration_ms)) AS average_ms"
+            "SELECT to_char(occurred_at AT TIME ZONE ?,'HH24:MI') AS minute, count(*) AS requests, count(*) FILTER(WHERE status >=500) AS errors, count(*) FILTER(WHERE status=429) AS limited, round(avg(duration_ms)) AS average_ms"
                 + table
                 + where
                 + " GROUP BY 1 ORDER BY 1",
-            parameters);
+            java.util.stream.Stream.concat(
+                    java.util.stream.Stream.of(zone.getId()), Arrays.stream(parameters))
+                .toArray());
     var routes =
         jdbc.queryForList(
             "SELECT route AS value, count(*) AS requests, count(*) FILTER(WHERE status>=500) AS errors, round(avg(duration_ms)) AS average_ms"
@@ -113,8 +118,8 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
                 + where
                 + " AND visitor_id IS NOT NULL GROUP BY visitor_id ORDER BY requests DESC,visitor_id LIMIT 10",
             parameters);
-    args.add(40);
-    args.add((f.page() - 1) * 40);
+    args.add(pageSize);
+    args.add((f.page() - 1) * pageSize);
     var rows =
         jdbc.queryForList(
             "SELECT id, occurred_at, method,path,route,status,duration_ms,client_ip,visitor_id,page_views,error_type,user_agent"
@@ -141,7 +146,7 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
         "page",
         f.page(),
         "pageSize",
-        40,
+        pageSize,
         "date",
         f.date().toString());
   }
@@ -161,10 +166,10 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
               var dayEnd =
                   ((Timestamp) oldest.getFirst().get("occurred_at"))
                       .toInstant()
-                      .atZone(SEOUL)
+                      .atZone(zone)
                       .toLocalDate()
                       .plusDays(1)
-                      .atStartOfDay(SEOUL)
+                      .atStartOfDay(zone)
                       .toInstant();
               var rows =
                   jdbc.queryForList(
@@ -176,7 +181,7 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
               var last = ((Timestamp) rows.getLast().get("occurred_at")).toInstant();
               String filename =
                   "requests-"
-                      + first.atZone(SEOUL).toLocalDate()
+                      + first.atZone(zone).toLocalDate()
                       + "-"
                       + rows.getFirst().get("id")
                       + ".jsonl.gz";
@@ -238,8 +243,9 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
   public Map<String, Object> archives(int page) {
     var rows =
         jdbc.queryForList(
-            "SELECT id,filename,created_at,first_event_at,last_event_at,row_count,bytes FROM operations.log_archive ORDER BY created_at DESC,id LIMIT 40 OFFSET ?",
-            (page - 1) * 40);
+            "SELECT id,filename,created_at,first_event_at,last_event_at,row_count,bytes FROM operations.log_archive ORDER BY created_at DESC,id LIMIT ? OFFSET ?",
+            pageSize,
+            (page - 1) * pageSize);
     for (var row : rows)
       for (var key : List.of("created_at", "first_event_at", "last_event_at"))
         row.computeIfPresent(key, (k, v) -> ((Timestamp) v).toInstant().toString());
@@ -252,7 +258,8 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
       free = Files.getFileStore(directory).getUsableSpace();
     } catch (IOException ignored) {
     }
-    return Map.of("rows", rows, "totals", totals, "page", page, "freeBytes", free);
+    return Map.of(
+        "rows", rows, "totals", totals, "page", page, "pageSize", pageSize, "freeBytes", free);
   }
 
   public Path download(UUID id) {

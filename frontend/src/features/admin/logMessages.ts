@@ -31,7 +31,7 @@ const en = {
   hour: 'Hour',
   allDay: 'Full day',
   retention:
-    'Today and the previous 7 days · Korea time. Older records are archived before database deletion.',
+    'Today and the previous {days} days · Korea time. Older records are archived before database deletion.',
   anonymous:
     'Visitors are counted by anonymous browser IDs from page views. They are not logged-in accounts or a verified human count.',
   archived:
@@ -83,7 +83,7 @@ export const logMessages: Record<Locale, LogText> = {
     hour: '시간대',
     allDay: '하루 전체',
     retention:
-      '한국시간 오늘과 지난 7일을 조회합니다. 이전 기록은 파일 저장 후 DB에서 삭제합니다.',
+      '한국시간 오늘과 지난 {days}일을 조회합니다. 이전 기록은 파일 저장 후 DB에서 삭제합니다.',
     anonymous:
       '방문자는 페이지 조회의 익명 브라우저 식별자로 집계합니다. 로그인 계정 수나 실제 사람 수를 뜻하지 않습니다.',
     archived: 'DB 보관 기간이 지난 기록은 압축 JSONL 파일로 계속 보관합니다.',
@@ -131,7 +131,7 @@ export const logMessages: Record<Locale, LogText> = {
     hour: '時間帯',
     allDay: '一日全体',
     retention:
-      '韓国時間の今日と過去7日。以前の記録はファイル保存後にDBから削除します。',
+      '韓国時間の今日と過去{days}日。以前の記録はファイル保存後にDBから削除します。',
     anonymous:
       'ページ閲覧の匿名ブラウザーIDで集計します。アカウント数や実人数ではありません。',
     archived: '過去のログは圧縮JSONLファイルで保管します。',
@@ -179,7 +179,7 @@ export const logMessages: Record<Locale, LogText> = {
     hour: 'Hora',
     allDay: 'Día completo',
     retention:
-      'Hoy y los 7 días anteriores, hora de Corea. Los registros antiguos se archivan antes de borrarse de la BD.',
+      'Hoy y los {days} días anteriores, hora de Corea. Los registros antiguos se archivan antes de borrarse de la BD.',
     anonymous:
       'Visitantes por ID anónimo del navegador en vistas de página; no son cuentas ni personas verificadas.',
     archived: 'Los registros antiguos se conservan como JSONL comprimido.',
@@ -227,7 +227,7 @@ export const logMessages: Record<Locale, LogText> = {
     hour: 'Час',
     allDay: 'Весь день',
     retention:
-      'Сегодня и предыдущие 7 дней по времени Кореи. Старые записи удаляются из БД после архивирования.',
+      'Сегодня и предыдущие {days} дней по времени Кореи. Старые записи удаляются из БД после архивирования.',
     anonymous:
       'Посетители учитываются по анонимным ID браузера при просмотре страниц, а не по аккаунтам или проверенным людям.',
     archived: 'Старые журналы сохраняются в сжатых файлах JSONL.',
@@ -274,7 +274,8 @@ export const logMessages: Record<Locale, LogText> = {
     archiveStorage: '文件归档',
     hour: '时段',
     allDay: '全天',
-    retention: '按韩国时间查询今天及过去7天。旧记录归档成功后从数据库删除。',
+    retention:
+      '按韩国时间查询今天及过去{days}天。旧记录归档成功后从数据库删除。',
     anonymous: '按页面访问的匿名浏览器标识统计，不代表登录账户或真实人数。',
     archived: '旧日志以压缩JSONL文件持续保留。',
     filterHint: '选择API、IP或访客可筛选完整列表。',
@@ -320,7 +321,8 @@ export const logMessages: Record<Locale, LogText> = {
     archiveStorage: '檔案封存',
     hour: '時段',
     allDay: '全天',
-    retention: '依韓國時間查詢今天及過去7天。舊記錄封存成功後從資料庫刪除。',
+    retention:
+      '依韓國時間查詢今天及過去{days}天。舊記錄封存成功後從資料庫刪除。',
     anonymous: '依頁面訪問的匿名瀏覽器識別碼統計，不代表登入帳戶或實際人數。',
     archived: '舊日誌以壓縮JSONL檔案持續保留。',
     filterHint: '選擇API、IP或訪客可篩選完整列表。',
@@ -367,7 +369,7 @@ export const logMessages: Record<Locale, LogText> = {
     hour: 'ช่วงเวลา',
     allDay: 'ทั้งวัน',
     retention:
-      'วันนี้และ 7 วันก่อนหน้าตามเวลาเกาหลี ข้อมูลเก่าจะถูกลบจากฐานข้อมูลเมื่อเก็บไฟล์สำเร็จแล้ว',
+      'วันนี้และ {days} วันก่อนหน้าตามเวลาเกาหลี ข้อมูลเก่าจะถูกลบจากฐานข้อมูลเมื่อเก็บไฟล์สำเร็จแล้ว',
     anonymous:
       'นับจากรหัสเบราว์เซอร์แบบไม่ระบุตัวตนที่ดูหน้า ไม่ใช่บัญชีหรือจำนวนคนที่ยืนยันแล้ว',
     archived: 'เก็บบันทึกเก่าเป็นไฟล์ JSONL แบบบีบอัดต่อไป',

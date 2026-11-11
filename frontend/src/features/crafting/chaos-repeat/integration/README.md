@@ -1,8 +1,8 @@
 # Workbench Chaos repeat integration
 
-The 1000-use button is a mode toggle and does not use currency.
+The repeat button is a mode toggle and does not use currency.
 Existing stash/favorite selection and central-item use start CHAOS, GREATER_CHAOS and
-PERFECT_CHAOS batches only when enabled. The fixed maximum is 1000; a match stops early
+PERFECT_CHAOS batches only when enabled. The batch uses the shared maximum; a match stops early
 after at least one application. Other currencies retain the existing single-use path.
 
 Capture request identity, item/base revision, Film/cursor, locale, full active-omen context and
@@ -15,3 +15,5 @@ responses preserve item/history/omens, with distinct feedback and no automatic r
 
 The existing mutation guards, Abyss lock, calculating animation and held-tooltip priority
 remain. No browser QA is implied by jsdom tests; live API checks use separate synthetic items.
+
+Counts come from `backend/src/main/resources/contracts/chaos-repeat.json`; see the generated summary in `docs/current/support.md`.

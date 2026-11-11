@@ -38,7 +38,7 @@ registered base 수는 [지원 범위](support.md), 상태 검증은 [아이템 
 
 ## 소켓과 Augment
 
-장비별 추가 1개를 허용하는 Workbench 정책과 79종 일반 Rune/Soul Core의 장착·표시·미지원 경계는 [소켓과 Augment](socket-augments.md)를 따른다.
+장비별 추가 1개를 허용하는 Workbench 정책과 현행 카탈로그의 Rune/Soul Core의 장착·표시·미지원 경계는 [소켓과 Augment](socket-augments.md)를 따른다.
 
 
 ## 선택한 베이스의 보관함 · 2026-11-05
@@ -51,7 +51,7 @@ Frontend는 이 메타데이터를 현재 베이스와 일치하는 응답에서
 
 Augment는 기존 등록 소켓 지원 상한과 해당 itemClass의 검토된 효과를 사용하며 빈 소켓이 없거나 아직 0개여도 표시한다. Perfect-only/Tempered/Soul Core 선택 정책은 먼저 유지한다. 화폐 탭의 Rib는 Armour, Jawbone은 무기·Quiver, Collarbone은 장신구, Cranium은 지원 Jewel로 구분하며 Armourer's Scrap과 Blacksmith's Whetstone은 Armour/Martial Weapon으로 구분한다. Omen과 그 밖의 일반 Currency 진열 정책은 유지한다.
 
-검색 입력 아래의 6언어 체크박스로 부위 필터를 켜거나 끈다. 기본은 켜짐이며, 실제 베이스를 고르기 전에는 전체 기본 목록을 표시한다. 끄더라도 검색어와 Omen 예외·전역 선택 정책은 유지한다. 검색은 기존 이름·툴팁·Essence 가족 매칭을 유지하고 특수 Essence는 먼저 배치한다. 제외된 재료의 빈 칸을 두지 않고 부모 4열 grid를 앞에서부터 채우며 4행 스크롤을 유지한다. 필터로 숨은 재료도 기존 즐겨찾기·장착·저장 기록에서 삭제하지 않는다.
+검색 입력 아래의 부위 필터 체크박스로 부위 필터를 켜거나 끈다. 기본은 켜짐이며, 실제 베이스를 고르기 전에는 전체 기본 목록을 표시한다. 끄더라도 검색어와 Omen 예외·전역 선택 정책은 유지한다. 검색은 기존 이름·툴팁·Essence 가족 매칭을 유지하고 특수 Essence는 먼저 배치한다. 제외된 재료의 빈 칸을 두지 않고 부모 3열 grid를 앞에서부터 채우며 4행 스크롤을 유지한다. 필터로 숨은 재료도 기존 즐겨찾기·장착·저장 기록에서 삭제하지 않는다.
 
 분류를 확인할 수 없는 구버전 베이스는 종류를 추측해 재료를 숨기지 않는다. Augment는 기존의 등록 부위·소켓 상한 확인을 유지한다. 구버전 상태를 새 베이스로 변환하거나 실제 적용 자격을 넓히지 않는다.
 

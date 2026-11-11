@@ -1,12 +1,14 @@
 package com.poe2craft.workbench.repeat;
 
+import static com.poe2craft.configuration.PublicContracts.REPEAT;
+
 import com.google.re2j.Pattern;
 import com.google.re2j.PatternSyntaxException;
 
 /** Bounded regular-language grammar checked before the linear-time engine compiles a pattern. */
 public final class ChaosRepeatPattern {
   public static final String VERSION = "chaos-repeat-re2j-1.8-find-ci-v1";
-  private static final int BUDGET = 4096;
+  private static final int BUDGET = REPEAT.patternProgram();
   private final Pattern pattern;
 
   private ChaosRepeatPattern(Pattern pattern) {
@@ -14,10 +16,12 @@ public final class ChaosRepeatPattern {
   }
 
   public static ChaosRepeatPattern compile(String source) {
-    if (source == null || source.isEmpty() || source.length() > 512)
+    if (source == null || source.isEmpty() || source.length() > REPEAT.patternLength())
       throw rejected(
           "PATTERN_LENGTH",
-          "Use a nonempty pattern of at most 512 UTF-16 code units. Input is not trimmed.");
+          "Use a nonempty pattern of at most "
+              + REPEAT.patternLength()
+              + " UTF-16 code units. Input is not trimmed.");
     var grammar = new Grammar(source);
     grammar.alternation(0);
     if (grammar.index != source.length()) throw grammar.invalid();
@@ -25,7 +29,8 @@ public final class ChaosRepeatPattern {
       var compiled = Pattern.compile(source, Pattern.CASE_INSENSITIVE);
       if (compiled.programSize() > BUDGET)
         throw rejected(
-            "PATTERN_COMPLEXITY", "The compiled pattern exceeds the 4096-instruction budget.");
+            "PATTERN_COMPLEXITY",
+            "The compiled pattern exceeds the " + BUDGET + "-instruction budget.");
       return new ChaosRepeatPattern(compiled);
     } catch (PatternSyntaxException invalid) {
       throw grammar.invalid();
@@ -88,8 +93,10 @@ public final class ChaosRepeatPattern {
     private int atom(int depth) {
       char c = source.charAt(index++);
       if (c == '(') {
-        if (depth >= 16)
-          throw rejected("PATTERN_DEPTH", "Patterns allow at most 16 nested groups.");
+        if (depth >= REPEAT.patternDepth())
+          throw rejected(
+              "PATTERN_DEPTH",
+              "Patterns allow at most " + REPEAT.patternDepth() + " nested groups.");
         if (take('?') && !take(':')) throw invalid(); // no inline flags, lookaround or named groups
         int cost = alternation(depth + 1);
         if (!take(')')) throw invalid();
@@ -156,15 +163,17 @@ public final class ChaosRepeatPattern {
     }
 
     private void node() {
-      if (++nodes > 512)
-        throw rejected("PATTERN_COMPLEXITY", "Patterns allow at most 512 syntax nodes.");
+      if (++nodes > REPEAT.patternNodes())
+        throw rejected(
+            "PATTERN_COMPLEXITY",
+            "Patterns allow at most " + REPEAT.patternNodes() + " syntax nodes.");
     }
 
     private int bounded(long cost) {
       if (cost > BUDGET)
         throw rejected(
             "PATTERN_COMPLEXITY",
-            "Pattern expansion exceeds the 4096-instruction budget before compilation.");
+            "Pattern expansion exceeds the " + BUDGET + "-instruction budget before compilation.");
       return (int) cost;
     }
 

@@ -1,4 +1,6 @@
-# Augment 전수 대조
+# Augment 수집 당시 대조
+
+**이 문서는 수집 당시의 분류 기록이다. 현재 구현·등록 수·보류 여부는 [소켓과 증강물](socket-augments.md) 및 [현재 지원 요약](support.md)을 따른다.**
 
 2026-11-05 수집. [PoE2DB 원문](https://poe2db.tw/kr/Augment) 313종을 모두 분류했다.
 

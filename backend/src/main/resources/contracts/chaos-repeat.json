@@ -1,0 +1,20 @@
+{
+  "defaultUses": 1000,
+  "minimumUses": 1,
+  "maximumUses": 1000,
+  "maximumBodyBytes": 65536,
+  "patternLength": 512,
+  "patternDepth": 16,
+  "patternNodes": 512,
+  "patternProgram": 4096,
+  "_comments": {
+    "defaultUses": "생략 시 반복 횟수. ChaosRepeatController와 프런트 API 어댑터에서 사용.",
+    "minimumUses": "허용 반복 횟수 하한. ChaosRepeatService·프런트 입력 검증에서 사용.",
+    "maximumUses": "허용 횟수 상한 및 작업대 버튼 횟수. 서버·버튼·응답 검증에서 사용.",
+    "maximumBodyBytes": "요청 UTF-8 본문 상한. ChaosRepeatController에서 사용. Nginx는 생성된 include 사용.",
+    "patternLength": "패턴 UTF-16 길이 상한. ChaosRepeatPattern·프런트 요청 검증에서 사용.",
+    "patternDepth": "패턴 그룹 깊이 상한. ChaosRepeatPattern에서 사용.",
+    "patternNodes": "패턴 문법 노드 상한. ChaosRepeatPattern에서 사용.",
+    "patternProgram": "정규식 확장·컴파일 명령 예산. ChaosRepeatPattern에서 사용. RE2 자체 문법 상수와 구분."
+  }
+}

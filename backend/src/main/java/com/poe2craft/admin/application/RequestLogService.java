@@ -64,7 +64,7 @@ public class RequestLogService {
           System.nanoTime()
               + java.util.concurrent.TimeUnit.MILLISECONDS.toNanos(settings.archiveWorkMillis());
       while (store.archiveBefore(
-              earliestDate().atStartOfDay(RequestLogRepository.SEOUL).toInstant(),
+              earliestDate().atStartOfDay(ZoneId.of(settings.timeZone())).toInstant(),
               settings.batchSize())
           && System.nanoTime() < deadline) {}
       archiveStatus = "OK";
@@ -74,7 +74,7 @@ public class RequestLogService {
   }
 
   public LocalDate today() {
-    return LocalDate.now(clock.withZone(RequestLogRepository.SEOUL));
+    return LocalDate.now(clock.withZone(ZoneId.of(settings.timeZone())));
   }
 
   public LocalDate earliestDate() {

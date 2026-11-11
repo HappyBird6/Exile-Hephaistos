@@ -5,8 +5,8 @@ import {
   defaultChaosRepeatMaximumUses,
 } from './types'
 
-it('provides the approved default 100 and independent UI cap 1000', () => {
-  expect(defaultChaosRepeatMaximumUses).toBe('100')
+it('provides the approved default 1000 and independent UI cap 1000', () => {
+  expect(defaultChaosRepeatMaximumUses).toBe('1000')
   expect(chaosRepeatMaximumUsesLimit).toBe(1000)
 })
 

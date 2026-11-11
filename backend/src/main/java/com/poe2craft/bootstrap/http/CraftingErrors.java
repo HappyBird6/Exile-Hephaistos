@@ -38,7 +38,7 @@ public final class CraftingErrors {
     return problem(
         HttpStatus.UNPROCESSABLE_ENTITY,
         "INVALID_CRAFTING_REQUEST",
-        "Provide a supported Solar Amulet state, snapshot and valid exploration limits.");
+        "The crafting request contains an invalid item state or unsupported parameters.");
   }
 
   @ExceptionHandler({

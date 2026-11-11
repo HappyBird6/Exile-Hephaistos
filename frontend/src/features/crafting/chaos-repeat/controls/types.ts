@@ -1,3 +1,4 @@
+import { repeatContract } from '../../../../shared/contracts/public'
 export const chaosRepeatCurrencyIds = [
   'Chaos_Orb',
   'Greater_Chaos_Orb',
@@ -6,11 +7,11 @@ export const chaosRepeatCurrencyIds = [
 
 export type ChaosRepeatCurrencyId = (typeof chaosRepeatCurrencyIds)[number]
 
-/** API fallback for omitted maximumUses; the workbench button explicitly requests 1000. */
-export const defaultChaosRepeatMaximumUses = '100'
+/** API fallback for omitted maximumUses, generated from the shared public contract. */
+export const defaultChaosRepeatMaximumUses = String(repeatContract.defaultUses)
 
-/** User-approved UI request limit; independent of the server's reported cap. */
-export const chaosRepeatMaximumUsesLimit = 1000
+/** UI request limit from the same source as server validation. */
+export const chaosRepeatMaximumUsesLimit = repeatContract.maximumUses
 
 export type ChaosRepeatControlErrors = {
   pattern?: string

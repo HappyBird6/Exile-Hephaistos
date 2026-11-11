@@ -3,40 +3,16 @@ import { useSyncExternalStore } from 'react'
 import { messages, terms } from './localeData'
 import itemClasses from './itemClassNames.json'
 
-export const locales = [
-  'en',
-  'ko',
-  'zh-CN',
-  'zh-TW',
-  'ja',
-  'es',
-  'ru',
-  'th',
-] as const
+import { locales, localeContract } from '../contracts/public'
+export { locales }
 export type Locale = (typeof locales)[number]
-export const defaultLocale: Locale = 'ko'
-export const localeNames: Record<Locale, string> = {
-  en: 'English',
-  ko: '한국어',
-  'zh-CN': '简体中文 (CN)',
-  'zh-TW': '繁體中文 (TW)',
-  ja: '日本語',
-  es: 'Español',
-
-  ru: 'Русский',
-  th: 'ไทย',
-}
-export const poe2dbPaths: Record<Locale, string> = {
-  en: 'us',
-  ko: 'kr',
-  'zh-CN': 'cn',
-  'zh-TW': 'tw',
-  ja: 'jp',
-  es: 'sp',
-
-  ru: 'ru',
-  th: 'th',
-}
+export const defaultLocale: Locale = localeContract.defaultLocale
+export const localeNames = Object.fromEntries(
+  locales.map((code) => [code, localeContract.locales[code].name]),
+) as Record<Locale, string>
+export const poe2dbPaths = Object.fromEntries(
+  locales.map((code) => [code, localeContract.locales[code].sourcePath]),
+) as Record<Locale, string>
 export const localeStorageKey = 'hephaistos.locale.v1'
 export function resolveLocale(value: string | null | undefined): Locale {
   return locales.includes(value as Locale) ? (value as Locale) : defaultLocale

@@ -1,20 +1,16 @@
+import { localePaths } from "./public-contracts.mjs";
+import { proposalDirectory } from "./source-proposals.mjs";
+const proposal = proposalDirectory(process.argv);
 // Display-only localization. Reads existing catalogs but never rewrites them.
 import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
 
 const root = "backend/src/main/resources/catalog";
-const cache = process.argv[2];
+const cache = path.join(proposal, "sources");
 if (!cache) throw new Error("Pass an owned source-evidence cache directory");
 fs.mkdirSync(cache, { recursive: true });
-const locales = {
-  en: "us",
-  ko: "kr",
-  "zh-CN": "cn",
-  "zh-TW": "tw",
-  ja: "jp",
-  es: "sp",
-};
+const locales = localePaths;
 const pages = {
   sapphire: "Sapphire",
   "solar-amulet": "Amulets",
@@ -280,11 +276,11 @@ for (const locale of Object.keys(locales)) {
   );
 }
 fs.writeFileSync(
-  "frontend/src/shared/i18n/modifierTemplates.json",
+  path.join(proposal, "modifierTemplates.json"),
   JSON.stringify(result, null, 2) + "\n",
 );
 fs.writeFileSync(
-  "docs/evidence/0.5.5/i18n/sources/i18n-modifier-sources.json",
+  path.join(proposal, "i18n-modifier-sources.json"),
   JSON.stringify(evidence, null, 2) + "\n",
 );
 console.log(JSON.stringify(evidence.counts));

@@ -1,5 +1,7 @@
 package com.poe2craft.workbench.api;
 
+import static com.poe2craft.configuration.PublicContracts.REPEAT;
+
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.*;
 import com.poe2craft.configuration.BackendSettings;
@@ -28,7 +30,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 public final class ChaosRepeatController {
-  public static final int MAX_BODY_BYTES = 65536;
+  public static final int MAX_BODY_BYTES = REPEAT.maximumBodyBytes();
   private final ObjectMapper json;
   private final WorkbenchStateReader states;
   private final ChaosRepeatService service;
@@ -89,7 +91,7 @@ public final class ChaosRepeatController {
         throw new RepeatRejected(
             413,
             "CHAOS_REPEAT_BODY_TOO_LARGE",
-            "Chaos repeat requests allow at most 65536 UTF-8 bytes.");
+            "Chaos repeat requests allow at most " + MAX_BODY_BYTES + " UTF-8 bytes.");
       StandardCharsets.UTF_8
           .newDecoder()
           .onMalformedInput(CodingErrorAction.REPORT)
@@ -173,7 +175,7 @@ public final class ChaosRepeatController {
     var omens = new HashSet<String>();
     for (var omen : omensNode) if (!omens.add(text(omen))) throw RepeatRejected.input();
     var maximum = body.get("maximumUses");
-    int limit = 1000;
+    int limit = REPEAT.defaultUses();
     if (maximum != null) {
       if (!maximum.isIntegralNumber() || !maximum.canConvertToInt()) throw RepeatRejected.input();
       limit = maximum.intValue();

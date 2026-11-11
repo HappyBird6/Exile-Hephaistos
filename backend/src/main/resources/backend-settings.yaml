@@ -6,6 +6,10 @@ backend:
   admin-logs:
     # 한국시간 오늘 외에 DB에서 조회할 지난 날짜 수. 사용: admin/application/RequestLogService.java.
     previous-days: 7
+    # 날짜별 집계·보관 경계와 관리자 날짜/그래프의 시간대. 사용: RequestLogService·RequestLogStore·관리자 화면.
+    time-zone: Asia/Seoul
+    # 요청/보관 파일 목록의 한 페이지 크기. 사용: RequestLogStore·관리자 화면.
+    page-size: 40
     # 요청 스레드에서 DB를 기다리지 않는 대기열 상한. 초과/실패 건수는 관리자 화면에 표시. 같은 파일에서 사용.
     queue-capacity: 10000
     # 한 번에 DB에 넣거나 파일로 옮길 최대 로그 수. 같은 파일 및 admin/infrastructure/RequestLogStore.java에서 사용.

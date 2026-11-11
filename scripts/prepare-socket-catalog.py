@@ -1,4 +1,4 @@
-"""Compatibility entrypoint for the exhaustive reviewed ordinary Augment catalog."""
+"""Compatibility entrypoint for the read-only canonical Augment audit."""
 from pathlib import Path
 import runpy
 

@@ -7,12 +7,14 @@ const messages: Record<
     limit: string
     partial: string
     noUse: string
+    busy: string
     rejected: string
     uncertain: string
     invalid: string
   }
 > = {
   en: {
+    busy: 'Too many requests. Please wait briefly and try again.',
     match: 'Pattern matched after {n} Chaos uses.',
     limit: 'Reached the limit after {n} Chaos uses. Final result applied.',
     partial:
@@ -25,6 +27,7 @@ const messages: Record<
     invalid: 'Could not verify the repeat result. No history step was added.',
   },
   ko: {
+    busy: '요청이 많습니다. 잠시 후 다시 시도해 주세요.',
     match: '카오스 {n}회 사용 후 패턴이 일치했습니다.',
     limit: '카오스 {n}회로 한도에 도달했습니다. 마지막 결과를 반영했습니다.',
     partial:
@@ -36,6 +39,7 @@ const messages: Record<
     invalid: '반복 결과를 검증하지 못해 기보를 추가하지 않았습니다.',
   },
   'zh-CN': {
+    busy: '请求过多，请稍后重试。',
     match: '使用混沌石 {n} 次后匹配图案。',
     limit: '使用混沌石 {n} 次后达到上限，已应用最终结果。',
     partial:
@@ -46,6 +50,7 @@ const messages: Record<
     invalid: '无法验证重复结果，未添加历史步骤。',
   },
   'zh-TW': {
+    busy: '請求過多，請稍後再試。',
     match: '使用混沌石 {n} 次後符合圖樣。',
     limit: '使用混沌石 {n} 次後達到上限，已套用最終結果。',
     partial:
@@ -56,6 +61,7 @@ const messages: Record<
     invalid: '無法驗證重複結果，未新增歷史步驟。',
   },
   ja: {
+    busy: 'リクエストが多すぎます。しばらく待ってから再試行してください。',
     match: 'カオスを{n}回使用後、パターンが一致しました。',
     limit: 'カオスを{n}回使用して上限に達しました。最終結果を反映しました。',
     partial:
@@ -68,6 +74,7 @@ const messages: Record<
     invalid: '繰り返し結果を検証できず、履歴は追加していません。',
   },
   es: {
+    busy: 'Hay demasiadas solicitudes. Espera un momento e inténtalo de nuevo.',
     match: 'El patrón coincidió tras {n} usos de Caos.',
     limit:
       'Se alcanzó el límite tras {n} usos de Caos. Se aplicó el resultado final.',
@@ -84,6 +91,7 @@ const messages: Record<
   },
 
   ru: {
+    busy: 'Слишком много запросов. Подождите немного и попробуйте снова.',
     match: 'Шаблон соответствует после использования {n} Chaos.',
     limit:
       'Достигнут предел после использования {n} Chaos. Окончательный результат применен.',
@@ -98,6 +106,7 @@ const messages: Record<
       'Не удалось проверить повторный результат. Ни один шаг истории не был добавлен.',
   },
   th: {
+    busy: 'มีคำขอมากเกินไป โปรดรอสักครู่แล้วลองอีกครั้ง',
     match: 'รูปแบบที่จับคู่หลังจากใช้ {n} Chaos',
     limit: 'ถึงขีดจำกัดแล้วหลังจากที่ {n} Chaos ใช้ ใช้ผลลัพธ์สุดท้ายแล้ว',
     partial:

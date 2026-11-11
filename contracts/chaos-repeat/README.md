@@ -4,8 +4,8 @@
 
 요청은 `{requestId,state,action,activeOmens,pattern,locale,maximumUses?}`다.
 `requestId`는 UUID 문자열이다. state는 `{kind:"CONCRETE",item:ItemState}` 또는
-`{kind:"ABYSS",abyss:AbyssCraftingState}`다. 기본 100, 정수 범위 1–1000이다.
-지원 locale은 `en`, `ko`, `zh-CN`, `zh-TW`, `ja`, `es`다.
+`{kind:"ABYSS",abyss:AbyssCraftingState}`다. 횟수·본문·패턴 제한은 `backend/src/main/resources/contracts/chaos-repeat.json` 원본과 [자동 생성 요약](../../docs/current/support.md)을 따른다.
+지원 locale은 `backend/src/main/resources/contracts/locales.json`을 따른다.
 
 응답은 다음 필드를 가진다. 초기 상태, 직전 상태, 중간 상태 목록은 반환하지 않는다.
 
@@ -21,7 +21,7 @@ remainingOmens: string[]
 lastAppliedWitness: ConcreteWitness | AbyssWitness | null
 termination: "MATCH" | "LIMIT" | "INAPPLICABLE" | "ERROR"
 lastRejection: {code:"CURRENCY_INAPPLICABLE",reason:string} | null
-failure: {code:"REPEAT_EXECUTION_FAILED",stage:"APPLY"|"MATCHER"} | null
+failure: {code:"REPEAT_EXECUTION_FAILED",stage:"APPLY"|"MATCHER"|"STOP_SIGNAL"} | null
 ```
 
 `matcherVersion`은 `chaos-repeat-re2j-1.8-find-ci-v1`이다.
@@ -54,7 +54,7 @@ frontend는 반환된 최종 상태를 해당 witness에 로컬로 결합한다.
 
 매회 적용 후 prefix/suffix 옵션 그룹 하나씩 CASE_INSENSITIVE find한다. 복합 다중행은
 묶음 하나이며 MULTILINE/DOTALL은 false다. 시작 전 이미 일치해도 첫 적용을 건너뛰지 않는다.
-정상 종료는 일치 또는 지정 횟수다. 취소/job/상태 저장/idempotency 보장은 없다.
+정상 종료는 일치 또는 지정 횟수다. 취소 API와 서버 시간 예산이 있으며 STOP_SIGNAL 부분 결과를 반환할 수 있다. Redis 요청 영수증 보관 기간 안에는 같은 요청 ID의 중복 실행을 방지한다. 영구 job 저장을 뜻하지 않는다.
 통신 실패·불완전 응답은 완료 횟수 불명이다. 자동 재시도나 0회 완료로 표시하지 않는다.
 
 정규식은 Unicode literal/range, `.`, `^$`, `|`, `(...)`, `(?:...)`, 일반/reluctant 반복,
@@ -62,9 +62,8 @@ frontend는 반환된 최종 상태를 해당 witness에 로컬로 결합한다.
 메타문자 escape를 지원한다. `\w` 등은 RE2의 ASCII 의미이며 case folding은 Unicode simple
 folding이다. inline flag, lookaround, backreference, possessive 반복, named group,
 Unicode property/POSIX class/class intersection 등 확장은 거절한다. trim/소문자 변환/정규화는 없다.
-길이 512 UTF-16 units, 그룹 깊이 16, syntax node 512, bounded expansion 및 compiled program
-4096 제한을 첫 적용 전에 검사한다. counted repetition의 각 수는 RE2 문법상 1000 이하이다.
-동시 repeat 한 개만 실행하며 대기열이 없다. 요청 body는 실제 읽은 UTF-8 bytes 65536까지다.
+계약 원본의 UTF-16 길이·그룹 깊이·syntax node·bounded expansion/compiled program 제한을 첫 적용 전에 검사한다. counted repetition의 각 수는 RE2 문법상 1000 이하이다.
+동시 실행 수와 처리 시간은 `backend-settings.yaml`의 workbench 정책을 따른다. 대기열은 없다. 본문 크기는 계약 원본의 byte 제한을 따른다.
 일반/ABYSS 분기는 각각 기존 apply/applyAbyssCurrency를 매회 사용한다. API의 activeOmens는
 기존 executor가 인식하는 WorkbenchOmen ID이며, 기존 클라이언트의 dormant bone omen 분리/복원은
 해당 클라이언트 경계에서 유지한다. 알 수 없는 ID를 서버가 조용히 삭제하지 않는다.

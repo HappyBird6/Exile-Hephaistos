@@ -41,6 +41,13 @@
               "flat",
               "percent"
             ]
+          },
+          "sourceDivisor": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "evaluationOnly": {
+            "type": "boolean"
           }
         }
       }

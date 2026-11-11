@@ -7,6 +7,7 @@ import './admin.css'
 import { OperationsLogs, type AdminSection } from './OperationsLogs'
 import { logMessages } from './logMessages'
 type Dashboard = {
+  logPolicy: import('./logCalendar').LogPolicy
   observedAt: string
   uptimeSeconds: number
   requests: number
@@ -189,6 +190,7 @@ export function AdminPage() {
             </div>
             {data.error && <p role="alert">{data.error.message}</p>}
             <OperationsLogs
+              policy={dashboard.logPolicy}
               credential={credential}
               epoch={epoch}
               section={section}

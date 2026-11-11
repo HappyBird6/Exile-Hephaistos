@@ -1,67 +1,38 @@
+import { localePaths, readJSON } from "./public-contracts.mjs";
+import { proposalDirectory } from "./source-proposals.mjs";
+const proposal = proposalDirectory(process.argv);
 // Bounded display-only source collection. Never used by crafting or ingestion.
 import fs from "node:fs";
 import path from "node:path";
 import { createHash } from "node:crypto";
 
 const root = process.cwd();
-const output = path.join(root, "frontend/src/shared/i18n/gameTerms.json");
-const evidence = path.join(root, "docs/evidence/0.5.5/i18n/sources/i18n-sources.json");
+const output = path.join(proposal, "gameTerms.json");
+const evidence = path.join(proposal, "i18n-sources.json");
 const catalog = JSON.parse(
   fs.readFileSync(
     "frontend/src/features/crafting/materialTooltips.json",
     "utf8",
   ),
 );
-const scope = fs.readFileSync(
-  "frontend/src/features/crafting/serviceScope.ts",
-  "utf8",
+// Collection scope follows reviewed runtime identities; no historical exclusion list.
+const registry = readJSON(
+  "backend/src/main/resources/crafting/registry-v2.json",
 );
-const deferred = new Set([...scope.matchAll(/'([^']+)'/g)].map((m) => m[1]));
-const inventory = [
-  ...fs
-    .readFileSync("frontend/src/features/crafting/currencies.ts", "utf8")
-    .matchAll(/id: '([^']+)'/g),
-  ...fs
-    .readFileSync("frontend/src/features/crafting/materials.ts", "utf8")
-    .matchAll(/id: '([^']+)'/g),
-].map((m) => m[1]);
-const serviceScope = JSON.parse(
-  fs.readFileSync(
-    "evidence:general/workbench-service-scope.json",
-    "utf8",
-  ),
-);
-for (const id of [
-  ...serviceScope.newDeferredIds,
-  ...serviceScope.preservedDeferredIds,
-])
-  deferred.add(id);
 const allowed = new Set(
-  inventory.filter((id) => catalog[id] && !deferred.has(id)),
+  registry.entries.filter((row) => catalog[row.id]).map((row) => row.id),
 );
-const bases = {
-  Soldier_Cuirass: "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
-  Imperial_Greathelm: "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
-  Sapphire: "Metadata/Items/Jewels/JewelInt",
-  Solar_Amulet: "Metadata/Items/Amulets/FourAmulet9",
-  Stocky_Mitts: "Metadata/Items/Armours/Gloves/FourGlovesStr1",
-  Crude_Bow: "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
-  Attuned_Wand: "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
-  Rusted_Cuirass: "Metadata/Items/Armours/BodyArmours/FourBodyStr1",
-  Rattling_Sceptre:
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
-  Rawhide_Belt: "Metadata/Items/Belts/FourBelt1",
-  Rusted_Greathelm: "Metadata/Items/Armours/Helmets/FourHelmetStr1",
-  Iron_Ring: "Metadata/Items/Rings/FourRing1",
-};
-const locales = {
-  en: "us",
-  ko: "kr",
-  "zh-CN": "cn",
-  "zh-TW": "tw",
-  ja: "jp",
-  es: "sp",
-};
+const bases = Object.fromEntries(
+  [
+    ...Object.values(
+      readJSON("backend/src/main/resources/catalog/base-policies.json").legacy,
+    ),
+    ...Object.values(
+      readJSON("backend/src/main/resources/catalog/top-bases.json"),
+    ),
+  ].map((row) => [row.slug, row.id]),
+);
+const locales = localePaths;
 const clean = (text) =>
   text
     .replace(/<br\s*\/?>/gi, "\n")
@@ -84,9 +55,14 @@ const manifest = {
 };
 const supplement = process.argv.includes("--supplement");
 const dictionaries = supplement
-  ? JSON.parse(fs.readFileSync(output, "utf8"))
+  ? JSON.parse(
+      fs.readFileSync(
+        path.join(root, "frontend/src/shared/i18n/gameTerms.json"),
+        "utf8",
+      ),
+    )
   : {};
-if (supplement) {
+if (supplement && fs.existsSync(evidence)) {
   const previous = JSON.parse(fs.readFileSync(evidence, "utf8"));
   manifest.pages = previous.pages;
   manifest.gaps = previous.gaps;
@@ -103,7 +79,7 @@ async function page(url) {
   return html;
 }
 for (const [locale, prefix] of Object.entries(locales)) {
-  const entries = supplement ? dictionaries[locale] : {};
+  const entries = supplement ? { ...dictionaries[locale] } : {};
   for (const category of supplement
     ? ["Catalysts"]
     : ["Currency", "Essence", "Omen", "Catalysts"]) {

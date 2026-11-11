@@ -1,5 +1,6 @@
 package com.poe2craft.workbench.repeat;
 
+import static com.poe2craft.configuration.PublicContracts.REPEAT;
 import static com.poe2craft.workbench.repeat.ChaosRepeatProtocol.*;
 
 import com.poe2craft.configuration.BackendSettings;
@@ -101,8 +102,8 @@ public final class ChaosRepeatService {
           || random == null
           || input.state() == null
           || input.action() == null
-          || input.maximumUses() < 1
-          || input.maximumUses() > 1000
+          || input.maximumUses() < REPEAT.minimumUses()
+          || input.maximumUses() > REPEAT.maximumUses()
           || !Set.of(
                   WorkbenchCurrency.CHAOS,
                   WorkbenchCurrency.GREATER_CHAOS,

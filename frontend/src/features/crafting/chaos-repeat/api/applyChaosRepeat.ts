@@ -1,3 +1,4 @@
+import { repeatContract } from '../../../../shared/contracts/public'
 import { locales } from '../../../../shared/i18n/i18n'
 import type { Initial } from '../../craftingApi'
 import {
@@ -47,11 +48,12 @@ export async function applyChaosRepeat(
         action: snapshot.action,
         uses: maximumUses,
       }) ||
+      maximumUses < repeatContract.minimumUses ||
       maximumUses > chaosRepeatMaximumUsesLimit ||
       !locales.includes(snapshot.locale) ||
       typeof snapshot.pattern !== 'string' ||
       snapshot.pattern.length === 0 ||
-      snapshot.pattern.length > 512 ||
+      snapshot.pattern.length > repeatContract.patternLength ||
       !Array.isArray(snapshot.activeOmens) ||
       !Array.from(snapshot.activeOmens).every(
         (id) => typeof id === 'string' && omenIds.has(id),
@@ -96,6 +98,15 @@ export async function applyChaosRepeat(
     signal.removeEventListener('abort', cancel)
   }
   if (signal.aborted) return { kind: 'uncertain', requestId, reason: 'ABORTED' }
+  // Admission can reject before the origin ruleset filter (including at Nginx).
+  // No item state is accepted from these responses, and random work is never retried.
+  if (response.status === 429 || response.status === 413)
+    return {
+      kind: 'rejected',
+      source: 'server',
+      requestId,
+      status: response.status,
+    }
   try {
     verifyRulesetResponse(response, catalog.rulesetIdentity)
   } catch {

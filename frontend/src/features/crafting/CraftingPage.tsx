@@ -1370,7 +1370,9 @@ function ReadyCraftingPage({
             result.kind === 'no-use'
               ? 'noUse'
               : result.kind === 'rejected'
-                ? 'rejected'
+                ? result.status === 429
+                  ? 'busy'
+                  : 'rejected'
                 : result.kind === 'uncertain'
                   ? 'uncertain'
                   : 'invalid'

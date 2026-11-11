@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import type { Plugin } from 'vite'
+import { locales as supportedLocales } from '../src/shared/contracts/public.ts'
 
 /** Split only presentation dictionaries. Canonical source files and backend digest inputs stay intact. */
 export function localeDataPlugin(eager = false): Plugin {
@@ -86,7 +87,14 @@ export function localeDataPlugin(eager = false): Plugin {
   const definitionGroups: Record<string, Record<string, unknown>> = {}
   for (const [id, value] of Object.entries(modifiers.definitions))
     (definitionGroups[id.split(':')[0]!] ??= {})[id] = value
-  const locales = Object.keys(messages)
+  const locales: string[] = [...supportedLocales]
+  if (
+    locales.some(
+      (locale) =>
+        !messages[locale] || !terms[locale] || !modifiers.templates[locale],
+    )
+  )
+    throw Error('Locale dictionaries do not match the public contract')
   const watched = [
     'messages.json',
     'gameTerms.json',

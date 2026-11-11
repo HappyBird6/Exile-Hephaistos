@@ -28,9 +28,14 @@ class AugmentCatalogTest(unittest.TestCase):
         audit = {entry['id']: entry for entry in self.audit['entries']}
         self.assertEqual(len(source), 313)
         self.assertEqual(set(audit), source)
-        self.assertEqual(set(self.catalog), {identity for identity, row in audit.items() if row['status'] in ('SUPPORTED_LEGACY', 'ADDED_ORDINARY')})
-        self.assertEqual(len(self.catalog), 277)
-        self.assertEqual(sum(row['selectionEnabled'] for row in self.catalog.values()), 232)
+        historical_ordinary = {identity for identity, row in audit.items() if row['status'] in ('SUPPORTED_LEGACY', 'ADDED_ORDINARY')}
+        crafting = read(ROOT / 'backend/src/main/resources/catalog/augment-crafting.json')['effects']
+        self.assertEqual(set(self.catalog), historical_ordinary | set(crafting))
+        self.assertLessEqual(set(crafting), source)
+        # Original collection decisions remain evidence; later reviewed crafting rules
+        # extend support without rewriting the historical inventory.
+        for identity in crafting:
+            self.assertTrue(self.catalog[identity]['selectionEnabled'], identity)
         for identity in ['Cadigans_Epiphany', 'Serles_Triumph', 'Masterwork_Rune', 'Fox_Idol', 'Legacy_of_Serles_Grit']:
             self.assertEqual(audit[identity]['status'], 'DEFERRED_SPECIAL')
         self.assertEqual(audit['Owl_Idol']['status'], 'UNSUPPORTED_TARGET')

@@ -1,3 +1,4 @@
+import { localeCodes } from "./public-contracts.mjs";
 // Completeness is based on active catalog identities, not matching UI key counts.
 import fs from "./evidence-files.cjs";
 import assert from "node:assert/strict";
@@ -23,7 +24,7 @@ assert.equal(
   runtimeHash[1],
   "Display templates changed without updating the backend startup SHA-256 pin",
 );
-const locales = ["en", "ko", "zh-CN", "zh-TW", "ja", "es", "ru", "th"];
+const locales = localeCodes;
 const addedLocales = ["ru", "th"];
 const baseDisplay = JSON.parse(
   fs.readFileSync("frontend/src/shared/i18n/baseDisplay.json", "utf8"),

@@ -77,7 +77,7 @@ describe('bound repeat transport', () => {
     },
   )
 
-  it('uses default 100 and explicit 1000, while retaining the omitted field in the exact body', async () => {
+  it('uses default 1000 and explicit 1000, while retaining the omitted field in the exact body', async () => {
     const request = requestFor()
     delete request.maximumUses
     const fetch = mockBatch((value) => {
@@ -576,4 +576,34 @@ it('accepts a crafted item for a 1000-use batch and retains its verified transpo
   const result = await applyChaosRepeat(request, repeatInitial, signal())
   expect(fetch).toHaveBeenCalledOnce()
   expect(result.kind).toBe('completed')
+})
+
+it.each([429, 413])(
+  'handles pre-origin HTTP %s without accepting item state or retrying',
+  async (status) => {
+    const fetch = vi.fn(
+      async () =>
+        new Response(JSON.stringify({ status }), {
+          status,
+          headers: { 'Retry-After': '1' },
+        }),
+    )
+    vi.stubGlobal('fetch', fetch)
+    expect(
+      await applyChaosRepeat(requestFor(), repeatInitial, signal()),
+    ).toMatchObject({ kind: 'rejected', source: 'server', status })
+    expect(fetch).toHaveBeenCalledOnce()
+  },
+)
+it('accepts the actual server default when the request omits the count', async () => {
+  const request = requestFor()
+  delete request.maximumUses
+  mockBatch((value) => {
+    value.requestBinding.maximumUses = 1000
+    value.actualUses = 1000
+    value.termination = 'LIMIT'
+  })
+  expect(
+    await applyChaosRepeat(request, repeatInitial, signal()),
+  ).toMatchObject({ kind: 'completed', actualUses: 1000 })
 })

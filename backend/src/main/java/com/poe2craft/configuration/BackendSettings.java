@@ -35,7 +35,9 @@ public record BackendSettings(
       @Min(100) int flushMillis,
       @Min(1000) int archiveMillis,
       @Min(100) @Max(60000) int archiveWorkMillis,
-      @NotBlank String archiveDirectory) {}
+      @NotBlank String archiveDirectory,
+      @NotBlank String timeZone,
+      @Min(1) @Max(200) int pageSize) {}
 
   public record RequestProtection(
       @Min(1) int requestsPerSecond,

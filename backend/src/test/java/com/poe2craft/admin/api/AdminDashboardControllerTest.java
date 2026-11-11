@@ -14,7 +14,9 @@ class AdminDashboardControllerTest {
   void authenticatesEncodedAndMatrixParameterPathsBeforeRouting() throws Exception {
     var monitor = mock(OperationsMonitor.class);
     var mvc =
-        MockMvcBuilders.standaloneSetup(new AdminDashboardController(monitor))
+        MockMvcBuilders.standaloneSetup(
+                new AdminDashboardController(
+                    monitor, com.poe2craft.configuration.BackendSettings.defaults()))
             .addFilters(new AdminAccessFilter("test-password"))
             .build();
     for (String path :
@@ -27,7 +29,9 @@ class AdminDashboardControllerTest {
   @Test
   void disabledWithoutConfiguredPassword() throws Exception {
     var monitor = mock(OperationsMonitor.class);
-    MockMvcBuilders.standaloneSetup(new AdminDashboardController(monitor))
+    MockMvcBuilders.standaloneSetup(
+            new AdminDashboardController(
+                monitor, com.poe2craft.configuration.BackendSettings.defaults()))
         .addFilters(new AdminAccessFilter(""))
         .build()
         .perform(get("/api/admin/dashboard"))
@@ -39,7 +43,9 @@ class AdminDashboardControllerTest {
   void rejectsMissingIncorrectAndRepeatedPasswordsBeforeReadingMetrics() throws Exception {
     var monitor = mock(OperationsMonitor.class);
     var mvc =
-        MockMvcBuilders.standaloneSetup(new AdminDashboardController(monitor))
+        MockMvcBuilders.standaloneSetup(
+                new AdminDashboardController(
+                    monitor, com.poe2craft.configuration.BackendSettings.defaults()))
             .addFilters(new AdminAccessFilter("test-password"))
             .build();
     for (int i = 0; i < 10; i++)
@@ -57,7 +63,9 @@ class AdminDashboardControllerTest {
     var monitor = mock(OperationsMonitor.class);
     when(monitor.snapshot()).thenReturn(Map.of("requests", 12L));
     var mvc =
-        MockMvcBuilders.standaloneSetup(new AdminDashboardController(monitor))
+        MockMvcBuilders.standaloneSetup(
+                new AdminDashboardController(
+                    monitor, com.poe2craft.configuration.BackendSettings.defaults()))
             .addFilters(new AdminAccessFilter("test-password"))
             .build();
     mvc.perform(

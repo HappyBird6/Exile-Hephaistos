@@ -12,7 +12,7 @@
     "backend/src/main/resources/catalog/adherent-cuffs/catalog.json": "e53cbcc865a9f0498c3383ecca3b3476599713bb75807e12dafc3299db652bfc",
     "backend/src/main/resources/catalog/solar-amulet/catalog.json": "5562c61495b012e67566417aaa60e0e2cb569ca28515a74e970ca0fd9a16dfe8",
     "frontend/package-lock.json": "488b6a91c240b4fc754360e6e1c2ab9fddbf3f5fadd95e28a7ed31826c93e869",
-    "frontend/src/features/crafting/CraftingPage.tsx": "58caa021c20962eb9879d329715db1aadcdba6ed354070cf2931698d5da31d10",
+    "frontend/src/features/crafting/CraftingPage.tsx": "75821e0e756ef19741c15ac264526d1b316a622a5bb07e52f06526b5bcbaf8ef",
     "frontend/src/features/crafting/ItemCard.tsx": "01e30c0ccfe3596a41bdf4b37fadca6640747718923f16af6322e114d94bc640",
     "frontend/src/features/crafting/basicJewel.ts": "50e398e3e1646b48abf470c9c1a5fd323f0f94eed71b066f66f3357b59cfff03",
     "frontend/src/features/crafting/catalogData.ts": "5425b63b28913627fe2157a9c98f579697dffafe5cf8efb4dbb034938ab1b42a",
@@ -26,11 +26,11 @@
     "frontend/src/features/crafting/numeric-display/attributeNumbers.ts": "733c2e5cda17538309049d835cecbaf530649b264019a3775f1f1844dd57fa5b",
     "frontend/src/features/crafting/qualityRoundingPolicy.ts": "74ee47941b453a112dae2cd722e9e00458422eb0a5d57d0cdce251ef21ea9928",
     "frontend/src/features/crafting/sanctification/preciseModifierProjection.ts": "41717039175c17c0b4d56f60c857d14b9b4ce0708bb3803adb2e5792a78b5202",
-    "frontend/src/shared/i18n/i18n.ts": "133bbb8aa18b414645753bc2363b49b8c91aea817de7f24a72e0c4e3665e9f66",
+    "frontend/src/shared/i18n/i18n.ts": "9081825168e0182551860ebdcd3af00560c6104e406dd7d09f892ee63bced426",
     "frontend/src/shared/i18n/localeData.ts": "fae3b7a82d353920d51a513683ce90b5bfcd9a4ad483b83c132223b1bdf45b8b",
     "frontend/src/shared/i18n/modifierTemplates.json": "99b10ffb548f337b0693339ac5523d3c23aa6d1036e4ad47d7b1f6cd9dcb6593",
     "frontend/src/shared/test/sapphire-catalog.json": "476c290e82b13b190d940656164550b30294455eff598ac74bf8ff37ea00270d",
     "frontend/vite-plugins/catalogDataPlugin.ts": "2086d80c6fb79082c19e12d47c782e2b55d67329901a18d7584ed42db23b8235",
-    "frontend/vite-plugins/localeDataPlugin.ts": "4cb28a21c3d18e0d1a5dee32b154355ce88da0da648a483691460b61aa9598bf"
+    "frontend/vite-plugins/localeDataPlugin.ts": "49431cd444efe8ead426e492dbec12dd2a92a83efd975b86cc9fade1c0d2d4ca"
   }
 }
