@@ -61,6 +61,22 @@ class ModifierMagnitudesTest {
   }
 
   @Test
+  void historicalSanctificationCannotAmplifyAFracturedProvider() {
+    for (boolean fractured : List.of(false, true)) {
+      var provider = new ModifierInstance("provider", Map.of(physical, 20L), fractured);
+      var item =
+          state(List.of(provider))
+              .withSanctification(
+                  new ItemState.Sanctification(
+                      "explicit-stat-percent-v2",
+                      Map.of(),
+                      Map.of("provider", Map.of(physical, 122))));
+      assertThat(ModifierMagnitudes.factor(item, definition("target", Set.of("physical")), false))
+          .isEqualByComparingTo(fractured ? "1.2" : "1.24");
+    }
+  }
+
+  @Test
   void overlappingIncreasesAddAndElementalRequiresTheDamageTag() {
     var item =
         state(

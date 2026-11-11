@@ -140,8 +140,7 @@ public record ItemState(
       java.util.Map<String, java.util.Map<String, Integer>> implicits,
       java.util.Map<String, java.util.Map<String, Integer>> explicits) {
     public Sanctification {
-      if (!"independent-stat-percent-v1".equals(policy)
-          && !"explicit-stat-percent-v2".equals(policy))
+      if (!QualitySanctification.recognizedPolicy(policy))
         throw new IllegalArgumentException("Unknown sanctification policy");
       implicits = immutableFactors(implicits);
       explicits = immutableFactors(explicits);

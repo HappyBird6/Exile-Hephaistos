@@ -1,0 +1,9 @@
+[
+  {"id":"ordinary-positive", "policy":"unfractured-explicit-stat-percent-v3", "source":11, "factor":122, "fractured":false, "implicit":false, "expected":13},
+  {"id":"protected-current", "policy":"unfractured-explicit-stat-percent-v3", "source":11, "factor":null, "fractured":true, "implicit":false, "expected":11},
+  {"id":"protected-legacy", "policy":"explicit-stat-percent-v2", "source":11, "factor":79, "fractured":true, "implicit":false, "expected":11},
+  {"id":"ordinary-legacy", "policy":"explicit-stat-percent-v2", "source":11, "factor":79, "fractured":false, "implicit":false, "expected":9},
+  {"id":"implicit-legacy", "policy":"independent-stat-percent-v1", "source":15, "factor":122, "fractured":false, "implicit":true, "expected":15},
+  {"id":"integer-skill-level", "policy":"unfractured-explicit-stat-percent-v3", "source":3, "factor":122, "fractured":false, "implicit":false, "expected":4},
+  {"id":"negative-value", "policy":"unfractured-explicit-stat-percent-v3", "source":-11, "factor":122, "fractured":false, "implicit":false, "expected":-13}
+]

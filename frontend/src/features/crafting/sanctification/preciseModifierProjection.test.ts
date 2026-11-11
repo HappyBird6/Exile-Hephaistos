@@ -146,3 +146,19 @@ it('never changes implicit values, including legacy saved implicit factors', () 
       .base_spirit_from_equipment,
   ).toBe(15)
 })
+
+it('ignores legacy fracture factors before quality without disabling catalyst effects', () => {
+  const locked = { ...modifier, fractured: true }
+  const output = preciseModifierProjection(
+    { ...state, explicits: [locked] },
+    d,
+    locked,
+  )
+  // Fractured 11 stays 11 under Sanctification; 20% matching quality then rounds to 13.
+  expect(output.values.base_maximum_life).toBe(13)
+  expect(output.ratios.base_maximum_life).toEqual({
+    numerator: 13n,
+    denominator: 1n,
+  })
+  expect(locked.values.base_maximum_life).toBe(11)
+})

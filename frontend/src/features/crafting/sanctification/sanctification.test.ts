@@ -1,3 +1,4 @@
+import projectionCases from '../../../../../contracts/sanctification/projection-cases.json'
 import { describe, expect, it } from 'vitest'
 import type { ConcreteItem } from '../workbenchApi'
 import type { Definition } from '../craftingApi'
@@ -6,6 +7,7 @@ import {
   sanctificationShape,
   validSanctification,
   sanctifiedValues,
+  sanctificationPolicy,
 } from './sanctification'
 const d: Definition = {
   id: 'mod',
@@ -51,7 +53,7 @@ describe('lossless sanctification projection', () => {
     const restored = JSON.parse(JSON.stringify(state)) as ConcreteItem
     expect(validSanctification(restored, { mod: d })).toBe(true)
     expect(sanctifiedValues(restored, restored.explicits[0]!)).toEqual({
-      base_strength: 9,
+      base_strength: 11,
     })
     expect(restored.explicits[0]).toEqual(state.explicits[0])
   })
@@ -83,4 +85,54 @@ describe('lossless sanctification projection', () => {
       ).toBe(false)
     }
   })
+})
+
+it('current policy excludes fractured factors while legacy records remain readable', () => {
+  const current: ConcreteItem = {
+    ...state,
+    sanctification: {
+      policy: sanctificationPolicy,
+      implicits: {},
+      explicits: {},
+    },
+  }
+  expect(validSanctification(current, { mod: d })).toBe(true)
+  expect(
+    validSanctification(
+      {
+        ...current,
+        sanctification: {
+          ...current.sanctification!,
+          explicits: state.sanctification!.explicits,
+        },
+      },
+      { mod: d },
+    ),
+  ).toBe(false)
+  expect(validSanctification(state, { mod: d })).toBe(true)
+})
+
+it.each(projectionCases)('matches shared Java projection: $id', (test) => {
+  const mod = {
+    modifierId: 'mod',
+    values: { value: test.source },
+    fractured: test.fractured,
+  }
+  const factors = test.factor == null ? {} : { mod: { value: test.factor } }
+  const item: ConcreteItem = {
+    ...state,
+    implicits: test.implicit ? [mod] : [],
+    explicits: test.implicit ? [] : [mod],
+    sanctification: {
+      policy: test.policy as NonNullable<
+        ConcreteItem['sanctification']
+      >['policy'],
+      implicits: test.implicit ? factors : {},
+      explicits: test.implicit ? {} : factors,
+    },
+  }
+  expect(
+    sanctifiedValues(item, mod, test.implicit ? 'implicits' : 'explicits')
+      .value,
+  ).toBe(test.expected)
 })

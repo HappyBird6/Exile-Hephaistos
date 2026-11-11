@@ -1,3 +1,4 @@
+import { sanctificationFactor } from './sanctification'
 import { roundQualityRatio } from '../qualityRoundingPolicy'
 import { modifierMagnitudeRatio } from '../modifierMagnitudes'
 import type { Definition } from '../craftingApi'
@@ -36,16 +37,12 @@ export function preciseModifierProjection(
     scales && /^(ruby|emerald|sapphire|diamond):/.test(definition.id)
       ? jewelEffect(state, definition.affixType)
       : 0
-  const factors =
-    layer === 'implicits'
-      ? {}
-      : (state.sanctification?.explicits[modifier.modifierId] ?? {})
   const magnitude = modifierMagnitudeRatio(state, definition, layer)
   const ratios: Record<string, { numerator: bigint; denominator: bigint }> = {}
   const values: Record<string, number> = {}
   for (const [id, source] of Object.entries(modifier.values)) {
     const sanctified = roundQualityRatio(
-      BigInt(source) * BigInt(factors[id] ?? 100),
+      BigInt(source) * BigInt(sanctificationFactor(state, modifier, id, layer)),
       100n,
     )
     const qualityValue = roundQualityRatio(

@@ -6,13 +6,21 @@ import type { Definition } from '../craftingApi'
 import { reviewedBasicJewel } from '../basicJewel'
 import { supportsConcreteStateShape } from '../workbenchStateShape'
 import sapphire from '../../../shared/test/sapphire-catalog.json'
-import { validSanctification, sanctificationTargets } from './sanctification'
+import {
+  validSanctification,
+  sanctificationTargets,
+  sanctificationPolicy,
+  sanctificationAssumption,
+} from './sanctification'
 
 const state: ConcreteItem = {
   ...concreteInitial(initialFixture),
   baseItemId: 'Metadata/Items/Amulets/FourAmulet9',
   rarity: 'RARE',
-  explicits: [{ modifierId: 'p', values: { life: 17 }, fractured: true }],
+  explicits: [
+    { modifierId: 'p', values: { life: 17 }, fractured: true },
+    { modifierId: 's', values: { strength: 5 } },
+  ],
   desecrated: [{ id: 'unknown', side: 'SUFFIX', modifierId: null }],
 }
 const response = (): AppliedItem => ({
@@ -28,7 +36,7 @@ const response = (): AppliedItem => ({
   remainingOmens: [],
   assumptions: [
     {
-      id: 'sanctification-explicit-rounded-v2',
+      id: sanctificationAssumption,
       candidateUnit: 'numeric modifier stat',
       n: 45,
       candidates: [],
@@ -42,9 +50,9 @@ const response = (): AppliedItem => ({
     ...state,
     conditions: ['SANCTIFIED'],
     sanctification: {
-      policy: 'explicit-stat-percent-v2',
+      policy: sanctificationPolicy,
       implicits: {},
-      explicits: { p: { life: 122 } },
+      explicits: { s: { strength: 122 } },
     },
   },
 })
@@ -56,8 +64,14 @@ describe('validated Sanctification wire transition', () => {
       'lost-slot',
       'lost-factor',
       'changed-implicit',
+      'fractured-factor',
+      'legacy-response',
     ] as const) {
       const value = response()
+      if (mutation === 'fractured-factor')
+        value.state.sanctification!.explicits.p = { life: 122 }
+      if (mutation === 'legacy-response')
+        value.state.sanctification!.policy = 'explicit-stat-percent-v2'
       if (mutation === 'changed-implicit')
         value.state.sanctification!.implicits = {
           implicit: { base_spirit_from_equipment: 122 },
@@ -108,13 +122,14 @@ describe('validated Sanctification wire transition', () => {
     }
     const modifier = item.explicits[0]!
     item.sanctification = {
-      policy: 'explicit-stat-percent-v2',
+      policy: sanctificationPolicy,
       implicits: {},
       explicits: {
         [d.id]: Object.fromEntries(
-          sanctificationTargets(definitions[d.id]!, modifier.values).map(
-            (id) => [id, 78],
-          ),
+          sanctificationTargets(definitions[d.id]!, modifier).map((id) => [
+            id,
+            78,
+          ]),
         ),
       },
     }

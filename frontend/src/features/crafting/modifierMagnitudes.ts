@@ -1,3 +1,4 @@
+import { sanctificationFactor } from './sanctification/sanctification'
 import { roundQualityRatio } from './qualityRoundingPolicy'
 import rules from './augmentCrafting.json'
 import type { ConcreteItem } from './workbenchApi'
@@ -25,8 +26,7 @@ export function modifierMagnitudeRatio(
     for (const provider of state.explicits) {
       const original = provider.values[rule.stat]
       if (original == null) continue
-      const factor =
-        state.sanctification?.explicits[provider.modifierId]?.[rule.stat] ?? 100
+      const factor = sanctificationFactor(state, provider, rule.stat)
       increased +=
         BigInt(roundQualityRatio(BigInt(original) * BigInt(factor), 100n)) *
         100n

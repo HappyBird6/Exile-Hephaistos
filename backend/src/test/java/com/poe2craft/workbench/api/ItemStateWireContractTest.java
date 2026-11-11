@@ -22,7 +22,39 @@ class ItemStateWireContractTest {
   void serverSerializedItemsRoundTripThroughOrdinaryAndStrictRepeatReaders() {
     var root = SolarAmulet.initial(catalog);
     var strict = wire.copy().enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES);
-    for (var state : java.util.List.of(root, root.withQualityInfused(true))) {
+    var simulator =
+        new com.poe2craft.shared.crafting.domain.WorkbenchSimulator(
+            catalog, new com.poe2craft.shared.crafting.domain.CraftingEngine(catalog));
+    var rare =
+        simulator
+            .apply(
+                root,
+                com.poe2craft.shared.crafting.domain.WorkbenchCurrency.ALCHEMY,
+                java.util.Set.of(),
+                new java.util.Random(2))
+            .state();
+    var modifiers = new java.util.ArrayList<>(rare.explicits());
+    var first = modifiers.getFirst();
+    modifiers.set(0, new ModifierInstance(first.modifierId(), first.values(), true));
+    var locked =
+        new ItemState(
+            rare.snapshotId(),
+            rare.baseItemId(),
+            rare.itemLevel(),
+            rare.rarity(),
+            rare.implicits(),
+            modifiers,
+            java.util.Set.of());
+    var sanctified =
+        simulator
+            .apply(
+                locked,
+                com.poe2craft.shared.crafting.domain.WorkbenchCurrency.DIVINE,
+                java.util.Set.of("Omen_of_Sanctification"),
+                new java.util.Random(4))
+            .state();
+    assertThat(sanctified.sanctification()).isNotNull();
+    for (var state : java.util.List.of(root, root.withQualityInfused(true), sanctified)) {
       var payload = wire.valueToTree(state);
       assertThat(new WorkbenchStateReader(crafting, wire).concreteState(payload)).isEqualTo(state);
       assertThat(new WorkbenchStateReader(crafting, strict).concreteState(payload))

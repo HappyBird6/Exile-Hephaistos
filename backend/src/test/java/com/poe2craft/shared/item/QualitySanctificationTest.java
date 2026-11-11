@@ -21,6 +21,44 @@ class QualitySanctificationTest {
   }
 
   @Test
+  void matchesSharedBrowserProjectionCases() throws Exception {
+    var cases =
+        new ObjectMapper()
+            .readTree(
+                java.nio.file.Path.of("../contracts/sanctification/projection-cases.json")
+                    .toFile());
+    for (var test : cases) {
+      var modifier =
+          new ModifierInstance(
+              "mod",
+              Map.of("value", test.path("source").longValue()),
+              test.path("fractured").asBoolean());
+      boolean implicit = test.path("implicit").asBoolean();
+      Map<String, Map<String, Integer>> factors =
+          test.path("factor").isNull()
+              ? Map.of()
+              : Map.of("mod", Map.of("value", test.path("factor").asInt()));
+      var state =
+          new ItemState(
+                  "test",
+                  "test",
+                  82,
+                  ItemState.Rarity.RARE,
+                  implicit ? List.of(modifier) : List.of(),
+                  implicit ? List.of() : List.of(modifier),
+                  Set.of())
+              .withSanctification(
+                  new ItemState.Sanctification(
+                      test.path("policy").asText(),
+                      implicit ? factors : Map.of(),
+                      implicit ? Map.of() : factors));
+      assertThat(QualitySanctification.value(state, modifier, "value", implicit))
+          .as(test.path("id").asText())
+          .isEqualByComparingTo(test.path("expected").asText());
+    }
+  }
+
+  @Test
   void qualityUsesUserSelectedMaximumForEveryRarityAndNeverDropsOtherState() {
     var fixture = new StockyCraftingFixture();
     for (var rarity :
@@ -147,8 +185,43 @@ class QualitySanctificationTest {
     assertThat(next.observations()).isEqualTo(rare.observations());
     assertThat(next.sanctification()).isNotNull();
     assertThat(next.sanctification().implicits()).isEmpty();
-    assertThat(next.sanctification().policy()).isEqualTo("explicit-stat-percent-v2");
+    assertThat(next.sanctification().policy()).isEqualTo("unfractured-explicit-stat-percent-v3");
     assertThat(QualitySanctification.valid(next, catalog)).isTrue();
+    assertThat(next.sanctification().explicits()).doesNotContainKey(locked.modifierId());
+    assertThat(next.sanctification().explicits()).isNotEmpty();
+    locked
+        .values()
+        .forEach(
+            (stat, value) ->
+                assertThat(QualitySanctification.value(next, locked, stat, false))
+                    .isEqualByComparingTo(Long.toString(value)));
+    // Current responses cannot smuggle a multiplier onto a locked modifier.
+    var factors = new TreeMap<>(next.sanctification().explicits());
+    var lockedFactors = new TreeMap<String, Integer>();
+    QualitySanctification.targets(original, catalog).forEach(stat -> lockedFactors.put(stat, 122));
+    assertThat(lockedFactors).isNotEmpty();
+    factors.put(locked.modifierId(), lockedFactors);
+    var invalid =
+        next.withSanctification(
+            new ItemState.Sanctification(QualitySanctification.POLICY, Map.of(), factors));
+    assertThat(QualitySanctification.valid(invalid, catalog)).isFalse();
+    assertThat(new ItemStateValidator(catalog).validate(invalid)).isNotEmpty();
+    // Historical maps survive JSON loading, but protected values ignore those old factors.
+    var legacy =
+        next.withSanctification(
+            new ItemState.Sanctification("explicit-stat-percent-v2", Map.of(), factors));
+    assertThat(QualitySanctification.valid(legacy, catalog)).isTrue();
+    assertThat(
+            new ObjectMapper()
+                .readValue(new ObjectMapper().writeValueAsString(legacy), ItemState.class))
+        .isEqualTo(legacy);
+    locked
+        .values()
+        .forEach(
+            (stat, value) ->
+                assertThat(QualitySanctification.value(legacy, locked, stat, false))
+                    .isEqualByComparingTo(Long.toString(value)));
+
     assertThat(result.consumedOmens()).containsExactly("Omen_of_Sanctification");
     assertThat(result.remainingOmens()).containsExactly("Omen_of_Whittling");
     assertThat(result.events()).isEmpty();

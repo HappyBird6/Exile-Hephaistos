@@ -7,8 +7,15 @@ import type {
 } from '../workbenchApi'
 import { equivalent, sameRolls } from './equivalence'
 
+export const sanctificationPolicy = 'unfractured-explicit-stat-percent-v3'
+export const sanctificationAssumption = 'sanctification-unfractured-rounded-v3'
+const readablePolicies = [
+  'independent-stat-percent-v1',
+  'explicit-stat-percent-v2',
+  sanctificationPolicy,
+] as const
 export type Sanctification = {
-  policy: 'independent-stat-percent-v1' | 'explicit-stat-percent-v2'
+  policy: (typeof readablePolicies)[number]
   implicits: Record<string, Record<string, number>>
   explicits: Record<string, Record<string, number>>
 }
@@ -32,9 +39,7 @@ export function sanctificationShape(item: Record<string, unknown>): boolean {
   if (value == null) return true
   if (
     !object(value) ||
-    !['independent-stat-percent-v1', 'explicit-stat-percent-v2'].includes(
-      String(value.policy),
-    ) ||
+    !readablePolicies.some((policy) => policy === value.policy) ||
     Object.keys(value).sort().join('|') !== 'explicits|implicits|policy' ||
     item.rarity !== 'RARE' ||
     !Array.isArray(item.conditions) ||
@@ -51,6 +56,9 @@ export function sanctificationShape(item: Record<string, unknown>): boolean {
       ) as Record<string, unknown> | undefined
       return (
         modifier &&
+        !(
+          value.policy === sanctificationPolicy && modifier.fractured === true
+        ) &&
         object(modifier.values) &&
         object(values) &&
         Object.keys(values).length > 0 &&
@@ -67,6 +75,12 @@ export function sanctificationShape(item: Record<string, unknown>): boolean {
   })
 }
 export function sanctificationTargets(
+  d: Definition,
+  modifier: ConcreteItem['explicits'][number],
+): string[] {
+  return modifier.fractured ? [] : scalableStats(d, modifier.values)
+}
+function scalableStats(
   d: Definition,
   values: Record<string, number>,
 ): string[] {
@@ -87,12 +101,15 @@ export function validSanctification(
   return (['implicits', 'explicits'] as const).every((layer) => {
     if (layer === 'implicits' && Object.keys(value.implicits).length === 0)
       return true
-    if (layer === 'implicits' && value.policy === 'explicit-stat-percent-v2')
+    if (layer === 'implicits' && value.policy !== 'independent-stat-percent-v1')
       return false
+    // Accept historical factor maps without inventing or deleting their provenance.
+    const targets = (m: ConcreteItem['explicits'][number]) =>
+      value.policy === sanctificationPolicy
+        ? sanctificationTargets(definitions[m.modifierId]!, m)
+        : scalableStats(definitions[m.modifierId]!, m.values)
     const expected = state[layer].filter(
-      (m) =>
-        definitions[m.modifierId] &&
-        sanctificationTargets(definitions[m.modifierId]!, m.values).length,
+      (m) => definitions[m.modifierId] && targets(m).length,
     )
     return (
       Object.keys(value[layer]).length === expected.length &&
@@ -100,11 +117,21 @@ export function validSanctification(
         (m) =>
           Object.keys(value[layer][m.modifierId] ?? {})
             .sort()
-            .join('|') ===
-          sanctificationTargets(definitions[m.modifierId]!, m.values).join('|'),
+            .join('|') === targets(m).join('|'),
       )
     )
   })
+}
+/** All display and derived calculations share fractured/implicit protection, including old saves. */
+export function sanctificationFactor(
+  state: ConcreteItem,
+  modifier: ConcreteItem['explicits'][number],
+  stat: string,
+  layer: 'implicits' | 'explicits' = 'explicits',
+): number {
+  return layer === 'implicits' || modifier.fractured
+    ? 100
+    : (state.sanctification?.explicits[modifier.modifierId]?.[stat] ?? 100)
 }
 /** Apply to original source-unit rolls exactly once, before display formatting. */
 export function sanctifiedValues(
@@ -112,14 +139,14 @@ export function sanctifiedValues(
   modifier: ConcreteItem['explicits'][number],
   layer: 'implicits' | 'explicits' = 'explicits',
 ): Record<string, number> {
-  const factors =
-    layer === 'implicits'
-      ? {}
-      : (state.sanctification?.explicits[modifier.modifierId] ?? {})
   return Object.fromEntries(
     Object.entries(modifier.values).map(([id, value]) => [
       id,
-      roundQualityRatio(BigInt(value) * BigInt(factors[id] ?? 100), 100n),
+      roundQualityRatio(
+        BigInt(value) *
+          BigInt(sanctificationFactor(state, modifier, id, layer)),
+        100n,
+      ),
     ]),
   )
 }
@@ -147,7 +174,7 @@ export function sanctificationTransitionMatches(
     state.rarity === 'RARE' &&
     state.conditions.length === 0 &&
     state.sanctification == null &&
-    result.state.sanctification?.policy === 'explicit-stat-percent-v2' &&
+    result.state.sanctification?.policy === sanctificationPolicy &&
     Object.keys(result.state.sanctification.implicits).length === 0 &&
     sameRolls(result.state.implicits, state.implicits) &&
     sameRolls(result.state.explicits, state.explicits) &&
@@ -156,7 +183,7 @@ export function sanctificationTransitionMatches(
     !activeOmens.includes('Omen_of_the_Blessed') &&
     result.events.length === 0 &&
     result.assumptions.length === 1 &&
-    result.assumptions[0]?.id === 'sanctification-explicit-rounded-v2'
+    result.assumptions[0]?.id === sanctificationAssumption
   )
 }
 

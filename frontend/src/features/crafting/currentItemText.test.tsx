@@ -262,4 +262,16 @@ it('copies Sanctified effect values and the game flag without inventing an origi
   expect(text).toMatch(/Sanctified$/)
   expect(text).not.toContain('120%')
   expect(state.explicits[0]!.values.life).toBe(17)
+  const locked = {
+    ...state,
+    explicits: [{ ...state.explicits[0]!, fractured: true }],
+  }
+  const lockedText = currentItemText(
+    locked,
+    initialFixture.modifiers,
+    'Solar Amulet',
+    'Amulets',
+  )
+  expect(lockedText).toContain('+17 to maximum Life')
+  expect(lockedText).toContain('fractured')
 })

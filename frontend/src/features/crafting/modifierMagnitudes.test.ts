@@ -129,3 +129,24 @@ it('recalculates final weapon damage from amplified explicit rolls', () => {
     (9 + 46) * 2.15,
   ])
 })
+
+it('never magnifies a fractured provider through a historical Sanctification factor', () => {
+  const stat = 'heist_enchantment_physical_mod_effect_+%'
+  for (const fractured of [false, true]) {
+    const item: ConcreteItem = {
+      ...base,
+      conditions: ['SANCTIFIED'],
+      explicits: [
+        { modifierId: 'provider', values: { [stat]: 20 }, fractured },
+      ],
+      sanctification: {
+        policy: 'explicit-stat-percent-v2',
+        implicits: {},
+        explicits: { provider: { [stat]: 122 } },
+      },
+    }
+    expect(
+      modifierMagnitudeValues(item, definition(['physical']), { value: 100 }),
+    ).toEqual({ value: fractured ? 120 : 124 })
+  }
+})

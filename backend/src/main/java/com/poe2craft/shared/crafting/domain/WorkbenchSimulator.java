@@ -23,8 +23,8 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v21";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v13";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v22";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v14";
   private final ItemCatalog catalog;
   private final Map<String, WorkbenchSimulator> socketSamplers =
       new java.util.concurrent.ConcurrentHashMap<>();
@@ -230,7 +230,9 @@ public final class WorkbenchSimulator {
         + (qualityCapChangePolicy == QualityCapChangePolicy.PRESERVE_EXISTING
             ? "-quality-cap-preserve-v2"
             : "-quality-cap-reject-v1")
-        + "-sanctification-explicit-rounded-v2-"
+        + "-"
+        + QualitySanctification.ASSUMPTION
+        + "-"
         + QualityCurrencyRules.VERSION
         + "-"
         + QualityInfuserRules.VERSION;
@@ -1253,14 +1255,14 @@ public final class WorkbenchSimulator {
       var consumed = List.of(WorkbenchOmen.SANCTIFICATION.id());
       var assumption =
           new Assumption(
-              "sanctification-explicit-rounded-v2",
+              QualitySanctification.ASSUMPTION,
               "numeric modifier stat",
               45,
               List.of(),
               78L,
               122L,
               "https://poe2db.tw/us/Sanctified_Items",
-              "User-selected simulator policy: independent uniform integer percentages for eligible explicit stats only. Implicits and structural metadata remain unchanged. Round the sanctified value, then apply and round typed quality. Original rolls and factors remain stored.");
+              "User-selected simulator policy: independent uniform integer percentages for eligible explicit stats only. Fractured modifiers, implicits and structural metadata remain unchanged. Round the sanctified value, then apply and round typed quality. Original rolls and factors remain stored.");
       return new Result(
           ruleVersion(),
           ledgerVersion(),

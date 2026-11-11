@@ -27,3 +27,6 @@
 [ItemStateValidator.java](../../backend/src/main/java/com/poe2craft/shared/item/ItemStateValidator.java)
 
 [문서 지도](../README.md)
+
+
+축성은 분열되지 않은 명시 속성에만 적용한다. 고정 옵션·분열 옵션·구조용 수치는 축성 계수 생성과 표시 계산에서 제외한다. 현재 정책은 `unfractured-explicit-stat-percent-v3`이며 구버전 계수는 저장 근거로 읽되 고정·분열 옵션의 계산에는 쓰지 않는다. 기폭제 등 다른 표시 배율은 각 기능의 기존 규칙을 따른다. Java와 브라우저의 축성 값 일치는 `contracts/sanctification/projection-cases.json`의 공통 사례로 검증한다.

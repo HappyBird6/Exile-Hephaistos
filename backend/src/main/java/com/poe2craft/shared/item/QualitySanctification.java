@@ -8,7 +8,15 @@ import java.util.random.RandomGenerator;
  * Explicit simulator policy: independent exact integer-percent factors, never edited source rolls.
  */
 public final class QualitySanctification {
-  public static final String POLICY = "explicit-stat-percent-v2";
+  public static final String POLICY = "unfractured-explicit-stat-percent-v3";
+  public static final String ASSUMPTION = "sanctification-unfractured-rounded-v3";
+  private static final Set<String> READABLE_POLICIES =
+      Set.of("independent-stat-percent-v1", "explicit-stat-percent-v2", POLICY);
+
+  public static boolean recognizedPolicy(String policy) {
+    return policy != null && READABLE_POLICIES.contains(policy);
+  }
+
   private static final Set<String> STRUCTURAL =
       Set.of(
           "local_maximum_quality_+",
@@ -25,6 +33,11 @@ public final class QualitySanctification {
   private QualitySanctification() {}
 
   public static Set<String> targets(ModifierInstance modifier, ItemCatalog catalog) {
+    return modifier.fractured() ? Set.of() : scalableStats(modifier, catalog);
+  }
+
+  // Legacy validation retains stored factor maps; new rolls always use targets above.
+  private static Set<String> scalableStats(ModifierInstance modifier, ItemCatalog catalog) {
     var definition = catalog.find(modifier.modifierId()).orElseThrow();
     if (definition.tags().contains("unscalable")) return Set.of();
     var targets = new TreeSet<>(modifier.values().keySet());
@@ -55,18 +68,20 @@ public final class QualitySanctification {
     return value == null
         || ((value.implicits().isEmpty()
                 || (value.policy().equals("independent-stat-percent-v1")
-                    && validLayer(state.implicits(), value.implicits(), catalog)))
-            && validLayer(state.explicits(), value.explicits(), catalog));
+                    && validLayer(state.implicits(), value.implicits(), catalog, true)))
+            && validLayer(
+                state.explicits(), value.explicits(), catalog, !POLICY.equals(value.policy())));
   }
 
   private static boolean validLayer(
       List<ModifierInstance> modifiers,
       Map<String, Map<String, Integer>> factors,
-      ItemCatalog catalog) {
+      ItemCatalog catalog,
+      boolean legacy) {
     var expected = new TreeMap<String, Set<String>>();
     for (var modifier : modifiers) {
       if (catalog.find(modifier.modifierId()).isEmpty()) return false;
-      var targets = targets(modifier, catalog);
+      var targets = legacy ? scalableStats(modifier, catalog) : targets(modifier, catalog);
       if (!targets.isEmpty()) expected.put(modifier.modifierId(), targets);
     }
     return expected.keySet().equals(factors.keySet())
@@ -77,7 +92,7 @@ public final class QualitySanctification {
   public static BigDecimal value(
       ItemState state, ModifierInstance modifier, String stat, boolean implicit) {
     int factor =
-        state.sanctification() == null || implicit
+        state.sanctification() == null || implicit || modifier.fractured()
             ? 100
             : state
                 .sanctification()
