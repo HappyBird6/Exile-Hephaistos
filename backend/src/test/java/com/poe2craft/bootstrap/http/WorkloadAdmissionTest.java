@@ -25,7 +25,7 @@ class WorkloadAdmissionTest {
     when(settings.workbench())
         .thenReturn(
             new BackendSettings.Workbench(
-                1, defaults.repeatTimeBudget(), defaults.repeatReceiptTtl(), 1, 1, false));
+                1, defaults.repeatTimeBudget(), defaults.repeatReceiptTtl(), 1, 1, 2, false));
     var registry = new Registry();
     new WorkloadAdmission(settings, new ObjectMapper()).addInterceptors(registry);
     return ((org.springframework.web.servlet.handler.MappedInterceptor) registry.interceptor())

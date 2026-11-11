@@ -1,3 +1,4 @@
+import { poolHeaders, acceptPoolUpdate } from '../modifier-pool/poolSnapshots'
 import type { AbyssState } from '../crafting-state/types'
 import type { Initial } from '../craftingApi'
 import type { WorkbenchAction } from '../workbenchApi'
@@ -53,13 +54,17 @@ export async function applyAbyssCurrency(
   const response = await fetch('/api/v1/crafting/workbench/abyss/currency', {
     method: 'POST',
     signal,
-    headers: rulesetHeaders(initial.rulesetIdentity),
+    headers: {
+      ...rulesetHeaders(initial.rulesetIdentity),
+      ...poolHeaders(storedAbyssItem(state), initial.rulesetIdentity),
+    },
     body: JSON.stringify({ state, action, activeOmens: triggered }),
   })
   verifyRulesetResponse(response, initial.rulesetIdentity)
   if (signal.aborted) throw new DOMException('Aborted', 'AbortError')
   if (!response.ok) throw new Error(errorMessage)
-  const value = (await response.json()) as AbyssCurrencyResult
+  const { modifierPool, ...value } =
+    (await response.json()) as AbyssCurrencyResult & { modifierPool?: unknown }
   if (signal.aborted) throw new DOMException('Aborted', 'AbortError')
   const next = value?.state?.item
   if (
@@ -127,6 +132,13 @@ export async function applyAbyssCurrency(
     )
       throw new Error(errorMessage)
   }
+  acceptPoolUpdate(
+    modifierPool,
+    storedAbyssItem(state),
+    storedAbyssItem(value.state),
+    initial.rulesetIdentity,
+    initial.modifiers,
+  )
   return {
     ...value,
     state: value.applied ? value.state : state,

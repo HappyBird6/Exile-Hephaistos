@@ -3,6 +3,8 @@ export const performanceSettings = {
   // Parsed immutable catalogs shared by base pickers and overview cards (catalogReference).
   catalogRetentionEntries: 32,
   catalogRequestTimeoutMs: 15_000,
+  // Complete pool snapshots retained for apply deltas (modifier-pool/poolSnapshots).
+  poolSnapshotEntries: 128,
   // Immutable reference retention in TanStack Query (ModifierPoolPanel).
   referenceRetentionMs: 10 * 60_000,
   // Wait for rapid item changes to settle before requesting a visible pool (ModifierPoolPanel).

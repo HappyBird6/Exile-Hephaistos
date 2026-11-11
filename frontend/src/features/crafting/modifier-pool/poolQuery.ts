@@ -1,3 +1,4 @@
+import { poolStateIdentity } from './poolSnapshots'
 import type { Initial } from '../craftingApi'
 import { concreteInitial } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
@@ -16,14 +17,7 @@ export function modifierPoolKey(
     'crafting',
     'modifier-pools',
     catalog?.rulesetIdentity,
-    reference && {
-      ...reference,
-      explicits: reference.explicits.map((modifier) => {
-        const result = { ...modifier }
-        delete (result as Partial<typeof modifier>).values
-        return result
-      }),
-    },
+    reference && poolStateIdentity(reference),
     mode,
   ] as const
 }

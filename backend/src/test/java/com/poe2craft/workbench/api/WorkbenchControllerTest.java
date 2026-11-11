@@ -27,12 +27,95 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest(WorkbenchController.class)
-@Import({CatalogConfiguration.class, CraftingErrors.class, ItemTextService.class})
+@Import({
+  CatalogConfiguration.class,
+  CraftingErrors.class,
+  ItemTextService.class,
+  com.poe2craft.workbench.application.ModifierReferenceService.class
+})
 class WorkbenchControllerTest {
   @Autowired MockMvc mvc;
   @Autowired ObjectMapper mapper;
   @Autowired ItemCatalog catalog;
   @Autowired CatalogCraftingService service;
+
+  @Test
+  void hiddenAbyssSlotsAlsoReceivePoolUpdatesWithCurrency() throws Exception {
+    var root = SolarAmulet.initial(catalog);
+    var rare =
+        new ItemState(
+            root.snapshotId(),
+            root.baseItemId(),
+            root.itemLevel(),
+            ItemState.Rarity.RARE,
+            root.implicits(),
+            java.util.List.of(),
+            java.util.Set.of());
+    var abyss =
+        com.poe2craft.shared.crafting.domain.AbyssCraftingState.from(
+                rare, service.abyssCatalog(rare))
+            .addUnrevealed(
+                "hidden", ModifierDefinition.AffixType.PREFIX, service.abyssCatalog(rare));
+    mvc.perform(
+            post("/api/v1/crafting/workbench/abyss/currency")
+                .header("X-Crafting-Ruleset", RulesetBoundary.identity())
+                .header("X-Modifier-Pool-Revision", "unknown")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                    mapper.writeValueAsBytes(
+                        Map.of(
+                            "state",
+                            abyss,
+                            "action",
+                            "EXALTED",
+                            "activeOmens",
+                            java.util.List.of()))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.applied").value(true))
+        .andExpect(jsonPath("$.modifierPool.reset").value(true))
+        .andExpect(jsonPath("$.modifierPool.entries").isNotEmpty());
+  }
+
+  @Test
+  void optedInApplyIncludesPoolAndLegacyClientsKeepOriginalEnvelope() throws Exception {
+    var initial = SolarAmulet.initial(catalog);
+    var result =
+        mvc.perform(
+                post("/api/v1/crafting/workbench/apply")
+                    .header("X-Crafting-Ruleset", RulesetBoundary.identity())
+                    .header("X-Modifier-Pool-Revision", "unknown")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(
+                        mapper.writeValueAsBytes(
+                            Map.of("state", initial, "action", "TRANSMUTATION"))))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.applied").value(true))
+            .andExpect(jsonPath("$.rulesetIdentity").value(RulesetBoundary.identity()))
+            .andExpect(jsonPath("$.modifierPool.reset").value(true))
+            .andExpect(jsonPath("$.modifierPool.entries").isNotEmpty())
+            .andReturn();
+    var body = mapper.readTree(result.getResponse().getContentAsString());
+    mvc.perform(
+            post("/api/v1/crafting/workbench/apply")
+                .header("X-Crafting-Ruleset", RulesetBoundary.identity())
+                .header(
+                    "X-Modifier-Pool-Revision", body.path("modifierPool").path("revision").asText())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                    mapper.writeValueAsBytes(
+                        Map.of("state", body.get("state"), "action", "DIVINE"))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.modifierPool.reset").value(false))
+        .andExpect(jsonPath("$.modifierPool.entries").isEmpty());
+    mvc.perform(
+            post("/api/v1/crafting/workbench/apply")
+                .header("X-Crafting-Ruleset", RulesetBoundary.identity())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(
+                    mapper.writeValueAsBytes(Map.of("state", initial, "action", "TRANSMUTATION"))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.modifierPool").doesNotExist());
+  }
 
   @Test
   void importedObservationsSurviveJsonRestorationAndManualCraftsWhileUnresolvedAugmentsStayOnHold()
@@ -262,7 +345,7 @@ class WorkbenchControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.applied").value(true))
             .andExpect(jsonPath("$.events[0].kind").value("FRACTURE"))
-            .andExpect(jsonPath("$.ledgerVersion").value("solar-uniform-assumptions-v13"))
+            .andExpect(jsonPath("$.ledgerVersion").value("solar-uniform-assumptions-v14"))
             .andReturn();
     var state =
         mapper.treeToValue(
@@ -313,7 +396,7 @@ class WorkbenchControllerTest {
         .andExpect(
             jsonPath("$.ruleVersion")
                 .value(
-                    "equipment-currency-v1-solar-workbench-abyss-essence-v21-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-explicit-rounded-v2-user-selected-equipment-quality-maximum-v2-quality-infuser-once-plus-ten-v1"));
+                    "equipment-currency-v1-solar-workbench-abyss-essence-v22-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-unfractured-rounded-v3-user-selected-equipment-quality-maximum-v2-quality-infuser-once-plus-ten-v1"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .header("X-Crafting-Ruleset", RulesetBoundary.identity())

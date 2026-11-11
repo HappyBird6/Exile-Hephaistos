@@ -57,6 +57,55 @@ class WorkbenchReferenceControllerTest {
   }
 
   @Test
+  void poolDeltaReconstructsFullReferenceAndRerollsReuseEligibility() {
+    var root = rare();
+    var before = references.describe(root, true);
+    var d = catalog.find("amulet:prefix:hale").orElseThrow();
+    var rolls = new HashMap<String, Long>();
+    d.stats().forEach(stat -> rolls.put(stat.id(), stat.min()));
+    var changed =
+        new ItemState(
+            root.snapshotId(),
+            root.baseItemId(),
+            root.itemLevel(),
+            root.rarity(),
+            root.implicits(),
+            List.of(new ModifierInstance(d.id(), rolls)),
+            Set.of());
+    var update = references.update(before.revision(), changed);
+    assertThat(update.reset()).isFalse();
+    assertThat(update.entries()).isNotEmpty().hasSizeLessThan(before.entries().size());
+    var reconstructed = new HashMap<String, ModifierReferenceService.Entry>();
+    before.entries().forEach(e -> reconstructed.put(e.kind() + ":" + e.modifierId(), e));
+    update.removed().forEach(reconstructed::remove);
+    update.entries().forEach(e -> reconstructed.put(e.kind() + ":" + e.modifierId(), e));
+    var after = references.describe(changed, true);
+    assertThat(reconstructed.values()).containsExactlyInAnyOrderElementsOf(after.entries());
+    var maxRolls = new HashMap<String, Long>();
+    d.stats().forEach(stat -> maxRolls.put(stat.id(), stat.max()));
+    var rerolled =
+        new ItemState(
+            root.snapshotId(),
+            root.baseItemId(),
+            root.itemLevel(),
+            root.rarity(),
+            root.implicits(),
+            List.of(new ModifierInstance(d.id(), maxRolls)),
+            Set.of());
+    assertThat(references.describe(rerolled, true)).isSameAs(after);
+    assertThat(references.update(after.revision(), rerolled).entries()).isEmpty();
+    assertThat(references.update("evicted-revision", changed).reset()).isTrue();
+    assertThat(references.update("evicted-revision", changed).entries()).isEqualTo(after.entries());
+    assertThat(references.describe(changed, false)).isNotSameAs(after);
+    var hidden =
+        AbyssCraftingState.from(changed, crafting.abyssCatalog(changed))
+            .addUnrevealed(
+                "hidden", ModifierDefinition.AffixType.PREFIX, crafting.abyssCatalog(changed))
+            .storedItem();
+    assertThat(references.describe(hidden, true)).isNotSameAs(after);
+  }
+
+  @Test
   void rebasingPreservesFractureCraftedQualityInfusionAndUnrevealedSlots() throws Exception {
     var root = rare();
     var state =

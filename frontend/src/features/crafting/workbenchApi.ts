@@ -1,3 +1,4 @@
+import { poolHeaders, acceptPoolUpdate } from './modifier-pool/poolSnapshots'
 import { isQualityInfuser, infuserTransitionMatches } from './qualityInfuser'
 import { currencyOmens } from './crafting-state/activeOmens'
 import { effectiveDefinitions, isCraftedModifier } from './augmentRules'
@@ -302,7 +303,10 @@ export async function applyCurrency(
   const response = await fetch('/api/v1/crafting/workbench/apply', {
     method: 'POST',
     signal,
-    headers: rulesetHeaders(rulesetIdentity),
+    headers: {
+      ...rulesetHeaders(rulesetIdentity),
+      ...poolHeaders(state, rulesetIdentity),
+    },
     body: JSON.stringify({ state, action, activeOmens }),
   })
   verifyRulesetResponse(response, rulesetIdentity)
@@ -310,7 +314,9 @@ export async function applyCurrency(
     throw new Error(
       'Could not apply currency. Your item is unchanged. Please retry.',
     )
-  const v = (await response.json()) as AppliedItem
+  const { modifierPool, ...v } = (await response.json()) as AppliedItem & {
+    modifierPool?: unknown
+  }
   if (v.rulesetIdentity !== rulesetIdentity)
     throw new Error(translate('ruleset.request_changed'))
   const next = v?.state
@@ -1422,6 +1428,8 @@ export async function applyCurrency(
     throw new Error(
       'Could not verify the Fractured modifier. Your item is unchanged. Please retry.',
     )
+  if (signal.aborted) throw new DOMException('Aborted', 'AbortError')
+  acceptPoolUpdate(modifierPool, state, next, rulesetIdentity, definitions)
   return { ...v, remainingOmens: omenContext.restore(v.remainingOmens) }
 }
 

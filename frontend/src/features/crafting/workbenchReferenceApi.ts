@@ -6,22 +6,15 @@ import { sameItemState, sameRevealOffer } from './crafting-state/itemIdentity'
 import { storedAbyssItem, verifiedHistoryState } from './workbenchHistory'
 import { validAbyssResponse } from './abyssResponse'
 
-export const exclusionReasons = [
-  'ITEM_LEVEL',
-  'FAMILY_OCCUPIED',
-  'AFFIX_FULL',
-  'REVEAL_POOL',
-  'STATE_RESTRICTION',
-] as const
-export type ExclusionReason = (typeof exclusionReasons)[number]
-export type PoolEntry = {
-  modifierId: string
-  kind: 'ordinary' | 'desecrated' | 'essence'
-  eligible: boolean
-  reasons: ExclusionReason[]
-  actions: string[]
-}
-export type PoolReference = { entries: PoolEntry[] }
+import { cachedPool, rememberPool } from './modifier-pool/poolSnapshots'
+import { validPoolEntries } from './modifier-pool/poolReference'
+import type { PoolReference } from './modifier-pool/poolReference'
+export { exclusionReasons } from './modifier-pool/poolReference'
+export type {
+  ExclusionReason,
+  PoolEntry,
+  PoolReference,
+} from './modifier-pool/poolReference'
 async function post(
   path: string,
   body: unknown,
@@ -44,33 +37,18 @@ export async function loadModifierPools(
   dynamic: boolean,
   signal: AbortSignal,
 ): Promise<PoolReference> {
+  const cached = cachedPool(state, dynamic, initial.rulesetIdentity)
+  if (cached) return cached
   const data = (await post(
     'modifier-pools',
     { state, dynamic },
     initial,
     signal,
   )) as PoolReference
-  const seen = new Set<string>()
-  if (
-    !Array.isArray(data?.entries) ||
-    data.entries.some((entry) => {
-      const key = `${entry?.kind}:${entry?.modifierId}`
-      const invalid =
-        !entry ||
-        !Object.hasOwn(initial.modifiers, entry.modifierId) ||
-        !['ordinary', 'desecrated', 'essence'].includes(entry.kind) ||
-        typeof entry.eligible !== 'boolean' ||
-        !Array.isArray(entry.actions) ||
-        entry.actions.some((a) => typeof a !== 'string') ||
-        !Array.isArray(entry.reasons) ||
-        entry.reasons.some((r) => !exclusionReasons.includes(r)) ||
-        entry.eligible !== (entry.reasons.length === 0) ||
-        seen.has(key)
-      seen.add(key)
-      return invalid
-    })
-  )
+  if (!validPoolEntries(data, initial.modifiers))
     throw new Error('Invalid modifier reference')
+  if (!signal.aborted)
+    rememberPool(state, dynamic, initial.rulesetIdentity, data)
   return data
 }
 export type SessionCompatibility = {

@@ -31,17 +31,23 @@ describe('Workbench application and shared transition validation', () => {
       </QueryClientProvider>,
     )
     fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
-    fireEvent.change(screen.getByRole('spinbutton', { name: 'Item level' }), {
-      target: { value: '70' },
-    })
-    fireEvent.click(
-      within(screen.getByRole('dialog', { name: 'Select base' })).getByRole(
-        'button',
-        { name: 'Select base' },
-      ),
+    fireEvent.change(
+      await screen.findByRole('spinbutton', { name: 'Item level' }),
+      {
+        target: { value: '70' },
+      },
     )
+    const confirm = within(
+      screen.getByRole('dialog', { name: 'Select base' }),
+    ).getByRole('button', { name: 'Select base' })
+    await waitFor(() => expect(confirm).toBeEnabled())
+    fireEvent.click(confirm)
     await waitFor(() =>
-      expect(screen.getByRole('article')).toHaveTextContent('70'),
+      expect(
+        within(
+          document.querySelector('.bench-item-card') as HTMLElement,
+        ).getByRole('article'),
+      ).toHaveTextContent('70'),
     )
     fireEvent.click(currencyButton('Orb of Transmutation'))
     fireEvent.click(
@@ -50,9 +56,17 @@ describe('Workbench application and shared transition validation', () => {
       }),
     )
     await waitFor(() =>
-      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
+      expect(
+        within(
+          document.querySelector('.bench-item-card') as HTMLElement,
+        ).getByRole('article'),
+      ).toHaveClass('item-card--magic'),
     )
-    expect(screen.getByRole('article')).toHaveTextContent('+17 to maximum Life')
+    expect(
+      within(
+        document.querySelector('.bench-item-card') as HTMLElement,
+      ).getByRole('article'),
+    ).toHaveTextContent('+17 to maximum Life')
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')
@@ -73,8 +87,16 @@ describe('Workbench application and shared transition validation', () => {
         document.querySelector('.craft-page > .sr-only[role="status"]'),
       ).toHaveTextContent('cannot be used on this rarity'),
     )
-    expect(screen.getByRole('article')).toHaveTextContent('+17 to maximum Life')
-    expect(screen.getByRole('article')).toHaveClass('item-card--magic')
+    expect(
+      within(
+        document.querySelector('.bench-item-card') as HTMLElement,
+      ).getByRole('article'),
+    ).toHaveTextContent('+17 to maximum Life')
+    expect(
+      within(
+        document.querySelector('.bench-item-card') as HTMLElement,
+      ).getByRole('article'),
+    ).toHaveClass('item-card--magic')
   })
 
   it('rejects a response for another snapshot', async () => {

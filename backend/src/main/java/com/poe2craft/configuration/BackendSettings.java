@@ -101,6 +101,7 @@ public record BackendSettings(
       @NotNull Duration repeatReceiptTtl,
       @Min(1) int requestConcurrency,
       @Min(1) int referenceCatalogEntries,
+      @Min(1) int referenceStateEntries,
       boolean supportEnabled) {
     @org.springframework.boot.context.properties.bind.ConstructorBinding
     public Workbench {
@@ -117,6 +118,7 @@ public record BackendSettings(
           defaults().workbench().repeatReceiptTtl(),
           defaults().workbench().requestConcurrency(),
           defaults().workbench().referenceCatalogEntries(),
+          defaults().workbench().referenceStateEntries(),
           defaults().workbench().supportEnabled());
     }
   }

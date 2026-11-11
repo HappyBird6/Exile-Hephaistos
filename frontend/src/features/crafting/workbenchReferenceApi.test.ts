@@ -222,3 +222,58 @@ it('keeps per-item identity when rewinding into a separate craft film', async ()
   expect(currentFilm(branched)?.compatibilityId).toBe('per-base-key')
   expect(branched.films[0]).toEqual(original)
 })
+
+it('receives a pool delta with a verified craft, reuses it without a second request and strips it from history', async () => {
+  const { rememberPool, cachedPool } =
+    await import('./modifier-pool/poolSnapshots')
+  const identity = initialFixture.rulesetIdentity
+  const revision = 'c'.repeat(64)
+  rememberPool(root, true, identity, { revision, entries: [] })
+  const fetch = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+    const response = await fixtureFetch(input, init)
+    const value = await response.json()
+    return jsonResponse({
+      ...value,
+      modifierPool: {
+        fromRevision: revision,
+        revision: 'd'.repeat(64),
+        reset: false,
+        entries: [
+          {
+            modifierId: 'p',
+            kind: 'ordinary',
+            eligible: false,
+            reasons: ['FAMILY_OCCUPIED'],
+            actions: [],
+          },
+        ],
+        removed: [],
+      },
+    })
+  })
+  vi.stubGlobal('fetch', fetch)
+  const result = await applyCurrency(
+    root,
+    'TRANSMUTATION',
+    initialFixture.modifiers,
+    signal(),
+    [],
+    identity,
+  )
+  expect(result).not.toHaveProperty('modifierPool')
+  expect(fetch.mock.calls[0]![1]?.headers).toHaveProperty(
+    'X-Modifier-Pool-Revision',
+    revision,
+  )
+  const pool = await loadModifierPools(
+    initialFixture,
+    result.state,
+    true,
+    signal(),
+  )
+  expect(pool.entries[0]?.reasons).toEqual(['FAMILY_OCCUPIED'])
+  expect(cachedPool(result.state, true, identity)?.revision).toBe(
+    'd'.repeat(64),
+  )
+  expect(fetch).toHaveBeenCalledTimes(1)
+})

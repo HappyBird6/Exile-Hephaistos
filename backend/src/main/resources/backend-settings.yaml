@@ -135,6 +135,8 @@ backend:
     # 옵션 판정용 불변 카탈로그 인덱스의 프로세스별 최대 보관 개수.
     # 사용: workbench/application/ModifierReferenceService.java
     reference-catalog-entries: 64
+    # 옵션 풀 판정 및 변경분 기준의 LRU 개수 상한. 사용: workbench/application/ModifierReferenceService.
+    reference-state-entries: 128
     # 보류 중인 제작지원 API의 활성 여부. workbench-production 프로필에서는 false.
     # 사용: bootstrap/http/WorkloadAdmission.java
     support-enabled: true

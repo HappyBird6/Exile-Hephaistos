@@ -29,7 +29,7 @@ const byId = (a: Modifier, b: Modifier) =>
 export const sameModifier = (a: Modifier, b: Modifier) =>
   equivalent(wireDefaults(a), wireDefaults(b))
 
-function itemIdentity(item: ConcreteItem) {
+export function itemIdentity(item: ConcreteItem) {
   return wireDefaults({
     ...item,
     explicits: [...item.explicits].sort(byId),

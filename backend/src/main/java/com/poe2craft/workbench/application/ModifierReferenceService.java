@@ -10,6 +10,74 @@ import org.springframework.stereotype.Service;
 @Service
 public final class ModifierReferenceService {
   private final CraftingOperations crafting;
+  private final com.fasterxml.jackson.databind.ObjectMapper json =
+      new com.fasterxml.jackson.databind.ObjectMapper();
+  private final Map<String, Reference> states;
+  private final Map<String, Reference> revisions;
+
+  private static <V> Map<String, V> bounded(int maximum) {
+    return Collections.synchronizedMap(
+        new LinkedHashMap<String, V>(16, .75f, true) {
+          @Override
+          protected boolean removeEldestEntry(Map.Entry<String, V> entry) {
+            return size() > maximum;
+          }
+        });
+  }
+
+  private String digest(Object value) {
+    try {
+      return java.util.HexFormat.of()
+          .formatHex(
+              java.security.MessageDigest.getInstance("SHA-256")
+                  .digest(json.writeValueAsBytes(value)));
+    } catch (java.io.IOException | java.security.NoSuchAlgorithmException error) {
+      throw new IllegalStateException(error);
+    }
+  }
+
+  /**
+   * Exclude only explicit numeric rolls: the execution resolver uses modifier identities for
+   * eligibility. Every other state field (including future fields) remains in the key. Never
+   * normalize the live item.
+   */
+  private String stateKey(ItemState state, boolean dynamic) {
+    com.fasterxml.jackson.databind.node.ObjectNode tree = json.valueToTree(state);
+    for (var modifier : tree.withArray("explicits"))
+      ((com.fasterxml.jackson.databind.node.ObjectNode) modifier).remove("values");
+    return digest(List.of(dynamic, tree));
+  }
+
+  public record Update(
+      String fromRevision,
+      String revision,
+      boolean reset,
+      List<Entry> entries,
+      List<String> removed) {}
+
+  private static String entryKey(Entry entry) {
+    return entry.kind() + ":" + entry.modifierId();
+  }
+
+  public Update update(String previous, ItemState state) {
+    var before = revisions.get(previous);
+    var after = describe(state, true);
+    if (before == null) return new Update(null, after.revision(), true, after.entries(), List.of());
+    if (previous.equals(after.revision()))
+      return new Update(previous, after.revision(), false, List.of(), List.of());
+    var old = new HashMap<String, Entry>();
+    before.entries().forEach(entry -> old.put(entryKey(entry), entry));
+    var changed = new ArrayList<Entry>();
+    for (var entry : after.entries())
+      if (!entry.equals(old.remove(entryKey(entry)))) changed.add(entry);
+    return new Update(
+        previous,
+        after.revision(),
+        false,
+        List.copyOf(changed),
+        old.keySet().stream().sorted().toList());
+  }
+
   private final Map<ItemCatalog, ModifierPoolResolver> resolvers;
 
   public ModifierReferenceService(CraftingOperations crafting) {
@@ -20,6 +88,8 @@ public final class ModifierReferenceService {
   public ModifierReferenceService(
       CraftingOperations crafting, com.poe2craft.configuration.BackendSettings settings) {
     this.crafting = crafting;
+    states = bounded(settings.workbench().referenceStateEntries());
+    revisions = bounded(settings.workbench().referenceStateEntries());
     resolvers =
         Collections.synchronizedMap(
             new LinkedHashMap<>(16, 0.75f, true) {
@@ -38,12 +108,18 @@ public final class ModifierReferenceService {
       List<String> reasons,
       List<String> actions) {}
 
-  public record Reference(List<Entry> entries) {}
+  public record Reference(List<Entry> entries, String revision) {}
 
   public Reference describe(ItemState input, boolean dynamic) {
     var catalog = crafting.abyssCatalog(input);
     var abyss = AbyssCraftingState.from(input, catalog);
     abyss.validate(catalog);
+    var key = stateKey(input, dynamic);
+    var cached = states.get(key);
+    if (cached != null) {
+      revisions.put(cached.revision(), cached);
+      return cached;
+    }
     var simulator = crafting.simulator(input);
     // A normal item has no explicit modifiers; show the first addition's pool.
     var state =
@@ -110,7 +186,13 @@ public final class ModifierReferenceService {
                 d.id(), "essence", reasons.isEmpty(), reasons, List.copyOf(targets.get(d.id()))));
       }
     }
-    return new Reference(List.copyOf(entries));
+    var reference =
+        new Reference(
+            List.copyOf(entries),
+            digest(List.of(input.snapshotId(), input.baseItemId(), dynamic, entries)));
+    states.put(key, reference);
+    revisions.put(reference.revision(), reference);
+    return reference;
   }
 
   private List<String> exclusions(
