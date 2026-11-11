@@ -1,3 +1,6 @@
+import { initialFixture } from '../../../shared/test/craftingFixtures'
+import { concreteInitial } from '../workbenchApi'
+import { baseFavoriteMessages } from '../base-favorites/messages'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import { useRef, useState } from 'react'
 import { expect, it, vi } from 'vitest'
@@ -163,4 +166,43 @@ it('uses reviewed range text for implicits instead of pretending a base preview 
   expect(baseImageSource('Metadata/Items/Amulets/FourAmulet9')).toBe(
     '/assets/currency/solar-amulet.webp',
   )
+})
+
+it('separates plain base favorites from configured preview favorites', () => {
+  setLocale('en')
+  const save = vi.fn()
+  function Example() {
+    const anchor = useRef<HTMLButtonElement>(null)
+    return (
+      <WorkbenchBasePicker
+        id="favorite-modes"
+        anchor={anchor}
+        open
+        onOpenChange={vi.fn()}
+        value="solar"
+        onChange={vi.fn()}
+        level="80"
+        onLevelChange={vi.fn()}
+        onPlace={vi.fn()}
+        onSaveFavorite={save}
+        setup={{
+          initial: initialFixture,
+          item: concreteInitial(initialFixture),
+          affixes: [],
+          onChange: vi.fn(),
+        }}
+      />
+    )
+  }
+  render(<Example />)
+  fireEvent.click(
+    screen.getByRole('button', {
+      name: `${baseFavoriteMessages.en.add}: Solar Amulet`,
+    }),
+  )
+  expect(save).toHaveBeenLastCalledWith('solar')
+  fireEvent.click(
+    screen.getByRole('button', { name: baseFavoriteMessages.en.add }),
+  )
+  expect(save).toHaveBeenLastCalledWith('solar', true)
 })

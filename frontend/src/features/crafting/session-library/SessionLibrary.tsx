@@ -1,5 +1,3 @@
-import { saveBaseFavorite } from '../base-favorites/repository'
-import { baseFavoriteMessages } from '../base-favorites/messages'
 import { orderedFilms } from '../workbenchHistory'
 import { useState } from 'react'
 import { useI18n, gameName } from '../../../shared/i18n/i18n'
@@ -24,6 +22,7 @@ export type SessionLibraryProps = {
   onDelete: (id: string) => void
   disabled?: boolean
   imageForBase?: (baseItemId: string) => string | undefined
+  page?: number
   favoritesOnly?: boolean
 }
 
@@ -36,6 +35,7 @@ export function SessionLibrary({
   disabled = false,
   imageForBase,
   favoritesOnly = false,
+  page = 1,
 }: SessionLibraryProps) {
   const { locale, t } = useI18n()
   const text = sessionLibraryMessages[locale]
@@ -49,6 +49,7 @@ export function SessionLibrary({
       )}
       {orderedFilms(history.films, favoritesOnly)
         .filter((film) => !favoritesOnly || film.favorite)
+        .slice((page - 1) * 10, page * 10)
         .map((film) => {
           const title = sessionTitle(film, locale)
           const baseId = film.frames.at(-1)?.state.baseItemId ?? ''
@@ -113,20 +114,6 @@ export function SessionLibrary({
                   </svg>
                   {transfer.title}
                 </a>
-                <button
-                  type="button"
-                  disabled={disabled}
-                  onClick={() => {
-                    try {
-                      saveBaseFavorite(film)
-                      setError(false)
-                    } catch {
-                      setError(true)
-                    }
-                  }}
-                >
-                  {baseFavoriteMessages[locale].add}
-                </button>
                 <button
                   type="button"
                   aria-label={`${transfer.export}: ${title}`}

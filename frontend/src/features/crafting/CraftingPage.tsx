@@ -474,6 +474,43 @@ function ReadyCraftingPage({
   const [leftMenu, setLeftMenu] = useState<'base' | null>(null)
   const baseAnchor = useRef<HTMLButtonElement>(null)
   const simulationCanvas = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const viewport =
+      simulationCanvas.current?.closest<HTMLElement>('.stash-viewport')
+    const page = viewport?.closest<HTMLElement>('.craft-page--workbench')
+    const panel = viewport?.closest<HTMLElement>('.workspace-panel')
+    if (!viewport || !page || !panel || typeof ResizeObserver === 'undefined')
+      return
+    const update = () => {
+      // Measure the same layout even when the history tab is the first visited page.
+      // Restore synchronously before paint so the hidden panel cannot cause a visible layout shift.
+      const hidden = panel.hidden
+      const originalStyle = panel.style.cssText
+      if (hidden) {
+        panel.style.visibility = 'hidden'
+        panel.hidden = false
+      }
+      const height = viewport.offsetHeight
+      if (hidden) {
+        panel.hidden = true
+        panel.style.cssText = originalStyle
+      }
+      if (height > 0)
+        page.style.setProperty('--workbench-stash-height', `${height}px`)
+    }
+    let width = page.clientWidth
+    const observer = new ResizeObserver(() => {
+      if (!panel.hidden || page.clientWidth !== width) {
+        width = page.clientWidth
+        update()
+      }
+    })
+    observer.observe(page)
+    if (!panel.hidden) observer.observe(viewport)
+    update()
+    return () => observer.disconnect()
+  }, [view])
+
   const [inputOpen, setInputOpen] = useState(false)
   const inputOpener = useRef<HTMLElement | null>(null)
   const [announcement, setAnnouncement] = useState('')
@@ -2879,7 +2916,7 @@ function ReadyCraftingPage({
                   void newCraftFromFrame(film, film.frames[0]!)
                   setLeftMenu(null)
                 }}
-                onSaveFavorite={(base) => {
+                onSaveFavorite={(base, withAffixes = false) => {
                   if (mutationLocked()) return
                   void (async () => {
                     try {
@@ -2896,7 +2933,7 @@ function ReadyCraftingPage({
                         staleTime: 60_000,
                       })
                       const state =
-                        base === baseChoice && setupItem
+                        withAffixes && base === baseChoice && setupItem
                           ? setupItem
                           : startingItem(data, baseStartingRarity(base), [])
                       if (!verifiedHistoryState(state, data))

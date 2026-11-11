@@ -129,7 +129,11 @@ it('previews the final frame without changing the active session until Continue'
 it('filters favorites with legacy numbers and preserves rename, delete and Undo', () => {
   setLocale('en')
   render(<Example />)
-  const nav = within(screen.getByRole('navigation'))
+  const nav = within(
+    screen.getByRole('navigation', {
+      name: sessionLibraryMessages.en.navigation,
+    }),
+  )
   fireEvent.click(nav.getByRole('button', { name: 'Favorites' }))
   expect(screen.getAllByRole('article')).toHaveLength(1)
   fireEvent.click(screen.getByRole('button', { name: 'Rename: Loved' }))
@@ -253,4 +257,48 @@ it('previews the selected session total independently from the active simulation
   ).toBeVisible()
   expect(history.active).toBe('one')
   expect(history.cursor).toBe(0)
+})
+
+it('paginates both lists in groups of ten and clamps the page after deletion', () => {
+  setLocale('en')
+  const source = fixtureHistory().films[0]!
+  const films = Array.from({ length: 21 }, (_, i) => ({
+    ...source,
+    id: `page-${i}`,
+    title: `Session ${i}`,
+    favorite: true,
+  }))
+  const props = {
+    history: { ...emptyFilms(), films },
+    onContinue: vi.fn(),
+    onImport: vi.fn(),
+    onRename: vi.fn(),
+    onFavoriteChange: vi.fn(),
+    onDelete: vi.fn(),
+  }
+  const { rerender } = render(<SessionHistoryWorkspace {...props} />)
+  expect(screen.getAllByRole('article')).toHaveLength(10)
+  fireEvent.click(screen.getByRole('button', { name: '3' }))
+  expect(screen.getAllByRole('article')).toHaveLength(1)
+  rerender(
+    <SessionHistoryWorkspace
+      {...props}
+      history={{ ...props.history, films: films.slice(0, 20) }}
+    />,
+  )
+  expect(screen.getByRole('button', { name: '2' })).toHaveAttribute(
+    'aria-current',
+    'page',
+  )
+  expect(screen.getAllByRole('article')).toHaveLength(10)
+  fireEvent.click(screen.getByRole('button', { name: 'Favorites' }))
+  expect(screen.getByRole('button', { name: '1' })).toHaveAttribute(
+    'aria-current',
+    'page',
+  )
+  fireEvent.click(screen.getByRole('button', { name: 'Next page' }))
+  expect(screen.getAllByRole('article')).toHaveLength(10)
+  expect(
+    document.querySelector('.wb-session-card__actions')?.textContent,
+  ).not.toContain('Save base favorite')
 })

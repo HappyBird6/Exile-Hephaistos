@@ -29,7 +29,7 @@ export type WorkbenchBasePickerProps = Omit<ShelfOverlayProps, 'onClose'> & {
   level: string
   onLevelChange: (level: string) => void
   onPlace: () => void
-  onSaveFavorite?: (base: WorkbenchBaseKey) => void
+  onSaveFavorite?: (base: WorkbenchBaseKey, withAffixes?: boolean) => void
   onPlaceFavorite?: (film: Film) => void
   disabled?: boolean
   /** Starting rarity and affixes are staged until the base is placed. */
@@ -389,10 +389,20 @@ function BasePickerContent({
               }}
             >
               {setup && preview.key === value && (
-                <BaseAffixEditor
-                  key={`${value}:${level}:${selectedRarity}`}
-                  {...setup}
-                />
+                <>
+                  <BaseAffixEditor
+                    key={`${value}:${level}:${selectedRarity}`}
+                    {...setup}
+                  />
+                  <button
+                    type="button"
+                    className="wb-base-picker__save-configured"
+                    disabled={disabled || !valid || !levelValid}
+                    onClick={() => onSaveFavorite?.(value, true)}
+                  >
+                    {favoriteText.add}
+                  </button>
+                </>
               )}
             </BasePreviewPanel>
           )

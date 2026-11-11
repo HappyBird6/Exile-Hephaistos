@@ -137,7 +137,15 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
           flags: state.conditions.map((text, i) => ({ id: `flag-${i}`, text })),
           modifiers: [...state.implicits, ...state.explicits]
             .map((m, i): ItemCardLine => {
-              const definition = valid ? definitions?.[m.modifierId] : undefined
+              // A ruleset mismatch blocks crafting, not readable labels for known stats.
+              const candidate = definitions?.[m.modifierId]
+              const definition =
+                candidate &&
+                Object.keys(m.values).every((id) =>
+                  candidate.stats?.some((stat) => stat.id === id),
+                )
+                  ? candidate
+                  : undefined
               const values = definition
                 ? state.conditions.includes('SANCTIFIED')
                   ? preciseModifierProjection(

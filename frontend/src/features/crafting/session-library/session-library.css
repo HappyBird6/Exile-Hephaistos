@@ -136,7 +136,7 @@
 }
 .wb-session-import__flow {
   margin-top: 8px;
-  max-height: 45vh;
+  max-height: 90vh;
   overflow: auto;
 }
 .wb-session-card__actions {
@@ -146,7 +146,7 @@
 .wb-history-workspace {
   display: grid;
   grid-template-columns: 210px minmax(0, 1fr);
-  min-height: 640px;
+  min-height: var(--workbench-stash-height, 640px);
   gap: 0;
   min-width: 0;
   font-size: 18px;
@@ -243,7 +243,7 @@
   align-items: start;
 }
 .wb-history-list {
-  max-height: 80vh;
+  max-height: 90vh;
   overflow: auto;
   padding: 2px 8px 8px 2px;
 }
@@ -370,7 +370,7 @@
     grid-template-columns: minmax(0, 1fr);
   }
   .wb-history-list {
-    max-height: 45vh;
+    max-height: 90vh;
   }
   .wb-history-preview {
     padding: 16px;
@@ -472,4 +472,44 @@
 .wb-session-card {
   content-visibility: auto;
   contain-intrinsic-size: auto 160px;
+}
+
+.wb-history-pagination {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.wb-history-pagination button {
+  min-width: 34px;
+  min-height: 34px;
+  border: 1px solid #504838;
+  background: #20231f;
+  color: #c7b992;
+  border-radius: 4px;
+}
+.wb-history-pagination button[aria-current='page'] {
+  background: #49402b;
+  border-color: #c7a465;
+  color: #f1d799;
+}
+.wb-history-pagination button:disabled {
+  opacity: 0.4;
+}
+.wb-history-workspace .wb-session-card {
+  padding: 8px 10px;
+}
+.wb-session-card .wb-base-image {
+  width: 100px;
+  height: 64px;
+  flex: 0 0 100px;
+  object-fit: contain;
+}
+.wb-session-card__actions {
+  margin-top: 6px;
+}
+.wb-base-picker__save-configured {
+  width: 100%;
+  margin-top: 10px;
 }

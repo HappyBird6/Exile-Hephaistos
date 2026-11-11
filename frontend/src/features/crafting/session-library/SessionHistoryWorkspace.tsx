@@ -1,3 +1,5 @@
+import { saveBaseFavorite } from '../base-favorites/repository'
+import { baseFavoriteMessages } from '../base-favorites/messages'
 import { orderedFilms } from '../workbenchHistory'
 import { freshCraftMessages } from './freshCraftMessages'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
@@ -42,6 +44,16 @@ export function SessionHistoryWorkspace({
 }: SessionHistoryWorkspaceProps) {
   const { locale } = useI18n()
   const text = sessionLibraryMessages[locale]
+  const pageLabels = {
+    en: ['Previous page', 'Next page'],
+    ko: ['이전 페이지', '다음 페이지'],
+    'zh-CN': ['上一页', '下一页'],
+    'zh-TW': ['上一頁', '下一頁'],
+    ja: ['前のページ', '次のページ'],
+    es: ['Página anterior', 'Página siguiente'],
+    ru: ['Предыдущая страница', 'Следующая страница'],
+    th: ['หน้าก่อนหน้า', 'หน้าถัดไป'],
+  }[locale]
   const [filter, setFilter] = useState<'library' | 'favorites'>(() =>
     new URLSearchParams(location.search).get('section') === 'favorites'
       ? 'favorites'
@@ -50,16 +62,21 @@ export function SessionHistoryWorkspace({
   const [selectedId, setSelectedId] = useState<string | null>(() =>
     new URLSearchParams(location.search).get('session'),
   )
+  const [page, setPage] = useState(1)
+  const [favoriteStatus, setFavoriteStatus] = useState('')
   const preview = useRef<HTMLElement>(null)
   const importPreview = useRef<HTMLDivElement>(null)
   const visible = orderedFilms(
     library.history.films,
     filter === 'favorites',
   ).filter((film) => filter === 'library' || film.favorite === true)
+  const pages = Math.max(1, Math.ceil(visible.length / 10))
+  const currentPage = Math.min(page, pages)
+  const pageFilms = visible.slice((currentPage - 1) * 10, currentPage * 10)
   const selected =
-    visible.find((film) => film.id === selectedId) ??
-    visible.find((film) => film.id === library.history.active) ??
-    visible[0]
+    pageFilms.find((film) => film.id === selectedId) ??
+    pageFilms.find((film) => film.id === library.history.active) ??
+    pageFilms[0]
   const finalFrame = selected?.frames.at(-1)
   const title = selected ? sessionTitle(selected, locale) : text.empty
   return (
@@ -70,7 +87,11 @@ export function SessionHistoryWorkspace({
             key={view}
             type="button"
             aria-current={filter === view ? 'page' : undefined}
-            onClick={() => setFilter(view)}
+            onClick={() => {
+              setFilter(view)
+              setPage(1)
+              setFavoriteStatus('')
+            }}
           >
             <span
               className={
@@ -100,6 +121,7 @@ export function SessionHistoryWorkspace({
                 const id = await onImport(document)
                 if (!id) return false
                 setFilter('library')
+                setPage(1)
                 setSelectedId(id)
                 return true
               }}
@@ -118,18 +140,61 @@ export function SessionHistoryWorkspace({
         <div
           className={`wb-history-columns${selected ? '' : ' wb-history-columns--empty'}`}
         >
-          <div className="wb-history-list wb-scrollbar">
-            <SessionLibrary
-              key={filter}
-              {...library}
-              selectedId={selected?.id ?? null}
-              favoritesOnly={filter === 'favorites'}
-              onSelect={(id) => {
-                setSelectedId(id)
-                if (window.innerWidth <= 760)
-                  preview.current?.scrollIntoView({ block: 'nearest' })
-              }}
-            />
+          <div>
+            <nav
+              className="wb-history-pagination"
+              aria-label={pageLabels.join(' / ')}
+            >
+              <button
+                type="button"
+                disabled={currentPage === 1}
+                aria-label={pageLabels[0]}
+                onClick={() => setPage(currentPage - 1)}
+              >
+                ‹
+              </button>
+              {Array.from({ length: pages }, (_, i) => i + 1)
+                .filter(
+                  (n) =>
+                    n === 1 || n === pages || Math.abs(n - currentPage) <= 2,
+                )
+                .map((n, i, shown) => (
+                  <span key={n}>
+                    {i > 0 && n - shown[i - 1]! > 1 && (
+                      <span aria-hidden="true">…</span>
+                    )}
+                    <button
+                      type="button"
+                      aria-current={n === currentPage ? 'page' : undefined}
+                      onClick={() => setPage(n)}
+                    >
+                      {n}
+                    </button>
+                  </span>
+                ))}
+              <button
+                type="button"
+                disabled={currentPage === pages}
+                aria-label={pageLabels[1]}
+                onClick={() => setPage(currentPage + 1)}
+              >
+                ›
+              </button>
+            </nav>
+            <div className="wb-history-list wb-scrollbar">
+              <SessionLibrary
+                key={filter}
+                {...library}
+                page={currentPage}
+                selectedId={selected?.id ?? null}
+                favoritesOnly={filter === 'favorites'}
+                onSelect={(id) => {
+                  setSelectedId(id)
+                  if (window.innerWidth <= 760)
+                    preview.current?.scrollIntoView({ block: 'nearest' })
+                }}
+              />
+            </div>
           </div>
           {selected && (
             <section
@@ -170,6 +235,23 @@ export function SessionHistoryWorkspace({
                       >
                         {freshCraftMessages[locale].fromItem}
                       </button>
+                    )}
+                    <button
+                      type="button"
+                      disabled={library.disabled}
+                      onClick={() => {
+                        try {
+                          saveBaseFavorite(selected)
+                          setFavoriteStatus(baseFavoriteMessages[locale].saved)
+                        } catch {
+                          setFavoriteStatus(baseFavoriteMessages[locale].error)
+                        }
+                      }}
+                    >
+                      {baseFavoriteMessages[locale].add}
+                    </button>
+                    {favoriteStatus && (
+                      <span role="status">{favoriteStatus}</span>
                     )}
                     <a href={localHistoryUrl(selected.id, 'history', filter)}>
                       {historyMessages[locale].title}{' '}
