@@ -2005,6 +2005,46 @@
       "image": "/assets/materials/Liquid_Verisium.webp",
       "sha256": "bc4388b4ca974a4d9f27bb03b170e8a64f80fd24562394108c4e42799a474070",
       "status": "downloaded"
+    },
+    {
+      "id": "Vaal_Arcanists_Infuser",
+      "name": "Vaal Arcanist's Infuser",
+      "category": "Currency",
+      "source": "https://poe2db.tw/us/Vaal_Arcanists_Infuser",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/IncursionCraftingOrbs/VaalArcanistsEtcher.webp",
+      "image": "/assets/materials/Vaal_Arcanists_Infuser.webp",
+      "sha256": "5e303acadf439e41785eb084906620497d399ee3ec8fc3684e37a83674d4be3e",
+      "status": "downloaded"
+    },
+    {
+      "id": "Vaal_Catalysing_Infuser",
+      "name": "Vaal Catalysing Infuser",
+      "category": "Currency",
+      "source": "https://poe2db.tw/us/Vaal_Catalysing_Infuser",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/IncursionCraftingOrbs/VaalCatalyst.webp",
+      "image": "/assets/materials/Vaal_Catalysing_Infuser.webp",
+      "sha256": "091d872a594e76515a178a352f24c8b49d0337820f674a4c991c2a2e1a1eb74f",
+      "status": "downloaded"
+    },
+    {
+      "id": "Vaal_Armourers_Infuser",
+      "name": "Vaal Armourer's Infuser",
+      "category": "Currency",
+      "source": "https://poe2db.tw/us/Vaal_Armourers_Infuser",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/IncursionCraftingOrbs/VaakArmourersScrap.webp",
+      "image": "/assets/materials/Vaal_Armourers_Infuser.webp",
+      "sha256": "46d600eb74feecb38c9dd761e0ee3d689bbe6235fbbfc8b4ffc7ef43a92e5c1e",
+      "status": "downloaded"
+    },
+    {
+      "id": "Vaal_Blacksmiths_Infuser",
+      "name": "Vaal Blacksmith's Infuser",
+      "category": "Currency",
+      "source": "https://poe2db.tw/us/Vaal_Blacksmiths_Infuser",
+      "imageUrl": "https://cdn.poe2db.tw/image/Art/2DItems/Currency/IncursionCraftingOrbs/VaalBlacksmithsWhetstone.webp",
+      "image": "/assets/materials/Vaal_Blacksmiths_Infuser.webp",
+      "sha256": "5bb65383fb2f0ca1180afb9a7f7a94760dc4521adc75bf9b0d17231a2bce5460",
+      "status": "downloaded"
     }
   ]
 }

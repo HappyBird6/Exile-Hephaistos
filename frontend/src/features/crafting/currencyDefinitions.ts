@@ -73,6 +73,10 @@ export type WorkbenchAction =
   | 'GREATER_ESSENCE_SEEKING'
   | 'INSTALL_AUGMENT'
   | 'ARTIFICER'
+  | 'VAAL_ARMOURERS_INFUSER'
+  | 'VAAL_BLACKSMITHS_INFUSER'
+  | 'VAAL_ARCANISTS_INFUSER'
+  | 'VAAL_CATALYSING_INFUSER'
   | 'ARMOURERS_SCRAP'
   | 'BLACKSMITHS_WHETSTONE'
   | Action
@@ -337,6 +341,10 @@ export const stockyReplacementTargets: Partial<
   ],
 }
 export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
+  Vaal_Armourers_Infuser: 'VAAL_ARMOURERS_INFUSER',
+  Vaal_Blacksmiths_Infuser: 'VAAL_BLACKSMITHS_INFUSER',
+  Vaal_Arcanists_Infuser: 'VAAL_ARCANISTS_INFUSER',
+  Vaal_Catalysing_Infuser: 'VAAL_CATALYSING_INFUSER',
   Armourers_Scrap: 'ARMOURERS_SCRAP',
   Blacksmiths_Whetstone: 'BLACKSMITHS_WHETSTONE',
   Ancient_Diluted_Liquid_Ire: 'ANCIENT_DILUTED_LIQUID_IRE',
@@ -493,6 +501,10 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Greater_Essence_of_Opulence: 'GREATER_ESSENCE_OPULENCE',
 }
 export const workbenchActionNames: Record<WorkbenchAction, string> = {
+  VAAL_ARCANISTS_INFUSER: "Vaal Arcanist's Infuser",
+  VAAL_CATALYSING_INFUSER: 'Vaal Catalysing Infuser',
+  VAAL_ARMOURERS_INFUSER: "Vaal Armourer's Infuser",
+  VAAL_BLACKSMITHS_INFUSER: "Vaal Blacksmith's Infuser",
   ARMOURERS_SCRAP: "Armourer's Scrap",
   BLACKSMITHS_WHETSTONE: "Blacksmith's Whetstone",
   ANCIENT_DILUTED_LIQUID_IRE: 'Ancient Diluted Liquid Ire',

@@ -76,7 +76,8 @@ public final class ItemTextEditor {
             next.equipmentQuality(),
             before.observations(),
             before.sanctification(),
-            before.installedAugments());
+            before.installedAugments(),
+            before.qualityInfused());
     var issues =
         ItemTextStateValidation.validate(merged, catalog).stream()
             .map(message -> new SolarTextMapper.Issue(0, message))

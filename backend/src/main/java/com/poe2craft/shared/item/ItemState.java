@@ -20,7 +20,60 @@ public record ItemState(
     Integer equipmentQuality,
     ItemObservations observations,
     Sanctification sanctification,
-    List<InstalledAugment> installedAugments) {
+    List<InstalledAugment> installedAugments,
+    boolean qualityInfused) {
+  public ItemState(
+      String snapshotId,
+      String baseItemId,
+      int itemLevel,
+      Rarity rarity,
+      List<ModifierInstance> implicits,
+      List<ModifierInstance> explicits,
+      Set<Condition> conditions,
+      Integer augmentSockets,
+      CatalystQuality catalystQuality,
+      List<DesecratedSlot> desecrated,
+      Integer equipmentQuality,
+      ItemObservations observations,
+      Sanctification sanctification,
+      List<InstalledAugment> installedAugments) {
+    this(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        equipmentQuality,
+        observations,
+        sanctification,
+        installedAugments,
+        false);
+  }
+
+  public ItemState withQualityInfused(boolean value) {
+    return new ItemState(
+        snapshotId,
+        baseItemId,
+        itemLevel,
+        rarity,
+        implicits,
+        explicits,
+        conditions,
+        augmentSockets,
+        catalystQuality,
+        desecrated,
+        equipmentQuality,
+        observations,
+        sanctification,
+        installedAugments,
+        value);
+  }
+
   public ItemState(
       String snapshotId,
       String baseItemId,
@@ -87,7 +140,8 @@ public record ItemState(
       java.util.Map<String, java.util.Map<String, Integer>> implicits,
       java.util.Map<String, java.util.Map<String, Integer>> explicits) {
     public Sanctification {
-      if (!"independent-stat-percent-v1".equals(policy))
+      if (!"independent-stat-percent-v1".equals(policy)
+          && !"explicit-stat-percent-v2".equals(policy))
         throw new IllegalArgumentException("Unknown sanctification policy");
       implicits = immutableFactors(implicits);
       explicits = immutableFactors(explicits);
@@ -133,7 +187,8 @@ public record ItemState(
         equipmentQuality,
         observations,
         value,
-        installedAugments);
+        installedAugments,
+        qualityInfused);
   }
 
   public ItemState(
@@ -179,7 +234,8 @@ public record ItemState(
         equipmentQuality,
         observations,
         sanctification,
-        installedAugments);
+        installedAugments,
+        qualityInfused);
   }
 
   public ItemState withObservations(ItemObservations value) {
@@ -197,7 +253,8 @@ public record ItemState(
         equipmentQuality,
         value,
         sanctification,
-        installedAugments);
+        installedAugments,
+        qualityInfused);
   }
 
   public ItemState(
@@ -240,7 +297,8 @@ public record ItemState(
         quality,
         observations,
         sanctification,
-        installedAugments);
+        installedAugments,
+        qualityInfused);
   }
 
   /** Slot identity survives observation; a null modifier ID is an unrevealed explicit slot. */
@@ -311,7 +369,8 @@ public record ItemState(
         equipmentQuality,
         observations,
         sanctification,
-        installedAugments);
+        installedAugments,
+        qualityInfused);
   }
 
   public int explicitSlotCount() {
@@ -369,7 +428,8 @@ public record ItemState(
     hash = 31 * hash + Objects.hashCode(equipmentQuality);
     hash = 31 * hash + Objects.hashCode(observations);
     hash = 31 * hash + Objects.hashCode(sanctification);
-    return installedAugments.isEmpty() ? hash : 31 * hash + installedAugments.hashCode();
+    hash = installedAugments.isEmpty() ? hash : 31 * hash + installedAugments.hashCode();
+    return qualityInfused ? 31 * hash + 1 : hash;
   }
 
   public ItemState withAugments(List<InstalledAugment> value) {
@@ -387,7 +447,8 @@ public record ItemState(
         equipmentQuality,
         observations,
         sanctification,
-        value);
+        value,
+        qualityInfused);
   }
 
   public ItemState {

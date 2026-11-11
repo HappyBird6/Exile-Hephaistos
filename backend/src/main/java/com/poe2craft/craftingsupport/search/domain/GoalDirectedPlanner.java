@@ -195,7 +195,8 @@ public final class GoalDirectedPlanner {
                 source.conditions(),
                 source.augmentSockets(),
                 source.catalystQuality())
-            .withAugments(source.installedAugments());
+            .withAugments(source.installedAugments())
+            .withQualityInfused(source.qualityInfused());
     var emptyProgress = evaluate.apply(withoutAffixes);
     boolean acquired = false;
     for (int i = 0; i < Math.min(progress.entries().size(), emptyProgress.entries().size()); i++)

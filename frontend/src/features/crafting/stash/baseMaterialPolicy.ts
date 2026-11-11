@@ -1,3 +1,4 @@
+import { infuserSupportsBase } from '../qualityInfuser'
 import { basePolicy } from '../baseRegistry'
 import { augmentEffect } from '../socketAugments'
 import { workbenchCurrencyActions } from '../workbenchApi'
@@ -85,6 +86,8 @@ export function supportsBaseMaterial(
   )
     return true
   if (resource.category === 'Currency') {
+    if (resource.id.startsWith('Vaal_') && resource.id.endsWith('_Infuser'))
+      return infuserSupportsBase(resource.id, baseItemId)
     if (resource.id === 'Armourers_Scrap') return targets.has('Armour')
     if (resource.id === 'Blacksmiths_Whetstone')
       return targets.has('Martial Weapon')

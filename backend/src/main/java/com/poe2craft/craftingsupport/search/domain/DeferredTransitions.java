@@ -186,7 +186,8 @@ public final class DeferredTransitions {
                             item.conditions(),
                             item.augmentSockets(),
                             item.catalystQuality())
-                        .withAugments(item.installedAugments()),
+                        .withAugments(item.installedAugments())
+                        .withQualityInfused(item.qualityInfused()),
                     state.provenance());
             tiers.put(first.modifierId(), law.cell());
             probability =

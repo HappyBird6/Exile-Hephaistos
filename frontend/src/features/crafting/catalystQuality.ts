@@ -74,7 +74,8 @@ export function verifiedCatalystQuality(
         topBase(topBaseKey(state.baseItemId) ?? '')?.family ?? '',
       )
         ? 40
-        : cap)
+        : cap) +
+        (state.qualityInfused ? 10 : 0)
   )
 }
 const integerStats = new Set([

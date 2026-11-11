@@ -116,7 +116,8 @@ public final class BasicTransitionClasses {
                     item.conditions(),
                     item.augmentSockets(),
                     item.catalystQuality())
-                .withAugments(item.installedAugments()),
+                .withAugments(item.installedAugments())
+                .withQualityInfused(item.qualityInfused()),
             state.provenance());
     var observation = evaluate.apply(item);
     var statuses = new ArrayList<Status>();

@@ -476,7 +476,8 @@ public final class BasicCurrencyTransitions {
                   item.conditions(),
                   item.augmentSockets(),
                   item.catalystQuality())
-              .withAugments(item.installedAugments());
+              .withAugments(item.installedAugments())
+              .withQualityInfused(item.qualityInfused());
       if (!empty.equals(expected)) {
         blocked = "RENEWAL_NOT_PROVEN";
         return;
@@ -594,7 +595,8 @@ public final class BasicCurrencyTransitions {
                 item.conditions(),
                 item.augmentSockets(),
                 item.catalystQuality())
-            .withAugments(item.installedAugments());
+            .withAugments(item.installedAugments())
+            .withQualityInfused(item.qualityInfused());
     if (!branch.remaining().equals(expectedEmpty)) return Optional.empty();
     long total = 0, selected = 0;
     for (var candidate : branch.candidates()) {
@@ -613,7 +615,8 @@ public final class BasicCurrencyTransitions {
                     item.conditions(),
                     item.augmentSockets(),
                     item.catalystQuality())
-                .withAugments(item.installedAugments());
+                .withAugments(item.installedAugments())
+                .withQualityInfused(item.qualityInfused());
         if (!finished.equals(expected)) return Optional.empty();
         var next = simulator.basicCurrencyPlan(finished, WorkbenchCurrency.CHAOS);
         if (!next.available()

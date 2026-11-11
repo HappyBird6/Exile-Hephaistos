@@ -95,7 +95,7 @@ class StockyWorkbenchTest {
       assertThat(rare.state().explicits()).hasSize(4);
       assertThat(rare.ruleVersion())
           .isEqualTo(
-              "equipment-currency-v1-stocky-workbench-artificer-v26-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+              "equipment-currency-v1-stocky-workbench-artificer-v26-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-explicit-rounded-v2-user-selected-equipment-quality-maximum-v2-quality-infuser-once-plus-ten-v1");
       var locked =
           service.apply(rare.state(), WorkbenchCurrency.FRACTURING, Set.of(), random).state();
       var fracture =

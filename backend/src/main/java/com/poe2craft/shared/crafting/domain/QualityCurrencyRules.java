@@ -11,7 +11,8 @@ public final class QualityCurrencyRules {
   private QualityCurrencyRules() {}
 
   public static boolean equipment(String baseItemId) {
-    return baseItemId.startsWith("Metadata/Items/Armours/") || martial(baseItemId);
+    return baseItemId.startsWith("Metadata/Items/Armours/")
+        || baseItemId.startsWith("Metadata/Items/Weapons/");
   }
 
   private static boolean martial(String baseItemId) {

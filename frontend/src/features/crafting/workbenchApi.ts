@@ -1,3 +1,4 @@
+import { isQualityInfuser, infuserTransitionMatches } from './qualityInfuser'
 import { currencyOmens } from './crafting-state/activeOmens'
 import { effectiveDefinitions, isCraftedModifier } from './augmentRules'
 import equipmentCurrencies from './equipmentCurrencies.json'
@@ -76,6 +77,7 @@ export interface ConcreteItem extends Omit<Bucket, 'modifierIds'> {
   observations?: ItemObservations | null
   equipmentQuality?: number | null
   desecrated?: DesecratedSlot[]
+  qualityInfused?: boolean
   catalystQuality?: CatalystQuality | null | undefined
   augmentSockets?: number | null | undefined
   explicits: {
@@ -405,7 +407,9 @@ export async function applyCurrency(
     !supportsConcreteStateShape(next) ||
     !sameObservations(next.observations, state.observations) ||
     !equivalent(next.desecrated ?? [], state.desecrated ?? []) ||
-    !qualityTransitionMatches(state, v, action) ||
+    (!isQualityInfuser(action) &&
+      !qualityTransitionMatches(state, v, action)) ||
+    !infuserTransitionMatches(state, v, action, definitions) ||
     !sanctificationTransitionMatches(
       state,
       v,
@@ -422,6 +426,7 @@ export async function applyCurrency(
           isCraftedModifier(m, definitions[m.modifierId]),
         ))) ||
     (catalystActionType(action) === null &&
+      !isQualityInfuser(action) &&
       !qualityCapChangeMatches(state, v, definitions)) ||
     (state.baseItemId === 'Metadata/Items/Rings/FourRing1' &&
       (!sameModifiers(next.implicits, state.implicits) ||
@@ -716,6 +721,7 @@ export async function applyCurrency(
               action === 'DIVINE' ||
               action === 'ARTIFICER' ||
               isEquipmentQualityAction(action) ||
+              isQualityInfuser(action) ||
               action === 'FRACTURING' ||
               catalystActionType(action) !== null ||
               replacementTargets.length > 0

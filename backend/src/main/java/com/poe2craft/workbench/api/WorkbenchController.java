@@ -211,7 +211,8 @@ public final class WorkbenchController {
                   item.desecrated(),
                   item.equipmentQuality(),
                   item.observations())
-              .withAugments(item.installedAugments());
+              .withAugments(item.installedAugments())
+              .withQualityInfused(item.qualityInfused());
     if (!new ItemStateValidator(catalog).validate(validationItem).isEmpty())
       throw new IllegalArgumentException("Invalid slot-aware item state");
     return AbyssCraftingState.from(item, catalog);

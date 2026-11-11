@@ -1,3 +1,4 @@
+import { infuserNotes } from './qualityInfuser'
 import type { ReactNode } from 'react'
 import { CurrencyPriceFooter } from './currency-prices/CurrencyPrices'
 import { useI18n, gameTerm } from '../../shared/i18n/i18n'
@@ -198,6 +199,9 @@ export function MaterialDescription({
           >
             {t('ui.official_legacy_availability')}
           </a>
+        )}
+        {materialId.startsWith('Vaal_') && materialId.endsWith('_Infuser') && (
+          <p className="material-description__notice">{infuserNotes[locale]}</p>
         )}
         {children}
       </div>

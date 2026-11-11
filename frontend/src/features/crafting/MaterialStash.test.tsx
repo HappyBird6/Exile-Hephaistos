@@ -354,7 +354,7 @@ describe('Material stash and shared favorites', () => {
     )
     expect(
       within(document.getElementById('material-list')!).getAllByRole('button'),
-    ).toHaveLength(11)
+    ).toHaveLength(15)
     for (const name of [
       'Mirror of Kalandra',
       'Orb of Chance',
@@ -391,7 +391,7 @@ describe('Material stash and shared favorites', () => {
     for (const [label, count] of [
       ['Essence', 42], // 19 ordinary pairs plus the four special essences in the same list.
       ['Alloy', 13],
-      ['Omen', 18],
+      ['Omen', 15],
       ['Catalysts', 26],
       ['Liquid Emotions', 26],
     ] as const) {

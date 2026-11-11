@@ -18,6 +18,7 @@ const itemFields = new Set([
   'catalystQuality',
   'desecrated',
   'equipmentQuality',
+  'qualityInfused',
   'observations',
   'sanctification',
 ])
@@ -31,6 +32,11 @@ export function supportsConcreteStateShape(value: unknown): boolean {
   )
     return false
   const item = value as Record<string, unknown>
+  if (
+    item.qualityInfused !== undefined &&
+    typeof item.qualityInfused !== 'boolean'
+  )
+    return false
   if (
     typeof item.baseItemId === 'string' &&
     !baseRarityAllowed(item.baseItemId, String(item.rarity))

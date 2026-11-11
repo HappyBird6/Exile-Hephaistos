@@ -8,7 +8,7 @@ import java.util.random.RandomGenerator;
  * Explicit simulator policy: independent exact integer-percent factors, never edited source rolls.
  */
 public final class QualitySanctification {
-  public static final String POLICY = "independent-stat-percent-v1";
+  public static final String POLICY = "explicit-stat-percent-v2";
   private static final Set<String> STRUCTURAL =
       Set.of(
           "local_maximum_quality_+",
@@ -35,9 +35,7 @@ public final class QualitySanctification {
   public static ItemState.Sanctification roll(
       ItemState state, ItemCatalog catalog, RandomGenerator random) {
     return new ItemState.Sanctification(
-        POLICY,
-        rollLayer(state.implicits(), catalog, random),
-        rollLayer(state.explicits(), catalog, random));
+        POLICY, Map.of(), rollLayer(state.explicits(), catalog, random));
   }
 
   private static Map<String, Map<String, Integer>> rollLayer(
@@ -55,7 +53,9 @@ public final class QualitySanctification {
   public static boolean valid(ItemState state, ItemCatalog catalog) {
     var value = state.sanctification();
     return value == null
-        || (validLayer(state.implicits(), value.implicits(), catalog)
+        || ((value.implicits().isEmpty()
+                || (value.policy().equals("independent-stat-percent-v1")
+                    && validLayer(state.implicits(), value.implicits(), catalog)))
             && validLayer(state.explicits(), value.explicits(), catalog));
   }
 
@@ -77,11 +77,15 @@ public final class QualitySanctification {
   public static BigDecimal value(
       ItemState state, ModifierInstance modifier, String stat, boolean implicit) {
     int factor =
-        state.sanctification() == null
+        state.sanctification() == null || implicit
             ? 100
-            : (implicit ? state.sanctification().implicits() : state.sanctification().explicits())
+            : state
+                .sanctification()
+                .explicits()
                 .getOrDefault(modifier.modifierId(), Map.of())
                 .getOrDefault(stat, 100);
-    return BigDecimal.valueOf(modifier.values().get(stat)).multiply(BigDecimal.valueOf(factor, 2));
+    return BigDecimal.valueOf(modifier.values().get(stat))
+        .multiply(BigDecimal.valueOf(factor, 2))
+        .setScale(0, java.math.RoundingMode.HALF_UP);
   }
 }

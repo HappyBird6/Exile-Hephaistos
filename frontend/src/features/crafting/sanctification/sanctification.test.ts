@@ -51,7 +51,7 @@ describe('lossless sanctification projection', () => {
     const restored = JSON.parse(JSON.stringify(state)) as ConcreteItem
     expect(validSanctification(restored, { mod: d })).toBe(true)
     expect(sanctifiedValues(restored, restored.explicits[0]!)).toEqual({
-      base_strength: 8.69,
+      base_strength: 9,
     })
     expect(restored.explicits[0]).toEqual(state.explicits[0])
   })

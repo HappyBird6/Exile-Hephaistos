@@ -258,7 +258,7 @@ it('copies Sanctified effect values and the game flag without inventing an origi
     'Solar Amulet',
     'Amulets',
   )
-  expect(text).toContain('+20.4 to maximum Life')
+  expect(text).toContain('+20 to maximum Life')
   expect(text).toMatch(/Sanctified$/)
   expect(text).not.toContain('120%')
   expect(state.explicits[0]!.values.life).toBe(17)

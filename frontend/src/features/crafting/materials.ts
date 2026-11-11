@@ -21,6 +21,30 @@ export type Material = {
 // Existing sourced quality currencies, offered only in the right stash.
 export const additionalStashCurrencies = [
   {
+    id: 'Vaal_Arcanists_Infuser',
+    name: "Vaal Arcanist's Infuser",
+    category: 'Currency',
+    image: '/assets/materials/Vaal_Arcanists_Infuser.webp',
+  },
+  {
+    id: 'Vaal_Catalysing_Infuser',
+    name: 'Vaal Catalysing Infuser',
+    category: 'Currency',
+    image: '/assets/materials/Vaal_Catalysing_Infuser.webp',
+  },
+  {
+    id: 'Vaal_Armourers_Infuser',
+    name: "Vaal Armourer's Infuser",
+    category: 'Currency',
+    image: '/assets/materials/Vaal_Armourers_Infuser.webp',
+  },
+  {
+    id: 'Vaal_Blacksmiths_Infuser',
+    name: "Vaal Blacksmith's Infuser",
+    category: 'Currency',
+    image: '/assets/materials/Vaal_Blacksmiths_Infuser.webp',
+  },
+  {
     id: 'Armourers_Scrap',
     name: "Armourer's Scrap",
     category: 'Currency',

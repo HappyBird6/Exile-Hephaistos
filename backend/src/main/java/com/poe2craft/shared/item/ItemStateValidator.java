@@ -91,7 +91,7 @@ public final class ItemStateValidator {
               ? 40
               : 20;
       if (!CatalystQuality.supportedBase(state.baseItemId())
-          || state.catalystQuality().amount() > cap)
+          || state.catalystQuality().amount() > cap + (state.qualityInfused() ? 10 : 0))
         errors.add(
             new Violation(
                 Code.UNSUPPORTED_STATE,

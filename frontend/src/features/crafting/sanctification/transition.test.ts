@@ -28,7 +28,7 @@ const response = (): AppliedItem => ({
   remainingOmens: [],
   assumptions: [
     {
-      id: 'sanctification-independent-stat-percent-v1',
+      id: 'sanctification-explicit-rounded-v2',
       candidateUnit: 'numeric modifier stat',
       n: 45,
       candidates: [],
@@ -42,8 +42,8 @@ const response = (): AppliedItem => ({
     ...state,
     conditions: ['SANCTIFIED'],
     sanctification: {
-      policy: 'independent-stat-percent-v1',
-      implicits: { implicit: { base_spirit_from_equipment: 78 } },
+      policy: 'explicit-stat-percent-v2',
+      implicits: {},
       explicits: { p: { life: 122 } },
     },
   },
@@ -51,8 +51,17 @@ const response = (): AppliedItem => ({
 describe('validated Sanctification wire transition', () => {
   afterEach(() => vi.unstubAllGlobals())
   it('accepts exact original rolls plus complete factors and rejects erased slots or factors', async () => {
-    for (const mutation of ['valid', 'lost-slot', 'lost-factor'] as const) {
+    for (const mutation of [
+      'valid',
+      'lost-slot',
+      'lost-factor',
+      'changed-implicit',
+    ] as const) {
       const value = response()
+      if (mutation === 'changed-implicit')
+        value.state.sanctification!.implicits = {
+          implicit: { base_spirit_from_equipment: 122 },
+        }
       if (mutation === 'lost-slot') value.state.desecrated = []
       if (mutation === 'lost-factor') value.state.sanctification!.explicits = {}
       vi.stubGlobal(
@@ -99,7 +108,7 @@ describe('validated Sanctification wire transition', () => {
     }
     const modifier = item.explicits[0]!
     item.sanctification = {
-      policy: 'independent-stat-percent-v1',
+      policy: 'explicit-stat-percent-v2',
       implicits: {},
       explicits: {
         [d.id]: Object.fromEntries(

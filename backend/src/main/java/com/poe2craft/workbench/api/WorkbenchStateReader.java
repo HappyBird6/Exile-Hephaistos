@@ -36,6 +36,7 @@ public final class WorkbenchStateReader {
             "installedAugments",
             "catalystQuality",
             "equipmentQuality",
+            "qualityInfused",
             "observations",
             "sanctification",
             "desecrated",
@@ -48,6 +49,8 @@ public final class WorkbenchStateReader {
             name -> {
               if (!fields.contains(name)) throw new WorkbenchController.UnsupportedItemProperties();
             });
+    if (input.has("qualityInfused") && !input.get("qualityInfused").isBoolean())
+      throw new WorkbenchController.UnsupportedItemProperties();
     var installed = input.get("installedAugments");
     if (installed != null && !installed.isNull()) {
       if (!installed.isArray() || installed.size() > 3)

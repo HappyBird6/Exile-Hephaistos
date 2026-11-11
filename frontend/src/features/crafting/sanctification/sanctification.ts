@@ -1,3 +1,4 @@
+import { roundQualityRatio } from '../qualityRoundingPolicy'
 import type { Definition } from '../craftingApi'
 import type {
   ConcreteItem,
@@ -7,7 +8,7 @@ import type {
 import { equivalent, sameRolls } from './equivalence'
 
 export type Sanctification = {
-  policy: 'independent-stat-percent-v1'
+  policy: 'independent-stat-percent-v1' | 'explicit-stat-percent-v2'
   implicits: Record<string, Record<string, number>>
   explicits: Record<string, Record<string, number>>
 }
@@ -31,7 +32,9 @@ export function sanctificationShape(item: Record<string, unknown>): boolean {
   if (value == null) return true
   if (
     !object(value) ||
-    value.policy !== 'independent-stat-percent-v1' ||
+    !['independent-stat-percent-v1', 'explicit-stat-percent-v2'].includes(
+      String(value.policy),
+    ) ||
     Object.keys(value).sort().join('|') !== 'explicits|implicits|policy' ||
     item.rarity !== 'RARE' ||
     !Array.isArray(item.conditions) ||
@@ -82,6 +85,10 @@ export function validSanctification(
   const value = state.sanctification
   if (!value) return true
   return (['implicits', 'explicits'] as const).every((layer) => {
+    if (layer === 'implicits' && Object.keys(value.implicits).length === 0)
+      return true
+    if (layer === 'implicits' && value.policy === 'explicit-stat-percent-v2')
+      return false
     const expected = state[layer].filter(
       (m) =>
         definitions[m.modifierId] &&
@@ -105,11 +112,14 @@ export function sanctifiedValues(
   modifier: ConcreteItem['explicits'][number],
   layer: 'implicits' | 'explicits' = 'explicits',
 ): Record<string, number> {
-  const factors = state.sanctification?.[layer][modifier.modifierId] ?? {}
+  const factors =
+    layer === 'implicits'
+      ? {}
+      : (state.sanctification?.explicits[modifier.modifierId] ?? {})
   return Object.fromEntries(
     Object.entries(modifier.values).map(([id, value]) => [
       id,
-      (value * (factors[id] ?? 100)) / 100,
+      roundQualityRatio(BigInt(value) * BigInt(factors[id] ?? 100), 100n),
     ]),
   )
 }
@@ -137,7 +147,8 @@ export function sanctificationTransitionMatches(
     state.rarity === 'RARE' &&
     state.conditions.length === 0 &&
     state.sanctification == null &&
-    result.state.sanctification != null &&
+    result.state.sanctification?.policy === 'explicit-stat-percent-v2' &&
+    Object.keys(result.state.sanctification.implicits).length === 0 &&
     sameRolls(result.state.implicits, state.implicits) &&
     sameRolls(result.state.explicits, state.explicits) &&
     result.consumedOmens.length === 1 &&
@@ -145,7 +156,7 @@ export function sanctificationTransitionMatches(
     !activeOmens.includes('Omen_of_the_Blessed') &&
     result.events.length === 0 &&
     result.assumptions.length === 1 &&
-    result.assumptions[0]?.id === 'sanctification-independent-stat-percent-v1'
+    result.assumptions[0]?.id === 'sanctification-explicit-rounded-v2'
   )
 }
 

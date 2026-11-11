@@ -482,7 +482,8 @@ public final class DeferredMixtures {
                 i.conditions(),
                 i.augmentSockets(),
                 i.catalystQuality())
-            .withAugments(i.installedAugments()),
+            .withAugments(i.installedAugments())
+            .withQualityInfused(i.qualityInfused()),
         state.provenance());
   }
 

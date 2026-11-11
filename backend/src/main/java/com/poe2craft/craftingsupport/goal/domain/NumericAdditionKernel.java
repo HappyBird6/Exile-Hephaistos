@@ -70,7 +70,8 @@ public final class NumericAdditionKernel {
                     item.conditions(),
                     item.augmentSockets(),
                     item.catalystQuality())
-                .withAugments(item.installedAugments());
+                .withAugments(item.installedAugments())
+                .withQualityInfused(item.qualityInfused());
         outcomes.add(new Outcome(next, mass));
         emitted = emitted.add(mass);
         if (value == range.max()) break;

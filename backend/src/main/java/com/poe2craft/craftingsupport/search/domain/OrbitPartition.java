@@ -221,7 +221,8 @@ public final class OrbitPartition {
                     item.conditions(),
                     item.augmentSockets(),
                     item.catalystQuality())
-                .withAugments(item.installedAugments()),
+                .withAugments(item.installedAugments())
+                .withQualityInfused(item.qualityInfused()),
             state.provenance());
     return new DeferredItem(representative, keptRolls, keptTiers, orbitLaws);
   }

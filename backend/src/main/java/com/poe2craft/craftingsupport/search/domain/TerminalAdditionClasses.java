@@ -120,6 +120,7 @@ public final class TerminalAdditionClasses {
             item.conditions(),
             item.augmentSockets(),
             item.catalystQuality())
-        .withAugments(item.installedAugments());
+        .withAugments(item.installedAugments())
+        .withQualityInfused(item.qualityInfused());
   }
 }

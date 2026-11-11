@@ -215,7 +215,7 @@ class RustedGreathelmEssenceTest {
     assertThat(service.initial("helmet", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("helmet", 82).ruleVersion())
         .isEqualTo(
-            "equipment-currency-v1-helmet-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+            "equipment-currency-v1-helmet-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-explicit-rounded-v2-user-selected-equipment-quality-maximum-v2-quality-infuser-once-plus-ten-v1");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(161);
     assertThat(service.initial("wand", 82).modifiers()).hasSize(204);
     assertThat(service.initial("stocky", 82).modifiers()).hasSize(245);

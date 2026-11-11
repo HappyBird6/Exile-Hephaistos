@@ -31,6 +31,10 @@ public class CatalogConfiguration {
     abstract ItemState.Sanctification sanctification();
 
     @com.fasterxml.jackson.annotation.JsonInclude(
+        com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT)
+    abstract boolean qualityInfused();
+
+    @com.fasterxml.jackson.annotation.JsonInclude(
         com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
     abstract Integer equipmentQuality();
 

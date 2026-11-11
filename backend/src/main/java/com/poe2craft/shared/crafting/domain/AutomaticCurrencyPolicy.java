@@ -16,6 +16,10 @@ public final class AutomaticCurrencyPolicy {
   // These additions are available only in the manual workbench; the approved roster stays frozen.
   private static final Set<String> MANUAL_ONLY_CURRENCIES =
       Set.of(
+          "VAAL_ARMOURERS_INFUSER",
+          "VAAL_BLACKSMITHS_INFUSER",
+          "VAAL_ARCANISTS_INFUSER",
+          "VAAL_CATALYSING_INFUSER",
           "PROTECTIVE_ALLOY",
           "CELESTIAL_ALLOY",
           "TRANSCENDENT_ALLOY",

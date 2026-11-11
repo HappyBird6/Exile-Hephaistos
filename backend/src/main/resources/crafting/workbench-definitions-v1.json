@@ -1976,6 +1976,50 @@
       "replacementSource": null
     },
     {
+      "id": "VAAL_ARMOURERS_INFUSER",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "VAAL_BLACKSMITHS_INFUSER",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "VAAL_ARCANISTS_INFUSER",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
+      "id": "VAAL_CATALYSING_INFUSER",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
       "id": "ARMOURERS_SCRAP",
       "baseAction": null,
       "minimumModifierLevel": 0,

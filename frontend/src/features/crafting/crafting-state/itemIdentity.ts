@@ -11,7 +11,10 @@ function wireDefaults(value: unknown): unknown {
       .filter(
         ([key, v]) =>
           v != null &&
-          !(['fractured', 'crafted'].includes(key) && v === false) &&
+          !(
+            ['fractured', 'crafted', 'qualityInfused'].includes(key) &&
+            v === false
+          ) &&
           !(
             ['desecrated', 'installedAugments'].includes(key) &&
             Array.isArray(v) &&

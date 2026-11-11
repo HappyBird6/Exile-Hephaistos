@@ -149,7 +149,8 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
                   validationItem.desecrated(),
                   validationItem.equipmentQuality(),
                   validationItem.observations())
-              .withAugments(validationItem.installedAugments());
+              .withAugments(validationItem.installedAugments())
+              .withQualityInfused(validationItem.qualityInfused());
     if (!new ItemStateValidator(catalog).validate(validationItem).isEmpty())
       throw new IllegalArgumentException("Invalid known item state");
     if (slots.stream().anyMatch(Slot::desecrated) && item.rarity() != ItemState.Rarity.RARE)
@@ -403,6 +404,7 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
             s.augmentSockets(),
             s.catalystQuality())
         .withAugments(s.installedAugments())
+        .withQualityInfused(s.qualityInfused())
         .withEquipmentQuality(s.equipmentQuality())
         .withObservations(s.observations())
         .withSanctification(s.sanctification());

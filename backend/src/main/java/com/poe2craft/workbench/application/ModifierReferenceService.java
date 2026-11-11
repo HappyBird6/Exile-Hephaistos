@@ -62,7 +62,8 @@ public final class ModifierReferenceService {
                 input.equipmentQuality(),
                 input.observations(),
                 input.sanctification(),
-                input.installedAugments())
+                input.installedAugments(),
+                input.qualityInfused())
             : input;
     var natural =
         !dynamic

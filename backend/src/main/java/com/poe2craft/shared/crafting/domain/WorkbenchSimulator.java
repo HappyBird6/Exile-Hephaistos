@@ -23,7 +23,7 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v20";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v21";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v13";
   private final ItemCatalog catalog;
   private final Map<String, WorkbenchSimulator> socketSamplers =
@@ -230,8 +230,10 @@ public final class WorkbenchSimulator {
         + (qualityCapChangePolicy == QualityCapChangePolicy.PRESERVE_EXISTING
             ? "-quality-cap-preserve-v2"
             : "-quality-cap-reject-v1")
-        + "-sanctification-independent-stat-percent-v1-"
-        + QualityCurrencyRules.VERSION;
+        + "-sanctification-explicit-rounded-v2-"
+        + QualityCurrencyRules.VERSION
+        + "-"
+        + QualityInfuserRules.VERSION;
   }
 
   private String baseRuleVersion() {
@@ -380,6 +382,10 @@ public final class WorkbenchSimulator {
       ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens) {
     if (state.conditions().contains(ItemState.Condition.SANCTIFIED))
       return blocked(action, "No supported modification is available for this Sanctified item.");
+    if (QualityInfuserRules.supports(action)) {
+      var reason = QualityInfuserRules.refusal(state, action, catalog);
+      return reason.isEmpty() ? new Availability(action, true, "") : blocked(action, reason);
+    }
     if (QualityCurrencyRules.isQuality(action)) {
       var refusal = QualityCurrencyRules.refusal(state, action);
       return refusal.isEmpty() ? new Availability(action, true, "") : blocked(action, refusal);
@@ -1191,6 +1197,31 @@ public final class WorkbenchSimulator {
           List.of(),
           allIds,
           QualityLimitRules.describe(state, catalog));
+    if (QualityInfuserRules.supports(action)) {
+      var next = QualityInfuserRules.apply(state, action, catalog);
+      return new Result(
+          ruleVersion(),
+          ledgerVersion(),
+          state.snapshotId(),
+          next,
+          action,
+          true,
+          "",
+          List.of(),
+          List.of(
+              new Assumption(
+                  QualityInfuserRules.VERSION,
+                  "quality target percentage",
+                  1,
+                  List.of(),
+                  (long) QualityInfuserRules.current(next, action),
+                  (long) QualityInfuserRules.current(next, action),
+                  "https://poe2db.tw/us/Stackable_Currency",
+                  "Simulator: once per item, +10 quality points up to maximum quality +10, without corruption.")),
+          List.of(),
+          allIds,
+          QualityLimitRules.describe(next, catalog));
+    }
     if (QualityCurrencyRules.isQuality(action)) {
       var next = state.withEquipmentQuality(QualityCurrencyRules.nextQuality(state));
       var assumption =
@@ -1222,14 +1253,14 @@ public final class WorkbenchSimulator {
       var consumed = List.of(WorkbenchOmen.SANCTIFICATION.id());
       var assumption =
           new Assumption(
-              "sanctification-independent-stat-percent-v1",
+              "sanctification-explicit-rounded-v2",
               "numeric modifier stat",
               45,
               List.of(),
               78L,
               122L,
               "https://poe2db.tw/us/Sanctified_Items",
-              "Simulator policy: independent uniform integer percentages per eligible modifier stat; original rolls and exact factors are retained without intermediate rounding. Structural metadata is excluded. Distribution, stat grouping and rounding are not established game facts.");
+              "User-selected simulator policy: independent uniform integer percentages for eligible explicit stats only. Implicits and structural metadata remain unchanged. Round the sanctified value, then apply and round typed quality. Original rolls and factors remain stored.");
       return new Result(
           ruleVersion(),
           ledgerVersion(),
@@ -1266,6 +1297,7 @@ public final class WorkbenchSimulator {
                   state.observations(),
                   state.sanctification())
               .withAugments(state.installedAugments())
+              .withQualityInfused(state.qualityInfused())
               .withObservations(state.observations());
       return new Result(
           ruleVersion(),
@@ -1299,6 +1331,7 @@ public final class WorkbenchSimulator {
                   state.observations(),
                   state.sanctification())
               .withAugments(state.installedAugments())
+              .withQualityInfused(state.qualityInfused())
               .withEquipmentQuality(state.equipmentQuality())
               .withObservations(state.observations());
       return new Result(
@@ -1750,7 +1783,8 @@ public final class WorkbenchSimulator {
                 state.conditions(),
                 state.augmentSockets(),
                 null)
-            .withAugments(state.installedAugments());
+            .withAugments(state.installedAugments())
+            .withQualityInfused(state.qualityInfused());
     var limit = QualityLimitRules.describe(without, catalog);
     return limit == null || state.catalystQuality().amount() > limit.maximumQuality();
   }
@@ -1774,7 +1808,8 @@ public final class WorkbenchSimulator {
             s.equipmentQuality(),
             s.observations(),
             s.sanctification())
-        .withAugments(s.installedAugments());
+        .withAugments(s.installedAugments())
+        .withQualityInfused(s.qualityInfused());
   }
 
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}

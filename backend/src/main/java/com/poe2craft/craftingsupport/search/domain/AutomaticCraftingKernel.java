@@ -169,7 +169,8 @@ public final class AutomaticCraftingKernel {
                 item.augmentSockets(),
                 item.catalystQuality(),
                 item.desecrated())
-            .withAugments(item.installedAugments());
+            .withAugments(item.installedAugments())
+            .withQualityInfused(item.qualityInfused());
     return new Behavior(context, roles);
   }
 
@@ -191,7 +192,8 @@ public final class AutomaticCraftingKernel {
                 item.augmentSockets(),
                 item.catalystQuality(),
                 item.desecrated())
-            .withAugments(item.installedAugments());
+            .withAugments(item.installedAugments())
+            .withQualityInfused(item.qualityInfused());
     return List.of(context, roles);
   }
 

@@ -31,13 +31,13 @@ const state: ConcreteItem = {
     explicits: { [d.id]: { base_maximum_life: 79 } },
   },
 }
-describe('exact catalyst / jewel-effect / Sanctification display composition', () => {
-  it('multiplies raw11 by1.20 and0.79 without first rounding13.2 to13', () => {
+describe('staged Sanctification then catalyst display composition', () => {
+  it('rounds raw11 by0.79 to9, then quality1.20 to11', () => {
     const output = preciseModifierProjection(state, d, modifier)
-    expect(output.values.base_maximum_life).toBeCloseTo(10.428, 12)
+    expect(output.values.base_maximum_life).toBe(11)
     expect(output.ratios.base_maximum_life).toEqual({
-      numerator: 10428000n,
-      denominator: 1000000n,
+      numerator: 11n,
+      denominator: 1n,
     })
     expect(modifier.values.base_maximum_life).toBe(11)
     expect(() =>
@@ -66,10 +66,10 @@ describe('exact catalyst / jewel-effect / Sanctification display composition', (
       },
     }
     const output = preciseModifierProjection(item, jewel, item.explicits[0]!)
-    expect(output.values.base_maximum_life).toBeCloseTo(14.5992, 12)
+    expect(output.values.base_maximum_life).toBe(15)
     expect(output.ratios.base_maximum_life).toEqual({
-      numerator: 14599200n,
-      denominator: 1000000n,
+      numerator: 15n,
+      denominator: 1n,
     })
     expect(output.qualityStatus).toBe('JEWEL_EFFECT_AND_QUALITY_PROVISIONAL')
   })
@@ -77,7 +77,7 @@ describe('exact catalyst / jewel-effect / Sanctification display composition', (
     expect(
       preciseModifierProjection(state, { ...d, tags: ['mana'] }, modifier)
         .values.base_maximum_life,
-    ).toBeCloseTo(8.69, 12)
+    ).toBe(9)
     expect(
       preciseModifierProjection(
         { ...state, sanctification: null },
@@ -86,4 +86,63 @@ describe('exact catalyst / jewel-effect / Sanctification display composition', (
       ).values.base_maximum_life,
     ).toBe(11)
   })
+})
+
+it('rounds sanctification before quality: minion3 with122% and50% quality is6', () => {
+  const skill: Definition = {
+    ...d,
+    id: 'amulet:suffix:of-the-overseer',
+    name: 'of the Overseer',
+    text: '+3 to Level of all Minion Skills',
+    tags: ['minion', 'gem'],
+    stats: [{ id: 'minion_skill_gem_level_+', min: 3, max: 3 }],
+  }
+  const mod = {
+    modifierId: skill.id,
+    values: { 'minion_skill_gem_level_+': 3 },
+  }
+  const item: ConcreteItem = {
+    ...state,
+    explicits: [mod],
+    catalystQuality: { type: 'NECROTIC', amount: 50 },
+    qualityInfused: true,
+    sanctification: {
+      policy: 'independent-stat-percent-v1',
+      implicits: {},
+      explicits: { [skill.id]: { 'minion_skill_gem_level_+': 122 } },
+    },
+  }
+  expect(
+    preciseModifierProjection(item, skill, mod).values[
+      'minion_skill_gem_level_+'
+    ],
+  ).toBe(6)
+  expect(mod.values['minion_skill_gem_level_+']).toBe(3)
+})
+
+it('never changes implicit values, including legacy saved implicit factors', () => {
+  const mod = {
+    modifierId: 'implicit',
+    values: { base_spirit_from_equipment: 15 },
+  }
+  const implicit: Definition = {
+    ...d,
+    id: 'implicit',
+    layer: 'IMPLICIT',
+    affixType: 'NONE',
+    tags: [],
+    stats: [{ id: 'base_spirit_from_equipment', min: 10, max: 15 }],
+  }
+  const item: ConcreteItem = {
+    ...state,
+    implicits: [mod],
+    sanctification: {
+      ...state.sanctification!,
+      implicits: { implicit: { base_spirit_from_equipment: 122 } },
+    },
+  }
+  expect(
+    preciseModifierProjection(item, implicit, mod, 'implicits').values
+      .base_spirit_from_equipment,
+  ).toBe(15)
 })

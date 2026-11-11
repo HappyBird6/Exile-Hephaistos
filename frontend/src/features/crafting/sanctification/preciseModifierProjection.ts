@@ -1,10 +1,11 @@
+import { roundQualityRatio } from '../qualityRoundingPolicy'
 import { modifierMagnitudeRatio } from '../modifierMagnitudes'
 import type { Definition } from '../craftingApi'
 import type { ConcreteItem } from '../workbenchApi'
 import { catalystProjection, catalystTypes } from '../catalystQuality'
 import { jewelEffect } from '../basicJewel'
 
-/** Display composition from original integers. Never feed projected decimals to catalystProjection. */
+/** Sanctification rounds first, then typed quality rounds; later effects keep their existing ratios. */
 export function preciseModifierProjection(
   state: ConcreteItem,
   definition: Definition,
@@ -13,7 +14,7 @@ export function preciseModifierProjection(
 ) {
   if (!Object.values(modifier.values).every(Number.isSafeInteger))
     throw new Error('Original integer source rolls are required')
-  // Reuse reviewed eligibility; deliberately discard its rounded display values.
+  // Reuse reviewed eligibility without modifying the canonical rolls.
   const eligibility = catalystProjection(
     definition,
     modifier.values,
@@ -35,20 +36,28 @@ export function preciseModifierProjection(
     scales && /^(ruby|emerald|sapphire|diamond):/.test(definition.id)
       ? jewelEffect(state, definition.affixType)
       : 0
-  const factors = state.sanctification?.[layer][modifier.modifierId] ?? {}
+  const factors =
+    layer === 'implicits'
+      ? {}
+      : (state.sanctification?.explicits[modifier.modifierId] ?? {})
   const magnitude = modifierMagnitudeRatio(state, definition, layer)
   const ratios: Record<string, { numerator: bigint; denominator: bigint }> = {}
   const values: Record<string, number> = {}
   for (const [id, source] of Object.entries(modifier.values)) {
+    const sanctified = roundQualityRatio(
+      BigInt(source) * BigInt(factors[id] ?? 100),
+      100n,
+    )
+    const qualityValue = roundQualityRatio(
+      BigInt(sanctified) * BigInt(100 + quality),
+      100n,
+    )
     const numerator =
-      BigInt(source) *
-      BigInt(100 + quality) *
-      BigInt(100 + effect) *
-      BigInt(factors[id] ?? 100) *
-      magnitude.numerator
-    const denominator = 1_000_000n * magnitude.denominator
-    ratios[id] = { numerator, denominator }
-    values[id] = Number(numerator) / Number(denominator)
+      BigInt(qualityValue) * BigInt(100 + effect) * magnitude.numerator
+    const denominator = 100n * magnitude.denominator
+    const displayed = roundQualityRatio(numerator, denominator)
+    ratios[id] = { numerator: BigInt(displayed), denominator: 1n }
+    values[id] = displayed
   }
   return { values, ratios, qualityStatus: eligibility.status }
 }

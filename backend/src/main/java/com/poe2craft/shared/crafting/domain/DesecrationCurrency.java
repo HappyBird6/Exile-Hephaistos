@@ -81,7 +81,8 @@ public final class DesecrationCurrency {
                 item.desecrated(),
                 item.equipmentQuality(),
                 item.observations())
-            .withAugments(item.installedAugments());
+            .withAugments(item.installedAugments())
+            .withQualityInfused(item.qualityInfused());
     var seed = apply(empty, currency, observedSides.getFirst(), null, Set.of(), catalog);
     var slots = new ArrayList<AbyssCraftingState.Slot>();
     var model = seed.slots().getFirst();
@@ -108,7 +109,8 @@ public final class DesecrationCurrency {
                 List.of(),
                 empty.equipmentQuality(),
                 empty.observations())
-            .withAugments(empty.installedAugments());
+            .withAugments(empty.installedAugments())
+            .withQualityInfused(empty.qualityInfused());
     var result = new AbyssCraftingState(corrupt, slots, null);
     var cap = new ItemStateValidator(catalog).slots(empty);
     if (result.count(AffixType.PREFIX) > cap.maxPrefixes()

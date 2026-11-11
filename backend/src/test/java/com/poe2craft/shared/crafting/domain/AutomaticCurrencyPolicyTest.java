@@ -49,6 +49,10 @@ class AutomaticCurrencyPolicyTest {
             "OMEN:DEXTRAL_CRYSTALLISATION");
     for (var currency : WorkbenchCurrency.values()) {
       if (Set.of(
+              "VAAL_ARMOURERS_INFUSER",
+              "VAAL_BLACKSMITHS_INFUSER",
+              "VAAL_ARCANISTS_INFUSER",
+              "VAAL_CATALYSING_INFUSER",
               "PROTECTIVE_ALLOY",
               "CELESTIAL_ALLOY",
               "TRANSCENDENT_ALLOY",

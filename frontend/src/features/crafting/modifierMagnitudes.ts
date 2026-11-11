@@ -1,3 +1,4 @@
+import { roundQualityRatio } from './qualityRoundingPolicy'
 import rules from './augmentCrafting.json'
 import type { ConcreteItem } from './workbenchApi'
 import type { Definition } from './craftingApi'
@@ -26,7 +27,9 @@ export function modifierMagnitudeRatio(
       if (original == null) continue
       const factor =
         state.sanctification?.explicits[provider.modifierId]?.[rule.stat] ?? 100
-      increased += BigInt(original) * BigInt(factor)
+      increased +=
+        BigInt(roundQualityRatio(BigInt(original) * BigInt(factor), 100n)) *
+        100n
     }
   }
   return increased === 0n

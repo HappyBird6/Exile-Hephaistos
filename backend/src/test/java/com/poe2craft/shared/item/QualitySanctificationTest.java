@@ -146,6 +146,8 @@ class QualitySanctificationTest {
     assertThat(next.catalystQuality()).isEqualTo(rare.catalystQuality());
     assertThat(next.observations()).isEqualTo(rare.observations());
     assertThat(next.sanctification()).isNotNull();
+    assertThat(next.sanctification().implicits()).isEmpty();
+    assertThat(next.sanctification().policy()).isEqualTo("explicit-stat-percent-v2");
     assertThat(QualitySanctification.valid(next, catalog)).isTrue();
     assertThat(result.consumedOmens()).containsExactly("Omen_of_Sanctification");
     assertThat(result.remainingOmens()).containsExactly("Omen_of_Whittling");

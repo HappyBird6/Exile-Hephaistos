@@ -43,8 +43,35 @@ public final class CatalystQualityDisplay {
     if (!new ItemStateValidator(catalog).validate(state).isEmpty())
       throw new IllegalArgumentException("Unsupported state for quality display");
     return java.util.stream.Stream.concat(state.implicits().stream(), state.explicits().stream())
-        .map(m -> project(m, catalog.find(m.modifierId()).orElseThrow(), state))
+        .map(m -> projectStages(m, catalog.find(m.modifierId()).orElseThrow(), state))
         .toList();
+  }
+
+  private static Projection projectStages(
+      ModifierInstance modifier, ModifierDefinition definition, ItemState state) {
+    if (state.sanctification() == null) return project(modifier, definition, state);
+    var values = new java.util.TreeMap<String, Long>();
+    modifier
+        .values()
+        .keySet()
+        .forEach(
+            id ->
+                values.put(
+                    id,
+                    QualitySanctification.value(
+                            state,
+                            modifier,
+                            id,
+                            definition.layer() == ModifierDefinition.Layer.IMPLICIT)
+                        .longValueExact()));
+    var projected =
+        project(
+            new ModifierInstance(
+                modifier.modifierId(), values, modifier.fractured(), modifier.crafted()),
+            definition,
+            state);
+    return new Projection(
+        modifier.modifierId(), modifier.values(), projected.displayedValues(), projected.status());
   }
 
   private static Projection project(ModifierInstance m, ModifierDefinition d, ItemState state) {
