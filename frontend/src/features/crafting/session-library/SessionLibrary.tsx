@@ -1,3 +1,5 @@
+import { saveBaseFavorite } from '../base-favorites/repository'
+import { baseFavoriteMessages } from '../base-favorites/messages'
 import { orderedFilms } from '../workbenchHistory'
 import { useState } from 'react'
 import { useI18n, gameName } from '../../../shared/i18n/i18n'
@@ -111,6 +113,20 @@ export function SessionLibrary({
                   </svg>
                   {transfer.title}
                 </a>
+                <button
+                  type="button"
+                  disabled={disabled}
+                  onClick={() => {
+                    try {
+                      saveBaseFavorite(film)
+                      setError(false)
+                    } catch {
+                      setError(true)
+                    }
+                  }}
+                >
+                  {baseFavoriteMessages[locale].add}
+                </button>
                 <button
                   type="button"
                   aria-label={`${transfer.export}: ${title}`}

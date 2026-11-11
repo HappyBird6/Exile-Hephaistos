@@ -78,10 +78,11 @@ function show(
           actions: [],
         })),
     }
-    client.setQueryData(
-      modifierPoolKey(data, concreteInitial(data), 'dynamic'),
-      reference,
-    )
+    for (const mode of ['dynamic', 'static'] as const)
+      client.setQueryData(
+        modifierPoolKey(data, concreteInitial(data), mode),
+        reference,
+      )
   }
   return render(
     <ModifierPoolPanel
@@ -213,4 +214,22 @@ it('does not link to an unrecognized source host', () => {
     },
   })
   expect(screen.queryByRole('link')).toBeNull()
+})
+
+it('sorts dynamic option groups by current eligible probability and keeps static alphabetical order', () => {
+  show()
+  const prefix = screen.getByRole('region', { name: 'Prefixes' })
+  const labels = () =>
+    [...prefix.querySelectorAll('summary')].map((row) => row.textContent)
+  expect(labels()[0]).toContain('maximum Life')
+  expect(labels()[1]).toContain('maximum Energy Shield')
+  fireEvent.click(
+    screen.getByRole('button', { name: modifierPoolMessages.en.static }),
+  )
+  expect(labels()[0]).toContain('maximum Energy Shield')
+  expect(labels()[1]).toContain('maximum Life')
+  fireEvent.click(
+    screen.getByRole('button', { name: modifierPoolMessages.en.dynamic }),
+  )
+  expect(labels()[0]).toContain('maximum Life')
 })

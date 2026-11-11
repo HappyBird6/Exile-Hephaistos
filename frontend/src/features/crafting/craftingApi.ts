@@ -1,3 +1,5 @@
+import { loadBaseData } from './catalogData'
+import { loadModifierDefinitions } from '../../shared/i18n/localeData'
 import { loadCatalogReference } from './catalogReference'
 import {
   isRulesetIdentity,
@@ -383,6 +385,11 @@ export async function loadInitial(
     )
   )
     return invalid()
+  await Promise.all([
+    loadModifierDefinitions(Object.keys(v.modifiers)),
+    loadBaseData(v.state.baseItemId),
+  ])
+  if (signal.aborted) throw new DOMException('Aborted', 'AbortError')
   return v as unknown as Initial
 }
 export async function loadActions(

@@ -1,3 +1,4 @@
+import { reportBrowserEvent } from '../../../shared/telemetry/browserTelemetry'
 import {
   LocalFilmRepository,
   validateFilms,
@@ -108,6 +109,7 @@ export class IndexedFilmRepository implements FilmRepository {
       this.previous = new Map(history.films.map((f) => [f.id, f]))
       return history
     } catch (error) {
+      reportBrowserEvent('history_save')
       try {
         tx.abort()
       } catch {
@@ -148,6 +150,7 @@ export class IndexedFilmRepository implements FilmRepository {
       this.revision = revision
       this.previous = new Map(films.map((f) => [f.id, f]))
     } catch (error) {
+      reportBrowserEvent('history_save')
       try {
         tx.abort()
       } catch {

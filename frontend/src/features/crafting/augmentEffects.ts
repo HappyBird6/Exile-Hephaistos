@@ -6,9 +6,10 @@ import {
   hasIdolBonded,
   visibleAugmentText,
 } from './augmentRules'
-import data from './augments.json'
-import display from '../../shared/i18n/augmentDisplay.json'
-import templates from './augmentEffectTemplates.json'
+import {
+  augmentData as data,
+  augmentEffectTemplates as templates,
+} from '../../shared/i18n/localeData'
 import { basePolicy } from './baseRegistry'
 import { sanctifiedValues } from './sanctification/sanctification'
 import type { Locale } from '../../shared/i18n/i18n'
@@ -135,13 +136,7 @@ export function installedAugmentEffects(
       const raw = (entry.effects as Record<string, Record<string, string>>)[
         itemClass
       ]
-      const extra = display[entry.id as keyof typeof display]
-      const text =
-        locale === 'ru' || locale === 'th'
-          ? (extra?.[locale]?.effects as Record<string, string> | undefined)?.[
-              itemClass
-            ]
-          : raw?.[locale]
+      const text = raw?.[locale]
       const scale = (value: string) =>
         value.replace(/-?\d+(?:\.\d+)?/g, (n) =>
           multiplier === 1 ? n : String(Math.round(Number(n) * multiplier)),

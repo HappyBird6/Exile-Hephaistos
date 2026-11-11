@@ -1,3 +1,4 @@
+import { reportBrowserEvent } from '../../shared/telemetry/browserTelemetry'
 import { verifyRulesetResponse } from './rulesetIdentity'
 import { performanceSettings } from '../../shared/performance'
 
@@ -25,6 +26,7 @@ export function loadCatalogReference(
     catalogs.set(key, pending)
     const entry = pending
     void pending.catch(() => {
+      reportBrowserEvent('catalog_load')
       if (catalogs.get(key) === entry) catalogs.delete(key)
     })
     if (catalogs.size > performanceSettings.catalogRetentionEntries)

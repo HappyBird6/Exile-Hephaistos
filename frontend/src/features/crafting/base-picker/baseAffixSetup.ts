@@ -184,6 +184,7 @@ export function startingPreview(
         : catalystProjection(d, m.values, item.catalystQuality, item).values
       return {
         id: m.modifierId,
+        fractured: m.fractured,
         text: localizedModifierText(d, values, locale),
         kind: implicit
           ? ('implicit' as const)

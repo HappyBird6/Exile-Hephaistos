@@ -295,6 +295,8 @@ it('records or verifies the machine-readable output and exact display source has
       'frontend/src/shared/i18n/i18n.ts',
       'frontend/src/shared/i18n/localeData.ts',
       'frontend/vite-plugins/localeDataPlugin.ts',
+      'frontend/vite-plugins/catalogDataPlugin.ts',
+      'frontend/src/features/crafting/catalogData.ts',
       'frontend/package-lock.json',
       'frontend/src/features/crafting/chaos-repeat/display/goldens/inputs.json',
       'frontend/src/features/crafting/chaos-repeat/display/projectExplicitOptionGroups.ts',

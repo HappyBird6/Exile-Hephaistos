@@ -1,3 +1,4 @@
+import { startBrowserTelemetry } from './shared/telemetry/browserTelemetry'
 import { PageBoundary } from './app/PageBoundary'
 import { prepareLocale } from './shared/i18n/i18n'
 import { StrictMode } from 'react'
@@ -9,6 +10,7 @@ import './app/styles.css'
 const root = document.getElementById('root')
 if (!root) throw new Error('The application root element is missing.')
 
+startBrowserTelemetry()
 void prepareLocale().then(() =>
   createRoot(root).render(
     <StrictMode>

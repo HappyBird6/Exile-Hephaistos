@@ -246,3 +246,28 @@
   border-color: #e7d477;
   background: #302a17;
 }
+
+.wb-base-picker__row {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+  min-width: 0;
+}
+.wb-base-picker__row .wb-base-picker__option {
+  flex: 1;
+  min-width: 0;
+}
+.wb-base-picker__star {
+  flex: none;
+  width: 34px;
+  filter: saturate(0.55);
+}
+.wb-base-picker__favorites {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.wb-base-picker__favorites[aria-pressed='true'] {
+  border-color: #e7d477;
+  color: #e7d477;
+  background: #302a17;
+}

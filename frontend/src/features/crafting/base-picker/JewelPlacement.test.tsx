@@ -80,7 +80,7 @@ it.each(['NORMAL', 'MAGIC', 'RARE'] as const)(
       </QueryClientProvider>,
     )
     fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
-    const dialog = screen.getByRole('dialog')
+    const dialog = await screen.findByRole('dialog')
     fireEvent.change(within(dialog).getByRole('searchbox'), {
       target: { value: 'Sapphire' },
     })

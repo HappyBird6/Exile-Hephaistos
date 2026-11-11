@@ -1,3 +1,10 @@
+import type { Film } from '../workbenchHistory'
+import { HistoryCard } from '../session-history/HistoryCard'
+import {
+  useBaseFavorites,
+  removeBaseFavorite,
+} from '../base-favorites/repository'
+import { baseFavoriteMessages } from '../base-favorites/messages'
 import { BaseAffixEditor } from './BaseAffixEditor'
 import type { BaseAffixEditorProps } from './BaseAffixEditor'
 import { startingPreview } from './baseAffixSetup'
@@ -22,6 +29,8 @@ export type WorkbenchBasePickerProps = Omit<ShelfOverlayProps, 'onClose'> & {
   level: string
   onLevelChange: (level: string) => void
   onPlace: () => void
+  onSaveFavorite?: (base: WorkbenchBaseKey) => void
+  onPlaceFavorite?: (film: Film) => void
   disabled?: boolean
   /** Starting rarity and affixes are staged until the base is placed. */
   setup?: BaseAffixEditorProps | undefined
@@ -46,6 +55,8 @@ function BasePickerContent({
   level,
   onLevelChange,
   onPlace,
+  onSaveFavorite,
+  onPlaceFavorite,
   disabled = false,
   extraControls,
   valid = true,
@@ -55,6 +66,12 @@ function BasePickerContent({
 }: WorkbenchBasePickerProps) {
   const { locale, t } = useI18n()
   const messages = basePickerMessages[locale]
+  const favoriteText = baseFavoriteMessages[locale]
+  const favorites = useBaseFavorites()
+  const [favoriteMode, setFavoriteMode] = useState(false)
+  const [savedSelection, setSavedSelection] = useState<Film | null>(null)
+  const [favoriteError, setFavoriteError] = useState(false)
+  const [hoveredSaved, setHoveredSaved] = useState<Film | null>(null)
   const fieldId = useId()
   const [category, setCategory] = useState<BaseCategory | 'all'>('all')
   const [subtype, setSubtype] = useState('all')
@@ -62,6 +79,7 @@ function BasePickerContent({
   const [hovered, setHovered] = useState<WorkbenchBaseKey | null>(null)
   const [focused, setFocused] = useState<WorkbenchBaseKey | null>(null)
   function restoreSelectedPreview() {
+    setHoveredSaved(null)
     setHovered(null)
     setFocused(null)
   }
@@ -85,6 +103,7 @@ function BasePickerContent({
   const preview = choices.find(
     (choice) => choice.key === (hovered ?? focused ?? value),
   )
+  const favoritePreview = hoveredSaved ?? savedSelection
   const numericLevel = Number(level)
   const levelValid =
     level.trim() !== '' &&
@@ -116,6 +135,21 @@ function BasePickerContent({
     >
       <div className="wb-base-picker">
         <div className="wb-base-picker__controls wb-scrollbar">
+          <button
+            type="button"
+            className="wb-base-picker__favorites"
+            aria-pressed={favoriteMode}
+            onClick={() => {
+              setFavoriteMode(!favoriteMode)
+              setSavedSelection(null)
+              restoreSelectedPreview()
+            }}
+          >
+            ⭐ {favoriteText.list} ({favorites.entries.length})
+          </button>
+          {(favorites.error || favoriteError) && (
+            <p role="alert">{favoriteText.error}</p>
+          )}
           <div className="wb-base-picker__filters">
             <select
               aria-label={messages.category}
@@ -185,8 +219,12 @@ function BasePickerContent({
                 min="1"
                 max="100"
                 step="1"
-                value={level}
-                disabled={disabled}
+                value={
+                  savedSelection
+                    ? String(savedSelection.frames[0]!.state.itemLevel)
+                    : level
+                }
+                disabled={disabled || !!savedSelection}
                 onChange={(event) => {
                   if (!disabled) onLevelChange(event.target.value)
                 }}
@@ -196,11 +234,16 @@ function BasePickerContent({
                 }
               />
             </label>
-            {extraControls}
+            {!savedSelection && extraControls}
             <button
               type="button"
-              disabled={disabled || !valid || !levelValid}
-              onClick={onPlace}
+              disabled={
+                disabled ||
+                (favoriteMode ? !savedSelection : !valid || !levelValid)
+              }
+              onClick={() =>
+                savedSelection ? onPlaceFavorite?.(savedSelection) : onPlace()
+              }
             >
               {t('ui.select_base')}
             </button>
@@ -228,67 +271,131 @@ function BasePickerContent({
               setFocused(null)
           }}
         >
-          {visible.map((choice) => (
-            <button
-              type="button"
-              className="wb-base-picker__option"
-              key={choice.key}
-              aria-pressed={choice.key === value}
-              aria-describedby={
-                preview?.key === choice.key ? `${fieldId}-preview` : undefined
-              }
-              disabled={disabled}
-              onClick={() => onChange(choice.key)}
-              onMouseEnter={() => setHovered(choice.key)}
-              onMouseLeave={restoreSelectedPreview}
-              onPointerDown={(event) => {
-                if (event.pointerType === 'touch') setHovered(choice.key)
-              }}
-              onFocus={() => setFocused(choice.key)}
-            >
-              <span className="wb-base-picker__art" aria-hidden="true">
-                <BaseImage
-                  baseItemId={choice.baseItemId}
-                  label={choice.name}
-                  image={imageForBase?.(choice.key)}
-                />
-              </span>
-              <span className="wb-base-picker__label">
-                {choice.name}
-                <small>
-                  {uiText(choice.itemClass, locale)}
-                  {choice.variantLabel ? ` · ${choice.variantLabel}` : ''}
-                </small>
-              </span>
-            </button>
-          ))}
-          {!visible.length && <p>{messages.empty}</p>}
-        </div>
-        {preview && previewItem && (
-          <BasePreviewPanel
-            id={`${fieldId}-preview`}
-            label={messages.preview}
-            item={previewItem}
-            slug={preview.slug}
-            onMouseLeave={restoreSelectedPreview}
-            onBlur={(event) => {
-              if (
-                !event.currentTarget.contains(event.relatedTarget) &&
-                !(
-                  event.relatedTarget instanceof Element &&
-                  event.relatedTarget.closest('.wb-base-picker__options')
+          {(favoriteMode
+            ? favorites.entries.flatMap((film) => {
+                const choice = visible.find(
+                  (c) => c.baseItemId === film.frames[0]?.state.baseItemId,
                 )
-              )
-                setFocused(null)
-            }}
-          >
-            {setup && preview.key === value && (
-              <BaseAffixEditor
-                key={`${value}:${level}:${selectedRarity}`}
-                {...setup}
-              />
-            )}
-          </BasePreviewPanel>
+                return choice ? [{ ...choice, favorite: film }] : []
+              })
+            : visible.map((choice) => ({
+                ...choice,
+                favorite: undefined as Film | undefined,
+              }))
+          ).map((choice) => (
+            <div
+              className="wb-base-picker__row"
+              key={choice.favorite?.id ?? choice.key}
+            >
+              <button
+                type="button"
+                className="wb-base-picker__option"
+                key={choice.key}
+                aria-pressed={
+                  choice.favorite
+                    ? savedSelection?.id === choice.favorite.id
+                    : !savedSelection && choice.key === value
+                }
+                aria-describedby={
+                  preview?.key === choice.key ? `${fieldId}-preview` : undefined
+                }
+                disabled={disabled}
+                onClick={() => {
+                  setSavedSelection(choice.favorite ?? null)
+                  if (!choice.favorite) onChange(choice.key)
+                }}
+                onMouseEnter={() => {
+                  setHovered(choice.key)
+                  setHoveredSaved(choice.favorite ?? null)
+                }}
+                onMouseLeave={restoreSelectedPreview}
+                onPointerDown={(event) => {
+                  if (event.pointerType === 'touch') setHovered(choice.key)
+                }}
+                onFocus={() => {
+                  setFocused(choice.key)
+                  setHoveredSaved(choice.favorite ?? null)
+                }}
+              >
+                <span className="wb-base-picker__art" aria-hidden="true">
+                  <BaseImage
+                    baseItemId={choice.baseItemId}
+                    label={choice.name}
+                    image={imageForBase?.(choice.key)}
+                  />
+                </span>
+                <span className="wb-base-picker__label">
+                  {choice.name}
+                  <small>
+                    {uiText(choice.itemClass, locale)}
+                    {choice.variantLabel ? ` · ${choice.variantLabel}` : ''}
+                  </small>
+                </span>
+              </button>
+              <button
+                type="button"
+                className="wb-base-picker__star"
+                disabled={disabled}
+                aria-label={
+                  choice.favorite
+                    ? favoriteText.remove
+                    : `${favoriteText.add}: ${choice.name}`
+                }
+                onClick={() => {
+                  try {
+                    if (choice.favorite) {
+                      removeBaseFavorite(choice.favorite.id)
+                      if (savedSelection?.id === choice.favorite.id)
+                        setSavedSelection(null)
+                    } else onSaveFavorite?.(choice.key)
+                  } catch {
+                    setFavoriteError(true)
+                  }
+                }}
+              >
+                ⭐
+              </button>
+            </div>
+          ))}
+          {(!visible.length || (favoriteMode && !favorites.entries.length)) && (
+            <p>{messages.empty}</p>
+          )}
+        </div>
+        {favoritePreview ? (
+          <div className="wb-base-picker__preview wb-scrollbar">
+            <HistoryCard
+              film={favoritePreview}
+              frame={favoritePreview.frames[0]!}
+            />
+          </div>
+        ) : (
+          preview &&
+          previewItem && (
+            <BasePreviewPanel
+              id={`${fieldId}-preview`}
+              label={messages.preview}
+              item={previewItem}
+              slug={preview.slug}
+              onMouseLeave={restoreSelectedPreview}
+              onBlur={(event) => {
+                if (
+                  !event.currentTarget.contains(event.relatedTarget) &&
+                  !(
+                    event.relatedTarget instanceof Element &&
+                    event.relatedTarget.closest('.wb-base-picker__options')
+                  )
+                )
+                  setFocused(null)
+              }}
+            >
+              {setup && preview.key === value && (
+                <BaseAffixEditor
+                  key={`${value}:${level}:${selectedRarity}`}
+                  {...setup}
+                />
+              )}
+            </BasePreviewPanel>
+          )
         )}
       </div>
     </LeftShelfOverlay>

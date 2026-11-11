@@ -1,15 +1,14 @@
 import type { Film } from '../workbenchHistory'
 import { extractSessionNotation } from '../session-notation/extractSessionNotation'
 import { currencyNames } from '../currencyNames'
-import descriptions from '../materialTooltips.json'
+import { materialNames } from '../catalogData'
 import type { CurrencyQuote, PriceSnapshot } from './api'
 const names: Record<string, string> = currencyNames
-const catalog: Record<string, { name: string }> = descriptions
 export function currencyQuote(
   snapshot: PriceSnapshot | null | undefined,
   id: string,
 ): CurrencyQuote | undefined {
-  const name = names[id] ?? catalog[id]?.name
+  const name = names[id] ?? materialNames[id]
   return name && snapshot && Object.hasOwn(snapshot.prices, name)
     ? snapshot.prices[name]
     : undefined

@@ -270,7 +270,7 @@ it('reserves enough card and image space for sparse subcategories and long varia
   fireEvent.change(screen.getByRole('searchbox'), {
     target: { value: 'Shrouded Mail' },
   })
-  const cards = screen.getAllByRole('button', { name: /Shrouded Mail/ })
+  const cards = screen.getAllByRole('button', { name: /^Shrouded Mail/ })
   expect(cards).toHaveLength(3)
   for (const card of cards) {
     const art = card.querySelector('.wb-base-picker__art')!
@@ -285,9 +285,11 @@ it('reserves enough card and image space for sparse subcategories and long varia
   fireEvent.change(screen.getByRole('searchbox'), {
     target: { value: 'Dusk Amulet' },
   })
-  expect(screen.getAllByRole('button', { name: /Dusk Amulet/ })).toHaveLength(1)
+  expect(screen.getAllByRole('button', { name: /^Dusk Amulet/ })).toHaveLength(
+    1,
+  )
   expect(
-    getComputedStyle(screen.getByRole('button', { name: /Dusk Amulet/ }))
+    getComputedStyle(screen.getByRole('button', { name: /^Dusk Amulet/ }))
       .minHeight,
   ).toBe('56px')
 })

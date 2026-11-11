@@ -166,6 +166,19 @@ function AffixSide({
               type="button"
               className="wb-base-affix__fractured"
               aria-pressed={a.fractured === true}
+              disabled={
+                !a.fractured &&
+                !verifiedHistoryState(
+                  startingItem(
+                    initial,
+                    item.rarity,
+                    affixes.map((x) =>
+                      x === a ? { ...x, fractured: true } : x,
+                    ),
+                  ),
+                  initial,
+                )
+              }
               onClick={() =>
                 onChange(
                   affixes.map((x) =>

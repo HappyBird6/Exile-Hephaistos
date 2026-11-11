@@ -11,7 +11,7 @@ Git 전용 채팅은 연결된 Git 통합 절차도 따른다. 사용자 명시 
 
 - React 제작 작업대: 재료 표시·검색·툴팁·선택·즐겨찾기·아이템 입력.
 - Java 아이템 텍스트 분석: 영어 게임 복사 텍스트를 표시용 구조로 변환하며 원문·미해석 행·경고를 보존한다.
-- `/admin`: 인증 없이 접근하는 최소 페이지. 현재 관리 도구는 없다.
+- `/admin`: 서버에 ADMIN_PASSWORD가 설정된 경우에만 활성화되는 비밀번호 보호 운영 대시보드.
 - PostgreSQL·Redis 및 기존 JPA·jOOQ·Flyway 기반은 다음 작업을 위해 유지한다.
 - 주석만 있는 제작 관련 준비 파일은 사용자가 다음 작업에서 사용할 것이므로 유지한다.
 - 검토된 카탈로그의 ItemState·검증기·Workbench와 최대 6옵션 자동 탐색 API·UI를 제공한다. [현행 개요](docs/current/overview.md)를 참고한다. 표시용 파싱과 Workbench catalog 매핑은 별도 검증 경로다.
@@ -34,7 +34,7 @@ Backend Controller는 입력·응답을 담당하고 파싱 로직은 서비스�
 Frontend는 서버 응답을 TanStack Query, 편집 입력을 Zustand에서 관리한다. 늦은 응답 폐기·취소·키보드 조작·label·focus 복귀를 유지한다.
 사용하는 모듈 경계와 순환 금지는 ArchUnit으로 검증한다. 준비 파일을 채우기 위해 빈 구현을 추가하지 않는다.
 JPA/jOOQ는 동일 DataSource와 transaction을 사용한다. codegen은 migration을 적용한 임시 DB에서만 실행한다.
-Docker 서비스는 localhost에만 노출한다. 현재 관리자 페이지에는 인증·세션이 없으며 공개 운영 서비스용 접근 통제를 제공하지 않는다.
+Docker 서비스는 localhost에만 노출한다. 관리자 API는 비밀번호 인증과 요청 제한을 적용한다. 운영에서는 별도 비밀번호와 HTTPS를 설정한다.
 
 ## 검증과 완료
 

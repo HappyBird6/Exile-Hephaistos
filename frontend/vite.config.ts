@@ -1,10 +1,15 @@
+import { catalogDataPlugin } from './vite-plugins/catalogDataPlugin.ts'
 import { readFileSync } from 'node:fs'
 import { localeDataPlugin } from './vite-plugins/localeDataPlugin.ts'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig(({ mode }) => ({
-  plugins: [localeDataPlugin(mode === 'test'), react()],
+  plugins: [
+    localeDataPlugin(mode === 'test'),
+    catalogDataPlugin(mode === 'test'),
+    react(),
+  ],
   server: {
     host: '127.0.0.1',
     port: 5173,

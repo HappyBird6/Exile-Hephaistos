@@ -1,5 +1,8 @@
 import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useI18n } from '../../shared/i18n/i18n'
+import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
+import { adminMessages } from './messages'
 import './admin.css'
 type Dashboard = {
   observedAt: string
@@ -12,16 +15,30 @@ type Dashboard = {
   heapUsedBytes: number
   heapMaxBytes: number
   processors: number
+  cpuPercent: number | null
+  database: string
+  redis: string
+  databaseConnections: number | null
+  priceUpdatedAt: string | null
+  priceStale: boolean
+  browserEvents: Record<string, number>
+  traffic: { at: string; requests: number; errors: number }[]
+  alerts: string[]
 }
-const sections = [{ id: 'dashboard', label: '대시보드', icon: '▦' }] as const
+// Additional tools register a section here; authentication and the surrounding shell stay shared.
+const sections = [{ id: 'dashboard', icon: '▦' }] as const
 export function AdminPage() {
+  const { locale } = useI18n(),
+    text = adminMessages[locale],
+    client = useQueryClient()
   const [password, setPassword] = useState(''),
-    [credential, setCredential] = useState('')
+    [credential, setCredential] = useState(''),
+    [epoch, setEpoch] = useState(0)
   const data = useQuery({
-    queryKey: ['admin-dashboard', credential],
+    queryKey: ['admin-dashboard', epoch],
     enabled: !!credential,
     retry: false,
-    refetchInterval: 30000,
+    refetchInterval: credential ? 30000 : false,
     refetchIntervalInBackground: false,
     gcTime: 0,
     queryFn: async ({ signal }) => {
@@ -31,26 +48,42 @@ export function AdminPage() {
         headers: { Authorization: credential },
       })
       if (!response.ok)
-        throw new Error(
-          response.status === 401
-            ? '비밀번호를 확인해주세요.'
+        throw Error(
+          response.status === 401 || response.status === 429
+            ? text.wrong
             : response.status === 404
-              ? '관리자 페이지가 활성화되지 않았습니다.'
-              : '운영 정보를 불러오지 못했습니다.',
+              ? text.disabled
+              : text.failed,
         )
       return (await response.json()) as Dashboard
     },
   })
-  const dashboard = data.data
+  const dashboard = credential ? data.data : undefined
+  const number = (v: number) => v.toLocaleString(locale),
+    date = (v: string | null) =>
+      v ? new Date(v).toLocaleString(locale) : text.unknown
+  const names: Record<string, string> = {
+    DATABASE: text.database,
+    REDIS: text.redis,
+    PRICES: text.prices,
+    MEMORY: text.memory,
+    SERVER_ERRORS: text.errors,
+  }
+  const lock = () => {
+    setCredential('')
+    setPassword('')
+    setEpoch((x) => x + 1)
+    client.removeQueries({ queryKey: ['admin-dashboard'] })
+  }
   return (
     <main className="admin-shell">
       <aside className="admin-sidebar">
         <a href="/">EXILE HEPHAISTOS</a>
-        <small>사이트 관리</small>
-        <nav aria-label="관리 메뉴">
+        <small>{text.management}</small>
+        <nav aria-label={text.navigation}>
           {sections.map((section) => (
             <button key={section.id} aria-current="page">
-              <span aria-hidden="true">{section.icon}</span> {section.label}
+              <span aria-hidden="true">{section.icon}</span> {text.title}
             </button>
           ))}
         </nav>
@@ -58,19 +91,13 @@ export function AdminPage() {
       <section className="admin-main">
         <header>
           <div>
-            <p>사이트 운영</p>
-            <h1>대시보드</h1>
+            <p>{text.operations}</p>
+            <h1>{text.title}</h1>
           </div>
-          {credential && (
-            <button
-              onClick={() => {
-                setCredential('')
-                setPassword('')
-              }}
-            >
-              잠금
-            </button>
-          )}
+          <div className="admin-header-actions">
+            <LocaleSelector />
+            {credential && <button onClick={lock}>{text.lock}</button>}
+          </div>
         </header>
         {!dashboard ? (
           <form
@@ -79,14 +106,20 @@ export function AdminPage() {
               event.preventDefault()
               setCredential(
                 'Basic ' +
-                  btoa(unescape(encodeURIComponent('admin:' + password))),
+                  btoa(
+                    Array.from(
+                      new TextEncoder().encode('admin:' + password),
+                      (byte) => String.fromCharCode(byte),
+                    ).join(''),
+                  ),
               )
+              setEpoch((x) => x + 1)
               setPassword('')
             }}
           >
-            <h2>관리자 로그인</h2>
+            <h2>{text.login}</h2>
             <label>
-              비밀번호
+              {text.password}
               <input
                 type="password"
                 autoComplete="current-password"
@@ -95,83 +128,185 @@ export function AdminPage() {
                 required
               />
             </label>
-            <button disabled={data.isFetching}>로그인</button>
+            <button disabled={data.isFetching}>{text.login}</button>
             {data.error && <p role="alert">{data.error.message}</p>}
           </form>
         ) : (
           <>
             <div className="admin-status">
-              <span>● 운영 정보 연결됨</span>
+              <span>● {text.connected}</span>
               <span>
-                마지막 확인 {new Date(dashboard.observedAt).toLocaleString()}
+                {text.updated} {date(dashboard.observedAt)}
               </span>
               <button
                 disabled={data.isFetching}
                 onClick={() => void data.refetch()}
               >
-                새로고침
+                {text.refresh}
               </button>
             </div>
             {data.error && <p role="alert">{data.error.message}</p>}
+            <section
+              className={
+                'admin-alerts ' + (dashboard.alerts.length ? 'has-alerts' : '')
+              }
+              aria-label={text.alerts}
+            >
+              <strong>
+                {dashboard.alerts.length ? text.alerts : text.allClear}
+              </strong>
+              {dashboard.alerts.map((code) => (
+                <span key={code}>{names[code] ?? code}</span>
+              ))}
+            </section>
             <div className="admin-grid">
               {[
+                [text.requests, number(dashboard.requests)],
+                [text.errors, number(dashboard.serverErrors)],
+                [text.rejected, number(dashboard.rejectedRequests)],
                 [
-                  'API 요청',
-                  dashboard.requests.toLocaleString(),
-                  '서버 시작 이후 처리한 API 요청',
+                  text.average,
+                  number(Math.round(dashboard.meanLatencyMs)) + ' ms',
                 ],
                 [
-                  '서버 오류',
-                  dashboard.serverErrors.toLocaleString(),
-                  '서버에서 처리하지 못한 요청 (5xx)',
+                  text.maximum,
+                  number(Math.round(dashboard.recentMaxLatencyMs)) + ' ms',
                 ],
                 [
-                  '요청 제한',
-                  dashboard.rejectedRequests.toLocaleString(),
-                  '혼잡 또는 호출 제한으로 거절한 요청',
-                ],
-                [
-                  '평균 응답 시간',
-                  Math.round(dashboard.meanLatencyMs) + ' ms',
-                  '서버 시작 이후 API 처리 시간',
-                ],
-                [
-                  '최근 최대 응답 시간',
-                  Math.round(dashboard.recentMaxLatencyMs) + ' ms',
-                  '최근 측정 구간의 가장 느린 응답',
-                ],
-                [
-                  '메모리 사용',
-                  Math.round(dashboard.heapUsedBytes / 1048576) + ' MB',
-                  '최대 ' +
-                    Math.round(dashboard.heapMaxBytes / 1048576) +
+                  text.memory,
+                  number(Math.round(dashboard.heapUsedBytes / 1048576)) +
+                    ' / ' +
+                    number(Math.round(dashboard.heapMaxBytes / 1048576)) +
                     ' MB',
                 ],
                 [
-                  '가동 시간',
-                  Math.floor(dashboard.uptimeSeconds / 3600) +
-                    '시간 ' +
-                    Math.floor((dashboard.uptimeSeconds % 3600) / 60) +
-                    '분',
-                  '현재 서버 프로세스의 연속 실행 시간',
+                  text.cpu,
+                  dashboard.cpuPercent === null
+                    ? text.unknown
+                    : number(Math.round(dashboard.cpuPercent)) + '%',
                 ],
                 [
-                  '처리 자원',
-                  dashboard.processors + ' CPU',
-                  '서버에서 확인되는 가용 프로세서',
+                  text.connections,
+                  dashboard.databaseConnections === null
+                    ? text.unknown
+                    : number(dashboard.databaseConnections),
                 ],
-              ].map(([label, value, description]) => (
+                [
+                  text.uptime,
+                  number(Math.floor(dashboard.uptimeSeconds / 60)) +
+                    ' ' +
+                    text.minute,
+                ],
+              ].map(([label, value]) => (
                 <article className="admin-card" key={label}>
                   <h2>{label}</h2>
                   <strong>{value}</strong>
-                  <p>{description}</p>
                 </article>
               ))}
             </div>
-            <p className="admin-note">
-              현재 서버 인스턴스 기준입니다. API 요청 수는 방문자 수와 다르며,
-              서버를 다시 시작하면 누적 지표가 초기화됩니다.
-            </p>
+            <div className="admin-panels">
+              <section className="admin-card">
+                <h2>{text.traffic}</h2>
+                {dashboard.traffic.length ? (
+                  <>
+                    <svg
+                      className="admin-chart"
+                      viewBox="0 0 600 120"
+                      role="img"
+                      aria-label={text.traffic}
+                    >
+                      {dashboard.traffic.map((point, i) => (
+                        <rect
+                          key={point.at}
+                          x={(i * 600) / 60}
+                          y={
+                            120 -
+                            (point.requests /
+                              Math.max(
+                                1,
+                                ...dashboard.traffic.map((p) => p.requests),
+                              )) *
+                              110
+                          }
+                          width="8"
+                          height={Math.max(
+                            1,
+                            (point.requests /
+                              Math.max(
+                                1,
+                                ...dashboard.traffic.map((p) => p.requests),
+                              )) *
+                              110,
+                          )}
+                        >
+                          <title>
+                            {date(point.at)}: {number(point.requests)}
+                          </title>
+                        </rect>
+                      ))}
+                    </svg>
+                    <p>
+                      {date(dashboard.traffic[0]!.at)} —{' '}
+                      {date(dashboard.traffic.at(-1)!.at)}
+                    </p>
+                  </>
+                ) : (
+                  <p>{text.noSamples}</p>
+                )}
+              </section>
+              <section className="admin-card">
+                <h2>{text.operations}</h2>
+                <dl>
+                  {[
+                    [
+                      text.database,
+                      dashboard.database === 'UP'
+                        ? text.healthy
+                        : text.attention,
+                    ],
+                    [
+                      text.redis,
+                      dashboard.redis === 'UP' ? text.healthy : text.attention,
+                    ],
+                    [
+                      text.prices,
+                      dashboard.priceStale ? text.stale : text.healthy,
+                    ],
+                    [text.priceUpdated, date(dashboard.priceUpdatedAt)],
+                  ].map(([label, value]) => (
+                    <div key={label}>
+                      <dt>{label}</dt>
+                      <dd>{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </section>
+              <section className="admin-card">
+                <h2>{text.browser}</h2>
+                <dl>
+                  <div>
+                    <dt>{text.views}</dt>
+                    <dd>
+                      {number(
+                        (dashboard.browserEvents.view_workbench ?? 0) +
+                          (dashboard.browserEvents.view_history ?? 0),
+                      )}
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>{text.errorsBrowser}</dt>
+                    <dd>
+                      {number(
+                        Object.entries(dashboard.browserEvents)
+                          .filter(([key]) => !key.startsWith('view_'))
+                          .reduce((sum, [, count]) => sum + count, 0),
+                      )}
+                    </dd>
+                  </div>
+                </dl>
+              </section>
+            </div>
+            <p className="admin-note">{text.scope}</p>
           </>
         )}
       </section>

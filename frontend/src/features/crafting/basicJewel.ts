@@ -1,5 +1,7 @@
-import definitions from './basicJewelDefinitions.json'
-import reveal from './manualRevealDefinitions.json'
+import {
+  jewelDefinitions as definitions,
+  manualRevealDefinitions as reveal,
+} from './catalogData'
 import type { ConcreteItem } from './workbenchApi'
 
 export const basicJewelBases = {

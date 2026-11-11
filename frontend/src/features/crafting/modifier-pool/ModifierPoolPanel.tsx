@@ -111,7 +111,12 @@ export function ModifierPoolPanel({
                     .toLocaleLowerCase(locale),
                 }
               })
-              .sort((a, b) => a.label.localeCompare(b.label, locale)),
+              .sort((a, b) => {
+                // Each section shares one denominator, so eligible weight orders
+                // probabilities without rounding ties in displayed percentages.
+                const chanceOrder = mode === 'dynamic' ? b.weight - a.weight : 0
+                return chanceOrder || a.label.localeCompare(b.label, locale)
+              }),
           }))
         : [],
     [catalog, locale, reference.data, state, mode],

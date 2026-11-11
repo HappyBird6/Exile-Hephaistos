@@ -102,7 +102,7 @@ it('filters equipment subcategories, previews on hover/focus and validates compa
   expect(
     screen.queryByRole('button', { name: /Solar Amulet/ }),
   ).not.toBeInTheDocument()
-  const mitts = screen.getByRole('button', { name: /Massive Mitts/ })
+  const mitts = screen.getByRole('button', { name: /^Massive Mitts/ })
   fireEvent.mouseEnter(mitts)
   expect(
     screen.getByRole('region', { name: 'Base information' }),

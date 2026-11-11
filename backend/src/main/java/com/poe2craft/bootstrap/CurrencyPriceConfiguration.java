@@ -19,8 +19,14 @@ import org.springframework.scheduling.annotation.Scheduled;
 @EnableScheduling
 public class CurrencyPriceConfiguration {
   @Bean
-  CurrencyPriceService currencyPriceService(
+  CurrencyPriceCache currencyPriceCache(
       BackendSettings settings, StringRedisTemplate redis, ObjectMapper json) {
+    return new RedisCurrencyPriceCache(redis, json, settings.prices().cacheKey());
+  }
+
+  @Bean
+  CurrencyPriceService currencyPriceService(
+      BackendSettings settings, CurrencyPriceCache cache, ObjectMapper json) {
     var p = settings.prices();
     var http = HttpClient.newBuilder().connectTimeout(p.connectTimeout());
     if (!p.proxyUrl().isBlank()) {
@@ -41,7 +47,7 @@ public class CurrencyPriceConfiguration {
             p.categories());
     return new CurrencyPriceService(
         source,
-        new RedisCurrencyPriceCache(redis, json, p.cacheKey()),
+        cache,
         Clock.systemUTC(),
         p.refreshInterval(),
         p.minimumRefreshInterval(),

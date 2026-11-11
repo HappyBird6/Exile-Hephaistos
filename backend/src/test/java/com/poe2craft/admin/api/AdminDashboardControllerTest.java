@@ -1,49 +1,63 @@
 package com.poe2craft.admin.api;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-import java.util.concurrent.TimeUnit;
+import com.poe2craft.admin.application.OperationsMonitor;
+import java.util.*;
 import org.junit.jupiter.api.Test;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 class AdminDashboardControllerTest {
   @Test
-  void disabledWithoutConfiguredPassword() {
-    var controller = new AdminDashboardController(new SimpleMeterRegistry(), "");
-    assertThatThrownBy(() -> controller.dashboard(null))
-        .isInstanceOf(ResponseStatusException.class);
+  void disabledWithoutConfiguredPassword() throws Exception {
+    var monitor = mock(OperationsMonitor.class);
+    MockMvcBuilders.standaloneSetup(new AdminDashboardController(monitor))
+        .addFilters(new AdminAccessFilter(""))
+        .build()
+        .perform(get("/api/admin/dashboard"))
+        .andExpect(status().isNotFound());
+    verifyNoInteractions(monitor);
   }
 
   @Test
-  void rejectsMissingAndIncorrectCredentialsWithoutExposingMetrics() {
-    var controller = new AdminDashboardController(new SimpleMeterRegistry(), "test-password");
-    for (String header : new String[] {null, "Basic invalid"}) {
-      var response = controller.dashboard(header);
-      assertThat(response.getStatusCode().value()).isEqualTo(401);
-      assertThat(response.getBody()).isNull();
-      assertThat(response.getHeaders().getCacheControl()).isEqualTo("no-store");
-    }
+  void rejectsMissingIncorrectAndRepeatedPasswordsBeforeReadingMetrics() throws Exception {
+    var monitor = mock(OperationsMonitor.class);
+    var mvc =
+        MockMvcBuilders.standaloneSetup(new AdminDashboardController(monitor))
+            .addFilters(new AdminAccessFilter("test-password"))
+            .build();
+    for (int i = 0; i < 10; i++)
+      mvc.perform(get("/api/admin/dashboard").header("Authorization", "Basic invalid"))
+          .andExpect(status().isUnauthorized())
+          .andExpect(header().string("Cache-Control", "no-store"));
+    mvc.perform(get("/api/admin/dashboard"))
+        .andExpect(status().isTooManyRequests())
+        .andExpect(header().exists("Retry-After"));
+    verifyNoInteractions(monitor);
   }
 
   @Test
-  void authorizedResponseExcludesDashboardPollingFromTraffic() {
-    var meters = new SimpleMeterRegistry();
-    meters
-        .timer("http.server.requests", "uri", "/api/craft", "status", "200")
-        .record(10, TimeUnit.MILLISECONDS);
-    meters
-        .timer("http.server.requests", "uri", "/api/admin/dashboard", "status", "200")
-        .record(50, TimeUnit.MILLISECONDS);
-    var controller = new AdminDashboardController(meters, "test-password");
-    var response =
-        controller.dashboard(
-            "Basic "
-                + Base64.getEncoder()
-                    .encodeToString("admin:test-password".getBytes(StandardCharsets.UTF_8)));
-    assertThat(response.getStatusCode().value()).isEqualTo(200);
-    assertThat(((java.util.Map<?, ?>) response.getBody()).get("requests")).isEqualTo(1L);
+  void returnsUncacheableMetricsOnlyWithConfiguredCredential() throws Exception {
+    var monitor = mock(OperationsMonitor.class);
+    when(monitor.snapshot()).thenReturn(Map.of("requests", 12L));
+    var mvc =
+        MockMvcBuilders.standaloneSetup(new AdminDashboardController(monitor))
+            .addFilters(new AdminAccessFilter("test-password"))
+            .build();
+    mvc.perform(
+            get("/api/admin/dashboard")
+                .header(
+                    "Authorization",
+                    "Basic "
+                        + Base64.getEncoder()
+                            .encodeToString(
+                                "admin:test-password"
+                                    .getBytes(java.nio.charset.StandardCharsets.UTF_8))))
+        .andExpect(status().isOk())
+        .andExpect(header().string("Cache-Control", "no-store"))
+        .andExpect(jsonPath("$.requests").value(12));
+    mvc.perform(get("/api/admin/future-menu")).andExpect(status().isUnauthorized());
   }
 }

@@ -1,3 +1,5 @@
+import { saveBaseFavorite } from './base-favorites/repository'
+import { baseFavoriteMessages } from './base-favorites/messages'
 import { IndexedFilmRepository } from './session-library/IndexedFilmRepository'
 import { sameItemState } from './crafting-state/itemIdentity'
 import {
@@ -78,8 +80,16 @@ import {
   topBase,
   topBaseKey,
 } from './topBases'
-import { WorkbenchBasePicker } from './base-picker/WorkbenchBasePicker'
-import { SessionHistoryWorkspace } from './session-library/SessionHistoryWorkspace'
+const WorkbenchBasePicker = lazy(() =>
+  import('./base-picker/WorkbenchBasePicker').then((m) => ({
+    default: m.WorkbenchBasePicker,
+  })),
+)
+const SessionHistoryWorkspace = lazy(() =>
+  import('./session-library/SessionHistoryWorkspace').then((m) => ({
+    default: m.SessionHistoryWorkspace,
+  })),
+)
 import { sessionLibraryMessages } from './session-library/sessionLibraryMessages'
 import { sessionTitle } from './session-library/sessionTitle'
 import {
@@ -401,8 +411,10 @@ function ReadyCraftingPage({
     saveSupport('workspace', view)
   }, [view])
   const [supportVisited, setSupportVisited] = useState(view === 'support')
+  const [historyVisited, setHistoryVisited] = useState(view === 'history')
   function setView(next: (typeof workspaceTabs)[number]) {
     if (next === 'support') setSupportVisited(true)
+    if (next === 'history') setHistoryVisited(true)
     setViewState(next)
   }
   const dialog = useRef<HTMLDialogElement>(null)
@@ -2857,89 +2869,143 @@ function ReadyCraftingPage({
               />
             </div>
           </div>
-          <WorkbenchBasePicker
-            id="workbench-base-picker"
-            anchor={baseAnchor}
-            canvas={simulationCanvas}
-            open={leftMenu === 'base'}
-            onOpenChange={(open) => {
-              if (!mutationLocked()) setLeftMenu(open ? 'base' : null)
-            }}
-            value={baseChoice}
-            onChange={(value) => {
-              if (!mutationLocked()) {
-                if (value !== baseChoice) {
-                  setBaseRarity(baseStartingRarity(value))
-                  setBaseAffixes([])
-                }
-                setBaseChoice(value)
-              }
-            }}
-            level={baseLevel}
-            onLevelChange={(value) => {
-              if (!mutationLocked()) {
-                setBaseLevel(value)
-                setBaseAffixes([])
-              }
-            }}
-            disabled={workbenchBusy}
-            selectedRarity={baseRarity}
-            valid={
-              !!setupItem &&
-              !!setupInitial.data &&
-              verifiedHistoryState(setupItem, setupInitial.data)
-            }
-            setup={
-              setupItem && setupInitial.data
-                ? {
-                    initial: setupInitial.data,
-                    item: setupItem,
-                    reference: setupReference.data,
-                    affixes: baseAffixes,
-                    onChange: setBaseAffixes,
-                    disabled: workbenchBusy,
-                  }
-                : undefined
-            }
-            extraControls={
-              <label htmlFor="base-rarity">
-                {t('ui.rarity')}
-                <select
-                  id="base-rarity"
-                  aria-label={t('ui.rarity')}
-                  value={baseRarity}
-                  disabled={
-                    workbenchBusy || baseStartingRarity(baseChoice) === 'RARE'
-                  }
-                  onChange={(e) => {
-                    if (!mutationLocked()) {
-                      setBaseRarity(
-                        e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
-                      )
+          {leftMenu === 'base' && (
+            <Suspense fallback={<span role="status">…</span>}>
+              <WorkbenchBasePicker
+                id="workbench-base-picker"
+                onPlaceFavorite={(film) => {
+                  if (mutationLocked()) return
+                  invalidateInput()
+                  void newCraftFromFrame(film, film.frames[0]!)
+                  setLeftMenu(null)
+                }}
+                onSaveFavorite={(base) => {
+                  if (mutationLocked()) return
+                  void (async () => {
+                    try {
+                      const data = await client.fetchQuery({
+                        queryKey: [
+                          'crafting',
+                          'initial',
+                          base,
+                          Number(baseLevel),
+                          'manual',
+                        ],
+                        queryFn: ({ signal }) =>
+                          loadInitial(Number(baseLevel), signal, base, true),
+                        staleTime: 60_000,
+                      })
+                      const state =
+                        base === baseChoice && setupItem
+                          ? setupItem
+                          : startingItem(data, baseStartingRarity(base), [])
+                      if (!verifiedHistoryState(state, data))
+                        throw Error('Invalid base')
+                      saveBaseFavorite({
+                        id: filmId(),
+                        createdAt: new Date().toISOString(),
+                        rulesetIdentity: data.rulesetIdentity,
+                        ...(data.compatibilityId
+                          ? { compatibilityId: data.compatibilityId }
+                          : {}),
+                        frames: [
+                          {
+                            state,
+                            action: null,
+                            rulesetIdentity: data.rulesetIdentity,
+                          },
+                        ],
+                      })
+                      setAnnouncement(baseFavoriteMessages[locale].saved)
+                    } catch {
+                      setAnnouncement(baseFavoriteMessages[locale].error)
+                    }
+                  })()
+                }}
+                anchor={baseAnchor}
+                canvas={simulationCanvas}
+                open={leftMenu === 'base'}
+                onOpenChange={(open) => {
+                  if (!mutationLocked()) setLeftMenu(open ? 'base' : null)
+                }}
+                value={baseChoice}
+                onChange={(value) => {
+                  if (!mutationLocked()) {
+                    if (value !== baseChoice) {
+                      setBaseRarity(baseStartingRarity(value))
                       setBaseAffixes([])
                     }
-                  }}
-                >
-                  <option value="NORMAL">{t('ui.normal')}</option>
-                  <option value="MAGIC">{t('ui.magic')}</option>
-                  <option value="RARE">{t('ui.rare')}</option>
-                </select>
-              </label>
-            }
-            onPlace={() => {
-              if (mutationLocked()) return
-              invalidateInput()
-              void startBase(
-                Number(baseLevel),
-                baseChoice,
-                null,
-                baseRarity,
-                baseAffixes,
-              )
-              setSelected(null)
-              setLeftMenu(null)
-            }}
-          />
+                    setBaseChoice(value)
+                  }
+                }}
+                level={baseLevel}
+                onLevelChange={(value) => {
+                  if (!mutationLocked()) {
+                    setBaseLevel(value)
+                    setBaseAffixes([])
+                  }
+                }}
+                disabled={workbenchBusy}
+                selectedRarity={baseRarity}
+                valid={
+                  !!setupItem &&
+                  !!setupInitial.data &&
+                  verifiedHistoryState(setupItem, setupInitial.data)
+                }
+                setup={
+                  setupItem && setupInitial.data
+                    ? {
+                        initial: setupInitial.data,
+                        item: setupItem,
+                        reference: setupReference.data,
+                        affixes: baseAffixes,
+                        onChange: setBaseAffixes,
+                        disabled: workbenchBusy,
+                      }
+                    : undefined
+                }
+                extraControls={
+                  <label htmlFor="base-rarity">
+                    {t('ui.rarity')}
+                    <select
+                      id="base-rarity"
+                      aria-label={t('ui.rarity')}
+                      value={baseRarity}
+                      disabled={
+                        workbenchBusy ||
+                        baseStartingRarity(baseChoice) === 'RARE'
+                      }
+                      onChange={(e) => {
+                        if (!mutationLocked()) {
+                          setBaseRarity(
+                            e.target.value as 'NORMAL' | 'MAGIC' | 'RARE',
+                          )
+                          setBaseAffixes([])
+                        }
+                      }}
+                    >
+                      <option value="NORMAL">{t('ui.normal')}</option>
+                      <option value="MAGIC">{t('ui.magic')}</option>
+                      <option value="RARE">{t('ui.rare')}</option>
+                    </select>
+                  </label>
+                }
+                onPlace={() => {
+                  if (mutationLocked()) return
+                  invalidateInput()
+                  void startBase(
+                    Number(baseLevel),
+                    baseChoice,
+                    null,
+                    baseRarity,
+                    baseAffixes,
+                  )
+                  setSelected(null)
+                  setLeftMenu(null)
+                }}
+              />
+            </Suspense>
+          )}
           <dialog
             ref={dialog}
             onCancel={(event) => {
@@ -3007,50 +3073,56 @@ function ReadyCraftingPage({
         aria-labelledby="workspace-history"
         hidden={view !== 'history'}
       >
-        <SessionHistoryWorkspace
-          active={view === 'history'}
-          history={filmState.history}
-          onImport={async (document) => {
-            if (mutationLocked() || filmState.blockedSaving) return null
-            const added = appendDocument(filmState.history, document)
-            if (!(await commitLibraryHistory(added.history))) return null
-            return added.id
-          }}
-          disabled={workbenchBusy || filmState.blockedSaving}
-          error={filmState.error ? uiText(filmState.error) : ''}
-          onNewCraft={(id) => {
-            const selected = filmState.history.films.find((f) => f.id === id),
-              frame = selected?.frames.at(-1)
-            if (selected && frame) void newCraftFromFrame(selected, frame)
-          }}
-          onContinue={(id) => {
-            if (mutationLocked()) return
-            setObservedPreview(null)
-            restoreFilm(id)
-            setView('workbench')
-            document.getElementById('workspace-workbench')?.focus()
-          }}
-          onRename={(id, title) =>
-            commitLibraryHistory(
-              updateFilmMetadata(filmState.history, id, { title }),
-            )
-          }
-          onFavoriteChange={(id, favorite) =>
-            commitLibraryHistory(
-              updateFilmMetadata(filmState.history, id, { favorite }),
-            )
-          }
-          onDelete={deleteSession}
-          {...(lastDeletion
-            ? {
-                undo: {
-                  title: sessionTitle(lastDeletion.deletion.film, locale),
-                  expiresAt: lastDeletion.expiresAt,
-                  onUndo: undoSessionDeletion,
-                },
+        {(historyVisited || view === 'history') && (
+          <Suspense fallback={<span role="status">…</span>}>
+            <SessionHistoryWorkspace
+              active={view === 'history'}
+              history={filmState.history}
+              onImport={async (document) => {
+                if (mutationLocked() || filmState.blockedSaving) return null
+                const added = appendDocument(filmState.history, document)
+                if (!(await commitLibraryHistory(added.history))) return null
+                return added.id
+              }}
+              disabled={workbenchBusy || filmState.blockedSaving}
+              error={filmState.error ? uiText(filmState.error) : ''}
+              onNewCraft={(id) => {
+                const selected = filmState.history.films.find(
+                    (f) => f.id === id,
+                  ),
+                  frame = selected?.frames.at(-1)
+                if (selected && frame) void newCraftFromFrame(selected, frame)
+              }}
+              onContinue={(id) => {
+                if (mutationLocked()) return
+                setObservedPreview(null)
+                restoreFilm(id)
+                setView('workbench')
+                document.getElementById('workspace-workbench')?.focus()
+              }}
+              onRename={(id, title) =>
+                commitLibraryHistory(
+                  updateFilmMetadata(filmState.history, id, { title }),
+                )
               }
-            : {})}
-        />
+              onFavoriteChange={(id, favorite) =>
+                commitLibraryHistory(
+                  updateFilmMetadata(filmState.history, id, { favorite }),
+                )
+              }
+              onDelete={deleteSession}
+              {...(lastDeletion
+                ? {
+                    undo: {
+                      title: sessionTitle(lastDeletion.deletion.film, locale),
+                      expiresAt: lastDeletion.expiresAt,
+                      onUndo: undoSessionDeletion,
+                    },
+                  }
+                : {})}
+            />
+          </Suspense>
+        )}
       </div>
       <div
         id="panel-support"

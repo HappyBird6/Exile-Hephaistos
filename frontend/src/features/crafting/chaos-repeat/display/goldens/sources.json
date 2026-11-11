@@ -12,9 +12,10 @@
     "backend/src/main/resources/catalog/adherent-cuffs/catalog.json": "e53cbcc865a9f0498c3383ecca3b3476599713bb75807e12dafc3299db652bfc",
     "backend/src/main/resources/catalog/solar-amulet/catalog.json": "5562c61495b012e67566417aaa60e0e2cb569ca28515a74e970ca0fd9a16dfe8",
     "frontend/package-lock.json": "488b6a91c240b4fc754360e6e1c2ab9fddbf3f5fadd95e28a7ed31826c93e869",
-    "frontend/src/features/crafting/CraftingPage.tsx": "dfad1d1c3fd622e69872178629cc61b4e8c3b8132a9f0456449138c5c7410450",
+    "frontend/src/features/crafting/CraftingPage.tsx": "a646c55bacfbbc8e2c715d22b858681d384cb422217c8e92c4dc298e84b530b2",
     "frontend/src/features/crafting/ItemCard.tsx": "01e30c0ccfe3596a41bdf4b37fadca6640747718923f16af6322e114d94bc640",
-    "frontend/src/features/crafting/basicJewel.ts": "de00f2b81af5ddaa15d99faf38ffbabc3fdd4aea96e02fedc5e8130ddd939c29",
+    "frontend/src/features/crafting/basicJewel.ts": "50e398e3e1646b48abf470c9c1a5fd323f0f94eed71b066f66f3357b59cfff03",
+    "frontend/src/features/crafting/catalogData.ts": "5425b63b28913627fe2157a9c98f579697dffafe5cf8efb4dbb034938ab1b42a",
     "frontend/src/features/crafting/catalystQuality.ts": "1f5c03c5cf4dae6e56f1ab6a79addccafca11f70663876cfb7b61b8670769a65",
     "frontend/src/features/crafting/chaos-repeat/display/goldens/inputs.json": "d8908b86c2e44a1025896d80b0aa0dbb864b676007b33a7ae3c659af5d60c8ce",
     "frontend/src/features/crafting/chaos-repeat/display/projectExplicitOptionGroups.ts": "a8fb85e556df22bf7ff8279bf1f39280fa5cccfc5bf570a7dd72c041b08a7281",
@@ -26,9 +27,10 @@
     "frontend/src/features/crafting/qualityRoundingPolicy.ts": "74ee47941b453a112dae2cd722e9e00458422eb0a5d57d0cdce251ef21ea9928",
     "frontend/src/features/crafting/sanctification/preciseModifierProjection.ts": "e839b42d88aecebc389eeb53e1758d8ad6c1f622ed55f3fdf50194660cc28be2",
     "frontend/src/shared/i18n/i18n.ts": "133bbb8aa18b414645753bc2363b49b8c91aea817de7f24a72e0c4e3665e9f66",
-    "frontend/src/shared/i18n/localeData.ts": "197a21fa8f89c9059eb9b4461def8dc81c769286ba9812faf6054df70ab6fa15",
+    "frontend/src/shared/i18n/localeData.ts": "fae3b7a82d353920d51a513683ce90b5bfcd9a4ad483b83c132223b1bdf45b8b",
     "frontend/src/shared/i18n/modifierTemplates.json": "6f6db90a288d9ee4e2dd54f5e5cbdd494865424e5129c03c1166082ee7d362d9",
     "frontend/src/shared/test/sapphire-catalog.json": "476c290e82b13b190d940656164550b30294455eff598ac74bf8ff37ea00270d",
-    "frontend/vite-plugins/localeDataPlugin.ts": "e7d7f36ee02351a4f6a4b7d8a469507bb17652d1f679af7ac4978bfa23cb98e9"
+    "frontend/vite-plugins/catalogDataPlugin.ts": "2086d80c6fb79082c19e12d47c782e2b55d67329901a18d7584ed42db23b8235",
+    "frontend/vite-plugins/localeDataPlugin.ts": "4cb28a21c3d18e0d1a5dee32b154355ce88da0da648a483691460b61aa9598bf"
   }
 }
