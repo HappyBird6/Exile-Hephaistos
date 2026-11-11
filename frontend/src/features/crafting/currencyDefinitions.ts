@@ -795,6 +795,8 @@ export function compatibleOmenPair(first: string, second: string): boolean {
     new Set([first, second]).size === 2 &&
     [
       ['Omen_of_Homogenising_Exaltation', 'Omen_of_Greater_Exaltation'],
+      ['Omen_of_Sinistral_Exaltation', 'Omen_of_Greater_Exaltation'],
+      ['Omen_of_Dextral_Exaltation', 'Omen_of_Greater_Exaltation'],
       ['Omen_of_Sinistral_Erasure', 'Omen_of_Whittling'],
       ['Omen_of_Dextral_Erasure', 'Omen_of_Whittling'],
       ['Omen_of_Sinistral_Annulment', 'Omen_of_Greater_Annulment'],

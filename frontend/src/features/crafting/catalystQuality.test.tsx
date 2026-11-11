@@ -1,3 +1,6 @@
+import solarCatalog from '../../../../backend/src/main/resources/catalog/solar-amulet/catalog.json'
+import { localizedModifierText } from './localizedModifiers'
+import { modifierClipboardText } from './item-text/modifierClipboardText'
 import { outerMaterialTab } from '../../shared/test/workbenchQueries'
 import { afterEach, expect, it, vi } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
@@ -261,4 +264,26 @@ it('applies a selected catalyst currency and restores its recorded quality on re
   expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
   reload.unmount()
   client.clear()
+})
+
+it('projects fixed minion skill levels through catalyst quality into localized and game clipboard text', () => {
+  const definition = solarCatalog.modifiers.find(
+    (d) => d.id === 'amulet:suffix:of-the-overseer',
+  )! as Definition
+  const values = { 'minion_skill_gem_level_+': 3 }
+  const projected = catalystProjection(definition, values, {
+    type: 'NECROTIC',
+    amount: 40,
+  })
+  expect(projected.values).toEqual({ 'minion_skill_gem_level_+': 4 })
+  expect(localizedModifierText(definition, projected.values, 'en')).toBe(
+    '+4 to Level of all Minion Skills',
+  )
+  expect(localizedModifierText(definition, projected.values, 'ko')).toContain(
+    '4',
+  )
+  expect(modifierClipboardText(definition, projected.values)).toBe(
+    '+4 to Level of all Minion Skills',
+  )
+  expect(values).toEqual({ 'minion_skill_gem_level_+': 3 })
 })

@@ -64,3 +64,50 @@ it('rejects a partial addition, mismatched event or missing omen consumption', a
     await expect(apply()).rejects.toThrow('Your item is unchanged')
   }
 })
+
+it('accepts a directional single-slot fallback, retaining Greater, and rejects wrong-side or consumed-Greater responses', async () => {
+  const direction = 'Omen_of_Sinistral_Exaltation'
+  const definitions = {
+    ...initialFixture.modifiers,
+    p2: {
+      ...initialFixture.modifiers.p!,
+      id: 'p2',
+      familyIds: ['second-life'],
+    },
+    p3: { ...initialFixture.modifiers.p!, id: 'p3', familyIds: ['third-life'] },
+  }
+  const item = {
+    ...before,
+    explicits: [additions[0]!, { modifierId: 'p2', values: { life: 17 } }],
+  }
+  const added = { modifierId: 'p3', values: { life: 17 } }
+  const response = {
+    ...result,
+    state: { ...item, explicits: [...item.explicits, added] },
+    events: [{ ...added, kind: 'ADD', selectionProbability: 0.5 }],
+    consumedOmens: [direction],
+    remainingOmens: [omen],
+  }
+  const run = () =>
+    applyCurrency(
+      item,
+      'EXALTED',
+      definitions,
+      new AbortController().signal,
+      [omen, direction],
+      'fixture-ruleset',
+    )
+  vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(response)))
+  expect((await run()).remainingOmens).toEqual([omen])
+  for (const invalid of [
+    { ...response, consumedOmens: [omen, direction], remainingOmens: [] },
+    {
+      ...response,
+      state: { ...item, explicits: [...item.explicits, additions[1]!] },
+      events: [{ ...additions[1]!, kind: 'ADD', selectionProbability: 0.5 }],
+    },
+  ]) {
+    vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(invalid)))
+    await expect(run()).rejects.toThrow('Your item is unchanged')
+  }
+})

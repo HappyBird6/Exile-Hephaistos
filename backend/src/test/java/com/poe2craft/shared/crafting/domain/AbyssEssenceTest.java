@@ -119,25 +119,16 @@ class AbyssEssenceTest {
   }
 
   @Test
-  void soleUnlockedMarkCanBeReplacedWithoutDuplicateFamilyAndUnrelatedOmensSurvive() {
+  void existingCraftedMarkHonoursCraftedLimitWithoutTouchingFractureOrOmens() {
     for (var target : targets) {
       var before = fixture.rare(82, "amulet:prefix:hale", "amulet:prefix:hale", target);
       var result =
           simulator.apply(before, action, Set.of(WorkbenchOmen.BLESSED.id()), new Random(4));
-      assertThat(result.applied()).isTrue();
-      assertThat(result.state().explicits())
-          .hasSize(2)
-          .contains(
-              before.explicits().stream()
-                  .filter(ModifierInstance::fractured)
-                  .findFirst()
-                  .orElseThrow());
-      assertThat(result.events().getFirst().modifierId()).isEqualTo(target);
-      assertThat(
-              result.state().explicits().stream()
-                  .filter(m -> targets.contains(m.modifierId()))
-                  .count())
-          .isEqualTo(1);
+      assertThat(result.applied()).isFalse();
+      assertThat(result.reason()).isEqualTo("Crafted modifier limit reached.");
+      assertThat(result.state()).isEqualTo(before);
+      assertThat(result.events()).isEmpty();
+      assertThat(result.consumedOmens()).isEmpty();
       assertThat(result.remainingOmens()).containsExactly(WorkbenchOmen.BLESSED.id());
     }
   }

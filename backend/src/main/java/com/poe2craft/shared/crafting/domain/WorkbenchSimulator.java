@@ -23,7 +23,7 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v19";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v20";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v13";
   private final ItemCatalog catalog;
   private final Map<String, WorkbenchSimulator> socketSamplers =
@@ -226,7 +226,7 @@ public final class WorkbenchSimulator {
             ? ""
             : "equipment-currency-v1-")
         + baseRuleVersion()
-        + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1"
+        + "-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1"
         + (qualityCapChangePolicy == QualityCapChangePolicy.PRESERVE_EXISTING
             ? "-quality-cap-preserve-v2"
             : "-quality-cap-reject-v1")
@@ -448,32 +448,19 @@ public final class WorkbenchSimulator {
         return blocked(action, "Item level is below the currency's minimum modifier level.");
       if (state.rarity() != ItemState.Rarity.RARE)
         return blocked(action, "Exalted Orb requires a Rare item.");
-      if (state.explicits().size()
-          > new ItemStateValidator(catalog).slots(state).maxPrefixes()
-              + new ItemStateValidator(catalog).slots(state).maxSuffixes()
-              - 2)
-        return blocked(
-            action,
-            "Greater Exaltation is supported only with at least two free explicit slots; the one-slot interaction needs verification.");
-      var originalTags =
-          matches.contains(WorkbenchOmen.HOMOGENISING_EXALTATION)
-              ? additionRules.existingTags(StateBucket.forModifierEligibility(state))
-              : Set.<String>of();
-      var first =
-          additionRules.poolWithTags(
-              StateBucket.forModifierEligibility(state), action, originalTags);
+      int additions = exaltAdditionCount(state, matches);
+      if (additions == 0)
+        return blocked(action, "No free affix slot remains for this currency and omen.");
+      var first = exaltPool(state, state, action, omens, matches);
       if (first.isEmpty()) return blocked(action, "No verified first addition pool.");
+      if (additions == 1) return new Availability(action, true, "");
       for (var candidate : first) {
         var next = new ArrayList<>(state.explicits());
         var values = new HashMap<String, Long>();
         for (var stat : candidate.stats()) values.put(stat.id(), stat.min());
         next.add(new ModifierInstance(candidate.id(), values));
-        if (additionRules
-            .poolWithTags(
-                StateBucket.forModifierEligibility(
-                    copy(state, state.rarity(), state.implicits(), next)),
-                action,
-                originalTags)
+        if (exaltPool(
+                state, copy(state, state.rarity(), state.implicits(), next), action, omens, matches)
             .isEmpty())
           return blocked(action, "A first addition branch has no verified second addition pool.");
       }
@@ -548,11 +535,6 @@ public final class WorkbenchSimulator {
         return blocked(action, "Cannot fracture an already Fractured item.");
       return new Availability(action, true, "");
     }
-    if (matches.contains(WorkbenchOmen.WHITTLING)
-        && state.explicits().stream().anyMatch(ModifierInstance::fractured))
-      return blocked(
-          action,
-          "Whittling priority with Fractured modifiers needs verification. Deactivate the omen.");
     if (action == WorkbenchCurrency.ALCHEMY) {
       if (state.rarity() != ItemState.Rarity.NORMAL && state.rarity() != ItemState.Rarity.MAGIC)
         return blocked(action, "Alchemy requires a Normal or Magic item.");
@@ -1114,7 +1096,7 @@ public final class WorkbenchSimulator {
     double total = first.stream().mapToLong(ModifierDefinition::weight).sum();
     var chances = new LinkedHashMap<String, Double>();
     for (var d : first) chances.put(d.id(), d.weight() / total);
-    if (WorkbenchOmen.verifiedDoubleAddition(matched))
+    if (exaltAdditionCount(state, matched) == 2)
       for (var d : first) {
         var values = new LinkedHashMap<String, Long>();
         d.stats().forEach(r -> values.put(r.id(), r.min()));
@@ -1138,6 +1120,29 @@ public final class WorkbenchSimulator {
         .toList();
   }
 
+  /** Shared count for availability, custom odds, execution and omen consumption. */
+  private int exaltAdditionCount(ItemState state, List<WorkbenchOmen> matched) {
+    if (!WorkbenchOmen.verifiedDoubleAddition(matched)) return 1;
+    var slots = new ItemStateValidator(catalog).slots(state);
+    var side = matched.stream().map(WorkbenchOmen::affix).filter(Objects::nonNull).findFirst();
+    int free =
+        side.isEmpty()
+            ? slots.maxPrefixes() + slots.maxSuffixes() - state.explicits().size()
+            : (side.get() == ModifierDefinition.AffixType.PREFIX
+                    ? slots.maxPrefixes()
+                    : slots.maxSuffixes())
+                - (int)
+                    state.explicits().stream()
+                        .filter(
+                            m ->
+                                catalog.find(m.modifierId()).orElseThrow().affixType()
+                                    == side.get())
+                        .count();
+    // The reviewed directional composition falls back to one addition and retains Greater.
+    // Keep the existing two-slot requirement for the other Greater compositions.
+    return side.isPresent() ? Math.min(2, Math.max(0, free)) : free >= 2 ? 2 : 0;
+  }
+
   private List<ModifierDefinition> exaltPool(
       ItemState original,
       ItemState state,
@@ -1150,7 +1155,12 @@ public final class WorkbenchSimulator {
           matched.stream().anyMatch(WorkbenchOmen::homogenising)
               ? additionRules.existingTags(StateBucket.forModifierEligibility(original))
               : Set.<String>of();
-      return additionRules.poolWithTags(StateBucket.forModifierEligibility(state), action, tags);
+      var side = matched.stream().map(WorkbenchOmen::affix).filter(Objects::nonNull).findFirst();
+      return additionRules
+          .poolWithTags(StateBucket.forModifierEligibility(state), action, tags)
+          .stream()
+          .filter(d -> side.isEmpty() || d.affixType() == side.get())
+          .toList();
     }
     return pool(state, action, matched.isEmpty() ? null : matched.getFirst());
   }
@@ -1493,7 +1503,7 @@ public final class WorkbenchSimulator {
         }
       }
       if (action.baseAction() != CraftingAction.ANNULMENT) {
-        int additions = WorkbenchOmen.verifiedDoubleAddition(matched) ? 2 : 1;
+        int additions = exaltAdditionCount(state, matched);
         var homogenising = matched.stream().anyMatch(WorkbenchOmen::homogenising);
         var originalTags =
             homogenising
@@ -1582,7 +1592,14 @@ public final class WorkbenchSimulator {
               null,
               "https://poe2db.tw/us/Omen",
               "UNVERIFIED composition model: existing omen eligibility precedes the currency's minimum-added-level pool at each addition; multi-add tags remain frozen before the craft. This does not establish game combination odds or failure consumption."));
-    var consumed = matched.stream().map(WorkbenchOmen::id).toList();
+    var consumed =
+        matched.stream()
+            .filter(
+                o ->
+                    o != WorkbenchOmen.GREATER_EXALTATION
+                        || exaltAdditionCount(state, matched) == 2)
+            .map(WorkbenchOmen::id)
+            .toList();
     var remaining = allIds.stream().filter(id -> !consumed.contains(id)).toList();
     return new Result(
         ruleVersion(),

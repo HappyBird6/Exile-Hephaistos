@@ -95,7 +95,7 @@ class StockyWorkbenchTest {
       assertThat(rare.state().explicits()).hasSize(4);
       assertThat(rare.ruleVersion())
           .isEqualTo(
-              "stocky-workbench-artificer-v26-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+              "equipment-currency-v1-stocky-workbench-artificer-v26-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
       var locked =
           service.apply(rare.state(), WorkbenchCurrency.FRACTURING, Set.of(), random).state();
       var fracture =
@@ -152,7 +152,7 @@ class StockyWorkbenchTest {
       assertThat(result.state()).isEqualTo(magic);
       assertThat(result.events()).isEmpty();
     }
-    assertThat(service.initial("solar", 82).modifiers()).hasSize(218);
+    assertThat(service.initial("solar", 82).modifiers()).hasSize(219);
     assertThatThrownBy(() -> service.initial("unknown", 82))
         .isInstanceOf(IllegalArgumentException.class);
   }
@@ -282,7 +282,7 @@ class StockyWorkbenchTest {
                     List.of(),
                     Set.of()),
                 Set.of()))
-        .hasSize(77);
+        .hasSize(78);
     assertThat(catalog.modifiers()).hasSize(194);
   }
 }

@@ -680,6 +680,22 @@ export async function applyCurrency(
     next.rarity,
     next.installedAugments,
   )
+  const exaltSide = activeOmens.includes('Omen_of_Sinistral_Exaltation')
+    ? 'PREFIX'
+    : activeOmens.includes('Omen_of_Dextral_Exaltation')
+      ? 'SUFFIX'
+      : null
+  const freeExaltSlots = exaltSide
+    ? (exaltSide === 'PREFIX' ? capacity.prefixes : capacity.suffixes) -
+      state.explicits.filter(
+        (m) => definitions[m.modifierId]?.affixType === exaltSide,
+      ).length
+    : capacity.prefixes + capacity.suffixes - state.explicits.length
+  const exaltAdditions = activeOmens.includes('Omen_of_Greater_Exaltation')
+    ? exaltSide
+      ? Math.min(2, Math.max(0, freeExaltSlots))
+      : 2
+    : 1
   const expectedRarity =
     baseAction === 'TRANSMUTATION'
       ? 'MAGIC'
@@ -706,7 +722,7 @@ export async function applyCurrency(
             ? 0
             : baseAction === 'EXALTED' &&
                 activeOmens.includes('Omen_of_Greater_Exaltation')
-              ? 2
+              ? exaltAdditions
               : 1)
   if (
     (isWorkbenchJewel(next.baseItemId)
@@ -1083,7 +1099,8 @@ export async function applyCurrency(
     baseAction === 'EXALTED' &&
     activeOmens.includes('Omen_of_Greater_Exaltation') &&
     (state.rarity !== 'RARE' ||
-      state.explicits.length > (isWorkbenchJewel(state.baseItemId) ? 2 : 4) ||
+      exaltAdditions < 1 ||
+      freeExaltSlots < exaltAdditions ||
       !sameModifiers(
         state.explicits
           .map((old) =>
@@ -1092,11 +1109,14 @@ export async function applyCurrency(
           .filter(Boolean),
         state.explicits,
       ) ||
-      v.events.length !== 2 ||
-      new Set(v.events.map((event) => event.modifierId)).size !== 2 ||
+      v.events.length !== exaltAdditions ||
+      new Set(v.events.map((event) => event.modifierId)).size !==
+        exaltAdditions ||
       v.events.some(
         (event) =>
           event.kind !== 'ADD' ||
+          (exaltSide !== null &&
+            definitions[event.modifierId]?.affixType !== exaltSide) ||
           state.explicits.some((old) => old.modifierId === event.modifierId) ||
           !sameValues(
             event.values,
@@ -1104,7 +1124,14 @@ export async function applyCurrency(
               ?.values,
           ),
       ) ||
-      !v.consumedOmens.includes('Omen_of_Greater_Exaltation'))
+      v.consumedOmens.includes('Omen_of_Greater_Exaltation') !==
+        (exaltAdditions === 2) ||
+      (exaltSide !== null &&
+        !v.consumedOmens.includes(
+          exaltSide === 'PREFIX'
+            ? 'Omen_of_Sinistral_Exaltation'
+            : 'Omen_of_Dextral_Exaltation',
+        )))
   )
     throw new Error(
       'Could not verify both added modifiers. Your item is unchanged. Please retry.',

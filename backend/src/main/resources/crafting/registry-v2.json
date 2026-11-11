@@ -3,7 +3,7 @@
   "ledgerVersion": "solar-uniform-assumptions-v13",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-abyss-essence-v19",
+  "ruleVersion": "solar-workbench-abyss-essence-v20",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -4574,7 +4574,7 @@
   ],
   "workbenchBases": {
     "solar": {
-      "ruleVersion": "solar-workbench-abyss-essence-v19",
+      "ruleVersion": "solar-workbench-abyss-essence-v20",
       "ledgerVersion": "solar-uniform-assumptions-v13"
     },
     "stocky": {

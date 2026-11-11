@@ -1829,7 +1829,8 @@
       "englishText": "+2 to Level of all Minion Skills",
       "values": ["+2"],
       "template": "modifier.9c81fdd552f2dd59",
-      "sourceCode": null
+      "sourceCode": null,
+      "valueStats": [{ "id": "minion_skill_gem_level_+", "divisor": 1 }]
     },
     "amulet:suffix:of-the-drake": {
       "stats": [
@@ -2269,7 +2270,8 @@
       "englishText": "+3 to Level of all Minion Skills",
       "values": ["+3"],
       "template": "modifier.6e7b9280b358319d",
-      "sourceCode": null
+      "sourceCode": null,
+      "valueStats": [{ "id": "minion_skill_gem_level_+", "divisor": 1 }]
     },
     "amulet:suffix:of-the-panther": {
       "stats": [
@@ -2561,7 +2563,8 @@
       "englishText": "+1 to Level of all Minion Skills",
       "values": ["+1"],
       "template": "modifier.86fbda1154b7e5e2",
-      "sourceCode": null
+      "sourceCode": null,
+      "valueStats": [{ "id": "minion_skill_gem_level_+", "divisor": 1 }]
     },
     "amulet:suffix:of-the-tempest": {
       "stats": [
@@ -14930,7 +14933,8 @@
       "englishText": "+1 to Level of all Minion Skills",
       "values": ["+1"],
       "template": "modifier.86fbda1154b7e5e2",
-      "sourceCode": "GlobalMinionSpellSkillGemLevelWeapon1"
+      "sourceCode": "GlobalMinionSpellSkillGemLevelWeapon1",
+      "valueStats": [{ "id": "minion_skill_gem_level_+", "divisor": 1 }]
     },
     "rattling-sceptre:suffix:of-the-despot": {
       "stats": [
@@ -14943,7 +14947,8 @@
       "englishText": "+2 to Level of all Minion Skills",
       "values": ["+2"],
       "template": "modifier.9c81fdd552f2dd59",
-      "sourceCode": "GlobalMinionSpellSkillGemLevelWeapon2"
+      "sourceCode": "GlobalMinionSpellSkillGemLevelWeapon2",
+      "valueStats": [{ "id": "minion_skill_gem_level_+", "divisor": 1 }]
     },
     "rattling-sceptre:suffix:of-the-overseer": {
       "stats": [
@@ -14956,7 +14961,8 @@
       "englishText": "+3 to Level of all Minion Skills",
       "values": ["+3"],
       "template": "modifier.6e7b9280b358319d",
-      "sourceCode": "GlobalMinionSpellSkillGemLevelWeapon3"
+      "sourceCode": "GlobalMinionSpellSkillGemLevelWeapon3",
+      "valueStats": [{ "id": "minion_skill_gem_level_+", "divisor": 1 }]
     },
     "rattling-sceptre:suffix:of-the-slavedriver": {
       "stats": [
@@ -14969,7 +14975,8 @@
       "englishText": "+4 to Level of all Minion Skills",
       "values": ["+4"],
       "template": "modifier.ae43734298fece72",
-      "sourceCode": "GlobalMinionSpellSkillGemLevelWeapon4"
+      "sourceCode": "GlobalMinionSpellSkillGemLevelWeapon4",
+      "valueStats": [{ "id": "minion_skill_gem_level_+", "divisor": 1 }]
     },
     "rattling-sceptre:suffix:of-the-newt": {
       "stats": [
@@ -22767,7 +22774,8 @@
       "englishText": "+1 to Level of all Minion Skills",
       "values": ["+1"],
       "template": "modifier.86fbda1154b7e5e2",
-      "sourceCode": "GlobalMinionSpellSkillGemLevel1"
+      "sourceCode": "GlobalMinionSpellSkillGemLevel1",
+      "valueStats": [{ "id": "minion_skill_gem_level_+", "divisor": 1 }]
     },
     "rusted-greathelm:suffix:of-the-despot": {
       "stats": [
@@ -22780,7 +22788,8 @@
       "englishText": "+2 to Level of all Minion Skills",
       "values": ["+2"],
       "template": "modifier.9c81fdd552f2dd59",
-      "sourceCode": "GlobalMinionSpellSkillGemLevel2"
+      "sourceCode": "GlobalMinionSpellSkillGemLevel2",
+      "valueStats": [{ "id": "minion_skill_gem_level_+", "divisor": 1 }]
     },
     "rusted-greathelm:suffix:of-the-newt": {
       "stats": [

@@ -39,7 +39,7 @@ export type CatalystQuality = {
   type: keyof typeof catalystTypes
   amount: number
 }
-export const catalystQualityVersion = 'catalyst-quality-display-round-v2'
+export const catalystQualityVersion = 'catalyst-quality-display-fixed-level-v3'
 export const catalystBase = (base: string) =>
   basePolicy(base)?.catalystQuality === true
 

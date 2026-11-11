@@ -65,11 +65,14 @@ public enum WorkbenchOmen {
         && matching.contains(GREATER_ANNULMENT);
   }
 
-  /** Only this same-trigger pair has a reviewed combined effect. */
+  /** Greater may compose with one directional or homogenising addition effect. */
   public static boolean verifiedDoubleAddition(java.util.List<WorkbenchOmen> matching) {
     return matching.contains(GREATER_EXALTATION)
         && (matching.size() == 1
-            || (matching.size() == 2 && matching.contains(HOMOGENISING_EXALTATION)));
+            || (matching.size() == 2
+                && (matching.contains(HOMOGENISING_EXALTATION)
+                    || matching.contains(SINISTRAL_EXALTATION)
+                    || matching.contains(DEXTRAL_EXALTATION))));
   }
 
   public static WorkbenchOmen fromId(String id) {

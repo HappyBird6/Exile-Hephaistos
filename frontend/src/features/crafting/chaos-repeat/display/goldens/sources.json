@@ -16,7 +16,7 @@
     "frontend/src/features/crafting/ItemCard.tsx": "01e30c0ccfe3596a41bdf4b37fadca6640747718923f16af6322e114d94bc640",
     "frontend/src/features/crafting/basicJewel.ts": "50e398e3e1646b48abf470c9c1a5fd323f0f94eed71b066f66f3357b59cfff03",
     "frontend/src/features/crafting/catalogData.ts": "5425b63b28913627fe2157a9c98f579697dffafe5cf8efb4dbb034938ab1b42a",
-    "frontend/src/features/crafting/catalystQuality.ts": "1f5c03c5cf4dae6e56f1ab6a79addccafca11f70663876cfb7b61b8670769a65",
+    "frontend/src/features/crafting/catalystQuality.ts": "a9bbad788d8e689e08abfee1a88501f24d4a34c0a5d9f78f6bfb3d498f1b537c",
     "frontend/src/features/crafting/chaos-repeat/display/goldens/inputs.json": "d8908b86c2e44a1025896d80b0aa0dbb864b676007b33a7ae3c659af5d60c8ce",
     "frontend/src/features/crafting/chaos-repeat/display/projectExplicitOptionGroups.ts": "a8fb85e556df22bf7ff8279bf1f39280fa5cccfc5bf570a7dd72c041b08a7281",
     "frontend/src/features/crafting/chaos-repeat/display/types.ts": "60505edd64c6fa7ec6306cb3d3e09ce3aaf695818ff1696ffafb289a69f06ad4",
@@ -28,7 +28,7 @@
     "frontend/src/features/crafting/sanctification/preciseModifierProjection.ts": "e839b42d88aecebc389eeb53e1758d8ad6c1f622ed55f3fdf50194660cc28be2",
     "frontend/src/shared/i18n/i18n.ts": "133bbb8aa18b414645753bc2363b49b8c91aea817de7f24a72e0c4e3665e9f66",
     "frontend/src/shared/i18n/localeData.ts": "fae3b7a82d353920d51a513683ce90b5bfcd9a4ad483b83c132223b1bdf45b8b",
-    "frontend/src/shared/i18n/modifierTemplates.json": "6f6db90a288d9ee4e2dd54f5e5cbdd494865424e5129c03c1166082ee7d362d9",
+    "frontend/src/shared/i18n/modifierTemplates.json": "99b10ffb548f337b0693339ac5523d3c23aa6d1036e4ad47d7b1f6cd9dcb6593",
     "frontend/src/shared/test/sapphire-catalog.json": "476c290e82b13b190d940656164550b30294455eff598ac74bf8ff37ea00270d",
     "frontend/vite-plugins/catalogDataPlugin.ts": "2086d80c6fb79082c19e12d47c782e2b55d67329901a18d7584ed42db23b8235",
     "frontend/vite-plugins/localeDataPlugin.ts": "4cb28a21c3d18e0d1a5dee32b154355ce88da0da648a483691460b61aa9598bf"

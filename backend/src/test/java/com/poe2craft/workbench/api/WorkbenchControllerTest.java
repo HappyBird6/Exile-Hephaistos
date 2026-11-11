@@ -313,7 +313,7 @@ class WorkbenchControllerTest {
         .andExpect(
             jsonPath("$.ruleVersion")
                 .value(
-                    "equipment-currency-v1-solar-workbench-abyss-essence-v19-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2"));
+                    "equipment-currency-v1-solar-workbench-abyss-essence-v20-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2"));
     mvc.perform(
             post("/api/v1/crafting/workbench/apply")
                 .header("X-Crafting-Ruleset", RulesetBoundary.identity())

@@ -216,13 +216,13 @@ class RustedCuirassEssenceTest {
     assertThat(service.initial("body", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("body", 82).ruleVersion())
         .isEqualTo(
-            "body-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v1-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
-    assertThat(service.initial("bow", 82).modifiers()).hasSize(146);
-    assertThat(service.initial("wand", 82).modifiers()).hasSize(187);
-    assertThat(service.initial("stocky", 82).modifiers()).hasSize(194);
+            "equipment-currency-v1-body-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-independent-stat-percent-v1-user-selected-equipment-quality-maximum-v2");
+    assertThat(service.initial("bow", 82).modifiers()).hasSize(161);
+    assertThat(service.initial("wand", 82).modifiers()).hasSize(204);
+    assertThat(service.initial("stocky", 82).modifiers()).hasSize(245);
     assertThat(service.initial("body", 82).metadata().sourceUrl())
         .isEqualTo("https://poe2db.tw/us/Body_Armours_str");
-    assertThat(service.initial("solar", 82).modifiers()).hasSize(218);
+    assertThat(service.initial("solar", 82).modifiers()).hasSize(219);
     assertThat(
             new WorkbenchSimulator(solar, new CraftingEngine(solar))
                 .apply(

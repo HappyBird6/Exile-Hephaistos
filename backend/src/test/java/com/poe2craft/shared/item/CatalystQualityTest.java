@@ -196,13 +196,16 @@ class CatalystQualityTest {
     assertThat(CatalystQualityDisplay.describe(item, ring).getFirst().status())
         .isEqualTo("SCALED_INTEGER");
     var belt = ItemCatalogLoader.loadBelt();
+    var implicit = belt.find(belt.base().implicitModifierId()).orElseThrow();
+    var rolls = new HashMap<String, Long>();
+    implicit.stats().forEach(stat -> rolls.put(stat.id(), stat.min()));
     var plain =
         new ItemState(
             belt.metadata().snapshotId(),
             belt.base().id(),
             82,
             ItemState.Rarity.NORMAL,
-            List.of(),
+            List.of(new ModifierInstance(implicit.id(), rolls)),
             List.of(),
             Set.of());
     assertThat(QualityLimitRules.describe(plain, belt)).isNull();
@@ -218,5 +221,20 @@ class CatalystQualityTest {
             null,
             item.catalystQuality());
     assertThat(new ItemStateValidator(belt).validate(withQuality)).isNotEmpty();
+  }
+
+  @Test
+  void necroticQualityScalesFixedMinionLevelsWithoutChangingStoredRolls() {
+    var modifier =
+        new ModifierInstance(
+            "amulet:suffix:of-the-overseer", Map.of("minion_skill_gem_level_+", 3L));
+    var item = state(CatalystQuality.Type.NECROTIC, 40, List.of(modifier));
+    var projection =
+        CatalystQualityDisplay.describe(item, catalog).stream()
+            .filter(p -> p.modifierId().equals(modifier.modifierId()))
+            .findFirst()
+            .orElseThrow();
+    assertThat(projection.displayedValues()).containsEntry("minion_skill_gem_level_+", 4L);
+    assertThat(projection.originalValues()).containsEntry("minion_skill_gem_level_+", 3L);
   }
 }

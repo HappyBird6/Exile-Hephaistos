@@ -100,12 +100,22 @@ class FracturingTest {
     var blocked = simulator.apply(state, CraftingAction.ANNULMENT, new Random(3));
     assertThat(blocked.applied()).isFalse();
     assertThat(blocked.state()).isEqualTo(state);
-    assertThat(
-            simulator
-                .apply(
-                    fractured, WorkbenchCurrency.CHAOS, Set.of("Omen_of_Whittling"), new Random(3))
-                .applied())
-        .isFalse();
+    for (int seed = 0; seed < 100; seed++) {
+      var result =
+          simulator.apply(
+              fractured, WorkbenchCurrency.CHAOS, Set.of("Omen_of_Whittling"), new Random(seed));
+      assertThat(result.applied()).isTrue();
+      assertThat(result.state().explicits()).contains(locked);
+      assertThat(result.events()).noneMatch(e -> e.modifierId().equals(locked.modifierId()));
+      int lowest =
+          fractured.explicits().stream()
+              .filter(m -> !m.fractured())
+              .mapToInt(m -> catalog.find(m.modifierId()).orElseThrow().requiredItemLevel())
+              .min()
+              .orElseThrow();
+      assertThat(result.events().stream().filter(e -> e.kind().equals("REMOVE")))
+          .allMatch(e -> catalog.find(e.modifierId()).orElseThrow().requiredItemLevel() == lowest);
+    }
   }
 
   @Test

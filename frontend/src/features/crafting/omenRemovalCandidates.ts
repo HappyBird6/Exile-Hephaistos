@@ -12,7 +12,6 @@ export function whittlingCandidates(
     !activeOmens.includes('Omen_of_Whittling') ||
     state.rarity !== 'RARE' ||
     state.conditions.length > 0 ||
-    state.explicits.some((m) => m.fractured) ||
     (activeOmens.includes('Omen_of_Dextral_Erasure') &&
       activeOmens.includes('Omen_of_Sinistral_Erasure'))
   )

@@ -22,7 +22,7 @@ class OmenCompositionTest {
     var source = ItemCatalogLoader.loadDefault();
     var defs = new ArrayList<ModifierDefinition>();
     defs.add(source.find(source.base().implicitModifierId()).orElseThrow());
-    for (var id : List.of("p20", "p20tie", "p40", "s1", "p50", "s50")) {
+    for (var id : List.of("p1", "p20", "p20tie", "p40", "s1", "p50", "s50")) {
       var level = id.equals("p20tie") ? 20 : Integer.parseInt(id.substring(1));
       defs.add(
           new ModifierDefinition(
@@ -38,7 +38,7 @@ class OmenCompositionTest {
               1,
               id,
               List.of(new ModifierDefinition.StatRange(id, 1, 1)),
-              Set.of("life"),
+              id.equals("p1") ? Set.of("life", "crafted") : Set.of("life"),
               "https://example.test/" + id));
     }
     var m = source.metadata();
@@ -50,9 +50,9 @@ class OmenCompositionTest {
             m.weightPolicy(),
             m.rawSha256(),
             m.detailsSha256(),
-            4,
+            5,
             2,
-            40,
+            50,
             20),
         source.base(),
         defs);
@@ -128,7 +128,7 @@ class OmenCompositionTest {
   }
 
   @Test
-  void absentPrefixUnknownPairsAndFractureRefuseBeforeAnyDraw() {
+  void absentMutablePrefixAndUnknownPairsRefuseBeforeAnyDraw() {
     var before = state("s1");
     assertAtomic(before, pair);
     assertAtomic(
@@ -139,7 +139,7 @@ class OmenCompositionTest {
             WorkbenchOmen.WHITTLING.id()));
     var rare = state("p20", "s1");
     var locked = new ArrayList<>(rare.explicits());
-    locked.set(1, new ModifierInstance("s1", Map.of("s1", 1L), true));
+    locked.set(0, new ModifierInstance("p20", Map.of("p20", 1L), true));
     assertAtomic(
         new ItemState(
             rare.snapshotId(),
@@ -256,5 +256,47 @@ class OmenCompositionTest {
         assertThat(result.consumedOmens()).containsExactly(omen.id());
       }
     }
+  }
+
+  @Test
+  void whittlingIncludesLevelOneCraftedAndUniformTiesButExcludesFractured() {
+    var before = state("p1", "s1", "p40");
+    var mods = new ArrayList<>(before.explicits());
+    var last = mods.stream().filter(m -> m.modifierId().equals("p40")).findFirst().orElseThrow();
+    mods.remove(last);
+    var fractured = new ModifierInstance(last.modifierId(), last.values(), true);
+    mods.add(fractured);
+    before =
+        new ItemState(
+            before.snapshotId(),
+            before.baseItemId(),
+            before.itemLevel(),
+            before.rarity(),
+            before.implicits(),
+            mods,
+            before.conditions());
+    var removedIds = new HashSet<String>();
+    for (int draw = 0; draw < 2; draw++) {
+      final int target = draw;
+      var result =
+          sim.apply(
+              before,
+              WorkbenchCurrency.CHAOS,
+              Set.of(WorkbenchOmen.WHITTLING.id()),
+              new Random(1) {
+                @Override
+                public int nextInt(int bound) {
+                  assertThat(bound).isEqualTo(2);
+                  return target;
+                }
+              });
+      assertThat(result.applied()).isTrue();
+      var removed = result.events().getFirst();
+      assertThat(removed.kind()).isEqualTo("REMOVE");
+      assertThat(removed.selectionProbability()).isEqualTo(0.5);
+      removedIds.add(removed.modifierId());
+      assertThat(result.state().explicits()).contains(fractured);
+    }
+    assertThat(removedIds).containsExactlyInAnyOrder("p1", "s1");
   }
 }

@@ -111,19 +111,72 @@ class GreaterExaltationTest {
               a ->
                   a.id().equals("tiered-omen-composition-v1") && a.reason().contains("UNVERIFIED"));
     }
-    assertThat(
-            simulator
-                .apply(
-                    four,
-                    WorkbenchCurrency.EXALTED,
-                    Set.of(omen, WorkbenchOmen.SINISTRAL_EXALTATION.id()),
-                    new Random(1))
-                .applied())
-        .isFalse();
     var plan =
         new AdditionRules(catalog)
             .plan(StateBucket.from(four), WorkbenchCurrency.EXALTED, Set.of(omen));
     assertThat(plan.available()).isFalse();
     assertThat(plan.reason()).contains("finite addition model");
+  }
+
+  @Test
+  void directionalGreaterUsesOnlyItsSideAndRetainsGreaterWithOneSlot() {
+    for (var directional :
+        List.of(WorkbenchOmen.SINISTRAL_EXALTATION, WorkbenchOmen.DEXTRAL_EXALTATION)) {
+      for (int occupied : List.of(1, 2, 3)) {
+        var state =
+            new ItemState(
+                root.snapshotId(),
+                root.baseItemId(),
+                root.itemLevel(),
+                ItemState.Rarity.RARE,
+                root.implicits(),
+                List.of(),
+                root.conditions());
+        for (int i = 0; i < occupied; i++)
+          state =
+              simulator
+                  .apply(state, WorkbenchCurrency.EXALTED, Set.of(directional.id()), new Random(i))
+                  .state();
+        for (var currency :
+            List.of(
+                WorkbenchCurrency.EXALTED,
+                WorkbenchCurrency.GREATER_EXALTED,
+                WorkbenchCurrency.PERFECT_EXALTED)) {
+          var omens = Set.of(omen, directional.id());
+          var choices = simulator.exaltChoices(state, currency, omens);
+          var result = simulator.apply(state, currency, omens, new Random(5));
+          assertThat(result.applied()).isEqualTo(occupied < 3);
+          assertThat(result.state().explicits()).containsAll(state.explicits());
+          if (occupied == 3) {
+            assertThat(choices).isEmpty();
+            assertThat(result.consumedOmens()).isEmpty();
+            continue;
+          }
+          assertThat(result.events())
+              .hasSize(3 - occupied)
+              .allMatch(
+                  e ->
+                      catalog.find(e.modifierId()).orElseThrow().affixType()
+                          == directional.affix());
+          assertThat(result.consumedOmens()).contains(directional.id());
+          assertThat(result.consumedOmens().contains(omen)).isEqualTo(occupied == 1);
+          assertThat(result.remainingOmens().contains(omen)).isEqualTo(occupied == 2);
+          assertThat(choices)
+              .allMatch(
+                  c ->
+                      catalog.find(c.modifierId()).orElseThrow().affixType()
+                          == directional.affix());
+          assertThat(
+                  choices.stream().mapToDouble(WorkbenchSimulator.ExaltChoice::probability).sum())
+              .isCloseTo(3 - occupied, within(1e-9));
+          var custom =
+              simulator.applyCustomExalt(
+                  state, currency, omens, new Random(5), choices.getFirst().modifierId());
+          assertThat(custom.applied()).isTrue();
+          assertThat(custom.events()).hasSize(3 - occupied);
+          assertThat(custom.consumedOmens()).containsExactlyElementsOf(result.consumedOmens());
+        }
+      }
+    }
   }
 }

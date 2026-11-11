@@ -80,7 +80,7 @@ it('filters prefix first and highlights every minimum-level tie without fetching
   expect(fetch).not.toHaveBeenCalled()
 })
 
-it('preserves unresolved missing-level and fracture boundaries and supports symmetric Dextral', () => {
+it('preserves unknown-level boundaries, excludes fractures and supports symmetric Dextral', () => {
   const missing = { ...defs.p! }
   delete missing.requiredItemLevel
   expect(whittlingCandidates(before, { ...defs, p: missing }, pair)).toEqual([])
@@ -100,7 +100,7 @@ it('preserves unresolved missing-level and fracture boundaries and supports symm
       defs,
       pair,
     ),
-  ).toEqual([])
+  ).toEqual(['p2'])
   expect(
     whittlingCandidates(before, defs, [
       'Omen_of_Dextral_Erasure',
