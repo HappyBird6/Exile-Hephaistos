@@ -1,3 +1,5 @@
+import { storedAbyssItem } from './workbenchHistory'
+import { poolHeaders, acceptPoolUpdate } from './modifier-pool/poolSnapshots'
 import type { AbyssState } from './crafting-state/types'
 import type { Initial } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
@@ -168,7 +170,10 @@ export async function applyBone(
     : removedSlotId
   const response = await fetch('/api/v1/crafting/workbench/abyss/desecrate', {
     method: 'POST',
-    headers: rulesetHeaders(initial.rulesetIdentity),
+    headers: {
+      ...rulesetHeaders(initial.rulesetIdentity),
+      ...poolHeaders(state, initial.rulesetIdentity),
+    },
     signal,
     body: JSON.stringify({
       state,
@@ -184,7 +189,12 @@ export async function applyBone(
   verifyRulesetResponse(response, initial.rulesetIdentity)
   if (signal.aborted) throw new DOMException('Aborted', 'AbortError')
   if (!response.ok) throw new Error(errorMessage)
-  const value: unknown = await response.json()
+  const {
+    modifierPool,
+    rulesetIdentity: envelopeIdentity,
+    ...value
+  } = await response.json()
+  void envelopeIdentity
   if (signal.aborted) throw new DOMException('Aborted', 'AbortError')
   if (
     !validAbyssResponse(
@@ -260,6 +270,13 @@ export async function applyBone(
     )
   )
     throw new Error(errorMessage)
+  acceptPoolUpdate(
+    modifierPool,
+    state,
+    storedAbyssItem(result),
+    initial.rulesetIdentity,
+    initial.modifiers,
+  )
   return result
 }
 

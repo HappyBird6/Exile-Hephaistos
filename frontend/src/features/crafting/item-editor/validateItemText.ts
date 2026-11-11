@@ -1,15 +1,12 @@
+import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import type { MessageKey } from '../../../shared/i18n/i18n'
 import { clipboardBase } from '../baseRegistry'
 import type { WorkbenchBaseKey } from '../baseRegistry'
 import type { Item } from '../itemModels'
 import { recognizedClipboardSentence } from '../item-text/modifierClipboardText'
 import type { Initial } from '../craftingApi'
-import {
-  ItemTextApiError,
-  maxItemTextBytes,
-  parseItemText,
-} from '../itemTextApi'
-import { mapSolarText } from '../workbenchApi'
+import { ItemTextApiError, maxItemTextBytes, parsedItem } from '../itemTextApi'
+import { verifyTextMapping } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
 import { verifiedHistoryState } from '../workbenchHistory'
 
@@ -30,10 +27,12 @@ export async function validateItemText({
   text,
   signal,
   before,
+  rulesetIdentity,
   catalogFor,
 }: {
   text: string
   signal: AbortSignal
+  rulesetIdentity: string
   before?: ConcreteItem
   catalogFor: (base: WorkbenchBaseKey, level: number) => Promise<Initial>
 }): Promise<ValidatedItemText> {
@@ -41,7 +40,24 @@ export async function validateItemText({
   if (new TextEncoder().encode(text).length > maxItemTextBytes)
     return { ok: false, problems: [{ code: 'input.too_large' }] }
   try {
-    const parsed = await parseItemText(text, signal)
+    const response = await fetch('/api/v1/crafting/workbench/prepare-text', {
+      method: 'POST',
+      headers: rulesetHeaders(rulesetIdentity),
+      body: JSON.stringify({ text, ...(before ? { state: before } : {}) }),
+      signal,
+    })
+    verifyRulesetResponse(response, rulesetIdentity)
+    if (!response.ok) {
+      const problem = await response.json().catch(() => ({}))
+      throw new ItemTextApiError(
+        typeof problem.code === 'string' ? problem.code : 'REQUEST_FAILED',
+      )
+    }
+    const prepared = await response.json()
+    signal.throwIfAborted()
+    const parsed = parsedItem(prepared.parsed)
+    if (parsed.text.originalText !== text)
+      throw new ItemTextApiError('INVALID_API_RESPONSE')
     const base = clipboardBase(
       parsed.displayBase ?? parsed.displayName,
       parsed.itemClass,
@@ -74,37 +90,13 @@ export async function validateItemText({
       }
     const catalog = await catalogFor(base, parsed.itemLevel)
     signal.throwIfAborted()
-    const sameBaseBefore =
-      before?.baseItemId === catalog.state.baseItemId ? before : undefined
-    const importingSanctified =
-      parsed.flags.some((line) => line.raw === 'Sanctified') &&
-      !before?.conditions.includes('SANCTIFIED')
-    const editableBefore = importingSanctified ? undefined : sameBaseBefore
-    let mapped = await mapSolarText(
-      text,
-      signal,
+    if (catalog.rulesetIdentity !== rulesetIdentity)
+      throw new ItemTextApiError('INVALID_API_RESPONSE')
+    const mapped = verifyTextMapping(
+      prepared.mapping,
       catalog.modifiers,
-      catalog.rulesetIdentity,
-      editableBefore,
+      before?.baseItemId === catalog.state.baseItemId ? before : undefined,
     )
-    // A complete replacement starts a new film; inherited editor-only metadata must not block it.
-    if (
-      !mapped.mapped &&
-      editableBefore &&
-      !editableBefore.conditions.includes('SANCTIFIED') &&
-      mapped.issues.some((issue) =>
-        /Socket and Rune lines|catalyst quality and special conditions|Modifier edits cannot reconstruct/.test(
-          issue.message,
-        ),
-      )
-    ) {
-      mapped = await mapSolarText(
-        text,
-        signal,
-        catalog.modifiers,
-        catalog.rulesetIdentity,
-      )
-    }
     if (
       (!mapped.mapped || !mapped.state) &&
       parsed.modifiers.length > 0 &&

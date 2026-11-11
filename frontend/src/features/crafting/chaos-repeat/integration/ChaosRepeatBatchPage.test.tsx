@@ -615,7 +615,7 @@ it('locks mutations synchronously, retains the selected tooltip and animates onl
   }
   show()
   fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
-  const level = screen.getByRole('spinbutton', { name: 'Item level' })
+  const level = await screen.findByRole('spinbutton', { name: 'Item level' })
   configure()
   const before = localStorage.getItem(historyStorageKey)
   const omens = [...useItemDraft.getState().activeOmens]
@@ -758,7 +758,7 @@ it('locks the saved-session editor and rejects forced submit while a batch is pe
   }
   show()
   fireEvent.click(screen.getByRole('tab', { name: 'History' }))
-  fireEvent.click(screen.getByRole('button', { name: /^Rename:/ }))
+  fireEvent.click(await screen.findByRole('button', { name: /^Rename:/ }))
   const title = screen.getByRole('textbox', { name: 'Session title' })
   title.textContent = 'Uncommitted title'
   fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))

@@ -73,7 +73,7 @@ function modifier(value: unknown): Modifier {
     affixName: data.affixName === null ? null : string(data.affixName),
   }
 }
-function parsedItem(value: unknown): Item {
+export function parsedItem(value: unknown): Item {
   const data = object(value)
   const text = object(data.text)
   const locale = data.locale

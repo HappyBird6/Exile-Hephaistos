@@ -10,15 +10,13 @@ import {
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
-import {
-  initialFixture,
-  jsonResponse,
-} from '../../shared/test/craftingFixtures'
+import { initialFixture } from '../../shared/test/craftingFixtures'
 import { concreteInitial } from './workbenchApi'
 import { emptyFilms, historyStorageKey, startFilm } from './workbenchHistory'
 import {
   editorFixtureFetch,
   parsedTextFixture,
+  preparedResponse,
 } from './item-editor/fixtures.test-support'
 import { locales, setLocale, translate } from '../../shared/i18n/i18n'
 let client: QueryClient
@@ -114,9 +112,9 @@ it('only displays rejected source lines in the feedback and keeps the current it
   const number = source.split('\n').length
   const before = localStorage.getItem(historyStorageKey)
   vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) =>
-    String(url).endsWith('/edit-text')
+    String(url).endsWith('/prepare-text')
       ? Promise.resolve(
-          jsonResponse({
+          preparedResponse(source, {
             mapped: false,
             state: null,
             issues: [
@@ -143,7 +141,7 @@ it('does not apply a late response after closing the editor', async () => {
   const original = useItemDraft.getState().text
   let finish!: (r: Response) => void
   const request = vi.fn((url: RequestInfo | URL, init?: RequestInit) =>
-    String(url).endsWith('/edit-text')
+    String(url).endsWith('/prepare-text')
       ? new Promise<Response>((resolve) => {
           finish = resolve
         })
@@ -158,7 +156,7 @@ it('does not apply a late response after closing the editor', async () => {
   fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
   await act(async () => {
     finish(
-      jsonResponse({
+      preparedResponse(original.replace('Item Level: 82', 'Item Level: 81'), {
         mapped: true,
         state: { ...root, itemLevel: 81 },
         issues: [],
@@ -175,7 +173,7 @@ it('cancels pending validation when the draft changes', async () => {
   const input = await open()
   let finish!: (r: Response) => void
   vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) =>
-    String(url).endsWith('/edit-text')
+    String(url).endsWith('/prepare-text')
       ? new Promise<Response>((resolve) => {
           finish = resolve
         })
@@ -188,7 +186,13 @@ it('cancels pending validation when the draft changes', async () => {
   await waitFor(() => expect(finish).toBeDefined())
   fireEvent.change(input, { target: { value: 'newer input' } })
   await act(async () => {
-    finish(jsonResponse({ mapped: true, state: root, issues: [] }))
+    finish(
+      preparedResponse(useItemDraft.getState().text, {
+        mapped: true,
+        state: root,
+        issues: [],
+      }),
+    )
   })
   expect(input).toHaveValue('newer input')
   expect(history().films).toHaveLength(1)
@@ -200,24 +204,28 @@ it.each([{ type: 'FUTURE' }, { tier: '1' }, { affix: 'UNVERIFIED' }])(
     const source = useItemDraft.getState().text + '\n'
     const parsed = parsedTextFixture(source)
     vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) =>
-      String(url).endsWith('/items/parse')
+      String(url).endsWith('/prepare-text')
         ? Promise.resolve(
-            jsonResponse({
-              ...parsed,
-              modifiers: [
-                {
-                  id: 'bad',
-                  type: 'EXPLICIT',
-                  text: 'Bad',
-                  source: parsed.text.lines[0],
-                  metadata: null,
-                  tier: null,
-                  affix: null,
-                  affixName: null,
-                  ...override,
-                },
-              ],
-            }),
+            preparedResponse(
+              source,
+              { mapped: true, state: root, issues: [] },
+              {
+                ...parsed,
+                modifiers: [
+                  {
+                    id: 'bad',
+                    type: 'EXPLICIT',
+                    text: 'Bad',
+                    source: parsed.text.lines[0],
+                    metadata: null,
+                    tier: null,
+                    affix: null,
+                    affixName: null,
+                    ...override,
+                  },
+                ],
+              },
+            ),
           )
         : editorFixtureFetch(url, init),
     )
@@ -255,7 +263,7 @@ it('rejects oversized text without calling the parser', async () => {
   apply()
   expect(await screen.findByRole('alert')).toHaveTextContent('16 KiB')
   expect(
-    fetcher.mock.calls.some(([url]) => String(url).endsWith('/items/parse')),
+    fetcher.mock.calls.some(([url]) => String(url).endsWith('/prepare-text')),
   ).toBe(false)
 })
 it('does not create a duplicate session for unchanged text', async () => {
@@ -283,16 +291,16 @@ it('imports Sanctified current values as a saved locked item without reconstruct
     sanctification: null,
   }
   const fetcher = vi.fn((url: RequestInfo | URL, init?: RequestInit) => {
-    if (String(url).endsWith('/items/parse')) {
+    if (String(url).endsWith('/prepare-text')) {
       const parsed = parsedTextFixture(source)
       return Promise.resolve(
-        jsonResponse({ ...parsed, flags: [parsed.text.lines.at(-1)!] }),
+        preparedResponse(
+          source,
+          { mapped: true, state: frozen, issues: [] },
+          { ...parsed, flags: [parsed.text.lines.at(-1)!] },
+        ),
       )
     }
-    if (String(url).endsWith('/map-text'))
-      return Promise.resolve(
-        jsonResponse({ mapped: true, state: frozen, issues: [] }),
-      )
     return editorFixtureFetch(url, init)
   })
   vi.stubGlobal('fetch', fetcher)

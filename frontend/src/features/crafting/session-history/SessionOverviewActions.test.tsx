@@ -59,7 +59,10 @@ async function example() {
     nextRefreshAllowedAt: '2026-11-10T00:05:00Z',
   })
   client.setQueryData(['session-overview', film.id], film)
-  client.setQueryData(['history-catalog', 'solar', 82], initialFixture)
+  client.setQueryData(
+    ['crafting', 'initial', 'solar', 82, 'manual'],
+    initialFixture,
+  )
   const view = render(
     <QueryClientProvider client={client}>
       <SessionOverviewPage id={film.id} />

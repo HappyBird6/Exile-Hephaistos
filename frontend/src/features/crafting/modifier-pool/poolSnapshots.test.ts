@@ -149,3 +149,77 @@ it('bounds retention so visiting many bases and sessions cannot grow memory fore
     })
   expect(cachedPool(root, true, rules)).toBeUndefined()
 })
+
+it('reconstructs a static-basis delta without carrying exclusions from the previous item', () => {
+  const rules = 'stateless-basis-test'
+  rememberPool(root, true, rules, {
+    revision,
+    staticRevision: nextRevision,
+    entries: [{ ...entry, eligible: false, reasons: ['FAMILY_OCCUPIED'] }],
+  })
+  expect(poolHeaders(root, rules)).toEqual({
+    'X-Modifier-Pool-Revision': revision,
+    'X-Modifier-Pool-Baseline': nextRevision,
+  })
+  const next = { ...root, itemLevel: root.itemLevel + 1 }
+  acceptPoolUpdate(
+    {
+      fromRevision: nextRevision,
+      revision: 'e'.repeat(64),
+      staticRevision: nextRevision,
+      reset: false,
+      entries: [],
+      removed: [],
+    },
+    root,
+    next,
+    rules,
+    initialFixture.modifiers,
+  )
+  expect(cachedPool(next, true, rules)?.entries).toEqual([entry])
+})
+it('shares static references across levels while isolating socket and future state context', () => {
+  const rules = 'static-level-test'
+  rememberPool(root, false, rules, { entries: [entry], revision })
+  expect(cachedPool({ ...root, itemLevel: 1 }, false, rules)).toBeDefined()
+  expect(
+    cachedPool(
+      { ...root, installedAugments: [{ slotIndex: 0, augmentId: 'other' }] },
+      false,
+      rules,
+    ),
+  ).toBeUndefined()
+})
+
+it('applies bounded static ordinal groups and rejects ambiguous indexes without poisoning the cache', () => {
+  const rules = 'ordinal-group-test'
+  rememberPool(root, true, rules, {
+    revision,
+    staticRevision: nextRevision,
+    entries: [entry],
+  })
+  const next = { ...root, itemLevel: root.itemLevel + 1 }
+  const update = {
+    fromRevision: nextRevision,
+    revision: 'e'.repeat(64),
+    staticRevision: nextRevision,
+    reset: false,
+    entries: [],
+    removed: [],
+    groups: [{ eligible: false, reasons: ['AFFIX_FULL'], indices: [0] }],
+  }
+  for (const indices of [[-1], [1], [0, 0], [0.5]]) {
+    acceptPoolUpdate(
+      { ...update, groups: [{ ...update.groups[0], indices }] },
+      root,
+      next,
+      rules,
+      initialFixture.modifiers,
+    )
+    expect(cachedPool(next, true, rules)).toBeUndefined()
+  }
+  acceptPoolUpdate(update, root, next, rules, initialFixture.modifiers)
+  expect(cachedPool(next, true, rules)?.entries).toEqual([
+    { ...entry, eligible: false, reasons: ['AFFIX_FULL'] },
+  ])
+})

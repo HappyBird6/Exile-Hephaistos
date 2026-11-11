@@ -22,11 +22,17 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest({CustomExaltController.class, WorkbenchController.class})
-@Import({CatalogConfiguration.class, CraftingErrors.class, ItemTextService.class})
+@Import({
+  CatalogConfiguration.class,
+  CraftingErrors.class,
+  ItemTextService.class,
+  com.poe2craft.workbench.application.ModifierReferenceService.class
+})
 class CustomExaltControllerTest {
   @Autowired MockMvc mvc;
   @Autowired ObjectMapper json;
   @Autowired CatalogCraftingService crafting;
+  @Autowired com.poe2craft.workbench.application.ModifierReferenceService references;
 
   private ItemState rare(String base) {
     var b = crafting.initial(base, 100, true).state();
@@ -56,6 +62,105 @@ class CustomExaltControllerTest {
             .andReturn()
             .getResponse()
             .getContentAsString());
+  }
+
+  private JsonNode callWithPool(String path, Object body, ItemState before) throws Exception {
+    var previous = references.describe(before, true);
+    var result =
+        (ObjectNode)
+            json.readTree(
+                mvc.perform(
+                        post("/api/v1/crafting/workbench/" + path)
+                            .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                            .header("X-Modifier-Pool-Revision", previous.revision())
+                            .header("X-Modifier-Pool-Baseline", previous.staticRevision())
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content(json.writeValueAsBytes(body)))
+                    .andExpect(status().isOk())
+                    .andReturn()
+                    .getResponse()
+                    .getContentAsString());
+    var delta = result.remove("modifierPool");
+    result.remove("rulesetIdentity");
+    assertThat(delta).isNotNull();
+    ItemState after =
+        result.has("result")
+            ? json.treeToValue(result.path("result").path("state"), ItemState.class)
+            : result.has("state")
+                ? json.treeToValue(result.path("state"), ItemState.class)
+                : json.treeToValue(result, AbyssCraftingState.class).storedItem();
+    var complete = references.describe(after, true);
+    assertThat(delta.path("revision").asText()).isEqualTo(complete.revision());
+    assertThat(delta.path("reset").asBoolean()).isFalse();
+    var entries = new HashMap<String, JsonNode>();
+    for (var entry : json.valueToTree(previous.entries()))
+      entries.put(entry.path("kind").asText() + ":" + entry.path("modifierId").asText(), entry);
+    delta.path("removed").forEach(e -> entries.remove(e.asText()));
+    delta
+        .path("entries")
+        .forEach(
+            e -> entries.put(e.path("kind").asText() + ":" + e.path("modifierId").asText(), e));
+    var expected = new ArrayList<JsonNode>();
+    json.valueToTree(complete.entries()).forEach(expected::add);
+    assertThat(entries.values()).containsExactlyInAnyOrderElementsOf(expected);
+    return result;
+  }
+
+  @Test
+  void everyNewCraftTransportReconstructsTheAuthoritativePool() throws Exception {
+    var state = rare("body");
+    var socketState = (ObjectNode) json.valueToTree(state);
+    socketState.put("augmentSockets", 1);
+    var socketItem = json.treeToValue(socketState, ItemState.class);
+    callWithPool(
+        "augments/install",
+        Map.of("state", socketItem, "slotIndex", 0, "augmentId", "Perfect_Iron_Rune"),
+        socketItem);
+    var hidden =
+        callWithPool(
+            "abyss/desecrate",
+            Map.of(
+                "state",
+                state,
+                "currency",
+                "Preserved_Rib",
+                "side",
+                "PREFIX",
+                "activeOmens",
+                List.of()),
+            state);
+    var abyss = json.treeToValue(hidden, AbyssCraftingState.class);
+    var id = abyss.slots().getFirst().id();
+    var catalog = crafting.abyssCatalog(abyss.item());
+    var definition = catalog.find(abyss.eligibleRevealIds(id, catalog).getFirst()).orElseThrow();
+    var values = new HashMap<String, Long>();
+    definition.stats().forEach(stat -> values.put(stat.id(), stat.min()));
+    callWithPool(
+        "abyss/select",
+        Map.of(
+            "state",
+            abyss,
+            "slotId",
+            id,
+            "candidate",
+            new ModifierInstance(definition.id(), values)),
+        abyss.storedItem());
+    var choices =
+        call(
+            "custom-exalt/choices",
+            Map.of("state", state, "action", "EXALTED", "activeOmens", List.of()));
+    callWithPool(
+        "custom-exalt/apply",
+        Map.of(
+            "state",
+            state,
+            "action",
+            "EXALTED",
+            "activeOmens",
+            List.of(),
+            "modifierId",
+            choices.get(0).path("modifierId").asText()),
+        state);
   }
 
   @Test

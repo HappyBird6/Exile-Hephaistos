@@ -80,6 +80,35 @@ class RequestLogStoreTest {
   }
 
   @Test
+  void viewsAvoidUnusedQueriesAndPagesReuseFilteredStatistics() {
+    jdbc = spy(jdbc);
+    store = create(directory);
+    var date = LocalDate.parse("2026-11-11");
+    store.insert(List.of(event("2026-11-11T00:00:00Z", 200, "192.0.2.1")));
+    var f = new RequestLogRepository.Filters(date, "requests", "", "", "", null, 1);
+    clearInvocations(jdbc);
+    var dashboard = store.query(f, "dashboard");
+    assertThat((List<?>) dashboard.get("rows")).isEmpty();
+    assertThat(queryCalls()).isEqualTo(2);
+    clearInvocations(jdbc);
+    store.query(f, "logs");
+    assertThat(queryCalls()).isEqualTo(5);
+    clearInvocations(jdbc);
+    store.query(new RequestLogRepository.Filters(date, "requests", "", "", "", null, 2), "logs");
+    assertThat(queryCalls()).isEqualTo(1);
+    clearInvocations(jdbc);
+    store.query(
+        new RequestLogRepository.Filters(date, "requests", "192.0.2.1", "", "", null, 1), "logs");
+    assertThat(queryCalls()).isEqualTo(5);
+  }
+
+  long queryCalls() {
+    return mockingDetails(jdbc).getInvocations().stream()
+        .filter(i -> Set.of("queryForMap", "queryForList").contains(i.getMethod().getName()))
+        .count();
+  }
+
+  @Test
   void keepsNewestArchivesWithinByteBudget() throws Exception {
     var bounded = create(directory, 1048576L);
     for (int i = 0; i < 2; i++) {

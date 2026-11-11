@@ -45,6 +45,22 @@ export function parsedTextFixture(text: string): Item {
 }
 export const editorFixtureFetch: typeof fetch = (input, init) => {
   const url = String(input)
+  if (url.endsWith('/prepare-text')) {
+    const { text } = JSON.parse(String(init?.body)) as { text: string }
+    return Promise.resolve(
+      jsonResponse({
+        parsed: parsedTextFixture(text),
+        mapping: {
+          mapped: true,
+          state: {
+            ...concreteInitial(initialFixture),
+            itemLevel: Number(text.match(/Item Level: (\d+)/)?.[1] ?? 82),
+          },
+          issues: [],
+        },
+      }),
+    )
+  }
   if (url.endsWith('/api/v1/items/parse')) {
     const { text } = JSON.parse(String(init?.body)) as { text: string }
     return Promise.resolve(jsonResponse(parsedTextFixture(text)))
@@ -63,4 +79,12 @@ export const editorFixtureFetch: typeof fetch = (input, init) => {
     )
   }
   return fixtureFetch(input, init)
+}
+
+export function preparedResponse(
+  text: string,
+  mapping: unknown,
+  parsed: unknown = parsedTextFixture(text),
+) {
+  return jsonResponse({ parsed, mapping })
 }

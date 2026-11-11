@@ -23,7 +23,14 @@ export function poolStateIdentity(state: ConcreteItem) {
   return identity
 }
 function key(state: ConcreteItem, dynamic: boolean, rules: string) {
-  return hashKey([rules, dynamic, poolStateIdentity(state)])
+  const identity = poolStateIdentity(state)
+  // Static references ignore level and existing affixes; retain augment/condition/future context.
+  if (!dynamic) {
+    delete identity.itemLevel
+    delete identity.explicits
+    delete identity.rarity
+  }
+  return hashKey([rules, dynamic, identity])
 }
 export function cachedPool(
   state: ConcreteItem,
@@ -55,8 +62,15 @@ export function poolHeaders(
   state: ConcreteItem,
   rules: string,
 ): Record<string, string> {
-  const revision = cachedPool(state, true, rules)?.revision
-  return revision ? { 'X-Modifier-Pool-Revision': revision } : {}
+  const reference = cachedPool(state, true, rules)
+  return reference?.staticRevision
+    ? {
+        'X-Modifier-Pool-Revision': reference.revision!,
+        'X-Modifier-Pool-Baseline': reference.staticRevision,
+      }
+    : reference?.revision
+      ? { 'X-Modifier-Pool-Revision': reference.revision }
+      : {}
 }
 /** Invalid/missing presentation updates fall back to the ordinary reference request.
  * Never reject a completed craft or persist this transport field in session history. */
@@ -71,10 +85,13 @@ export function acceptPoolUpdate(
   const update = raw as PoolReference & {
     reset?: unknown
     fromRevision?: unknown
+    groups?: unknown
     removed?: unknown
   }
   if (
     !validRevision(update.revision) ||
+    (update.staticRevision !== undefined &&
+      !validRevision(update.staticRevision)) ||
     typeof update.reset !== 'boolean' ||
     !Array.isArray(update.removed) ||
     update.removed.some((id) => typeof id !== 'string') ||
@@ -87,14 +104,62 @@ export function acceptPoolUpdate(
     rememberPool(after, true, rules, {
       entries: update.entries,
       revision: update.revision,
+      staticRevision: update.staticRevision,
     })
     return
   }
   const previous = cachedPool(before, true, rules)
-  if (!previous || previous.revision !== update.fromRevision) return
+  if (!previous) return
+  const staticBasis =
+    previous.staticRevision !== undefined &&
+    previous.staticRevision === update.fromRevision
+  if (!staticBasis && previous.revision !== update.fromRevision) return
   const entries = new Map(
-    previous.entries.map((entry) => [entryKey(entry), entry]),
+    previous.entries.map((entry) => [
+      entryKey(entry),
+      staticBasis ? { ...entry, eligible: true, reasons: [] } : entry,
+    ]),
   )
+  if (update.groups !== undefined) {
+    if (!Array.isArray(update.groups) || (!staticBasis && update.groups.length))
+      return
+    const ordered = [...entries.entries()].sort(([a], [b]) =>
+      a < b ? -1 : a > b ? 1 : 0,
+    )
+    const seen = new Set<number>()
+    for (const raw of update.groups) {
+      if (!raw || typeof raw !== 'object') return
+      const group = raw as {
+        indices?: unknown
+        eligible?: unknown
+        reasons?: unknown
+      }
+      if (
+        !Array.isArray(group.indices) ||
+        !Array.isArray(group.reasons) ||
+        typeof group.eligible !== 'boolean'
+      )
+        return
+      for (const index of group.indices) {
+        if (
+          !Number.isSafeInteger(index) ||
+          index < 0 ||
+          index >= ordered.length ||
+          seen.has(index)
+        )
+          return
+        seen.add(index)
+        const [id, entry] = ordered[index]!
+        const changed = {
+          ...entry,
+          eligible: group.eligible,
+          reasons: group.reasons,
+        } as PoolEntry
+        if (!validPoolEntries({ entries: [changed] }, definitions)) return
+        entries.set(id, changed)
+      }
+    }
+  }
   for (const id of update.removed) {
     if (!entries.delete(id as string)) return
   }
@@ -104,6 +169,7 @@ export function acceptPoolUpdate(
   }
   rememberPool(after, true, rules, {
     revision: update.revision,
+    staticRevision: update.staticRevision,
     entries: [...entries.values()],
   })
 }

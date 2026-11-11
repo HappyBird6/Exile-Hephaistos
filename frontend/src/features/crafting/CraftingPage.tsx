@@ -1,3 +1,5 @@
+import { useDebouncedValue } from '../../shared/useDebouncedValue'
+import { performanceSettings } from '../../shared/performance'
 import { saveBaseFavorite } from './base-favorites/repository'
 import { baseFavoriteMessages } from './base-favorites/messages'
 import { IndexedFilmRepository } from './session-library/IndexedFilmRepository'
@@ -962,8 +964,13 @@ function ReadyCraftingPage({
   )
   const [baseChoice, setBaseChoice] = useState<WorkbenchBaseKey>('solar')
   const [baseAffixes, setBaseAffixes] = useState<StartingAffix[]>([])
-  const setupLevel = Number(baseLevel)
+  const settledBaseLevel = useDebouncedValue(
+    baseLevel,
+    performanceSettings.basePreviewDebounceMs,
+  )
+  const setupLevel = Number(settledBaseLevel)
   const setupLevelValid =
+    baseLevel === settledBaseLevel &&
     baseLevel.trim() !== '' &&
     Number.isInteger(setupLevel) &&
     setupLevel >= 1 &&
@@ -980,7 +987,6 @@ function ReadyCraftingPage({
       'crafting',
       'base-start-modifiers',
       baseChoice,
-      setupLevel,
       setupInitial.data?.rulesetIdentity,
     ],
     queryFn: ({ signal }) =>
@@ -1458,6 +1464,7 @@ function ReadyCraftingPage({
           selection.id,
           initial.data.rulesetIdentity,
           controller.signal,
+          initial.data.modifiers,
         )
         if (!repeatContextCurrent()) return
         result.remainingOmens = [...draft.activeOmens]
@@ -1652,6 +1659,7 @@ function ReadyCraftingPage({
     try {
       const result = await validateItemText({
         text,
+        rulesetIdentity: initial.data.rulesetIdentity,
         signal: request.signal,
         ...(concrete ? { before: concrete } : {}),
         catalogFor: (base, level) =>

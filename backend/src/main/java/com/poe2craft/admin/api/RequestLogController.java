@@ -28,8 +28,10 @@ public class RequestLogController {
       @RequestParam(defaultValue = "") String visitor,
       @RequestParam(defaultValue = "") String route,
       @RequestParam(required = false) Integer status,
-      @RequestParam(defaultValue = "1") int page) {
-    if (!Set.of("requests", "errors", "limited").contains(kind)
+      @RequestParam(defaultValue = "1") int page,
+      @RequestParam(defaultValue = "all") String view) {
+    if (!Set.of("all", "dashboard", "logs").contains(view)
+        || !Set.of("requests", "errors", "limited").contains(kind)
         || ip.length() > 64
         || visitor.length() > 36
         || route.length() > 256
@@ -49,7 +51,8 @@ public class RequestLogController {
                       visitor,
                       route,
                       status,
-                      page)));
+                      page),
+                  view));
     } catch (IllegalArgumentException | java.time.DateTimeException invalid) {
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }

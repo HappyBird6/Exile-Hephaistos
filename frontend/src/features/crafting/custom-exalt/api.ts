@@ -1,3 +1,4 @@
+import { poolHeaders, acceptPoolUpdate } from '../modifier-pool/poolSnapshots'
 import { currencyOmens } from '../crafting-state/activeOmens'
 import type { Initial } from '../craftingApi'
 import type { AppliedItem, ConcreteItem } from '../workbenchApi'
@@ -39,7 +40,10 @@ async function post(
     `/api/v1/crafting/workbench/custom-exalt/${path}`,
     {
       method: 'POST',
-      headers: rulesetHeaders(initial.rulesetIdentity),
+      headers: {
+        ...rulesetHeaders(initial.rulesetIdentity),
+        ...poolHeaders(context.state, initial.rulesetIdentity),
+      },
       signal,
       body: JSON.stringify({
         ...context,
@@ -127,6 +131,14 @@ export async function applyCustomExalt(
     throw Error('Invalid custom Abyss result')
   if ((context.abyss || context.state.desecrated?.length) && !data.abyss)
     throw Error('Missing Abyss state')
+  signal.throwIfAborted()
+  acceptPoolUpdate(
+    data.modifierPool,
+    context.state,
+    result.state,
+    initial.rulesetIdentity,
+    initial.modifiers,
+  )
   return {
     ...(data.abyss ? { abyss: data.abyss } : {}),
     result: {

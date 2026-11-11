@@ -19,6 +19,10 @@ public interface RequestLogRepository {
 
   Map<String, Object> query(Filters filters);
 
+  default Map<String, Object> query(Filters filters, String view) {
+    return query(filters);
+  }
+
   boolean archiveBefore(Instant cutoff, int limit);
 
   Map<String, Object> archives(int page);

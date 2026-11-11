@@ -109,13 +109,16 @@ export function OperationsLogs({
     enabled: section !== 'archives',
     retry: false,
     gcTime: 0,
-    refetchInterval: 30000,
+    refetchInterval: date === today ? 30000 : false,
+    staleTime: date === today ? 30000 : Infinity,
+    refetchOnWindowFocus: date === today,
     refetchIntervalInBackground: false,
     queryFn: ({ signal }) =>
       get<Logs>(
         '/api/admin/requests?' +
           new URLSearchParams({
             date,
+            view: section === 'dashboard' ? 'dashboard' : 'logs',
             kind: section === 'dashboard' ? 'requests' : section,
             page: String(page),
             ...Object.fromEntries(

@@ -12,6 +12,9 @@ backend:
     archive-max-bytes: 1073741824
     # 하루 상세 로그 저장 상한. 초과는 dropped로 표시. 사용: RequestLogStore.
     daily-records: 100000
+    # 필터별 통계 캐시 개수와 유효 시간. 사용: admin/infrastructure/RequestLogStore.
+    statistics-cache-entries: 64
+    statistics-cache-millis: 5000
     # 날짜별 집계·보관 경계와 관리자 날짜/그래프의 시간대. 사용: RequestLogService·RequestLogStore·관리자 화면.
     time-zone: Asia/Seoul
     # 요청/보관 파일 목록의 한 페이지 크기. 사용: RequestLogStore·관리자 화면.

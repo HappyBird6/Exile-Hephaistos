@@ -23,7 +23,10 @@ async function example(save = true) {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false, staleTime: Infinity } },
   })
-  client.setQueryData(['history-catalog', 'solar', 82], initialFixture)
+  client.setQueryData(
+    ['crafting', 'initial', 'solar', 82, 'manual'],
+    initialFixture,
+  )
   render(
     <QueryClientProvider client={client}>
       <div onKeyDown={onKeyDown}>

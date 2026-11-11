@@ -20,7 +20,37 @@ export async function loadCurrencyPrices(
   signal?: AbortSignal,
   refresh = false,
   revalidate = false,
+  current?: PriceView,
 ): Promise<PriceView> {
+  if (revalidate && current) {
+    const response = await fetch('/api/v1/economy/prices/status', {
+      ...(signal ? { signal } : {}),
+      cache: 'no-store',
+    })
+    if (!response.ok) throw new Error('Could not retrieve currency status')
+    const status = await response.json()
+    if (
+      !status ||
+      !date(status.nextRefreshAllowedAt) ||
+      typeof status.stale !== 'boolean' ||
+      typeof status.unavailable !== 'boolean' ||
+      typeof status.refreshing !== 'boolean' ||
+      !(status.revision === null || typeof status.revision === 'string') ||
+      status.unavailable !== (status.revision === null)
+    )
+      throw new Error('Invalid currency status')
+    const revision = current.snapshot
+      ? `${current.snapshot.league}:${current.snapshot.updatedAt}`
+      : null
+    if (status.revision === revision)
+      return {
+        ...current,
+        nextRefreshAllowedAt: status.nextRefreshAllowedAt,
+        stale: status.stale,
+        unavailable: status.unavailable,
+        refreshing: status.refreshing,
+      }
+  }
   const response = await fetch(
     `/api/v1/economy/prices${refresh ? '/refresh' : ''}`,
     {

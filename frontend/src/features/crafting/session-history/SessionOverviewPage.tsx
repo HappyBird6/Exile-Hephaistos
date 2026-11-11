@@ -18,7 +18,7 @@ export function SessionOverviewPage({ id }: { id: string }) {
   const { locale, t } = useI18n()
   const market = useCurrencyPrices()
   const text = historyMessages[locale]
-  const catalogsLoading = useIsFetching({ queryKey: ['history-catalog'] })
+  const catalogsLoading = useIsFetching({ queryKey: ['crafting', 'initial'] })
   const [error, setError] = useState(false)
   const [busy, setBusy] = useState(false)
   const [snapshotOpen, setSnapshotOpen] = useState(false)

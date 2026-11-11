@@ -21,7 +21,10 @@ it.each(locales)(
       defaultOptions: { queries: { retry: false, staleTime: Infinity } },
     })
     client.setQueryData(['session-overview', film.id], film)
-    client.setQueryData(['history-catalog', 'solar', 82], initialFixture)
+    client.setQueryData(
+      ['crafting', 'initial', 'solar', 82, 'manual'],
+      initialFixture,
+    )
     const view = render(
       <QueryClientProvider client={client}>
         <SessionOverviewPage id={film.id} />
@@ -94,7 +97,10 @@ it('places the full-session spending to the left of the state count and keeps sn
     defaultOptions: { queries: { retry: false, staleTime: Infinity } },
   })
   client.setQueryData(['session-overview', film.id], film)
-  client.setQueryData(['history-catalog', 'solar', 82], initialFixture)
+  client.setQueryData(
+    ['crafting', 'initial', 'solar', 82, 'manual'],
+    initialFixture,
+  )
   client.setQueryData(['economy', 'prices'], {
     snapshot: {
       league: 'Test',

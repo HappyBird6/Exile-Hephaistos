@@ -9,6 +9,10 @@ export const performanceSettings = {
   referenceRetentionMs: 10 * 60_000,
   // Wait for rapid item changes to settle before requesting a visible pool (ModifierPoolPanel).
   poolDebounceMs: 120,
+  // Settle item-level typing before loading a base preview (CraftingPage).
+  basePreviewDebounceMs: 250,
+  // Immutable catalog inputs stay fresh while the user reads history (HistoryCard).
+  initialRetentionMs: 60_000,
   // Read shared prices every five minutes while visible (useCurrencyPrices).
   pricePollMs: 5 * 60_000,
   // Briefly poll after manual refresh, which runs outside the HTTP request (useCurrencyPrices).

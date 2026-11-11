@@ -229,7 +229,7 @@ export async function loadInitial(
       ? `initial?itemLevel=${level}`
       : `workbench/initial?base=${base}&itemLevel=${level}`) +
       (manualReveal ? '&manualReveal=true' : '') +
-      '&catalog=separate',
+      '&catalog=shared',
     signal,
   )
   if (
@@ -238,9 +238,13 @@ export async function loadInitial(
     isRulesetIdentity(v.rulesetIdentity)
   ) {
     const expected = `/api/v1/crafting/catalogs/${v.rulesetIdentity}/${base}?manualReveal=${manualReveal}`
-    if (v.catalogUrl !== expected) return invalid()
+    const sharedPrefix = `/api/v1/crafting/catalogs/${v.rulesetIdentity}/shared/`
+    const shared =
+      v.catalogUrl.startsWith(sharedPrefix) &&
+      /^[a-f0-9]{64}$/.test(v.catalogUrl.slice(sharedPrefix.length))
+    if (v.catalogUrl !== expected && !shared) return invalid()
     const reference = await loadCatalogReference(
-      expected,
+      v.catalogUrl,
       v.rulesetIdentity,
       signal,
     )

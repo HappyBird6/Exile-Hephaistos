@@ -24,6 +24,12 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
   private final ObjectMapper json;
   private final Path directory;
 
+  private record StatisticsKey(Filters filters, String view) {}
+
+  private record Statistics(long until, Map<String, Object> value) {}
+
+  private final Map<StatisticsKey, Statistics> statistics = new LinkedHashMap<>();
+
   public RequestLogStore(
       JdbcTemplate jdbc,
       PlatformTransactionManager manager,
@@ -60,6 +66,11 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
   }
 
   public Map<String, Object> query(Filters f) {
+    return query(f, "all");
+  }
+
+  @Override
+  public Map<String, Object> query(Filters f, String view) {
     var args = new ArrayList<Object>();
     String where = " WHERE occurred_at >= ? AND occurred_at < ?";
     args.add(Timestamp.from(f.date().atStartOfDay(zone).toInstant()));
@@ -84,65 +95,32 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
     }
     Object[] parameters = args.toArray();
     String table = " FROM operations.request_log";
-    var summary =
-        jdbc.queryForMap(
-            "SELECT count(*) AS requests, count(*) FILTER(WHERE status >= 500) AS errors, count(*) FILTER(WHERE status=429) AS limited, count(DISTINCT visitor_id) FILTER(WHERE page_views>0) AS visitors, count(DISTINCT client_ip) AS ips, coalesce(sum(page_views),0) AS views, coalesce(round(avg(duration_ms)),0) AS average_ms, coalesce(percentile_cont(0.95) WITHIN GROUP(ORDER BY duration_ms),0) AS p95_ms, count(DISTINCT visitor_id) FILTER(WHERE occurred_at >= now()-interval '5 minutes') AS active_visitors"
-                + table
-                + where,
-            parameters);
-    var minutes =
-        jdbc.queryForList(
-            "SELECT to_char(occurred_at AT TIME ZONE ?,'HH24:MI') AS minute, count(*) AS requests, count(*) FILTER(WHERE status >=500) AS errors, count(*) FILTER(WHERE status=429) AS limited, round(avg(duration_ms)) AS average_ms"
-                + table
-                + where
-                + " GROUP BY 1 ORDER BY 1",
-            java.util.stream.Stream.concat(
-                    java.util.stream.Stream.of(zone.getId()), Arrays.stream(parameters))
-                .toArray());
-    var routes =
-        jdbc.queryForList(
-            "SELECT route AS value, count(*) AS requests, count(*) FILTER(WHERE status>=500) AS errors, round(avg(duration_ms)) AS average_ms"
-                + table
-                + where
-                + " GROUP BY route ORDER BY requests DESC,route LIMIT 10",
-            parameters);
-    var ips =
-        jdbc.queryForList(
-            "SELECT client_ip AS value, count(*) AS requests, count(*) FILTER(WHERE status=429) AS limited"
-                + table
-                + where
-                + " GROUP BY client_ip ORDER BY requests DESC,client_ip LIMIT 10",
-            parameters);
-    var visitors =
-        jdbc.queryForList(
-            "SELECT visitor_id AS value,count(*) AS requests"
-                + table
-                + where
-                + " AND visitor_id IS NOT NULL GROUP BY visitor_id ORDER BY requests DESC,visitor_id LIMIT 10",
-            parameters);
+    var aggregate = statistics(f, view, table, where, parameters);
     args.add(pageSize);
     args.add((f.page() - 1) * pageSize);
     var rows =
-        jdbc.queryForList(
-            "SELECT id, occurred_at, method,path,route,status,duration_ms,client_ip,visitor_id,page_views,error_type,user_agent"
-                + table
-                + where
-                + " ORDER BY occurred_at DESC,id LIMIT ? OFFSET ?",
-            args.toArray());
+        view.equals("dashboard")
+            ? List.<Map<String, Object>>of()
+            : jdbc.queryForList(
+                "SELECT id, occurred_at, method,path,route,status,duration_ms,client_ip,visitor_id,page_views,error_type,user_agent"
+                    + table
+                    + where
+                    + " ORDER BY occurred_at DESC,id LIMIT ? OFFSET ?",
+                args.toArray());
     rows.forEach(
         row ->
             row.computeIfPresent("occurred_at", (k, v) -> ((Timestamp) v).toInstant().toString()));
     return Map.of(
         "summary",
-        summary,
+        aggregate.get("summary"),
         "minutes",
-        minutes,
+        aggregate.get("minutes"),
         "routes",
-        routes,
+        aggregate.get("routes"),
         "ips",
-        ips,
+        aggregate.get("ips"),
         "visitors",
-        visitors,
+        aggregate.get("visitors"),
         "rows",
         rows,
         "page",
@@ -151,6 +129,85 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
         pageSize,
         "date",
         f.date().toString());
+  }
+
+  private Map<String, Object> statistics(
+      Filters f, String view, String table, String where, Object[] parameters) {
+    var key =
+        new StatisticsKey(
+            new Filters(f.date(), f.kind(), f.ip(), f.visitor(), f.route(), f.status(), 1), view);
+    synchronized (statistics) {
+      long now = System.nanoTime();
+      var previous = statistics.get(key);
+      if (!view.equals("all") && previous != null && now < previous.until())
+        return previous.value();
+      var summary =
+          jdbc.queryForMap(
+              "SELECT count(*) AS requests, count(*) FILTER(WHERE status >= 500) AS errors, count(*) FILTER(WHERE status=429) AS limited, count(DISTINCT visitor_id) FILTER(WHERE page_views>0) AS visitors, count(DISTINCT client_ip) AS ips, coalesce(sum(page_views),0) AS views, coalesce(round(avg(duration_ms)),0) AS average_ms, coalesce(percentile_cont(0.95) WITHIN GROUP(ORDER BY duration_ms),0) AS p95_ms, count(DISTINCT visitor_id) FILTER(WHERE occurred_at >= now()-interval '5 minutes') AS active_visitors"
+                  + table
+                  + where,
+              parameters);
+      var minutes =
+          view.equals("logs")
+              ? List.<Map<String, Object>>of()
+              : jdbc.queryForList(
+                  "SELECT to_char(occurred_at AT TIME ZONE ?,'HH24:MI') AS minute, count(*) AS requests, count(*) FILTER(WHERE status >=500) AS errors, count(*) FILTER(WHERE status=429) AS limited, round(avg(duration_ms)) AS average_ms"
+                      + table
+                      + where
+                      + " GROUP BY 1 ORDER BY 1",
+                  java.util.stream.Stream.concat(
+                          java.util.stream.Stream.of(zone.getId()), Arrays.stream(parameters))
+                      .toArray());
+      var routes =
+          view.equals("dashboard")
+              ? List.<Map<String, Object>>of()
+              : jdbc.queryForList(
+                  "SELECT route AS value, count(*) AS requests, count(*) FILTER(WHERE status>=500) AS errors, round(avg(duration_ms)) AS average_ms"
+                      + table
+                      + where
+                      + " GROUP BY route ORDER BY requests DESC,route LIMIT 10",
+                  parameters);
+      var ips =
+          view.equals("dashboard")
+              ? List.<Map<String, Object>>of()
+              : jdbc.queryForList(
+                  "SELECT client_ip AS value, count(*) AS requests, count(*) FILTER(WHERE status=429) AS limited"
+                      + table
+                      + where
+                      + " GROUP BY client_ip ORDER BY requests DESC,client_ip LIMIT 10",
+                  parameters);
+      var visitors =
+          view.equals("dashboard")
+              ? List.<Map<String, Object>>of()
+              : jdbc.queryForList(
+                  "SELECT visitor_id AS value,count(*) AS requests"
+                      + table
+                      + where
+                      + " AND visitor_id IS NOT NULL GROUP BY visitor_id ORDER BY requests DESC,visitor_id LIMIT 10",
+                  parameters);
+      var result =
+          Map.<String, Object>of(
+              "summary",
+              summary,
+              "minutes",
+              minutes,
+              "routes",
+              routes,
+              "ips",
+              ips,
+              "visitors",
+              visitors);
+      statistics.put(
+          key,
+          new Statistics(
+              now
+                  + java.util.concurrent.TimeUnit.MILLISECONDS.toNanos(
+                      limits.statisticsCacheMillis()),
+              result));
+      while (statistics.size() > limits.statisticsCacheEntries())
+        statistics.remove(statistics.keySet().iterator().next());
+      return result;
+    }
   }
 
   public boolean archiveBefore(Instant cutoff, int limit) {

@@ -114,7 +114,14 @@ export async function mapSolarText(
       'Could not validate this item for crafting. The displayed text is preserved.',
     )
   verifyRulesetResponse(response, rulesetIdentity)
-  const v = (await response.json()) as MappingResult
+  return verifyTextMapping(await response.json(), definitions, before)
+}
+export function verifyTextMapping(
+  value: unknown,
+  definitions: Record<string, Definition>,
+  before?: ConcreteItem,
+): MappingResult {
+  const v = value as MappingResult
   if (
     typeof v?.mapped !== 'boolean' ||
     !Array.isArray(v.issues) ||

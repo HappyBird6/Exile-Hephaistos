@@ -14,7 +14,11 @@ export type PoolEntry = {
   reasons: ExclusionReason[]
   actions: string[]
 }
-export type PoolReference = { entries: PoolEntry[]; revision?: string }
+export type PoolReference = {
+  entries: PoolEntry[]
+  revision?: string
+  staticRevision?: string | undefined
+}
 
 export function validPoolEntries(
   data: PoolReference,

@@ -18,8 +18,16 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
     assignableTypes = {CraftingCatalogController.class, WorkbenchController.class})
 public final class RulesetResponse implements ResponseBodyAdvice<Object> {
   private final ObjectMapper json;
+  private final org.springframework.beans.factory.ObjectProvider<
+          com.poe2craft.shared.crafting.infrastructure.CatalogReferences>
+      references;
 
-  public RulesetResponse(ObjectMapper json) {
+  public RulesetResponse(
+      ObjectMapper json,
+      org.springframework.beans.factory.ObjectProvider<
+              com.poe2craft.shared.crafting.infrastructure.CatalogReferences>
+          references) {
+    this.references = references;
     this.json = json;
   }
 
@@ -44,7 +52,8 @@ public final class RulesetResponse implements ResponseBodyAdvice<Object> {
             .build()
             .getQueryParams();
     boolean initial = "initial".equals(method.getMethod().getName());
-    boolean separate = initial && "separate".equals(params.getFirst("catalog"));
+    boolean shared = "shared".equals(params.getFirst("catalog"));
+    boolean separate = initial && (shared || "separate".equals(params.getFirst("catalog")));
     Object envelope = body;
     if (separate) {
       // Avoid serializing thousands of immutable definitions only to remove them afterwards.
@@ -64,6 +73,19 @@ public final class RulesetResponse implements ResponseBodyAdvice<Object> {
       response.getHeaders().setCacheControl("no-cache");
       if (separate) {
         var base = params.getFirst("base");
+        if (shared && references.getIfAvailable() != null) {
+          value.put(
+              "catalogUrl",
+              "/api/v1/crafting/catalogs/"
+                  + RulesetBoundary.identity()
+                  + "/shared/"
+                  + references
+                      .getObject()
+                      .reference(
+                          base == null ? "solar" : base,
+                          "true".equals(params.getFirst("manualReveal"))));
+          return value;
+        }
         value.put(
             "catalogUrl",
             "/api/v1/crafting/catalogs/"

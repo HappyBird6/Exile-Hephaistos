@@ -98,9 +98,15 @@ public class RequestLogService {
   }
 
   public Map<String, Object> query(RequestLogRepository.Filters filters) {
+    return query(filters, "all");
+  }
+
+  public Map<String, Object> query(RequestLogRepository.Filters filters, String view) {
     if (filters.date().isBefore(earliestDate()) || filters.date().isAfter(today()))
       throw new IllegalArgumentException("Date outside retained range");
-    var result = new LinkedHashMap<String, Object>(store.query(filters));
+    var result =
+        new LinkedHashMap<String, Object>(
+            view.equals("all") ? store.query(filters) : store.query(filters, view));
     result.put("today", today().toString());
     result.put("earliestDate", earliestDate().toString());
     result.put(

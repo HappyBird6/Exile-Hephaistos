@@ -24,6 +24,7 @@ export function useCurrencyPrices(): CurrencyMarket {
         signal,
         false,
         Date.now() < refreshUntil.current,
+        client.getQueryData<import('./api').PriceView>(key),
       )
       if (!data.refreshing) refreshUntil.current = 0
       else if (!refreshUntil.current)

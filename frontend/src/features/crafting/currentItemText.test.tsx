@@ -10,7 +10,10 @@ import {
 } from '../../shared/test/craftingFixtures'
 import { concreteInitial, mapSolarText } from './workbenchApi'
 import { currentItemText } from './currentItemText'
-import { editorFixtureFetch } from './item-editor/fixtures.test-support'
+import {
+  editorFixtureFetch,
+  preparedResponse,
+} from './item-editor/fixtures.test-support'
 import { startFilm, emptyFilms, historyStorageKey } from './workbenchHistory'
 let client: QueryClient
 const root = concreteInitial(initialFixture)
@@ -64,9 +67,9 @@ it('serializes raw rolls with English metadata and leaves state untouched', () =
 it('applies a validated edit atomically and keeps the previous original document', async () => {
   const input = await open()
   vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) =>
-    String(url).endsWith('/edit-text')
+    String(url).endsWith('/prepare-text')
       ? Promise.resolve(
-          jsonResponse({
+          preparedResponse(JSON.parse(String(init?.body)).text, {
             mapped: true,
             state: { ...root, itemLevel: 81 },
             issues: [],
@@ -95,7 +98,7 @@ it('keeps dirty input and discards a cancelled late edit response', async () => 
   const input = await open()
   let finish!: (value: Response) => void
   vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) =>
-    String(url).endsWith('/edit-text')
+    String(url).endsWith('/prepare-text')
       ? new Promise<Response>((resolve) => {
           finish = resolve
         })
@@ -110,7 +113,7 @@ it('keeps dirty input and discards a cancelled late edit response', async () => 
   fireEvent.change(input, { target: { value: text + '\nnew draft' } })
   await act(async () => {
     finish(
-      jsonResponse({
+      preparedResponse(text, {
         mapped: true,
         state: { ...root, itemLevel: 81 },
         issues: [],
@@ -136,7 +139,7 @@ it('does not submit an unfinished IME composition', async () => {
   fireEvent.compositionStart(input)
   fireEvent.click(screen.getByRole('button', { name: 'Apply' }))
   expect(
-    fetcher.mock.calls.some(([url]) => String(url).endsWith('/edit-text')),
+    fetcher.mock.calls.some(([url]) => String(url).endsWith('/prepare-text')),
   ).toBe(false)
   expect(
     JSON.parse(localStorage.getItem(historyStorageKey)!).films,

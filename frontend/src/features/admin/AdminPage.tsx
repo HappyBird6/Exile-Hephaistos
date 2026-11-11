@@ -55,9 +55,12 @@ export function AdminPage() {
     [epoch, setEpoch] = useState(0)
   const data = useQuery({
     queryKey: ['admin-dashboard', epoch],
-    enabled: !!credential,
+    enabled:
+      !!credential &&
+      (section === 'dashboard' ||
+        !client.getQueryData(['admin-dashboard', epoch])),
     retry: false,
-    refetchInterval: credential ? 30000 : false,
+    refetchInterval: credential && section === 'dashboard' ? 30000 : false,
     refetchIntervalInBackground: false,
     gcTime: 0,
     queryFn: async ({ signal }) => {

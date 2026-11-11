@@ -57,6 +57,53 @@ class WorkbenchReferenceControllerTest {
   }
 
   @Test
+  void staticBasisSurvivesAnotherReplicaAndIgnoresOnlyEligibilityState() {
+    var root = rare();
+    var initial = references.describe(root, true);
+    var otherReplica = new ModifierReferenceService(crafting);
+    var update = otherReplica.update(initial.staticRevision(), root, true);
+    assertThat(update.reset()).isFalse();
+    assertThat(update.staticRevision()).isEqualTo(initial.staticRevision());
+    var staticPool = otherReplica.describe(root, false);
+    var lower =
+        new ItemState(
+            root.snapshotId(),
+            root.baseItemId(),
+            1,
+            root.rarity(),
+            root.implicits(),
+            List.of(),
+            Set.of());
+    assertThat(otherReplica.describe(lower, false)).isSameAs(staticPool);
+    assertThat(otherReplica.describe(lower, true).revision()).isNotEqualTo(initial.revision());
+    var coldReplica = new ModifierReferenceService(crafting);
+    var recovery = coldReplica.update(initial.revision(), lower, initial.staticRevision());
+    assertThat(recovery.reset()).isFalse();
+    assertThat(recovery.entries()).isEmpty();
+    assertThat(recovery.groups()).isNotEmpty();
+    var rebuilt = new ArrayList<>(staticPool.entries());
+    rebuilt.sort(Comparator.comparing(e -> e.kind() + ":" + e.modifierId()));
+    var indices = new HashSet<Integer>();
+    for (var group : recovery.groups()) {
+      for (int index : group.indices()) {
+        assertThat(indices.add(index)).isTrue();
+        var entry = rebuilt.get(index);
+        rebuilt.set(
+            index,
+            new ModifierReferenceService.Entry(
+                entry.modifierId(),
+                entry.kind(),
+                group.eligible(),
+                group.reasons(),
+                entry.actions()));
+      }
+    }
+    assertThat(rebuilt)
+        .containsExactlyInAnyOrderElementsOf(coldReplica.describe(lower, true).entries());
+    assertThat(otherReplica.update("wrong-basis", root, true).reset()).isTrue();
+  }
+
+  @Test
   void poolDeltaReconstructsFullReferenceAndRerollsReuseEligibility() {
     var root = rare();
     var before = references.describe(root, true);

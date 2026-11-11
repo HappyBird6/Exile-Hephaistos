@@ -14,6 +14,7 @@ public final class ModifierReferenceService {
       new com.fasterxml.jackson.databind.ObjectMapper();
   private final Map<String, Reference> states;
   private final Map<String, Reference> revisions;
+  private final Map<ItemCatalog, Reference> staticReferences;
 
   private static <V> Map<String, V> bounded(int maximum) {
     return Collections.synchronizedMap(
@@ -53,18 +54,73 @@ public final class ModifierReferenceService {
       String revision,
       boolean reset,
       List<Entry> entries,
-      List<String> removed) {}
+      List<String> removed,
+      String staticRevision,
+      List<Group> groups) {}
+
+  public record Group(boolean eligible, List<String> reasons, List<Integer> indices) {}
 
   private static String entryKey(Entry entry) {
     return entry.kind() + ":" + entry.modifierId();
   }
 
   public Update update(String previous, ItemState state) {
-    var before = revisions.get(previous);
+    return update(previous, state, (String) null);
+  }
+
+  public Update update(String previous, ItemState state, boolean staticBasis) {
+    return update(staticBasis ? null : previous, state, staticBasis ? previous : null);
+  }
+
+  public Update update(String previous, ItemState state, String staticRevision) {
     var after = describe(state, true);
-    if (before == null) return new Update(null, after.revision(), true, after.entries(), List.of());
+    var before = previous == null ? null : revisions.get(previous);
+    if (before == null && staticRevision != null) {
+      var basis = describe(state, false);
+      if (staticRevision.equals(basis.revision())) {
+        // Explicit ordinal groups are presentation data, not client-side eligibility rules.
+        var ordered =
+            after.entries().stream()
+                .sorted(Comparator.comparing(ModifierReferenceService::entryKey))
+                .toList();
+        var groups = new LinkedHashMap<List<String>, List<Integer>>();
+        for (int i = 0; i < ordered.size(); i++) {
+          var entry = ordered.get(i);
+          if (!entry.eligible())
+            groups.computeIfAbsent(entry.reasons(), ignored -> new ArrayList<>()).add(i);
+        }
+        var changes =
+            groups.entrySet().stream()
+                .map(e -> new Group(false, e.getKey(), List.copyOf(e.getValue())))
+                .toList();
+        return new Update(
+            staticRevision,
+            after.revision(),
+            false,
+            List.of(),
+            List.of(),
+            after.staticRevision(),
+            changes);
+      }
+    }
+    if (before == null)
+      return new Update(
+          null,
+          after.revision(),
+          true,
+          after.entries(),
+          List.of(),
+          after.staticRevision(),
+          List.of());
     if (previous.equals(after.revision()))
-      return new Update(previous, after.revision(), false, List.of(), List.of());
+      return new Update(
+          previous,
+          after.revision(),
+          false,
+          List.of(),
+          List.of(),
+          after.staticRevision(),
+          List.of());
     var old = new HashMap<String, Entry>();
     before.entries().forEach(entry -> old.put(entryKey(entry), entry));
     var changed = new ArrayList<Entry>();
@@ -75,7 +131,9 @@ public final class ModifierReferenceService {
         after.revision(),
         false,
         List.copyOf(changed),
-        old.keySet().stream().sorted().toList());
+        old.keySet().stream().sorted().toList(),
+        after.staticRevision(),
+        List.of());
   }
 
   private final Map<ItemCatalog, ModifierPoolResolver> resolvers;
@@ -88,6 +146,14 @@ public final class ModifierReferenceService {
   public ModifierReferenceService(
       CraftingOperations crafting, com.poe2craft.configuration.BackendSettings settings) {
     this.crafting = crafting;
+    staticReferences =
+        Collections.synchronizedMap(
+            new LinkedHashMap<>(16, .75f, true) {
+              @Override
+              protected boolean removeEldestEntry(Map.Entry<ItemCatalog, Reference> e) {
+                return size() > settings.workbench().referenceCatalogEntries();
+              }
+            });
     states = bounded(settings.workbench().referenceStateEntries());
     revisions = bounded(settings.workbench().referenceStateEntries());
     resolvers =
@@ -108,12 +174,19 @@ public final class ModifierReferenceService {
       List<String> reasons,
       List<String> actions) {}
 
-  public record Reference(List<Entry> entries, String revision) {}
+  public record Reference(List<Entry> entries, String revision, String staticRevision) {}
 
   public Reference describe(ItemState input, boolean dynamic) {
     var catalog = crafting.abyssCatalog(input);
     var abyss = AbyssCraftingState.from(input, catalog);
     abyss.validate(catalog);
+    if (!dynamic) {
+      var shared = staticReferences.get(catalog);
+      if (shared != null) {
+        revisions.put(shared.revision(), shared);
+        return shared;
+      }
+    }
     var key = stateKey(input, dynamic);
     var cached = states.get(key);
     if (cached != null) {
@@ -183,13 +256,30 @@ public final class ModifierReferenceService {
         var reasons = dynamic ? exclusions(state, abyss, resolver, d, false) : List.<String>of();
         entries.add(
             new Entry(
-                d.id(), "essence", reasons.isEmpty(), reasons, List.copyOf(targets.get(d.id()))));
+                d.id(),
+                "essence",
+                reasons.isEmpty(),
+                reasons,
+                targets.get(d.id()).stream().sorted().toList()));
       }
     }
+    // Stable across replicas even when upstream maps use a different iteration order.
+    entries.sort(Comparator.comparing(ModifierReferenceService::entryKey));
+    var staticEntries =
+        entries.stream()
+            .map(e -> new Entry(e.modifierId(), e.kind(), true, List.of(), e.actions()))
+            .toList();
+    var staticRevision =
+        digest(List.of(input.snapshotId(), input.baseItemId(), false, staticEntries));
+    var staticReference = new Reference(staticEntries, staticRevision, staticRevision);
+    staticReferences.put(catalog, staticReference);
     var reference =
-        new Reference(
-            List.copyOf(entries),
-            digest(List.of(input.snapshotId(), input.baseItemId(), dynamic, entries)));
+        dynamic
+            ? new Reference(
+                List.copyOf(entries),
+                digest(List.of(input.snapshotId(), input.baseItemId(), true, entries)),
+                staticRevision)
+            : staticReference;
     states.put(key, reference);
     revisions.put(reference.revision(), reference);
     return reference;

@@ -18,7 +18,7 @@ it('keeps known option sentences readable across ruleset changes without editing
     defaultOptions: { queries: { staleTime: Infinity, retry: false } },
   })
   client.setQueryData(
-    ['history-catalog', 'solar', state.itemLevel],
+    ['crafting', 'initial', 'solar', state.itemLevel, 'manual'],
     initialFixture,
   )
   const frame = { state, action: null }

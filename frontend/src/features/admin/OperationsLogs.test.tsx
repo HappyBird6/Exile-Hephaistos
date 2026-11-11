@@ -92,3 +92,31 @@ it('switches the selected current day at Korean midnight', async () => {
     '2026-11-04',
   )
 })
+
+it('requests only the selected view and does not poll a historical date', async () => {
+  vi.useFakeTimers()
+  vi.setSystemTime(new Date('2026-11-11T03:00:00Z'))
+  const fetcher = vi
+    .fn()
+    .mockImplementation(() =>
+      Promise.resolve(new Response(JSON.stringify(logs))),
+    )
+  vi.stubGlobal('fetch', fetcher)
+  const rendered = renderLogs('requests')
+  await act(async () => {
+    await vi.advanceTimersByTimeAsync(100)
+  })
+  expect(fetcher.mock.calls[0]?.[0]).toContain('view=logs')
+  fireEvent.change(screen.getByLabelText('Date (Korea)'), {
+    target: { value: '2026-11-10' },
+  })
+  await act(async () => {
+    await vi.advanceTimersByTimeAsync(100)
+  })
+  const count = fetcher.mock.calls.length
+  await act(async () => {
+    await vi.advanceTimersByTimeAsync(31000)
+  })
+  expect(fetcher.mock.calls.length).toBe(count)
+  rendered.unmount()
+})

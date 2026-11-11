@@ -1,3 +1,4 @@
+import { performanceSettings } from '../../../shared/performance'
 import { useBonded, bondedLabel } from '../bonded'
 import { installedAugmentEffects } from '../augmentEffects'
 import { unidentifiedRuneEffects } from '../socketAugments'
@@ -31,9 +32,10 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
     )?.[0] as WorkbenchBaseKey | undefined)
   const bonded = useBonded()
   const initial = useQuery({
-    queryKey: ['history-catalog', base, state.itemLevel],
+    queryKey: ['crafting', 'initial', base, state.itemLevel, 'manual'],
+    staleTime: performanceSettings.initialRetentionMs,
     enabled: !!base,
-    queryFn: ({ signal }) => loadInitial(state.itemLevel, signal, base!),
+    queryFn: ({ signal }) => loadInitial(state.itemLevel, signal, base!, true),
     retry: false,
   })
   const supported = supportsConcreteStateShape(state)

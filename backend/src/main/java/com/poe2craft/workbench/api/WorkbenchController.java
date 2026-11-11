@@ -34,6 +34,7 @@ public final class WorkbenchController {
   private final ItemTextService parser;
   private final ObjectMapper json;
   private final WorkbenchStateReader stateReader;
+  private final com.poe2craft.workbench.application.ItemTextPreparation textPreparation;
   private final SecureRandom random = new SecureRandom();
   private final JsonNode registry = CraftingRegistryLoader.load();
 
@@ -47,6 +48,8 @@ public final class WorkbenchController {
     this.parser = parser;
     this.json = json;
     this.stateReader = new WorkbenchStateReader(simulator, json);
+    this.textPreparation =
+        new com.poe2craft.workbench.application.ItemTextPreparation(simulator, mapper, parser);
   }
 
   @GetMapping("/registry")
@@ -328,6 +331,16 @@ public final class WorkbenchController {
   @PostMapping("/map-text")
   public SolarTextMapper.Result mapText(@RequestBody TextRequest request) {
     return mapper.map(parser.parseText(request.text()));
+  }
+
+  @PostMapping("/prepare-text")
+  public com.poe2craft.workbench.application.ItemTextPreparation.Prepared prepareText(
+      @RequestBody EditTextRequest request) {
+    var before =
+        request.state() == null || request.state().isNull()
+            ? null
+            : stateReader.concreteState(request.state(), true);
+    return textPreparation.prepare(request.text(), before);
   }
 
   public record EditTextRequest(JsonNode state, String text) {}

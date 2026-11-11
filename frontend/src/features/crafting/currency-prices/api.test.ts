@@ -59,3 +59,63 @@ it('accepts the unavailable state without inventing a zero price', async () => {
   )
   expect(await loadCurrencyPrices()).toEqual(unavailable)
 })
+
+it('polls a small status without fetching unchanged quotes', async () => {
+  const fetch = vi.fn().mockResolvedValue(
+    new Response(
+      JSON.stringify({
+        revision: 'Current League:2026-11-09T00:00:00Z',
+        nextRefreshAllowedAt: view.nextRefreshAllowedAt,
+        stale: false,
+        unavailable: false,
+        refreshing: false,
+      }),
+    ),
+  )
+  vi.stubGlobal('fetch', fetch)
+  const result = await loadCurrencyPrices(undefined, false, true, view)
+  expect(result.snapshot).toBe(view.snapshot)
+  expect(fetch).toHaveBeenCalledTimes(1)
+  expect(fetch.mock.calls[0]?.[0]).toBe('/api/v1/economy/prices/status')
+})
+it('fetches and verifies new quotes once when the status revision changes', async () => {
+  const next = {
+    ...view,
+    snapshot: { ...view.snapshot!, updatedAt: '2026-11-10T00:00:00Z' },
+  }
+  const fetch = vi
+    .fn()
+    .mockResolvedValueOnce(
+      new Response(
+        JSON.stringify({
+          revision: 'Current League:2026-11-10T00:00:00Z',
+          nextRefreshAllowedAt: view.nextRefreshAllowedAt,
+          stale: false,
+          unavailable: false,
+          refreshing: false,
+        }),
+      ),
+    )
+    .mockResolvedValueOnce(new Response(JSON.stringify(next)))
+  vi.stubGlobal('fetch', fetch)
+  expect(await loadCurrencyPrices(undefined, false, true, view)).toEqual(next)
+  expect(fetch).toHaveBeenCalledTimes(2)
+})
+it('rejects inconsistent status without replacing existing prices', async () => {
+  const fetch = vi.fn().mockResolvedValue(
+    new Response(
+      JSON.stringify({
+        revision: null,
+        nextRefreshAllowedAt: view.nextRefreshAllowedAt,
+        stale: false,
+        unavailable: false,
+        refreshing: false,
+      }),
+    ),
+  )
+  vi.stubGlobal('fetch', fetch)
+  await expect(
+    loadCurrencyPrices(undefined, false, true, view),
+  ).rejects.toThrow('Invalid currency status')
+  expect(view.snapshot?.exaltedPerDivine).toBe(500)
+})

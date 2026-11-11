@@ -40,6 +40,68 @@ class WorkbenchControllerTest {
   @Autowired CatalogCraftingService service;
 
   @Test
+  void preparesTextOnceWithEquivalentMappingAndPreservesEditRules() throws Exception {
+    String text =
+        "Item Class: Amulets\nRarity: Normal\nSolar Amulet\n--------\nItem Level: 82\n--------\n+15 to Spirit (implicit)";
+    var legacy =
+        mapper.readTree(
+            mvc.perform(
+                    post("/api/v1/crafting/workbench/map-text")
+                        .header("X-Crafting-Ruleset", RulesetBoundary.identity())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsBytes(Map.of("text", text))))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString());
+    var prepared =
+        mapper.readTree(
+            mvc.perform(
+                    post("/api/v1/crafting/workbench/prepare-text")
+                        .header("X-Crafting-Ruleset", RulesetBoundary.identity())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsBytes(Map.of("text", text))))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString());
+    org.assertj.core.api.Assertions.assertThat(prepared.path("mapping")).isEqualTo(legacy);
+    org.assertj.core.api.Assertions.assertThat(
+            prepared.path("parsed").path("text").path("originalText").asText())
+        .isEqualTo(text);
+    var body = Map.of("text", text, "state", prepared.path("mapping").path("state"));
+    var edit =
+        mapper.readTree(
+            mvc.perform(
+                    post("/api/v1/crafting/workbench/edit-text")
+                        .header("X-Crafting-Ruleset", RulesetBoundary.identity())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsBytes(body)))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString());
+    var combined =
+        mapper.readTree(
+            mvc.perform(
+                    post("/api/v1/crafting/workbench/prepare-text")
+                        .header("X-Crafting-Ruleset", RulesetBoundary.identity())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(mapper.writeValueAsBytes(body)))
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsString());
+    org.assertj.core.api.Assertions.assertThat(combined.path("mapping")).isEqualTo(edit);
+    mvc.perform(
+            post("/api/v1/crafting/workbench/prepare-text")
+                .header("X-Crafting-Ruleset", "obsolete")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsBytes(body)))
+        .andExpect(status().isUnprocessableEntity());
+  }
+
+  @Test
   void hiddenAbyssSlotsAlsoReceivePoolUpdatesWithCurrency() throws Exception {
     var root = SolarAmulet.initial(catalog);
     var rare =

@@ -1,3 +1,4 @@
+import { poolHeaders, acceptPoolUpdate } from './modifier-pool/poolSnapshots'
 import { sameItemState } from './crafting-state/itemIdentity'
 import type { Definition } from './craftingApi'
 import { observedAugmentEffects } from './augmentEffects'
@@ -129,18 +130,21 @@ export async function installAugment(
   id: string,
   identity: string,
   signal: AbortSignal,
+  definitions: Record<string, Definition> = {},
 ): Promise<AppliedItem> {
   if (!canInstallAugment(state, id, slot))
     throw new Error(socketText().unsupported)
   const response = await fetch('/api/v1/crafting/workbench/augments/install', {
     method: 'POST',
-    headers: rulesetHeaders(identity),
+    headers: { ...rulesetHeaders(identity), ...poolHeaders(state, identity) },
     body: JSON.stringify({ state, slotIndex: slot, augmentId: id }),
     signal,
   })
   verifyRulesetResponse(response, identity)
   if (!response.ok) throw new Error(socketText().unsupported)
-  const result = (await response.json()) as AppliedItem
+  const { modifierPool, ...result } = (await response.json()) as AppliedItem & {
+    modifierPool?: unknown
+  }
   const installed = [
     ...(state.installedAugments ?? []).filter((a) => a.slotIndex !== slot),
     { slotIndex: slot, augmentId: id },
@@ -156,6 +160,8 @@ export async function installAugment(
     !augmentShape(result.state as unknown as Record<string, unknown>)
   )
     throw new Error(socketText().unsupported)
+  signal.throwIfAborted()
+  acceptPoolUpdate(modifierPool, state, result.state, identity, definitions)
   return result
 }
 const messages = {

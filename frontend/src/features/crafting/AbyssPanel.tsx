@@ -1,3 +1,5 @@
+import { storedAbyssItem } from './workbenchHistory'
+import { poolHeaders, acceptPoolUpdate } from './modifier-pool/poolSnapshots'
 import { validAbyssResponse } from './abyssResponse'
 import { useEffect, useRef, useState } from 'react'
 import {
@@ -313,11 +315,16 @@ export function AbyssPanel({
     body: unknown,
     signal?: AbortSignal,
   ): Promise<T> {
+    const input = (body as { state?: ConcreteItem | AbyssState }).state
+    const before = input && ('item' in input ? storedAbyssItem(input) : input)
     const response = await fetch(
       `/api/v1/crafting/workbench/abyss/${operation}`,
       {
         method: 'POST',
-        headers: rulesetHeaders(identity),
+        headers: {
+          ...rulesetHeaders(identity),
+          ...(before ? poolHeaders(before, identity) : {}),
+        },
         body: JSON.stringify(body),
         ...(signal ? { signal } : {}),
       },
@@ -327,6 +334,11 @@ export function AbyssPanel({
     const value: unknown = await response.json()
     if (value && typeof value === 'object' && 'rulesetIdentity' in value)
       delete value.rulesetIdentity
+    let modifierPool: unknown
+    if (value && typeof value === 'object' && 'modifierPool' in value) {
+      modifierPool = value.modifierPool
+      delete value.modifierPool
+    }
     if (operation === 'eligible') {
       if (
         !Array.isArray(value) ||
@@ -337,6 +349,21 @@ export function AbyssPanel({
     }
     if (!validAbyssResponse(operation, value, source, initial))
       throw new Error(t[14])
+    signal?.throwIfAborted()
+    if (
+      before &&
+      value &&
+      typeof value === 'object' &&
+      'slots' in value &&
+      'item' in value
+    )
+      acceptPoolUpdate(
+        modifierPool,
+        before,
+        storedAbyssItem(value as AbyssState),
+        identity,
+        initial.modifiers,
+      )
     return value as T
   }
   const query = useQuery({

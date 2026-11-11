@@ -40,7 +40,42 @@ public record BackendSettings(
       @Min(1) @Max(200) int pageSize,
       @Min(1) int archiveDays,
       @Min(1048576) long archiveMaxBytes,
-      @Min(1) int dailyRecords) {}
+      @Min(1) int dailyRecords,
+      @Min(1) int statisticsCacheEntries,
+      @Min(100) int statisticsCacheMillis) {
+    @org.springframework.boot.context.properties.bind.ConstructorBinding
+    public AdminLogs {}
+
+    public AdminLogs(
+        int previousDays,
+        int queueCapacity,
+        int batchSize,
+        int flushMillis,
+        int archiveMillis,
+        int archiveWorkMillis,
+        String archiveDirectory,
+        String timeZone,
+        int pageSize,
+        int archiveDays,
+        long archiveMaxBytes,
+        int dailyRecords) {
+      this(
+          previousDays,
+          queueCapacity,
+          batchSize,
+          flushMillis,
+          archiveMillis,
+          archiveWorkMillis,
+          archiveDirectory,
+          timeZone,
+          pageSize,
+          archiveDays,
+          archiveMaxBytes,
+          dailyRecords,
+          defaults().adminLogs().statisticsCacheEntries(),
+          defaults().adminLogs().statisticsCacheMillis());
+    }
+  }
 
   public record RequestProtection(
       @Min(1) int requestsPerSecond,
