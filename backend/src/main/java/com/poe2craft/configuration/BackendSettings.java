@@ -37,7 +37,10 @@ public record BackendSettings(
       @Min(100) @Max(60000) int archiveWorkMillis,
       @NotBlank String archiveDirectory,
       @NotBlank String timeZone,
-      @Min(1) @Max(200) int pageSize) {}
+      @Min(1) @Max(200) int pageSize,
+      @Min(1) int archiveDays,
+      @Min(1048576) long archiveMaxBytes,
+      @Min(1) int dailyRecords) {}
 
   public record RequestProtection(
       @Min(1) int requestsPerSecond,

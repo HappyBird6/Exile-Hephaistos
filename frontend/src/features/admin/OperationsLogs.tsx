@@ -66,7 +66,6 @@ export function OperationsLogs({
     [page, setPage] = useState(1),
     [draft, setDraft] = useState(emptyFilters),
     [filters, setFilters] = useState(emptyFilters),
-    [hour, setHour] = useState(() => logCalendar(policy).hour),
     [downloadError, setDownloadError] = useState('')
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -79,10 +78,6 @@ export function OperationsLogs({
           setDate((selected) => retainedDate(selected, previous.today, next))
           setPage(1)
         }
-        if (previous.hour !== next.hour || previous.today !== next.today)
-          setHour((selected) =>
-            selected === previous.hour ? next.hour : selected,
-          )
         return previous.today === next.today &&
           previous.hour === next.hour &&
           previous.minimum === next.minimum
@@ -222,8 +217,11 @@ export function OperationsLogs({
     setDraft((f) => ({ ...f, [key]: value }))
     setPage(1)
   }
-  const points = Array.from({ length: 60 }, (_, i) => {
-      const minute = hour + ':' + String(i).padStart(2, '0')
+  const points = Array.from({ length: 1440 }, (_, i) => {
+      const minute =
+        String(Math.floor(i / 60)).padStart(2, '0') +
+        ':' +
+        String(i % 60).padStart(2, '0')
       return (
         data?.minutes.find((p) => p.minute === minute) ?? {
           minute,
@@ -265,127 +263,135 @@ export function OperationsLogs({
       {query.error && <p role="alert">{query.error.message}</p>}
       {data && (
         <>
-          <div className="admin-grid">
-            {(
-              [
-                { key: 'requests', label: a.requests, target: 'requests' },
-                { key: 'errors', label: a.errors, target: 'errors' },
-                { key: 'limited', label: a.rejected, target: 'limited' },
-                { key: 'visitors', label: t.visitors },
-                { key: 'views', label: t.views },
-                { key: 'active_visitors', label: t.active },
-                { key: 'p95_ms', label: t.p95 },
-              ] as const
-            ).map((card) => (
-              <article className="admin-card" key={card.key}>
-                <h2>{card.label}</h2>
-                {'target' in card ? (
-                  <button
-                    className="admin-metric"
-                    onClick={() => onSection(card.target)}
-                  >
-                    {n(data.summary[card.key] ?? 0)} ↗
-                  </button>
-                ) : (
-                  <strong>
-                    {n(data.summary[card.key] ?? 0)}
-                    {card.key === 'p95_ms' ? ' ms' : ''}
-                  </strong>
-                )}
-              </article>
-            ))}
-          </div>
-          <p className="admin-note">{t.anonymous}</p>
-          <section className="admin-card admin-traffic">
-            <div className="admin-log-toolbar">
-              <h2>{t.minute}</h2>
-              <label>
-                {t.hour}
-                <select value={hour} onChange={(e) => setHour(e.target.value)}>
-                  {Array.from({ length: 24 }, (_, i) => (
-                    <option key={i}>{String(i).padStart(2, '0')}</option>
-                  ))}
-                </select>
-              </label>
-            </div>
-            <svg viewBox="0 0 760 210" role="img" aria-label={t.minute}>
-              {[0, 0.5, 1].map((r) => (
-                <g key={r}>
-                  <line
-                    x1="44"
-                    x2="755"
-                    y1={170 - r * 140}
-                    y2={170 - r * 140}
-                    stroke="#ffffff20"
-                  />
-                  <text x="38" y={174 - r * 140} textAnchor="end">
-                    {n(Math.round(max * r))}
-                  </text>
-                </g>
-              ))}
-              {points.map((p, i) => {
-                const x = 48 + i * 11.7,
-                  scale = 140 / max
-                return (
-                  <g key={p.minute}>
-                    <title>
-                      {date} {p.minute} KST · {a.requests}: {p.requests} ·{' '}
-                      {a.errors}: {p.errors} · {a.rejected}: {p.limited} ·{' '}
-                      {t.latency}: {p.average_ms} ms
-                    </title>
-                    <rect
-                      x={x}
-                      y={170 - p.requests * scale}
-                      width="8"
-                      height={p.requests * scale}
-                      fill="#c9b977"
-                    />
-                    <rect
-                      x={x}
-                      y={170 - p.errors * scale}
-                      width="8"
-                      height={p.errors * scale}
-                      fill="#d97b77"
-                    />
-                    <rect
-                      x={x}
-                      y={170 - (p.errors + p.limited) * scale}
-                      width="8"
-                      height={p.limited * scale}
-                      fill="#8ea8d8"
-                    />
-                    {i % 10 === 0 && (
-                      <text x={x} y="190">
-                        {p.minute}
-                      </text>
+          {section === 'dashboard' && (
+            <>
+              <div className="admin-grid">
+                {(
+                  [
+                    { key: 'requests', label: a.requests, target: 'requests' },
+                    { key: 'errors', label: a.errors, target: 'errors' },
+                    { key: 'limited', label: a.rejected, target: 'limited' },
+                    { key: 'visitors', label: t.visitors },
+                    { key: 'views', label: t.views },
+                    { key: 'active_visitors', label: t.active },
+                    { key: 'p95_ms', label: t.p95 },
+                  ] as const
+                ).map((card) => (
+                  <article className="admin-card" key={card.key}>
+                    <h2>{card.label}</h2>
+                    {'target' in card ? (
+                      <button
+                        className="admin-metric"
+                        onClick={() => onSection(card.target)}
+                      >
+                        {n(data.summary[card.key] ?? 0)} ↗
+                      </button>
+                    ) : (
+                      <strong>
+                        {n(data.summary[card.key] ?? 0)}
+                        {card.key === 'p95_ms' ? ' ms' : ''}
+                      </strong>
                     )}
-                  </g>
-                )
-              })}
-            </svg>
-            <div className="admin-chart-legend">
-              <span>{a.requests}</span>
-              <span>{a.errors}</span>
-              <span>{a.rejected}</span>
-            </div>
-          </section>
-          <p
-            className={
-              data.logging.dropped ||
-              data.logging.storage !== 'OK' ||
-              data.logging.archive !== 'OK'
-                ? 'admin-log-warning'
-                : 'admin-note'
-            }
-          >
-            {t.queue}: {n(data.logging.queued)} · {t.dropped}:{' '}
-            {n(data.logging.dropped)} · {t.logStorage}:{' '}
-            {data.logging.storage === 'OK' ? a.healthy : a.attention} ·{' '}
-            {t.archiveStorage}:{' '}
-            {data.logging.archive === 'OK' ? a.healthy : a.attention}
-          </p>
+                  </article>
+                ))}
+              </div>
+              <p className="admin-note">{t.anonymous}</p>
+              <section className="admin-card admin-traffic">
+                <div className="admin-log-toolbar">
+                  <h2>{t.minute}</h2>
+                </div>
+                <svg viewBox="0 0 760 210" role="img" aria-label={t.minute}>
+                  {[0, 0.5, 1].map((r) => (
+                    <g key={r}>
+                      <line
+                        x1="44"
+                        x2="755"
+                        y1={170 - r * 140}
+                        y2={170 - r * 140}
+                        stroke="#ffffff20"
+                      />
+                      <text x="38" y={174 - r * 140} textAnchor="end">
+                        {n(Math.round(max * r))}
+                      </text>
+                    </g>
+                  ))}
+                  {points.map((p, i) => {
+                    const x = 48 + i * (702 / 1440),
+                      scale = 140 / max
+                    return (
+                      <g key={p.minute}>
+                        <title>
+                          {date} {p.minute} KST · {a.requests}: {p.requests} ·{' '}
+                          {a.errors}: {p.errors} · {a.rejected}: {p.limited} ·{' '}
+                          {t.latency}: {p.average_ms} ms
+                        </title>
+                        <rect
+                          x={x}
+                          y={170 - p.requests * scale}
+                          width={702 / 1440}
+                          height={p.requests * scale}
+                          fill="#c9b977"
+                        />
+                        <rect
+                          x={x}
+                          y={170 - p.errors * scale}
+                          width={702 / 1440}
+                          height={p.errors * scale}
+                          fill="#d97b77"
+                        />
+                        <rect
+                          x={x}
+                          y={170 - (p.errors + p.limited) * scale}
+                          width={702 / 1440}
+                          height={p.limited * scale}
+                          fill="#8ea8d8"
+                        />
+                        {i % 240 === 0 && (
+                          <text x={x} y="190">
+                            {p.minute}
+                          </text>
+                        )}
+                      </g>
+                    )
+                  })}
+                </svg>
+                <div className="admin-chart-legend">
+                  <span>{a.requests}</span>
+                  <span>{a.errors}</span>
+                  <span>{a.rejected}</span>
+                </div>
+              </section>
+            </>
+          )}
+          {(section === 'dashboard' ||
+            data.logging.dropped > 0 ||
+            data.logging.storage !== 'OK' ||
+            data.logging.archive !== 'OK') && (
+            <p
+              className={
+                data.logging.dropped ||
+                data.logging.storage !== 'OK' ||
+                data.logging.archive !== 'OK'
+                  ? 'admin-log-warning'
+                  : 'admin-note'
+              }
+            >
+              {t.queue}: {n(data.logging.queued)} · {t.dropped}:{' '}
+              {n(data.logging.dropped)} · {t.logStorage}:{' '}
+              {data.logging.storage === 'OK' ? a.healthy : a.attention} ·{' '}
+              {t.archiveStorage}:{' '}
+              {data.logging.archive === 'OK' ? a.healthy : a.attention}
+            </p>
+          )}
+
           {section !== 'dashboard' && (
             <>
+              <p className="admin-log-summary">
+                {a.requests}: {n(data.summary.requests ?? 0)} · {a.errors}:{' '}
+                {n(data.summary.errors ?? 0)} · {a.rejected}:{' '}
+                {n(data.summary.limited ?? 0)} · {t.p95}:{' '}
+                {n(data.summary.p95_ms ?? 0)} ms
+              </p>
               <form
                 className="admin-log-filters"
                 onSubmit={(e) => {
@@ -428,7 +434,7 @@ export function OperationsLogs({
                 </button>
               </form>
               <p>{t.filterHint}</p>
-              <div className="admin-panels">
+              <div className="admin-panels admin-log-rankings">
                 {(
                   [
                     { key: 'route', title: t.topApis, rows: data.routes },
@@ -443,7 +449,7 @@ export function OperationsLogs({
                   <section className="admin-card" key={group.key}>
                     <h2>{group.title}</h2>
                     <ol className="admin-rankings">
-                      {group.rows.map((row) => (
+                      {group.rows.slice(0, 3).map((row) => (
                         <li key={row.value}>
                           <button onClick={() => pick(group.key, row.value)}>
                             <span>{row.value}</span>

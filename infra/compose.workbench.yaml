@@ -8,20 +8,45 @@ services:
       JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=65.0 -XX:+ExitOnOutOfMemoryError
     mem_limit: 1536m
     cpus: 2.0
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
     restart: unless-stopped
     stop_grace_period: 30s
+  postgres:
+    mem_limit: 768m
+    cpus: 1.0
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
   redis:
     # Receipts are not ordinary disposable cache entries: avoid eviction/replay after a restart.
     command: [redis-server, --save, '', --appendonly, 'yes', --appendfsync, always, --maxmemory, 256mb, --maxmemory-policy, noeviction]
     volumes:
       - workbench-redis:/data
+    cpus: 0.5
     mem_limit: 384m
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
     restart: unless-stopped
   frontend:
     build:
       args:
         VITE_CRAFT_SUPPORT_ENABLED: 'false'
+    cpus: 0.5
     mem_limit: 128m
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
     restart: unless-stopped
 volumes:
   workbench-redis:

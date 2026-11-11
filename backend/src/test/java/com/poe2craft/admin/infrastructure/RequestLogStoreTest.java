@@ -28,11 +28,26 @@ class RequestLogStoreTest {
   RequestLogStore store;
 
   RequestLogStore create(Path path) {
+    return create(path, 1073741824L);
+  }
+
+  RequestLogStore create(Path path, long maximum) {
     var settings = mock(BackendSettings.class);
     when(settings.adminLogs())
         .thenReturn(
             new BackendSettings.AdminLogs(
-                7, 10000, 500, 2000, 60000, 5000, path.toString(), "Asia/Seoul", 40));
+                7,
+                10000,
+                500,
+                2000,
+                60000,
+                5000,
+                path.toString(),
+                "Asia/Seoul",
+                40,
+                30,
+                1073741824L,
+                100000));
     return new RequestLogStore(jdbc, transactions, new ObjectMapper(), settings);
   }
 
@@ -62,6 +77,49 @@ class RequestLogStoreTest {
         1,
         null,
         "Browser");
+  }
+
+  @Test
+  void keepsNewestArchivesWithinByteBudget() throws Exception {
+    var bounded = create(directory, 1048576L);
+    for (int i = 0; i < 2; i++) {
+      var name = "budget-" + i + ".jsonl.gz";
+      Files.write(directory.resolve(name), new byte[600000]);
+      var time = java.sql.Timestamp.from(Instant.now().minusSeconds(10 - i));
+      jdbc.update(
+          "INSERT INTO operations.log_archive VALUES (?,?,?,?,?,?,?)",
+          UUID.randomUUID(),
+          name,
+          time,
+          time,
+          time,
+          1,
+          600000);
+    }
+    bounded.archiveBefore(Instant.parse("2000-01-01T00:00:00Z"), 500);
+    assertThat(Files.exists(directory.resolve("budget-0.jsonl.gz"))).isFalse();
+    assertThat(Files.exists(directory.resolve("budget-1.jsonl.gz"))).isTrue();
+    assertThat(jdbc.queryForObject("SELECT sum(bytes) FROM operations.log_archive", Long.class))
+        .isEqualTo(600000L);
+  }
+
+  @Test
+  void removesExpiredArchivesEvenWithoutNewExpiredDatabaseRows() throws Exception {
+    var file = directory.resolve("old.jsonl.gz");
+    Files.writeString(file, "old");
+    jdbc.update(
+        "INSERT INTO operations.log_archive VALUES (?,?,?,?,?,?,?)",
+        UUID.randomUUID(),
+        "old.jsonl.gz",
+        java.sql.Timestamp.from(Instant.now().minus(Duration.ofDays(31))),
+        java.sql.Timestamp.from(Instant.now()),
+        java.sql.Timestamp.from(Instant.now()),
+        1,
+        3);
+    store.archiveBefore(Instant.parse("2000-01-01T00:00:00Z"), 500);
+    assertThat(Files.exists(file)).isFalse();
+    assertThat(jdbc.queryForObject("SELECT count(*) FROM operations.log_archive", Long.class))
+        .isZero();
   }
 
   @Test

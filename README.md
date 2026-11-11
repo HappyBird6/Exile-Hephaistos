@@ -76,3 +76,5 @@ docker compose --env-file .env -f infra/compose.yaml --profile stack config --qu
 ```
 
 GitHub Actions는 사용하지 않습니다. `.gitattributes`는 Windows/Linux 줄바꿈을, `.editorconfig`는 편집기 인코딩·들여쓰기를 통일합니다.
+
+운영 보안·요청 제한·비용 보호 설정은 [보안 개발 문서](docs/security.md)를 참고하세요.

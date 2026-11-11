@@ -389,3 +389,36 @@ main.admin-shell {
   border: 0;
   padding: 0;
 }
+
+.admin-memory {
+  margin-block: 1rem;
+}
+.admin-memory > div {
+  display: grid;
+  grid-template-columns: minmax(8rem, 1fr) 2fr minmax(7rem, 1fr);
+  gap: 1rem;
+  align-items: center;
+  margin-block: 0.6rem;
+}
+.admin-memory meter {
+  width: 100%;
+  accent-color: #c9b977;
+}
+.admin-log-summary {
+  padding: 0.8rem;
+  background: #181818;
+}
+.admin-log-table {
+  min-width: 850px;
+}
+
+.admin-log-rankings .admin-card {
+  padding: 0.6rem;
+}
+.admin-log-rankings h2 {
+  font-size: 0.85rem;
+  margin: 0 0 0.3rem;
+}
+.admin-table-scroll {
+  min-height: 28rem;
+}

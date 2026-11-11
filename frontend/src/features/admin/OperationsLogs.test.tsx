@@ -85,7 +85,8 @@ it('switches the selected current day at Korean midnight', async () => {
   await act(async () => {
     await vi.advanceTimersByTimeAsync(20)
   })
-  expect(screen.getByLabelText('Hour')).toHaveValue('00')
+  expect(screen.queryByLabelText('Hour')).not.toBeInTheDocument()
+  expect(screen.getByRole('img')).toHaveTextContent('20:00')
   expect(screen.getByLabelText('Date (Korea)')).toHaveAttribute(
     'min',
     '2026-11-04',

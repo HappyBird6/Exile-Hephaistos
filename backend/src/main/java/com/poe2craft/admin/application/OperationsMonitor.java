@@ -111,6 +111,35 @@ public final class OperationsMonitor {
     result.put("recentMaxLatencyMs", maximum);
     result.put("heapUsedBytes", memory.getUsed());
     result.put("heapMaxBytes", memory.getMax());
+    result.put(
+        "memoryPools",
+        ManagementFactory.getMemoryPoolMXBeans().stream()
+            .filter(pool -> pool.getUsage() != null)
+            .map(
+                pool ->
+                    Map.of(
+                        "name",
+                        pool.getName(),
+                        "used",
+                        pool.getUsage().getUsed(),
+                        "committed",
+                        pool.getUsage().getCommitted(),
+                        "max",
+                        pool.getUsage().getMax()))
+            .toList());
+    result.put(
+        "garbageCollectors",
+        ManagementFactory.getGarbageCollectorMXBeans().stream()
+            .map(
+                gc ->
+                    Map.of(
+                        "name",
+                        gc.getName(),
+                        "count",
+                        gc.getCollectionCount(),
+                        "millis",
+                        gc.getCollectionTime()))
+            .toList());
     result.put("processors", Runtime.getRuntime().availableProcessors());
     result.put("cpuPercent", cpu < 0 ? null : cpu * 100);
     result.put("database", status("db"));

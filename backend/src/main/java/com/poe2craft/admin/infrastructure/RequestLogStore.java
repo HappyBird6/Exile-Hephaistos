@@ -16,6 +16,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 @Repository
 public class RequestLogStore implements com.poe2craft.admin.application.RequestLogRepository {
+  private final BackendSettings.AdminLogs limits;
   private final ZoneId zone;
   private final int pageSize;
   private final JdbcTemplate jdbc;
@@ -28,6 +29,7 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
       PlatformTransactionManager manager,
       ObjectMapper json,
       BackendSettings settings) {
+    limits = settings.adminLogs();
     zone = ZoneId.of(settings.adminLogs().timeZone());
     pageSize = settings.adminLogs().pageSize();
     this.jdbc = jdbc;
@@ -152,6 +154,7 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
   }
 
   public boolean archiveBefore(Instant cutoff, int limit) {
+    pruneArchives();
     Boolean done =
         transaction.execute(
             status -> {
@@ -237,7 +240,36 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
                   }
               }
             });
+    pruneArchives();
     return Boolean.TRUE.equals(done);
+  }
+
+  /**
+   * Retention is bounded independently from the database window. Only indexed archives are removed.
+   */
+  private void pruneArchives() {
+    var rows =
+        jdbc.queryForList(
+            "SELECT id,filename,created_at,bytes FROM operations.log_archive ORDER BY created_at DESC,id");
+    long retained = 0;
+    var cutoff = Instant.now().minus(java.time.Duration.ofDays(limits.archiveDays()));
+    for (var row : rows) {
+      long bytes = ((Number) row.get("bytes")).longValue();
+      boolean expired = ((Timestamp) row.get("created_at")).toInstant().isBefore(cutoff);
+      if (!expired && retained + bytes <= limits.archiveMaxBytes()) {
+        retained += bytes;
+        continue;
+      }
+      Path file = directory.resolve(row.get("filename").toString()).normalize();
+      if (!file.getParent().equals(directory))
+        throw new IllegalStateException("Invalid archive path");
+      try {
+        Files.deleteIfExists(file);
+      } catch (IOException error) {
+        throw new java.io.UncheckedIOException(error);
+      }
+      jdbc.update("DELETE FROM operations.log_archive WHERE id=?", row.get("id"));
+    }
   }
 
   public Map<String, Object> archives(int page) {

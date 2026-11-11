@@ -16,6 +16,9 @@ public class RequestLogService {
   private final BackendSettings.AdminLogs settings;
   private final ArrayBlockingQueue<RequestEvent> queue;
   private final AtomicLong dropped = new AtomicLong();
+  private LocalDate budgetDay;
+  private int dailyCount;
+  private long rejectionSecond = -1;
   private volatile String storageStatus = "OK";
   private volatile String archiveStatus = "OK";
 
@@ -31,8 +34,21 @@ public class RequestLogService {
     queue = new ArrayBlockingQueue<>(this.settings.queueCapacity());
   }
 
-  public void record(RequestEvent event) {
-    if (!queue.offer(event)) dropped.incrementAndGet();
+  public synchronized void record(RequestEvent event) {
+    var day = today();
+    if (!day.equals(budgetDay)) {
+      budgetDay = day;
+      dailyCount = 0;
+    }
+    long second = clock.instant().getEpochSecond();
+    if (dailyCount >= settings.dailyRecords()
+        || (event.status() == 429 && rejectionSecond == second)) {
+      dropped.incrementAndGet();
+      return;
+    }
+    if (event.status() == 429) rejectionSecond = second;
+    if (queue.offer(event)) dailyCount++;
+    else dropped.incrementAndGet();
   }
 
   @Scheduled(fixedDelayString = "${backend.admin-logs.flush-millis}")

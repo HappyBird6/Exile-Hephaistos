@@ -6,6 +6,12 @@ backend:
   admin-logs:
     # 한국시간 오늘 외에 DB에서 조회할 지난 날짜 수. 사용: admin/application/RequestLogService.java.
     previous-days: 7
+    # 압축 로그 보관 기간. 사용: RequestLogStore의 보관 정리.
+    archive-days: 30
+    # 압축 파일 총량 상한(1 GiB). 오래된 파일부터 삭제. 사용: RequestLogStore.
+    archive-max-bytes: 1073741824
+    # 하루 상세 로그 저장 상한. 초과는 dropped로 표시. 사용: RequestLogStore.
+    daily-records: 100000
     # 날짜별 집계·보관 경계와 관리자 날짜/그래프의 시간대. 사용: RequestLogService·RequestLogStore·관리자 화면.
     time-zone: Asia/Seoul
     # 요청/보관 파일 목록의 한 페이지 크기. 사용: RequestLogStore·관리자 화면.

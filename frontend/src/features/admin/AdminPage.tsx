@@ -7,6 +7,8 @@ import './admin.css'
 import { OperationsLogs, type AdminSection } from './OperationsLogs'
 import { logMessages } from './logMessages'
 type Dashboard = {
+  memoryPools?: { name: string; used: number; committed: number; max: number }[]
+  garbageCollectors?: { name: string; count: number; millis: number }[]
   logPolicy: import('./logCalendar').LogPolicy
   observedAt: string
   uptimeSeconds: number
@@ -246,6 +248,38 @@ export function AdminPage() {
                     </article>
                   ))}
                 </div>
+                {dashboard.memoryPools && (
+                  <section className="admin-card admin-memory">
+                    <h2>{text.memory}</h2>
+                    {dashboard.memoryPools.map((pool) => (
+                      <div key={pool.name}>
+                        <span>{pool.name}</span>
+                        <meter
+                          aria-label={pool.name}
+                          min={0}
+                          max={Math.max(
+                            1,
+                            pool.max > 0 ? pool.max : pool.committed,
+                          )}
+                          value={pool.used}
+                        />
+                        <span>
+                          {number(Math.round(pool.used / 1048576))} /{' '}
+                          {pool.max > 0
+                            ? number(Math.round(pool.max / 1048576))
+                            : '—'}{' '}
+                          MB
+                        </span>
+                      </div>
+                    ))}
+                    {dashboard.garbageCollectors?.map((gc) => (
+                      <p key={gc.name}>
+                        {gc.name} · GC: {gc.count < 0 ? '—' : number(gc.count)}{' '}
+                        · {gc.millis < 0 ? '—' : number(gc.millis)} ms
+                      </p>
+                    ))}
+                  </section>
+                )}
                 <div className="admin-panels">
                   <section className="admin-card">
                     <h2>{text.operations}</h2>
