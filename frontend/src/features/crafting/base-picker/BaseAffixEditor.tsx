@@ -164,6 +164,20 @@ function AffixSide({
             </span>
             <button
               type="button"
+              className="wb-base-affix__fractured"
+              aria-pressed={a.fractured === true}
+              onClick={() =>
+                onChange(
+                  affixes.map((x) =>
+                    x === a ? { ...x, fractured: !x.fractured } : x,
+                  ),
+                )
+              }
+            >
+              {t('ui.fractured')}
+            </button>
+            <button
+              type="button"
               aria-label={`${t('ui.remove')} · ${localizedModifierText(initial.modifiers[a.modifierId]!, a.values, locale)}`}
               onClick={() => onChange(affixes.filter((x) => x !== a))}
             >

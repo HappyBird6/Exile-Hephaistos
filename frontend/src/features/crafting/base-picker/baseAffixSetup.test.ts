@@ -111,3 +111,21 @@ it('keeps ordinary choices unlabelled and distinguishes guaranteed, exclusive de
     { id: 'starting-0', side: 'SUFFIX', modifierId: 'hidden' },
   ])
 })
+
+it('preserves fracture independently of crafted origin in the starting item', () => {
+  const state = startingItem(initialFixture, 'RARE', [
+    {
+      modifierId: 'fixture',
+      values: { life: 10 },
+      kind: 'crafted',
+      source: 'Essence',
+      fractured: true,
+    },
+  ])
+  expect(state.explicits[0]).toEqual({
+    modifierId: 'fixture',
+    values: { life: 10 },
+    crafted: true,
+    fractured: true,
+  })
+})

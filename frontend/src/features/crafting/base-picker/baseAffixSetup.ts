@@ -18,6 +18,7 @@ import type { Locale } from '../../../shared/i18n/i18n'
 export type StartingAffix = {
   modifierId: string
   values: Record<string, number>
+  fractured?: boolean
   kind: 'ordinary' | 'crafted' | 'desecrated'
   source: string
 }
@@ -39,6 +40,7 @@ export function startingItem(
     explicits: affixes.map((a) => ({
       modifierId: a.modifierId,
       values: a.values,
+      ...(a.fractured ? { fractured: true } : {}),
       ...(a.kind === 'crafted' ? { crafted: true } : {}),
     })),
     desecrated: affixes
