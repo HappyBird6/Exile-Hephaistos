@@ -57,6 +57,76 @@ class WorkbenchReferenceControllerTest {
   }
 
   @Test
+  void rebasingPreservesFractureCraftedQualityInfusionAndUnrevealedSlots() throws Exception {
+    var root = rare();
+    var state =
+        new ItemState(
+                root.snapshotId(),
+                root.baseItemId(),
+                100,
+                root.rarity(),
+                root.implicits(),
+                List.of(
+                    new ModifierInstance(
+                        QualityLimitRules.BREACH_ID,
+                        Map.of(QualityLimitRules.STAT_ID, 20L),
+                        false,
+                        true),
+                    new ModifierInstance(
+                        "amulet:suffix:of-the-overseer",
+                        Map.of("minion_skill_gem_level_+", 3L),
+                        true)),
+                Set.of(),
+                null,
+                new CatalystQuality(CatalystQuality.Type.NECROTIC, 50))
+            .withQualityInfused(true);
+    var abyss =
+        AbyssCraftingState.from(state, crafting.abyssCatalog(state))
+            .addUnrevealed(
+                "pending-reveal",
+                ModifierDefinition.AffixType.PREFIX,
+                crafting.abyssCatalog(state));
+    var input = (ObjectNode) json.valueToTree(abyss.storedItem());
+    input.put("snapshotId", "previous-season");
+    var before = input.deepCopy();
+    var response =
+        request(
+            "session-compatibility", Map.of("state", input, "compatibilityId", "previous-rule"));
+    assertThat(response.path("compatible").asBoolean()).as(response.toString()).isTrue();
+    assertThat(response.path("sameRules").asBoolean()).isFalse();
+    assertThat(input).isEqualTo(before);
+    before.put("snapshotId", response.path("state").path("snapshotId").asText());
+    assertThat(response.path("state")).isEqualTo(json.readTree(before.toString()));
+    assertThat(response.path("abyss").path("slots").toString()).contains("pending-reveal");
+  }
+
+  @Test
+  void rebasingPreservesInstalledRunesAndEquipmentInfusion() throws Exception {
+    var f = new StockyCraftingFixture();
+    var base = f.root;
+    var state =
+        new ItemState(
+                base.snapshotId(),
+                base.baseItemId(),
+                82,
+                base.rarity(),
+                base.implicits(),
+                base.explicits(),
+                Set.of(),
+                2)
+            .withEquipmentQuality(30)
+            .withQualityInfused(true);
+    state = SocketAugments.install(state, 0, "Perfect_Desert_Rune");
+    var input = (ObjectNode) json.valueToTree(state);
+    input.put("snapshotId", "previous-season");
+    var response = request("session-compatibility", Map.of("state", input));
+    assertThat(response.path("compatible").asBoolean()).as(response.toString()).isTrue();
+    var expected = input.deepCopy();
+    expected.put("snapshotId", response.path("state").path("snapshotId").asText());
+    assertThat(response.path("state")).isEqualTo(json.readTree(expected.toString()));
+  }
+
+  @Test
   void oldSnapshotCanBecomeANewCheckpointWithoutChangingRollsOrInput() throws Exception {
     var state = (ObjectNode) json.valueToTree(rare());
     state.put("snapshotId", "old-snapshot");

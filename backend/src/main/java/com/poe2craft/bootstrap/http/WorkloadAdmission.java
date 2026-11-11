@@ -48,7 +48,9 @@ public class WorkloadAdmission implements WebMvcConfigurer {
                 }
                 // Repeat batches have a separate, smaller budget; cancellation must not wait for
                 // it.
-                if (request.getRequestURI().contains("/workbench/chaos-repeat")) return true;
+                if (handler instanceof HandlerMethod method
+                    && com.poe2craft.workbench.api.ChaosRepeatController.class.isAssignableFrom(
+                        method.getBeanType())) return true;
                 if (!ordinary.tryAcquire()) {
                   reject(response, 429, "WORKBENCH_BUSY");
                   return false;

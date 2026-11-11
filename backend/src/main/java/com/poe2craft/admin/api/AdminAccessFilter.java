@@ -32,7 +32,9 @@ public final class AdminAccessFilter extends OncePerRequestFilter {
 
   @Override
   protected boolean shouldNotFilter(HttpServletRequest request) {
-    return !request.getRequestURI().startsWith("/api/admin/");
+    String path =
+        org.springframework.web.util.UrlPathHelper.defaultInstance.getLookupPathForRequest(request);
+    return !path.equals("/api/admin") && !path.startsWith("/api/admin/");
   }
 
   @Override

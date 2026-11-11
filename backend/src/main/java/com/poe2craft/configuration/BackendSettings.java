@@ -24,7 +24,14 @@ public record BackendSettings(
     @Valid @NotNull Cache cache,
     @Valid @NotNull Storage storage,
     @Valid @NotNull Workbench workbench,
-    @Valid @NotNull Prices prices) {
+    @Valid @NotNull Prices prices,
+    @Valid @NotNull RequestProtection requestProtection) {
+
+  public record RequestProtection(
+      @Min(1) int requestsPerSecond,
+      @Min(1) int burst,
+      @Min(1) int maxInFlight,
+      @Min(1024) @Max(1048576) int maxBodyBytes) {}
 
   public record PathSearch(
       @Min(1) int maxJobs,

@@ -47,8 +47,19 @@ class WorkloadAdmissionTest {
                 new MockHttpServletRequest(
                     "POST", "/api/v1/crafting/workbench/chaos-repeat/id/cancel"),
                 new MockHttpServletResponse(),
-                new Object()))
+                new HandlerMethod(
+                    mock(com.poe2craft.workbench.api.ChaosRepeatController.class),
+                    com.poe2craft.workbench.api.ChaosRepeatController.class.getMethod(
+                        "cancel", String.class))))
         .isTrue();
+    // User-controlled matrix text must not grant the repeat-controller admission exemption.
+    assertThat(
+            gate.preHandle(
+                new MockHttpServletRequest(
+                    "POST", "/api/v1/crafting/workbench/apply;x=/workbench/chaos-repeat"),
+                new MockHttpServletResponse(),
+                new Object()))
+        .isFalse();
     gate.afterCompletion(
         first, new MockHttpServletResponse(), new Object(), new RuntimeException());
     assertThat(gate.preHandle(second, new MockHttpServletResponse(), new Object())).isTrue();

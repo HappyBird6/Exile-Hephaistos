@@ -11,6 +11,20 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 class AdminDashboardControllerTest {
   @Test
+  void authenticatesEncodedAndMatrixParameterPathsBeforeRouting() throws Exception {
+    var monitor = mock(OperationsMonitor.class);
+    var mvc =
+        MockMvcBuilders.standaloneSetup(new AdminDashboardController(monitor))
+            .addFilters(new AdminAccessFilter("test-password"))
+            .build();
+    for (String path :
+        List.of("/api/admin;x/dashboard", "/api/%61dmin/dashboard", "/api/admin%2Fdashboard")) {
+      mvc.perform(get(java.net.URI.create(path))).andExpect(status().isUnauthorized());
+    }
+    verifyNoInteractions(monitor);
+  }
+
+  @Test
   void disabledWithoutConfiguredPassword() throws Exception {
     var monitor = mock(OperationsMonitor.class);
     MockMvcBuilders.standaloneSetup(new AdminDashboardController(monitor))

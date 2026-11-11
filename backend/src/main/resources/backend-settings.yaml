@@ -3,6 +3,16 @@
 # 변경 후 서버 재시작이 필요하다. BACKEND_... 환경변수로도 덮어쓸 수 있다.
 # 확률·weight·옵션 수·API 버전·저장 스키마는 운영 설정이 아니므로 여기에 넣지 않는다.
 backend:
+  request-protection:
+    # 인스턴스 전체 API 초당 허용량. IP별 제한은 Nginx에서 수행한다.
+    # 사용: bootstrap/http/ApiRequestProtection.java. 프록시 헤더를 신뢰하지 않는다.
+    requests-per-second: 120
+    # 짧은 초기 카탈로그/화면 요청 묶음을 허용하는 토큰 수. 같은 파일에서 사용.
+    burst: 240
+    # 본문 읽기부터 응답 완료까지 동시에 처리할 API 수. 같은 파일에서 사용.
+    max-in-flight: 32
+    # 길이 미상/chunked 요청도 포함한 본문 바이트 상한. 같은 파일에서 사용.
+    max-body-bytes: 262144
   path-search:
     # 메모리에 보관할 v1 경로 탐색 작업 수. 완료·만료 정책과 함께 용량을 결정한다.
     # 사용: craftingsupport/search/application/PathSearchService.java

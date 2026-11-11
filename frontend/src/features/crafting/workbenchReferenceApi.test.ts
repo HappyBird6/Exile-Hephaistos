@@ -82,7 +82,7 @@ it.each([
   ).rejects.toThrow('Invalid modifier reference')
 })
 it('accepts an exact legacy checkpoint with wire defaults, preserves its original film and persists lineage', async () => {
-  const past = { ...root, snapshotId: 'past' }
+  const past = { ...root, snapshotId: 'past', qualityInfused: true }
   const original = startFilm(
     emptyFilms(),
     past,
@@ -93,6 +93,7 @@ it('accepts an exact legacy checkpoint with wire defaults, preserves its origina
   const bytes = JSON.stringify(original)
   const responseState = {
     ...root,
+    qualityInfused: true,
     installedAugments: [],
     desecrated: [],
     catalystQuality: null,
@@ -149,6 +150,7 @@ it('accepts an exact legacy checkpoint with wire defaults, preserves its origina
   repo.save(next)
   expect(currentFilm(repo.load())?.compatibilityId).toBe(result.compatibilityId)
   expect(repo.load().films[0]).toEqual(original.films[0])
+  expect(currentFilm(repo.load())?.frames[0]?.state.qualityInfused).toBe(true)
 })
 it('rejects a response which changes item values or claims a different compatibility key', async () => {
   for (const data of [

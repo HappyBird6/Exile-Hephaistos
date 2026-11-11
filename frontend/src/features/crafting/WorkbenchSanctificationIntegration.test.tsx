@@ -53,11 +53,11 @@ it('activates sanctification, displays its factor once and restores the original
     explicits: [{ modifierId: 'p', values: { life: 17 } }],
   }
   const sanctification = {
-    policy: 'independent-stat-percent-v1' as const,
+    policy: 'explicit-stat-percent-v2' as const,
     implicits: {},
     explicits: {},
   } as NonNullable<ConcreteItem['sanctification']>
-  for (const layer of ['implicits', 'explicits'] as const)
+  for (const layer of ['explicits'] as const)
     for (const modifier of state[layer]) {
       const targets = sanctificationTargets(
         initialFixture.modifiers[modifier.modifierId]!,
@@ -65,7 +65,7 @@ it('activates sanctification, displays its factor once and restores the original
       )
       if (targets.length)
         sanctification[layer][modifier.modifierId] = Object.fromEntries(
-          targets.map((id) => [id, layer === 'explicits' ? 79 : 100]),
+          targets.map((id) => [id, 79]),
         )
     }
   const next: ConcreteItem = {
@@ -103,7 +103,7 @@ it('activates sanctification, displays its factor once and restores the original
           events: [],
           assumptions: [
             {
-              id: 'sanctification-independent-stat-percent-v1',
+              id: 'sanctification-explicit-rounded-v2',
               candidateUnit: 'numeric modifier stat',
               n: 45,
               candidates: [],
@@ -130,7 +130,7 @@ it('activates sanctification, displays its factor once and restores the original
     }),
   )
   await waitFor(() => expect(screen.getByText('Sanctified')).toBeVisible())
-  expect(screen.getByText(/13\.4.*maximum Life/)).toBeVisible()
+  expect(screen.getByText(/13.*maximum Life/)).toBeVisible()
   const recorded = currentFrame(
     new LocalFilmRepository(localStorage).load(),
   )!.state
@@ -141,5 +141,5 @@ it('activates sanctification, displays its factor once and restores the original
   client.clear()
   show()
   expect(screen.getByText('Sanctified')).toBeVisible()
-  expect(screen.getByText(/13\.4.*maximum Life/)).toBeVisible()
+  expect(screen.getByText(/13.*maximum Life/)).toBeVisible()
 })
