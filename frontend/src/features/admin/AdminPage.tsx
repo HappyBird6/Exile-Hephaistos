@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useI18n } from '../../shared/i18n/i18n'
 import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
@@ -69,12 +69,30 @@ export function AdminPage() {
     MEMORY: text.memory,
     SERVER_ERRORS: text.errors,
   }
-  const lock = () => {
-    setCredential('')
-    setPassword('')
-    setEpoch((x) => x + 1)
-    client.removeQueries({ queryKey: ['admin-dashboard'] })
-  }
+  useEffect(() => {
+    const clearDashboard = () => {
+      void client.cancelQueries({ queryKey: ['admin-dashboard'] })
+      client.removeQueries({ queryKey: ['admin-dashboard'] })
+    }
+    const leavePage = () => {
+      setCredential('')
+      setPassword('')
+      setEpoch((value) => value + 1)
+      clearDashboard()
+    }
+    // Back/forward cache can restore this component without remounting it.
+    const restorePage = (event: PageTransitionEvent) => {
+      if (event.persisted) leavePage()
+    }
+    window.addEventListener('pagehide', leavePage)
+    window.addEventListener('pageshow', restorePage)
+    return () => {
+      window.removeEventListener('pagehide', leavePage)
+      window.removeEventListener('pageshow', restorePage)
+      clearDashboard()
+    }
+  }, [client])
+
   return (
     <main className="admin-shell">
       <aside className="admin-sidebar">
@@ -96,7 +114,6 @@ export function AdminPage() {
           </div>
           <div className="admin-header-actions">
             <LocaleSelector />
-            {credential && <button onClick={lock}>{text.lock}</button>}
           </div>
         </header>
         {!dashboard ? (

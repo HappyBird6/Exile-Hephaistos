@@ -6,7 +6,6 @@ export const adminMessages: Record<
     | 'management'
     | 'navigation'
     | 'operations'
-    | 'lock'
     | 'password'
     | 'login'
     | 'wrong'
@@ -50,7 +49,6 @@ export const adminMessages: Record<
     management: 'Site administration',
     navigation: 'Administration menu',
     operations: 'Site operations',
-    lock: 'Lock',
     password: 'Password',
     login: 'Sign in',
     wrong: 'Check your password.',
@@ -93,7 +91,6 @@ export const adminMessages: Record<
     management: '사이트 관리',
     navigation: '관리 메뉴',
     operations: '사이트 운영',
-    lock: '잠금',
     password: '비밀번호',
     login: '로그인',
     wrong: '비밀번호를 확인해주세요.',
@@ -136,7 +133,6 @@ export const adminMessages: Record<
     management: 'サイト管理',
     navigation: '管理メニュー',
     operations: 'サイト運用',
-    lock: 'ロック',
     password: 'パスワード',
     login: 'ログイン',
     wrong: 'パスワードを確認してください。',
@@ -179,7 +175,6 @@ export const adminMessages: Record<
     management: 'Administración',
     navigation: 'Menú de administración',
     operations: 'Operación del sitio',
-    lock: 'Bloquear',
     password: 'Contraseña',
     login: 'Entrar',
     wrong: 'Comprueba la contraseña.',
@@ -222,7 +217,6 @@ export const adminMessages: Record<
     management: 'Управление сайтом',
     navigation: 'Меню управления',
     operations: 'Работа сайта',
-    lock: 'Заблокировать',
     password: 'Пароль',
     login: 'Войти',
     wrong: 'Проверьте пароль.',
@@ -265,7 +259,6 @@ export const adminMessages: Record<
     management: '网站管理',
     navigation: '管理菜单',
     operations: '网站运行',
-    lock: '锁定',
     password: '密码',
     login: '登录',
     wrong: '请检查密码。',
@@ -308,7 +301,6 @@ export const adminMessages: Record<
     management: '網站管理',
     navigation: '管理選單',
     operations: '網站運作',
-    lock: '鎖定',
     password: '密碼',
     login: '登入',
     wrong: '請檢查密碼。',
@@ -351,7 +343,6 @@ export const adminMessages: Record<
     management: 'จัดการเว็บไซต์',
     navigation: 'เมนูผู้ดูแล',
     operations: 'สถานะเว็บไซต์',
-    lock: 'ล็อก',
     password: 'รหัสผ่าน',
     login: 'เข้าสู่ระบบ',
     wrong: 'โปรดตรวจสอบรหัสผ่าน',

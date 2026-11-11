@@ -23,7 +23,7 @@ const dashboard = {
   traffic: [{ at: '2026-11-11T01:00:00Z', requests: 42, errors: 1 }],
   alerts: ['PRICES'],
 }
-it('authenticates in memory, shows operational data and clears it when locked', async () => {
+it('authenticates in memory, shows operational data and requires a fresh password after leaving the page', async () => {
   const request = vi
     .fn()
     .mockResolvedValue(new Response(JSON.stringify(dashboard), { status: 200 }))
@@ -56,9 +56,18 @@ it('authenticates in memory, shows operational data and clears it when locked', 
   expect(
     screen.getByText('Currency prices', { selector: 'span' }),
   ).toBeInTheDocument()
-  fireEvent.click(screen.getByRole('button', { name: 'Lock' }))
+  expect(screen.queryByRole('button', { name: 'Lock' })).not.toBeInTheDocument()
+  fireEvent(window, new PageTransitionEvent('pagehide', { persisted: true }))
+  fireEvent(window, new PageTransitionEvent('pageshow', { persisted: true }))
   await screen.findByLabelText('Password')
   expect(screen.queryByText('42')).not.toBeInTheDocument()
+  expect(screen.getByLabelText('Password')).toHaveValue('')
+  expect(
+    client
+      .getQueryCache()
+      .getAll()
+      .some((q) => q.state.data),
+  ).toBe(false)
 })
 it('keeps metrics hidden after failed authentication', async () => {
   vi.stubGlobal(
