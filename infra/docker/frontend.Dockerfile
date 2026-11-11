@@ -10,7 +10,8 @@ COPY backend/src/main/ /workspace/backend/src/main/
 COPY docs/evidence/ /workspace/docs/evidence/
 ARG VITE_CRAFT_SUPPORT_ENABLED=true
 ENV VITE_CRAFT_SUPPORT_ENABLED=$VITE_CRAFT_SUPPORT_ENABLED
-RUN npm run build
+# Public assets may arrive with restrictive workspace permissions; Nginx runs as UID 101.
+RUN npm run build && chmod -R a+rX dist
 FROM nginxinc/nginx-unprivileged:stable-alpine@sha256:04a3275f25d766cff8926d2e57b2ff34a783d6b12a702dc98bb82226d2d9a508
 COPY --chmod=644 infra/docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /workspace/frontend/dist/ /usr/share/nginx/html/
