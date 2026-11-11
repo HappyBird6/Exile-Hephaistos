@@ -24,9 +24,33 @@ const dashboard = {
   alerts: ['PRICES'],
 }
 it('authenticates in memory, shows operational data and requires a fresh password after leaving the page', async () => {
-  const request = vi
-    .fn()
-    .mockResolvedValue(new Response(JSON.stringify(dashboard), { status: 200 }))
+  const request = vi.fn().mockImplementation((url: string) =>
+    Promise.resolve(
+      new Response(
+        JSON.stringify(
+          url.includes('/requests')
+            ? {
+                summary: { requests: 42 },
+                minutes: [],
+                routes: [],
+                ips: [],
+                visitors: [],
+                rows: [],
+                page: 1,
+                pageSize: 40,
+                logging: {
+                  queued: 0,
+                  dropped: 0,
+                  storage: 'OK',
+                  archive: 'OK',
+                },
+              }
+            : dashboard,
+        ),
+        { status: 200 },
+      ),
+    ),
+  )
   vi.stubGlobal('fetch', request)
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false } },
@@ -41,7 +65,7 @@ it('authenticates in memory, shows operational data and requires a fresh passwor
     target: { value: 'test-password' },
   })
   fireEvent.click(screen.getByRole('button', { name: 'Sign in' }))
-  await screen.findByText('42')
+  await screen.findByRole('button', { name: '42 ↗' })
   expect(request.mock.calls[0]?.[1]?.headers.Authorization).toBe(
     'Basic ' + btoa('admin:test-password'),
   )
@@ -90,5 +114,7 @@ it('keeps metrics hidden after failed authentication', async () => {
   await waitFor(() =>
     expect(screen.getByRole('alert')).toHaveTextContent('Check your password.'),
   )
-  expect(screen.queryByText('API requests')).not.toBeInTheDocument()
+  expect(
+    screen.queryByText('Currency prices', { selector: 'span' }),
+  ).not.toBeInTheDocument()
 })

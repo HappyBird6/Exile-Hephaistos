@@ -29,6 +29,13 @@ function flush() {
 }
 export function startBrowserTelemetry() {
   if (location.pathname.startsWith('/admin')) return
+  if (
+    !document.cookie
+      .split('; ')
+      .some((value) => /^hephaistos_visitor=[0-9a-f-]{36}$/i.test(value))
+  ) {
+    document.cookie = `hephaistos_visitor=${crypto.randomUUID()}; Path=/; Max-Age=2592000; SameSite=Lax${location.protocol === 'https:' ? '; Secure' : ''}`
+  }
   reportBrowserEvent(
     location.pathname.startsWith('/history/')
       ? 'view_history'

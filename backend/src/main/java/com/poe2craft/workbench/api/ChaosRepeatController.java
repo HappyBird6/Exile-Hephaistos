@@ -173,7 +173,7 @@ public final class ChaosRepeatController {
     var omens = new HashSet<String>();
     for (var omen : omensNode) if (!omens.add(text(omen))) throw RepeatRejected.input();
     var maximum = body.get("maximumUses");
-    int limit = 100;
+    int limit = 1000;
     if (maximum != null) {
       if (!maximum.isIntegralNumber() || !maximum.canConvertToInt()) throw RepeatRejected.input();
       limit = maximum.intValue();

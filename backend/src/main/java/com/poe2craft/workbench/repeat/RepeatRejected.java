@@ -25,7 +25,6 @@ public final class RepeatRejected extends IllegalArgumentException {
     return new RepeatRejected(
         422,
         "INVALID_CHAOS_REPEAT_REQUEST",
-        "Provide a canonical supported item, UUID requestId, Chaos action, known unique omens, one"
-            + " of the eight site locales, and an integer maximumUses from 1 to 1000 (default 100).");
+        "The Chaos repeat request contains an invalid item state or unsupported parameters.");
   }
 }

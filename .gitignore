@@ -21,3 +21,6 @@
 **/data/method-jobs/
 # Raw external evidence is local-only; fixtures are separately reviewed.
 data-pipeline/captures/
+
+# Private operational log archives (download through authenticated admin API only).
+**/data/operations-logs/

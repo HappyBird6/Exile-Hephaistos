@@ -24,23 +24,25 @@ public final class WorkbenchStateReader {
 
   public ItemState concreteState(JsonNode input, boolean allowDesecrated) {
     var fields =
-        Set.of(
-            "snapshotId",
-            "baseItemId",
-            "itemLevel",
-            "rarity",
-            "implicits",
-            "explicits",
-            "conditions",
-            "augmentSockets",
-            "installedAugments",
-            "catalystQuality",
-            "equipmentQuality",
-            "qualityInfused",
-            "observations",
-            "sanctification",
-            "desecrated",
-            "modifierIds");
+        new java.util.HashSet<>(
+            Set.of(
+                "snapshotId",
+                "baseItemId",
+                "itemLevel",
+                "rarity",
+                "implicits",
+                "explicits",
+                "conditions",
+                "augmentSockets",
+                "installedAugments",
+                "catalystQuality",
+                "equipmentQuality",
+                "qualityInfused",
+                "observations",
+                "sanctification",
+                "desecrated",
+                "modifierIds"));
+    fields.addAll(ItemStateWireDefaults.ITEM_FLAGS);
     if (input == null || !input.isObject())
       throw new IllegalArgumentException("Concrete item state required");
     input
@@ -49,8 +51,9 @@ public final class WorkbenchStateReader {
             name -> {
               if (!fields.contains(name)) throw new WorkbenchController.UnsupportedItemProperties();
             });
-    if (input.has("qualityInfused") && !input.get("qualityInfused").isBoolean())
-      throw new WorkbenchController.UnsupportedItemProperties();
+    for (String flag : ItemStateWireDefaults.ITEM_FLAGS)
+      if (input.has(flag) && !input.get(flag).isBoolean())
+        throw new WorkbenchController.UnsupportedItemProperties();
     var installed = input.get("installedAugments");
     if (installed != null && !installed.isNull()) {
       if (!installed.isArray() || installed.size() > 3)
@@ -140,7 +143,8 @@ public final class WorkbenchStateReader {
         && !sockets.isNull()
         && (!sockets.isIntegralNumber() || !sockets.canConvertToInt()))
       throw new IllegalArgumentException("Integral socket count required");
-    var modifierFields = Set.of("modifierId", "values", "fractured", "crafted");
+    var modifierFields = new java.util.HashSet<>(Set.of("modifierId", "values"));
+    modifierFields.addAll(ItemStateWireDefaults.MODIFIER_FLAGS);
     var quality = input.get("catalystQuality");
     if (quality != null && !quality.isNull()) {
       if (!quality.isObject()
@@ -165,7 +169,7 @@ public final class WorkbenchStateReader {
                   if (!modifierFields.contains(name))
                     throw new WorkbenchController.UnsupportedItemProperties();
                 });
-        for (String flag : List.of("fractured", "crafted"))
+        for (String flag : ItemStateWireDefaults.MODIFIER_FLAGS)
           if (instance.has(flag) && !instance.get(flag).isBoolean())
             throw new WorkbenchController.UnsupportedItemProperties();
         var values = instance.get("values");
@@ -181,7 +185,7 @@ public final class WorkbenchStateReader {
       }
     }
     // modifierIds is legacy derived bucket metadata, never an authoritative item property.
-    return json.convertValue(withModifierDefaults(input), ItemState.class);
+    return json.convertValue(ItemStateWireDefaults.normalized(input), ItemState.class);
   }
 
   public AbyssCraftingState abyssState(JsonNode input) {
@@ -195,31 +199,13 @@ public final class WorkbenchStateReader {
               .with(
                   com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
               .without(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_FLOAT_AS_INT)
-              .readValue(withModifierDefaults(input).traverse(json));
+              .readValue(ItemStateWireDefaults.normalized(input).traverse(json));
       var result = (AbyssCraftingState) state;
       result.validate(simulator.abyssCatalog(result.item()));
       return result;
     } catch (java.io.IOException invalid) {
       throw new IllegalArgumentException("Invalid Abyss state");
     }
-  }
-
-  /**
-   * Only omitted legacy modifier flags get defaults; explicit nulls and wrong types stay invalid.
-   */
-  private JsonNode withModifierDefaults(JsonNode input) {
-    var copy = input.deepCopy();
-    addModifierDefaults(copy);
-    return copy;
-  }
-
-  private void addModifierDefaults(JsonNode node) {
-    if (node.isObject() && node.path("modifierId").isTextual() && node.path("values").isObject()) {
-      var modifier = (com.fasterxml.jackson.databind.node.ObjectNode) node;
-      for (String flag : List.of("fractured", "crafted"))
-        if (!modifier.has(flag)) modifier.put(flag, false);
-    }
-    if (node.isContainerNode()) node.elements().forEachRemaining(this::addModifierDefaults);
   }
 
   private void validateAbyssNumbers(JsonNode node) {

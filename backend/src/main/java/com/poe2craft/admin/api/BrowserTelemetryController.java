@@ -25,7 +25,9 @@ public final class BrowserTelemetryController {
       @Min(1) @Max(100) int count) {}
 
   @PostMapping
-  public ResponseEntity<Void> record(@RequestBody @Size(max = 6) List<@Valid Event> events) {
+  public ResponseEntity<Void> record(
+      @RequestBody @Size(max = 6) List<@Valid Event> events,
+      jakarta.servlet.http.HttpServletRequest request) {
     if (events == null
         || events.size() > 6
         || events.stream()
@@ -37,6 +39,9 @@ public final class BrowserTelemetryController {
                         || e.count() < 1
                         || e.count() > 100)) return ResponseEntity.badRequest().build();
     events.forEach(e -> monitor.record(e.kind(), e.count()));
+    request.setAttribute(
+        "operations.pageViews",
+        events.stream().filter(e -> e.kind().startsWith("view_")).mapToInt(Event::count).sum());
     return ResponseEntity.noContent().cacheControl(CacheControl.noStore()).build();
   }
 }

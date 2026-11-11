@@ -40,6 +40,8 @@ services:
       SPRING_DATA_REDIS_HOST: redis
       SPRING_DATA_REDIS_PORT: 6379
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      # Backend port remains loopback-only; trust Tomcat internal-proxy forwarding from Nginx.
+      SERVER_FORWARD_HEADERS_STRATEGY: native
     volumes:
       - app-data:/app/data
     depends_on:

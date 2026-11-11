@@ -64,7 +64,24 @@ class ChaosRepeatControllerTest {
   }
 
   @Test
-  void bothStateKindsReturnFlatStateFreeWitnessAndBindExactReceivedBytesWithDefault100()
+  void acceptsOmittedLegacyInfusionFlagInConcreteAndAbyssRequests() throws Exception {
+    for (boolean abyss : List.of(false, true)) {
+      var body = request(abyss);
+      var item =
+          (ObjectNode)
+              (abyss
+                  ? body.path("state").path("abyss").path("item")
+                  : body.path("state").path("item"));
+      item.remove("qualityInfused");
+      body.put("maximumUses", 1);
+      assertThat(send(body, 200).path("actualUses").asInt()).isEqualTo(1);
+      item.putNull("qualityInfused");
+      send(body, 422);
+    }
+  }
+
+  @Test
+  void bothStateKindsReturnFlatStateFreeWitnessAndBindExactReceivedBytesWithDefault1000()
       throws Exception {
     for (boolean abyss : List.of(false, true)) {
       var body = request(abyss);
@@ -73,7 +90,7 @@ class ChaosRepeatControllerTest {
       assertThat(result.path("requestBinding").path("requestSha256").asText())
           .isEqualTo(ChaosRepeatController.sha256(bytes));
       assertThat(result.path("requestBinding").path("requestId").asText()).isEqualTo(ID);
-      assertThat(result.path("requestBinding").path("maximumUses").intValue()).isEqualTo(100);
+      assertThat(result.path("requestBinding").path("maximumUses").intValue()).isEqualTo(1000);
       assertThat(result.path("requestBinding").path("matcherVersion").asText())
           .isEqualTo(ChaosRepeatPattern.VERSION);
       assertThat(result.path("actualUses").intValue()).isEqualTo(1);

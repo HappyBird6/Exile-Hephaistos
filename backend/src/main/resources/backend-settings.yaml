@@ -3,6 +3,21 @@
 # 변경 후 서버 재시작이 필요하다. BACKEND_... 환경변수로도 덮어쓸 수 있다.
 # 확률·weight·옵션 수·API 버전·저장 스키마는 운영 설정이 아니므로 여기에 넣지 않는다.
 backend:
+  admin-logs:
+    # 한국시간 오늘 외에 DB에서 조회할 지난 날짜 수. 사용: admin/application/RequestLogService.java.
+    previous-days: 7
+    # 요청 스레드에서 DB를 기다리지 않는 대기열 상한. 초과/실패 건수는 관리자 화면에 표시. 같은 파일에서 사용.
+    queue-capacity: 10000
+    # 한 번에 DB에 넣거나 파일로 옮길 최대 로그 수. 같은 파일 및 admin/infrastructure/RequestLogStore.java에서 사용.
+    batch-size: 500
+    # 비동기 저장 주기(ms). 사용: RequestLogService.flush.
+    flush-millis: 2000
+    # 만료 날짜의 파일 보관 작업 주기(ms). 사용: RequestLogService.archive.
+    archive-millis: 60000
+    # 한 차례 파일 보관 작업의 시간 예산(ms). 장시간 다른 예약 작업을 지연시키지 않음. 사용: RequestLogService.archive.
+    archive-work-millis: 5000
+    # 공개 웹 루트 밖의 압축 보관 경로. 사용: RequestLogStore. Compose app-data 볼륨에 보존.
+    archive-directory: data/operations-logs
   request-protection:
     # 인스턴스 전체 API 초당 허용량. IP별 제한은 Nginx에서 수행한다.
     # 사용: bootstrap/http/ApiRequestProtection.java. 프록시 헤더를 신뢰하지 않는다.

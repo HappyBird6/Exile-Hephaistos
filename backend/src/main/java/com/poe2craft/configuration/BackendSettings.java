@@ -25,7 +25,17 @@ public record BackendSettings(
     @Valid @NotNull Storage storage,
     @Valid @NotNull Workbench workbench,
     @Valid @NotNull Prices prices,
-    @Valid @NotNull RequestProtection requestProtection) {
+    @Valid @NotNull RequestProtection requestProtection,
+    @Valid @NotNull AdminLogs adminLogs) {
+
+  public record AdminLogs(
+      @Min(1) @Max(31) int previousDays,
+      @Min(100) int queueCapacity,
+      @Min(1) @Max(5000) int batchSize,
+      @Min(100) int flushMillis,
+      @Min(1000) int archiveMillis,
+      @Min(100) @Max(60000) int archiveWorkMillis,
+      @NotBlank String archiveDirectory) {}
 
   public record RequestProtection(
       @Min(1) int requestsPerSecond,
