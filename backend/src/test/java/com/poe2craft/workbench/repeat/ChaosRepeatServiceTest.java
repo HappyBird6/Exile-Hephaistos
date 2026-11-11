@@ -24,6 +24,24 @@ class ChaosRepeatServiceTest {
     return new ChaosRepeatService(WORKBENCH, DISPLAY, "test-ruleset");
   }
 
+  @Test
+  void cancellationPreservesOnlyCompletedUsesForConcreteAndAbyssStates() {
+    for (State state :
+        List.of(new Concrete(rare()), new Abyss(abyss(true)), new Abyss(abyss(false)))) {
+      var checks = new AtomicInteger();
+      var result =
+          service()
+              .run(
+                  input(state, WorkbenchCurrency.CHAOS, 1000, Set.of(), "__never_matches__", "en"),
+                  new Random(42),
+                  () -> checks.incrementAndGet() > 3);
+      assertThat(result.actualUses()).isEqualTo(3);
+      assertThat(result.termination()).isEqualTo("ERROR");
+      assertThat(result.failure().stage()).isEqualTo("STOP_SIGNAL");
+      assertThat(result.lastAppliedWitness()).isNotNull();
+    }
+  }
+
   @ParameterizedTest
   @EnumSource(
       value = WorkbenchCurrency.class,

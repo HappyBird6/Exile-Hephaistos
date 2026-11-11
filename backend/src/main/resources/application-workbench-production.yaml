@@ -1,0 +1,28 @@
+# 작업대 우선 배포용 프로필: SPRING_PROFILES_ACTIVE=workbench-production.
+# 운영 서버 용량은 실측 후 조정한다. 현재 값은 자원 사용량을 제한하는 시작값이다.
+backend:
+  workbench:
+    # 보류된 제작지원 API를 서버에서 차단. 사용: bootstrap/http/WorkloadAdmission.java
+    support-enabled: false
+server:
+  tomcat:
+    threads:
+      # HTTP worker 수의 상한. 사용: Spring Boot Tomcat connector.
+      max: 48
+      min-spare: 4
+    # worker가 모두 사용 중일 때의 연결 대기 상한. 무제한 대기를 피한다.
+    accept-count: 32
+    max-connections: 256
+    connection-timeout: 10s
+  compression:
+    # 압축은 Nginx에서 수행하여 JVM의 제작 worker와 CPU를 공유하지 않는다.
+    enabled: false
+    mime-types: application/json,application/problem+json,text/plain,text/css,application/javascript
+    min-response-size: 1024
+spring:
+  datasource:
+    hikari:
+      # 현재 작업대는 세션을 브라우저에 저장하므로 DB 연결을 넉넉하게 선점하지 않는다.
+      maximum-pool-size: 8
+      minimum-idle: 1
+      connection-timeout: 3000

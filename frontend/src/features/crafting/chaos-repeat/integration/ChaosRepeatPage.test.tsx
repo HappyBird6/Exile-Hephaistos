@@ -57,7 +57,11 @@ const slot = () =>
 const shared = () =>
   document.querySelector<HTMLElement>('.workbench-feedback-tooltip')!
 const craftingCalls = () =>
-  fetchMock.mock.calls.filter(([url]) => String(url).includes('/workbench/'))
+  fetchMock.mock.calls.filter(
+    ([url]) =>
+      String(url).includes('/workbench/') &&
+      !String(url).includes('/modifier-pools'),
+  )
 
 it('edits the pattern and toggles mode without using currency or exposing a count editor', () => {
   show()

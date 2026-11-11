@@ -71,7 +71,7 @@ class RulesetManifestLoaderTest {
   @Test
   void currentBundleIsSealedAndUnknownSeasonsAreExplicit() {
     var manifest = RulesetManifestLoader.load();
-    assertEquals(605, manifest.files().size());
+    assertEquals(607, manifest.files().size());
     assertTrue(manifest.files().containsKey("catalog/equipment-currencies.json"));
     assertTrue(manifest.files().containsKey("catalog/augments.json"));
     assertTrue(manifest.files().containsKey("catalog/manual-reveal.json"));

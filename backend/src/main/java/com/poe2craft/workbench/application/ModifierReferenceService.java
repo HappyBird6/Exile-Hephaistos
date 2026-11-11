@@ -10,9 +10,25 @@ import org.springframework.stereotype.Service;
 @Service
 public final class ModifierReferenceService {
   private final CraftingOperations crafting;
+  private final Map<ItemCatalog, ModifierPoolResolver> resolvers;
 
   public ModifierReferenceService(CraftingOperations crafting) {
+    this(crafting, com.poe2craft.configuration.BackendSettings.defaults());
+  }
+
+  @org.springframework.beans.factory.annotation.Autowired
+  public ModifierReferenceService(
+      CraftingOperations crafting, com.poe2craft.configuration.BackendSettings settings) {
     this.crafting = crafting;
+    resolvers =
+        Collections.synchronizedMap(
+            new LinkedHashMap<>(16, 0.75f, true) {
+              @Override
+              protected boolean removeEldestEntry(
+                  Map.Entry<ItemCatalog, ModifierPoolResolver> entry) {
+                return size() > settings.workbench().referenceCatalogEntries();
+              }
+            });
   }
 
   public record Entry(
@@ -49,15 +65,17 @@ public final class ModifierReferenceService {
                 input.installedAugments())
             : input;
     var natural =
-        (input.desecrated().stream().anyMatch(s -> s.modifierId() == null)
-                ? new AbyssProbabilityComparison(catalog)
-                    .pool(abyss, WorkbenchCurrency.EXALTED, null)
-                : simulator.pool(state, WorkbenchCurrency.EXALTED, null))
-            .stream().map(ModifierDefinition::id).collect(java.util.stream.Collectors.toSet());
+        !dynamic
+            ? Set.<String>of()
+            : (input.desecrated().stream().anyMatch(s -> s.modifierId() == null)
+                    ? new AbyssProbabilityComparison(catalog)
+                        .pool(abyss, WorkbenchCurrency.EXALTED, null)
+                    : simulator.pool(state, WorkbenchCurrency.EXALTED, null))
+                .stream().map(ModifierDefinition::id).collect(java.util.stream.Collectors.toSet());
     var hidden =
         abyss.slots().stream().filter(s -> s.desecrated() && s.modifier() == null).toList();
     var reveal = new HashSet<String>();
-    for (var slot : hidden) reveal.addAll(abyss.eligibleRevealIds(slot.id(), catalog));
+    if (dynamic) for (var slot : hidden) reveal.addAll(abyss.eligibleRevealIds(slot.id(), catalog));
     var targets = new TreeMap<String, List<String>>();
     simulator
         .referenceEssenceTargets()
@@ -65,7 +83,7 @@ public final class ModifierReferenceService {
             (action, ids) ->
                 ids.forEach(id -> targets.computeIfAbsent(id, k -> new ArrayList<>()).add(action)));
     var entries = new ArrayList<Entry>();
-    var resolver = new ModifierPoolResolver(catalog);
+    var resolver = resolvers.computeIfAbsent(catalog, ModifierPoolResolver::new);
     for (var d : catalog.modifiers().values()) {
       if (d.layer() != ModifierDefinition.Layer.EXPLICIT) continue;
       if ((d.weight() > 0 || d.tags().contains("augment_pool"))

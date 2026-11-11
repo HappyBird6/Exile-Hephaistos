@@ -18,11 +18,13 @@ export type SessionHistoryWorkspaceProps = Omit<
   SessionLibraryProps,
   'onSelect' | 'selectedId' | 'favoritesOnly'
 > & {
-  onRename: (id: string, title: string) => boolean
+  onRename: (id: string, title: string) => boolean | Promise<boolean>
   undo?: { title: string; expiresAt: number; onUndo: () => void }
   onContinue: (id: string) => void
   onNewCraft?: (id: string) => void
-  onImport: (document: SessionDocument) => string | null
+  onImport: (
+    document: SessionDocument,
+  ) => string | null | Promise<string | null>
   error?: string
   active?: boolean
 }
@@ -94,8 +96,8 @@ export function SessionHistoryWorkspace({
             <SessionImport
               disabled={library.disabled ?? false}
               previewTarget={importPreview}
-              onImport={(document) => {
-                const id = onImport(document)
+              onImport={async (document) => {
+                const id = await onImport(document)
                 if (!id) return false
                 setFilter('library')
                 setSelectedId(id)

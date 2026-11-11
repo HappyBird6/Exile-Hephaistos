@@ -1,3 +1,4 @@
+import { modifierPoolKey } from './poolQuery'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { concreteInitial } from '../workbenchApi'
 import type { PoolReference } from '../workbenchReferenceApi'
@@ -78,13 +79,7 @@ function show(
         })),
     }
     client.setQueryData(
-      [
-        'crafting',
-        'modifier-pools',
-        data.rulesetIdentity,
-        concreteInitial(data),
-        'dynamic',
-      ],
+      modifierPoolKey(data, concreteInitial(data), 'dynamic'),
       reference,
     )
   }

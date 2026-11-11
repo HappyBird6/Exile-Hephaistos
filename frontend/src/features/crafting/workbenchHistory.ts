@@ -249,7 +249,7 @@ export function undoFilmDeletion(
   }
 }
 
-function validStoredFilm(film: Film): boolean {
+export function validStoredFilm(film: Film): boolean {
   return Boolean(
     film &&
     typeof film.id === 'string' &&
@@ -308,10 +308,25 @@ function validPendingDeletion(
   )
 }
 
+export function validateFilms(value: Films) {
+  if (
+    value?.version !== 1 ||
+    !Array.isArray(value.films) ||
+    !Number.isInteger(value.cursor) ||
+    value.cursor < 0 ||
+    !value.films.every(validStoredFilm) ||
+    (value.pendingDeletion !== undefined &&
+      !validPendingDeletion(value.pendingDeletion, value.films)) ||
+    new Set(value.films.map((film) => film.id)).size !== value.films.length ||
+    (value.active !== null && (!currentFilm(value) || !currentFrame(value)))
+  )
+    throw new Error('Saved history is invalid. It has not been overwritten.')
+}
+
 // A future per-user DB repository can replace this boundary without changing film semantics.
 export interface FilmRepository {
-  load(): Films
-  save(films: Films): void
+  load(): Films | Promise<Films>
+  save(films: Films): void | Promise<void>
 }
 export class LocalFilmRepository implements FilmRepository {
   constructor(private storage: Pick<Storage, 'getItem' | 'setItem'>) {}
@@ -321,18 +336,7 @@ export class LocalFilmRepository implements FilmRepository {
     if (raw.length * 2 > historyStorageLimit)
       throw new Error('Saved history exceeds the supported size.')
     const value = JSON.parse(raw) as Films
-    if (
-      value?.version !== 1 ||
-      !Array.isArray(value.films) ||
-      !Number.isInteger(value.cursor) ||
-      value.cursor < 0 ||
-      !value.films.every(validStoredFilm) ||
-      (value.pendingDeletion !== undefined &&
-        !validPendingDeletion(value.pendingDeletion, value.films)) ||
-      new Set(value.films.map((film) => film.id)).size !== value.films.length ||
-      (value.active !== null && (!currentFilm(value) || !currentFrame(value)))
-    )
-      throw new Error('Saved history is invalid. It has not been overwritten.')
+    validateFilms(value)
     return value
   }
   save(films: Films) {

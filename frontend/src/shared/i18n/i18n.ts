@@ -1,6 +1,6 @@
+import { isLocaleLoaded, loadLocaleData } from './localeData'
 import { useSyncExternalStore } from 'react'
-import messages from './messages.json'
-import terms from './gameTerms.json'
+import { messages, terms } from './localeData'
 import itemClasses from './itemClassNames.json'
 
 export const locales = [
@@ -51,7 +51,23 @@ export function getLocale(): Locale {
     return defaultLocale
   }
 }
+/** Load the saved preference before render; keep it for the next attempt if the network fails. */
+export async function prepareLocale() {
+  try {
+    await loadLocaleData(getLocale())
+  } catch {
+    selectedLocale = 'en'
+    document.documentElement.lang = 'en'
+  }
+}
+let localeRequest = 0
 export function setLocale(locale: Locale) {
+  const request = ++localeRequest
+  if (!isLocaleLoaded(locale)) {
+    return loadLocaleData(locale).then(() => {
+      if (request === localeRequest) setLocale(locale)
+    })
+  }
   selectedLocale = locale
   try {
     window.localStorage.setItem(localeStorageKey, locale)
@@ -65,9 +81,9 @@ function subscribe(listener: () => void) {
   listeners.add(listener)
   const storage = (event: StorageEvent) => {
     if (event.key === localeStorageKey || event.key === null) {
-      selectedLocale = undefined
-      document.documentElement.lang = getLocale()
-      listener()
+      void Promise.resolve(setLocale(resolveLocale(event.newValue))).catch(
+        () => {},
+      )
     }
   }
   window.addEventListener('storage', storage)
@@ -113,12 +129,11 @@ type GameTerm = {
   linesLanguage?: string
 }
 const gameDictionaries: Record<Locale, Record<string, GameTerm>> = terms
+const metadataKeys = new Map(
+  Object.entries(gameDictionaries.en).map(([key, term]) => [term.itemKey, key]),
+)
 export function gameTerm(id: string, locale = getLocale()) {
-  const key = id.startsWith('Metadata/')
-    ? (Object.keys(gameDictionaries.en).find(
-        (key) => gameDictionaries.en[key]?.itemKey === id,
-      ) ?? id)
-    : id
+  const key = id.startsWith('Metadata/') ? (metadataKeys.get(id) ?? id) : id
   const local = gameDictionaries[locale][key]
   const english = gameDictionaries.en[key]
   return {

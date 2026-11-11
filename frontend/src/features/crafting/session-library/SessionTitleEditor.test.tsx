@@ -41,12 +41,12 @@ it('saves on blur, cancels with Escape and does not submit during IME compositio
   fireEvent.blur(next)
   expect(save).toHaveBeenCalledExactlyOnceWith('Saved by blur')
 })
-it('retains edits when persistence fails and supports retry', () => {
+it('retains edits when persistence fails and supports retry', async () => {
   const save = vi.fn().mockReturnValueOnce(false).mockReturnValueOnce(true)
   const { editor } = begin(save)
   editor.textContent = 'Keep this edit'
   fireEvent.keyDown(editor, { key: 'Enter' })
-  expect(screen.getByRole('alert')).toBeVisible()
+  expect(await screen.findByRole('alert')).toBeVisible()
   expect(editor).toHaveAttribute('contenteditable', 'plaintext-only')
   expect(editor).toHaveTextContent('Keep this edit')
   fireEvent.keyDown(editor, { key: 'Enter' })

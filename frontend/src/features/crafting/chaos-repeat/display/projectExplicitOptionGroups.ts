@@ -1,4 +1,4 @@
-import templates from '../../../../shared/i18n/modifierTemplates.json'
+import { modifierTemplates as templates } from '../../../../shared/i18n/localeData'
 import type { Locale } from '../../../../shared/i18n/i18n'
 import type { Definition } from '../../craftingApi'
 import { catalystProjection } from '../../catalystQuality'

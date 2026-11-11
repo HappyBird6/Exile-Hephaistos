@@ -1,7 +1,15 @@
-import { SessionOverviewPage } from '../features/crafting/session-history/SessionOverviewPage'
+const SessionOverviewPage = lazy(() =>
+  import('../features/crafting/session-history/SessionOverviewPage').then(
+    (m) => ({ default: m.SessionOverviewPage }),
+  ),
+)
 import { useI18n } from '../shared/i18n/i18n'
-import { useEffect } from 'react'
-import { CraftingPage } from '../features/crafting/CraftingPage'
+import { useEffect, lazy, Suspense } from 'react'
+const CraftingPage = lazy(() =>
+  import('../features/crafting/CraftingPage').then((m) => ({
+    default: m.CraftingPage,
+  })),
+)
 import { LocaleSelector } from '../shared/i18n/LocaleSelector'
 import '../features/crafting/crafting.css'
 
@@ -55,7 +63,27 @@ export function App() {
     } catch {
       /* Invalid URL stays unavailable. */
     }
-    return <SessionOverviewPage id={id} />
+    return (
+      <Suspense
+        fallback={
+          <div role="status" aria-busy="true">
+            …
+          </div>
+        }
+      >
+        <SessionOverviewPage id={id} />
+      </Suspense>
+    )
   }
-  return <CraftingPage />
+  return (
+    <Suspense
+      fallback={
+        <div role="status" aria-busy="true">
+          …
+        </div>
+      }
+    >
+      <CraftingPage />
+    </Suspense>
+  )
 }

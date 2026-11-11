@@ -98,7 +98,7 @@ describe('verified modifier display templates', () => {
     ).toContain('[13,2]')
     expect(JSON.stringify({ d, values })).toBe(source)
   })
-  it('covers every ordinary catalog definition in all six locales', () => {
+  it('covers every ordinary catalog definition in all eight locales', () => {
     const allIds = Object.keys(catalog.definitions).filter(
       (id) => !id.startsWith('reveal:'),
     )
@@ -136,7 +136,7 @@ describe('verified modifier display templates', () => {
             id,
           ) && !id.startsWith('time-lost-'),
       ),
-    ).toHaveLength(1857)
+    ).toHaveLength(2026)
     expect(
       ids.filter(
         (id) =>
@@ -144,15 +144,15 @@ describe('verified modifier display templates', () => {
             id,
           ) && !id.startsWith('time-lost-'),
       ),
-      // Preserve all 1,812 historical equipment bindings and add 71 Crossbow and 45 source implicit bindings.
-    ).toHaveLength(1928)
+      // Preserve the historical bindings plus 128 augment, 40 equipment-effect and one corrected Rawhide Belt binding.
+    ).toHaveLength(2097)
     expect(
       ids.filter(
         (id) =>
           !/^(ruby|emerald|sapphire|diamond):/.test(id) &&
           !id.startsWith('time-lost-'),
       ),
-    ).toHaveLength(2034)
+    ).toHaveLength(2203)
     expect(
       ids
         .filter(

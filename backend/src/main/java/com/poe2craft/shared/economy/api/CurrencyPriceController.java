@@ -16,12 +16,14 @@ public final class CurrencyPriceController {
 
   @GetMapping
   public ResponseEntity<CurrencyPriceService.View> current() {
-    return response(prices.get(false));
+    return ResponseEntity.ok()
+        .cacheControl(CacheControl.maxAge(java.time.Duration.ofSeconds(30)).cachePublic())
+        .body(prices.current(false));
   }
 
   @PostMapping("/refresh")
   public ResponseEntity<CurrencyPriceService.View> refresh() {
-    return response(prices.get(true));
+    return response(prices.current(true));
   }
 
   private ResponseEntity<CurrencyPriceService.View> response(CurrencyPriceService.View view) {

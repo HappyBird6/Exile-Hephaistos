@@ -146,7 +146,7 @@ export function validateChaosRepeatResponse(
         !onlyKeys(failure, ['code', 'stage']) ||
         failure.code !== 'REPEAT_EXECUTION_FAILED' ||
         typeof failure.stage !== 'string' ||
-        !['APPLY', 'MATCHER'].includes(failure.stage) ||
+        !['APPLY', 'MATCHER', 'STOP_SIGNAL'].includes(failure.stage) ||
         (failure.stage === 'MATCHER' && uses === 0) ||
         (failure.stage === 'APPLY' && uses >= maximumUses)
       )

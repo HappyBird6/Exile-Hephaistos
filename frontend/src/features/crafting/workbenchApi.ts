@@ -16,7 +16,7 @@ import { topBase, topBaseKey } from './topBases'
 import { basePolicy, baseAffixCapacity } from './baseRegistry'
 import reviewedEssenceTargets from './topBaseEssences.json'
 import { supportsConcreteStateShape } from './workbenchStateShape'
-import displayBindings from '../../shared/i18n/modifierTemplates.json'
+import { modifierTemplates as displayBindings } from '../../shared/i18n/localeData'
 import liquidTargets from './basicJewelLiquidTargets.json'
 import {
   workbenchJewelBases,

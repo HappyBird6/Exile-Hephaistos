@@ -1,6 +1,6 @@
 import { getLocale, translate, uiText } from '../../shared/i18n/i18n'
 import type { Locale, MessageKey } from '../../shared/i18n/i18n'
-import messages from '../../shared/i18n/messages.json'
+import { messages as messages } from '../../shared/i18n/localeData'
 
 // API schemas remain canonical. These exact messages are the versioned adapter
 // for older endpoints which have no message code. Unknown text remains original.

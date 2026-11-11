@@ -71,6 +71,14 @@ export async function applyChaosRepeat(
   }
   if (signal.aborted) return { kind: 'uncertain', requestId, reason: 'ABORTED' }
   let response: Response
+  const cancel = () => {
+    void fetch(`/api/v1/crafting/workbench/chaos-repeat/${requestId}/cancel`, {
+      method: 'POST',
+      headers: rulesetHeaders(catalog.rulesetIdentity),
+      keepalive: true,
+    }).catch(() => {})
+  }
+  signal.addEventListener('abort', cancel, { once: true })
   try {
     response = await fetch('/api/v1/crafting/workbench/chaos-repeat', {
       method: 'POST',
@@ -84,6 +92,8 @@ export async function applyChaosRepeat(
       requestId,
       reason: signal.aborted ? 'ABORTED' : 'NETWORK',
     }
+  } finally {
+    signal.removeEventListener('abort', cancel)
   }
   if (signal.aborted) return { kind: 'uncertain', requestId, reason: 'ABORTED' }
   try {

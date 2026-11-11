@@ -6,6 +6,7 @@ export type PriceSnapshot = {
   prices: Record<string, CurrencyQuote>
 }
 export type PriceView = {
+  refreshing?: boolean
   snapshot: PriceSnapshot | null
   nextRefreshAllowedAt: string
   stale: boolean
@@ -18,13 +19,14 @@ const positive = (v: unknown): v is number =>
 export async function loadCurrencyPrices(
   signal?: AbortSignal,
   refresh = false,
+  revalidate = false,
 ): Promise<PriceView> {
   const response = await fetch(
     `/api/v1/economy/prices${refresh ? '/refresh' : ''}`,
     {
       ...(signal ? { signal } : {}),
       method: refresh ? 'POST' : 'GET',
-      cache: 'no-store',
+      cache: refresh ? 'no-store' : revalidate ? 'no-cache' : 'default',
     },
   )
   if (!response.ok) throw new Error('Could not retrieve currency prices')

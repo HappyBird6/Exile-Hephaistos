@@ -1,9 +1,19 @@
+import { modifierPoolKey } from './poolQuery'
+import { useVisible } from '../../../shared/useVisible'
+import { performanceSettings } from '../../../shared/performance'
 import { effectiveDefinitions } from '../augmentRules'
 import { useQuery } from '@tanstack/react-query'
 import { loadModifierPools } from '../workbenchReferenceApi'
 import { referenceMessages } from '../referenceMessages'
 import { concreteInitial } from '../workbenchApi'
-import { Fragment, useId, useMemo, useState } from 'react'
+import {
+  Fragment,
+  useId,
+  useMemo,
+  useState,
+  useDeferredValue,
+  useEffect,
+} from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { Initial } from '../craftingApi'
 import type { ConcreteItem, WorkbenchAction } from '../workbenchApi'
@@ -34,19 +44,30 @@ export function ModifierPoolPanel({
   const [query, setQuery] = useState('')
   const [mode, setMode] = useState<ModifierPoolMode>('dynamic')
   const state = item ?? (catalog ? concreteInitial(catalog) : undefined)
+  const { ref, visible: inViewport } = useVisible<HTMLElement>()
+  const identity = JSON.stringify(modifierPoolKey(catalog, state, mode))
+  const [settled, setSettled] = useState(identity)
+  useEffect(() => {
+    const timer = setTimeout(
+      () => setSettled(identity),
+      performanceSettings.poolDebounceMs,
+    )
+    return () => clearTimeout(timer)
+  }, [identity])
   const reference = useQuery({
-    queryKey: [
-      'crafting',
-      'modifier-pools',
-      catalog?.rulesetIdentity,
-      state,
-      mode,
-    ],
+    queryKey: modifierPoolKey(catalog, state, mode),
     queryFn: ({ signal }) =>
-      loadModifierPools(catalog!, state!, mode === 'dynamic', signal),
-    enabled: !!catalog && !!state && !loading,
+      loadModifierPools(
+        catalog!,
+        mode === 'static' ? concreteInitial(catalog!) : state!,
+        mode === 'dynamic',
+        signal,
+      ),
+    enabled:
+      !!catalog && !!state && !loading && inViewport && identity === settled,
     retry: false,
-    staleTime: 60_000,
+    staleTime: Infinity,
+    gcTime: performanceSettings.referenceRetentionMs,
   })
   const pending = loading || (!!catalog && reference.isPending)
   const sides = useMemo(
@@ -111,12 +132,14 @@ export function ModifierPoolPanel({
       ? `<${percent.format(0.0001)}`
       : percent.format(value)
   }
-  const needle = query.normalize('NFC').trim().toLocaleLowerCase(locale)
+  const needle = useDeferredValue(
+    query.normalize('NFC').trim().toLocaleLowerCase(locale),
+  )
   const source = catalog?.metadata.sourceUrl
   const sourceUrl =
     source && /^https:\/\/poe2db\.tw\//.test(source) ? source : null
   return (
-    <section className="modifier-pool" aria-labelledby={titleId}>
+    <section ref={ref} className="modifier-pool" aria-labelledby={titleId}>
       <header className="modifier-pool__header">
         <div>
           <h2 id={titleId}>{text.title}</h2>

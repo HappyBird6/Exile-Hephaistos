@@ -10,7 +10,7 @@ import { basePropertyLines, topBase } from '../topBases'
 import type { ItemCardData } from '../itemCardData'
 import { gameName, gameTerm } from '../../../shared/i18n/i18n'
 import type { Locale } from '../../../shared/i18n/i18n'
-import templates from '../../../shared/i18n/modifierTemplates.json'
+import { modifierTemplates as templates } from '../../../shared/i18n/localeData'
 import { basePickerMessages } from './basePickerMessages'
 
 export type BaseCategory = 'weapons' | 'armour' | 'accessories' | 'jewels'

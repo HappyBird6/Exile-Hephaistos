@@ -1,3 +1,4 @@
+import { IndexedFilmRepository } from './session-library/IndexedFilmRepository'
 import { sameItemState } from './crafting-state/itemIdentity'
 import {
   resolveCraftingState,
@@ -143,7 +144,10 @@ import type { WorkbenchResource } from './stash/stashTypes'
 import { materials, materialTabs } from './materials'
 import type { MaterialTab } from './materials'
 import { useItemDraft } from './draft'
-import { CraftSupport } from './CraftSupport'
+import { lazy, Suspense } from 'react'
+const CraftSupport = lazy(() =>
+  import('./CraftSupport').then((m) => ({ default: m.CraftSupport })),
+)
 import { loadInitial } from './craftingApi'
 import {
   applyCurrency,
@@ -154,8 +158,6 @@ import {
 } from './workbenchApi'
 import type { AppliedItem, MappingResult } from './workbenchApi'
 import {
-  LocalFilmRepository,
-  emptyFilms,
   currentFilm,
   currentFrame,
   startFilm,
@@ -170,7 +172,7 @@ import {
   filmRulesetStatus,
   updateFilmMetadata,
 } from './workbenchHistory'
-import type { Films, Film, Frame } from './workbenchHistory'
+import type { Films, Film, Frame, FilmRepository } from './workbenchHistory'
 import {
   basicJewelBases,
   isWorkbenchJewel,
@@ -184,7 +186,10 @@ function tooltipEvents(id: string) {
   return { 'data-material-tooltip': id }
 }
 
-const workspaceTabs = ['workbench', 'support', 'history'] as const
+const workspaceTabs = (['workbench', 'support', 'history'] as const).filter(
+  (tab) =>
+    tab !== 'support' || import.meta.env.VITE_CRAFT_SUPPORT_ENABLED !== 'false',
+)
 const workspacePanels = {
   workbench: 'workbench-panel-simulation',
   support: 'panel-support',
@@ -198,6 +203,50 @@ function filmId() {
 }
 
 export function CraftingPage() {
+  const { t } = useI18n()
+  const [repository] = useState(() => new IndexedFilmRepository())
+  const [legacyHistory] = useState(() => {
+    try {
+      return repository.loadSyncFallback()
+    } catch {
+      return undefined
+    }
+  })
+  const loaded = useQuery({
+    queryKey: ['workbench-history-bootstrap'],
+    ...(legacyHistory ? { initialData: legacyHistory } : {}),
+    refetchOnMount: false,
+    queryFn: () => repository.load(),
+    retry: false,
+    staleTime: 0,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+    gcTime: 0,
+  })
+  if (loaded.isPending)
+    return (
+      <main role="status" aria-busy="true">
+        …
+      </main>
+    )
+  if (!loaded.data)
+    return (
+      <main role="alert">
+        {t('notice.history_load')}
+        <button onClick={() => void loaded.refetch()}>↻</button>
+      </main>
+    )
+  return (
+    <ReadyCraftingPage repository={repository} savedHistory={loaded.data} />
+  )
+}
+function ReadyCraftingPage({
+  repository,
+  savedHistory,
+}: {
+  repository: FilmRepository
+  savedHistory: Films
+}) {
   const { t, name, locale } = useI18n()
   const bonded = useBonded()
   const [boneCounts, setBoneCounts] = useState([0, 0])
@@ -213,23 +262,24 @@ export function CraftingPage() {
         imported.data.text.originalText,
       )
     : undefined
-  const [filmState, setFilmState] = useState(() => {
-    try {
-      return {
-        history: new LocalFilmRepository(window.localStorage).load(),
-        revision: draft.baseRevision,
-        error: '',
-        blockedSaving: false,
-      }
-    } catch {
-      return {
-        history: emptyFilms(),
-        revision: draft.baseRevision,
-        error: t('notice.history_load'),
-        blockedSaving: true,
+  const [filmState, setFilmState] = useState(() => ({
+    history: savedHistory,
+    revision: draft.baseRevision,
+    error: '',
+    blockedSaving: false,
+  }))
+  const savingRef = useRef(false)
+  const [saving, setSaving] = useState(false)
+  useEffect(() => {
+    const protect = (event: BeforeUnloadEvent) => {
+      if (savingRef.current) {
+        event.preventDefault()
+        event.returnValue = ''
       }
     }
-  })
+    window.addEventListener('beforeunload', protect)
+    return () => window.removeEventListener('beforeunload', protect)
+  }, [])
   const storedFrame =
     !observedPreview && filmState.revision === draft.baseRevision
       ? currentFrame(filmState.history)
@@ -304,28 +354,38 @@ export function CraftingPage() {
       : draft.source === 'text'
         ? (imported.data?.itemLevel ?? draft.baseItemLevel)
         : draft.baseItemLevel
-  function saveFilms(
+  async function saveFilms(
     history: Films,
     revision = draft.baseRevision,
     requirePersistence = false,
   ) {
-    let error = filmState.error
-    if (!filmState.blockedSaving) {
-      try {
-        new LocalFilmRepository(window.localStorage).save(history)
-        error = ''
-      } catch {
-        error = t('notice.history_save')
-      }
-    }
-    if (error && requirePersistence) {
-      setFilmState({ ...filmState, error })
+    if (savingRef.current || filmState.blockedSaving) return false
+    savingRef.current = true
+    setSaving(true)
+    try {
+      await repository.save(history)
+      setFilmState((previous) => ({
+        ...previous,
+        history,
+        revision,
+        error: '',
+      }))
+      return true
+    } catch {
+      // Retain a completed craft in memory for export, but never overwrite a newer tab checkpoint.
+      setFilmState((previous) => ({
+        ...previous,
+        ...(requirePersistence ? {} : { history, revision }),
+        error: t('notice.history_save'),
+        blockedSaving: true,
+      }))
       return false
+    } finally {
+      savingRef.current = false
+      setSaving(false)
     }
-    setFilmState({ ...filmState, history, revision, error })
-    return true
   }
-  const [view, setView] = useState<(typeof workspaceTabs)[number]>(() => {
+  const [view, setViewState] = useState<(typeof workspaceTabs)[number]>(() => {
     const entry = new URLSearchParams(location.search).get('workbench')
     if (entry === 'history') return 'history'
     if (entry === 'simulation') return 'workbench'
@@ -340,6 +400,11 @@ export function CraftingPage() {
   useEffect(() => {
     saveSupport('workspace', view)
   }, [view])
+  const [supportVisited, setSupportVisited] = useState(view === 'support')
+  function setView(next: (typeof workspaceTabs)[number]) {
+    if (next === 'support') setSupportVisited(true)
+    setViewState(next)
+  }
   const dialog = useRef<HTMLDialogElement>(null)
   const [activeTab, setActiveTab] = useState<MaterialTab>('Currency')
   const excludedResourceIds: readonly string[] = excludedWorkbenchBoneIds
@@ -472,7 +537,12 @@ export function CraftingPage() {
     [],
   )
   const workbenchBusy =
-    applying !== null || abyssBusy || imported.pending || editPending
+    saving ||
+    filmState.blockedSaving ||
+    applying !== null ||
+    abyssBusy ||
+    imported.pending ||
+    editPending
   useLayoutEffect(() => {
     const revision = augmentFocusRevision.current
     if (revision === null || workbenchBusy) return
@@ -488,6 +558,7 @@ export function CraftingPage() {
   const inputMutationLocked = useCallback(
     () =>
       Boolean(
+        savingRef.current ||
         applyingRequest.current ||
         placementPending.current ||
         abyssBusyRef.current,
@@ -497,6 +568,7 @@ export function CraftingPage() {
   const mutationLocked = useCallback(
     () =>
       Boolean(
+        savingRef.current ||
         applyingRequest.current ||
         placementPending.current ||
         abyssBusyRef.current ||
@@ -507,6 +579,7 @@ export function CraftingPage() {
   )
   const canMutateAbyss = useCallback(
     () =>
+      !savingRef.current &&
       !applyingRequest.current &&
       !placementPending.current &&
       !editRequest.current &&
@@ -619,7 +692,7 @@ export function CraftingPage() {
       if (!verifiedHistoryState(root, data))
         throw new Error('Unsupported starting quality')
       draft.setBase(level, base)
-      saveFilms(
+      await saveFilms(
         startFilm(
           filmState.history,
           root,
@@ -697,7 +770,7 @@ export function CraftingPage() {
       if (abyss) currentFilm(next)!.frames[0]!.abyss = structuredClone(abyss)
       placementPending.current = false
       if (applyingRequest.current === controller) applyingRequest.current = null
-      if (commitLibraryHistory(next)) {
+      if (await commitLibraryHistory(next)) {
         setView('workbench')
         setObservedPreview(null)
         setSelected(null)
@@ -711,7 +784,7 @@ export function CraftingPage() {
       if (applyingRequest.current === controller) applyingRequest.current = null
     }
   }
-  function restoreFilm(
+  async function restoreFilm(
     id: string,
     sourceHistory = filmState.history,
     cursor?: number,
@@ -754,7 +827,7 @@ export function CraftingPage() {
                         : 'solar')
     // Reading a historical record must not depend on availability of its catalog or engine.
     draft.setBase(state.itemLevel, base)
-    saveFilms(
+    await saveFilms(
       {
         ...sourceHistory,
         active: selectedFilm.id,
@@ -766,14 +839,14 @@ export function CraftingPage() {
     setHeld(null)
     setAnnouncement('')
   }
-  function commitLibraryHistory(next: Films) {
+  async function commitLibraryHistory(next: Films) {
     if (mutationLocked() || filmState.blockedSaving) return false
-    if (!saveFilms(next, draft.baseRevision, true)) return false
+    if (!(await saveFilms(next, draft.baseRevision, true))) return false
     const activeChanged =
       next.active !== filmState.history.active ||
       next.cursor !== filmState.history.cursor
     if (activeChanged && next.active)
-      restoreFilm(next.active, next, next.cursor)
+      await restoreFilm(next.active, next, next.cursor)
     else if (activeChanged) {
       setObservedPreview(null)
       draft.setBase(catalogLevel, catalogBase)
@@ -796,9 +869,9 @@ export function CraftingPage() {
   function undoSessionDeletion() {
     commitLibraryHistory(restoreDeletedSession(filmState.history))
   }
-  const expireDeletionUndo = useEffectEvent(() => {
+  const expireDeletionUndo = useEffectEvent((now: number) => {
     const pending = filmState.history.pendingDeletion
-    if (pending && pending.expiresAt <= Date.now())
+    if (pending && pending.expiresAt <= now)
       return commitLibraryHistory(clearDeletionUndo(filmState.history))
     return true
   })
@@ -806,17 +879,18 @@ export function CraftingPage() {
   useEffect(() => {
     if (undoDeadline === undefined) return
     let timer: number
-    const expire = () => {
-      if (!expireDeletionUndo()) timer = window.setTimeout(expire, 1000)
+    const expire = async () => {
+      if (!(await expireDeletionUndo(Date.now())))
+        timer = window.setTimeout(expire, 1000)
     }
     timer = window.setTimeout(expire, Math.max(0, undoDeadline - Date.now()))
     return () => clearTimeout(timer)
   }, [undoDeadline])
   const lastDeletion = filmState.history.pendingDeletion ?? null
-  function browse(cursor: number) {
+  async function browse(cursor: number) {
     if (mutationLocked()) return
     setObservedPreview(null)
-    saveFilms(viewFrame(filmState.history, cursor))
+    await saveFilms(viewFrame(filmState.history, cursor))
     setFailedApplication(null)
     setRepeatNotice(null)
     setSelected(null)
@@ -1055,7 +1129,8 @@ export function CraftingPage() {
       )
       const frame = currentFrame(next)!
       frame.customExalt = structuredClone(applied.choice)
-      if (!saveFilms(next, request.revision, true)) throw Error('Save failed')
+      if (!(await saveFilms(next, request.revision, true)))
+        throw Error('Save failed')
       client.setQueryData(workbenchKey, applied.result)
       draft.setActiveOmens(applied.result.remainingOmens)
       setSelected(null)
@@ -1212,7 +1287,7 @@ export function CraftingPage() {
           }
           appliedRepeatRequests.current.add(request.requestId)
           client.setQueryData(['crafting', 'chaos-repeat', revision], result)
-          saveFilms(next, revision)
+          await saveFilms(next, revision)
           draft.setActiveOmens([...result.remainingOmens, ...dormant])
           const message = chaosRepeatResultMessage(
             locale,
@@ -1282,7 +1357,7 @@ export function CraftingPage() {
           filmState.revision === revision
             ? filmState.history
             : { ...filmState.history, active: null, cursor: 0 }
-        saveFilms(
+        await saveFilms(
           recordAbyss(
             history,
             state,
@@ -1350,7 +1425,7 @@ export function CraftingPage() {
             result.state,
           ),
         )
-        if (!saveFilms(next, revision)) throw Error('Save failed')
+        if (!(await saveFilms(next, revision))) throw Error('Save failed')
         client.setQueryData(workbenchKey, result)
         setAnnouncement(augmentName(selection.id))
         setSelected(null)
@@ -1388,7 +1463,7 @@ export function CraftingPage() {
           filmState.revision === revision
             ? filmState.history
             : { ...filmState.history, active: null, cursor: 0 }
-        saveFilms(
+        await saveFilms(
           recordAbyss(
             history,
             state,
@@ -1443,7 +1518,7 @@ export function CraftingPage() {
           filmState.revision === revision
             ? filmState.history
             : { ...filmState.history, active: null, cursor: 0 }
-        saveFilms(
+        await saveFilms(
           recordCraft(
             history,
             state,
@@ -1561,7 +1636,7 @@ export function CraftingPage() {
       }
       const nextRevision = revision + 1
       if (
-        !saveFilms(
+        !(await saveFilms(
           startFilm(
             history,
             result.state,
@@ -1572,7 +1647,7 @@ export function CraftingPage() {
           ),
           nextRevision,
           true,
-        )
+        ))
       ) {
         setEditorProblems([{ code: 'notice.history_save' }])
         return
@@ -2322,11 +2397,11 @@ export function CraftingPage() {
                       disabled={
                         workbenchBusy || !film || film.frames.length <= 1
                       }
-                      onClick={() => {
+                      onClick={async () => {
                         if (mutationLocked()) return
                         invalidateInput()
                         if (
-                          commitLibraryHistory(
+                          await commitLibraryHistory(
                             resetCurrentFilm(filmState.history),
                           )
                         ) {
@@ -2462,7 +2537,7 @@ export function CraftingPage() {
                           externalBusy={applying !== null || imported.pending}
                           canMutate={canMutateAbyss}
                           onBusyChange={handleAbyssBusy}
-                          onTransition={(next, transition) => {
+                          onTransition={async (next, transition) => {
                             if (transition.operation === 'restore') return
                             if (
                               useItemDraft.getState().baseRevision !==
@@ -2470,7 +2545,7 @@ export function CraftingPage() {
                               applyingRequest.current
                             )
                               return
-                            saveFilms(
+                            await saveFilms(
                               recordAbyss(
                                 filmState.history,
                                 concrete,
@@ -2663,7 +2738,7 @@ export function CraftingPage() {
                             film={activeFilm}
                             frame={storedFrame}
                             disabled={workbenchBusy || filmState.blockedSaving}
-                            onContinue={(result) => {
+                            onContinue={async (result) => {
                               if (
                                 mutationLocked() ||
                                 !result.compatible ||
@@ -2681,7 +2756,7 @@ export function CraftingPage() {
                                 initial.data!.rulesetIdentity,
                                 result.compatibilityId,
                               )
-                              if (commitLibraryHistory(next)) {
+                              if (await commitLibraryHistory(next)) {
                                 setAnnouncement('')
                                 document
                                   .getElementById('workspace-workbench')
@@ -2935,10 +3010,10 @@ export function CraftingPage() {
         <SessionHistoryWorkspace
           active={view === 'history'}
           history={filmState.history}
-          onImport={(document) => {
+          onImport={async (document) => {
             if (mutationLocked() || filmState.blockedSaving) return null
             const added = appendDocument(filmState.history, document)
-            if (!commitLibraryHistory(added.history)) return null
+            if (!(await commitLibraryHistory(added.history))) return null
             return added.id
           }}
           disabled={workbenchBusy || filmState.blockedSaving}
@@ -2984,7 +3059,11 @@ export function CraftingPage() {
         aria-labelledby="workspace-support"
         hidden={view !== 'support'}
       >
-        <CraftSupport active={view === 'support'} />
+        {(supportVisited || view === 'support') && (
+          <Suspense fallback={<span role="status">…</span>}>
+            <CraftSupport active={view === 'support'} />
+          </Suspense>
+        )}
       </div>
       <span className="sr-only" role="status">
         {imported.pending ? t('ui.analyzing_item') : announcement}

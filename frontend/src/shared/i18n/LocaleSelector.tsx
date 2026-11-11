@@ -5,6 +5,8 @@ import './i18n.css'
 export function LocaleSelector() {
   const { locale, setLocale, t } = useI18n()
   const [open, setOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [failed, setFailed] = useState(false)
   const [active, setActive] = useState(0)
   const root = useRef<HTMLDivElement>(null)
   const trigger = useRef<HTMLButtonElement>(null)
@@ -45,6 +47,8 @@ export function LocaleSelector() {
       <button
         ref={trigger}
         className="locale-trigger"
+        aria-busy={loading}
+        disabled={loading}
         type="button"
         aria-label={`${t('language')}: ${localeNames[locale]}`}
         aria-haspopup="menu"
@@ -66,6 +70,9 @@ export function LocaleSelector() {
           ⌄
         </span>
       </button>
+      {failed && (
+        <span role="alert">{t('error.load', { subject: t('language') })}</span>
+      )}
       {open && (
         <div
           id={menuId}
@@ -107,8 +114,15 @@ export function LocaleSelector() {
               lang={value}
               onFocus={() => setActive(index)}
               onClick={() => {
-                setLocale(value)
+                setFailed(false)
+                const pending = setLocale(value)
                 dismiss()
+                if (pending) {
+                  setLoading(true)
+                  void pending
+                    .catch(() => setFailed(true))
+                    .finally(() => setLoading(false))
+                }
               }}
             >
               {localeNames[value]}

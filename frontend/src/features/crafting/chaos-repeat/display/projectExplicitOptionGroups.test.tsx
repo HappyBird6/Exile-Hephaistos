@@ -293,6 +293,8 @@ it('records or verifies the machine-readable output and exact display source has
       'frontend/src/features/crafting/numeric-display/attributeNumbers.ts',
       'frontend/src/shared/i18n/modifierTemplates.json',
       'frontend/src/shared/i18n/i18n.ts',
+      'frontend/src/shared/i18n/localeData.ts',
+      'frontend/vite-plugins/localeDataPlugin.ts',
       'frontend/package-lock.json',
       'frontend/src/features/crafting/chaos-repeat/display/goldens/inputs.json',
       'frontend/src/features/crafting/chaos-repeat/display/projectExplicitOptionGroups.ts',

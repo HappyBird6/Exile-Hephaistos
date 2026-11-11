@@ -1,4 +1,4 @@
-import catalog from '../../shared/i18n/modifierTemplates.json'
+import { modifierTemplates as catalog } from '../../shared/i18n/localeData'
 import { getLocale } from '../../shared/i18n/i18n'
 import type { Locale } from '../../shared/i18n/i18n'
 import type { Definition } from './craftingApi'

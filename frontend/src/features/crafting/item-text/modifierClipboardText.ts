@@ -1,4 +1,4 @@
-import display from '../../../shared/i18n/modifierTemplates.json'
+import { modifierTemplates as display } from '../../../shared/i18n/localeData'
 import type { Definition } from '../craftingApi'
 
 type Binding = {

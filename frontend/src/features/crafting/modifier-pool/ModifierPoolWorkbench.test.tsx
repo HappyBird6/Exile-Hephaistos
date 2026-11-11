@@ -1,3 +1,4 @@
+import { modifierPoolKey } from './poolQuery'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, fireEvent, render, screen, within } from '@testing-library/react'
 import { expect, it } from 'vitest'
@@ -56,13 +57,7 @@ it('places the reference panel after the whole work area, follows base/level and
   )
   for (const data of [catalog(82), catalog(1), catalog(82, true)]) {
     client.setQueryData(
-      [
-        'crafting',
-        'modifier-pools',
-        data.rulesetIdentity,
-        concreteInitial(data),
-        'dynamic',
-      ],
+      modifierPoolKey(data, concreteInitial(data), 'dynamic'),
       {
         entries: ['p', 's'].map((modifierId) => ({
           modifierId,

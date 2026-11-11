@@ -361,3 +361,9 @@
   margin: 0 0 0.7rem;
   line-height: 1.5;
 }
+
+/* Preserve native details/search accessibility while skipping offscreen layout and paint. */
+.modifier-pool__group {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 72px;
+}

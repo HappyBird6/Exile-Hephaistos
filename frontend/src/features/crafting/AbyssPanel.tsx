@@ -253,7 +253,10 @@ export function AbyssPanel({
   allowAdd?: boolean
   directSelection?: boolean
   compact?: boolean
-  onTransition?: (state: AbyssState, transition: FlowTransition) => void
+  onTransition?: (
+    state: AbyssState,
+    transition: FlowTransition,
+  ) => void | Promise<void>
   onContinue?: (state: AbyssState, item: Item) => void
   externalBusy?: boolean
   canMutate?: () => boolean
@@ -420,10 +423,10 @@ export function AbyssPanel({
         },
       )
     },
-    onSuccess: (next, variables) => {
+    onSuccess: async (next, variables) => {
       if (!mounted.current) return
       const operation = variables.operation as FlowTransition['operation']
-      transitionCallback.current?.(next, {
+      await transitionCallback.current?.(next, {
         operation,
         ...(operation === 'apply'
           ? {

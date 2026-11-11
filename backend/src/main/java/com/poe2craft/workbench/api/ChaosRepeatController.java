@@ -32,6 +32,7 @@ public final class ChaosRepeatController {
   private final ObjectMapper json;
   private final WorkbenchStateReader states;
   private final ChaosRepeatService service;
+  private com.poe2craft.workbench.repeat.RepeatRequestStore requests;
   private final SecureRandom random = new SecureRandom();
 
   public ChaosRepeatController(CraftingOperations workbench, ObjectMapper mapper) {
@@ -40,7 +41,10 @@ public final class ChaosRepeatController {
 
   @Autowired
   public ChaosRepeatController(
-      CraftingOperations workbench, ObjectMapper mapper, BackendSettings settings) {
+      CraftingOperations workbench,
+      ObjectMapper mapper,
+      BackendSettings settings,
+      com.poe2craft.workbench.repeat.RepeatRequestStore requests) {
     this(
         workbench,
         mapper,
@@ -49,6 +53,7 @@ public final class ChaosRepeatController {
             new ChaosDisplayResources(mapper),
             RulesetBoundary.identity(),
             settings.workbench()));
+    this.requests = requests;
   }
 
   ChaosRepeatController(
@@ -92,8 +97,19 @@ public final class ChaosRepeatController {
           .decode(ByteBuffer.wrap(bytes));
       var body = json.readTree(bytes);
       var input = input(body, sha256(bytes));
-      var outcome = service.run(input, random);
-      if (outcome.failure() != null) {
+      JsonNode outcome =
+          requests == null
+              ? json.valueToTree(service.run(input, random))
+              : requests.execute(
+                  input.requestId(),
+                  input.requestSha256(),
+                  stop -> json.valueToTree(service.run(input, random, stop)));
+      if (outcome.has("rejectedStatus"))
+        throw new RepeatRejected(
+            outcome.path("rejectedStatus").asInt(),
+            outcome.path("rejectedCode").asText(),
+            outcome.path("rejectedDetail").asText());
+      if (!outcome.path("failure").isNull()) {
         var problem =
             problem(
                 500,
@@ -108,6 +124,7 @@ public final class ChaosRepeatController {
       return ResponseEntity.ok(outcome);
     } catch (RepeatRejected rejected) {
       return ResponseEntity.status(rejected.status())
+          .header("Retry-After", "1")
           .contentType(MediaType.APPLICATION_PROBLEM_JSON)
           .body(problem(rejected.status(), rejected.code(), rejected.getMessage()));
     } catch (IOException malformed) {
@@ -124,6 +141,14 @@ public final class ChaosRepeatController {
           .contentType(MediaType.APPLICATION_PROBLEM_JSON)
           .body(problem(500, "REPEAT_EXECUTION_FAILED", "Chaos repeat could not be completed."));
     }
+  }
+
+  @PostMapping("/api/v1/crafting/workbench/chaos-repeat/{id}/cancel")
+  public ResponseEntity<Void> cancel(@PathVariable String id) {
+    if (!UUID.fromString(id).toString().equalsIgnoreCase(id))
+      return ResponseEntity.badRequest().build();
+    if (requests != null) requests.cancel(id);
+    return ResponseEntity.noContent().build();
   }
 
   private Input input(JsonNode body, String digest) {

@@ -1,0 +1,27 @@
+# Optional workbench-only deployment overlay; never starts services by itself.
+# docker compose -f infra/compose.yaml -f infra/compose.workbench.yaml --profile stack up -d
+services:
+  app:
+    environment:
+      SPRING_PROFILES_ACTIVE: workbench-production
+      # JVM budget complements the container limit; Native Memory/threads also need room.
+      JAVA_TOOL_OPTIONS: -XX:MaxRAMPercentage=65.0 -XX:+ExitOnOutOfMemoryError
+    mem_limit: 1536m
+    cpus: 2.0
+    restart: unless-stopped
+    stop_grace_period: 30s
+  redis:
+    # Receipts are not ordinary disposable cache entries: avoid eviction/replay after a restart.
+    command: [redis-server, --save, '', --appendonly, 'yes', --appendfsync, always, --maxmemory, 256mb, --maxmemory-policy, noeviction]
+    volumes:
+      - workbench-redis:/data
+    mem_limit: 384m
+    restart: unless-stopped
+  frontend:
+    build:
+      args:
+        VITE_CRAFT_SUPPORT_ENABLED: 'false'
+    mem_limit: 128m
+    restart: unless-stopped
+volumes:
+  workbench-redis:

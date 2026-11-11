@@ -1,5 +1,11 @@
 import { CurrencyPriceContext } from '../currency-prices/context'
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import {
+  fireEvent,
+  render,
+  screen,
+  within,
+  waitFor,
+} from '@testing-library/react'
 import { useState } from 'react'
 import { expect, it, vi } from 'vitest'
 import { setLocale } from '../../../shared/i18n/i18n'
@@ -165,8 +171,10 @@ it('imports into the library preview while retaining the active simulation', asy
   fireEvent.click(
     await screen.findByRole('button', { name: 'Add this session' }),
   )
-  expect(screen.getByLabelText('previewed frame')).toHaveTextContent(
-    'imported:0',
+  await waitFor(() =>
+    expect(screen.getByLabelText('previewed frame')).toHaveTextContent(
+      'imported:0',
+    ),
   )
   expect(screen.getByLabelText('active session')).toHaveTextContent('three:0')
 })

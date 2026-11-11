@@ -1,3 +1,7 @@
+import {
+  performanceSettings,
+  yieldToBrowser,
+} from '../../../shared/performance'
 /** Capture the rendered flow with its exact styles, images and wrapping. */
 export async function snapshotPages(root: HTMLElement): Promise<Blob[]> {
   const wasSnapshot = root.classList.contains('is-snapshot')
@@ -29,7 +33,15 @@ async function capturePages(root: HTMLElement): Promise<Blob[]> {
   const clone = root.cloneNode(true) as HTMLElement
   const sources = [root, ...root.querySelectorAll('*')],
     targets = [clone, ...clone.querySelectorAll('*')]
+  let sliceStarted = performance.now()
   for (let i = 0; i < sources.length; i++) {
+    if (
+      performance.now() - sliceStarted >=
+      performanceSettings.renderingSliceMs
+    ) {
+      await yieldToBrowser()
+      sliceStarted = performance.now()
+    }
     const source = sources[i]!,
       target = targets[i] as HTMLElement | SVGElement,
       computed = getComputedStyle(source)

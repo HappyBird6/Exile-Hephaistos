@@ -73,7 +73,31 @@ public record BackendSettings(
 
   public record Storage(@NotBlank String methodJobDirectory) {}
 
-  public record Workbench(@Min(1) int repeatConcurrency) {}
+  public record Workbench(
+      @Min(1) int repeatConcurrency,
+      @NotNull Duration repeatTimeBudget,
+      @NotNull Duration repeatReceiptTtl,
+      @Min(1) int requestConcurrency,
+      @Min(1) int referenceCatalogEntries,
+      boolean supportEnabled) {
+    @org.springframework.boot.context.properties.bind.ConstructorBinding
+    public Workbench {
+      positive(repeatTimeBudget, "workbench.repeat-time-budget");
+      positive(repeatReceiptTtl, "workbench.repeat-receipt-ttl");
+      if (repeatReceiptTtl.compareTo(repeatTimeBudget.multipliedBy(2)) < 0)
+        throw new IllegalArgumentException("Receipt retention must exceed execution budget");
+    }
+
+    public Workbench(int repeatConcurrency) {
+      this(
+          repeatConcurrency,
+          defaults().workbench().repeatTimeBudget(),
+          defaults().workbench().repeatReceiptTtl(),
+          defaults().workbench().requestConcurrency(),
+          defaults().workbench().referenceCatalogEntries(),
+          defaults().workbench().supportEnabled());
+    }
+  }
 
   public record Prices(
       @NotBlank String sourceUrl,

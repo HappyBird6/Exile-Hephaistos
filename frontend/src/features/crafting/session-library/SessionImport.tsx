@@ -16,7 +16,7 @@ export function SessionImport({
 }: {
   disabled: boolean
   previewTarget?: RefObject<HTMLDivElement | null>
-  onImport: (document: SessionDocument) => boolean
+  onImport: (document: SessionDocument) => boolean | Promise<boolean>
 }) {
   const { locale, t } = useI18n()
   const text = historyMessages[locale]
@@ -64,13 +64,16 @@ export function SessionImport({
         <button
           type="button"
           disabled={disabled || reading}
-          onClick={() => {
+          onClick={async () => {
+            setReading(true)
             setError(false)
             try {
-              if (!onImport(preview)) throw Error('save')
+              if (!(await onImport(preview))) throw Error('save')
               setPreview(null)
             } catch {
               setError(true)
+            } finally {
+              setReading(false)
             }
           }}
         >

@@ -53,9 +53,11 @@ it('previews all states before asking the parent to save, preserving unknown dat
   expect(localStorage.getItem(historyStorageKey)).toBe(saved)
   fireEvent.click(screen.getByRole('button', { name: 'Add this session' }))
   expect(onImport).toHaveBeenCalledExactlyOnceWith(document)
-  expect(
-    screen.queryByRole('heading', { name: 'Import preview' }),
-  ).not.toBeInTheDocument()
+  await waitFor(() =>
+    expect(
+      screen.queryByRole('heading', { name: 'Import preview' }),
+    ).not.toBeInTheDocument(),
+  )
 })
 it('retains the preview and original storage when the parent cannot save', async () => {
   const { document, onImport, saved } = await example(false)
@@ -64,7 +66,7 @@ it('retains the preview and original storage when the parent cannot save', async
     await screen.findByRole('button', { name: 'Add this session' }),
   )
   expect(onImport).toHaveBeenCalledOnce()
-  expect(screen.getByRole('alert')).toBeVisible()
+  expect(await screen.findByRole('alert')).toBeVisible()
   expect(screen.getByRole('heading', { name: 'Import preview' })).toBeVisible()
   expect(localStorage.getItem(historyStorageKey)).toBe(saved)
 })

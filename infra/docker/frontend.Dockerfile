@@ -3,11 +3,14 @@ WORKDIR /workspace/frontend
 COPY frontend/package*.json frontend/.npmrc ./
 RUN npm ci
 COPY frontend/ ./
+COPY scripts/ /workspace/scripts/
 COPY contracts/ /workspace/contracts/
 COPY backend/src/main/resources/ /workspace/backend/src/main/resources/
+ARG VITE_CRAFT_SUPPORT_ENABLED=true
+ENV VITE_CRAFT_SUPPORT_ENABLED=$VITE_CRAFT_SUPPORT_ENABLED
 RUN npm run build
 FROM nginxinc/nginx-unprivileged:stable-alpine@sha256:04a3275f25d766cff8926d2e57b2ff34a783d6b12a702dc98bb82226d2d9a508
-COPY infra/docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --chmod=644 infra/docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /workspace/frontend/dist/ /usr/share/nginx/html/
 USER 101
 EXPOSE 8080

@@ -39,8 +39,41 @@ public final class RulesetResponse implements ResponseBodyAdvice<Object> {
       Class<? extends HttpMessageConverter<?>> converter,
       ServerHttpRequest request,
       ServerHttpResponse response) {
-    ObjectNode value = json.valueToTree(body);
+    var params =
+        org.springframework.web.util.UriComponentsBuilder.fromUri(request.getURI())
+            .build()
+            .getQueryParams();
+    boolean initial = "initial".equals(method.getMethod().getName());
+    boolean separate = initial && "separate".equals(params.getFirst("catalog"));
+    Object envelope = body;
+    if (separate) {
+      // Avoid serializing thousands of immutable definitions only to remove them afterwards.
+      var fields = new java.util.LinkedHashMap<String, Object>();
+      try {
+        for (var field : body.getClass().getRecordComponents())
+          if (!field.getName().equals("modifiers"))
+            fields.put(field.getName(), field.getAccessor().invoke(body));
+      } catch (ReflectiveOperationException invalid) {
+        throw new IllegalStateException("Invalid initial envelope", invalid);
+      }
+      envelope = fields;
+    }
+    ObjectNode value = json.valueToTree(envelope);
     value.put("rulesetIdentity", RulesetBoundary.identity());
+    if (initial) {
+      response.getHeaders().setCacheControl("no-cache");
+      if (separate) {
+        var base = params.getFirst("base");
+        value.put(
+            "catalogUrl",
+            "/api/v1/crafting/catalogs/"
+                + RulesetBoundary.identity()
+                + "/"
+                + (base == null ? "solar" : base)
+                + "?manualReveal="
+                + "true".equals(params.getFirst("manualReveal")));
+      }
+    }
     return value;
   }
 }

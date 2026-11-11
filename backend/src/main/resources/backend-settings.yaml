@@ -88,6 +88,21 @@ backend:
     # 동시에 실행할 카오스 반복 요청 수. 단일 제작 API와 별도 제한이다.
     # 사용: workbench/repeat/ChaosRepeatService.java, workbench/api/ChaosRepeatController.java
     repeat-concurrency: 1
+    # 반복 제작의 벽시계 예산. 단계 사이에 중단하고 완료한 부분은 영수증으로 반환한다.
+    # 사용: workbench/repeat/ChaosRepeatService.java
+    repeat-time-budget: 10s
+    # 요청 ID별 결과·미확정 상태 보관 기간. 같은 요청의 재전송에서 중복 난수 실행을 방지한다.
+    # 사용: workbench/infrastructure/RedisRepeatRequestStore.java
+    repeat-receipt-ttl: 10m
+    # 반복 제작 이외 제작 HTTP 요청의 프로세스별 동시 처리 한도. 초과분은 대기열 없이 429.
+    # 사용: bootstrap/http/WorkloadAdmission.java
+    request-concurrency: 16
+    # 옵션 판정용 불변 카탈로그 인덱스의 프로세스별 최대 보관 개수.
+    # 사용: workbench/application/ModifierReferenceService.java
+    reference-catalog-entries: 64
+    # 보류 중인 제작지원 API의 활성 여부. workbench-production 프로필에서는 false.
+    # 사용: bootstrap/http/WorkloadAdmission.java
+    support-enabled: true
 
   prices:
     # 시세 제공 서버의 주소. PoE2의 현재 일반 거래 리그를 이 서버의 목록에서 선택한다.

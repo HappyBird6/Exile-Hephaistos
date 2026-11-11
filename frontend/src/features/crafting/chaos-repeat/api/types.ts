@@ -24,7 +24,7 @@ export type ChaosRepeatTermination =
   'MATCH' | 'LIMIT' | 'INAPPLICABLE' | 'ERROR'
 export type ChaosRepeatFailure = {
   code: 'REPEAT_EXECUTION_FAILED'
-  stage: 'APPLY' | 'MATCHER'
+  stage: 'APPLY' | 'MATCHER' | 'STOP_SIGNAL'
 }
 export type ChaosRepeatRejection = {
   code: 'CURRENCY_INAPPLICABLE'

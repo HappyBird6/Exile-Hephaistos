@@ -1,3 +1,4 @@
+import { loadCatalogReference } from './catalogReference'
 import {
   isRulesetIdentity,
   rulesetHeaders,
@@ -225,9 +226,26 @@ export async function loadInitial(
     (base === 'solar'
       ? `initial?itemLevel=${level}`
       : `workbench/initial?base=${base}&itemLevel=${level}`) +
-      (manualReveal ? '&manualReveal=true' : ''),
+      (manualReveal ? '&manualReveal=true' : '') +
+      '&catalog=separate',
     signal,
   )
+  if (
+    object(v) &&
+    typeof v.catalogUrl === 'string' &&
+    isRulesetIdentity(v.rulesetIdentity)
+  ) {
+    const expected = `/api/v1/crafting/catalogs/${v.rulesetIdentity}/${base}?manualReveal=${manualReveal}`
+    if (v.catalogUrl !== expected) return invalid()
+    const reference = await loadCatalogReference(
+      expected,
+      v.rulesetIdentity,
+      signal,
+    )
+    if (!object(reference) || reference.rulesetIdentity !== v.rulesetIdentity)
+      return invalid()
+    v.modifiers = reference.modifiers
+  }
   if (
     !object(v) ||
     (v.compatibilityId !== undefined &&

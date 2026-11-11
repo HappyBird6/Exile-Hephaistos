@@ -209,8 +209,16 @@ public final class WorkbenchSimulator {
   }
 
   /** Per-base mechanics identity; cosmetics and other catalogs never participate. */
+  private volatile String cachedCompatibilityId;
+
   public String compatibilityId() {
-    return ItemRulesetIdentity.of(catalog, this, coupledModifierIds);
+    var value = cachedCompatibilityId;
+    if (value != null) return value;
+    synchronized (this) {
+      if (cachedCompatibilityId == null)
+        cachedCompatibilityId = ItemRulesetIdentity.of(catalog, this, coupledModifierIds);
+      return cachedCompatibilityId;
+    }
   }
 
   public String ruleVersion() {

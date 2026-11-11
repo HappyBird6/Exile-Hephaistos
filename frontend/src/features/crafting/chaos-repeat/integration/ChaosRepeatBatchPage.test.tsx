@@ -589,6 +589,7 @@ it('undoes the whole batch and preserves the original future when branching from
   )
   expect(currentFrame(stored())?.state.explicits[0]!.values.life).toBe(10)
   expect(currentFilm(stored())!.frames).toHaveLength(2)
+  await waitFor(() => expect(slot()).toBeEnabled())
   configure('Perfect_Chaos_Orb')
   fireEvent.click(slot())
   await waitFor(() => expect(stored().films).toHaveLength(2))

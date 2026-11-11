@@ -5,7 +5,7 @@ import { useRef, useState } from 'react'
 import { flushSync } from 'react-dom'
 import { useIsFetching, useQuery } from '@tanstack/react-query'
 import { useI18n } from '../../../shared/i18n/i18n'
-import { LocalFilmRepository } from '../workbenchHistory'
+import { IndexedFilmRepository } from '../session-library/IndexedFilmRepository'
 import { SessionFlow } from './SessionFlow'
 import { historyResources } from './resources'
 import { historyMessages } from './messages'
@@ -26,10 +26,16 @@ export function SessionOverviewPage({ id }: { id: string }) {
   const data = useQuery({
     queryKey: ['session-overview', id],
     retry: false,
-    queryFn: () =>
-      new LocalFilmRepository(localStorage)
-        .load()
-        .films.find((film) => film.id === id) ?? null,
+    queryFn: async () => {
+      const repository = new IndexedFilmRepository()
+      try {
+        return (
+          (await repository.load()).films.find((film) => film.id === id) ?? null
+        )
+      } finally {
+        await repository.close()
+      }
+    },
   })
   const film = data.data
   const title = film ? sessionTitle(film, locale) : text.title

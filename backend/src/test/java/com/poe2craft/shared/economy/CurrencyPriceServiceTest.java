@@ -88,6 +88,36 @@ class CurrencyPriceServiceTest {
   }
 
   @Test
+  void httpReadReturnsLastSnapshotWhileOneBackgroundRefreshWaits() throws Exception {
+    var time = new Time();
+    var cache = new Cache(time);
+    cache.snapshot = snapshot(time.instant().minus(Duration.ofHours(1)), 500);
+    var started = new CountDownLatch(1);
+    var release = new CountDownLatch(1);
+    var calls = new AtomicInteger();
+    try (var service =
+        service(
+            now -> {
+              calls.incrementAndGet();
+              started.countDown();
+              release.await(3, TimeUnit.SECONDS);
+              return snapshot(now, 600);
+            },
+            cache,
+            time)) {
+      var current = service.current(false);
+      assertThat(current.snapshot().exaltedPerDivine()).isEqualByComparingTo("500");
+      assertThat(started.await(2, TimeUnit.SECONDS)).isTrue();
+      for (int i = 0; i < 20; i++)
+        assertThat(service.current(true).snapshot()).isEqualTo(current.snapshot());
+      assertThat(calls).hasValue(1);
+      release.countDown();
+    } finally {
+      release.countDown();
+    }
+  }
+
+  @Test
   void automaticThirtyMinuteRefreshAndManualFiveMinuteCooldownAreSharedAcrossServices() {
     var time = new Time();
     var cache = new Cache(time);

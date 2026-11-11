@@ -467,3 +467,9 @@
   flex-direction: column;
   align-items: stretch;
 }
+
+/* Defer offscreen card painting without removing keyboard targets or browser find results. */
+.wb-session-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 160px;
+}

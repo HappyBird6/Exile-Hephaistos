@@ -9,7 +9,7 @@ export function SessionTitleEditor({
 }: {
   title: string
   disabled?: boolean
-  onSave: (title: string) => boolean
+  onSave: (title: string) => boolean | Promise<boolean>
 }) {
   const { locale } = useI18n()
   const text = sessionLibraryMessages[locale]
@@ -25,11 +25,21 @@ export function SessionTitleEditor({
     const selection = window.getSelection()
     selection?.selectAllChildren(heading.current)
   }, [editable])
-  function finish(save: boolean) {
-    if (!editing.current || (save && disabled)) return
+  const committing = useRef(false)
+  async function finish(save: boolean) {
+    if (committing.current || !editing.current || (save && disabled)) return
     const value = heading.current?.textContent?.trim() ?? ''
     if (save && value && value !== original.current && !disabled) {
-      if (!onSave(value)) {
+      committing.current = true
+      let saved: boolean
+      try {
+        saved = await onSave(value)
+      } catch {
+        saved = false
+      } finally {
+        committing.current = false
+      }
+      if (!saved) {
         setFailed(true)
         return
       }

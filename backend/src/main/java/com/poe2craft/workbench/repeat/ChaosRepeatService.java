@@ -16,10 +16,7 @@ import java.util.*;
 import java.util.concurrent.Semaphore;
 import java.util.random.RandomGenerator;
 
-/**
- * One synchronous admitted batch. No jobs, queue, request cache, cancellation or saved server
- * state.
- */
+/** Bounded sequential batches; completed uses survive cancellation or time limits. */
 public final class ChaosRepeatService {
   private final CraftingOperations workbench;
   private final ChaosDisplayResources display;
@@ -27,6 +24,7 @@ public final class ChaosRepeatService {
   private final ChaosRepeatRunner.Apply concreteApply;
   private final AbyssApply abyssApply;
   private final Semaphore admission;
+  private final long budgetNanos;
 
   @FunctionalInterface
   interface AbyssApply {
@@ -77,10 +75,22 @@ public final class ChaosRepeatService {
     this.rulesetIdentity = Objects.requireNonNull(identity);
     this.concreteApply = Objects.requireNonNull(concreteApply);
     this.abyssApply = Objects.requireNonNull(abyssApply);
+    this.budgetNanos = settings.repeatTimeBudget().toNanos();
     this.admission = new Semaphore(settings.repeatConcurrency());
   }
 
   public Outcome run(Input input, RandomGenerator random) {
+    return run(input, random, () -> false);
+  }
+
+  public Outcome run(
+      Input input, RandomGenerator random, java.util.function.BooleanSupplier cancelled) {
+    long deadline = System.nanoTime() + budgetNanos;
+    java.util.function.BooleanSupplier stop =
+        () ->
+            Thread.currentThread().isInterrupted()
+                || System.nanoTime() >= deadline
+                || cancelled.getAsBoolean();
     if (!admission.tryAcquire())
       throw new RepeatRejected(
           429,
@@ -130,7 +140,8 @@ public final class ChaosRepeatService {
                     input.activeOmens(),
                     input.maximumUses(),
                     random,
-                    state -> matches(state, catalog, locale, pattern));
+                    state -> matches(state, catalog, locale, pattern),
+                    stop);
         return outcome(
             binding,
             new Concrete(result.state()),
@@ -138,15 +149,19 @@ public final class ChaosRepeatService {
             result.consumedOmens(),
             result.remainingOmens(),
             ConcreteWitness.from(result.lastAppliedResult()),
-            result.termination().name(),
+            result.termination() == ChaosRepeatRunner.Termination.STOP_REQUESTED
+                ? "ERROR"
+                : result.termination().name(),
             result.lastResult() != null && !result.lastResult().applied()
                 ? new Rejection("CURRENCY_INAPPLICABLE", result.lastResult().reason())
                 : null,
-            result.failureStage() == null
-                ? null
-                : new Failure("REPEAT_EXECUTION_FAILED", result.failureStage().name()));
+            result.termination() == ChaosRepeatRunner.Termination.STOP_REQUESTED
+                ? new Failure("REPEAT_EXECUTION_FAILED", "STOP_SIGNAL")
+                : result.failureStage() == null
+                    ? null
+                    : new Failure("REPEAT_EXECUTION_FAILED", result.failureStage().name()));
       }
-      return abyss(input, binding, catalog, locale, pattern, random);
+      return abyss(input, binding, catalog, locale, pattern, random, stop);
     } catch (RepeatRejected rejected) {
       throw rejected;
     } catch (IllegalArgumentException invalid) {
@@ -168,7 +183,8 @@ public final class ChaosRepeatService {
       ItemCatalog catalog,
       DisplayLocale locale,
       ChaosRepeatPattern pattern,
-      RandomGenerator random) {
+      RandomGenerator random,
+      java.util.function.BooleanSupplier stop) {
     var state = ((Abyss) input.state()).abyss();
     var remaining = input.activeOmens();
     var consumed = new HashMap<String, Integer>();
@@ -177,6 +193,18 @@ public final class ChaosRepeatService {
     String stage = "APPLY";
     try {
       while (count < input.maximumUses()) {
+        stage = "STOP_SIGNAL";
+        if (stop.getAsBoolean())
+          return outcome(
+              binding,
+              new Abyss(state),
+              count,
+              consumed,
+              remaining,
+              witness,
+              "ERROR",
+              null,
+              new Failure("REPEAT_EXECUTION_FAILED", stage));
         stage = "APPLY";
         var step = abyssApply.apply(state, input.action(), remaining, random);
         if (!step.applied())

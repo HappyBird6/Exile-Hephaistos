@@ -26,7 +26,7 @@ it('uses cancellation for reads and a server-mediated POST for manual refresh', 
   expect(await loadCurrencyPrices(signal)).toEqual(view)
   expect(fetch.mock.calls[0]).toEqual([
     '/api/v1/economy/prices',
-    { signal, method: 'GET', cache: 'no-store' },
+    { signal, method: 'GET', cache: 'default' },
   ])
   await loadCurrencyPrices(undefined, true)
   expect(fetch.mock.calls[1]![0]).toBe('/api/v1/economy/prices/refresh')
