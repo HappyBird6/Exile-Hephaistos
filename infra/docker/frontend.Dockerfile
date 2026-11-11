@@ -5,7 +5,9 @@ RUN npm ci
 COPY frontend/ ./
 COPY scripts/ /workspace/scripts/
 COPY contracts/ /workspace/contracts/
-COPY backend/src/main/resources/ /workspace/backend/src/main/resources/
+# Prebuild verifies both sealed resources and the backend translation loader's source contract.
+COPY backend/src/main/ /workspace/backend/src/main/
+COPY docs/evidence/ /workspace/docs/evidence/
 ARG VITE_CRAFT_SUPPORT_ENABLED=true
 ENV VITE_CRAFT_SUPPORT_ENABLED=$VITE_CRAFT_SUPPORT_ENABLED
 RUN npm run build
