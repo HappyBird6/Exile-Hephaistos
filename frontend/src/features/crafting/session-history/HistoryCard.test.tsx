@@ -1,10 +1,11 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen } from '@testing-library/react'
-import { expect, it } from 'vitest'
+import { cleanup, render, screen } from '@testing-library/react'
+import { afterEach, expect, it } from 'vitest'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
 import { setLocale } from '../../../shared/i18n/i18n'
 import { concreteInitial } from '../workbenchApi'
 import { HistoryCard } from './HistoryCard'
+afterEach(() => cleanup())
 it('keeps known option sentences readable across ruleset changes without editing the saved item', async () => {
   setLocale('en')
   const state = {
@@ -38,4 +39,37 @@ it('keeps known option sentences readable across ruleset changes without editing
   expect(await screen.findByText('+17 to maximum Life')).toBeInTheDocument()
   expect(screen.queryByText('p: life 17')).not.toBeInTheDocument()
   expect(JSON.stringify(state)).toBe(original)
+})
+
+it('uses the translated catalyst quality in a preserved session instead of the raw enum', async () => {
+  await setLocale('ko')
+  const state = {
+    ...concreteInitial(initialFixture),
+    baseItemId: 'Metadata/Items/Amulets/FourAmulet9',
+    catalystQuality: { type: 'NECROTIC' as const, amount: 40 },
+  }
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  client.setQueryData(
+    ['crafting', 'initial', 'solar', state.itemLevel, 'manual'],
+    initialFixture,
+  )
+  const frame = { state, action: null }
+  render(
+    <QueryClientProvider client={client}>
+      <HistoryCard
+        film={{
+          id: 'quality',
+          createdAt: new Date().toISOString(),
+          rulesetIdentity: 'old-ruleset',
+          frames: [frame],
+        }}
+        frame={frame}
+      />
+    </QueryClientProvider>,
+  )
+  expect(await screen.findByText('퀄리티 (괴사의 기폭제): +40%')).toBeVisible()
+  expect(screen.queryByText(/NECROTIC/)).toBeNull()
+  await setLocale('en')
 })

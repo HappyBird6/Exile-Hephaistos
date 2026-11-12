@@ -1,5 +1,5 @@
 import { accountScope } from '../account/auth'
-import { boardRequest } from './api'
+import { boardRequest, type Stats } from './api'
 import type { ReuseAction } from './reuse'
 type Pending = { id: string; action: ReuseAction }
 const key = () => `hephaistos.community.downloads:${accountScope() ?? 'guest'}`
@@ -35,25 +35,30 @@ export async function recordDownload(id: string, action: ReuseAction) {
     /* A counter must never undo a successful item save. */
   }
   try {
-    await boardRequest('posts/' + encodeURIComponent(id) + '/download', {
-      method: 'POST',
-      body: JSON.stringify({ action }),
-    })
+    const stats = await boardRequest<Stats>(
+      'posts/' + encodeURIComponent(id) + '/download',
+      {
+        method: 'POST',
+        body: JSON.stringify({ action }),
+      },
+    )
     localStorage.setItem(
       storageKey,
       JSON.stringify(read(storageKey).filter((p) => p.id !== id)),
     )
+    return stats
   } catch {
     /* Retain the pending count for the next board visit. */
   }
 }
-export function flushDownloads() {
+export function flushDownloads(onCounted?: (id: string, stats: Stats) => void) {
   if (running) return running
   running = (async () => {
     const scope = accountScope()
     for (const p of read()) {
       if (accountScope() !== scope) return
-      await recordDownload(p.id, p.action)
+      const stats = await recordDownload(p.id, p.action)
+      if (stats && accountScope() === scope) onCounted?.(p.id, stats)
     }
   })().finally(() => {
     running = null

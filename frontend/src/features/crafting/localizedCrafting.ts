@@ -1,7 +1,9 @@
-import { gameName } from '../../shared/i18n/i18n'
+import { gameName, translate, type Locale } from '../../shared/i18n/i18n'
 import { workbenchCurrencyActions, workbenchActionNames } from './workbenchApi'
 import type { WorkbenchAction } from './workbenchApi'
 import type { CatalystQuality } from './catalystQuality'
+import { catalystTypes } from './catalystQuality'
+import { isBasicJewel } from './basicJewel'
 
 // Display adapters join only on stable IDs. Never replace catalog or request fields.
 export function localizedAction(action: WorkbenchAction) {
@@ -24,4 +26,28 @@ export const catalystItemIds: Record<CatalystQuality['type'], string> = {
   SKITTERING: 'Skittering_Catalyst',
   ADAPTIVE: 'Adaptive_Catalyst',
   NECROTIC: 'Necrotic_Catalyst',
+}
+
+/** One quality label for the workbench, saved sessions, public previews and snapshots. */
+export function localizedCatalystQuality(
+  quality: CatalystQuality,
+  baseId: string,
+  locale: Locale,
+) {
+  return translate(
+    'quality.current',
+    {
+      type:
+        locale === 'en'
+          ? catalystTypes[quality.type].name
+          : gameName(
+              (isBasicJewel(baseId) ? 'Refined_' : '') +
+                catalystItemIds[quality.type],
+              catalystTypes[quality.type].name,
+              locale,
+            ),
+      value: quality.amount,
+    },
+    locale,
+  )
 }

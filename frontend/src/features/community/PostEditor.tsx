@@ -7,7 +7,8 @@ import { useI18n } from '../../shared/i18n/i18n'
 import { communityText } from './messages'
 import { revisionText } from './revisionMessages'
 import { publicFilm, exceedsShareLimit } from './sharedSnapshot'
-import { boardRequest, type Options, type Post } from './api'
+import { boardRequest, type Post } from './api'
+import { communityQueries, invalidatePost } from './queries'
 export function PostEditor({ post }: { post: Post }) {
   const auth = useAccount(),
     { locale } = useI18n(),
@@ -23,8 +24,8 @@ export function PostEditor({ post }: { post: Post }) {
     [error, setError] = useState(false)
   const own = post.authorId === null || post.authorId === auth?.user?.id
   const options = useQuery({
-    queryKey: ['community', 'options'],
-    queryFn: () => boardRequest<Options>('options'),
+    ...communityQueries.options(),
+    enabled: own && mode !== null && mode !== 'delete',
   })
   const source = useQuery({
     queryKey: ['community', 'source', accountScope(), post.sourceId],
@@ -120,12 +121,18 @@ export function PostEditor({ post }: { post: Post }) {
                 revision: post.revision,
               }),
             })
+            await invalidatePost(client, post, accountScope(), true)
             navigate('/community')
             return
           }
           setMode(null)
           setPassword('')
-          await client.invalidateQueries({ queryKey: ['community'] })
+          await invalidatePost(client, post, accountScope())
+          if (mode === 'session')
+            void client.invalidateQueries({
+              queryKey: communityQueries.options().queryKey,
+              refetchType: 'none',
+            })
         } catch {
           setError(true)
         } finally {

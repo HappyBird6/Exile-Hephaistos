@@ -20,6 +20,7 @@ import { preciseModifierProjection } from '../sanctification/preciseModifierProj
 import { augmentName, socketText } from '../socketAugments'
 import { defenceDisplay } from '../defenceDisplay'
 import { historyMessages } from './messages'
+import { localizedCatalystQuality } from '../localizedCrafting'
 
 export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
   const { locale, name, t } = useI18n()
@@ -107,7 +108,11 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
               ? [
                   {
                     id: 'catalyst',
-                    text: `${state.catalystQuality.type}: ${state.catalystQuality.amount}%`,
+                    text: localizedCatalystQuality(
+                      state.catalystQuality,
+                      state.baseItemId,
+                      locale,
+                    ),
                   },
                 ]
               : []),

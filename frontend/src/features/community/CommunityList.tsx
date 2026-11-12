@@ -12,7 +12,8 @@ import { CommunityBoardsNav } from './CommunityBoardsNav'
 import { revisionText } from './revisionMessages'
 import { communityText } from './messages'
 import { CommunityShell } from './CommunityShell'
-import { boardRequest, type Page, type Options, type Post } from './api'
+import type { Page } from './api'
+import { communityQueries } from './queries'
 export function CommunityList() {
   useAppLocation()
   const { locale } = useI18n(),
@@ -22,24 +23,14 @@ export function CommunityList() {
     queryParams = new URLSearchParams(params)
   queryParams.delete('selected')
   const preview = useRef<HTMLElement>(null)
-  const options = useQuery({
-    queryKey: ['community', 'options'],
-    queryFn: () => boardRequest<Options>('options'),
-    staleTime: 60000,
-  })
-  const posts = useQuery({
-    queryKey: ['community', 'list', queryParams.toString()],
-    queryFn: ({ signal }) =>
-      boardRequest<Page>('posts?' + queryParams, { signal }),
-  })
+  const options = useQuery(communityQueries.options())
+  const posts = useQuery(communityQueries.list(queryParams.toString()))
   const selected =
     posts.data?.posts.find((p) => p.id === params.get('selected')) ??
     posts.data?.posts[0]
   const detail = useQuery({
-    queryKey: ['community', 'post', selected?.id],
+    ...communityQueries.post(selected?.id ?? ''),
     enabled: !!selected,
-    queryFn: ({ signal }) =>
-      boardRequest<Post>('posts/' + selected!.id, { signal }),
   })
   function filter(key: string, value: string) {
     const next = new URLSearchParams(location.search)
@@ -78,14 +69,6 @@ export function CommunityList() {
           heading={
             <>
               <h2>{t.board}</h2>
-              <div className="wb-history-heading__actions">
-                <AppLink
-                  className="wb-session-card__overview"
-                  href="/community/new"
-                >
-                  {t.newPost}
-                </AppLink>
-              </div>
             </>
           }
           beforeColumns={
@@ -150,9 +133,9 @@ export function CommunityList() {
                   </select>
                 </label>
                 <label>
-                  {t.popular}
+                  {r.sort}
                   <select
-                    aria-label={t.popular}
+                    aria-label={r.sort}
                     value={params.get('sort') ?? 'newest'}
                     onChange={(e) => filter('sort', e.target.value)}
                   >

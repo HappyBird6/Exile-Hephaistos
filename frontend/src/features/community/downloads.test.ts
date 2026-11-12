@@ -18,7 +18,9 @@ it('queues only one unified download per post and retries without losing a succe
   )
   expect(pending).toHaveLength(1)
   send.mockResolvedValue({ downloads: 1 })
-  await flushDownloads()
+  const counted = vi.fn()
+  await flushDownloads(counted)
+  expect(counted).toHaveBeenCalledWith('post', { downloads: 1 })
   expect(
     JSON.parse(localStorage.getItem('hephaistos.community.downloads:guest')!),
   ).toEqual([])

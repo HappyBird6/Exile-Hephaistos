@@ -8,21 +8,18 @@ import { reusePost, type ReuseAction } from './reuse'
 import { useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useI18n, gameName } from '../../shared/i18n/i18n'
+import { accountScope } from '../account/auth'
 import { SessionDetail } from '../crafting/session-detail/SessionDetail'
 import { historyResources } from '../crafting/session-history/resources'
 import { validStoredFilm } from '../crafting/workbenchHistory'
 import { CommunityShell } from './CommunityShell'
-import { boardRequest } from './api'
+import { communityQueries, cachePostStats } from './queries'
 import type { Post } from './api'
 import { communityText } from './messages'
 export function CommunityDetail({ id }: { id: string }) {
   const { locale } = useI18n(),
     t = communityText(locale)
-  const query = useQuery({
-    queryKey: ['community', 'post', id],
-    queryFn: ({ signal }) =>
-      boardRequest<Post>('posts/' + encodeURIComponent(id), { signal }),
-  })
+  const query = useQuery(communityQueries.post(id))
   return (
     <CommunityShell>
       {query.isPending ? (
@@ -45,6 +42,7 @@ function Detail({ post }: { post: Post }) {
   async function reuse(action: ReuseAction) {
     setBusy(true)
     setStatus('')
+    const owner = accountScope()
     try {
       const next = await reusePost(
         post,
@@ -52,10 +50,9 @@ function Detail({ post }: { post: Post }) {
         action,
         new AbortController().signal,
       )
-      await recordDownload(post.id, action)
-      void client.invalidateQueries({
-        queryKey: ['community', 'stats', post.id],
-      })
+      const stats = await recordDownload(post.id, action)
+      if (stats && owner === accountScope())
+        cachePostStats(client, post.id, owner, stats)
       if (next) navigate(next)
       else setStatus(t.saved)
     } catch {
@@ -64,71 +61,68 @@ function Detail({ post }: { post: Post }) {
       setBusy(false)
     }
   }
+  const from = new URLSearchParams(location.search).get('from')
   return (
-    <>
+    <article className="community-post">
       <AppLink
         className="community-back"
         href={
-          '/community' +
-          (new URLSearchParams(location.search).get('from')?.startsWith('?')
-            ? new URLSearchParams(location.search).get('from')
-            : '?selected=' + post.id)
+          '/community' + (from?.startsWith('?') ? from : '?selected=' + post.id)
         }
       >
-        {t.board} ←
+        ← {t.board}
       </AppLink>
       <header className="community-detail-header">
         <h1>{post.title || gameName(post.baseId, post.baseId, locale)}</h1>
-        <p className="community-detail-meta">
+        <div className="community-detail-meta">
           {post.authorId ? (
             <AppLink href={'/community?author=' + post.authorId}>
               {post.author}
             </AppLink>
           ) : (
-            t.anonymous
-          )}{' '}
-          · {post.gameVersion}
-        </p>
+            <span>{t.anonymous}</span>
+          )}
+          <time dateTime={post.createdAt}>
+            {new Date(post.createdAt).toLocaleString(locale)}
+          </time>
+          <span className="community-version">{post.gameVersion}</span>
+        </div>
       </header>
-      <div className="community-body">{post.body}</div>
-      <PostEditor post={post} />
-      <PostReactions id={post.id} />
-      <p>
-        {t.sharedStep}: {post.sharedStep}{' '}
-        {post.film.frames.length > post.sharedStep + 1 && (
-          <>
-            {' '}
-            · {t.laterSteps}: {post.film.frames.length - post.sharedStep - 1}
-          </>
-        )}
-      </p>
-      <SessionDetail
-        film={post.film}
-        cursor={cursor}
-        onNavigate={setCursor}
-        resources={historyResources}
-        showOverview={false}
-        className="community-preview community-session-detail"
-        itemClassName="community-detail-item"
-        disabled={busy}
-        actions={
-          <div className="community-reuse">
-            <div className="community-actions">
-              <button disabled={busy} onClick={() => void reuse('import')}>
-                {t.importSession}
-              </button>
-              <button disabled={busy} onClick={() => void reuse('craft')}>
-                {t.newCraft}
-              </button>
-              <button disabled={busy} onClick={() => void reuse('favorite')}>
-                {t.favorite}
-              </button>
-            </div>
-            {status && <p role="status">{status}</p>}
+      <div className="community-post-content">
+        <SessionDetail
+          film={post.film}
+          cursor={cursor}
+          onNavigate={setCursor}
+          resources={historyResources}
+          showOverview={false}
+          className="community-session-detail"
+          disabled={busy}
+        />
+        <div className="community-post-description">
+          <div className="wb-history-preview__actions community-reuse">
+            <button disabled={busy} onClick={() => void reuse('import')}>
+              {t.importSession}
+            </button>
+            <button disabled={busy} onClick={() => void reuse('craft')}>
+              {t.newCraft}
+            </button>
+            <button disabled={busy} onClick={() => void reuse('favorite')}>
+              {t.favorite}
+            </button>
           </div>
-        }
-      />
+          {status && <p role="status">{status}</p>}
+          {post.body && (
+            <div className="community-body community-post-body">
+              {post.body}
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="community-post-actions">
+        <PostReactions id={post.id} />
+        <PostEditor post={post} />
+      </div>
       <Comments post={post.id} />
-    </>
+    </article>
   )
 }

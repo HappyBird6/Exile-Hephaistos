@@ -86,6 +86,16 @@ export function revisionText(locale: Locale) {
     th: 'ดูรายละเอียด',
   }
   return {
+    sort: {
+      ko: '정렬',
+      en: 'Sort by',
+      'zh-CN': '排序',
+      'zh-TW': '排序',
+      ja: '並び順',
+      es: 'Ordenar por',
+      ru: 'Сортировка',
+      th: 'เรียงตาม',
+    }[locale],
     details: details[locale],
     itemClass: r[0]!,
     base: r[1]!,

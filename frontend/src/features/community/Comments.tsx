@@ -1,33 +1,19 @@
 import { AppLink } from '../../shared/navigation/AppLink'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useAccount } from '../account/auth'
 import { useI18n } from '../../shared/i18n/i18n'
 import { communityText } from './messages'
-import { boardRequest, type Options } from './api'
-type Comment = {
-  id: string
-  authorId: string
-  author: string
-  body: string
-  revision: number
-  createdAt: string
-  updatedAt: string
-}
-type Page = {
-  comments: Comment[]
-  total: number
-  page: number
-  pageSize: number
-}
+import { boardRequest, type Comment } from './api'
+import { communityQueries } from './queries'
 export function Comments({ post }: { post: string }) {
   const auth = useAccount(),
     { locale } = useI18n(),
     t = communityText(locale),
     client = useQueryClient()
   const options = useQuery({
-    queryKey: ['community', 'options'],
-    queryFn: () => boardRequest<Options>('options'),
+    ...communityQueries.options(),
+    enabled: !!auth?.user,
   })
   const [page, setPage] = useState(1),
     [body, setBody] = useState(''),
@@ -35,21 +21,101 @@ export function Comments({ post }: { post: string }) {
     [id, setId] = useState(() => crypto.randomUUID()),
     [busy, setBusy] = useState(false),
     [error, setError] = useState(false)
+  const input = useRef<HTMLTextAreaElement>(null)
   const key = ['community', 'comments', post]
-  const query = useQuery({
-    queryKey: [...key, page],
-    queryFn: ({ signal }) =>
-      boardRequest<Page>('posts/' + post + '/comments?page=' + page, {
-        signal,
-      }),
-  })
+  const query = useQuery(communityQueries.comments(post, page))
   return (
     <section className="community-comments">
-      <h2>
-        {t.comments} {query.data?.total ?? ''}
-      </h2>
+      <header className="community-comments-heading">
+        <h2>
+          {t.comments} <strong>{query.data?.total ?? 0}</strong>
+        </h2>
+      </header>
+      {(error || query.isError) && <p role="alert">{t.error}</p>}
+      <div className="community-comment-list">
+        {query.data?.comments.map((c) => (
+          <article key={c.id} className="community-comment">
+            <AppLink
+              className="community-comment-author"
+              href={'/community?author=' + c.authorId}
+              title={c.author}
+            >
+              {c.author}
+            </AppLink>
+            <p className="community-body">{c.body}</p>
+            <div className="community-comment-meta">
+              <time dateTime={c.createdAt}>
+                {new Date(c.createdAt).toLocaleString(locale)}
+              </time>
+              {c.authorId === auth?.user?.id && (
+                <div className="community-actions">
+                  <button
+                    disabled={busy}
+                    onClick={() => {
+                      setEditing(c)
+                      setBody(c.body)
+                      input.current?.focus()
+                    }}
+                  >
+                    {t.edit}
+                  </button>
+                  <button
+                    disabled={busy}
+                    onClick={async () => {
+                      if (!confirm(t.confirmDelete)) return
+                      setBusy(true)
+                      setError(false)
+                      try {
+                        await boardRequest(
+                          'posts/' + post + '/comments/' + c.id + '/delete',
+                          {
+                            method: 'POST',
+                            body: JSON.stringify({ revision: c.revision }),
+                          },
+                        )
+                        if (editing?.id === c.id) {
+                          setEditing(null)
+                          setBody('')
+                        }
+                        // Deleting the last row of a later page must not strand an empty page.
+                        if (page > 1 && query.data?.comments.length === 1)
+                          setPage(page - 1)
+                        await client.invalidateQueries({ queryKey: key })
+                      } catch {
+                        setError(true)
+                      } finally {
+                        setBusy(false)
+                      }
+                    }}
+                  >
+                    {t.delete}
+                  </button>
+                </div>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+      {query.data && query.data.total > query.data.pageSize && (
+        <nav
+          className="wb-history-pagination community-comment-pagination"
+          aria-label={t.comments}
+        >
+          <button disabled={page === 1} onClick={() => setPage(page - 1)}>
+            {t.previous}
+          </button>
+          <span aria-current="page">{page}</span>
+          <button
+            disabled={page * query.data.pageSize >= query.data.total}
+            onClick={() => setPage(page + 1)}
+          >
+            {t.next}
+          </button>
+        </nav>
+      )}
       {auth?.user ? (
         <form
+          className="community-comment-compose"
           onSubmit={async (e) => {
             e.preventDefault()
             setBusy(true)
@@ -81,9 +147,16 @@ export function Comments({ post }: { post: string }) {
             }
           }}
         >
+          <span
+            className="community-comment-author"
+            title={auth.user.displayName}
+          >
+            {auth.user.displayName}
+          </span>
           <label>
             {t.comment}
             <textarea
+              ref={input}
               aria-label={t.comment}
               required
               maxLength={options.data?.limits.commentLength}
@@ -115,70 +188,8 @@ export function Comments({ post }: { post: string }) {
           </div>
         </form>
       ) : (
-        <p>{t.loginRequired}</p>
+        <p className="community-comment-login">{t.loginRequired}</p>
       )}
-      {(error || query.isError) && <p role="alert">{t.error}</p>}
-      {query.data?.comments.map((c) => (
-        <article key={c.id} className="community-comment">
-          <header>
-            <AppLink href={'/community?author=' + c.authorId}>
-              {c.author}
-            </AppLink>
-            <time>{new Date(c.createdAt).toLocaleString(locale)}</time>
-          </header>
-          <p className="community-body">{c.body}</p>
-          {c.authorId === auth?.user?.id && (
-            <div className="community-actions">
-              <button
-                disabled={busy}
-                onClick={() => {
-                  setEditing(c)
-                  setBody(c.body)
-                }}
-              >
-                {t.edit}
-              </button>
-              <button
-                disabled={busy}
-                onClick={async () => {
-                  if (!confirm(t.confirmDelete)) return
-                  setBusy(true)
-                  try {
-                    await boardRequest(
-                      'posts/' + post + '/comments/' + c.id + '/delete',
-                      {
-                        method: 'POST',
-                        body: JSON.stringify({ revision: c.revision }),
-                      },
-                    )
-                    await client.invalidateQueries({ queryKey: key })
-                  } catch {
-                    setError(true)
-                  } finally {
-                    setBusy(false)
-                  }
-                }}
-              >
-                {t.delete}
-              </button>
-            </div>
-          )}
-        </article>
-      ))}
-      <nav className="community-actions">
-        <button disabled={page === 1} onClick={() => setPage(page - 1)}>
-          {t.previous}
-        </button>
-        <span>{page}</span>
-        <button
-          disabled={
-            !query.data || page * query.data.pageSize >= query.data.total
-          }
-          onClick={() => setPage(page + 1)}
-        >
-          {t.next}
-        </button>
-      </nav>
     </section>
   )
 }

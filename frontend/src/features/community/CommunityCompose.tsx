@@ -3,7 +3,7 @@ import { navigate } from '../../shared/navigation/navigation'
 import { publicFilm, exceedsShareLimit } from './sharedSnapshot'
 import { revisionText } from './revisionMessages'
 import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useAccount, accountScope } from '../account/auth'
 import { useI18n } from '../../shared/i18n/i18n'
 import { IndexedFilmRepository } from '../crafting/session-library/IndexedFilmRepository'
@@ -12,8 +12,10 @@ import { SessionDetail } from '../crafting/session-detail/SessionDetail'
 import { communityText } from './messages'
 import { CommunityShell } from './CommunityShell'
 import { boardRequest } from './api'
-import type { Options, Post, Summary } from './api'
+import type { Post } from './api'
+import { communityQueries, invalidatePost } from './queries'
 export function CommunityCompose() {
+  const client = useQueryClient()
   const auth = useAccount(),
     { locale } = useI18n(),
     t = communityText(locale)
@@ -42,17 +44,12 @@ export function CommunityCompose() {
       }
     },
   })
-  const options = useQuery({
-    queryKey: ['community', 'options'],
-    queryFn: () => boardRequest<Options>('options'),
-  })
+  const options = useQuery(communityQueries.options())
   const film =
     library.data?.films.find((f) => f.id === selected) ?? library.data?.films[0]
   const linked = useQuery({
-    queryKey: ['community', 'mine', accountScope(), film?.id],
+    ...communityQueries.linked(film?.id ?? '', accountScope()),
     enabled: !!film,
-    queryFn: () =>
-      boardRequest<Summary[]>('mine?source=' + encodeURIComponent(film!.id)),
   })
   const oversized =
     !!film && !!options.data && exceedsShareLimit(film, options.data.limits)
@@ -80,6 +77,12 @@ export function CommunityCompose() {
                   password: auth?.user ? null : password,
                   revision: 0,
                 }),
+              })
+              await invalidatePost(client, post, accountScope())
+              client.setQueryData(communityQueries.post(post.id).queryKey, post)
+              void client.invalidateQueries({
+                queryKey: communityQueries.options().queryKey,
+                refetchType: 'none',
               })
               navigate('/community/post/' + post.id)
             } catch {

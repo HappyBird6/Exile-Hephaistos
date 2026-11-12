@@ -13,6 +13,12 @@ export const performanceSettings = {
   basePreviewDebounceMs: 250,
   // Immutable catalog inputs stay fresh while the user reads history (HistoryCard).
   initialRetentionMs: 60_000,
+  // Public board lists, counters and comments (community/queries); mutations invalidate only affected data.
+  communityFreshMs: 30_000,
+  // Shared session payloads reused between the list preview and detail (community/queries).
+  communityPostFreshMs: 60_000,
+  // Board filters and submission limits (community/queries).
+  communityOptionsFreshMs: 5 * 60_000,
   // Read shared prices every five minutes while visible (useCurrencyPrices).
   pricePollMs: 5 * 60_000,
   // Briefly poll after manual refresh, which runs outside the HTTP request (useCurrencyPrices).

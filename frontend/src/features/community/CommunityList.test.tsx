@@ -80,6 +80,7 @@ it('selects a card into the shared right preview without opening the detail page
     </QueryClientProvider>,
   )
   await screen.findByText('one:0')
+  expect(screen.queryByRole('link', { name: 'Share session' })).toBeNull()
   expect(document.querySelector('.wb-history-nav select')).toBeNull()
   expect(
     document.querySelector('.wb-history-content .community-filters'),

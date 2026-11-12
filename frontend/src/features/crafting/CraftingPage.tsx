@@ -110,10 +110,10 @@ import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
 import { getLocale, useI18n, uiText, translate } from '../../shared/i18n/i18n'
 import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
-import { localizedAction, catalystItemIds } from './localizedCrafting'
+import { localizedAction, localizedCatalystQuality } from './localizedCrafting'
 import { localizedModifierText } from './localizedModifiers'
 import { inServiceScope } from './serviceScope'
-import { catalystTypes, catalystProjection } from './catalystQuality'
+import { catalystProjection } from './catalystQuality'
 import type { CatalystQuality } from './catalystQuality'
 import { currencyNames } from './currencyNames'
 import { skipToken, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -190,11 +190,7 @@ import {
   updateFilmMetadata,
 } from './workbenchHistory'
 import type { Films, Film, Frame, FilmRepository } from './workbenchHistory'
-import {
-  basicJewelBases,
-  isWorkbenchJewel,
-  workbenchJewelBases,
-} from './basicJewel'
+import { isWorkbenchJewel, workbenchJewelBases } from './basicJewel'
 import { ModifierPoolPanel } from './modifier-pool/ModifierPoolPanel'
 import './crafting.css'
 import './compact-viewport/compactViewport.css'
@@ -1956,22 +1952,11 @@ function ReadyCraftingPage({
                 ? [
                     {
                       id: 'catalyst-quality',
-                      text: t('quality.current', {
-                        type:
-                          locale === 'en'
-                            ? catalystTypes[concrete.catalystQuality.type].name
-                            : name(
-                                (Object.hasOwn(basicJewelBases, catalogBase)
-                                  ? 'Refined_'
-                                  : '') +
-                                  catalystItemIds[
-                                    concrete.catalystQuality.type
-                                  ],
-                                catalystTypes[concrete.catalystQuality.type]
-                                  .name,
-                              ),
-                        value: concrete.catalystQuality.amount,
-                      }),
+                      text: localizedCatalystQuality(
+                        concrete.catalystQuality,
+                        concrete.baseItemId,
+                        locale,
+                      ),
                     },
                   ]
                 : []),

@@ -38,6 +38,26 @@ export type Options = {
   bases: string[]
   classes: string[]
 }
+export type Stats = {
+  downloads: number
+  recommendations: number
+  recommended: boolean
+}
+export type Comment = {
+  id: string
+  authorId: string
+  author: string
+  body: string
+  revision: number
+  createdAt: string
+  updatedAt: string
+}
+export type CommentPage = {
+  comments: Comment[]
+  total: number
+  page: number
+  pageSize: number
+}
 export async function boardRequest<T>(
   path: string,
   init: RequestInit = {},
