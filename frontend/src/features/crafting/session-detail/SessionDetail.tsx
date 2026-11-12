@@ -116,13 +116,21 @@ export function SessionDetail({
     >
       {layout === 'columns' ? (
         <>
-          {artwork && <div className="session-detail__artwork">{artwork}</div>}
+          {(artwork || actions) && (
+            <div className="session-detail__tools">
+              {artwork && (
+                <div className="session-detail__artwork">{artwork}</div>
+              )}
+              {actions && (
+                <div className="session-detail__actions">{actions}</div>
+              )}
+            </div>
+          )}
           <div className="session-detail__item">
             {controls}
             {itemView}
           </div>
           <div className="session-detail__record">{record}</div>
-          <div className="session-detail__actions">{actions}</div>
         </>
       ) : (
         <>

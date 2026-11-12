@@ -65,7 +65,7 @@ function Detail({ post }: { post: Post }) {
   }
   const from = new URLSearchParams(location.search).get('from')
   return (
-    <article className="community-post">
+    <article className="community-post community-post--detail">
       <AppLink
         className="community-back"
         href={
@@ -112,11 +112,7 @@ function Detail({ post }: { post: Post }) {
                 <button disabled={busy} onClick={() => void reuse('import')}>
                   {t.importSession}
                 </button>
-                <button
-                  className="community-reuse__primary"
-                  disabled={busy}
-                  onClick={() => void reuse('craft')}
-                >
+                <button disabled={busy} onClick={() => void reuse('craft')}>
                   {t.newCraft}
                 </button>
                 <button disabled={busy} onClick={() => void reuse('favorite')}>
