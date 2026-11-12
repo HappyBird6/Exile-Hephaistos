@@ -245,6 +245,17 @@ public class PostgresSessionBoard implements SessionBoard {
     if (!Set.of("newest", "popular").contains(sort))
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     if (page < 1 || page > 10000) throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+    Author authorInfo =
+        author == null
+            ? null
+            : db
+                .query(
+                    "SELECT id,display_name FROM app_user.account WHERE id=?",
+                    (r, n) -> new Author(r.getObject(1, UUID.class), r.getString(2)),
+                    author)
+                .stream()
+                .findFirst()
+                .orElse(null);
     var args = new ArrayList<Object>();
     String where = "WHERE NOT p.deleted";
     if (base != null && !base.isBlank()) {
@@ -256,7 +267,7 @@ public class PostgresSessionBoard implements SessionBoard {
           availableBases().stream()
               .filter(id -> itemClass.equals(BaseRegistry.itemClass(id)))
               .toList();
-      if (ids.isEmpty()) return new Page(List.of(), 0, page, pageSize);
+      if (ids.isEmpty()) return new Page(List.of(), 0, page, pageSize, authorInfo);
       where += " AND p.base_id IN (" + String.join(",", Collections.nCopies(ids.size(), "?")) + ")";
       args.addAll(ids);
     }
@@ -296,7 +307,7 @@ public class PostgresSessionBoard implements SessionBoard {
                     r.getLong(11),
                     r.getLong(12)),
             args.toArray());
-    return new Page(posts, total, page, pageSize);
+    return new Page(posts, total, page, pageSize, authorInfo);
   }
 
   @Override
@@ -317,9 +328,7 @@ public class PostgresSessionBoard implements SessionBoard {
   }
 
   private List<String> availableBases() {
-    return db.queryForList(
-        "SELECT DISTINCT base_id FROM community.post WHERE NOT deleted ORDER BY base_id",
-        String.class);
+    return BaseRegistry.supportedBaseIds().stream().sorted().toList();
   }
 
   @Override
@@ -343,6 +352,9 @@ public class PostgresSessionBoard implements SessionBoard {
             String.class),
         "bases",
         availableBases(),
+        "baseClasses",
+        availableBases().stream()
+            .collect(java.util.stream.Collectors.toMap(id -> id, BaseRegistry::itemClass)),
         "classes",
         availableBases().stream()
             .map(BaseRegistry::itemClass)

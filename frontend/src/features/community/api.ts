@@ -21,6 +21,7 @@ export type Post = Omit<Summary, 'steps' | 'downloads' | 'recommendations'> & {
   sharedStep: number
 }
 export type Page = {
+  author?: { id: string; name: string } | null
   posts: Summary[]
   total: number
   page: number
@@ -37,6 +38,7 @@ export type Options = {
   versions: string[]
   bases: string[]
   classes: string[]
+  baseClasses: Record<string, string>
 }
 export type Stats = {
   downloads: number

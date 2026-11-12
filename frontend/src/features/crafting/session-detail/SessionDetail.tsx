@@ -21,6 +21,7 @@ export function SessionDetail({
   actions,
   costControls,
   showOverview = true,
+  layout = 'stack',
 }: {
   film?: Film | null | undefined
   cursor: number
@@ -34,53 +35,50 @@ export function SessionDetail({
   actions?: ReactNode
   costControls?: ReactNode
   showOverview?: boolean
+  layout?: 'stack' | 'columns'
 }) {
   const { t } = useI18n()
   const index = Math.max(0, Math.min(cursor, (film?.frames.length ?? 1) - 1))
   const frame = film?.frames[index]
-  return (
-    <div className={['session-detail', className].filter(Boolean).join(' ')}>
-      {onNavigate && (
-        <div className="workbench-film-toolbar">
-          <div className="workbench-film-controls">
-            <button
-              type="button"
-              aria-label={t('ui.previous_crafting_step')}
-              disabled={!film || index === 0 || disabled}
-              onClick={() => onNavigate(index - 1)}
-            >
-              <span
-                className="workbench-film-controls__arrow"
-                aria-hidden="true"
-              >
-                ‹
-              </span>
-            </button>
-            <span>
-              {film
-                ? t('film.step', { step: index, total: film.frames.length - 1 })
-                : t('ui.new_craft')}
-            </span>
-            <button
-              type="button"
-              aria-label={t('ui.next_crafting_step')}
-              disabled={!film || index === film.frames.length - 1 || disabled}
-              onClick={() => onNavigate(index + 1)}
-            >
-              <span
-                className="workbench-film-controls__arrow"
-                aria-hidden="true"
-              >
-                ›
-              </span>
-            </button>
-          </div>
-        </div>
-      )}
-      <div className={itemClassName}>
-        {item ??
-          (film && frame ? <HistoryCard film={film} frame={frame} /> : null)}
+  const controls = onNavigate && (
+    <div className="workbench-film-toolbar">
+      <div className="workbench-film-controls">
+        <button
+          type="button"
+          aria-label={t('ui.previous_crafting_step')}
+          disabled={!film || index === 0 || disabled}
+          onClick={() => onNavigate(index - 1)}
+        >
+          <span className="workbench-film-controls__arrow" aria-hidden="true">
+            ‹
+          </span>
+        </button>
+        <span>
+          {film
+            ? t('film.step', { step: index, total: film.frames.length - 1 })
+            : t('ui.new_craft')}
+        </span>
+        <button
+          type="button"
+          aria-label={t('ui.next_crafting_step')}
+          disabled={!film || index === film.frames.length - 1 || disabled}
+          onClick={() => onNavigate(index + 1)}
+        >
+          <span className="workbench-film-controls__arrow" aria-hidden="true">
+            ›
+          </span>
+        </button>
       </div>
+    </div>
+  )
+  const itemView = (
+    <div className={itemClassName}>
+      {item ??
+        (film && frame ? <HistoryCard film={film} frame={frame} /> : null)}
+    </div>
+  )
+  const record = (
+    <>
       <CraftingCostLine film={film ?? undefined} cursor={index}>
         {costControls}
       </CraftingCostLine>
@@ -95,7 +93,35 @@ export function SessionDetail({
           {...(onNewCraft ? { onNewCraft } : {})}
         />
       )}
-      {actions}
+    </>
+  )
+  return (
+    <div
+      className={[
+        'session-detail',
+        layout === 'columns' && 'session-detail--columns',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      {layout === 'columns' ? (
+        <>
+          <div className="session-detail__item">
+            {controls}
+            {itemView}
+          </div>
+          <div className="session-detail__record">{record}</div>
+          <div className="session-detail__actions">{actions}</div>
+        </>
+      ) : (
+        <>
+          {controls}
+          {itemView}
+          {record}
+          {actions}
+        </>
+      )}
     </div>
   )
 }

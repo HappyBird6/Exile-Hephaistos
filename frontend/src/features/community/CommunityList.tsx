@@ -1,13 +1,14 @@
 import { useRef } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { useI18n, gameName, uiText } from '../../shared/i18n/i18n'
+import { useI18n, gameName } from '../../shared/i18n/i18n'
 import { AppLink } from '../../shared/navigation/AppLink'
 import { navigate, useAppLocation } from '../../shared/navigation/navigation'
 import { HistoryWorkspaceLayout } from '../crafting/session-library/HistoryWorkspaceLayout'
 import { SessionListCard } from '../crafting/session-library/SessionListCard'
 import { SessionDetail } from '../crafting/session-detail/SessionDetail'
 import { validStoredFilm } from '../crafting/workbenchHistory'
-import { basePolicy } from '../crafting/baseRegistry'
+import { AuthorLink } from './AuthorLink'
+import { listParams, listQuery, authorReturn } from './listNavigation'
 import { CommunityBoardsNav } from './CommunityBoardsNav'
 import { revisionText } from './revisionMessages'
 import { communityText } from './messages'
@@ -19,12 +20,13 @@ export function CommunityList() {
   const { locale } = useI18n(),
     t = communityText(locale),
     r = revisionText(locale)
-  const params = new URLSearchParams(location.search),
-    queryParams = new URLSearchParams(params)
-  queryParams.delete('selected')
   const preview = useRef<HTMLElement>(null)
   const options = useQuery(communityQueries.options())
-  const posts = useQuery(communityQueries.list(queryParams.toString()))
+  const params = listParams(location.search, options.data?.currentVersion)
+  const posts = useQuery({
+    ...communityQueries.list(listQuery(params)),
+    enabled: !!options.data,
+  })
   const selected =
     posts.data?.posts.find((p) => p.id === params.get('selected')) ??
     posts.data?.posts[0]
@@ -33,8 +35,8 @@ export function CommunityList() {
     enabled: !!selected,
   })
   function filter(key: string, value: string) {
-    const next = new URLSearchParams(location.search)
-    if (value) next.set(key, value)
+    const next = new URLSearchParams(params)
+    if (value || key === 'version') next.set(key, value)
     else next.delete(key)
     next.delete('page')
     next.delete('selected')
@@ -42,7 +44,7 @@ export function CommunityList() {
     navigate('/community?' + next, { scroll: false })
   }
   function select(id: string) {
-    const next = new URLSearchParams(location.search)
+    const next = new URLSearchParams(params)
     next.set('selected', id)
     navigate('/community?' + next, { replace: true, scroll: false })
     if (window.innerWidth <= 760)
@@ -65,30 +67,39 @@ export function CommunityList() {
     <CommunityShell>
       <div className="workspace-panel stash-panel wb-history-panel">
         <HistoryWorkspaceLayout
-          navigation={<CommunityBoardsNav />}
+          navigation={
+            <CommunityBoardsNav
+              classes={options.data?.classes ?? []}
+              selected={params.get('itemClass') ?? ''}
+              onSelect={(value) => filter('itemClass', value)}
+            />
+          }
           heading={
             <>
-              <h2>{t.board}</h2>
+              {params.get('author') && (
+                <AppLink
+                  className="community-author-back"
+                  href={authorReturn(location.search)}
+                >
+                  <span aria-hidden="true">←</span> {r.backToList}
+                </AppLink>
+              )}
+              <h2>
+                {params.get('author') &&
+                (posts.data?.author?.name || posts.data?.posts[0]?.author)
+                  ? r.authorSessions.replace(
+                      '{name}',
+                      posts.data?.author?.name ||
+                        posts.data?.posts[0]?.author ||
+                        '',
+                    )
+                  : t.board}
+              </h2>
             </>
           }
           beforeColumns={
             <>
               <div className="community-filters">
-                <label>
-                  {r.itemClass}
-                  <select
-                    aria-label={r.itemClass}
-                    value={params.get('itemClass') ?? ''}
-                    onChange={(e) => filter('itemClass', e.target.value)}
-                  >
-                    <option value="">{t.all}</option>
-                    {options.data?.classes.map((name) => (
-                      <option key={name} value={name}>
-                        {uiText(name, locale)}
-                      </option>
-                    ))}
-                  </select>
-                </label>
                 <label>
                   {r.base}
                   <select
@@ -101,7 +112,8 @@ export function CommunityList() {
                       .filter(
                         (id) =>
                           !params.get('itemClass') ||
-                          basePolicy(id)?.itemClass === params.get('itemClass'),
+                          options.data?.baseClasses[id] ===
+                            params.get('itemClass'),
                       )
                       .map((id) => (
                         <option key={id} value={id}>
@@ -144,11 +156,6 @@ export function CommunityList() {
                   </select>
                 </label>
               </div>
-              {params.get('author') && (
-                <AppLink className="community-author-filter" href="/community">
-                  {t.all}
-                </AppLink>
-              )}
               {posts.isPending && <p role="status">…</p>}
               {(posts.isError || options.isError) && (
                 <p role="alert">{t.error}</p>
@@ -157,7 +164,7 @@ export function CommunityList() {
           }
           list={
             <>
-              <Pagination page={posts.data} />
+              <Pagination page={posts.data} params={params} />
               <div className="wb-history-list wb-scrollbar">
                 <div className="wb-session-library">
                   {posts.data?.posts.length === 0 && <p>{t.empty}</p>}
@@ -192,11 +199,10 @@ export function CommunityList() {
                               )}
                             </span>
                             {post.authorId ? (
-                              <AppLink
-                                href={'/community?author=' + post.authorId}
-                              >
-                                {post.author}
-                              </AppLink>
+                              <AuthorLink
+                                id={post.authorId}
+                                name={post.author ?? ''}
+                              />
                             ) : (
                               <span>{t.anonymous}</span>
                             )}
@@ -250,13 +256,19 @@ export function CommunityList() {
     </CommunityShell>
   )
 }
-function Pagination({ page }: { page: Page | undefined }) {
+function Pagination({
+  page,
+  params,
+}: {
+  page: Page | undefined
+  params: URLSearchParams
+}) {
   const { locale } = useI18n(),
     t = communityText(locale)
   if (!page) return null
   const pages = Math.max(1, Math.ceil(page.total / page.pageSize))
   const go = (n: number) => {
-    const p = new URLSearchParams(location.search)
+    const p = new URLSearchParams(params)
     p.set('page', String(n))
     p.delete('selected')
     navigate('/community?' + p, { scroll: false })

@@ -102,3 +102,78 @@ it('selects a card into the shared right preview without opening the detail page
   })
   await waitFor(() => expect(screen.getByText('one:0')).toBeVisible())
 })
+
+it('loads once with current version, shows unpublished equipment and bases, and preserves the author return context', async () => {
+  setLocale('en')
+  history.replaceState(
+    null,
+    '',
+    '/community?author=member&authorFrom=' +
+      encodeURIComponent('/community?sort=popular&page=2&selected=one'),
+  )
+  send.mockImplementation(async (path: string) =>
+    path === 'options'
+      ? {
+          classes: ['Amulets', 'Boots'],
+          bases: ['unpublished-amulet', 'unpublished-boots'],
+          baseClasses: {
+            'unpublished-amulet': 'Amulets',
+            'unpublished-boots': 'Boots',
+          },
+          versions: ['0.5.4'],
+          currentVersion: '0.5.5',
+        }
+      : {
+          posts: [],
+          page: 1,
+          pageSize: 20,
+          total: 0,
+          author: { id: 'member', name: 'Member' },
+        },
+  )
+  render(
+    <QueryClientProvider
+      client={
+        new QueryClient({ defaultOptions: { queries: { retry: false } } })
+      }
+    >
+      <CommunityList />
+    </QueryClientProvider>,
+  )
+  await screen.findByRole('heading', { name: 'Sessions shared by Member' })
+  expect(
+    send.mock.calls.filter(([p]) => p.startsWith('posts?')).map(([p]) => p),
+  ).toEqual(['posts?author=member&version=0.5.5'])
+  expect(screen.getByRole('combobox', { name: 'Game version' })).toHaveValue(
+    '0.5.5',
+  )
+  expect(
+    screen.getByRole('option', { name: 'unpublished-boots' }),
+  ).toBeInTheDocument()
+  expect(
+    screen.getByRole('link', { name: /Back to previous/ }),
+  ).toHaveAttribute('href', '/community?sort=popular&page=2&selected=one')
+  fireEvent.click(screen.getByRole('button', { name: 'Boots' }))
+  await waitFor(() =>
+    expect(send).toHaveBeenCalledWith(
+      'posts?author=member&itemClass=Boots&version=0.5.5',
+      expect.anything(),
+    ),
+  )
+  expect(
+    screen.queryByRole('option', { name: 'unpublished-amulet' }),
+  ).toBeNull()
+  expect(
+    screen.getByRole('option', { name: 'unpublished-boots' }),
+  ).toBeInTheDocument()
+  fireEvent.change(screen.getByRole('combobox', { name: 'Game version' }), {
+    target: { value: '' },
+  })
+  await waitFor(() =>
+    expect(send).toHaveBeenCalledWith(
+      'posts?author=member&itemClass=Boots',
+      expect.anything(),
+    ),
+  )
+  expect(new URLSearchParams(location.search).get('version')).toBe('')
+})

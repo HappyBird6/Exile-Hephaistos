@@ -45,7 +45,9 @@ public interface SessionBoard {
       long downloads,
       long recommendations) {}
 
-  record Page(List<Summary> posts, long total, int page, int pageSize) {}
+  record Author(UUID id, String name) {}
+
+  record Page(List<Summary> posts, long total, int page, int pageSize, Author author) {}
 
   Post create(Actor actor, Draft draft);
 

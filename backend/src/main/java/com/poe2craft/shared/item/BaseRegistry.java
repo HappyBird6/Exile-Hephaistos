@@ -251,6 +251,11 @@ public final class BaseRegistry {
     return base;
   }
 
+  /** Reviewed item IDs, including older bases that can still appear in saved sessions. */
+  public static Set<String> supportedBaseIds() {
+    return CLASSES.keySet();
+  }
+
   public static String itemClass(String id) {
     return CLASSES.get(id);
   }

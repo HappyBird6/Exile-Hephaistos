@@ -197,4 +197,31 @@ class CommunityIntegrationTest {
     assertThat(((Map<?, ?>) board.options().get("limits")).keySet().toString())
         .contains("sessionBytes", "frames");
   }
+
+  @Test
+  void filtersIncludeUnpublishedSupportedBasesAndEmptyAuthorPagesKeepTheirName() throws Exception {
+    var actor = member();
+    var options = board.options();
+    var bases = (java.util.List<?>) options.get("bases");
+    assertThat(new java.util.HashSet<Object>(bases))
+        .isEqualTo(com.poe2craft.shared.item.BaseRegistry.supportedBaseIds());
+    assertThat(bases.size()).isGreaterThan(20);
+    var baseClasses = (Map<?, ?>) options.get("baseClasses");
+    for (String id : com.poe2craft.shared.item.BaseRegistry.supportedBaseIds()) {
+      assertThat(baseClasses.get(id))
+          .isEqualTo(com.poe2craft.shared.item.BaseRegistry.itemClass(id));
+    }
+    var empty = board.list(null, "unpublished-version", actor.account(), 1);
+    assertThat(empty.posts()).isEmpty();
+    assertThat(empty.author()).isEqualTo(new Author(actor.account(), "Member"));
+    assertThat(board.list(null, null, actor.account(), 1, "newest", "unknown").author())
+        .isEqualTo(empty.author());
+    assertThat(board.list(null, null, UUID.randomUUID(), 1).author()).isNull();
+    mvc.perform(
+            get("/api/community/posts")
+                .param("author", actor.account().toString())
+                .param("version", "unpublished-version"))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.author.name").value("Member"));
+  }
 }

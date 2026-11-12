@@ -86,6 +86,26 @@ export function revisionText(locale: Locale) {
     th: 'ดูรายละเอียด',
   }
   return {
+    authorSessions: {
+      ko: '{name}님의 공유 세션',
+      en: 'Sessions shared by {name}',
+      'zh-CN': '{name}分享的会话',
+      'zh-TW': '{name}分享的紀錄',
+      ja: '{name}の共有セッション',
+      es: 'Sesiones compartidas por {name}',
+      ru: 'Сессии автора {name}',
+      th: 'เซสชันที่แชร์โดย {name}',
+    }[locale],
+    backToList: {
+      ko: '이전 화면으로',
+      en: 'Back to previous page',
+      'zh-CN': '返回上一页',
+      'zh-TW': '返回上一頁',
+      ja: '前の画面へ戻る',
+      es: 'Volver a la página anterior',
+      ru: 'Вернуться назад',
+      th: 'กลับไปยังหน้าก่อนหน้า',
+    }[locale],
     sort: {
       ko: '정렬',
       en: 'Sort by',

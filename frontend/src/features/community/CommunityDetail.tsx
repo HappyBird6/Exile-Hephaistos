@@ -1,3 +1,4 @@
+import { AuthorLink } from './AuthorLink'
 import { AppLink } from '../../shared/navigation/AppLink'
 import { navigate } from '../../shared/navigation/navigation'
 import { Comments } from './Comments'
@@ -76,9 +77,7 @@ function Detail({ post }: { post: Post }) {
         <h1>{post.title || gameName(post.baseId, post.baseId, locale)}</h1>
         <div className="community-detail-meta">
           {post.authorId ? (
-            <AppLink href={'/community?author=' + post.authorId}>
-              {post.author}
-            </AppLink>
+            <AuthorLink id={post.authorId} name={post.author ?? ''} />
           ) : (
             <span>{t.anonymous}</span>
           )}
@@ -88,14 +87,15 @@ function Detail({ post }: { post: Post }) {
           <span className="community-version">{post.gameVersion}</span>
         </div>
       </header>
-      <div className="community-post-content">
+      <div className="community-post-session">
         <SessionDetail
           film={post.film}
           cursor={cursor}
           onNavigate={setCursor}
           resources={historyResources}
           showOverview={false}
-          className="community-session-detail"
+          className="community-session-columns"
+          layout="columns"
           disabled={busy}
           actions={
             <>
@@ -114,13 +114,11 @@ function Detail({ post }: { post: Post }) {
             </>
           }
         />
-        <div className="community-post-description">
-          {post.body && (
-            <div className="community-body community-post-body">
-              {post.body}
-            </div>
-          )}
-        </div>
+      </div>
+      <div className="community-post-description">
+        {post.body && (
+          <div className="community-body community-post-body">{post.body}</div>
+        )}
       </div>
       <div className="community-post-actions">
         <PostReactions id={post.id} />
