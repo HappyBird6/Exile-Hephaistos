@@ -1,3 +1,4 @@
+import { SessionDetail } from './session-detail/SessionDetail'
 import { HistoryCard } from './session-history/HistoryCard'
 import { sessionNotationMessages } from './session-notation/messages'
 import { cancelSelection } from './compact-viewport/mobileMessages'
@@ -30,10 +31,7 @@ import { unidentifiedRuneEffects } from './socketAugments'
 import { LeagueMark } from './currency-prices/LeagueMark'
 import { CurrencyPriceContext } from './currency-prices/context'
 import { useCurrencyPrices } from './currency-prices/useCurrencyPrices'
-import {
-  CurrencyTicker,
-  CraftingCostLine,
-} from './currency-prices/CurrencyPrices'
+import { CurrencyTicker } from './currency-prices/CurrencyPrices'
 import { SessionContinuation } from './session-library/SessionContinuation'
 import { revealAction } from './abyss-workbench/revealAction'
 import { currentItemText } from './currentItemText'
@@ -145,7 +143,6 @@ import './chaos-repeat/integration/chaos-repeat-integration.css'
 import { chaosRepeatResultMessage } from './chaos-repeat/integration/messages'
 import { applyChaosRepeat } from './chaos-repeat/api'
 import type { ChaosRepeatRequest } from './chaos-repeat/api'
-import { SessionNotation } from './session-notation/SessionNotation'
 import { useItemTextImport } from './useItemTextImport'
 import { CurrencyImage } from './CurrencyImage'
 import { currencies } from './currencies'
@@ -2817,122 +2814,91 @@ function ReadyCraftingPage({
                 )}
               </div>
             </div>
-            <div className="bench-lower">
-              <div className="workbench-film-toolbar">
-                <div className="workbench-film-controls">
-                  <button
-                    type="button"
-                    aria-label={t('ui.previous_crafting_step')}
-                    disabled={
-                      !film || filmState.history.cursor === 0 || workbenchBusy
-                    }
-                    onClick={() => browse(filmState.history.cursor - 1)}
-                  >
-                    <span
-                      className="workbench-film-controls__arrow"
-                      aria-hidden="true"
-                    >
-                      ‹
-                    </span>
-                  </button>
-                  <span>
-                    {film
-                      ? t('film.step', {
-                          step: filmState.history.cursor,
-                          total: film.frames.length - 1,
-                        })
-                      : t('ui.new_craft')}
-                  </span>
-                  <button
-                    type="button"
-                    aria-label={t('ui.next_crafting_step')}
-                    disabled={
-                      !film ||
-                      filmState.history.cursor === film.frames.length - 1 ||
-                      workbenchBusy
-                    }
-                    onClick={() => browse(filmState.history.cursor + 1)}
-                  >
-                    <span
-                      className="workbench-film-controls__arrow"
-                      aria-hidden="true"
-                    >
-                      ›
-                    </span>
-                  </button>
-                </div>
-              </div>
-              <div className="bench-item-card">
-                {observedPreview && (
-                  <p role="status">{t('notice.observed_item')}</p>
-                )}
-                {filmState.error && (
-                  <p role="alert">{uiText(filmState.error)}</p>
-                )}
-                {storedFrame &&
-                  rulesetStatus === 'current' &&
-                  initial.data &&
-                  !restoredValid && (
-                    <p role="alert">{t('notice.saved_catalog')}</p>
+            <SessionDetail
+              className="bench-lower"
+              itemClassName="bench-item-card"
+              film={film}
+              cursor={filmState.history.cursor}
+              onNavigate={browse}
+              resources={stashResources}
+              disabled={workbenchBusy}
+              onNewCraft={() => {
+                if (film && storedFrame)
+                  void newCraftFromFrame(film, storedFrame)
+              }}
+              item={
+                <>
+                  {observedPreview && (
+                    <p role="status">{t('notice.observed_item')}</p>
                   )}
-                {storedFrame && activeFilm && !restoredValid ? (
-                  <HistoryCard film={activeFilm} frame={storedFrame} />
-                ) : card ? (
-                  <ItemCard
-                    item={{
-                      ...card,
-                      modifiers: [
-                        ...card.modifiers,
-                        ...(concrete?.desecrated ?? [])
-                          .filter(
-                            (slot) =>
-                              slot.modifierId === null &&
-                              !card.modifiers.some(
-                                (line) => line.id === slot.id,
-                              ),
-                          )
-                          .map((slot) => ({
-                            id: slot.id,
-                            lastCurrencyAffected: lastAffected.has(slot.id),
-                            text: abyssWorkbenchMessages[locale].hidden,
-                            kind: 'desecrated' as const,
-                            unrevealedDesecrated: true,
-                            affixLabel: slot.side === 'PREFIX' ? 'P' : 'S',
-                          })),
-                      ],
-                    }}
-                    showOriginalOrder={altHeld}
-                    {...(concrete
-                      ? { baseItemId: baseSlugs[catalogBase] }
-                      : {})}
-                  />
-                ) : (
-                  <ItemCard
-                    baseItemId={baseSlugs[catalogBase]}
-                    item={{
-                      rarity: baseStartingRarity(catalogBase),
-                      name: baseName,
-                      base: baseName,
-                      itemClass: baseClass(catalogBase),
-                      itemLevel: draft.baseItemLevel,
-                      properties: [],
-                      requirements: [],
-                      modifiers:
-                        catalogBase !== 'solar'
-                          ? []
-                          : [
-                              {
-                                id: 'spirit',
-                                text: '+15 to Spirit',
-                                kind: 'implicit',
-                              },
-                            ],
-                      flags: [],
-                    }}
-                  />
-                )}
-              </div>
-              <CraftingCostLine film={film} cursor={filmState.history.cursor}>
+                  {filmState.error && (
+                    <p role="alert">{uiText(filmState.error)}</p>
+                  )}
+                  {storedFrame &&
+                    rulesetStatus === 'current' &&
+                    initial.data &&
+                    !restoredValid && (
+                      <p role="alert">{t('notice.saved_catalog')}</p>
+                    )}
+                  {storedFrame && activeFilm && !restoredValid ? (
+                    <HistoryCard film={activeFilm} frame={storedFrame} />
+                  ) : card ? (
+                    <ItemCard
+                      item={{
+                        ...card,
+                        modifiers: [
+                          ...card.modifiers,
+                          ...(concrete?.desecrated ?? [])
+                            .filter(
+                              (slot) =>
+                                slot.modifierId === null &&
+                                !card.modifiers.some(
+                                  (line) => line.id === slot.id,
+                                ),
+                            )
+                            .map((slot) => ({
+                              id: slot.id,
+                              lastCurrencyAffected: lastAffected.has(slot.id),
+                              text: abyssWorkbenchMessages[locale].hidden,
+                              kind: 'desecrated' as const,
+                              unrevealedDesecrated: true,
+                              affixLabel: slot.side === 'PREFIX' ? 'P' : 'S',
+                            })),
+                        ],
+                      }}
+                      showOriginalOrder={altHeld}
+                      {...(concrete
+                        ? { baseItemId: baseSlugs[catalogBase] }
+                        : {})}
+                    />
+                  ) : (
+                    <ItemCard
+                      baseItemId={baseSlugs[catalogBase]}
+                      item={{
+                        rarity: baseStartingRarity(catalogBase),
+                        name: baseName,
+                        base: baseName,
+                        itemClass: baseClass(catalogBase),
+                        itemLevel: draft.baseItemLevel,
+                        properties: [],
+                        requirements: [],
+                        modifiers:
+                          catalogBase !== 'solar'
+                            ? []
+                            : [
+                                {
+                                  id: 'spirit',
+                                  text: '+15 to Spirit',
+                                  kind: 'implicit',
+                                },
+                              ],
+                        flags: [],
+                      }}
+                    />
+                  )}
+                </>
+              }
+              costControls={
                 <button
                   type="button"
                   className="bonded-toggle"
@@ -2941,19 +2907,8 @@ function ReadyCraftingPage({
                 >
                   {bondedLabel[locale]}
                 </button>
-              </CraftingCostLine>
-              <SessionNotation
-                film={film}
-                cursor={filmState.history.cursor}
-                resources={stashResources}
-                onNavigate={browse}
-                onNewCraft={() => {
-                  if (film && storedFrame)
-                    void newCraftFromFrame(film, storedFrame)
-                }}
-                disabled={workbenchBusy}
-              />
-            </div>
+              }
+            />
           </div>
           {leftMenu === 'base' && (
             <Suspense fallback={<span role="status">…</span>}>

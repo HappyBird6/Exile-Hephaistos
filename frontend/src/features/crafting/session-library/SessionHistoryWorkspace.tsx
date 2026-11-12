@@ -2,10 +2,9 @@ import { saveBaseFavorite } from '../base-favorites/repository'
 import { baseFavoriteMessages } from '../base-favorites/messages'
 import { orderedFilms } from '../workbenchHistory'
 import { freshCraftMessages } from './freshCraftMessages'
-import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
+import { SessionDetail } from '../session-detail/SessionDetail'
 import { useEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
-import { HistoryCard } from '../session-history/HistoryCard'
 import { historyMessages } from '../session-history/messages'
 import { localHistoryUrl } from '../session-history/transfer'
 import type { SessionDocument } from '../session-history/transfer'
@@ -211,54 +210,56 @@ export function SessionHistoryWorkspace({
                 />
               </div>
               {active && finalFrame && (
-                <>
-                  <div className="wb-history-preview__item">
-                    <HistoryCard film={selected} frame={finalFrame} />
-                  </div>
-                  <CraftingCostLine
-                    film={selected}
-                    cursor={selected.frames.length - 1}
-                  />
-                  <div className="wb-history-preview__actions">
-                    <button
-                      type="button"
-                      disabled={library.disabled}
-                      onClick={() => onContinue(selected.id)}
-                    >
-                      {text.resume} <span aria-hidden="true">→</span>
-                    </button>
-                    {onNewCraft && (
+                <SessionDetail
+                  film={selected}
+                  cursor={selected.frames.length - 1}
+                  itemClassName="wb-history-preview__item"
+                  actions={
+                    <div className="wb-history-preview__actions">
                       <button
                         type="button"
                         disabled={library.disabled}
-                        onClick={() => onNewCraft(selected.id)}
+                        onClick={() => onContinue(selected.id)}
                       >
-                        {freshCraftMessages[locale].fromItem}
+                        {text.resume} <span aria-hidden="true">→</span>
                       </button>
-                    )}
-                    <button
-                      type="button"
-                      disabled={library.disabled}
-                      onClick={() => {
-                        try {
-                          saveBaseFavorite(selected)
-                          setFavoriteStatus(baseFavoriteMessages[locale].saved)
-                        } catch {
-                          setFavoriteStatus(baseFavoriteMessages[locale].error)
-                        }
-                      }}
-                    >
-                      {baseFavoriteMessages[locale].add}
-                    </button>
-                    {favoriteStatus && (
-                      <span role="status">{favoriteStatus}</span>
-                    )}
-                    <a href={localHistoryUrl(selected.id, 'history', filter)}>
-                      {historyMessages[locale].title}{' '}
-                      <span aria-hidden="true">↗</span>
-                    </a>
-                  </div>
-                </>
+                      {onNewCraft && (
+                        <button
+                          type="button"
+                          disabled={library.disabled}
+                          onClick={() => onNewCraft(selected.id)}
+                        >
+                          {freshCraftMessages[locale].fromItem}
+                        </button>
+                      )}
+                      <button
+                        type="button"
+                        disabled={library.disabled}
+                        onClick={() => {
+                          try {
+                            saveBaseFavorite(selected)
+                            setFavoriteStatus(
+                              baseFavoriteMessages[locale].saved,
+                            )
+                          } catch {
+                            setFavoriteStatus(
+                              baseFavoriteMessages[locale].error,
+                            )
+                          }
+                        }}
+                      >
+                        {baseFavoriteMessages[locale].add}
+                      </button>
+                      {favoriteStatus && (
+                        <span role="status">{favoriteStatus}</span>
+                      )}
+                      <a href={localHistoryUrl(selected.id, 'history', filter)}>
+                        {historyMessages[locale].title}{' '}
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </div>
+                  }
+                />
               )}
             </section>
           )}
