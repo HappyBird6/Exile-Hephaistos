@@ -30,6 +30,42 @@ public class PostgresAccountLibrary implements AccountLibrary {
     this.maxDocuments = maxDocuments;
   }
 
+  private long lockedGeneration(UUID owner) {
+    var rows =
+        db.queryForList(
+            "SELECT session_generation FROM app_user.account WHERE id=? FOR UPDATE",
+            Long.class,
+            owner);
+    if (rows.isEmpty()) throw new ResponseStatusException(HttpStatus.UNAUTHORIZED);
+    return rows.getFirst();
+  }
+
+  @Override
+  @Transactional
+  public Snapshot snapshot(UUID owner) {
+    return new Snapshot(lockedGeneration(owner), index(owner));
+  }
+
+  @Override
+  @Transactional
+  public long clearSessions(UUID owner) {
+    long generation = lockedGeneration(owner) + 1;
+    db.update("UPDATE app_user.account SET session_generation=? WHERE id=?", generation, owner);
+    db.update(
+        "UPDATE app_user.library_document SET content=NULL,version=version+1,updated_at=now() WHERE account_id=? AND kind='session'",
+        owner);
+    return generation;
+  }
+
+  @Override
+  @Transactional
+  public Document saveSession(
+      UUID owner, String id, long version, long generation, JsonNode content) {
+    if (lockedGeneration(owner) != generation)
+      throw new ResponseStatusException(HttpStatus.CONFLICT, "SESSIONS_CLEARED");
+    return save(owner, "session", id, version, content);
+  }
+
   @Override
   public Account signIn(String subject, String name) {
     if (subject == null || subject.isBlank() || subject.length() > 255)

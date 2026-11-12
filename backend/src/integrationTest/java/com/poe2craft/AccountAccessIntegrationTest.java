@@ -99,6 +99,7 @@ class AccountAccessIntegrationTest {
     mvc.perform(get("/api/admin/dashboard").cookie(a.cookie())).andExpect(status().isNotFound());
     mvc.perform(
             put("/api/account/library/session/a")
+                .header("X-Session-Generation", "0")
                 .cookie(a.cookie())
                 .header("X-Account-Id", a.id())
                 .header("X-CSRF-Token", a.csrf())

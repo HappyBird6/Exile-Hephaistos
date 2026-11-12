@@ -71,4 +71,17 @@ class AccountLibraryIntegrationTest {
         .isInstanceOf(ResponseStatusException.class);
     assertThat(library.list(a.id())).isEmpty();
   }
+
+  @Test
+  void bulkClearRejectsStaleUploadsAndKeepsFavorites() throws Exception {
+    var owner = library.signIn(UUID.randomUUID().toString(), "Clear test").id();
+    var body = json.readTree("{\"id\":\"a\",\"frames\":[{}]}");
+    library.saveSession(owner, "a", 0, 0, body);
+    library.save(owner, "base-favorite", "a", 0, body);
+    assertThat(library.clearSessions(owner)).isEqualTo(1);
+    assertThat(library.read(owner, "session", "a").content()).isNull();
+    assertThat(library.read(owner, "base-favorite", "a").content()).isNotNull();
+    assertThatThrownBy(() -> library.saveSession(owner, "new-offline-id", 0, 0, body))
+        .isInstanceOf(ResponseStatusException.class);
+  }
 }

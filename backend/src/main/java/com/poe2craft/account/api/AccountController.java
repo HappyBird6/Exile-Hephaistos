@@ -91,8 +91,12 @@ public class AccountController {
   }
 
   @GetMapping("/library")
-  public List<AccountLibrary.Reference> list(HttpServletRequest request) {
-    return library.index(owner(request));
+  public org.springframework.http.ResponseEntity<List<AccountLibrary.Reference>> list(
+      HttpServletRequest request) {
+    var snapshot = library.snapshot(owner(request));
+    return org.springframework.http.ResponseEntity.ok()
+        .header("X-Session-Generation", Long.toString(snapshot.generation()))
+        .body(snapshot.documents());
   }
 
   @GetMapping("/library/{kind}/{id}")
@@ -101,12 +105,24 @@ public class AccountController {
     return library.read(owner(request), kind, id);
   }
 
+  @PostMapping("/library/sessions/clear")
+  public Map<String, Long> clear(HttpServletRequest request) {
+    return Map.of("generation", library.clearSessions(owner(request)));
+  }
+
   @PutMapping("/library/{kind}/{id}")
   public AccountLibrary.Document save(
       @PathVariable String kind,
       @PathVariable String id,
       @RequestBody Save body,
       HttpServletRequest request) {
-    return library.save(owner(request), kind, id, body.version(), body.content());
+    UUID account = owner(request);
+    if (kind.equals("session")) {
+      String raw = request.getHeader("X-Session-Generation");
+      if (raw == null || !raw.matches("[0-9]{1,18}"))
+        throw new ResponseStatusException(HttpStatus.CONFLICT, "SESSION_GENERATION_REQUIRED");
+      return library.saveSession(account, id, body.version(), Long.parseLong(raw), body.content());
+    }
+    return library.save(account, kind, id, body.version(), body.content());
   }
 }

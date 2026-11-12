@@ -15,11 +15,13 @@ import {
   readBaseFavorites,
 } from '../crafting/base-favorites/repository'
 import { scopedStorage } from './storageScope'
+import { emptyFilms, historyStorageKey } from '../crafting/workbenchHistory'
 import type { Films } from '../crafting/workbenchHistory'
 
 type Metadata = {
   baseline: Document[]
   pending: Document | null
+  generation?: number
   decision?: string
 }
 async function metadata(owner: string): Promise<Metadata> {
@@ -86,10 +88,25 @@ async function performSync(owner: string): Promise<boolean> {
     owner,
   )
   try {
-    const history = await repo.load(),
-      before = localDocuments(history, owner),
-      meta = await metadata(owner)
+    let history = await repo.load()
+    let before = localDocuments(history, owner)
+    const meta = await metadata(owner)
     const response = await accountRequest('library', {}, owner)
+    const generation = Number(
+      response.headers.get('X-Session-Generation') ?? '0',
+    )
+    if (!Number.isSafeInteger(generation) || generation < 0)
+      throw Error('INVALID_GENERATION')
+    if (generation !== (meta.generation ?? 0)) {
+      // A bulk clear wins over stale offline edits and unacknowledged uploads.
+      history = emptyFilms()
+      await repo.save(history)
+      before = localDocuments(history, owner)
+      meta.baseline = meta.baseline.filter((d) => d.kind !== 'session')
+      if (meta.pending?.kind === 'session') meta.pending = null
+    }
+    meta.generation = generation
+    await saveMetadata(owner, meta)
     const references: unknown = await response.json()
     if (
       !Array.isArray(references) ||
@@ -156,6 +173,7 @@ async function performSync(owner: string): Promise<boolean> {
         `library/${encodeURIComponent(write.kind)}/${encodeURIComponent(write.id)}`,
         {
           method: 'PUT',
+          headers: { 'X-Session-Generation': String(generation) },
           body: JSON.stringify({
             version: write.version,
             content: write.content,
@@ -246,8 +264,8 @@ export async function browserMergeStatus(owner: string) {
     null,
   )
   try {
-    const history = await repo.load(),
-      bases = favorites(null)
+    const history = await repo.load()
+    const bases = favorites(null)
     const bytes = await crypto.subtle.digest(
       'SHA-256',
       new TextEncoder().encode(canonical({ films: history.films, bases })),
@@ -298,4 +316,27 @@ async function applyBrowserMerge(owner: string, add: boolean) {
   const meta = await metadata(owner)
   meta.decision = source.fingerprint
   await saveMetadata(owner, meta)
+}
+
+export async function clearSessions(scope: string | null) {
+  if (scope) {
+    guard(scope)
+    await accountRequest('library/sessions/clear', { method: 'POST' }, scope)
+    await running.get(scope)?.catch(() => {})
+    await syncLibrary(scope)
+  } else {
+    const repo = new IndexedFilmRepository(
+      localStorage,
+      globalThis.indexedDB,
+      null,
+    )
+    try {
+      await repo.load()
+      await repo.save(emptyFilms())
+      localStorage.removeItem(historyStorageKey)
+      localStorage.removeItem(historyStorageKey + '.preserved')
+    } finally {
+      await repo.close()
+    }
+  }
 }

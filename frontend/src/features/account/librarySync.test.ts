@@ -14,12 +14,14 @@ import { emptyFilms, startFilm } from '../crafting/workbenchHistory'
 import type { Document } from './libraryPlan'
 import { canonical, documentKey, planSync, mergeFilms } from './libraryPlan'
 const owner = 'account-one'
+let generation = 0
 let remote: Document[],
   writes: number,
   reads: number,
   loseResponse: boolean,
   failNetwork: boolean
 beforeEach(async () => {
+  generation = 0
   localStorage.clear()
   remote = []
   writes = 0
@@ -50,6 +52,7 @@ beforeEach(async () => {
             version: d.version,
             deleted: d.content === null,
           })),
+          { headers: { 'X-Session-Generation': String(generation) } },
         )
       const key = decodeURIComponent(path.split('/library/')[1]!)
       const existing = remote.find((d) => documentKey(d) === key)
@@ -289,4 +292,15 @@ it('deduplicates import paths without dropping the incoming favorite flag', asyn
   expect(merged[0]?.id).toBe(original.id)
   expect(merged[0]?.favorite).toBe(true)
   expect(original.favorite).toBeUndefined()
+})
+
+it('discards unacknowledged offline sessions after an account-wide clear', async () => {
+  await seed()
+  await syncLibrary(owner)
+  await edit('offline stale')
+  generation = 1
+  remote = remote.map((d) => ({ ...d, version: d.version + 1, content: null }))
+  await syncLibrary(owner)
+  expect(await films()).toEqual([])
+  expect(writes).toBe(1)
 })

@@ -12,6 +12,15 @@ public interface AccountLibrary {
 
   record Reference(String kind, String id, long version, boolean deleted) {}
 
+  record Snapshot(long generation, List<Reference> documents) {}
+
+  Snapshot snapshot(UUID owner);
+
+  long clearSessions(UUID owner);
+
+  Document saveSession(
+      UUID owner, String id, long expectedVersion, long generation, JsonNode content);
+
   List<Reference> index(UUID owner);
 
   Document read(UUID owner, String kind, String id);
