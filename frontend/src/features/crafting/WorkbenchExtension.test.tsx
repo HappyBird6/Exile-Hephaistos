@@ -1,3 +1,4 @@
+import { parsedTextFixture } from './item-editor/fixtures.test-support'
 import {
   currencyButton,
   outerMaterialTab,
@@ -271,7 +272,7 @@ describe('Workbench extensions', () => {
   ])(
     'imports %s into its own catalog and preserves text and saved state',
     async (key, baseName, itemClass, baseId) => {
-      const original = 'original clipboard document'
+      const original = `Item Class: ${itemClass}\nRarity: Rare\nImported Item\n${baseName}\n--------\nItem Level: 82\n--------\n+17 to maximum Life`
       const initial = {
         ...initialFixture,
         state: {
@@ -300,39 +301,47 @@ describe('Workbench extensions', () => {
         warnings: [],
       }
       client.setQueryData(['workbench', 'current-item'], parsed)
-      useItemDraft.getState().acceptText(original)
+      useItemDraft.getState().setBase(82, key as 'solar' | 'soldier')
       vi.stubGlobal('fetch', (url: RequestInfo | URL, init?: RequestInit) =>
-        String(url).endsWith('/map-text')
+        String(url).endsWith('/prepare-text')
           ? Promise.resolve(
               jsonResponse({
-                mapped: true,
-                state: {
-                  ...concreteInitial(initial),
-                  ...(key === 'soldier' ? { equipmentQuality: 20 } : {}),
-                  desecrated: [],
-                  rarity: 'RARE',
-                  explicits: [{ modifierId: 'p', values: { life: 17 } }],
+                parsed: { ...parsed, text: parsedTextFixture(original).text },
+                mapping: {
+                  mapped: true,
+                  state: {
+                    ...concreteInitial(initial),
+                    ...(key === 'soldier' ? { equipmentQuality: 20 } : {}),
+                    desecrated: [],
+                    rarity: 'RARE',
+                    explicits: [{ modifierId: 'p', values: { life: 17 } }],
+                  },
+                  issues: [],
                 },
-                issues: [],
               }),
             )
           : fixtureFetch(url, init),
       )
       show()
       await waitFor(() =>
-        expect(
-          screen.getByRole('button', { name: 'Enable crafting' }),
-        ).toBeEnabled(),
+        expect(screen.getByRole('button', { name: 'Edit item' })).toBeEnabled(),
       )
-      fireEvent.click(screen.getByRole('button', { name: 'Enable crafting' }))
+      fireEvent.click(screen.getByRole('button', { name: 'Edit item' }))
+      fireEvent.change(
+        screen.getByRole('textbox', { name: 'Item text copied from the game' }),
+        { target: { value: original } },
+      )
+      fireEvent.click(screen.getByRole('button', { name: 'Apply' }))
       await waitFor(() =>
         expect(screen.getByRole('article')).toHaveTextContent(
           '+17 to maximum Life',
         ),
       )
-      expect(useItemDraft.getState().currentText.text).toBe(original)
-      expect(useItemDraft.getState().source).toBe('text')
+      expect(document.getElementById('item-input-panel')).not.toHaveAttribute(
+        'open',
+      )
       const saved = new LocalFilmRepository(window.localStorage).load()
+      expect(saved.films.at(-1)?.sourceDocument).toBe(original)
       expect(saved.films.at(-1)?.frames[0]?.state.baseItemId).toBe(baseId)
       expect(saved.films.at(-1)?.frames[0]?.state.explicits).toEqual([
         { modifierId: 'p', values: { life: 17 } },

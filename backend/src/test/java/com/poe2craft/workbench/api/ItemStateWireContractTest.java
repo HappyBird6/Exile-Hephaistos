@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 
+// Keep the real HTTP filters; mock only their external Redis dependency.
+@org.springframework.test.context.bean.override.mockito.MockitoBean(
+    types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest(controllers = com.poe2craft.admin.api.EdgeRejectionController.class)
 @Import(CatalogConfiguration.class)
 class ItemStateWireContractTest {

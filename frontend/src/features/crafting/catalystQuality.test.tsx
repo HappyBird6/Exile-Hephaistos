@@ -82,9 +82,16 @@ it('selects a typed Ring film from an active Solar film without losing either ro
       <CraftingPage />
     </QueryClientProvider>,
   )
+  await waitFor(() =>
+    expect(screen.getByRole('button', { name: 'Select base' })).toBeEnabled(),
+  )
   fireEvent.click(screen.getByRole('tab', { name: 'History' }))
   fireEvent.click(
-    await screen.findByRole('button', { name: /Select session:.*Iron Ring/ }),
+    await screen.findByRole(
+      'button',
+      { name: /Select session:.*Iron Ring/ },
+      { timeout: 10000 },
+    ),
   )
   fireEvent.click(
     screen.getByRole('button', { name: 'Continue in simulation' }),

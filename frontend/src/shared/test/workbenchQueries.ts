@@ -1,4 +1,4 @@
-import { fireEvent, screen, within } from '@testing-library/react'
+import { act, fireEvent, screen, within } from '@testing-library/react'
 
 /** The single material selector now lives inside the canvas right panel. */
 export const outerMaterialTab = (name: string) =>
@@ -23,13 +23,20 @@ export const outerMaterialSearch = () =>
 export const textInputMethod = () =>
   screen.getByRole('dialog', { name: 'Starting item' })
 
-export function selectSavedSession(index: number) {
-  fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+export async function selectSavedSession(index: number) {
+  await act(async () => {
+    fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+  })
   const panel = document.getElementById('workbench-panel-history')!
-  fireEvent.click(
-    within(panel).getAllByRole('button', { name: /^Select session:/ })[index]!,
-  )
-  fireEvent.click(
-    screen.getByRole('button', { name: 'Continue in simulation' }),
-  )
+  const buttons = await within(panel).findAllByRole('button', {
+    name: /^Select session:/,
+  })
+  await act(async () => {
+    fireEvent.click(buttons[index]!)
+  })
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Continue in simulation' }),
+    )
+  })
 }

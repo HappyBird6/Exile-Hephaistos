@@ -1,3 +1,4 @@
+import { act } from '@testing-library/react'
 import { outerMaterialTab } from '../../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
@@ -214,32 +215,44 @@ it.each(['', 'Omen_of_Sinistral_Necromancy', 'Omen_of_Dextral_Necromancy'])(
     ))
       expect(screen.getByRole('button', { name })).toBeVisible()
     if (omen) {
-      fireEvent.click(outerMaterialTab('Omen'))
-      fireEvent.click(
-        screen.getByRole('button', { name: omen.replaceAll('_', ' ') }),
-      )
-      fireEvent.click(
-        screen.getByRole('button', { name: 'Favorite slot 1: empty' }),
-      )
+      await act(async () => {
+        fireEvent.click(outerMaterialTab('Omen'))
+      })
+      await act(async () => {
+        fireEvent.click(
+          screen.getByRole('button', { name: omen.replaceAll('_', ' ') }),
+        )
+      })
+      await act(async () => {
+        fireEvent.click(
+          screen.getByRole('button', { name: 'Favorite slot 1: empty' }),
+        )
+      })
       fireEvent.contextMenu(
         screen.getByRole('button', {
           name: `Favorite slot 1: ${omen.replaceAll('_', ' ')}`,
         }),
       )
       expect(useItemDraft.getState().activeOmens).toEqual([omen])
-      fireEvent.click(outerMaterialTab('Currency'))
+      await act(async () => {
+        fireEvent.click(outerMaterialTab('Currency'))
+      })
     }
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Preserved Collarbone' }),
-    )
+    await act(async () => {
+      fireEvent.contextMenu(
+        screen.getByRole('button', { name: 'Preserved Collarbone' }),
+      )
+    })
     expect(
       screen.queryByLabelText('Observed affix side'),
     ).not.toBeInTheDocument()
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: 'Use selected currency on the central item',
-      }),
-    )
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+      )
+    })
     if (omen) {
       await screen.findAllByText(/Only one Necromancy omen can be active/)
       expect(useItemDraft.getState().activeOmens).toEqual([omen])
@@ -247,11 +260,13 @@ it.each(['', 'Omen_of_Sinistral_Necromancy', 'Omen_of_Dextral_Necromancy'])(
         currentFilm(new LocalFilmRepository(localStorage).load())?.frames,
       ).toHaveLength(1)
       rejectApplication = false
-      fireEvent.click(
-        screen.getByRole('button', {
-          name: 'Use selected currency on the central item',
-        }),
-      )
+      await act(async () => {
+        fireEvent.click(
+          screen.getByRole('button', {
+            name: 'Use selected currency on the central item',
+          }),
+        )
+      })
     }
     await waitFor(() =>
       expect(

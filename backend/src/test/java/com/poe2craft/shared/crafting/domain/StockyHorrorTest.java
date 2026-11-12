@@ -2,7 +2,6 @@ package com.poe2craft.shared.crafting.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.shared.crafting.application.CatalogCraftingService;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
@@ -136,9 +135,9 @@ class StockyHorrorTest {
       assertThat(r.events()).isEmpty();
     }
     var r = f.simulator.apply(f.rare(1, "", target), action, Set.of(), new Random());
-    assertThat(r.applied()).isTrue();
-    assertThat(r.events().getFirst().modifierId()).isEqualTo(target);
-    assertThat(r.events().getLast().modifierId()).isEqualTo(target);
+    assertThat(r.applied()).isFalse();
+    assertThat(r.events()).isEmpty();
+    assertThat(r.reason()).contains("Crafted modifier limit");
   }
 
   @Test
@@ -209,8 +208,7 @@ class StockyHorrorTest {
   void solarDoesNotBorrowGloveTarget() {
     var solar = ItemCatalogLoader.loadDefault();
     var simulator = new WorkbenchSimulator(solar, new CraftingEngine(solar));
-    var preset =
-        new CatalogCraftingService(solar, simulator, f.catalog).initial("solar", 82).state();
+    var preset = com.poe2craft.shared.item.SolarAmulet.initial(solar);
     var root =
         new ItemState(
             preset.snapshotId(),

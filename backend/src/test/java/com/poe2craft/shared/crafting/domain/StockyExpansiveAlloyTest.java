@@ -93,7 +93,7 @@ class StockyExpansiveAlloyTest {
       assertThat(r.events()).isEmpty();
     }
     assertThat(f.simulator.apply(f.rare(25, "", target), action, Set.of(), new Random()).applied())
-        .isTrue();
+        .isFalse();
   }
 
   @Test

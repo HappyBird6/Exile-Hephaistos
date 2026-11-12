@@ -7,6 +7,8 @@ import { setLocale } from '../i18n/i18n'
 beforeEach(() => {
   // Existing behavior tests assert the English UI; locale behavior has its own suite.
   setLocale('en')
+  // SPA navigation persists in jsdom across tests; each case starts at the workbench.
+  window.history.replaceState({}, '', '/')
   vi.stubGlobal('fetch', fixtureFetch)
   window.localStorage.removeItem('hephaistos.workbench.films.v1')
   for (const key of ['start', 'goal', 'run', 'workspace'])

@@ -93,7 +93,7 @@ class StockyPrismaticAlloyTest {
       assertThat(r.events()).isEmpty();
     }
     assertThat(f.simulator.apply(f.rare(45, "", target), action, Set.of(), new Random()).applied())
-        .isTrue();
+        .isFalse();
   }
 
   @Test

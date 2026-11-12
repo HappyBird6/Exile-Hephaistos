@@ -1,6 +1,6 @@
 import { currencyButton } from '../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { App } from './App'
 import { useItemDraft } from '../features/crafting/draft'
@@ -9,43 +9,54 @@ import { locales, setLocale } from '../shared/i18n/i18n'
 const client = new QueryClient({
   defaultOptions: { mutations: { retry: false } },
 })
-function show() {
-  return render(
+async function show() {
+  const result = render(
     <QueryClientProvider client={client}>
       <App />
     </QueryClientProvider>,
   )
+  await screen.findByRole('tab', { name: 'Crafting Workbench' })
+  return result
 }
 afterEach(() => {
   client.clear()
   vi.unstubAllGlobals()
 })
 
-describe('Admin page', () => {
+describe('Admin page', async () => {
   it.each(['/admin', '/admin/crawling'])(
     'opens %s without credentials or a server request',
-    (path) => {
+    async (path) => {
       const fetch = vi.fn()
       vi.stubGlobal('fetch', fetch)
       window.history.replaceState({}, '', path)
-      show()
-      expect(screen.getByRole('heading', { name: 'Admin' })).toBeVisible()
+      render(
+        <QueryClientProvider client={client}>
+          <App />
+        </QueryClientProvider>,
+      )
       expect(
-        screen.getByRole('link', { name: 'Crafting workbench' }),
+        await screen.findByRole('heading', { name: 'Dashboard' }),
+      ).toBeVisible()
+      expect(
+        screen.getByRole('link', { name: 'EXILE HEPHAISTOS' }),
       ).toHaveAttribute('href', '/')
-      expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
+      expect(screen.getByLabelText('Password')).toHaveAttribute(
+        'type',
+        'password',
+      )
       expect(window.location.pathname).toBe('/admin')
       expect(fetch).not.toHaveBeenCalled()
     },
   )
 })
 
-describe('Crafting workbench', () => {
+describe('Crafting workbench', async () => {
   beforeEach(() => {
     useItemDraft.getState().setBase()
     window.history.replaceState({}, '', '/')
   })
-  it('falls back from a saved explorer workspace without mounting or requesting it', () => {
+  it('falls back from a saved explorer workspace without mounting or requesting it', async () => {
     const fetch = vi.fn(globalThis.fetch)
     vi.stubGlobal('fetch', fetch)
     localStorage.setItem(
@@ -56,7 +67,7 @@ describe('Crafting workbench', () => {
         data: 'explorer',
       }),
     )
-    show()
+    await show()
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')
@@ -70,8 +81,8 @@ describe('Crafting workbench', () => {
         ),
     ).toBe(false)
   })
-  it('shows the reduced Currency tab', () => {
-    show()
+  it('shows the reduced Currency tab', async () => {
+    await show()
     expect(document.querySelector('.craft-header .workspace-nav')).toBe(
       document.querySelector('.workspace-nav'),
     )
@@ -89,7 +100,7 @@ describe('Crafting workbench', () => {
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getAllByRole('tab')).toHaveLength(10)
+    expect(screen.getAllByRole('tab')).toHaveLength(11)
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')
@@ -104,22 +115,28 @@ describe('Crafting workbench', () => {
       screen.queryByRole('heading', { name: 'Current state' }),
     ).not.toBeInTheDocument()
   })
-  it('navigates three top-level workspaces and closes the picker while preserving simulation input', () => {
-    show()
+  it('navigates three top-level workspaces and closes the picker while preserving simulation input', async () => {
+    await show()
     const nav = document.querySelector('.workspace-nav')!
     const tabs = [...nav.querySelectorAll<HTMLButtonElement>('[role="tab"]')]
     expect(tabs.map((tab) => tab.textContent)).toEqual([
       'Crafting Workbench',
       'Craft Support',
       'History',
+      'Session board',
     ])
     const base = screen.getByRole('button', { name: 'Select base' })
-    fireEvent.click(base)
-    fireEvent.keyDown(tabs[0]!, { key: 'End' })
+    await act(async () => {
+      fireEvent.click(base)
+    })
+    await act(async () => {
+      fireEvent.click(tabs[2]!)
+    })
+    tabs[2]!.focus()
     expect(tabs[2]).toHaveFocus()
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(document.getElementById('workbench-panel-history')).toBeVisible()
-    fireEvent.keyDown(tabs[2]!, { key: 'ArrowRight' })
+    fireEvent.keyDown(tabs[2]!, { key: 'Home' })
     expect(tabs[0]).toHaveFocus()
     expect(base).toBeVisible()
     fireEvent.keyDown(tabs[0]!, { key: 'ArrowRight' })
@@ -128,36 +145,45 @@ describe('Crafting workbench', () => {
     expect(tabs[0]).toHaveFocus()
     expect(useItemDraft.getState().baseItemLevel).toBe(82)
   })
-  it('preserves the item after a use request and clears selection with Escape', () => {
-    show()
+  it('preserves the item after a use request and clears selection with Escape', async () => {
+    await show()
     const currency = currencyButton('Orb of Transmutation')
     fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
     expect(currency).toHaveAttribute('aria-pressed', 'true')
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: 'Use selected currency on the central item',
-      }),
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+      )
+    })
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
-    expect(
-      document.querySelector('.craft-page > .sr-only[role="status"]'),
-    ).toHaveTextContent('Wait for the crafting catalog or retry loading it.')
+
     expect(useItemDraft.getState().source).toBe('base')
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(currency).toHaveAttribute('aria-pressed', 'false')
-    fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: 'Use selected currency on the central item',
-      }),
-    )
+    await act(async () => {
+      fireEvent.click(screen.getByRole('tab', { name: 'Crafting Workbench' }))
+    })
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+      )
+    })
     expect(
       document.querySelector('.craft-page > .sr-only[role="status"]'),
     ).toHaveTextContent('Select a currency from the stash first')
   })
-  it('renders currency images and toggles selection', () => {
-    show()
+  it('renders currency images and toggles selection', async () => {
+    await show()
     const currency = currencyButton("Hinekora's Lock")
-    fireEvent.click(currency)
+    await act(async () => {
+      fireEvent.click(currency)
+    })
     expect(currency).toHaveAttribute('aria-pressed', 'true')
     expect(currency.querySelector('img')).toHaveAttribute(
       'src',
@@ -170,8 +196,8 @@ describe('Crafting workbench', () => {
     fireEvent.keyDown(window, { key: 'Escape' })
     expect(currency).toHaveAttribute('aria-pressed', 'false')
   })
-  it('shows fallback for failed slot and cursor images', () => {
-    show()
+  it('shows fallback for failed slot and cursor images', async () => {
+    await show()
     const currency = currencyButton("Hinekora's Lock")
     fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
     const slotImage = currency.querySelector('img')
@@ -197,7 +223,11 @@ it.each(locales)(
     setLocale(locale)
     document.documentElement.lang = 'ko'
     window.history.replaceState({}, '', '/history/missing?from=simulation')
-    const view = show()
+    const view = render(
+      <QueryClientProvider client={client}>
+        <App />
+      </QueryClientProvider>,
+    )
     expect(document.documentElement.lang).toBe(locale)
     expect(
       screen.queryByRole('button', { name: /English|한국어|Español/ }),

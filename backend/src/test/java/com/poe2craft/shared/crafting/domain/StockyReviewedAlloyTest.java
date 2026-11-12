@@ -164,7 +164,7 @@ class StockyReviewedAlloyTest {
             f.simulator
                 .apply(f.rare(s.level(), "", s.target()), s.action(), Set.of(), new Random())
                 .applied())
-        .isTrue();
+        .isFalse();
     var solar = ItemCatalogLoader.loadDefault();
     assertThat(
             new WorkbenchSimulator(solar, new CraftingEngine(solar))

@@ -4,10 +4,19 @@ import { materials, specialEssences, essenceRows } from './materials'
 import { legacyFiveIds, legacyOmenIds, workbenchOmens } from './workbenchApi'
 
 describe('current service scope', () => {
-  it('retains all 26 catalysts while enabling equipment quality and excluding seven deferred identities', () => {
+  it('retains all 26 catalysts while enabling equipment quality and excluding deferred identities including Catalysing Exaltation', () => {
     const catalysts = materials.filter((m) => m.category === 'Catalysts')
     expect(catalysts).toHaveLength(26)
-    expect(deferredServiceIds.size).toBe(7)
+    expect([...deferredServiceIds]).toEqual([
+      'Liquid_Verisium',
+      'Arcanists_Etcher',
+      'Essence_of_Delirium',
+      'Essence_of_Insanity',
+      'Scroll_of_Wisdom',
+      'Orb_of_Chance',
+      'Orb_of_Extraction',
+      'Omen_of_Catalysing_Exaltation',
+    ])
     expect(catalysts.every((m) => inServiceScope(m.id))).toBe(true)
     expect(specialEssences.every((m) => inServiceScope(m.id))).toBe(true)
     expect(

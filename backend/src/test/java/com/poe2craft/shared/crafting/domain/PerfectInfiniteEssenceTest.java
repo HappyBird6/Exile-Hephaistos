@@ -156,27 +156,17 @@ class PerfectInfiniteEssenceTest {
   }
 
   @Test
-  void canReplaceTheOnlyUnlockedPercentageSuffixAndPreservesUnrelatedOmens() {
+  void craftedCapBlocksEvenTheOnlyUnlockedPercentageSuffixWithoutConsumingOmens() {
     for (var target : targets) {
       var before = fixture.rare(82, "amulet:prefix:hale", "amulet:prefix:hale", target);
-      for (int seed = 0; seed < 30; seed++) {
-        var result =
-            simulator.apply(
-                before,
-                action,
-                Set.of(WorkbenchOmen.DEXTRAL_CRYSTALLISATION.id(), WorkbenchOmen.WHITTLING.id()),
-                new Random(seed * 104729L));
-        assertThat(result.applied()).isTrue();
-        assertThat(result.events().getFirst().modifierId()).isEqualTo(target);
-        assertThat(result.state().explicits()).hasSize(2);
-        assertThat(result.state().explicits())
-            .contains(
-                before.explicits().stream()
-                    .filter(ModifierInstance::fractured)
-                    .findFirst()
-                    .orElseThrow());
-        assertThat(result.remainingOmens()).containsExactly(WorkbenchOmen.WHITTLING.id());
-      }
+      var omens = Set.of(WorkbenchOmen.DEXTRAL_CRYSTALLISATION.id(), WorkbenchOmen.WHITTLING.id());
+      var result = simulator.apply(before, action, omens, new Random(0));
+      assertThat(result.applied()).isFalse();
+      assertThat(result.state()).isEqualTo(before);
+      assertThat(result.events()).isEmpty();
+      assertThat(result.consumedOmens()).isEmpty();
+      assertThat(result.remainingOmens()).containsExactlyInAnyOrderElementsOf(omens);
+      assertThat(result.reason()).contains("Crafted modifier limit");
     }
   }
 

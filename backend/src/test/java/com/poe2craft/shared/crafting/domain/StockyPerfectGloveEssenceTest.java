@@ -2,7 +2,6 @@ package com.poe2craft.shared.crafting.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
-import com.poe2craft.shared.crafting.application.CatalogCraftingService;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import com.poe2craft.shared.item.ModifierDefinition;
@@ -128,7 +127,7 @@ class StockyPerfectGloveEssenceTest {
       }
       assertThat(
               f.simulator.apply(f.rare(72, "", target), action, Set.of(), new Random()).applied())
-          .isTrue();
+          .isFalse();
     }
   }
 
@@ -272,8 +271,7 @@ class StockyPerfectGloveEssenceTest {
   void solarNeitherListsNorAppliesTheseGloveTargets() {
     var solar = ItemCatalogLoader.loadDefault();
     var simulator = new WorkbenchSimulator(solar, new CraftingEngine(solar));
-    var preset =
-        new CatalogCraftingService(solar, simulator, f.catalog).initial("solar", 82).state();
+    var preset = com.poe2craft.shared.item.SolarAmulet.initial(solar);
     var root =
         new ItemState(
             preset.snapshotId(),

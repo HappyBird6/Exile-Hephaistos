@@ -159,7 +159,9 @@ class BowPerfectEssenceTest {
             WorkbenchCurrency.PERFECT_ESSENCE_FLAMES,
             Set.of(WorkbenchOmen.SINISTRAL_CRYSTALLISATION.id()),
             new Random(17));
-    assertThat(applied.applied()).isTrue();
+    assertThat(applied.applied()).isFalse();
+    assertThat(applied.state()).isEqualTo(before);
+    assertThat(applied.reason()).contains("Crafted modifier limit");
     assertThat(catalog.compatibleSnapshotIds())
         .contains("poe2db-crude-bow-normal-2026-10-03-417390c5ebe4");
     var legacy =

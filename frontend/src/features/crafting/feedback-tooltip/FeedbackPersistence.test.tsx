@@ -34,21 +34,23 @@ afterEach(() => {
   client.clear()
   vi.useRealTimers()
 })
-function show() {
-  return render(
+async function show() {
+  const mounted = render(
     <QueryClientProvider client={client}>
       <CraftingPage />
     </QueryClientProvider>,
   )
+  await act(async () => {})
+  return mounted
 }
 const shared = () =>
   document.querySelector<HTMLElement>('.workbench-feedback-tooltip')
 const favorite = () =>
   screen.getByRole('button', { name: 'Favorite slot 1: empty' })
 
-it('retains the last valid description after hover/focus leave and replaces it with another valid target', () => {
+it('retains the last valid description after hover/focus leave and replaces it with another valid target', async () => {
   vi.useFakeTimers()
-  show()
+  await show()
   const chaos = currencyButton('Chaos Orb')
   fireEvent.pointerOver(chaos)
   fireEvent.pointerOut(chaos, { relatedTarget: document.body })
@@ -67,8 +69,8 @@ it('retains the last valid description after hover/focus leave and replaces it w
   expect(shared()).toBeNull()
 })
 
-it('clears captured UI text on locale change while keeping the picked material in the new language', () => {
-  show()
+it('clears captured UI text on locale change while keeping the picked material in the new language', async () => {
+  await show()
   const help = document.createElement('button')
   help.dataset.feedbackTooltip = 'Session actions'
   document.querySelector('main')!.append(help)
@@ -91,8 +93,8 @@ it('clears captured UI text on locale change while keeping the picked material i
   expect(chaos).toHaveAttribute('aria-describedby', 'material-description')
 })
 
-it('pins the actual left-click held material across other hover and tabs, then releases it on favorite placement', () => {
-  show()
+it('pins the actual left-click held material across other hover and tabs, then releases it on favorite placement', async () => {
+  await show()
   fireEvent.click(outerMaterialTab('Essence'))
   const essence = currencyButton('Greater Essence of the Body')
   fireEvent.click(essence)
@@ -115,8 +117,8 @@ it('pins the actual left-click held material across other hover and tabs, then r
   expect(shared()).toHaveTextContent('Divine Orb')
 })
 
-it('pins right-click use selection and lets Escape from its source link cancel the real Page state', () => {
-  show()
+it('pins right-click use selection and lets Escape from its source link cancel the real Page state', async () => {
+  await show()
   const chaos = currencyButton('Chaos Orb')
   fireEvent.contextMenu(chaos)
   expect(chaos).toHaveAttribute('aria-pressed', 'true')
@@ -133,8 +135,8 @@ it('pins right-click use selection and lets Escape from its source link cancel t
   expect(shared()).toHaveTextContent('Divine Orb')
 })
 
-it('keeps the actual favorite trigger for aria and focus when the same material has multiple slots', () => {
-  show()
+it('keeps the actual favorite trigger for aria and focus when the same material has multiple slots', async () => {
+  await show()
   fireEvent.click(outerMaterialTab('Essence'))
   const essence = currencyButton('Greater Essence of the Body')
   for (const index of [1, 2]) {
@@ -164,15 +166,17 @@ it('keeps the actual favorite trigger for aria and focus when the same material 
 })
 
 it('keeps failure alerts and active omens while the selected description overrides other hover', async () => {
-  show()
+  await show()
   act(() => useItemDraft.getState().setActiveOmens(['Omen_of_Whittling']))
   fireEvent.contextMenu(currencyButton('Orb of Annulment'))
   const bytes = localStorage.getItem(historyStorageKey)
-  fireEvent.click(
-    screen.getByRole('button', {
-      name: 'Use selected currency on the central item',
-    }),
-  )
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
+    )
+  })
   await waitFor(() =>
     expect(document.querySelector('.workbench-feedback-panel')).toHaveAttribute(
       'role',
@@ -189,12 +193,16 @@ it('keeps failure alerts and active omens while the selected description overrid
   expect(useItemDraft.getState().activeOmens).toEqual(['Omen_of_Whittling'])
 })
 
-it('keeps a pinned material while the independent base preview opens and leaves', () => {
-  show()
-  fireEvent.contextMenu(currencyButton('Chaos Orb'))
-  fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
-  const menu = screen.getByRole('dialog')
-  const base = within(menu).getByRole('button', { name: /Massive Mitts/ })
+it('keeps a pinned material while the independent base preview opens and leaves', async () => {
+  await show()
+  await act(async () => fireEvent.contextMenu(currencyButton('Chaos Orb')))
+  await act(async () =>
+    fireEvent.click(screen.getByRole('button', { name: 'Select base' })),
+  )
+  const menu = await screen.findByRole('dialog')
+  const base = within(menu).getAllByRole('button', {
+    name: /Massive Mitts/,
+  })[0]!
   fireEvent.mouseEnter(base)
   const floating = document.querySelector<HTMLElement>(
     '.wb-base-picker__preview',
@@ -214,25 +222,35 @@ it('keeps a pinned material while the independent base preview opens and leaves'
 it('clears stale descriptions on material/workspace context changes and successful history navigation without extra execution requests', async () => {
   const fetch = vi.fn(fixtureFetch)
   vi.stubGlobal('fetch', fetch)
-  show()
+  await show()
   fireEvent.pointerOver(currencyButton('Chaos Orb'))
-  fireEvent.click(outerMaterialTab('Essence'))
+  await act(async () => {
+    fireEvent.click(outerMaterialTab('Essence'))
+  })
   expect(shared()).toBeNull()
-  fireEvent.click(outerMaterialTab('Currency'))
-  fireEvent.click(currencyButton('Orb of Transmutation'))
-  fireEvent.click(
-    screen.getByRole('button', {
-      name: 'Use selected currency on the central item',
-    }),
-  )
+  await act(async () => {
+    fireEvent.click(outerMaterialTab('Currency'))
+  })
+  await act(async () => {
+    fireEvent.click(currencyButton('Orb of Transmutation'))
+  })
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
+    )
+  })
   await waitFor(() =>
     expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
   )
   fireEvent.pointerOver(currencyButton('Chaos Orb'))
   const requests = fetch.mock.calls.length
-  fireEvent.click(
-    screen.getByRole('button', { name: 'Previous crafting step' }),
-  )
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Previous crafting step' }),
+    )
+  })
   expect(shared()).toBeNull()
   expect(
     fetch.mock.calls
@@ -244,8 +262,12 @@ it('clears stale descriptions on material/workspace context changes and successf
       ),
   ).toBe(true)
   fireEvent.pointerOver(currencyButton('Chaos Orb'))
-  fireEvent.click(screen.getByRole('tab', { name: /Craft Support/ }))
+  await act(async () => {
+    fireEvent.click(screen.getByRole('tab', { name: /Craft Support/ }))
+  })
   expect(shared()).toBeNull()
-  fireEvent.click(screen.getByRole('tab', { name: /Crafting Workbench/ }))
+  await act(async () => {
+    fireEvent.click(screen.getByRole('tab', { name: /Crafting Workbench/ }))
+  })
   expect(shared()).toBeNull()
 })

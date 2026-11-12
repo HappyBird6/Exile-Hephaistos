@@ -6,6 +6,10 @@ const css = readFileSync(
   'src/features/crafting/compact-viewport/compactViewport.css',
   'utf8',
 )
+const notationCss = readFileSync(
+  'src/features/crafting/session-notation/session-notation.css',
+  'utf8',
+)
 const stashCss = readFileSync(
   'src/features/crafting/stash/workbenchStash.css',
   'utf8',
@@ -137,12 +141,10 @@ describe('aligned composition at 75 percent', () => {
     expect(rule(stashCss, '.workbench-stash__resources')).toContain(
       '4 * var(--stash-row-height) + 15px',
     )
-    expect(rule(css, '.craft-page--workbench .wb-session-notation')).toContain(
-      'flex: 1',
+    expect(rule(notationCss, '.wb-session-notation', true)).toContain('flex: 1')
+    expect(rule(notationCss, '.wb-session-notation__steps', true)).toContain(
+      'max-height: none',
     )
-    expect(
-      rule(css, '.craft-page--workbench .wb-session-notation__steps'),
-    ).toContain('max-height: none')
     expect(css).toContain('max-height: 50%')
     expect(
       readFileSync(

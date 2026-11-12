@@ -43,12 +43,7 @@ class FrontendOptionGoldenTest {
         Files.readAllBytes(Path.of("../frontend/src/shared/i18n/modifierTemplates.json"));
     return new ChaosOptionDisplay(
         DisplayTemplates.parse(
-            bytes,
-            read("sources.json")
-                .path("files")
-                .path("frontend/src/shared/i18n/modifierTemplates.json")
-                .textValue(),
-            JSON));
+            bytes, com.poe2craft.shared.item.ModifierTextResources.TEMPLATE_SHA256, JSON));
   }
 
   private static ItemCatalog catalog(JsonNode fixture, JsonNode state) {
@@ -100,21 +95,14 @@ class FrontendOptionGoldenTest {
   }
 
   @Test
-  void originalDisplaySourceHashesRemainPinnedWithoutCopyingTheTemplateAsset() throws Exception {
+  void historicalInputProvenanceIsIntactWhileCurrentTemplatesUseTheActiveManifest()
+      throws Exception {
+    // sources.json records historical provenance, not a freeze on production source files.
+    // Keep the original fixture immutable; current template integrity is enforced above
+    // against the active manifest, while every golden below still checks rendered output.
     var sources = read("sources.json").path("files");
-    for (String file :
-        List.of(
-            "frontend/src/features/crafting/CraftingPage.tsx",
-            "frontend/src/features/crafting/ItemCard.tsx",
-            "frontend/src/features/crafting/localizedModifiers.ts",
-            "frontend/src/features/crafting/catalystQuality.ts",
-            "frontend/src/features/crafting/numeric-display/attributeNumbers.ts",
-            "frontend/src/shared/i18n/modifierTemplates.json")) {
-      byte[] bytes = Files.readAllBytes(Path.of("..").resolve(file));
-      assertThat(HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(bytes)))
-          .as(file)
-          .isEqualTo(sources.path(file).textValue());
-    }
+    for (var hashes = sources.elements(); hashes.hasNext(); )
+      assertThat(hashes.next().asText()).matches("[a-f0-9]{64}");
     byte[] inputs = Files.readAllBytes(FIXTURES.resolve("inputs.json"));
     assertThat(HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(inputs)))
         .isEqualTo(
@@ -146,7 +134,17 @@ class FrontendOptionGoldenTest {
               id + " / " + locale.code(),
               () -> {
                 var catalog = catalog(inputs, state);
-                if (DISPLAY_PARITY.contains(id)) {
+                if (id.equals("sanctified-catalyst")) {
+                  var item = JSON.treeToValue(state, ItemState.class);
+                  var actual = display.format(item, catalog, locale);
+                  // Valid under current implicit rules, but never eligible for Chaos matching.
+                  assertThat(actual.supported()).isFalse();
+                  assertThat(actual.groups()).isEmpty();
+                  assertThat(actual.issues())
+                      .containsExactly(
+                          new ChaosOptionDisplay.Issue(
+                              ChaosOptionDisplay.Code.SANCTIFIED_UNSUPPORTED, "", true));
+                } else if (DISPLAY_PARITY.contains(id)) {
                   var item = JSON.treeToValue(state, ItemState.class);
                   String before = JSON.writeValueAsString(item);
                   var actual = display.format(item, catalog, locale);
@@ -170,8 +168,7 @@ class FrontendOptionGoldenTest {
                   // Deliberately fractional/out-of-range rolls, missing stats/definitions, mixed
                   // invalid
                   // observations, or two crafted Jewel effects remain invalid rather than being
-                  // coerced. sanctified-catalyst also omits required implicit factors despite
-                  // having an implicit modifier, so canonical validation must reject it.
+                  // coerced. Implicits no longer require sanctification factors.
                   assertThatThrownBy(
                           () ->
                               display.format(

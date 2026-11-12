@@ -123,7 +123,7 @@ it('selects the actual fifth-base initial endpoint and refuses a substituted old
     state: { baseItemId: 'Metadata/Items/Armours/BodyArmours/FourBodyStr1' },
   })
   expect(fetch.mock.calls[0]![0]).toBe(
-    '/api/v1/crafting/workbench/initial?base=body&itemLevel=82',
+    '/api/v1/crafting/workbench/initial?base=body&itemLevel=82&catalog=shared',
   )
   await expect(
     loadInitial(82, new AbortController().signal, 'body'),

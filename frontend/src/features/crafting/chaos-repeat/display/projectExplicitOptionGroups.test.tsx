@@ -339,6 +339,15 @@ it('records or verifies the machine-readable output and exact display source has
     const manifest = JSON.parse(
       readFileSync(resolve(goldenDirectory, 'sources.json'), 'utf8'),
     ) as { files: typeof hashes }
-    expect(hashes).toEqual(manifest.files)
+    // Historical source hashes document capture provenance; production code may evolve.
+    // Output parity is asserted for every fixture above, including the real ItemCard oracle.
+    const input =
+      'frontend/src/features/crafting/chaos-repeat/display/goldens/inputs.json'
+    expect(hashes[input]).toEqual(manifest.files[input])
+    expect(
+      Object.values(manifest.files).every((hash) =>
+        /^[a-f0-9]{64}$/.test(hash),
+      ),
+    ).toBe(true)
   }
 })

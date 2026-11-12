@@ -233,8 +233,10 @@ it('preserves workspace inputs and keyboard focus without routing descriptions i
   // The real base menu uses an independent, scrollable preview.
   const opener = screen.getByRole('button', { name: 'Select base' })
   fireEvent.click(opener)
-  const menu = screen.getByRole('dialog', { name: 'Select base' })
-  const base = within(menu).getByRole('button', { name: /Massive Mitts/ })
+  const menu = await screen.findByRole('dialog', { name: 'Select base' })
+  const base = within(menu).getAllByRole('button', {
+    name: /Massive Mitts/,
+  })[0]!
   fireEvent.pointerDown(base, { pointerType: 'touch' })
   const preview = screen.getByRole('region', { name: 'Base information' })
   expect(

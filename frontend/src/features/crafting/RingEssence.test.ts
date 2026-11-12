@@ -135,7 +135,7 @@ it('selects the actual ninth-base initial endpoint and refuses a substituted old
     state: { baseItemId: 'Metadata/Items/Rings/FourRing1' },
   })
   expect(fetch.mock.calls[0]![0]).toBe(
-    '/api/v1/crafting/workbench/initial?base=ring&itemLevel=82',
+    '/api/v1/crafting/workbench/initial?base=ring&itemLevel=82&catalog=shared',
   )
   await expect(
     loadInitial(82, new AbortController().signal, 'ring'),

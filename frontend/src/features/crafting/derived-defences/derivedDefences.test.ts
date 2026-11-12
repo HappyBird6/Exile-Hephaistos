@@ -73,7 +73,7 @@ describe('local defence projection', () => {
       item.explicits[0]?.values.local_base_physical_damage_reduction_rating,
     ).toBe(10)
   })
-  it('keeps unknown quality unknown and applies sanctification once without rounding intermediate values', () => {
+  it('keeps unknown quality unknown and applies sanctification once rounding the sanctified modifier before applying quality', () => {
     const d = definition(
       'flat',
       'local_base_physical_damage_reduction_rating',
@@ -97,7 +97,7 @@ describe('local defence projection', () => {
       },
     }
     expect(derivedDefences(item, { flat: d }).armour?.value).toBeCloseTo(
-      (base.armour + 8.69) * 1.2,
+      (base.armour + 9) * 1.2,
     )
     expect(
       derivedDefences({ ...item, equipmentQuality: null }, { flat: d }).armour

@@ -125,7 +125,7 @@ it('selects the actual sixth-base initial endpoint and refuses a substituted old
     },
   })
   expect(fetch.mock.calls[0]![0]).toBe(
-    '/api/v1/crafting/workbench/initial?base=sceptre&itemLevel=82',
+    '/api/v1/crafting/workbench/initial?base=sceptre&itemLevel=82&catalog=shared',
   )
   await expect(
     loadInitial(82, new AbortController().signal, 'sceptre'),

@@ -75,7 +75,7 @@ it('shows only a failed-use reason, preserves history and clears it on a new sel
     '.workbench-feedback-region',
   )!
   const history = region.previousElementSibling
-  expect(history).toHaveClass('workbench-stash')
+  expect(history).toHaveClass('workbench-stash-frame')
   expect(region.nextElementSibling).toBeNull()
   expect(getComputedStyle(region).flex).toBe('1 1 0%')
   style.remove()

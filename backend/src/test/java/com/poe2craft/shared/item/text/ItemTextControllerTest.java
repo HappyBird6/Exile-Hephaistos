@@ -14,6 +14,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 
+// Keep the real HTTP filters; mock only their external Redis dependency.
+@org.springframework.test.context.bean.override.mockito.MockitoBean(
+    types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest(ItemTextController.class)
 @Import({ItemTextService.class, ItemTextErrors.class})
 class ItemTextControllerTest {

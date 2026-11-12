@@ -1,3 +1,4 @@
+import { visibleAugmentText } from '../augmentRules'
 import { readFileSync } from 'node:fs'
 import { render, screen, within } from '@testing-library/react'
 import { afterEach, beforeEach, expect, it } from 'vitest'
@@ -40,7 +41,9 @@ it.each(locales)(
       expect(lines.length).toBeGreaterThan(0)
       for (const effect of Object.values(entry.effects)) {
         const text = effect[locale] ?? effect.en
-        expect(lines.some((line) => line.endsWith(`: ${text}`))).toBe(true)
+        expect(
+          lines.some((line) => line.endsWith(`: ${visibleAugmentText(text!)}`)),
+        ).toBe(true)
       }
     }
   },

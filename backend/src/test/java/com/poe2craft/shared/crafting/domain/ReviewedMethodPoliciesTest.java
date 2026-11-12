@@ -63,6 +63,7 @@ class ReviewedMethodPoliciesTest {
         count++;
       }
     }
-    assertThat(count).isEqualTo(47);
+    // The 39 armour catalogs now use published PoE2DB weights.
+    assertThat(count).isEqualTo(8);
   }
 }

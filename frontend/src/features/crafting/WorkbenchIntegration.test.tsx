@@ -1,3 +1,4 @@
+import { act } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
   fireEvent,
@@ -29,15 +30,19 @@ beforeEach(() => {
   vi.stubGlobal('fetch', fixtureFetch)
 })
 afterEach(() => client.clear())
-function show() {
-  return render(
+async function show() {
+  const mounted = render(
     <QueryClientProvider client={client}>
       <CraftingPage />
     </QueryClientProvider>,
   )
+  await waitFor(() =>
+    expect(screen.getByRole('button', { name: 'Select base' })).toBeEnabled(),
+  )
+  return mounted
 }
-it('uses one selector for right content and registers a material in ten bottom favorites', () => {
-  show()
+it('uses one selector for right content and registers a material in ten bottom favorites', async () => {
+  await show()
   const inner = within(
     document.querySelector('.workbench-stash') as HTMLElement,
   )
@@ -48,8 +53,13 @@ it('uses one selector for right content and registers a material in ten bottom f
     'aria-selected',
     'true',
   )
-  expect(inner.getAllByRole('tablist')).toHaveLength(1)
-  fireEvent.click(outer.getByRole('tab', { name: 'Essence' }))
+  expect(inner.queryByRole('tablist')).toBeNull()
+  expect(document.querySelector('.stash-canvas')).toContainElement(
+    outer.getByRole('tab', { name: 'Currency' }),
+  )
+  await act(async () => {
+    fireEvent.click(outer.getByRole('tab', { name: 'Essence' }))
+  })
   expect(outer.getByRole('tab', { name: 'Currency' })).toHaveAttribute(
     'aria-selected',
     'false',
@@ -57,9 +67,11 @@ it('uses one selector for right content and registers a material in ten bottom f
   expect(
     inner.queryByRole('button', { name: 'Lesser Essence of the Body' }),
   ).not.toBeInTheDocument()
-  fireEvent.click(
-    inner.getByRole('button', { name: 'Greater Essence of the Body' }),
-  )
+  await act(async () => {
+    fireEvent.click(
+      inner.getByRole('button', { name: 'Greater Essence of the Body' }),
+    )
+  })
   const favorites = screen.getByRole('group', {
     name: 'Shared material favorites',
   })
@@ -67,7 +79,9 @@ it('uses one selector for right content and registers a material in ten bottom f
     favorites,
   )
   expect(within(favorites).getAllByRole('button')).toHaveLength(10)
-  fireEvent.click(within(favorites).getAllByRole('button')[0]!)
+  await act(async () => {
+    fireEvent.click(within(favorites).getAllByRole('button')[0]!)
+  })
   expect(within(favorites).getAllByRole('button')[0]).toHaveAccessibleName(
     'Favorite slot 1: Greater Essence of the Body',
   )
@@ -77,10 +91,14 @@ it('uses one selector for right content and registers a material in ten bottom f
     ),
   ).toBeNull()
 })
-it('opens the left base menu independently from the text dialog', () => {
-  show()
-  fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
-  expect(document.getElementById('workbench-base-picker')).toBeVisible()
+it('opens the left base menu independently from the text dialog', async () => {
+  await show()
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
+  })
+  expect(
+    await screen.findByRole('dialog', { name: 'Select base' }),
+  ).toBeVisible()
   expect(document.getElementById('item-input-panel')).not.toHaveAttribute(
     'open',
   )
@@ -97,13 +115,20 @@ it('renames, favorites, deletes and restores the exact saved session', async () 
       startFilm(emptyFilms(), state, 'one', initialFixture.rulesetIdentity),
     ),
   )
-  show()
-  fireEvent.click(screen.getByRole('tab', { name: 'History' }))
-  fireEvent.click(screen.getByRole('button', { name: /^Rename:/ }))
+  await show()
+  await act(async () => {
+    fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+  })
+  fireEvent.click(
+    await screen.findByRole('button', { name: /^Select session:/ }),
+  )
+  fireEvent.click(await screen.findByRole('button', { name: /^Rename:/ }))
   const title = screen.getByRole('textbox', { name: 'Session title' })
   title.textContent = 'My craft'
-  fireEvent.keyDown(title, { key: 'Enter' })
-  fireEvent.click(screen.getByRole('button', { name: 'Favorite: My craft' }))
+  await act(async () => fireEvent.keyDown(title, { key: 'Enter' }))
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Favorite: My craft' }))
+  })
   let saved = JSON.parse(localStorage.getItem(historyStorageKey)!)
   expect(saved.films[0]).toMatchObject({
     id: 'one',
@@ -111,15 +136,19 @@ it('renames, favorites, deletes and restores the exact saved session', async () 
     favorite: true,
   })
   const frames = saved.films[0].frames
-  fireEvent.click(screen.getByRole('button', { name: 'Delete: My craft' }))
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Delete: My craft' }))
+  })
   await waitFor(() =>
     expect(
       JSON.parse(localStorage.getItem(historyStorageKey)!).films,
     ).toHaveLength(0),
   )
-  fireEvent.click(
-    screen.getByRole('button', { name: 'Undo deletion: My craft' }),
-  )
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Undo deletion: My craft' }),
+    )
+  })
   saved = JSON.parse(localStorage.getItem(historyStorageKey)!)
   expect(saved.films[0].frames).toEqual(frames)
   expect(saved.films[0]).toMatchObject({
@@ -129,21 +158,25 @@ it('renames, favorites, deletes and restores the exact saved session', async () 
   })
 })
 
-it('preserves saved sessions when a metadata write fails', () => {
+it('preserves saved sessions when a metadata write fails', async () => {
   const state = concreteInitial(initialFixture)
   const original = JSON.stringify(
     startFilm(emptyFilms(), state, 'one', initialFixture.rulesetIdentity),
   )
   localStorage.setItem(historyStorageKey, original)
-  show()
-  fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+  await show()
+  await act(async () => {
+    fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+  })
   const write = vi
     .spyOn(Storage.prototype, 'setItem')
     .mockImplementation(() => {
       throw new Error('Quota exceeded')
     })
   try {
-    fireEvent.click(screen.getByRole('button', { name: /^Favorite:/ }))
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /^Favorite:/ }))
+    })
     expect(localStorage.getItem(historyStorageKey)).toBe(original)
     expect(screen.getByRole('button', { name: /^Favorite:/ })).toHaveAttribute(
       'aria-pressed',
@@ -154,8 +187,8 @@ it('preserves saved sessions when a metadata write fails', () => {
   }
 })
 
-it('keeps item controls in the simulation and exposes a separate History tab', () => {
-  show()
+it('keeps item controls in the simulation and exposes a separate History tab', async () => {
+  await show()
   const canvas = document.querySelector('.stash-canvas')!
   expect(canvas).toContainElement(
     screen.getByRole('tablist', { name: 'Material stash tabs' }),
@@ -198,7 +231,7 @@ it('keeps item controls in the simulation and exposes a separate History tab', (
     document.querySelectorAll('.workbench-film-controls__arrow'),
   ).toHaveLength(2)
 })
-it('opens the favorites-only session view without rewriting the full saved history', () => {
+it('opens the favorites-only session view without rewriting the full saved history', async () => {
   const state = concreteInitial(initialFixture)
   let history = startFilm(
     emptyFilms(),
@@ -217,10 +250,14 @@ it('opens the favorites-only session view without rewriting the full saved histo
     favorite: true,
   })
   localStorage.setItem(historyStorageKey, JSON.stringify(history))
-  show()
+  await show()
   const before = localStorage.getItem(historyStorageKey)
-  fireEvent.click(screen.getByRole('tab', { name: 'History' }))
-  fireEvent.click(screen.getByRole('button', { name: 'Favorites' }))
+  await act(async () => {
+    fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+  })
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Favorites' }))
+  })
   const panel = document.getElementById('workbench-panel-history')!
   expect(
     within(panel).getAllByRole('button', { name: /^Select session:/ }),
@@ -233,8 +270,8 @@ it('opens the favorites-only session view without rewriting the full saved histo
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
 })
 
-it('renders original shelf positions and an unscaled viewport cursor', () => {
-  show()
+it('renders original shelf positions and an unscaled viewport cursor', async () => {
+  await show()
   const shelf = document.querySelector<HTMLElement>('.currency-catalog')!
   const chaos = within(shelf).getByRole('button', { name: 'Chaos Orb' })
   expect(chaos.style.left).toBe(`${29 / 9.35}%`)
@@ -248,11 +285,13 @@ it('renders original shelf positions and an unscaled viewport cursor', () => {
 })
 
 it('returns focus to the relocated base and edit buttons after overlay close and input cancellation', async () => {
-  show()
+  await show()
   const base = screen.getByRole('button', { name: 'Select base' })
   base.focus()
-  fireEvent.click(base)
-  const picker = screen.getByRole('dialog', { name: 'Select base' })
+  await act(async () => {
+    fireEvent.click(base)
+  })
+  const picker = await screen.findByRole('dialog', { name: 'Select base' })
   expect(base).toHaveAttribute('aria-expanded', 'true')
   expect(base).toHaveAttribute('aria-controls', picker.id)
   fireEvent.keyDown(picker, { key: 'Escape' })
@@ -261,8 +300,10 @@ it('returns focus to the relocated base and edit buttons after overlay close and
   const edit = screen.getByRole('button', { name: 'Edit item' })
   await waitFor(() => expect(edit).toBeEnabled())
   edit.focus()
-  fireEvent.click(edit)
-  const input = screen.getByRole('dialog', { name: 'Edit item' })
+  await act(async () => {
+    fireEvent.click(edit)
+  })
+  const input = await screen.findByRole('dialog', { name: 'Edit item' })
   expect(edit).toHaveAttribute('aria-controls', input.id)
   expect(edit).toHaveAttribute('aria-expanded', 'true')
   expect(screen.getByRole('button', { name: 'Close item input' })).toHaveFocus()
@@ -274,8 +315,12 @@ it('returns focus to the relocated base and edit buttons after overlay close and
   expect(edit).toHaveFocus()
   expect(edit).toHaveAttribute('aria-expanded', 'false')
   expect(useItemDraft.getState().text).toBe(displayedText)
-  fireEvent.click(edit)
-  fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
+  await act(async () => {
+    fireEvent.click(edit)
+  })
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Close item input' }))
+  })
   expect(edit).toHaveFocus()
 })
 
@@ -287,7 +332,7 @@ it('starts a new craft from the relocated control and preserves the existing fil
     initialFixture.rulesetIdentity,
   )
   localStorage.setItem(historyStorageKey, JSON.stringify(history))
-  show()
+  await show()
   const key = ['crafting', 'initial', 'solar', 82, 'manual']
   await waitFor(() => expect(client.getQueryData(key)).toBeDefined())
   const newCraft = screen.getByRole('button', { name: 'New craft' })
@@ -295,7 +340,12 @@ it('starts a new craft from the relocated control and preserves the existing fil
   const revision = useItemDraft.getState().baseRevision
   await client.invalidateQueries({ queryKey: key, refetchType: 'none' })
   vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse({}, 500)))
-  fireEvent.click(newCraft)
+  await act(async () => {
+    fireEvent.click(newCraft)
+  })
+  const picker = await screen.findByRole('dialog', { name: 'Select base' })
+  const confirm = within(picker).getByRole('button', { name: 'Select base' })
+  await act(async () => fireEvent.click(confirm))
   await waitFor(() =>
     expect(
       document.querySelector('.craft-page > .sr-only[role="status"]'),
@@ -304,14 +354,20 @@ it('starts a new craft from the relocated control and preserves the existing fil
   expect(useItemDraft.getState().baseRevision).toBe(revision)
   expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
   vi.stubGlobal('fetch', fixtureFetch)
-  fireEvent.click(newCraft)
+  await act(async () => fireEvent.click(newCraft))
+  const retry = within(
+    await screen.findByRole('dialog', { name: 'Select base' }),
+  ).getByRole('button', { name: 'Select base' })
+  await waitFor(() => expect(retry).toBeEnabled())
+  await act(async () => fireEvent.click(retry))
   await waitFor(() =>
     expect(useItemDraft.getState().baseRevision).toBeGreaterThan(revision),
   )
   const saved = JSON.parse(localStorage.getItem(historyStorageKey)!)
   expect(saved.films).toHaveLength(2)
   expect(saved.films[0]).toEqual(history.films[0])
-  expect(saved.films[1].frames[0].state).toEqual(
-    concreteInitial(initialFixture),
-  )
+  expect(saved.films[1].frames[0].state).toEqual({
+    ...concreteInitial(initialFixture),
+    desecrated: [],
+  })
 })

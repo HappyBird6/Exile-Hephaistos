@@ -48,7 +48,7 @@ describe('remaining display coverage', () => {
             id,
           ),
       ),
-    ).toHaveLength(382)
+    ).toHaveLength(405)
     expect(
       compound.filter(([id]) => /^(crossbow|.+-crossbow):/.test(id)),
     ).toHaveLength(50)
@@ -67,7 +67,7 @@ describe('remaining display coverage', () => {
         ),
       ),
     ).toHaveLength(1)
-    expect(compound).toHaveLength(437)
+    expect(compound).toHaveLength(460)
     expect(compound.filter(([id]) => id.startsWith('kinetic:'))).toEqual([
       [
         'kinetic:implicit:physicaldamage',
@@ -145,7 +145,7 @@ describe('remaining display coverage', () => {
             id,
           ),
       ),
-    ).toHaveLength(265)
+    ).toHaveLength(420)
     expect(
       single.filter(([id]) => /^(crossbow|.+-crossbow):/.test(id)),
     ).toHaveLength(18)
@@ -167,7 +167,7 @@ describe('remaining display coverage', () => {
         ),
       ),
     ).toHaveLength(1)
-    expect(single).toHaveLength(373)
+    expect(single).toHaveLength(528)
     expect(
       single
         .filter(([id]) =>
@@ -219,13 +219,14 @@ describe('remaining display coverage', () => {
         for (const locale of locales) {
           const text = localizedModifierText(d, values, locale)
           expect(text).not.toMatch(/source units|\{v\d+\}| = /)
-          expect(text).toContain(
-            formatNumber(
-              value / b.valueStats![0]!.divisor,
-              { maximumFractionDigits: 1 },
-              locale,
-            ),
-          )
+          if (b.valueStats?.length || b.template.includes('{v0}'))
+            expect(text).toContain(
+              formatNumber(
+                value / (b.valueStats?.[0]?.divisor ?? 1),
+                { maximumFractionDigits: 1 },
+                locale,
+              ),
+            )
         }
         expect(JSON.stringify(values)).toBe(before)
       }

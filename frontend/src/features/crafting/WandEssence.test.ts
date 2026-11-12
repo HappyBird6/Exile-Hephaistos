@@ -96,7 +96,7 @@ it('dispatches Wand initial separately and rejects a valid Bow response delivere
     loadInitial(82, new AbortController().signal, 'wand'),
   ).resolves.toMatchObject({ state: { baseItemId: base } })
   expect(fetch.mock.calls[0]![0]).toBe(
-    '/api/v1/crafting/workbench/initial?base=wand&itemLevel=82',
+    '/api/v1/crafting/workbench/initial?base=wand&itemLevel=82&catalog=shared',
   )
   await expect(
     loadInitial(82, new AbortController().signal, 'wand'),

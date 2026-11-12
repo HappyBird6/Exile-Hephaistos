@@ -12,8 +12,9 @@ const definitions = {
   [target]: {
     ...initialFixture.modifiers.s!,
     id: target,
+    text: '60% increased effect of Socketed Augment Items',
     familyIds: ['SoulCore'],
-    stats: [{ id: 'socketEffect', min: 60, max: 60 }],
+    stats: [{ id: 'local_socketed_items_effect_+%', min: 60, max: 60 }],
   },
 }
 const before: ConcreteItem = {
@@ -37,7 +38,7 @@ const result: AppliedItem = {
   state: {
     ...before,
     explicits: [
-      { modifierId: target, values: { socketEffect: 60 } },
+      { modifierId: target, values: { 'local_socketed_items_effect_+%': 60 } },
       before.explicits[0]!,
     ],
   },
@@ -46,7 +47,7 @@ const result: AppliedItem = {
     {
       kind: 'ADD',
       modifierId: target,
-      values: { socketEffect: 60 },
+      values: { 'local_socketed_items_effect_+%': 60 },
       selectionProbability: 1,
     },
   ],
@@ -78,8 +79,10 @@ const apply = () =>
 it('rejects percent unit mistakes and an applied Horror result on Solar', async () => {
   for (const value of [0.6, 59, 61]) {
     const wrong = structuredClone(result)
-    wrong.state.explicits[0]!.values = { socketEffect: value }
-    wrong.events[1]!.values = { socketEffect: value }
+    wrong.state.explicits[0]!.values = {
+      'local_socketed_items_effect_+%': value,
+    }
+    wrong.events[1]!.values = { 'local_socketed_items_effect_+%': value }
     vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(wrong)))
     await expect(apply()).rejects.toThrow('Your item is unchanged')
   }

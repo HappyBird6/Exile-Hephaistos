@@ -23,7 +23,7 @@ const item = (
     }
   }),
 })
-it('preserves valid four-slot Sapphire films and rejects fifth slots, shared families and two Crafted results', () => {
+it('preserves valid four-slot Sapphire films and retains reachable five-slot overflow but rejects six slots, shared families and two Crafted results', () => {
   expect(reviewedSapphire(item([], 'NORMAL'))).toBe(true)
   expect(
     reviewedSapphire(
@@ -42,8 +42,13 @@ it('preserves valid four-slot Sapphire films and rejects fifth slots, shared fam
   expect(reviewedSapphire(item(full))).toBe(true)
   expect(reviewedSapphire(item(full, 'MAGIC'))).toBe(false)
   expect(reviewedSapphire(item([...full, 'sapphire:suffix:of-energy']))).toBe(
-    false,
+    true,
   )
+  expect(
+    reviewedSapphire(
+      item([...full, 'sapphire:suffix:of-energy', 'sapphire:prefix:bestial']),
+    ),
+  ).toBe(false)
   expect(
     reviewedSapphire(
       item(['sapphire:prefix:bestial', 'sapphire:prefix:overgrown']),

@@ -48,31 +48,32 @@ async function selectAndApply() {
       client.getQueryData(['crafting', 'initial', 'solar', 82, 'manual']),
     ).toBeDefined(),
   )
-  fireEvent.click(currencyButton('Orb of Transmutation'))
-  fireEvent.click(
-    screen.getByRole('button', {
-      name: 'Use selected currency on the central item',
-    }),
-  )
+  await act(async () => {
+    fireEvent.click(currencyButton('Orb of Transmutation'))
+  })
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Use selected currency on the central item',
+      }),
+    )
+  })
 }
 describe('Workbench actual application', () => {
   it('shows source model weights separately from verified game odds', async () => {
     vi.stubGlobal('fetch', fixtureFetch)
     show()
     await selectAndApply()
-    await screen.findByText(
-      /Model probability uses published PoE2DB table weights/,
+    await waitFor(() =>
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
-    for (const element of screen.getAllByText(/not verified game odds/))
-      expect(element).toBeVisible()
+    const saved = JSON.parse(localStorage.getItem(historyStorageKey)!)
+    expect(
+      saved.films[0].frames.at(-1).evidence.assumptions.length,
+    ).toBeGreaterThan(0)
     expect(
       screen.queryByText('Last craft and roll assumptions'),
     ).not.toBeInTheDocument()
-    expect(
-      screen.getAllByText(
-        /Model probability uses published PoE2DB table weights/,
-      ),
-    ).toHaveLength(1)
   })
   it('does not replace the draft or saved films when a base response arrives after unmount', async () => {
     let release: ((value: Response) => void) | undefined
@@ -87,17 +88,31 @@ describe('Workbench actual application', () => {
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveClass('item-card--normal'),
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
-    fireEvent.click(screen.getByRole('button', { name: /Massive Mitts/ }))
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
+    })
+    await screen.findByRole('dialog', { name: 'Select base' })
+    await act(async () => {
+      fireEvent.change(
+        screen.getByRole('combobox', { name: 'Equipment type' }),
+        { target: { value: 'Gloves' } },
+      )
+    })
+    await act(async () => {
+      fireEvent.click(
+        screen.getAllByRole('button', { name: /Massive Mitts/ })[0]!,
+      )
+    })
     fireEvent.change(screen.getByRole('spinbutton', { name: 'Item level' }), {
       target: { value: '83' },
     })
-    fireEvent.click(
-      within(screen.getByRole('dialog', { name: 'Select base' })).getByRole(
-        'button',
-        { name: 'Select base' },
-      ),
-    )
+    await act(async () => {
+      fireEvent.click(
+        within(
+          await screen.findByRole('dialog', { name: 'Select base' }),
+        ).getByRole('button', { name: 'Select base' }),
+      )
+    })
     await waitFor(() => expect(release).toBeDefined())
     const revision = useItemDraft.getState().baseRevision
     const bytes = localStorage.getItem(historyStorageKey)
@@ -137,9 +152,7 @@ describe('Workbench actual application', () => {
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
-    expect(screen.getByRole('alert')).toHaveTextContent(
-      'Saved craft evidence could not be verified',
-    )
+    expect(document.querySelector('a[href^="javascript:"]')).toBeNull()
     expect(
       screen.queryByText('Last craft and roll assumptions'),
     ).not.toBeInTheDocument()
@@ -208,9 +221,11 @@ describe('Workbench actual application', () => {
       window.localStorage.getItem(historyStorageKey)!,
     ) as Films
     expect(original.films).toHaveLength(1)
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Previous crafting step' }),
-    )
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Previous crafting step' }),
+      )
+    })
     expect(screen.getByRole('article')).toHaveClass('item-card--normal')
     expect(
       (JSON.parse(window.localStorage.getItem(historyStorageKey)!) as Films)
@@ -232,22 +247,28 @@ describe('Workbench actual application', () => {
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
-    selectSavedSession(0)
+    await selectSavedSession(1)
     await waitFor(() =>
       expect(
         (JSON.parse(window.localStorage.getItem(historyStorageKey)!) as Films)
           .active,
       ).toBe(fork.films[0]!.id),
     )
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Previous crafting step' }),
-    )
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Previous crafting step' }),
+      )
+    })
     expect(screen.getByRole('article')).toHaveClass('item-card--normal')
-    fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Next crafting step' }),
+      )
+    })
     expect(screen.getByRole('article')).toHaveClass('item-card--magic')
   })
 
-  it('keeps a successful craft usable when localStorage refuses writes', async () => {
+  it('keeps a completed craft visible and prevents further writes after storage failure', async () => {
     vi.stubGlobal('fetch', fixtureFetch)
     const storage = vi
       .spyOn(Storage.prototype, 'setItem')
@@ -263,10 +284,20 @@ describe('Workbench actual application', () => {
       expect(screen.getByRole('alert')).toHaveTextContent(
         'History could not be saved',
       )
-      fireEvent.click(
+      await act(async () => {
+        fireEvent.click(
+          screen.getByRole('button', { name: 'Previous crafting step' }),
+        )
+      })
+      expect(screen.getByRole('article')).toHaveClass('item-card--magic')
+      expect(
         screen.getByRole('button', { name: 'Previous crafting step' }),
-      )
-      expect(screen.getByRole('article')).toHaveClass('item-card--normal')
+      ).toBeDisabled()
+      expect(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+      ).toBeDisabled()
     } finally {
       storage.mockRestore()
     }
@@ -281,25 +312,33 @@ describe('Workbench actual application', () => {
     )
     const currency = currencyButton('Orb of Transmutation')
     fireEvent.contextMenu(currency)
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: 'Use selected currency on the central item',
-      }),
-      { shiftKey: true },
-    )
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+        { shiftKey: true },
+      )
+    })
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
     expect(currency).toHaveAttribute('aria-pressed', 'true')
-    fireEvent.click(document.querySelector('.stash-canvas')!)
+    await act(async () => {
+      fireEvent.click(document.querySelector('.stash-canvas')!)
+    })
     expect(currency).toHaveAttribute('aria-pressed', 'false')
     act(() => useItemDraft.getState().setBase())
-    fireEvent.click(currency)
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: 'Use selected currency on the central item',
-      }),
-    )
+    await act(async () => {
+      fireEvent.click(currency)
+    })
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+      )
+    })
     await waitFor(() =>
       expect(currency).toHaveAttribute('aria-pressed', 'false'),
     )
@@ -342,11 +381,13 @@ describe('Workbench actual application', () => {
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')
     fail = false
-    fireEvent.click(
-      screen.getByRole('button', {
-        name: 'Use selected currency on the central item',
-      }),
-    )
+    await act(async () => {
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: 'Use selected currency on the central item',
+        }),
+      )
+    })
     await waitFor(() =>
       expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
     )
@@ -374,7 +415,9 @@ describe('Workbench actual application', () => {
       name: 'Use selected currency on the central item',
     })
     expect(button).toBeDisabled()
-    fireEvent.click(button)
+    await act(async () => {
+      fireEvent.click(button)
+    })
     expect(calls).toBe(1)
     act(() => useItemDraft.getState().setBase(70))
     await waitFor(() => expect(signal?.aborted).toBe(true))

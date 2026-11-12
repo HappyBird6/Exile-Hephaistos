@@ -1,5 +1,6 @@
 import { currencyButton } from '../../shared/test/workbenchQueries'
 import {
+  act,
   fireEvent,
   render,
   screen,
@@ -30,18 +31,24 @@ describe('Workbench application and shared transition validation', () => {
         <CraftingPage />
       </QueryClientProvider>,
     )
-    fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
-    fireEvent.change(
-      await screen.findByRole('spinbutton', { name: 'Item level' }),
-      {
-        target: { value: '70' },
-      },
+    await waitFor(() =>
+      expect(screen.getByRole('button', { name: 'Select base' })).toBeEnabled(),
+    )
+    await act(async () =>
+      fireEvent.click(screen.getByRole('button', { name: 'Select base' })),
+    )
+    const level = await screen.findByRole('spinbutton', { name: 'Item level' })
+    await act(async () => fireEvent.change(level, { target: { value: '70' } }))
+    await waitFor(() =>
+      expect(
+        client.getQueryData(['crafting', 'initial', 'solar', 70, 'manual']),
+      ).toBeDefined(),
     )
     const confirm = within(
       screen.getByRole('dialog', { name: 'Select base' }),
     ).getByRole('button', { name: 'Select base' })
     await waitFor(() => expect(confirm).toBeEnabled())
-    fireEvent.click(confirm)
+    await act(async () => fireEvent.click(confirm))
     await waitFor(() =>
       expect(
         within(

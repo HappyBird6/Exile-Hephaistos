@@ -184,7 +184,7 @@ class WandEssenceTest {
               m -> assertThat(catalog.find(m.modifierId()).orElseThrow().weight()).isPositive());
       assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     }
-    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(59);
+    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(63);
     assertThat(
             simulator
                 .apply(
@@ -212,7 +212,7 @@ class WandEssenceTest {
     assertThat(service.initial("wand", 82).qualityLimit().maximumQuality()).isEqualTo(20);
     assertThat(service.initial("wand", 82).ruleVersion())
         .isEqualTo(
-            "equipment-currency-v1-wand-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-explicit-rounded-v2-user-selected-equipment-quality-maximum-v2-quality-infuser-once-plus-ten-v1");
+            "equipment-currency-v1-wand-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-unfractured-rounded-v3-user-selected-equipment-quality-maximum-v2-quality-infuser-once-plus-ten-v1");
     assertThat(service.initial("bow", 82).modifiers()).hasSize(161);
     assertThat(service.initial("solar", 82).modifiers()).hasSize(219);
     assertThat(

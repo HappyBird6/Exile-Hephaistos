@@ -1,3 +1,4 @@
+import { act } from '@testing-library/react'
 import {
   currencyButton,
   selectSavedSession,
@@ -51,16 +52,15 @@ it('permits preserved record selection even when the current catalog service is 
       <CraftingPage />
     </QueryClientProvider>,
   )
-  selectSavedSession(1)
+  await selectSavedSession(0)
   await waitFor(() =>
     expect(JSON.parse(localStorage.getItem(historyStorageKey)!).active).toBe(
       'past',
     ),
   )
-  fireEvent.click(screen.getByText('Preserved craft record'))
-  expect(
-    screen.getByText(/historical-unsupported-base/, { selector: 'pre' }),
-  ).toBeVisible()
+  expect(screen.getByRole('article')).toBeVisible()
+  expect(document.querySelector('.preserved-record')).toBeNull()
+  expect(screen.queryByText('Preserved craft record')).toBeNull()
   expect(JSON.parse(localStorage.getItem(historyStorageKey)!).films).toEqual(
     history.films,
   )
@@ -205,17 +205,19 @@ it.each(['legacy-unverified', 'mismatch', 'inconsistent'] as const)(
         <CraftingPage />
       </QueryClientProvider>,
     )
-    await screen.findByText(/Execution is disabled/)
-    fireEvent.click(screen.getByText('Preserved craft record'))
+    await waitFor(() =>
+      expect(document.querySelector('.bench-item-card article')).toBeVisible(),
+    )
+    expect(screen.queryByText('Preserved craft record')).toBeNull()
+    expect(document.querySelector('.bench-item-card pre')).toBeNull()
+    await act(async () => {
+      fireEvent.click(currencyButton('Orb of Transmutation'))
+    })
     expect(
-      screen.getByText(/"rulesetIdentity"|"snapshotId"/, { selector: 'pre' }),
-    ).toBeVisible()
-    fireEvent.click(currencyButton('Orb of Transmutation'))
-    fireEvent.click(
-      screen.getByRole('button', {
+      screen.queryByRole('button', {
         name: 'Use selected currency on the central item',
       }),
-    )
+    ).toBeNull()
     await waitFor(() =>
       expect(
         fetch.mock.calls.every(([url]) => !String(url).endsWith('/apply')),

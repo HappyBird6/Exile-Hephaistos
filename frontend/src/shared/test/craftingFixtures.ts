@@ -106,6 +106,10 @@ export function fixtureFetch(
   init?: RequestInit,
 ): Promise<Response> {
   const url = String(input)
+  if (url === '/api/account/me')
+    return Promise.resolve(
+      jsonResponse({ enabled: true, user: null, csrf: 'test-guest' }),
+    )
   if (
     url.endsWith('/basic-paths/provenance') ||
     url.includes('/method-searches/provenance?')

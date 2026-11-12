@@ -49,12 +49,14 @@ afterEach(() => {
   vi.restoreAllMocks()
   vi.unstubAllGlobals()
 })
-function show() {
-  return render(
+async function show() {
+  const mounted = render(
     <QueryClientProvider client={new QueryClient()}>
       <CraftingPage />
     </QueryClientProvider>,
   )
+  await act(async () => {})
+  return mounted
 }
 const compact = (value: string) => value.replace(/\s/g, '')
 function ruleStyle(selector: string) {
@@ -65,8 +67,8 @@ function ruleStyle(selector: string) {
 }
 
 describe('single canvas category selector and favorites inside the coordinate plane', () => {
-  it('retains the size-containment and internal overflow contract across real large catalogs, filtering and tab changes', () => {
-    show()
+  it('retains the size-containment and internal overflow contract across real large catalogs, filtering and tab changes', async () => {
+    await show()
     const stash = document.querySelector('.workbench-stash-column')!
     const list = stash.querySelector('.workbench-stash__resources')!
     const panel = stash.querySelector('.workbench-stash__panel')!
@@ -134,8 +136,8 @@ describe('single canvas category selector and favorites inside the coordinate pl
       10,
     )
   })
-  it('shares stash scroll styling with the actual base, History and Favorites scroll surfaces', () => {
-    show()
+  it('shares stash scroll styling with the actual base, History and Favorites scroll surfaces', async () => {
+    await show()
     expect(ruleStyle('.wb-scrollbar').getPropertyValue('scrollbar-color')).toBe(
       '#867347 #141a15',
     )
@@ -152,7 +154,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     }
     scrollSurface(stash)
     fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
-    const picker = screen.getByRole('dialog')
+    const picker = await screen.findByRole('dialog')
     const body = picker.querySelector('.wb-shelf-overlay__body')!
     const layout = picker.querySelector('.wb-base-picker')!
     const controls = picker.querySelector('.wb-base-picker__controls')!
@@ -175,11 +177,10 @@ describe('single canvas category selector and favorites inside the coordinate pl
     expect(controls).toContainElement(
       screen.getByRole('spinbutton', { name: 'Item level' }),
     )
-    expect(controls).toContainElement(
-      within(screen.getByRole('dialog', { name: 'Select base' })).getByRole(
-        'button',
-        { name: 'Select base' },
-      ),
+    expect(picker).toContainElement(
+      within(
+        await screen.findByRole('dialog', { name: 'Select base' }),
+      ).getByRole('button', { name: 'Select base' }),
     )
     expect(
       getComputedStyle(picker.querySelector('.wb-base-picker__footer')!)
@@ -199,6 +200,9 @@ describe('single canvas category selector and favorites inside the coordinate pl
     )
     fireEvent.keyDown(picker, { key: 'Escape' })
     fireEvent.click(screen.getByRole('tab', { name: 'History' }))
+    await waitFor(() =>
+      expect(document.querySelector('.wb-history-list')).toBeVisible(),
+    )
     scrollSurface(document.querySelector('.wb-history-list')!, 'overflow')
     expect(screen.queryByRole('dialog')).toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'Favorites' }))
@@ -231,9 +235,9 @@ describe('single canvas category selector and favorites inside the coordinate pl
           )
         : fixtureFetch(input, init)
     })
-    show()
+    await show()
     fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
-    const picker = screen.getByRole('dialog')
+    const picker = await screen.findByRole('dialog')
     const controls = picker.querySelector('.wb-base-picker__controls')!
     fireEvent.change(within(picker).getByRole('searchbox'), {
       target: { value: 'Sapphire' },
@@ -278,8 +282,8 @@ describe('single canvas category selector and favorites inside the coordinate pl
       picker.querySelector('.wb-base-picker__options'),
     ).not.toContainElement(place)
   })
-  it('connects the preserved category selector to the right content only', () => {
-    show()
+  it('connects the preserved category selector to the right content only', async () => {
+    await show()
     const selector = screen.getByRole('tablist', {
       name: 'Material stash tabs',
     })
@@ -351,8 +355,8 @@ describe('single canvas category selector and favorites inside the coordinate pl
       expect(within(right).queryByRole('button', { name })).toBeNull()
   })
 
-  it('picks across categories, drags into the coordinate plane and preserves Omen activation', () => {
-    show()
+  it('picks across categories, drags into the coordinate plane and preserves Omen activation', async () => {
+    await show()
     const right = document.querySelector<HTMLElement>('.workbench-stash')!
     const selector = screen.getByRole('tablist', {
       name: 'Material stash tabs',
@@ -394,8 +398,8 @@ describe('single canvas category selector and favorites inside the coordinate pl
     expect(slots[0]).toHaveClass('is-active-omen')
   })
 
-  it('mounts all ten favorite slots directly inside the unchanged coordinate plane', () => {
-    show()
+  it('mounts all ten favorite slots directly inside the unchanged coordinate plane', async () => {
+    await show()
     const favorites = screen.getByRole('group', {
       name: 'Shared material favorites',
     })
@@ -432,9 +436,9 @@ describe('single canvas category selector and favorites inside the coordinate pl
 
   it.each(locales)(
     'shares the edit style across four ordered %s controls without reserving the former row',
-    (locale) => {
+    async (locale) => {
       setLocale(locale)
-      show()
+      await show()
       const stash = document.querySelector('.workbench-stash-column')!
       expect(getComputedStyle(stash).getPropertyValue('contain')).toBe('size')
       expect(
@@ -496,7 +500,7 @@ describe('single canvas category selector and favorites inside the coordinate pl
     },
   )
 
-  it('positions the remaining base menu from the work area and restores focus to its opener', () => {
+  it('positions the remaining base menu from the work area and restores focus to its opener', async () => {
     vi.stubGlobal('innerWidth', 1400)
     vi.stubGlobal('innerHeight', 900)
     const rects = new Map([
@@ -519,10 +523,10 @@ describe('single canvas category selector and favorites inside the coordinate pl
         return rects.get(this.className) ?? new DOMRect()
       },
     )
-    show()
+    await show()
     const opener = screen.getByRole('button', { name: 'Select base' })
     fireEvent.click(opener)
-    const picker = screen.getByRole('dialog', { name: 'Select base' })
+    const picker = await screen.findByRole('dialog', { name: 'Select base' })
     expect(picker).toHaveStyle({
       left: '108px',
       top: '108px',
@@ -552,11 +556,13 @@ describe('single canvas category selector and favorites inside the coordinate pl
     expect(opener).toHaveFocus()
     fireEvent.click(screen.getByRole('tab', { name: 'History' }))
     expect(screen.queryByRole('dialog')).toBeNull()
-    expect(document.querySelector('.wb-history-nav')).toBeVisible()
+    await waitFor(() =>
+      expect(document.querySelector('.wb-history-nav')).toBeVisible(),
+    )
   })
 
-  it('keeps the canvas height independent of the right column while preserving the lower controls track', () => {
-    show()
+  it('keeps the canvas height independent of the right column while preserving the lower controls track', async () => {
+    await show()
     const viewport = document.querySelector('.stash-viewport')!
     const content = document.querySelector('.stash-canvas__content')!
     const favorites = document.querySelector('.workbench-stash__favorites')!

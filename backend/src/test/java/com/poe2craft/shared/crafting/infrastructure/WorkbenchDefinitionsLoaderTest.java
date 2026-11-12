@@ -34,7 +34,11 @@ class WorkbenchDefinitionsLoaderTest {
                 "CELESTIAL_ALLOY",
                 "TRANSCENDENT_ALLOY",
                 "THE_RUNEBINDERS_ALLOY",
-                "THE_RUNEFATHERS_ALLOY")
+                "THE_RUNEFATHERS_ALLOY",
+                "VAAL_ARMOURERS_INFUSER",
+                "VAAL_BLACKSMITHS_INFUSER",
+                "VAAL_ARCANISTS_INFUSER",
+                "VAAL_CATALYSING_INFUSER")
             .contains(c.path("id").asText())) ((ArrayNode) old.get("currencies")).add(c.deepCopy());
       for (var o : active.get("omens"))
         if (Set.of("SANCTIFICATION", "LIGHT").contains(o.path("key").asText()))
@@ -55,7 +59,7 @@ class WorkbenchDefinitionsLoaderTest {
     var expected = read(data());
     var actual = WorkbenchDefinitionsLoader.initialize();
     assertEquals(expected.document(), actual.document());
-    assertEquals(167, actual.document().currencies().size());
+    assertEquals(171, actual.document().currencies().size());
     assertEquals(20, actual.document().omens().size());
     for (var row : expected.document().currencies()) {
       var c = row.id();

@@ -123,7 +123,7 @@ it('selects the actual seventh-base initial endpoint and refuses a substituted o
     state: { baseItemId: 'Metadata/Items/Belts/FourBelt1' },
   })
   expect(fetch.mock.calls[0]![0]).toBe(
-    '/api/v1/crafting/workbench/initial?base=belt&itemLevel=82',
+    '/api/v1/crafting/workbench/initial?base=belt&itemLevel=82&catalog=shared',
   )
   await expect(
     loadInitial(82, new AbortController().signal, 'belt'),

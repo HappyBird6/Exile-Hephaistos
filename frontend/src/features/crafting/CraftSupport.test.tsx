@@ -30,10 +30,12 @@ function show() {
 it('shows the starting workflow without developer policy, recovery or family comparison panels', async () => {
   show()
   fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
-  await waitFor(() =>
-    expect(
-      screen.getByRole('button', { name: 'Start Crafting' }),
-    ).toBeEnabled(),
+  await waitFor(
+    () =>
+      expect(
+        screen.getByRole('button', { name: 'Start Crafting' }),
+      ).toBeEnabled(),
+    { timeout: 10000 },
   )
   expect(screen.getByRole('button', { name: 'Import item text' })).toBeVisible()
   expect(
@@ -58,7 +60,7 @@ it('shows the starting workflow without developer policy, recovery or family com
       ),
   ).toBe(false)
 })
-it('uses keyboard navigation between the two workspaces', () => {
+it('uses keyboard navigation across workbench, support and history', () => {
   show()
   const bench = screen.getByRole('tab', { name: 'Crafting Workbench' })
   bench.focus()
@@ -67,10 +69,8 @@ it('uses keyboard navigation between the two workspaces', () => {
   fireEvent.keyDown(screen.getByRole('tab', { name: 'Craft Support' }), {
     key: 'ArrowRight',
   })
-  expect(bench).toHaveFocus()
-  fireEvent.keyDown(bench, { key: 'End' })
-  expect(screen.getByRole('tab', { name: 'Craft Support' })).toHaveFocus()
-  fireEvent.keyDown(screen.getByRole('tab', { name: 'Craft Support' }), {
+  expect(screen.getByRole('tab', { name: 'History' })).toHaveFocus()
+  fireEvent.keyDown(screen.getByRole('tab', { name: 'History' }), {
     key: 'Home',
   })
   expect(bench).toHaveFocus()

@@ -1,3 +1,4 @@
+import { act } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import {
   fireEvent,
@@ -71,10 +72,13 @@ it('places notation below the card and feedback below the stash and prioritizes 
   )
   const panel = document.querySelector('.workbench-feedback-panel')!
   expect(panel.parentElement).toHaveClass('workbench-feedback-region')
-  expect(notation().previousElementSibling).toHaveClass('bench-item-card')
+  expect(notation().previousElementSibling).toHaveClass('crafting-cost-line')
+  expect(notation().previousElementSibling?.previousElementSibling).toHaveClass(
+    'bench-item-card',
+  )
   expect(notation().nextElementSibling).toBeNull()
   expect(panel.parentElement?.previousElementSibling).toHaveClass(
-    'workbench-stash',
+    'workbench-stash-frame',
   )
   expect(panel.parentElement?.nextElementSibling).toBeNull()
   expect(localStorage.getItem(historyStorageKey)).toBe(before)
@@ -118,11 +122,15 @@ it('shows the last currency marker on the selected history step and preserves it
     document.querySelectorAll('.item-card__last-currency-mark'),
   ).toHaveLength(1)
   expect(localStorage.getItem(historyStorageKey)).toBe(bytes)
-  fireEvent.click(
-    screen.getByRole('button', { name: 'Previous crafting step' }),
-  )
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Previous crafting step' }),
+    )
+  })
   expect(document.querySelector('.item-card__last-currency-mark')).toBeNull()
-  fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+  })
   expect(
     document.querySelector('[data-last-currency-affected="p"]'),
   ).toBeInTheDocument()
@@ -140,16 +148,22 @@ it('uses the active cursor and branch on undo and restores notation without edit
   useCurrency('Orb of Transmutation')
   await within(notation()).findByRole('img', { name: 'Orb of Transmutation' })
   const first = JSON.parse(localStorage.getItem(historyStorageKey)!)
-  fireEvent.click(
-    screen.getByRole('button', { name: 'Previous crafting step' }),
-  )
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Previous crafting step' }),
+    )
+  })
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(1)
   expect(notation().querySelector('li[aria-current]')).toBeNull()
-  fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+  })
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(1)
-  fireEvent.click(
-    screen.getByRole('button', { name: 'Previous crafting step' }),
-  )
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Previous crafting step' }),
+    )
+  })
   useCurrency('Orb of Transmutation')
   await waitFor(() =>
     expect(
@@ -178,7 +192,9 @@ it('jumps directly backward and forward without dropping future records, includi
   const originalFilms = JSON.parse(
     localStorage.getItem(historyStorageKey)!,
   ).films
-  fireEvent.click(within(notation()).getByRole('button', { name: 'Step 1' }))
+  await act(async () => {
+    fireEvent.click(within(notation()).getByRole('button', { name: 'Step 1' }))
+  })
   expect(JSON.parse(localStorage.getItem(historyStorageKey)!).cursor).toBe(1)
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(2)
   expect(
@@ -190,7 +206,9 @@ it('jumps directly backward and forward without dropping future records, includi
   expect(await screen.findByRole('tooltip')).toHaveTextContent(
     'Orb of Augmentation',
   )
-  fireEvent.click(second, { detail: 0 })
+  await act(async () => {
+    fireEvent.click(second, { detail: 0 })
+  })
   expect(JSON.parse(localStorage.getItem(historyStorageKey)!).cursor).toBe(2)
   expect(
     within(notation()).getByRole('listitem', { name: 'Step 2' }),
@@ -198,9 +216,11 @@ it('jumps directly backward and forward without dropping future records, includi
   expect(JSON.parse(localStorage.getItem(historyStorageKey)!).films).toEqual(
     originalFilms,
   )
-  fireEvent.click(
-    screen.getByRole('button', { name: 'Previous crafting step' }),
-  )
+  await act(async () => {
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Previous crafting step' }),
+    )
+  })
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(2)
   expect(
     within(notation()).getByRole('listitem', { name: 'Step 1' }),
@@ -212,7 +232,9 @@ it('jumps directly backward and forward without dropping future records, includi
     await within(notation()).findByRole('listitem', { name: 'Step 1' }),
   ).toHaveAttribute('aria-current', 'step')
   expect(within(notation()).getAllByRole('listitem')).toHaveLength(2)
-  fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+  await act(async () => {
+    fireEvent.click(screen.getByRole('button', { name: 'Next crafting step' }))
+  })
   expect(
     within(notation()).getByRole('listitem', { name: 'Step 2' }),
   ).toHaveAttribute('aria-current', 'step')

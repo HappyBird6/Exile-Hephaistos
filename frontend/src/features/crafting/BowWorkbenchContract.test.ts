@@ -107,7 +107,7 @@ it('loads the separate Bow catalog without inheriting Solar implicit or socket a
   vi.stubGlobal('fetch', fetch)
   const loaded = await loadInitial(82, new AbortController().signal, 'bow')
   expect(fetch.mock.calls[0]?.[0]).toBe(
-    '/api/v1/crafting/workbench/initial?base=bow&itemLevel=82',
+    '/api/v1/crafting/workbench/initial?base=bow&itemLevel=82&catalog=shared',
   )
   const concrete = concreteInitial(loaded)
   expect(concrete.implicits).toEqual([])

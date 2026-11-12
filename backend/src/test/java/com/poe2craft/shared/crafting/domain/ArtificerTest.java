@@ -116,14 +116,6 @@ class ArtificerTest {
               List.of(),
               Set.of(condition),
               0);
-      if (condition == ItemState.Condition.SANCTIFIED) {
-        assertThat(
-                f.simulator
-                    .apply(s, WorkbenchCurrency.ARTIFICER, Set.of(), new Random(1))
-                    .applied())
-            .isFalse();
-        continue;
-      }
       assertThatThrownBy(
               () -> f.simulator.apply(s, WorkbenchCurrency.ARTIFICER, Set.of(), new Random(1)))
           .isInstanceOf(IllegalArgumentException.class);

@@ -30,25 +30,32 @@ it('shows all before explicit selection and filters the selected/restored base w
         <CraftingPage />
       </QueryClientProvider>,
     )
-  let page = show()
+  let page = await show()
   fireEvent.click(screen.getByRole('tab', { name: 'Catalysts' }))
   const list = () => document.querySelector('.workbench-stash__resources')!
   expect(list().querySelectorAll('button')).toHaveLength(26)
   fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
   fireEvent.click(
-    within(screen.getByRole('dialog', { name: 'Select base' })).getByRole(
-      'button',
-      { name: 'Select base' },
-    ),
+    within(
+      await screen.findByRole('dialog', { name: 'Select base' }),
+    ).getByRole('button', { name: 'Select base' }),
   )
   await waitFor(() => expect(list().querySelectorAll('button')).toHaveLength(1))
   expect(screen.getByRole('button', { name: 'Flesh Catalyst' })).toBeVisible()
   fireEvent.click(screen.getByRole('button', { name: 'New craft' }))
   await waitFor(() => expect(list().querySelectorAll('button')).toHaveLength(1))
   page.unmount()
-  page = show()
+  page = await show()
   fireEvent.click(screen.getByRole('tab', { name: 'Catalysts' }))
-  expect(list().querySelectorAll('button')).toHaveLength(1)
+  // New craft opens the picker; its draft is not a committed base after remount.
+  expect(list().querySelectorAll('button')).toHaveLength(26)
+  fireEvent.click(screen.getByRole('button', { name: 'Select base' }))
+  fireEvent.click(
+    within(
+      await screen.findByRole('dialog', { name: 'Select base' }),
+    ).getByRole('button', { name: 'Select base' }),
+  )
+  await waitFor(() => expect(list().querySelectorAll('button')).toHaveLength(1))
   expect(screen.getAllByRole('button', { name: /Favorite slot/ })).toHaveLength(
     10,
   )

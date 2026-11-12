@@ -184,7 +184,7 @@ class RunicAlloyTest {
   }
 
   @Test
-  void replacingSoleUnlockedDefencesWorksAndFracturedOtherEssenceResultIsPreserved() {
+  void craftedCapBlocksReplacementAndPreservesFracturedEssenceAndOmens() {
     var other = "amulet:suffix:essence-percent-strength";
     var before = fixture.rare(82, other, target, other);
     var result =
@@ -193,8 +193,10 @@ class RunicAlloyTest {
             action,
             Set.of(WorkbenchOmen.SINISTRAL_CRYSTALLISATION.id(), WorkbenchOmen.WHITTLING.id()),
             new Random(5));
-    assertThat(result.applied()).isTrue();
-    assertThat(result.events().getFirst().modifierId()).isEqualTo(target);
+    assertThat(result.applied()).isFalse();
+    assertThat(result.events()).isEmpty();
+    assertThat(result.state()).isEqualTo(before);
+    assertThat(result.reason()).contains("Crafted modifier limit");
     assertThat(result.state().explicits()).contains(before.explicits().getLast());
     assertThat(result.remainingOmens())
         .containsExactlyInAnyOrder(
@@ -233,7 +235,8 @@ class RunicAlloyTest {
             WorkbenchCurrency.PERFECT_ESSENCE_INFINITE))
       for (int seed = 0; seed < 30; seed++) {
         var result = simulator.apply(locked, currency, Set.of(), new Random(seed * 104729L));
-        assertThat(result.applied()).isTrue();
+        assertThat(result.applied())
+            .isEqualTo(currency != WorkbenchCurrency.PERFECT_ESSENCE_INFINITE);
         assertThat(result.state().explicits()).contains(special);
         assertThat(result.events())
             .noneMatch(e -> e.kind().equals("REMOVE") && e.modifierId().equals(target));

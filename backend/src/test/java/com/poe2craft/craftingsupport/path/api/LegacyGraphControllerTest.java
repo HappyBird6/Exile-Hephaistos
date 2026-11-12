@@ -22,6 +22,9 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+// Keep the real HTTP filters; mock only their external Redis dependency.
+@org.springframework.test.context.bean.override.mockito.MockitoBean(
+    types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest({LegacyGraphController.class, CraftingCatalogController.class})
 @Import({CatalogConfiguration.class, LegacyGraphConfiguration.class, CraftingErrors.class})
 class LegacyGraphControllerTest {
