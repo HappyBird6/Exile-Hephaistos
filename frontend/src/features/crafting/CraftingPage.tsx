@@ -1,3 +1,4 @@
+import { communityText } from '../community/messages'
 import { accountScope } from '../account/auth'
 import { AccountMenu } from '../account/AccountMenu'
 import { SessionDetail } from './session-detail/SessionDetail'
@@ -2199,6 +2200,7 @@ function ReadyCraftingPage({
               </button>
             ))}
           </div>
+          <a href="/community">{communityText(locale).board}</a>
           <CurrencyTicker />
         </nav>
         <fieldset

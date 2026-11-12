@@ -1,3 +1,18 @@
+const CommunityList = lazy(() =>
+  import('../features/community/CommunityList').then((m) => ({
+    default: m.CommunityList,
+  })),
+)
+const CommunityCompose = lazy(() =>
+  import('../features/community/CommunityCompose').then((m) => ({
+    default: m.CommunityCompose,
+  })),
+)
+const CommunityDetail = lazy(() =>
+  import('../features/community/CommunityDetail').then((m) => ({
+    default: m.CommunityDetail,
+  })),
+)
 import { AccountBootstrap } from '../features/account/AccountBootstrap'
 const AdminPage = lazy(() =>
   import('../features/admin/AdminPage').then((m) => ({ default: m.AdminPage })),
@@ -46,6 +61,25 @@ function AppContent() {
     )
   }
 
+  if (location.pathname === '/community')
+    return (
+      <Suspense fallback={<p role="status">…</p>}>
+        <CommunityList />
+      </Suspense>
+    )
+  if (location.pathname === '/community/new')
+    return (
+      <Suspense fallback={<p role="status">…</p>}>
+        <CommunityCompose />
+      </Suspense>
+    )
+  const post = location.pathname.match(/^\/community\/post\/([0-9a-f-]+)$/i)
+  if (post)
+    return (
+      <Suspense fallback={<p role="status">…</p>}>
+        <CommunityDetail id={post[1]!} />
+      </Suspense>
+    )
   const local = window.location.pathname.match(/^\/history\/([^/]+)$/)
   if (local) {
     let id = ''

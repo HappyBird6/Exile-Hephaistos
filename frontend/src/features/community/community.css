@@ -1,0 +1,134 @@
+.community-page {
+  color: #d6d5cb;
+}
+.community-nav,
+.community-list-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 12px 0;
+}
+.community-page a {
+  color: #e7d477;
+  text-underline-offset: 3px;
+}
+.community-layout {
+  grid-template-columns: 200px minmax(0, 1fr);
+  min-height: 500px;
+}
+.community-page label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
+}
+.community-page input,
+.community-page select,
+.community-page textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  background: #101414;
+  border: 1px solid #73683e;
+  padding: 10px;
+  color: #ddd;
+  font: inherit;
+}
+.community-page button {
+  min-height: 44px;
+  padding: 8px 16px;
+  background: #22261b;
+  border: 1px solid #73683e;
+  color: #e7d477;
+  cursor: pointer;
+}
+.community-page button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.community-posts {
+  display: grid;
+  gap: 10px;
+}
+.community-posts .wb-session-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.community-post-link {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  min-width: 0;
+  flex: 1;
+  text-decoration: none;
+}
+.community-post-link img {
+  width: 80px;
+  height: 90px;
+  object-fit: contain;
+}
+.community-post-link h2 {
+  margin: 0;
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+.community-post-link p,
+.community-post-link time {
+  color: #aaa;
+  font-size: 13px;
+}
+.community-compose,
+.community-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 1.2fr);
+  gap: 24px;
+}
+.community-preview {
+  min-width: 0;
+}
+.community-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.community-body {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.community-page .wb-history-pagination {
+  gap: 12px;
+}
+.community-page [aria-current='page'] {
+  color: #fff;
+  font-weight: bold;
+}
+.community-page .wb-session-notation {
+  min-height: 300px;
+}
+@media (max-width: 760px) {
+  .community-layout,
+  .community-compose,
+  .community-detail {
+    grid-template-columns: 1fr;
+  }
+  .community-page .wb-history-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .community-page input,
+  .community-page textarea {
+    font-size: 16px;
+  }
+  .community-post-link img {
+    width: 64px;
+    height: 72px;
+  }
+}

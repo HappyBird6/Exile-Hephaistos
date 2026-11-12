@@ -1,3 +1,4 @@
+import { SessionShareLink } from '../../community/SessionShareLink'
 import { saveBaseFavorite } from '../base-favorites/repository'
 import { baseFavoriteMessages } from '../base-favorites/messages'
 import { orderedFilms } from '../workbenchHistory'
@@ -216,6 +217,7 @@ export function SessionHistoryWorkspace({
                   itemClassName="wb-history-preview__item"
                   actions={
                     <div className="wb-history-preview__actions">
+                      <SessionShareLink id={selected.id} />
                       <button
                         type="button"
                         disabled={library.disabled}
