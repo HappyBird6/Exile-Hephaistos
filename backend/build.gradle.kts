@@ -20,6 +20,8 @@ val bootBom = "org.springframework.boot:spring-boot-dependencies:3.5.16"
 dependencies {
     implementation(platform(bootBom))
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.security:spring-security-crypto")
+    implementation("org.springframework.session:spring-session-data-redis")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-jooq")

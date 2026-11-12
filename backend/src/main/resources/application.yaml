@@ -7,6 +7,10 @@ spring:
     url: ${SPRING_DATASOURCE_URL}
     username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
+  session:
+    timeout: 30m
+    redis:
+      namespace: hephaistos:account:sessions
   jpa:
     open-in-view: false
     hibernate:
@@ -23,6 +27,13 @@ spring:
       connect-timeout: 2s
       timeout: 2s
 server:
+  servlet:
+    session:
+      cookie:
+        name: HEPHAISTOS_SESSION
+        http-only: true
+        same-site: lax
+        secure: ${ACCOUNT_COOKIE_SECURE:false}
   error:
     include-message: never
     include-stacktrace: never

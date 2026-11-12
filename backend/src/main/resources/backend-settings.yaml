@@ -185,6 +185,17 @@ backend:
 account:
   library:
     # Maximum UTF-8 JSON bytes per saved document; PostgresAccountLibrary.
-    max-document-bytes: 1048576
+    max-document-bytes: 200000
     # Maximum saved document identities per account, including deletion markers; PostgresAccountLibrary.
     max-documents: 2000
+  auth:
+    # Enable temporary username/password authentication; AccountController.
+    enabled: ${ACCOUNT_AUTH_ENABLED:true}
+    # BCrypt work factor; PasswordAccounts. Changing it affects new password hashes.
+    bcrypt-cost: 12
+    # Maximum password checks/registrations per IP per minute; AccountAccessFilter.
+    attempts-per-minute: 10
+    # Maximum concurrent expensive password operations per server; PasswordAccounts.
+    max-concurrent: 4
+    # Minimum password characters; PasswordAccounts. BCrypt also limits UTF-8 to 72 bytes.
+    minimum-password-length: 8

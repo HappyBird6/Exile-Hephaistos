@@ -1,3 +1,4 @@
+import { AccountMenu } from '../account/AccountMenu'
 import { SessionDetail } from './session-detail/SessionDetail'
 import { HistoryCard } from './session-history/HistoryCard'
 import { sessionNotationMessages } from './session-notation/messages'
@@ -2134,6 +2135,7 @@ function ReadyCraftingPage({
             </span>
           </a>
           <LeagueMark />
+          <AccountMenu />
         </div>
         <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
           <div role="tablist" aria-label={t('ui.crafting_workspace')}>
