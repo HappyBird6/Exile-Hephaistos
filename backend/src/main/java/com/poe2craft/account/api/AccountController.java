@@ -1,9 +1,9 @@
 package com.poe2craft.account.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.poe2craft.account.application.AccountAuthentication;
 import com.poe2craft.account.application.AccountLibrary;
 import com.poe2craft.account.application.AccountLibrary.Account;
-import com.poe2craft.account.infrastructure.PasswordAccounts;
 import jakarta.servlet.http.*;
 import java.util.*;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,12 +15,12 @@ import org.springframework.web.server.ResponseStatusException;
 @RequestMapping("/api/account")
 public class AccountController {
   private final AccountLibrary library;
-  private final PasswordAccounts passwords;
+  private final AccountAuthentication passwords;
   private final boolean enabled;
 
   public AccountController(
       AccountLibrary library,
-      PasswordAccounts passwords,
+      AccountAuthentication passwords,
       @Value("${account.auth.enabled}") boolean enabled) {
     this.library = library;
     this.passwords = passwords;
@@ -91,8 +91,14 @@ public class AccountController {
   }
 
   @GetMapping("/library")
-  public List<AccountLibrary.Document> list(HttpServletRequest request) {
-    return library.list(owner(request));
+  public List<AccountLibrary.Reference> list(HttpServletRequest request) {
+    return library.index(owner(request));
+  }
+
+  @GetMapping("/library/{kind}/{id}")
+  public AccountLibrary.Document read(
+      @PathVariable String kind, @PathVariable String id, HttpServletRequest request) {
+    return library.read(owner(request), kind, id);
   }
 
   @PutMapping("/library/{kind}/{id}")

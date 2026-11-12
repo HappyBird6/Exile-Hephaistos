@@ -45,6 +45,37 @@ public class PostgresAccountLibrary implements AccountLibrary {
   }
 
   @Override
+  public List<Reference> index(UUID owner) {
+    return db.query(
+        "SELECT kind,document_id,version,content IS NULL FROM app_user.library_document WHERE account_id=? ORDER BY kind,document_id",
+        (r, n) -> new Reference(r.getString(1), r.getString(2), r.getLong(3), r.getBoolean(4)),
+        owner);
+  }
+
+  @Override
+  public Document read(UUID owner, String kind, String id) {
+    var rows =
+        db.query(
+            "SELECT version,content::text FROM app_user.library_document WHERE account_id=? AND kind=? AND document_id=?",
+            (r, n) -> {
+              try {
+                return new Document(
+                    kind,
+                    id,
+                    r.getLong(1),
+                    r.getString(2) == null ? null : json.readTree(r.getString(2)));
+              } catch (Exception e) {
+                throw new IllegalStateException("Stored document unreadable", e);
+              }
+            },
+            owner,
+            kind,
+            id);
+    if (rows.isEmpty()) throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    return rows.getFirst();
+  }
+
+  @Override
   public List<Document> list(UUID owner) {
     return db.query(
         "SELECT kind,document_id,version,content::text FROM app_user.library_document WHERE account_id=? ORDER BY kind,document_id",

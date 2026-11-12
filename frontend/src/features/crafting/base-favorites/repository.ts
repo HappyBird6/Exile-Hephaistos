@@ -1,13 +1,18 @@
+import { accountScope } from '../../account/auth'
+import { scopedStorage } from '../../account/storageScope'
 import { sameItemState } from '../crafting-state/itemIdentity'
 import type { Film } from '../workbenchHistory'
 import { validStoredFilm } from '../workbenchHistory'
 import { useSyncExternalStore } from 'react'
 export const baseFavoritesKey = 'hephaistos.workbench.base-favorites.v1'
 const listeners = new Set<() => void>()
-const changed = () => listeners.forEach((listener) => listener())
+const changed = () => {
+  listeners.forEach((listener) => listener())
+  window.dispatchEvent(new Event('account-library-changed'))
+}
 if (typeof window !== 'undefined')
   window.addEventListener('storage', (e) => {
-    if (e.key === baseFavoritesKey || e.key === null) changed()
+    if (e.key?.endsWith(baseFavoritesKey) || e.key === null) changed()
   })
 function subscribe(listener: () => void) {
   listeners.add(listener)
@@ -46,7 +51,9 @@ export function favoriteCheckpoint(film: Film): Film {
   })
 }
 export function saveBaseFavorite(film: Film) {
-  const current = readBaseFavorites(localStorage.getItem(baseFavoritesKey))
+  const current = readBaseFavorites(
+    scopedStorage(localStorage, accountScope()).getItem(baseFavoritesKey),
+  )
   const next = favoriteCheckpoint(film)
   const duplicate = current.find(
     (entry) =>
@@ -58,13 +65,18 @@ export function saveBaseFavorite(film: Film) {
   if (duplicate) return duplicate.id
   if (!validStoredFilm(next)) throw Error('Invalid favorite checkpoint')
   // Commit storage first: quota/serialization errors must not pretend the favorite was saved.
-  localStorage.setItem(baseFavoritesKey, JSON.stringify([next, ...current]))
+  scopedStorage(localStorage, accountScope()).setItem(
+    baseFavoritesKey,
+    JSON.stringify([next, ...current]),
+  )
   changed()
   return next.id
 }
 export function removeBaseFavorite(id: string) {
-  const current = readBaseFavorites(localStorage.getItem(baseFavoritesKey))
-  localStorage.setItem(
+  const current = readBaseFavorites(
+    scopedStorage(localStorage, accountScope()).getItem(baseFavoritesKey),
+  )
+  scopedStorage(localStorage, accountScope()).setItem(
     baseFavoritesKey,
     JSON.stringify(current.filter((f) => f.id !== id)),
   )
@@ -72,7 +84,7 @@ export function removeBaseFavorite(id: string) {
 }
 const snapshot = () => {
   try {
-    return localStorage.getItem(baseFavoritesKey)
+    return scopedStorage(localStorage, accountScope()).getItem(baseFavoritesKey)
   } catch {
     return 'invalid'
   }

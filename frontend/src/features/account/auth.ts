@@ -22,6 +22,7 @@ export function useAccount() {
 export async function loadAccount() {
   const response = await fetch('/api/account/me', {
     cache: 'no-store',
+    signal: AbortSignal.timeout(15000),
     credentials: 'same-origin',
   })
   if (!response.ok) throw new Error('ACCOUNT_UNAVAILABLE')
@@ -45,6 +46,7 @@ export async function accountRequest(
   if (!state) await loadAccount()
   const response = await fetch(`/api/account/${path}`, {
     ...init,
+    signal: init.signal ?? AbortSignal.timeout(15000),
     credentials: 'same-origin',
     cache: 'no-store',
     headers: {

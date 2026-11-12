@@ -1,3 +1,4 @@
+import { scopedStorage } from '../../account/storageScope'
 import { reportBrowserEvent } from '../../../shared/telemetry/browserTelemetry'
 import {
   LocalFilmRepository,
@@ -33,9 +34,11 @@ export class IndexedFilmRepository implements FilmRepository {
   constructor(
     private storage: Pick<Storage, 'getItem' | 'setItem'> = localStorage,
     private factory = globalThis.indexedDB,
+    private scope: string | null = null,
   ) {
+    this.storage = scopedStorage(storage, scope)
     // Older/private browsers without the API keep the existing persistence contract.
-    if (!factory) this.fallback = new LocalFilmRepository(storage)
+    if (!factory) this.fallback = new LocalFilmRepository(this.storage)
   }
   loadSyncFallback() {
     return this.fallback?.load()
@@ -43,7 +46,10 @@ export class IndexedFilmRepository implements FilmRepository {
   private open() {
     if (this.database) return this.database
     const pending = new Promise<IDBDatabase>((resolve, reject) => {
-      const opening = this.factory.open('hephaistos-workbench-history', 1)
+      const opening = this.factory.open(
+        'hephaistos-workbench-history' + (this.scope ? ':' + this.scope : ''),
+        1,
+      )
       let failed = false
       opening.onupgradeneeded = () => {
         opening.result.createObjectStore('films', { keyPath: 'id' })
@@ -120,7 +126,11 @@ export class IndexedFilmRepository implements FilmRepository {
     }
   }
   async save(history: Films): Promise<void> {
-    if (this.fallback) return this.fallback.save(history)
+    if (this.fallback) {
+      this.fallback.save(history)
+      this.notify()
+      return
+    }
     const changed = history.films.filter((f) => this.previous.get(f.id) !== f)
     if (
       !changed.every(validStoredFilm) ||
@@ -149,6 +159,7 @@ export class IndexedFilmRepository implements FilmRepository {
       await done
       this.revision = revision
       this.previous = new Map(films.map((f) => [f.id, f]))
+      this.notify()
     } catch (error) {
       reportBrowserEvent('history_save')
       try {
@@ -159,6 +170,9 @@ export class IndexedFilmRepository implements FilmRepository {
       await done.catch(() => {})
       throw error
     }
+  }
+  private notify() {
+    if (this.scope) window.dispatchEvent(new Event('account-library-changed'))
   }
   async close() {
     ;(await this.database)?.close()

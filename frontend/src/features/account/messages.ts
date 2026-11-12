@@ -32,7 +32,7 @@ export const accountMessages: Record<Locale, Messages> = {
       'Add this browser’s sessions and favorites to your account? These records may belong to someone else.',
     add: 'Add to my account',
     skip: 'Skip',
-    sync: 'Sync saved records',
+    sync: 'New saved records are available. Reload to use them.',
     retry: 'Retry',
     conflict:
       'Records changed elsewhere. Your local changes are preserved. Resolve the conflict before syncing.',
@@ -52,7 +52,7 @@ export const accountMessages: Record<Locale, Messages> = {
       '이 브라우저의 세션과 즐겨찾기를 계정에 추가할까요? 다른 사람의 기록일 수 있습니다.',
     add: '계정에 추가',
     skip: '건너뛰기',
-    sync: '저장 기록 동기화',
+    sync: '새로운 저장 기록을 받았습니다. 새로고침하면 반영됩니다.',
     retry: '다시 시도',
     conflict:
       '다른 곳에서 기록이 변경됐습니다. 현재 변경은 보존되며 충돌 해결 후 동기화할 수 있습니다.',
@@ -70,7 +70,7 @@ export const accountMessages: Record<Locale, Messages> = {
     merge: '将此浏览器的会话和收藏添加到账户？这些记录可能属于他人。',
     add: '添加到账户',
     skip: '跳过',
-    sync: '同步记录',
+    sync: '已收到新记录，请刷新页面。',
     retry: '重试',
     conflict: '记录已在其他位置更改。本地更改已保留，请解决冲突后同步。',
   },
@@ -87,7 +87,7 @@ export const accountMessages: Record<Locale, Messages> = {
     merge: '將此瀏覽器的工作階段與收藏加入帳戶？這些紀錄可能屬於他人。',
     add: '加入帳戶',
     skip: '略過',
-    sync: '同步紀錄',
+    sync: '已收到新紀錄，請重新整理頁面。',
     retry: '重試',
     conflict: '紀錄已在其他位置變更。本機變更已保留，請解決衝突後同步。',
   },
@@ -106,7 +106,7 @@ export const accountMessages: Record<Locale, Messages> = {
       'このブラウザーのセッションとお気に入りをアカウントに追加しますか？他の人の記録かもしれません。',
     add: 'アカウントに追加',
     skip: 'スキップ',
-    sync: '記録を同期',
+    sync: '新しい記録を受信しました。再読み込みしてください。',
     retry: '再試行',
     conflict:
       '別の場所で記録が変更されました。ローカルの変更は保持されています。競合を解決してください。',
@@ -125,7 +125,7 @@ export const accountMessages: Record<Locale, Messages> = {
       '¿Añadir las sesiones y favoritos de este navegador a tu cuenta? Podrían pertenecer a otra persona.',
     add: 'Añadir a mi cuenta',
     skip: 'Omitir',
-    sync: 'Sincronizar registros',
+    sync: 'Hay nuevos registros. Recarga para verlos.',
     retry: 'Reintentar',
     conflict:
       'Los registros cambiaron en otro lugar. Se conservan tus cambios locales. Resuelve el conflicto para sincronizar.',
@@ -144,7 +144,7 @@ export const accountMessages: Record<Locale, Messages> = {
       'Добавить сессии и избранное браузера в аккаунт? Эти записи могут принадлежать другому человеку.',
     add: 'Добавить в аккаунт',
     skip: 'Пропустить',
-    sync: 'Синхронизировать записи',
+    sync: 'Получены новые записи. Перезагрузите страницу.',
     retry: 'Повторить',
     conflict:
       'Записи изменены в другом месте. Локальные изменения сохранены. Разрешите конфликт перед синхронизацией.',
@@ -163,7 +163,7 @@ export const accountMessages: Record<Locale, Messages> = {
       'เพิ่มเซสชันและรายการโปรดในเบราว์เซอร์นี้ไปยังบัญชีหรือไม่? ข้อมูลอาจเป็นของผู้อื่น',
     add: 'เพิ่มในบัญชี',
     skip: 'ข้าม',
-    sync: 'ซิงค์บันทึก',
+    sync: 'ได้รับบันทึกใหม่แล้ว โปรดโหลดหน้าใหม่',
     retry: 'ลองใหม่',
     conflict:
       'ข้อมูลถูกเปลี่ยนที่อื่น การเปลี่ยนในเครื่องยังคงอยู่ โปรดแก้ข้อขัดแย้งก่อนซิงค์',

@@ -1,3 +1,4 @@
+import { accountScope } from '../account/auth'
 import { AccountMenu } from '../account/AccountMenu'
 import { SessionDetail } from './session-detail/SessionDetail'
 import { HistoryCard } from './session-history/HistoryCard'
@@ -218,7 +219,14 @@ function filmId() {
 
 export function CraftingPage() {
   const { t } = useI18n()
-  const [repository] = useState(() => new IndexedFilmRepository())
+  const [repository] = useState(
+    () =>
+      new IndexedFilmRepository(
+        localStorage,
+        globalThis.indexedDB,
+        accountScope(),
+      ),
+  )
   const [legacyHistory] = useState(() => {
     try {
       return repository.loadSyncFallback()

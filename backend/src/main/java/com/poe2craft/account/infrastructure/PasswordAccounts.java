@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 @Service
-public class PasswordAccounts {
+public class PasswordAccounts implements com.poe2craft.account.application.AccountAuthentication {
   private final JdbcTemplate db;
   private final BCryptPasswordEncoder encoder;
   private final String dummy;

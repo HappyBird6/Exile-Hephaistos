@@ -1,3 +1,4 @@
+import { accountScope } from '../../account/auth'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { CurrencyPriceContext } from '../currency-prices/context'
 import { useCurrencyPrices } from '../currency-prices/useCurrencyPrices'
@@ -28,7 +29,11 @@ export function SessionOverviewPage({ id }: { id: string }) {
     queryKey: ['session-overview', id],
     retry: false,
     queryFn: async () => {
-      const repository = new IndexedFilmRepository()
+      const repository = new IndexedFilmRepository(
+        localStorage,
+        globalThis.indexedDB,
+        accountScope(),
+      )
       try {
         return (
           (await repository.load()).films.find((film) => film.id === id) ?? null

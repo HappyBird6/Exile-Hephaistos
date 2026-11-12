@@ -1,3 +1,4 @@
+import { AccountBootstrap } from '../features/account/AccountBootstrap'
 const AdminPage = lazy(() =>
   import('../features/admin/AdminPage').then((m) => ({ default: m.AdminPage })),
 )
@@ -20,6 +21,15 @@ export function App() {
   useEffect(() => {
     document.documentElement.lang = locale
   }, [locale])
+
+  if (location.pathname.startsWith('/admin')) return <AppContent />
+  return (
+    <AccountBootstrap>
+      <AppContent />
+    </AccountBootstrap>
+  )
+}
+function AppContent() {
   useEffect(() => {
     if (window.location.pathname === '/admin/crawling') {
       window.history.replaceState(null, '', '/admin')
