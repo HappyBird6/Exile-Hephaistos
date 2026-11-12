@@ -39,8 +39,9 @@ public class CommunityController {
       @RequestParam(required = false) String base,
       @RequestParam(required = false) String version,
       @RequestParam(required = false) UUID author,
-      @RequestParam(defaultValue = "1") int page) {
-    return board.list(base, version, author, page);
+      @RequestParam(defaultValue = "1") int page,
+      @RequestParam(defaultValue = "newest") String sort) {
+    return board.list(base, version, author, page, sort);
   }
 
   @GetMapping("/posts/{id}")

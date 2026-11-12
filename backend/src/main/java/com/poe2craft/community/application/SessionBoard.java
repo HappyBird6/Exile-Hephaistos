@@ -41,7 +41,9 @@ public interface SessionBoard {
       int steps,
       String createdAt,
       String updatedAt,
-      long revision) {}
+      long revision,
+      long downloads,
+      long recommendations) {}
 
   record Page(List<Summary> posts, long total, int page, int pageSize) {}
 
@@ -53,7 +55,11 @@ public interface SessionBoard {
 
   Post get(UUID id);
 
-  Page list(String base, String version, UUID author, int page);
+  default Page list(String base, String version, UUID author, int page) {
+    return list(base, version, author, page, "newest");
+  }
+
+  Page list(String base, String version, UUID author, int page, String sort);
 
   List<Summary> mine(Actor actor, String source);
 

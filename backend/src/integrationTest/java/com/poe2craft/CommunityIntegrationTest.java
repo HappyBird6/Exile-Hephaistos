@@ -47,6 +47,7 @@ class CommunityIntegrationTest {
   @Autowired AccountLibrary accounts;
   @Autowired ObjectMapper json;
   @Autowired MockMvc mvc;
+  @Autowired com.poe2craft.community.application.CommunityReactions reactions;
 
   Actor member() {
     return new Actor(
@@ -104,5 +105,34 @@ class CommunityIntegrationTest {
     mvc.perform(get("/api/community/context"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.csrf").isString());
+  }
+
+  @Test
+  void unifiedDownloadsAcrossActionsBrowsersAndLoginAndRecommendations() throws Exception {
+    var author = member();
+    var p = board.create(author, draft(film(), "", null, 0));
+    var guest = new Actor(null, UUID.randomUUID());
+    assertThat(reactions.download(p.id(), guest).downloads()).isEqualTo(1);
+    assertThat(reactions.download(p.id(), guest).downloads()).isEqualTo(1);
+    var reader = member();
+    var signed = new Actor(reader.account(), guest.browser());
+    assertThat(reactions.download(p.id(), signed).downloads()).isEqualTo(1);
+    var second = new Actor(reader.account(), UUID.randomUUID());
+    assertThat(reactions.download(p.id(), second).downloads()).isEqualTo(1);
+    assertThat(reactions.download(p.id(), new Actor(null, second.browser())).downloads())
+        .isEqualTo(1);
+    assertThatThrownBy(() -> reactions.recommend(p.id(), guest, true))
+        .isInstanceOf(ResponseStatusException.class);
+    assertThat(reactions.recommend(p.id(), signed, true).recommendations()).isEqualTo(1);
+    assertThat(reactions.recommend(p.id(), signed, true).recommendations()).isEqualTo(1);
+    assertThat(reactions.recommend(p.id(), signed, false).recommendations()).isZero();
+    try (var pool = java.util.concurrent.Executors.newFixedThreadPool(4)) {
+      var jobs = new java.util.ArrayList<java.util.concurrent.Callable<Long>>();
+      for (int i = 0; i < 8; i++) jobs.add(() -> reactions.download(p.id(), second).downloads());
+      for (var result : pool.invokeAll(jobs)) assertThat(result.get()).isEqualTo(1);
+    }
+    assertThat(
+            board.list(null, null, author.account(), 1, "popular").posts().getFirst().downloads())
+        .isEqualTo(1);
   }
 }

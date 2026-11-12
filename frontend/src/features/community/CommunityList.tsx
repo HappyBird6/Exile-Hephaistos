@@ -70,6 +70,14 @@ export function CommunityList() {
         <section className="wb-history-content">
           <div className="community-list-actions">
             <a href="/community/new">{t.newPost}</a>
+            <select
+              aria-label={t.popular}
+              value={params.get('sort') ?? 'newest'}
+              onChange={(e) => filter('sort', e.target.value)}
+            >
+              <option value="newest">{t.newest}</option>
+              <option value="popular">{t.popular}</option>
+            </select>
             <Pagination page={posts.data} />
           </div>
           {posts.isPending && <p role="status">…</p>}
@@ -92,6 +100,10 @@ export function CommunityList() {
                     </h2>
                     <p>
                       {post.gameVersion} · {t.session} {post.steps}
+                    </p>
+                    <p>
+                      {t.downloads} {post.downloads} · {t.votes}{' '}
+                      {post.recommendations}
                     </p>
                     <time>
                       {new Date(post.createdAt).toLocaleString(locale)}

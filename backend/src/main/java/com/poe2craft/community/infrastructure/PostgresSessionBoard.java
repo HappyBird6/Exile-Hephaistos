@@ -79,7 +79,9 @@ public class PostgresSessionBoard implements SessionBoard {
         p.film().path("frames").size(),
         p.createdAt(),
         p.updatedAt(),
-        p.revision());
+        p.revision(),
+        0,
+        0);
   }
 
   @Override
@@ -185,7 +187,9 @@ public class PostgresSessionBoard implements SessionBoard {
     if (d.revision() != old.revision())
       throw new ResponseStatusException(HttpStatus.CONFLICT, "POST_CHANGED");
     if (!old.sourceId().equals(d.sourceId())) SharedSession.bad();
-    if(old.authorId()==null && (!text(d.title(),160).isEmpty() || !text(d.body(),maxBody).isEmpty()))throw new ResponseStatusException(HttpStatus.FORBIDDEN,"GUEST_TEXT_DISABLED");
+    if (old.authorId() == null
+        && (!text(d.title(), 160).isEmpty() || !text(d.body(), maxBody).isEmpty()))
+      throw new ResponseStatusException(HttpStatus.FORBIDDEN, "GUEST_TEXT_DISABLED");
     var film = draft(actor, d);
     var before = old.film().path("frames");
     var after = film.path("frames");
@@ -216,7 +220,9 @@ public class PostgresSessionBoard implements SessionBoard {
   }
 
   @Override
-  public Page list(String base, String version, UUID author, int page) {
+  public Page list(String base, String version, UUID author, int page, String sort) {
+    if (!Set.of("newest", "popular").contains(sort))
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     if (page < 1 || page > 10000) throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     var args = new ArrayList<Object>();
     String where = "WHERE NOT p.deleted";
@@ -240,9 +246,11 @@ public class PostgresSessionBoard implements SessionBoard {
     // Read metadata only; full films are fetched by the detail endpoint.
     var posts =
         db.query(
-            "SELECT p.id,p.author_id,a.display_name,p.game_version,p.base_id,p.title,jsonb_array_length(p.film->'frames') steps,p.created_at,p.updated_at,p.revision FROM community.post p LEFT JOIN app_user.account a ON a.id=p.author_id "
+            "SELECT p.id,p.author_id,a.display_name,p.game_version,p.base_id,p.title,jsonb_array_length(p.film->'frames') steps,p.created_at,p.updated_at,p.revision,p.downloads,p.recommendations FROM community.post p LEFT JOIN app_user.account a ON a.id=p.author_id "
                 + where
-                + " ORDER BY p.created_at DESC,p.id LIMIT ? OFFSET ?",
+                + " ORDER BY "
+                + (sort.equals("popular") ? "p.downloads DESC," : "")
+                + "p.created_at DESC,p.id LIMIT ? OFFSET ?",
             (r, n) ->
                 new Summary(
                     r.getObject(1, UUID.class),
@@ -254,7 +262,9 @@ public class PostgresSessionBoard implements SessionBoard {
                     r.getInt(7),
                     r.getTimestamp(8).toInstant().toString(),
                     r.getTimestamp(9).toInstant().toString(),
-                    r.getLong(10)),
+                    r.getLong(10),
+                    r.getLong(11),
+                    r.getLong(12)),
             args.toArray());
     return new Page(posts, total, page, pageSize);
   }

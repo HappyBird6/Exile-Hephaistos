@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { flushDownloads } from './downloads'
 import type { PropsWithChildren } from 'react'
 import { AccountMenu } from '../account/AccountMenu'
 import { useI18n } from '../../shared/i18n/i18n'
@@ -6,6 +8,9 @@ import './community.css'
 export function CommunityShell({ children }: PropsWithChildren) {
   const { locale } = useI18n(),
     t = communityText(locale)
+  useEffect(() => {
+    void flushDownloads()
+  }, [])
   return (
     <main className="craft-page craft-page--framed community-page">
       <header className="craft-header">

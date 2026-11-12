@@ -1,3 +1,5 @@
+import { PostReactions } from './PostReactions'
+import { recordDownload } from './downloads'
 import { PostEditor } from './PostEditor'
 import { reusePost, type ReuseAction } from './reuse'
 import { useState } from 'react'
@@ -49,6 +51,7 @@ function Detail({ post }: { post: Post }) {
         action,
         new AbortController().signal,
       )
+      await recordDownload(post.id, action)
       if (next) location.href = next
       else setStatus(t.saved)
     } catch {
@@ -70,6 +73,7 @@ function Detail({ post }: { post: Post }) {
       </p>
       <div className="community-body">{post.body}</div>
       <PostEditor post={post} />
+      <PostReactions id={post.id} />
       <p>
         {t.sharedStep}: {post.sharedStep}{' '}
         {post.film.frames.length > post.sharedStep + 1 && (

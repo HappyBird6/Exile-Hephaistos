@@ -8,11 +8,13 @@ export type Summary = {
   baseId: string
   title: string
   steps: number
+  downloads: number
+  recommendations: number
   createdAt: string
   updatedAt: string
   revision: number
 }
-export type Post = Omit<Summary, 'steps'> & {
+export type Post = Omit<Summary, 'steps' | 'downloads' | 'recommendations'> & {
   sourceId: string
   body: string
   film: Film
