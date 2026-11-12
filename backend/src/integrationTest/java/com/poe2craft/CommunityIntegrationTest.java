@@ -48,6 +48,7 @@ class CommunityIntegrationTest {
   @Autowired ObjectMapper json;
   @Autowired MockMvc mvc;
   @Autowired com.poe2craft.community.application.CommunityReactions reactions;
+  @Autowired com.poe2craft.community.application.CommunityComments comments;
 
   Actor member() {
     return new Actor(
@@ -134,5 +135,27 @@ class CommunityIntegrationTest {
     assertThat(
             board.list(null, null, author.account(), 1, "popular").posts().getFirst().downloads())
         .isEqualTo(1);
+  }
+
+  @Test
+  void commentOwnershipIdempotencyAndPlainText() throws Exception {
+    var author = member();
+    var post = board.create(author, draft(film(), "", null, 0));
+    var guest = new Actor(null, UUID.randomUUID());
+    UUID id = UUID.randomUUID();
+    assertThatThrownBy(() -> comments.create(post.id(), guest, id, "guest comment"))
+        .isInstanceOf(ResponseStatusException.class);
+    var comment = comments.create(post.id(), author, id, "<script>alert(1)</script>");
+    assertThat(comments.create(post.id(), author, id, comment.body()).id()).isEqualTo(id);
+    assertThat(comments.list(post.id(), 1).total()).isEqualTo(1);
+    assertThatThrownBy(() -> comments.update(post.id(), id, member(), "stolen", 1))
+        .isInstanceOf(ResponseStatusException.class);
+    assertThatThrownBy(() -> comments.delete(post.id(), id, member(), 1))
+        .isInstanceOf(ResponseStatusException.class);
+    assertThat(comments.update(post.id(), id, author, "changed", 1).revision()).isEqualTo(2);
+    assertThatThrownBy(() -> comments.update(post.id(), id, author, "stale", 1))
+        .isInstanceOf(ResponseStatusException.class);
+    comments.delete(post.id(), id, author, 2);
+    assertThat(comments.list(post.id(), 1).total()).isZero();
   }
 }

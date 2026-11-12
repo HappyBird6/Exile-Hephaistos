@@ -124,7 +124,7 @@ export function CommunityCompose() {
               <label>
                 {t.body}
                 <textarea
-                  maxLength={5000}
+                  maxLength={options.data?.limits.bodyLength}
                   rows={6}
                   value={body}
                   onChange={(e) => setBody(e.target.value)}

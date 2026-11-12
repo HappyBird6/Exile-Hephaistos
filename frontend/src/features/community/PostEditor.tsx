@@ -4,13 +4,17 @@ import { useAccount, accountScope } from '../account/auth'
 import { IndexedFilmRepository } from '../crafting/session-library/IndexedFilmRepository'
 import { useI18n } from '../../shared/i18n/i18n'
 import { communityText } from './messages'
-import { boardRequest } from './api'
+import { boardRequest, type Options } from './api'
 import type { Post } from './api'
 export function PostEditor({ post }: { post: Post }) {
   const auth = useAccount(),
     { locale } = useI18n(),
     t = communityText(locale),
     client = useQueryClient()
+  const options = useQuery({
+    queryKey: ['community', 'options'],
+    queryFn: () => boardRequest<Options>('options'),
+  })
   const [open, setOpen] = useState(false),
     [body, setBody] = useState(post.body),
     [title, setTitle] = useState(post.title),
@@ -88,7 +92,7 @@ export function PostEditor({ post }: { post: Post }) {
           <label>
             {t.body}
             <textarea
-              maxLength={5000}
+              maxLength={options.data?.limits.bodyLength}
               rows={5}
               value={body}
               onChange={(e) => setBody(e.target.value)}

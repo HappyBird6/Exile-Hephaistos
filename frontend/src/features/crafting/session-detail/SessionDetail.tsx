@@ -19,6 +19,7 @@ export function SessionDetail({
   onNewCraft,
   actions,
   costControls,
+  showOverview = true,
 }: {
   film?: Film | null | undefined
   cursor: number
@@ -31,6 +32,7 @@ export function SessionDetail({
   onNewCraft?: () => void
   actions?: ReactNode
   costControls?: ReactNode
+  showOverview?: boolean
 }) {
   const { t } = useI18n()
   const index = Math.max(0, Math.min(cursor, (film?.frames.length ?? 1) - 1))
@@ -86,6 +88,7 @@ export function SessionDetail({
           film={film}
           cursor={index}
           resources={resources}
+          showOverview={showOverview}
           {...(onNavigate ? { onNavigate } : {})}
           disabled={disabled}
           {...(onNewCraft ? { onNewCraft } : {})}

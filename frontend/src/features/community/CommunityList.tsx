@@ -138,8 +138,15 @@ function Pagination({ page }: { page: Page | undefined }) {
   return (
     <nav aria-label={t.board} className="wb-history-pagination">
       {page.page > 1 && <a href={link(page.page - 1)}>{t.previous}</a>}
-      {Array.from({ length: pages }, (_, i) => i + 1)
-        .filter((n) => n === 1 || n === pages || Math.abs(n - page.page) <= 2)
+      {Array.from(
+        new Set([
+          1,
+          pages,
+          ...Array.from({ length: 5 }, (_, i) => page.page + i - 2),
+        ]),
+      )
+        .filter((n) => n >= 1 && n <= pages)
+        .sort((a, b) => a - b)
         .map((n) => (
           <a
             key={n}

@@ -17,7 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 public class PostgresSessionBoard implements SessionBoard {
   private final JdbcTemplate db;
   private final ObjectMapper json;
-  private final int maxBytes, maxFrames, pageSize, maxBody;
+  private final int maxBytes, maxFrames, pageSize, maxBody, maxComment;
   private final String currentVersion;
   private final BCryptPasswordEncoder passwords = new BCryptPasswordEncoder(12);
   private final Semaphore passwordSlots = new Semaphore(2);
@@ -29,6 +29,7 @@ public class PostgresSessionBoard implements SessionBoard {
       @Value("${community.max-frames}") int maxFrames,
       @Value("${community.page-size}") int pageSize,
       @Value("${community.max-body-length}") int maxBody,
+      @Value("${community.max-comment-length}") int maxComment,
       @Value("${community.current-version}") String currentVersion) {
     this.db = db;
     this.json = json;
@@ -36,6 +37,7 @@ public class PostgresSessionBoard implements SessionBoard {
     this.maxFrames = maxFrames;
     this.pageSize = pageSize;
     this.maxBody = maxBody;
+    this.maxComment = maxComment;
     this.currentVersion = currentVersion;
   }
 
@@ -290,6 +292,8 @@ public class PostgresSessionBoard implements SessionBoard {
   @Override
   public Map<String, Object> options() {
     return Map.of(
+        "limits",
+        Map.of("bodyLength", maxBody, "commentLength", maxComment),
         "currentVersion",
         currentVersion,
         "versions",

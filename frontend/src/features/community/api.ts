@@ -27,6 +27,7 @@ export type Page = {
   pageSize: number
 }
 export type Options = {
+  limits: { bodyLength: number; commentLength: number }
   currentVersion: string
   versions: string[]
   bases: string[]

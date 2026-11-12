@@ -29,6 +29,7 @@ export type SessionNotationProps = {
   onNavigate?: (frameIndex: number) => void
   onNewCraft?: () => void
   disabled?: boolean
+  showOverview?: boolean
 }
 
 function ResourceIcon({
@@ -96,6 +97,7 @@ export function SessionNotation({
   onNavigate,
   onNewCraft,
   disabled = false,
+  showOverview = true,
 }: SessionNotationProps) {
   const { locale, name } = useI18n()
   const text = sessionNotationMessages[locale]
@@ -110,7 +112,7 @@ export function SessionNotation({
     <section className="wb-session-notation" aria-labelledby={headingId}>
       <div className="wb-session-notation__heading">
         <h3 id={headingId}>{text.title}</h3>
-        {film && (
+        {film && showOverview && (
           <a
             className="session-overview-entry"
             href={localHistoryUrl(film.id, 'simulation')}

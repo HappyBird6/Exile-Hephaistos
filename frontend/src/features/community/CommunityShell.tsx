@@ -1,9 +1,12 @@
 import { useEffect } from 'react'
 import { flushDownloads } from './downloads'
 import type { PropsWithChildren } from 'react'
+import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
 import { AccountMenu } from '../account/AccountMenu'
 import { useI18n } from '../../shared/i18n/i18n'
 import { communityText } from './messages'
+import '../crafting/crafting.css'
+import '../crafting/session-library/session-library.css'
 import './community.css'
 export function CommunityShell({ children }: PropsWithChildren) {
   const { locale } = useI18n(),
@@ -17,7 +20,10 @@ export function CommunityShell({ children }: PropsWithChildren) {
         <a className="craft-brand" href="/">
           EXILE <b>HEPHAISTOS</b>
         </a>
-        <AccountMenu />
+        <div className="community-header-actions">
+          <LocaleSelector />
+          <AccountMenu />
+        </div>
       </header>
       <nav className="community-nav">
         <a href="/">{t.back}</a>

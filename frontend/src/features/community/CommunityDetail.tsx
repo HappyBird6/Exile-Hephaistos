@@ -1,9 +1,10 @@
+import { Comments } from './Comments'
 import { PostReactions } from './PostReactions'
 import { recordDownload } from './downloads'
 import { PostEditor } from './PostEditor'
 import { reusePost, type ReuseAction } from './reuse'
 import { useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useI18n, gameName } from '../../shared/i18n/i18n'
 import { SessionDetail } from '../crafting/session-detail/SessionDetail'
 import { historyResources } from '../crafting/session-history/resources'
@@ -37,7 +38,8 @@ export function CommunityDetail({ id }: { id: string }) {
 function Detail({ post }: { post: Post }) {
   const { locale } = useI18n(),
     t = communityText(locale),
-    market = useCurrencyPrices()
+    market = useCurrencyPrices(),
+    client = useQueryClient()
   const [cursor, setCursor] = useState(post.sharedStep)
   const [busy, setBusy] = useState(false),
     [status, setStatus] = useState('')
@@ -52,6 +54,9 @@ function Detail({ post }: { post: Post }) {
         new AbortController().signal,
       )
       await recordDownload(post.id, action)
+      void client.invalidateQueries({
+        queryKey: ['community', 'stats', post.id],
+      })
       if (next) location.href = next
       else setStatus(t.saved)
     } catch {
@@ -88,6 +93,7 @@ function Detail({ post }: { post: Post }) {
         cursor={cursor}
         onNavigate={setCursor}
         resources={historyResources}
+        showOverview={false}
         className="community-preview"
         disabled={busy}
         actions={
@@ -107,6 +113,7 @@ function Detail({ post }: { post: Post }) {
           </>
         }
       />
+      <Comments post={post.id} />
     </CurrencyPriceContext.Provider>
   )
 }

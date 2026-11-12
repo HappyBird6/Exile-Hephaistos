@@ -3,9 +3,9 @@ import { boardRequest } from './api'
 import type { ReuseAction } from './reuse'
 type Pending = { id: string; action: ReuseAction }
 const key = () => `hephaistos.community.downloads:${accountScope() ?? 'guest'}`
-function read(): Pending[] {
+function read(storageKey = key()): Pending[] {
   try {
-    const parsed: unknown = JSON.parse(localStorage.getItem(key()) ?? '[]')
+    const parsed: unknown = JSON.parse(localStorage.getItem(storageKey) ?? '[]')
     return Array.isArray(parsed)
       ? parsed
           .filter(
@@ -22,10 +22,14 @@ function read(): Pending[] {
 }
 let running: Promise<void> | null = null
 export async function recordDownload(id: string, action: ReuseAction) {
+  const storageKey = key()
   try {
     localStorage.setItem(
-      key(),
-      JSON.stringify([...read().filter((p) => p.id !== id), { id, action }]),
+      storageKey,
+      JSON.stringify([
+        ...read(storageKey).filter((p) => p.id !== id),
+        { id, action },
+      ]),
     )
   } catch {
     /* A counter must never undo a successful item save. */
@@ -36,8 +40,8 @@ export async function recordDownload(id: string, action: ReuseAction) {
       body: JSON.stringify({ action }),
     })
     localStorage.setItem(
-      key(),
-      JSON.stringify(read().filter((p) => p.id !== id)),
+      storageKey,
+      JSON.stringify(read(storageKey).filter((p) => p.id !== id)),
     )
   } catch {
     /* Retain the pending count for the next board visit. */

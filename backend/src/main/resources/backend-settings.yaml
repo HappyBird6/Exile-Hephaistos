@@ -213,3 +213,5 @@ community:
   max-body-length: 5000
   # Per-IP community mutations per minute; CommunityWriteLimit.
   writes-per-minute: 30
+  # Maximum plain-text comment length; PostgresCommunityComments.
+  max-comment-length: 2000
