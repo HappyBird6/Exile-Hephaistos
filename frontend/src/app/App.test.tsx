@@ -15,7 +15,12 @@ async function show() {
       <App />
     </QueryClientProvider>,
   )
-  await screen.findByRole('tab', { name: 'Crafting Workbench' })
+  // The first route loads its code and locale chunks asynchronously.
+  await screen.findByRole(
+    'tab',
+    { name: 'Crafting Workbench' },
+    { timeout: 4000 },
+  )
   return result
 }
 afterEach(() => {

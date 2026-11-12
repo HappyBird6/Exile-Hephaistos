@@ -60,3 +60,13 @@ DB/로그/Redis 볼륨은 별도 디스크 용량·사용량 알림을 설정한
 로그인·회원가입은 IP별 분당 요청 수와 서버별 동시 비밀번호 연산 수를 제한한다. 쿠키 없이 `/api/account/me`·`/api/community/context`를 반복 호출해 Redis 로그인 세션을 늘리는 요청도 IP별로 합산하여 기본 분당 60개로 제한한다(`account.auth.new-sessions-per-minute`). 기존 쿠키를 사용하는 방문자는 이 신규 생성 예산을 소모하지 않는다. 여러 사용자가 같은 IP를 사용하는 환경에서는 이 값을 실제 유입량에 맞춰 조정한다. Redis에 연결할 수 없으면 인증을 우회하지 않고 실패한다. 설정 원본은 `backend-settings.yaml`의 `account` 항목이다. 쿠키는 HttpOnly·SameSite=Lax이며, HTTPS 배포에서는 `ACCOUNT_COOKIE_SECURE=true`로 설정한다. `ACCOUNT_AUTH_ENABLED=false`이면 사용자 인증과 계정 저장 API를 비활성화할 수 있다.
 
 현재 임시 계정에는 비밀번호 재설정·이메일 복구 기능이 없다. Google 로그인 도입 시 기존 계정에 대한 인증을 확인한 뒤 연결해야 하며, 표시 이름만으로 계정을 합치면 안 된다. 관리자 인증과 기존 제작 API 권한은 변경하지 않는다.
+
+
+## 의존성 보안 패치와 남은 경고
+
+2026-11-12 검수에서 Boot 3.5 계열을 유지하면서 Jackson 2.21.7, Netty 4.1.137.Final, Log4j 2.25.5, Tomcat 10.1.59, PostgreSQL JDBC 42.7.12로 보안 패치를 적용했다. 원본은 `backend/build.gradle.kts`이며 같은 라이브러리 계열은 BOM으로 맞춘다. Boot BOM이 이 버전 이상을 제공하면 별도 패치 설정을 제거할 수 있다. Vite 8.3.8, Vitest 5.1.0 및 호환 가능한 전이 의존성 패치는 `frontend/package-lock.json`에 고정한다.
+
+- OSV 실행 의존성 99개 재조회: 경고 대상 구성요소 8개 → 1개. Spring MVC 6.2.19에는 [XSLT view 경로 처리](https://github.com/advisories/GHSA-pc63-qcmh-9cmg), [SSE view fragment 처리](https://github.com/advisories/GHSA-j9f9-w8pj-32f8) 경고가 남아 있다. 현재 앱은 XsltView·SSE view fragments를 사용하지 않는다. 해당 기능을 추가하기 전에 수정 버전으로 전환해야 한다. 공개된 6.2 계열 패치가 확인되지 않아 Spring 7/Boot 4로 임의 변경하지 않았다.
+- npm 재조회: high 4개 → 0개, 실행 의존성 경고 0개. 개발 도구에는 [minimatch globparts 증폭](https://github.com/advisories/GHSA-g3hv-75wg-m249)의 직접·간접 경고 10개(moderate)가 남는다. ESLint/TypeScript ESLint가 요구하는 minimatch 10 계열에는 확인된 수정 버전이 없다. lint glob에 외부 사용자 입력을 전달하지 않으며, 배포 산출물에는 이 도구를 포함하지 않는다. 상위 도구의 호환 패치를 추적하고 재검사한다.
+
+경고가 남는 항목은 검사에서 숨기거나 allowlist로 통과시키지 않는다. 위 수치는 해당 일자의 조회 결과이며 향후 공지에 따라 달라질 수 있다.

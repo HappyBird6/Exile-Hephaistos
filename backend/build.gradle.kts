@@ -16,9 +16,21 @@ configurations[integrationTest.runtimeOnlyConfigurationName].extendsFrom(configu
 integrationTest.compileClasspath += sourceSets.main.get().output
 integrationTest.runtimeClasspath += sourceSets.main.get().output
 
+// JDBC patch shared by runtime and the isolated jOOQ generation database.
+val postgresJdbcVersion = "42.7.12"
 val bootBom = "org.springframework.boot:spring-boot-dependencies:3.5.16"
 dependencies {
     implementation(platform(bootBom))
+    // Security patch floors beyond the Boot 3.5 BOM; keep related modules aligned.
+    implementation(platform("com.fasterxml.jackson:jackson-bom:2.21.7"))
+    implementation(platform("io.netty:netty-bom:4.1.137.Final"))
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.25.5"))
+    constraints {
+        for (module in listOf("core", "el", "websocket")) {
+            implementation("org.apache.tomcat.embed:tomcat-embed-$module:10.1.59")
+        }
+        runtimeOnly("org.postgresql:postgresql:$postgresJdbcVersion")
+    }
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.security:spring-security-crypto")
     implementation("org.springframework.session:spring-session-data-redis")
@@ -41,7 +53,7 @@ dependencies {
     add(codegen.implementationConfigurationName, "org.jooq:jooq-codegen")
     add(codegen.implementationConfigurationName, "org.flywaydb:flyway-core")
     add(codegen.implementationConfigurationName, "org.flywaydb:flyway-database-postgresql")
-    add(codegen.implementationConfigurationName, "org.postgresql:postgresql")
+    add(codegen.implementationConfigurationName, "org.postgresql:postgresql:$postgresJdbcVersion")
     add(codegen.implementationConfigurationName, "org.testcontainers:postgresql")
 }
 
