@@ -112,7 +112,11 @@ function Detail({ post }: { post: Post }) {
                 <button disabled={busy} onClick={() => void reuse('import')}>
                   {t.importSession}
                 </button>
-                <button disabled={busy} onClick={() => void reuse('craft')}>
+                <button
+                  className="community-reuse__primary"
+                  disabled={busy}
+                  onClick={() => void reuse('craft')}
+                >
                   {t.newCraft}
                 </button>
                 <button disabled={busy} onClick={() => void reuse('favorite')}>

@@ -115,8 +115,9 @@
   margin-bottom: 24px;
 }
 .community-detail-header h1 {
-  margin: 0 0 12px;
-  font-size: 24px;
+  margin: 0 0 14px;
+  font-size: 32px;
+  line-height: 1.35;
 }
 .community-detail-meta {
   display: flex;
@@ -161,13 +162,30 @@
   gap: 8px;
   width: 100%;
 }
-.community-reuse > button {
+.community-reuse.wb-history-preview__actions > button {
   min-height: 44px;
+  background: transparent;
+  border-color: #565445;
+  color: #c9c2b2;
+}
+.community-reuse.wb-history-preview__actions > button:hover:enabled {
+  background: #292d25;
+  border-color: #a38b5e;
+  color: #eed9ad;
+}
+.community-reuse.wb-history-preview__actions > .community-reuse__primary {
+  background: #3c3322;
+  border-color: #a38b5e;
+  color: #f0dbab;
+}
+.community-reuse.wb-history-preview__actions
+  > .community-reuse__primary:hover:enabled {
+  background: #4a3e29;
+  border-color: #d4b876;
 }
 .community-post-body {
-  margin: 24px 0 0;
-  padding: 20px 0 0;
-  border-top: 1px solid var(--site-border);
+  margin: 28px 0 0;
+  padding: 0;
   font-size: 18px;
 }
 .community-post-actions {
@@ -175,9 +193,8 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 24px;
-  border-top: 1px solid var(--site-border);
-  padding: 16px 0;
-  margin-top: 28px;
+  padding: 12px 0;
+  margin-top: 24px;
 }
 .community-reactions {
   display: flex;
@@ -239,8 +256,8 @@
   margin: 0;
 }
 .community-comments {
-  margin-top: 0;
-  border: 1px solid var(--site-border);
+  margin-top: 8px;
+  border: 0;
   border-radius: 4px;
   background: #181c1a;
   padding: 4px 14px 14px;
@@ -302,8 +319,8 @@
   gap: 16px;
   padding: 18px;
   margin-top: 16px;
-  background: var(--site-surface);
-  border: 1px solid var(--site-border);
+  background: transparent;
+  border: 0;
 }
 .community-comment-compose > .community-actions {
   flex-direction: column;
@@ -314,11 +331,11 @@
   min-height: 90px;
 }
 .community-comment-login {
-  padding: 20px;
-  margin: 16px 0 0;
+  padding: 14px 8px;
+  margin: 8px 0 0;
   color: var(--site-muted);
-  background: var(--site-surface);
-  border: 1px solid var(--site-border);
+  background: transparent;
+  border: 0;
   text-align: center;
 }
 .community-owner-actions {
@@ -391,8 +408,8 @@
 /* The shared detail renderer retains stacked markup everywhere except post details. */
 .community-post-session {
   padding: 20px;
-  border: 1px solid #454538;
-  border-radius: 4px;
+  border: 0;
+  border-radius: 6px;
   background: #181d1b;
 }
 .community-session-columns {
@@ -438,6 +455,8 @@
   margin: 0;
 }
 .community-session-columns .wb-session-notation {
+  background: #161b18;
+  border-color: #3b4137;
   margin: 0;
   flex: 1;
   min-height: 0;
@@ -552,6 +571,9 @@
   }
 }
 @media (max-width: 760px) {
+  .community-detail-header h1 {
+    font-size: 26px;
+  }
   .community-content .wb-history-workspace {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -587,13 +609,45 @@
     padding: 16px;
   }
   .community-session-columns {
-    grid-template-columns: 80px minmax(0, 374px);
-    gap: 16px;
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 14px 12px;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+  /* Share one compact row for the art and step controls; keep the item full width. */
+  .community-session-columns .session-detail__artwork {
+    grid-column: 1;
+    grid-row: 1;
+    contain: none;
+    height: 64px;
+  }
+  .community-session-columns .session-detail__artwork .wb-base-image {
+    width: 100%;
+    height: 100%;
+  }
+  .community-session-columns .session-detail__item {
+    display: contents;
+  }
+  .community-session-columns .workbench-film-toolbar {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+  }
+  .community-session-columns .session-detail__card {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
   .community-session-columns .session-detail__record {
     grid-column: 1 / -1;
     contain: none;
-    height: 260px;
+    height: auto;
+  }
+  .community-session-columns .wb-session-notation {
+    flex: none;
+  }
+  .community-session-columns .wb-session-notation__steps {
+    flex: 0 1 auto;
+    max-height: 200px;
   }
   .community-session-columns .session-detail__actions {
     grid-column: 1 / -1;
@@ -605,17 +659,6 @@
 @media (max-width: 440px) {
   .community-post-session {
     padding: 12px;
-  }
-  .community-session-columns {
-    grid-template-columns: minmax(0, 374px);
-  }
-  .community-session-columns .session-detail__artwork {
-    contain: none;
-    height: 110px;
-  }
-  .community-session-columns .session-detail__artwork .wb-base-image {
-    width: 100px;
-    height: 100%;
   }
   .community-comments {
     padding-inline: 8px;

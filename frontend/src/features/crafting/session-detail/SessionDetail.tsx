@@ -76,7 +76,11 @@ export function SessionDetail({
     </div>
   )
   const itemView = (
-    <div className={itemClassName}>
+    <div
+      className={['session-detail__card', itemClassName]
+        .filter(Boolean)
+        .join(' ')}
+    >
       {item ??
         (film && frame ? <HistoryCard film={film} frame={frame} /> : null)}
     </div>
