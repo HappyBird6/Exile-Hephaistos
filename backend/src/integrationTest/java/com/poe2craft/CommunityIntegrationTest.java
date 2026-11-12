@@ -224,4 +224,78 @@ class CommunityIntegrationTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.author.name").value("Member"));
   }
+
+  @Test
+  void priorAnonymousDownloadsConvergeOnLoginWithoutMergingDifferentAccounts() throws Exception {
+    var p = board.create(member(), draft(film(), "", null, 0));
+    var first = new Actor(null, UUID.randomUUID());
+    var second = new Actor(null, UUID.randomUUID());
+    assertThat(reactions.download(p.id(), first).downloads()).isEqualTo(1);
+    assertThat(reactions.download(p.id(), second).downloads()).isEqualTo(2);
+    var reader = member();
+    assertThat(reactions.download(p.id(), new Actor(reader.account(), first.browser())).downloads())
+        .isEqualTo(2);
+    assertThat(
+            reactions.download(p.id(), new Actor(reader.account(), second.browser())).downloads())
+        .isEqualTo(1);
+    assertThat(reactions.download(p.id(), first).downloads()).isEqualTo(1);
+    var other = new Actor(member().account(), second.browser());
+    assertThat(reactions.download(p.id(), other).downloads()).isEqualTo(2);
+    assertThat(
+            reactions.download(p.id(), new Actor(other.account(), UUID.randomUUID())).downloads())
+        .isEqualTo(2);
+  }
+
+  @Test
+  void changedPublishedFramesAreRejectedAndDeletedPostsRejectAllInteractions() throws Exception {
+    var author = member();
+    var p = board.create(author, draft(film(), "original", null, 0));
+    var changed = p.film().deepCopy();
+    ((ObjectNode) changed.path("frames").get(0).path("state")).put("itemLevel", 83);
+    ((ArrayNode) changed.path("frames")).add(p.film().path("frames").get(0).deepCopy());
+    assertThatThrownBy(
+            () -> board.update(author, p.id(), draft(changed, "changed", null, p.revision())))
+        .isInstanceOfSatisfying(
+            ResponseStatusException.class,
+            e -> assertThat(e.getStatusCode().value()).isEqualTo(409));
+    assertThat(board.get(p.id())).isEqualTo(p);
+    assertThatThrownBy(() -> board.delete(member(), p.id(), null, p.revision()))
+        .isInstanceOfSatisfying(
+            ResponseStatusException.class,
+            e -> assertThat(e.getStatusCode().value()).isEqualTo(403));
+    board.delete(author, p.id(), null, p.revision());
+    assertThatThrownBy(() -> reactions.download(p.id(), member()))
+        .isInstanceOf(ResponseStatusException.class);
+    assertThatThrownBy(() -> reactions.recommend(p.id(), member(), true))
+        .isInstanceOf(ResponseStatusException.class);
+    assertThatThrownBy(() -> comments.create(p.id(), member(), UUID.randomUUID(), "late comment"))
+        .isInstanceOf(ResponseStatusException.class);
+    assertThat(board.mine(author, p.sourceId())).isEmpty();
+  }
+
+  @Test
+  void concurrentPublicationRetriesCreateOnePostAndKeepThePublishedCopy() throws Exception {
+    var author = member();
+    var source = film();
+    try (var pool = java.util.concurrent.Executors.newFixedThreadPool(4)) {
+      var jobs = new ArrayList<java.util.concurrent.Callable<UUID>>();
+      for (int i = 0; i < 8; i++)
+        jobs.add(() -> board.create(author, draft(source, "saved", null, 0)).id());
+      var ids = new HashSet<UUID>();
+      for (var result : pool.invokeAll(jobs)) ids.add(result.get());
+      assertThat(ids).hasSize(1);
+      ((ObjectNode) source.path("frames").get(0).path("state")).put("itemLevel", 90);
+      assertThat(
+              board
+                  .get(ids.iterator().next())
+                  .film()
+                  .path("frames")
+                  .get(0)
+                  .path("state")
+                  .path("itemLevel")
+                  .asInt())
+          .isEqualTo(82);
+      assertThat(board.mine(author, "source")).hasSize(1);
+    }
+  }
 }

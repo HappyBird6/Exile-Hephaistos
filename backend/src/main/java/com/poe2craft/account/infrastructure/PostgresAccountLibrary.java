@@ -51,9 +51,9 @@ public class PostgresAccountLibrary implements AccountLibrary {
   public long clearSessions(UUID owner) {
     long generation = lockedGeneration(owner) + 1;
     db.update("UPDATE app_user.account SET session_generation=? WHERE id=?", generation, owner);
-    db.update(
-        "UPDATE app_user.library_document SET content=NULL,version=version+1,updated_at=now() WHERE account_id=? AND kind='session'",
-        owner);
+    // The generation invalidates every pre-clear upload, so individual tombstones are no
+    // longer needed. Release their quota as well as their payloads when clearing all sessions.
+    db.update("DELETE FROM app_user.library_document WHERE account_id=? AND kind='session'", owner);
     return generation;
   }
 

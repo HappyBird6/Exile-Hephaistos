@@ -28,6 +28,7 @@ class AccountLibraryIntegrationTest {
 
   @DynamicPropertySource
   static void properties(DynamicPropertyRegistry p) {
+    p.add("account.library.max-documents", () -> "3");
     p.add("spring.flyway.locations", () -> "classpath:db/migration,classpath:db/testmigration");
     p.add("spring.datasource.url", PG::getJdbcUrl);
     p.add("spring.datasource.username", PG::getUsername);
@@ -79,9 +80,64 @@ class AccountLibraryIntegrationTest {
     library.saveSession(owner, "a", 0, 0, body);
     library.save(owner, "base-favorite", "a", 0, body);
     assertThat(library.clearSessions(owner)).isEqualTo(1);
-    assertThat(library.read(owner, "session", "a").content()).isNull();
+    assertThat(library.index(owner)).noneMatch(d -> d.kind().equals("session"));
     assertThat(library.read(owner, "base-favorite", "a").content()).isNotNull();
     assertThatThrownBy(() -> library.saveSession(owner, "new-offline-id", 0, 0, body))
         .isInstanceOf(ResponseStatusException.class);
+  }
+
+  @Test
+  void concurrentClearAndUploadCannotResurrectAnOldGenerationOrAffectAnotherAccount()
+      throws Exception {
+    var owner = library.signIn(UUID.randomUUID().toString(), "Clear owner").id();
+    var other = library.signIn(UUID.randomUUID().toString(), "Other owner").id();
+    var body = json.readTree("{\"id\":\"a\",\"frames\":[{}]}");
+    library.saveSession(owner, "a", 0, 0, body);
+    library.saveSession(other, "a", 0, 0, body);
+    try (var pool = java.util.concurrent.Executors.newFixedThreadPool(2)) {
+      var barrier = new java.util.concurrent.CyclicBarrier(2);
+      var clear =
+          pool.submit(
+              () -> {
+                barrier.await();
+                return library.clearSessions(owner);
+              });
+      var upload =
+          pool.submit(
+              () -> {
+                barrier.await();
+                try {
+                  library.saveSession(owner, "a", 1, 0, body);
+                } catch (ResponseStatusException e) {
+                  assertThat(e.getStatusCode().value()).isEqualTo(409);
+                }
+                return true;
+              });
+      assertThat(clear.get()).isEqualTo(1);
+      assertThat(upload.get()).isTrue();
+    }
+    assertThat(library.index(owner)).noneMatch(d -> d.kind().equals("session"));
+    assertThat(library.read(other, "session", "a").content()).isEqualTo(body);
+    var newBody = json.readTree("{\"id\":\"new-session\",\"frames\":[{}]}");
+    assertThat(library.saveSession(owner, "new-session", 0, 1, newBody).content())
+        .isEqualTo(newBody);
+    assertThat(library.snapshot(owner).generation()).isEqualTo(1);
+  }
+
+  @Test
+  void bulkClearReleasesSessionQuotaWithoutAllowingStaleUploads() throws Exception {
+    var owner = library.signIn(UUID.randomUUID().toString(), "Quota owner").id();
+    for (int i = 0; i < 3; i++) {
+      String id = "session-" + i;
+      library.saveSession(
+          owner, id, 0, 0, json.readTree("{\"id\":\"" + id + "\",\"frames\":[{}]}"));
+    }
+    library.clearSessions(owner);
+    var body = json.readTree("{\"id\":\"fresh\",\"frames\":[{}]}");
+    assertThatThrownBy(() -> library.saveSession(owner, "fresh", 0, 0, body))
+        .isInstanceOfSatisfying(
+            ResponseStatusException.class,
+            e -> assertThat(e.getReason()).isEqualTo("SESSIONS_CLEARED"));
+    assertThat(library.saveSession(owner, "fresh", 0, 1, body).content()).isEqualTo(body);
   }
 }

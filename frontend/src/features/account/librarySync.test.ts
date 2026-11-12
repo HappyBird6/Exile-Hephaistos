@@ -304,3 +304,139 @@ it('discards unacknowledged offline sessions after an account-wide clear', async
   expect(await films()).toEqual([])
   expect(writes).toBe(1)
 })
+
+it('keeps a newer local edit made while a remote index is in flight', async () => {
+  await seed()
+  await syncLibrary(owner)
+  await edit('upload checkpoint')
+  const originalFetch = vi.mocked(fetch).getMockImplementation()!
+  let changed = false
+  vi.mocked(fetch).mockImplementation(async (input, init) => {
+    const response = await originalFetch(input, init)
+    if (String(input).endsWith('/library') && !changed) {
+      changed = true
+      await edit('continued crafting')
+    }
+    return response
+  })
+  await syncLibrary(owner)
+  expect((await films())[0]?.title).toBe('continued crafting')
+  await syncLibrary(owner)
+  expect(remote).toHaveLength(1)
+  expect(remote[0]?.content?.title).toBe('continued crafting')
+})
+
+it('forks on retry when another device saves after the index was read', async () => {
+  await seed()
+  await syncLibrary(owner)
+  await edit('this device')
+  const originalFetch = vi.mocked(fetch).getMockImplementation()!
+  let raced = false
+  vi.mocked(fetch).mockImplementation(async (input, init) => {
+    if (init?.method === 'PUT' && !raced) {
+      raced = true
+      remote = [
+        {
+          ...remote[0]!,
+          version: 2,
+          content: { ...remote[0]!.content!, title: 'other device' },
+        },
+      ]
+    }
+    return originalFetch(input, init)
+  })
+  await expect(syncLibrary(owner)).rejects.toMatchObject({ status: 409 })
+  expect((await films())[0]?.title).toBe('this device')
+  await syncLibrary(owner)
+  await syncLibrary(owner)
+  expect(remote.map((d) => d.content?.title).sort()).toEqual([
+    'other device',
+    'this device',
+  ])
+})
+
+it('does not create extra conflict copies when the fork response is lost', async () => {
+  await seed()
+  await syncLibrary(owner)
+  remote = [
+    {
+      ...remote[0]!,
+      version: 2,
+      content: { ...remote[0]!.content!, title: 'other device' },
+    },
+  ]
+  await edit('this device')
+  loseResponse = true
+  await expect(syncLibrary(owner)).rejects.toThrow('response lost')
+  await syncLibrary(owner)
+  await syncLibrary(owner)
+  expect(remote).toHaveLength(2)
+  expect((await films()).map((f) => f.title).sort()).toEqual([
+    'other device',
+    'this device',
+  ])
+})
+
+it('does not apply an old account response after switching accounts', async () => {
+  await seed()
+  await syncLibrary(owner)
+  await seed('account-two')
+  const originalFetch = vi.mocked(fetch).getMockImplementation()!
+  vi.mocked(fetch).mockImplementation(async (input, init) => {
+    if (String(input).endsWith('/me'))
+      return Response.json({
+        enabled: true,
+        user: { id: 'account-two', displayName: 'two' },
+        csrf: 'two-token',
+      })
+    const response = await originalFetch(input, init)
+    if (String(input).endsWith('/library')) await loadAccount()
+    return response
+  })
+  await expect(syncLibrary(owner)).rejects.toThrow('ACCOUNT_CHANGED')
+  expect((await films('account-two'))[0]?.title).toBeUndefined()
+  expect(remote).toHaveLength(1)
+  expect(writes).toBe(1)
+})
+
+it('remembers a skipped browser merge after signing in again', async () => {
+  const guest = await seed(null)
+  await decideBrowserMerge(owner, false)
+  await loadAccount()
+  await syncLibrary(owner)
+  expect((await browserMergeStatus(owner)).needed).toBe(false)
+  expect(await films(null)).toEqual(guest.films)
+  expect(remote).toEqual([])
+})
+
+it('clears only guest sessions while keeping base favorites and account sessions', async () => {
+  const { clearSessions } = await import('./librarySync')
+  const { baseFavoritesKey } =
+    await import('../crafting/base-favorites/repository')
+  const guest = await seed(null)
+  await seed()
+  localStorage.setItem(baseFavoritesKey, JSON.stringify(guest.films))
+  await clearSessions(null)
+  expect(await films(null)).toEqual([])
+  expect(await films()).toHaveLength(1)
+  expect(JSON.parse(localStorage.getItem(baseFavoritesKey)!)).toEqual(
+    guest.films,
+  )
+})
+
+it('honors a bulk-clear generation even when the server has reclaimed all session tombstones', async () => {
+  await seed()
+  await syncLibrary(owner)
+  await edit('stale offline content')
+  generation = 1
+  remote = []
+  await syncLibrary(owner)
+  expect(await films()).toEqual([])
+  await syncLibrary(owner)
+  expect(remote).toEqual([])
+  expect(writes).toBe(1)
+  await seed()
+  await syncLibrary(owner)
+  expect(remote).toHaveLength(1)
+  expect(writes).toBe(2)
+})
