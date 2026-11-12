@@ -1,3 +1,5 @@
+import { useId } from 'react'
+import './session-continuation.css'
 import { useQuery } from '@tanstack/react-query'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { Initial } from '../craftingApi'
@@ -13,14 +15,17 @@ export function SessionContinuation({
   film,
   frame,
   disabled,
+  compact = false,
   onContinue,
 }: {
   initial: Initial
   film: Film
   frame: Frame
   disabled: boolean
+  compact?: boolean
   onContinue: (result: SessionCompatibility) => void
 }) {
+  const descriptionId = useId()
   const { locale } = useI18n()
   const text = referenceMessages[locale]
   const check = useQuery({
@@ -59,8 +64,14 @@ export function SessionContinuation({
     return text.invalidItem
   }
   return (
-    <section className="wb-session-continuation" aria-live="polite">
-      <p>
+    <section
+      className={`wb-session-continuation${compact ? ' wb-session-continuation--compact' : ''}`}
+      aria-live="polite"
+    >
+      <p
+        id={descriptionId}
+        className={compact && check.data?.compatible ? 'sr-only' : undefined}
+      >
         {check.isPending
           ? text.checking
           : check.isError
@@ -91,6 +102,7 @@ export function SessionContinuation({
         <button
           type="button"
           className="primary-action"
+          aria-describedby={descriptionId}
           disabled={disabled || check.isFetching}
           onClick={() => onContinue(check.data)}
         >

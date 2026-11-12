@@ -1,0 +1,40 @@
+/* Saved checkpoints remain readable; only the execution target is replaced. */
+.item-placement .item-slot--preserved {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.item-slot--preserved .wb-session-continuation--compact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  gap: 8px;
+  margin: 0;
+  padding: 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.wb-session-continuation--compact p {
+  margin: 0;
+}
+.wb-session-continuation--compact ul {
+  margin: 0;
+  padding-left: 16px;
+}
+.item-slot--preserved button {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 6px;
+  font: inherit;
+  white-space: normal;
+}

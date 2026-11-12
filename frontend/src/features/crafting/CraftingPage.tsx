@@ -1,3 +1,4 @@
+import { HistoryCard } from './session-history/HistoryCard'
 import { sessionNotationMessages } from './session-notation/messages'
 import { cancelSelection } from './compact-viewport/mobileMessages'
 import { useDebouncedValue } from '../../shared/useDebouncedValue'
@@ -2344,25 +2345,72 @@ function ReadyCraftingPage({
                       <b aria-hidden="true">C</b>
                     </button>
                     <div className="item-placement">
-                      <button
-                        className={`item-slot ${selected ? 'is-ready' : ''} ${augmentReady ? 'is-augment-ready' : ''}`}
-                        type="button"
-                        aria-label={t(
-                          'ui.use_selected_currency_on_the_central_item',
-                        )}
-                        disabled={workbenchBusy}
-                        onClick={(event) => void apply(event.shiftKey)}
-                      >
-                        <ItemSlotImage
-                          baseItemId={slotBaseItemId ?? ''}
-                          label={
-                            slotBaseItemId
-                              ? name(baseSlugs[catalogBase], baseName)
-                              : displayedName
-                          }
-                        />
-                        <span>{displayedName}</span>
-                      </button>
+                      {storedFrame &&
+                      rulesetStatus &&
+                      rulesetStatus !== 'current' ? (
+                        <div className="item-slot item-slot--preserved">
+                          {initial.data &&
+                          activeFilm &&
+                          rulesetStatus !== 'inconsistent' ? (
+                            <SessionContinuation
+                              compact
+                              initial={initial.data}
+                              film={activeFilm}
+                              frame={storedFrame}
+                              disabled={
+                                workbenchBusy || filmState.blockedSaving
+                              }
+                              onContinue={async (result) => {
+                                if (
+                                  mutationLocked() ||
+                                  !result.compatible ||
+                                  !result.state ||
+                                  !result.compatibilityId
+                                )
+                                  return
+                                const next = continueFilm(
+                                  filmState.history,
+                                  activeFilm,
+                                  filmState.history.cursor,
+                                  result.state,
+                                  result.abyss,
+                                  filmId(),
+                                  initial.data!.rulesetIdentity,
+                                  result.compatibilityId,
+                                )
+                                if (await commitLibraryHistory(next)) {
+                                  setAnnouncement('')
+                                  document
+                                    .getElementById('workspace-workbench')
+                                    ?.focus()
+                                }
+                              }}
+                            />
+                          ) : (
+                            <p role="alert">{t(`ruleset.${rulesetStatus}`)}</p>
+                          )}
+                        </div>
+                      ) : (
+                        <button
+                          className={`item-slot ${selected ? 'is-ready' : ''} ${augmentReady ? 'is-augment-ready' : ''}`}
+                          type="button"
+                          aria-label={t(
+                            'ui.use_selected_currency_on_the_central_item',
+                          )}
+                          disabled={workbenchBusy}
+                          onClick={(event) => void apply(event.shiftKey)}
+                        >
+                          <ItemSlotImage
+                            baseItemId={slotBaseItemId ?? ''}
+                            label={
+                              slotBaseItemId
+                                ? name(baseSlugs[catalogBase], baseName)
+                                : displayedName
+                            }
+                          />
+                          <span>{displayedName}</span>
+                        </button>
+                      )}
                       {concrete?.augmentSockets != null &&
                         concrete.augmentSockets > 0 && (
                           <SocketAugmentSlots
@@ -2822,60 +2870,14 @@ function ReadyCraftingPage({
                   <p role="alert">{uiText(filmState.error)}</p>
                 )}
                 {storedFrame &&
-                  rulesetStatus &&
-                  rulesetStatus !== 'current' && (
-                    <section aria-label={t('ruleset.saved_record')}>
-                      <p role="alert">{t(`ruleset.${rulesetStatus}`)}</p>
-                      {initial.data &&
-                        activeFilm &&
-                        rulesetStatus !== 'inconsistent' && (
-                          <SessionContinuation
-                            initial={initial.data}
-                            film={activeFilm}
-                            frame={storedFrame}
-                            disabled={workbenchBusy || filmState.blockedSaving}
-                            onContinue={async (result) => {
-                              if (
-                                mutationLocked() ||
-                                !result.compatible ||
-                                !result.state ||
-                                !result.compatibilityId
-                              )
-                                return
-                              const next = continueFilm(
-                                filmState.history,
-                                activeFilm,
-                                filmState.history.cursor,
-                                result.state,
-                                result.abyss,
-                                filmId(),
-                                initial.data!.rulesetIdentity,
-                                result.compatibilityId,
-                              )
-                              if (await commitLibraryHistory(next)) {
-                                setAnnouncement('')
-                                document
-                                  .getElementById('workspace-workbench')
-                                  ?.focus()
-                              }
-                            }}
-                          />
-                        )}
-                    </section>
-                  )}
-                {storedFrame &&
                   rulesetStatus === 'current' &&
                   initial.data &&
                   !restoredValid && (
                     <p role="alert">{t('notice.saved_catalog')}</p>
                   )}
-                {storedFrame && !restoredValid && (
-                  <details>
-                    <summary>{t('ruleset.saved_record')}</summary>
-                    <pre>{JSON.stringify(storedFrame, null, 2)}</pre>
-                  </details>
-                )}
-                {storedFrame && !restoredValid ? null : card ? (
+                {storedFrame && activeFilm && !restoredValid ? (
+                  <HistoryCard film={activeFilm} frame={storedFrame} />
+                ) : card ? (
                   <ItemCard
                     item={{
                       ...card,
