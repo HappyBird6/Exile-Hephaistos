@@ -247,22 +247,26 @@
 }
 .community-comments {
   margin-top: 8px;
-  border: 0;
+  border: 1px solid #494a3e;
   border-radius: 4px;
   background: #181c1a;
-  padding: 4px 14px 14px;
+  padding: 0 14px 14px;
 }
 .community-comment {
   display: grid;
   grid-template-columns: minmax(90px, 150px) minmax(0, 1fr) auto;
   gap: 8px 20px;
   align-items: start;
-  padding: 14px 8px;
-  border-bottom: 1px solid #34372f;
+  padding: 18px 12px;
+  border-bottom: 1px solid #4b4e42;
   font-size: 14px;
+}
+.community-comment:nth-child(even) {
+  background: #20251f;
 }
 .community-comment-author {
   color: var(--site-gold);
+  font-weight: 600;
   text-decoration: none;
   min-width: 0;
   overflow: hidden;
@@ -407,8 +411,8 @@
   padding: 0 24px 24px;
 }
 .community-session-columns {
-  /* Reserve the header/base summary plus six single-line modifiers at the shared item typography. */
-  --community-card-min-height: calc(240px + 6 * 17.33px * 1.65);
+  /* Reserve the header/base summary, six single-line modifiers and extra breathing room. */
+  --community-card-min-height: calc(320px + 6 * 17.33px * 1.65);
   --community-row-min-height: calc(
     var(--community-card-min-height) + 44px + 8px
   );
@@ -416,20 +420,21 @@
   grid-template-columns: minmax(200px, 280px) repeat(2, minmax(0, 374px));
   justify-content: center;
   align-items: stretch;
-  gap: 20px;
+  gap: 80px;
 }
 .community-session-columns > div {
   min-width: 0;
 }
-/* Keep the art and reuse controls together; longer item text cannot move this column. */
+/* The item sets the row height; extra space expands the artwork above bottom-aligned actions. */
 .community-session-columns .session-detail__tools {
   display: grid;
   grid-template-rows: minmax(180px, 1fr) auto;
   gap: 16px;
-  height: var(--community-row-min-height);
-  align-self: start;
+  min-height: var(--community-row-min-height);
+  contain: size;
 }
 .community-session-columns .session-detail__artwork {
+  position: relative;
   min-height: 0;
   min-width: 0;
   display: flex;
@@ -444,9 +449,10 @@
   background: radial-gradient(ellipse, #232b23, #080d0e 75%);
 }
 .community-session-columns .session-detail__artwork .wb-base-image {
-  width: 100%;
-  height: 100%;
-  max-height: 220px;
+  position: absolute;
+  inset: 24px;
+  width: calc(100% - 48px);
+  height: calc(100% - 48px);
   object-fit: contain;
   filter: drop-shadow(0 4px 9px #000);
 }
@@ -649,7 +655,8 @@
     grid-row: auto;
     grid-template-columns: 88px minmax(0, 1fr);
     grid-template-rows: auto;
-    height: auto;
+    min-height: 0;
+    contain: none;
     gap: 12px;
   }
   .community-session-columns .session-detail__artwork {
@@ -660,7 +667,9 @@
     border-width: 3px;
   }
   .community-session-columns .session-detail__artwork .wb-base-image {
-    max-height: 150px;
+    inset: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
   }
   .community-session-columns .session-detail__record {
     grid-column: 1;
