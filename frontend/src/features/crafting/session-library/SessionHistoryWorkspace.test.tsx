@@ -1,13 +1,15 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import type { ReactNode } from 'react'
 import { CurrencyPriceContext } from '../currency-prices/context'
 import {
   fireEvent,
-  render,
+  render as renderUI,
   screen,
   within,
   waitFor,
 } from '@testing-library/react'
 import { useState } from 'react'
-import { expect, it, vi } from 'vitest'
+import { afterEach, expect, it, vi } from 'vitest'
 import { setLocale } from '../../../shared/i18n/i18n'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
 import { concreteInitial } from '../workbenchApi'
@@ -22,6 +24,23 @@ import {
 import type { Film, FilmDeletion, Frame } from '../workbenchHistory'
 import { SessionHistoryWorkspace } from './SessionHistoryWorkspace'
 import { sessionLibraryMessages } from './sessionLibraryMessages'
+
+const clients: QueryClient[] = []
+afterEach(() => {
+  clients.forEach((c) => c.clear())
+  clients.length = 0
+})
+function render(ui: ReactNode) {
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  clients.push(client)
+  return renderUI(ui, {
+    wrapper: ({ children }) => (
+      <QueryClientProvider client={client}>{children}</QueryClientProvider>
+    ),
+  })
+}
 
 vi.mock('../session-history/HistoryCard', () => ({
   HistoryCard: ({ film, frame }: { film: Film; frame: Frame }) => (

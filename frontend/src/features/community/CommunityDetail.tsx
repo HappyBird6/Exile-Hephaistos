@@ -1,3 +1,5 @@
+import { PostEditor } from './PostEditor'
+import { reusePost, type ReuseAction } from './reuse'
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useI18n, gameName } from '../../shared/i18n/i18n'
@@ -35,6 +37,26 @@ function Detail({ post }: { post: Post }) {
     t = communityText(locale),
     market = useCurrencyPrices()
   const [cursor, setCursor] = useState(post.sharedStep)
+  const [busy, setBusy] = useState(false),
+    [status, setStatus] = useState('')
+  async function reuse(action: ReuseAction) {
+    setBusy(true)
+    setStatus('')
+    try {
+      const next = await reusePost(
+        post,
+        cursor,
+        action,
+        new AbortController().signal,
+      )
+      if (next) location.href = next
+      else setStatus(t.saved)
+    } catch {
+      setStatus(t.error)
+    } finally {
+      setBusy(false)
+    }
+  }
   return (
     <CurrencyPriceContext.Provider value={market}>
       <h1>{post.title || gameName(post.baseId, post.baseId, locale)}</h1>
@@ -47,6 +69,7 @@ function Detail({ post }: { post: Post }) {
         · {post.gameVersion}
       </p>
       <div className="community-body">{post.body}</div>
+      <PostEditor post={post} />
       <p>
         {t.sharedStep}: {post.sharedStep}{' '}
         {post.film.frames.length > post.sharedStep + 1 && (
@@ -62,6 +85,23 @@ function Detail({ post }: { post: Post }) {
         onNavigate={setCursor}
         resources={historyResources}
         className="community-preview"
+        disabled={busy}
+        actions={
+          <>
+            <div className="community-actions">
+              <button disabled={busy} onClick={() => void reuse('import')}>
+                {t.importSession}
+              </button>
+              <button disabled={busy} onClick={() => void reuse('craft')}>
+                {t.newCraft}
+              </button>
+              <button disabled={busy} onClick={() => void reuse('favorite')}>
+                {t.favorite}
+              </button>
+            </div>
+            {status && <p role="status">{status}</p>}
+          </>
+        }
       />
     </CurrencyPriceContext.Provider>
   )

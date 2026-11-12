@@ -1,3 +1,4 @@
+import { freshSession } from './session-library/freshSession'
 import { communityText } from '../community/messages'
 import { accountScope } from '../account/auth'
 import { AccountMenu } from '../account/AccountMenu'
@@ -22,7 +23,6 @@ import type { CustomExaltContext } from './custom-exalt/api'
 import { customExaltMessages, isExaltedAction } from './custom-exalt/messages'
 import { freshCraftMessages } from './session-library/freshCraftMessages'
 import { resetCurrentFilm } from './workbenchHistory'
-import { checkSessionCompatibility } from './workbenchReferenceApi'
 import { startingItem } from './base-picker/baseAffixSetup'
 import type { StartingAffix } from './base-picker/baseAffixSetup'
 import { loadModifierPools } from './workbenchReferenceApi'
@@ -797,39 +797,20 @@ function ReadyCraftingPage({
           loadInitial(frame.state.itemLevel, signal, base, true),
         staleTime: 60_000,
       })
-      let state = frame.state,
-        abyss = frame.abyss
-      if (
-        frame.rulesetIdentity !== catalog.rulesetIdentity ||
-        !verifiedHistoryState(state, catalog)
-      ) {
-        const checked = await checkSessionCompatibility(
-          catalog,
-          state,
-          abyss,
-          sourceFilm.compatibilityId,
-          controller.signal,
-        )
-        if (!checked.compatible || !checked.state)
-          throw new Error('Incompatible item state')
-        state = checked.state
-        abyss = checked.abyss ?? undefined
-      }
+      const next = await freshSession(
+        filmState.history,
+        sourceFilm,
+        frame,
+        catalog,
+        filmId(),
+        controller.signal,
+      )
       if (
         request !== placementRequest.current ||
         revision !== useItemDraft.getState().baseRevision ||
         controller.signal.aborted
       )
         return
-      const next = startFilm(
-        filmState.history,
-        state,
-        filmId(),
-        catalog.rulesetIdentity,
-        undefined,
-        catalog.compatibilityId,
-      )
-      if (abyss) currentFilm(next)!.frames[0]!.abyss = structuredClone(abyss)
       placementPending.current = false
       if (applyingRequest.current === controller) applyingRequest.current = null
       if (await commitLibraryHistory(next)) {
