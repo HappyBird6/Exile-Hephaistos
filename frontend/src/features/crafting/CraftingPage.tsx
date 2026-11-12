@@ -1,3 +1,4 @@
+import { SiteFooter } from '../../shared/site/SiteFooter'
 import { workspacePath } from '../../shared/site/workspaceRoutes'
 import {
   navigate,
@@ -3179,19 +3180,7 @@ function ReadyCraftingPage({
           </button>
         </div>
       )}
-      <footer className="craft-footer">
-        <span>
-          EXILE HEPHAISTOS <span aria-hidden="true">/</span>
-          {t('ui.your_personal_crafting_workbench')}
-        </span>
-        <a
-          href="https://poe2db.tw/us/Currency"
-          target="_blank"
-          rel="noreferrer"
-        >
-          {t('ui.currency_images_poe2db')}
-        </a>
-      </footer>
+      <SiteFooter />
       {customExaltRequest && initial.data && (
         <CustomExaltDialog
           context={customExaltRequest.context}

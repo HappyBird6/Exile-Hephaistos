@@ -49,11 +49,52 @@
 .community-author-filter:hover {
   color: #f0d99f;
 }
-.community-compose {
+.community-compose-source {
+  margin: 0;
+  color: var(--site-muted);
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+.community-compose-fields {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.community-compose-metadata {
   display: grid;
-  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
-  gap: 24px;
-  align-items: start;
+  grid-template-columns: minmax(0, 200px);
+  gap: 18px;
+}
+.community-compose-metadata--member {
+  grid-template-columns: minmax(0, 1fr) minmax(130px, 180px);
+}
+.community-compose-body textarea {
+  min-height: 320px;
+  resize: vertical;
+  line-height: 1.7;
+}
+.community-compose-password {
+  max-width: 400px;
+}
+.community-compose-actions {
+  justify-content: flex-end;
+}
+.community-compose-actions > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  box-sizing: border-box;
+  padding: 8px 14px;
+  border: 1px solid #63583f;
+  border-radius: 3px;
+  color: #dfc58d;
+  text-decoration: none;
+}
+.community-compose-actions > a:hover {
+  background: #343326;
+  border-color: var(--site-gold);
 }
 .community-form {
   display: flex;
@@ -141,15 +182,14 @@
 .community-reuse.wb-history-preview__actions {
   margin-top: 0;
   gap: 8px;
-  max-width: 460px;
+  width: 100%;
 }
 .community-reuse > button {
   min-height: 44px;
 }
 .community-post-body {
-  margin-top: 24px;
-  padding: 24px 0;
-  border-top: 1px solid var(--site-border);
+  margin: 0;
+  padding: 0;
 }
 .community-post-actions {
   display: flex;
@@ -338,8 +378,12 @@
   .community-filters {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .community-compose {
-    grid-template-columns: 1fr;
+  .community-compose-metadata--member {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .community-compose-body textarea {
+    min-height: 240px;
+    height: 240px;
   }
   .community-post-content {
     grid-template-columns: minmax(0, 1fr);

@@ -4,6 +4,7 @@ import { flushDownloads } from './downloads'
 import { useQueryClient } from '@tanstack/react-query'
 import { accountScope } from '../account/auth'
 import { cachePostStats } from './queries'
+import { SiteFooter } from '../../shared/site/SiteFooter'
 import { SiteHeader } from '../../shared/site/SiteHeader'
 import { CurrencyPriceContext } from '../crafting/currency-prices/context'
 import { useCurrencyPrices } from '../crafting/currency-prices/useCurrencyPrices'
@@ -32,6 +33,7 @@ export function CommunityShell({ children }: PropsWithChildren) {
         >
           {children}
         </div>
+        <SiteFooter />
       </main>
     </CurrencyPriceContext.Provider>
   )

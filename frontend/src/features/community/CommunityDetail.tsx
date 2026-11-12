@@ -97,20 +97,24 @@ function Detail({ post }: { post: Post }) {
           showOverview={false}
           className="community-session-detail"
           disabled={busy}
+          actions={
+            <>
+              <div className="wb-history-preview__actions community-reuse">
+                <button disabled={busy} onClick={() => void reuse('import')}>
+                  {t.importSession}
+                </button>
+                <button disabled={busy} onClick={() => void reuse('craft')}>
+                  {t.newCraft}
+                </button>
+                <button disabled={busy} onClick={() => void reuse('favorite')}>
+                  {t.favorite}
+                </button>
+              </div>
+              {status && <p role="status">{status}</p>}
+            </>
+          }
         />
         <div className="community-post-description">
-          <div className="wb-history-preview__actions community-reuse">
-            <button disabled={busy} onClick={() => void reuse('import')}>
-              {t.importSession}
-            </button>
-            <button disabled={busy} onClick={() => void reuse('craft')}>
-              {t.newCraft}
-            </button>
-            <button disabled={busy} onClick={() => void reuse('favorite')}>
-              {t.favorite}
-            </button>
-          </div>
-          {status && <p role="status">{status}</p>}
           {post.body && (
             <div className="community-body community-post-body">
               {post.body}
