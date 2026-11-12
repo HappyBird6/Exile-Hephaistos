@@ -13,7 +13,16 @@
   background: var(--site-surface);
   color: var(--site-text);
 }
-:is(.community-content, .account-dialog, .account-sync, .account-menu) button {
+:is(
+    .community-form,
+    .community-actions,
+    .community-comments,
+    .community-filters,
+    .account-dialog,
+    .account-sync,
+    .account-menu
+  )
+  button {
   min-height: 40px;
   padding: 8px 14px;
   border: 1px solid #63583f;
@@ -23,23 +32,53 @@
   font: inherit;
   cursor: pointer;
 }
-:is(.community-content, .account-dialog, .account-sync, .account-menu)
+:is(
+    .community-form,
+    .community-actions,
+    .community-comments,
+    .community-filters,
+    .account-dialog,
+    .account-sync,
+    .account-menu
+  )
   button:hover:not(:disabled) {
   border-color: var(--site-gold);
   background: #343326;
 }
-:is(.community-content, .account-dialog, .account-sync, .account-menu)
+:is(
+    .community-form,
+    .community-actions,
+    .community-comments,
+    .community-filters,
+    .account-dialog,
+    .account-sync,
+    .account-menu
+  )
   button:focus-visible,
 .site-controls a:focus-visible {
   outline: 2px solid var(--site-gold);
   outline-offset: 3px;
 }
-:is(.community-content, .account-dialog, .account-sync, .account-menu)
+:is(
+    .community-form,
+    .community-actions,
+    .community-comments,
+    .community-filters,
+    .account-dialog,
+    .account-sync,
+    .account-menu
+  )
   button:disabled {
   opacity: 0.45;
   cursor: default;
 }
-:is(.community-content, .account-dialog)
+:is(
+    .community-form,
+    .community-actions,
+    .community-comments,
+    .community-filters,
+    .account-dialog
+  )
   :is(input:not([type='radio']), select, textarea) {
   box-sizing: border-box;
   width: 100%;
@@ -51,87 +90,54 @@
   color: var(--site-text);
   font: inherit;
 }
-:is(.community-content, .account-dialog)
+:is(
+    .community-form,
+    .community-actions,
+    .community-comments,
+    .community-filters,
+    .account-dialog
+  )
   :is(input, select, textarea):focus-visible {
   outline: 1px solid var(--site-gold);
   border-color: var(--site-gold);
 }
-:is(.community-content, .account-dialog) label {
+:is(
+    .community-form,
+    .community-actions,
+    .community-comments,
+    .community-filters,
+    .account-dialog
+  )
+  label {
   display: flex;
   flex-direction: column;
   gap: 8px;
   color: #bfb7a3;
 }
-:is(.community-content, .account-dialog) button.site-button--primary {
+:is(
+    .community-form,
+    .community-actions,
+    .community-comments,
+    .community-filters,
+    .account-dialog
+  )
+  button.site-button--primary {
   border-color: #a88b51;
   background: linear-gradient(#4b3f28, #312b20);
   color: #f0d99f;
 }
-:is(.community-content, .account-dialog) button.site-button--quiet {
+:is(
+    .community-form,
+    .community-actions,
+    .community-comments,
+    .community-filters,
+    .account-dialog
+  )
+  button.site-button--quiet {
   background: transparent;
   color: var(--site-muted);
 }
-.site-workspace-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: 4px;
-  min-width: 0;
-}
-.craft-header .site-workspace-links a {
-  padding: 10px 18px;
-  border: 1px solid transparent;
-  color: #bcb6a8;
-  text-decoration: none;
-}
-.craft-header .site-workspace-links a[aria-current='page'] {
-  color: #edd6a6;
-  border-bottom-color: #c7a465;
-  background: #282b22;
-}
-@media (max-width: 760px) {
-  .site-panel {
-    padding: 16px;
-  }
-  .craft-header .site-workspace-links a {
-    padding: 10px 8px;
-    font-size: 14px;
-  }
-  :is(.community-content, .account-dialog) :is(input, textarea, select) {
-    font-size: 16px;
-  }
-}
-.account-library-menu {
-  position: relative;
-  order: 3;
-}
-.account-library-menu summary {
-  display: grid;
-  place-items: center;
-  min-width: 36px;
-  min-height: 36px;
-  cursor: pointer;
-  font-size: 24px;
-  color: #d6bd82;
-  list-style: none;
-  border: 1px solid #494737;
-  border-radius: 3px;
-}
-.account-library-menu summary::-webkit-details-marker {
-  display: none;
-}
-.account-library-menu__content {
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  z-index: 100;
-  padding: 8px;
-  border: 1px solid #63583f;
-  border-radius: 3px;
-  background: #191c19;
-  white-space: nowrap;
-  box-shadow: 0 6px 20px #0008;
-}
+
 .account-menu > span:not([role='alert']) {
   max-width: 150px;
   overflow: hidden;
@@ -139,6 +145,13 @@
   white-space: nowrap;
 }
 @media (max-width: 760px) {
+  .site-panel {
+    padding: 16px;
+  }
+  :is(.community-form, .community-filters, .community-comments, .account-dialog)
+    :is(input, textarea, select) {
+    font-size: 16px;
+  }
   .craft-page .craft-header {
     grid-template-columns: minmax(0, 1fr) auto;
   }
@@ -180,16 +193,15 @@
   }
   .craft-page .craft-header .workspace-nav {
     grid-row: 3;
+    flex-wrap: wrap;
   }
-  .craft-page .site-workspace-links {
+  .craft-page .craft-header .workspace-nav [role='tablist'] {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    width: 100%;
+    flex: 1 1 100%;
   }
-  .craft-page .site-workspace-links a {
-    text-align: center;
-    display: grid;
-    place-items: center;
+  .craft-page .craft-header .workspace-nav [role='tab'] {
+    white-space: normal;
     padding: 8px 4px;
     font-size: 13px;
   }

@@ -1,0 +1,11 @@
+/* The same item typography in the workbench, private history and public posts. */
+.session-detail .item-card {
+  font-size: 17.33px;
+}
+.session-detail .item-card__header {
+  font-size: 24.93px;
+}
+.session-detail .item-card__modifier-detail > span,
+.session-detail .item-card__affix {
+  font-size: 14.67px;
+}

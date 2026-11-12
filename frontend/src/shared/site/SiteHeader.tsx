@@ -1,3 +1,4 @@
+import { AppLink } from '../navigation/AppLink'
 import type { ReactNode } from 'react'
 import { useI18n } from '../i18n/i18n'
 import { LocaleSelector } from '../i18n/LocaleSelector'
@@ -16,7 +17,7 @@ export function SiteHeader({
   return (
     <header className="craft-header">
       <div className="craft-header__identity">
-        <a
+        <AppLink
           className="craft-brand"
           href="/"
           aria-label={t('ui.exile_hephaistos_home')}
@@ -28,7 +29,7 @@ export function SiteHeader({
             EXILE <b>HEPHAISTOS</b>
             <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
           </span>
-        </a>
+        </AppLink>
         <LeagueMark />
         <AccountMenu />
       </div>

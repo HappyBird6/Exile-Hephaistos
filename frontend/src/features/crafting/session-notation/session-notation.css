@@ -171,3 +171,18 @@
   opacity: 0.5;
   cursor: default;
 }
+
+/* Workbench and community detail share the same record layout and scroll behavior. */
+.wb-session-notation {
+  flex: 1;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.wb-session-notation__steps {
+  flex: 1 1 0;
+  min-height: 0;
+  max-height: none;
+  align-content: start;
+  grid-auto-rows: max-content;
+}

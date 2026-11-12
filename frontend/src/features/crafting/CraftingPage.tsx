@@ -1,5 +1,10 @@
+import { workspacePath } from '../../shared/site/workspaceRoutes'
+import {
+  navigate,
+  subscribeAppLocation,
+} from '../../shared/navigation/navigation'
+import { WorkspaceNavigation } from '../../shared/site/WorkspaceNavigation'
 import { freshSession } from './session-library/freshSession'
-import { communityText } from '../community/messages'
 import { accountScope } from '../account/auth'
 import { SiteHeader } from '../../shared/site/SiteHeader'
 import { SessionDetail } from './session-detail/SessionDetail'
@@ -33,7 +38,6 @@ import type { Item } from './itemModels'
 import { unidentifiedRuneEffects } from './socketAugments'
 import { CurrencyPriceContext } from './currency-prices/context'
 import { useCurrencyPrices } from './currency-prices/useCurrencyPrices'
-import { CurrencyTicker } from './currency-prices/CurrencyPrices'
 import { SessionContinuation } from './session-library/SessionContinuation'
 import { revealAction } from './abyss-workbench/revealAction'
 import { currentItemText } from './currentItemText'
@@ -95,7 +99,6 @@ const SessionHistoryWorkspace = lazy(() =>
     default: m.SessionHistoryWorkspace,
   })),
 )
-import { sessionLibraryMessages } from './session-library/sessionLibraryMessages'
 import { sessionTitle } from './session-library/sessionTitle'
 import {
   queueSessionDeletion,
@@ -205,11 +208,6 @@ const workspaceTabs = (['workbench', 'support', 'history'] as const).filter(
   (tab) =>
     tab !== 'support' || import.meta.env.VITE_CRAFT_SUPPORT_ENABLED !== 'false',
 )
-const workspacePanels = {
-  workbench: 'workbench-panel-simulation',
-  support: 'panel-support',
-  history: 'workbench-panel-history',
-} as const
 
 type Selection = { id: string; name: string; image: string }
 
@@ -426,7 +424,25 @@ function ReadyCraftingPage({
   }, [view])
   const [supportVisited, setSupportVisited] = useState(view === 'support')
   const [historyVisited, setHistoryVisited] = useState(view === 'history')
+  useEffect(
+    () =>
+      subscribeAppLocation(() => {
+        const entry = new URLSearchParams(location.search).get('workbench')
+        const tab = entry === 'simulation' ? 'workbench' : entry
+        if (
+          tab === 'history' ||
+          tab === 'workbench' ||
+          (tab === 'support' && workspaceTabs.includes('support'))
+        ) {
+          setViewState(tab)
+          if (tab === 'support') setSupportVisited(true)
+          if (tab === 'history') setHistoryVisited(true)
+        }
+      }),
+    [],
+  )
   function setView(next: (typeof workspaceTabs)[number]) {
+    navigate(workspacePath(next), { replace: true, scroll: false })
     if (next === 'support') setSupportVisited(true)
     if (next === 'history') setHistoryVisited(true)
     setViewState(next)
@@ -2112,63 +2128,22 @@ function ReadyCraftingPage({
     >
       <SiteHeader
         navigation={
-          <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
-            <div role="tablist" aria-label={t('ui.crafting_workspace')}>
-              {workspaceTabs.map((tab, index) => (
-                <button
-                  key={tab}
-                  type="button"
-                  role="tab"
-                  id={`workspace-${tab}`}
-                  aria-selected={view === tab}
-                  aria-controls={workspacePanels[tab]}
-                  tabIndex={view === tab ? 0 : -1}
-                  disabled={workbenchBusy}
-                  onClick={() => {
-                    if (mutationLocked()) return
-                    setView(tab)
-                    setLeftMenu(null)
-                    setHeld(null)
-                    setSelected(null)
-                    setPointer(null)
-                  }}
-                  onKeyDown={(event) => {
-                    if (mutationLocked()) return
-                    if (
-                      !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
-                        event.key,
-                      )
-                    )
-                      return
-                    event.preventDefault()
-                    const next =
-                      event.key === 'Home'
-                        ? 'workbench'
-                        : event.key === 'End'
-                          ? workspaceTabs.at(-1)!
-                          : workspaceTabs[
-                              (index +
-                                (event.key === 'ArrowRight' ? 1 : -1) +
-                                workspaceTabs.length) %
-                                workspaceTabs.length
-                            ]!
-                    setView(next)
-                    setLeftMenu(null)
-                    setHeld(null)
-                    setSelected(null)
-                    setPointer(null)
-                    document.getElementById(`workspace-${next}`)?.focus()
-                  }}
-                >
-                  {tab === 'history'
-                    ? sessionLibraryMessages[locale].history
-                    : t(`workspace.${tab}`)}
-                </button>
-              ))}
-            </div>
-            <a href="/community">{communityText(locale).board}</a>
-            <CurrencyTicker />
-          </nav>
+          <WorkspaceNavigation
+            active={view}
+            disabled={workbenchBusy}
+            onSelect={(tab) => {
+              if (mutationLocked()) return
+              if (tab === 'community') {
+                navigate('/community')
+                return
+              }
+              setView(tab)
+              setLeftMenu(null)
+              setHeld(null)
+              setSelected(null)
+              setPointer(null)
+            }}
+          />
         }
         languageControls={
           <fieldset

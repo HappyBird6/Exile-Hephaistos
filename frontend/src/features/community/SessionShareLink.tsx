@@ -1,3 +1,4 @@
+import { AppLink } from '../../shared/navigation/AppLink'
 import { useQuery } from '@tanstack/react-query'
 import { useI18n } from '../../shared/i18n/i18n'
 import { accountScope } from '../account/auth'
@@ -15,8 +16,12 @@ export function SessionShareLink({ id }: { id: string }) {
     retry: false,
   })
   return linked.data?.length ? (
-    <a href={'/community/post/' + linked.data[0]!.id}>{t.viewPost}</a>
+    <AppLink href={'/community/post/' + linked.data[0]!.id}>
+      {t.viewPost}
+    </AppLink>
   ) : (
-    <a href={'/community/new?session=' + encodeURIComponent(id)}>{t.newPost}</a>
+    <AppLink href={'/community/new?session=' + encodeURIComponent(id)}>
+      {t.newPost}
+    </AppLink>
   )
 }

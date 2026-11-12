@@ -1,152 +1,268 @@
-import { revisionText } from './revisionMessages'
-import { basePolicy } from '../crafting/baseRegistry'
+import { useRef } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useI18n, gameName, uiText } from '../../shared/i18n/i18n'
-import { BaseImage } from '../crafting/base-picker/BaseImage'
+import { AppLink } from '../../shared/navigation/AppLink'
+import { navigate, useAppLocation } from '../../shared/navigation/navigation'
+import { HistoryWorkspaceLayout } from '../crafting/session-library/HistoryWorkspaceLayout'
+import { SessionListCard } from '../crafting/session-library/SessionListCard'
+import { SessionDetail } from '../crafting/session-detail/SessionDetail'
+import { validStoredFilm } from '../crafting/workbenchHistory'
+import { basePolicy } from '../crafting/baseRegistry'
+import { CommunityBoardsNav } from './CommunityBoardsNav'
+import { revisionText } from './revisionMessages'
 import { communityText } from './messages'
 import { CommunityShell } from './CommunityShell'
-import { boardRequest } from './api'
-import type { Page, Options } from './api'
+import { boardRequest, type Page, type Options, type Post } from './api'
 export function CommunityList() {
+  useAppLocation()
   const { locale } = useI18n(),
     t = communityText(locale),
-    params = new URLSearchParams(location.search)
+    r = revisionText(locale)
+  const params = new URLSearchParams(location.search),
+    queryParams = new URLSearchParams(params)
+  queryParams.delete('selected')
+  const preview = useRef<HTMLElement>(null)
   const options = useQuery({
     queryKey: ['community', 'options'],
     queryFn: () => boardRequest<Options>('options'),
     staleTime: 60000,
   })
   const posts = useQuery({
-    queryKey: ['community', 'list', params.toString()],
-    queryFn: ({ signal }) => boardRequest<Page>('posts?' + params, { signal }),
+    queryKey: ['community', 'list', queryParams.toString()],
+    queryFn: ({ signal }) =>
+      boardRequest<Page>('posts?' + queryParams, { signal }),
+  })
+  const selected =
+    posts.data?.posts.find((p) => p.id === params.get('selected')) ??
+    posts.data?.posts[0]
+  const detail = useQuery({
+    queryKey: ['community', 'post', selected?.id],
+    enabled: !!selected,
+    queryFn: ({ signal }) =>
+      boardRequest<Post>('posts/' + selected!.id, { signal }),
   })
   function filter(key: string, value: string) {
     const next = new URLSearchParams(location.search)
     if (value) next.set(key, value)
     else next.delete(key)
     next.delete('page')
+    next.delete('selected')
     if (key === 'itemClass') next.delete('base')
-    location.href = '/community?' + next
+    navigate('/community?' + next, { scroll: false })
   }
+  function select(id: string) {
+    const next = new URLSearchParams(location.search)
+    next.set('selected', id)
+    navigate('/community?' + next, { replace: true, scroll: false })
+    if (window.innerWidth <= 760)
+      preview.current?.scrollIntoView({ block: 'nearest' })
+  }
+  const detailsHref = selected
+    ? '/community/post/' +
+      selected.id +
+      '?' +
+      new URLSearchParams({
+        from:
+          '?' +
+          new URLSearchParams({
+            ...Object.fromEntries(params),
+            selected: selected.id,
+          }),
+      })
+    : '/community'
   return (
     <CommunityShell>
-      <h1>{t.board}</h1>
-      <div className="wb-history-workspace community-layout">
-        <aside className="wb-history-nav">
-          <label>
-            {revisionText(locale).itemClass}
-            <select
-              aria-label={revisionText(locale).itemClass}
-              value={params.get('itemClass') ?? ''}
-              onChange={(e) => filter('itemClass', e.target.value)}
-            >
-              <option value="">{t.all}</option>
-              {options.data?.classes.map((name) => (
-                <option key={name} value={name}>
-                  {uiText(name, locale)}
-                </option>
-              ))}
-            </select>
-          </label>
-          <label>
-            {revisionText(locale).base}
-            <select
-              aria-label={revisionText(locale).base}
-              value={params.get('base') ?? ''}
-              onChange={(e) => filter('base', e.target.value)}
-            >
-              <option value="">{t.all}</option>
-              {options.data?.bases
-                .filter(
-                  (id) =>
-                    !params.get('itemClass') ||
-                    basePolicy(id)?.itemClass === params.get('itemClass'),
-                )
-                .map((id) => (
-                  <option key={id} value={id}>
-                    {gameName(id, id, locale)}
-                  </option>
-                ))}
-            </select>
-          </label>
-          <label>
-            {t.version}
-            <select
-              aria-label={t.version}
-              value={params.get('version') ?? ''}
-              onChange={(e) => filter('version', e.target.value)}
-            >
-              <option value="">{t.all}</option>
-              {Array.from(
-                new Set([
-                  options.data?.currentVersion,
-                  ...(options.data?.versions ?? []),
-                ]),
-              )
-                .filter(Boolean)
-                .map((v) => (
-                  <option key={v} value={v}>
-                    {v}
-                  </option>
-                ))}
-            </select>
-          </label>
-          {params.get('author') && <a href="/community">{t.all}</a>}
-        </aside>
-        <section className="wb-history-content">
-          <div className="community-list-actions">
-            <a href="/community/new">{t.newPost}</a>
-            <select
-              aria-label={t.popular}
-              value={params.get('sort') ?? 'newest'}
-              onChange={(e) => filter('sort', e.target.value)}
-            >
-              <option value="newest">{t.newest}</option>
-              <option value="popular">{t.popular}</option>
-            </select>
-            <Pagination page={posts.data} />
-          </div>
-          {posts.isPending && <p role="status">…</p>}
-          {posts.isError && <p role="alert">{t.error}</p>}
-          {posts.data?.posts.length === 0 && <p>{t.empty}</p>}
-          <div className="community-posts">
-            {posts.data?.posts.map((post) => (
-              <article className="wb-session-card" key={post.id}>
-                <a
-                  className="community-post-link"
-                  href={'/community/post/' + post.id}
+      <div className="workspace-panel stash-panel wb-history-panel">
+        <HistoryWorkspaceLayout
+          navigation={<CommunityBoardsNav />}
+          heading={
+            <>
+              <h2>{t.board}</h2>
+              <div className="wb-history-heading__actions">
+                <AppLink
+                  className="wb-session-card__overview"
+                  href="/community/new"
                 >
-                  <BaseImage
-                    baseItemId={post.baseId}
-                    label={gameName(post.baseId, post.baseId, locale)}
-                  />
-                  <div>
-                    <h2>
-                      {post.title || gameName(post.baseId, post.baseId, locale)}
-                    </h2>
-                    <p>
-                      {post.gameVersion} · {t.session} {post.steps}
-                    </p>
-                    <p>
-                      {t.downloads} {post.downloads} · {t.votes}{' '}
-                      {post.recommendations}
-                    </p>
-                    <time>
-                      {new Date(post.createdAt).toLocaleString(locale)}
-                    </time>
+                  {t.newPost}
+                </AppLink>
+              </div>
+            </>
+          }
+          beforeColumns={
+            <>
+              <div className="community-filters">
+                <label>
+                  {r.itemClass}
+                  <select
+                    aria-label={r.itemClass}
+                    value={params.get('itemClass') ?? ''}
+                    onChange={(e) => filter('itemClass', e.target.value)}
+                  >
+                    <option value="">{t.all}</option>
+                    {options.data?.classes.map((name) => (
+                      <option key={name} value={name}>
+                        {uiText(name, locale)}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+                <label>
+                  {r.base}
+                  <select
+                    aria-label={r.base}
+                    value={params.get('base') ?? ''}
+                    onChange={(e) => filter('base', e.target.value)}
+                  >
+                    <option value="">{t.all}</option>
+                    {options.data?.bases
+                      .filter(
+                        (id) =>
+                          !params.get('itemClass') ||
+                          basePolicy(id)?.itemClass === params.get('itemClass'),
+                      )
+                      .map((id) => (
+                        <option key={id} value={id}>
+                          {gameName(id, id, locale)}
+                        </option>
+                      ))}
+                  </select>
+                </label>
+                <label>
+                  {t.version}
+                  <select
+                    aria-label={t.version}
+                    value={params.get('version') ?? ''}
+                    onChange={(e) => filter('version', e.target.value)}
+                  >
+                    <option value="">{t.all}</option>
+                    {Array.from(
+                      new Set([
+                        options.data?.currentVersion,
+                        ...(options.data?.versions ?? []),
+                      ]),
+                    )
+                      .filter(Boolean)
+                      .map((v) => (
+                        <option key={v} value={v}>
+                          {v}
+                        </option>
+                      ))}
+                  </select>
+                </label>
+                <label>
+                  {t.popular}
+                  <select
+                    aria-label={t.popular}
+                    value={params.get('sort') ?? 'newest'}
+                    onChange={(e) => filter('sort', e.target.value)}
+                  >
+                    <option value="newest">{t.newest}</option>
+                    <option value="popular">{t.popular}</option>
+                  </select>
+                </label>
+              </div>
+              {params.get('author') && (
+                <AppLink className="community-author-filter" href="/community">
+                  {t.all}
+                </AppLink>
+              )}
+              {posts.isPending && <p role="status">…</p>}
+              {(posts.isError || options.isError) && (
+                <p role="alert">{t.error}</p>
+              )}
+            </>
+          }
+          list={
+            <>
+              <Pagination page={posts.data} />
+              <div className="wb-history-list wb-scrollbar">
+                <div className="wb-session-library">
+                  {posts.data?.posts.length === 0 && <p>{t.empty}</p>}
+                  {posts.data?.posts.map((post) => {
+                    const baseName = gameName(post.baseId, post.baseId, locale),
+                      title = post.title || baseName
+                    return (
+                      <SessionListCard
+                        key={post.id}
+                        title={title}
+                        baseId={post.baseId}
+                        baseName={baseName}
+                        selected={selected?.id === post.id}
+                        selectLabel={title}
+                        onSelect={() => select(post.id)}
+                        metadata={
+                          <>
+                            <small>
+                              {baseName} · {post.gameVersion}
+                            </small>
+                            <small>
+                              {t.downloads} {post.downloads} · {t.votes}{' '}
+                              {post.recommendations}
+                            </small>
+                          </>
+                        }
+                        actions={
+                          <>
+                            <span className="community-card-date">
+                              {new Date(post.createdAt).toLocaleDateString(
+                                locale,
+                              )}
+                            </span>
+                            {post.authorId ? (
+                              <AppLink
+                                href={'/community?author=' + post.authorId}
+                              >
+                                {post.author}
+                              </AppLink>
+                            ) : (
+                              <span>{t.anonymous}</span>
+                            )}
+                          </>
+                        }
+                      />
+                    )
+                  })}
+                </div>
+              </div>
+            </>
+          }
+          preview={
+            selected ? (
+              <section
+                ref={preview}
+                className="wb-history-preview"
+                aria-label={t.session}
+              >
+                <div className="wb-history-preview__heading">
+                  <div className="wb-history-title">
+                    <h3>
+                      {selected.title ||
+                        gameName(selected.baseId, selected.baseId, locale)}
+                    </h3>
                   </div>
-                </a>
-                {post.authorId ? (
-                  <a href={'/community?author=' + post.authorId}>
-                    {post.author}
-                  </a>
+                </div>
+                {detail.isPending ? (
+                  <p role="status">…</p>
+                ) : detail.data && validStoredFilm(detail.data.film) ? (
+                  <SessionDetail
+                    film={detail.data.film}
+                    cursor={detail.data.sharedStep}
+                    itemClassName="wb-history-preview__item"
+                    actions={
+                      <div className="wb-history-preview__actions">
+                        <AppLink href={detailsHref}>
+                          {r.details} <span aria-hidden="true">→</span>
+                        </AppLink>
+                      </div>
+                    }
+                  />
                 ) : (
-                  <span>{t.anonymous}</span>
+                  <p role="alert">{t.error}</p>
                 )}
-              </article>
-            ))}
-          </div>
-        </section>
+              </section>
+            ) : null
+          }
+        />
       </div>
     </CommunityShell>
   )
@@ -156,14 +272,21 @@ function Pagination({ page }: { page: Page | undefined }) {
     t = communityText(locale)
   if (!page) return null
   const pages = Math.max(1, Math.ceil(page.total / page.pageSize))
-  const link = (n: number) => {
+  const go = (n: number) => {
     const p = new URLSearchParams(location.search)
     p.set('page', String(n))
-    return '/community?' + p
+    p.delete('selected')
+    navigate('/community?' + p, { scroll: false })
   }
   return (
-    <nav aria-label={t.board} className="wb-history-pagination">
-      {page.page > 1 && <a href={link(page.page - 1)}>{t.previous}</a>}
+    <nav className="wb-history-pagination" aria-label={t.board}>
+      <button
+        disabled={page.page <= 1}
+        aria-label={t.previous}
+        onClick={() => go(page.page - 1)}
+      >
+        ‹
+      </button>
       {Array.from(
         new Set([
           1,
@@ -174,15 +297,21 @@ function Pagination({ page }: { page: Page | undefined }) {
         .filter((n) => n >= 1 && n <= pages)
         .sort((a, b) => a - b)
         .map((n) => (
-          <a
+          <button
             key={n}
-            href={link(n)}
             aria-current={n === page.page ? 'page' : undefined}
+            onClick={() => go(n)}
           >
             {n}
-          </a>
+          </button>
         ))}
-      {page.page < pages && <a href={link(page.page + 1)}>{t.next}</a>}
+      <button
+        disabled={page.page >= pages}
+        aria-label={t.next}
+        onClick={() => go(page.page + 1)}
+      >
+        ›
+      </button>
     </nav>
   )
 }

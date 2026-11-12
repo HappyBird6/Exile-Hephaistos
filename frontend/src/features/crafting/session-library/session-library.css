@@ -93,11 +93,14 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.wb-session-import__file {
+.wb-session-import__file,
+.wb-session-clear {
   position: relative;
   display: inline-flex;
   align-items: center;
   min-height: 30px;
+  color: inherit;
+  font: inherit;
   padding: 4px 8px;
   border: 1px solid #514b40;
   border-radius: 3px;
@@ -160,7 +163,7 @@
   border-right: 1px solid #494737;
   background: #161b19;
 }
-.wb-history-nav button {
+.wb-history-nav :is(button, a) {
   position: relative;
   display: flex;
   align-items: center;
@@ -174,11 +177,11 @@
   color: #bcb6a8;
   background: transparent;
 }
-.wb-history-nav button:hover {
+.wb-history-nav :is(button, a):hover {
   background: #252a22;
   color: #e7d7b3;
 }
-.wb-history-nav button[aria-current='page'] {
+.wb-history-nav :is(button, a)[aria-current='page'] {
   border-left-color: #c7a465;
   background: linear-gradient(90deg, #373122, #282b22);
   color: #edd6a6;
@@ -381,7 +384,7 @@
   .wb-history-nav {
     padding: 10px 6px;
   }
-  .wb-history-nav button {
+  .wb-history-nav :is(button, a) {
     flex-wrap: wrap;
     gap: 7px;
     padding: 10px 8px;
@@ -424,7 +427,7 @@
   .wb-history-nav {
     padding: 8px 4px;
   }
-  .wb-history-nav button {
+  .wb-history-nav :is(button, a) {
     font-size: 16px;
     gap: 6px;
   }
@@ -470,8 +473,6 @@
 
 /* Defer offscreen card painting without removing keyboard targets or browser find results. */
 .wb-session-card {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 160px;
 }
 
 .wb-history-pagination {
@@ -512,4 +513,15 @@
 .wb-base-picker__save-configured {
   width: 100%;
   margin-top: 10px;
+}
+
+.wb-history-nav a {
+  font: inherit;
+  text-decoration: none;
+}
+.wb-session-card__text {
+  min-width: 0;
+}
+.wb-session-card__text strong {
+  overflow-wrap: anywhere;
 }

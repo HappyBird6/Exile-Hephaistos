@@ -1,3 +1,5 @@
+import { AppLink } from '../../shared/navigation/AppLink'
+import { navigate } from '../../shared/navigation/navigation'
 import { publicFilm, exceedsShareLimit } from './sharedSnapshot'
 import { revisionText } from './revisionMessages'
 import { useState } from 'react'
@@ -79,7 +81,7 @@ export function CommunityCompose() {
                   revision: 0,
                 }),
               })
-              location.href = '/community/post/' + post.id
+              navigate('/community/post/' + post.id)
             } catch {
               setError(true)
             } finally {
@@ -118,12 +120,12 @@ export function CommunityCompose() {
             </datalist>
           </label>
           {linked.data?.length ? (
-            <a
+            <AppLink
               className="community-existing-post"
               href={'/community/post/' + linked.data[0]!.id}
             >
               {t.viewPost}
-            </a>
+            </AppLink>
           ) : auth?.user ? (
             <>
               <label>

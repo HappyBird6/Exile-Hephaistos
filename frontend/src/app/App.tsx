@@ -13,6 +13,7 @@ const CommunityDetail = lazy(() =>
     default: m.CommunityDetail,
   })),
 )
+import { useAppLocation } from '../shared/navigation/navigation'
 import { AccountBootstrap } from '../features/account/AccountBootstrap'
 const AdminPage = lazy(() =>
   import('../features/admin/AdminPage').then((m) => ({ default: m.AdminPage })),
@@ -33,6 +34,7 @@ import '../features/crafting/crafting.css'
 
 export function App() {
   const { locale } = useI18n()
+  useAppLocation()
   useEffect(() => {
     document.documentElement.lang = locale
   }, [locale])
@@ -45,6 +47,7 @@ export function App() {
   )
 }
 function AppContent() {
+  useAppLocation()
   useEffect(() => {
     if (window.location.pathname === '/admin/crawling') {
       window.history.replaceState(null, '', '/admin')

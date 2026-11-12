@@ -1,3 +1,5 @@
+import { HistoryWorkspaceLayout } from './HistoryWorkspaceLayout'
+import { ClearSessions } from '../../account/ClearSessions'
 import { SessionShareLink } from '../../community/SessionShareLink'
 import { saveBaseFavorite } from '../base-favorites/repository'
 import { baseFavoriteMessages } from '../base-favorites/messages'
@@ -80,38 +82,41 @@ export function SessionHistoryWorkspace({
   const finalFrame = selected?.frames.at(-1)
   const title = selected ? sessionTitle(selected, locale) : text.empty
   return (
-    <div className="wb-history-workspace">
-      <nav className="wb-history-nav" aria-label={text.navigation}>
-        {(['library', 'favorites'] as const).map((view) => (
-          <button
-            key={view}
-            type="button"
-            aria-current={filter === view ? 'page' : undefined}
-            onClick={() => {
-              setFilter(view)
-              setPage(1)
-              setFavoriteStatus('')
-            }}
-          >
-            <span
-              className={
-                view === 'favorites' ? 'session-favorite-icon' : undefined
-              }
-              aria-hidden="true"
+    <HistoryWorkspaceLayout
+      navigation={
+        <nav className="wb-history-nav" aria-label={text.navigation}>
+          {(['library', 'favorites'] as const).map((view) => (
+            <button
+              key={view}
+              type="button"
+              aria-current={filter === view ? 'page' : undefined}
+              onClick={() => {
+                setFilter(view)
+                setPage(1)
+                setFavoriteStatus('')
+              }}
             >
-              {view === 'library' ? '🕘' : '⭐'}
-            </span>
-            <span>{text[view]}</span>
-            <span className="wb-history-nav__count" aria-hidden="true">
-              {view === 'library'
-                ? library.history.films.length
-                : library.history.films.filter((film) => film.favorite).length}
-            </span>
-          </button>
-        ))}
-      </nav>
-      <div className="wb-history-content">
-        <header className="wb-history-heading">
+              <span
+                className={
+                  view === 'favorites' ? 'session-favorite-icon' : undefined
+                }
+                aria-hidden="true"
+              >
+                {view === 'library' ? '🕘' : '⭐'}
+              </span>
+              <span>{text[view]}</span>
+              <span className="wb-history-nav__count" aria-hidden="true">
+                {view === 'library'
+                  ? library.history.films.length
+                  : library.history.films.filter((film) => film.favorite)
+                      .length}
+              </span>
+            </button>
+          ))}
+        </nav>
+      }
+      heading={
+        <>
           <h2>{text[filter]}</h2>
           <div className="wb-history-heading__actions">
             <SessionImport
@@ -126,6 +131,7 @@ export function SessionHistoryWorkspace({
                 return true
               }}
             />
+            <ClearSessions disabled={library.disabled ?? false} />
             {undo && (
               <DeletionUndo
                 key={undo.expiresAt}
@@ -134,140 +140,139 @@ export function SessionHistoryWorkspace({
               />
             )}
           </div>
-        </header>
-        {error && <p role="alert">{error}</p>}
-        <div className="wb-history-import-preview" ref={importPreview} />
-        <div
-          className={`wb-history-columns${selected ? '' : ' wb-history-columns--empty'}`}
-        >
-          <div>
-            <nav
-              className="wb-history-pagination"
-              aria-label={pageLabels.join(' / ')}
+        </>
+      }
+      beforeColumns={
+        <>
+          {error && <p role="alert">{error}</p>}
+          <div className="wb-history-import-preview" ref={importPreview} />
+        </>
+      }
+      list={
+        <>
+          <nav
+            className="wb-history-pagination"
+            aria-label={pageLabels.join(' / ')}
+          >
+            <button
+              type="button"
+              disabled={currentPage === 1}
+              aria-label={pageLabels[0]}
+              onClick={() => setPage(currentPage - 1)}
             >
-              <button
-                type="button"
-                disabled={currentPage === 1}
-                aria-label={pageLabels[0]}
-                onClick={() => setPage(currentPage - 1)}
-              >
-                ‹
-              </button>
-              {Array.from({ length: pages }, (_, i) => i + 1)
-                .filter(
-                  (n) =>
-                    n === 1 || n === pages || Math.abs(n - currentPage) <= 2,
-                )
-                .map((n, i, shown) => (
-                  <span key={n}>
-                    {i > 0 && n - shown[i - 1]! > 1 && (
-                      <span aria-hidden="true">…</span>
+              ‹
+            </button>
+            {Array.from({ length: pages }, (_, i) => i + 1)
+              .filter(
+                (n) => n === 1 || n === pages || Math.abs(n - currentPage) <= 2,
+              )
+              .map((n, i, shown) => (
+                <span key={n}>
+                  {i > 0 && n - shown[i - 1]! > 1 && (
+                    <span aria-hidden="true">…</span>
+                  )}
+                  <button
+                    type="button"
+                    aria-current={n === currentPage ? 'page' : undefined}
+                    onClick={() => setPage(n)}
+                  >
+                    {n}
+                  </button>
+                </span>
+              ))}
+            <button
+              type="button"
+              disabled={currentPage === pages}
+              aria-label={pageLabels[1]}
+              onClick={() => setPage(currentPage + 1)}
+            >
+              ›
+            </button>
+          </nav>
+          <div className="wb-history-list wb-scrollbar">
+            <SessionLibrary
+              key={filter}
+              {...library}
+              page={currentPage}
+              selectedId={selected?.id ?? null}
+              favoritesOnly={filter === 'favorites'}
+              onSelect={(id) => {
+                setSelectedId(id)
+                if (window.innerWidth <= 760)
+                  preview.current?.scrollIntoView({ block: 'nearest' })
+              }}
+            />
+          </div>
+        </>
+      }
+      preview={
+        selected ? (
+          <section
+            ref={preview}
+            className="wb-history-preview"
+            aria-label={text.finalState}
+          >
+            <div className="wb-history-preview__heading">
+              <SessionTitleEditor
+                key={selected.id}
+                title={title}
+                disabled={library.disabled ?? false}
+                onSave={(value) => onRename(selected.id, value)}
+              />
+            </div>
+            {active && finalFrame && (
+              <SessionDetail
+                film={selected}
+                cursor={selected.frames.length - 1}
+                itemClassName="wb-history-preview__item"
+                actions={
+                  <div className="wb-history-preview__actions">
+                    <SessionShareLink id={selected.id} />
+                    <button
+                      type="button"
+                      disabled={library.disabled}
+                      onClick={() => onContinue(selected.id)}
+                    >
+                      {text.resume} <span aria-hidden="true">→</span>
+                    </button>
+                    {onNewCraft && (
+                      <button
+                        type="button"
+                        disabled={library.disabled}
+                        onClick={() => onNewCraft(selected.id)}
+                      >
+                        {freshCraftMessages[locale].fromItem}
+                      </button>
                     )}
                     <button
                       type="button"
-                      aria-current={n === currentPage ? 'page' : undefined}
-                      onClick={() => setPage(n)}
+                      disabled={library.disabled}
+                      onClick={() => {
+                        try {
+                          saveBaseFavorite(selected)
+                          setFavoriteStatus(baseFavoriteMessages[locale].saved)
+                        } catch {
+                          setFavoriteStatus(baseFavoriteMessages[locale].error)
+                        }
+                      }}
                     >
-                      {n}
+                      {baseFavoriteMessages[locale].add}
                     </button>
-                  </span>
-                ))}
-              <button
-                type="button"
-                disabled={currentPage === pages}
-                aria-label={pageLabels[1]}
-                onClick={() => setPage(currentPage + 1)}
-              >
-                ›
-              </button>
-            </nav>
-            <div className="wb-history-list wb-scrollbar">
-              <SessionLibrary
-                key={filter}
-                {...library}
-                page={currentPage}
-                selectedId={selected?.id ?? null}
-                favoritesOnly={filter === 'favorites'}
-                onSelect={(id) => {
-                  setSelectedId(id)
-                  if (window.innerWidth <= 760)
-                    preview.current?.scrollIntoView({ block: 'nearest' })
-                }}
+                    {favoriteStatus && (
+                      <span role="status">{favoriteStatus}</span>
+                    )}
+                    <a href={localHistoryUrl(selected.id, 'history', filter)}>
+                      {historyMessages[locale].title}{' '}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                }
               />
-            </div>
-          </div>
-          {selected && (
-            <section
-              ref={preview}
-              className="wb-history-preview"
-              aria-label={text.finalState}
-            >
-              <div className="wb-history-preview__heading">
-                <SessionTitleEditor
-                  key={selected.id}
-                  title={title}
-                  disabled={library.disabled ?? false}
-                  onSave={(value) => onRename(selected.id, value)}
-                />
-              </div>
-              {active && finalFrame && (
-                <SessionDetail
-                  film={selected}
-                  cursor={selected.frames.length - 1}
-                  itemClassName="wb-history-preview__item"
-                  actions={
-                    <div className="wb-history-preview__actions">
-                      <SessionShareLink id={selected.id} />
-                      <button
-                        type="button"
-                        disabled={library.disabled}
-                        onClick={() => onContinue(selected.id)}
-                      >
-                        {text.resume} <span aria-hidden="true">→</span>
-                      </button>
-                      {onNewCraft && (
-                        <button
-                          type="button"
-                          disabled={library.disabled}
-                          onClick={() => onNewCraft(selected.id)}
-                        >
-                          {freshCraftMessages[locale].fromItem}
-                        </button>
-                      )}
-                      <button
-                        type="button"
-                        disabled={library.disabled}
-                        onClick={() => {
-                          try {
-                            saveBaseFavorite(selected)
-                            setFavoriteStatus(
-                              baseFavoriteMessages[locale].saved,
-                            )
-                          } catch {
-                            setFavoriteStatus(
-                              baseFavoriteMessages[locale].error,
-                            )
-                          }
-                        }}
-                      >
-                        {baseFavoriteMessages[locale].add}
-                      </button>
-                      {favoriteStatus && (
-                        <span role="status">{favoriteStatus}</span>
-                      )}
-                      <a href={localHistoryUrl(selected.id, 'history', filter)}>
-                        {historyMessages[locale].title}{' '}
-                        <span aria-hidden="true">↗</span>
-                      </a>
-                    </div>
-                  }
-                />
-              )}
-            </section>
-          )}
-        </div>
-      </div>
-    </div>
+            )}
+          </section>
+        ) : null
+      }
+    />
   )
 }
 

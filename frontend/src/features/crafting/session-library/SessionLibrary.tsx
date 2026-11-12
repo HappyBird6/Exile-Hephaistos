@@ -1,7 +1,7 @@
 import { orderedFilms } from '../workbenchHistory'
 import { useState } from 'react'
 import { useI18n, gameName } from '../../../shared/i18n/i18n'
-import { BaseImage } from '../base-picker/BaseImage'
+import { SessionListCard } from './SessionListCard'
 import { historyMessages } from '../session-history/messages'
 import {
   decodeDocument,
@@ -55,37 +55,16 @@ export function SessionLibrary({
           const baseId = film.frames.at(-1)?.state.baseItemId ?? ''
           const baseName = gameName(baseId, t('ui.equipment_base'), locale)
           return (
-            <article
+            <SessionListCard
               key={film.id}
-              className="wb-session-card"
-              data-active={selectedId === film.id}
-              aria-label={title}
-              onClick={(event) => {
-                if (
-                  event.target instanceof Element &&
-                  !event.target.closest('button, a, input')
-                )
-                  onSelect(film.id)
-              }}
-            >
-              <div className="wb-session-card__main">
-                <button
-                  type="button"
-                  className="wb-session-card__select"
-                  aria-label={`${text.select}: ${title}`}
-                  aria-pressed={selectedId === film.id}
-                  onClick={() => onSelect(film.id)}
-                >
-                  <BaseImage
-                    baseItemId={baseId}
-                    label={baseName}
-                    image={imageForBase?.(baseId)}
-                  />
-                  <span className="wb-session-card__text">
-                    <strong>{title}</strong>
-                    <small>{baseName}</small>
-                  </span>
-                </button>
+              title={title}
+              baseId={baseId}
+              baseName={baseName}
+              image={imageForBase?.(baseId)}
+              selected={selectedId === film.id}
+              selectLabel={`${text.select}: ${title}`}
+              onSelect={() => onSelect(film.id)}
+              trailing={
                 <button
                   type="button"
                   className="wb-session-card__star"
@@ -98,52 +77,54 @@ export function SessionLibrary({
                     ⭐
                   </span>
                 </button>
-              </div>
-              <div className="wb-session-card__actions">
-                <a
-                  className="wb-session-card__overview"
-                  href={localHistoryUrl(
-                    film.id,
-                    'history',
-                    favoritesOnly ? 'favorites' : 'library',
-                  )}
-                >
-                  <svg viewBox="0 0 20 20" aria-hidden="true">
-                    <rect x="2.5" y="3" width="15" height="14" rx="2" />
-                    <path d="M6 7h8M6 10h8M6 13h5" />
-                  </svg>
-                  {transfer.title}
-                </a>
-                <button
-                  type="button"
-                  aria-label={`${transfer.export}: ${title}`}
-                  onClick={() => {
-                    setError(false)
-                    try {
-                      const raw = JSON.stringify(documentFor(film), null, 2)
-                      decodeDocument(raw)
-                      saveBlob(
-                        new Blob([raw], { type: 'application/json' }),
-                        'session.json',
-                      )
-                    } catch {
-                      setError(true)
-                    }
-                  }}
-                >
-                  {transfer.export}
-                </button>
-                <button
-                  type="button"
-                  className="wb-session-card__delete"
-                  disabled={disabled}
-                  aria-label={`${text.remove}: ${title}`}
-                  onClick={() => onDelete(film.id)}
-                >
-                  {text.remove}
-                </button>
-              </div>
-            </article>
+              }
+              actions={
+                <>
+                  <a
+                    className="wb-session-card__overview"
+                    href={localHistoryUrl(
+                      film.id,
+                      'history',
+                      favoritesOnly ? 'favorites' : 'library',
+                    )}
+                  >
+                    <svg viewBox="0 0 20 20" aria-hidden="true">
+                      <rect x="2.5" y="3" width="15" height="14" rx="2" />
+                      <path d="M6 7h8M6 10h8M6 13h5" />
+                    </svg>
+                    {transfer.title}
+                  </a>
+                  <button
+                    type="button"
+                    aria-label={`${transfer.export}: ${title}`}
+                    onClick={() => {
+                      setError(false)
+                      try {
+                        const raw = JSON.stringify(documentFor(film), null, 2)
+                        decodeDocument(raw)
+                        saveBlob(
+                          new Blob([raw], { type: 'application/json' }),
+                          'session.json',
+                        )
+                      } catch {
+                        setError(true)
+                      }
+                    }}
+                  >
+                    {transfer.export}
+                  </button>
+                  <button
+                    type="button"
+                    className="wb-session-card__delete"
+                    disabled={disabled}
+                    aria-label={`${text.remove}: ${title}`}
+                    onClick={() => onDelete(film.id)}
+                  >
+                    {text.remove}
+                  </button>
+                </>
+              }
+            />
           )
         })}
     </div>

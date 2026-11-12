@@ -1,3 +1,4 @@
+import { navigate } from '../../shared/navigation/navigation'
 import { useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useAccount, accountScope } from '../account/auth'
@@ -119,7 +120,7 @@ export function PostEditor({ post }: { post: Post }) {
                 revision: post.revision,
               }),
             })
-            location.href = '/community'
+            navigate('/community')
             return
           }
           setMode(null)

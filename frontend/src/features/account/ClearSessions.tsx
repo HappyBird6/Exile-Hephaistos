@@ -77,7 +77,8 @@ const labels = {
 }
 export function ClearSessions({
   browserOnly = false,
-}: { browserOnly?: boolean } = {}) {
+  disabled = false,
+}: { browserOnly?: boolean; disabled?: boolean } = {}) {
   const { locale } = useI18n(),
     auth = useAccount(),
     t = labels[locale]
@@ -88,7 +89,13 @@ export function ClearSessions({
     [error, setError] = useState(false)
   return (
     <>
-      <button onClick={() => dialog.current?.showModal()}>{t[0]}</button>
+      <button
+        className="wb-session-clear"
+        disabled={disabled}
+        onClick={() => dialog.current?.showModal()}
+      >
+        {t[0]}
+      </button>
       <dialog ref={dialog} className="account-dialog">
         <h2>{t[0]}</h2>
         <p>{t[3]}</p>

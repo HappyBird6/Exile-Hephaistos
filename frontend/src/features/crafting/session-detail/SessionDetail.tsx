@@ -5,6 +5,7 @@ import { HistoryCard } from '../session-history/HistoryCard'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { SessionNotation } from '../session-notation/SessionNotation'
 import type { WorkbenchResource } from '../stash/stashTypes'
+import './session-detail.css'
 
 /** Display only: the caller owns persistence, cursor changes and reuse permissions. */
 export function SessionDetail({
@@ -38,7 +39,7 @@ export function SessionDetail({
   const index = Math.max(0, Math.min(cursor, (film?.frames.length ?? 1) - 1))
   const frame = film?.frames[index]
   return (
-    <div className={className}>
+    <div className={['session-detail', className].filter(Boolean).join(' ')}>
       {onNavigate && (
         <div className="workbench-film-toolbar">
           <div className="workbench-film-controls">

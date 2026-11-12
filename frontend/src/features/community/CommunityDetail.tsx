@@ -1,3 +1,5 @@
+import { AppLink } from '../../shared/navigation/AppLink'
+import { navigate } from '../../shared/navigation/navigation'
 import { Comments } from './Comments'
 import { PostReactions } from './PostReactions'
 import { recordDownload } from './downloads'
@@ -54,7 +56,7 @@ function Detail({ post }: { post: Post }) {
       void client.invalidateQueries({
         queryKey: ['community', 'stats', post.id],
       })
-      if (next) location.href = next
+      if (next) navigate(next)
       else setStatus(t.saved)
     } catch {
       setStatus(t.error)
@@ -64,11 +66,24 @@ function Detail({ post }: { post: Post }) {
   }
   return (
     <>
+      <AppLink
+        className="community-back"
+        href={
+          '/community' +
+          (new URLSearchParams(location.search).get('from')?.startsWith('?')
+            ? new URLSearchParams(location.search).get('from')
+            : '?selected=' + post.id)
+        }
+      >
+        {t.board} ←
+      </AppLink>
       <header className="community-detail-header">
         <h1>{post.title || gameName(post.baseId, post.baseId, locale)}</h1>
         <p className="community-detail-meta">
           {post.authorId ? (
-            <a href={'/community?author=' + post.authorId}>{post.author}</a>
+            <AppLink href={'/community?author=' + post.authorId}>
+              {post.author}
+            </AppLink>
           ) : (
             t.anonymous
           )}{' '}

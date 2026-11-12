@@ -1,5 +1,3 @@
-import { libraryMessages } from './libraryMessages'
-import { ClearSessions } from './ClearSessions'
 import { useEffect, useRef, useState } from 'react'
 import { authenticate, loadAccount, logout, useAccount } from './auth'
 import { useI18n } from '../../shared/i18n/i18n'
@@ -30,17 +28,6 @@ export function AccountMenu() {
   if (auth?.enabled === false) return null
   return (
     <div className="account-menu">
-      <details className="account-library-menu">
-        <summary
-          aria-label={libraryMessages(locale).manage}
-          title={libraryMessages(locale).manage}
-        >
-          ⋯
-        </summary>
-        <div className="account-library-menu__content">
-          <ClearSessions />
-        </div>
-      </details>
       {auth?.user ? (
         <>
           <span>{auth.user.displayName}</span>

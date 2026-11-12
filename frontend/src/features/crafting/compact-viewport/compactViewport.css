@@ -136,19 +136,6 @@
 .craft-page--workbench .bench-item-card {
   flex: none;
 }
-.craft-page--workbench .wb-session-notation {
-  flex: 1;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-}
-.craft-page--workbench .wb-session-notation__steps {
-  flex: 1 1 0;
-  min-height: 0;
-  max-height: none;
-  align-content: start;
-  grid-auto-rows: max-content;
-}
 
 @media (max-width: 600px) {
   .workbench-stash-column {

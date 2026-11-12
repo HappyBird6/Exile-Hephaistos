@@ -75,7 +75,18 @@ const rows: Record<Locale, readonly string[]> = {
 }
 export function revisionText(locale: Locale) {
   const r = rows[locale]
+  const details = {
+    ko: '상세보기',
+    en: 'View details',
+    'zh-CN': '查看详情',
+    'zh-TW': '查看詳情',
+    ja: '詳細を見る',
+    es: 'Ver detalles',
+    ru: 'Подробнее',
+    th: 'ดูรายละเอียด',
+  }
   return {
+    details: details[locale],
     itemClass: r[0]!,
     base: r[1]!,
     editText: r[2]!,

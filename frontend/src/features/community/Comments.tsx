@@ -1,3 +1,4 @@
+import { AppLink } from '../../shared/navigation/AppLink'
 import { useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useAccount } from '../account/auth'
@@ -120,7 +121,9 @@ export function Comments({ post }: { post: string }) {
       {query.data?.comments.map((c) => (
         <article key={c.id} className="community-comment">
           <header>
-            <a href={'/community?author=' + c.authorId}>{c.author}</a>
+            <AppLink href={'/community?author=' + c.authorId}>
+              {c.author}
+            </AppLink>
             <time>{new Date(c.createdAt).toLocaleString(locale)}</time>
           </header>
           <p className="community-body">{c.body}</p>
