@@ -198,3 +198,16 @@ export function currentItemText(
     )
   return lines.join('\n')
 }
+
+/** Optional editor text must never prevent viewing a preserved item or its history.
+ * Keep the serializer strict: unsupported options are not omitted or invented.
+ */
+export function tryCurrentItemText(
+  ...args: Parameters<typeof currentItemText>
+): string | null {
+  try {
+    return currentItemText(...args)
+  } catch {
+    return null
+  }
+}

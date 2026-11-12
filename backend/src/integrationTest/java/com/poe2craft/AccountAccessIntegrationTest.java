@@ -32,6 +32,7 @@ class AccountAccessIntegrationTest {
 
   @DynamicPropertySource
   static void properties(DynamicPropertyRegistry p) {
+    p.add("account.auth.new-sessions-per-minute", () -> "3");
     p.add("spring.flyway.locations", () -> "classpath:db/migration,classpath:db/testmigration");
     p.add("spring.datasource.url", PG::getJdbcUrl);
     p.add("spring.datasource.username", PG::getUsername);
@@ -160,5 +161,60 @@ class AccountAccessIntegrationTest {
                 .contentType("application/json")
                 .content("{}"))
         .andExpect(status().isTooManyRequests());
+  }
+
+  @Test
+  void boundsCookieLessSessionCreationAcrossEntryPointsButKeepsExistingSessionsUsable()
+      throws Exception {
+    String ip = "192.0.2.55";
+    var first =
+        client(
+            mvc.perform(
+                    get("/api/account/me")
+                        .with(
+                            r -> {
+                              r.setRemoteAddr(ip);
+                              return r;
+                            }))
+                .andExpect(status().isOk())
+                .andReturn());
+    for (String path : java.util.List.of("/api/community/context", "/api/account/me")) {
+      mvc.perform(
+              get(path)
+                  .with(
+                      r -> {
+                        r.setRemoteAddr(ip);
+                        return r;
+                      }))
+          .andExpect(status().isOk());
+    }
+    mvc.perform(
+            get("/api/community/context")
+                .with(
+                    r -> {
+                      r.setRemoteAddr(ip);
+                      return r;
+                    }))
+        .andExpect(status().isTooManyRequests())
+        .andExpect(header().string("Retry-After", "60"));
+    mvc.perform(
+            get("/api/account/me")
+                .cookie(first.cookie())
+                .with(
+                    r -> {
+                      r.setRemoteAddr(ip);
+                      return r;
+                    }))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.csrf").value(first.csrf()));
+    mvc.perform(
+            get("/api/community/context")
+                .cookie(first.cookie())
+                .with(
+                    r -> {
+                      r.setRemoteAddr(ip);
+                      return r;
+                    }))
+        .andExpect(status().isOk());
   }
 }

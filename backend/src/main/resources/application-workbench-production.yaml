@@ -22,7 +22,7 @@ server:
 spring:
   datasource:
     hikari:
-      # 현재 작업대는 세션을 브라우저에 저장하므로 DB 연결을 넉넉하게 선점하지 않는다.
+      # 계정 동기화·게시판·운영 로그가 공유하는 DB 연결 예산. 브라우저 제작 자체는 DB를 사용하지 않는다.
       maximum-pool-size: 8
       minimum-idle: 1
       connection-timeout: 3000

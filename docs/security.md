@@ -57,6 +57,6 @@ DB/로그/Redis 볼륨은 별도 디스크 용량·사용량 알림을 설정한
 
 `/api/account`는 관리자 인증과 별개다. 비밀번호는 BCrypt로 저장하며 Redis 서버 세션을 사용한다. 로그인 성공 시 기존 세션을 폐기하고 새 세션을 만들며, 로그아웃과 30분 비활동 만료 후에는 계정 데이터에 접근할 수 없다. 수정 요청에는 세션에 연결된 CSRF 토큰, 계정 저장 요청에는 현재 계정 ID도 필요하다. 비밀번호와 요청 본문은 운영 로그에 남기지 않는다.
 
-로그인·회원가입은 IP별 분당 요청 수와 서버별 동시 비밀번호 연산 수를 제한한다. Redis에 연결할 수 없으면 인증을 우회하지 않고 실패한다. 설정 원본은 `backend-settings.yaml`의 `account` 항목이다. 쿠키는 HttpOnly·SameSite=Lax이며, HTTPS 배포에서는 `ACCOUNT_COOKIE_SECURE=true`로 설정한다. `ACCOUNT_AUTH_ENABLED=false`이면 사용자 인증과 계정 저장 API를 비활성화할 수 있다.
+로그인·회원가입은 IP별 분당 요청 수와 서버별 동시 비밀번호 연산 수를 제한한다. 쿠키 없이 `/api/account/me`·`/api/community/context`를 반복 호출해 Redis 로그인 세션을 늘리는 요청도 IP별로 합산하여 기본 분당 60개로 제한한다(`account.auth.new-sessions-per-minute`). 기존 쿠키를 사용하는 방문자는 이 신규 생성 예산을 소모하지 않는다. 여러 사용자가 같은 IP를 사용하는 환경에서는 이 값을 실제 유입량에 맞춰 조정한다. Redis에 연결할 수 없으면 인증을 우회하지 않고 실패한다. 설정 원본은 `backend-settings.yaml`의 `account` 항목이다. 쿠키는 HttpOnly·SameSite=Lax이며, HTTPS 배포에서는 `ACCOUNT_COOKIE_SECURE=true`로 설정한다. `ACCOUNT_AUTH_ENABLED=false`이면 사용자 인증과 계정 저장 API를 비활성화할 수 있다.
 
 현재 임시 계정에는 비밀번호 재설정·이메일 복구 기능이 없다. Google 로그인 도입 시 기존 계정에 대한 인증을 확인한 뒤 연결해야 하며, 표시 이름만으로 계정을 합치면 안 된다. 관리자 인증과 기존 제작 API 권한은 변경하지 않는다.

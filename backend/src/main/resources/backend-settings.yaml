@@ -195,6 +195,8 @@ account:
     bcrypt-cost: 12
     # Maximum password checks/registrations per IP per minute; AccountAccessFilter.
     attempts-per-minute: 10
+    # IP별 신규 익명 로그인 세션 생성 상한. 기존 쿠키의 조회는 제외. 사용: account/api/AccountAccessFilter.
+    new-sessions-per-minute: 60
     # Maximum concurrent expensive password operations per server; PasswordAccounts.
     max-concurrent: 4
     # Minimum password characters; PasswordAccounts. BCrypt also limits UTF-8 to 72 bytes.

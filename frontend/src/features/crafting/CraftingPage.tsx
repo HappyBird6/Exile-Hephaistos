@@ -41,7 +41,7 @@ import { CurrencyPriceContext } from './currency-prices/context'
 import { useCurrencyPrices } from './currency-prices/useCurrencyPrices'
 import { SessionContinuation } from './session-library/SessionContinuation'
 import { revealAction } from './abyss-workbench/revealAction'
-import { currentItemText } from './currentItemText'
+import { currentItemText, tryCurrentItemText } from './currentItemText'
 import { ItemTextEditorContent } from './item-editor/ItemTextEditorContent'
 import { validateItemText } from './item-editor/validateItemText'
 import type { ItemTextProblem } from './item-editor/validateItemText'
@@ -1831,7 +1831,7 @@ function ReadyCraftingPage({
   const generatedText = observedPreview
     ? observedPreview.text.originalText
     : initial.data
-      ? currentItemText(
+      ? tryCurrentItemText(
           concrete ?? concreteInitial(initial.data),
           initial.data.modifiers,
           baseName,
@@ -2435,7 +2435,9 @@ function ReadyCraftingPage({
                       type="button"
                       ref={inputToggle}
                       className="item-input-toggle"
-                      disabled={workbenchBusy || !initial.data}
+                      disabled={
+                        workbenchBusy || !initial.data || generatedText === null
+                      }
                       aria-expanded={inputOpen}
                       aria-controls="item-input-panel"
                       onClick={(event) => {
