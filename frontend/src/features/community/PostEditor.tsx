@@ -4,27 +4,30 @@ import { useAccount, accountScope } from '../account/auth'
 import { IndexedFilmRepository } from '../crafting/session-library/IndexedFilmRepository'
 import { useI18n } from '../../shared/i18n/i18n'
 import { communityText } from './messages'
-import { boardRequest, type Options } from './api'
-import type { Post } from './api'
+import { revisionText } from './revisionMessages'
+import { publicFilm, exceedsShareLimit } from './sharedSnapshot'
+import { boardRequest, type Options, type Post } from './api'
 export function PostEditor({ post }: { post: Post }) {
   const auth = useAccount(),
     { locale } = useI18n(),
     t = communityText(locale),
+    r = revisionText(locale),
     client = useQueryClient()
+  const [mode, setMode] = useState<'text' | 'session' | 'delete' | null>(null)
+  const [body, setBody] = useState(post.body),
+    [title, setTitle] = useState(post.title),
+    [password, setPassword] = useState(''),
+    [version, setVersion] = useState(post.gameVersion),
+    [busy, setBusy] = useState(false),
+    [error, setError] = useState(false)
+  const own = post.authorId === null || post.authorId === auth?.user?.id
   const options = useQuery({
     queryKey: ['community', 'options'],
     queryFn: () => boardRequest<Options>('options'),
   })
-  const [open, setOpen] = useState(false),
-    [body, setBody] = useState(post.body),
-    [title, setTitle] = useState(post.title),
-    [password, setPassword] = useState(''),
-    [busy, setBusy] = useState(false),
-    [error, setError] = useState(false)
-  const own = post.authorId === null || post.authorId === auth?.user?.id
   const source = useQuery({
     queryKey: ['community', 'source', accountScope(), post.sourceId],
-    enabled: open && own,
+    enabled: mode === 'session' && own,
     queryFn: async () => {
       const repo = new IndexedFilmRepository(
         localStorage,
@@ -41,34 +44,86 @@ export function PostEditor({ post }: { post: Post }) {
     },
   })
   if (!own) return null
-  if (!open)
+  const oversized =
+    !!source.data &&
+    !!options.data &&
+    exceedsShareLimit(source.data, options.data.limits)
+  if (!mode)
     return (
-      <button onClick={() => setOpen(true)}>
-        {t.edit} / {t.update}
-      </button>
+      <div className="community-actions community-owner-actions">
+        {post.authorId && (
+          <button
+            onClick={() => {
+              setTitle(post.title)
+              setBody(post.body)
+              setError(false)
+              setMode('text')
+            }}
+          >
+            {r.editText}
+          </button>
+        )}
+        <button
+          onClick={() => {
+            setError(false)
+            setMode('session')
+          }}
+        >
+          {r.updateSession}
+        </button>
+        <button
+          className="site-button--quiet"
+          onClick={() => {
+            setError(false)
+            setMode('delete')
+          }}
+        >
+          {t.delete}
+        </button>
+      </div>
     )
   return (
     <form
-      className="community-editor"
+      className="community-editor community-form site-panel"
       onSubmit={async (e) => {
         e.preventDefault()
+        if (mode === 'session' && (!source.data || oversized)) return
+        if (mode === 'delete' && !window.confirm(t.confirmDelete)) return
         setBusy(true)
         setError(false)
         try {
-          await boardRequest('posts/' + post.id, {
-            method: 'PUT',
-            body: JSON.stringify({
-              id: post.id,
-              sourceId: post.sourceId,
-              gameVersion: post.gameVersion,
-              title: post.authorId ? title : '',
-              body: post.authorId ? body : '',
-              film: source.data ?? post.film,
-              password: post.authorId ? null : password,
-              revision: post.revision,
-            }),
-          })
-          setOpen(false)
+          if (mode === 'text')
+            await boardRequest('posts/' + post.id + '/text', {
+              method: 'PUT',
+              body: JSON.stringify({ title, body, revision: post.revision }),
+            })
+          else if (mode === 'session')
+            await boardRequest('posts/' + post.id, {
+              method: 'PUT',
+              body: JSON.stringify({
+                id: post.id,
+                sourceId: post.sourceId,
+                gameVersion: version,
+                title: post.title,
+                body: post.body,
+                film: publicFilm(source.data!),
+                password: post.authorId ? null : password,
+                revision: post.revision,
+              }),
+            })
+          else {
+            await boardRequest('posts/' + post.id + '/delete', {
+              method: 'POST',
+              body: JSON.stringify({
+                password: post.authorId ? null : password,
+                revision: post.revision,
+              }),
+            })
+            location.href = '/community'
+            return
+          }
+          setMode(null)
+          setPassword('')
           await client.invalidateQueries({ queryKey: ['community'] })
         } catch {
           setError(true)
@@ -77,10 +132,16 @@ export function PostEditor({ post }: { post: Post }) {
         }
       }}
     >
-      <p>{t.updateHint}</p>
-      {!source.isPending && !source.data && <p>{t.sourceMissing}</p>}
-      {post.authorId ? (
+      <h2>
+        {mode === 'text'
+          ? r.editText
+          : mode === 'session'
+            ? r.updateSession
+            : t.delete}
+      </h2>
+      {mode === 'text' ? (
         <>
+          <p className="community-muted">{r.textHint}</p>
           <label>
             {t.title}
             <input
@@ -92,6 +153,7 @@ export function PostEditor({ post }: { post: Post }) {
           <label>
             {t.body}
             <textarea
+              aria-label={t.body}
               maxLength={options.data?.limits.bodyLength}
               rows={5}
               value={body}
@@ -99,7 +161,26 @@ export function PostEditor({ post }: { post: Post }) {
             />
           </label>
         </>
-      ) : (
+      ) : mode === 'session' ? (
+        <>
+          <p className="community-muted">{r.updateHint}</p>
+          {!source.isPending && !source.data && (
+            <p role="alert">{t.sourceMissing}</p>
+          )}
+          {oversized && <p role="alert">{r.sizeLimit}</p>}
+          <label>
+            {t.version}
+            <input
+              required
+              maxLength={32}
+              pattern="[0-9][A-Za-z0-9.\-]*"
+              value={version}
+              onChange={(e) => setVersion(e.target.value)}
+            />
+          </label>
+        </>
+      ) : null}
+      {!post.authorId && (
         <label>
           {t.password}
           <input
@@ -114,35 +195,25 @@ export function PostEditor({ post }: { post: Post }) {
       )}
       {error && <p role="alert">{t.error}</p>}
       <div className="community-actions">
-        <button disabled={busy || source.isFetching}>{t.update}</button>
         <button
-          type="button"
-          disabled={busy}
-          onClick={async () => {
-            if (!window.confirm(t.confirmDelete)) return
-            setBusy(true)
-            try {
-              await boardRequest('posts/' + post.id + '/delete', {
-                method: 'POST',
-                body: JSON.stringify({
-                  password: post.authorId ? null : password,
-                  revision: post.revision,
-                }),
-              })
-              location.href = '/community'
-            } catch {
-              setError(true)
-              setBusy(false)
-            }
-          }}
+          className="site-button--primary"
+          disabled={
+            busy ||
+            (mode === 'session' &&
+              (source.isFetching || !source.data || oversized || !options.data))
+          }
         >
-          {t.delete}
+          {mode === 'delete'
+            ? t.delete
+            : mode === 'text'
+              ? t.save
+              : r.updateSession}
         </button>
         <button
           type="button"
           disabled={busy}
           onClick={() => {
-            setOpen(false)
+            setMode(null)
             setPassword('')
           }}
         >

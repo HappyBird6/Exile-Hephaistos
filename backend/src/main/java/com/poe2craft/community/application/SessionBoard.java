@@ -51,6 +51,8 @@ public interface SessionBoard {
 
   Post update(Actor actor, UUID id, Draft draft);
 
+  Post editText(Actor actor, UUID id, String title, String body, long revision);
+
   void delete(Actor actor, UUID id, String password, long revision);
 
   Post get(UUID id);
@@ -59,7 +61,11 @@ public interface SessionBoard {
     return list(base, version, author, page, "newest");
   }
 
-  Page list(String base, String version, UUID author, int page, String sort);
+  default Page list(String base, String version, UUID author, int page, String sort) {
+    return list(base, version, author, page, sort, null);
+  }
+
+  Page list(String base, String version, UUID author, int page, String sort, String itemClass);
 
   List<Summary> mine(Actor actor, String source);
 

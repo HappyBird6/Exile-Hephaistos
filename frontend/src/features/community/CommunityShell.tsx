@@ -1,36 +1,47 @@
-import { useEffect } from 'react'
+import { useEffect, type PropsWithChildren } from 'react'
 import { flushDownloads } from './downloads'
-import type { PropsWithChildren } from 'react'
-import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
-import { AccountMenu } from '../account/AccountMenu'
+import { SiteHeader } from '../../shared/site/SiteHeader'
 import { useI18n } from '../../shared/i18n/i18n'
+import { sessionLibraryMessages } from '../crafting/session-library/sessionLibraryMessages'
+import { CurrencyPriceContext } from '../crafting/currency-prices/context'
+import { useCurrencyPrices } from '../crafting/currency-prices/useCurrencyPrices'
+import { CurrencyTicker } from '../crafting/currency-prices/CurrencyPrices'
 import { communityText } from './messages'
 import '../crafting/crafting.css'
 import '../crafting/session-library/session-library.css'
+import '../crafting/compact-viewport/mobileWorkbench.css'
 import './community.css'
 export function CommunityShell({ children }: PropsWithChildren) {
-  const { locale } = useI18n(),
-    t = communityText(locale)
+  const { locale, t } = useI18n(),
+    text = communityText(locale),
+    market = useCurrencyPrices()
   useEffect(() => {
     void flushDownloads()
   }, [])
   return (
-    <main className="craft-page craft-page--framed community-page">
-      <header className="craft-header">
-        <a className="craft-brand" href="/">
-          EXILE <b>HEPHAISTOS</b>
-        </a>
-        <div className="community-header-actions">
-          <LocaleSelector />
-          <AccountMenu />
-        </div>
-      </header>
-      <nav className="community-nav">
-        <a href="/">{t.back}</a>
-        <a href="/community">{t.board}</a>
-        <a href="/community/new">{t.newPost}</a>
-      </nav>
-      {children}
-    </main>
+    <CurrencyPriceContext.Provider value={market}>
+      <main className="craft-page craft-page--framed community-page site-controls">
+        <SiteHeader
+          navigation={
+            <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
+              <div className="site-workspace-links">
+                <a href="/?workbench=simulation">{t('workspace.workbench')}</a>
+                {import.meta.env.VITE_CRAFT_SUPPORT_ENABLED !== 'false' && (
+                  <a href="/?workbench=support">{t('workspace.support')}</a>
+                )}
+                <a href="/?workbench=history">
+                  {sessionLibraryMessages[locale].history}
+                </a>
+                <a href="/community" aria-current="page">
+                  {text.board}
+                </a>
+              </div>
+              <CurrencyTicker />
+            </nav>
+          }
+        />
+        <div className="community-content">{children}</div>
+      </main>
+    </CurrencyPriceContext.Provider>
   )
 }

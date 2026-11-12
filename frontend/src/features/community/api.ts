@@ -27,10 +27,16 @@ export type Page = {
   pageSize: number
 }
 export type Options = {
-  limits: { bodyLength: number; commentLength: number }
+  limits: {
+    bodyLength: number
+    commentLength: number
+    sessionBytes: number
+    frames: number
+  }
   currentVersion: string
   versions: string[]
   bases: string[]
+  classes: string[]
 }
 export async function boardRequest<T>(
   path: string,

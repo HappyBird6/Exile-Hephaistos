@@ -158,4 +158,43 @@ class CommunityIntegrationTest {
     comments.delete(post.id(), id, author, 2);
     assertThat(comments.list(post.id(), 1).total()).isZero();
   }
+
+  @Test
+  void guestLinkSurvivesLoginWithoutGrantingEditPermission() throws Exception {
+    var guest = new Actor(null, UUID.randomUUID());
+    var shared = board.create(guest, draft(film(), "", "Delete-Me-123", 0));
+    var logged = new Actor(member().account(), guest.browser());
+    assertThat(board.mine(logged, "source")).extracting(Summary::id).contains(shared.id());
+    assertThat(board.mine(member(), "source")).isEmpty();
+    assertThatThrownBy(() -> board.editText(logged, shared.id(), "unauthorized", "", 1))
+        .isInstanceOf(ResponseStatusException.class);
+    assertThatThrownBy(
+            () -> board.update(logged, shared.id(), draft(film(), "", "wrong-password", 1)))
+        .isInstanceOf(ResponseStatusException.class);
+    assertThat(board.update(logged, shared.id(), draft(film(), "", "Delete-Me-123", 1)).revision())
+        .isEqualTo(2);
+  }
+
+  @Test
+  void textEditsNeverReplacePublishedStepsAndClassFiltersUseRegistry() throws Exception {
+    var actor = member();
+    var shared = board.create(actor, draft(film(), "original", null, 0));
+    var edited = board.editText(actor, shared.id(), "Title", "new text", 1);
+    assertThat(edited.film()).isEqualTo(shared.film());
+    assertThat(edited.sharedStep()).isEqualTo(shared.sharedStep());
+    assertThat(edited.gameVersion()).isEqualTo(shared.gameVersion());
+    assertThatThrownBy(() -> board.editText(actor, shared.id(), "stale", "", 1))
+        .isInstanceOf(ResponseStatusException.class);
+    assertThatThrownBy(() -> board.editText(member(), shared.id(), "stolen", "", 2))
+        .isInstanceOf(ResponseStatusException.class);
+    String itemClass = com.poe2craft.shared.item.BaseRegistry.itemClass(shared.baseId());
+    assertThat(itemClass).isNotBlank();
+    assertThat(board.list(null, null, actor.account(), 1, "newest", itemClass).posts())
+        .extracting(Summary::id)
+        .containsExactly(shared.id());
+    assertThat(board.list(null, null, actor.account(), 1, "newest", "unknown-class").total())
+        .isZero();
+    assertThat(((Map<?, ?>) board.options().get("limits")).keySet().toString())
+        .contains("sessionBytes", "frames");
+  }
 }

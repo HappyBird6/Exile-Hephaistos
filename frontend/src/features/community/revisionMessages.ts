@@ -1,0 +1,87 @@
+import type { Locale } from '../../shared/i18n/i18n'
+const rows: Record<Locale, readonly string[]> = {
+  ko: [
+    '장비 종류',
+    '베이스',
+    '글 수정',
+    '세션 업데이트',
+    '공유 가능한 크기 또는 단계 수를 초과했습니다. 원본 세션은 그대로 보존됩니다.',
+    '최신 제작 단계를 게시물에 추가합니다.',
+    '기존 게시물의 제작 단계는 변경되지 않습니다.',
+  ],
+  en: [
+    'Equipment type',
+    'Base',
+    'Edit text',
+    'Update session',
+    'This session exceeds the sharing size or step limit. Your original session is unchanged.',
+    'Append your latest saved crafting steps to this post.',
+    'The published crafting steps will remain unchanged.',
+  ],
+  'zh-CN': [
+    '装备类型',
+    '基底',
+    '编辑文字',
+    '更新会话',
+    '此会话超过分享大小或步骤上限。原始会话保持不变。',
+    '将最新保存的制作步骤添加到帖子。',
+    '已发布的制作步骤保持不变。',
+  ],
+  'zh-TW': [
+    '裝備類型',
+    '基底',
+    '編輯文字',
+    '更新紀錄',
+    '此紀錄超過分享大小或步驟上限。原始紀錄保持不變。',
+    '將最新儲存的製作步驟加入貼文。',
+    '已發布的製作步驟保持不變。',
+  ],
+  ja: [
+    '装備の種類',
+    'ベース',
+    '文章を編集',
+    'セッションを更新',
+    '共有できるサイズまたはステップ数を超えています。元のセッションは保持されます。',
+    '保存済みの最新の製作ステップを投稿に追加します。',
+    '公開済みの製作ステップは変更されません。',
+  ],
+  es: [
+    'Tipo de equipo',
+    'Base',
+    'Editar texto',
+    'Actualizar sesión',
+    'La sesión supera el límite de tamaño o pasos para compartir. La sesión original se conserva.',
+    'Añade los últimos pasos guardados a la publicación.',
+    'Los pasos publicados no cambiarán.',
+  ],
+  ru: [
+    'Тип снаряжения',
+    'База',
+    'Изменить текст',
+    'Обновить сессию',
+    'Превышен размер или число шагов для публикации. Исходная сессия сохранена.',
+    'Добавить последние сохранённые шаги к публикации.',
+    'Опубликованные шаги останутся без изменений.',
+  ],
+  th: [
+    'ประเภทอุปกรณ์',
+    'เบส',
+    'แก้ไขข้อความ',
+    'อัปเดตเซสชัน',
+    'เซสชันเกินขนาดหรือจำนวนขั้นตอนที่แชร์ได้ เซสชันต้นฉบับยังคงอยู่',
+    'เพิ่มขั้นตอนการคราฟต์ที่บันทึกล่าสุดลงในโพสต์',
+    'ขั้นตอนที่เผยแพร่แล้วจะไม่เปลี่ยนแปลง',
+  ],
+}
+export function revisionText(locale: Locale) {
+  const r = rows[locale]
+  return {
+    itemClass: r[0]!,
+    base: r[1]!,
+    editText: r[2]!,
+    updateSession: r[3]!,
+    sizeLimit: r[4]!,
+    updateHint: r[5]!,
+    textHint: r[6]!,
+  }
+}

@@ -1,7 +1,7 @@
 import { freshSession } from './session-library/freshSession'
 import { communityText } from '../community/messages'
 import { accountScope } from '../account/auth'
-import { AccountMenu } from '../account/AccountMenu'
+import { SiteHeader } from '../../shared/site/SiteHeader'
 import { SessionDetail } from './session-detail/SessionDetail'
 import { HistoryCard } from './session-history/HistoryCard'
 import { sessionNotationMessages } from './session-notation/messages'
@@ -31,7 +31,6 @@ import { useBonded, setBonded, bondedLabel } from './bonded'
 import { installedAugmentEffects } from './augmentEffects'
 import type { Item } from './itemModels'
 import { unidentifiedRuneEffects } from './socketAugments'
-import { LeagueMark } from './currency-prices/LeagueMark'
 import { CurrencyPriceContext } from './currency-prices/context'
 import { useCurrencyPrices } from './currency-prices/useCurrencyPrices'
 import { CurrencyTicker } from './currency-prices/CurrencyPrices'
@@ -412,6 +411,8 @@ function ReadyCraftingPage({
     const entry = new URLSearchParams(location.search).get('workbench')
     if (entry === 'history') return 'history'
     if (entry === 'simulation') return 'workbench'
+    if (entry === 'support' && workspaceTabs.includes('support'))
+      return 'support'
     return (
       readSupport(
         'workspace',
@@ -2109,100 +2110,87 @@ function ReadyCraftingPage({
       }}
       onPointerLeave={() => setPointer(null)}
     >
-      <header className="craft-header">
-        <div className="craft-header__identity">
-          <a
-            className="craft-brand"
-            href="/"
-            aria-label={t('ui.exile_hephaistos_home')}
-          >
-            <span className="brand-mark" aria-hidden="true">
-              H
-            </span>
-            <span>
-              EXILE <b>HEPHAISTOS</b>
-              <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
-            </span>
-          </a>
-          <LeagueMark />
-          <AccountMenu />
-        </div>
-        <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
-          <div role="tablist" aria-label={t('ui.crafting_workspace')}>
-            {workspaceTabs.map((tab, index) => (
-              <button
-                key={tab}
-                type="button"
-                role="tab"
-                id={`workspace-${tab}`}
-                aria-selected={view === tab}
-                aria-controls={workspacePanels[tab]}
-                tabIndex={view === tab ? 0 : -1}
-                disabled={workbenchBusy}
-                onClick={() => {
-                  if (mutationLocked()) return
-                  setView(tab)
-                  setLeftMenu(null)
-                  setHeld(null)
-                  setSelected(null)
-                  setPointer(null)
-                }}
-                onKeyDown={(event) => {
-                  if (mutationLocked()) return
-                  if (
-                    !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
-                      event.key,
+      <SiteHeader
+        navigation={
+          <nav className="workspace-nav" aria-label={t('ui.main_navigation')}>
+            <div role="tablist" aria-label={t('ui.crafting_workspace')}>
+              {workspaceTabs.map((tab, index) => (
+                <button
+                  key={tab}
+                  type="button"
+                  role="tab"
+                  id={`workspace-${tab}`}
+                  aria-selected={view === tab}
+                  aria-controls={workspacePanels[tab]}
+                  tabIndex={view === tab ? 0 : -1}
+                  disabled={workbenchBusy}
+                  onClick={() => {
+                    if (mutationLocked()) return
+                    setView(tab)
+                    setLeftMenu(null)
+                    setHeld(null)
+                    setSelected(null)
+                    setPointer(null)
+                  }}
+                  onKeyDown={(event) => {
+                    if (mutationLocked()) return
+                    if (
+                      !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(
+                        event.key,
+                      )
                     )
-                  )
-                    return
-                  event.preventDefault()
-                  const next =
-                    event.key === 'Home'
-                      ? 'workbench'
-                      : event.key === 'End'
-                        ? workspaceTabs.at(-1)!
-                        : workspaceTabs[
-                            (index +
-                              (event.key === 'ArrowRight' ? 1 : -1) +
-                              workspaceTabs.length) %
-                              workspaceTabs.length
-                          ]!
-                  setView(next)
-                  setLeftMenu(null)
-                  setHeld(null)
-                  setSelected(null)
-                  setPointer(null)
-                  document.getElementById(`workspace-${next}`)?.focus()
-                }}
-              >
-                {tab === 'history'
-                  ? sessionLibraryMessages[locale].history
-                  : t(`workspace.${tab}`)}
-              </button>
-            ))}
-          </div>
-          <a href="/community">{communityText(locale).board}</a>
-          <CurrencyTicker />
-        </nav>
-        <fieldset
-          className="chaos-repeat-language-lock"
-          disabled={workbenchBusy}
-          onClickCapture={(event) => {
-            if (mutationLocked()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-          }}
-          onKeyDownCapture={(event) => {
-            if (mutationLocked()) {
-              event.preventDefault()
-              event.stopPropagation()
-            }
-          }}
-        >
-          <LocaleSelector />
-        </fieldset>
-      </header>
+                      return
+                    event.preventDefault()
+                    const next =
+                      event.key === 'Home'
+                        ? 'workbench'
+                        : event.key === 'End'
+                          ? workspaceTabs.at(-1)!
+                          : workspaceTabs[
+                              (index +
+                                (event.key === 'ArrowRight' ? 1 : -1) +
+                                workspaceTabs.length) %
+                                workspaceTabs.length
+                            ]!
+                    setView(next)
+                    setLeftMenu(null)
+                    setHeld(null)
+                    setSelected(null)
+                    setPointer(null)
+                    document.getElementById(`workspace-${next}`)?.focus()
+                  }}
+                >
+                  {tab === 'history'
+                    ? sessionLibraryMessages[locale].history
+                    : t(`workspace.${tab}`)}
+                </button>
+              ))}
+            </div>
+            <a href="/community">{communityText(locale).board}</a>
+            <CurrencyTicker />
+          </nav>
+        }
+        languageControls={
+          <fieldset
+            className="chaos-repeat-language-lock"
+            disabled={workbenchBusy}
+            onClickCapture={(event) => {
+              if (mutationLocked()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+            }}
+            onKeyDownCapture={(event) => {
+              if (mutationLocked()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+            }}
+          >
+            <LocaleSelector />
+          </fieldset>
+        }
+      />
 
       {view === 'workbench' && (
         <nav

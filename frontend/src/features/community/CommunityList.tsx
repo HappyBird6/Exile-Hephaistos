@@ -1,5 +1,7 @@
+import { revisionText } from './revisionMessages'
+import { basePolicy } from '../crafting/baseRegistry'
 import { useQuery } from '@tanstack/react-query'
-import { useI18n, gameName } from '../../shared/i18n/i18n'
+import { useI18n, gameName, uiText } from '../../shared/i18n/i18n'
 import { BaseImage } from '../crafting/base-picker/BaseImage'
 import { communityText } from './messages'
 import { CommunityShell } from './CommunityShell'
@@ -23,6 +25,7 @@ export function CommunityList() {
     if (value) next.set(key, value)
     else next.delete(key)
     next.delete('page')
+    if (key === 'itemClass') next.delete('base')
     location.href = '/community?' + next
   }
   return (
@@ -31,22 +34,45 @@ export function CommunityList() {
       <div className="wb-history-workspace community-layout">
         <aside className="wb-history-nav">
           <label>
-            {t.equipment}
+            {revisionText(locale).itemClass}
             <select
-              value={params.get('base') ?? ''}
-              onChange={(e) => filter('base', e.target.value)}
+              aria-label={revisionText(locale).itemClass}
+              value={params.get('itemClass') ?? ''}
+              onChange={(e) => filter('itemClass', e.target.value)}
             >
               <option value="">{t.all}</option>
-              {options.data?.bases.map((id) => (
-                <option key={id} value={id}>
-                  {gameName(id, id, locale)}
+              {options.data?.classes.map((name) => (
+                <option key={name} value={name}>
+                  {uiText(name, locale)}
                 </option>
               ))}
             </select>
           </label>
           <label>
+            {revisionText(locale).base}
+            <select
+              aria-label={revisionText(locale).base}
+              value={params.get('base') ?? ''}
+              onChange={(e) => filter('base', e.target.value)}
+            >
+              <option value="">{t.all}</option>
+              {options.data?.bases
+                .filter(
+                  (id) =>
+                    !params.get('itemClass') ||
+                    basePolicy(id)?.itemClass === params.get('itemClass'),
+                )
+                .map((id) => (
+                  <option key={id} value={id}>
+                    {gameName(id, id, locale)}
+                  </option>
+                ))}
+            </select>
+          </label>
+          <label>
             {t.version}
             <select
+              aria-label={t.version}
               value={params.get('version') ?? ''}
               onChange={(e) => filter('version', e.target.value)}
             >

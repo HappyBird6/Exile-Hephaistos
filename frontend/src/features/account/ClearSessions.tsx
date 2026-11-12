@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useId, useRef, useState } from 'react'
 import { useAccount } from './auth'
 import { useI18n } from '../../shared/i18n/i18n'
 const labels = {
@@ -75,10 +75,13 @@ const labels = {
     'ลบไม่สำเร็จ โปรดลองใหม่',
   ],
 }
-export function ClearSessions() {
+export function ClearSessions({
+  browserOnly = false,
+}: { browserOnly?: boolean } = {}) {
   const { locale } = useI18n(),
     auth = useAccount(),
     t = labels[locale]
+  const group = useId()
   const dialog = useRef<HTMLDialogElement>(null)
   const [scope, setScope] = useState('browser'),
     [busy, setBusy] = useState(false),
@@ -92,17 +95,17 @@ export function ClearSessions() {
         <label>
           <input
             type="radio"
-            name="clear-scope"
+            name={group}
             checked={scope === 'browser'}
             onChange={() => setScope('browser')}
           />
           {t[1]}
         </label>
-        {auth?.user && (
+        {auth?.user && !browserOnly && (
           <label>
             <input
               type="radio"
-              name="clear-scope"
+              name={group}
               checked={scope === 'account'}
               onChange={() => setScope('account')}
             />

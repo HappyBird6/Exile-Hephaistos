@@ -9,8 +9,6 @@ import { useI18n, gameName } from '../../shared/i18n/i18n'
 import { SessionDetail } from '../crafting/session-detail/SessionDetail'
 import { historyResources } from '../crafting/session-history/resources'
 import { validStoredFilm } from '../crafting/workbenchHistory'
-import { CurrencyPriceContext } from '../crafting/currency-prices/context'
-import { useCurrencyPrices } from '../crafting/currency-prices/useCurrencyPrices'
 import { CommunityShell } from './CommunityShell'
 import { boardRequest } from './api'
 import type { Post } from './api'
@@ -38,7 +36,6 @@ export function CommunityDetail({ id }: { id: string }) {
 function Detail({ post }: { post: Post }) {
   const { locale } = useI18n(),
     t = communityText(locale),
-    market = useCurrencyPrices(),
     client = useQueryClient()
   const [cursor, setCursor] = useState(post.sharedStep)
   const [busy, setBusy] = useState(false),
@@ -66,16 +63,18 @@ function Detail({ post }: { post: Post }) {
     }
   }
   return (
-    <CurrencyPriceContext.Provider value={market}>
-      <h1>{post.title || gameName(post.baseId, post.baseId, locale)}</h1>
-      <p>
-        {post.authorId ? (
-          <a href={'/community?author=' + post.authorId}>{post.author}</a>
-        ) : (
-          t.anonymous
-        )}{' '}
-        · {post.gameVersion}
-      </p>
+    <>
+      <header className="community-detail-header">
+        <h1>{post.title || gameName(post.baseId, post.baseId, locale)}</h1>
+        <p className="community-detail-meta">
+          {post.authorId ? (
+            <a href={'/community?author=' + post.authorId}>{post.author}</a>
+          ) : (
+            t.anonymous
+          )}{' '}
+          · {post.gameVersion}
+        </p>
+      </header>
       <div className="community-body">{post.body}</div>
       <PostEditor post={post} />
       <PostReactions id={post.id} />
@@ -94,10 +93,11 @@ function Detail({ post }: { post: Post }) {
         onNavigate={setCursor}
         resources={historyResources}
         showOverview={false}
-        className="community-preview"
+        className="community-preview community-session-detail"
+        itemClassName="community-detail-item"
         disabled={busy}
         actions={
-          <>
+          <div className="community-reuse">
             <div className="community-actions">
               <button disabled={busy} onClick={() => void reuse('import')}>
                 {t.importSession}
@@ -110,10 +110,10 @@ function Detail({ post }: { post: Post }) {
               </button>
             </div>
             {status && <p role="status">{status}</p>}
-          </>
+          </div>
         }
       />
       <Comments post={post.id} />
-    </CurrencyPriceContext.Provider>
+    </>
   )
 }

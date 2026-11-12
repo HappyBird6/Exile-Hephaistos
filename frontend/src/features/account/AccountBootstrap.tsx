@@ -1,3 +1,5 @@
+import { ClearSessions } from './ClearSessions'
+import { libraryMessages } from './libraryMessages'
 import { useEffect, useState } from 'react'
 import type { PropsWithChildren } from 'react'
 import { loadAccount, useAccount, AccountError } from './auth'
@@ -21,6 +23,7 @@ export function AccountBootstrap({ children }: PropsWithChildren) {
   const auth = useAccount(),
     { locale } = useI18n(),
     text = accountMessages[locale]
+  const [counts, setCounts] = useState({ sessions: 0, favorites: 0 })
   const [ready, setReady] = useState(false),
     [merge, setMerge] = useState(false),
     [error, setError] = useState(false),
@@ -34,7 +37,13 @@ export function AccountBootstrap({ children }: PropsWithChildren) {
         if (next.user) {
           await syncLibrary(next.user.id)
           const status = await browserMergeStatus(next.user.id)
-          if (alive) setMerge(status.needed)
+          if (alive) {
+            setMerge(status.needed)
+            setCounts({
+              sessions: status.history.films.length,
+              favorites: status.bases.length,
+            })
+          }
         }
       } catch {
         if (alive) setError(true)
@@ -115,44 +124,52 @@ export function AccountBootstrap({ children }: PropsWithChildren) {
   return (
     <>
       {(merge || error || refresh) && (
-        <aside className="account-sync">
-          {merge && (
-            <>
-              <p>{text.merge}</p>
-              {[true, false].map((add) => (
-                <button
-                  key={String(add)}
-                  disabled={busy}
-                  onClick={async () => {
-                    if (!auth?.user) return
-                    setBusy(true)
-                    try {
-                      await decideBrowserMerge(auth.user.id, add)
-                      setMerge(false)
-                      if (add) {
-                        await syncLibrary(auth.user.id)
-                        location.reload()
+        <div className="craft-page craft-page--framed account-sync-frame">
+          <aside className="account-sync">
+            {merge && (
+              <>
+                <p>{text.merge}</p>
+                <p>
+                  {libraryMessages(locale)
+                    .count.replace('{sessions}', String(counts.sessions))
+                    .replace('{favorites}', String(counts.favorites))}
+                </p>
+                {[true, false].map((add) => (
+                  <button
+                    key={String(add)}
+                    disabled={busy}
+                    onClick={async () => {
+                      if (!auth?.user) return
+                      setBusy(true)
+                      try {
+                        await decideBrowserMerge(auth.user.id, add)
+                        setMerge(false)
+                        if (add) {
+                          await syncLibrary(auth.user.id)
+                          location.reload()
+                        }
+                      } catch {
+                        setError(true)
+                      } finally {
+                        setBusy(false)
                       }
-                    } catch {
-                      setError(true)
-                    } finally {
-                      setBusy(false)
-                    }
-                  }}
-                >
-                  {add ? text.add : text.skip}
-                </button>
-              ))}
-            </>
-          )}
-          {error && <p role="alert">{text.unavailable}</p>}
-          {refresh && <p role="status">{text.sync}</p>}
-          {(error || refresh) && (
-            <button disabled={busy} onClick={() => location.reload()}>
-              {text.retry}
-            </button>
-          )}
-        </aside>
+                    }}
+                  >
+                    {add ? text.add : text.skip}
+                  </button>
+                ))}
+                <ClearSessions browserOnly />
+              </>
+            )}
+            {error && <p role="alert">{text.unavailable}</p>}
+            {refresh && <p role="status">{text.sync}</p>}
+            {(error || refresh) && (
+              <button disabled={busy} onClick={() => location.reload()}>
+                {text.retry}
+              </button>
+            )}
+          </aside>
+        </div>
       )}
       {children}
     </>

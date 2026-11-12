@@ -1,0 +1,196 @@
+:root {
+  --site-surface: #191b18;
+  --site-border: #494737;
+  --site-gold: #d1b575;
+  --site-text: #d9d7cf;
+  --site-muted: #aaa391;
+}
+.site-panel {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--site-border);
+  border-radius: 4px;
+  background: var(--site-surface);
+  color: var(--site-text);
+}
+:is(.community-content, .account-dialog, .account-sync, .account-menu) button {
+  min-height: 40px;
+  padding: 8px 14px;
+  border: 1px solid #63583f;
+  border-radius: 3px;
+  background: linear-gradient(#292a23, #20221d);
+  color: #dfc58d;
+  font: inherit;
+  cursor: pointer;
+}
+:is(.community-content, .account-dialog, .account-sync, .account-menu)
+  button:hover:not(:disabled) {
+  border-color: var(--site-gold);
+  background: #343326;
+}
+:is(.community-content, .account-dialog, .account-sync, .account-menu)
+  button:focus-visible,
+.site-controls a:focus-visible {
+  outline: 2px solid var(--site-gold);
+  outline-offset: 3px;
+}
+:is(.community-content, .account-dialog, .account-sync, .account-menu)
+  button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+:is(.community-content, .account-dialog)
+  :is(input:not([type='radio']), select, textarea) {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #55513e;
+  border-radius: 3px;
+  background: #111410;
+  color: var(--site-text);
+  font: inherit;
+}
+:is(.community-content, .account-dialog)
+  :is(input, select, textarea):focus-visible {
+  outline: 1px solid var(--site-gold);
+  border-color: var(--site-gold);
+}
+:is(.community-content, .account-dialog) label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #bfb7a3;
+}
+:is(.community-content, .account-dialog) button.site-button--primary {
+  border-color: #a88b51;
+  background: linear-gradient(#4b3f28, #312b20);
+  color: #f0d99f;
+}
+:is(.community-content, .account-dialog) button.site-button--quiet {
+  background: transparent;
+  color: var(--site-muted);
+}
+.site-workspace-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 4px;
+  min-width: 0;
+}
+.craft-header .site-workspace-links a {
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  color: #bcb6a8;
+  text-decoration: none;
+}
+.craft-header .site-workspace-links a[aria-current='page'] {
+  color: #edd6a6;
+  border-bottom-color: #c7a465;
+  background: #282b22;
+}
+@media (max-width: 760px) {
+  .site-panel {
+    padding: 16px;
+  }
+  .craft-header .site-workspace-links a {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+  :is(.community-content, .account-dialog) :is(input, textarea, select) {
+    font-size: 16px;
+  }
+}
+.account-library-menu {
+  position: relative;
+  order: 3;
+}
+.account-library-menu summary {
+  display: grid;
+  place-items: center;
+  min-width: 36px;
+  min-height: 36px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #d6bd82;
+  list-style: none;
+  border: 1px solid #494737;
+  border-radius: 3px;
+}
+.account-library-menu summary::-webkit-details-marker {
+  display: none;
+}
+.account-library-menu__content {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 100;
+  padding: 8px;
+  border: 1px solid #63583f;
+  border-radius: 3px;
+  background: #191c19;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px #0008;
+}
+.account-menu > span:not([role='alert']) {
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .craft-page .craft-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .craft-page .craft-header__identity {
+    display: contents;
+  }
+  .craft-page .craft-brand {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .craft-page .craft-brand small {
+    font-size: 7px;
+  }
+  .craft-page .brand-mark {
+    width: 34px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+  .craft-page .header-league-mark {
+    grid-column: 1;
+    grid-row: 2;
+    width: 105px;
+  }
+  .craft-page .account-menu {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: end;
+    max-width: calc(100% - 110px);
+    flex-wrap: nowrap;
+    gap: 5px;
+  }
+  .craft-page .account-menu > span:not([role='alert']) {
+    max-width: 85px;
+  }
+  .craft-page .account-menu button {
+    padding: 6px 10px;
+  }
+  .craft-page .craft-header .workspace-nav {
+    grid-row: 3;
+  }
+  .craft-page .site-workspace-links {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+  }
+  .craft-page .site-workspace-links a {
+    text-align: center;
+    display: grid;
+    place-items: center;
+    padding: 8px 4px;
+    font-size: 13px;
+  }
+}

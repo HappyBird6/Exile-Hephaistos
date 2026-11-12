@@ -1,3 +1,5 @@
+import { publicFilm, exceedsShareLimit } from './sharedSnapshot'
+import { revisionText } from './revisionMessages'
 import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useAccount, accountScope } from '../account/auth'
@@ -50,14 +52,17 @@ export function CommunityCompose() {
     queryFn: () =>
       boardRequest<Summary[]>('mine?source=' + encodeURIComponent(film!.id)),
   })
+  const oversized =
+    !!film && !!options.data && exceedsShareLimit(film, options.data.limits)
   return (
     <CommunityShell>
       <h1>{t.newPost}</h1>
       <div className="community-compose">
         <form
+          className="community-form site-panel"
           onSubmit={async (e) => {
             e.preventDefault()
-            if (!film) return
+            if (!film || oversized) return
             setBusy(true)
             setError(false)
             try {
@@ -69,7 +74,7 @@ export function CommunityCompose() {
                   gameVersion: version || options.data?.currentVersion,
                   title: auth?.user ? title : '',
                   body: auth?.user ? body : '',
-                  film,
+                  film: publicFilm(film),
                   password: auth?.user ? null : password,
                   revision: 0,
                 }),
@@ -85,6 +90,7 @@ export function CommunityCompose() {
           <label>
             {t.selectSession}
             <select
+              aria-label={t.selectSession}
               value={film?.id ?? ''}
               onChange={(e) => setSelected(e.target.value)}
             >
@@ -111,7 +117,14 @@ export function CommunityCompose() {
               ))}
             </datalist>
           </label>
-          {auth?.user ? (
+          {linked.data?.length ? (
+            <a
+              className="community-existing-post"
+              href={'/community/post/' + linked.data[0]!.id}
+            >
+              {t.viewPost}
+            </a>
+          ) : auth?.user ? (
             <>
               <label>
                 {t.title}
@@ -145,13 +158,21 @@ export function CommunityCompose() {
               <small>{t.passwordHint}</small>
             </label>
           )}
-          {linked.data?.map((p) => (
-            <a href={'/community/post/' + p.id} key={p.id}>
-              {t.viewPost}
-            </a>
-          ))}
           {error && <p role="alert">{t.error}</p>}
-          <button disabled={busy || !film || !options.data}>{t.publish}</button>
+          {oversized && <p role="alert">{revisionText(locale).sizeLimit}</p>}
+          <button
+            disabled={
+              busy ||
+              !film ||
+              !options.data ||
+              oversized ||
+              linked.isPending ||
+              linked.isError ||
+              !!linked.data?.length
+            }
+          >
+            {t.publish}
+          </button>
           {!film && !library.isPending && <p>{t.empty}</p>}
         </form>
         {film && (

@@ -2,6 +2,7 @@ package com.poe2craft.community.infrastructure;
 
 import com.fasterxml.jackson.databind.*;
 import com.poe2craft.community.application.*;
+import com.poe2craft.shared.item.BaseRegistry;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.Semaphore;
@@ -211,6 +212,23 @@ public class PostgresSessionBoard implements SessionBoard {
 
   @Override
   @Transactional
+  public Post editText(Actor actor, UUID id, String title, String body, long revision) {
+    var old = get(id);
+    if (actor.account() == null || !actor.account().equals(old.authorId()))
+      throw new ResponseStatusException(HttpStatus.FORBIDDEN);
+    authorize(actor, id, null);
+    if (db.update(
+            "UPDATE community.post SET title=?,body=?,revision=revision+1,updated_at=now() WHERE id=? AND revision=? AND NOT deleted",
+            text(title, 160),
+            text(body, maxBody),
+            id,
+            revision)
+        != 1) throw new ResponseStatusException(HttpStatus.CONFLICT, "POST_CHANGED");
+    return get(id);
+  }
+
+  @Override
+  @Transactional
   public void delete(Actor actor, UUID id, String password, long revision) {
     get(id);
     authorize(actor, id, password);
@@ -222,7 +240,8 @@ public class PostgresSessionBoard implements SessionBoard {
   }
 
   @Override
-  public Page list(String base, String version, UUID author, int page, String sort) {
+  public Page list(
+      String base, String version, UUID author, int page, String sort, String itemClass) {
     if (!Set.of("newest", "popular").contains(sort))
       throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     if (page < 1 || page > 10000) throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
@@ -231,6 +250,15 @@ public class PostgresSessionBoard implements SessionBoard {
     if (base != null && !base.isBlank()) {
       where += " AND p.base_id=?";
       args.add(base);
+    }
+    if (itemClass != null && !itemClass.isBlank()) {
+      var ids =
+          availableBases().stream()
+              .filter(id -> itemClass.equals(BaseRegistry.itemClass(id)))
+              .toList();
+      if (ids.isEmpty()) return new Page(List.of(), 0, page, pageSize);
+      where += " AND p.base_id IN (" + String.join(",", Collections.nCopies(ids.size(), "?")) + ")";
+      args.addAll(ids);
     }
     if (version != null && !version.isBlank()) {
       where += " AND p.game_version=?";
@@ -278,22 +306,35 @@ public class PostgresSessionBoard implements SessionBoard {
         .query(
             select
                 + "WHERE NOT p.deleted AND p.source_id=? AND "
-                + (actor.account() == null
-                    ? "p.author_id IS NULL AND p.browser_id=?"
-                    : "p.author_id=?"),
+                + "((p.author_id IS NULL AND p.browser_id=?) OR p.author_id=?) ORDER BY p.created_at DESC",
             mapper(),
             source,
-            actor.account() == null ? actor.browser() : actor.account())
+            actor.browser(),
+            actor.account())
         .stream()
         .map(this::summary)
         .toList();
+  }
+
+  private List<String> availableBases() {
+    return db.queryForList(
+        "SELECT DISTINCT base_id FROM community.post WHERE NOT deleted ORDER BY base_id",
+        String.class);
   }
 
   @Override
   public Map<String, Object> options() {
     return Map.of(
         "limits",
-        Map.of("bodyLength", maxBody, "commentLength", maxComment),
+        Map.of(
+            "bodyLength",
+            maxBody,
+            "commentLength",
+            maxComment,
+            "sessionBytes",
+            maxBytes,
+            "frames",
+            maxFrames),
         "currentVersion",
         currentVersion,
         "versions",
@@ -301,8 +342,13 @@ public class PostgresSessionBoard implements SessionBoard {
             "SELECT DISTINCT game_version FROM community.post WHERE NOT deleted ORDER BY game_version DESC",
             String.class),
         "bases",
-        db.queryForList(
-            "SELECT DISTINCT base_id FROM community.post WHERE NOT deleted ORDER BY base_id",
-            String.class));
+        availableBases(),
+        "classes",
+        availableBases().stream()
+            .map(BaseRegistry::itemClass)
+            .filter(Objects::nonNull)
+            .distinct()
+            .sorted()
+            .toList());
   }
 }

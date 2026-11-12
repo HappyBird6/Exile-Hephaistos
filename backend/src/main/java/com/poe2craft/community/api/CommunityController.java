@@ -40,8 +40,9 @@ public class CommunityController {
       @RequestParam(required = false) String version,
       @RequestParam(required = false) UUID author,
       @RequestParam(defaultValue = "1") int page,
-      @RequestParam(defaultValue = "newest") String sort) {
-    return board.list(base, version, author, page, sort);
+      @RequestParam(defaultValue = "newest") String sort,
+      @RequestParam(required = false) String itemClass) {
+    return board.list(base, version, author, page, sort, itemClass);
   }
 
   @GetMapping("/posts/{id}")
@@ -69,6 +70,18 @@ public class CommunityController {
       HttpServletRequest r,
       HttpServletResponse s) {
     return board.update(identity.actor(r, s, true), id, d);
+  }
+
+  public record TextEdit(String title, String body, long revision) {}
+
+  @PutMapping("/posts/{id}/text")
+  public SessionBoard.Post editText(
+      @PathVariable UUID id,
+      @RequestBody TextEdit edit,
+      HttpServletRequest r,
+      HttpServletResponse s) {
+    return board.editText(
+        identity.actor(r, s, true), id, edit.title(), edit.body(), edit.revision());
   }
 
   public record Deletion(String password, long revision) {}
