@@ -1,3 +1,5 @@
+import type { Film } from '../workbenchHistory'
+import { AppLink } from '../../../shared/navigation/AppLink'
 import { accountScope } from '../../account/auth'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { CurrencyPriceContext } from '../currency-prices/context'
@@ -16,7 +18,18 @@ import { sessionTitle } from '../session-library/sessionTitle'
 import './history.css'
 import '../compact-viewport/mobileWorkbench.css'
 
-export function SessionOverviewPage({ id }: { id: string }) {
+export function SessionOverviewPage({
+  id,
+  source,
+}: {
+  id: string
+  source?: {
+    film: Film
+    title: string
+    backHref: string
+    backLabel: string
+  }
+}) {
   const { locale, t } = useI18n()
   const market = useCurrencyPrices()
   const text = historyMessages[locale]
@@ -27,6 +40,7 @@ export function SessionOverviewPage({ id }: { id: string }) {
   const snapshotRoot = useRef<HTMLDivElement>(null)
   const data = useQuery({
     queryKey: ['session-overview', id],
+    enabled: !source,
     retry: false,
     queryFn: async () => {
       const repository = new IndexedFilmRepository(
@@ -43,8 +57,9 @@ export function SessionOverviewPage({ id }: { id: string }) {
       }
     },
   })
-  const film = data.data
-  const title = film ? sessionTitle(film, locale) : text.title
+  const film = source?.film ?? data.data
+  const title =
+    source?.title ?? (film ? sessionTitle(film, locale) : text.title)
   const origin =
     new URLSearchParams(location.search).get('from') === 'simulation'
       ? 'simulation'
@@ -123,9 +138,12 @@ export function SessionOverviewPage({ id }: { id: string }) {
           </div>
         </header>
         <div className="history-toolbar">
-          <a className="history-back" href={`/?${returnQuery}`}>
-            <span aria-hidden="true">←</span> {text.home}
-          </a>
+          <AppLink
+            className="history-back"
+            href={source?.backHref ?? `/?${returnQuery}`}
+          >
+            <span aria-hidden="true">←</span> {source?.backLabel ?? text.home}
+          </AppLink>
           {film && (
             <div className="history-session-summary">
               <CraftingCostLine film={film} cursor={film.frames.length - 1} />
@@ -136,7 +154,7 @@ export function SessionOverviewPage({ id }: { id: string }) {
           )}
         </div>
         {error && <p role="alert">{text.error}</p>}
-        {data.isError && <p role="alert">{text.error}</p>}
+        {!source && data.isError && <p role="alert">{text.error}</p>}
         {!film && !data.isFetching && <p>{text.missing}</p>}
         {film && (
           <div className="session-flow">

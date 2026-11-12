@@ -22,6 +22,8 @@ export function SessionDetail({
   costControls,
   showOverview = true,
   layout = 'stack',
+  artwork,
+  overviewHref,
 }: {
   film?: Film | null | undefined
   cursor: number
@@ -36,6 +38,8 @@ export function SessionDetail({
   costControls?: ReactNode
   showOverview?: boolean
   layout?: 'stack' | 'columns'
+  artwork?: ReactNode
+  overviewHref?: string
 }) {
   const { t } = useI18n()
   const index = Math.max(0, Math.min(cursor, (film?.frames.length ?? 1) - 1))
@@ -88,6 +92,7 @@ export function SessionDetail({
           cursor={index}
           resources={resources}
           showOverview={showOverview}
+          {...(overviewHref ? { overviewHref } : {})}
           {...(onNavigate ? { onNavigate } : {})}
           disabled={disabled}
           {...(onNewCraft ? { onNewCraft } : {})}
@@ -107,6 +112,7 @@ export function SessionDetail({
     >
       {layout === 'columns' ? (
         <>
+          {artwork && <div className="session-detail__artwork">{artwork}</div>}
           <div className="session-detail__item">
             {controls}
             {itemView}

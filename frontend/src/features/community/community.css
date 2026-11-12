@@ -10,8 +10,7 @@
   font-weight: 600;
   color: #e2c68c;
 }
-.community-form h2,
-.community-comments h2 {
+.community-form h2 {
   margin: 0;
   font-size: 18px;
   color: #ddc899;
@@ -241,22 +240,10 @@
 }
 .community-comments {
   margin-top: 0;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-}
-.community-comments-heading {
-  border-top: 2px solid var(--site-border);
-  border-bottom: 1px solid var(--site-border);
-  padding: 16px 0;
-}
-.community-comments h2 {
-  font-size: 16px;
-}
-.community-comments h2 strong {
-  margin-inline-start: 6px;
-  color: var(--site-gold);
+  border: 1px solid var(--site-border);
+  border-radius: 4px;
+  background: #181c1a;
+  padding: 4px 14px 14px;
 }
 .community-comment {
   display: grid;
@@ -402,14 +389,35 @@
 }
 
 /* The shared detail renderer retains stacked markup everywhere except post details. */
+.community-post-session {
+  padding: 20px;
+  border: 1px solid #454538;
+  border-radius: 4px;
+  background: #181d1b;
+}
 .community-session-columns {
   display: grid;
-  grid-template-columns: minmax(0, 374px) minmax(0, 374px) minmax(200px, 1fr);
-  align-items: start;
-  gap: 24px;
+  grid-template-columns:
+    minmax(90px, 140px) minmax(0, 374px) minmax(0, 374px)
+    minmax(190px, 280px);
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
 }
 .community-session-columns > div {
   min-width: 0;
+}
+.community-session-columns .session-detail__artwork {
+  contain: size;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.community-session-columns .session-detail__artwork .wb-base-image {
+  width: 100%;
+  height: 80%;
+  max-height: 220px;
+  object-fit: contain;
 }
 .community-session-columns .session-detail__item,
 .community-session-columns .session-detail__record {
@@ -417,18 +425,41 @@
   flex-direction: column;
   gap: 8px;
 }
+.community-session-columns .session-detail__item {
+  align-self: end;
+}
+/* The item determines row height; long histories scroll inside that same height. */
+.community-session-columns .session-detail__record {
+  contain: size;
+  min-height: 0;
+}
 .community-session-columns .workbench-film-toolbar,
 .community-session-columns .crafting-cost-line {
   margin: 0;
 }
 .community-session-columns .wb-session-notation {
   margin: 0;
-  flex: none;
-  height: 320px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.community-session-columns .wb-session-notation__heading {
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.community-session-columns .wb-session-notation__heading h3 {
+  font-size: 16px;
+}
+.community-session-columns .session-overview-entry {
+  margin-left: auto;
+  font-size: 13px;
+  padding: 5px 7px;
 }
 .community-session-columns .session-detail__actions {
-  padding-top: 0;
-  max-width: 374px;
+  align-self: end;
+}
+.community-comments .community-comment-login {
+  margin-bottom: 0;
 }
 .community-author {
   display: inline-flex;
@@ -508,13 +539,12 @@
   font-size: 16px;
   cursor: pointer;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .community-session-columns {
-    grid-template-columns: repeat(2, minmax(0, 374px));
+    grid-template-columns: 100px repeat(2, minmax(0, 374px));
   }
   .community-session-columns .session-detail__actions {
-    grid-column: 1 / -1;
-    max-width: none;
+    grid-column: 2 / -1;
   }
   .community-session-columns .community-reuse {
     display: grid;
@@ -552,13 +582,42 @@
     gap: 8px;
   }
 }
-@media (max-width: 540px) {
+@media (max-width: 700px) {
+  .community-post-session {
+    padding: 16px;
+  }
   .community-session-columns {
-    grid-template-columns: minmax(0, 374px);
-    justify-content: center;
+    grid-template-columns: 80px minmax(0, 374px);
     gap: 16px;
+  }
+  .community-session-columns .session-detail__record {
+    grid-column: 1 / -1;
+    contain: none;
+    height: 260px;
+  }
+  .community-session-columns .session-detail__actions {
+    grid-column: 1 / -1;
   }
   .community-session-columns .community-reuse {
     display: flex;
+  }
+}
+@media (max-width: 440px) {
+  .community-post-session {
+    padding: 12px;
+  }
+  .community-session-columns {
+    grid-template-columns: minmax(0, 374px);
+  }
+  .community-session-columns .session-detail__artwork {
+    contain: none;
+    height: 110px;
+  }
+  .community-session-columns .session-detail__artwork .wb-base-image {
+    width: 100px;
+    height: 100%;
+  }
+  .community-comments {
+    padding-inline: 8px;
   }
 }

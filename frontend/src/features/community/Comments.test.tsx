@@ -55,6 +55,8 @@ it('renders untrusted text safely and submits edits with the existing revision',
   const view = mount()
   await screen.findByText('<img src=x onerror=alert(1)>')
   expect(view.container.querySelector('img')).toBeNull()
+  expect(screen.queryByRole('heading', { name: /Comments/ })).toBeNull()
+  expect(screen.getByRole('region', { name: 'Comments' })).toBeInTheDocument()
   fireEvent.click(screen.getByRole('button', { name: 'Edit' }))
   fireEvent.change(screen.getByRole('textbox', { name: 'Write a comment' }), {
     target: { value: 'Updated' },

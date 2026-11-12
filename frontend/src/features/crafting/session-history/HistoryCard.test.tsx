@@ -73,3 +73,39 @@ it('uses the translated catalyst quality in a preserved session instead of the r
   expect(screen.queryByText(/NECROTIC/)).toBeNull()
   await setLocale('en')
 })
+
+it('restores the workbench affected-option mark at each saved step and clears it at step zero', async () => {
+  const { twoSteps } = await import('../session-notation/fixtures.test-support')
+  const { history } = await twoSteps(),
+    film = history.films[0]!
+  const initial = structuredClone(initialFixture)
+  initial.state.baseItemId = 'Metadata/Items/Amulets/FourAmulet9'
+  for (const frame of film.frames)
+    frame.state.baseItemId = initial.state.baseItemId
+  const saved = JSON.stringify(film)
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false, staleTime: Infinity } },
+  })
+  client.setQueryData(['crafting', 'initial', 'solar', 82, 'manual'], initial)
+  const view = (index: number) => (
+    <QueryClientProvider client={client}>
+      <HistoryCard film={film} frame={film.frames[index]!} />
+    </QueryClientProvider>
+  )
+  const rendered = render(view(1))
+  expect(await screen.findByText('+17 to maximum Life')).toHaveAttribute(
+    'data-last-currency-affected',
+  )
+  rendered.rerender(view(2))
+  expect(await screen.findByText('+6 to Strength')).toHaveAttribute(
+    'data-last-currency-affected',
+  )
+  expect(screen.getByText('+17 to maximum Life')).not.toHaveAttribute(
+    'data-last-currency-affected',
+  )
+  rendered.rerender(view(0))
+  expect(
+    rendered.container.querySelector('[data-last-currency-affected]'),
+  ).toBeNull()
+  expect(JSON.stringify(film)).toBe(saved)
+})

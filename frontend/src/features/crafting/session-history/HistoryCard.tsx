@@ -1,3 +1,4 @@
+import { lastCurrencyAffectedOptions } from '../lastCurrencyAffectedOptions'
 import { performanceSettings } from '../../../shared/performance'
 import { useBonded, bondedLabel } from '../bonded'
 import { installedAugmentEffects } from '../augmentEffects'
@@ -45,6 +46,13 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
     initial.data &&
     filmRulesetStatus(film, initial.data.rulesetIdentity) === 'current' &&
     verifiedHistoryState(state, initial.data)
+  const affected = initial.data
+    ? lastCurrencyAffectedOptions(
+        film,
+        film.frames.indexOf(frame),
+        initial.data,
+      )
+    : new Set<string>()
   const definitions = initial.data?.modifiers
   const defences =
     valid && definitions
@@ -176,6 +184,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                       .map(([key, value]) => `${key} ${value}`)
                       .join(', ')}`,
                 fractured: m.fractured,
+                lastCurrencyAffected: affected.has(m.modifierId),
                 kind:
                   i < state.implicits.length
                     ? ('implicit' as const)
@@ -189,6 +198,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                   id: s.id,
                   text: s.side,
                   unrevealedDesecrated: true,
+                  lastCurrencyAffected: affected.has(s.id),
                   kind: 'desecrated' as const,
                 })),
             ),

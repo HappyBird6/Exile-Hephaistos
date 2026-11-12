@@ -8,6 +8,11 @@ const CommunityCompose = lazy(() =>
     default: m.CommunityCompose,
   })),
 )
+const CommunityOverview = lazy(() =>
+  import('../features/community/CommunityOverview').then((m) => ({
+    default: m.CommunityOverview,
+  })),
+)
 const CommunityDetail = lazy(() =>
   import('../features/community/CommunityDetail').then((m) => ({
     default: m.CommunityDetail,
@@ -74,6 +79,15 @@ function AppContent() {
     return (
       <Suspense fallback={<p role="status">…</p>}>
         <CommunityCompose />
+      </Suspense>
+    )
+  const overview = location.pathname.match(
+    /^\/community\/post\/([0-9a-f-]+)\/overview$/i,
+  )
+  if (overview)
+    return (
+      <Suspense fallback={<p role="status">…</p>}>
+        <CommunityOverview id={overview[1]!} />
       </Suspense>
     )
   const post = location.pathname.match(/^\/community\/post\/([0-9a-f-]+)$/i)

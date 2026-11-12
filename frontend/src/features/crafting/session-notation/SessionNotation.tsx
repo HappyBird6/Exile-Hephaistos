@@ -9,6 +9,7 @@ import { freshCraftMessages } from '../session-library/freshCraftMessages'
 import { RevealIcon } from '../abyss-workbench/RevealIcon'
 import { revealAction } from '../abyss-workbench/revealAction'
 import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
+import { AppLink } from '../../../shared/navigation/AppLink'
 import { useId, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { WorkbenchResource } from '../stash/stashTypes'
@@ -30,6 +31,7 @@ export type SessionNotationProps = {
   onNewCraft?: () => void
   disabled?: boolean
   showOverview?: boolean
+  overviewHref?: string
 }
 
 function ResourceIcon({
@@ -98,6 +100,7 @@ export function SessionNotation({
   onNewCraft,
   disabled = false,
   showOverview = true,
+  overviewHref,
 }: SessionNotationProps) {
   const { locale, name } = useI18n()
   const text = sessionNotationMessages[locale]
@@ -113,12 +116,12 @@ export function SessionNotation({
       <div className="wb-session-notation__heading">
         <h3 id={headingId}>{text.title}</h3>
         {film && showOverview && (
-          <a
+          <AppLink
             className="session-overview-entry"
-            href={localHistoryUrl(film.id, 'simulation')}
+            href={overviewHref ?? localHistoryUrl(film.id, 'simulation')}
           >
             {historyMessages[locale].title} <span aria-hidden="true">↗</span>
-          </a>
+          </AppLink>
         )}
       </div>
       {notation.steps.length === 0 ? (

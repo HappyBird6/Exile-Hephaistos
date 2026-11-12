@@ -25,12 +25,7 @@ export function Comments({ post }: { post: string }) {
   const key = ['community', 'comments', post]
   const query = useQuery(communityQueries.comments(post, page))
   return (
-    <section className="community-comments">
-      <header className="community-comments-heading">
-        <h2>
-          {t.comments} <strong>{query.data?.total ?? 0}</strong>
-        </h2>
-      </header>
+    <section className="community-comments" aria-label={t.comments}>
       {(error || query.isError) && <p role="alert">{t.error}</p>}
       <div className="community-comment-list">
         {query.data?.comments.map((c) => (

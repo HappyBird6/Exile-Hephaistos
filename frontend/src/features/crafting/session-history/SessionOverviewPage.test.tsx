@@ -143,3 +143,47 @@ it('places the full-session spending to the left of the state count and keeps sn
   view.unmount()
   client.clear()
 })
+
+it('renders a public source without reading or importing any private session', async () => {
+  const { vi } = await import('vitest')
+  const { IndexedFilmRepository } =
+    await import('../session-library/IndexedFilmRepository')
+  const load = vi.spyOn(IndexedFilmRepository.prototype, 'load')
+  const { history } = await twoSteps(),
+    film = history.films[0]!
+  const before = localStorage.getItem(historyStorageKey)
+  setLocale('en')
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false, staleTime: Infinity } },
+  })
+  client.setQueryData(
+    ['crafting', 'initial', 'solar', 82, 'manual'],
+    initialFixture,
+  )
+  const view = render(
+    <QueryClientProvider client={client}>
+      <SessionOverviewPage
+        id="public-post"
+        source={{
+          film,
+          title: 'Published craft',
+          backHref: '/community/post/public-post?from=%3Fsort%3Dpopular',
+          backLabel: 'View details',
+        }}
+      />
+    </QueryClientProvider>,
+  )
+  expect(screen.getByRole('heading', { name: 'Published craft' })).toBeVisible()
+  expect(screen.getByRole('link', { name: 'View details' })).toHaveAttribute(
+    'href',
+    '/community/post/public-post?from=%3Fsort%3Dpopular',
+  )
+  expect(view.container.querySelectorAll('[data-flow-state]')).toHaveLength(
+    film.frames.length,
+  )
+  expect(load).not.toHaveBeenCalled()
+  expect(localStorage.getItem(historyStorageKey)).toBe(before)
+  view.unmount()
+  client.clear()
+  load.mockRestore()
+})

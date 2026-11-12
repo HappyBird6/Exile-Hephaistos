@@ -1,3 +1,4 @@
+import { BaseImage } from '../crafting/base-picker/BaseImage'
 import { AuthorLink } from './AuthorLink'
 import { AppLink } from '../../shared/navigation/AppLink'
 import { navigate } from '../../shared/navigation/navigation'
@@ -93,7 +94,15 @@ function Detail({ post }: { post: Post }) {
           cursor={cursor}
           onNavigate={setCursor}
           resources={historyResources}
-          showOverview={false}
+          overviewHref={
+            '/community/post/' + post.id + '/overview' + location.search
+          }
+          artwork={
+            <BaseImage
+              baseItemId={post.film.frames[cursor]!.state.baseItemId}
+              label={gameName(post.baseId, post.baseId, locale)}
+            />
+          }
           className="community-session-columns"
           layout="columns"
           disabled={busy}
