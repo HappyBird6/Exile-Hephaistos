@@ -32,7 +32,9 @@ public class AccountAccessFilter extends OncePerRequestFilter {
 
   @Override
   protected boolean shouldNotFilter(HttpServletRequest r) {
-    return !UrlPathHelper.defaultInstance.getLookupPathForRequest(r).startsWith("/api/account/");
+    return !UrlPathHelper.defaultInstance
+        .getLookupPathForRequest(r)
+        .matches("/api/(account|community)/.*");
   }
 
   @Override

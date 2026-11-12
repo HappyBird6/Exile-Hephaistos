@@ -199,3 +199,17 @@ account:
     max-concurrent: 4
     # Minimum password characters; PasswordAccounts. BCrypt also limits UTF-8 to 72 bytes.
     minimum-password-length: 8
+
+community:
+  # Public game-version selector default; PostgresSessionBoard.options. Does not change crafting rules.
+  current-version: "0.5.5"
+  # Public session JSON cap, below the shared HTTP request limit; SharedSession validation.
+  max-session-bytes: 200000
+  # Maximum saved steps in one post; SharedSession validation.
+  max-frames: 2000
+  # Rows per board page; PostgresSessionBoard.list.
+  page-size: 20
+  # Member post text length; PostgresSessionBoard.
+  max-body-length: 5000
+  # Per-IP community mutations per minute; CommunityWriteLimit.
+  writes-per-minute: 30
