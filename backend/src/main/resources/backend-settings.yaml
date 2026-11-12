@@ -181,3 +181,10 @@ backend:
     # 작업대 제작 재료와 장착 재료의 시세 분류. Currency는 기준 환율 계산에 필수다.
     # 사용: shared/economy/infrastructure/NinjaCurrencyPriceSource.java
     categories: [Currency, Essences, Ritual, Breach, Delirium, Abyss, Runes, SoulCores, Idols]
+
+account:
+  library:
+    # Maximum UTF-8 JSON bytes per saved document; PostgresAccountLibrary.
+    max-document-bytes: 1048576
+    # Maximum saved document identities per account, including deletion markers; PostgresAccountLibrary.
+    max-documents: 2000
