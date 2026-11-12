@@ -96,6 +96,7 @@ class AccountAccessIntegrationTest {
         .andExpect(status().isConflict());
     mvc.perform(get("/api/account/library").cookie(a.cookie()).header("X-Account-Id", a.id()))
         .andExpect(status().isOk())
+        .andExpect(header().string("X-Library-Read-Batch-Size", "5"))
         .andExpect(content().json("[]"));
     mvc.perform(get("/api/admin/dashboard").cookie(a.cookie())).andExpect(status().isNotFound());
     mvc.perform(
@@ -108,6 +109,34 @@ class AccountAccessIntegrationTest {
                 .content("{\"version\":0,\"content\":{\"id\":\"a\",\"frames\":[{}]}}"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.version").value(1));
+    String batch =
+        "{\"generation\":0,\"references\":[{\"kind\":\"session\",\"id\":\"a\",\"version\":1}]}";
+    mvc.perform(
+            post("/api/account/library/read-batch")
+                .cookie(a.cookie())
+                .header("X-Account-Id", a.id())
+                .contentType("application/json")
+                .content(batch))
+        .andExpect(status().isForbidden());
+    mvc.perform(
+            post("/api/account/library/read-batch")
+                .cookie(a.cookie())
+                .header("X-CSRF-Token", a.csrf())
+                .header("X-Account-Id", UUID.randomUUID())
+                .contentType("application/json")
+                .content(batch))
+        .andExpect(status().isConflict());
+    mvc.perform(
+            post("/api/account/library/read-batch")
+                .cookie(a.cookie())
+                .header("X-CSRF-Token", a.csrf())
+                .header("X-Account-Id", a.id())
+                .contentType("application/json")
+                .content(batch))
+        .andExpect(status().isOk())
+        .andExpect(header().string("Cache-Control", "no-store"))
+        .andExpect(jsonPath("$[0].id").value("a"))
+        .andExpect(jsonPath("$[0].version").value(1));
     mvc.perform(post("/api/account/logout").cookie(a.cookie()).header("X-CSRF-Token", a.csrf()))
         .andExpect(status().isNoContent());
     mvc.perform(get("/api/account/library").cookie(a.cookie()).header("X-Account-Id", a.id()))

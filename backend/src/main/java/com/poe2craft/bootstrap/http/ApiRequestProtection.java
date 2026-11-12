@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Semaphore;
 import java.util.function.LongSupplier;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -22,15 +23,23 @@ public final class ApiRequestProtection extends OncePerRequestFilter {
   private final BackendSettings.RequestProtection limits;
   private final Semaphore inFlight;
   private final LongSupplier clock;
+  private final int libraryBatchCost;
   private double tokens;
   private long last;
 
   @Autowired
-  public ApiRequestProtection(BackendSettings settings) {
-    this(settings.requestProtection(), System::nanoTime);
+  public ApiRequestProtection(
+      BackendSettings settings, @Value("${account.library.read-batch-size}") int libraryBatchCost) {
+    this(settings.requestProtection(), System::nanoTime, libraryBatchCost);
   }
 
   ApiRequestProtection(BackendSettings.RequestProtection limits, LongSupplier clock) {
+    this(limits, clock, 1);
+  }
+
+  ApiRequestProtection(
+      BackendSettings.RequestProtection limits, LongSupplier clock, int libraryBatchCost) {
+    this.libraryBatchCost = libraryBatchCost;
     this.limits = limits;
     this.clock = clock;
     inFlight = new Semaphore(limits.maxInFlight());
@@ -44,15 +53,15 @@ public final class ApiRequestProtection extends OncePerRequestFilter {
     return !path.equals("/api") && !path.startsWith("/api/");
   }
 
-  private synchronized boolean acquireRate() {
+  private synchronized boolean acquireRate(int cost) {
     long now = clock.getAsLong();
     tokens =
         Math.min(
             limits.burst(),
             tokens + Math.max(0, now - last) / 1_000_000_000d * limits.requestsPerSecond());
     last = now;
-    if (tokens < 1) return false;
-    tokens--;
+    if (tokens < cost) return false;
+    tokens -= cost;
     return true;
   }
 
@@ -60,7 +69,13 @@ public final class ApiRequestProtection extends OncePerRequestFilter {
   protected void doFilterInternal(
       HttpServletRequest request, HttpServletResponse response, FilterChain chain)
       throws ServletException, IOException {
-    if (!acquireRate()) {
+    String path = UrlPathHelper.defaultInstance.getLookupPathForRequest(request);
+    // Batching reduces round trips, not the admitted document/response-volume budget.
+    int cost =
+        request.getMethod().equals("POST") && path.equals("/api/account/library/read-batch")
+            ? libraryBatchCost
+            : 1;
+    if (!acquireRate(cost)) {
       reject(response, 429);
       return;
     }

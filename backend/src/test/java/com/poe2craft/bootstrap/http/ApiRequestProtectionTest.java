@@ -11,6 +11,32 @@ import org.springframework.mock.web.*;
 
 class ApiRequestProtectionTest {
   @Test
+  void batchReadsChargeTheAdvertisedDocumentBudgetAndRefillNormally() throws Exception {
+    var time = new AtomicLong();
+    var filter =
+        new ApiRequestProtection(
+            new BackendSettings.RequestProtection(5, 6, 1, 1024), time::get, 5);
+    FilterChain handler = (req, res) -> {};
+    var batch = new MockHttpServletResponse();
+    filter.doFilter(
+        new MockHttpServletRequest("POST", "/api/account/library/read%2Dbatch"), batch, handler);
+    assertThat(batch.getStatus()).isEqualTo(200);
+    var index = new MockHttpServletResponse();
+    filter.doFilter(new MockHttpServletRequest("GET", "/api/account/library"), index, handler);
+    assertThat(index.getStatus()).isEqualTo(200);
+    var denied = new MockHttpServletResponse();
+    filter.doFilter(
+        new MockHttpServletRequest("POST", "/api/account/library/read-batch"), denied, handler);
+    assertThat(denied.getStatus()).isEqualTo(429);
+    assertThat(denied.getHeader("Retry-After")).isEqualTo("1");
+    time.addAndGet(1_000_000_000L);
+    var refilled = new MockHttpServletResponse();
+    filter.doFilter(
+        new MockHttpServletRequest("POST", "/api/account/library/read-batch"), refilled, handler);
+    assertThat(refilled.getStatus()).isEqualTo(200);
+  }
+
+  @Test
   void rateBudgetCannotBeBypassedByForwardedHeadersAndRefills() throws Exception {
     var time = new AtomicLong();
     var filter =

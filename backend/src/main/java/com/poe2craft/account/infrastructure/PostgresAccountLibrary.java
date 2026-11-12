@@ -18,16 +18,21 @@ public class PostgresAccountLibrary implements AccountLibrary {
   private final ObjectMapper json;
   private final int maxBytes;
   private final int maxDocuments;
+  private final int readBatchSize;
 
   public PostgresAccountLibrary(
       JdbcTemplate db,
       ObjectMapper json,
       @Value("${account.library.max-document-bytes}") int maxBytes,
-      @Value("${account.library.max-documents}") int maxDocuments) {
+      @Value("${account.library.max-documents}") int maxDocuments,
+      @Value("${account.library.read-batch-size}") int readBatchSize) {
     this.db = db;
     this.json = json;
     this.maxBytes = maxBytes;
     this.maxDocuments = maxDocuments;
+    if (readBatchSize < 1 || readBatchSize > 20)
+      throw new IllegalArgumentException("Library read batch size must be between 1 and 20");
+    this.readBatchSize = readBatchSize;
   }
 
   private long lockedGeneration(UUID owner) {
@@ -64,6 +69,68 @@ public class PostgresAccountLibrary implements AccountLibrary {
     if (lockedGeneration(owner) != generation)
       throw new ResponseStatusException(HttpStatus.CONFLICT, "SESSIONS_CLEARED");
     return save(owner, "session", id, version, content);
+  }
+
+  @Override
+  public int readBatchSize() {
+    return readBatchSize;
+  }
+
+  @Override
+  @Transactional
+  public List<Document> readBatch(UUID owner, long generation, List<ReadKey> references) {
+    if (generation < 0
+        || references == null
+        || references.isEmpty()
+        || references.size() > readBatchSize)
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "INVALID_LIBRARY_BATCH");
+    var keys = new HashSet<String>();
+    for (var ref : references) {
+      if (ref == null
+          || ref.kind() == null
+          || !Set.of("session", "base-favorite", "material-favorites").contains(ref.kind())
+          || ref.id() == null
+          || !ref.id().matches("[A-Za-z0-9_.:-]{1,160}")
+          || ref.version() < 1
+          || !keys.add(ref.kind() + "/" + ref.id()))
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "INVALID_LIBRARY_BATCH");
+    }
+    // All saves/clears take this same owner lock, keeping versions and generation consistent.
+    if (lockedGeneration(owner) != generation)
+      throw new ResponseStatusException(HttpStatus.CONFLICT, "SESSIONS_CLEARED");
+    var args = new ArrayList<Object>();
+    args.add(owner);
+    for (var ref : references) {
+      args.add(ref.kind());
+      args.add(ref.id());
+    }
+    var rows =
+        db.query(
+            "SELECT kind,document_id,version,content::text FROM app_user.library_document WHERE account_id=? AND (kind,document_id) IN ("
+                + String.join(",", Collections.nCopies(references.size(), "(?,?)"))
+                + ")",
+            (r, n) -> {
+              try {
+                return new Document(
+                    r.getString(1),
+                    r.getString(2),
+                    r.getLong(3),
+                    r.getString(4) == null ? null : json.readTree(r.getString(4)));
+              } catch (Exception e) {
+                throw new IllegalStateException("Stored document unreadable", e);
+              }
+            },
+            args.toArray());
+    var found = new HashMap<String, Document>();
+    for (var row : rows) found.put(row.kind() + "/" + row.id(), row);
+    var ordered = new ArrayList<Document>();
+    for (var ref : references) {
+      var row = found.get(ref.kind() + "/" + ref.id());
+      if (row == null || row.content() == null || row.version() != ref.version())
+        throw new ResponseStatusException(HttpStatus.CONFLICT, "LIBRARY_VERSION_CONFLICT");
+      ordered.add(row);
+    }
+    return List.copyOf(ordered);
   }
 
   @Override

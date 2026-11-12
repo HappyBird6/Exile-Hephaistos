@@ -1,4 +1,5 @@
 import { syncStorage } from './syncStorage'
+import { readRemoteLibrary } from './libraryRead'
 import { accountRequest, accountScope } from './auth'
 import {
   canonical,
@@ -122,31 +123,13 @@ async function performSync(owner: string): Promise<boolean> {
       new Set(references.map(documentKey)).size !== references.length
     )
       throw Error('INVALID_LIBRARY_INDEX')
-    const remote: Document[] = []
-    for (const ref of references) {
-      const cached = meta.baseline.find(
-        (d) => documentKey(d) === documentKey(ref) && d.version === ref.version,
-      )
-      if (cached) remote.push(cached)
-      else if (ref.deleted)
-        remote.push({
-          kind: ref.kind,
-          id: ref.id,
-          version: ref.version,
-          content: null,
-        })
-      else {
-        const result = await accountRequest(
-          `library/${encodeURIComponent(ref.kind)}/${encodeURIComponent(ref.id)}`,
-          {},
-          owner,
-        )
-        const document = readDocuments([await result.json()])[0]!
-        if (documentKey(document) !== documentKey(ref))
-          throw Error('INVALID_LIBRARY_DOCUMENT')
-        remote.push(document)
-      }
-    }
+    const remote = await readRemoteLibrary(
+      owner,
+      generation,
+      references,
+      meta.baseline,
+      response.headers.get('X-Library-Read-Batch-Size'),
+    )
     guard(owner)
     if (meta.pending) {
       const saved = remote.find(

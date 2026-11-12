@@ -33,6 +33,17 @@ public class AccountController {
 
   public record Save(long version, JsonNode content) {}
 
+  public record ReadBatch(Long generation, List<AccountLibrary.ReadKey> references) {}
+
+  @PostMapping("/library/read-batch")
+  public List<AccountLibrary.Document> readBatch(
+      @RequestBody ReadBatch body, HttpServletRequest request) {
+    UUID account = owner(request);
+    if (body.generation() == null)
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "INVALID_LIBRARY_BATCH");
+    return library.readBatch(account, body.generation(), body.references());
+  }
+
   private String token(HttpSession session) {
     var token = (String) session.getAttribute("account.csrf");
     if (token == null) {
@@ -96,6 +107,7 @@ public class AccountController {
     var snapshot = library.snapshot(owner(request));
     return org.springframework.http.ResponseEntity.ok()
         .header("X-Session-Generation", Long.toString(snapshot.generation()))
+        .header("X-Library-Read-Batch-Size", Integer.toString(library.readBatchSize()))
         .body(snapshot.documents());
   }
 

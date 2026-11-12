@@ -14,6 +14,12 @@ public interface AccountLibrary {
 
   record Snapshot(long generation, List<Reference> documents) {}
 
+  record ReadKey(String kind, String id, long version) {}
+
+  int readBatchSize();
+
+  List<Document> readBatch(UUID owner, long generation, List<ReadKey> references);
+
   Snapshot snapshot(UUID owner);
 
   long clearSessions(UUID owner);

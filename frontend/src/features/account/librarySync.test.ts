@@ -15,6 +15,7 @@ import type { Document } from './libraryPlan'
 import { canonical, documentKey, planSync, mergeFilms } from './libraryPlan'
 const owner = 'account-one'
 let generation = 0
+let batchSize: number | null = null
 let remote: Document[],
   writes: number,
   reads: number,
@@ -22,6 +23,7 @@ let remote: Document[],
   failNetwork: boolean
 beforeEach(async () => {
   generation = 0
+  batchSize = null
   localStorage.clear()
   remote = []
   writes = 0
@@ -52,8 +54,26 @@ beforeEach(async () => {
             version: d.version,
             deleted: d.content === null,
           })),
-          { headers: { 'X-Session-Generation': String(generation) } },
+          {
+            headers: {
+              'X-Session-Generation': String(generation),
+              ...(batchSize === null
+                ? {}
+                : { 'X-Library-Read-Batch-Size': String(batchSize) }),
+            },
+          },
         )
+      if (path.endsWith('/library/read-batch')) {
+        reads++
+        const body = JSON.parse(String(init?.body))
+        expect(body.generation).toBe(generation)
+        expect(body.references.length).toBeLessThanOrEqual(batchSize!)
+        return Response.json(
+          body.references.map((ref: Document) =>
+            remote.find((d) => documentKey(d) === documentKey(ref)),
+          ),
+        )
+      }
       const key = decodeURIComponent(path.split('/library/')[1]!)
       const existing = remote.find((d) => documentKey(d) === key)
       if (init?.method === 'PUT') {
@@ -439,4 +459,59 @@ it('honors a bulk-clear generation even when the server has reclaimed all sessio
   await syncLibrary(owner)
   expect(remote).toHaveLength(1)
   expect(writes).toBe(2)
+})
+
+it('batches cold reads, reuses unchanged documents and reads only changed versions', async () => {
+  batchSize = 5
+  const base = (await seed(null)).films[0]!
+  remote = Array.from({ length: 12 }, (_, i) => ({
+    kind: 'session',
+    id: `remote-${i}`,
+    version: 1,
+    content: { ...base, id: `remote-${i}` },
+  }))
+  await syncLibrary(owner)
+  expect(reads).toBe(3)
+  expect(writes).toBe(0)
+  expect(await films()).toHaveLength(12)
+  await syncLibrary(owner)
+  expect(reads).toBe(3)
+  remote[0] = {
+    ...remote[0]!,
+    version: 2,
+    content: { ...remote[0]!.content!, title: 'changed' },
+  }
+  await syncLibrary(owner)
+  expect(reads).toBe(4)
+  expect((await films()).find((f) => f.id === 'remote-0')?.title).toBe(
+    'changed',
+  )
+})
+
+it('does not publish a partially read library when a later batch fails', async () => {
+  batchSize = 5
+  const base = (await seed(null)).films[0]!
+  remote = Array.from({ length: 8 }, (_, i) => ({
+    kind: 'session',
+    id: `remote-${i}`,
+    version: 1,
+    content: { ...base, id: `remote-${i}` },
+  }))
+  const originalFetch = fetch
+  let batches = 0
+  vi.stubGlobal(
+    'fetch',
+    async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input).endsWith('/read-batch') && ++batches === 2)
+        throw Error('interrupted batch')
+      return originalFetch(input, init)
+    },
+  )
+  await expect(syncLibrary(owner)).rejects.toThrow('interrupted batch')
+  expect(await films()).toHaveLength(0)
+  expect(writes).toBe(0)
+  vi.stubGlobal('fetch', originalFetch)
+  await syncLibrary(owner)
+  expect(await films()).toHaveLength(8)
+  expect(writes).toBe(0)
 })

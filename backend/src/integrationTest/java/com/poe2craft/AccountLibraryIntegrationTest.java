@@ -41,6 +41,46 @@ class AccountLibraryIntegrationTest {
   @Autowired ObjectMapper json;
 
   @Test
+  void boundedBatchReadsEnforceOwnerVersionsGenerationAndUniqueKeys() throws Exception {
+    var owner = library.signIn(UUID.randomUUID().toString(), "Batch owner").id();
+    var other = library.signIn(UUID.randomUUID().toString(), "Other owner").id();
+    var body = json.readTree("{\"id\":\"a\",\"frames\":[{}]}");
+    var a = library.saveSession(owner, "a", 0, 0, body);
+    var favorite = library.save(owner, "base-favorite", "a", 0, body);
+    var key = new AccountLibrary.ReadKey("session", "a", 1);
+    var keys = java.util.List.of(new AccountLibrary.ReadKey("base-favorite", "a", 1), key);
+    assertThat(library.readBatch(owner, 0, keys)).containsExactly(favorite, a);
+    assertThatThrownBy(() -> library.readBatch(other, 0, keys))
+        .isInstanceOf(ResponseStatusException.class)
+        .hasMessageContaining("409");
+    assertThatThrownBy(() -> library.readBatch(owner, 0, java.util.List.of(key, key)))
+        .isInstanceOf(ResponseStatusException.class)
+        .hasMessageContaining("400");
+    assertThatThrownBy(
+            () ->
+                library.readBatch(
+                    owner, 0, java.util.Collections.nCopies(library.readBatchSize() + 1, key)))
+        .isInstanceOf(ResponseStatusException.class)
+        .hasMessageContaining("400");
+    assertThatThrownBy(
+            () ->
+                library.readBatch(
+                    owner, 0, java.util.List.of(new AccountLibrary.ReadKey("unknown", "a", 1))))
+        .isInstanceOf(ResponseStatusException.class)
+        .hasMessageContaining("400");
+    library.saveSession(owner, "a", 1, 0, body);
+    assertThatThrownBy(() -> library.readBatch(owner, 0, keys))
+        .isInstanceOf(ResponseStatusException.class)
+        .hasMessageContaining("409");
+    library.clearSessions(owner);
+    assertThatThrownBy(() -> library.readBatch(owner, 0, keys))
+        .isInstanceOf(ResponseStatusException.class)
+        .hasMessageContaining("SESSIONS_CLEARED");
+    assertThat(library.readBatch(owner, 1, java.util.List.of(keys.getFirst())))
+        .containsExactly(favorite);
+  }
+
+  @Test
   void identitiesOwnershipVersionsAndTombstones() throws Exception {
     String subject = UUID.randomUUID().toString();
     var a = library.signIn(subject, "One");

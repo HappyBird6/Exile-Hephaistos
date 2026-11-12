@@ -32,7 +32,8 @@ backend:
     # 공개 웹 루트 밖의 압축 보관 경로. 사용: RequestLogStore. Compose app-data 볼륨에 보존.
     archive-directory: data/operations-logs
   request-protection:
-    # 인스턴스 전체 API 초당 허용량. IP별 제한은 Nginx에서 수행한다.
+    # 인스턴스 전체 API 초당 허용량. 계정 묶음 조회는 문서 수 예산으로 차감.
+    # IP별 제한은 Nginx에서 수행한다.
     # 사용: bootstrap/http/ApiRequestProtection.java. 프록시 헤더를 신뢰하지 않는다.
     requests-per-second: 120
     # 짧은 초기 카탈로그/화면 요청 묶음을 허용하는 토큰 수. 같은 파일에서 사용.
@@ -188,6 +189,10 @@ account:
     max-document-bytes: 200000
     # Maximum saved document identities per account, including deletion markers; PostgresAccountLibrary.
     max-documents: 2000
+    # 한 번에 읽을 계정 문서 수. 기본 응답 약 1 MB 상한(문서 200 KB × 5).
+    # 사용: PostgresAccountLibrary, AccountController의 안내 헤더 → frontend librarySync.
+    # ApiRequestProtection도 같은 수만큼 요청 예산을 차감해 응답량 제한을 유지한다.
+    read-batch-size: 5
   auth:
     # Enable temporary username/password authentication; AccountController.
     enabled: ${ACCOUNT_AUTH_ENABLED:true}
