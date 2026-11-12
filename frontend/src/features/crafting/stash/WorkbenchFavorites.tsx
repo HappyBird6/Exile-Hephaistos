@@ -1,3 +1,4 @@
+import { isTouchActivation } from '../../../shared/touchInput'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { CurrencyImage } from '../CurrencyImage'
 import { visibilityPolicy } from './visibilityPolicy'
@@ -53,7 +54,17 @@ export function WorkbenchFavorites({
             aria-disabled={disabled || (unavailable && !held)}
             disabled={disabled}
             data-material-tooltip={resource?.id}
-            onClick={() => {
+            onClick={(event) => {
+              if (
+                !held &&
+                !unavailable &&
+                resource?.category === 'Omen' &&
+                onActivateOmen &&
+                isTouchActivation(event)
+              ) {
+                onActivateOmen(resource)
+                return
+              }
               if (held && available(held)) onFavoritePlace(index, held)
               else if (!unavailable) onFavoriteActivate(index, resource)
             }}

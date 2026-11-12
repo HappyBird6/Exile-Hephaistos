@@ -131,6 +131,19 @@ function BasePickerContent({
       onClose={() => onOpenChange(false)}
       title={t('ui.select_base')}
       closeLabel={t('ui.close_item_input')}
+      footer={
+        <button
+          type="button"
+          disabled={
+            disabled || (favoriteMode ? !savedSelection : !valid || !levelValid)
+          }
+          onClick={() =>
+            savedSelection ? onPlaceFavorite?.(savedSelection) : onPlace()
+          }
+        >
+          {t('ui.select_base')}
+        </button>
+      }
       bodyClassName="wb-base-picker-body"
     >
       <div className="wb-base-picker">
@@ -235,18 +248,6 @@ function BasePickerContent({
               />
             </label>
             {!savedSelection && extraControls}
-            <button
-              type="button"
-              disabled={
-                disabled ||
-                (favoriteMode ? !savedSelection : !valid || !levelValid)
-              }
-              onClick={() =>
-                savedSelection ? onPlaceFavorite?.(savedSelection) : onPlace()
-              }
-            >
-              {t('ui.select_base')}
-            </button>
           </div>
           {!levelValid && (
             <p id={`${fieldId}-level-error`} role="alert">

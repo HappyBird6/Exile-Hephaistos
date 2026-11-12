@@ -1,0 +1,404 @@
+/* Touch layouts use their own tracks instead of shrinking the desktop stash.
+   Keep these rules scoped: exported snapshots retain their fixed composition. */
+.mobile-craft-action {
+  display: none;
+}
+@media (max-width: 1200px) {
+  .craft-page.craft-page--workbench,
+  .craft-page.craft-page--framed {
+    zoom: 1;
+    width: 100%;
+    padding: 0 10px 20px;
+    font-size: 16px;
+  }
+  .craft-page .craft-header {
+    gap: 10px;
+  }
+  .craft-header__identity {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+  .craft-page .header-league-mark {
+    width: 120px;
+    max-width: 30vw;
+  }
+  .craft-page .craft-header .workspace-nav {
+    gap: 4px;
+  }
+  .craft-page .workspace-nav [role='tablist'] > button,
+  .craft-page .workspace-nav > a {
+    min-height: 44px;
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+  .craft-page .currency-ticker {
+    margin-left: auto;
+  }
+  .craft-page input:not([type='checkbox']):not([type='radio']),
+  .craft-page textarea,
+  .craft-page select {
+    font-size: 16px;
+  }
+  .craft-page .stash-board {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .craft-page .stash-canvas {
+    padding: 10px;
+  }
+  .craft-page .stash-canvas__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .craft-page .stash-canvas__content::after {
+    display: none;
+  }
+  /* Only the currency/item plane keeps game-like coordinates. The material
+     library and controls below it no longer compete for its width. */
+  .craft-page .stash-canvas__upper {
+    flex: none;
+    width: min(100%, 620px);
+    margin-inline: auto;
+    aspect-ratio: 620 / 550;
+  }
+  .craft-page .currency-catalog .currency-slot {
+    left: calc(var(--currency-x) / 620 * 100%) !important;
+    width: calc(74 / 620 * 100%);
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .craft-page .item-placement {
+    left: calc(371 / 620 * 100%);
+    width: calc(193 / 620 * 100%);
+  }
+  .craft-page .custom-exalt-toggle.currency-slot {
+    left: calc(288 / 620 * 100%);
+    width: calc(64 / 620 * 100%);
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .craft-page .workbench-item-controls {
+    order: -1;
+    min-height: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 8px;
+  }
+  .craft-page .workbench-item-controls > .item-input-toggle {
+    min-height: 44px;
+    padding: 8px;
+    font-size: 15px !important;
+  }
+  .craft-page .chaos-repeat-integration {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .craft-page .chaos-repeat-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .craft-page .chaos-repeat-controls button {
+    min-height: 44px;
+  }
+  .craft-page .workbench-stash__favorites {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .craft-page .workbench-stash__favorite {
+    min-height: 44px;
+  }
+  .craft-page .workbench-stash-column {
+    contain: none;
+    margin: 0;
+    gap: 12px;
+    order: 2;
+  }
+  .craft-page .workbench-stash-frame {
+    display: flex;
+    flex-direction: column;
+  }
+  .craft-page .workbench-stash__nav {
+    position: static;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 5px;
+    padding: 5px;
+    border: 1px solid #655738;
+    border-bottom: 0;
+    border-radius: 5px 5px 0 0;
+  }
+  .craft-page .workbench-stash__nav button {
+    width: 48px;
+    height: 48px;
+  }
+  .craft-page .workbench-stash {
+    min-height: 0;
+    padding: 10px;
+  }
+  .craft-page .workbench-stash__search {
+    min-height: 44px;
+  }
+  .craft-page .workbench-stash__filter {
+    min-height: 36px;
+    font-size: 14px;
+  }
+  .craft-page .workbench-stash__resources {
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    --stash-row-height: 72px;
+    height: min(280px, calc(3 * var(--stash-row-height) + 10px));
+  }
+  .craft-page .workbench-feedback-region {
+    flex: none;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+  }
+  .craft-page .workbench-feedback-region .workbench-feedback-panel {
+    max-height: none;
+  }
+  .craft-page .workbench-feedback-tooltip {
+    max-height: 340px;
+  }
+  .craft-page .bench-lower {
+    padding: 12px;
+  }
+  .craft-page .bench-item-card {
+    width: 100%;
+  }
+  .craft-page .bench-item-card .item-card {
+    font-size: 16px;
+  }
+  .craft-page .wb-session-notation {
+    min-height: 300px;
+  }
+  .craft-page .workbench-film-controls button,
+  .craft-page .bonded-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .craft-page .wb-history-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .craft-page .wb-history-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-right: 0;
+    border-bottom: 1px solid #504838;
+    padding: 8px;
+  }
+  .craft-page .wb-history-nav button {
+    flex: 1;
+    min-height: 44px;
+  }
+  .craft-page .wb-history-content {
+    padding: 10px;
+    min-width: 0;
+  }
+  .craft-page .wb-history-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .craft-page .wb-history-list {
+    max-height: none;
+  }
+  .craft-page .wb-history-pagination button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .craft-page .wb-history-preview__actions button {
+    min-height: 44px;
+  }
+  .craft-page .modifier-pool__tools {
+    width: 100%;
+    min-width: 0;
+  }
+  .craft-page .modifier-pool__tools input {
+    min-width: 0;
+    width: 100%;
+  }
+  .craft-page .modifier-pool__mode button {
+    min-height: 44px;
+  }
+  .craft-page .history-header-actions {
+    flex-wrap: wrap;
+  }
+  .mobile-craft-action {
+    position: fixed;
+    z-index: 900;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+    background: #141912f5;
+    border-top: 1px solid #aa915b;
+    box-shadow: 0 -4px 18px #0008;
+  }
+  .mobile-craft-action img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  .mobile-craft-action > span {
+    flex: 1;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    font-size: 14px;
+  }
+  .mobile-craft-action button {
+    min-height: 44px;
+    padding: 8px 14px;
+    background: #393321;
+    border: 1px solid #b89a5d;
+    color: #f2dfac;
+    font: inherit;
+  }
+  .craft-page:has(.mobile-craft-action) {
+    padding-bottom: calc(100px + env(safe-area-inset-bottom));
+  }
+}
+@media (min-width: 360px) and (max-width: 1200px) {
+  .craft-page .currency-catalog .currency-slot,
+  .craft-page .custom-exalt-toggle.currency-slot {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+@media (max-width: 1200px) {
+  .craft-page .custom-exalt-toggle.currency-slot {
+    left: calc(283 / 620 * 100%);
+  }
+  .craft-page .currency-ticker__refresh {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .craft-page .history-actions {
+    flex-wrap: wrap;
+  }
+  .craft-page .history-actions button {
+    min-height: 44px;
+  }
+  .craft-page .modifier-pool__header {
+    padding: 16px 12px;
+  }
+  .craft-page .modifier-pool__columns {
+    padding-inline: 10px;
+    gap: 12px;
+  }
+}
+@media (max-width: 1200px) {
+  .craft-page .craft-header .workspace-nav [role='tablist'] > button {
+    flex: 1 1 0;
+    min-width: 0;
+    white-space: normal;
+    overflow-wrap: normal;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .craft-page .wb-session-card .wb-base-image {
+    width: 56px;
+    height: 56px;
+    flex-basis: 56px;
+  }
+  .craft-page .wb-session-card__text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .craft-page .wb-session-card__star {
+    flex: none;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .history-page.craft-page .craft-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 14px 10px;
+  }
+  .history-page.craft-page .craft-brand {
+    grid-column: 1 / -1;
+  }
+  .history-page.craft-page .history-title {
+    font-size: 16px;
+  }
+  .history-page.craft-page .history-page-label {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1200px) {
+  .craft-page .workbench-stash__filter,
+  .craft-page .wb-session-import__file,
+  .craft-page .wb-history-workspace .wb-session-card button {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .craft-page .workbench-stash-column,
+  .craft-page .workbench-item-controls,
+  .craft-page .workbench-stash__favorites,
+  .craft-page .chaos-repeat-integration,
+  .craft-page .bench-lower {
+    width: min(100%, 620px);
+    margin-inline: auto;
+  }
+}
+@media (min-width: 600px) and (max-width: 1200px) {
+  .craft-page .workbench-item-controls {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .craft-page .workbench-stash__favorites {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    grid-template-rows: auto;
+    aspect-ratio: auto;
+  }
+}
+/* A 44px custom toggle cannot fit between the item and the third currency
+   column on narrow phones. Reserve a separate target below that plane. */
+@media (max-width: 1200px) {
+  .craft-page .stash-canvas__upper {
+    margin-bottom: 56px;
+  }
+  .craft-page .custom-exalt-toggle.currency-slot {
+    left: auto;
+    right: 4px;
+    top: calc(100% + 6px);
+    width: 44px;
+    height: 44px;
+  }
+}
+
+.mobile-workbench-jumps {
+  display: none;
+}
+@media (max-width: 1200px) {
+  .mobile-workbench-jumps {
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 800;
+    gap: 6px;
+    padding: 6px 0;
+    background: #151820f5;
+  }
+  .mobile-workbench-jumps button {
+    flex: 1;
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px;
+    font: inherit;
+    font-size: 14px;
+    color: #dccc9e;
+    background: #22251e;
+    border: 1px solid #60563c;
+    border-radius: 4px;
+  }
+  .craft-page .stash-canvas__upper,
+  .craft-page .bench-item-card,
+  .craft-page .wb-session-notation {
+    scroll-margin-top: 64px;
+  }
+}

@@ -1,3 +1,5 @@
+import { sessionNotationMessages } from './session-notation/messages'
+import { cancelSelection } from './compact-viewport/mobileMessages'
 import { useDebouncedValue } from '../../shared/useDebouncedValue'
 import { performanceSettings } from '../../shared/performance'
 import { saveBaseFavorite } from './base-favorites/repository'
@@ -193,6 +195,7 @@ import {
 import { ModifierPoolPanel } from './modifier-pool/ModifierPoolPanel'
 import './crafting.css'
 import './compact-viewport/compactViewport.css'
+import './compact-viewport/mobileWorkbench.css'
 
 function tooltipEvents(id: string) {
   return { 'data-material-tooltip': id }
@@ -1208,11 +1211,12 @@ function ReadyCraftingPage({
     repeat = false,
     socketSlot?: number,
     augmentId?: string,
+    selectedMaterial: Selection | null = selected,
   ) {
     if (mutationLocked()) return
     const selection = augmentId
       ? augmentMaterials.find((entry) => entry.id === augmentId)
-      : selected
+      : selectedMaterial
     setFailedApplication(null)
     setRepeatNotice(null)
     const failApply = (message: string) => {
@@ -2209,6 +2213,36 @@ function ReadyCraftingPage({
         </fieldset>
       </header>
 
+      {view === 'workbench' && (
+        <nav
+          className="mobile-workbench-jumps"
+          aria-label={t('ui.crafting_workspace')}
+        >
+          {[
+            ['.stash-canvas__upper', t('stash.Currency')],
+            ['.bench-item-card', t('ui.item')],
+            ['.wb-session-notation', sessionNotationMessages[locale].title],
+          ].map(([selector, label]) => (
+            <button
+              key={selector}
+              type="button"
+              onClick={() =>
+                document.querySelector(selector!)?.scrollIntoView({
+                  block: 'start',
+                  behavior: window.matchMedia(
+                    '(prefers-reduced-motion: reduce)',
+                  ).matches
+                    ? 'instant'
+                    : 'smooth',
+                })
+              }
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
+      )}
+
       <div
         className="workbench-layout workspace-panel"
         id="workbench-panel-simulation"
@@ -2234,10 +2268,13 @@ function ReadyCraftingPage({
                             key={currency.id}
                             type="button"
                             className={`currency-slot ${selected?.id === currency.id ? 'is-selected' : ''}`}
-                            style={{
-                              left: `${currency.x / 9.35}%`,
-                              top: `${currency.y / 5.5}%`,
-                            }}
+                            style={
+                              {
+                                '--currency-x': currency.x,
+                                left: `${currency.x / 9.35}%`,
+                                top: `${currency.y / 5.5}%`,
+                              } as React.CSSProperties
+                            }
                             aria-label={currencyName}
                             aria-pressed={selected?.id === currency.id}
                             {...tooltipEvents(currency.id)}
@@ -3187,6 +3224,63 @@ function ReadyCraftingPage({
       <span className="sr-only" role="status">
         {imported.pending ? t('ui.analyzing_item') : announcement}
       </span>
+      {view === 'workbench' && cursor && !inputOpen && !leftMenu && (
+        <div className="mobile-craft-action">
+          <CurrencyImage {...cursor} name={name(cursor.id, cursor.name)} />
+          <span>{name(cursor.id, cursor.name)}</span>
+          <button
+            type="button"
+            disabled={workbenchBusy}
+            aria-label={`${t('input.apply')}: ${name(cursor.id, cursor.name)}`}
+            onClick={() => {
+              if (workbenchOmens.some((omen) => omen.id === cursor.id))
+                toggleOmen(cursor.id)
+              else void apply(false, undefined, undefined, cursor)
+            }}
+          >
+            {t('input.apply')}
+          </button>
+          <button
+            type="button"
+            disabled={workbenchBusy}
+            aria-label={t('ui.shared_material_favorites')}
+            aria-pressed={!!held}
+            onClick={() => {
+              setHeld(
+                held
+                  ? null
+                  : (stashResources.find(
+                      (resource) => resource.id === cursor.id,
+                    ) ?? null),
+              )
+              document
+                .querySelector('.workbench-stash__favorites')
+                ?.scrollIntoView({
+                  block: 'center',
+                  behavior: window.matchMedia(
+                    '(prefers-reduced-motion: reduce)',
+                  ).matches
+                    ? 'instant'
+                    : 'smooth',
+                })
+            }}
+          >
+            ★
+          </button>
+          <button
+            type="button"
+            disabled={workbenchBusy}
+            aria-label={cancelSelection[locale]}
+            onClick={() => {
+              setSelected(null)
+              setHeld(null)
+              setPointer(null)
+            }}
+          >
+            ×
+          </button>
+        </div>
+      )}
       <footer className="craft-footer">
         <span>
           EXILE HEPHAISTOS <span aria-hidden="true">/</span>

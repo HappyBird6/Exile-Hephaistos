@@ -206,3 +206,62 @@ it('separates plain base favorites from configured preview favorites', () => {
   )
   expect(save).toHaveBeenLastCalledWith('solar', true)
 })
+
+it('uses the visible phone viewport and keeps confirmation outside scrolling content', () => {
+  setLocale('en')
+  const width = window.innerWidth
+  Object.defineProperty(window, 'innerWidth', {
+    configurable: true,
+    value: 390,
+  })
+  const visual = new EventTarget()
+  Object.assign(visual, {
+    width: 390,
+    height: 500,
+    offsetTop: 20,
+    offsetLeft: 0,
+  })
+  vi.stubGlobal('visualViewport', visual)
+  function Example() {
+    const anchor = useRef<HTMLButtonElement>(null)
+    return (
+      <>
+        <button ref={anchor}>Open</button>
+        <WorkbenchBasePicker
+          id="phone-base"
+          anchor={anchor}
+          open
+          onOpenChange={vi.fn()}
+          value="solar"
+          onChange={vi.fn()}
+          level="82"
+          onLevelChange={vi.fn()}
+          onPlace={vi.fn()}
+        />
+      </>
+    )
+  }
+  try {
+    const view = render(<Example />)
+    const dialog = screen.getByRole('dialog')
+    expect(dialog.style.height).toBe('484px')
+    expect(dialog.style.top).toBe('28px')
+    expect(
+      within(dialog)
+        .getByRole('button', { name: 'Select base' })
+        .closest('footer'),
+    ).not.toBeNull()
+    expect(document.body.style.overflow).toBe('hidden')
+    Object.assign(visual, { height: 300 })
+    visual.dispatchEvent(new Event('resize'))
+    expect(dialog.style.height).toBe('284px')
+    view.unmount()
+    expect(document.body.style.overflow).not.toBe('hidden')
+  } finally {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: width,
+    })
+    vi.unstubAllGlobals()
+  }
+})

@@ -271,3 +271,61 @@
   color: #e7d477;
   background: #302a17;
 }
+
+@media (max-width: 1200px) {
+  .wb-shelf-overlay .wb-base-picker-body {
+    overflow-y: auto;
+    display: block;
+  }
+  .wb-shelf-overlay .wb-base-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .wb-base-picker .wb-base-picker__controls {
+    overflow: visible;
+    flex: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wb-base-picker__controls > .wb-base-picker__favorites,
+  .wb-base-picker__controls > .wb-base-picker__filters,
+  .wb-base-picker__controls > .wb-base-picker__search,
+  .wb-base-picker__controls > p {
+    grid-column: 1 / -1;
+  }
+  .wb-base-picker__controls > .wb-base-picker__favorites {
+    margin-bottom: 0;
+  }
+  .wb-base-picker .wb-base-picker__filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .wb-base-picker .wb-base-picker__options {
+    flex: none;
+    max-height: 30dvh;
+    min-height: 120px;
+  }
+  .wb-base-picker .wb-base-picker__preview {
+    flex: none;
+    overflow: visible;
+    border-left: 0;
+    padding-left: 0;
+  }
+  .wb-shelf-overlay button,
+  .wb-shelf-overlay input,
+  .wb-shelf-overlay select {
+    min-height: 44px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 1200px) {
+  .wb-base-picker .wb-base-picker__footer {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(80px, 0.6fr) minmax(0, 1fr);
+    gap: 10px;
+  }
+  .wb-base-picker .wb-base-picker__level input {
+    width: 100%;
+  }
+}

@@ -22,11 +22,13 @@ export function LeftShelfOverlay({
   title,
   closeLabel,
   bodyClassName = '',
+  footer,
   children,
 }: ShelfOverlayProps & {
   title: string
   closeLabel: string
   bodyClassName?: string
+  footer?: ReactNode
   children: ReactNode
 }) {
   const panel = useRef<HTMLDivElement>(null)
@@ -40,18 +42,32 @@ export function LeftShelfOverlay({
       const viewport = { width: window.innerWidth, height: window.innerHeight }
       const bounds = canvas?.current?.getBoundingClientRect()
       const opener = anchor.current.getBoundingClientRect()
-      const placement = overlayPlacement(
-        bounds ?? {
-          left: 0,
-          top: 0,
-          right: viewport.width,
-          bottom: viewport.height,
-        },
-        bounds
-          ? opener
-          : { left: 0, top: 0, right: viewport.width, bottom: viewport.height },
-        viewport,
-      )
+      const visual = window.visualViewport
+      const placement =
+        window.innerWidth <= 1200
+          ? {
+              left: (visual?.offsetLeft ?? 0) + 8,
+              top: (visual?.offsetTop ?? 0) + 8,
+              width: (visual?.width ?? viewport.width) - 16,
+              height: (visual?.height ?? viewport.height) - 16,
+            }
+          : overlayPlacement(
+              bounds ?? {
+                left: 0,
+                top: 0,
+                right: viewport.width,
+                bottom: viewport.height,
+              },
+              bounds
+                ? opener
+                : {
+                    left: 0,
+                    top: 0,
+                    right: viewport.width,
+                    bottom: viewport.height,
+                  },
+              viewport,
+            )
       Object.assign(
         panel.current.style,
         Object.fromEntries(
@@ -66,15 +82,22 @@ export function LeftShelfOverlay({
         : new ResizeObserver(position)
     if (canvas?.current) observer?.observe(canvas.current)
     if (anchor.current) observer?.observe(anchor.current)
+    window.visualViewport?.addEventListener('resize', position)
+    window.visualViewport?.addEventListener('scroll', position)
     window.addEventListener('resize', position)
     window.addEventListener('scroll', position, true)
     return () => {
       observer?.disconnect()
+      window.visualViewport?.removeEventListener('resize', position)
+      window.visualViewport?.removeEventListener('scroll', position)
       window.removeEventListener('resize', position)
       window.removeEventListener('scroll', position, true)
     }
   }, [anchor, canvas])
   useEffect(() => {
+    const originalOverflow = document.body.style.overflow
+    const smallScreen = window.innerWidth <= 1200
+    if (smallScreen) document.body.style.overflow = 'hidden'
     const trigger = anchor.current
     const element = panel.current
     element?.querySelector<HTMLButtonElement>('button')?.focus()
@@ -93,6 +116,7 @@ export function LeftShelfOverlay({
     }
     document.addEventListener('pointerdown', dismiss)
     return () => {
+      if (smallScreen) document.body.style.overflow = originalOverflow
       document.removeEventListener('pointerdown', dismiss)
       if (
         element?.contains(document.activeElement) ||
@@ -109,6 +133,22 @@ export function LeftShelfOverlay({
       role="dialog"
       aria-labelledby={`${id}-title`}
       onKeyDown={(event) => {
+        if (event.key === 'Tab' && window.innerWidth <= 1200) {
+          const targets = [
+            ...(panel.current?.querySelectorAll<HTMLElement>(
+              'button:not(:disabled), input:not(:disabled), select:not(:disabled), a[href], [tabindex="0"]',
+            ) ?? []),
+          ].filter((element) => element.getClientRects().length > 0)
+          const first = targets[0],
+            last = targets.at(-1)
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault()
+            last?.focus()
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault()
+            first?.focus()
+          }
+        }
         if (event.key !== 'Escape') return
         event.preventDefault()
         event.stopPropagation()
@@ -125,6 +165,7 @@ export function LeftShelfOverlay({
       <div className={`wb-shelf-overlay__body wb-scrollbar ${bodyClassName}`}>
         {children}
       </div>
+      {footer && <footer className="wb-shelf-overlay__footer">{footer}</footer>}
     </div>,
     document.body,
   )

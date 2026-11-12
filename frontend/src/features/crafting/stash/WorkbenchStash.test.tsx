@@ -629,3 +629,34 @@ it.each(locales)(
     expect(search).toHaveValue('Lesser Desert Rune')
   },
 )
+
+it('selects materials on touch without entering drag mode, and toggles a favorite omen', () => {
+  setLocale('en')
+  const media = window.matchMedia
+  window.matchMedia = vi.fn().mockReturnValue({ matches: true })
+  try {
+    const callbacks = props({
+      activeTab: 'Omen',
+      favorites: [resource('Omen_of_Whittling')],
+    })
+    render(<StashSurface {...callbacks} />)
+    fireEvent.click(
+      within(screen.getByRole('tabpanel')).getByRole('button', {
+        name: 'Omen of Whittling',
+      }),
+      { detail: 1 },
+    )
+    expect(callbacks.onSelect).toHaveBeenCalledWith(
+      resource('Omen_of_Whittling'),
+      { x: 0, y: 0 },
+    )
+    expect(callbacks.onPickUp).not.toHaveBeenCalled()
+    fireEvent.click(favorite(0), { detail: 1 })
+    expect(callbacks.onActivateOmen).toHaveBeenCalledWith(
+      resource('Omen_of_Whittling'),
+    )
+    expect(callbacks.onFavoriteActivate).not.toHaveBeenCalled()
+  } finally {
+    window.matchMedia = media
+  }
+})

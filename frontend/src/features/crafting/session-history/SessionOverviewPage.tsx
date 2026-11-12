@@ -13,6 +13,7 @@ import { saveBlob } from './transfer'
 import { snapshotPages } from './snapshot'
 import { sessionTitle } from '../session-library/sessionTitle'
 import './history.css'
+import '../compact-viewport/mobileWorkbench.css'
 
 export function SessionOverviewPage({ id }: { id: string }) {
   const { locale, t } = useI18n()

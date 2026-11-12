@@ -68,3 +68,21 @@
   border-radius: 3px;
   font-size: 18px;
 }
+.wb-shelf-overlay__footer {
+  flex: none;
+  padding: 8px 10px max(8px, env(safe-area-inset-bottom));
+  border-top: 1px solid #494033;
+  background: #1c201b;
+  display: flex;
+  justify-content: flex-end;
+}
+.wb-shelf-overlay__footer > button {
+  min-width: 140px;
+  min-height: 44px;
+  border-color: #ad915a;
+}
+@media (max-width: 1200px) {
+  .wb-shelf-overlay__footer > button {
+    width: 100%;
+  }
+}

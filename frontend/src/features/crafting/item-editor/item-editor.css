@@ -151,3 +151,49 @@ dialog.item-input-panel.item-editor-dialog {
     font-size: 12px;
   }
 }
+
+@media (max-width: 1200px) {
+  dialog.item-input-panel.item-editor-dialog {
+    inset: 8px;
+    transform: none;
+    width: calc(100% - 16px);
+    max-width: none;
+    max-height: calc(100dvh - 16px);
+    margin: auto;
+  }
+  .item-editor {
+    max-height: calc(100dvh - 18px);
+  }
+  .item-editor .item-editor__layout {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .item-editor .item-editor__input {
+    order: -1;
+    padding: 12px;
+    flex: none;
+  }
+  .item-editor .item-editor__input textarea {
+    height: 38dvh;
+    min-height: 150px;
+    font-size: 16px;
+  }
+  .item-editor .item-editor__sidebar {
+    padding: 12px;
+    overflow: visible;
+  }
+  .item-editor .item-editor__sidebar nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .item-editor .item-editor__sidebar nav button {
+    flex: 1;
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .item-editor button {
+    min-height: 44px;
+  }
+}

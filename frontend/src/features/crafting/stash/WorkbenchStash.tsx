@@ -1,3 +1,4 @@
+import { isTouchActivation } from '../../../shared/touchInput'
 import { socketText } from '../socketAugments'
 import { useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
@@ -89,7 +90,8 @@ export function WorkbenchStash({
         draggable={!disabled}
         onClick={(event) => {
           const position = event.detail === 0 ? undefined : pointer(event)
-          if (resource.category === 'Augments') onSelect(resource, position)
+          if (isTouchActivation(event) || resource.category === 'Augments')
+            onSelect(resource, position)
           else onPickUp(resource, position)
         }}
         onContextMenu={(event) => {
