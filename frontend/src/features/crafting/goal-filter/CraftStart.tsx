@@ -82,14 +82,8 @@ export function CraftStart({
   active,
   activeOmens = [],
   maxMillis = 2000,
-  SearchComponent = MethodSearch,
-  persistDraft = true,
-  startLabel,
 }: {
   active: boolean
-  SearchComponent?: typeof MethodSearch
-  persistDraft?: boolean
-  startLabel?: string
   children?: ReactNode
   activeOmens?: string[]
   maxMillis?: number
@@ -123,22 +117,19 @@ export function CraftStart({
       searchGoal: null,
       searchRequest: null,
       searchIssue: false,
-      ...(persistDraft ? restoredStart() : {}),
+      ...restoredStart(),
     })),
   )
   const draft = useStore(editor)
   const [settingsExpanded, setSettingsExpanded] = useState(
     () =>
-      (persistDraft
-        ? readSupport(
-            'settings-expanded',
-            (v): v is boolean => typeof v === 'boolean',
-          )
-        : null) ?? true,
+      readSupport(
+        'settings-expanded',
+        (v): v is boolean => typeof v === 'boolean',
+      ) ?? true,
   )
   const [storageFailed, setStorageFailed] = useState(false)
   const persist = useCallback(() => {
-    if (!persistDraft) return
     const d = editor.getState()
     setStorageFailed(
       !saveSupport('start', {
@@ -154,7 +145,7 @@ export function CraftStart({
         searchRequest: d.searchRequest,
       }),
     )
-  }, [editor, persistDraft])
+  }, [editor])
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
     const unsubscribe = editor.subscribe(() => {
@@ -657,8 +648,7 @@ export function CraftStart({
           ref={editButton}
           onClick={() => {
             setSettingsExpanded(!settingsExpanded)
-            if (persistDraft)
-              saveSupport('settings-expanded', !settingsExpanded)
+            saveSupport('settings-expanded', !settingsExpanded)
           }}
         >
           <span>
@@ -1022,7 +1012,7 @@ export function CraftStart({
                   setRun((value) => value + 1)
                 }}
               >
-                {startLabel ?? copy.start}
+                {copy.start}
               </button>
               {draft.searchIssue && (
                 <p role="alert">{pathTreeMessages[locale].unsupported}</p>
@@ -1061,7 +1051,6 @@ export function CraftStart({
             <section className="craft-start-stats" aria-label={copy.target}>
               {context && (
                 <ConnectedGoalFilter
-                  persistDraft={persistDraft}
                   allowQualityWork={
                     !!selected &&
                     ['Amulets', 'Rings', 'Belts'].includes(selected.base[1])
@@ -1094,7 +1083,7 @@ export function CraftStart({
             tabIndex={-1}
             aria-label={copy.tree}
           >
-            <SearchComponent
+            <MethodSearch
               active={active}
               request={draft.searchRequest}
               scenarioBaseKey={draft.base}

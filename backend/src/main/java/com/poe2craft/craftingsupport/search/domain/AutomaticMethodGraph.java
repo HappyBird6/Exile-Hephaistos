@@ -16,7 +16,6 @@ import java.util.function.Function;
 
 /** Cooperative discovery over conditional item laws; distinct joint laws never share identity. */
 public final class AutomaticMethodGraph implements AutoCloseable {
-  public static final int CURRENT_OBSERVATION_HORIZON = 100;
   public static final String VERSION = "goal-directed-milestone-graph-v17-strict-exalted";
 
   public record Progress(Status goal, List<Status> entries) {
@@ -442,18 +441,6 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     intern(root, initialQuality40, initialAbstractQuality, 0);
   }
 
-  /**
-   * Creates an independent execution using the same root classification and stop rules. The caller
-   * owns and must close it; this does not discover or mutate graph methods.
-   */
-  public AutomaticMethodExecution executionAtRoot(GoalDirectedPlanner.Choice choice) {
-    return new Method(
-            "comparison",
-            orderedNodes.getFirst(),
-            new AutomaticMethodExecution.Template("comparison", choice.initial(), choice.cycle()))
-        .execution;
-  }
-
   public Progress progress(ItemState item, int abstractQuality) {
     return qualityProgress(kernel, item, abstractQuality, evaluate.apply(item));
   }
@@ -689,7 +676,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
     if (method.execution.atBoundary()) {
       if (method.execution.absorbed()) {
-        for (int horizon : List.of(1, CURRENT_OBSERVATION_HORIZON, 300, 500))
+        for (int horizon : List.of(1, 100, 300, 500))
           if (!method.points.containsKey(horizon) && horizon >= method.execution.cycles())
             publish(
                 method, horizon, method.execution.observation().atLaterAbsorbedBoundary(horizon));
@@ -698,10 +685,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         return;
       }
       int cycle = Math.toIntExact(method.execution.cycles());
-      if (List.of(1, CURRENT_OBSERVATION_HORIZON, 300, 500).contains(cycle)
-          && !method.points.containsKey(cycle))
+      if (List.of(1, 100, 300, 500).contains(cycle) && !method.points.containsKey(cycle))
         publish(method, cycle, method.execution.observation());
-      if (cycle >= CURRENT_OBSERVATION_HORIZON) {
+      if (cycle >= 100) {
         method.finished = true;
         revision++;
         return;
@@ -822,8 +808,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   public void publishProgress() {
     for (var method : methods.values())
       if (!method.done())
-        publishTargets(
-            method, transport(method, method.execution.provisional(CURRENT_OBSERVATION_HORIZON)));
+        publishTargets(method, transport(method, method.execution.provisional(100)));
   }
 
   private Map<
@@ -842,7 +827,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       return Map.copyOf(result);
     }
     var points = new LinkedHashMap<>(method.points);
-    for (int horizon : List.of(1, CURRENT_OBSERVATION_HORIZON))
+    for (int horizon : List.of(1, 100))
       if (!points.containsKey(horizon) && horizon >= method.execution.cycles())
         points.put(horizon, method.execution.provisional(horizon));
     return Map.copyOf(points);

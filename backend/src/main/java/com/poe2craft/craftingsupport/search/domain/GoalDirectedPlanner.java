@@ -15,8 +15,6 @@ import java.util.function.Function;
  * Finite milestone planner. A method acquires a missing predicate, or prepares that acquisition.
  */
 public final class GoalDirectedPlanner {
-  public static final int ADDITION_OUTCOME_LIMIT = 5000;
-
   public record Choice(
       List<AutomaticCraftingAction> initial, List<AutomaticCraftingAction> cycle) {}
 
@@ -37,14 +35,14 @@ public final class GoalDirectedPlanner {
     return progress.entries().stream().filter(s -> s == Status.MATCH).count();
   }
 
-  boolean advances(ItemState source, ItemState target) {
+  private boolean advances(ItemState source, ItemState target) {
     var before = evaluate.apply(source);
     var after = evaluate.apply(target);
     return after.goal() == Status.MATCH
         || (preserves(before, target) && matched(after) > matched(before));
   }
 
-  boolean preserves(AutomaticMethodGraph.Progress before, ItemState target) {
+  private boolean preserves(AutomaticMethodGraph.Progress before, ItemState target) {
     var after = evaluate.apply(target);
     if (before.entries().size() != after.entries().size()) return false;
     for (int i = 0; i < before.entries().size(); i++)
@@ -53,13 +51,14 @@ public final class GoalDirectedPlanner {
     return true;
   }
 
-  boolean protectedRemoval(ItemState source, AutomaticCraftingPlan plan) {
+  private boolean protectedRemoval(ItemState source, AutomaticCraftingPlan plan) {
     var before = evaluate.apply(source);
     return plan.status() == AutomaticCraftingPlan.Status.READY
         && plan.branches().stream().anyMatch(b -> preserves(before, b.remaining()));
   }
 
-  boolean consumesPreparedAffix(ItemState source, ItemState prepared, AutomaticCraftingPlan next) {
+  private boolean consumesPreparedAffix(
+      ItemState source, ItemState prepared, AutomaticCraftingPlan next) {
     var added = prepared.explicits().stream().filter(m -> !source.explicits().contains(m)).toList();
     if (added.size() != 1 || added.getFirst().fractured()) return false;
     return next.branches().stream()
@@ -80,7 +79,7 @@ public final class GoalDirectedPlanner {
                         .anyMatch(target -> advances(source, target)));
   }
 
-  boolean guaranteedProtectedRemoval(ItemState source, AutomaticCraftingPlan plan) {
+  private boolean guaranteedProtectedRemoval(ItemState source, AutomaticCraftingPlan plan) {
     var before = evaluate.apply(source);
     return plan.status() == AutomaticCraftingPlan.Status.READY
         && !plan.branches().isEmpty()
@@ -114,11 +113,9 @@ public final class GoalDirectedPlanner {
         continue;
       }
       var ordinary =
-          laws.computeIfAbsent(
-              plain, c -> kernel.expand(source, c.cycle().getFirst(), ADDITION_OUTCOME_LIMIT));
+          laws.computeIfAbsent(plain, c -> kernel.expand(source, c.cycle().getFirst(), 5000));
       var improved =
-          laws.computeIfAbsent(
-              omen, c -> kernel.expand(source, c.cycle().getFirst(), ADDITION_OUTCOME_LIMIT));
+          laws.computeIfAbsent(omen, c -> kernel.expand(source, c.cycle().getFirst(), 5000));
       if (ordinary.status() != AutomaticCraftingKernel.Status.COMPLETE
           || improved.status() != AutomaticCraftingKernel.Status.COMPLETE) continue;
       // Once both complete laws finish the whole objective with certainty, the extra
@@ -157,8 +154,7 @@ public final class GoalDirectedPlanner {
     var scores = new HashMap<Choice, Fraction>();
     for (var choice : remaining) {
       var law =
-          laws.computeIfAbsent(
-              choice, c -> kernel.expand(source, c.cycle().getFirst(), ADDITION_OUTCOME_LIMIT));
+          laws.computeIfAbsent(choice, c -> kernel.expand(source, c.cycle().getFirst(), 5000));
       if (law.status() != AutomaticCraftingKernel.Status.COMPLETE) return;
       scores.put(
           choice,
@@ -182,7 +178,11 @@ public final class GoalDirectedPlanner {
     choices.addAll(ordered);
   }
 
-  boolean acquiredMutableTarget(ItemState source) {
+  public List<Choice> choices(ItemState source) {
+    return choices(source, true);
+  }
+
+  public List<Choice> choices(ItemState source, boolean initialStage) {
     var progress = evaluate.apply(source);
     var withoutAffixes =
         new ItemState(
@@ -202,16 +202,6 @@ public final class GoalDirectedPlanner {
     for (int i = 0; i < Math.min(progress.entries().size(), emptyProgress.entries().size()); i++)
       if (progress.entries().get(i) == Status.MATCH
           && emptyProgress.entries().get(i) != Status.MATCH) acquired = true;
-    return acquired;
-  }
-
-  public List<Choice> choices(ItemState source) {
-    return choices(source, true);
-  }
-
-  public List<Choice> choices(ItemState source, boolean initialStage) {
-    var progress = evaluate.apply(source);
-    boolean acquired = acquiredMutableTarget(source);
     boolean allowChaos = !kernel.initialChaosOnly() || (initialStage && !acquired);
     if (progress.goal() == Status.UNKNOWN
         || progress.goal() == Status.UNSUPPORTED

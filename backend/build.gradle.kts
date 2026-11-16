@@ -86,13 +86,3 @@ val chaosDisplayResources by tasks.registering(Copy::class) {
 }
 sourceSets.main { resources.srcDir(layout.buildDirectory.dir("generated-resources/chaosrepeat")) }
 tasks.processResources { dependsOn(chaosDisplayResources) }
-
-// The reviewed Markdown remains the only maintained source; package only the allowlisted corpus.
-val supportRagResources by tasks.registering(Sync::class) {
-    from(layout.projectDirectory.dir("../docs/crafting-support-rag")) {
-        include("corpus.json", "knowledge/*.md")
-    }
-    into(layout.buildDirectory.dir("generated-resources/support-rag/support-rag"))
-}
-sourceSets.main { resources.srcDir(layout.buildDirectory.dir("generated-resources/support-rag")) }
-tasks.processResources { dependsOn(supportRagResources) }

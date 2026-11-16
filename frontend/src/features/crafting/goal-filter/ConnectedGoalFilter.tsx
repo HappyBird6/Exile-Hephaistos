@@ -49,7 +49,6 @@ export function ConnectedGoalFilter({
   activeOmens,
   maxMillis,
   compact = false,
-  persistDraft = true,
   allowQualityWork = true,
   language,
   onSearchGoalChange,
@@ -61,7 +60,6 @@ export function ConnectedGoalFilter({
   language: GoalFilterLanguage
   activeOmens: string[]
   maxMillis: number
-  persistDraft?: boolean
   compact?: boolean
   allowQualityWork?: boolean
   onResetGoal?: (() => void) | undefined
@@ -193,7 +191,6 @@ export function ConnectedGoalFilter({
         </p>
       )}
       <ConnectedEditor
-        persistDraft={persistDraft}
         onResetGoal={onResetGoal}
         onSearchGoalChange={onSearchGoalChange}
         initialCatalog={initialCatalog}
@@ -232,7 +229,6 @@ function ConnectedEditor({
   bases,
   language,
   compact,
-  persistDraft,
   allowQualityWork,
   onSearchGoalChange,
   onResetGoal,
@@ -245,7 +241,6 @@ function ConnectedEditor({
   language: GoalFilterLanguage
   activeOmens: string[]
   maxMillis: number
-  persistDraft: boolean
   compact: boolean
   allowQualityWork: boolean
   onResetGoal?: (() => void) | undefined
@@ -254,14 +249,14 @@ function ConnectedEditor({
   const { locale } = useI18n()
   const [editor] = useState(() =>
     createGoalFilterEditor(
-      (compact && persistDraft ? readSupport('goal', validGoal) : null) ??
+      (compact ? readSupport('goal', validGoal) : null) ??
         emptyGoal(initialCatalog.context, initialCatalog.catalogVersion),
     ),
   )
   const goal = useStore(editor, (state) => state.goal)
   const [storageFailed, setStorageFailed] = useState(false)
   useEffect(() => {
-    if (!compact || !persistDraft) return
+    if (!compact) return
     const persist = () =>
       setStorageFailed(!saveSupport('goal', editor.getState().goal))
     const timer = setTimeout(persist, 250)
@@ -270,7 +265,7 @@ function ConnectedEditor({
       clearTimeout(timer)
       window.removeEventListener('pagehide', persist)
     }
-  }, [compact, persistDraft, goal, editor])
+  }, [compact, goal, editor])
   useEffect(() => {
     if (
       compact &&
@@ -359,8 +354,7 @@ function ConnectedEditor({
                 collapsedByGroupId: {},
                 presentedTypes: {},
               }))
-              if (compact && persistDraft)
-                setStorageFailed(!saveSupport('goal', goal))
+              if (compact) setStorageFailed(!saveSupport('goal', goal))
               setResetGeneration((n) => n + 1)
             }}
           >

@@ -3,35 +3,6 @@
 # 변경 후 서버 재시작이 필요하다. BACKEND_... 환경변수로도 덮어쓸 수 있다.
 # 확률·weight·옵션 수·API 버전·저장 스키마는 운영 설정이 아니므로 여기에 넣지 않는다.
 backend:
-  support-rag:
-    # 인증 없는 테스트 비교 API 활성화(배포 전 접근 정책 검토). 사용: bootstrap/SupportRagConfiguration.java, RagComparisonService.java.
-    enabled: ${SUPPORT_RAG_ENABLED:false}
-    # 구조화 출력을 지원하는 모델 고정 버전. 사용: OpenAiStrategyModel.java. 키는 OPENAI_API_KEY 별도 주입.
-    model: ${SUPPORT_RAG_MODEL:gpt-4.1-mini-2025-04-14}
-    # 공통 문서·의존 문서 외 검색할 전략 문서 수. 사용: StrategyKnowledge.java.
-    retrieval-count: 3
-    # 잘라낸 문맥으로 추천하지 않고 호출을 중단하는 UTF-8 요청 본문 상한. 사용: OpenAiStrategyModel.java.
-    max-prompt-bytes: 180000
-    # 외부 응답의 바이트/생성 토큰 상한. 사용: OpenAiStrategyModel.java.
-    max-response-bytes: 131072
-    max-output-tokens: 6000
-    # 모델이 반환할 후보 수 상한. 사용: RagComparisonService.java, OpenAiStrategyModel.java.
-    max-choices: 64
-    # 사실 수집의 엔진 질의 예산. 사용: StrategyEvidence.java (서비스에서 전달).
-    fact-operations: 100000
-    # 한 후보 검증의 primitive 결과 및 실행 slice 상한. 사용: RagComparisonService.java.
-    primitive-outcomes: 2000
-    execution-steps: 1000
-    # Redis에서 인스턴스 간 공유하는 UTC 일일 외부 호출 수. 사용: RedisRagCallBudget.java.
-    daily-calls: 20
-    # 동일 비교 재요청의 인메모리 캐시 수/수명. 사용: RagComparisonService.java.
-    cache-entries: 8
-    cache-ttl: 10m
-    # 인스턴스 간 외부 호출 최소 간격. 사용: RedisRagCallBudget.java.
-    cooldown: 30s
-    # 전체 HTTP 응답 및 로컬 계산 단계 시간 제한. 사용: OpenAiStrategyModel.java, RagComparisonService.java.
-    request-timeout: 45s
-    compute-timeout: 15s
   admin-logs:
     # 한국시간 오늘 외에 DB에서 조회할 지난 날짜 수. 사용: admin/application/RequestLogService.java.
     previous-days: 7

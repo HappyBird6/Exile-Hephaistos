@@ -2119,8 +2119,8 @@ function ReadyCraftingPage({
             disabled={workbenchBusy}
             onSelect={(tab) => {
               if (mutationLocked()) return
-              if (tab === 'community' || tab === 'support-test') {
-                navigate(workspacePath(tab))
+              if (tab === 'community') {
+                navigate('/community')
                 return
               }
               setView(tab)

@@ -21,41 +21,12 @@ public record BackendSettings(
     @Valid @NotNull MethodSearch methodSearch,
     @Valid @NotNull CertifiedSearch certifiedSearch,
     @Valid @NotNull AutomaticSearch automaticSearch,
-    @Valid @NotNull SupportRag supportRag,
     @Valid @NotNull Cache cache,
     @Valid @NotNull Storage storage,
     @Valid @NotNull Workbench workbench,
     @Valid @NotNull Prices prices,
     @Valid @NotNull RequestProtection requestProtection,
     @Valid @NotNull AdminLogs adminLogs) {
-
-  public record SupportRag(
-      boolean enabled,
-      @NotBlank String model,
-      @Min(1) @Max(6) int retrievalCount,
-      @Min(1000) @Max(500000) int maxPromptBytes,
-      @Min(1024) @Max(1048576) int maxResponseBytes,
-      @Min(256) @Max(16384) int maxOutputTokens,
-      @Min(1) @Max(128) int maxChoices,
-      @Min(1) @Max(100000) int factOperations,
-      @Min(1) @Max(10000) int primitiveOutcomes,
-      @Min(1) @Max(100000) int executionSteps,
-      @Min(1) @Max(1000) int dailyCalls,
-      @Min(1) @Max(64) int cacheEntries,
-      @NotNull Duration cacheTtl,
-      @NotNull Duration cooldown,
-      @NotNull Duration requestTimeout,
-      @NotNull Duration computeTimeout) {
-    public SupportRag {
-      positive(cacheTtl, "support-rag.cache-ttl");
-      positive(cooldown, "support-rag.cooldown");
-      positive(requestTimeout, "support-rag.request-timeout");
-      positive(computeTimeout, "support-rag.compute-timeout");
-      if (requestTimeout.compareTo(Duration.ofSeconds(90)) > 0
-          || computeTimeout.compareTo(Duration.ofSeconds(30)) > 0)
-        throw new IllegalArgumentException("RAG comparison timeout exceeds server ceiling");
-    }
-  }
 
   public record AdminLogs(
       @Min(1) @Max(31) int previousDays,

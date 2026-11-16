@@ -1,4 +1,3 @@
-import { ragMessages } from '../../features/crafting/rag-test/messages'
 import { workspacePath, type Workspace } from './workspaceRoutes'
 import { useEffect } from 'react'
 import { useI18n } from '../i18n/i18n'
@@ -6,16 +5,13 @@ import { navigate } from '../navigation/navigation'
 import { communityText } from '../../features/community/messages'
 import { sessionLibraryMessages } from '../../features/crafting/session-library/sessionLibraryMessages'
 import { CurrencyTicker } from '../../features/crafting/currency-prices/CurrencyPrices'
-const tabs = (
-  ['workbench', 'support', 'history', 'community', 'support-test'] as const
-).filter(
+const tabs = (['workbench', 'support', 'history', 'community'] as const).filter(
   (tab) =>
     tab !== 'support' || import.meta.env.VITE_CRAFT_SUPPORT_ENABLED !== 'false',
 )
 const panels = {
   workbench: 'workbench-panel-simulation',
   support: 'panel-support',
-  'support-test': 'panel-support-test',
   history: 'workbench-panel-history',
   community: 'community-panel',
 }
@@ -72,13 +68,11 @@ export function WorkspaceNavigation({
               onSelect(next)
             }}
           >
-            {tab === 'support-test'
-              ? ragMessages[locale].tab
-              : tab === 'community'
-                ? communityText(locale).board
-                : tab === 'history'
-                  ? sessionLibraryMessages[locale].history
-                  : t(`workspace.${tab}`)}
+            {tab === 'community'
+              ? communityText(locale).board
+              : tab === 'history'
+                ? sessionLibraryMessages[locale].history
+                : t(`workspace.${tab}`)}
           </button>
         ))}
       </div>

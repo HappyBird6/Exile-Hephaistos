@@ -2,7 +2,7 @@ package com.poe2craft.craftingsupport.search.application;
 
 import com.fasterxml.jackson.databind.*;
 
-/** One strict input contract for automatic search and isolated RAG comparison. */
+/** Strict automatic-search input with shared item-state wire defaults. */
 public final class AutomaticSearchInputReader {
   private final ObjectMapper json;
 

@@ -40,8 +40,6 @@ services:
       SPRING_DATA_REDIS_HOST: redis
       SPRING_DATA_REDIS_PORT: 6379
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
-      SUPPORT_RAG_ENABLED: ${SUPPORT_RAG_ENABLED:-false}
-      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       ACCOUNT_AUTH_ENABLED: ${ACCOUNT_AUTH_ENABLED:-true}
       ACCOUNT_COOKIE_SECURE: ${ACCOUNT_COOKIE_SECURE:-false}
       # Backend port remains loopback-only; trust Tomcat internal-proxy forwarding from Nginx.

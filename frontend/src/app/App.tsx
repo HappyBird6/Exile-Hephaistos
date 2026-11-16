@@ -1,8 +1,3 @@
-const SupportRagTestPage = lazy(() =>
-  import('../features/crafting/rag-test/SupportRagTestPage').then((m) => ({
-    default: m.SupportRagTestPage,
-  })),
-)
 const CommunityList = lazy(() =>
   import('../features/community/CommunityList').then((m) => ({
     default: m.CommunityList,
@@ -73,13 +68,6 @@ function AppContent() {
       </Suspense>
     )
   }
-
-  if (location.pathname === '/support-test')
-    return (
-      <Suspense fallback={<p role="status">…</p>}>
-        <SupportRagTestPage />
-      </Suspense>
-    )
 
   if (location.pathname === '/community')
     return (
