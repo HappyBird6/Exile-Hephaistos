@@ -105,7 +105,7 @@ describe('Crafting workbench', async () => {
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getAllByRole('tab')).toHaveLength(11)
+    expect(screen.getAllByRole('tab')).toHaveLength(12)
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')
@@ -129,6 +129,7 @@ describe('Crafting workbench', async () => {
       'Craft Support',
       'History',
       'Session board',
+      'Support test',
     ])
     const base = screen.getByRole('button', { name: 'Select base' })
     await act(async () => {

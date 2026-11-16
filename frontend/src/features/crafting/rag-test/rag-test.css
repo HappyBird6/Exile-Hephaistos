@@ -1,0 +1,188 @@
+.rag-test-panel {
+  border: 1px solid #514632;
+  background: #14120f;
+  padding: clamp(12px, 2vw, 24px);
+  min-height: 650px;
+}
+.rag-test-heading,
+.rag-results-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.rag-test-heading h1 {
+  color: #e7d477;
+  font-size: 1.35rem;
+  margin: 0 0 8px;
+}
+.rag-test-heading p {
+  color: #b7af9c;
+  margin: 0;
+  line-height: 1.6;
+}
+.rag-test-badge {
+  color: #e7d477;
+  border: 1px solid #66562d;
+  padding: 5px 10px;
+  border-radius: 3px;
+  letter-spacing: 0.1em;
+}
+.rag-controls {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 0;
+}
+.rag-controls label {
+  display: grid;
+  gap: 8px;
+  color: #cec6af;
+}
+.rag-test-panel input,
+.rag-test-panel select {
+  max-width: 100%;
+  min-height: 38px;
+}
+.rag-test-panel button {
+  min-height: 40px;
+}
+.rag-test-notice {
+  border-left: 3px solid #a9904f;
+  background: #242017;
+  padding: 12px 16px;
+  line-height: 1.6;
+}
+.rag-controls .rag-stage {
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+.rag-stage input {
+  min-height: 20px;
+}
+.rag-results-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.8fr);
+  gap: 24px;
+  align-items: start;
+}
+.rag-input-card {
+  min-width: 0;
+}
+.rag-input-card .item-card {
+  width: 100%;
+}
+.rag-strategies {
+  min-width: 0;
+  min-height: 160px;
+}
+.rag-results-heading h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #e7d477;
+}
+.rag-results-heading h2 span {
+  color: #aaa18c;
+  font-size: 0.9em;
+}
+.rag-strategy-card {
+  border: 1px solid #4d4433;
+  background: #1b1812;
+  padding: 16px;
+  margin: 0 0 14px;
+  border-radius: 4px;
+}
+.rag-strategy-title {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+}
+.rag-strategy-title h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #dec891;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.rag-strategy-number {
+  color: #0c0b08;
+  background: #b7a362;
+  min-width: 24px;
+  height: 24px;
+  text-align: center;
+  border-radius: 3px;
+  line-height: 24px;
+}
+.rag-strategy-card p {
+  white-space: pre-wrap;
+  line-height: 1.75;
+  color: #d0c8b6;
+  overflow-wrap: anywhere;
+}
+.rag-strategy-card dl,
+.rag-comparison dl {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 6px 14px;
+  font-size: 0.92rem;
+}
+.rag-strategy-card dt,
+.rag-comparison dt {
+  color: #aaa18c;
+}
+.rag-strategy-card dd,
+.rag-comparison dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.rag-strategy-card details,
+.rag-comparison {
+  font-size: 0.88rem;
+  color: #bcb29b;
+  overflow-wrap: anywhere;
+}
+.rag-strategy-card summary,
+.rag-comparison summary {
+  cursor: pointer;
+  padding: 6px 0;
+}
+.rag-comparison {
+  border-top: 1px solid #514632;
+  margin-top: 22px;
+  padding-top: 12px;
+}
+@media (max-width: 800px) {
+  .rag-results-layout {
+    grid-template-columns: 1fr;
+  }
+  .rag-input-card {
+    max-width: 440px;
+    width: 100%;
+    margin: auto;
+  }
+}
+@media (max-width: 480px) {
+  .rag-controls {
+    align-items: stretch;
+  }
+  .rag-controls > label:first-child {
+    width: 100%;
+  }
+  .rag-controls button {
+    flex: 1;
+  }
+  .rag-test-badge {
+    display: none;
+  }
+  .rag-strategy-card {
+    padding: 12px;
+  }
+}
+
+/* The existing support editor widens itself in its original panel; keep the test frame aligned. */
+.rag-test-panel .craft-start {
+  margin-inline: 0;
+}

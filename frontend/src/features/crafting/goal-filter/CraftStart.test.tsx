@@ -177,14 +177,14 @@ afterEach(() => {
   vi.unstubAllGlobals()
   vi.clearAllMocks()
 })
-async function setup(activeOmens: string[] = []) {
+async function setup(activeOmens: string[] = [], persistDraft = true) {
   render(
     <QueryClientProvider
       client={
         new QueryClient({ defaultOptions: { queries: { retry: false } } })
       }
     >
-      <CraftStart active activeOmens={activeOmens}>
+      <CraftStart active activeOmens={activeOmens} persistDraft={persistDraft}>
         <p>Family controls preserved</p>
       </CraftStart>
     </QueryClientProvider>,
@@ -989,4 +989,29 @@ it('allows exactly one explicit fracture and prevents rarity loss until it is sw
   expect(within(rarity).getByRole('option', { name: 'Magic' })).toBeEnabled()
   fireEvent.change(rarity, { target: { value: 'MAGIC' } })
   expect(lock).toBeDisabled()
+})
+
+it('keeps the original support draft and disclosure unchanged while editing a transient test start', async () => {
+  restoredRulesDraft()
+  saveSupport('settings-expanded', false)
+  const original = localStorage.getItem('hephaistos.support.v1:start')
+  const disclosure = localStorage.getItem(
+    'hephaistos.support.v1:settings-expanded',
+  )
+  await setup([], false)
+  expect(screen.getByRole('button', { name: /Hide settings/ })).toHaveAttribute(
+    'aria-expanded',
+    'true',
+  )
+  fireEvent.change(screen.getByLabelText('Item level'), {
+    target: { value: '70' },
+  })
+  fireEvent.click(screen.getByRole('button', { name: /Hide settings/ }))
+  fireEvent(window, new Event('pagehide'))
+  cleanup()
+  expect(localStorage.getItem('hephaistos.support.v1:start')).toBe(original)
+  expect(localStorage.getItem('hephaistos.support.v1:settings-expanded')).toBe(
+    disclosure,
+  )
+  localStorage.removeItem('hephaistos.support.v1:settings-expanded')
 })

@@ -1,8 +1,7 @@
 {
   "schemaVersion": 1,
   "corpusVersion": "support-existing-strategies-v1",
-  "status": "documentation-only-not-runtime-integrated",
-  "baselineCommit": "859a29b3c5fc29270427a6d2eb81a53f09e0bbd5",
+  "status": "experimental-root-comparison-integrated",
   "policyVersion": "approved-187-2026-10-30-strict-exalted-v8",
   "requiredDocuments": [
     "support.common-policy",
@@ -189,11 +188,11 @@
     },
     {
       "path": "backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticMethodGraph.java",
-      "sha256": "127ff98892e51a71c44592a2ed13103f7d5432053ba315d314c4a6c84d36438e"
+      "sha256": "ec3083d111bdf1aa4217a31500d779062750c9355317c145516855beb343726d"
     },
     {
       "path": "backend/src/main/java/com/poe2craft/craftingsupport/search/domain/GoalDirectedPlanner.java",
-      "sha256": "7e32d5639c62fb707c321aaec3520b91b8696f80ac354cd8af66518787853224"
+      "sha256": "8695a51fa9bddb18a9be1193bd58c9d51fc9843dec06bea16deef0050720d684"
     },
     {
       "path": "backend/src/main/java/com/poe2craft/shared/crafting/domain/AutomaticCraftingAction.java",
@@ -239,5 +238,7 @@
       "path": "frontend/src/features/crafting/goal-filter/editor.ts",
       "sha256": "90c2317147a8c6f94ef5532556ff07dac2d24624936ea83eed5376107d499293"
     }
-  ]
+  ],
+  "extractionBaselineCommit": "859a29b3c5fc29270427a6d2eb81a53f09e0bbd5",
+  "sourceReview": "Adapter extraction only; candidate-selection and execution semantics preserved. Source hashes checked by StrategyKnowledgeTest."
 }
