@@ -3,6 +3,8 @@ export const performanceSettings = {
   // Parsed immutable catalogs shared by base pickers and overview cards (catalogReference).
   catalogRetentionEntries: 32,
   catalogRequestTimeoutMs: 15_000,
+  // Shared catalog cooldown when a 429 response omits a usable Retry-After (catalogReference).
+  catalogRateLimitCooldownMs: 1_000,
   // Complete pool snapshots retained for apply deltas (modifier-pool/poolSnapshots).
   poolSnapshotEntries: 128,
   // Immutable reference retention in TanStack Query (ModifierPoolPanel).

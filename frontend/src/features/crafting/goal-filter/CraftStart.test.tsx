@@ -1,3 +1,5 @@
+import { startBases } from './startItem'
+import { startInventoryQuery, startInitialQuery } from './startCatalog'
 import { loadProvenance } from '../basic-paths/api'
 import { cleanup } from '@testing-library/react'
 import {
@@ -234,6 +236,9 @@ describe('Craft Support starting screen', () => {
     fireEvent.change(screen.getByLabelText('Starting equipment type'), {
       target: { value: 'Rings' },
     })
+    await waitFor(() =>
+      expect(screen.getByLabelText('Starting rarity')).toBeEnabled(),
+    )
     expect(captured).toEqual(frozen)
     expect(
       screen.queryByRole('region', { name: 'Crafting tree preview' }),
@@ -523,6 +528,9 @@ describe('Craft Support starting screen', () => {
     fireEvent.change(screen.getByLabelText('Starting equipment type'), {
       target: { value: 'Rings' },
     })
+    await waitFor(() =>
+      expect(screen.getByLabelText('Starting rarity')).toBeEnabled(),
+    )
     expect(screen.getByLabelText('Starting item base')).toHaveValue('ring')
     expect(
       (screen.getByLabelText('Starting item text') as HTMLTextAreaElement)
@@ -610,6 +618,9 @@ describe('Craft Support starting screen', () => {
     fireEvent.change(screen.getByLabelText('Starting equipment type'), {
       target: { value: 'Rings' },
     })
+    await waitFor(() =>
+      expect(screen.getByLabelText('Starting rarity')).toBeEnabled(),
+    )
     resolve(parsed())
     await waitFor(() =>
       expect(screen.getByLabelText('Starting item base')).toHaveValue('ring'),
@@ -624,6 +635,9 @@ describe('Craft Support starting screen', () => {
     fireEvent.change(screen.getByLabelText('Starting equipment type'), {
       target: { value: 'Rings' },
     })
+    await waitFor(() =>
+      expect(screen.getByLabelText('Starting rarity')).toBeEnabled(),
+    )
     fireEvent.change(
       screen.getByRole('combobox', { name: 'Starting rarity' }),
       { target: { value: 'MAGIC' } },
@@ -732,6 +746,9 @@ it('resets only the start immediately, preserves base and level, and reloads the
   fireEvent.change(screen.getByLabelText('Starting equipment type'), {
     target: { value: 'Rings' },
   })
+  await waitFor(() =>
+    expect(screen.getByLabelText('Starting rarity')).toBeEnabled(),
+  )
   fireEvent.change(screen.getByLabelText('Starting rarity'), {
     target: { value: 'MAGIC' },
   })
@@ -867,11 +884,17 @@ it.each(['restored draft', 'cached inventory'])(
     const client = new QueryClient({
       defaultOptions: { queries: { retry: false } },
     })
-    if (mode === 'cached inventory')
+    if (mode === 'cached inventory') {
+      client.setQueryData(startInventoryQuery.queryKey, {
+        generation: '11111111-1111-4111-8111-111111111111',
+        bases: [['solar', 'Amulets', 'Solar Amulet']],
+      })
       client.setQueryData(
-        ['craftStart', 'inventory'],
-        [{ base: ['solar', 'Amulets', 'Solar Amulet'], initial: solar }],
+        startInitialQuery('solar', '11111111-1111-4111-8111-111111111111')
+          .queryKey,
+        solar,
       )
+    }
     render(
       <QueryClientProvider client={client}>
         <CraftStart active />
@@ -1014,4 +1037,80 @@ it('keeps the original support draft and disclosure unchanged while editing a tr
     disclosure,
   )
   localStorage.removeItem('hephaistos.support.v1:settings-expanded')
+})
+
+it('loads only the chosen catalog with a full registry and reuses it when switching back', async () => {
+  const calls: string[] = []
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input)
+      calls.push(url)
+      if (url.includes('/registry'))
+        return jsonResponse({
+          workbenchBases: Object.fromEntries(
+            startBases.map((base) => [base[0], {}]),
+          ),
+          entries: [],
+        })
+      if (url.includes('base=ring')) return jsonResponse(ring)
+      if (url.includes('/crafting/initial?')) return jsonResponse(solar)
+      throw new Error('Unselected catalog was requested: ' + url)
+    }),
+  )
+  await setup()
+  expect(calls.filter((url) => url.includes('/initial?'))).toHaveLength(1)
+  expect(
+    screen.getByLabelText('Starting equipment type').querySelectorAll('option')
+      .length,
+  ).toBeGreaterThan(10)
+  fireEvent.change(screen.getByLabelText('Starting equipment type'), {
+    target: { value: 'Rings' },
+  })
+  await waitFor(() =>
+    expect(screen.getByLabelText('Starting rarity')).toBeEnabled(),
+  )
+  expect(calls.filter((url) => url.includes('/initial?'))).toHaveLength(2)
+  fireEvent.change(screen.getByLabelText('Starting equipment type'), {
+    target: { value: 'Amulets' },
+  })
+  await waitFor(() =>
+    expect(screen.getByLabelText('Starting rarity')).toBeEnabled(),
+  )
+  expect(calls.filter((url) => url.includes('/initial?'))).toHaveLength(2)
+  expect(screen.queryByRole('alert')).not.toBeInTheDocument()
+})
+
+it('keeps the base list usable after a selected catalog fails and retries only on request', async () => {
+  let failRing = true
+  const fetcher = vi.fn(async (input: RequestInfo | URL) => {
+    const url = String(input)
+    if (url.includes('/registry'))
+      return jsonResponse({
+        workbenchBases: { solar: {}, ring: {} },
+        entries: [],
+      })
+    return url.includes('base=ring') && failRing
+      ? new Response('', { status: 429 })
+      : jsonResponse(url.includes('base=ring') ? ring : solar)
+  })
+  vi.stubGlobal('fetch', fetcher)
+  await setup()
+  fireEvent.change(screen.getByLabelText('Starting equipment type'), {
+    target: { value: 'Rings' },
+  })
+  await screen.findByRole('alert')
+  expect(screen.getByLabelText('Starting equipment type')).toHaveValue('Rings')
+  expect(screen.getByRole('button', { name: 'Start Crafting' })).toBeDisabled()
+  const count = fetcher.mock.calls.length
+  fireEvent(window, new Event('focus'))
+  expect(fetcher).toHaveBeenCalledTimes(count)
+  failRing = false
+  fireEvent.click(within(screen.getByRole('alert')).getByRole('button'))
+  await waitFor(() =>
+    expect(
+      screen.getByRole('button', { name: 'Start Crafting' }),
+    ).toBeEnabled(),
+  )
+  expect(fetcher).toHaveBeenCalledTimes(count + 1)
 })

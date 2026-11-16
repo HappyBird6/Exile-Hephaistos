@@ -8,13 +8,21 @@ import { readSupport, saveSupport } from '../method-search/supportStorage'
 import { canonical } from '../path-tree/validation'
 import { workspaceMessages } from '../method-search/workspaceMessages'
 import { AutomaticMethodSearch as MethodSearch } from '../method-search/AutomaticMethodSearch'
-import { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react'
 import type { ReactNode } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { httpGoalFilterAdapter } from './api'
 import { createStore } from 'zustand/vanilla'
 import { useStore } from 'zustand'
-import { loadInitial } from '../craftingApi'
+import { baseSlugs } from '../baseRegistry'
+import { startInventoryQuery, startInitialQuery } from './startCatalog'
 import type { Initial } from '../craftingApi'
 import { concreteInitial, mapSolarText } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
@@ -40,7 +48,6 @@ import { levelMessages } from './levelMessages'
 import { ModifierRow } from './ModifierRow'
 import { localizedModifierText } from '../localizedModifiers'
 import {
-  startBases,
   startCard,
   startText,
   eligibleStartModifiers,
@@ -204,40 +211,26 @@ export function CraftStart({
     dialog.current?.close()
     importButton.current?.focus()
   }
-  const inventory = useQuery({
-    queryKey: ['craftStart', 'inventory'],
-    enabled: active,
-    retry: false,
-    staleTime: Infinity,
-    queryFn: async ({ signal }) => {
-      const response = await fetch('/api/v1/crafting/workbench/registry', {
-        signal,
-        cache: 'no-store',
-      })
-      if (!response.ok) throw new Error('Base inventory unavailable.')
-      const registry = (await response.json()) as {
-        workbenchBases: Record<string, unknown>
-        entries: { serviceScope?: string; supportedBases?: string[] }[]
-      }
-      const keys = new Set([
-        ...Object.keys(registry.workbenchBases),
-        ...registry.entries
-          .filter((e) => e.serviceScope === 'ACTIVE')
-          .flatMap((e) => e.supportedBases ?? []),
-      ])
-      return Promise.all(
-        startBases
-          .filter((b) => keys.has(b[0]))
-          .map(async (base) => ({
-            base,
-            initial: await loadInitial(82, signal, base[0]),
-          })),
-      )
-    },
+  const inventory = useQuery({ ...startInventoryQuery, enabled: active })
+  const selectedBase = inventory.data?.bases.find(
+    (base) => base[0] === draft.base,
+  )
+  const initial = useQuery({
+    ...startInitialQuery(
+      selectedBase?.[0] ?? 'solar',
+      inventory.data?.generation ?? '',
+    ),
+    enabled: active && !!selectedBase,
   })
-  const solar = inventory.data?.find((entry) => entry.base[0] === 'solar')
-  const selected = inventory.data?.find((entry) => entry.base[0] === draft.base)
+  const selected = useMemo(
+    () =>
+      selectedBase && initial.data
+        ? { base: selectedBase, initial: initial.data }
+        : undefined,
+    [selectedBase, initial.data],
+  )
   const currentRules =
+    !initial.isError &&
     !!draft.rulesetIdentity &&
     draft.rulesetIdentity === selected?.initial.rulesetIdentity
   const provenance = useQuery({
@@ -288,10 +281,16 @@ export function CraftStart({
     setReloadFailed(false)
     try {
       const fresh = await inventory.refetch()
-      if (fresh.isError || !fresh.data?.length)
+      if (fresh.isError || !fresh.data?.bases.length)
         throw new Error('Inventory unavailable')
-      const entry = fresh.data.find((e) => e.base[0] === original.base)
-      if (!entry) throw new Error('Selected base is no longer available')
+      const base = fresh.data.bases.find((base) => base[0] === original.base)
+      if (!base) throw new Error('Selected base is no longer available')
+      const entry = {
+        base,
+        initial: await client.fetchQuery(
+          startInitialQuery(base[0], fresh.data.generation),
+        ),
+      }
       if (!original.item && original.text)
         throw new Error(
           'Existing text requires review before restoring its item',
@@ -379,36 +378,35 @@ export function CraftStart({
     persist()
   }
   function selectBase(key: string) {
+    const base = inventory.data?.bases.find((base) => base[0] === key)
+    if (!base) return
     cancel()
-    update({ levelEdited: false })
-    const entry = inventory.data?.find((e) => e.base[0] === key)
-    if (!entry) return
-    const item = concreteInitial(entry.initial)
+    const cached = client.getQueryData(
+      startInitialQuery(base[0], inventory.data!.generation).queryKey,
+    )
+    const item = cached ? concreteInitial(cached) : null
     update({
       base: key,
+      levelEdited: false,
       item,
-      rulesetIdentity: entry.initial.rulesetIdentity,
-      text: startText(entry.base, item, entry.initial.modifiers),
-      card: startCard(entry.base, item, entry.initial.modifiers),
+      rulesetIdentity: cached?.rulesetIdentity ?? null,
+      text: cached && item ? startText(base, item, cached.modifiers) : '',
+      card: cached && item ? startCard(base, item, cached.modifiers) : null,
       issue: '',
     })
   }
   useEffect(() => {
-    if (inventory.data && !editor.getState().text && !editor.getState().item) {
-      const entry = inventory.data.find(
-        (e) => e.base[0] === editor.getState().base,
-      )
-      if (entry) {
-        const item = concreteInitial(entry.initial)
-        editor.setState({
-          item,
-          rulesetIdentity: entry.initial.rulesetIdentity,
-          text: startText(entry.base, item, entry.initial.modifiers),
-          card: startCard(entry.base, item, entry.initial.modifiers),
-        })
-      }
+    const d = editor.getState()
+    if (selected && d.base === selected.base[0] && !d.text && !d.item) {
+      const item = concreteInitial(selected.initial)
+      editor.setState({
+        item,
+        rulesetIdentity: selected.initial.rulesetIdentity,
+        text: startText(selected.base, item, selected.initial.modifiers),
+        card: startCard(selected.base, item, selected.initial.modifiers),
+      })
     }
-  }, [inventory.data, editor])
+  }, [selected, editor])
   useEffect(() => {
     const d = editor.getState()
     if (!selected || !d.item) return
@@ -459,11 +457,20 @@ export function CraftStart({
         throw new Error('Item text exceeds 16 KiB. Your text is preserved.')
       const parsed = await parseItemText(text, controller.signal)
       if (controller.signal.aborted || version !== revision.current) return
-      const entry = inventory.data?.find(
-        (e) =>
-          e.base[2] === (parsed.displayBase ?? parsed.displayName) &&
-          startClassMatches(e.base[1], parsed.itemClass),
+      const base = inventory.data?.bases.find(
+        (base) =>
+          base[2] === (parsed.displayBase ?? parsed.displayName) &&
+          startClassMatches(base[1], parsed.itemClass),
       )
+      const entry = base
+        ? {
+            base,
+            initial: await client.fetchQuery(
+              startInitialQuery(base[0], inventory.data!.generation),
+            ),
+          }
+        : undefined
+      if (controller.signal.aborted || version !== revision.current) return
       update({
         card: toItemCard(parsed),
         item: null,
@@ -593,7 +600,7 @@ export function CraftStart({
         (selected?.initial.modifiers[m.modifierId]?.requiredItemLevel ?? 1) >
         draft.item!.itemLevel,
     )
-  const context = draft.item ?? solar?.initial.state
+  const context = draft.item ?? selected?.initial.state
   const stateIssues =
     selected && draft.item ? startItemIssues(selected.initial, draft.item) : []
   const availableModifiers =
@@ -630,7 +637,7 @@ export function CraftStart({
   const reloadControl = (
     <button
       type="button"
-      disabled={reloadingCatalog || inventory.isLoading}
+      disabled={reloadingCatalog || inventory.isFetching || initial.isFetching}
       onClick={() => void reloadCatalog()}
     >
       {supportLayoutMessages[locale].reload}
@@ -660,7 +667,7 @@ export function CraftStart({
           <span>{settingsExpanded ? copy.hide : copy.edit}</span>
         </button>
         <div id="craft-start-settings" hidden={!settingsExpanded}>
-          {draft.item && !currentRules && (
+          {draft.item && !currentRules && !initial.isFetching && (
             <p role="alert">{t('ruleset.request_changed')}</p>
           )}
           {reloadFailed && <p role="alert">{copy.loadError}</p>}
@@ -673,7 +680,17 @@ export function CraftStart({
               </button>
             </p>
           )}
-          {inventory.isLoading && <p role="status">{copy.loading}</p>}
+          {initial.isError && !inventory.isError && (
+            <p role="alert">
+              {copy.loadError}{' '}
+              <button onClick={() => void initial.refetch()}>
+                {copy.retry}
+              </button>
+            </p>
+          )}
+          {(inventory.isLoading || initial.isLoading) && (
+            <p role="status">{copy.loading}</p>
+          )}
           {provenance.isError && (
             <p role="alert">
               {pathTreeMessages[locale].error}{' '}
@@ -707,22 +724,24 @@ export function CraftStart({
                   {copy.type}
                   <select
                     aria-label={copy.typeLabel}
-                    value={selected?.base[1] ?? ''}
+                    value={selectedBase?.[1] ?? ''}
                     onChange={(e) => {
-                      const entry = inventory.data?.find(
-                        (b) => b.base[1] === e.target.value,
+                      const base = inventory.data?.bases.find(
+                        (base) => base[1] === e.target.value,
                       )
-                      if (entry) selectBase(entry.base[0])
+                      if (base) selectBase(base[0])
                     }}
                   >
-                    {!selected && <option value="">{copy.selectType}</option>}
-                    {[...new Set(inventory.data?.map((e) => e.base[1]))].map(
-                      (type) => (
-                        <option key={type} value={type}>
-                          {uiText(type === 'Amulets' ? 'Amulet' : type, locale)}
-                        </option>
-                      ),
+                    {!selectedBase && (
+                      <option value="">{copy.selectType}</option>
                     )}
+                    {[
+                      ...new Set(inventory.data?.bases.map((base) => base[1])),
+                    ].map((type) => (
+                      <option key={type} value={type}>
+                        {uiText(type === 'Amulets' ? 'Amulet' : type, locale)}
+                      </option>
+                    ))}
                   </select>
                 </label>
                 <label>
@@ -732,14 +751,16 @@ export function CraftStart({
                     value={draft.base}
                     onChange={(e) => selectBase(e.target.value)}
                   >
-                    {!selected && <option value="">{copy.unverified}</option>}
-                    {inventory.data
+                    {!selectedBase && (
+                      <option value="">{copy.unverified}</option>
+                    )}
+                    {inventory.data?.bases
                       ?.filter(
-                        (e) => !selected || e.base[1] === selected.base[1],
+                        (base) => !selectedBase || base[1] === selectedBase[1],
                       )
-                      .map((e) => (
-                        <option key={e.base[0]} value={e.base[0]}>
-                          {name(e.initial.state.baseItemId, e.base[2])}
+                      .map((base) => (
+                        <option key={base[0]} value={base[0]}>
+                          {name(baseSlugs[base[0]], base[2])}
                         </option>
                       ))}
                   </select>
