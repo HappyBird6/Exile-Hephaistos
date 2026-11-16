@@ -27,6 +27,11 @@
 - [원자료](evidence/), [보존된 검증 자료](verification/), [재현 프로브](benchmarks/), [라이선스](third-party/PathOfBuilding-LICENSE.txt).
 - [0.5.5 자료 분류](evidence/0.5.5/README.md), [자료 관리 기준](evidence-retention.md).
 
+## 구현 전 설계
+
+- [제작지원 RAG 설계](crafting-support-rag-design.md): 서비스 요구, 전략 지식과 엔진의 역할, 동적 재계획, 비용·확률 기준, 기존 구현과의 차이, 단계별 작업·검증 및 미결정 사항. 구현 완료 명세가 아니다.
+- [제작지원 용어](../CONTEXT.md): 목표·전략·경로·실제 기록·보존·예산의 의미.
+
 ## 사용 중인 별도 API·저장 계약
 
 | 영역 | 문서 |
