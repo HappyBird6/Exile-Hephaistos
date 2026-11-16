@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "corpusVersion": "support-existing-strategies-v1",
+  "status": "documentation-only-not-runtime-integrated",
+  "baselineCommit": "859a29b3c5fc29270427a6d2eb81a53f09e0bbd5",
+  "policyVersion": "approved-187-2026-10-30-strict-exalted-v8",
+  "requiredDocuments": [
+    "support.common-policy",
+    "support.goal-progress"
+  ],
+  "retrievalDocuments": [
+    {
+      "id": "support.common-policy",
+      "path": "knowledge/common-policy.md",
+      "retrieval": "required",
+      "scope": "automatic-main",
+      "requires": [],
+      "keywords": [
+        "자동 정책",
+        "사용 제외",
+        "보류",
+        "화폐",
+        "징조",
+        "장비 제한"
+      ],
+      "sha256": "1c2b61c15c4e7491f1c77b48a4cc3a6d9cfbdf019a79ecc55c007f42d15037b3"
+    },
+    {
+      "id": "support.goal-progress",
+      "path": "knowledge/goal-progress.md",
+      "retrieval": "required",
+      "scope": "automatic-main",
+      "requires": [
+        "support.common-policy"
+      ],
+      "keywords": [
+        "목표 진전",
+        "기존 목표 보존",
+        "후보 순서",
+        "종료",
+        "준비 연결"
+      ],
+      "sha256": "dc921d789815b9739c8e9c0ba96eb4fdbc88ccc786b2479c5069b88fdc5c1b48"
+    },
+    {
+      "id": "support.first-affix-chaos",
+      "path": "knowledge/first-affix-chaos.md",
+      "retrieval": "strategy",
+      "scope": "automatic-main",
+      "requires": [
+        "support.common-policy",
+        "support.goal-progress"
+      ],
+      "keywords": [
+        "카오스",
+        "첫 옵션",
+        "분열",
+        "반복",
+        "엑잘 준비",
+        "시작 단계"
+      ],
+      "sha256": "998f20908725731b84c8356f72d1d706ed448711b4a69ec0cf0b27fac12bf62f"
+    },
+    {
+      "id": "support.dummy-replacement",
+      "path": "knowledge/dummy-replacement.md",
+      "retrieval": "strategy",
+      "scope": "automatic-main",
+      "requires": [
+        "support.common-policy",
+        "support.goal-progress",
+        "support.first-affix-chaos"
+      ],
+      "keywords": [
+        "임시 옵션",
+        "더미",
+        "엑잘",
+        "제왕",
+        "에센스",
+        "합금",
+        "후속 교체"
+      ],
+      "sha256": "21ff96324ef0ac95b957f9def1fbcc96962c6766df439cad2a97fa2296400bb9"
+    },
+    {
+      "id": "support.rarity-upgrade",
+      "path": "knowledge/rarity-upgrade.md",
+      "retrieval": "strategy",
+      "scope": "automatic-main",
+      "requires": [
+        "support.common-policy",
+        "support.goal-progress",
+        "support.first-affix-chaos"
+      ],
+      "keywords": [
+        "일반 목걸이",
+        "등급 상승",
+        "진화",
+        "마법",
+        "희귀"
+      ],
+      "sha256": "08238c3a0c0519414dda8474b3e1ae38e48164bd881e8fb4bbdd0f807fb585d3"
+    },
+    {
+      "id": "support.addition-ranking",
+      "path": "knowledge/addition-ranking.md",
+      "retrieval": "strategy",
+      "scope": "automatic-main",
+      "requires": [
+        "support.common-policy",
+        "support.goal-progress"
+      ],
+      "keywords": [
+        "제왕",
+        "엑잘",
+        "징조",
+        "확률 우선",
+        "후보 정렬"
+      ],
+      "sha256": "74a4018925b13d63605ce4e0f7daa940e2222a19276a9d8d2a82f7ec366d2ad3"
+    },
+    {
+      "id": "support.quality-checkpoints",
+      "path": "knowledge/quality-checkpoints.md",
+      "retrieval": "strategy",
+      "scope": "automatic-main",
+      "requires": [
+        "support.common-policy",
+        "support.goal-progress"
+      ],
+      "keywords": [
+        "품질",
+        "퀄리티",
+        "균열",
+        "상한",
+        "20",
+        "40",
+        "추상 작업"
+      ],
+      "sha256": "1340cce7b1779ad3600e0d8bb2a43b4c5fb86bc77a9ad46ea698aa0fa6ea1ded"
+    },
+    {
+      "id": "support.desecration",
+      "path": "knowledge/desecration.md",
+      "retrieval": "strategy",
+      "scope": "automatic-main",
+      "requires": [
+        "support.common-policy",
+        "support.goal-progress",
+        "support.first-affix-chaos",
+        "support.dummy-replacement"
+      ],
+      "keywords": [
+        "훼손",
+        "드러내기",
+        "미공개 슬롯",
+        "조건부 확률",
+        "분열 보존"
+      ],
+      "sha256": "33f390301ae436479d5f15c19251fad483be8e705ab18f8e33ff4aab6f784501"
+    }
+  ],
+  "excludedDocuments": [
+    {
+      "path": "README.md",
+      "reason": "Human index and proposed ingestion/equivalence procedure, not a strategy."
+    },
+    {
+      "path": "review-notes.md",
+      "reason": "Known conflicts, old expectations and future checks must not become active strategies."
+    },
+    {
+      "path": "reference/abyss-strategies.md",
+      "reason": "Separate recommendation helper; not the main automatic candidate generation path."
+    }
+  ],
+  "sources": [
+    {
+      "path": "backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AbyssStrategyPlanner.java",
+      "sha256": "5029673cf26c0c88438e16450cb06b727e466e2f093a0dffd531a8a355229141"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticCraftingKernel.java",
+      "sha256": "9c8d3c10a2a3f37a57ccf8cdf619d390b21747951aa332822b2b7caf3624d39a"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticMethodExecution.java",
+      "sha256": "12d0c90e9711c3bd2a211b0dc0f7bf54612bdb94d4b8f092b96c22f354986eed"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticMethodGraph.java",
+      "sha256": "127ff98892e51a71c44592a2ed13103f7d5432053ba315d314c4a6c84d36438e"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/craftingsupport/search/domain/GoalDirectedPlanner.java",
+      "sha256": "7e32d5639c62fb707c321aaec3520b91b8696f80ac354cd8af66518787853224"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/shared/crafting/domain/AutomaticCraftingAction.java",
+      "sha256": "f1e75e3b921bc360278558fcd16698eb7a6dd1d4ef814b9994f361f369719987"
+    },
+    {
+      "path": "backend/src/main/java/com/poe2craft/shared/crafting/domain/AutomaticCurrencyPolicy.java",
+      "sha256": "de36beabc20b22460957a42a72b86b197e6231fb9d22fbc2487149e895417653"
+    },
+    {
+      "path": "backend/src/main/resources/crafting/automatic-currency-policy-v1.json",
+      "sha256": "cc7290569607269112be359492c2dd8648904e328646c14ee979746dae05c622"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/bootstrap/AutomaticAbyssSearchTest.java",
+      "sha256": "941e95fc7dcff3f707fc733b95d2337ed23e8881f8d47fe02e6a23f536f31378"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/bootstrap/AutomaticNormalStartTest.java",
+      "sha256": "103bc99c7d4f284f3632b41fa48fbbb6788864060a2caa63e1c63bd4b1f97c2f"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/bootstrap/AutomaticQualityGoalsTest.java",
+      "sha256": "dfe4642fcf714b0e268348f31ce376f865b358387e1e0844f202267f55e07117"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/bootstrap/GoalDirectedPlannerScenariosTest.java",
+      "sha256": "3aaac612a35cb7501e81b7533d9d63ef1dd24c258eb15b403e589a11a874426f"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/shared/crafting/domain/AutomaticCurrencyPolicyTest.java",
+      "sha256": "d5b26268206d6e866363f3289fa40608248923d87136854ade6bd10f80326bcd"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/shared/crafting/domain/AutomaticPreparationRulesTest.java",
+      "sha256": "dca22fd794e4cbe4ecc2ff65927f102565309989f39c3a9baa6a7f9e1cfb429d"
+    },
+    {
+      "path": "backend/src/test/java/com/poe2craft/shared/crafting/domain/CommonDesecrationGraphTest.java",
+      "sha256": "3e9b9dd74e8d516b95714775e26328c94eca0ac320196279cdc4844697bb29b6"
+    },
+    {
+      "path": "frontend/src/features/crafting/goal-filter/editor.ts",
+      "sha256": "90c2317147a8c6f94ef5532556ff07dac2d24624936ea83eed5376107d499293"
+    }
+  ]
+}
