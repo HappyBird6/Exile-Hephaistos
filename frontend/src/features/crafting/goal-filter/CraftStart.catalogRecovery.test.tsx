@@ -2,7 +2,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { expect, it, vi } from 'vitest'
 import { CraftStart } from './CraftStart'
-import { emptyGoal } from './editor'
+import { emptyGoal, addStat } from './editor'
+import { mockGoalFilterAdapter, fixtureContext } from './mock'
 import { saveSupport } from '../method-search/supportStorage'
 import {
   initialFixture,
@@ -34,7 +35,17 @@ it.each(['valid', 'missing-base', 'invalid-item'])(
       baseItemId: initial.state.baseItemId,
       itemLevel: 82,
     }
+    const goalCatalog = await mockGoalFilterAdapter.catalog(
+      fixtureContext,
+      new AbortController().signal,
+    )
+    goalCatalog.stats[0] = {
+      ...goalCatalog.stats[0]!,
+      statId: 'hephaistos:v1:explicit:base_maximum_life',
+      sourceStatIds: ['base_maximum_life'],
+    }
     const oldGoal = emptyGoal(context, 'old-catalog')
+    addStat(oldGoal.groups[0]!, goalCatalog.stats[0]!)
     oldGoal.general.quality = 20
     saveSupport('goal', oldGoal)
     const originalItem = concreteInitial(initial)
@@ -89,7 +100,7 @@ it.each(['valid', 'missing-base', 'invalid-item'])(
                 reasonCode: null,
               },
             ],
-            stats: [],
+            stats: goalCatalog.stats,
             issues: [],
           }
         else if (url.endsWith('/validate')) {

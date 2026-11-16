@@ -89,6 +89,15 @@ class OpenAiStrategyModelTest {
     assertThat(sent.path("store").asBoolean()).isFalse();
     assertThat(sent.path("response_format").path("json_schema").path("strict").asBoolean())
         .isTrue();
+    var preview =
+        StrategyPrompt.build(
+            f.json,
+            f.knowledge.select(StrategyKnowledge.Mode.ALL, "", 3),
+            f.facts(),
+            f.input().request().goal(),
+            "ko");
+    assertThat(sent.path("messages").path(0).path("content").asText()).isEqualTo(preview.system());
+    assertThat(sent.path("messages").path(1).path("content").asText()).isEqualTo(preview.user());
     var content = f.json.readTree(sent.path("messages").path(1).path("content").asText());
     assertThat(content.path("facts").has("reference")).isFalse();
     assertThat(content.path("goal")).isEqualTo(f.json.valueToTree(f.input().request().goal()));

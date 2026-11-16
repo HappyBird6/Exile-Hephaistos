@@ -7,32 +7,18 @@ export type Availability = {
   model: string
   corpusVersion: string
 }
-export type Report = {
-  model: string
-  corpusVersion: string
-  proposalStatus: string
-  candidateMatch: boolean
-  executionMatch: boolean
-  reference: unknown[]
-  missing: number[]
-  extra: number[]
-  validationErrors: string[]
-  documents: string[]
-  inputTokens: number
-  outputTokens: number
-  cached: boolean
-  elapsedMillis: number
+export type PromptPreview = {
+  promptId: string
+  prompt: { system: string; user: string }
+}
+export type StrategyResponse = {
+  status: string
   strategies: {
     initial: AutomaticAction[]
     cycle: AutomaticAction[]
     documents: string[]
     explanation: string
     preparationSuccess: string
-  }[]
-  executions: {
-    referenceIndex: number
-    proposedIndex: number
-    status: string
   }[]
 }
 export class RagApiError extends Error {
@@ -46,13 +32,13 @@ export class RagApiError extends Error {
 const base = '/api/support-test/rag'
 async function read<T>(
   path: string,
-  signal: AbortSignal,
+  signal: AbortSignal | undefined,
   body?: unknown,
 ): Promise<T> {
   const response = await fetch(base + path, {
     method: body ? 'POST' : 'GET',
     cache: 'no-store',
-    signal,
+    signal: signal ?? null,
     headers: {
       ...(body ? { 'Content-Type': 'application/json' } : {}),
     },
@@ -71,15 +57,12 @@ async function read<T>(
 }
 export const ragAvailability = (signal: AbortSignal) =>
   read<Availability>('', signal)
-export function compareStrategies(
+export function preparePrompt(
   request: CreateRequest,
-  mode: 'ALL' | 'RETRIEVED',
-  initialStage: boolean,
   abstractQuality: number,
   locale: string,
-  signal: AbortSignal,
 ) {
-  return read<Report>('/compare', signal, {
+  return read<PromptPreview>('/prompt', undefined, {
     request: {
       version: 2,
       clientRequestId: request.clientRequestId,
@@ -87,9 +70,12 @@ export function compareStrategies(
       goal: request.goal,
       activeOmens: request.activeOmens,
     },
-    mode,
-    initialStage,
+    mode: 'RETRIEVED',
+    initialStage: true,
     abstractQuality,
     locale,
   })
+}
+export function generateStrategies(promptId: string, signal: AbortSignal) {
+  return read<StrategyResponse>('/generate', signal, { promptId })
 }

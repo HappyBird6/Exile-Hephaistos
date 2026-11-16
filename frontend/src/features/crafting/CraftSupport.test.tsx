@@ -1,3 +1,6 @@
+import { emptyGoal, addStat } from './goal-filter/editor'
+import { saveSupport } from './method-search/supportStorage'
+import { mockGoalFilterAdapter, fixtureContext } from './goal-filter/mock'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { expect, it, vi } from 'vitest'
@@ -5,8 +8,16 @@ import { CraftingPage } from './CraftingPage'
 import { useItemDraft } from './draft'
 import { fixtureFetch, jsonResponse } from '../../shared/test/craftingFixtures'
 
-function show() {
+async function show() {
   useItemDraft.getState().setBase(82, 'solar')
+  const goalFixture = await mockGoalFilterAdapter.catalog(
+    fixtureContext,
+    new AbortController().signal,
+  )
+  const goal = emptyGoal({ baseItemId: 'solar' }, 'test-catalog')
+  addStat(goal.groups[0]!, goalFixture.stats[0]!)
+  saveSupport('goal', goal)
+
   vi.stubGlobal(
     'fetch',
     vi.fn((url: RequestInfo | URL, init?: RequestInit) =>
@@ -14,7 +25,22 @@ function show() {
         ? Promise.resolve(
             jsonResponse({ workbenchBases: { solar: {} }, entries: [] }),
           )
-        : fixtureFetch(url, init),
+        : String(url).includes('/goal-filters/catalog?')
+          ? fixtureFetch(url, init).then(async (r) =>
+              jsonResponse({
+                ...(await r.json()),
+                stats: goalFixture.stats,
+                groupTypes: [
+                  {
+                    type: 'AND',
+                    evaluation: 'SUPPORTED',
+                    probability: 'SUPPORTED',
+                    reasonCode: null,
+                  },
+                ],
+              }),
+            )
+          : fixtureFetch(url, init),
     ),
   )
   render(
@@ -28,7 +54,7 @@ function show() {
   )
 }
 it('shows the starting workflow without developer policy, recovery or family comparison panels', async () => {
-  show()
+  await show()
   fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
   await waitFor(
     () =>
@@ -60,8 +86,8 @@ it('shows the starting workflow without developer policy, recovery or family com
       ),
   ).toBe(false)
 })
-it('uses keyboard navigation across workbench, support and history', () => {
-  show()
+it('uses keyboard navigation across workbench, support and history', async () => {
+  await show()
   const bench = screen.getByRole('tab', { name: 'Crafting Workbench' })
   bench.focus()
   fireEvent.keyDown(bench, { key: 'ArrowRight' })

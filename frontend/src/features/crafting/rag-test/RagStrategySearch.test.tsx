@@ -1,4 +1,6 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
+import { StrictMode } from 'react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { expect, it, vi } from 'vitest'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import { RagStrategySearch } from './RagStrategySearch'
@@ -6,23 +8,15 @@ import { RagAvailabilityContext } from './availabilityContext'
 import { jsonResponse } from '../../../shared/test/craftingFixtures'
 import { ragMessages } from './messages'
 import { locales } from '../../../shared/i18n/i18n'
-
-const report = {
-  model: 'test-model',
-  corpusVersion: 'test-corpus',
-  proposalStatus: 'COMPLETE',
-  candidateMatch: false,
-  executionMatch: false,
-  reference: [{}],
-  missing: [0],
-  extra: [0],
-  validationErrors: [],
-  documents: ['support.common-policy'],
-  inputTokens: 10,
-  outputTokens: 20,
-  cached: false,
-  elapsedMillis: 10,
-  executions: [],
+const preview = {
+  promptId: 'prepared-id',
+  prompt: {
+    system: 'Reviewed rules only.',
+    user: '{"documents":["retrieved knowledge"],"goal":"projectile +3"}',
+  },
+}
+const response = {
+  status: 'COMPLETE',
   strategies: [
     {
       initial: [
@@ -39,104 +33,125 @@ const report = {
     },
   ],
 }
+
 function show(ready = true) {
-  const request = requestFixture()
   const props = {
-    request,
+    request: requestFixture(),
     inputGeneration: 1,
     onRecalculate: vi.fn(),
-    presentItem: () => ({
-      name: 'Solar Amulet',
-      base: 'Solar Amulet',
-      rarity: 'RARE' as const,
-      itemClass: 'Amulets',
-      itemLevel: 82,
-      properties: [],
-      requirements: [],
-      modifiers: [],
-      flags: [],
-    }),
+    presentItem: vi.fn(),
   }
-  const rendered = render(
-    <RagAvailabilityContext.Provider value={ready}>
-      <RagStrategySearch {...props} />
-    </RagAvailabilityContext.Provider>,
+  const client = new QueryClient()
+  return render(
+    <StrictMode>
+      <QueryClientProvider client={client}>
+        <RagAvailabilityContext.Provider value={ready}>
+          <RagStrategySearch {...props} />
+        </RagAvailabilityContext.Provider>
+      </QueryClientProvider>
+    </StrictMode>,
   )
-  return { ...rendered, props }
 }
-it('makes no paid request on mount and sends exactly one explicit request without legacy observations', async () => {
+const api = (
+  generate: (init?: RequestInit) => Promise<Response> = async () =>
+    jsonResponse(response),
+) => {
   const fetcher = vi.fn<
     (url: RequestInfo | URL, init?: RequestInit) => Promise<Response>
-  >(async () => jsonResponse(report))
-  vi.stubGlobal('fetch', fetcher)
-  show()
-  expect(fetcher).not.toHaveBeenCalled()
-  fireEvent.click(screen.getByRole('button', { name: 'Generate strategies' }))
-  fireEvent.click(
-    screen.getByRole('button', { name: 'Generating strategies…' }),
+  >(async (url, init) =>
+    String(url).endsWith('/prompt') ? jsonResponse(preview) : generate(init),
   )
-  await screen.findByText(report.strategies[0]!.explanation)
+  vi.stubGlobal('fetch', fetcher)
+  return fetcher
+}
+async function readyButton() {
+  const button = screen.getByRole('button', { name: 'Request strategies' })
+  await waitFor(() => expect(button).toBeEnabled())
+  return button
+}
+it('prepares only once in StrictMode, shows the exact prompt, and calls AI only on an explicit click', async () => {
+  const fetcher = api()
+  show()
+  const button = await readyButton()
   expect(fetcher).toHaveBeenCalledTimes(1)
+  expect(fetcher.mock.calls[0]?.[0]).toBe('/api/support-test/rag/prompt')
   const body = JSON.parse(String(fetcher.mock.calls[0]?.[1]?.body))
   expect(body.request.version).toBe(2)
   expect(body.request.observations).toBeUndefined()
-  expect(body.mode).toBe('ALL')
+  expect(body.mode).toBe('RETRIEVED')
   expect(body.locale).toBe('en')
-  expect(document.querySelector('.rag-results script')).toBeNull()
-  expect(screen.getByText(/Differences found/)).toBeVisible()
+  expect(screen.getByRole('textbox', { name: 'Prompt to send' })).toHaveValue(
+    `SYSTEM\n${preview.prompt.system}\n\nUSER\n${preview.prompt.user}`,
+  )
+  fireEvent.click(button)
+  fireEvent.click(
+    screen.getByRole('button', { name: 'Generating strategies…' }),
+  )
+  await screen.findByText(response.strategies[0]!.explanation)
+  expect(fetcher).toHaveBeenCalledTimes(2)
+  expect(fetcher.mock.calls[1]?.[0]).toBe('/api/support-test/rag/generate')
+  expect(JSON.parse(String(fetcher.mock.calls[1]?.[1]?.body))).toEqual({
+    promptId: preview.promptId,
+  })
+  expect(document.querySelector('.rag-results-layout script')).toBeNull()
+  expect(document.querySelector('.rag-results-layout .item-card')).toBeNull()
+  expect(screen.queryByText(/Engine comparison/)).not.toBeInTheDocument()
+  expect(screen.queryByRole('combobox')).not.toBeInTheDocument()
 })
-it('disables generation without server configuration', () => {
-  const fetcher = vi.fn()
-  vi.stubGlobal('fetch', fetcher)
+it('disables requests without server configuration', () => {
+  const fetcher = api()
   show(false)
   expect(
-    screen.getByRole('button', { name: 'Generate strategies' }),
+    screen.getByRole('button', { name: 'Request strategies' }),
   ).toBeDisabled()
   expect(fetcher).not.toHaveBeenCalled()
 })
-it('aborts an abandoned comparison and does not show its late response', async () => {
+it('aborts an abandoned model request and discards its late response', async () => {
   let finish: ((response: Response) => void) | undefined
-  const fetcher = vi.fn<
-    (url: RequestInfo | URL, init?: RequestInit) => Promise<Response>
-  >(
+  const fetcher = api(
     () =>
       new Promise<Response>((resolve) => {
         finish = resolve
       }),
   )
-  vi.stubGlobal('fetch', fetcher)
   const page = show()
-  fireEvent.click(screen.getByRole('button', { name: 'Generate strategies' }))
-  const signal = fetcher.mock.calls[0]![1]!.signal!
+  fireEvent.click(await readyButton())
+  const signal = fetcher.mock.calls[1]![1]!.signal!
   page.unmount()
   expect(signal.aborted).toBe(true)
-  await act(async () => finish?.(jsonResponse(report)))
+  await act(async () => finish?.(jsonResponse(response)))
   expect(
-    screen.queryByText(report.strategies[0]!.explanation),
+    screen.queryByText(response.strategies[0]!.explanation),
   ).not.toBeInTheDocument()
 })
-it('reports failures and never automatically retries paid requests', async () => {
-  const fetcher = vi.fn(async () => new Response('', { status: 401 }))
-  vi.stubGlobal('fetch', fetcher)
-  show()
-  fireEvent.click(screen.getByRole('button', { name: 'Generate strategies' }))
-  await screen.findByRole('alert')
-  expect(fetcher).toHaveBeenCalledTimes(1)
-})
-it('clears prior results when retrieval or stage changes', async () => {
-  vi.stubGlobal(
-    'fetch',
-    vi.fn(async () => jsonResponse(report)),
+it('shows the error code and never automatically retries a failed paid request', async () => {
+  const fetcher = api(
+    async () =>
+      new Response(JSON.stringify({ code: 'RAG_PROVIDER_RATE_LIMIT' }), {
+        status: 502,
+      }),
   )
   show()
-  fireEvent.click(screen.getByRole('button', { name: 'Generate strategies' }))
-  await screen.findByText(report.strategies[0]!.explanation)
-  fireEvent.change(screen.getByLabelText('Documents'), {
-    target: { value: 'RETRIEVED' },
-  })
-  expect(
-    screen.queryByText(report.strategies[0]!.explanation),
-  ).not.toBeInTheDocument()
+  fireEvent.click(await readyButton())
+  expect(await screen.findByRole('alert')).toHaveTextContent(
+    'RAG_PROVIDER_RATE_LIMIT',
+  )
+  expect(fetcher).toHaveBeenCalledTimes(2)
+})
+it('requires a new manual request after refreshing an expired prompt', async () => {
+  const fetcher = api(
+    async () =>
+      new Response(JSON.stringify({ code: 'RAG_PROMPT_EXPIRED' }), {
+        status: 410,
+      }),
+  )
+  show()
+  fireEvent.click(await readyButton())
+  await screen.findByRole('alert')
+  fireEvent.click(screen.getByRole('button', { name: 'Reload prompt' }))
+  await readyButton()
+  expect(fetcher).toHaveBeenCalledTimes(3)
+  expect(fetcher.mock.calls[2]?.[0]).toBe('/api/support-test/rag/prompt')
 })
 it('provides every test-screen message in all eight locales', () => {
   const keys = Object.keys(ragMessages.en).sort()

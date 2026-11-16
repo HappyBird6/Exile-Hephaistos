@@ -30,6 +30,135 @@ class RagComparisonServiceTest {
   }
 
   @Test
+  void previewMakesNoModelCallAndExplicitGenerationUsesTheSamePromptOnlyOnce() throws Exception {
+    var calls = new AtomicInteger();
+    var sent = new java.util.concurrent.atomic.AtomicReference<StrategyPrompt>();
+    var provider =
+        new StrategyModel() {
+          public boolean configured() {
+            return true;
+          }
+
+          public Result propose(
+              StrategyKnowledge.Selection docs,
+              StrategyEvidence.Facts facts,
+              com.poe2craft.craftingsupport.goal.domain.GoalFilter goal,
+              String locale) {
+            calls.incrementAndGet();
+            sent.set(StrategyPrompt.build(f.json, docs, facts, goal, locale));
+            return f.answer(facts);
+          }
+        };
+    var service = f.service(provider, Map.of());
+    var preview = service.prepare(f.input());
+    assertThat(calls).hasValue(0);
+    assertThat(f.json.readTree(preview.prompt().user()).path("documents")).isNotEmpty();
+    var request = new RagComparisonService.GenerateInput(preview.promptId());
+    var result = service.generate(request);
+    assertThat(result.status()).isEqualTo("COMPLETE");
+    assertThat(result.strategies()).isNotEmpty();
+    assertThat(sent.get()).isEqualTo(preview.prompt());
+    assertThat(service.generate(request)).isEqualTo(result);
+    assertThat(calls).hasValue(1);
+  }
+
+  @Test
+  void previewCacheIsBoundedAndUnknownOrExpiredIdsNeverCallTheModel() {
+    var calls = new AtomicInteger();
+    var service =
+        f.service(
+            model(
+                facts -> {
+                  calls.incrementAndGet();
+                  return f.answer(facts);
+                }),
+            Map.of("cacheEntries", 1));
+    var oldest = service.prepare(f.input());
+    service.prepare(f.input());
+    assertThatThrownBy(
+            () -> service.generate(new RagComparisonService.GenerateInput(oldest.promptId())))
+        .hasMessage("RAG_PROMPT_EXPIRED");
+    assertThatThrownBy(() -> service.generate(new RagComparisonService.GenerateInput("unknown")))
+        .hasMessage("RAG_PROMPT_EXPIRED");
+    assertThat(calls).hasValue(0);
+    var time = new java.util.concurrent.atomic.AtomicReference<>(java.time.Instant.now());
+    var clock =
+        new java.time.Clock() {
+          public java.time.ZoneId getZone() {
+            return java.time.ZoneOffset.UTC;
+          }
+
+          public java.time.Clock withZone(java.time.ZoneId zone) {
+            return this;
+          }
+
+          public java.time.Instant instant() {
+            return time.get();
+          }
+        };
+    var expiring =
+        new RagComparisonService(
+            f.runtimes,
+            f.policy,
+            f.knowledge,
+            model(
+                facts -> {
+                  throw new AssertionError("Expired prompt called provider");
+                }),
+            f.settings(Map.of()),
+            f.json,
+            clock);
+    var preview = expiring.prepare(f.input());
+    time.set(time.get().plus(f.settings(Map.of()).cacheTtl()).plusSeconds(1));
+    assertThatThrownBy(
+            () -> expiring.generate(new RagComparisonService.GenerateInput(preview.promptId())))
+        .hasMessage("RAG_PROMPT_EXPIRED");
+  }
+
+  @Test
+  void generationRejectsInventedChoicesAndCannotBypassTheSharedAdmission() throws Exception {
+    var entered = new CountDownLatch(1);
+    var release = new CountDownLatch(1);
+    var service =
+        f.service(
+            model(
+                facts -> {
+                  entered.countDown();
+                  try {
+                    assertThat(release.await(10, TimeUnit.SECONDS)).isTrue();
+                  } catch (InterruptedException e) {
+                    throw new AssertionError(e);
+                  }
+                  return new StrategyModel.Result(
+                      "COMPLETE",
+                      List.of(
+                          new StrategyModel.Proposal(
+                              List.of(),
+                              List.of("invented"),
+                              List.of("support.common-policy"),
+                              "STOP_ON_FIRST_HIT",
+                              "bad")),
+                      1,
+                      1);
+                }),
+            Map.of());
+    var preview = service.prepare(f.input());
+    try (var worker = Executors.newSingleThreadExecutor()) {
+      var running =
+          worker.submit(
+              () -> service.generate(new RagComparisonService.GenerateInput(preview.promptId())));
+      assertThat(entered.await(10, TimeUnit.SECONDS)).isTrue();
+      assertThatThrownBy(() -> service.prepare(f.input())).hasMessage("RAG_BUSY");
+      assertThatThrownBy(() -> service.compare(f.input())).hasMessage("RAG_BUSY");
+      release.countDown();
+      assertThatThrownBy(running::get).hasCauseInstanceOf(RagFailure.class);
+      assertThatThrownBy(
+              () -> service.generate(new RagComparisonService.GenerateInput(preview.promptId())))
+          .hasMessage("RAG_INVALID_OUTPUT");
+    }
+  }
+
+  @Test
   void exactProposalsUseActualEngineAndRepeatedInputDoesNotCallProvider() {
     var calls = new AtomicInteger();
     var service =

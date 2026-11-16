@@ -26,6 +26,41 @@ class AutomaticSearchInputReaderTest {
   }
 
   @Test
+  void acceptsOmittedOptionalBooleanFlagsFromTheBrowser() throws Exception {
+    var body = (ObjectNode) f.json.valueToTree(f.input());
+    var item = (ObjectNode) body.path("request").path("start").path("item");
+    item.remove("qualityInfused");
+    item.path("implicits").forEach(m -> ((ObjectNode) m).remove("crafted"));
+    assertThat(
+            reader
+                .read(f.json.writeValueAsString(body), RagComparisonService.Input.class)
+                .request()
+                .start()
+                .item())
+        .isEqualTo(f.input().request().start().item());
+  }
+
+  @Test
+  void explicitInvalidBooleanFlagsAreRejectedByBothPaths() throws Exception {
+    for (var wrapper :
+        java.util.List.<com.fasterxml.jackson.databind.JsonNode>of(
+            f.json.valueToTree(f.input()),
+            f.json.valueToTree(new AutomaticSearchService.Input(f.input().request(), false)))) {
+      for (var invalid : java.util.List.of("null", "\"false\"", "0")) {
+        var body = wrapper.deepCopy();
+        ((ObjectNode) body.path("request").path("start").path("item"))
+            .set("qualityInfused", f.json.readTree(invalid));
+        var type =
+            body.has("mode")
+                ? RagComparisonService.Input.class
+                : AutomaticSearchService.Input.class;
+        assertThatThrownBy(() -> reader.read(f.json.writeValueAsString(body), type))
+            .isInstanceOf(PathSearchProtocol.Rejected.class);
+      }
+    }
+  }
+
+  @Test
   void unsupportedStateIsRejectedByBothPathsBeforeAnyModelCall() throws Exception {
     var input = f.input();
     for (var wrapper :

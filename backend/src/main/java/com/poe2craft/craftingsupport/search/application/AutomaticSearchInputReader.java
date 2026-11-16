@@ -25,6 +25,7 @@ public final class AutomaticSearchInputReader {
       if (input.length() > 262144) throw new IllegalArgumentException("Request too large");
       var node = json.readTree(input);
       safe(node);
+      node = com.poe2craft.shared.item.ItemStateWireDefaults.normalized(node);
       // Optional additions keep older clients valid; original required fields stay strict.
       if (type == AutomaticSearchService.Input.class
           && node instanceof com.fasterxml.jackson.databind.node.ObjectNode body) {

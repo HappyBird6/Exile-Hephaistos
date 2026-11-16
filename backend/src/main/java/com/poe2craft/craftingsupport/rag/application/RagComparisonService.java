@@ -138,17 +138,8 @@ public final class RagComparisonService {
   }
 
   public Report compare(Input input) {
-    if (!settings.enabled()) throw new RagFailure(503, "RAG_DISABLED");
-    if (knowledge == null) throw new RagFailure(503, "RAG_CORPUS_INVALID");
+    validate(input);
     if (!model.configured()) throw new RagFailure(503, "RAG_KEY_MISSING");
-    if (input == null
-        || input.request() == null
-        || input.mode() == null
-        || input.abstractQuality() < 0
-        || input.abstractQuality() > 40
-        || !com.poe2craft.configuration.PublicContracts.LOCALE_CODES.contains(
-            input.locale() == null ? "" : input.locale()))
-      throw new RagFailure(422, "RAG_INVALID_INPUT");
     if (!admission.tryAcquire()) throw new RagFailure(429, "RAG_BUSY");
     long began = System.nanoTime();
     try {
@@ -184,28 +175,12 @@ public final class RagComparisonService {
       cache.entrySet().removeIf(e -> !e.getValue().until().isAfter(clock.instant()));
       var saved = cache.get(key);
       if (saved != null) return saved.report().asCached();
+      var context = context(input, runtime);
+      var facts = context.facts();
+      var selection = context.selection();
+      var evaluate = context.evaluate();
+      var inventory = context.inventory();
       long deadline = System.nanoTime() + settings.computeTimeout().toNanos();
-      var inventory = AutomaticCraftingAction.candidates(policy);
-      Function<ItemState, AutomaticMethodGraph.Progress> evaluate =
-          item ->
-              AutomaticMethodGraph.qualityProgress(
-                  kernel, item, input.abstractQuality(), runtime.evaluate().apply(item));
-      var facts =
-          new StrategyEvidence(kernel, evaluate, inventory, settings.factOperations(), deadline)
-              .build(root, input.initialStage(), input.abstractQuality(), inventory);
-      var query =
-          root.rarity()
-              + " "
-              + kernel.identity().family()
-              + " "
-              + facts.actions().stream()
-                  .filter(a -> a.status().equals("READY"))
-                  .map(a -> a.action().toString())
-                  .reduce("", (a, b) -> a + " " + b)
-              + (facts.context().qualityGoal() > 0 ? " QUALITY_CHECKPOINT 품질 " : "")
-              + (root.explicits().stream().anyMatch(m -> m.fractured()) ? " 분열 " : "")
-              + (!root.desecrated().isEmpty() ? " DESECRATE 훼손 " : "");
-      var selection = knowledge.select(input.mode(), query, settings.retrievalCount());
       // The reference answer is never included in facts, retrieval query or the provider prompt.
       var reference =
           facts.context().nodeComplete()
@@ -215,68 +190,11 @@ public final class RagComparisonService {
       checkDeadline(deadline);
       var answer = model.propose(selection, facts, input.request().goal(), input.locale());
       deadline = System.nanoTime() + settings.computeTimeout().toNanos();
-      var errors = new ArrayList<String>();
-      var proposed = new ArrayList<GoalDirectedPlanner.Choice>();
-      var strategies = new ArrayList<Candidate>();
-      var actions = new HashMap<String, AutomaticCraftingAction>();
-      facts.actions().forEach(a -> actions.put(a.id(), a.action()));
+      var decoded = decode(context, answer);
+      var errors = decoded.errors();
+      var proposed = decoded.choices();
+      var strategies = decoded.strategies();
       var selectedIds = selection.documents().stream().map(StrategyKnowledge.Document::id).toList();
-      if (!Set.of("COMPLETE", "INSUFFICIENT_EVIDENCE").contains(answer.status())
-          || answer.choices() == null
-          || answer.choices().size() > settings.maxChoices()
-          || (answer.status().equals("INSUFFICIENT_EVIDENCE") && !answer.choices().isEmpty()))
-        throw new RagFailure(502, "RAG_INVALID_OUTPUT");
-      for (int index = 0; index < answer.choices().size(); index++) {
-        var row = answer.choices().get(index);
-        try {
-          if (row == null
-              || row.initial() == null
-              || row.cycle() == null
-              || row.documents() == null
-              || row.initial().size() > 1
-              || row.cycle().size() != 1
-              || row.documents().isEmpty()
-              || !selectedIds.containsAll(row.documents())
-              || row.explanation() == null
-              || row.explanation().length() > 1200) throw new IllegalArgumentException();
-          var initial =
-              row.initial().stream().map(id -> Objects.requireNonNull(actions.get(id))).toList();
-          var cycle =
-              row.cycle().stream().map(id -> Objects.requireNonNull(actions.get(id))).toList();
-          String stopping =
-              initial.stream().anyMatch(a -> a.currency() == WorkbenchCurrency.EXALTED)
-                      && cycle.getFirst().currency() != WorkbenchCurrency.CHAOS
-                  ? "REQUIRE_REPLACEMENT"
-                  : "STOP_ON_FIRST_HIT";
-          if (!stopping.equals(row.preparationSuccess())) throw new IllegalArgumentException();
-          new AutomaticMethodExecution.Template("validation", initial, cycle);
-          if (initial.isEmpty()) {
-            var action = cycle.getFirst();
-            boolean quality =
-                action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT
-                    || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT;
-            if (quality
-                ? kernel.expand(root, action, 1).status() != AutomaticCraftingKernel.Status.COMPLETE
-                : kernel.plan(root, action).status() != AutomaticCraftingPlan.Status.READY)
-              throw new IllegalArgumentException();
-            if (!root.desecrated().isEmpty())
-              cycle = List.of(kernel.withSelectionComparison(root, action, evaluate));
-          } else if (facts.preparations().stream()
-              .noneMatch(
-                  p ->
-                      p.initial().equals(row.initial().getFirst())
-                          && p.cycle().equals(row.cycle().getFirst())
-                          && p.ready())) throw new IllegalArgumentException();
-          var choice = new GoalDirectedPlanner.Choice(initial, cycle);
-          if (proposed.contains(choice)) throw new IllegalArgumentException();
-          proposed.add(choice);
-          strategies.add(
-              new Candidate(
-                  initial, cycle, List.copyOf(row.documents()), row.explanation(), stopping));
-        } catch (IllegalArgumentException | NullPointerException error) {
-          errors.add("INVALID_CHOICE_" + index);
-        }
-      }
       var missing = new ArrayList<Integer>();
       var extra = new ArrayList<Integer>();
       for (int i = 0; i < reference.size(); i++)
@@ -356,6 +274,196 @@ public final class RagComparisonService {
     } finally {
       admission.release();
     }
+  }
+
+  public record PromptPreview(String promptId, StrategyPrompt prompt) {}
+
+  public record GenerateInput(String promptId) {}
+
+  public record StrategyResponse(String status, List<Candidate> strategies) {}
+
+  private record Context(
+      Input input,
+      AutomaticSearchService.Runtime runtime,
+      StrategyEvidence.Facts facts,
+      StrategyKnowledge.Selection selection,
+      Function<ItemState, AutomaticMethodGraph.Progress> evaluate,
+      List<AutomaticCraftingAction> inventory) {}
+
+  private record Decoded(
+      List<GoalDirectedPlanner.Choice> choices, List<Candidate> strategies, List<String> errors) {}
+
+  private record Prepared(Instant until, Context context, StrategyResponse response) {}
+
+  // Prompt IDs refer only to bounded, server-built evidence; callers cannot supply arbitrary
+  // prompts.
+  private final Map<String, Prepared> prepared = new LinkedHashMap<>();
+
+  public PromptPreview prepare(Input input) {
+    validate(input);
+    if (!admission.tryAcquire()) throw new RagFailure(429, "RAG_BUSY");
+    try {
+      var context = context(input, runtimes.create(input.request()));
+      var prompt =
+          StrategyPrompt.build(
+              json, context.selection(), context.facts(), input.request().goal(), input.locale());
+      if ((prompt.system() + prompt.user()).getBytes(java.nio.charset.StandardCharsets.UTF_8).length
+          > settings.maxPromptBytes()) throw new RagFailure(422, "RAG_CONTEXT_LIMIT");
+      prepared.entrySet().removeIf(e -> !e.getValue().until().isAfter(clock.instant()));
+      if (prepared.size() >= settings.cacheEntries())
+        prepared.remove(prepared.keySet().iterator().next());
+      var id = UUID.randomUUID().toString();
+      prepared.put(id, new Prepared(clock.instant().plus(settings.cacheTtl()), context, null));
+      return new PromptPreview(id, prompt);
+    } catch (StrategyEvidence.LimitReached error) {
+      throw new RagFailure(422, "RAG_FACT_BUDGET");
+    } finally {
+      admission.release();
+    }
+  }
+
+  public StrategyResponse generate(GenerateInput input) {
+    if (!settings.enabled()) throw new RagFailure(503, "RAG_DISABLED");
+    if (!model.configured()) throw new RagFailure(503, "RAG_KEY_MISSING");
+    if (input == null || input.promptId() == null) throw new RagFailure(422, "RAG_INVALID_INPUT");
+    if (!admission.tryAcquire()) throw new RagFailure(429, "RAG_BUSY");
+    try {
+      var saved = prepared.get(input.promptId());
+      if (saved == null || !saved.until().isAfter(clock.instant())) {
+        prepared.remove(input.promptId());
+        throw new RagFailure(410, "RAG_PROMPT_EXPIRED");
+      }
+      if (saved.response() != null) return saved.response();
+      var context = saved.context();
+      var answer =
+          model.propose(
+              context.selection(),
+              context.facts(),
+              context.input().request().goal(),
+              context.input().locale());
+      var decoded = decode(context, answer);
+      if (!decoded.errors().isEmpty()) throw new RagFailure(502, "RAG_INVALID_OUTPUT");
+      var response = new StrategyResponse(answer.status(), List.copyOf(decoded.strategies()));
+      prepared.put(input.promptId(), new Prepared(saved.until(), context, response));
+      return response;
+    } finally {
+      admission.release();
+    }
+  }
+
+  private void validate(Input input) {
+    if (!settings.enabled()) throw new RagFailure(503, "RAG_DISABLED");
+    if (knowledge == null) throw new RagFailure(503, "RAG_CORPUS_INVALID");
+    if (input == null
+        || input.request() == null
+        || input.mode() == null
+        || input.abstractQuality() < 0
+        || input.abstractQuality() > 40
+        || !com.poe2craft.configuration.PublicContracts.LOCALE_CODES.contains(
+            input.locale() == null ? "" : input.locale()))
+      throw new RagFailure(422, "RAG_INVALID_INPUT");
+  }
+
+  private Context context(Input input, AutomaticSearchService.Runtime runtime) {
+    var kernel = runtime.kernel();
+    if (!knowledge.policyVersion().equals(kernel.identity().policyVersion()))
+      throw new RagFailure(409, "RAG_CORPUS_POLICY_MISMATCH");
+    var root = input.request().start().item();
+    long deadline = System.nanoTime() + settings.computeTimeout().toNanos();
+    var inventory = AutomaticCraftingAction.candidates(policy);
+    Function<ItemState, AutomaticMethodGraph.Progress> evaluate =
+        item ->
+            AutomaticMethodGraph.qualityProgress(
+                kernel, item, input.abstractQuality(), runtime.evaluate().apply(item));
+    var facts =
+        new StrategyEvidence(kernel, evaluate, inventory, settings.factOperations(), deadline)
+            .build(root, input.initialStage(), input.abstractQuality(), inventory);
+    var query =
+        root.rarity()
+            + " "
+            + kernel.identity().family()
+            + " "
+            + facts.actions().stream()
+                .filter(a -> a.status().equals("READY"))
+                .map(a -> a.action().toString())
+                .reduce("", (a, b) -> a + " " + b)
+            + (facts.context().qualityGoal() > 0 ? " QUALITY_CHECKPOINT 품질 " : "")
+            + (root.explicits().stream().anyMatch(m -> m.fractured()) ? " 분열 " : "")
+            + (!root.desecrated().isEmpty() ? " DESECRATE 훼손 " : "");
+    var selection = knowledge.select(input.mode(), query, settings.retrievalCount());
+    checkDeadline(deadline);
+    return new Context(input, runtime, facts, selection, evaluate, inventory);
+  }
+
+  private Decoded decode(Context context, StrategyModel.Result answer) {
+    var facts = context.facts();
+    var selection = context.selection();
+    var kernel = context.runtime().kernel();
+    var root = context.input().request().start().item();
+    var evaluate = context.evaluate();
+    var errors = new ArrayList<String>();
+    var proposed = new ArrayList<GoalDirectedPlanner.Choice>();
+    var strategies = new ArrayList<Candidate>();
+    var actions = new HashMap<String, AutomaticCraftingAction>();
+    facts.actions().forEach(a -> actions.put(a.id(), a.action()));
+    var selectedIds = selection.documents().stream().map(StrategyKnowledge.Document::id).toList();
+    if (!Set.of("COMPLETE", "INSUFFICIENT_EVIDENCE").contains(answer.status())
+        || answer.choices() == null
+        || answer.choices().size() > settings.maxChoices()
+        || (answer.status().equals("INSUFFICIENT_EVIDENCE") && !answer.choices().isEmpty()))
+      throw new RagFailure(502, "RAG_INVALID_OUTPUT");
+    for (int index = 0; index < answer.choices().size(); index++) {
+      var row = answer.choices().get(index);
+      try {
+        if (row == null
+            || row.initial() == null
+            || row.cycle() == null
+            || row.documents() == null
+            || row.initial().size() > 1
+            || row.cycle().size() != 1
+            || row.documents().isEmpty()
+            || !selectedIds.containsAll(row.documents())
+            || row.explanation() == null
+            || row.explanation().length() > 1200) throw new IllegalArgumentException();
+        var initial =
+            row.initial().stream().map(id -> Objects.requireNonNull(actions.get(id))).toList();
+        var cycle =
+            row.cycle().stream().map(id -> Objects.requireNonNull(actions.get(id))).toList();
+        String stopping =
+            initial.stream().anyMatch(a -> a.currency() == WorkbenchCurrency.EXALTED)
+                    && cycle.getFirst().currency() != WorkbenchCurrency.CHAOS
+                ? "REQUIRE_REPLACEMENT"
+                : "STOP_ON_FIRST_HIT";
+        if (!stopping.equals(row.preparationSuccess())) throw new IllegalArgumentException();
+        new AutomaticMethodExecution.Template("validation", initial, cycle);
+        if (initial.isEmpty()) {
+          var action = cycle.getFirst();
+          boolean quality =
+              action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT
+                  || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT;
+          if (quality
+              ? kernel.expand(root, action, 1).status() != AutomaticCraftingKernel.Status.COMPLETE
+              : kernel.plan(root, action).status() != AutomaticCraftingPlan.Status.READY)
+            throw new IllegalArgumentException();
+          if (!root.desecrated().isEmpty())
+            cycle = List.of(kernel.withSelectionComparison(root, action, evaluate));
+        } else if (facts.preparations().stream()
+            .noneMatch(
+                p ->
+                    p.initial().equals(row.initial().getFirst())
+                        && p.cycle().equals(row.cycle().getFirst())
+                        && p.ready())) throw new IllegalArgumentException();
+        var choice = new GoalDirectedPlanner.Choice(initial, cycle);
+        if (proposed.contains(choice)) throw new IllegalArgumentException();
+        proposed.add(choice);
+        strategies.add(
+            new Candidate(
+                initial, cycle, List.copyOf(row.documents()), row.explanation(), stopping));
+      } catch (IllegalArgumentException | NullPointerException error) {
+        errors.add("INVALID_CHOICE_" + index);
+      }
+    }
+    return new Decoded(List.copyOf(proposed), List.copyOf(strategies), List.copyOf(errors));
   }
 
   private Run execute(

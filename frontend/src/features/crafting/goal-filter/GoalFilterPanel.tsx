@@ -32,7 +32,11 @@ import type {
   Range,
   Recommendation,
 } from './types'
-import { useGoalFilterCatalog, useGoalFilterValidation } from './useGoalFilter'
+import {
+  hasCompleteGoal,
+  useGoalFilterCatalog,
+  useGoalFilterValidation,
+} from './useGoalFilter'
 import './goal-filter.css'
 function NumberField({
   fieldId,
@@ -160,7 +164,9 @@ export function GoalFilterPanel({
       : undefined
   const implicitGoal = hasImplicitGoal(goal)
   const validInput =
-    !implicitGoal && !Object.values(invalidFields).some(Boolean)
+    !implicitGoal &&
+    hasCompleteGoal(qualityWorkGoal(goal, allowQualityWork)) &&
+    !Object.values(invalidFields).some(Boolean)
   const recovery = useCatalogRecovery(
     adapter,
     context,

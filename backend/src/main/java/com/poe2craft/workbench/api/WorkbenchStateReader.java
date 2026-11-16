@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ItemStateWireDefaults;
 import java.util.List;
 import java.util.Set;
 

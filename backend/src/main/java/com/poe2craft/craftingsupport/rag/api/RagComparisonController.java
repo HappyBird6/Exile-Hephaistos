@@ -32,6 +32,20 @@ public final class RagComparisonController {
         .body(service.compare(reader.read(body, RagComparisonService.Input.class)));
   }
 
+  @PostMapping("/prompt")
+  public ResponseEntity<RagComparisonService.PromptPreview> prepare(@RequestBody String body) {
+    return ResponseEntity.ok()
+        .cacheControl(CacheControl.noStore())
+        .body(service.prepare(reader.read(body, RagComparisonService.Input.class)));
+  }
+
+  @PostMapping("/generate")
+  public ResponseEntity<RagComparisonService.StrategyResponse> generate(@RequestBody String body) {
+    return ResponseEntity.ok()
+        .cacheControl(CacheControl.noStore())
+        .body(service.generate(reader.read(body, RagComparisonService.GenerateInput.class)));
+  }
+
   @ExceptionHandler(RagFailure.class)
   public ResponseEntity<ProblemDetail> failed(RagFailure error) {
     return problem(error.status(), error.getMessage());

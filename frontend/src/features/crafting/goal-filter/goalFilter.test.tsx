@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import fixture from '../../../../../contracts/support-goal-filter-v1/fixtures.json'
@@ -10,9 +10,62 @@ import {
 } from './editor'
 import { mockGoalFilterAdapter, fixtureContext } from './mock'
 import { GoalFilterPanel } from './GoalFilterPanel'
+import { hasCompleteGoal } from './useGoalFilter'
 import { groupTypes } from './types'
 import type { Catalog, GoalFilter, GoalFilterAdapter } from './types'
 describe('goal filter contract editor', () => {
+  it('keeps incomplete goals local and validates only after an active option is added', async () => {
+    const editor = createGoalFilterEditor(
+      emptyGoal(fixtureContext, fixture.catalogVersion),
+    )
+    const adapter = {
+      ...mockGoalFilterAdapter,
+      validate: vi.fn(mockGoalFilterAdapter.validate),
+    }
+    const readiness = vi.fn()
+    const client = new QueryClient()
+    render(
+      <QueryClientProvider client={client}>
+        <GoalFilterPanel
+          editor={editor}
+          adapter={adapter}
+          context={fixtureContext}
+          language="en"
+          bases={[{ id: 'fixture-base', label: 'Fixture' }]}
+          onSearchReadinessChange={readiness}
+        />
+      </QueryClientProvider>,
+    )
+    fireEvent.focus(screen.getByLabelText('Search stats'))
+    const add = await screen.findByRole('button', {
+      name: 'Add total cold resistance',
+    })
+    expect(adapter.validate).not.toHaveBeenCalled()
+    expect(readiness).toHaveBeenLastCalledWith(false)
+    fireEvent.click(add)
+    await waitFor(() => expect(adapter.validate).toHaveBeenCalledTimes(1))
+    await waitFor(() => expect(readiness).toHaveBeenLastCalledWith(true))
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Delete total cold resistance' }),
+    )
+    await waitFor(() => expect(readiness).toHaveBeenLastCalledWith(false))
+    expect(adapter.validate).toHaveBeenCalledTimes(1)
+  })
+  it('accepts quality-only goals and leaves numeric validity to the server', () => {
+    const goal = emptyGoal(fixtureContext, fixture.catalogVersion)
+    expect(hasCompleteGoal(goal)).toBe(false)
+    goal.general.quality = 20
+    expect(hasCompleteGoal(goal)).toBe(false) // an active group is still unfinished
+    goal.groups[0]!.disabled = true
+    expect(hasCompleteGoal(goal)).toBe(true)
+    goal.general.quality = 0
+    expect(hasCompleteGoal(goal)).toBe(false)
+    const complete = structuredClone(
+      fixture.apiExamples.validateRequest.goal,
+    ) as GoalFilter
+    complete.groups[0]!.entries[0]!.range = { min: 20, max: 10 }
+    expect(hasCompleteGoal(complete)).toBe(true)
+  })
   it('preserves rows across all six operations with type-specific range and weights', async () => {
     const catalog = await mockGoalFilterAdapter.catalog(
       fixtureContext,

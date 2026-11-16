@@ -1,16 +1,14 @@
-package com.poe2craft.workbench.api;
+package com.poe2craft.shared.item;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.poe2craft.shared.item.ItemState;
-import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import java.util.stream.Collectors;
 
 /** Optional boolean state flags have one wire default: omitted=false, explicit null is invalid. */
-final class ItemStateWireDefaults {
-  static final Set<String> ITEM_FLAGS = booleanFlags(ItemState.class);
-  static final Set<String> MODIFIER_FLAGS = booleanFlags(ModifierInstance.class);
+public final class ItemStateWireDefaults {
+  public static final Set<String> ITEM_FLAGS = booleanFlags(ItemState.class);
+  public static final Set<String> MODIFIER_FLAGS = booleanFlags(ModifierInstance.class);
 
   private ItemStateWireDefaults() {}
 
@@ -21,7 +19,7 @@ final class ItemStateWireDefaults {
         .collect(Collectors.toUnmodifiableSet());
   }
 
-  static JsonNode normalized(JsonNode input) {
+  public static JsonNode normalized(JsonNode input) {
     var copy = input.deepCopy();
     visit(copy);
     return copy;

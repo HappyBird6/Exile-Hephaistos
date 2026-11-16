@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.*;
 import com.poe2craft.bootstrap.CatalogConfiguration;
 import com.poe2craft.shared.crafting.application.CatalogCraftingService;
 import com.poe2craft.shared.item.*;
+import com.poe2craft.shared.item.ItemStateWireDefaults;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

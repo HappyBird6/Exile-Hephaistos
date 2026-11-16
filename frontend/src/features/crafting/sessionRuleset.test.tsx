@@ -1,3 +1,6 @@
+import { emptyGoal, addStat } from './goal-filter/editor'
+import { saveSupport } from './method-search/supportStorage'
+import { mockGoalFilterAdapter, fixtureContext } from './goal-filter/mock'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
@@ -13,8 +16,16 @@ import { requestFixture } from './path-tree/fixtures.test-support'
 afterEach(() => vi.unstubAllGlobals())
 const oldIdentity = initialFixture.rulesetIdentity
 const newIdentity = 'changed-rules-same-snapshot'
-function setup() {
+async function setup() {
   let identity = oldIdentity
+  const goalFixture = await mockGoalFilterAdapter.catalog(
+    fixtureContext,
+    new AbortController().signal,
+  )
+  const goal = emptyGoal({ baseItemId: 'solar' }, 'test-catalog')
+  addStat(goal.groups[0]!, goalFixture.stats[0]!)
+  saveSupport('goal', goal)
+
   const requests: { url: string; identity: string | null }[] = []
   vi.stubGlobal(
     'fetch',
@@ -71,7 +82,21 @@ function setup() {
           matches: {},
           issues: [],
         })
-      else response = await fixtureFetch(url, init)
+      else if (String(url).includes('/goal-filters/catalog?')) {
+        const original = await (await fixtureFetch(url, init)).json()
+        response = jsonResponse({
+          ...original,
+          stats: goalFixture.stats,
+          groupTypes: [
+            {
+              type: 'AND',
+              evaluation: 'SUPPORTED',
+              probability: 'SUPPORTED',
+              reasonCode: null,
+            },
+          ],
+        })
+      } else response = await fixtureFetch(url, init)
       response.headers.set('X-Crafting-Ruleset', identity)
       return response
     }),
@@ -89,7 +114,7 @@ function setup() {
 }
 
 it('preserves edited modifier rolls and blocks starting after a ruleset change', async () => {
-  const { client, requests, change } = setup()
+  const { client, requests, change } = await setup()
   const page = render(
     <QueryClientProvider client={client}>
       <CraftSupport active />
@@ -134,7 +159,7 @@ it('preserves edited modifier rolls and blocks starting after a ruleset change',
 })
 
 it('preserves CraftStart editor provenance and disables the old numeric input after inventory refetch', async () => {
-  const { client, change } = setup()
+  const { client, change } = await setup()
   const page = render(
     <QueryClientProvider client={client}>
       <CraftSupport active />
