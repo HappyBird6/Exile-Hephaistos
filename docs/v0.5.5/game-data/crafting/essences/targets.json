@@ -3687,6 +3687,204 @@
         "ESSENCE_HORROR": [
           "stocky-mitts:suffix:essence-socketed-augment-effect"
         ]
+      },
+      "fixed": {
+        "LESSER_ESSENCE_BODY": [
+          "stocky-mitts:prefix:sanguine"
+        ],
+        "ESSENCE_BODY": [
+          "stocky-mitts:prefix:robust"
+        ],
+        "GREATER_ESSENCE_BODY": [
+          "stocky-mitts:prefix:rotund"
+        ],
+        "LESSER_ESSENCE_MIND": [
+          "stocky-mitts:prefix:azure"
+        ],
+        "ESSENCE_MIND": [
+          "stocky-mitts:prefix:aqua"
+        ],
+        "GREATER_ESSENCE_MIND": [
+          "stocky-mitts:prefix:opalescent"
+        ],
+        "LESSER_ESSENCE_RUIN": [
+          "stocky-mitts:suffix:of-the-lost"
+        ],
+        "ESSENCE_RUIN": [
+          "stocky-mitts:suffix:of-banishment"
+        ],
+        "GREATER_ESSENCE_RUIN": [
+          "stocky-mitts:suffix:of-expulsion"
+        ],
+        "LESSER_ESSENCE_INSULATION": [
+          "stocky-mitts:suffix:of-the-salamander"
+        ],
+        "ESSENCE_INSULATION": [
+          "stocky-mitts:suffix:of-the-kiln"
+        ],
+        "GREATER_ESSENCE_INSULATION": [
+          "stocky-mitts:suffix:of-the-volcano"
+        ],
+        "LESSER_ESSENCE_THAWING": [
+          "stocky-mitts:suffix:of-the-penguin"
+        ],
+        "ESSENCE_THAWING": [
+          "stocky-mitts:suffix:of-the-yeti"
+        ],
+        "GREATER_ESSENCE_THAWING": [
+          "stocky-mitts:suffix:of-the-polar-bear"
+        ],
+        "LESSER_ESSENCE_GROUNDING": [
+          "stocky-mitts:suffix:of-the-squall"
+        ],
+        "ESSENCE_GROUNDING": [
+          "stocky-mitts:suffix:of-the-thunderhead"
+        ],
+        "GREATER_ESSENCE_GROUNDING": [
+          "stocky-mitts:suffix:of-the-maelstrom"
+        ],
+        "LESSER_ESSENCE_OPULENCE": [
+          "stocky-mitts:suffix:of-plunder"
+        ],
+        "ESSENCE_OPULENCE": [
+          "stocky-mitts:suffix:of-raiding"
+        ],
+        "GREATER_ESSENCE_OPULENCE": [
+          "stocky-mitts:suffix:of-archaeology"
+        ]
+      },
+      "replacements": {
+        "ESSENCE_HYSTERIA": [
+          "stocky-mitts:suffix:of-fury"
+        ],
+        "ESSENCE_ABYSS": [
+          "stocky-mitts:prefix:essence-abyssal-mark",
+          "stocky-mitts:suffix:essence-abyssal-mark"
+        ]
+      }
+    },
+    "essences-bow": {
+      "fixed": {
+        "LESSER_ESSENCE_ABRASION": [
+          "crude-bow:prefix:burnished"
+        ],
+        "ESSENCE_ABRASION": [
+          "crude-bow:prefix:gleaming"
+        ],
+        "GREATER_ESSENCE_ABRASION": [
+          "crude-bow:prefix:razor-sharp"
+        ],
+        "LESSER_ESSENCE_FLAMES": [
+          "crude-bow:prefix:smouldering"
+        ],
+        "ESSENCE_FLAMES": [
+          "crude-bow:prefix:flaming"
+        ],
+        "GREATER_ESSENCE_FLAMES": [
+          "crude-bow:prefix:incinerating"
+        ],
+        "LESSER_ESSENCE_ICE": [
+          "crude-bow:prefix:chilled"
+        ],
+        "ESSENCE_ICE": [
+          "crude-bow:prefix:freezing"
+        ],
+        "GREATER_ESSENCE_ICE": [
+          "crude-bow:prefix:glaciated"
+        ],
+        "LESSER_ESSENCE_ELECTRICITY": [
+          "crude-bow:prefix:buzzing"
+        ],
+        "ESSENCE_ELECTRICITY": [
+          "crude-bow:prefix:sparking"
+        ],
+        "GREATER_ESSENCE_ELECTRICITY": [
+          "crude-bow:prefix:shocking"
+        ],
+        "LESSER_ESSENCE_BATTLE": [
+          "crude-bow:prefix:focused"
+        ],
+        "ESSENCE_BATTLE": [
+          "crude-bow:prefix:consistent"
+        ],
+        "GREATER_ESSENCE_BATTLE": [
+          "crude-bow:prefix:hunter-s"
+        ],
+        "LESSER_ESSENCE_HASTE": [
+          "crude-bow:suffix:of-ease"
+        ],
+        "ESSENCE_HASTE": [
+          "crude-bow:suffix:of-mastery"
+        ],
+        "GREATER_ESSENCE_HASTE": [
+          "crude-bow:suffix:of-renown"
+        ],
+        "LESSER_ESSENCE_SEEKING": [
+          "crude-bow:suffix:of-havoc"
+        ],
+        "ESSENCE_SEEKING": [
+          "crude-bow:suffix:of-disaster"
+        ],
+        "GREATER_ESSENCE_SEEKING": [
+          "crude-bow:suffix:of-calamity"
+        ]
+      }
+    },
+    "essences-wand": {
+      "fixed": {
+        "LESSER_ESSENCE_SORCERY": [
+          "attuned-wand:prefix:adept-s"
+        ],
+        "ESSENCE_SORCERY": [
+          "attuned-wand:prefix:professor-s"
+        ],
+        "GREATER_ESSENCE_SORCERY": [
+          "attuned-wand:prefix:incanter-s"
+        ],
+        "LESSER_ESSENCE_SEEKING": [
+          "attuned-wand:suffix:of-havoc:spellcriticalstrikechance2"
+        ],
+        "ESSENCE_SEEKING": [
+          "attuned-wand:suffix:of-disaster"
+        ],
+        "GREATER_ESSENCE_SEEKING": [
+          "attuned-wand:suffix:of-calamity"
+        ],
+        "LESSER_ESSENCE_ALACRITY": [
+          "attuned-wand:suffix:of-nimbleness"
+        ],
+        "ESSENCE_ALACRITY": [
+          "attuned-wand:suffix:of-expertise"
+        ],
+        "GREATER_ESSENCE_ALACRITY": [
+          "attuned-wand:suffix:of-legerdemain"
+        ]
+      }
+    },
+    "essences-sceptre": {
+      "fixed": {
+        "LESSER_ESSENCE_COMMAND": [
+          "rattling-sceptre:prefix:agitative"
+        ],
+        "ESSENCE_COMMAND": [
+          "rattling-sceptre:prefix:provocative"
+        ],
+        "GREATER_ESSENCE_COMMAND": [
+          "rattling-sceptre:prefix:motivating"
+        ]
+      }
+    },
+    "essences-body": {
+      "replacements": {
+        "PERFECT_ESSENCE_BODY": [
+          "rusted-cuirass:prefix:essence-maximum-life-percent"
+        ],
+        "PERFECT_ESSENCE_RUIN": [
+          "rusted-cuirass:prefix:essence-physical-taken-as-chaos"
+        ],
+        "PERFECT_ESSENCE_SEEKING": [
+          "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"
+        ]
       }
     }
   },
@@ -3851,6 +4049,11 @@
     "Metadata/Items/Rings/FourRingLake2": "essences-024",
     "Metadata/Items/Rings/FourRingLake3": "essences-024",
     "Metadata/Items/Rings/FourRingLake4": "essences-024",
-    "Metadata/Items/Armours/Gloves/FourGlovesStr1": "essences-043"
+    "Metadata/Items/Armours/Gloves/FourGlovesStr1": "essences-043",
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1": "essences-bow",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": "essences-wand",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1": "essences-sceptre",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr1": "essences-body",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": "essences-body"
   }
 }

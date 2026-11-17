@@ -13,6 +13,16 @@ import java.security.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 기존 정의 oracle을 보존하면서 엄격한 로딩과 초기화 계약을 검증한다. M은 테스트 JSON 파서다. fixture는 과거 bytes를 읽고 data는 새 필드만 현행
+ * 문서에서 보충하며 기존 수치·순서를 유지한다. read는 실제 로더로 재직렬화한 문서를 읽는다. I/O 실패는 각 테스트에 전달한다.
+ * everyEnumGetterNullExceptionAndTargetOrderMatchesThePriorRuntimeOracle은 해시·getter·후보 순서를,
+ * missingDuplicateAndReorderedIdentitiesAreRejected는 누락·중복·순서를,
+ * unknownFieldsCoercionAndUnimplementedApplicabilityAreRejected는 구조·타입·구현 범위를 검사한다.
+ * knownButUnimplementedOmenTriggerCombinationsFailClosed는 무효 징조 조합,
+ * unknownTargetsAndWrongTargetLayersFailBeforeBootstrap은 대상 정합성,
+ * dataOnlyLevelEditsAreTypedButCannotReplaceTheActiveBundleInPlace는 데이터 편집과 active 교체 금지를 검사한다.
+ */
 class WorkbenchDefinitionsLoaderTest {
   private static final ObjectMapper M = new ObjectMapper();
 
@@ -26,6 +36,14 @@ class WorkbenchDefinitionsLoaderTest {
     var old = (ObjectNode) M.readTree(fixture());
     try (var in = getClass().getResourceAsStream("/crafting/workbench-definitions-v1.json")) {
       var active = M.readTree(in);
+      old.set("baseTargets", active.path("baseTargets").deepCopy());
+      for (var oldCurrency : old.get("currencies")) {
+        for (var current : active.get("currencies")) {
+          if (oldCurrency.path("id").equals(current.path("id")))
+            ((ObjectNode) oldCurrency)
+                .set("materialPolicy", current.path("materialPolicy").deepCopy());
+        }
+      }
       for (var c : active.get("currencies"))
         if (Set.of(
                 "ARMOURERS_SCRAP",

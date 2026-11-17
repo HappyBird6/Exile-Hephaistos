@@ -5551,5 +5551,6 @@
       "AugmentCraftingRules.java",
       "augmentRules.ts"
     ]
-  }
+  },
+  "baseCraftedLimit": 1
 }

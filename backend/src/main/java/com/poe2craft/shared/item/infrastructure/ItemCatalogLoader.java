@@ -15,13 +15,80 @@ import java.util.ArrayList;
 import java.util.HexFormat;
 import java.util.List;
 
-/** Reads a bundled, reviewed snapshot; never fetches data during application execution. */
+/**
+ * 봉인된 실행 JSON을 검증하고 불변 카탈로그를 공유하는 로더다. 실행 중 외부 사이트나 raw를 읽지 않는다.
+ *
+ * <p>JSON은 중복 키·알 수 없는 필드·누락·null·뒤따르는 토큰을 거절하도록 mapper가 만든 공용 파서다. CATALOGS는 풀+순서 있는 확장 목록별 결과이며
+ * loadBundled의 클래스 잠금으로 보호한다. TOP_CATALOGS는 BaseRegistry에 있는 베이스만, SPECIALS는 번들의 특수 옵션 문서만 저장한다.
+ * MODIFIERS는 전체 값이 같은 불변 ModifierDefinition을 sharedDefinition/sharedDefinitions로 공유한다. ID가 같아도
+ * 가중치·티어·출처 등이 다르면 합치지 않는다. 사용자 입력은 풀에 넣지 않는다. private 생성자는 인스턴스 생성을 막는다.
+ *
+ * <p>loadDefault/Stocky/Bow/Wand/Body/Sceptre/Belt/Helmet/Ring은 기존 풀과 확장 순서를 선택한다. loadBasicJewel은
+ * 지원 주얼 키를 검사한다. loadTopBase는 등록을 확인한 뒤 readTopBase가 원본 정체성· snapshot 정책을 적용한 결과를 공유한다.
+ * loadSapphire는 Sapphire.CATALOG의 지연 초기화를 사용하고 readSapphire가 과거 호환 snapshot을 보존한다.
+ * bundledDefinitions는 시작 시 대상 검증에도 같은 캐시를 사용한다. special은 봉인된 확장을 읽고, loadBundled는 기본 풀에 확장을 순서대로
+ * 합친다.
+ *
+ * <p>오프라인 load는 catalog/raw/details 스트림의 체크섬을 대조한다. loadWithSpecial은 특수 원자료도 검증하며 addSpecial의 스트림
+ * 오버로드가 검증한 문서를 내부 오버로드로 넘긴다. 내부 addSpecial은 일반 출현 가중치를 보존하면서 특수 옵션·통계·호환 snapshot을 추가한다. digest는
+ * 입력 bytes의 SHA-256이다. 이 오프라인 메서드들은 사용자 자료를 정적 캐시에 보관하지 않고 IOException을 전달한다. 번들 I/O 실패는
+ * IllegalStateException, 지원하지 않는 키·정체성·체크섬은 IllegalArgumentException이다.
+ *
+ * <p>직렬화 타입은 Document(기본 풀), SpecialMetadata(확장 출처), SpecialDocument(확장 옵션)다.
+ */
 public final class ItemCatalogLoader {
+
+  private static final ObjectMapper JSON = mapper();
+  private static final java.util.Map<String, ItemCatalog> CATALOGS = new java.util.HashMap<>();
+  private static final java.util.concurrent.ConcurrentMap<String, ItemCatalog> TOP_CATALOGS =
+      new java.util.concurrent.ConcurrentHashMap<>();
+  private static final java.util.concurrent.ConcurrentMap<String, SpecialDocument> SPECIALS =
+      new java.util.concurrent.ConcurrentHashMap<>();
+  private static final java.util.concurrent.ConcurrentMap<ModifierDefinition, ModifierDefinition>
+      MODIFIERS = new java.util.concurrent.ConcurrentHashMap<>();
 
   private ItemCatalogLoader() {}
 
+  /** 봉인 번들에서 읽은 불변 옵션만 전체 값이 같은 경우 공유한다. 사용자 입력은 이 풀에 넣지 않는다. */
+  public static ModifierDefinition sharedDefinition(ModifierDefinition definition) {
+    return MODIFIERS.computeIfAbsent(definition, value -> value);
+  }
+
+  private static List<ModifierDefinition> sharedDefinitions(List<ModifierDefinition> definitions) {
+    return definitions.stream().map(ItemCatalogLoader::sharedDefinition).toList();
+  }
+
+  /** 시작 검증에서도 실제 로더의 캐시를 사용해 같은 카탈로그를 다시 역직렬화하지 않는다. */
+  public static List<ModifierDefinition> bundledDefinitions(String resource) {
+    if (resource.startsWith("/")) resource = resource.substring(1);
+    if (!resource.startsWith("catalog/"))
+      throw new IllegalArgumentException("Catalog resource required");
+    if (resource.endsWith("/catalog.json"))
+      return List.copyOf(loadBundled(resource.split("/")[1]).modifiers().values());
+    if (resource.endsWith(".catalog.json")) return special("/" + resource).modifiers();
+    throw new IllegalArgumentException("Unsupported catalog resource");
+  }
+
+  private static SpecialDocument special(String resource) {
+    return SPECIALS.computeIfAbsent(
+        resource,
+        key -> {
+          try (var input = SealedResources.open(key)) {
+            var value = JSON.readValue(input, SpecialDocument.class);
+            return new SpecialDocument(value.metadata(), sharedDefinitions(value.modifiers()));
+          } catch (IOException e) {
+            throw new IllegalStateException("Cannot load reviewed extension: " + key, e);
+          }
+        });
+  }
+
   /** Reviewed endgame variants retain source modifier identities, never legacy base identities. */
   public static ItemCatalog loadTopBase(String key) {
+    BaseRegistry.require(key);
+    return TOP_CATALOGS.computeIfAbsent(key, ItemCatalogLoader::readTopBase);
+  }
+
+  private static ItemCatalog readTopBase(String key) {
     var reviewed = BaseRegistry.require(key);
     String id = reviewed.id(), name = reviewed.name();
     ItemCatalog pool;
@@ -75,6 +142,15 @@ public final class ItemCatalogLoader {
 
   /** Sapphire-only ordinary candidates with explicitly modeled equal selection weights. */
   public static ItemCatalog loadSapphire() {
+    return Sapphire.CATALOG;
+  }
+
+  /** Sapphire의 CATALOG를 첫 접근에 한 번 만들고 이후에는 같은 불변 카탈로그를 반환하는 홀더다. */
+  private static final class Sapphire {
+    private static final ItemCatalog CATALOG = readSapphire();
+  }
+
+  private static ItemCatalog readSapphire() {
     var catalog = loadBundled("sapphire");
     return new ItemCatalog(
         catalog.metadata(),
@@ -148,16 +224,26 @@ public final class ItemCatalogLoader {
   }
 
   // Runtime integrity comes from the ruleset seal. Raw captures are archive-only test evidence.
-  private static ItemCatalog loadBundled(String pool, String... extensions) {
+  private static synchronized ItemCatalog loadBundled(String pool, String... extensions) {
+    String key = pool + "|" + String.join("|", extensions);
+    var existing = CATALOGS.get(key);
+    if (existing != null) return existing;
     String root = "/catalog/" + pool + "/";
-    try (var data = SealedResources.open(root + "catalog.json")) {
-      var document = mapper().readValue(data, Document.class);
-      var catalog = new ItemCatalog(document.metadata(), document.base(), document.modifiers());
-      for (String extension : extensions) {
-        try (var special = SealedResources.open(root + extension + ".catalog.json")) {
-          catalog = addSpecial(catalog, mapper().readValue(special, SpecialDocument.class));
+    ItemCatalog catalog;
+    try {
+      if (extensions.length == 0) {
+        try (var data = SealedResources.open(root + "catalog.json")) {
+          var document = JSON.readValue(data, Document.class);
+          catalog =
+              new ItemCatalog(
+                  document.metadata(), document.base(), sharedDefinitions(document.modifiers()));
         }
+      } else {
+        catalog = loadBundled(pool);
+        for (String extension : extensions)
+          catalog = addSpecial(catalog, special(root + extension + ".catalog.json"));
       }
+      CATALOGS.put(key, catalog);
       return catalog;
     } catch (IOException e) {
       throw new IllegalStateException("Cannot load reviewed catalog: " + pool, e);
@@ -167,7 +253,7 @@ public final class ItemCatalogLoader {
   /** Offline snapshot import: verify captured evidence before accepting a reviewed catalog. */
   public static ItemCatalog load(InputStream catalog, InputStream raw, InputStream details)
       throws IOException {
-    var mapper = mapper();
+    var mapper = JSON;
     var document = mapper.readValue(catalog, Document.class);
     if (!digest(raw).equals(document.metadata().rawSha256())
         || !digest(details).equals(document.metadata().detailsSha256())) {
@@ -192,7 +278,7 @@ public final class ItemCatalogLoader {
   /** Extend only with reviewed definitions while retaining verified older frame identities. */
   public static ItemCatalog addSpecial(
       ItemCatalog ordinary, InputStream special, InputStream specialRaw) throws IOException {
-    var extension = mapper().readValue(special, SpecialDocument.class);
+    var extension = JSON.readValue(special, SpecialDocument.class);
     var source = extension.metadata();
     if (!source.rawSha256().matches("[0-9a-f]{64}")
         || !digest(specialRaw).equals(source.rawSha256()))
@@ -265,13 +351,16 @@ public final class ItemCatalogLoader {
     }
   }
 
+  /** 기본 JSON 문서다. metadata는 snapshot·출처·집계, base는 베이스 정체성·옵션 한도, modifiers는 옵션 정의다. */
   private record Document(
       ItemCatalog.Metadata metadata,
       ItemCatalog.BaseItem base,
       List<ModifierDefinition> modifiers) {}
 
+  /** 특수 옵션 출처다. snapshotId는 확장 식별자, retrievedAt은 수집 시각, sourceUrl은 출처, rawSha256은 당시 원자료 해시다. */
   private record SpecialMetadata(
       String snapshotId, String retrievedAt, String sourceUrl, String rawSha256) {}
 
+  /** 확장 JSON 문서다. metadata는 출처 검증 정보, modifiers는 일반 풀에서 출현하지 않는 명시 옵션이다. */
   private record SpecialDocument(SpecialMetadata metadata, List<ModifierDefinition> modifiers) {}
 }

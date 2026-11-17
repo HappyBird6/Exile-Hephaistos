@@ -2,9 +2,24 @@ package com.poe2craft.shared.crafting.domain;
 
 import com.poe2craft.shared.item.CatalystQuality;
 import java.util.List;
-import java.util.Set;
 
-/** Workbench rules are independent of the legacy six-action bucket explorer. */
+/**
+ * 공개 화폐 실행 ID와 JSON 규칙을 연결한다. enum의 선언 순서는 API 순서이며 삭제·재배열하지 않는다.
+ *
+ * <p>enum 값은 이름 자체가 영속 식별자다. *_LIQUID_*는 감정액 종류/농도(ANCIENT_는 고대형), CATALYST_* /REFINED_CATALYST_*는
+ * 촉매 종류·정제형, LESSER_ESSENCE_* /ESSENCE_* /GREATER_ESSENCE_* / PERFECT_ESSENCE_*는 에센스 종류·등급,
+ * *_ALLOY는 합금 종류다. TRANSMUTATION/AUGMENTATION/REGAL/ EXALTED/ANNULMENT/CHAOS와 GREATER_/PERFECT_형은
+ * 변환/확장/제왕/고귀/소멸/혼돈 행동이다. ARTIFICER는 소켓 확장, DIVINE은 수치 재굴림, ALCHEMY는 연금, FRACTURING은 분열,
+ * VAAL_*_INFUSER는 품질 주입, ARMOURERS_SCRAP/BLACKSMITHS_WHETSTONE은 장비 품질 재료다. 각 개별 ID의 실제 후보·수치·출처는
+ * definitions JSON에서 조회한다. enum에 별도 인스턴스 필드는 없다.
+ *
+ * <p>definition은 초기화된 WorkbenchDefinitions의 이 ID를 찾는다. essenceModifierIds/fixedModifierId는 추가 후보/단일
+ * 후보, essenceChoiceSource는 후보 선택 근거다. baseAction/minimumModifierLevel은 기본 알고리즘/최소 옵션 레벨이다.
+ * materialPolicy는 분류·적용 정책이고 isLiquid/isAlloy는 그 분류를 읽는다. replacementModifiers는 전체 교체 후보,
+ * replacementEssenceModifiers는 에센스 교체 후보만 반환한다. replacementEssenceSource/replacementSource는 근거
+ * URL이며 해당 동작이 아니면 IllegalArgumentException이다. catalystType은 촉매 ID의 종류(그 외 null), refinedCatalyst는
+ * 정제형 여부를 판정한다. 모든 메서드는 읽기 전용이며 active 정의 초기화가 선행되어야 한다.
+ */
 public enum WorkbenchCurrency {
   ANCIENT_DILUTED_LIQUID_IRE,
   ANCIENT_DILUTED_LIQUID_GUILT,
@@ -206,26 +221,16 @@ public enum WorkbenchCurrency {
     return isAlloy() || isLiquid() ? List.of() : replacementModifiers();
   }
 
+  public WorkbenchDefinitions.MaterialPolicy materialPolicy() {
+    return definition().materialPolicy();
+  }
+
   public boolean isLiquid() {
-    return name().contains("LIQUID_");
+    return materialPolicy().kind() == WorkbenchDefinitions.MaterialKind.LIQUID;
   }
 
   public boolean isAlloy() {
-    return Set.of(
-            PROTECTIVE_ALLOY,
-            CELESTIAL_ALLOY,
-            TRANSCENDENT_ALLOY,
-            THE_RUNEBINDERS_ALLOY,
-            THE_RUNEFATHERS_ALLOY,
-            RUNIC_ALLOY,
-            PRISMATIC_ALLOY,
-            EXPANSIVE_ALLOY,
-            CYCLONIC_ALLOY,
-            MYSTIC_ALLOY,
-            ADAPTIVE_ALLOY,
-            SWIFT_ALLOY,
-            SOVEREIGN_ALLOY)
-        .contains(this);
+    return materialPolicy().kind() == WorkbenchDefinitions.MaterialKind.ALLOY;
   }
 
   public List<String> replacementModifiers() {

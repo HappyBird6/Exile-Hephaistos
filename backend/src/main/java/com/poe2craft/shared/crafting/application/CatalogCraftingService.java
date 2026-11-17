@@ -4,16 +4,12 @@ import com.poe2craft.shared.crafting.domain.AbyssCraftingPlan;
 import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.crafting.domain.AbyssCurrencyExecutor;
 import com.poe2craft.shared.crafting.domain.BodyEssenceTargets;
-import com.poe2craft.shared.crafting.domain.BowEssenceTargets;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
 import com.poe2craft.shared.crafting.domain.HelmetEssenceTargets;
 import com.poe2craft.shared.crafting.domain.QualityCurrencyRules;
 import com.poe2craft.shared.crafting.domain.QualityLimitRules;
 import com.poe2craft.shared.crafting.domain.RingEssenceTargets;
-import com.poe2craft.shared.crafting.domain.SceptreEssenceTargets;
 import com.poe2craft.shared.crafting.domain.StateBucket;
-import com.poe2craft.shared.crafting.domain.StockyEssenceTargets;
-import com.poe2craft.shared.crafting.domain.WandEssenceTargets;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.BaseRegistry;
@@ -29,33 +25,26 @@ import com.poe2craft.shared.item.SolarAmulet;
 import java.util.*;
 import java.util.random.RandomGenerator;
 
-/** Shared reviewed catalogs and crafting rules for the workbench and crafting support. */
+/**
+ * 작업대와 제작 지원 API가 같은 베이스 카탈로그·시뮬레이터를 사용하는 진입점이다.
+ *
+ * <p>구성원: RegisteredBase는 catalog와 simulator 한 쌍이다. byKey는 화면용 베이스 키, byItemId는 아이템 원본 ID로 같은 등록
+ * 객체를 찾는 인덱스다. 생성·등록 때만 변경하고 요청마다 아이템 상태를 보관하지 않는다. 생성자는 solar/stocky 및 기존 순서의 additional 카탈로그를
+ * 받는다. additional 순서는 bow, wand, body, sceptre, belt, helmet, ring, sapphire, ruby, emerald,
+ * diamond 다음 시간 잃은 주얼·soldier·imperial이다.
+ *
+ * <p>등록: register는 중복 키·ID와 카탈로그/시뮬레이터 불일치를 거부한다. registerBase는 장비 옵션을 보충하고 JSON의 에센스 대상 및 복합 수치
+ * 정책으로 시뮬레이터를 만든다. registerReviewedBase는 BaseRegistry의 등록 정체성까지 검사하고, registerReviewedArmour는 이전
+ * 호출자의 같은 등록 진입점을 유지한다. reviewedCatalogs는 원본 ID순 목록, catalog는 화면 키의 카탈로그를 반환한다.
+ *
+ * <p>요청: initial의 두 오버로드는 level과 수동 공개 여부로 초기 아이템·선택 가능 행동을 만든다. baseSimulator는 아이템 ID의 공용 시뮬레이터,
+ * simulator는 증강물 문맥을 반영한 실행기를 선택한다. abyssCatalog는 snapshot도 검사한다. abyssPlan은 미공개 슬롯의 실행 계획,
+ * applyAbyss와 applyAbyssCurrency는 해당 상태 전이 결과를 반환한다. apply는 일반 제작, actions는 사용 가능 여부,
+ * qualityDisplay는 품질 한도·표시 결과다. 제작 메서드는 전달받은 random만 소비하며 원본 ItemState는 수정하지 않는다. 없는 베이스·잘못된 상태·중복
+ * 등록은 IllegalArgumentException으로 거절한다.
+ */
 public final class CatalogCraftingService implements CraftingOperations {
-  private final ItemCatalog solar;
-  private final ItemCatalog stocky;
-  private final WorkbenchSimulator solarSimulator;
-  private final WorkbenchSimulator stockySimulator;
-  private final ItemCatalog wand;
-  private final ItemCatalog ring;
-  private final WorkbenchSimulator ringSimulator;
-  private final ItemCatalog helmet;
-  private final WorkbenchSimulator helmetSimulator;
-  private final ItemCatalog belt;
-  private final WorkbenchSimulator beltSimulator;
-  private final ItemCatalog sceptre;
-  private final WorkbenchSimulator sceptreSimulator;
-  private final ItemCatalog body;
-  private final WorkbenchSimulator bodySimulator;
-  private final WorkbenchSimulator wandSimulator;
-  private final ItemCatalog bow;
-  private final WorkbenchSimulator bowSimulator;
-  private final Map<String, ItemCatalog> basicJewels = new HashMap<>();
-  private final Map<String, WorkbenchSimulator> basicJewelSimulators = new HashMap<>();
-  private final Map<String, ItemCatalog> topBases = new HashMap<>();
-  private final Map<String, WorkbenchSimulator> topBaseSimulators = new HashMap<>();
-  private final ItemCatalog sapphire;
-  private final WorkbenchSimulator sapphireSimulator;
-
+  /** catalog는 공유 불변 옵션 목록, simulator는 그 베이스의 제작 규칙과 제한된 계산 캐시다. */
   private record RegisteredBase(ItemCatalog catalog, WorkbenchSimulator simulator) {}
 
   private final Map<String, RegisteredBase> byKey = new LinkedHashMap<>();
@@ -82,321 +71,67 @@ public final class CatalogCraftingService implements CraftingOperations {
   }
 
   public CatalogCraftingService(
-      ItemCatalog solar, WorkbenchSimulator solarSimulator, ItemCatalog stocky) {
-    this(solar, solarSimulator, stocky, null);
-  }
-
-  public CatalogCraftingService(
-      ItemCatalog solar, WorkbenchSimulator solarSimulator, ItemCatalog stocky, ItemCatalog bow) {
-    this(solar, solarSimulator, stocky, bow, null);
-  }
-
-  public CatalogCraftingService(
       ItemCatalog solar,
       WorkbenchSimulator solarSimulator,
       ItemCatalog stocky,
-      ItemCatalog bow,
-      ItemCatalog wand) {
-    this(solar, solarSimulator, stocky, bow, wand, null);
-  }
-
-  public CatalogCraftingService(
-      ItemCatalog solar,
-      WorkbenchSimulator solarSimulator,
-      ItemCatalog stocky,
-      ItemCatalog bow,
-      ItemCatalog wand,
-      ItemCatalog body) {
-    this(solar, solarSimulator, stocky, bow, wand, body, null);
-  }
-
-  public CatalogCraftingService(
-      ItemCatalog solar,
-      WorkbenchSimulator solarSimulator,
-      ItemCatalog stocky,
-      ItemCatalog bow,
-      ItemCatalog wand,
-      ItemCatalog body,
-      ItemCatalog sceptre) {
-    this(solar, solarSimulator, stocky, bow, wand, body, sceptre, null);
-  }
-
-  public CatalogCraftingService(
-      ItemCatalog solar,
-      WorkbenchSimulator solarSimulator,
-      ItemCatalog stocky,
-      ItemCatalog bow,
-      ItemCatalog wand,
-      ItemCatalog body,
-      ItemCatalog sceptre,
-      ItemCatalog belt) {
-    this(solar, solarSimulator, stocky, bow, wand, body, sceptre, belt, null);
-  }
-
-  public CatalogCraftingService(
-      ItemCatalog solar,
-      WorkbenchSimulator solarSimulator,
-      ItemCatalog stocky,
-      ItemCatalog bow,
-      ItemCatalog wand,
-      ItemCatalog body,
-      ItemCatalog sceptre,
-      ItemCatalog belt,
-      ItemCatalog helmet) {
-    this(solar, solarSimulator, stocky, bow, wand, body, sceptre, belt, helmet, null);
-  }
-
-  public CatalogCraftingService(
-      ItemCatalog solar,
-      WorkbenchSimulator solarSimulator,
-      ItemCatalog stocky,
-      ItemCatalog bow,
-      ItemCatalog wand,
-      ItemCatalog body,
-      ItemCatalog sceptre,
-      ItemCatalog belt,
-      ItemCatalog helmet,
-      ItemCatalog ring) {
-    this(solar, solarSimulator, stocky, bow, wand, body, sceptre, belt, helmet, ring, null);
-  }
-
-  public CatalogCraftingService(
-      ItemCatalog solar,
-      WorkbenchSimulator solarSimulator,
-      ItemCatalog stocky,
-      ItemCatalog bow,
-      ItemCatalog wand,
-      ItemCatalog body,
-      ItemCatalog sceptre,
-      ItemCatalog belt,
-      ItemCatalog helmet,
-      ItemCatalog ring,
-      ItemCatalog sapphire) {
-    this(
-        solar,
-        solarSimulator,
-        stocky,
-        bow,
-        wand,
-        body,
-        sceptre,
-        belt,
-        helmet,
-        ring,
-        sapphire,
-        null,
-        null,
-        null);
-  }
-
-  public CatalogCraftingService(
-      ItemCatalog solar,
-      WorkbenchSimulator solarSimulator,
-      ItemCatalog stocky,
-      ItemCatalog bow,
-      ItemCatalog wand,
-      ItemCatalog body,
-      ItemCatalog sceptre,
-      ItemCatalog belt,
-      ItemCatalog helmet,
-      ItemCatalog ring,
-      ItemCatalog sapphire,
-      ItemCatalog ruby,
-      ItemCatalog emerald,
-      ItemCatalog diamond) {
-    this(
-        solar,
-        solarSimulator,
-        stocky,
-        bow,
-        wand,
-        body,
-        sceptre,
-        belt,
-        helmet,
-        ring,
-        sapphire,
-        ruby,
-        emerald,
-        diamond,
-        new ItemCatalog[0]);
-  }
-
-  public CatalogCraftingService(
-      ItemCatalog solar,
-      WorkbenchSimulator solarSimulator,
-      ItemCatalog stocky,
-      ItemCatalog bow,
-      ItemCatalog wand,
-      ItemCatalog body,
-      ItemCatalog sceptre,
-      ItemCatalog belt,
-      ItemCatalog helmet,
-      ItemCatalog ring,
-      ItemCatalog sapphire,
-      ItemCatalog ruby,
-      ItemCatalog emerald,
-      ItemCatalog diamond,
-      ItemCatalog... timeLost) {
-    solar = EquipmentCurrencyCatalog.enrich(solar);
-    stocky = EquipmentCurrencyCatalog.enrich(stocky);
-    if (bow != null) bow = EquipmentCurrencyCatalog.enrich(bow);
-    if (wand != null) wand = EquipmentCurrencyCatalog.enrich(wand);
-    if (body != null) body = EquipmentCurrencyCatalog.enrich(body);
-    if (sceptre != null) sceptre = EquipmentCurrencyCatalog.enrich(sceptre);
-    if (belt != null) belt = EquipmentCurrencyCatalog.enrich(belt);
-    if (helmet != null) helmet = EquipmentCurrencyCatalog.enrich(helmet);
-    if (ring != null) ring = EquipmentCurrencyCatalog.enrich(ring);
-    timeLost =
-        Arrays.stream(timeLost).map(EquipmentCurrencyCatalog::enrich).toArray(ItemCatalog[]::new);
-    var extras = new ItemCatalog[] {ruby, emerald, diamond};
-    var names = new String[] {"ruby", "emerald", "diamond"};
-    for (int i = 0; i < extras.length; i++)
-      if (extras[i] != null) {
-        var c = extras[i];
-        basicJewels.put(names[i], c);
-        basicJewelSimulators.put(c.base().id(), new WorkbenchSimulator(c, new CraftingEngine(c)));
+      ItemCatalog... additional) {
+    solar = EquipmentCurrencyCatalog.enrich(Objects.requireNonNull(solar));
+    register("solar", solar, solarSimulator.forCatalog(solar));
+    registerBase("stocky", Objects.requireNonNull(stocky), true);
+    String[] names = {
+      "bow",
+      "wand",
+      "body",
+      "sceptre",
+      "belt",
+      "helmet",
+      "ring",
+      "sapphire",
+      "ruby",
+      "emerald",
+      "diamond"
+    };
+    for (int index = 0; index < additional.length; index++) {
+      var catalog = additional[index];
+      if (catalog == null) continue;
+      if (index < names.length) {
+        String key = names[index];
+        registerBase(key, catalog, index < 7);
+      } else if (BodyEssenceTargets.supports(catalog.base().id())
+          || HelmetEssenceTargets.supports(catalog.base().id())) {
+        registerBase(
+            BodyEssenceTargets.supports(catalog.base().id()) ? "soldier" : "imperial",
+            catalog,
+            true);
+      } else {
+        String key =
+            "time-lost-"
+                + catalog.base().name().substring("Time-Lost ".length()).toLowerCase(Locale.ROOT);
+        registerBase(key, EquipmentCurrencyCatalog.enrich(catalog), false);
       }
-    for (var c : timeLost) {
-      if (BodyEssenceTargets.supports(c.base().id())
-          || HelmetEssenceTargets.supports(c.base().id())) {
-        boolean isBody = BodyEssenceTargets.supports(c.base().id());
-        topBases.put(isBody ? "soldier" : "imperial", c);
-        topBaseSimulators.put(
-            c.base().id(),
-            new WorkbenchSimulator(
-                c,
-                new CraftingEngine(c),
-                c.modifiers().values().stream()
-                    .filter(d -> d.stats().size() > 1)
-                    .map(ModifierDefinition::id)
-                    .collect(java.util.stream.Collectors.toSet()),
-                Map.of(),
-                isBody ? BodyEssenceTargets.REPLACEMENTS : Map.of()));
-        continue;
-      }
-      String name =
-          "time-lost-"
-              + c.base().name().substring("Time-Lost ".length()).toLowerCase(java.util.Locale.ROOT);
-      basicJewels.put(name, c);
-      basicJewelSimulators.put(c.base().id(), new WorkbenchSimulator(c, new CraftingEngine(c)));
     }
-    this.sapphire = sapphire;
-    this.sapphireSimulator =
-        sapphire == null ? null : new WorkbenchSimulator(sapphire, new CraftingEngine(sapphire));
-    this.ring = ring;
-    this.ringSimulator =
-        ring == null
-            ? null
-            : new WorkbenchSimulator(
-                ring,
-                new CraftingEngine(ring),
-                ring.modifiers().values().stream()
-                    .filter(
-                        d -> d.layer() == ModifierDefinition.Layer.EXPLICIT && d.stats().size() > 1)
-                    .map(ModifierDefinition::id)
-                    .collect(java.util.stream.Collectors.toSet()),
-                Map.of());
-    this.helmet = helmet;
-    this.helmetSimulator =
-        helmet == null
-            ? null
-            : new WorkbenchSimulator(
-                helmet,
-                new CraftingEngine(helmet),
-                helmet.modifiers().values().stream()
-                    .filter(d -> d.stats().size() > 1)
-                    .map(ModifierDefinition::id)
-                    .collect(java.util.stream.Collectors.toSet()),
-                Map.of());
-    this.belt = belt;
-    this.beltSimulator =
-        belt == null
-            ? null
-            : new WorkbenchSimulator(
-                belt,
-                new CraftingEngine(belt),
-                belt.modifiers().values().stream()
-                    .filter(d -> d.stats().size() > 1)
-                    .map(ModifierDefinition::id)
-                    .collect(java.util.stream.Collectors.toSet()),
-                Map.of());
-    this.sceptre = sceptre;
-    this.sceptreSimulator =
-        sceptre == null
-            ? null
-            : new WorkbenchSimulator(
-                sceptre,
-                new CraftingEngine(sceptre),
-                sceptre.modifiers().values().stream()
-                    .filter(d -> d.stats().size() > 1)
-                    .map(ModifierDefinition::id)
-                    .collect(java.util.stream.Collectors.toSet()),
-                SceptreEssenceTargets.VERIFIED);
-    this.body = body;
-    this.bodySimulator =
-        body == null
-            ? null
-            : new WorkbenchSimulator(
-                body,
-                new CraftingEngine(body),
-                body.modifiers().values().stream()
-                    .filter(d -> d.stats().size() > 1)
-                    .map(ModifierDefinition::id)
-                    .collect(java.util.stream.Collectors.toSet()),
-                Map.of(),
-                BodyEssenceTargets.REPLACEMENTS);
-    this.wand = wand;
-    this.wandSimulator =
-        wand == null
-            ? null
-            : new WorkbenchSimulator(
-                wand,
-                new CraftingEngine(wand),
-                wand.modifiers().values().stream()
-                    .filter(d -> d.stats().size() > 1)
-                    .map(ModifierDefinition::id)
-                    .collect(java.util.stream.Collectors.toSet()),
-                WandEssenceTargets.VERIFIED);
-    this.bow = bow;
-    this.bowSimulator =
-        bow == null
-            ? null
-            : new WorkbenchSimulator(
-                bow,
-                new CraftingEngine(bow),
-                bow.modifiers().values().stream()
-                    .filter(d -> d.stats().size() > 1)
-                    .map(ModifierDefinition::id)
-                    .collect(java.util.stream.Collectors.toSet()),
-                BowEssenceTargets.VERIFIED);
-    this.solar = solar;
-    this.solarSimulator = solarSimulator.forCatalog(solar);
-    this.stocky = stocky;
+  }
+
+  private void registerBase(String key, ItemCatalog catalog, boolean equipment) {
+    if (equipment) catalog = EquipmentCurrencyCatalog.enrich(catalog);
+    var targets =
+        com.poe2craft.shared.crafting.domain.WorkbenchDefinitions.active()
+            .targets(catalog.base().id());
     var coupled =
-        stocky.modifiers().values().stream()
-            .filter(d -> d.stats().size() > 1)
-            .map(ModifierDefinition::id)
-            .collect(java.util.stream.Collectors.toSet());
-    stockySimulator =
+        equipment
+            ? catalog.modifiers().values().stream()
+                .filter(
+                    d ->
+                        d.stats().size() > 1
+                            && (!key.equals("ring")
+                                || d.layer() == ModifierDefinition.Layer.EXPLICIT))
+                .map(ModifierDefinition::id)
+                .collect(java.util.stream.Collectors.toSet())
+            : Set.<String>of();
+    var simulator =
         new WorkbenchSimulator(
-            stocky,
-            new CraftingEngine(stocky),
-            coupled,
-            StockyEssenceTargets.VERIFIED,
-            StockyEssenceTargets.REPLACEMENTS);
-    register("solar", this.solar, this.solarSimulator);
-    register("stocky", this.stocky, this.stockySimulator);
-    register("bow", this.bow, this.bowSimulator);
-    register("wand", this.wand, this.wandSimulator);
-    register("body", this.body, this.bodySimulator);
-    register("sceptre", this.sceptre, this.sceptreSimulator);
-    register("belt", this.belt, this.beltSimulator);
-    register("helmet", this.helmet, this.helmetSimulator);
-    register("ring", this.ring, this.ringSimulator);
-    register("sapphire", this.sapphire, this.sapphireSimulator);
-    basicJewels.forEach((key, c) -> register(key, c, basicJewelSimulators.get(c.base().id())));
-    topBases.forEach((key, c) -> register(key, c, topBaseSimulators.get(c.base().id())));
+            catalog, new CraftingEngine(catalog), coupled, targets.fixed(), targets.replacements());
+    register(key, catalog, simulator);
   }
 
   public Initial initial(String base, int level) {

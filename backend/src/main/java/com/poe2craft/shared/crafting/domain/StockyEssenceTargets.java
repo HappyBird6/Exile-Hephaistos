@@ -3,60 +3,21 @@ package com.poe2craft.shared.crafting.domain;
 import java.util.List;
 import java.util.Map;
 
-/** Reviewed against PoE2DB Gloves_str and individual Data/Mods details on 2026-10-03. */
+/**
+ * Stocky Mitts의 기존 호출자가 JSON 에센스 목록을 참조하도록 유지하는 호환 진입점이다.
+ *
+ * <p>VERIFIED는 추가형, REPLACEMENTS는 교체형 에센스 대상 목록이다. private 생성자는 인스턴스 생성을 막는다. 정적 필드는
+ * WorkbenchDefinitions 초기화 후 한 번 읽는 불변 map이다. 대상 변경은 crafting/essences/targets.json에서 하며 Java 후보
+ * 목록을 추가하지 않는다.
+ */
 public final class StockyEssenceTargets {
   private StockyEssenceTargets() {}
 
   public static final Map<WorkbenchCurrency, List<String>> VERIFIED =
-      Map.ofEntries(
-          Map.entry(WorkbenchCurrency.LESSER_ESSENCE_BODY, List.of("stocky-mitts:prefix:sanguine")),
-          Map.entry(WorkbenchCurrency.ESSENCE_BODY, List.of("stocky-mitts:prefix:robust")),
-          Map.entry(WorkbenchCurrency.GREATER_ESSENCE_BODY, List.of("stocky-mitts:prefix:rotund")),
-          Map.entry(WorkbenchCurrency.LESSER_ESSENCE_MIND, List.of("stocky-mitts:prefix:azure")),
-          Map.entry(WorkbenchCurrency.ESSENCE_MIND, List.of("stocky-mitts:prefix:aqua")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_MIND, List.of("stocky-mitts:prefix:opalescent")),
-          Map.entry(
-              WorkbenchCurrency.LESSER_ESSENCE_RUIN, List.of("stocky-mitts:suffix:of-the-lost")),
-          Map.entry(WorkbenchCurrency.ESSENCE_RUIN, List.of("stocky-mitts:suffix:of-banishment")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_RUIN, List.of("stocky-mitts:suffix:of-expulsion")),
-          Map.entry(
-              WorkbenchCurrency.LESSER_ESSENCE_INSULATION,
-              List.of("stocky-mitts:suffix:of-the-salamander")),
-          Map.entry(
-              WorkbenchCurrency.ESSENCE_INSULATION, List.of("stocky-mitts:suffix:of-the-kiln")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_INSULATION,
-              List.of("stocky-mitts:suffix:of-the-volcano")),
-          Map.entry(
-              WorkbenchCurrency.LESSER_ESSENCE_THAWING,
-              List.of("stocky-mitts:suffix:of-the-penguin")),
-          Map.entry(WorkbenchCurrency.ESSENCE_THAWING, List.of("stocky-mitts:suffix:of-the-yeti")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_THAWING,
-              List.of("stocky-mitts:suffix:of-the-polar-bear")),
-          Map.entry(
-              WorkbenchCurrency.LESSER_ESSENCE_GROUNDING,
-              List.of("stocky-mitts:suffix:of-the-squall")),
-          Map.entry(
-              WorkbenchCurrency.ESSENCE_GROUNDING,
-              List.of("stocky-mitts:suffix:of-the-thunderhead")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_GROUNDING,
-              List.of("stocky-mitts:suffix:of-the-maelstrom")),
-          Map.entry(
-              WorkbenchCurrency.LESSER_ESSENCE_OPULENCE, List.of("stocky-mitts:suffix:of-plunder")),
-          Map.entry(WorkbenchCurrency.ESSENCE_OPULENCE, List.of("stocky-mitts:suffix:of-raiding")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_OPULENCE,
-              List.of("stocky-mitts:suffix:of-archaeology")));
+      WorkbenchDefinitions.active().targets("Metadata/Items/Armours/Gloves/FourGlovesStr1").fixed();
 
   public static final Map<WorkbenchCurrency, List<String>> REPLACEMENTS =
-      Map.of(
-          WorkbenchCurrency.ESSENCE_HYSTERIA, List.of("stocky-mitts:suffix:of-fury"),
-          WorkbenchCurrency.ESSENCE_ABYSS,
-              List.of(
-                  "stocky-mitts:prefix:essence-abyssal-mark",
-                  "stocky-mitts:suffix:essence-abyssal-mark"));
+      WorkbenchDefinitions.active()
+          .targets("Metadata/Items/Armours/Gloves/FourGlovesStr1")
+          .replacements();
 }

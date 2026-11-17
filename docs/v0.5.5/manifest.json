@@ -1696,7 +1696,7 @@
     },
     {
       "path": "game-data/crafting/augments/rules.json",
-      "sha256": "19a8e539330246a5d6970f9ab1a24cfe2746e80968bfb191d474129ca90f1b36"
+      "sha256": "6b0e426bb09597a3c5a7e895be6e9ad380bc451362b54c0d3ecefa02e52a6644"
     },
     {
       "path": "game-data/crafting/automatic-currency-policy-v1.json",
@@ -1704,7 +1704,7 @@
     },
     {
       "path": "game-data/crafting/essences/targets.json",
-      "sha256": "319fc6c0063be1e01161c893634c93be7e10b14d9b9c54bdccb42bb1ebc1dd38"
+      "sha256": "f1de68654d955b5659607061d361f05c2d65bd7c2fa018c8af2eeb1d04d9ca9e"
     },
     {
       "path": "game-data/crafting/goalfilter/base-inventory-v5-readonly.json",
@@ -1743,6 +1743,10 @@
       "sha256": "2ec5536abe5adc15c8139e847cefecb5012d546a6b7c39953fe7ffa41b2436cb"
     },
     {
+      "path": "game-data/crafting/materials/execution.json",
+      "sha256": "9f78c11210f0818fdf5fbe479fc2fada4a2d2cdbf4e0eb60e34dc8e0bd4c5cf7"
+    },
+    {
       "path": "game-data/crafting/materials/items.json",
       "sha256": "c3a13abfe1ab314b1566532e7772edbad4c86cd9606be4196061a69111bbe444"
     },
@@ -1764,7 +1768,7 @@
     },
     {
       "path": "game-data/crafting/registry-v2.json",
-      "sha256": "71b16530313594318cc8f9023c993ab7ffc3b4b48a40f9a9713c4b39c051006f"
+      "sha256": "f365ff7d5d8183e3c8b7d531711de4307cf2d8786fd45a6cb0852c12e6c2cd28"
     },
     {
       "path": "game-data/crafting/reveal/options.json",
@@ -1772,7 +1776,7 @@
     },
     {
       "path": "game-data/crafting/ruleset-v1.json",
-      "sha256": "60508f55e91385b66e2255cc3076e3ee432ea40700189d1b91b403a273a1a6a2"
+      "sha256": "ce8132fac318fdc527fd9376fe8691abb289464795b748511148cd97c34a35ae"
     },
     {
       "path": "game-data/crafting/supported-base-sets-v1.json",
@@ -1982,7 +1986,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/augment-crafting.json",
-      "sha256": "3f7cf462b63986f09eacb44985b8e05f9ce1c7167d5c1502325ccc117724fbcd"
+      "sha256": "458ef044fe68b9e352ae43f34057bbfd0d9a9d99cd4ba8646f494eea14ba77dc"
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/augment-effect-templates.json",
@@ -2786,11 +2790,11 @@
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/registry-v2.json",
-      "sha256": "7bd2425407d57667e0558b5d891c65389c2e8a4fbae19b4c381b8fbe0305368e"
+      "sha256": "191503a26b466a69b0f9c2dd836c1c0be2f8bb1dbecb634fded228d789edceff"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/ruleset-v1.json",
-      "sha256": "60508f55e91385b66e2255cc3076e3ee432ea40700189d1b91b403a273a1a6a2"
+      "sha256": "ce8132fac318fdc527fd9376fe8691abb289464795b748511148cd97c34a35ae"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/supported-base-sets-v1.json",
@@ -2798,7 +2802,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/workbench-definitions-v1.json",
-      "sha256": "036029ad49f7ee9d596c24e3f5093d72c93affccc41c6c550170e66c68c84af0"
+      "sha256": "aa48efd5891408d7f1ff902e4f0de290a2ca60aab06192338dd3ffb8942a2dcc"
     },
     {
       "runtimePath": "frontend/src/features/crafting/base-picker/baseImageSources.json",

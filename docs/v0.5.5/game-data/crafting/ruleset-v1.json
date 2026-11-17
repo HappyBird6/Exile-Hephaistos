@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "rulesetVersion": "reviewed-equipment-0.5.5-v14",
+  "rulesetVersion": "reviewed-equipment-0.5.5-v15",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "provenance": "Bundled source-reviewed project snapshots; retrieval dates differ by resource. No verified current GGG season or patch mapping. See docs/catalog-data-maintenance.md.",
@@ -19,7 +19,7 @@
     "catalog/ancestral-tiara/catalog.json": "f4f77d42abff64924a217f3ce0a064347b54ddb1e6d397610150d3e15fc89081",
     "catalog/attuned-wand/catalog.json": "7a567718904e40a201fd4923c24a3439300f5eefe15db0b6dd39aa226ba51c27",
     "catalog/attuned-wand/perfect-essences.catalog.json": "f9fffab0a509e6b34dd6a1f825ac73dca9dae017fc010282c69c8d4c18837a8f",
-    "catalog/augment-crafting.json": "3f7cf462b63986f09eacb44985b8e05f9ce1c7167d5c1502325ccc117724fbcd",
+    "catalog/augment-crafting.json": "458ef044fe68b9e352ae43f34057bbfd0d9a9d99cd4ba8646f494eea14ba77dc",
     "catalog/augment-effect-templates.json": "9f73c128ec6e6f007eff2fd17ffb15d5123d33c4fb2d2f97b21f0728c5502283",
     "catalog/augments.json": "2c08820fc6c3a715799391c3928f3f50d59e671d4603188751d9ed642e656587",
     "catalog/austere-garb/catalog.json": "67379e6744ad3c52920b03ab0a08fc3f6fb6b317ca11db15b0acb8cbcc03713c",
@@ -217,8 +217,8 @@
     "crafting/goalfilter/definitions-v3-readonly.json": "370f5d76382cd5735a1862ee5bd2ffd637f9150f777052b91849bd8417c50d48",
     "crafting/goalfilter/definitions-v4-readonly.json": "2eaf293caf99cd63415e4e52badd98cee3e2730d72c2fc4130ebcaa6454d6e36",
     "crafting/goalfilter/definitions-v5-readonly.json": "01f0dcb28e930f5c6c1e511dd177f54f4ee46a430c764929d632312e9599be07",
-    "crafting/registry-v2.json": "7bd2425407d57667e0558b5d891c65389c2e8a4fbae19b4c381b8fbe0305368e",
+    "crafting/registry-v2.json": "191503a26b466a69b0f9c2dd836c1c0be2f8bb1dbecb634fded228d789edceff",
     "crafting/supported-base-sets-v1.json": "29042686b98093f3a367c19f5f44c855c633a059bde7ce052ca49487ec91f7d6",
-    "crafting/workbench-definitions-v1.json": "036029ad49f7ee9d596c24e3f5093d72c93affccc41c6c550170e66c68c84af0"
+    "crafting/workbench-definitions-v1.json": "aa48efd5891408d7f1ff902e4f0de290a2ca60aab06192338dd3ffb8942a2dcc"
   }
 }

@@ -2207,5 +2207,6 @@
     "augment:destruction:DestructionInfluenceManaModifierEffect",
     "augment:destruction:DestructionInfluenceSpeedModifierEffect",
     "augment:destruction:DestructionInfluenceCriticalModifierEffect"
-  ]
+  ],
+  "baseCraftedLimit": 1
 }

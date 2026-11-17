@@ -324,7 +324,18 @@ export function gameDataOutputs(directory) {
   const alloyBindings = bindings('game-data/crafting/alloys/targets.json')
   const essences = Object.fromEntries(
     Object.entries(essenceBindings)
-      .filter(([, row]) => row.fixed)
+      .filter(
+        ([id, row]) =>
+          row.fixed &&
+          Object.values(top).some(
+            (base) =>
+              base.id === id &&
+              !(
+                compatibility.baseOverrides[base.key]?.legacyCatalog ??
+                compatibility.families[base.family]?.legacyCatalog
+              ),
+          ),
+      )
       .map(([id, row]) => [
         baseKeys[id],
         { fixed: row.fixed, replacements: row.replacements },
@@ -465,6 +476,7 @@ export function gameDataOutputs(directory) {
     read('game-data/assets/base-images.json'),
   )
 
+  const materialPolicies = read('game-data/crafting/materials/execution.json')
   const sourceOnly = new Set([
     'policies',
     'essences',
@@ -480,6 +492,29 @@ export function gameDataOutputs(directory) {
       .replaceAll('\\', '/')
     if (sourceOnly.has(relative.split('/')[0])) continue
     const value = read('game-data/crafting/' + relative)
+    if (relative === 'workbench-definitions-v1.json') {
+      assert.deepEqual(
+        Object.keys(materialPolicies.actions).sort(),
+        value.currencies.map((c) => c.id).sort(),
+        'Material policies must cover registered actions',
+      )
+      for (const currency of value.currencies) {
+        const profile = materialPolicies.actions[currency.id]
+        assert(
+          own(materialPolicies.profiles, profile),
+          `Unknown material profile: ${profile}`,
+        )
+        currency.materialPolicy = materialPolicies.profiles[profile]
+      }
+      value.baseTargets = Object.fromEntries(
+        Object.entries(essenceBindings)
+          .filter(([, row]) => row.fixed || row.replacements)
+          .map(([id, row]) => [
+            id,
+            { fixed: row.fixed ?? {}, replacements: row.replacements ?? {} },
+          ]),
+      )
+    }
     if (relative === 'registry-v2.json')
       for (const entry of value.entries) {
         assert(

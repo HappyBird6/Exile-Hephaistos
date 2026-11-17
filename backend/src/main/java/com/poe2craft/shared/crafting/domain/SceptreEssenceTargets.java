@@ -3,20 +3,20 @@ package com.poe2craft.shared.crafting.domain;
 import java.util.List;
 import java.util.Map;
 
-/** Source-matched Rattling Sceptre affixes. Spirit and innate skill are display-only. */
+/**
+ * Rattling Sceptre의 기존 호출자가 JSON 에센스 목록을 참조하도록 유지하는 호환 진입점이다.
+ *
+ * <p>BASE_ID는 기존 베이스의 원본 식별자다. VERIFIED는 JSON의 추가형 에센스 대상 목록이다. private 생성자는 인스턴스 생성을 막는다. 정적 필드는
+ * WorkbenchDefinitions 초기화 후 한 번 읽는 불변 map이다. 대상 변경은 crafting/essences/targets.json에서 하며 Java 후보
+ * 목록을 추가하지 않는다.
+ */
 public final class SceptreEssenceTargets {
   private SceptreEssenceTargets() {}
 
   public static final String BASE_ID =
       "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1";
   public static final Map<WorkbenchCurrency, List<String>> VERIFIED =
-      Map.ofEntries(
-          Map.entry(
-              WorkbenchCurrency.LESSER_ESSENCE_COMMAND,
-              List.of("rattling-sceptre:prefix:agitative")),
-          Map.entry(
-              WorkbenchCurrency.ESSENCE_COMMAND, List.of("rattling-sceptre:prefix:provocative")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_COMMAND,
-              List.of("rattling-sceptre:prefix:motivating")));
+      WorkbenchDefinitions.active()
+          .targets("Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1")
+          .fixed();
 }

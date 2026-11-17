@@ -3,39 +3,19 @@ package com.poe2craft.shared.crafting.domain;
 import java.util.List;
 import java.util.Map;
 
-/** Current PoE2DB Bows essence Code, source level, family and effect verified individually. */
+/**
+ * Crude Bow의 기존 호출자가 JSON 에센스 목록을 참조하도록 유지하는 호환 진입점이다.
+ *
+ * <p>BASE_ID는 기존 베이스의 원본 식별자다. VERIFIED는 JSON의 추가형 에센스 대상 목록이다. private 생성자는 인스턴스 생성을 막는다. 정적 필드는
+ * WorkbenchDefinitions 초기화 후 한 번 읽는 불변 map이다. 대상 변경은 crafting/essences/targets.json에서 하며 Java 후보
+ * 목록을 추가하지 않는다.
+ */
 public final class BowEssenceTargets {
   private BowEssenceTargets() {}
 
   public static final String BASE_ID = "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1";
   public static final Map<WorkbenchCurrency, List<String>> VERIFIED =
-      Map.ofEntries(
-          Map.entry(
-              WorkbenchCurrency.LESSER_ESSENCE_ABRASION, List.of("crude-bow:prefix:burnished")),
-          Map.entry(WorkbenchCurrency.ESSENCE_ABRASION, List.of("crude-bow:prefix:gleaming")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_ABRASION, List.of("crude-bow:prefix:razor-sharp")),
-          Map.entry(
-              WorkbenchCurrency.LESSER_ESSENCE_FLAMES, List.of("crude-bow:prefix:smouldering")),
-          Map.entry(WorkbenchCurrency.ESSENCE_FLAMES, List.of("crude-bow:prefix:flaming")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_FLAMES, List.of("crude-bow:prefix:incinerating")),
-          Map.entry(WorkbenchCurrency.LESSER_ESSENCE_ICE, List.of("crude-bow:prefix:chilled")),
-          Map.entry(WorkbenchCurrency.ESSENCE_ICE, List.of("crude-bow:prefix:freezing")),
-          Map.entry(WorkbenchCurrency.GREATER_ESSENCE_ICE, List.of("crude-bow:prefix:glaciated")),
-          Map.entry(
-              WorkbenchCurrency.LESSER_ESSENCE_ELECTRICITY, List.of("crude-bow:prefix:buzzing")),
-          Map.entry(WorkbenchCurrency.ESSENCE_ELECTRICITY, List.of("crude-bow:prefix:sparking")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_ELECTRICITY, List.of("crude-bow:prefix:shocking")),
-          Map.entry(WorkbenchCurrency.LESSER_ESSENCE_BATTLE, List.of("crude-bow:prefix:focused")),
-          Map.entry(WorkbenchCurrency.ESSENCE_BATTLE, List.of("crude-bow:prefix:consistent")),
-          Map.entry(WorkbenchCurrency.GREATER_ESSENCE_BATTLE, List.of("crude-bow:prefix:hunter-s")),
-          Map.entry(WorkbenchCurrency.LESSER_ESSENCE_HASTE, List.of("crude-bow:suffix:of-ease")),
-          Map.entry(WorkbenchCurrency.ESSENCE_HASTE, List.of("crude-bow:suffix:of-mastery")),
-          Map.entry(WorkbenchCurrency.GREATER_ESSENCE_HASTE, List.of("crude-bow:suffix:of-renown")),
-          Map.entry(WorkbenchCurrency.LESSER_ESSENCE_SEEKING, List.of("crude-bow:suffix:of-havoc")),
-          Map.entry(WorkbenchCurrency.ESSENCE_SEEKING, List.of("crude-bow:suffix:of-disaster")),
-          Map.entry(
-              WorkbenchCurrency.GREATER_ESSENCE_SEEKING, List.of("crude-bow:suffix:of-calamity")));
+      WorkbenchDefinitions.active()
+          .targets("Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1")
+          .fixed();
 }

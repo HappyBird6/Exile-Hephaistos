@@ -105,7 +105,7 @@ docs/
   legacy/                 # 재평가 전 보관; 별도 삭제 승인 없이 제거하지 않음
 ```
 
-**현재 단계:** v0.5.5가 게임 JSON·번역의 편집 원본이고 기존 backend/frontend 경로는 호환용 생성 결과입니다. 이번에는 짧은 ID를 부여했으며 API·저장 형식·서버 시작 로더는 기존 식별자를 계속 사용합니다. 서버의 새 매핑 로드와 송수신 ID 전환은 다음 코드 경량화 단계입니다. 이름·설명은 i18n, 출처 URL은 sources.json에서 관리하며 기존 실행 결과에는 다시 합칩니다. `0.5.5`는 저장소의 버전 구분이며 검증된 GGG 패치 번호를 뜻하지 않습니다.
+**현재 단계:** v0.5.5가 게임 JSON·번역의 편집 원본이고 기존 backend/frontend 경로는 호환용 생성 결과입니다. 짧은 ID는 발급되어 있지만 API·저장 형식은 기존 식별자를 계속 사용합니다. 백엔드는 불변 카탈로그·옵션 정의를 공유하고 제작 정책을 JSON에서 읽습니다. 짧은 ID 송수신 전환은 프런트와 함께 별도로 적용합니다. 이름·설명은 i18n, 출처 URL은 sources.json에서 관리하며 기존 실행 결과에는 다시 합칩니다. `0.5.5`는 저장소의 버전 구분이며 검증된 GGG 패치 번호를 뜻하지 않습니다.
 
 [화폐](docs/v0.5.5/game-rule/currency.md), [상태·저장](docs/v0.5.5/game-rule/item-state.md), [증강물](docs/v0.5.5/game-rule/sockets-and-augments.md), [확률·목표](docs/v0.5.5/game-rule/probability-and-goals.md), [번역](docs/v0.5.5/game-rule/i18n-and-display.md), [사용자 정책](docs/v0.5.5/game-rule/user-policy.md)을 변경 대상에 맞게 수정합니다. 과거 세부 명세는 legacy에 남지만 중복 유지보수하지 않습니다. 기존 runtime JSON에 적힌 `docs/...` 출처 경로는 수집 당시 기록이며 현재 실제 파일은 `docs/legacy/...`에 있습니다. 봉인된 출처 문자열을 이동 경로에 맞춰 다시 직렬화하지 않습니다.
 
@@ -180,7 +180,7 @@ node scripts/versioned-game-data.mjs --check
 
 장비 종류별 `modifier-pools.json`은 공통 옵션 목록입니다. 각 베이스의 `modifierPool`이 이 목록을 참조하고, 고정 옵션은 `implicitModifiers`로 위치와 ID만 지정합니다. 추가 제작 옵션 파일도 `modifierRefs`만 보관합니다. 옵션 개수와 가중치 합계는 자동 계산합니다. `*-snapshot` 목록은 기존 수집 시점·능력치 계열·지원 범위 차이를 보존한 것이며, 베이스마다 별도 게임 규칙이 있다는 뜻은 아닙니다. 차이를 합칠 때는 출처를 확인하고 게임 동작 변경으로 검토합니다. 기존 `snapshotId`와 출처 해시는 이력이며 실제 옵션/지원 범위를 바꾸면 해당 snapshot·ruleset 버전도 검토합니다.
 
-`modifiers/`와 `modifier-pools.json`은 편집용 원본으로만 유지합니다. 서버의 펼친 JSON은 자동 생성 결과이며, 공통 테이블 직접 로딩과 짧은 ID 송수신 전환은 후속 코드 경량화에서 진행합니다. 검증 기록을 legacy로 분리하고 생성 방식을 변경한 ruleset은 v14이고, 기존 아이템 snapshot과 호환 ID는 유지합니다. 과거 ruleset으로 저장한 탐색 작업은 기존 버전 검증을 그대로 적용하며 자동 재지정하지 않습니다.
+`modifiers/`와 `modifier-pools.json`은 편집용 원본으로만 유지합니다. 서버의 펼친 JSON은 자동 생성 결과이며, 공통 테이블 직접 로딩과 짧은 ID 송수신 전환은 후속 코드 경량화에서 진행합니다. 현재 ruleset은 v15입니다. 기존 아이템 snapshot은 보존하지만, 재료 실행 정책과 기본 제작 한도가 포함된 호환성 해시는 `item-rules-v2`로 구분합니다. 이전 호환 ID를 현재 ID로 덮어쓰지 않습니다. 과거 ruleset으로 저장한 탐색 작업은 기존 버전 검증을 그대로 적용하며 자동 재지정하지 않습니다.
 
 베이스의 이름·요구치 표시 문구는 `i18n/catalog/bases.json`, 정체성·등록 순서·능력치는 각 `base.json`에서 관리합니다. 전체 목록 `top-bases.json`을 별도로 편집하지 않습니다. `catalog/classes.json`은 장비 분류, `crafting/policies/base-support.json`은 앱 지원 여부, `catalog-compatibility.json`은 기존 snapshot·규칙 버전 연결입니다. 등록 `order`와 옵션 배열 순서는 기존 표시·동작 순서를 보존합니다.
 
@@ -199,9 +199,31 @@ node scripts/versioned-game-data.mjs --check
 
 `crafting/essences`, `alloys`, `liquids`의 targets는 `groups`(행동 → 옵션 참조 목록)와 `bases`(베이스 → 그룹) 형식입니다. 완전히 같은 목록만 공유하며 그룹 이름은 게임 규칙이나 확률을 뜻하지 않습니다. `augments/items.json`은 정체성·분류, `rules.json`은 실행 규칙이고 이름·효과 문구·템플릿은 `i18n/augments/`에 있습니다. 재료 이름·툴팁은 `i18n/materials/en.json`, 출처·표시 메타데이터는 `crafting/materials/items.json`, 대상 분류는 `target-classes.json`에서 수정합니다. 툴팁 번역을 바꿔도 재료 적용 대상은 바뀌지 않습니다.
 
+`crafting/materials/execution.json`은 화폐 ID를 실행 프로필에 연결합니다. 프로필의 `kind`는 재료 분류, `mode`는 지원하는 추가/교체 메커니즘, `inputRarities`는 적용 희귀도, `resultRarity`는 추가 후 희귀도입니다. 교체형은 기존 희귀도를 유지하므로 `resultRarity: null`을 사용합니다. 같은 프로필을 공유하는 화폐는 함께 변경되므로 개별 변경에는 새 프로필을 만들어 연결합니다. 새로운 알고리즘은 Java 구현이 필요하며 JSON에 표현식이나 코드를 넣지 않습니다.
+
+에센스 후보는 기존 베이스까지 `crafting/essences/targets.json`에서 관리합니다. 일반 추가 후보 수가 예전 Java 목록과 다르다는 이유로 거절하지 않으며, 실제 옵션 존재·layer·가중치·아이템 레벨·슬롯/가족 충돌 검증은 유지합니다. 합금·감정액 후보는 각각 `alloys/targets.json`, `liquids/targets.json`, 증강물 설치 제한은 `augments/items.json`, 효과·기본 제작 옵션 한도(`baseCraftedLimit`)는 `augments/rules.json`에서 수정합니다. 원본 수정 후 위 `--write` 명령으로 생성하고 서버를 재시작합니다. 실행 중 active 규칙을 다른 값으로 덮어쓰지 않습니다.
+
 `crafting/reveal/options.json`의 `probability: null`은 확률 미확정이며 수동 공개만 허용한다는 뜻입니다. 기존 실행 형식의 weight 0을 실제 출현 확률 0으로 해석하지 않습니다. 주얼·수동 공개 옵션의 프런트 정의는 공통 modifier에서 생성하므로 별도 원본을 유지하지 않습니다. 사용하지 않는 sapphire 표시 데이터와 기존 catalog 공통 파일·display 원본은 `docs/legacy/game-data-before-normalization/`에 보관합니다. 검증 proof/review는 `docs/legacy/raw-data/`에서 테스트만 읽습니다.
 
 출처 URL은 `sources.json`에 한 번 등록하고 `sourceRef`로 연결합니다. `src` 참조는 내부 출처 키이며 송수신용 짧은 ID가 아닙니다. 기존 참조 키를 재할당하지 않습니다. 과거 readonly 정의·registry-v1·저장 예제는 당시 원문과 bytes를 유지합니다. 원래 수집 시점·snapshot·근거 해시는 해당 메타데이터에 보존하고 새 수집 기록으로 덮어쓰지 않습니다.
+
+## 백엔드 유지보수와 메모리
+
+베이스 등록은 `CatalogCraftingService`의 공통 등록 경로에서 처리합니다. 카탈로그 로딩은 `ItemCatalogLoader`, JSON 제작 정책은 `WorkbenchDefinitions`/`WorkbenchDefinitionsLoader`, 실행은 `WorkbenchSimulator`에서 찾습니다. 이번에 수정한 타입 상단에는 역할·필드·생성자·메서드·중첩 타입의 한국어 설명을 두었습니다.
+
+번들 카탈로그는 풀과 확장 순서별로 한 번 읽고, 전체 값이 같은 불변 옵션 정의만 공유합니다. 같은 ID라도 문맥별 값이 다르면 합치지 않습니다. 179개 베이스의 등록 결과에서 옵션 참조 31,179개를 유지하면서 실제 옵션 객체는 29,225개에서 3,798개로 줄었습니다(`CatalogMemoryProfileTest`). 이는 옵션 객체 수 측정이며 서버 전체 힙 감소율은 아닙니다. 증강물 ID 조회는 인덱스를 사용하고 내부 표시 계산에서 전체 JSON을 반복 복사하지 않습니다. 외부 응답은 방어 복사를 유지합니다. 증강물 조합 실행기 캐시는 베이스별 최대 32개이며 사용자 아이템 상태를 저장하지 않습니다.
+
+하드코딩 점검에서 확인했으나 이번 변경에서 값이나 동작을 바꾸지 않은 항목입니다.
+
+| 위치 | 확인한 데이터/규칙 | 처리 |
+|---|---|---|
+| `CatalogCraftingService.initial` | Solar 초기 implicit 15, Iron Ring 1–4, 시간 잃은 주얼 반경 1000 | 초기 아이템 데이터 점검만 |
+| `WorkbenchSimulator` | 분열 최소 명시 옵션 4개, 기존 연금 옵션 수와 일반 화폐 희귀도 전이 | 일반 화폐 규칙 점검만 |
+| `QualityCurrencyRules`, `QualityInfuserRules` | 기본 장비 품질 20, 주입 증가 10, 장비 경로로 대상 분류 | 품질 정책 점검만 |
+| `ModifierDefinition` | 옵션 요구 레벨의 1–100 범위 검증 | 공통 데이터 제약 점검만 |
+| `BodyEssenceTargets`, `HelmetEssenceTargets`, `RingEssenceTargets`, `WorkbenchCurrency.catalystType` | 기존 베이스 ID·분류·촉매 ID 규약 | 정체성/호환 어댑터 유지 |
+
+제작 옵션 후보와 적용 정책은 위 JSON 경로로 이동했으며, 징조 조합·옵션 제거/선택 순서·미공개 슬롯 처리는 구현된 알고리즘 경계로 유지합니다. 과거 snapshot·게임 수치에 고정된 테스트를 이번 구조에 맞추려고 일괄 변경하지 않습니다. 전체 테스트 개편과 짧은 ID 전송 전환은 별도 작업입니다.
 
 ### 공유 계약
 
@@ -212,7 +234,7 @@ node scripts/versioned-game-data.mjs --check
 - `chaos-repeat/`: 요청의 UTF-8 bytes와 SHA-256을 양쪽에서 대조합니다. 반복 응답의 최종 상태·횟수·마지막 witness·부분 실패를 구분하고 네트워크 실패 시 자동 재시도하거나 완료 횟수를 추측하지 않습니다.
 - `sanctification/`: Java와 브라우저가 같은 축성 표시 계산을 하는지 검증합니다.
 
-`crafting-paths-v1/solar-source-fixture.json`은 현행 실행 데이터에 묶인 검증 사례입니다. 과거 v11·v13 사례는 `docs/legacy/contracts/crafting-paths-v1/solar-source-fixture-v*.json`에 보존합니다. 데이터 변경 시 먼저 목표·옵션·확률 oracle이 여전히 타당한지 검증한 다음 `node scripts/refresh-source-fixture-identities.mjs`로 현행 사례의 해시를 갱신하고 계약 테스트를 실행합니다. 과거 사례를 최신 값으로 덮어쓰지 않습니다.
+`crafting-paths-v1/solar-source-fixture.json`은 현행 실행 데이터에 묶인 검증 사례입니다. 과거 v11·v13·v14 사례는 `docs/legacy/contracts/crafting-paths-v1/solar-source-fixture-v*.json`에 보존합니다. 데이터 변경 시 먼저 목표·옵션·확률 oracle이 여전히 타당한지 검증한 다음 `node scripts/refresh-source-fixture-identities.mjs`로 현행 사례의 해시를 갱신하고 계약 테스트를 실행합니다. 과거 사례를 최신 값으로 덮어쓰지 않습니다.
 
 계약 설명의 기존 README는 [legacy/contracts](docs/legacy/contracts/)에 보관했습니다. 새로운 관리 안내는 이 README에 통합합니다. 검증 스크립트는 다음 위치에서 실행할 수 있습니다.
 

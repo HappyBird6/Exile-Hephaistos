@@ -4829,5 +4829,6 @@
     "weightPerTier": 500,
     "description": "Temporary simulator weight for each activated Augment modifier tier; not a published game probability. Pool mappings retain source activation data.",
     "consumers": ["AugmentCraftingRules.java", "augmentRules.ts"]
-  }
+  },
+  "baseCraftedLimit": 1
 }

@@ -21,13 +21,53 @@ import com.poe2craft.shared.item.ReviewedWands;
 import java.util.*;
 import java.util.random.RandomGenerator;
 
-/** Samples concrete elementary events; unchanged instances retain their actual values. */
+/**
+ * 검증된 카탈로그에서 한 번의 제작 결과와 자동 탐색용 분기를 계산한다. 변경하지 않은 옵션의 실제 수치는 보존한다.
+ *
+ * <p>필드: RULE_VERSION은 실행 규칙, LEDGER_VERSION은 미공개 확률 가정의 버전이다. catalog는 수동 공개 옵션까지 포함한 불변 정의,
+ * additionRules는 공통 추가 알고리즘, qualityCapChangePolicy는 품질 한도 감소 정책이다. coupledModifierIds는 함께 굴리는 복합
+ * 수치 옵션이다. essenceTargetOverrides/replacementTargetOverrides는 JSON의 베이스별 추가/교체 후보다.
+ * automaticJointRolls는 이 카탈로그의 옵션 ID별 복합 수치 분포 캐시다. socketSamplers는 증강물의 접미 한도·활성 풀 조합별 실행기를 최근 사용
+ * 순서로 보관하며 MAX_SOCKET_SAMPLERS(32)를 넘으면 가장 오래된 계산 결과를 버린다. 이 map 접근은 자체 잠금으로 보호한다.
+ * cachedCompatibilityId는 불변 규칙의 호환 해시를 지연 계산하여 volatile로 공개한다. 사용자 상태를 캐시에 넣지 않는다.
+ *
+ * <p>생성자 오버로드는 coupled/추가 후보/교체 후보/품질 정책의 기본값을 보충한다. 최종 생성자는 옵션 존재·명시 layer·중복·일반 추가 weight·복합 수치
+ * 구조를 검사하고 방어 복사한다. engine 인자는 기존 호출 계약의 null 검사용이며 보관하지 않는다. forCatalog는 같은 정책으로 다른 확장 카탈로그의 실행기를
+ * 만들고 forItem은 증강물 문맥의 캐시 실행기를 반환한다. catalog()는 정의를 반환한다.
+ *
+ * <p>대상/정체성: craftsModifier는 제작 옵션 부여 여부, essenceTargets/replacementTargets는 베이스 후보를 기본 후보보다 우선하여
+ * 조회한다. 감정액은 해당 출처의 crafted 옵션을 선택한다. referenceEssenceTargets는 이 베이스의 참조용 후보, baseMaterialActions는
+ * 상태를 제외한 재료 지원 목록이다. compatibilityId는 ItemRulesetIdentity 해시,
+ * baseRuleVersion/ruleVersion/ledgerVersion은 지원 범위별 버전, automaticIdentity는 자동 제작에 필요한 정책 묶음을 반환한다.
+ *
+ * <p>판정: actions는 행동별 Availability, availability는 상태·징조·슬롯·후보·희귀도별 거부 사유를 계산한다. validate는 카탈로그와 소켓
+ * 상태, parseOmens는 징조 ID, matching/triggeredOmens는 해당 화폐에서 소비할 징조를 검사한다. blocked는 실패 값, alchemySide는
+ * 연금의 접두/접미 징조, completeLegacyAlchemy는 모든 연금 분기에 필요한 슬롯이 채워지는지 재귀 검사한다. canAddFixed는 고정 옵션의 슬롯/가족
+ * 충돌, targetFirstEssence는 후보 우선 교체 여부, essenceReplacementPlan은 그 교체 분기,
+ * replacementRemovalCandidates는 교체 대상, pool은 추가 후보를 구한다. removalCandidates 오버로드는 징조·분열·제거 한도를 반영한다.
+ * upgrade/basicRarityAllows는 일반 화폐의 상태 전이다.
+ *
+ * <p>실행: apply의 공개 오버로드는 기본/작업대 화폐를 받고 내부 apply가 검증·선택·수치 굴림·징조 소비를 Result로 묶는다. applyCustomExalt는
+ * 선택 후보를 제한한 고귀 제작이다. exaltChoices는 후보 확률, exaltAdditionCount는 추가 개수, exaltPool은 징조를 반영한 후보 풀이다.
+ * abyssPlan은 미공개 슬롯이 있는 아이템의 계획이며 applyAbyss 오버로드와 Abyss 상태의 applyCustomExalt가 슬롯 정체성을 보존해 적용한다.
+ * automaticPlan은 자동 제작 분기·확률·거부 사유, finishBasicCurrency는 자동 기본 화폐 결과를 정리한다.
+ *
+ * <p>수치/기록: automaticJointRolls 메서드는 복합 수치 분포, roll은 실제 옵션 인스턴스를 생성한다. recordSelectionAssumptions와
+ * singleStatRollAssumption은 추정 분포의 근거를 기록한다. lowersCapBelowQuality는 제거 후 품질 상한 위반, copy는 희귀도·옵션만
+ * 바꾸고 나머지 상태를 보존한다. 각 실행의 candidates/targets는 해당 요청 후보, explicits/events/assumptions는 결과 누적용 지역
+ * 목록이다. 입력 ItemState는 불변이며 난수는 전달받은 random만 소비한다. 잘못된 상태·ID는 IllegalArgumentException, 유효하지만 불가능한
+ * 행동은 Availability/Plan/Result의 사유로 구별한다.
+ *
+ * <p>중첩 결과 타입: AutomaticIdentity(정책 묶음), ExaltChoice(고귀 후보), Availability(가능 여부), Event(실제 선택),
+ * Assumption(분포 가정), Result(완료 상태·버전·징조·품질)다.
+ */
 public final class WorkbenchSimulator {
   public static final String RULE_VERSION = "solar-workbench-abyss-essence-v23";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v14";
   private final ItemCatalog catalog;
+  private static final int MAX_SOCKET_SAMPLERS = 32;
   private final Map<String, WorkbenchSimulator> socketSamplers =
-      new java.util.concurrent.ConcurrentHashMap<>();
+      new LinkedHashMap<>(16, 0.75f, true);
   private final QualityCapChangePolicy qualityCapChangePolicy;
   private final AdditionRules additionRules;
   private final Set<String> coupledModifierIds;
@@ -81,7 +121,7 @@ public final class WorkbenchSimulator {
     var replacements = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
     replacementTargetOverrides.forEach(
         (action, ids) -> {
-          if (action.replacementModifiers().isEmpty()
+          if (action.materialPolicy().mode() != WorkbenchDefinitions.MaterialMode.REPLACE
               || ids.isEmpty()
               || new HashSet<>(ids).size() != ids.size())
             throw new IllegalArgumentException(
@@ -106,11 +146,9 @@ public final class WorkbenchSimulator {
     var reviewed = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
     essenceTargetOverrides.forEach(
         (action, ids) -> {
-          if (action.essenceModifierIds().isEmpty()
-              || !action.replacementModifiers().isEmpty()
+          if (action.materialPolicy().mode() != WorkbenchDefinitions.MaterialMode.ADD
               || ids.isEmpty()
-              || new HashSet<>(ids).size() != ids.size()
-              || (ids.size() > 1 && action.essenceModifierIds().size() == 1))
+              || new HashSet<>(ids).size() != ids.size())
             throw new IllegalArgumentException(
                 "Only source-proven fixed basic essence overrides are supported");
           for (var id : ids) {
@@ -168,8 +206,15 @@ public final class WorkbenchSimulator {
         AugmentCraftingRules.suffixBonus(state)
             + ":"
             + new TreeSet<>(AugmentCraftingRules.pools(state));
-    return socketSamplers.computeIfAbsent(
-        key, ignored -> forCatalog(AugmentCraftingRules.forItem(catalog, state)));
+    synchronized (socketSamplers) {
+      var cached = socketSamplers.get(key);
+      if (cached != null) return cached;
+      var created = forCatalog(AugmentCraftingRules.forItem(catalog, state));
+      if (socketSamplers.size() >= MAX_SOCKET_SAMPLERS)
+        socketSamplers.remove(socketSamplers.keySet().iterator().next());
+      socketSamplers.put(key, created);
+      return created;
+    }
   }
 
   private boolean craftsModifier(WorkbenchCurrency action) {
@@ -498,9 +543,9 @@ public final class WorkbenchSimulator {
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
     if (!replacementTargets(action).isEmpty()) {
-      if (state.rarity() != ItemState.Rarity.RARE)
+      if (!action.materialPolicy().allows(state))
         return blocked(
-            action, "This material requires a Rare item with a removable explicit modifier.");
+            action, "This material does not support the item rarity configured in its rule.");
       var targets =
           replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
       if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
@@ -526,16 +571,17 @@ public final class WorkbenchSimulator {
       return new Availability(action, true, "");
     }
     if (!essenceTargets(action).isEmpty()) {
-      if (state.rarity() != ItemState.Rarity.MAGIC)
+      if (!action.materialPolicy().allows(state))
         return blocked(
-            action, "This essence upgrades a Magic item to Rare with one guaranteed modifier.");
+            action, "This essence does not support the item rarity configured in its rule.");
       var targets =
           essenceTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
       if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
         return blocked(
             action,
             "Essence results below the catalog modifier's item level need verification; this low-level scope is unsupported.");
-      var rare = copy(state, ItemState.Rarity.RARE, state.implicits(), state.explicits());
+      var rare =
+          copy(state, action.materialPolicy().result(state), state.implicits(), state.explicits());
       if (!pool(rare, action, null).containsAll(targets))
         return blocked(
             action,
@@ -785,6 +831,10 @@ public final class WorkbenchSimulator {
     };
   }
 
+  /**
+   * ruleVersion/ledgerVersion은 실행·가정 버전, definitions는 정의 묶음, fixedTargets/replacementTargets는 베이스별
+   * 추가/교체 후보, qualityPolicy는 품질 한도 감소 정책이다.
+   */
   public record AutomaticIdentity(
       String ruleVersion,
       String ledgerVersion,
@@ -997,7 +1047,7 @@ public final class WorkbenchSimulator {
         action == WorkbenchCurrency.REGAL || essence
             ? ItemState.Rarity.MAGIC
             : ItemState.Rarity.RARE;
-    if (state.rarity() != required)
+    if (basic ? state.rarity() != required : !action.materialPolicy().allows(state))
       return new AutomaticCraftingPlan(
           AutomaticCraftingPlan.Status.UNAVAILABLE, "RARITY_NOT_APPLICABLE", List.of(), !basic, "");
     var available = availability(state, action, omens);
@@ -1048,7 +1098,9 @@ public final class WorkbenchSimulator {
       var upgraded =
           copy(
               state,
-              essence || action == WorkbenchCurrency.REGAL ? ItemState.Rarity.RARE : state.rarity(),
+              essence
+                  ? action.materialPolicy().result(state)
+                  : action == WorkbenchCurrency.REGAL ? ItemState.Rarity.RARE : state.rarity(),
               state.implicits(),
               state.explicits());
       branches.add(
@@ -1148,6 +1200,7 @@ public final class WorkbenchSimulator {
     return apply(state, action, activeOmens, random, modifierId);
   }
 
+  /** modifierId는 선택 가능한 고귀 옵션, probability는 현재 후보 풀에서의 선택 확률이다. */
   public record ExaltChoice(String modifierId, double probability) {}
 
   /** Natural chance to see the selected tier in the operation, including a verified second draw. */
@@ -1419,9 +1472,11 @@ public final class WorkbenchSimulator {
     var events = new ArrayList<Event>();
     var assumptions = new ArrayList<Assumption>();
     var rarity =
-        action == WorkbenchCurrency.ALCHEMY || !essenceTargets(action).isEmpty()
+        action == WorkbenchCurrency.ALCHEMY
             ? ItemState.Rarity.RARE
-            : upgrade(state, action);
+            : craftsModifier(action)
+                ? action.materialPolicy().result(state)
+                : upgrade(state, action);
     if (!replacementTargets(action).isEmpty()) {
       var targetPlan =
           targetFirstEssence(action)
@@ -1500,7 +1555,9 @@ public final class WorkbenchSimulator {
                 candidates,
                 null,
                 null,
-                action.essenceChoiceSource(),
+                action.essenceChoiceSource() == null
+                    ? catalog.metadata().sourceUrl()
+                    : action.essenceChoiceSource(),
                 "Uniform among the sourced modifier outcomes; no published essence choice weights. Ordinary affix pool weights are not asserted to be essence choice weights."));
       var rolled = roll(definition, random, assumptions).asCrafted();
       explicits.add(rolled);
@@ -1906,8 +1963,13 @@ public final class WorkbenchSimulator {
         .withQualityInfused(s.qualityInfused());
   }
 
+  /** action은 요청 화폐, available은 가능 여부, reason은 불가능한 경우의 설명이다. */
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}
 
+  /**
+   * kind는 사건 종류, modifierId는 선택 옵션, values는 실제 굴린 수치, selectionProbability는 선택 확률이다. 생성자는 values를
+   * 방어 복사하여 실행 뒤의 변경을 차단한다.
+   */
   public record Event(
       String kind, String modifierId, Map<String, Long> values, double selectionProbability) {
     public Event {
@@ -1915,6 +1977,10 @@ public final class WorkbenchSimulator {
     }
   }
 
+  /**
+   * id는 가정 식별자, candidateUnit/n/candidates는 후보 단위·개수·식별자, min/max는 수치 범위, sourceUrl/reason은 근거,
+   * ratioTick은 복합 수치의 비율 눈금이다. 8인자 생성자는 ratioTick=null을 사용하고 기본 생성자는 candidates를 방어 복사한다.
+   */
   public record Assumption(
       String id,
       String candidateUnit,
@@ -1942,6 +2008,11 @@ public final class WorkbenchSimulator {
     }
   }
 
+  /**
+   * ruleVersion/ledgerVersion/snapshotId는 재현 기준, state는 결과 상태, action은 화폐, applied/reason은 실행 여부·거부
+   * 사유, events/assumptions는 실제 사건·추정 근거, consumedOmens/remainingOmens는 징조 처리 결과, qualityLimit는 적용 후
+   * 품질 한도다. 생성자는 사건·가정·징조 목록을 방어 복사한다.
+   */
   public record Result(
       String ruleVersion,
       String ledgerVersion,

@@ -10,14 +10,14 @@
     },
     {
       "path": "crafting/ruleset-v1.json",
-      "sha256": "60508f55e91385b66e2255cc3076e3ee432ea40700189d1b91b403a273a1a6a2"
+      "sha256": "ce8132fac318fdc527fd9376fe8691abb289464795b748511148cd97c34a35ae"
     },
     {
       "path": "crafting/goalfilter/definitions-v1.json",
       "sha256": "2f82aede35201999e31b84304b008f54c113b9f1909d148c483795f0a7ee4189"
     }
   ],
-  "rulesetIdentity": "reviewed-equipment-0.5.5-v14-fbaead169e7cd0e1b4842248e5d2e163a181fa6b0e45f2ecee613b620684fffa",
+  "rulesetIdentity": "reviewed-equipment-0.5.5-v15-87a754dc1ae9486330afd3c3681029dc73d5240012f4b8da2535b85dbcbc49d6",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "startItem": {

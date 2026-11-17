@@ -4,14 +4,32 @@ import java.math.BigDecimal;
 import java.util.*;
 import java.util.regex.Pattern;
 
-/** Resolves effect combinations, not clipboard line order or arbitrary socket positions. */
+/**
+ * 복사한 효과 문장에서 가능한 증강물 조합을 역산하고 장착 효과를 표시한다. 슬롯의 원래 순서는 추측하지 않는다.
+ *
+ * <p>private 생성자는 생성을 막는다. NUMBER는 수치, COMPLEX는 단순 합산으로 역산할 수 없는 조건문을 구별하는 정규식이다. Resolution은 확정 장착
+ * 목록과 미해석 문장, Effect는 문장 구조와 수치, Candidate는 증강물 ID와 그 효과다. 카탈로그는 SocketAugments.definitions의 읽기 뷰를
+ * 재사용한다.
+ *
+ * <p>resolve의 두 오버로드는 base/sockets/source와 선택적 multiplier로 조합을 찾는다. known은 확정된 구조 효과, remaining은 아직
+ * 소비하지 않은 문장, target은 구조별 합계, candidates는 가능한 증강물, solutions는 유효 조합이다. 유일하지 않거나 해석 불가능하면 원문을
+ * unidentified에 남긴다. search는 후보 순서를 고정한 역추적으로 chosen/solutions를 갱신하되 재귀 복귀 때 chosen을 복원한다. fits는
+ * 수치별 포함 여부, add는 같은 차원 수치 합(차원 불일치 예외), effect는 단순 문장 파싱, normalize는 표시 장식·공백·대소문자를 정규화한다.
+ *
+ * <p>sameEffects는 fingerprint의 구조별 합계를 비교한다. fingerprint는 해석 불가 문장도 opaque 키로 보존한다. effects의 두
+ * 오버로드는 상태와 선택적 카탈로그로 증강물 배율·우상 결합·미해석 관측 효과를 렌더링한다. affectsCrafting은 문장이 제작 구조를 바꾸거나 알려지지 않은 효과인지
+ * 보수적으로 판정한다. 모든 공개 메서드는 입력 상태·공유 JSON을 수정하지 않는다.
+ */
 public final class SocketAugmentText {
   private SocketAugmentText() {}
 
+  /** installed는 유일하게 식별한 장착 목록, unidentified는 추측하지 않고 보존한 원문이다. */
   public record Resolution(List<ItemState.InstalledAugment> installed, List<String> unidentified) {}
 
+  /** key는 수치를 #으로 치환한 문장 구조, values는 등장 순서의 수치 벡터다. */
   private record Effect(String key, List<BigDecimal> values) {}
 
+  /** id는 후보 증강물 식별자, effect는 그 후보가 기여하는 단순 합산 효과다. */
   private record Candidate(String id, Effect effect) {}
 
   private static final Pattern NUMBER = Pattern.compile("\\d+(?:\\.\\d+)?");
@@ -35,7 +53,7 @@ public final class SocketAugmentText {
       for (var line : source) {
         String name = line.replaceFirst("^Rune: (?:Slot [0-9]+: )?", "");
         String id = null;
-        for (var entry : SocketAugments.catalog())
+        for (var entry : SocketAugments.definitions())
           if (SocketAugments.supports(base, entry.path("id").asText())
               && entry.path("names").path("en").asText().equals(name))
             id = entry.path("id").asText();
@@ -52,7 +70,7 @@ public final class SocketAugmentText {
     // Recover unique structural effects first, even when other socket identities are ambiguous.
     var known = new ArrayList<ItemState.InstalledAugment>();
     var remaining = new ArrayList<>(source);
-    for (var entry : SocketAugments.catalog()) {
+    for (var entry : SocketAugments.definitions()) {
       String id = entry.path("id").asText();
       if (!SocketAugments.supports(base, id)
           || (!SocketAugmentEffects.structural(id)
@@ -111,7 +129,7 @@ public final class SocketAugmentText {
       target.merge(effect.key(), effect.values(), SocketAugmentText::add);
     }
     var candidates = new ArrayList<Candidate>();
-    for (var entry : SocketAugments.catalog()) {
+    for (var entry : SocketAugments.definitions()) {
       String id = entry.path("id").asText();
       if (!SocketAugments.supports(base, id)
           || SocketAugmentEffects.structural(id)
@@ -256,7 +274,7 @@ public final class SocketAugmentText {
           .find()) return true;
       boolean recognized = false;
       var observed = effect(line);
-      for (var entry : SocketAugments.catalog())
+      for (var entry : SocketAugments.definitions())
         for (var equipment : entry.path("effects")) {
           String source = equipment.path("en").asText();
           var known = effect(source);
