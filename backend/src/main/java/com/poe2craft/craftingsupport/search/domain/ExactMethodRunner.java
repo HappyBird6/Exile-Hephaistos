@@ -27,7 +27,8 @@ public final class ExactMethodRunner<S, A> {
     CHECKPOINT,
     LOSS,
     DEAD,
-    UNRESOLVED
+    UNRESOLVED,
+    REBASE
   }
 
   public record Outcome<S>(S state, Fraction probability) {

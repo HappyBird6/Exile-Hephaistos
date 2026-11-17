@@ -25,6 +25,7 @@ final class SavedAutomaticResultReader {
     var graph = Objects.requireNonNull(disk.graph());
     boolean jointVersion =
         AutomaticMethodGraph.VERSION.equals(graph.version())
+            || "goal-directed-milestone-graph-v17-strict-exalted".equals(graph.version())
             || "goal-directed-milestone-graph-v16-common-desecrated-slots".equals(graph.version())
             || "goal-directed-milestone-graph-v15-abyss-fractured-first-affix"
                 .equals(graph.version())
@@ -242,7 +243,9 @@ final class SavedAutomaticResultReader {
             .filter(CoupledStatRollModel.ID::equals)
             .distinct()
             .sorted()
-            .toList());
+            .toList(),
+        List.of(),
+        graph.rareOutcomePolicy());
   }
 
   /** Decode saved accumulators only. Neither selector nor transition may ever execute. */

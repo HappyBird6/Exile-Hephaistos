@@ -290,6 +290,12 @@ public final class CertifiedOutcomeStrategy<S> {
     return result.probability();
   }
 
+  public Map<String, CertifiedInterval> choiceValues(S id) {
+    var scores = new LinkedHashMap<String, CertifiedInterval>();
+    for (var choice : graph.get(id).choices()) scores.put(choice.id(), action(choice));
+    return Map.copyOf(scores);
+  }
+
   public Result result(S id) {
     var state = graph.get(id);
     if (state == null) throw new IllegalArgumentException("Unknown strategy state");

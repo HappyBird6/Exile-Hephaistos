@@ -8,8 +8,10 @@ import com.poe2craft.craftingsupport.search.domain.AbyssStrategyPlanner;
 import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
 import com.poe2craft.craftingsupport.search.domain.AutomaticMethodExecution;
 import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
+import com.poe2craft.craftingsupport.search.domain.AutomaticPolicyCandidates;
 import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
 import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner.Exit;
+import com.poe2craft.craftingsupport.search.domain.RareOutcomePolicy;
 import com.poe2craft.craftingsupport.search.domain.TierCell;
 import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
 import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
@@ -25,7 +27,20 @@ public final class AutomaticSearchService implements AutoCloseable {
   public static final String VERSION = "automatic-method-job-v1";
 
   public record Input(
-      MethodSearchProtocol.Create request, boolean abstractQuality40, int abstractQuality) {
+      MethodSearchProtocol.Create request,
+      boolean abstractQuality40,
+      int abstractQuality,
+      RareOutcomePolicy rareOutcomePolicy) {
+    public Input {
+      rareOutcomePolicy =
+          rareOutcomePolicy == null ? RareOutcomePolicy.disabled() : rareOutcomePolicy;
+    }
+
+    public Input(
+        MethodSearchProtocol.Create request, boolean abstractQuality40, int abstractQuality) {
+      this(request, abstractQuality40, abstractQuality, RareOutcomePolicy.disabled());
+    }
+
     public Input(MethodSearchProtocol.Create request, boolean abstractQuality40) {
       this(request, abstractQuality40, abstractQuality40 ? 40 : 0);
     }
@@ -96,6 +111,22 @@ public final class AutomaticSearchService implements AutoCloseable {
       String strategyStatus,
       List<String> strategyMethods) {}
 
+  public record ExpectedUse(
+      PathSearchProtocol.Probability lower, PathSearchProtocol.Probability upper) {}
+
+  public record PolicyCandidate(
+      String id,
+      int cycles,
+      List<AutomaticPolicyCandidates.Decision> decisions,
+      CertifiedMethodProtocol.Bounds success,
+      CertifiedMethodProtocol.Bounds rebase,
+      CertifiedMethodProtocol.Bounds failure,
+      CertifiedMethodProtocol.Bounds unresolved,
+      Map<String, ExpectedUse> expectedUses,
+      String usageStatus,
+      String rankStatus,
+      List<AutomaticPolicyCandidates.Decision> distinguishingDecisions) {}
+
   public record View(
       String version,
       String id,
@@ -115,9 +146,50 @@ public final class AutomaticSearchService implements AutoCloseable {
       List<Recommendation> recommendations,
       @com.fasterxml.jackson.annotation.JsonInclude(
               com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
-          List<String> rollModels) {
+          List<String> rollModels,
+      List<PolicyCandidate> candidates,
+      RareOutcomePolicy rareOutcomePolicy) {
     public View {
       rollModels = rollModels == null ? List.of() : List.copyOf(rollModels);
+      candidates = candidates == null ? List.of() : List.copyOf(candidates);
+      rareOutcomePolicy =
+          rareOutcomePolicy == null ? RareOutcomePolicy.disabled() : rareOutcomePolicy;
+    }
+
+    public View(
+        String version,
+        String id,
+        long revision,
+        long generation,
+        String status,
+        String reason,
+        boolean complete,
+        boolean canResume,
+        long operations,
+        long retainedStates,
+        AutomaticMethodGraph.ResourceUsage resources,
+        List<AutomaticMethodGraph.NodeView> nodes,
+        List<Arrow> methods,
+        List<Recommendation> recommendations,
+        List<String> rollModels) {
+      this(
+          version,
+          id,
+          revision,
+          generation,
+          status,
+          reason,
+          complete,
+          canResume,
+          operations,
+          retainedStates,
+          resources,
+          nodes,
+          methods,
+          recommendations,
+          rollModels,
+          List.of(),
+          RareOutcomePolicy.disabled());
     }
 
     public View(
@@ -183,6 +255,7 @@ public final class AutomaticSearchService implements AutoCloseable {
     AutomaticMethodGraph graph;
     long revision = 1, generation = 1, expires;
     long responseNanos, responses;
+    List<PolicyCandidate> candidates = List.of();
     Map<String, Control> commands = new LinkedHashMap<>();
   }
 
@@ -275,7 +348,8 @@ public final class AutomaticSearchService implements AutoCloseable {
       long expires,
       String status,
       boolean quality40,
-      int abstractQuality) {}
+      int abstractQuality,
+      RareOutcomePolicy rareOutcomePolicy) {}
 
   private StoredHeader header(String id) {
     try {
@@ -295,7 +369,11 @@ public final class AutomaticSearchService implements AutoCloseable {
           tree.path("expires").asLong(),
           tree.path("status").asText(),
           root.path("quality40").asBoolean(),
-          root.path("abstractQuality").asInt());
+          root.path("abstractQuality").asInt(),
+          tree.path("graph").has("rareOutcomePolicy")
+              ? json.treeToValue(
+                  tree.path("graph").get("rareOutcomePolicy"), RareOutcomePolicy.class)
+              : RareOutcomePolicy.disabled());
     } catch (java.io.IOException e) {
       throw new Rejected(409, "RECALCULATION_REQUIRED");
     }
@@ -427,6 +505,7 @@ public final class AutomaticSearchService implements AutoCloseable {
       if (saved.owner().equals(ownerKey(owner))
           && saved.request().clientRequestId().equals(request.clientRequestId())) {
         if (!saved.request().equals(request)
+            || !saved.rareOutcomePolicy().equals(input.rareOutcomePolicy())
             || (saved.quality40() != input.abstractQuality40()
                 || saved.abstractQuality() != input.abstractQuality()))
           throw new Rejected(409, "REQUEST_ID_REUSED");
@@ -455,6 +534,7 @@ public final class AutomaticSearchService implements AutoCloseable {
             5000,
             input.abstractQuality40(),
             input.abstractQuality());
+    job.graph.configureRareOutcomes(input.rareOutcomePolicy());
     evaluate(job);
     try {
       save(job);
@@ -488,7 +568,9 @@ public final class AutomaticSearchService implements AutoCloseable {
         || "goal-directed-milestone-graph-v11-tier-laws".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v10-quality-goal".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v9-terminal-classes".equals(saved.graph().version())
-        || (AutomaticMethodGraph.VERSION.equals(saved.graph().version())
+        || ((AutomaticMethodGraph.VERSION.equals(saved.graph().version())
+                || "goal-directed-milestone-graph-v17-strict-exalted"
+                    .equals(saved.graph().version()))
             && ("approved-187-2026-10-21-rarity-v4".equals(saved.graph().identity().policyVersion())
                 || "approved-187-2026-10-21-goal-v3"
                     .equals(saved.graph().identity().policyVersion())
@@ -529,7 +611,8 @@ public final class AutomaticSearchService implements AutoCloseable {
     return new Input(
         request,
         read(id).graph().nodes().getFirst().quality40(),
-        read(id).graph().nodes().getFirst().abstractQuality());
+        read(id).graph().nodes().getFirst().abstractQuality(),
+        read(id).graph().rareOutcomePolicy());
   }
 
   public synchronized View control(String owner, String id, Control command) {
@@ -703,7 +786,8 @@ public final class AutomaticSearchService implements AutoCloseable {
                       mass.state().quality40(),
                       mass.state().abstractQuality(),
                       mass.state().tiers()));
-          if (mass.exit() == Exit.LOSS || mass.exit() == Exit.DEAD) target = null;
+          if (mass.exit() == Exit.LOSS || mass.exit() == Exit.DEAD || mass.exit() == Exit.REBASE)
+            target = null;
           boolean retry =
               mass.exit() == null && method.retryRepresentatives().contains(mass.state().item());
           if (retry) target = null;
@@ -712,7 +796,8 @@ public final class AutomaticSearchService implements AutoCloseable {
               || (target == null
                   && !retry
                   && mass.exit() != Exit.DEAD
-                  && mass.exit() != Exit.LOSS)) {
+                  && mass.exit() != Exit.LOSS
+                  && mass.exit() != Exit.REBASE)) {
             target = null;
             kind = "UNRESOLVED";
           }
@@ -803,6 +888,35 @@ public final class AutomaticSearchService implements AutoCloseable {
 
   private void evaluate(Job job) {
     job.graph.refineStrategy(job.graph.strategy(100), 16);
+    job.graph.updatePriorities();
+    job.candidates =
+        job.graph.policyCandidates(3).stream()
+            .map(
+                c -> {
+                  var uses = new LinkedHashMap<String, ExpectedUse>();
+                  c.uses()
+                      .forEach(
+                          (material, amount) -> {
+                            var bounds = CertifiedMethodProtocol.Bounds.quantity(amount);
+                            uses.put(
+                                material,
+                                new ExpectedUse(
+                                    bounds.lower(), c.usageComplete() ? bounds.upper() : null));
+                          });
+                  return new PolicyCandidate(
+                      c.id(),
+                      100,
+                      c.decisions(),
+                      CertifiedMethodProtocol.Bounds.probability(c.success(), 2),
+                      CertifiedMethodProtocol.Bounds.probability(c.rebase(), 2),
+                      CertifiedMethodProtocol.Bounds.probability(c.failure(), 2),
+                      CertifiedMethodProtocol.Bounds.probability(c.unresolved(), 2),
+                      uses,
+                      c.usageComplete() ? "BOUNDED" : "LOWER_BOUND_ONLY",
+                      c.rankStatus(),
+                      c.distinguishingDecisions());
+                })
+            .toList();
   }
 
   private View render(Job job) {
@@ -874,7 +988,9 @@ public final class AutomaticSearchService implements AutoCloseable {
         nodes,
         arrows,
         recommendations,
-        job.graph.rollModels());
+        job.graph.rollModels(),
+        job.candidates,
+        job.graph.rareOutcomePolicy());
   }
 
   @Override

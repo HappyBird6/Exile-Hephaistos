@@ -29,6 +29,13 @@ public final class AutomaticSearchInputReader {
       // Optional additions keep older clients valid; original required fields stay strict.
       if (type == AutomaticSearchService.Input.class
           && node instanceof com.fasterxml.jackson.databind.node.ObjectNode body) {
+        if (!body.has("rareOutcomePolicy"))
+          body.set(
+              "rareOutcomePolicy",
+              json.valueToTree(
+                  com.poe2craft.craftingsupport.search.domain.RareOutcomePolicy.disabled()));
+        if (body.get("rareOutcomePolicy").isNull())
+          throw new IllegalArgumentException("Policy required");
         if (!body.has("abstractQuality"))
           body.put("abstractQuality", body.path("abstractQuality40").asBoolean() ? 40 : 0);
       }
