@@ -349,7 +349,7 @@ public final class AutomaticSearchService implements AutoCloseable {
       String status,
       boolean quality40,
       int abstractQuality,
-      RareOutcomePolicy rareOutcomePolicy) {}
+      com.fasterxml.jackson.databind.JsonNode rareOutcomePolicy) {}
 
   private StoredHeader header(String id) {
     try {
@@ -371,9 +371,8 @@ public final class AutomaticSearchService implements AutoCloseable {
           root.path("quality40").asBoolean(),
           root.path("abstractQuality").asInt(),
           tree.path("graph").has("rareOutcomePolicy")
-              ? json.treeToValue(
-                  tree.path("graph").get("rareOutcomePolicy"), RareOutcomePolicy.class)
-              : RareOutcomePolicy.disabled());
+              ? tree.path("graph").get("rareOutcomePolicy")
+              : json.valueToTree(RareOutcomePolicy.disabled()));
     } catch (java.io.IOException e) {
       throw new Rejected(409, "RECALCULATION_REQUIRED");
     }
@@ -505,7 +504,7 @@ public final class AutomaticSearchService implements AutoCloseable {
       if (saved.owner().equals(ownerKey(owner))
           && saved.request().clientRequestId().equals(request.clientRequestId())) {
         if (!saved.request().equals(request)
-            || !saved.rareOutcomePolicy().equals(input.rareOutcomePolicy())
+            || !saved.rareOutcomePolicy().equals(json.valueToTree(input.rareOutcomePolicy()))
             || (saved.quality40() != input.abstractQuality40()
                 || saved.abstractQuality() != input.abstractQuality()))
           throw new Rejected(409, "REQUEST_ID_REUSED");

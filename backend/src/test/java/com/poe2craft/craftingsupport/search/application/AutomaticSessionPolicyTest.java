@@ -79,4 +79,21 @@ class AutomaticSessionPolicyTest {
           .isEqualTo(RareOutcomePolicy.disabled());
     }
   }
+
+  @Test
+  void futureStoredPolicyDoesNotBlockUnrelatedNewRequests() throws Exception {
+    var repository = new AutomaticSearchServiceTest.Repository();
+    String id;
+    try (var service = fixture.service(repository)) {
+      id = service.create("old-owner", fixture.request("future")).id();
+    }
+    var json = new ObjectMapper();
+    var document = (ObjectNode) json.readTree(repository.read(id));
+    ((ObjectNode) document.path("graph").path("rareOutcomePolicy")).put("version", "future");
+    repository.save(id, json.writeValueAsBytes(document));
+    try (var service = fixture.service(repository)) {
+      assertThat(service.create("new-owner", fixture.request("fresh")).status()).isEqualTo("READY");
+      assertThatThrownBy(() -> service.get("old-owner", id)).hasMessage("RECALCULATION_REQUIRED");
+    }
+  }
 }
