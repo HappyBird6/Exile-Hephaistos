@@ -1,0 +1,1202 @@
+{
+  "codeCommit": "e73fc5d7",
+  "command": "npm test -- --run --reporter=json --outputFile=/tmp/policy-inheritance-full.json",
+  "counts": {
+    "numTotalTestSuites": 318,
+    "numPassedTestSuites": 318,
+    "numFailedTestSuites": 0,
+    "numPendingTestSuites": 0,
+    "numTotalTests": 3514,
+    "numPassedTests": 3514,
+    "numFailedTests": 0,
+    "numPendingTests": 0,
+    "numTodoTests": 0
+  },
+  "files": [
+    {
+      "file": "src/app/App.test.tsx",
+      "status": "passed",
+      "tests": 16
+    },
+    {
+      "file": "src/shared/touchInput.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/shared/useDebouncedValue.test.tsx",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/account/AccountBootstrap.test.tsx",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/account/auth.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/account/libraryRead.test.ts",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/account/librarySync.test.ts",
+      "status": "passed",
+      "tests": 20
+    },
+    {
+      "file": "src/features/admin/AdminPage.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/admin/OperationsLogs.test.tsx",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/admin/logCalendar.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/community/Comments.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/community/CommunityCompose.test.tsx",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "src/features/community/CommunityList.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/community/PostEditor.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/community/api.test.ts",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "src/features/community/downloads.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/community/listNavigation.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/community/messages.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/community/queries.test.tsx",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/community/reuse.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/community/sharedSnapshot.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/shared/navigation/navigation.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/shared/i18n/LocaleSelector.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/shared/i18n/i18n.test.tsx",
+      "status": "passed",
+      "tests": 15
+    },
+    {
+      "file": "src/shared/telemetry/browserTelemetry.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/AbyssEssence.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/AbyssPanel.test.tsx",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/AncientLiquidContract.test.ts",
+      "status": "passed",
+      "tests": 763
+    },
+    {
+      "file": "src/features/crafting/Artificer.test.ts",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "src/features/crafting/BasicJewelPotentContract.test.ts",
+      "status": "passed",
+      "tests": 509
+    },
+    {
+      "file": "src/features/crafting/BeltEssence.test.ts",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/crafting/BodyEssence.test.ts",
+      "status": "passed",
+      "tests": 14
+    },
+    {
+      "file": "src/features/crafting/BowPerfectEssence.test.ts",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "file": "src/features/crafting/BowWorkbenchContract.test.ts",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/BreachEssence.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/CoupledRollContract.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/CraftSupport.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/DesecrationCurrency.test.tsx",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/Fracturing.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/GreaterExaltation.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/HelmetEssence.test.ts",
+      "status": "passed",
+      "tests": 13
+    },
+    {
+      "file": "src/features/crafting/Homogenising.test.tsx",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "src/features/crafting/HysteriaEssence.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/ItemCard.test.tsx",
+      "status": "passed",
+      "tests": 20
+    },
+    {
+      "file": "src/features/crafting/ItemTextImport.test.tsx",
+      "status": "passed",
+      "tests": 21
+    },
+    {
+      "file": "src/features/crafting/JewelFiveAffix.test.ts",
+      "status": "passed",
+      "tests": 25
+    },
+    {
+      "file": "src/features/crafting/LegacyFive.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/MaterialStash.test.tsx",
+      "status": "passed",
+      "tests": 23
+    },
+    {
+      "file": "src/features/crafting/OmenComposition.test.tsx",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/PerfectEnhancementEssence.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/PerfectInfiniteEssence.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/PreservedSessionDisplay.test.tsx",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/QuiverCurrencyContract.test.ts",
+      "status": "passed",
+      "tests": 22
+    },
+    {
+      "file": "src/features/crafting/ReviewedAmulets.test.ts",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "src/features/crafting/ReviewedBelts.test.ts",
+      "status": "passed",
+      "tests": 13
+    },
+    {
+      "file": "src/features/crafting/ReviewedBeltsContract.test.ts",
+      "status": "passed",
+      "tests": 23
+    },
+    {
+      "file": "src/features/crafting/ReviewedRings.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/RingEssence.test.ts",
+      "status": "passed",
+      "tests": 25
+    },
+    {
+      "file": "src/features/crafting/RunicAlloy.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/SapphireGenerationContract.test.ts",
+      "status": "passed",
+      "tests": 92
+    },
+    {
+      "file": "src/features/crafting/SceptreEssence.test.ts",
+      "status": "passed",
+      "tests": 16
+    },
+    {
+      "file": "src/features/crafting/StockyAbyss.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/StockyCyclonicAlloy.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/StockyExpansiveAlloy.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/StockyHorror.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/StockyHysteria.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/StockyMysticAlloy.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/StockyPerfectGloveEssence.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/StockyPrismaticAlloy.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/StockyReviewedAlloys.test.ts",
+      "status": "passed",
+      "tests": 15
+    },
+    {
+      "file": "src/features/crafting/StockyWorkbenchContract.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/WandEssence.test.ts",
+      "status": "passed",
+      "tests": 18
+    },
+    {
+      "file": "src/features/crafting/Workbench.test.tsx",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/crafting/WorkbenchExtension.test.tsx",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/WorkbenchFailureFeedback.test.tsx",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "file": "src/features/crafting/WorkbenchIntegration.test.tsx",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/WorkbenchNotationIntegration.test.tsx",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/WorkbenchSanctificationIntegration.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/augmentRules.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/baseRegistry.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/basicJewel.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/catalogReference.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/catalystPolicy.test.tsx",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "src/features/crafting/catalystQuality.test.tsx",
+      "status": "passed",
+      "tests": 10
+    },
+    {
+      "file": "src/features/crafting/clipboardBase.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/craftProbabilityEvidence.test.ts",
+      "status": "passed",
+      "tests": 16
+    },
+    {
+      "file": "src/features/crafting/currentItemText.test.tsx",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/currentItemTextAvailability.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/defenceDisplay.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/itemObservations.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/lastCurrencyAffectedOptions.test.ts",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/localizedCrafting.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/localizedModifiers.test.ts",
+      "status": "passed",
+      "tests": 15
+    },
+    {
+      "file": "src/features/crafting/maces.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/manualReveal.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/modifierMagnitudes.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/offhands.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "src/features/crafting/outcomeGroups.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/qualityCurrency.test.ts",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "src/features/crafting/qualityInfuser.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/qualityLimit.test.ts",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "file": "src/features/crafting/quarterstavesSpears.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/quivers.test.ts",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "file": "src/features/crafting/refinedCatalyst.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/remainingDisplay.test.tsx",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "src/features/crafting/reviewedGloves.test.ts",
+      "status": "passed",
+      "tests": 23
+    },
+    {
+      "file": "src/features/crafting/rulesetBoundary.test.tsx",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/sapphireGeneration.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/serviceScope.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/sessionRuleset.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/socketAugments.test.ts",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "src/features/crafting/stashBackground.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/topBases.test.ts",
+      "status": "passed",
+      "tests": 43
+    },
+    {
+      "file": "src/features/crafting/useItemTextImport.test.tsx",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/workbenchApplication.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/workbenchHistory.test.ts",
+      "status": "passed",
+      "tests": 28
+    },
+    {
+      "file": "src/features/crafting/workbenchReferenceApi.test.ts",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/workbenchSeasonContract.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/workbenchStateShape.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/abyss-workbench/continuousCurrency.test.ts",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "src/features/crafting/abyss-workbench/policy.test.tsx",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/base-favorites/repository.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/base-picker/JewelPlacement.test.tsx",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/base-picker/WorkbenchBasePicker.test.tsx",
+      "status": "passed",
+      "tests": 13
+    },
+    {
+      "file": "src/features/crafting/base-picker/additionalBases.test.tsx",
+      "status": "passed",
+      "tests": 27
+    },
+    {
+      "file": "src/features/crafting/base-picker/baseAffixSetup.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/base-picker/baseAudit.test.tsx",
+      "status": "passed",
+      "tests": 13
+    },
+    {
+      "file": "src/features/crafting/base-picker/baseImageSources.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/basic-paths/BasicPaths.test.tsx",
+      "status": "passed",
+      "tests": 26
+    },
+    {
+      "file": "src/features/crafting/basic-paths/api.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "src/features/crafting/catalyst-workbench/catalystCurrency.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/chaos-repeat/chaosRepeatReceipt.test.ts",
+      "status": "passed",
+      "tests": 19
+    },
+    {
+      "file": "src/features/crafting/compact-viewport/compactViewport.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/crafting-state/craftingState.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/currency-prices/CurrencyPrices.test.tsx",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/crafting/currency-prices/LeagueMark.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/currency-prices/api.test.ts",
+      "status": "passed",
+      "tests": 10
+    },
+    {
+      "file": "src/features/crafting/currency-prices/cost.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/custom-exalt/api.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/custom-exalt/customExalt.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/derived-defences/derivedDefences.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/derived-defences/equipmentEffects.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/feedback-tooltip/FeedbackPersistence.test.tsx",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/feedback-tooltip/FeedbackTooltip.test.tsx",
+      "status": "passed",
+      "tests": 21
+    },
+    {
+      "file": "src/features/crafting/feedback-tooltip/MaterialDescription.test.tsx",
+      "status": "passed",
+      "tests": 27
+    },
+    {
+      "file": "src/features/crafting/goal-filter/CraftStart.catalogRecovery.test.tsx",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/goal-filter/CraftStart.test.tsx",
+      "status": "passed",
+      "tests": 30
+    },
+    {
+      "file": "src/features/crafting/goal-filter/ModifierRow.test.tsx",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/crafting/goal-filter/PickerPopover.test.tsx",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/goal-filter/StartModifierPicker.test.tsx",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/crafting/goal-filter/api.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/goal-filter/catalogPickerParity.test.tsx",
+      "status": "passed",
+      "tests": 14
+    },
+    {
+      "file": "src/features/crafting/goal-filter/catalogRecovery.test.tsx",
+      "status": "passed",
+      "tests": 18
+    },
+    {
+      "file": "src/features/crafting/goal-filter/connection.test.tsx",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "file": "src/features/crafting/goal-filter/evaluationNumber.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/goal-filter/goalFilter.test.tsx",
+      "status": "passed",
+      "tests": 18
+    },
+    {
+      "file": "src/features/crafting/goal-filter/groupPresentation.test.tsx",
+      "status": "passed",
+      "tests": 14
+    },
+    {
+      "file": "src/features/crafting/goal-filter/qualityGoal.test.tsx",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "src/features/crafting/goal-filter/savedStart.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/goal-filter/startItem.test.ts",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/goal-filter/statPresentation.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/item-slot/ItemSlotImage.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/item-slot/SocketAugmentSlots.test.tsx",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/crafting/item-text/modifierClipboardText.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/method-search/AutomaticMethodSearch.test.tsx",
+      "status": "passed",
+      "tests": 31
+    },
+    {
+      "file": "src/features/crafting/method-search/CurrencyPolicy.test.tsx",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/method-search/MethodSearch.test.tsx",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/method-search/NumericRollNotice.test.tsx",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/method-search/OperationCards.test.tsx",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "file": "src/features/crafting/method-search/ScenarioCodePanel.test.tsx",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/method-search/api.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/method-search/arrivalProbabilities.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/method-search/attemptLabel.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/method-search/automaticAbyss.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/method-search/automaticApi.test.ts",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/crafting/method-search/automaticTierLaws.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/method-search/calculationStatus.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/method-search/certifiedApi.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/method-search/commonDesecration.test.tsx",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/method-search/compactAttribute.test.tsx",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "file": "src/features/crafting/method-search/craftingFlow.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "src/features/crafting/method-search/displayAggregation.test.tsx",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/method-search/downstream.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/method-search/graphStateChanges.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/method-search/jointAttributePresentation.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/method-search/outcomeGrouping.test.tsx",
+      "status": "passed",
+      "tests": 14
+    },
+    {
+      "file": "src/features/crafting/method-search/rollPresentation.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/method-search/scenarioCode.test.ts",
+      "status": "passed",
+      "tests": 34
+    },
+    {
+      "file": "src/features/crafting/method-search/scenarioTransfer.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/method-search/stateProjection.test.tsx",
+      "status": "passed",
+      "tests": 15
+    },
+    {
+      "file": "src/features/crafting/method-search/strictExaltedDisplay.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/method-search/supportStorage.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/method-search/useGraphPan.test.tsx",
+      "status": "passed",
+      "tests": 10
+    },
+    {
+      "file": "src/features/crafting/method-search/useGraphWheelZoom.test.tsx",
+      "status": "passed",
+      "tests": 10
+    },
+    {
+      "file": "src/features/crafting/modifier-pool/ModifierPoolPanel.test.tsx",
+      "status": "passed",
+      "tests": 15
+    },
+    {
+      "file": "src/features/crafting/modifier-pool/ModifierPoolWorkbench.test.tsx",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/modifier-pool/modifierPool.test.ts",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/modifier-pool/poolQuery.test.ts",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/modifier-pool/poolSnapshots.test.ts",
+      "status": "passed",
+      "tests": 7
+    },
+    {
+      "file": "src/features/crafting/numeric-display/attributeNumbers.test.ts",
+      "status": "passed",
+      "tests": 10
+    },
+    {
+      "file": "src/features/crafting/path-tree/MethodGraph.test.tsx",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/crafting/path-tree/PathTree.test.tsx",
+      "status": "passed",
+      "tests": 14
+    },
+    {
+      "file": "src/features/crafting/path-tree/presentation.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/path-tree/session.test.ts",
+      "status": "passed",
+      "tests": 37
+    },
+    {
+      "file": "src/features/crafting/path-tree/validation.test.ts",
+      "status": "passed",
+      "tests": 29
+    },
+    {
+      "file": "src/features/crafting/sanctification/preciseModifierProjection.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/sanctification/sanctification.test.ts",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "file": "src/features/crafting/sanctification/transition.test.ts",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/session-detail/SessionDetail.test.tsx",
+      "status": "passed",
+      "tests": 2
+    },
+    {
+      "file": "src/features/crafting/session-history/HistoryCard.test.tsx",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/session-history/SessionOverviewActions.test.tsx",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/session-history/SessionOverviewPage.test.tsx",
+      "status": "passed",
+      "tests": 12
+    },
+    {
+      "file": "src/features/crafting/session-history/transfer.test.ts",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/session-library/IndexedFilmRepository.test.ts",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "src/features/crafting/session-library/SessionContinuation.test.tsx",
+      "status": "passed",
+      "tests": 3
+    },
+    {
+      "file": "src/features/crafting/session-library/SessionHistoryWorkspace.test.tsx",
+      "status": "passed",
+      "tests": 13
+    },
+    {
+      "file": "src/features/crafting/session-library/SessionImport.test.tsx",
+      "status": "passed",
+      "tests": 5
+    },
+    {
+      "file": "src/features/crafting/session-library/SessionLibrary.test.tsx",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/session-library/SessionLibraryTransfer.test.tsx",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/session-library/SessionTitleEditor.test.tsx",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/session-library/deletionUndo.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/session-library/sessionTitle.test.ts",
+      "status": "passed",
+      "tests": 9
+    },
+    {
+      "file": "src/features/crafting/session-notation/SessionNotation.test.tsx",
+      "status": "passed",
+      "tests": 36
+    },
+    {
+      "file": "src/features/crafting/session-notation/extractSessionNotation.test.ts",
+      "status": "passed",
+      "tests": 16
+    },
+    {
+      "file": "src/features/crafting/stash/StashBaseSelection.test.tsx",
+      "status": "passed",
+      "tests": 1
+    },
+    {
+      "file": "src/features/crafting/stash/WorkbenchLayout.test.tsx",
+      "status": "passed",
+      "tests": 16
+    },
+    {
+      "file": "src/features/crafting/stash/WorkbenchStash.test.tsx",
+      "status": "passed",
+      "tests": 24
+    },
+    {
+      "file": "src/features/crafting/stash/baseMaterialPolicy.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/stash/materialSearch.test.ts",
+      "status": "passed",
+      "tests": 11
+    },
+    {
+      "file": "src/features/crafting/chaos-repeat/api/applyChaosRepeat.test.ts",
+      "status": "passed",
+      "tests": 72
+    },
+    {
+      "file": "src/features/crafting/chaos-repeat/api/batchHistory.test.ts",
+      "status": "passed",
+      "tests": 6
+    },
+    {
+      "file": "src/features/crafting/chaos-repeat/controls/ChaosRepeatControls.test.tsx",
+      "status": "passed",
+      "tests": 16
+    },
+    {
+      "file": "src/features/crafting/chaos-repeat/controls/maximumUses.test.ts",
+      "status": "passed",
+      "tests": 18
+    },
+    {
+      "file": "src/features/crafting/chaos-repeat/display/projectExplicitOptionGroups.test.tsx",
+      "status": "passed",
+      "tests": 156
+    },
+    {
+      "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatBatchPage.test.tsx",
+      "status": "passed",
+      "tests": 49
+    },
+    {
+      "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatPage.test.tsx",
+      "status": "passed",
+      "tests": 4
+    },
+    {
+      "file": "src/features/crafting/chaos-repeat/integration/FeedbackBatchLock.test.tsx",
+      "status": "passed",
+      "tests": 1
+    }
+  ]
+}

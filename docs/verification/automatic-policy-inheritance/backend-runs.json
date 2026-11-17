@@ -1,0 +1,26 @@
+[
+  {
+    "version": "baseline",
+    "test": "CertifiedMethodSearchEngineTest.completeSmallMapContainsEveryExactLawAndPreservesMethodDepthAndAlternatives",
+    "exit": 0,
+    "elapsed": 45.257704494999416
+  },
+  {
+    "version": "baseline",
+    "test": "DeferredProductionTest.realSolarCellsRestoreTheFullWeightedLawAndSplitGoalThresholds",
+    "exit": 0,
+    "elapsed": 29.695775710999442
+  },
+  {
+    "version": "current",
+    "test": "CertifiedMethodSearchEngineTest.completeSmallMapContainsEveryExactLawAndPreservesMethodDepthAndAlternatives",
+    "exit": 0,
+    "elapsed": 24.661237656000594
+  },
+  {
+    "version": "current",
+    "test": "DeferredProductionTest.realSolarCellsRestoreTheFullWeightedLawAndSplitGoalThresholds",
+    "exit": 0,
+    "elapsed": 29.257739366999886
+  }
+]

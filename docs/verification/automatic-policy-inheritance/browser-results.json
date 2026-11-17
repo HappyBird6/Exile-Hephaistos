@@ -1,0 +1,7 @@
+[
+  "restored disabled despite enabled preference and missing flow",
+  "observed life 17 entered, chosen, continued with new ID and disabled policy",
+  "explicit enabled change preserved in new request",
+  "cancellation network failure keeps old screen, explicit retry creates new session",
+  "late old resume response does not overwrite new session policy"
+]

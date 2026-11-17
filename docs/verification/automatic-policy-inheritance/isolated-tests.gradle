@@ -1,0 +1,7 @@
+allprojects { tasks.withType(Test).configureEach {
+ if (name == 'test') include '**/CertifiedMethodSearchEngineTest.class', '**/DeferredProductionTest.class'
+ maxParallelForks = 1
+ forkEvery = 1
+ systemProperty 'junit.jupiter.execution.timeout.default', '30 s'
+ systemProperty 'junit.jupiter.execution.timeout.thread.mode.default', 'SEPARATE_THREAD'
+}}
