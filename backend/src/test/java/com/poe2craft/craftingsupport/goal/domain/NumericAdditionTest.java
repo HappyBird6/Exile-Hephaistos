@@ -17,6 +17,33 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 수치·추가 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code production}: production ({@code ItemCatalog}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code empty(catalog, rarity, level)}: 빈 초기값 또는 비어 있는지 여부를 구한다. 입력: {@code catalog}(카탈로그),
+ *       {@code rarity}(희귀도), {@code level}(레벨). 반환: {@code ItemState}.
+ *   <li>{@code small()}: small 값을 조회·구성한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code definition(id, type, stat, min, max, weight)}: 정의 처리에서 {@code
+ *       ModifierDefinition.StatRange}을(를) 사용한다. 입력: {@code id}(식별자), {@code type}(타입), {@code
+ *       stat}(수치), {@code min}(최소값), {@code max}(최대값), {@code weight}(가중치). 반환: {@code
+ *       ModifierDefinition}.
+ *   <li>{@code allTwelveProductionVariantsRetainRollsAndExactlyNormalizedMass()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code exhaustiveEightCasesMatchExactOracleAndUnrelatedWeightStaysInDenominator()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code budgetIllegalTerminalAndFirstSuccessAreDistinct()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ * </ul>
+ */
 class NumericAdditionTest {
   final ItemCatalog production = ItemCatalogLoader.loadDefault();
 

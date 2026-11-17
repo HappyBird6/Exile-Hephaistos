@@ -27,7 +27,162 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-/** Certified class marginals. Incoming item laws remain exact retained conditional operators. */
+/**
+ * 조건부 아이템 분포를 유지하며 검증 가능한 확률 구간으로 방법 탐색을 계산한다.
+ *
+ * <p>기존 계약: Certified class marginals. Incoming item laws remain exact retained conditional
+ * operators.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "certified-method-map-v11-backed-pages"} ({@code String}).
+ *   <li>{@code laws}: 분포목록 ({@code CertifiedLawStore}).
+ *   <li>{@code absorptionStore}: 흡수·저장소 ({@code CertifiedMutableLawStore}).
+ *   <li>{@code workingLaws}: 계산중·분포목록 ({@code TemporaryWorkingLaws}).
+ *   <li>{@code workingMaps}: 계산중·맵목록 ({@code CertifiedMethodRunner.WorkingMaps<Integer>}).
+ *   <li>{@code index}: 색인 ({@code BasicClassIndex}).
+ *   <li>{@code classStorage}: 동치류·저장소 ({@code TemporaryClassIndex}).
+ *   <li>{@code precision}: 정밀도 ({@code CertifiedInterval.Precision}).
+ *   <li>{@code progressCache}: 진행상황·캐시 ({@code Map<Integer, MethodSearchCalculation.Progress>}).
+ *   <li>{@code entryOffsets}: 항목·Offsets ({@code List<Integer>}).
+ *   <li>{@code liveEntries}: 현재유효·항목목록 ({@code long}).
+ *   <li>{@code savedEntries}: 저장된·항목목록 ({@code long}).
+ *   <li>{@code preparationEntries}: 준비·항목목록 ({@code long}).
+ *   <li>{@code freezeOwner}: 불변복사·소유자 ({@code Method}).
+ *   <li>{@code preparations}: preparations ({@code Map<Preparation, Prepared>}).
+ *   <li>{@code lawViews}: 분포·Views ({@code Map<Map<Integer, CertifiedInterval>, Map<String,
+ *       CertifiedInterval>>}).
+ *   <li>{@code progressLaws}: 진행상황·분포목록 ({@code Map<Map<Integer, CertifiedInterval>,
+ *       Map<MethodSearchCalculation.Progress, CertifiedInterval>>}).
+ *   <li>{@code progressLawEntries}: 진행상황·분포·항목목록 ({@code long}).
+ *   <li>{@code targetSummaryEntries}: 대상·요약·항목목록 ({@code long}).
+ *   <li>{@code kernels}: 전이커널목록 ({@code IndexedKernelStore}).
+ *   <li>{@code evaluate}: 평가 ({@code Function<ItemState, Evaluation>}).
+ *   <li>{@code states}: 상태목록 ({@code Map<Integer, State>}).
+ *   <li>{@code methods}: 제작방법목록 ({@code Map<String, Method>}).
+ *   <li>{@code ready}: 준비완료 ({@code ArrayDeque<Method>}).
+ *   <li>{@code shallowestReadyDepth}: shallowest·준비완료·깊이 ({@code int}).
+ *   <li>{@code adjacency}: 인접목록 ({@code Map<Integer, Set<Integer>>}).
+ *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code Set<WorkbenchSimulator.Assumption>}).
+ *   <li>{@code rootLaw}: 시작점·분포 ({@code ConditionalMethodLaw}).
+ *   <li>{@code root}: 시작점 ({@code int}).
+ *   <li>{@code budget}: 계산예산 ({@code int}).
+ *   <li>{@code operations}: 연산목록 ({@code long}).
+ *   <li>{@code diagnostics}: 진단값 ({@code boolean}).
+ *   <li>{@code diagnosticSteps}: diagnostic·단계목록 ({@code Map<String, Long>}).
+ *   <li>{@code graphRevision}: 그래프·리비전 ({@code long}).
+ *   <li>{@code undiscovered}: undiscovered ({@code int}).
+ *   <li>{@code previewedPatterns}: previewed·Patterns ({@code Set<PreviewPattern>}).
+ *   <li>{@code frontier}: 미탐색경계 ({@code PriorityQueue<Expansion>}).
+ *   <li>{@code previews}: previews ({@code PriorityQueue<Expansion>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code enableDiagnostics()}: enable·진단값 처리에서 {@code kernels.enableDiagnostics}을(를) 사용한다.
+ *   <li>{@code workload()}: 작업량 값을 조회·구성한다. 반환: {@code Workload}.
+ *   <li>{@code settleCheckpoint()}: settle·체크포인트 처리에서 {@code methods.values}, {@code
+ *       runner.retainedStates}을(를) 사용한다.
+ *   <li>{@code checkpoint(json, sink)}: 현재 진행 상태의 복구 지점을 기록한다. 입력: {@code json}(JSON), {@code
+ *       sink}(sink). 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code checkpointRestore(json)}: 체크포인트·복원의 입력에 따른 분기·결과를 처리한다. 입력: {@code json}(JSON). 반환:
+ *       {@code CheckpointRestore}.
+ *   <li>{@code matched(progress)}: 일치한 처리에서 {@code progress.entries}을(를) 사용한다. 입력: {@code
+ *       progress}(진행상황). 반환: {@code int}.
+ *   <li>{@code previewSlots(expansion)}: 미리보기·슬롯목록 처리에서 {@code index.witness}, {@code
+ *       expansion.state}을(를) 사용한다. 입력: {@code expansion}(확장). 반환: {@code int}.
+ *   <li>{@code CertifiedMethodSearchEngine(start, classes, evaluate, budget, precision)}: 기본 정책을
+ *       보충해 공통 생성자로 위임한다. 입력: {@code start}(시작값), {@code classes}(동치류목록), {@code evaluate}(평가),
+ *       {@code budget}(계산예산), {@code precision}(정밀도).
+ *   <li>{@code CertifiedMethodSearchEngine(start, classes, evaluate, budget, precision, backing)}:
+ *       전달받은 값으로 구성원을 초기화한다. 입력: {@code start}(시작값), {@code classes}(동치류목록), {@code evaluate}(평가),
+ *       {@code budget}(계산예산), {@code precision}(정밀도), {@code backing}(backing).
+ *   <li>{@code rootLaw()}: {@code rootLaw} 값을 조회한다. 반환: {@code ConditionalMethodLaw}.
+ *   <li>{@code observation(method, cycles)}: 관측값 처리에서 {@code methods.get}, {@code saved.get}을(를)
+ *       사용한다. 입력: {@code method}(제작방법), {@code cycles}(주기횟수). 반환: {@code
+ *       IndexedCertifiedMethodRunner.Snapshot}. 사용하는 예외: {@code IllegalArgumentException}, {@code
+ *       IllegalStateException}.
+ *   <li>{@code classId(id)}: 동치류·식별자 처리에서 {@code states.values}을(를) 사용한다. 입력: {@code id}(식별자). 반환:
+ *       {@code int}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code id(key)}: 식별자의 입력에 따른 분기·결과를 처리한다. 입력: {@code key}(키). 반환: {@code String}.
+ *   <li>{@code rootId()}: 시작점·식별자 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code rootDirectComplete()}: 시작점·직접·완료 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code calculationVersion()}: {@code VERSION} 값을 조회한다. 반환: {@code String}.
+ *   <li>{@code stateVersion()}: 상태·버전 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code templatesVersion()}: 템플릿목록·버전 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code operations()}: {@code operations} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code graphRevision()}: {@code graphRevision} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code retainedEntries()}: 보유·항목목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code workingEntries()}: 계산중·항목목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code storage()}: 저장소 값을 조회·구성한다. 반환: {@code CertifiedLawStore.Metrics}.
+ *   <li>{@code absorptionStorage()}: 흡수·저장소 값을 조회·구성한다. 반환: {@code
+ *       CertifiedMutableLawStore.Metrics}.
+ *   <li>{@code kernelStorage()}: 전이커널·저장소 값을 조회·구성한다. 반환: {@code IndexedKernelStore.CacheMetrics}.
+ *   <li>{@code freezeTransientBytes()}: 불변복사·임시·바이트수 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code storageLimited()}: 저장소·제한된 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ *   <li>{@code classCount()}: 동치류·개수 값을 조회·구성한다. 반환: {@code int}.
+ *   <li>{@code retention()}: 보유량 값을 조회·구성한다. 반환: {@code Retention}.
+ *   <li>{@code precision()}: {@code precision} 값을 조회한다. 반환: {@code CertifiedInterval.Precision}.
+ *   <li>{@code memoryLimited()}: 메모리·제한된 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code increaseMemoryBudget(limit)}: 메모리·계산예산을(를) 한도를 늘린다. 입력: {@code limit}(한도). 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code assumptions()}: 계산가정 값을 조회·구성한다. 반환: {@code List<WorkbenchSimulator.Assumption>}.
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+ *   <li>{@code state(key, depth)}: 현재 상태 표현을 조회한다. 입력: {@code key}(키), {@code depth}(깊이). 반환:
+ *       {@code State}.
+ *   <li>{@code link(source, target)}: 연결 처리에서 {@code adjacency.computeIfAbsent}, {@code
+ *       frontier.add}을(를) 사용한다. 입력: {@code source}(출처), {@code target}(대상).
+ *   <li>{@code previewCandidate(state)}: 계산 중 후보의 미리보기 값을 만든다. 입력: {@code state}(상태).
+ *   <li>{@code preview(source)}: 현재 진행 상태의 미리보기 값을 만든다. 입력: {@code source}(출처).
+ *   <li>{@code discover(source)}: discover 처리에서 {@code progress.goal}, {@code
+ *       BasicCurrencyTransitions.supportedActions}을(를) 사용한다. 입력: {@code source}(출처).
+ *   <li>{@code add(source, initial, actions)}: 값 또는 항목을 더한다. 입력: {@code source}(출처), {@code
+ *       initial}(초기값), {@code actions}(행동목록).
+ *   <li>{@code progress(key)}: 진행상황 처리에서 {@code progressCache.computeIfAbsent}, {@code
+ *       index.key}을(를) 사용한다. 입력: {@code key}(키). 반환: {@code MethodSearchCalculation.Progress}.
+ *   <li>{@code classify(source, key, structural)}: 완전한 전이 특성을 기준으로 상태의 동치류를 판정한다. 입력: {@code
+ *       source}(출처), {@code key}(키), {@code structural}(구조적). 반환: {@code Optional<Exit>}.
+ *   <li>{@code states()}: 상태목록 값을 조회·구성한다. 반환: {@code List<MethodSearchEngine.StateView>}.
+ *   <li>{@code methods()}: 제작방법목록 값을 조회·구성한다. 반환: {@code List<MethodView>}.
+ *   <li>{@code strategyFitsPreparationBudget()}: 전략·Fits·준비·계산예산 값을 조회·구성한다. 반환: {@code boolean}.
+ *       사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code strategyWork()}: 전략·계산작업 값을 조회·구성한다. 반환: {@code CertifiedStrategyWork}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code strategy(cycles)}: 전략 처리에서 {@code OBSERVATIONS.contains}, {@code states.values}을(를)
+ *       사용한다. 입력: {@code cycles}(주기횟수). 반환: {@code CertifiedOutcomeStrategy<String>}. 사용하는 예외:
+ *       {@code IllegalStateException}, {@code IllegalArgumentException}.
+ *   <li>{@code ids(input)}: 식별자목록 처리에서 {@code lawViews.computeIfAbsent}, {@code law.size}을(를) 사용한다.
+ *       입력: {@code input}(입력). 반환: {@code Map<String, CertifiedInterval>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Preparation}: {@code CertifiedMethodSearchEngine}에서 사용하는 준비의 불변 값이다.
+ *   <li>{@code Prepared}: {@code CertifiedMethodSearchEngine}에서 사용하는 준비된의 불변 값이다.
+ *   <li>{@code DepthWork}: {@code CertifiedMethodSearchEngine}에서 사용하는 깊이·계산작업의 불변 값이다.
+ *   <li>{@code Workload}: {@code CertifiedMethodSearchEngine}에서 사용하는 작업량의 불변 값이다.
+ *   <li>{@code CheckpointLine}: {@code CertifiedMethodSearchEngine}에서 사용하는 체크포인트·행의 불변 값이다.
+ *   <li>{@code ClassCheckpoint}: {@code CertifiedMethodSearchEngine}에서 사용하는 동치류·체크포인트의 불변 값이다.
+ *   <li>{@code StateCheckpoint}: {@code CertifiedMethodSearchEngine}에서 사용하는 상태·체크포인트의 불변 값이다.
+ *   <li>{@code MethodCheckpoint}: {@code CertifiedMethodSearchEngine}에서 사용하는 제작방법·체크포인트의 불변 값이다.
+ *   <li>{@code PointCheckpoint}: {@code CertifiedMethodSearchEngine}에서 사용하는 지점·체크포인트의 불변 값이다.
+ *   <li>{@code QueueCheckpoint}: {@code CertifiedMethodSearchEngine}에서 사용하는 대기열·체크포인트의 불변 값이다.
+ *   <li>{@code CheckpointRestore}: {@code CertifiedMethodSearchEngine} 내부의 체크포인트·복원 처리를 맡는다.
+ *   <li>{@code Expansion}: {@code CertifiedMethodSearchEngine}에서 사용하는 확장의 불변 값이다.
+ *   <li>{@code PreviewPattern}: {@code CertifiedMethodSearchEngine}에서 사용하는 미리보기·패턴의 불변 값이다.
+ *   <li>{@code Retention}: {@code CertifiedMethodSearchEngine}에서 사용하는 보유량의 불변 값이다.
+ *   <li>{@code MethodRetention}: {@code CertifiedMethodSearchEngine}에서 사용하는 제작방법·보유량의 불변 값이다.
+ *   <li>{@code MethodView}: {@code CertifiedMethodSearchEngine}에서 사용하는 제작방법·조회표현의 불변 값이다.
+ *   <li>{@code IdentifierLaw}: {@code CertifiedMethodSearchEngine} 내부의 Identifier·분포 처리를 맡는다.
+ *   <li>{@code State}: {@code CertifiedMethodSearchEngine} 내부의 상태 처리를 맡는다.
+ *   <li>{@code Method}: {@code CertifiedMethodSearchEngine} 내부의 제작방법 처리를 맡는다.
+ * </ul>
+ */
 final class CertifiedMethodSearchEngine {
   static final String VERSION = "certified-method-map-v11-backed-pages";
   private final CertifiedLawStore laws;
@@ -50,6 +205,20 @@ final class CertifiedMethodSearchEngine {
   private long preparationEntries;
   private Method freezeOwner;
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 준비의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code int}).
+   *   <li>{@code progress}: 진행상황 ({@code MethodSearchCalculation.Progress}).
+   *   <li>{@code cycle}: 주기 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code law}: 분포 ({@code Map<Integer, Fraction>}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code unavailable}: 사용불가 ({@code boolean}).
+   * </ul>
+   */
   private record Preparation(
       int source,
       MethodSearchCalculation.Progress progress,
@@ -58,6 +227,16 @@ final class CertifiedMethodSearchEngine {
       Fraction unresolved,
       boolean unavailable) {}
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 준비된의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code owner}: 서버가 확인한 작업 소유자 ({@code Method}).
+   *   <li>{@code law}: 분포 ({@code IndexedCertifiedMethodRunner.InitialLaw}).
+   * </ul>
+   */
   private record Prepared(Method owner, IndexedCertifiedMethodRunner.InitialLaw law) {}
 
   private final Map<Preparation, Prepared> preparations = new HashMap<>();
@@ -87,6 +266,22 @@ final class CertifiedMethodSearchEngine {
     kernels.enableDiagnostics();
   }
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 깊이·계산작업의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code states}: 상태목록 ({@code long}).
+   *   <li>{@code goals}: 목표목록 ({@code long}).
+   *   <li>{@code expanded}: 확장된 ({@code long}).
+   *   <li>{@code complete}: 완료 ({@code long}).
+   *   <li>{@code undiscoveredActions}: undiscovered·행동목록 ({@code long}).
+   *   <li>{@code methods}: 제작방법목록 ({@code long}).
+   *   <li>{@code completedMethods}: 완료·제작방법목록 ({@code long}).
+   * </ul>
+   */
   record DepthWork(
       int depth,
       long states,
@@ -97,6 +292,25 @@ final class CertifiedMethodSearchEngine {
       long methods,
       long completedMethods) {}
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 작업량의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code operations}: 연산목록 ({@code long}).
+   *   <li>{@code methods}: 제작방법목록 ({@code long}).
+   *   <li>{@code completedMethods}: 완료·제작방법목록 ({@code long}).
+   *   <li>{@code unfinishedMethods}: unfinished·제작방법목록 ({@code long}).
+   *   <li>{@code unresolvedMethods}: 미해결·제작방법목록 ({@code long}).
+   *   <li>{@code delegates}: delegates ({@code long}).
+   *   <li>{@code queued}: 대기중 ({@code long}).
+   *   <li>{@code uniqueQueued}: 고유·대기중 ({@code long}).
+   *   <li>{@code steps}: 단계목록 ({@code Map<String, Long>}).
+   *   <li>{@code depths}: depths ({@code List<DepthWork>}).
+   *   <li>{@code kernels}: 전이커널목록 ({@code IndexedKernelStore.Workload}).
+   * </ul>
+   */
   record Workload(
       long operations,
       long methods,
@@ -147,13 +361,62 @@ final class CertifiedMethodSearchEngine {
 
   private long graphRevision;
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 체크포인트·행의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code kind}: 종류 ({@code String}).
+   *   <li>{@code value}: 값 ({@code JsonNode}).
+   * </ul>
+   */
   record CheckpointLine(String kind, JsonNode value) {}
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 동치류·체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code int}).
+   *   <li>{@code witness}: 증명상태 ({@code BasicCurrencyState}).
+   *   <li>{@code key}: 키 ({@code JsonNode}).
+   * </ul>
+   */
   record ClassCheckpoint(int id, BasicCurrencyState witness, JsonNode key) {}
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 상태·체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code key}: 키 ({@code int}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code discovery}: 발견 ({@code int}).
+   *   <li>{@code previewDiscovery}: 미리보기·발견 ({@code int}).
+   *   <li>{@code expanded}: 확장된 ({@code boolean}).
+   * </ul>
+   */
   record StateCheckpoint(
       int key, int depth, int discovery, int previewDiscovery, boolean expanded) {}
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 제작방법·체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code source}: 출처 ({@code int}).
+   *   <li>{@code initial}: 초기값 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code actions}: 행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code done}: 완료여부 ({@code boolean}).
+   *   <li>{@code executionDone}: 실행·완료여부 ({@code boolean}).
+   *   <li>{@code delegate}: 위임대상 ({@code String}).
+   * </ul>
+   */
   record MethodCheckpoint(
       String id,
       int source,
@@ -163,11 +426,40 @@ final class CertifiedMethodSearchEngine {
       boolean executionDone,
       String delegate) {}
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 지점·체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code method}: 제작방법 ({@code String}).
+   *   <li>{@code cycles}: 주기횟수 ({@code int}).
+   *   <li>{@code point}: 지점 ({@code CertifiedMethodRunner.Observation<Integer,
+   *       WorkbenchCurrency>}).
+   * </ul>
+   */
   record PointCheckpoint(
       String method,
       int cycles,
       CertifiedMethodRunner.Observation<Integer, WorkbenchCurrency> point) {}
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 대기열·체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code operations}: 연산목록 ({@code long}).
+   *   <li>{@code graphRevision}: 그래프·리비전 ({@code long}).
+   *   <li>{@code budget}: 계산예산 ({@code int}).
+   *   <li>{@code ready}: 준비완료 ({@code List<String>}).
+   *   <li>{@code frontier}: 미탐색경계 ({@code List<int[]>}).
+   *   <li>{@code previews}: previews ({@code List<int[]>}).
+   *   <li>{@code patterns}: patterns ({@code List<PreviewPattern>}).
+   *   <li>{@code adjacency}: 인접목록 ({@code Map<Integer, Set<Integer>>}).
+   *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code List<WorkbenchSimulator.Assumption>}).
+   * </ul>
+   */
   record QueueCheckpoint(
       long operations,
       long graphRevision,
@@ -274,6 +566,33 @@ final class CertifiedMethodSearchEngine {
     return new CheckpointRestore(json);
   }
 
+  /**
+   * {@code CertifiedMethodSearchEngine} 내부의 체크포인트·복원 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+   *   <li>{@code delegates}: delegates ({@code Map<String, String>}).
+   *   <li>{@code current}: 현재 ({@code Method}).
+   *   <li>{@code runner}: 실행기 ({@code IndexedCertifiedMethodRunner.Restoration}).
+   *   <li>{@code queues}: queues ({@code QueueCheckpoint}).
+   *   <li>{@code finished}: 종료 ({@code boolean}).
+   *   <li>{@code classes}: 동치류목록 ({@code int}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code CheckpointRestore(json)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code json}(JSON). 사용하는 예외:
+   *       {@code IllegalStateException}.
+   *   <li>{@code accept(line)}: 수락 처리에서 {@code line.kind}, {@code json.convertValue}을(를) 사용한다. 입력:
+   *       {@code line}(행). 사용하는 예외: {@code IllegalStateException}, {@code
+   *       IllegalArgumentException}.
+   *   <li>{@code finish()}: 진행 중인 계산 또는 누적 처리를 마무리한다. 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   */
   final class CheckpointRestore implements AutoCloseable {
     final ObjectMapper json;
     final Map<String, String> delegates = new LinkedHashMap<>();
@@ -474,8 +793,28 @@ final class CertifiedMethodSearchEngine {
 
   private int undiscovered;
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 확장의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code State}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   * </ul>
+   */
   private record Expansion(State state, int depth) {}
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 미리보기·패턴의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code progress}: 진행상황 ({@code MethodSearchCalculation.Progress}).
+   * </ul>
+   */
   private record PreviewPattern(int depth, MethodSearchCalculation.Progress progress) {}
 
   private final Set<PreviewPattern> previewedPatterns = new HashSet<>();
@@ -672,6 +1011,42 @@ final class CertifiedMethodSearchEngine {
     return index.size();
   }
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 보유량의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code classes}: 동치류목록 ({@code int}).
+   *   <li>{@code states}: 상태목록 ({@code int}).
+   *   <li>{@code progressKeys}: 진행상황·키목록 ({@code int}).
+   *   <li>{@code adjacencyEdges}: 인접목록·간선목록 ({@code long}).
+   *   <li>{@code queuedMethods}: 대기중·제작방법목록 ({@code int}).
+   *   <li>{@code activeRunners}: 활성·Runners ({@code int}).
+   *   <li>{@code pending}: 대기 ({@code long}).
+   *   <li>{@code boundary}: 경계 ({@code long}).
+   *   <li>{@code exits}: 종료목록 ({@code long}).
+   *   <li>{@code flightOutcomes}: 진행중·결과목록 ({@code long}).
+   *   <li>{@code savedAccounting}: 저장된·Accounting ({@code long}).
+   *   <li>{@code uniqueSavedEntries}: 고유·저장된·항목목록 ({@code long}).
+   *   <li>{@code cachedKernels}: 캐시된·전이커널목록 ({@code int}).
+   *   <li>{@code cachedOutcomes}: 캐시된·결과목록 ({@code int}).
+   *   <li>{@code pendingKernels}: 대기·전이커널목록 ({@code int}).
+   *   <li>{@code calculatedKernels}: calculated·전이커널목록 ({@code long}).
+   *   <li>{@code sharedRequests}: 공유·요청목록 ({@code long}).
+   *   <li>{@code kernelStorage}: 전이커널·저장소 ({@code IndexedKernelStore.CacheMetrics}).
+   *   <li>{@code preparationGroups}: 준비·그룹목록 ({@code int}).
+   *   <li>{@code preparationEntries}: 준비·항목목록 ({@code long}).
+   *   <li>{@code sharedMethods}: 공유·제작방법목록 ({@code long}).
+   *   <li>{@code freezeTransientBytes}: 불변복사·임시·바이트수 ({@code long}).
+   *   <li>{@code lawStorage}: 분포·저장소 ({@code CertifiedLawStore.Metrics}).
+   *   <li>{@code absorptionStorage}: 흡수·저장소 ({@code CertifiedMutableLawStore.Metrics}).
+   *   <li>{@code workingStorage}: 계산중·저장소 ({@code TemporaryWorkingLaws.Metrics}).
+   *   <li>{@code classStorage}: 동치류·저장소 ({@code TemporaryClassIndex.Metrics}).
+   *   <li>{@code additionProfiles}: 추가·특성목록 ({@code BasicTransitionClasses.ProfileMetrics}).
+   *   <li>{@code largestMethods}: largest·제작방법목록 ({@code List<MethodRetention>}).
+   * </ul>
+   */
   record Retention(
       int classes,
       int states,
@@ -702,6 +1077,19 @@ final class CertifiedMethodSearchEngine {
       BasicTransitionClasses.ProfileMetrics additionProfiles,
       List<MethodRetention> largestMethods) {}
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 제작방법·보유량의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code cycles}: 주기횟수 ({@code long}).
+   *   <li>{@code pending}: 대기 ({@code long}).
+   *   <li>{@code boundary}: 경계 ({@code long}).
+   *   <li>{@code exits}: 종료목록 ({@code long}).
+   * </ul>
+   */
   record MethodRetention(String id, long cycles, long pending, long boundary, long exits) {}
 
   Retention retention() {
@@ -938,6 +1326,26 @@ final class CertifiedMethodSearchEngine {
         });
   }
 
+  /**
+   * {@code CertifiedMethodSearchEngine}에서 사용하는 제작방법·조회표현의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code source}: 출처 ({@code String}).
+   *   <li>{@code initialActions}: 초기값·행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code actions}: 행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code points}: 지점목록 ({@code Map<Integer, CertifiedMethodRunner.Observation<String,
+   *       WorkbenchCurrency>>}).
+   *   <li>{@code checkpoints}: 체크포인트목록 ({@code Map<Integer, Map<MethodSearchCalculation.Progress,
+   *       CertifiedInterval>>}).
+   *   <li>{@code branches}: 분기목록 ({@code Map<Integer, Map<String,
+   *       Map<MethodSearchCalculation.Progress, CertifiedInterval>>>}).
+   * </ul>
+   */
   record MethodView(
       String id,
       String source,
@@ -1072,6 +1480,31 @@ final class CertifiedMethodSearchEngine {
         });
   }
 
+  /**
+   * {@code CertifiedMethodSearchEngine} 내부의 Identifier·분포 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code law}: 분포 ({@code Map<Integer, CertifiedInterval>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code IdentifierLaw(law)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code law}(분포).
+   *   <li>{@code total()}: 합계 값을 조회·구성한다. 반환: {@code CertifiedInterval}.
+   *   <li>{@code page(offset, limit)}: 페이지 처리에서 {@code CertifiedLawStore.page}, {@code
+   *       e.getKey}을(를) 사용한다. 입력: {@code offset}(시작위치), {@code limit}(한도). 반환: {@code
+   *       List<Map.Entry<String, CertifiedInterval>>}.
+   *   <li>{@code values()}: 값목록 값을 조회·구성한다. 반환: {@code Collection<CertifiedInterval>}.
+   *   <li>{@code size()}: 보유 항목의 개수를 조회한다. 반환: {@code int}.
+   *   <li>{@code get(key)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code key}(키). 반환: {@code
+   *       CertifiedInterval}.
+   *   <li>{@code entrySet()}: 항목·집합 값을 조회·구성한다. 반환: {@code Set<Map.Entry<String,
+   *       CertifiedInterval>>}.
+   * </ul>
+   */
   private final class IdentifierLaw extends AbstractMap<String, CertifiedInterval>
       implements CertifiedLawStore.PagedLaw<String> {
     private final Map<Integer, CertifiedInterval> law;
@@ -1141,6 +1574,28 @@ final class CertifiedMethodSearchEngine {
     }
   }
 
+  /**
+   * {@code CertifiedMethodSearchEngine} 내부의 상태 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code key}: 키 ({@code int}).
+   *   <li>{@code progress}: 진행상황 ({@code MethodSearchCalculation.Progress}).
+   *   <li>{@code methods}: 제작방법목록 ({@code List<Method>}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code discovery}: 발견 ({@code int}).
+   *   <li>{@code previewDiscovery}: 미리보기·발견 ({@code int}).
+   *   <li>{@code expanded}: 확장된 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code State(key, depth, progress)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code key}(키), {@code
+   *       depth}(깊이), {@code progress}(진행상황).
+   * </ul>
+   */
   private static final class State {
     final int key;
     final MethodSearchCalculation.Progress progress;
@@ -1155,6 +1610,57 @@ final class CertifiedMethodSearchEngine {
     }
   }
 
+  /**
+   * {@code CertifiedMethodSearchEngine} 내부의 제작방법 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code State}).
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code initial}: 초기값 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code actions}: 행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code saved}: 저장된 ({@code Map<Integer, IndexedCertifiedMethodRunner.Snapshot>}).
+   *   <li>{@code points}: 지점목록 ({@code Map<Integer, CertifiedMethodRunner.Observation<String,
+   *       WorkbenchCurrency>>}).
+   *   <li>{@code checkpoints}: 체크포인트목록 ({@code Map<Integer, Map<MethodSearchCalculation.Progress,
+   *       CertifiedInterval>>}).
+   *   <li>{@code branches}: 분기목록 ({@code Map<Integer, Map<String,
+   *       Map<MethodSearchCalculation.Progress, CertifiedInterval>>>}).
+   *   <li>{@code runner}: 실행기 ({@code IndexedCertifiedMethodRunner}).
+   *   <li>{@code freezing}: freezing ({@code IndexedCertifiedMethodRunner.FrozenSnapshot}).
+   *   <li>{@code publications}: publications ({@code ArrayDeque<Publication>}).
+   *   <li>{@code executionDone}: 실행·완료여부 ({@code boolean}).
+   *   <li>{@code preparationRequest}: 준비·요청 ({@code IndexedKernelStore.Request}).
+   *   <li>{@code delegate}: 위임대상 ({@code Method}).
+   *   <li>{@code equivalence}: equivalence ({@code
+   *       IndexedCertifiedMethodRunner.InitialEquivalence}).
+   *   <li>{@code prepared}: 준비된 ({@code boolean}).
+   *   <li>{@code linkedLaws}: linked·분포목록 ({@code Set<Map<Integer, CertifiedInterval>>}).
+   *   <li>{@code done}: 완료여부 ({@code boolean}).
+   *   <li>{@code unresolved}: 미해결 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code template()}: 템플릿 값을 조회·구성한다. 반환: {@code Template<Integer, WorkbenchCurrency>}.
+   *   <li>{@code Method(source, id, initial, actions)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       source}(출처), {@code id}(식별자), {@code initial}(초기값), {@code actions}(행동목록).
+   *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+   *   <li>{@code phase()}: 단계 값을 조회·구성한다. 반환: {@code String}.
+   *   <li>{@code save(cycles, snapshot)}: 현재 값을 저장 경계에 기록한다. 입력: {@code cycles}(주기횟수), {@code
+   *       snapshot}(스냅샷).
+   *   <li>{@code publish(cycles, snapshot)}: 새 결과나 체크포인트를 외부 조회에 공개한다. 입력: {@code cycles}(주기횟수),
+   *       {@code snapshot}(스냅샷).
+   * </ul>
+   *
+   * <p>중첩 타입:
+   *
+   * <ul>
+   *   <li>{@code Publication}: {@code Method} 내부의 Publication 처리를 맡는다.
+   * </ul>
+   */
   private final class Method {
     final State source;
     final String id;
@@ -1318,6 +1824,30 @@ final class CertifiedMethodSearchEngine {
       publications.addLast(new Publication(cycles, snapshot));
     }
 
+    /**
+     * {@code Method} 내부의 Publication 처리를 맡는다.
+     *
+     * <p>필드·상수:
+     *
+     * <ul>
+     *   <li>{@code cycles}: 주기횟수 ({@code int}).
+     *   <li>{@code snapshot}: 스냅샷 ({@code IndexedCertifiedMethodRunner.Snapshot}).
+     *   <li>{@code lawsToLink}: 분포목록·대상·연결 ({@code Iterator<Map<Integer, CertifiedInterval>>}).
+     *   <li>{@code targets}: 대상목록 ({@code Iterator<Map.Entry<Integer, CertifiedInterval>>}).
+     *   <li>{@code currentLaw}: 현재·분포 ({@code Map<Integer, CertifiedInterval>}).
+     *   <li>{@code totals}: totals ({@code Map<MethodSearchCalculation.Progress,
+     *       CertifiedInterval>}).
+     *   <li>{@code linkLaw}: 연결·분포 ({@code boolean}).
+     * </ul>
+     *
+     * <p>생성자·메서드:
+     *
+     * <ul>
+     *   <li>{@code Publication(cycles, snapshot)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code cycles}(주기횟수),
+     *       {@code snapshot}(스냅샷).
+     *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다. 반환: {@code boolean}.
+     * </ul>
+     */
     private final class Publication {
       final int cycles;
       final IndexedCertifiedMethodRunner.Snapshot snapshot;

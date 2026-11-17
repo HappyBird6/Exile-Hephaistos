@@ -12,6 +12,31 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 개별행동·진행커서 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code transitions}: 전이목록 ({@code BasicCurrencyTransitions}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code state(explicits)}: 현재 상태 표현을 조회한다. 입력: {@code explicits}(명시옵션목록). 반환: {@code
+ *       BasicCurrencyState}.
+ *   <li>{@code modifier(stat)}: 옵션 처리에서 {@code catalog.modifiers}, {@code d.layer}을(를) 사용한다. 입력:
+ *       {@code stat}(수치). 반환: {@code ModifierInstance}.
+ *   <li>{@code streamingAndIndependentExistingEnumerationAgreeForAdditionChaosAndTwoWayRemoval()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code existingLifeIsPreservedOnAdditionAndChaosResistanceIsDiscoverable()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unsupportedOmensAreNotConvertedToEmptyCompleteKernels()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ * </ul>
+ */
 class PrimitiveCursorTest {
   final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   final BasicCurrencyTransitions transitions =

@@ -7,7 +7,80 @@ import com.poe2craft.shared.probability.Fraction;
 import java.math.BigInteger;
 import java.util.*;
 
-/** Exact one-axis mixtures inside a single mutually exclusive execution distribution. */
+/**
+ * 서로 배타적인 실행 분포 안에서 한 축의 정확한 혼합을 계산한다.
+ *
+ * <p>기존 계약: Exact one-axis mixtures inside a single mutually exclusive execution distribution.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "conditional-tier-orbit-mixture-expansion-v3"} ({@code
+ *       String}).
+ *   <li>{@code classes}: 동치류목록 ({@code BasicTransitionClasses}).
+ *   <li>{@code decompositions}: decompositions ({@code Map<TierCell, Map<TierCell, Fraction>>}).
+ *   <li>{@code originalCells}: 원본·셀목록 ({@code Set<TierCell>}).
+ *   <li>{@code distributions}: distributions ({@code long}).
+ *   <li>{@code mergedCells}: merged·셀목록 ({@code long}).
+ *   <li>{@code mergedOrbitCells}: merged·교환가능계열·셀목록 ({@code long}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code metrics()}: 측정값 값을 조회·구성한다. 반환: {@code Metrics}.
+ *   <li>{@code DeferredMixtures(classes)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code classes}(동치류목록).
+ *   <li>{@code compact(distribution)}: 압축여부 처리에서 {@code cursor.complete}, {@code cursor.step}을(를)
+ *       사용한다. 입력: {@code distribution}(확률분포). 반환: {@code Map<DeferredItem, Fraction>}.
+ *   <li>{@code start(distribution)}: 시작값의 입력에 따른 분기·결과를 처리한다. 입력: {@code distribution}(확률분포). 반환:
+ *       {@code ExactMethodRunner.Compaction<DeferredItem>}.
+ *   <li>{@code expand(distribution)}: 다음 상태 또는 분포 구간을 확장한다. 입력: {@code distribution}(확률분포). 반환:
+ *       {@code Map<DeferredItem, Fraction>}.
+ *   <li>{@code startExpansion(distribution)}: 시작값·확장 처리에서 {@code distribution.keySet}을(를) 사용한다. 입력:
+ *       {@code distribution}(확률분포). 반환: {@code ExactMethodRunner.Compaction<DeferredItem>}. 사용하는
+ *       예외: {@code IllegalArgumentException}.
+ *   <li>{@code original(state)}: 원본 처리에서 {@code state.orbits}, {@code state.tiers}을(를) 사용한다. 입력:
+ *       {@code state}(상태). 반환: {@code boolean}.
+ *   <li>{@code expansionAxes(source)}: 확장·축목록 처리에서 {@code source.tiers}, {@code
+ *       decompositions.get}을(를) 사용한다. 입력: {@code source}(출처). 반환: {@code
+ *       List<List<ExpansionChoice>>}.
+ *   <li>{@code withoutOrbit(source, profile)}: 교환가능계열을(를) 제외한 값을 구한다. 입력: {@code source}(출처),
+ *       {@code profile}(특성). 반환: {@code DeferredItem}.
+ *   <li>{@code withOrbit(rest, cell)}: 교환가능계열을(를) 반영한 값을 구한다. 입력: {@code rest}(rest), {@code
+ *       cell}(셀). 반환: {@code DeferredItem}.
+ *   <li>{@code replaceLaw(source, modifier, law)}: replace·분포 처리에서 {@code source.item}, {@code
+ *       m.modifierId}을(를) 사용한다. 입력: {@code source}(출처), {@code modifier}(옵션), {@code law}(분포). 반환:
+ *       {@code DeferredItem}.
+ *   <li>{@code inOrbit(state, modifier)}: 입력·교환가능계열 처리에서 {@code state.orbits}, {@code
+ *       orbit.representatives}을(를) 사용한다. 입력: {@code state}(상태), {@code modifier}(옵션). 반환: {@code
+ *       boolean}.
+ *   <li>{@code law(state, modifier)}: 분포 처리에서 {@code state.tiers}, {@code modifier.modifierId}을(를)
+ *       사용한다. 입력: {@code state}(상태), {@code modifier}(옵션). 반환: {@code TierCell}.
+ *   <li>{@code without(state, modifier)}: without 처리에서 {@code state.rolls}, {@code state.tiers}을(를)
+ *       사용한다. 입력: {@code state}(상태), {@code modifier}(옵션). 반환: {@code DeferredItem}.
+ *   <li>{@code replace(state, explicits)}: replace 처리에서 {@code state.item}, {@code
+ *       i.snapshotId}을(를) 사용한다. 입력: {@code state}(상태), {@code explicits}(명시옵션목록). 반환: {@code
+ *       BasicCurrencyState}.
+ *   <li>{@code mix(slices, mass)}: mix 처리에서 {@code Comparator.comparing}, {@code slice.law}을(를)
+ *       사용한다. 입력: {@code slices}(slices), {@code mass}(확률질량). 반환: {@code TierCell}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Metrics}: {@code DeferredMixtures}에서 사용하는 측정값의 불변 값이다.
+ *   <li>{@code Group}: {@code DeferredMixtures}에서 사용하는 그룹의 불변 값이다.
+ *   <li>{@code Slice}: {@code DeferredMixtures}에서 사용하는 분할작업의 불변 값이다.
+ *   <li>{@code Interval}: {@code DeferredMixtures}에서 사용하는 구간의 불변 값이다.
+ *   <li>{@code Pipeline}: {@code DeferredMixtures} 내부의 Pipeline 처리를 맡는다.
+ *   <li>{@code ExpansionChoice}: {@code DeferredMixtures}에서 사용하는 확장·선택의 불변 값이다.
+ *   <li>{@code ExpansionCursor}: {@code DeferredMixtures} 내부의 확장·진행커서 처리를 맡는다.
+ *   <li>{@code OrbitGroup}: {@code DeferredMixtures}에서 사용하는 교환가능계열·그룹의 불변 값이다.
+ *   <li>{@code OrbitSlice}: {@code DeferredMixtures}에서 사용하는 교환가능계열·분할작업의 불변 값이다.
+ *   <li>{@code OrbitCursor}: {@code DeferredMixtures} 내부의 교환가능계열·진행커서 처리를 맡는다.
+ *   <li>{@code Cursor}: {@code DeferredMixtures} 내부의 진행커서 처리를 맡는다.
+ * </ul>
+ */
 public final class DeferredMixtures {
   public static final String VERSION = "conditional-tier-orbit-mixture-expansion-v3";
   private final BasicTransitionClasses classes;
@@ -16,6 +89,18 @@ public final class DeferredMixtures {
   private final Set<TierCell> originalCells = new HashSet<>();
   private long distributions, mergedCells, mergedOrbitCells;
 
+  /**
+   * {@code DeferredMixtures}에서 사용하는 측정값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code distributions}: distributions ({@code long}).
+   *   <li>{@code mergedCells}: merged·셀목록 ({@code long}).
+   *   <li>{@code generatedLaws}: 생성된·분포목록 ({@code int}).
+   *   <li>{@code mergedOrbitCells}: merged·교환가능계열·셀목록 ({@code long}).
+   * </ul>
+   */
   public record Metrics(
       long distributions, long mergedCells, int generatedLaws, long mergedOrbitCells) {}
 
@@ -27,10 +112,41 @@ public final class DeferredMixtures {
     this.classes = Objects.requireNonNull(classes);
   }
 
+  /**
+   * {@code DeferredMixtures}에서 사용하는 그룹의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code rest}: rest ({@code DeferredItem}).
+   *   <li>{@code role}: 역할 ({@code BasicTransitionClasses.Role}).
+   * </ul>
+   */
   private record Group(DeferredItem rest, BasicTransitionClasses.Role role) {}
 
+  /**
+   * {@code DeferredMixtures}에서 사용하는 분할작업의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code DeferredItem}).
+   *   <li>{@code mass}: 확률질량 ({@code Fraction}).
+   *   <li>{@code law}: 분포 ({@code TierCell}).
+   * </ul>
+   */
   private record Slice(DeferredItem source, Fraction mass, TierCell law) {}
 
+  /**
+   * {@code DeferredMixtures}에서 사용하는 구간의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code modifier}: 옵션 ({@code String}).
+   *   <li>{@code stat}: 수치 ({@code String}).
+   * </ul>
+   */
   private record Interval(String modifier, String stat) {}
 
   public Map<DeferredItem, Fraction> compact(Map<DeferredItem, Fraction> distribution) {
@@ -44,6 +160,27 @@ public final class DeferredMixtures {
     return new Pipeline(distribution);
   }
 
+  /**
+   * {@code DeferredMixtures} 내부의 Pipeline 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code phase}: 단계 ({@code ExactMethodRunner.Compaction<DeferredItem>}).
+   *   <li>{@code tiers}: 티어목록 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Pipeline(input)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code input}(입력).
+   *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code step(maxInputs)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code maxInputs}(최대값·입력목록). 사용하는 예외:
+   *       {@code IllegalArgumentException}.
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code Map<DeferredItem, Fraction>}. 사용하는 예외:
+   *       {@code IllegalStateException}.
+   * </ul>
+   */
   private final class Pipeline implements ExactMethodRunner.Compaction<DeferredItem> {
     ExactMethodRunner.Compaction<DeferredItem> phase;
     boolean tiers;
@@ -107,6 +244,16 @@ public final class DeferredMixtures {
         && state.tiers().values().stream().noneMatch(decompositions::containsKey);
   }
 
+  /**
+   * {@code DeferredMixtures}에서 사용하는 확장·선택의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code mass}: 확률질량 ({@code Fraction}).
+   *   <li>{@code transform}: transform ({@code java.util.function.UnaryOperator<DeferredItem>}).
+   * </ul>
+   */
   private record ExpansionChoice(
       Fraction mass, java.util.function.UnaryOperator<DeferredItem> transform) {}
 
@@ -138,6 +285,32 @@ public final class DeferredMixtures {
     return axes;
   }
 
+  /**
+   * {@code DeferredMixtures} 내부의 확장·진행커서 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code inputs}: 입력목록 ({@code Iterator<Map.Entry<DeferredItem, Fraction>>}).
+   *   <li>{@code expanded}: 확장된 ({@code Map<DeferredItem, Fraction>}).
+   *   <li>{@code current}: 현재 ({@code Map.Entry<DeferredItem, Fraction>}).
+   *   <li>{@code axes}: 축목록 ({@code List<List<ExpansionChoice>>}).
+   *   <li>{@code positions}: 위치목록 ({@code int[]}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code ExpansionCursor(distribution)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       distribution}(확률분포).
+   *   <li>{@code complete()}: {@code complete} 값을 조회한다. 반환: {@code boolean}.
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code Map<DeferredItem, Fraction>}. 사용하는 예외:
+   *       {@code IllegalStateException}.
+   *   <li>{@code step(maxInputs)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code maxInputs}(최대값·입력목록). 사용하는 예외:
+   *       {@code IllegalArgumentException}.
+   * </ul>
+   */
   private final class ExpansionCursor implements ExactMethodRunner.Compaction<DeferredItem> {
     final Iterator<Map.Entry<DeferredItem, Fraction>> inputs;
     final Map<DeferredItem, Fraction> expanded = new LinkedHashMap<>();
@@ -212,10 +385,60 @@ public final class DeferredMixtures {
         replace(rest.representative(), explicits), rest.rolls(), rest.tiers(), orbits);
   }
 
+  /**
+   * {@code DeferredMixtures}에서 사용하는 교환가능계열·그룹의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code rest}: rest ({@code DeferredItem}).
+   *   <li>{@code profile}: 특성 ({@code OrbitCell.Profile}).
+   *   <li>{@code occupied}: occupied ({@code int}).
+   * </ul>
+   */
   private record OrbitGroup(DeferredItem rest, OrbitCell.Profile profile, int occupied) {}
 
+  /**
+   * {@code DeferredMixtures}에서 사용하는 교환가능계열·분할작업의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code DeferredItem}).
+   *   <li>{@code law}: 분포 ({@code OrbitCell}).
+   *   <li>{@code mass}: 확률질량 ({@code Fraction}).
+   * </ul>
+   */
   private record OrbitSlice(DeferredItem state, OrbitCell law, Fraction mass) {}
 
+  /**
+   * {@code DeferredMixtures} 내부의 교환가능계열·진행커서 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code result}: 결과 ({@code LinkedHashMap<DeferredItem, Fraction>}).
+   *   <li>{@code profiles}: 특성목록 ({@code TreeSet<String>}).
+   *   <li>{@code scan}: 순회 ({@code Iterator<Map.Entry<DeferredItem, Fraction>>}).
+   *   <li>{@code axes}: 축목록 ({@code Iterator<String>}).
+   *   <li>{@code profile}: 특성 ({@code String}).
+   *   <li>{@code groups}: 그룹목록 ({@code Map<OrbitGroup, List<OrbitSlice>>}).
+   *   <li>{@code merging}: merging ({@code Iterator<Map.Entry<OrbitGroup, List<OrbitSlice>>>}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code OrbitCursor(input)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code input}(입력).
+   *   <li>{@code complete()}: {@code complete} 값을 조회한다. 반환: {@code boolean}.
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code Map<DeferredItem, Fraction>}. 사용하는 예외:
+   *       {@code IllegalStateException}.
+   *   <li>{@code step(maxInputs)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code maxInputs}(최대값·입력목록). 사용하는 예외:
+   *       {@code IllegalArgumentException}.
+   *   <li>{@code advance()}: 허용된 계산량만큼 작업을 진행한다.
+   * </ul>
+   */
   private final class OrbitCursor implements ExactMethodRunner.Compaction<DeferredItem> {
     final LinkedHashMap<DeferredItem, Fraction> result;
     final TreeSet<String> profiles = new TreeSet<>();
@@ -316,6 +539,34 @@ public final class DeferredMixtures {
     return new DeferredItem(replace(rest.representative(), explicits), rolls, tiers, rest.orbits());
   }
 
+  /**
+   * {@code DeferredMixtures} 내부의 진행커서 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code result}: 결과 ({@code LinkedHashMap<DeferredItem, Fraction>}).
+   *   <li>{@code families}: 옵션계열목록 ({@code TreeSet<String>}).
+   *   <li>{@code scan}: 순회 ({@code Iterator<Map.Entry<DeferredItem, Fraction>>}).
+   *   <li>{@code axes}: 축목록 ({@code Iterator<String>}).
+   *   <li>{@code family}: 옵션계열 ({@code String}).
+   *   <li>{@code groups}: 그룹목록 ({@code LinkedHashMap<Group, List<Slice>>}).
+   *   <li>{@code merging}: merging ({@code Iterator<Map.Entry<Group, List<Slice>>>}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Cursor(distribution)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code distribution}(확률분포).
+   *   <li>{@code complete()}: {@code complete} 값을 조회한다. 반환: {@code boolean}.
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code Map<DeferredItem, Fraction>}. 사용하는 예외:
+   *       {@code IllegalStateException}.
+   *   <li>{@code step(maxInputs)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code maxInputs}(최대값·입력목록). 사용하는 예외:
+   *       {@code IllegalArgumentException}.
+   *   <li>{@code advance()}: 허용된 계산량만큼 작업을 진행한다.
+   * </ul>
+   */
   private final class Cursor implements ExactMethodRunner.Compaction<DeferredItem> {
     final LinkedHashMap<DeferredItem, Fraction> result;
     final TreeSet<String> families = new TreeSet<>();

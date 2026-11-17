@@ -14,6 +14,31 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.UrlPathHelper;
 
+/**
+ * 계정 API에 세션 인증과 요청 크기 제한을 적용한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code redis}: Redis ({@code StringRedisTemplate}).
+ *   <li>{@code attempts}: 시도수 ({@code int}).
+ *   <li>{@code newSessions}: new·세션목록 ({@code int}).
+ *   <li>{@code RATE}: RATE ({@code DefaultRedisScript<Long>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AccountAccessFilter(redis, attempts, newSessions)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       redis}(Redis), {@code attempts}(시도수), {@code newSessions}(new·세션목록).
+ *   <li>{@code shouldNotFilter(r)}: 현재 요청을 필터 적용에서 제외할지 판정한다. 입력: {@code r}(r). 반환: {@code
+ *       boolean}.
+ *   <li>{@code doFilterInternal(r, s, chain)}: 요청을 검사하고 다음 필터 호출 및 종료 처리를 수행한다. 입력: {@code r}(r),
+ *       {@code s}(s), {@code chain}(필터연쇄). 사용하는 예외: {@code IOException}, {@code ServletException}.
+ *   <li>{@code admit(category, r, s, limit)}: 현재 제한 아래 요청을 받아들일지 판정한다. 입력: {@code category}(분류),
+ *       {@code r}(r), {@code s}(s), {@code limit}(한도). 반환: {@code boolean}.
+ * </ul>
+ */
 @Component
 @Order(2)
 public class AccountAccessFilter extends OncePerRequestFilter {

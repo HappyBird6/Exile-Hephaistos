@@ -8,6 +8,19 @@ import java.time.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 요청 로그 수집과 조회 및 날짜별 보관 작업을 조정한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code rejectionFloodOnlyQueuesOneDetailPerSecond()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code retentionChangesAtKoreanMidnightAndIncludesSevenDaysAgo()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code failedFlushRetriesAndBoundedQueueReportsOverflow()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ * </ul>
+ */
 class RequestLogServiceTest {
   @Test
   void rejectionFloodOnlyQueuesOneDetailPerSecond() {

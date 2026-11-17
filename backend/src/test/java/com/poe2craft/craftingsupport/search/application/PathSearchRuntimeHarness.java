@@ -12,7 +12,19 @@ import org.springframework.http.HttpMethod;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-/** Test-only HTTP bridge to the real MVC controller/filter/service, without database or Docker. */
+/**
+ * 경로·탐색·실행환경·Harness 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Test-only HTTP bridge to the real MVC controller/filter/service, without database or
+ * Docker.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code main(args)}: 애플리케이션 또는 독립 실행 도구를 시작한다. 입력: {@code args}(명령인자). 사용하는 예외: {@code
+ *       Exception}.
+ * </ul>
+ */
 public final class PathSearchRuntimeHarness {
   public static void main(String[] args) throws Exception {
     WorkbenchDefinitionsLoader.initialize();

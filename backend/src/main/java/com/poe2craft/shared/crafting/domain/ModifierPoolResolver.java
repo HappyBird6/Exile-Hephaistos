@@ -9,7 +9,43 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Pre-indexes eligibility and family conflicts once per immutable snapshot. */
+/**
+ * 불변 스냅샷의 생성 가능성과 계열 충돌을 미리 색인한다.
+ *
+ * <p>기존 계약: Pre-indexes eligibility and family conflicts once per immutable snapshot.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code definitions}: 정의목록 ({@code List<ModifierDefinition>}).
+ *   <li>{@code levels}: 레벨목록 ({@code BitSet[]}).
+ *   <li>{@code prefixes}: 접두목록 ({@code BitSet}).
+ *   <li>{@code suffixes}: 접미목록 ({@code BitSet}).
+ *   <li>{@code families}: 옵션계열목록 ({@code Map<String, BitSet>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ModifierPoolResolver(catalog)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code catalog}(카탈로그).
+ *   <li>{@code resolve(state)}: 해결 처리에서 {@code state.rarity}, {@code state.itemLevel}을(를) 사용한다. 입력:
+ *       {@code state}(상태). 반환: {@code Pool}.
+ *   <li>{@code exclusions(state, definition, reservedPrefixes, reservedSuffixes,
+ *       replacingReserved)}: exclusions 처리에서 {@code definition.requiredItemLevel}, {@code
+ *       state.itemLevel}을(를) 사용한다. 입력: {@code state}(상태), {@code definition}(정의), {@code
+ *       reservedPrefixes}(reserved·접두목록), {@code reservedSuffixes}(reserved·접미목록), {@code
+ *       replacingReserved}(replacing·Reserved). 반환: {@code List<String>}.
+ *   <li>{@code limits(state)}: 한도목록 처리에서 {@code state.rarity}, {@code catalog.base}을(를) 사용한다. 입력:
+ *       {@code state}(상태). 반환: {@code int[]}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Pool}: {@code ModifierPoolResolver}에서 사용하는 후보풀의 불변 값이다.
+ * </ul>
+ */
 public final class ModifierPoolResolver {
   private final ItemCatalog catalog;
   private final List<ModifierDefinition> definitions;
@@ -120,5 +156,15 @@ public final class ModifierPoolResolver {
     return new int[] {p, s};
   }
 
+  /**
+   * {@code ModifierPoolResolver}에서 사용하는 후보풀의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code candidates}: 후보목록 ({@code List<ModifierDefinition>}).
+   *   <li>{@code totalWeight}: 합계·가중치 ({@code long}).
+   * </ul>
+   */
   public record Pool(List<ModifierDefinition> candidates, long totalWeight) {}
 }

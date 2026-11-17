@@ -11,6 +11,37 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Homogenising 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code exalt}: 엑잘티드 ({@code String}).
+ *   <li>{@code regal}: 제왕 ({@code String}).
+ *   <li>{@code greater}: greater ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code mod(id, side, weight, tags)}: mod 처리에서 {@code ModifierDefinition.StatRange}을(를)
+ *       사용한다. 입력: {@code id}(식별자), {@code side}(접두접미), {@code weight}(가중치), {@code tags}(태그목록). 반환:
+ *       {@code ModifierDefinition}.
+ *   <li>{@code catalog(matching)}: 카탈로그 처리에서 {@code ItemCatalogLoader.loadDefault}, {@code
+ *       source.find}을(를) 사용한다. 입력: {@code matching}(일치). 반환: {@code ItemCatalog}.
+ *   <li>{@code state(c, rarity, mods)}: 현재 상태 표현을 조회한다. 입력: {@code c}(c), {@code rarity}(희귀도),
+ *       {@code mods}(옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code singleTagUnionUsesOrdinaryWeightsAndConsumesOnlyMatchingTrigger()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code doubleAdditionNeverExpandsTagsAndRetainsFracturedOriginal()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code noTagsFallsBackButNoMatchingCandidateRefusesWithoutConsumingOrDrawing()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code tieredDoubleAdditionWorksButUnknownCombinationAndSecondBranchRefuse()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class HomogenisingTest {
   final String exalt = WorkbenchOmen.HOMOGENISING_EXALTATION.id();
   final String regal = WorkbenchOmen.HOMOGENISING_CORONATION.id();

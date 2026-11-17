@@ -9,12 +9,71 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.*;
 
-/** Permutations are allowed only for identical complete basic-action weight profiles. */
+/**
+ * 모든 기본 행동의 가중치가 같은 계열끼리만 교환 가능한 묶음을 만든다.
+ *
+ * <p>기존 계약: Permutations are allowed only for identical complete basic-action weight profiles.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "shared-pool-family-permutation-v3"} ({@code String}).
+ *   <li>{@code members}: 구성원목록 ({@code Map<String, Member>}).
+ *   <li>{@code cells}: 셀목록 ({@code Map<OrbitCell.Profile, Map<Map<Integer, Integer>, OrbitCell>>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code OrbitPartition(members)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code members}(구성원목록).
+ *   <li>{@code empty()}: 빈 초기값 또는 비어 있는지 여부를 구한다. 반환: {@code OrbitPartition}.
+ *   <li>{@code compile(catalog, root, rolls, eligibility)}: 입력 조건을 재사용할 평가·실행 표현으로 바꾼다. 입력: {@code
+ *       catalog}(카탈로그), {@code root}(시작점), {@code rolls}(수치굴림목록), {@code eligibility}(생성적격). 반환:
+ *       {@code OrbitPartition}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code digest(value)}: 다이제스트 처리에서 {@code HexFormat.of}, {@code
+ *       MessageDigest.getInstance}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code String}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code validateSource(source)}: 출처을(를) 검증한다. 입력: {@code source}(출처). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code profile(modifierId)}: 특성 처리에서 {@code members.get}, {@code Optional.empty}을(를) 사용한다.
+ *       입력: {@code modifierId}(옵션·식별자). 반환: {@code Optional<OrbitCell.Profile>}.
+ *   <li>{@code normalize(state, rolls, tiers)}: 정규화 처리에서 {@code state.item}, {@code
+ *       members.get}을(를) 사용한다. 입력: {@code state}(상태), {@code rolls}(수치굴림목록), {@code tiers}(티어목록).
+ *       반환: {@code DeferredItem}. 사용하는 예외: {@code IllegalStateException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Key}: {@code OrbitPartition}에서 사용하는 키의 불변 값이다.
+ *   <li>{@code Member}: {@code OrbitPartition}에서 사용하는 구성원의 불변 값이다.
+ * </ul>
+ */
 public final class OrbitPartition {
   public static final String VERSION = "shared-pool-family-permutation-v3";
 
+  /**
+   * {@code OrbitPartition}에서 사용하는 키의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code affix}: 접두접미옵션 ({@code ModifierDefinition.AffixType}).
+   *   <li>{@code weights}: 가중치목록 ({@code Map<Integer, Long>}).
+   * </ul>
+   */
   private record Key(ModifierDefinition.AffixType affix, Map<Integer, Long> weights) {}
 
+  /**
+   * {@code OrbitPartition}에서 사용하는 구성원의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code profile}: 특성 ({@code OrbitCell.Profile}).
+   *   <li>{@code category}: 분류 ({@code int}).
+   * </ul>
+   */
   private record Member(OrbitCell.Profile profile, int category) {}
 
   private final Map<String, Member> members;

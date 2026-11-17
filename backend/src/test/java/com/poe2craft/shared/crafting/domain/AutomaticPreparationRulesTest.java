@@ -17,6 +17,37 @@ import java.util.*;
 import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 자동·준비·규칙목록 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code tiny}: tiny ({@code BasicCurrencyFixture}).
+ *   <li>{@code policy}: 정책 ({@code AutomaticCurrencyPolicy}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code kernel(catalog)}: 전이커널의 입력에 따른 분기·결과를 처리한다. 입력: {@code catalog}(카탈로그). 반환: {@code
+ *       AutomaticCraftingKernel}.
+ *   <li>{@code goal(modifier, value, rare)}: 목표 처리에서 {@code item.explicits}, {@code
+ *       m.modifierId}을(를) 사용한다. 입력: {@code modifier}(옵션), {@code value}(값), {@code rare}(희귀). 반환:
+ *       {@code Function<ItemState, AutomaticMethodGraph.Progress>}.
+ *   <li>{@code choices(item, catalog, evaluate)}: 선택목록 처리에서 {@code
+ *       AutomaticCraftingAction.candidates}을(를) 사용한다. 입력: {@code item}(아이템), {@code catalog}(카탈로그),
+ *       {@code evaluate}(평가). 반환: {@code List<GoalDirectedPlanner.Choice>}.
+ *   <li>{@code chaosPreparationUsesExactlyOnePlainExaltOrRegalWithoutAssumingEqualProbabilities()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code goalRegalUsesTheHelpfulSuffixOmen()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code certainCompletedRegalGoalDoesNotPayForAnOmenWithDifferentUnconstrainedJunk()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code identicalRegalLawKeepsOnlyPlainRegal()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code normalAmuletHasAnExactTransmutationThenRegalPathToRare()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AutomaticPreparationRulesTest {
   final BasicCurrencyFixture tiny = new BasicCurrencyFixture();
   final AutomaticCurrencyPolicy policy = AutomaticCurrencyPolicyLoader.load();

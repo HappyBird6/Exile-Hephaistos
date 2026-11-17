@@ -7,6 +7,30 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 결정적 정책 후보를 제한된 수로 만들고 성공 도달 가능성으로 비교한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code p(n, d)}: p 처리에서 {@code CertifiedInterval.enclose}, {@code Fraction.of}을(를) 사용한다.
+ *       입력: {@code n}(n), {@code d}(d). 반환: {@code CertifiedInterval}.
+ *   <li>{@code action(id, outcomes, cost)}: 행동의 입력에 따른 분기·결과를 처리한다. 입력: {@code id}(식별자), {@code
+ *       outcomes}(결과목록), {@code cost}(비용). 반환: {@code Action}.
+ *   <li>{@code evaluator(states)}: 평가기 처리에서 {@code graph.put}, {@code states.forEach}을(를) 사용한다. 입력:
+ *       {@code states}(상태목록). 반환: {@code AutomaticPolicyCandidates}.
+ *   <li>{@code entireBranchPolicyAggregatesTerminalMassAndReachWeightedMaterialUse()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code topThreeSurvivePruningAndMatchExhaustiveOneStatePolicies()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code accumulatedSmallEndingsAreReportedForTheEntirePolicy()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code unknownAndIterationTailStayUnresolvedWithNoInventedUsageUpperBound()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code overlappingCandidatesRemainAndNamesDoNotCreateNewPolicies()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AutomaticPolicyCandidatesTest {
   static CertifiedInterval p(long n, long d) {
     return CertifiedInterval.enclose(Fraction.of(n, d), 64);

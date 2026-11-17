@@ -17,6 +17,22 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 조건부 아이템 분포를 구별하면서 자동 탐색 그래프를 점진적으로 확장한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code approvedInventoryDiscoversDiamondAndParallelMethodsWithIndependentTinyCatalog()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code lateShorterMergeUpdatesAlreadyDiscoveredDescendantDepths()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code graphCursorRoundTripsWithoutLosingQueuedDiscovery()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code resourcePauseRetainsUnfinishedDiscoveryAndResumesTheSameCandidate()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AutomaticMethodGraphTest {
   @Test
   void approvedInventoryDiscoversDiamondAndParallelMethodsWithIndependentTinyCatalog() {

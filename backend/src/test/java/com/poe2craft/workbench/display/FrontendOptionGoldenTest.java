@@ -20,7 +20,33 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
 /**
- * The frontend fixture intentionally includes invalid game states. Never relax server validation.
+ * Frontend·Option·Golden 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: The frontend fixture intentionally includes invalid game states. Never relax server
+ * validation.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code FIXTURES}: FIXTURES ({@code Path}).
+ *   <li>{@code JSON}: 공통 JSON 변환기 ({@code ObjectMapper}).
+ *   <li>{@code DISPLAY_PARITY}: 동일성 ({@code Set<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code read(name)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code name}(이름). 반환: {@code JsonNode}. 사용하는
+ *       예외: {@code Exception}.
+ *   <li>{@code display()}: 표시 값을 조회·구성한다. 반환: {@code ChaosOptionDisplay}. 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code catalog(fixture, state)}: 카탈로그 처리에서 {@code state.path}, {@code fixture.path}을(를)
+ *       사용한다. 입력: {@code fixture}(검증사례), {@code state}(상태). 반환: {@code ItemCatalog}.
+ *   <li>{@code historicalInputProvenanceIsIntactWhileCurrentTemplatesUseTheActiveManifest()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code supportedGroupsMatchAndIneligibleFixturesAreExplicitlyRejected()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 반환: {@code List<DynamicTest>}. 사용하는 예외: {@code Exception}.
+ * </ul>
  */
 class FrontendOptionGoldenTest {
   private static final Path FIXTURES = Path.of("src/test/resources/chaosdisplay/frontend");

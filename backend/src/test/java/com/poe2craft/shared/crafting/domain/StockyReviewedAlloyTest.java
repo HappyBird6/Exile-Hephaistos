@@ -15,9 +15,61 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+/**
+ * StockyMitts·검토된·합금 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code StockyCraftingFixture}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code materials()}: 제작재료목록 값을 조회·구성한다. 반환: {@code Stream<Spec>}.
+ *   <li>{@code definitionMatchesExactPrimaryRowAndPreservesPool(s)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 입력: {@code s}(s). 사용하는 예외: {@code Exception}.
+ *   <li>{@code completeRemovalNumericModelAndUnrelatedOmensPreserveStateConditions(s)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code s}(s).
+ *   <li>{@code lowLevelsCapacityFamilyLocksAndSolarRefuseSafely(s)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 입력: {@code s}(s).
+ *   <li>{@code fracturedSourceRollSurvivesDivineChaosAnnul(s)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 입력: {@code s}(s).
+ *   <li>{@code swiftRejectsSurvivingEitherFamilyAndAllowsSoleConflictRemoval()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code adaptiveKeepsConditionalTextWithoutInventingMissingWardState()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code localWardTargetsOnlyLocalSourceAndDoesNotInventAnImplicit()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Spec}: {@code StockyReviewedAlloyTest}에서 사용하는 Spec의 불변 값이다.
+ * </ul>
+ */
 class StockyReviewedAlloyTest {
   final StockyCraftingFixture f = new StockyCraftingFixture();
 
+  /**
+   * {@code StockyReviewedAlloyTest}에서 사용하는 Spec의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code target}: 대상 ({@code String}).
+   *   <li>{@code stat}: 수치 ({@code String}).
+   *   <li>{@code min}: 허용·표시 범위의 하한 ({@code int}).
+   *   <li>{@code max}: 허용·표시 범위의 상한 ({@code int}).
+   *   <li>{@code level}: 레벨 ({@code int}).
+   *   <li>{@code code}: 코드 ({@code String}).
+   *   <li>{@code index}: 색인 ({@code int}).
+   *   <li>{@code affix}: 접두접미옵션 ({@code ModifierDefinition.AffixType}).
+   * </ul>
+   */
   record Spec(
       WorkbenchCurrency action,
       String target,

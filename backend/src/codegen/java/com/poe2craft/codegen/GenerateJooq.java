@@ -5,6 +5,16 @@ import org.jooq.codegen.GenerationTool;
 import org.jooq.meta.jaxb.*;
 import org.testcontainers.containers.PostgreSQLContainer;
 
+/**
+ * Generate·Jooq의 실행·조회 경계를 담당한다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code main(args)}: 애플리케이션 또는 독립 실행 도구를 시작한다. 입력: {@code args}(명령인자). 사용하는 예외: {@code
+ *       Exception}.
+ * </ul>
+ */
 public final class GenerateJooq {
   public static void main(String[] args) throws Exception {
     // No configurable database URL: code generation must never connect to production.

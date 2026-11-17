@@ -9,6 +9,36 @@ import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 관측된 훼손 슬롯과 공개 후보·수동 선택 상태를 보존한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code HysteriaEssenceTest}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code start(ids)}: 시작값 처리에서 {@code AbyssCraftingState.from}, {@code fixture.rare}을(를)
+ *       사용한다. 입력: {@code ids}(식별자목록). 반환: {@code AbyssCraftingState}.
+ *   <li>{@code modifier(id)}: 옵션 처리에서 {@code fixture.rare}을(를) 사용한다. 입력: {@code id}(식별자). 반환:
+ *       {@code ModifierInstance}.
+ *   <li>{@code
+ *       observedSocketCountSurvivesSlotChoiceAndUnresolvedAugmentsCannotBeSilentlyCrafted()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unrevealedCountsAsSlotAndRemovalTargetWithoutInventedStats()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code observedChoiceReworksTheSameSlotAtSixWithoutChangingOtherRolls()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code invalidOffersAreRejectedRatherThanSilentlyPruned()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code fracturedOptionsStayOutsideDummyRemovalPool()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ * </ul>
+ */
 class AbyssCraftingStateTest {
   final HysteriaEssenceTest fixture = new HysteriaEssenceTest();
   final ItemCatalog catalog = fixture.catalog;

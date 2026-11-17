@@ -8,7 +8,20 @@ import java.util.Set;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
-/** Public snapshots exclude private clipboard provenance and local library bookkeeping. */
+/**
+ * 개인 보관함 정보와 비공개 복사 원문을 제외한 공개 세션 값이다.
+ *
+ * <p>기존 계약: Public snapshots exclude private clipboard provenance and local library bookkeeping.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code SharedSession()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code validate(input, maxBytes, maxFrames)}: 입력의 구조·값·지원 조건을 검증한다. 입력: {@code input}(입력),
+ *       {@code maxBytes}(최대값·바이트수), {@code maxFrames}(최대값·Frames). 반환: {@code JsonNode}.
+ *   <li>{@code bad()}: bad의 입력에 따른 분기·결과를 처리한다. 사용하는 예외: {@code ResponseStatusException}.
+ * </ul>
+ */
 public final class SharedSession {
   private SharedSession() {}
 

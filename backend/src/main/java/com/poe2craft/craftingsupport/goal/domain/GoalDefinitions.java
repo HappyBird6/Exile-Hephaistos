@@ -2,9 +2,70 @@ package com.poe2craft.craftingsupport.goal.domain;
 
 import java.util.*;
 
-/** Reviewed display units and direct pseudo sources; never grants probability support. */
+/**
+ * 목표 수치의 표시 단위와 의사 수치 구성 원본을 표현한다.
+ *
+ * <p>기존 계약: Reviewed display units and direct pseudo sources; never grants probability support.
+ *
+ * <p>필드·상수·record 구성요소:
+ *
+ * <ul>
+ *   <li>{@code schemaVersion}: 스키마·버전 ({@code int}).
+ *   <li>{@code ruleVersion}: 규칙·버전 ({@code String}).
+ *   <li>{@code stats}: 수치목록 ({@code List<Direct>}).
+ *   <li>{@code pseudos}: pseudos ({@code List<Pseudo>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code GoalDefinitions(schemaVersion, ruleVersion, stats, pseudos)}: 전달받은 값으로 구성원을 초기화한다.
+ *       입력: {@code schemaVersion}(스키마·버전), {@code ruleVersion}(규칙·버전), {@code stats}(수치목록), {@code
+ *       pseudos}(pseudos). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code require(value)}: 필수 조건을 검사한다. 입력: {@code value}(값). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code unit(value)}: 단위의 입력에 따른 분기·결과를 처리한다. 입력: {@code value}(값). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code directStats()}: 직접·수치목록 값을 조회·구성한다. 반환: {@code Map<String, Direct>}.
+ *   <li>{@code signature()}: 내용 기반 버전 계산에 사용할 서명을 구한다. 반환: {@code String}.
+ *   <li>{@code append(result, value)}: 뒤에 값이나 계산 행을 추가한다. 입력: {@code result}(결과), {@code value}(값).
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Direct}: {@code GoalDefinitions}에서 사용하는 직접의 불변 값이다.
+ *   <li>{@code Pseudo}: {@code GoalDefinitions}에서 사용하는 의사수치의 불변 값이다.
+ * </ul>
+ */
 public record GoalDefinitions(
     int schemaVersion, String ruleVersion, List<Direct> stats, List<Pseudo> pseudos) {
+  /**
+   * {@code GoalDefinitions}에서 사용하는 직접의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code sourceStatId}: 출처·수치·식별자 ({@code String}).
+   *   <li>{@code label}: 표시이름 ({@code String}).
+   *   <li>{@code unit}: 단위 ({@code String}).
+   *   <li>{@code sourceDivisor}: 출처·나누는수 ({@code Long}).
+   *   <li>{@code evaluationOnly}: 평가·제한 ({@code Boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Direct(sourceStatId, label, unit, sourceDivisor, evaluationOnly)}: 전달받은 값으로 구성원을
+   *       초기화한다. 입력: {@code sourceStatId}(출처·수치·식별자), {@code label}(표시이름), {@code unit}(단위), {@code
+   *       sourceDivisor}(출처·나누는수), {@code evaluationOnly}(평가·제한).
+   *   <li>{@code Direct(sourceStatId, label, unit, sourceDivisor)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력:
+   *       {@code sourceStatId}(출처·수치·식별자), {@code label}(표시이름), {@code unit}(단위), {@code
+   *       sourceDivisor}(출처·나누는수).
+   *   <li>{@code Direct(sourceStatId, label, unit)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       sourceStatId}(출처·수치·식별자), {@code label}(표시이름), {@code unit}(단위).
+   * </ul>
+   */
   public record Direct(
       String sourceStatId, String label, String unit, Long sourceDivisor, Boolean evaluationOnly) {
     public Direct {
@@ -20,6 +81,25 @@ public record GoalDefinitions(
     }
   }
 
+  /**
+   * {@code GoalDefinitions}에서 사용하는 의사수치의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code label}: 표시이름 ({@code String}).
+   *   <li>{@code unit}: 단위 ({@code String}).
+   *   <li>{@code sourceStatIds}: 출처·수치·식별자목록 ({@code List<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Pseudo(id, label, unit, sourceStatIds)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자),
+   *       {@code label}(표시이름), {@code unit}(단위), {@code sourceStatIds}(출처·수치·식별자목록).
+   * </ul>
+   */
   public record Pseudo(String id, String label, String unit, List<String> sourceStatIds) {
     public Pseudo {
       sourceStatIds = List.copyOf(sourceStatIds);

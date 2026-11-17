@@ -11,6 +11,27 @@ import java.security.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 베이스·등록목록·동일성 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code M}: 공통 JSON 변환기 ({@code ObjectMapper}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code canonical(n)}: 정규형 처리에서 {@code n.isObject}, {@code M.createObjectNode}을(를) 사용한다. 입력:
+ *       {@code n}(n). 반환: {@code JsonNode}.
+ *   <li>{@code digest(value)}: 다이제스트 처리에서 {@code HexFormat.of}, {@code
+ *       MessageDigest.getInstance}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code String}. 사용하는 예외:
+ *       {@code Exception}.
+ *   <li>{@code allExistingInitialsActionsAndSeededTracesRemainExact()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class BaseRegistryParityTest {
   static final ObjectMapper M = new ObjectMapper();
 

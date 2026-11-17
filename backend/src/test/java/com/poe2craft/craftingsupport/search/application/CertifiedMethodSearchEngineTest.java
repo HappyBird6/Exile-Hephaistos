@@ -17,7 +17,47 @@ import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+/**
+ * 조건부 아이템 분포를 유지하며 검증 가능한 확률 구간으로 방법 탐색을 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code
+ *       completeSmallMapContainsEveryExactLawAndPreservesMethodDepthAndAlternatives(directory)}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code directory}(디렉터리). 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code verifyStrategyJob(engine, root)}: 검증·전략·작업 처리에서 {@code
+ *       engine.strategyFitsPreparationBudget}, {@code Clock.systemUTC}을(를) 사용한다. 입력: {@code
+ *       engine}(계산엔진), {@code root}(시작점).
+ *   <li>{@code keys(states, classes)}: 키목록 처리에서 {@code states.forEach}, {@code result.put}을(를)
+ *       사용한다. 입력: {@code states}(상태목록), {@code classes}(동치류목록). 반환: {@code Map<String,
+ *       BasicTransitionClasses.Key>}.
+ *   <li>{@code verifyProgress(law, progress, actual)}: 검증·진행상황 처리에서 {@code law.forEach}, {@code
+ *       expected.merge}을(를) 사용한다. 입력: {@code law}(분포), {@code progress}(진행상황), {@code actual}(실제값).
+ *   <li>{@code verify(expected, exactStates, actual, boundedStates)}: 검증 처리에서 {@code
+ *       actual.forEach}, {@code byKey.put}을(를) 사용한다. 입력: {@code expected}(기대값), {@code
+ *       exactStates}(정확값·상태목록), {@code actual}(실제값), {@code boundedStates}(한도내·상태목록).
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Identity}: {@code CertifiedMethodSearchEngineTest}에서 사용하는 정체성의 불변 값이다.
+ * </ul>
+ */
 class CertifiedMethodSearchEngineTest {
+  /**
+   * {@code CertifiedMethodSearchEngineTest}에서 사용하는 정체성의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code BasicTransitionClasses.Key}).
+   *   <li>{@code initial}: 초기값 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code cycle}: 주기 ({@code List<WorkbenchCurrency>}).
+   * </ul>
+   */
   record Identity(
       BasicTransitionClasses.Key source,
       List<WorkbenchCurrency> initial,

@@ -6,6 +6,32 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * No·암시옵션·베이스 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code solar}: 태양목걸이 ({@code ItemCatalog}).
+ *   <li>{@code definitions}: 정의목록 ({@code List<ModifierDefinition>}).
+ *   <li>{@code base}: 베이스 ({@code ItemCatalog.BaseItem}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code fixture(defs)}: 검증사례 처리에서 {@code ItemCatalog.Metadata}, {@code base.sourceUrl}을(를)
+ *       사용한다. 입력: {@code defs}(defs). 반환: {@code ItemCatalog}.
+ *   <li>{@code state(implicits)}: 현재 상태 표현을 조회한다. 입력: {@code implicits}(암시옵션목록). 반환: {@code
+ *       ItemState}.
+ *   <li>{@code sourcedNoImplicitBaseAcceptsAnEmptyImplicitListAndRejectsInventedSpirit()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code noImplicitCatalogRejectsOrphanImplicitDefinitionsAndWhitespaceIdentity()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code solarStillRequiresExactlyItsOriginalSpiritAndRejectsTheOtherBase()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class NoImplicitBaseTest {
   final ItemCatalog solar = ItemCatalogLoader.loadDefault();
   // Contract fixture only: this is not a complete Stocky Mitts modifier pool and is never

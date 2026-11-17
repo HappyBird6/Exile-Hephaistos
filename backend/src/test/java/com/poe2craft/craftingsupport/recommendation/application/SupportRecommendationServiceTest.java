@@ -16,6 +16,51 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 유한 추가 순서의 최초 성공 확률을 계산하고 미확정 질량을 따로 보존한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code saved}: 저장된 ({@code Map<String, AdditionPoolCache.Data>}).
+ *   <li>{@code store}: 저장소 ({@code AdditionPoolStore}).
+ *   <li>{@code generous}: generous ({@code SupportRecommendationService.Limits}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code cache()}: 재사용할 결과를 캐시에 보관한다. 반환: {@code AdditionPoolCache}.
+ *   <li>{@code root()}: 시작점 값을 조회·구성한다. 반환: {@code StateBucket}.
+ *   <li>{@code life(tier)}: life 처리에서 {@code SupportGoals.Goal}, {@code SupportGoals.Condition}을(를)
+ *       사용한다. 입력: {@code tier}(티어). 반환: {@code SupportGoals.Goal}.
+ *   <li>{@code id(family, tier)}: 식별자 처리에서 {@code catalog.modifiers}, {@code d.familyIds}을(를) 사용한다.
+ *       입력: {@code family}(옵션계열), {@code tier}(티어). 반환: {@code String}.
+ *   <li>{@code multiAdditionOmenCannotProduceAnIncorrectSingleAdditionRecommendation()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code replacementOmensRemainOutsideTheSupportAdditionModel()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code snapshotAndSourceDigestChangesInvalidateTheNamespace()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code firstHitAbsorbsAndMatchesIndependentExactEnumeration()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code tierQualificationIsNotLostWhenReusingPoolsAcrossGoalsAndExistingTiers()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code persistentReuseAndNamespaceVersionInvalidationAreSeparateFromGoals()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code itemLevelActionAndOmenContextsDoNotShareWrongPools()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code budgetStopsWithUnresolvedMassRatherThanAFalseFailure()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code partialRankingReportsUnevaluatedSequencesAndCannotBeCertified()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code requiredAndCandidateThresholdProbabilityMatchesExhaustiveTwoStepEnumeration()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code comparesThreeRealOneSlotSequencesAndAlreadyAchievedNeedsNone()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class SupportRecommendationServiceTest {
   final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   final Map<String, AdditionPoolCache.Data> saved = new HashMap<>();

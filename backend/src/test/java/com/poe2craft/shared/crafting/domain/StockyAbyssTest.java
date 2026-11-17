@@ -7,6 +7,33 @@ import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * StockyMitts·훼손 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code StockyCraftingFixture}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+ *   <li>{@code targets}: 대상목록 ({@code List<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code bothSourcedAffixesAndEveryUnlockedRemovalRemainReachableWithSeparateAssumptions()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fullAffixAndSurvivingSharedFamilyBlockRatherThanPruneOutcomesOrRemovalBranches()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code soleUnlockedMarkCanBeReplacedWithoutDuplicateFamilyAndUnrelatedOmensSurvive()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code pairedCrystallisationIsRejectedBeforeDrawing()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code eitherMarkCanFractureAndSurvivesDivineChaosAnnulmentWithoutEnteringOrdinaryPools()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class StockyAbyssTest {
   final StockyCraftingFixture fixture = new StockyCraftingFixture();
   final WorkbenchSimulator simulator = fixture.simulator;

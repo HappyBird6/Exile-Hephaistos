@@ -7,6 +7,30 @@ import java.util.List;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 허용된 브라우저 이벤트만 집계하고 사용자 입력 원문은 저장하지 않는다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code monitor}: 운영지표수집기 ({@code OperationsMonitor}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code BrowserTelemetryController(monitor)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       monitor}(운영지표수집기).
+ *   <li>{@code record(events, request)}: 허용된 이벤트나 관측값을 기록한다. 입력: {@code events}(이벤트목록), {@code
+ *       request}(요청). 반환: {@code ResponseEntity<Void>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Event}: {@code BrowserTelemetryController}에서 사용하는 이벤트의 불변 값이다.
+ * </ul>
+ */
 @RestController
 @RequestMapping("/api/telemetry")
 public final class BrowserTelemetryController {
@@ -16,6 +40,16 @@ public final class BrowserTelemetryController {
     this.monitor = monitor;
   }
 
+  /**
+   * {@code BrowserTelemetryController}에서 사용하는 이벤트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code kind}: 종류 ({@code String}).
+   *   <li>{@code count}: 개수 ({@code int}).
+   * </ul>
+   */
   public record Event(
       @NotNull
           @Pattern(

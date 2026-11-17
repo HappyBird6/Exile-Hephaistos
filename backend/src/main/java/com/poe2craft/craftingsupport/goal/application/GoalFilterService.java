@@ -20,7 +20,60 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/** Coordinates numeric observations and the explicitly declared finite addition model. */
+/**
+ * 아이템 수치 관측과 목표 조건 검증·평가 및 유한 추가 탐색을 조정한다.
+ *
+ * <p>기존 계약: Coordinates numeric observations and the explicitly declared finite addition model.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code index}: 색인 ({@code GoalCatalogIndex}).
+ *   <li>{@code validator}: 상태·입력 검증기 ({@code GoalValidator}).
+ *   <li>{@code evaluator}: 평가기 ({@code GoalEvaluator}).
+ *   <li>{@code projection}: 투영 ({@code ItemStatProjection}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code GoalFilterService(index)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code index}(색인).
+ *   <li>{@code minimumExplicitModifiers(item, goal)}: 최소값·명시옵션·옵션목록 처리에서 {@code
+ *       ExplicitGoalScope.minimumModifiers}, {@code index.catalog}을(를) 사용한다. 입력: {@code item}(아이템),
+ *       {@code goal}(목표). 반환: {@code int}.
+ *   <li>{@code catalog(context)}: 카탈로그 처리에서 {@code index.catalog}을(를) 사용한다. 입력: {@code
+ *       context}(문맥). 반환: {@code GoalCatalog}.
+ *   <li>{@code rollPartition(item, goal)}: 수치굴림·분할 처리에서 {@code item.snapshotId}, {@code
+ *       item.baseItemId}을(를) 사용한다. 입력: {@code item}(아이템), {@code goal}(목표). 반환: {@code
+ *       RollPartition}.
+ *   <li>{@code validate(context, goal)}: 입력의 구조·값·지원 조건을 검증한다. 입력: {@code context}(문맥), {@code
+ *       goal}(목표). 반환: {@code GoalValidator.Validation}. 사용하는 예외: {@code InvalidGoal}.
+ *   <li>{@code evaluate(item, goal)}: 입력 조건이나 정책을 평가해 결과를 구한다. 입력: {@code item}(아이템), {@code
+ *       goal}(목표). 반환: {@code GoalEvaluator.Evaluation}. 사용하는 예외: {@code InvalidGoal}.
+ *   <li>{@code compile(item, goal)}: 입력 조건을 재사용할 평가·실행 표현으로 바꾼다. 입력: {@code item}(아이템), {@code
+ *       goal}(목표). 반환: {@code java.util.function.Function<ItemState, Status>}.
+ *   <li>{@code compileEvaluation(item, goal)}: 컴파일·평가 처리에서 {@code initial.status}, {@code
+ *       item.snapshotId}을(를) 사용한다. 입력: {@code item}(아이템), {@code goal}(목표). 반환: {@code
+ *       java.util.function.Function<ItemState, GoalEvaluator.Evaluation>}.
+ *   <li>{@code requiredStats(goal, known)}: 필수·수치목록 처리에서 {@code goal.groups}, {@code
+ *       group.disabled}을(를) 사용한다. 입력: {@code goal}(목표), {@code known}(알려진). 반환: {@code
+ *       java.util.Map<String, GoalCatalog.Stat>}.
+ *   <li>{@code recommend(item, goal, activeOmens, limits)}: 현재 계산에서 제공할 추천 결과를 구성한다. 입력: {@code
+ *       item}(아이템), {@code goal}(목표), {@code activeOmens}(활성·징조목록), {@code limits}(한도목록). 반환:
+ *       {@code Recommendation}. 사용하는 예외: {@code InvalidGoal}.
+ *   <li>{@code requireContext(context)}: 문맥을(를) 필수 조건을 확인한다. 입력: {@code context}(문맥). 사용하는 예외:
+ *       {@code InvalidGoal}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Limits}: {@code GoalFilterService}에서 사용하는 한도목록의 불변 값이다.
+ *   <li>{@code Probability}: {@code GoalFilterService}에서 사용하는 확률의 불변 값이다.
+ *   <li>{@code Recommendation}: {@code GoalFilterService}에서 사용하는 추천의 불변 값이다.
+ *   <li>{@code InvalidGoal}: {@code GoalFilterService} 내부의 유효하지않은·목표 처리를 맡는다.
+ * </ul>
+ */
 public final class GoalFilterService {
   private final GoalCatalogIndex index;
   private final GoalValidator validator = new GoalValidator();
@@ -192,8 +245,41 @@ public final class GoalFilterService {
     return java.util.Map.copyOf(result);
   }
 
+  /**
+   * {@code GoalFilterService}에서 사용하는 한도목록의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code maxStates}: 최대값·상태목록 ({@code Integer}).
+   *   <li>{@code maxEdges}: 최대값·간선목록 ({@code Integer}).
+   *   <li>{@code maxMillis}: 최대값·밀리초 ({@code Integer}).
+   * </ul>
+   */
   public record Limits(Integer maxStates, Integer maxEdges, Integer maxMillis) {}
 
+  /**
+   * {@code GoalFilterService}에서 사용하는 확률의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   *   <li>{@code reasonCode}: 이유·코드 ({@code String}).
+   *   <li>{@code modelVersion}: 모형·버전 ({@code String}).
+   *   <li>{@code ledgerVersion}: 규칙장부·버전 ({@code String}).
+   *   <li>{@code interpretation}: 해석 ({@code String}).
+   *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code List<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Probability(status, reasonCode, modelVersion, ledgerVersion)}: 기본 정책을 보충해 공통 생성자로
+   *       위임한다. 입력: {@code status}(상태), {@code reasonCode}(이유·코드), {@code modelVersion}(모형·버전),
+   *       {@code ledgerVersion}(규칙장부·버전).
+   * </ul>
+   */
   public record Probability(
       String status,
       String reasonCode,
@@ -220,6 +306,22 @@ public final class GoalFilterService {
     }
   }
 
+  /**
+   * {@code GoalFilterService}에서 사용하는 추천의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code version}: 저장·실행 계약의 버전 ({@code int}).
+   *   <li>{@code catalogVersion}: 카탈로그·버전 ({@code String}).
+   *   <li>{@code evaluation}: 평가 ({@code Status}).
+   *   <li>{@code probability}: 확률 ({@code Probability}).
+   *   <li>{@code comparisons}: comparisons ({@code List<NumericAdditionSearch.Comparison>}).
+   *   <li>{@code rankingCertified}: 순위·확률구간 ({@code boolean}).
+   *   <li>{@code comparedSequences}: compared·순서목록 ({@code int}).
+   *   <li>{@code totalSequences}: 합계·순서목록 ({@code Integer}).
+   * </ul>
+   */
   public record Recommendation(
       int version,
       String catalogVersion,
@@ -324,6 +426,23 @@ public final class GoalFilterService {
     if (!issues.isEmpty()) throw new InvalidGoal(issues);
   }
 
+  /**
+   * {@code GoalFilterService} 내부의 유효하지않은·목표 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code issues}: 문제목록 ({@code List<Issue>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code InvalidGoal(issues)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code issues}(문제목록).
+   *   <li>{@code issues()}: {@code issues} 값을 조회한다. 반환: {@code List<Issue>}.
+   *   <li>{@code staleCatalog()}: stale·카탈로그 값을 조회·구성한다. 반환: {@code boolean}.
+   * </ul>
+   */
   public static final class InvalidGoal extends IllegalArgumentException {
     private final List<Issue> issues;
 

@@ -13,7 +13,40 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-/** Independent set-based oracle for the existing Solar goal contract. */
+/**
+ * 지원범위·목표·Contract 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Independent set-based oracle for the existing Solar goal contract.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code goals}: 목표목록 ({@code SupportGoals}).
+ *   <li>{@code root}: 시작점 ({@code StateBucket}).
+ *   <li>{@code recommendations}: 추천목록 ({@code SupportRecommendationService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code everyEligibleFamilyVariantAndThresholdAgreesWithDistinctFamilyOracle()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code candidateQuorumAndRequiredConditionsAreIndependentAcrossTierCombinations()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code multipleTiersOfOneCandidateFamilyCannotSupplyTwoVotes()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code aStateContainingTwoTiersOfOneFamilyIsRejectedBeforeCounting()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code family(id)}: 옵션계열 처리에서 {@code goals.families}, {@code f.id}을(를) 사용한다. 입력: {@code
+ *       id}(식별자). 반환: {@code SupportGoals.Family}.
+ *   <li>{@code verify(state, goal)}: 검증 처리에서 {@code goal.required}, {@code goal.candidates}을(를)
+ *       사용한다. 입력: {@code state}(상태), {@code goal}(목표).
+ *   <li>{@code qualifiedFamilies(state, conditions)}: qualified·옵션계열목록 처리에서 {@code
+ *       state.modifierIds}, {@code catalog.find}을(를) 사용한다. 입력: {@code state}(상태), {@code
+ *       conditions}(상태조건). 반환: {@code Set<String>}.
+ * </ul>
+ */
 class SupportGoalContractTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   private final SupportGoals goals = new SupportGoals(catalog);

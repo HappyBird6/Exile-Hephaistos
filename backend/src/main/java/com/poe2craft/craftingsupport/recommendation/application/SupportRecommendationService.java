@@ -11,7 +11,69 @@ import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import java.util.*;
 
-/** Forward first-hit DP for fixed finite-addition sequences; unresolved mass is never failure. */
+/**
+ * 유한 추가 순서의 최초 성공 확률을 계산하고 미확정 질량을 따로 보존한다.
+ *
+ * <p>기존 계약: Forward first-hit DP for fixed finite-addition sequences; unresolved mass is never
+ * failure.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code pools}: 후보풀목록 ({@code AdditionPoolCache}).
+ *   <li>{@code goals}: 목표목록 ({@code SupportGoals}).
+ *   <li>{@code familyIndex}: 옵션계열·색인 ({@code Map<String, Integer>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code SupportRecommendationService(catalog, pools)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       catalog}(카탈로그), {@code pools}(후보풀목록).
+ *   <li>{@code recommend(root, goal, activeOmens, limits)}: 현재 계산에서 제공할 추천 결과를 구성한다. 입력: {@code
+ *       root}(시작점), {@code goal}(목표), {@code activeOmens}(활성·징조목록), {@code limits}(한도목록). 반환:
+ *       {@code Report}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code report(assessment, top, complete, certified, compared, total, budget, before,
+ *       start)}: report 처리에서 {@code pools.stats}, {@code pools.namespace}을(를) 사용한다. 입력: {@code
+ *       assessment}(평가), {@code top}(상위), {@code complete}(완료), {@code certified}(확률구간), {@code
+ *       compared}(compared), {@code total}(합계), {@code budget}(계산예산), {@code before}(변경전), {@code
+ *       start}(시작값). 반환: {@code Report}.
+ *   <li>{@code evaluate(root, goal, omens, sequence, limits)}: 입력 조건이나 정책을 평가해 결과를 구한다. 입력: {@code
+ *       root}(시작점), {@code goal}(목표), {@code omens}(징조목록), {@code sequence}(순서), {@code
+ *       limits}(한도목록). 반환: {@code Comparison}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code rejectMultiAddition(omens)}: reject·Multi·추가 처리에서 {@code omens.stream}, {@code
+ *       o.trigger}을(를) 사용한다. 입력: {@code omens}(징조목록). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code evaluate(root, goal, omens, sequence, budget)}: 입력 조건이나 정책을 평가해 결과를 구한다. 입력: {@code
+ *       root}(시작점), {@code goal}(목표), {@code omens}(징조목록), {@code sequence}(순서), {@code
+ *       budget}(계산예산). 반환: {@code Comparison}.
+ *   <li>{@code comparison(sequence, success, failure, unresolved, complete, steps)}: 비교의 입력에 따른
+ *       분기·결과를 처리한다. 입력: {@code sequence}(순서), {@code success}(성공), {@code failure}(실패), {@code
+ *       unresolved}(미해결), {@code complete}(완료), {@code steps}(단계목록). 반환: {@code Comparison}. 사용하는
+ *       예외: {@code IllegalStateException}.
+ *   <li>{@code key(state, goal, omens)}: 키 처리에서 {@code state.modifierIds}, {@code catalog.find}을(를)
+ *       사용한다. 입력: {@code state}(상태), {@code goal}(목표), {@code omens}(징조목록). 반환: {@code Key}.
+ *   <li>{@code thresholds(goal)}: thresholds 처리에서 {@code goal.required}, {@code thresholds.put}을(를)
+ *       사용한다. 입력: {@code goal}(목표). 반환: {@code Map<String, Integer>}.
+ *   <li>{@code matched(state, goal)}: 일치한 처리에서 {@code state.modifierIds}, {@code catalog.find}을(를)
+ *       사용한다. 입력: {@code state}(상태), {@code goal}(목표). 반환: {@code boolean}.
+ *   <li>{@code sequences(rarity, count, level, prefix, results)}: 순서목록 처리에서 {@code results.add},
+ *       {@code action.minimumModifierLevel}을(를) 사용한다. 입력: {@code rarity}(희귀도), {@code count}(개수),
+ *       {@code level}(레벨), {@code prefix}(접두), {@code results}(결과목록).
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Key}: {@code SupportRecommendationService}에서 사용하는 키의 불변 값이다.
+ *   <li>{@code Mass}: {@code SupportRecommendationService}에서 사용하는 확률질량의 불변 값이다.
+ *   <li>{@code Budget}: {@code SupportRecommendationService} 내부의 계산예산 처리를 맡는다.
+ *   <li>{@code Limits}: {@code SupportRecommendationService}에서 사용하는 한도목록의 불변 값이다.
+ *   <li>{@code Step}: {@code SupportRecommendationService}에서 사용하는 단계의 불변 값이다.
+ *   <li>{@code Comparison}: {@code SupportRecommendationService}에서 사용하는 비교의 불변 값이다.
+ *   <li>{@code Report}: {@code SupportRecommendationService}에서 사용하는 Report의 불변 값이다.
+ * </ul>
+ */
 public final class SupportRecommendationService {
   private final ItemCatalog catalog;
   private final AdditionPoolCache pools;
@@ -302,10 +364,55 @@ public final class SupportRecommendationService {
     }
   }
 
+  /**
+   * {@code SupportRecommendationService}에서 사용하는 키의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code occupied}: occupied ({@code long}).
+   *   <li>{@code qualified}: qualified ({@code long}).
+   *   <li>{@code rarity}: 현재 아이템 희귀도 ({@code ItemState.Rarity}).
+   *   <li>{@code omens}: 징조목록 ({@code Set<String>}).
+   * </ul>
+   */
   private record Key(long occupied, long qualified, ItemState.Rarity rarity, Set<String> omens) {}
 
+  /**
+   * {@code SupportRecommendationService}에서 사용하는 확률질량의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code StateBucket}).
+   *   <li>{@code omens}: 징조목록 ({@code Set<String>}).
+   *   <li>{@code probability}: 확률 ({@code double}).
+   * </ul>
+   */
   private record Mass(StateBucket state, Set<String> omens, double probability) {}
 
+  /**
+   * {@code SupportRecommendationService} 내부의 계산예산 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code limits}: 한도목록 ({@code Limits}).
+   *   <li>{@code start}: 시작값 ({@code long}).
+   *   <li>{@code states}: 상태목록 ({@code int}).
+   *   <li>{@code edges}: 간선목록 ({@code int}).
+   *   <li>{@code localStateLimit}: 로컬·상태·한도 ({@code int}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Budget(limits, start)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code limits}(한도목록), {@code
+   *       start}(시작값).
+   *   <li>{@code globallyExhausted()}: globally·Exhausted 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code exhausted()}: exhausted 값을 조회·구성한다. 반환: {@code boolean}.
+   * </ul>
+   */
   private static final class Budget {
     final Limits limits;
     final long start;
@@ -329,8 +436,44 @@ public final class SupportRecommendationService {
     }
   }
 
+  /**
+   * {@code SupportRecommendationService}에서 사용하는 한도목록의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code maxStates}: 최대값·상태목록 ({@code int}).
+   *   <li>{@code maxEdges}: 최대값·간선목록 ({@code int}).
+   *   <li>{@code maxMillis}: 최대값·밀리초 ({@code int}).
+   * </ul>
+   */
   public record Limits(int maxStates, int maxEdges, int maxMillis) {}
 
+  /**
+   * {@code SupportRecommendationService}에서 사용하는 단계의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code step}: 단계 ({@code int}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code firstHitProbability}: 최초·목표도달·확률 ({@code double}).
+   *   <li>{@code blockedProbability}: 차단·확률 ({@code double}).
+   *   <li>{@code continuingOrUnresolvedProbability}: continuing·Or·미해결·확률 ({@code double}).
+   *   <li>{@code blockedReasons}: 차단·이유목록 ({@code List<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Step(step, action, firstHitProbability, blockedProbability,
+   *       continuingOrUnresolvedProbability, blockedReasons)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       step}(단계), {@code action}(행동), {@code firstHitProbability}(최초·목표도달·확률), {@code
+   *       blockedProbability}(차단·확률), {@code
+   *       continuingOrUnresolvedProbability}(continuing·Or·미해결·확률), {@code
+   *       blockedReasons}(차단·이유목록).
+   * </ul>
+   */
   public record Step(
       int step,
       WorkbenchCurrency action,
@@ -343,6 +486,31 @@ public final class SupportRecommendationService {
     }
   }
 
+  /**
+   * {@code SupportRecommendationService}에서 사용하는 비교의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code sequence}: 순서 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code successLower}: 성공·하한 ({@code double}).
+   *   <li>{@code successUpper}: 성공·상한 ({@code double}).
+   *   <li>{@code failureProbability}: 실패·확률 ({@code double}).
+   *   <li>{@code unresolvedProbability}: 미해결·확률 ({@code double}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   *   <li>{@code steps}: 단계목록 ({@code List<Step>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Comparison(sequence, successLower, successUpper, failureProbability,
+   *       unresolvedProbability, complete, steps)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code sequence}(순서),
+   *       {@code successLower}(성공·하한), {@code successUpper}(성공·상한), {@code
+   *       failureProbability}(실패·확률), {@code unresolvedProbability}(미해결·확률), {@code complete}(완료),
+   *       {@code steps}(단계목록).
+   * </ul>
+   */
   public record Comparison(
       List<WorkbenchCurrency> sequence,
       double successLower,
@@ -357,6 +525,41 @@ public final class SupportRecommendationService {
     }
   }
 
+  /**
+   * {@code SupportRecommendationService}에서 사용하는 Report의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code ruleVersion}: 규칙·버전 ({@code String}).
+   *   <li>{@code ledgerVersion}: 규칙장부·버전 ({@code String}).
+   *   <li>{@code transitionNamespace}: 전이·이름공간 ({@code String}).
+   *   <li>{@code assessment}: 평가 ({@code SupportGoals.Assessment}).
+   *   <li>{@code comparisons}: comparisons ({@code List<Comparison>}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   *   <li>{@code rankingCertified}: 순위·확률구간 ({@code boolean}).
+   *   <li>{@code comparedSequences}: compared·순서목록 ({@code int}).
+   *   <li>{@code totalSequences}: 합계·순서목록 ({@code int}).
+   *   <li>{@code expandedStates}: 확장된·상태목록 ({@code int}).
+   *   <li>{@code expandedEdges}: 확장된·간선목록 ({@code int}).
+   *   <li>{@code elapsedMillis}: elapsed·밀리초 ({@code double}).
+   *   <li>{@code cache}: 캐시 ({@code AdditionPoolCache.Stats}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Report(ruleVersion, ledgerVersion, transitionNamespace, assessment, comparisons,
+   *       complete, rankingCertified, comparedSequences, totalSequences, expandedStates,
+   *       expandedEdges, elapsedMillis, cache)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       ruleVersion}(규칙·버전), {@code ledgerVersion}(규칙장부·버전), {@code
+   *       transitionNamespace}(전이·이름공간), {@code assessment}(평가), {@code comparisons}(comparisons),
+   *       {@code complete}(완료), {@code rankingCertified}(순위·확률구간), {@code
+   *       comparedSequences}(compared·순서목록), {@code totalSequences}(합계·순서목록), {@code
+   *       expandedStates}(확장된·상태목록), {@code expandedEdges}(확장된·간선목록), {@code
+   *       elapsedMillis}(elapsed·밀리초), {@code cache}(캐시).
+   * </ul>
+   */
   public record Report(
       String ruleVersion,
       String ledgerVersion,

@@ -9,6 +9,36 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 옵션 ID 선택의 유한 확률 분포를 계산하고 수치 굴림은 주변화한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code transitions}: 전이목록 ({@code AdditionTransitions}).
+ *   <li>{@code sampler}: sampler ({@code WorkbenchSimulator}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code empty(rarity, level)}: 빈 초기값 또는 비어 있는지 여부를 구한다. 입력: {@code rarity}(희귀도), {@code
+ *       level}(레벨). 반환: {@code ItemState}.
+ *   <li>{@code source(action, level)}: 출처 처리에서 {@code action.baseAction}을(를) 사용한다. 입력: {@code
+ *       action}(행동), {@code level}(레벨). 반환: {@code ItemState}.
+ *   <li>{@code allTwelveActionsHaveExactMassAndEverySamplerBoundaryMatchesTheTransition()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code ordinaryAdditionDistributionsMatchTheExistingExactEngine()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code minimumLevelExceptionAndBelowFloorAreSharedWithoutMutatingTheSource()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code omenEligibilityConsumesOnlyMatchingOmenAndBlocksUnsupportedInteractions()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code slotExhaustionAndRecoveryActionsAreExplicitlyBlocked()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ * </ul>
+ */
 class AdditionTransitionsTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   private final AdditionTransitions transitions = new AdditionTransitions(catalog);

@@ -15,6 +15,24 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+/**
+ * 주얼·Five·접두접미옵션 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code minimum(c, id)}: 최소값 처리에서 {@code c.find}, {@code values.put}을(를) 사용한다. 입력: {@code
+ *       c}(c), {@code id}(식별자). 반환: {@code ModifierInstance}.
+ *   <li>{@code ordinary(c, p, s)}: 일반의 입력에 따른 분기·결과를 처리한다. 입력: {@code c}(c), {@code p}(p), {@code
+ *       s}(s). 반환: {@code List<ModifierInstance>}.
+ *   <li>{@code item(c, mods)}: 아이템 처리에서 {@code c.metadata}, {@code c.base}을(를) 사용한다. 입력: {@code
+ *       c}(c), {@code mods}(옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code fillsOnlyTheOpenSideWithoutPersistingAnExpansion(base)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 입력: {@code base}(베이스).
+ *   <li>{@code craniumCapLossHiddenExaltRevealAndKnownCraftsPreserveTheThirdSuffix()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class JewelFiveAffixTest {
   ModifierInstance minimum(ItemCatalog c, String id) {
     var values = new HashMap<String, Long>();

@@ -3,12 +3,85 @@ package com.poe2craft.craftingsupport.search.domain;
 import java.math.BigInteger;
 import java.util.*;
 
-/** Bounded deterministic policy alternatives. Ranking remains success reachability only. */
+/**
+ * 결정적 정책 후보를 제한된 수로 만들고 성공 도달 가능성으로 비교한다.
+ *
+ * <p>기존 계약: Bounded deterministic policy alternatives. Ranking remains success reachability only.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "conditional-session-policies-v1"} ({@code String}).
+ *   <li>{@code FAILURE}: 실패; 초기값 {@code -1} ({@code int}).
+ *   <li>{@code GOAL}: 목표; 초기값 {@code -2} ({@code int}).
+ *   <li>{@code REBASE}: 기준변경; 초기값 {@code -3} ({@code int}).
+ *   <li>{@code UNRESOLVED}: 미해결; 초기값 {@code -4} ({@code int}).
+ *   <li>{@code MAX_ALTERNATIVES}: ALTERNATIVES; 초기값 {@code 32} ({@code int}).
+ *   <li>{@code EVALUATION_STEPS}: 단계목록; 초기값 {@code 128} ({@code int}).
+ *   <li>{@code states}: 상태목록 ({@code Map<Integer, State>}).
+ *   <li>{@code strategy}: 전략 ({@code CertifiedOutcomeStrategy<Integer>}).
+ *   <li>{@code bits}: 비트수 ({@code int}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AutomaticPolicyCandidates(states, strategy, bits)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       states}(상태목록), {@code strategy}(전략), {@code bits}(비트수).
+ *   <li>{@code top(count)}: 상위 처리에서 {@code states.get}, {@code entry.getKey}을(를) 사용한다. 입력: {@code
+ *       count}(개수). 반환: {@code List<Candidate>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code ranked(node)}: ranked 처리에서 {@code strategy.choiceValues}, {@code states.get}을(를)
+ *       사용한다. 입력: {@code node}(노드). 반환: {@code List<Action>}.
+ *   <li>{@code action(node, policy)}: 행동 처리에서 {@code states.get}, {@code a.id}을(를) 사용한다. 입력: {@code
+ *       node}(노드), {@code policy}(정책). 반환: {@code Action}.
+ *   <li>{@code reachable(policy)}: 도달가능 처리에서 {@code pending.add}, {@code pending.isEmpty}을(를) 사용한다.
+ *       입력: {@code policy}(정책). 반환: {@code List<Decision>}.
+ *   <li>{@code add(candidates, policy, differences, count)}: 값 또는 항목을 더한다. 입력: {@code
+ *       candidates}(후보목록), {@code policy}(정책), {@code differences}(differences), {@code count}(개수).
+ *   <li>{@code evaluate(id, policy, decisions, differences)}: 입력 조건이나 정책을 평가해 결과를 구한다. 입력: {@code
+ *       id}(식별자), {@code policy}(정책), {@code decisions}(결정목록), {@code differences}(differences).
+ *       반환: {@code Candidate}.
+ *   <li>{@code withTail(known, tail)}: Tail을(를) 반영한 값을 구한다. 입력: {@code known}(알려진), {@code
+ *       tail}(tail). 반환: {@code CertifiedInterval}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Action}: {@code AutomaticPolicyCandidates}에서 사용하는 행동의 불변 값이다.
+ *   <li>{@code State}: {@code AutomaticPolicyCandidates}에서 사용하는 상태의 불변 값이다.
+ *   <li>{@code Decision}: {@code AutomaticPolicyCandidates}에서 사용하는 결정의 불변 값이다.
+ *   <li>{@code Candidate}: {@code AutomaticPolicyCandidates}에서 사용하는 후보의 불변 값이다.
+ * </ul>
+ */
 public final class AutomaticPolicyCandidates {
   public static final String VERSION = "conditional-session-policies-v1";
   public static final int FAILURE = -1, GOAL = -2, REBASE = -3, UNRESOLVED = -4;
   private static final int MAX_ALTERNATIVES = 32, EVALUATION_STEPS = 128;
 
+  /**
+   * {@code AutomaticPolicyCandidates}에서 사용하는 행동의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code outcomes}: 결과목록 ({@code Map<Integer, CertifiedInterval>}).
+   *   <li>{@code uses}: 사용량 ({@code Map<String, CertifiedInterval>}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   *   <li>{@code decisionKey}: 결정·키 ({@code String}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Action(id, outcomes, uses, complete)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       id}(식별자), {@code outcomes}(결과목록), {@code uses}(사용량), {@code complete}(완료).
+   *   <li>{@code Action(id, outcomes, uses, complete, decisionKey)}: 전달받은 값으로 구성원을 초기화한다. 입력:
+   *       {@code id}(식별자), {@code outcomes}(결과목록), {@code uses}(사용량), {@code complete}(완료), {@code
+   *       decisionKey}(결정·키).
+   * </ul>
+   */
   public record Action(
       String id,
       Map<Integer, CertifiedInterval> outcomes,
@@ -29,14 +102,60 @@ public final class AutomaticPolicyCandidates {
     }
   }
 
+  /**
+   * {@code AutomaticPolicyCandidates}에서 사용하는 상태의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code goal}: 목표 ({@code boolean}).
+   *   <li>{@code open}: 열린 ({@code boolean}).
+   *   <li>{@code actions}: 행동목록 ({@code List<Action>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code State(goal, open, actions)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code goal}(목표), {@code
+   *       open}(열린), {@code actions}(행동목록).
+   * </ul>
+   */
   public record State(boolean goal, boolean open, List<Action> actions) {
     public State {
       actions = List.copyOf(actions);
     }
   }
 
+  /**
+   * {@code AutomaticPolicyCandidates}에서 사용하는 결정의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code node}: 노드 ({@code int}).
+   *   <li>{@code method}: 제작방법 ({@code String}).
+   * </ul>
+   */
   public record Decision(int node, String method) {}
 
+  /**
+   * {@code AutomaticPolicyCandidates}에서 사용하는 후보의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code decisions}: 결정목록 ({@code List<Decision>}).
+   *   <li>{@code success}: 성공 ({@code CertifiedInterval}).
+   *   <li>{@code rebase}: 기준변경 ({@code CertifiedInterval}).
+   *   <li>{@code failure}: 실패 ({@code CertifiedInterval}).
+   *   <li>{@code unresolved}: 미해결 ({@code CertifiedInterval}).
+   *   <li>{@code uses}: 사용량 ({@code Map<String, CertifiedInterval>}).
+   *   <li>{@code usageComplete}: 사용량·완료 ({@code boolean}).
+   *   <li>{@code rankStatus}: 순위·상태 ({@code String}).
+   *   <li>{@code distinguishingDecisions}: distinguishing·결정목록 ({@code List<Decision>}).
+   * </ul>
+   */
   public record Candidate(
       String id,
       List<Decision> decisions,

@@ -4,15 +4,111 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.Function;
 
-/** Finite-observation Markov calculation. S must be the full immutable transition state. */
+/**
+ * 완전한 불변 상태를 사용해 유한 관측의 정확한 마르코프 전이를 계산한다.
+ *
+ * <p>기존 계약: Finite-observation Markov calculation. S must be the full immutable transition state.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "method-cycle-bounded-phase-kernels-v7"} ({@code String}).
+ *   <li>{@code PHASE_KERNEL_WINDOW}: 시간창; 초기값 {@code 32} ({@code int}).
+ *   <li>{@code template}: 템플릿 ({@code Template<S, A>}).
+ *   <li>{@code transition}: 전이 ({@code Transition<S, A>}).
+ *   <li>{@code classify}: 상태분류 ({@code Function<S, Optional<Exit>>}).
+ *   <li>{@code compact}: 압축여부 ({@code Function<Map<S, Fraction>, Compaction<S>>}).
+ *   <li>{@code normalizeTerminal}: 정규화·종료 ({@code Function<Map<S, Fraction>, Compaction<S>>}).
+ *   <li>{@code terminalQueue}: 종료·대기열 ({@code ArrayDeque<PendingExit<S>>}).
+ *   <li>{@code terminalNormalization}: 종료·Normalization ({@code Compaction<S>}).
+ *   <li>{@code terminalResults}: 종료·결과목록 ({@code Iterator<Map.Entry<S, Fraction>>}).
+ *   <li>{@code finishingBoundary}: finishing·경계 ({@code boolean}).
+ *   <li>{@code compactionQueue}: compaction·대기열 ({@code ArrayDeque<Map<S, Fraction>>}).
+ *   <li>{@code compaction}: compaction ({@code Compaction<S>}).
+ *   <li>{@code exits}: 종료목록 ({@code Map<Exit, Map<S, Fraction>>}).
+ *   <li>{@code initialUses}: 초기값·사용량 ({@code Map<A, Fraction>}).
+ *   <li>{@code cycleUses}: 주기·사용량 ({@code Map<A, Fraction>}).
+ *   <li>{@code pending}: 대기 ({@code LinkedHashMap<Execution<S>, Fraction>}).
+ *   <li>{@code boundary}: 경계 ({@code Map<S, Fraction>}).
+ *   <li>{@code initializing}: 초기화중 ({@code boolean}).
+ *   <li>{@code atBoundary}: 기준·경계 ({@code boolean}).
+ *   <li>{@code cycles}: 주기횟수 ({@code long}).
+ *   <li>{@code flight}: 진행중 ({@code Flight}).
+ *   <li>{@code phaseGroups}: 단계·그룹목록 ({@code Map<WorkKey, Flight>}).
+ *   <li>{@code phaseReady}: 단계·준비완료 ({@code boolean}).
+ *   <li>{@code groupedInputs}: 묶인·입력목록 ({@code long}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code groupedInputs()}: {@code groupedInputs} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code retainedPhaseKernels()}: 보유·단계·전이커널목록 값을 조회·구성한다. 반환: {@code int}.
+ *   <li>{@code ExactMethodRunner(root, template, transition, classify)}: 기본 정책을 보충해 공통 생성자로 위임한다.
+ *       입력: {@code root}(시작점), {@code template}(템플릿), {@code transition}(전이), {@code
+ *       classify}(상태분류).
+ *   <li>{@code ExactMethodRunner(root, template, transition, classify, compact)}: 기본 정책을 보충해 공통
+ *       생성자로 위임한다. 입력: {@code root}(시작점), {@code template}(템플릿), {@code transition}(전이), {@code
+ *       classify}(상태분류), {@code compact}(압축여부).
+ *   <li>{@code ExactMethodRunner(root, template, transition, classify, compact,
+ *       normalizeTerminal)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code root}(시작점), {@code template}(템플릿),
+ *       {@code transition}(전이), {@code classify}(상태분류), {@code compact}(압축여부), {@code
+ *       normalizeTerminal}(정규화·종료).
+ *   <li>{@code beginCycle()}: 시작·주기 처리에서 {@code boundary.forEach}, {@code pending.put}을(를) 사용한다.
+ *       사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+ *   <li>{@code step(maxOutcomes)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code maxOutcomes}(최대값·결과목록). 사용하는 예외:
+ *       {@code IllegalArgumentException}, {@code IllegalStateException}.
+ *   <li>{@code finishBoundary()}: 완료·경계 처리에서 {@code terminalQueue.isEmpty}, {@code
+ *       boundary.size}을(를) 사용한다.
+ *   <li>{@code endBoundary()}: end·경계의 입력에 따른 분기·결과를 처리한다.
+ *   <li>{@code atBoundary()}: {@code atBoundary} 값을 조회한다. 반환: {@code boolean}.
+ *   <li>{@code observation()}: 관측값 값을 조회·구성한다. 반환: {@code Observation<S, A>}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code boundarySnapshot()}: 경계·스냅샷 값을 조회·구성한다. 반환: {@code Observation<S, A>}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code absorb(exit, state, mass)}: absorb 처리에서 {@code mass.equals}, {@code exits.get}을(를)
+ *       사용한다. 입력: {@code exit}(종료), {@code state}(상태), {@code mass}(확률질량).
+ *   <li>{@code stepTerminal(maxOutcomes)}: 단계·종료 처리에서 {@code terminalQueue.getFirst}, {@code
+ *       pendingExit.normalization}을(를) 사용한다. 입력: {@code maxOutcomes}(최대값·결과목록).
+ *   <li>{@code probability(value)}: 현재 조건의 확률을 조회한다. 입력: {@code value}(값). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Compaction}: {@code ExactMethodRunner} 내부의 Compaction 처리를 맡는다.
+ *   <li>{@code Exit}: {@code ExactMethodRunner}의 종료 구분값을 정의한다.
+ *   <li>{@code Outcome}: {@code ExactMethodRunner}에서 사용하는 결과의 불변 값이다.
+ *   <li>{@code Kernel}: {@code ExactMethodRunner}에서 사용하는 전이커널의 불변 값이다.
+ *   <li>{@code Transition}: {@code ExactMethodRunner} 내부의 전이 처리를 맡는다.
+ *   <li>{@code Template}: {@code ExactMethodRunner}에서 사용하는 템플릿의 불변 값이다.
+ *   <li>{@code Execution}: {@code ExactMethodRunner}에서 사용하는 실행의 불변 값이다.
+ *   <li>{@code Observation}: {@code ExactMethodRunner}에서 사용하는 관측값의 불변 값이다.
+ *   <li>{@code PendingExit}: {@code ExactMethodRunner}에서 사용하는 대기·종료의 불변 값이다.
+ *   <li>{@code WorkKey}: {@code ExactMethodRunner} 내부의 계산작업·키 처리를 맡는다.
+ *   <li>{@code Flight}: {@code ExactMethodRunner} 내부의 진행중 처리를 맡는다.
+ * </ul>
+ */
 public final class ExactMethodRunner<S, A> {
   public static final String VERSION = "method-cycle-bounded-phase-kernels-v7";
   static final int PHASE_KERNEL_WINDOW = 32;
 
   /**
-   * A law-preserving normalization of one mutually exclusive distribution, never alternatives.
-   * Selectors and classifiers must have identical semantics on every represented member. The
-   * application uses constant currency selectors and compiled goal-equivalent regions.
+   * {@code ExactMethodRunner} 내부의 Compaction 처리를 맡는다.
+   *
+   * <p>기존 계약: A law-preserving normalization of one mutually exclusive distribution, never
+   * alternatives. Selectors and classifiers must have identical semantics on every represented
+   * member. The application uses constant currency selectors and compiled goal-equivalent regions.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code step(maxInputs)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code maxInputs}(최대값·입력목록).
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code Map<S, Fraction>}.
+   * </ul>
    */
   public interface Compaction<S> {
     boolean complete();
@@ -22,6 +118,20 @@ public final class ExactMethodRunner<S, A> {
     Map<S, Fraction> result();
   }
 
+  /**
+   * {@code ExactMethodRunner}의 종료 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code GOAL}: 목표 구분값.
+   *   <li>{@code CHECKPOINT}: 체크포인트 구분값.
+   *   <li>{@code LOSS}: LOSS 구분값.
+   *   <li>{@code DEAD}: 종료된 구분값.
+   *   <li>{@code UNRESOLVED}: 미해결 구분값.
+   *   <li>{@code REBASE}: 기준변경 구분값.
+   * </ul>
+   */
   public enum Exit {
     GOAL,
     CHECKPOINT,
@@ -31,6 +141,23 @@ public final class ExactMethodRunner<S, A> {
     REBASE
   }
 
+  /**
+   * {@code ExactMethodRunner}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code S}).
+   *   <li>{@code probability}: 확률 ({@code Fraction}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Outcome(state, probability)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code state}(상태), {@code
+   *       probability}(확률).
+   * </ul>
+   */
   public record Outcome<S>(S state, Fraction probability) {
     public Outcome {
       Objects.requireNonNull(state);
@@ -38,7 +165,27 @@ public final class ExactMethodRunner<S, A> {
     }
   }
 
-  /** Missing support is explicit mass, not a failure or an omitted display row. */
+  /**
+   * {@code ExactMethodRunner}에서 사용하는 전이커널의 불변 값이다.
+   *
+   * <p>기존 계약: Missing support is explicit mass, not a failure or an omitted display row.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code outcomes}: 결과목록 ({@code List<Outcome<S>>}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code unavailable}: 사용불가 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Kernel(outcomes, unresolved, unavailable)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       outcomes}(결과목록), {@code unresolved}(미해결), {@code unavailable}(사용불가). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   * </ul>
+   */
   public record Kernel<S>(List<Outcome<S>> outcomes, Fraction unresolved, boolean unavailable) {
     public Kernel {
       outcomes = List.copyOf(outcomes);
@@ -53,12 +200,41 @@ public final class ExactMethodRunner<S, A> {
     }
   }
 
+  /**
+   * {@code ExactMethodRunner} 내부의 전이 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code apply(state, action)}: 주어진 행동 또는 변경을 적용한 결과를 구한다. 입력: {@code state}(상태), {@code
+   *       action}(행동). 반환: {@code Kernel<S>}.
+   * </ul>
+   */
   @FunctionalInterface
   public interface Transition<S, A> {
     Kernel<S> apply(S state, A action);
   }
 
-  /** An action selector may branch on the exact result of the preceding primitive action. */
+  /**
+   * {@code ExactMethodRunner}에서 사용하는 템플릿의 불변 값이다.
+   *
+   * <p>기존 계약: An action selector may branch on the exact result of the preceding primitive action.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code initial}: 초기값 ({@code List<Function<S, A>>}).
+   *   <li>{@code cycle}: 주기 ({@code List<Function<S, A>>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Template(id, initial, cycle)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자), {@code
+   *       initial}(초기값), {@code cycle}(주기). 사용하는 예외: {@code IllegalArgumentException}.
+   * </ul>
+   */
   public record Template<S, A>(
       String id, List<Function<S, A>> initial, List<Function<S, A>> cycle) {
     public Template {
@@ -69,9 +245,42 @@ public final class ExactMethodRunner<S, A> {
     }
   }
 
+  /**
+   * {@code ExactMethodRunner}에서 사용하는 실행의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code S}).
+   *   <li>{@code phase}: 단계 ({@code int}).
+   * </ul>
+   */
   public record Execution<S>(S state, int phase) {}
 
-  /** Usage is expected actual consumption, including paths absorbed before the cycle ends. */
+  /**
+   * {@code ExactMethodRunner}에서 사용하는 관측값의 불변 값이다.
+   *
+   * <p>기존 계약: Usage is expected actual consumption, including paths absorbed before the cycle ends.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code cycles}: 주기횟수 ({@code long}).
+   *   <li>{@code exits}: 종료목록 ({@code Map<Exit, Map<S, Fraction>>}).
+   *   <li>{@code active}: 활성 ({@code Map<S, Fraction>}).
+   *   <li>{@code initialUses}: 초기값·사용량 ({@code Map<A, Fraction>}).
+   *   <li>{@code cycleUses}: 주기·사용량 ({@code Map<A, Fraction>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code atLaterAbsorbedBoundary(boundaryCycles)}: 기준·후속·흡수된·경계 처리에서 {@code
+   *       active.isEmpty}을(를) 사용한다. 입력: {@code boundaryCycles}(경계·주기횟수). 반환: {@code Observation<S,
+   *       A>}. 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code mass()}: 현재 분포의 확률 질량을 구한다. 반환: {@code Fraction}.
+   * </ul>
+   */
   public record Observation<S, A>(
       long cycles,
       Map<Exit, Map<S, Fraction>> exits,
@@ -99,6 +308,16 @@ public final class ExactMethodRunner<S, A> {
   private final Function<Map<S, Fraction>, Compaction<S>> compact;
   private final Function<Map<S, Fraction>, Compaction<S>> normalizeTerminal;
 
+  /**
+   * {@code ExactMethodRunner}에서 사용하는 대기·종료의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code kind}: 종류 ({@code Exit}).
+   *   <li>{@code normalization}: normalization ({@code Compaction<S>}).
+   * </ul>
+   */
   private record PendingExit<S>(Exit kind, Compaction<S> normalization) {}
 
   private final ArrayDeque<PendingExit<S>> terminalQueue = new ArrayDeque<>();
@@ -122,6 +341,26 @@ public final class ExactMethodRunner<S, A> {
 
   // The job's proven kernel cache supplies the same immutable object only for equal complete
   // transition laws. Reference equality avoids repeatedly hashing a large outcome distribution.
+  /**
+   * {@code ExactMethodRunner} 내부의 계산작업·키 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code phase}: 단계 ({@code int}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code A}).
+   *   <li>{@code kernel}: 전이커널 ({@code Kernel<S>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code WorkKey(phase, action, kernel)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code phase}(단계),
+   *       {@code action}(행동), {@code kernel}(전이커널).
+   *   <li>{@code hashCode()}: 동등성 비교와 일치하는 해시를 반환한다. 반환: {@code int}.
+   *   <li>{@code equals(other)}: 값의 동등성을 비교한다. 입력: {@code other}(비교대상). 반환: {@code boolean}.
+   * </ul>
+   */
   private final class WorkKey {
     final int phase;
     final A action;
@@ -155,6 +394,26 @@ public final class ExactMethodRunner<S, A> {
     return phaseGroups.size() + (flight == null ? 0 : 1);
   }
 
+  /**
+   * {@code ExactMethodRunner} 내부의 진행중 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code execution}: 실행 ({@code Execution<S>}).
+   *   <li>{@code mass}: 확률질량 ({@code Fraction}).
+   *   <li>{@code kernel}: 전이커널 ({@code Kernel<S>}).
+   *   <li>{@code phases}: 단계목록 ({@code int}).
+   *   <li>{@code cursor}: 진행커서 ({@code int}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Flight(execution, mass, kernel, phases)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       execution}(실행), {@code mass}(확률질량), {@code kernel}(전이커널), {@code phases}(단계목록).
+   * </ul>
+   */
   private final class Flight {
     final Execution<S> execution;
     Fraction mass;

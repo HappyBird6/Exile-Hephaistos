@@ -3,7 +3,41 @@ package com.poe2craft.shared.item;
 import java.util.Collection;
 import java.util.Set;
 
-/** Reviewed Basic Jewel identities and persistent Crafted mechanics; no passive-tree simulation. */
+/**
+ * 기본 주얼의 정체성과 영구 제작 옵션 규칙을 처리한다.
+ *
+ * <p>기존 계약: Reviewed Basic Jewel identities and persistent Crafted mechanics; no passive-tree
+ * simulation.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code BASES}: 베이스목록 ({@code Set<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code BasicJewel()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code supported(base)}: 지원 처리에서 {@code BASES.contains}을(를) 사용한다. 입력: {@code base}(베이스).
+ *       반환: {@code boolean}.
+ *   <li>{@code timeLost(base)}: 시간·Lost의 입력에 따른 분기·결과를 처리한다. 입력: {@code base}(베이스). 반환: {@code
+ *       boolean}.
+ *   <li>{@code supportedCrafting(base)}: 지원·제작의 입력에 따른 분기·결과를 처리한다. 입력: {@code base}(베이스). 반환:
+ *       {@code boolean}.
+ *   <li>{@code extra(ids, side)}: extra 처리에서 {@code ids.stream}, {@code id.endsWith}을(를) 사용한다. 입력:
+ *       {@code ids}(식별자목록), {@code side}(접두접미). 반환: {@code int}.
+ *   <li>{@code existingCapacity(p, s, maxP, maxS)}: 기존·용량의 입력에 따른 분기·결과를 처리한다. 입력: {@code p}(p),
+ *       {@code s}(s), {@code maxP}(최대값·P), {@code maxS}(최대값·S). 반환: {@code boolean}.
+ *   <li>{@code insertionCapacity(p, s, maxP, maxS)}: insertion·용량의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       p}(p), {@code s}(s), {@code maxP}(최대값·P), {@code maxS}(최대값·S). 반환: {@code int}.
+ *   <li>{@code chaosLockedSides(state, catalog)}: 카오스·잠긴·Sides 처리에서 {@code state.baseItemId},
+ *       {@code state.rarity}을(를) 사용한다. 입력: {@code state}(상태), {@code catalog}(카탈로그). 반환: {@code
+ *       Set<ModifierDefinition.AffixType>}.
+ *   <li>{@code effect(state, side)}: 효과 처리에서 {@code state.explicits}, {@code m.modifierId}을(를)
+ *       사용한다. 입력: {@code state}(상태), {@code side}(접두접미). 반환: {@code long}.
+ * </ul>
+ */
 public final class BasicJewel {
   private static final Set<String> BASES =
       Set.of(

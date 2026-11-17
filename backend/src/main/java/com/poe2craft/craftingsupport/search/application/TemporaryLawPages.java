@@ -7,7 +7,47 @@ import java.nio.channels.FileChannel;
 import java.nio.file.*;
 import java.util.*;
 
-/** Job-owned immutable spill pages. Only the bounded hot cache retains packed byte arrays. */
+/**
+ * 작업 소유의 불변 분포 페이지를 파일에 두고 작은 캐시만 메모리에 유지한다.
+ *
+ * <p>기존 계약: Job-owned immutable spill pages. Only the bounded hot cache retains packed byte arrays.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code directory}: 디렉터리 ({@code Path}).
+ *   <li>{@code limit}: 한도 ({@code long}).
+ *   <li>{@code cache}: 캐시 ({@code LinkedHashMap<Stored, byte[]>}).
+ *   <li>{@code resident}: 메모리상주 ({@code long}).
+ *   <li>{@code disk}: 디스크 ({@code long}).
+ *   <li>{@code path}: 경로 ({@code Path}).
+ *   <li>{@code file}: 파일 ({@code FileChannel}).
+ *   <li>{@code closed}: 닫힘 ({@code boolean}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code TemporaryLawPages(directory, limit)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       directory}(디렉터리), {@code limit}(한도). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code open()}: 조회할 자원 또는 작업 범위를 연다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code store(data)}: 저장소의 입력에 따른 분기·결과를 처리한다. 입력: {@code data}(데이터). 반환: {@code Payload}.
+ *   <li>{@code retain(stored, data)}: retain 처리에서 {@code cache.put}, {@code cache.firstEntry}을(를)
+ *       사용한다. 입력: {@code stored}(저장된), {@code data}(데이터).
+ *   <li>{@code spill(stored, data)}: spill 처리에서 {@code Files.createDirectories}, {@code
+ *       Files.createTempFile}을(를) 사용한다. 입력: {@code stored}(저장된), {@code data}(데이터). 사용하는 예외: {@code
+ *       UncheckedIOException}.
+ *   <li>{@code residentBytes()}: {@code resident} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code diskBytes()}: {@code disk} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다. 사용하는 예외: {@code UncheckedIOException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Stored}: {@code TemporaryLawPages} 내부의 저장된 처리를 맡는다.
+ * </ul>
+ */
 final class TemporaryLawPages implements PackedPages {
   private final Path directory;
   private final long limit;
@@ -23,6 +63,24 @@ final class TemporaryLawPages implements PackedPages {
     this.limit = limit;
   }
 
+  /**
+   * {@code TemporaryLawPages} 내부의 저장된 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code length}: 길이 ({@code int}).
+   *   <li>{@code offset}: 시작위치; 초기값 {@code -1} ({@code long}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Stored(length)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code length}(길이).
+   *   <li>{@code read()}: 지정한 입력 또는 저장된 값을 읽는다. 반환: {@code byte[]}. 사용하는 예외: {@code
+   *       IllegalStateException}, {@code EOFException}, {@code UncheckedIOException}.
+   * </ul>
+   */
   private final class Stored implements Payload {
     private final int length;
     private long offset = -1;

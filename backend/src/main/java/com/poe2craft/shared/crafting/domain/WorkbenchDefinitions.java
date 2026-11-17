@@ -8,6 +8,8 @@ import java.util.*;
 /**
  * JSON에서 읽은 제작 정의를 검증하고 프로세스 전체에 하나의 불변 규칙 묶음을 제공한다.
  *
+ * <p>JSON에서 읽은 제작 정의를 검증하고 프로세스 전체에 하나의 불변 규칙 묶음을 제공한다.
+ *
  * <p>document는 원본의 불변 투영, currencies/omens는 enum 키의 조회 인덱스다. active는 volatile로 공개하는 현재 규칙이며
  * initialize의 동기화로 다른 묶음의 재등록을 거절한다. active()는 초기화 전 IllegalStateException을 던진다. NO_TARGETS는 베이스별
  * 대상이 없을 때 공유하는 빈 값이다.
@@ -20,6 +22,64 @@ import java.util.*;
  * <p>중첩 타입: Currency는 화폐, Omen은 징조, MaterialKind/MaterialMode는 코드가 지원하는 유한한 제작 분류·알고리즘,
  * MaterialPolicy는 패치 가능한 적용 희귀도, BaseTargets는 베이스 후보, Document는 직렬화 루트다. 게임 수치·후보는 JSON에 두고 임의
  * 표현식이나 코드를 실행하지 않는다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code NO_TARGETS}: 대상목록 ({@code BaseTargets}).
+ *   <li>{@code document}: 문서 ({@code Document}).
+ *   <li>{@code currencies}: 화폐목록 ({@code Map<WorkbenchCurrency, Currency>}).
+ *   <li>{@code omens}: 징조목록 ({@code Map<WorkbenchOmen, Omen>}).
+ *   <li>{@code active}: 활성 ({@code WorkbenchDefinitions}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code WorkbenchDefinitions(document)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code document}(문서). 사용하는
+ *       예외: {@code IllegalArgumentException}.
+ *   <li>{@code ids(ids)}: 식별자목록 처리에서 {@code ids.size}, {@code ids.stream}을(를) 사용한다. 입력: {@code
+ *       ids}(식별자목록). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code url(value)}: 출처주소 처리에서 {@code value.matches}을(를) 사용한다. 입력: {@code value}(값). 사용하는
+ *       예외: {@code IllegalArgumentException}.
+ *   <li>{@code targets(baseId)}: 대상목록 처리에서 {@code document.baseTargets}을(를) 사용한다. 입력: {@code
+ *       baseId}(베이스·식별자). 반환: {@code BaseTargets}.
+ *   <li>{@code document()}: {@code document} 값을 조회한다. 반환: {@code Document}.
+ *   <li>{@code currency(id)}: 화폐 처리에서 {@code currencies.get}을(를) 사용한다. 입력: {@code id}(식별자). 반환:
+ *       {@code Currency}.
+ *   <li>{@code omen(id)}: 징조 처리에서 {@code omens.get}을(를) 사용한다. 입력: {@code id}(식별자). 반환: {@code
+ *       Omen}.
+ *   <li>{@code validateTargets(known)}: 대상목록을(를) 검증한다. 입력: {@code known}(알려진). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code initialize(definitions)}: 초기화 처리에서 {@code document.equals}을(를) 사용한다. 입력: {@code
+ *       definitions}(정의목록). 반환: {@code WorkbenchDefinitions}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code active()}: 서버가 시작할 때 검증한 공유 매핑을 반환한다. 반환: {@code WorkbenchDefinitions}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Currency}: 화폐 정의다. id는 실행 ID, baseAction은 기본 알고리즘(없으면 null), minimumModifierLevel은
+ *       최소 옵션 레벨, fixedModifierId는 단일 추가 후보, essenceModifierIds는 추가 후보, essenceChoiceSource는 복수 후보
+ *       근거, replacementModifiers는 교체 후보, replacementEssenceSource/replacementSource는 에센스·교체 동작 근거,
+ *       materialPolicy는 재료 분류·희귀도 정책이다. 생성자는 정책 누락을 거절하고 후보 목록을 방어 복사한다.
+ *   <li>{@code Omen}: key는 코드 enum, id는 공개 식별자, trigger는 적용 화폐, affix는 접두/접미 제한(없으면 null),
+ *       supportsTieredCurrency는 상위 화폐 지원 여부다.
+ *   <li>{@code MaterialKind}: OTHER는 별도 기본 동작, ESSENCE는 에센스, ALLOY는 합금, LIQUID는 감정액이다. 표시 이름이 아닌 실행
+ *       분류다.
+ *   <li>{@code MaterialMode}: NONE은 전용 후보 없음, ADD는 보장 옵션 추가, REPLACE는 기존 옵션 제거 후 교체다. 새 메커니즘은 Java
+ *       구현을 함께 추가한다.
+ *   <li>{@code MaterialPolicy}: kind/mode는 실행 분류·알고리즘, inputRarities는 허용 입력 희귀도, resultRarity는 추가 후
+ *       희귀도다. 교체는 기존 희귀도를 유지하므로 resultRarity=null이다. 생성자는 중복·빈 입력·모드 불일치를 거절한다. allows(state)는 희귀도
+ *       허용 여부, result(state)는 적용 후 희귀도를 반환하며 상태를 변경하지 않는다.
+ *   <li>{@code BaseTargets}: fixed/replacements는 화폐별 추가/교체 후보다. 생성자는 copyTargets로 중첩 목록까지 불변 복사한다.
+ *       copyTargets는 enum 순서를 유지하며 빈 목록·중복·빈 ID를 거절한다. JSON 수정 시 후보 수 자체를 제한하지 않는다.
+ *   <li>{@code Document}: schemaVersion/ruleVersion은 문서 계약, currencies/omens는 순서 있는 실행 정의,
+ *       baseTargets는 베이스 ID별 후보다. 기본 생성자는 모든 컬렉션을 불변 복사한다. 4인자 생성자는 베이스 후보가 없던 기존 Java 호출의 호환 진입점이며
+ *       빈 map을 사용한다.
+ * </ul>
  */
 public final class WorkbenchDefinitions {
   /**
@@ -27,6 +87,34 @@ public final class WorkbenchDefinitions {
    * fixedModifierId는 단일 추가 후보, essenceModifierIds는 추가 후보, essenceChoiceSource는 복수 후보 근거,
    * replacementModifiers는 교체 후보, replacementEssenceSource/replacementSource는 에센스·교체 동작 근거,
    * materialPolicy는 재료 분류·희귀도 정책이다. 생성자는 정책 누락을 거절하고 후보 목록을 방어 복사한다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code WorkbenchCurrency}).
+   *   <li>{@code baseAction}: 베이스·행동 ({@code CraftingAction}).
+   *   <li>{@code minimumModifierLevel}: 최소값·옵션·레벨 ({@code int}).
+   *   <li>{@code fixedModifierId}: 고정·옵션·식별자 ({@code String}).
+   *   <li>{@code essenceModifierIds}: 에센스·옵션·식별자목록 ({@code List<String>}).
+   *   <li>{@code essenceChoiceSource}: 에센스·선택·출처 ({@code String}).
+   *   <li>{@code replacementModifiers}: 교체·옵션목록 ({@code List<String>}).
+   *   <li>{@code replacementEssenceSource}: 교체·에센스·출처 ({@code String}).
+   *   <li>{@code replacementSource}: 교체·출처 ({@code String}).
+   *   <li>{@code materialPolicy}: 제작재료·정책 ({@code MaterialPolicy}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Currency(id, baseAction, minimumModifierLevel, fixedModifierId,
+   *       essenceModifierIds, essenceChoiceSource, replacementModifiers, replacementEssenceSource,
+   *       replacementSource, materialPolicy)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자), {@code
+   *       baseAction}(베이스·행동), {@code minimumModifierLevel}(최소값·옵션·레벨), {@code
+   *       fixedModifierId}(고정·옵션·식별자), {@code essenceModifierIds}(에센스·옵션·식별자목록), {@code
+   *       essenceChoiceSource}(에센스·선택·출처), {@code replacementModifiers}(교체·옵션목록), {@code
+   *       replacementEssenceSource}(교체·에센스·출처), {@code replacementSource}(교체·출처), {@code
+   *       materialPolicy}(제작재료·정책).
+   * </ul>
    */
   public record Currency(
       WorkbenchCurrency id,
@@ -49,6 +137,16 @@ public final class WorkbenchDefinitions {
   /**
    * key는 코드 enum, id는 공개 식별자, trigger는 적용 화폐, affix는 접두/접미 제한(없으면 null), supportsTieredCurrency는 상위
    * 화폐 지원 여부다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code key}: 키 ({@code WorkbenchOmen}).
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code trigger}: trigger ({@code WorkbenchCurrency}).
+   *   <li>{@code affix}: 접두접미옵션 ({@code AffixType}).
+   *   <li>{@code supportsTieredCurrency}: supports·등급별·화폐 ({@code boolean}).
+   * </ul>
    */
   public record Omen(
       WorkbenchOmen key,
@@ -57,7 +155,18 @@ public final class WorkbenchDefinitions {
       AffixType affix,
       boolean supportsTieredCurrency) {}
 
-  /** OTHER는 별도 기본 동작, ESSENCE는 에센스, ALLOY는 합금, LIQUID는 감정액이다. 표시 이름이 아닌 실행 분류다. */
+  /**
+   * OTHER는 별도 기본 동작, ESSENCE는 에센스, ALLOY는 합금, LIQUID는 감정액이다. 표시 이름이 아닌 실행 분류다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code OTHER}: 비교대상 구분값.
+   *   <li>{@code ESSENCE}: 에센스 구분값.
+   *   <li>{@code ALLOY}: 합금 구분값.
+   *   <li>{@code LIQUID}: 감정액 구분값.
+   * </ul>
+   */
   public enum MaterialKind {
     OTHER,
     ESSENCE,
@@ -65,7 +174,17 @@ public final class WorkbenchDefinitions {
     LIQUID
   }
 
-  /** NONE은 전용 후보 없음, ADD는 보장 옵션 추가, REPLACE는 기존 옵션 제거 후 교체다. 새 메커니즘은 Java 구현을 함께 추가한다. */
+  /**
+   * NONE은 전용 후보 없음, ADD는 보장 옵션 추가, REPLACE는 기존 옵션 제거 후 교체다. 새 메커니즘은 Java 구현을 함께 추가한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code NONE}: NONE 구분값.
+   *   <li>{@code ADD}: ADD 구분값.
+   *   <li>{@code REPLACE}: REPLACE 구분값.
+   * </ul>
+   */
   public enum MaterialMode {
     NONE,
     ADD,
@@ -76,6 +195,27 @@ public final class WorkbenchDefinitions {
    * kind/mode는 실행 분류·알고리즘, inputRarities는 허용 입력 희귀도, resultRarity는 추가 후 희귀도다. 교체는 기존 희귀도를 유지하므로
    * resultRarity=null이다. 생성자는 중복·빈 입력·모드 불일치를 거절한다. allows(state)는 희귀도 허용 여부, result(state)는 적용 후
    * 희귀도를 반환하며 상태를 변경하지 않는다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code kind}: 종류 ({@code MaterialKind}).
+   *   <li>{@code mode}: 모드 ({@code MaterialMode}).
+   *   <li>{@code inputRarities}: 입력·희귀도목록 ({@code List<ItemState.Rarity>}).
+   *   <li>{@code resultRarity}: 결과·희귀도 ({@code ItemState.Rarity}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code MaterialPolicy(kind, mode, inputRarities, resultRarity)}: 전달받은 값으로 구성원을 초기화한다. 입력:
+   *       {@code kind}(종류), {@code mode}(모드), {@code inputRarities}(입력·희귀도목록), {@code
+   *       resultRarity}(결과·희귀도). 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code allows(state)}: allows 처리에서 {@code inputRarities.contains}, {@code
+   *       state.rarity}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code boolean}.
+   *   <li>{@code result(state)}: 최종 또는 현재 계산 결과를 구성한다. 입력: {@code state}(상태). 반환: {@code
+   *       ItemState.Rarity}.
+   * </ul>
    */
   public record MaterialPolicy(
       MaterialKind kind,
@@ -109,6 +249,23 @@ public final class WorkbenchDefinitions {
   /**
    * fixed/replacements는 화폐별 추가/교체 후보다. 생성자는 copyTargets로 중첩 목록까지 불변 복사한다. copyTargets는 enum 순서를
    * 유지하며 빈 목록·중복·빈 ID를 거절한다. JSON 수정 시 후보 수 자체를 제한하지 않는다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code fixed}: 고정 ({@code Map<WorkbenchCurrency, List<String>>}).
+   *   <li>{@code replacements}: 교체목록 ({@code Map<WorkbenchCurrency, List<String>>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code BaseTargets(fixed, replacements)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code fixed}(고정),
+   *       {@code replacements}(교체목록).
+   *   <li>{@code copyTargets(source)}: copy·대상목록 처리에서 {@code source.forEach}, {@code
+   *       ids.isEmpty}을(를) 사용한다. 입력: {@code source}(출처). 반환: {@code Map<WorkbenchCurrency,
+   *       List<String>>}. 사용하는 예외: {@code IllegalArgumentException}.
+   * </ul>
    */
   public record BaseTargets(
       Map<WorkbenchCurrency, List<String>> fixed,
@@ -136,6 +293,27 @@ public final class WorkbenchDefinitions {
   /**
    * schemaVersion/ruleVersion은 문서 계약, currencies/omens는 순서 있는 실행 정의, baseTargets는 베이스 ID별 후보다. 기본
    * 생성자는 모든 컬렉션을 불변 복사한다. 4인자 생성자는 베이스 후보가 없던 기존 Java 호출의 호환 진입점이며 빈 map을 사용한다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code schemaVersion}: 스키마·버전 ({@code int}).
+   *   <li>{@code ruleVersion}: 규칙·버전 ({@code String}).
+   *   <li>{@code currencies}: 화폐목록 ({@code List<Currency>}).
+   *   <li>{@code omens}: 징조목록 ({@code List<Omen>}).
+   *   <li>{@code baseTargets}: 베이스·대상목록 ({@code Map<String, BaseTargets>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Document(schemaVersion, ruleVersion, currencies, omens, baseTargets)}: 전달받은 값으로
+   *       구성원을 초기화한다. 입력: {@code schemaVersion}(스키마·버전), {@code ruleVersion}(규칙·버전), {@code
+   *       currencies}(화폐목록), {@code omens}(징조목록), {@code baseTargets}(베이스·대상목록).
+   *   <li>{@code Document(schemaVersion, ruleVersion, currencies, omens)}: 기본 정책을 보충해 공통 생성자로 위임한다.
+   *       입력: {@code schemaVersion}(스키마·버전), {@code ruleVersion}(규칙·버전), {@code currencies}(화폐목록),
+   *       {@code omens}(징조목록).
+   * </ul>
    */
   public record Document(
       int schemaVersion,

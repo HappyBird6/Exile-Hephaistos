@@ -4,11 +4,70 @@ import com.poe2craft.shared.item.ItemState.Rarity;
 import java.math.BigDecimal;
 import java.util.List;
 
-/** Versioned wire AST. Disabled content is preserved and validated, never normalized. */
+/**
+ * 저장·전송 가능한 목표 조건 트리와 버전을 표현한다.
+ *
+ * <p>기존 계약: Versioned wire AST. Disabled content is preserved and validated, never normalized.
+ *
+ * <p>필드·상수·record 구성요소:
+ *
+ * <ul>
+ *   <li>{@code version}: 저장·실행 계약의 버전 ({@code Integer}).
+ *   <li>{@code catalogVersion}: 카탈로그·버전 ({@code String}).
+ *   <li>{@code general}: 일반 ({@code General}).
+ *   <li>{@code groups}: 그룹목록 ({@code List<Group>}).
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Context}: {@code GoalFilter}에서 사용하는 문맥의 불변 값이다.
+ *   <li>{@code General}: {@code GoalFilter}에서 사용하는 일반의 불변 값이다.
+ *   <li>{@code Range}: {@code GoalFilter}에서 사용하는 범위의 불변 값이다.
+ *   <li>{@code Group}: {@code GoalFilter}에서 사용하는 그룹의 불변 값이다.
+ *   <li>{@code Entry}: {@code GoalFilter}에서 사용하는 항목의 불변 값이다.
+ *   <li>{@code Type}: {@code GoalFilter}의 타입 구분값을 정의한다.
+ *   <li>{@code Status}: {@code GoalFilter}의 상태 구분값을 정의한다.
+ *   <li>{@code Capability}: {@code GoalFilter}의 Capability 구분값을 정의한다.
+ *   <li>{@code Presence}: {@code GoalFilter}의 존재여부 구분값을 정의한다.
+ *   <li>{@code Issue}: {@code GoalFilter}에서 사용하는 문제의 불변 값이다.
+ *   <li>{@code Severity}: {@code GoalFilter}의 Severity 구분값을 정의한다.
+ * </ul>
+ */
 public record GoalFilter(
     Integer version, String catalogVersion, General general, List<Group> groups) {
+  /**
+   * {@code GoalFilter}에서 사용하는 문맥의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code snapshotId}: 카탈로그 스냅샷 식별자 ({@code String}).
+   *   <li>{@code baseItemId}: 원본 베이스 식별자 ({@code String}).
+   *   <li>{@code itemLevel}: 옵션 생성 제한에 사용하는 아이템 레벨 ({@code Integer}).
+   * </ul>
+   */
   public record Context(String snapshotId, String baseItemId, Integer itemLevel) {}
 
+  /**
+   * {@code GoalFilter}에서 사용하는 일반의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code baseItemId}: 원본 베이스 식별자 ({@code String}).
+   *   <li>{@code itemLevel}: 옵션 생성 제한에 사용하는 아이템 레벨 ({@code Range}).
+   *   <li>{@code rarities}: 희귀도목록 ({@code List<Rarity>}).
+   *   <li>{@code quality}: 품질 ({@code Integer}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code General(baseItemId, itemLevel, rarities)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       baseItemId}(베이스·아이템·식별자), {@code itemLevel}(아이템·레벨), {@code rarities}(희귀도목록).
+   * </ul>
+   */
   public record General(
       String baseItemId,
       Range itemLevel,
@@ -21,6 +80,22 @@ public record GoalFilter(
     }
   }
 
+  /**
+   * {@code GoalFilter}에서 사용하는 범위의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code min}: 허용·표시 범위의 하한 ({@code BigDecimal}).
+   *   <li>{@code max}: 허용·표시 범위의 상한 ({@code BigDecimal}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code contains(value)}: 해당 항목의 포함 여부를 확인한다. 입력: {@code value}(값). 반환: {@code boolean}.
+   * </ul>
+   */
   public record Range(BigDecimal min, BigDecimal max) {
     public boolean contains(BigDecimal value) {
       return (min == null || value.compareTo(min) >= 0)
@@ -28,11 +103,52 @@ public record GoalFilter(
     }
   }
 
+  /**
+   * {@code GoalFilter}에서 사용하는 그룹의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code type}: 타입 ({@code Type}).
+   *   <li>{@code disabled}: 비활성 ({@code Boolean}).
+   *   <li>{@code range}: 범위 ({@code Range}).
+   *   <li>{@code entries}: 항목목록 ({@code List<Entry>}).
+   * </ul>
+   */
   public record Group(String id, Type type, Boolean disabled, Range range, List<Entry> entries) {}
 
+  /**
+   * {@code GoalFilter}에서 사용하는 항목의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code statId}: 수치·식별자 ({@code String}).
+   *   <li>{@code unit}: 단위 ({@code String}).
+   *   <li>{@code range}: 범위 ({@code Range}).
+   *   <li>{@code weight}: 후보 선택에 사용하는 가중치 ({@code BigDecimal}).
+   *   <li>{@code disabled}: 비활성 ({@code Boolean}).
+   * </ul>
+   */
   public record Entry(
       String id, String statId, String unit, Range range, BigDecimal weight, Boolean disabled) {}
 
+  /**
+   * {@code GoalFilter}의 타입 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code AND}: 및 구분값.
+   *   <li>{@code NOT}: NOT 구분값.
+   *   <li>{@code IF}: IF 구분값.
+   *   <li>{@code COUNT}: 개수 구분값.
+   *   <li>{@code WEIGHTED_V1}: 1 구분값.
+   *   <li>{@code WEIGHTED_V2}: 2 구분값.
+   * </ul>
+   */
   public enum Type {
     AND,
     NOT,
@@ -42,6 +158,18 @@ public record GoalFilter(
     WEIGHTED_V2
   }
 
+  /**
+   * {@code GoalFilter}의 상태 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code MATCH}: 일치 구분값.
+   *   <li>{@code NO_MATCH}: 일치 구분값.
+   *   <li>{@code UNKNOWN}: 미확정 구분값.
+   *   <li>{@code UNSUPPORTED}: 미지원 구분값.
+   * </ul>
+   */
   public enum Status {
     MATCH,
     NO_MATCH,
@@ -49,18 +177,61 @@ public record GoalFilter(
     UNSUPPORTED
   }
 
+  /**
+   * {@code GoalFilter}의 Capability 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code SUPPORTED}: 지원 구분값.
+   *   <li>{@code UNKNOWN}: 미확정 구분값.
+   *   <li>{@code UNSUPPORTED}: 미지원 구분값.
+   * </ul>
+   */
   public enum Capability {
     SUPPORTED,
     UNKNOWN,
     UNSUPPORTED
   }
 
+  /**
+   * {@code GoalFilter}의 존재여부 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code PRESENT}: PRESENT 구분값.
+   *   <li>{@code ABSENT}: ABSENT 구분값.
+   *   <li>{@code UNKNOWN}: 미확정 구분값.
+   * </ul>
+   */
   public enum Presence {
     PRESENT,
     ABSENT,
     UNKNOWN
   }
 
+  /**
+   * {@code GoalFilter}에서 사용하는 문제의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code code}: 코드 ({@code String}).
+   *   <li>{@code path}: 경로 ({@code String}).
+   *   <li>{@code message}: 메시지 ({@code String}).
+   *   <li>{@code severity}: severity ({@code Severity}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code error(code, path, message)}: 오류의 입력에 따른 분기·결과를 처리한다. 입력: {@code code}(코드), {@code
+   *       path}(경로), {@code message}(메시지). 반환: {@code Issue}.
+   *   <li>{@code warning(code, path, message)}: 경고의 입력에 따른 분기·결과를 처리한다. 입력: {@code code}(코드),
+   *       {@code path}(경로), {@code message}(메시지). 반환: {@code Issue}.
+   * </ul>
+   */
   public record Issue(String code, String path, String message, Severity severity) {
     public static Issue error(String code, String path, String message) {
       return new Issue(code, path, message, Severity.ERROR);
@@ -71,6 +242,16 @@ public record GoalFilter(
     }
   }
 
+  /**
+   * {@code GoalFilter}의 Severity 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code ERROR}: 오류 구분값.
+   *   <li>{@code WARNING}: 경고 구분값.
+   * </ul>
+   */
   public enum Severity {
     ERROR,
     WARNING

@@ -16,6 +16,25 @@ import org.junit.jupiter.api.Test;
  * 사용한다. changingJsonBaseTargetsChangesActualCraftingWithoutTheOldGlobalCandidateCountRestriction는
  * 후보를 두 개로 바꿔 실제 난수 제작에서 두 결과가 나오는지 검사한다. rarityPolicyComesFromJsonAndMalformedReferencesStillFail은
  * 희귀도 정책 변경을 읽으면서도 없는 옵션 참조를 거절하는지 검사한다. 입력 스트림 오류는 테스트 호출자에게 전달한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code source()}: 출처 값을 조회·구성한다. 반환: {@code ObjectNode}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code read(source)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code source}(출처). 반환: {@code
+ *       WorkbenchDefinitions}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code
+ *       changingJsonBaseTargetsChangesActualCraftingWithoutTheOldGlobalCandidateCountRestriction()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rarityPolicyComesFromJsonAndMalformedReferencesStillFail()}: 시나리오의 잘못된 입력·상태가 {@code
+ *       IllegalArgumentException}로 거절되는지 검증한다. 사용하는 예외: {@code Exception}.
+ * </ul>
  */
 class MaterialPolicyEditingTest {
   private final ObjectMapper json = new ObjectMapper();

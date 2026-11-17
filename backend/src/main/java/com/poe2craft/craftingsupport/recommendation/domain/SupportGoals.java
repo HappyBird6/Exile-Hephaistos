@@ -6,7 +6,43 @@ import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ModifierDefinition;
 import java.util.*;
 
-/** One family/tier goal; assesses the root and feasibility under finite additions only. */
+/**
+ * 옵션 계열·티어 목표의 현재 달성과 추가 가능성을 판정한다.
+ *
+ * <p>기존 계약: One family/tier goal; assesses the root and feasibility under finite additions only.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code families}: 옵션계열목록 ({@code Map<String, List<ModifierDefinition>>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code SupportGoals(catalog)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code catalog}(카탈로그). 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code families()}: 옵션계열목록 값을 조회·구성한다. 반환: {@code List<Family>}.
+ *   <li>{@code assess(state, goal)}: assess 처리에서 {@code goal.required}, {@code goal.candidates}을(를)
+ *       사용한다. 입력: {@code state}(상태), {@code goal}(목표). 반환: {@code Assessment}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code canAdd(c, present, level)}: Add을(를) 가능 여부를 판정한다. 입력: {@code c}(c), {@code
+ *       present}(present), {@code level}(레벨). 반환: {@code boolean}.
+ *   <li>{@code invalid(reason)}: 잘못된 입력을 나타내는 오류 결과를 만든다. 입력: {@code reason}(이유). 반환: {@code
+ *       Assessment}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Condition}: {@code SupportGoals}에서 사용하는 조건의 불변 값이다.
+ *   <li>{@code Goal}: {@code SupportGoals}에서 사용하는 목표의 불변 값이다.
+ *   <li>{@code Family}: {@code SupportGoals}에서 사용하는 옵션계열의 불변 값이다.
+ *   <li>{@code Tier}: {@code SupportGoals}에서 사용하는 티어의 불변 값이다.
+ *   <li>{@code Assessment}: {@code SupportGoals}에서 사용하는 평가의 불변 값이다.
+ * </ul>
+ */
 public final class SupportGoals {
   private final ItemCatalog catalog;
   private final Map<String, List<ModifierDefinition>> families = new TreeMap<>();
@@ -163,18 +199,88 @@ public final class SupportGoals {
     return new Assessment("INVALID_GOAL", false, false, false, 0, 0, Map.of(), List.of(reason));
   }
 
+  /**
+   * {@code SupportGoals}에서 사용하는 조건의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code family}: 옵션계열 ({@code String}).
+   *   <li>{@code minimumTier}: 최소값·티어 ({@code int}).
+   * </ul>
+   */
   public record Condition(String family, int minimumTier) {}
 
+  /**
+   * {@code SupportGoals}에서 사용하는 목표의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code required}: 필수 ({@code List<Condition>}).
+   *   <li>{@code candidates}: 후보목록 ({@code List<Condition>}).
+   *   <li>{@code candidateCount}: 후보·개수 ({@code int}).
+   * </ul>
+   */
   public record Goal(List<Condition> required, List<Condition> candidates, int candidateCount) {}
 
+  /**
+   * {@code SupportGoals}에서 사용하는 옵션계열의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code affix}: 접두접미옵션 ({@code ModifierDefinition.AffixType}).
+   *   <li>{@code tiers}: 티어목록 ({@code List<Tier>}).
+   *   <li>{@code effectExamples}: 효과·Examples ({@code List<String>}).
+   * </ul>
+   */
   public record Family(
       String id,
       ModifierDefinition.AffixType affix,
       List<Tier> tiers,
       List<String> effectExamples) {}
 
+  /**
+   * {@code SupportGoals}에서 사용하는 티어의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code tier}: 정의된 옵션 티어 ({@code int}).
+   *   <li>{@code requiredItemLevel}: 필수·아이템·레벨 ({@code int}).
+   *   <li>{@code exampleText}: example·텍스트 ({@code String}).
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   * </ul>
+   */
   public record Tier(int tier, int requiredItemLevel, String exampleText, String modifierId) {}
 
+  /**
+   * {@code SupportGoals}에서 사용하는 평가의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   *   <li>{@code valid}: 유효한 ({@code boolean}).
+   *   <li>{@code achieved}: achieved ({@code boolean}).
+   *   <li>{@code feasible}: feasible ({@code boolean}).
+   *   <li>{@code requiredMatched}: 필수·일치한 ({@code int}).
+   *   <li>{@code candidatesMatched}: 후보목록·일치한 ({@code int}).
+   *   <li>{@code matches}: 일치결과 ({@code Map<String, Boolean>}).
+   *   <li>{@code issues}: 문제목록 ({@code List<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Assessment(status, valid, achieved, feasible, requiredMatched, candidatesMatched,
+   *       matches, issues)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code status}(상태), {@code valid}(유효한),
+   *       {@code achieved}(achieved), {@code feasible}(feasible), {@code requiredMatched}(필수·일치한),
+   *       {@code candidatesMatched}(후보목록·일치한), {@code matches}(일치결과), {@code issues}(문제목록).
+   * </ul>
+   */
   public record Assessment(
       String status,
       boolean valid,

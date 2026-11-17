@@ -11,6 +11,18 @@ import java.nio.file.Path;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 계산 상태의 정체성을 유지하면서 결과 표시용 그룹을 정의한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code sharedDisplayFixturePreservesDiamondMassAlternativesAndAdaptiveRecommendations()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code fraction(value)}: 유리수 처리에서 {@code value.numerator}, {@code value.denominator}을(를)
+ *       사용한다. 입력: {@code value}(값). 반환: {@code Fraction}.
+ * </ul>
+ */
 class CertifiedMapProtocolTest {
   @Test
   void sharedDisplayFixturePreservesDiamondMassAlternativesAndAdaptiveRecommendations()

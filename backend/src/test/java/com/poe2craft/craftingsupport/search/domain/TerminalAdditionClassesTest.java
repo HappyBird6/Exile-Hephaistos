@@ -19,6 +19,46 @@ import java.util.*;
 import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 흡수 상태로 끝나는 유한 옵션 추가 구간에 대한 동치류를 증명한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code tiny}: tiny ({@code BasicCurrencyFixture}).
+ *   <li>{@code policy}: 정책 ({@code AutomaticCurrencyPolicy}).
+ *   <li>{@code kernel}: 전이커널 ({@code AutomaticCraftingKernel}).
+ *   <li>{@code exalt}: 엑잘티드 ({@code AutomaticCraftingAction}).
+ *   <li>{@code choices}: 선택목록 ({@code List<GoalDirectedPlanner.Choice>}).
+ *   <li>{@code progress}: 진행상황 ({@code AutomaticMethodGraph.Progress}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code source(value)}: 출처 처리에서 {@code tiny.item}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code
+ *       ItemState}.
+ *   <li>{@code prove(item, classify)}: 증명 처리에서 {@code TerminalAdditionClasses.prove}을(를) 사용한다. 입력:
+ *       {@code item}(아이템), {@code classify}(상태분류). 반환: {@code
+ *       Optional<TerminalAdditionClasses.Key>}.
+ *   <li>{@code sharesOnlyAfterComparingEveryOutcomeAndTransportsExactIncomingValues()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code distinguishesThresholdsAndRejectsIncompleteOrNonabsorbingLaws()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code rejectsRemovalIncludingLowestModifierLevelAndPreservesQualityIdentity()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fullGraphSharesExecutionAndCheckpointRestoresConcreteOutcomeLaws()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code both()}: both 값을 조회·구성한다. 반환: {@code Function<ItemState,
+ *       AutomaticMethodGraph.Progress>}.
+ *   <li>{@code wideKernel()}: wide·전이커널 값을 조회·구성한다. 반환: {@code AutomaticCraftingKernel}.
+ *   <li>{@code finish(graph)}: 진행 중인 계산 또는 누적 처리를 마무리한다. 입력: {@code graph}(그래프).
+ *   <li>{@code restoresRunningRepresentativeAndAliasesWithoutDuplicatingExecution()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code restoresBudgetPauseThenEnlargesWithoutChangingAnyOutcome()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ */
 class TerminalAdditionClassesTest {
   final BasicCurrencyFixture tiny = new BasicCurrencyFixture();
   final AutomaticCurrencyPolicy policy = AutomaticCurrencyPolicyLoader.load();

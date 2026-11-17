@@ -10,6 +10,17 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.actuate.health.HealthEndpoint;
 
+/**
+ * 서버 한 인스턴스의 요청·이벤트 지표를 제한된 메모리로 집계한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code reportsRealMetricsExcludesOwnTrafficAndBoundsHistory()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code rejectsArbitraryPayloadCategories()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class OperationsMonitorTest {
   @Test
   void reportsRealMetricsExcludesOwnTrafficAndBoundsHistory() {

@@ -6,7 +6,34 @@ import java.math.RoundingMode;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** Port of attributeNumbers.ts, deliberately independent of host Java locale/CLDR data. */
+/**
+ * 호스트 로케일과 무관하게 프런트와 같은 수치 문자열을 만든다.
+ *
+ * <p>기존 계약: Port of attributeNumbers.ts, deliberately independent of host Java locale/CLDR data.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code DisplayNumbers()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code number(value, locale)}: 숫자 처리에서 {@code Double.isFinite}, {@code
+ *       BigDecimal.valueOf}을(를) 사용한다. 입력: {@code value}(값), {@code locale}(언어코드). 반환: {@code
+ *       String}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code decimal(value, locale)}: decimal 처리에서 {@code value.abs}, {@code plain.split}을(를)
+ *       사용한다. 입력: {@code value}(값), {@code locale}(언어코드). 반환: {@code String}.
+ *   <li>{@code integer(digits, locale)}: 정수 처리에서 {@code digits.length}, {@code result.append}을(를)
+ *       사용한다. 입력: {@code digits}(digits), {@code locale}(언어코드). 반환: {@code String}.
+ *   <li>{@code text(text, source, output)}: 텍스트 처리에서 {@code Pattern.compile}, {@code
+ *       Pattern.quote}을(를) 사용한다. 입력: {@code text}(텍스트), {@code source}(출처), {@code output}(output).
+ *       반환: {@code String}.
+ *   <li>{@code decimalSeparator(locale)}: decimal·Separator의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       locale}(언어코드). 반환: {@code String}.
+ *   <li>{@code groupSeparator(locale)}: 그룹·Separator의 입력에 따른 분기·결과를 처리한다. 입력: {@code locale}(언어코드).
+ *       반환: {@code String}.
+ *   <li>{@code sourceNumber(value)}: 출처·숫자 처리에서 {@code Double.isFinite}, {@code
+ *       BigDecimal.valueOf}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code String}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ * </ul>
+ */
 public final class DisplayNumbers {
   private DisplayNumbers() {}
 

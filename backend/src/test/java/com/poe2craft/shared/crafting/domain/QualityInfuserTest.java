@@ -7,6 +7,21 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 품질·Infuser 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code item(catalog, jewellery, quality)}: 아이템 처리에서 {@code catalog.find}, {@code
+ *       catalog.base}을(를) 사용한다. 입력: {@code catalog}(카탈로그), {@code jewellery}(jewellery), {@code
+ *       quality}(품질). 반환: {@code ItemState}.
+ *   <li>{@code fourInfusersAddTenWithoutCorruptingAndCannotBeReusedEvenAfterCrafting()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code jewelleryFortyReachesFiftyAndSanctificationRoundsBeforeQuality()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class QualityInfuserTest {
   ItemState item(ItemCatalog catalog, boolean jewellery, int quality) {
     var implicit = catalog.find(catalog.base().implicitModifierId());

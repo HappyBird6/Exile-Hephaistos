@@ -8,7 +8,52 @@ import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner.*;
 import java.util.*;
 import java.util.function.*;
 
-/** Incremental cursor I/O; a graph revision publishes only a fully written immutable cursor. */
+/**
+ * 완전히 기록된 불변 커서만 그래프 리비전에 연결한다.
+ *
+ * <p>기존 계약: Incremental cursor I/O; a graph revision publishes only a fully written immutable
+ * cursor.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code store}: 저장소 ({@code MethodGraphStore}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code headerType}: 헤더·타입 ({@code JavaType}).
+ *   <li>{@code rowType}: 행·타입 ({@code JavaType}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code PersistentMethodCursor(store, json, state, action)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       store}(저장소), {@code json}(JSON), {@code state}(상태), {@code action}(행동).
+ *   <li>{@code encode(value)}: 값을 저장·전송 표현으로 부호화한다. 입력: {@code value}(값). 반환: {@code String}. 사용하는
+ *       예외: {@code IllegalArgumentException}.
+ *   <li>{@code decode(content, type)}: 저장·전송 표현을 내부 값으로 복원한다. 입력: {@code content}(내용), {@code
+ *       type}(타입). 반환: {@code T}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code write(scope, runner, revision, changes)}: 쓰기 처리에서 {@code runner.leaseCursor}을(를)
+ *       사용한다. 입력: {@code scope}(범위), {@code runner}(실행기), {@code revision}(리비전), {@code
+ *       changes}(changes). 반환: {@code Writer}.
+ *   <li>{@code write(scope, lease, revision, changes)}: 쓰기의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       scope}(범위), {@code lease}(사용권), {@code revision}(리비전), {@code changes}(changes). 반환: {@code
+ *       Writer}.
+ *   <li>{@code read(scope, template, transition, classifier, precision, absorptionMaps)}: 지정한 입력 또는
+ *       저장된 값을 읽는다. 입력: {@code scope}(범위), {@code template}(템플릿), {@code transition}(전이), {@code
+ *       classifier}(classifier), {@code precision}(정밀도), {@code absorptionMaps}(흡수·맵목록). 반환: {@code
+ *       Reader<CertifiedMethodRunner<S, A>>}.
+ *   <li>{@code read(scope, factory)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code scope}(범위), {@code
+ *       factory}(생성기). 반환: {@code Reader<R>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Writer}: {@code PersistentMethodCursor} 내부의 쓰기변환기 처리를 맡는다.
+ *   <li>{@code RestoreTarget}: {@code PersistentMethodCursor}에서 사용하는 복원·대상의 불변 값이다.
+ *   <li>{@code Reader}: {@code PersistentMethodCursor} 내부의 읽기변환기 처리를 맡는다.
+ * </ul>
+ */
 public final class PersistentMethodCursor<S, A> {
   private final MethodGraphStore store;
   private final ObjectMapper json;
@@ -61,6 +106,40 @@ public final class PersistentMethodCursor<S, A> {
     return new Writer(scope, lease, revision, changes);
   }
 
+  /**
+   * {@code PersistentMethodCursor} 내부의 쓰기변환기 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code lease}: 사용권 ({@code CertifiedMethodRunner<S, A>.CursorLease}).
+   *   <li>{@code rows}: 행목록 ({@code Iterator<CertifiedMethodRunner.CursorRow<S, A>>}).
+   *   <li>{@code draft}: 초안 ({@code MethodCursorStore.ExecutionCursor}).
+   *   <li>{@code changes}: changes ({@code MethodGraphStore.Batch}).
+   *   <li>{@code expectedRevision}: 기대값·리비전 ({@code long}).
+   *   <li>{@code previous}: 이전 ({@code Optional<MethodCursorStore.ExecutionCursor>}).
+   *   <li>{@code written}: written ({@code long}).
+   *   <li>{@code publishedRevision}: 공개된·리비전 ({@code long}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   *   <li>{@code closed}: 닫힘 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Writer(scope, lease, revision, changes)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       scope}(범위), {@code lease}(사용권), {@code revision}(리비전), {@code changes}(changes).
+   *   <li>{@code complete()}: {@code complete} 값을 조회한다. 반환: {@code boolean}.
+   *   <li>{@code writtenRows()}: {@code written} 값을 조회한다. 반환: {@code long}.
+   *   <li>{@code step(allowance)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code allowance}(allowance). 사용하는 예외:
+   *       {@code IllegalStateException}, {@code IllegalArgumentException}.
+   *   <li>{@code revision()}: 리비전 값을 조회·구성한다. 반환: {@code long}. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   *   <li>{@code discardPrevious()}: discard·이전 처리에서 {@code previous.ifPresent}, {@code
+   *       store.discardExecution}을(를) 사용한다. 사용하는 예외: {@code IllegalStateException}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   */
   public final class Writer implements AutoCloseable {
     private final CertifiedMethodRunner<S, A>.CursorLease lease;
     private final Iterator<CertifiedMethodRunner.CursorRow<S, A>> rows;
@@ -164,6 +243,18 @@ public final class PersistentMethodCursor<S, A> {
         });
   }
 
+  /**
+   * {@code PersistentMethodCursor}에서 사용하는 복원·대상의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code accept}: 수락 ({@code Consumer<CertifiedMethodRunner.CursorRow<S, A>>}).
+   *   <li>{@code finish}: 완료 ({@code Supplier<R>}).
+   *   <li>{@code cancel}: cancel ({@code Runnable}).
+   *   <li>{@code retainedStates}: 보유·상태목록 ({@code LongSupplier}).
+   * </ul>
+   */
   public record RestoreTarget<S, A, R>(
       Consumer<CertifiedMethodRunner.CursorRow<S, A>> accept,
       Supplier<R> finish,
@@ -181,6 +272,35 @@ public final class PersistentMethodCursor<S, A> {
     return new Reader<>(cursor, factory.apply(header));
   }
 
+  /**
+   * {@code PersistentMethodCursor} 내부의 읽기변환기 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code cursor}: 진행커서 ({@code MethodCursorStore.ExecutionCursor}).
+   *   <li>{@code restoration}: 복원 ({@code RestoreTarget<S, A, R>}).
+   *   <li>{@code result}: 결과 ({@code R}).
+   *   <li>{@code offset}: 시작위치 ({@code long}).
+   *   <li>{@code failed}: failed ({@code boolean}).
+   *   <li>{@code closed}: 닫힘 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Reader(cursor, restoration)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code cursor}(진행커서),
+   *       {@code restoration}(복원).
+   *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code readRows()}: {@code offset} 값을 조회한다. 반환: {@code long}.
+   *   <li>{@code retainedStates()}: 보유·상태목록 값을 조회·구성한다. 반환: {@code long}.
+   *   <li>{@code step(allowance)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code allowance}(allowance). 사용하는 예외:
+   *       {@code IllegalStateException}.
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code R}. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   */
   public final class Reader<R> implements AutoCloseable {
     private final MethodCursorStore.ExecutionCursor cursor;
     private final RestoreTarget<S, A, R> restoration;

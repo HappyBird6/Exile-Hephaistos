@@ -12,6 +12,38 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 징조·Composition 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code pair}: pair ({@code Set<String>}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code sim}: sim ({@code WorkbenchSimulator}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code catalog()}: 카탈로그 값을 조회·구성한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code state(ids)}: 현재 상태 표현을 조회한다. 입력: {@code ids}(식별자목록). 반환: {@code ItemState}.
+ *   <li>{@code noDraw()}: no·Draw 값을 조회·구성한다. 반환: {@code Random}. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code prefixFilterPrecedesLevelAndTiesAreUniformForEveryChaosGrade()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code absentMutablePrefixAndUnknownPairsRefuseBeforeAnyDraw()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code assertAtomic(before, active)}: assert·Atomic 처리에서 {@code sim.apply}, {@code
+ *       result.applied}을(를) 사용한다. 입력: {@code before}(변경전), {@code active}(활성).
+ *   <li>{@code auditedPrefixDoubleRemovalPreservesSuffixAndRefusesOneEligiblePrefix()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code suffixWhittlingUsesTheSymmetricSideRule()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code tieredSideAndSingleHomogenisingUseFilteredPublishedWeightPools()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code whittlingIncludesLevelOneCraftedAndUniformTiesButExcludesFractured()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class OmenCompositionTest {
   final Set<String> pair =
       Set.of(WorkbenchOmen.SINISTRAL_ERASURE.id(), WorkbenchOmen.WHITTLING.id());

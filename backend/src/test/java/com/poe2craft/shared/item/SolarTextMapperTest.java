@@ -6,6 +6,42 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import com.poe2craft.shared.item.text.ItemTextService;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 복사한 텍스트를 검증된 카탈로그에 연결하고 표시 배율을 원래 수치로 역산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code mapper}: 입력·출력 표현을 변환하는 구성요소 ({@code SolarTextMapper}).
+ *   <li>{@code parser}: 파서 ({@code ItemTextService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code text(explicit)}: 텍스트의 입력에 따른 분기·결과를 처리한다. 입력: {@code explicit}(명시옵션). 반환: {@code
+ *       String}.
+ *   <li>{@code runicWardHeaderIsAnObservationAndDoesNotAlterRawAffixValues()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code allKnownCatalystLabelsAtZeroPreserveRawValuesAndUnknownLabelsStayBlocked()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code exactValuesMapToAValidatedStateWithoutKeepingTheTextInTheState()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fixedMaximumQualityModifierMapsButUntypedQualityStillBlocks()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code typedQualityInvertsItsKnownScaleAndRetainsTheNearestReachableRoll()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unknownAndSpecialLinesBlockMappingAndArePreserved()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code roundedPerSecondValuesCanContinueWithNearestSourceRoll()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code outOfRangeAndUnmodeledPropertiesAreNotSilentlyDropped()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code fracturedClipboardMarkerPreservesTheLockAndRejectsMultipleOrNonRareLocks()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class SolarTextMapperTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   private final SolarTextMapper mapper = new SolarTextMapper(catalog);

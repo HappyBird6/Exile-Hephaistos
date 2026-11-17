@@ -18,16 +18,100 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-/** Manual-choice routes attached to an exact automatic graph node, with no reveal distribution. */
+/**
+ * 자동 그래프의 상태에 수동 훼손 선택 경로를 연결한다.
+ *
+ * <p>기존 계약: Manual-choice routes attached to an exact automatic graph node, with no reveal
+ * distribution.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ *   <li>{@code evaluate}: 평가 ({@code Function<ItemState, Progress>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AbyssStrategyPlanner(catalog, simulator, evaluate)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       catalog}(카탈로그), {@code simulator}(제작시뮬레이터), {@code evaluate}(평가).
+ *   <li>{@code recommend(item, inventory)}: 현재 계산에서 제공할 추천 결과를 구성한다. 입력: {@code item}(아이템), {@code
+ *       inventory}(등록자료). 반환: {@code List<Strategy>}.
+ *   <li>{@code safe(plan, before)}: 안전범위 처리에서 {@code plan.branches}, {@code evaluate.apply}을(를)
+ *       사용한다. 입력: {@code plan}(계획), {@code before}(변경전). 반환: {@code int}.
+ *   <li>{@code matched(progress)}: 일치한 처리에서 {@code progress.entries}을(를) 사용한다. 입력: {@code
+ *       progress}(진행상황). 반환: {@code long}.
+ *   <li>{@code preserves(before, after)}: preserves 처리에서 {@code before.entries}, {@code
+ *       after.entries}을(를) 사용한다. 입력: {@code before}(변경전), {@code after}(변경후). 반환: {@code boolean}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Kind}: {@code AbyssStrategyPlanner}의 종류 구분값을 정의한다.
+ *   <li>{@code Protection}: {@code AbyssStrategyPlanner}에서 사용하는 보호정책의 불변 값이다.
+ *   <li>{@code Strategy}: {@code AbyssStrategyPlanner}에서 사용하는 전략의 불변 값이다.
+ * </ul>
+ */
 public final class AbyssStrategyPlanner {
+  /**
+   * {@code AbyssStrategyPlanner}의 종류 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code COMPLETE_SIDE}: 접두접미 구분값.
+   *   <li>{@code BLOCK_HIGH_WEIGHT}: 가중치 구분값.
+   *   <li>{@code SHARE_REMOVAL_RISK}: RISK 구분값.
+   * </ul>
+   */
   public enum Kind {
     COMPLETE_SIDE,
     BLOCK_HIGH_WEIGHT,
     SHARE_REMOVAL_RISK
   }
 
+  /**
+   * {@code AbyssStrategyPlanner}에서 사용하는 보호정책의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code safeBefore}: 안전범위·변경전 ({@code int}).
+   *   <li>{@code totalBefore}: 합계·변경전 ({@code int}).
+   *   <li>{@code safeAfter}: 안전범위·변경후 ({@code int}).
+   *   <li>{@code totalAfter}: 합계·변경후 ({@code int}).
+   * </ul>
+   */
   public record Protection(int safeBefore, int totalBefore, int safeAfter, int totalAfter) {}
 
+  /**
+   * {@code AbyssStrategyPlanner}에서 사용하는 전략의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code kind}: 종류 ({@code Kind}).
+   *   <li>{@code prepared}: 준비된 ({@code AbyssCraftingState}).
+   *   <li>{@code nextCurrency}: 다음·화폐 ({@code WorkbenchCurrency}).
+   *   <li>{@code activeOmens}: 현재 실행에서 고려할 징조 ID 목록 ({@code Set<String>}).
+   *   <li>{@code targetModifierIds}: 대상·옵션·식별자목록 ({@code Set<String>}).
+   *   <li>{@code modifierSelection}: 옵션·선택 ({@code AbyssProbabilityComparison.Comparison}).
+   *   <li>{@code removalProtection}: 제거·보호정책 ({@code Protection}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Strategy(kind, prepared, nextCurrency, activeOmens, targetModifierIds,
+   *       modifierSelection, removalProtection)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code kind}(종류), {@code
+   *       prepared}(준비된), {@code nextCurrency}(다음·화폐), {@code activeOmens}(활성·징조목록), {@code
+   *       targetModifierIds}(대상·옵션·식별자목록), {@code modifierSelection}(옵션·선택), {@code
+   *       removalProtection}(제거·보호정책).
+   * </ul>
+   */
   public record Strategy(
       Kind kind,
       AbyssCraftingState prepared,

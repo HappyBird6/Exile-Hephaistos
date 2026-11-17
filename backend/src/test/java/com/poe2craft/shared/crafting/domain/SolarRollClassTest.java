@@ -10,7 +10,23 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-/** A local real-catalog equivalence check, not a proof of the entire reachable Solar quotient. */
+/**
+ * 태양목걸이·수치굴림·동치류 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: A local real-catalog equivalence check, not a proof of the entire reachable Solar
+ * quotient.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code spirit47Through50HaveEqualProjectedBasicLawsButDifferentFullGoalArrivals()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code goal(item)}: 목표 처리에서 {@code item.explicits}, {@code m.values}을(를) 사용한다. 입력: {@code
+ *       item}(아이템). 반환: {@code boolean}.
+ *   <li>{@code shape(item)}: shape 처리에서 {@code item.explicits}, {@code m.modifierId}을(를) 사용한다. 입력:
+ *       {@code item}(아이템). 반환: {@code Object}.
+ * </ul>
+ */
 class SolarRollClassTest {
   @Test
   void spirit47Through50HaveEqualProjectedBasicLawsButDifferentFullGoalArrivals() {

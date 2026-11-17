@@ -30,6 +30,51 @@ import java.math.BigDecimal;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 기본 행동에서 같은 전이를 갖는 상태를 구분하고 구체 입력 분포를 보존한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code highestCandidateFallbackBelowTheCurrencyCutoffSplitsUnequalFamilies()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code completeConcreteGraphProvesClassesWithoutReplacingEntryLaws()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code verifyColdKernelDelivery(root, index)}: 검증·Cold·전이커널·Delivery 처리에서 {@code
+ *       index.classOf}, {@code store.request}을(를) 사용한다. 입력: {@code root}(시작점), {@code index}(색인).
+ *   <li>{@code verifySharedKernelDelivery(root, index)}: 검증·공유·전이커널·Delivery 처리에서 {@code
+ *       index.classOf}, {@code store.request}을(를) 사용한다. 입력: {@code root}(시작점), {@code index}(색인).
+ *   <li>{@code verifyPreparationAndTerminalTransport(root, classes, index, graph)}: 검증·준비·및·종료·전송
+ *       처리에서 {@code index.classOf}, {@code ConditionalMethodLaw.root}을(를) 사용한다. 입력: {@code
+ *       root}(시작점), {@code classes}(동치류목록), {@code index}(색인), {@code graph}(그래프).
+ *   <li>{@code methodExit(source, target)}: 제작방법·종료 처리에서 {@code target.observations}, {@code
+ *       now.getFirst}을(를) 사용한다. 입력: {@code source}(출처), {@code target}(대상). 반환: {@code
+ *       Optional<ExactMethodRunner.Exit>}.
+ *   <li>{@code indexedLaw(law, index)}: 색인된·분포 처리에서 {@code law.forEach}, {@code result.merge}을(를)
+ *       사용한다. 입력: {@code law}(분포), {@code index}(색인). 반환: {@code Map<Integer, Fraction>}.
+ *   <li>{@code verifyIndexedMethod(source, actions, classes, index, graph)}: 검증·색인된·제작방법 처리에서
+ *       {@code classes.key}, {@code actions.stream}을(를) 사용한다. 입력: {@code source}(출처), {@code
+ *       actions}(행동목록), {@code classes}(동치류목록), {@code index}(색인), {@code graph}(그래프).
+ *   <li>{@code conditional(values, index, target, probability)}: 조건부 처리에서 {@code values.forEach},
+ *       {@code index.classOf}을(를) 사용한다. 입력: {@code values}(값목록), {@code index}(색인), {@code
+ *       target}(대상), {@code probability}(확률). 반환: {@code Map<BasicCurrencyState, Fraction>}.
+ *   <li>{@code expand(law)}: 다음 상태 또는 분포 구간을 확장한다. 입력: {@code law}(분포). 반환: {@code
+ *       Map<BasicCurrencyState, Fraction>}.
+ *   <li>{@code verifyConditionalChain(parent, actualInput, classes, index, graph)}: 검증·조건부·필터연쇄
+ *       처리에서 {@code index.key}, {@code parent.classId}을(를) 사용한다. 입력: {@code parent}(상위값), {@code
+ *       actualInput}(실제값·입력), {@code classes}(동치류목록), {@code index}(색인), {@code graph}(그래프).
+ *   <li>{@code indexedAdditionPreservesCursorAndMaterializesOnlyGroupedWitnesses()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code realGoalThresholdAndRemovalIdentityRemainDistinct()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code ActionLaw}: {@code BasicTransitionClassesTest}에서 사용하는 행동·분포의 불변 값이다.
+ * </ul>
+ */
 class BasicTransitionClassesTest {
   @Test
   void highestCandidateFallbackBelowTheCurrencyCutoffSplitsUnequalFamilies() {
@@ -116,6 +161,17 @@ class BasicTransitionClassesTest {
         .noneMatch(s -> Set.of("x0", "y0").contains(s.item().explicits().getFirst().modifierId()));
   }
 
+  /**
+   * {@code BasicTransitionClassesTest}에서 사용하는 행동·분포의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code outcomes}: 결과목록 ({@code Map<BasicTransitionClasses.Key, Fraction>}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code unavailable}: 사용불가 ({@code boolean}).
+   * </ul>
+   */
   record ActionLaw(
       Map<BasicTransitionClasses.Key, Fraction> outcomes,
       Fraction unresolved,

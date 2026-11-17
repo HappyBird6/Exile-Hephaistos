@@ -20,7 +20,92 @@ import java.time.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 자동 탐색 작업의 소유권·수명·진행·취소·저장을 조정한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code tiny}: tiny ({@code BasicCurrencyFixture}).
+ *   <li>{@code policy}: 정책 ({@code AutomaticCurrencyPolicy}).
+ *   <li>{@code kernel}: 전이커널 ({@code AutomaticCraftingKernel}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code service(repository)}: 서비스 처리에서 {@code Clock.systemUTC}을(를) 사용한다. 입력: {@code
+ *       repository}(저장소). 반환: {@code AutomaticSearchService}.
+ *   <li>{@code service(repository, clock)}: 서비스 처리에서 {@code AutomaticSearchService.Runtime}, {@code
+ *       AutomaticMethodGraph.Progress}을(를) 사용한다. 입력: {@code repository}(저장소), {@code clock}(현재 시각
+ *       공급자). 반환: {@code AutomaticSearchService}.
+ *   <li>{@code request(id)}: 계산·실행에 사용할 요청 값을 구성한다. 입력: {@code id}(식별자). 반환: {@code
+ *       MethodSearchProtocol.Create}.
+ *   <li>{@code previousPlusOneManualPolicyRemainsAnImmutableObservation()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code currentGraphWithOldManualModelIsImmutableReadOnly()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code incompatibleHistoricalTemplateDoesNotBlockNewRequestsOrAdmission()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code previousChaosPolicyIsReadOnlyWithoutRewritingStoredBytes()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code previousAmuletCatalogIsReadOnlyWithoutRewritingStoredBytes()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code previousFracturePolicyIsReadOnlyWithoutRewritingStoredBytes()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code resumingAnAlreadyFinishedCancelledJobRestoresItsResultWithoutMoreWork()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code activeCapacityExpiresAfterFixedTtl()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는
+ *       예외: {@code Exception}.
+ *   <li>{@code omittedSavedModifierFlagDefaultsToFalseButExplicitInvalidFlagsAreRejected()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code unreadableArchiveDoesNotBlockNewCreationOrResumeAndIsNeverDeleted()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code capacityRejectsWithoutDeletingJobsAndAllowsIdempotentRead()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code completedArchivesRemainReadableWhileNewSearchCompletes()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code concurrentAdmissionIdempotencyAndResumeRespectActiveLimit()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code pausedAdmissionIsReacquiredAndStorageFailureDoesNotConsumeActiveSlot()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code competingCreatesAndCancelResumeRaceAreSerialized()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code restartCommandsCancellationAndOriginalUnknownGoalsArePreserved()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code storageBudgetPausesAtLastDurableCursorAndRetainsQualityContext()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code failedPublicationRollsBackTheMutation()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Repository}: {@code AutomaticSearchServiceTest} 내부의 저장소 처리를 맡는다.
+ * </ul>
+ */
 class AutomaticSearchServiceTest {
+  /**
+   * {@code AutomaticSearchServiceTest} 내부의 저장소 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code documents}: 문서목록 ({@code Map<String, byte[]>}).
+   *   <li>{@code fail}: fail ({@code boolean}).
+   *   <li>{@code budget}: 계산예산 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code ids()}: 식별자목록 값을 조회·구성한다. 반환: {@code List<String>}.
+   *   <li>{@code read(id)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code id}(식별자). 반환: {@code byte[]}.
+   *   <li>{@code save(id, data)}: 현재 값을 저장 경계에 기록한다. 입력: {@code id}(식별자), {@code data}(데이터). 사용하는
+   *       예외: {@code IllegalStateException}, {@code AutomaticJobRepository.BudgetExceeded}.
+   *   <li>{@code delete(id)}: 삭제 처리에서 {@code documents.remove}을(를) 사용한다. 입력: {@code id}(식별자).
+   * </ul>
+   */
   static final class Repository implements AutomaticJobRepository {
     final Map<String, byte[]> documents = new LinkedHashMap<>();
     boolean fail;

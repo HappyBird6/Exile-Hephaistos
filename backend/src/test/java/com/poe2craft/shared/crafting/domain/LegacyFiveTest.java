@@ -11,6 +11,36 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 구버전·Five 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code state(rarity, mods)}: 현재 상태 표현을 조회한다. 입력: {@code rarity}(희귀도), {@code mods}(옵션목록).
+ *       반환: {@code ItemState}.
+ *   <li>{@code alchemyGuaranteesMaximumSideAndUsesPublishedConditionalWeights()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code coronationAddsOnlyRequestedSideAndRetainsExistingRolls()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code greaterAnnulmentRemovesTwoDistinctUnlockedInstancesAndRefusesOneBeforeDrawing()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code conflictingAlchemyOmensAndFracturedAlchemyRefuseAtomically()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code noRandom()}: no·난수생성기 값을 조회·구성한다. 반환: {@code Random}. 사용하는 예외: {@code
+ *       AssertionError}.
+ *   <li>{@code assertAtomicRefusal(before, result, omens)}: assert·Atomic·Refusal 처리에서 {@code
+ *       result.applied}, {@code result.state}을(를) 사용한다. 입력: {@code before}(변경전), {@code
+ *       result}(결과), {@code omens}(징조목록).
+ * </ul>
+ */
 class LegacyFiveTest {
   final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   final WorkbenchSimulator simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));

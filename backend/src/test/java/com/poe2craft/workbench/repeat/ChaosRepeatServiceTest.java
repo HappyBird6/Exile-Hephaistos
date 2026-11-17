@@ -19,6 +19,35 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
+/**
+ * 시간·횟수·취소를 확인하며 반복 실행을 조정하고 이미 끝난 사용 결과를 보존한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code service()}: 서비스 값을 조회·구성한다. 반환: {@code ChaosRepeatService}.
+ *   <li>{@code cancellationPreservesOnlyCompletedUsesForConcreteAndAbyssStates()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code concreteAndBothAbyssShapesEqualExistingManualExecutorsWithSameSeed(action)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code action}(행동).
+ *   <li>{@code firstAppliedMatchAndExactThousandLimitAreSupportedInBothBranches()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code sixExplicitFracturesAndUnchangedMetadataSurviveBothBranches(action)}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code action}(행동).
+ *   <li>{@code offeredHiddenSlotStopsWithZeroUsesWithoutInventingAResult()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code rejectedFinalAttemptAndApplyExceptionsKeepActualLastSuccessfulEvidence()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code matcherFailureKeepsJustCompletedCanonicalStateInBothBranches()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code admissionHasNoQueueAndPermitIsReleasedAfterCompletionOrPreflightFailure()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code IllegalStateException}, {@code Exception}.
+ *   <li>{@code preflightRejectsInvalidStatePolicyAndRegexWithoutApplying()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code wireHasOnlyFinalStateAndStateFreeFlatWitness()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class ChaosRepeatServiceTest {
   private ChaosRepeatService service() {
     return new ChaosRepeatService(WORKBENCH, DISPLAY, "test-ruleset");

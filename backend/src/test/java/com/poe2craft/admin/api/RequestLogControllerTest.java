@@ -12,6 +12,22 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+/**
+ * 관리자에게 요청 로그의 조회·집계·아카이브 다운로드를 제공한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code directory}: 디렉터리 ({@code Path}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code allLogRoutesRequireAuthenticationAndValidateInput()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class RequestLogControllerTest {
   @TempDir Path directory;
 

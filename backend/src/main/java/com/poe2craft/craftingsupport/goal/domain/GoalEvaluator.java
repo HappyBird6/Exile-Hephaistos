@@ -6,8 +6,71 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/** Pure evaluation over proven observations. Missing keys mean unknown, never absent. */
+/**
+ * 검증된 관측값을 목표 조건에 대입한다. 누락된 수치는 미확정으로 유지한다.
+ *
+ * <p>기존 계약: Pure evaluation over proven observations. Missing keys mean unknown, never absent.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code evaluate(goal, general, observations, issues)}: 입력 조건이나 정책을 평가해 결과를 구한다. 입력: {@code
+ *       goal}(목표), {@code general}(일반), {@code observations}(관측값목록), {@code issues}(문제목록). 반환:
+ *       {@code Evaluation}.
+ *   <li>{@code pseudo(contributions, sources)}: 의사수치 처리에서 {@code sources.getOrDefault}, {@code
+ *       contribution.statId}을(를) 사용한다. 입력: {@code contributions}(contributions), {@code
+ *       sources}(출처목록). 반환: {@code Observation}.
+ *   <li>{@code group(group, observations)}: 그룹 처리에서 {@code group.entries}, {@code
+ *       entry.disabled}을(를) 사용한다. 입력: {@code group}(그룹), {@code observations}(관측값목록). 반환: {@code
+ *       GroupResult}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code row(entry, observation)}: 행 처리에서 {@code observation.support}, {@code
+ *       observation.presence}을(를) 사용한다. 입력: {@code entry}(항목), {@code observation}(관측값). 반환: {@code
+ *       Status}.
+ *   <li>{@code and(statuses)}: 및 처리에서 {@code statuses.contains}을(를) 사용한다. 입력: {@code
+ *       statuses}(statuses). 반환: {@code Status}.
+ *   <li>{@code uncertainty(statuses)}: uncertainty 처리에서 {@code statuses.contains}을(를) 사용한다. 입력:
+ *       {@code statuses}(statuses). 반환: {@code Status}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Observation}: {@code GoalEvaluator}에서 사용하는 관측값의 불변 값이다.
+ *   <li>{@code EntryResult}: {@code GoalEvaluator}에서 사용하는 항목·결과의 불변 값이다.
+ *   <li>{@code GroupResult}: {@code GoalEvaluator}에서 사용하는 그룹·결과의 불변 값이다.
+ *   <li>{@code Evaluation}: {@code GoalEvaluator}에서 사용하는 평가의 불변 값이다.
+ * </ul>
+ */
 public final class GoalEvaluator {
+  /**
+   * {@code GoalEvaluator}에서 사용하는 관측값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code presence}: 존재여부 ({@code Presence}).
+   *   <li>{@code value}: 값 ({@code BigDecimal}).
+   *   <li>{@code support}: 지원범위 ({@code Capability}).
+   *   <li>{@code exact}: 정확값 ({@code GoalNumber}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Observation(presence, value, support)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       presence}(존재여부), {@code value}(값), {@code support}(지원범위).
+   *   <li>{@code Observation(presence, value, support, exact)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       presence}(존재여부), {@code value}(값), {@code support}(지원범위), {@code exact}(정확값). 사용하는 예외:
+   *       {@code IllegalArgumentException}.
+   *   <li>{@code present(value)}: present의 입력에 따른 분기·결과를 처리한다. 입력: {@code value}(값). 반환: {@code
+   *       Observation}.
+   *   <li>{@code presentNumber(number)}: present·숫자 처리에서 {@code number.display}을(를) 사용한다. 입력:
+   *       {@code number}(숫자). 반환: {@code Observation}.
+   *   <li>{@code absent()}: absent 값을 조회·구성한다. 반환: {@code Observation}.
+   *   <li>{@code unknown()}: 미확정 값을 조회·구성한다. 반환: {@code Observation}.
+   *   <li>{@code unsupported()}: 미지원 조건을 나타내는 결과를 만든다. 반환: {@code Observation}.
+   * </ul>
+   */
   public record Observation(
       Presence presence, BigDecimal value, Capability support, GoalNumber exact) {
     public Observation(Presence presence, BigDecimal value, Capability support) {
@@ -42,6 +105,26 @@ public final class GoalEvaluator {
     }
   }
 
+  /**
+   * {@code GoalEvaluator}에서 사용하는 항목·결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code Status}).
+   *   <li>{@code presence}: 존재여부 ({@code Presence}).
+   *   <li>{@code value}: 값 ({@code BigDecimal}).
+   *   <li>{@code exactValue}: 정확값·값 ({@code GoalNumber.Ratio}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code EntryResult(id, status, presence, value)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       id}(식별자), {@code status}(상태), {@code presence}(존재여부), {@code value}(값).
+   * </ul>
+   */
   public record EntryResult(
       String id,
       Status status,
@@ -55,6 +138,28 @@ public final class GoalEvaluator {
     }
   }
 
+  /**
+   * {@code GoalEvaluator}에서 사용하는 그룹·결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code Status}).
+   *   <li>{@code count}: 개수 ({@code Integer}).
+   *   <li>{@code score}: score ({@code BigDecimal}).
+   *   <li>{@code entries}: 항목목록 ({@code List<EntryResult>}).
+   *   <li>{@code exactScore}: 정확값·Score ({@code GoalNumber.Ratio}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code GroupResult(id, status, count, score, entries)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력:
+   *       {@code id}(식별자), {@code status}(상태), {@code count}(개수), {@code score}(score), {@code
+   *       entries}(항목목록).
+   * </ul>
+   */
   public record GroupResult(
       String id,
       Status status,
@@ -70,6 +175,20 @@ public final class GoalEvaluator {
     }
   }
 
+  /**
+   * {@code GoalEvaluator}에서 사용하는 평가의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code version}: 저장·실행 계약의 버전 ({@code int}).
+   *   <li>{@code catalogVersion}: 카탈로그·버전 ({@code String}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code Status}).
+   *   <li>{@code generalStatus}: 일반·상태 ({@code Status}).
+   *   <li>{@code groups}: 그룹목록 ({@code List<GroupResult>}).
+   *   <li>{@code issues}: 문제목록 ({@code List<Issue>}).
+   * </ul>
+   */
   public record Evaluation(
       int version,
       String catalogVersion,

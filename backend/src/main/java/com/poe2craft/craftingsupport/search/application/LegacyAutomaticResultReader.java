@@ -12,7 +12,28 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 
 /**
- * Reads immutable v8 observations. Never restores an execution, advances a cursor, or writes a job.
+ * 구버전 자동 탐색 결과를 변경하거나 재개하지 않고 조회한다.
+ *
+ * <p>기존 계약: Reads immutable v8 observations. Never restores an execution, advances a cursor, or
+ * writes a job.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "goal-directed-milestone-graph-v8-prepared-renewal"}
+ *       ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code require(valid)}: 필수 조건을 검사한다. 입력: {@code valid}(유효한). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code sameGoal(a, b)}: 동일·목표 처리에서 {@code databind.ObjectMapper}, {@code json.readTree}을(를)
+ *       사용한다. 입력: {@code a}(a), {@code b}(b). 반환: {@code boolean}.
+ *   <li>{@code read(disk, runtime)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code disk}(디스크), {@code
+ *       runtime}(실행환경). 반환: {@code AutomaticSearchService.View}.
+ * </ul>
  */
 final class LegacyAutomaticResultReader {
   static final String VERSION = "goal-directed-milestone-graph-v8-prepared-renewal";

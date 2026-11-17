@@ -26,6 +26,44 @@ import com.poe2craft.shared.ruleset.RulesetManifestLoader;
 import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+/**
+ * 목표 평가·추천·경로 탐색 서비스의 의존성과 작업 실행기를 구성한다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code automaticSearchService(workbench, goals, legacy, json, settings)}: 자동·탐색·서비스 처리에서
+ *       {@code settings.storage}을(를) 사용한다. 입력: {@code workbench}(작업대), {@code goals}(목표목록), {@code
+ *       legacy}(구버전), {@code json}(JSON), {@code settings}(운영설정). 반환: {@code
+ *       AutomaticSearchService}.
+ *   <li>{@code automaticSearchService(workbench, goals, legacy, json, directory)}: 자동·탐색·서비스 처리에서
+ *       {@code BackendSettings.defaults}을(를) 사용한다. 입력: {@code workbench}(작업대), {@code goals}(목표목록),
+ *       {@code legacy}(구버전), {@code json}(JSON), {@code directory}(디렉터리). 반환: {@code
+ *       AutomaticSearchService}.
+ *   <li>{@code automaticSearchService(workbench, goals, legacy, json, directory, settings)}:
+ *       자동·탐색·서비스 처리에서 {@code AutomaticCurrencyPolicyLoader.load}, {@code Path.of}을(를) 사용한다. 입력:
+ *       {@code workbench}(작업대), {@code goals}(목표목록), {@code legacy}(구버전), {@code json}(JSON),
+ *       {@code directory}(디렉터리), {@code settings}(운영설정). 반환: {@code AutomaticSearchService}.
+ *   <li>{@code methodSearchService(workbench, goals, json, settings)}: 제작방법·탐색·서비스 처리에서 {@code
+ *       settings.storage}, {@code workbench.reviewedCatalogs}을(를) 사용한다. 입력: {@code workbench}(작업대),
+ *       {@code goals}(목표목록), {@code json}(JSON), {@code settings}(운영설정). 반환: {@code
+ *       MethodSearchService}.
+ *   <li>{@code pathSearchService(catalog, goals, json, settings)}: 경로·탐색·서비스 처리에서 {@code
+ *       RulesetManifestLoader.load}, {@code settings.pathSearch}을(를) 사용한다. 입력: {@code
+ *       catalog}(카탈로그), {@code goals}(목표목록), {@code json}(JSON), {@code settings}(운영설정). 반환: {@code
+ *       PathSearchService}.
+ *   <li>{@code goalFilterService(workbenchService)}: 목표·필터·서비스 처리에서 {@code
+ *       RulesetManifestLoader.load}, {@code BundledGoalCatalogs.load}을(를) 사용한다. 입력: {@code
+ *       workbenchService}(작업대·서비스). 반환: {@code GoalFilterService}.
+ *   <li>{@code additionPoolStore(jdbc, json)}: 추가·후보풀·저장소의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       jdbc}(JDBC), {@code json}(JSON). 반환: {@code AdditionPoolStore}.
+ *   <li>{@code additionPoolCache(catalog, store, settings)}: 추가·후보풀·캐시 처리에서 {@code
+ *       CraftingRegistryLoader.load}, {@code AdditionPoolCache.hash}을(를) 사용한다. 입력: {@code
+ *       catalog}(카탈로그), {@code store}(저장소), {@code settings}(운영설정). 반환: {@code AdditionPoolCache}.
+ *   <li>{@code supportRecommendations(catalog, pools)}: 지원범위·추천목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       catalog}(카탈로그), {@code pools}(후보풀목록). 반환: {@code SupportRecommendationService}.
+ * </ul>
+ */
 @Configuration
 public class CraftingSupportConfiguration {
   @Bean(destroyMethod = "close")

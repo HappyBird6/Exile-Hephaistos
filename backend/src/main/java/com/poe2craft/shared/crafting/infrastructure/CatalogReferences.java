@@ -8,13 +8,58 @@ import com.poe2craft.shared.ruleset.api.RulesetBoundary;
 import java.util.*;
 import org.springframework.stereotype.Service;
 
-/** Content-addressed immutable projections. Retention is bounded by the bundled base registry. */
+/**
+ * 번들 베이스 범위로 보유량을 제한한 불변 표시용 카탈로그를 공유한다.
+ *
+ * <p>기존 계약: Content-addressed immutable projections. Retention is bounded by the bundled base
+ * registry.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code crafting}: 제작 ({@code CraftingOperations}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code aliases}: aliases ({@code Map<String, String>}).
+ *   <li>{@code content}: 내용 ({@code Map<String, Projection>}).
+ *   <li>{@code indexed}: 색인된 ({@code boolean}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code CatalogReferences(crafting, json)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code crafting}(제작),
+ *       {@code json}(JSON).
+ *   <li>{@code reference(base, reveal)}: 참조 처리에서 {@code BaseRegistry.registeredKeys}, {@code
+ *       aliases.computeIfAbsent}을(를) 사용한다. 입력: {@code base}(베이스), {@code reveal}(공개). 반환: {@code
+ *       String}. 사용하는 예외: {@code IllegalArgumentException}, {@code IllegalStateException}.
+ *   <li>{@code find(hash)}: 조건에 맞는 항목을 찾는다. 입력: {@code hash}(해시). 반환: {@code JsonNode}.
+ *   <li>{@code canonical(node, field)}: 정규형 처리에서 {@code node.isObject}, {@code
+ *       json.createObjectNode}을(를) 사용한다. 입력: {@code node}(노드), {@code field}(필드). 반환: {@code
+ *       JsonNode}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Projection}: {@code CatalogReferences}에서 사용하는 투영의 불변 값이다.
+ * </ul>
+ */
 @Service
 public final class CatalogReferences {
   private final CraftingOperations crafting;
   private final ObjectMapper json;
   private final Map<String, String> aliases = new HashMap<>();
 
+  /**
+   * {@code CatalogReferences}에서 사용하는 투영의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code base}: 베이스 ({@code String}).
+   *   <li>{@code reveal}: 공개 ({@code boolean}).
+   * </ul>
+   */
   private record Projection(String base, boolean reveal) {}
 
   private final Map<String, Projection> content = new HashMap<>();

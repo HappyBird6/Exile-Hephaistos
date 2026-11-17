@@ -4,11 +4,66 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 
 /**
- * Exact labelled probabilistic bisimulation for closed finite fixtures. This proof oracle requires
- * the original graph; it is not an on-demand production state-space reduction. Observation keys
- * must be immutable and include every goal/checkpoint judgement relevant to the caller.
+ * 닫힌 유한 사례에서 행동별 확률적 동치 관계를 증명한다.
+ *
+ * <p>기존 계약: Exact labelled probabilistic bisimulation for closed finite fixtures. This proof oracle
+ * requires the original graph; it is not an on-demand production state-space reduction. Observation
+ * keys must be immutable and include every goal/checkpoint judgement relevant to the caller.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code original}: 원본 ({@code Map<S, Node<S>>}).
+ *   <li>{@code blocks}: 블록목록 ({@code Map<S, Integer>}).
+ *   <li>{@code quotient}: quotient ({@code Map<Integer, Node<Integer>>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code FiniteQuotientProof(graph)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code graph}(그래프). 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code blocks()}: {@code blocks} 값을 조회한다. 반환: {@code Map<S, Integer>}.
+ *   <li>{@code graph()}: {@code quotient} 값을 조회한다. 반환: {@code Map<Integer, Node<Integer>>}.
+ *   <li>{@code condition(entry, action, targetBlock)}: 조건에 해당하는 분포를 구한다. 입력: {@code entry}(항목),
+ *       {@code action}(행동), {@code targetBlock}(대상·블록). 반환: {@code Conditional<S>}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code project(law)}: 투영의 입력에 따른 분기·결과를 처리한다. 입력: {@code law}(분포). 반환: {@code Map<Integer,
+ *       Fraction>}.
+ *   <li>{@code aggregate(law, blocks)}: aggregate 처리에서 {@code law.forEach}, {@code blocks.get}을(를)
+ *       사용한다. 입력: {@code law}(분포), {@code blocks}(블록목록). 반환: {@code Map<Integer, Fraction>}.
+ *   <li>{@code sum(law)}: 항목들의 합을 계산한다. 입력: {@code law}(분포). 반환: {@code Fraction}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Action}: {@code FiniteQuotientProof}에서 사용하는 행동의 불변 값이다.
+ *   <li>{@code Node}: {@code FiniteQuotientProof}에서 사용하는 노드의 불변 값이다.
+ *   <li>{@code Conditional}: {@code FiniteQuotientProof}에서 사용하는 조건부의 불변 값이다.
+ *   <li>{@code Law}: {@code FiniteQuotientProof}에서 사용하는 분포의 불변 값이다.
+ *   <li>{@code Signature}: {@code FiniteQuotientProof}에서 사용하는 서명의 불변 값이다.
+ * </ul>
  */
 public final class FiniteQuotientProof<S> {
+  /**
+   * {@code FiniteQuotientProof}에서 사용하는 행동의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code label}: 표시이름 ({@code String}).
+   *   <li>{@code outcomes}: 결과목록 ({@code Map<S, Fraction>}).
+   *   <li>{@code costs}: costs ({@code Map<String, Fraction>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Action(label, outcomes, costs)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code label}(표시이름),
+   *       {@code outcomes}(결과목록), {@code costs}(costs). 사용하는 예외: {@code IllegalArgumentException}.
+   * </ul>
+   */
   public record Action<S>(String label, Map<S, Fraction> outcomes, Map<String, Fraction> costs) {
     public Action {
       if (label == null || label.isBlank())
@@ -20,6 +75,25 @@ public final class FiniteQuotientProof<S> {
     }
   }
 
+  /**
+   * {@code FiniteQuotientProof}에서 사용하는 노드의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code observation}: 관측값 ({@code Object}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   *   <li>{@code actions}: 행동목록 ({@code List<Action<S>>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Node(observation, complete, actions)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       observation}(관측값), {@code complete}(완료), {@code actions}(행동목록). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   * </ul>
+   */
   public record Node<S>(Object observation, boolean complete, List<Action<S>> actions) {
     public Node {
       Objects.requireNonNull(observation);
@@ -29,10 +103,40 @@ public final class FiniteQuotientProof<S> {
     }
   }
 
+  /**
+   * {@code FiniteQuotientProof}에서 사용하는 조건부의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code mass}: 확률질량 ({@code Fraction}).
+   *   <li>{@code law}: 분포 ({@code Map<S, Fraction>}).
+   * </ul>
+   */
   public record Conditional<S>(Fraction mass, Map<S, Fraction> law) {}
 
+  /**
+   * {@code FiniteQuotientProof}에서 사용하는 분포의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code blocks}: 블록목록 ({@code Map<Integer, Fraction>}).
+   *   <li>{@code costs}: costs ({@code Map<String, Fraction>}).
+   * </ul>
+   */
   private record Law(Map<Integer, Fraction> blocks, Map<String, Fraction> costs) {}
 
+  /**
+   * {@code FiniteQuotientProof}에서 사용하는 서명의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code previousBlock}: 이전·블록 ({@code int}).
+   *   <li>{@code actions}: 행동목록 ({@code Map<String, Law>}).
+   * </ul>
+   */
   private record Signature(int previousBlock, Map<String, Law> actions) {}
 
   private final Map<S, Node<S>> original;

@@ -20,6 +20,24 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
+/**
+ * 카오스·반복·표시·통합 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code literal(text)}: literal 처리에서 {@code text.codePoints}, {@code result.append}을(를)
+ *       사용한다. 입력: {@code text}(텍스트). 반환: {@code String}.
+ *   <li>{@code matchesActualPostApplyLocalizedValuesAndKeepsNumericPunctuation(locale)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code locale}(언어코드).
+ *   <li>{@code independentlyMatchesOptionsInsteadOfConcatenatingDistinctAffixes()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code realCompoundModifierRemainsOneMultilineGroupForAllSupportedLocales()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code runtimeTemplateIsTheByteIdenticalPinnedFrontendAssetAndCatalogMismatchIsRejected()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class ChaosRepeatDisplayIntegrationTest {
   private static String literal(String text) {
     var result = new StringBuilder();

@@ -3,7 +3,44 @@ package com.poe2craft.shared.crafting.domain;
 import com.poe2craft.shared.item.ModifierDefinition;
 import java.util.*;
 
-/** Execution identity is separate from ItemState; an omen here is consumed by this action. */
+/**
+ * 아이템과 별개로 실행할 화폐 및 소비할 징조의 정체성을 표현한다.
+ *
+ * <p>기존 계약: Execution identity is separate from ItemState; an omen here is consumed by this action.
+ *
+ * <p>필드·상수·record 구성요소:
+ *
+ * <ul>
+ *   <li>{@code currency}: 화폐 ({@code WorkbenchCurrency}).
+ *   <li>{@code omens}: 징조목록 ({@code Set<WorkbenchOmen>}).
+ *   <li>{@code purpose}: 목적 ({@code AutomaticCurrencyPolicy.Purpose}).
+ *   <li>{@code operation}: 연산 ({@code Operation}).
+ *   <li>{@code side}: 접두접미 ({@code ModifierDefinition.AffixType}).
+ *   <li>{@code comparison}: 비교 ({@code AbyssProbabilityComparison.Comparison}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AutomaticCraftingAction(currency, omens, purpose)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력:
+ *       {@code currency}(화폐), {@code omens}(징조목록), {@code purpose}(목적).
+ *   <li>{@code desecrate(side)}: 훼손의 입력에 따른 분기·결과를 처리한다. 입력: {@code side}(접두접미). 반환: {@code
+ *       AutomaticCraftingAction}.
+ *   <li>{@code AutomaticCraftingAction(currency, omens, purpose, operation, side, comparison)}:
+ *       전달받은 값으로 구성원을 초기화한다. 입력: {@code currency}(화폐), {@code omens}(징조목록), {@code purpose}(목적),
+ *       {@code operation}(연산), {@code side}(접두접미), {@code comparison}(비교). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code candidates(policy)}: 후보목록 처리에서 {@code policy.candidates}, {@code entry.id}을(를) 사용한다.
+ *       입력: {@code policy}(정책). 반환: {@code List<AutomaticCraftingAction>}.
+ *   <li>{@code omenIds()}: 징조·식별자목록 값을 조회·구성한다. 반환: {@code Set<String>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Operation}: {@code AutomaticCraftingAction}의 연산 구분값을 정의한다.
+ * </ul>
+ */
 public record AutomaticCraftingAction(
     WorkbenchCurrency currency,
     Set<WorkbenchOmen> omens,
@@ -17,6 +54,15 @@ public record AutomaticCraftingAction(
     @com.fasterxml.jackson.annotation.JsonInclude(
             com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
         AbyssProbabilityComparison.Comparison comparison) {
+  /**
+   * {@code AutomaticCraftingAction}의 연산 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code DESECRATE}: 훼손 구분값.
+   * </ul>
+   */
   public enum Operation {
     DESECRATE
   }

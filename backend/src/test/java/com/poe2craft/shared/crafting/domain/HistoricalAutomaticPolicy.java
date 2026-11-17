@@ -3,7 +3,19 @@ package com.poe2craft.shared.crafting.domain;
 import com.poe2craft.craftingsupport.search.infrastructure.AutomaticCurrencyPolicyLoader;
 import java.util.Set;
 
-/** Explicit pre-deferral fixtures keep previously implemented omen laws under regression tests. */
+/**
+ * 과거·자동·정책 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Explicit pre-deferral fixtures keep previously implemented omen laws under regression
+ * tests.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code HistoricalAutomaticPolicy()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code beforeDeferrals()}: 변경전·Deferrals 값을 조회·구성한다. 반환: {@code AutomaticCurrencyPolicy}.
+ * </ul>
+ */
 public final class HistoricalAutomaticPolicy {
   private HistoricalAutomaticPolicy() {}
 

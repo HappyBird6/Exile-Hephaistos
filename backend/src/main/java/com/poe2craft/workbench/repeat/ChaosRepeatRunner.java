@@ -12,9 +12,41 @@ import java.util.function.Predicate;
 import java.util.random.RandomGenerator;
 
 /**
- * Sequential manual Chaos uses through the existing Workbench apply contract. Supply, for example,
- * {@code new ChaosRepeatRunner(workbenchService::apply)}. Matching syntax and display language
- * belong to the caller; this runner neither formats modifiers nor starts background jobs.
+ * 공통 단일 제작 규칙으로 카오스를 순서대로 실행한다.
+ *
+ * <p>기존 계약: Sequential manual Chaos uses through the existing Workbench apply contract. Supply, for
+ * example, {@code new ChaosRepeatRunner(workbenchService::apply)}. Matching syntax and display
+ * language belong to the caller; this runner neither formats modifiers nor starts background jobs.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code apply}: 적용 ({@code Apply}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ChaosRepeatRunner(apply)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code apply}(적용).
+ *   <li>{@code run(state, action, activeOmens, maximumUses, random, matcher)}: 작업의 실행 루프를 수행한다. 입력:
+ *       {@code state}(상태), {@code action}(행동), {@code activeOmens}(활성·징조목록), {@code
+ *       maximumUses}(최대값·사용량), {@code random}(난수생성기), {@code matcher}(matcher). 반환: {@code
+ *       Outcome}.
+ *   <li>{@code run(state, action, activeOmens, maximumUses, random, matcher, stopRequested)}: 작업의
+ *       실행 루프를 수행한다. 입력: {@code state}(상태), {@code action}(행동), {@code activeOmens}(활성·징조목록),
+ *       {@code maximumUses}(최대값·사용량), {@code random}(난수생성기), {@code matcher}(matcher), {@code
+ *       stopRequested}(stop·Requested). 반환: {@code Outcome}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Apply}: {@code ChaosRepeatRunner} 내부의 적용 처리를 맡는다.
+ *   <li>{@code Termination}: {@code ChaosRepeatRunner}의 종료 구분값을 정의한다.
+ *   <li>{@code FailureStage}: {@code ChaosRepeatRunner}의 실패·진행단계 구분값을 정의한다.
+ *   <li>{@code Outcome}: {@code ChaosRepeatRunner}에서 사용하는 결과의 불변 값이다.
+ * </ul>
  */
 public final class ChaosRepeatRunner {
   private final Apply apply;
@@ -24,7 +56,18 @@ public final class ChaosRepeatRunner {
   }
 
   /**
-   * The adapter must retain the existing atomic single-use semantics, including omen consumption.
+   * {@code ChaosRepeatRunner} 내부의 적용 처리를 맡는다.
+   *
+   * <p>기존 계약: The adapter must retain the existing atomic single-use semantics, including omen
+   * consumption.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code apply(state, action, activeOmens, random)}: 주어진 행동 또는 변경을 적용한 결과를 구한다. 입력: {@code
+   *       state}(상태), {@code action}(행동), {@code activeOmens}(활성·징조목록), {@code random}(난수생성기). 반환:
+   *       {@code WorkbenchSimulator.Result}.
+   * </ul>
    */
   @FunctionalInterface
   public interface Apply {
@@ -125,6 +168,19 @@ public final class ChaosRepeatRunner {
     }
   }
 
+  /**
+   * {@code ChaosRepeatRunner}의 종료 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code MATCH}: 일치 구분값.
+   *   <li>{@code LIMIT}: 한도 구분값.
+   *   <li>{@code INAPPLICABLE}: INAPPLICABLE 구분값.
+   *   <li>{@code STOP_REQUESTED}: REQUESTED 구분값.
+   *   <li>{@code ERROR}: 오류 구분값.
+   * </ul>
+   */
   public enum Termination {
     MATCH,
     LIMIT,
@@ -133,6 +189,17 @@ public final class ChaosRepeatRunner {
     ERROR
   }
 
+  /**
+   * {@code ChaosRepeatRunner}의 실패·진행단계 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code STOP_SIGNAL}: SIGNAL 구분값.
+   *   <li>{@code APPLY}: 적용 구분값.
+   *   <li>{@code MATCHER}: MATCHER 구분값.
+   * </ul>
+   */
   public enum FailureStage {
     STOP_SIGNAL,
     APPLY,
@@ -140,12 +207,37 @@ public final class ChaosRepeatRunner {
   }
 
   /**
-   * lastResult is the last returned single-use result, including an unapplied final attempt; it is
-   * null if apply never returned. lastAppliedResult is the last result with applied=true, or null
-   * when completedUses is zero. It witnesses the final state even if a later attempt is
-   * inapplicable or throws. Each result's events and assumptions describe that one use only. The
-   * final state, completedUses and consumedOmens describe all completed uses, including before
-   * ERROR/STOP.
+   * {@code ChaosRepeatRunner}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>기존 계약: lastResult is the last returned single-use result, including an unapplied final
+   * attempt; it is null if apply never returned. lastAppliedResult is the last result with
+   * applied=true, or null when completedUses is zero. It witnesses the final state even if a later
+   * attempt is inapplicable or throws. Each result's events and assumptions describe that one use
+   * only. The final state, completedUses and consumedOmens describe all completed uses, including
+   * before ERROR/STOP.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code ItemState}).
+   *   <li>{@code completedUses}: 완료·사용량 ({@code int}).
+   *   <li>{@code consumedOmens}: 이번 실행으로 소비된 징조 ID 목록 ({@code Map<String, Integer>}).
+   *   <li>{@code remainingOmens}: 실행 뒤 남은 징조 ID 목록 ({@code Set<String>}).
+   *   <li>{@code lastResult}: 마지막·결과 ({@code WorkbenchSimulator.Result}).
+   *   <li>{@code lastAppliedResult}: 마지막·적용여부·결과 ({@code WorkbenchSimulator.Result}).
+   *   <li>{@code termination}: 종료 ({@code Termination}).
+   *   <li>{@code failureStage}: 실패·진행단계 ({@code FailureStage}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Outcome(state, completedUses, consumedOmens, remainingOmens, lastResult,
+   *       lastAppliedResult, termination, failureStage)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       state}(상태), {@code completedUses}(완료·사용량), {@code consumedOmens}(소비된·징조목록), {@code
+   *       remainingOmens}(남은·징조목록), {@code lastResult}(마지막·결과), {@code
+   *       lastAppliedResult}(마지막·적용여부·결과), {@code termination}(종료), {@code failureStage}(실패·진행단계).
+   * </ul>
    */
   public record Outcome(
       ItemState state,

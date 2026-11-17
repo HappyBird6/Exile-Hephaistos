@@ -20,6 +20,40 @@ import java.math.BigDecimal;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 태양목걸이·체크포인트·목표 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code SPIRIT}: 정신력; 초기값 {@code "base_spirit_from_equipment"} ({@code String}).
+ *   <li>{@code PROJECTILE}: PROJECTILE; 초기값 {@code "projectile_skill_gem_level_+"} ({@code
+ *       String}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code index}: 색인 ({@code GoalCatalogIndex}).
+ *   <li>{@code service}: 요청 처리를 위임하는 서비스 ({@code GoalFilterService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code item(modifiers)}: 아이템 처리에서 {@code SolarAmulet.initial}, {@code
+ *       initial.snapshotId}을(를) 사용한다. 입력: {@code modifiers}(옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code modifier(stat, value)}: 옵션 처리에서 {@code catalog.modifiers}, {@code d.layer}을(를) 사용한다.
+ *       입력: {@code stat}(수치), {@code value}(값). 반환: {@code ModifierInstance}.
+ *   <li>{@code target(stat, minimum)}: 대상 처리에서 {@code GoalCatalogIndex.id}, {@code
+ *       BigDecimal.valueOf}을(를) 사용한다. 입력: {@code stat}(수치), {@code minimum}(최소값). 반환: {@code
+ *       Entry}.
+ *   <li>{@code goal(entries)}: 목표 처리에서 {@code index.version}, {@code catalog.base}을(를) 사용한다. 입력:
+ *       {@code entries}(항목목록). 반환: {@code GoalFilter}.
+ *   <li>{@code spirit47ExcludesImplicitEvenWhenImplicitAndExplicitSumExceeds47()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code actualSolarEligiblePoolsReachBothDiamondArmsAndUseExistingLife()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code solarRootABCDiamondUsesReviewedNumericGoalsAndReevaluatesLossAndReacquisition()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class SolarCheckpointGoalTest {
   private static final String SPIRIT = "base_spirit_from_equipment";
   private static final String PROJECTILE = "projectile_skill_gem_level_+";

@@ -7,11 +7,133 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 /**
- * Finite-horizon Markov transport with deterministic enclosing arithmetic and primitive first hit.
+ * 결정적 구간 연산으로 유한 시간의 방법 전이와 최초 성공을 계산한다.
+ *
+ * <p>기존 계약: Finite-horizon Markov transport with deterministic enclosing arithmetic and primitive
+ * first hit.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "certified-method-markov-v1"} ({@code String}).
+ *   <li>{@code template}: 템플릿 ({@code Template<S, A>}).
+ *   <li>{@code transition}: 전이 ({@code Transition<S, A>}).
+ *   <li>{@code classify}: 상태분류 ({@code Function<S, Optional<Exit>>}).
+ *   <li>{@code bits}: 비트수 ({@code int}).
+ *   <li>{@code exits}: 종료목록 ({@code Map<Exit, Map<S, CertifiedInterval>>}).
+ *   <li>{@code pending}: 대기 ({@code Map<Execution<S>, CertifiedInterval>}).
+ *   <li>{@code boundary}: 경계 ({@code Map<S, CertifiedInterval>}).
+ *   <li>{@code initialUses}: 초기값·사용량 ({@code Map<A, CertifiedInterval>}).
+ *   <li>{@code cycleUses}: 주기·사용량 ({@code Map<A, CertifiedInterval>}).
+ *   <li>{@code absorbedMass}: 흡수된·확률질량 ({@code CertifiedInterval}).
+ *   <li>{@code boundaryMass}: 경계·확률질량 ({@code CertifiedInterval}).
+ *   <li>{@code initializing}: 초기화중 ({@code boolean}).
+ *   <li>{@code atBoundary}: 기준·경계 ({@code boolean}).
+ *   <li>{@code cycles}: 주기횟수 ({@code long}).
+ *   <li>{@code absorbedEntries}: 흡수된·항목목록 ({@code long}).
+ *   <li>{@code terminalFailureSentinel}: 종료·실패·Sentinel ({@code S}).
+ *   <li>{@code flight}: 진행중 ({@code Flight}).
+ *   <li>{@code observationLeased}: 관측값·Leased ({@code boolean}).
+ *   <li>{@code CURSOR_VERSION}: 버전 ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code compactTerminalFailures(sentinel)}: 압축여부·종료·Failures의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       sentinel}(sentinel). 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code CertifiedMethodRunner(root, template, transition, classify, precision)}: 기본 정책을 보충해
+ *       공통 생성자로 위임한다. 입력: {@code root}(시작점), {@code template}(템플릿), {@code transition}(전이), {@code
+ *       classify}(상태분류), {@code precision}(정밀도).
+ *   <li>{@code CertifiedMethodRunner(root, template, transition, classify, precision,
+ *       absorptionMaps)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code root}(시작점), {@code template}(템플릿),
+ *       {@code transition}(전이), {@code classify}(상태분류), {@code precision}(정밀도), {@code
+ *       absorptionMaps}(흡수·맵목록).
+ *   <li>{@code CertifiedMethodRunner(root, template, transition, classify, precision,
+ *       absorptionMaps, workingMaps)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code root}(시작점), {@code
+ *       template}(템플릿), {@code transition}(전이), {@code classify}(상태분류), {@code precision}(정밀도),
+ *       {@code absorptionMaps}(흡수·맵목록), {@code workingMaps}(계산중·맵목록).
+ *   <li>{@code CertifiedMethodRunner(template, transition, classify, precision, absorptionMaps,
+ *       workingMaps)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code template}(템플릿), {@code transition}(전이),
+ *       {@code classify}(상태분류), {@code precision}(정밀도), {@code absorptionMaps}(흡수·맵목록), {@code
+ *       workingMaps}(계산중·맵목록).
+ *   <li>{@code leaseCursor()}: 사용권·진행커서 값을 조회·구성한다. 반환: {@code CursorLease}.
+ *   <li>{@code restoreCursor(header, template, transition, classify, precision, absorptionMaps)}:
+ *       진행커서을(를) 복원한다. 입력: {@code header}(헤더), {@code template}(템플릿), {@code transition}(전이),
+ *       {@code classify}(상태분류), {@code precision}(정밀도), {@code absorptionMaps}(흡수·맵목록). 반환: {@code
+ *       CursorRestore<S, A>}.
+ *   <li>{@code restoreCursor(header, template, transition, classify, precision, absorptionMaps,
+ *       workingMaps)}: 진행커서을(를) 복원한다. 입력: {@code header}(헤더), {@code template}(템플릿), {@code
+ *       transition}(전이), {@code classify}(상태분류), {@code precision}(정밀도), {@code
+ *       absorptionMaps}(흡수·맵목록), {@code workingMaps}(계산중·맵목록). 반환: {@code CursorRestore<S, A>}.
+ *   <li>{@code retainedStates()}: 보유·상태목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code resident(map)}: 메모리상주 처리에서 {@code law.residentEntries}, {@code map.size}을(를) 사용한다.
+ *       입력: {@code map}(맵). 반환: {@code long}.
+ *   <li>{@code closeWorkingMaps()}: close·계산중·맵목록 처리에서 {@code law.close}을(를) 사용한다.
+ *   <li>{@code retention()}: 보유량 값을 조회·구성한다. 반환: {@code Retention}.
+ *   <li>{@code atBoundary()}: {@code atBoundary} 값을 조회한다. 반환: {@code boolean}.
+ *   <li>{@code cycles()}: {@code cycles} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code absorbed()}: 흡수된 값을 조회·구성한다. 반환: {@code boolean}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code beginCycle()}: 시작·주기 처리에서 {@code boundary.forEach}, {@code pending.put}을(를) 사용한다.
+ *       사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code probabilitySum(a, b)}: 확률·합계 처리에서 {@code a.add}을(를) 사용한다. 입력: {@code a}(a), {@code
+ *       b}(b). 반환: {@code CertifiedInterval}.
+ *   <li>{@code absorb(kind, state, mass)}: absorb 처리에서 {@code mass.zero}, {@code exits.get}을(를)
+ *       사용한다. 입력: {@code kind}(종류), {@code state}(상태), {@code mass}(확률질량).
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+ *   <li>{@code step(allowance)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code allowance}(allowance). 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code finish()}: 진행 중인 계산 또는 누적 처리를 마무리한다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code observation()}: 관측값 값을 조회·구성한다. 반환: {@code Observation<S, A>}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code provisional(horizon, pendingState)}: provisional 처리에서 {@code exits.forEach}, {@code
+ *       saved.put}을(를) 사용한다. 입력: {@code horizon}(계산기간), {@code pendingState}(대기·상태). 반환: {@code
+ *       Observation<S, A>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code leaseObservation()}: 사용권·관측값 값을 조회·구성한다. 반환: {@code ObservationLease}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Observation}: {@code CertifiedMethodRunner}에서 사용하는 관측값의 불변 값이다.
+ *   <li>{@code WorkingMaps}: {@code CertifiedMethodRunner}에서 사용하는 계산중·맵목록의 불변 값이다.
+ *   <li>{@code Flight}: {@code CertifiedMethodRunner} 내부의 진행중 처리를 맡는다.
+ *   <li>{@code CursorKind}: {@code CertifiedMethodRunner}의 진행커서·종류 구분값을 정의한다.
+ *   <li>{@code CursorRow}: {@code CertifiedMethodRunner}에서 사용하는 진행커서·행의 불변 값이다.
+ *   <li>{@code FlightCursor}: {@code CertifiedMethodRunner}에서 사용하는 진행중·진행커서의 불변 값이다.
+ *   <li>{@code CursorHeader}: {@code CertifiedMethodRunner}에서 사용하는 진행커서·헤더의 불변 값이다.
+ *   <li>{@code CursorLease}: {@code CertifiedMethodRunner} 내부의 진행커서·사용권 처리를 맡는다.
+ *   <li>{@code CursorRestore}: {@code CertifiedMethodRunner} 내부의 진행커서·복원 처리를 맡는다.
+ *   <li>{@code Retention}: {@code CertifiedMethodRunner}에서 사용하는 보유량의 불변 값이다.
+ *   <li>{@code ObservationLease}: {@code CertifiedMethodRunner} 내부의 관측값·사용권 처리를 맡는다.
+ * </ul>
  */
 public final class CertifiedMethodRunner<S, A> {
   public static final String VERSION = "certified-method-markov-v1";
 
+  /**
+   * {@code CertifiedMethodRunner}에서 사용하는 관측값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code cycles}: 주기횟수 ({@code long}).
+   *   <li>{@code exits}: 종료목록 ({@code Map<Exit, Map<S, CertifiedInterval>>}).
+   *   <li>{@code active}: 활성 ({@code Map<S, CertifiedInterval>}).
+   *   <li>{@code initialUses}: 초기값·사용량 ({@code Map<A, CertifiedInterval>}).
+   *   <li>{@code cycleUses}: 주기·사용량 ({@code Map<A, CertifiedInterval>}).
+   *   <li>{@code mass}: 확률질량 ({@code CertifiedInterval}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code atLaterAbsorbedBoundary(later)}: 기준·후속·흡수된·경계 처리에서 {@code active.isEmpty}, {@code
+   *       mass.contains}을(를) 사용한다. 입력: {@code later}(후속). 반환: {@code Observation<S, A>}. 사용하는 예외:
+   *       {@code IllegalArgumentException}.
+   * </ul>
+   */
   public record Observation<S, A>(
       long cycles,
       Map<Exit, Map<S, CertifiedInterval>> exits,
@@ -34,6 +156,22 @@ public final class CertifiedMethodRunner<S, A> {
   private final Map<Execution<S>, CertifiedInterval> pending;
   private final Map<S, CertifiedInterval> boundary;
 
+  /**
+   * {@code CertifiedMethodRunner}에서 사용하는 계산중·맵목록의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code pending}: 대기 ({@code Supplier<? extends Map<Execution<S>, CertifiedInterval>>}).
+   *   <li>{@code boundary}: 경계 ({@code Supplier<? extends Map<S, CertifiedInterval>>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code memory()}: 메모리 값을 조회·구성한다. 반환: {@code WorkingMaps<S>}.
+   * </ul>
+   */
   public record WorkingMaps<S>(
       Supplier<? extends Map<Execution<S>, CertifiedInterval>> pending,
       Supplier<? extends Map<S, CertifiedInterval>> boundary) {
@@ -62,6 +200,26 @@ public final class CertifiedMethodRunner<S, A> {
   private Flight flight;
   private boolean observationLeased;
 
+  /**
+   * {@code CertifiedMethodRunner} 내부의 진행중 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code execution}: 실행 ({@code Execution<S>}).
+   *   <li>{@code mass}: 확률질량 ({@code CertifiedInterval}).
+   *   <li>{@code kernel}: 전이커널 ({@code Kernel<S>}).
+   *   <li>{@code phases}: 단계목록 ({@code int}).
+   *   <li>{@code cursor}: 진행커서 ({@code int}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Flight(execution, mass, kernel, phases)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       execution}(실행), {@code mass}(확률질량), {@code kernel}(전이커널), {@code phases}(단계목록).
+   * </ul>
+   */
   private final class Flight {
     final Execution<S> execution;
     final CertifiedInterval mass;
@@ -139,6 +297,20 @@ public final class CertifiedMethodRunner<S, A> {
 
   public static final String CURSOR_VERSION = VERSION + ":streaming-cursor-v1";
 
+  /**
+   * {@code CertifiedMethodRunner}의 진행커서·종류 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code PENDING}: 대기 구분값.
+   *   <li>{@code BOUNDARY}: 경계 구분값.
+   *   <li>{@code EXIT}: 종료 구분값.
+   *   <li>{@code INITIAL_USE}: 사용 구분값.
+   *   <li>{@code CYCLE_USE}: 사용 구분값.
+   *   <li>{@code KERNEL}: 전이커널 구분값.
+   * </ul>
+   */
   public enum CursorKind {
     PENDING,
     BOUNDARY,
@@ -148,6 +320,21 @@ public final class CertifiedMethodRunner<S, A> {
     KERNEL
   }
 
+  /**
+   * {@code CertifiedMethodRunner}에서 사용하는 진행커서·행의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code kind}: 종류 ({@code CursorKind}).
+   *   <li>{@code exit}: 종료 ({@code Exit}).
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code S}).
+   *   <li>{@code phase}: 단계 ({@code int}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code A}).
+   *   <li>{@code mass}: 확률질량 ({@code CertifiedInterval}).
+   *   <li>{@code probability}: 확률 ({@code Fraction}).
+   * </ul>
+   */
   public record CursorRow<S, A>(
       CursorKind kind,
       Exit exit,
@@ -157,6 +344,20 @@ public final class CertifiedMethodRunner<S, A> {
       CertifiedInterval mass,
       Fraction probability) {}
 
+  /**
+   * {@code CertifiedMethodRunner}에서 사용하는 진행중·진행커서의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code execution}: 실행 ({@code Execution<S>}).
+   *   <li>{@code mass}: 확률질량 ({@code CertifiedInterval}).
+   *   <li>{@code cursor}: 진행커서 ({@code int}).
+   *   <li>{@code outcomeCount}: 결과·개수 ({@code int}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code phases}: 단계목록 ({@code int}).
+   * </ul>
+   */
   public record FlightCursor<S>(
       Execution<S> execution,
       CertifiedInterval mass,
@@ -165,6 +366,26 @@ public final class CertifiedMethodRunner<S, A> {
       Fraction unresolved,
       int phases) {}
 
+  /**
+   * {@code CertifiedMethodRunner}에서 사용하는 진행커서·헤더의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code version}: 저장·실행 계약의 버전 ({@code String}).
+   *   <li>{@code templateId}: 템플릿·식별자 ({@code String}).
+   *   <li>{@code bits}: 비트수 ({@code int}).
+   *   <li>{@code cycles}: 주기횟수 ({@code long}).
+   *   <li>{@code initialPhases}: 초기값·단계목록 ({@code int}).
+   *   <li>{@code cyclePhases}: 주기·단계목록 ({@code int}).
+   *   <li>{@code initializing}: 초기화중 ({@code boolean}).
+   *   <li>{@code atBoundary}: 기준·경계 ({@code boolean}).
+   *   <li>{@code absorbedMass}: 흡수된·확률질량 ({@code CertifiedInterval}).
+   *   <li>{@code boundaryMass}: 경계·확률질량 ({@code CertifiedInterval}).
+   *   <li>{@code absorbedEntries}: 흡수된·항목목록 ({@code long}).
+   *   <li>{@code flight}: 진행중 ({@code FlightCursor<S>}).
+   * </ul>
+   */
   public record CursorHeader<S>(
       String version,
       String templateId,
@@ -179,7 +400,30 @@ public final class CertifiedMethodRunner<S, A> {
       long absorbedEntries,
       FlightCursor<S> flight) {}
 
-  /** Streaming stable views; acquiring a cursor does not clone the retained state maps. */
+  /**
+   * {@code CertifiedMethodRunner} 내부의 진행커서·사용권 처리를 맡는다.
+   *
+   * <p>기존 계약: Streaming stable views; acquiring a cursor does not clone the retained state maps.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code closed}: 닫힘 ({@code boolean}).
+   *   <li>{@code header}: 헤더 ({@code CursorHeader<S>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code CursorLease()}: 전달받은 값으로 구성원을 초기화한다. 사용하는 예외: {@code IllegalStateException}.
+   *   <li>{@code header()}: 저장 문서의 소유권·만료·초기 조건을 읽는다. 반환: {@code CursorHeader<S>}.
+   *   <li>{@code rows()}: 행목록 값을 조회·구성한다. 반환: {@code Iterator<CursorRow<S, A>>}. 사용하는 예외: {@code
+   *       NoSuchElementException}.
+   *   <li>{@code ensureOpen()}: ensure·열린의 입력에 따른 분기·결과를 처리한다. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   */
   public final class CursorLease implements AutoCloseable {
     private boolean closed;
     private final CursorHeader<S> header;
@@ -326,6 +570,39 @@ public final class CertifiedMethodRunner<S, A> {
         header, template, transition, classify, precision, absorptionMaps, workingMaps);
   }
 
+  /**
+   * {@code CertifiedMethodRunner} 내부의 진행커서·복원 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code header}: 헤더 ({@code CursorHeader<S>}).
+   *   <li>{@code runner}: 실행기 ({@code CertifiedMethodRunner<S, A>}).
+   *   <li>{@code outcomes}: 결과목록 ({@code List<Outcome<S>>}).
+   *   <li>{@code finished}: 종료 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code CursorRestore(header, template, transition, classify, precision, maps,
+   *       workingMaps)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code header}(헤더), {@code template}(템플릿), {@code
+   *       transition}(전이), {@code classify}(상태분류), {@code precision}(정밀도), {@code maps}(맵목록),
+   *       {@code workingMaps}(계산중·맵목록). 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code probability(mass)}: 현재 조건의 확률을 조회한다. 입력: {@code mass}(확률질량). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   *   <li>{@code put(target, key, mass)}: 키에 해당하는 값을 기록한다. 입력: {@code target}(대상), {@code key}(키),
+   *       {@code mass}(확률질량). 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code accept(row)}: 수락 처리에서 {@code row.kind}, {@code row.mass}을(를) 사용한다. 입력: {@code
+   *       row}(행). 사용하는 예외: {@code IllegalStateException}, {@code IllegalArgumentException}.
+   *   <li>{@code retainedStates()}: 보유·상태목록 값을 조회·구성한다. 반환: {@code long}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   *   <li>{@code sum(values)}: 항목들의 합을 계산한다. 입력: {@code values}(값목록). 반환: {@code
+   *       CertifiedInterval}.
+   *   <li>{@code finish()}: 진행 중인 계산 또는 누적 처리를 마무리한다. 반환: {@code CertifiedMethodRunner<S, A>}. 사용하는
+   *       예외: {@code IllegalStateException}, {@code IllegalArgumentException}.
+   * </ul>
+   */
   public static final class CursorRestore<S, A> implements AutoCloseable {
     private final CursorHeader<S> header;
     private final CertifiedMethodRunner<S, A> runner;
@@ -495,6 +772,18 @@ public final class CertifiedMethodRunner<S, A> {
     if (boundary instanceof CertifiedWorkingLaw<?> law) law.close();
   }
 
+  /**
+   * {@code CertifiedMethodRunner}에서 사용하는 보유량의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code pending}: 대기 ({@code long}).
+   *   <li>{@code boundary}: 경계 ({@code long}).
+   *   <li>{@code exits}: 종료목록 ({@code long}).
+   *   <li>{@code flightOutcomes}: 진행중·결과목록 ({@code long}).
+   * </ul>
+   */
   public record Retention(long pending, long boundary, long exits, long flightOutcomes) {}
 
   public Retention retention() {
@@ -641,7 +930,27 @@ public final class CertifiedMethodRunner<S, A> {
         absorbedMass.add(remaining));
   }
 
-  /** Internal immutable view lease: advancement is blocked until the reader releases it. */
+  /**
+   * {@code CertifiedMethodRunner} 내부의 관측값·사용권 처리를 맡는다.
+   *
+   * <p>기존 계약: Internal immutable view lease: advancement is blocked until the reader releases it.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code point}: 지점 ({@code Observation<S, A>}).
+   *   <li>{@code closed}: 닫힘 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code ObservationLease()}: 전달받은 값으로 구성원을 초기화한다. 사용하는 예외: {@code IllegalStateException}.
+   *   <li>{@code point()}: 지점 값을 조회·구성한다. 반환: {@code Observation<S, A>}. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   */
   final class ObservationLease implements AutoCloseable {
     private final Observation<S, A> point;
     private boolean closed;

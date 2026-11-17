@@ -3,8 +3,46 @@ package com.poe2craft.craftingsupport.search.domain;
 import com.poe2craft.craftingsupport.search.domain.CertifiedOutcomeStrategy.*;
 import java.util.*;
 
-/** Closed communicating regions with positive-lower-bound navigation witnesses. */
+/**
+ * 양의 하한 확률로 서로 도달 가능한 닫힌 영역을 찾는다.
+ *
+ * <p>기존 계약: Closed communicating regions with positive-lower-bound navigation witnesses.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code graph}: 그래프 ({@code Map<S, State<S>>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code CertifiedEndComponents(graph)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code graph}(그래프).
+ *   <li>{@code find()}: 조건에 맞는 항목을 찾는다. 반환: {@code List<Component<S>>}.
+ *   <li>{@code internal(choice, region)}: internal 처리에서 {@code choice.unresolved}, {@code
+ *       choice.outcomes}을(를) 사용한다. 입력: {@code choice}(선택), {@code region}(영역). 반환: {@code boolean}.
+ *   <li>{@code stronglyConnected(forward, reverse)}: strongly·Connected 처리에서 {@code
+ *       forward.keySet}, {@code seen.add}을(를) 사용한다. 입력: {@code forward}(forward), {@code
+ *       reverse}(reverse). 반환: {@code List<Set<S>>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Component}: {@code CertifiedEndComponents}에서 사용하는 구성요소의 불변 값이다.
+ * </ul>
+ */
 final class CertifiedEndComponents<S> {
+  /**
+   * {@code CertifiedEndComponents}에서 사용하는 구성요소의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code members}: 구성원목록 ({@code Set<S>}).
+   *   <li>{@code internal}: internal ({@code Map<S, List<Choice<S>>>}).
+   * </ul>
+   */
   record Component<S>(Set<S> members, Map<S, List<Choice<S>>> internal) {}
 
   private final Map<S, State<S>> graph;

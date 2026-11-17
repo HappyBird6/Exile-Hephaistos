@@ -12,6 +12,30 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Greater·Exaltation 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ *   <li>{@code root}: 시작점 ({@code ItemState}).
+ *   <li>{@code omen}: 징조 ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code rare()}: 희귀 값을 조회·구성한다. 반환: {@code ItemState}.
+ *   <li>{@code addsTwoConditionalWeightedModifiersConsumesOnceAndPreservesFracture()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code uncertainSlotsCurrenciesAndCombinationsBlockWithoutMutationOrConsumption()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code directionalGreaterUsesOnlyItsSideAndRetainsGreaterWithOneSlot()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class GreaterExaltationTest {
   final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   final WorkbenchSimulator simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));

@@ -19,6 +19,33 @@ import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 자동·품질·목표목록 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code GoalDirectedPlannerScenariosTest}).
+ *   <li>{@code root}: 시작점 ({@code ItemState}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code quality20NeedsWorkButNoBreachAndRoundTripsTheExactCursor()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code qualityAbove20RequiresCapThenWorkAndCapMayRemain()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code alreadyKnownQuality40WithTheCapDoesNotInventAnotherQualityWorkCost()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code qualityPrerequisiteCanReplaceAnAlreadyMatchedAffixAndReacquireItAfterWork()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code knownQualityAloneDoesNotRequireAnUnimplementedAffixScalingProjection()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code oldGoalJsonHasNoNewRequiredFieldAndNewQualityIsValidatedAndPreserved()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class AutomaticQualityGoalsTest {
   final GoalDirectedPlannerScenariosTest fixture = new GoalDirectedPlannerScenariosTest();
   final ItemState root = fixture.item(ItemState.Rarity.RARE, 82, List.of(fixture.life()));

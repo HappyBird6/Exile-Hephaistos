@@ -10,6 +10,27 @@ import org.springframework.boot.env.YamlPropertySourceLoader;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.core.io.ClassPathResource;
 
+/**
+ * 환경별 운영 한도와 저장·로그·요청 설정을 타입으로 표현한다. 게임 규칙은 포함하지 않는다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code runner}: 실행기 ({@code ApplicationContextRunner}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code springAndDirectConstructionUseTheSameShippedDefaults()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code overridesBindToTypedFeatureSettings()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code oldJobDirectoryPropertyStillResolvesAndNewSettingCanOverrideIt()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code zeroCapacityAndBudgetPreventStartup()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code nonPositiveDurationsPreventStartup()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class BackendSettingsTest {
   private final ApplicationContextRunner runner =
       new ApplicationContextRunner()

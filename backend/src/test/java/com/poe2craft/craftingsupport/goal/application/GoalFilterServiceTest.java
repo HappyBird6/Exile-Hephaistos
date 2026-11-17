@@ -20,6 +20,55 @@ import java.math.BigDecimal;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 아이템 수치 관측과 목표 조건 검증·평가 및 유한 추가 탐색을 조정한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code COLD}: COLD; 초기값 {@code "base_cold_damage_resistance_%"} ({@code String}).
+ *   <li>{@code ALL}: ALL; 초기값 {@code "base_resist_all_elements_%"} ({@code String}).
+ *   <li>{@code itemCatalog}: 아이템·카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code index}: 색인 ({@code GoalCatalogIndex}).
+ *   <li>{@code service}: 요청 처리를 위임하는 서비스 ({@code GoalFilterService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code compiledDependencyClosurePreservesEveryAstKindAndPseudoAcrossLossAndMerge()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code disabledUnknownContentStillRequiresUnitAndCountMinimumCanProveImpossibleGoal()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code checkedInProductionExampleMatchesCurrentCatalogAndActualItemEvaluation()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code unsupportedStartingStateIsNotSuccessEvenForTautologicalCount()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code goal(version, base, stat, unit, range)}: 목표 처리에서 {@code BigDecimal.valueOf}을(를)
+ *       사용한다. 입력: {@code version}(버전), {@code base}(베이스), {@code stat}(수치), {@code unit}(단위),
+ *       {@code range}(범위). 반환: {@code GoalFilter}.
+ *   <li>{@code item(explicits, level, conditions)}: 아이템 처리에서 {@code SolarAmulet.initial}, {@code
+ *       initial.snapshotId}을(를) 사용한다. 입력: {@code explicits}(명시옵션목록), {@code level}(레벨), {@code
+ *       conditions}(상태조건). 반환: {@code ItemState}.
+ *   <li>{@code modifier(catalog, source, value)}: 옵션 처리에서 {@code catalog.modifiers}, {@code
+ *       d.layer}을(를) 사용한다. 입력: {@code catalog}(카탈로그), {@code source}(출처), {@code value}(값). 반환:
+ *       {@code ModifierInstance}.
+ *   <li>{@code productionPseudoAddsTenAndTwelveOnceAndKeepsRawValues()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code existingHigherLevelModifierIsNotDeletedByGenerationEligibility()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unsupportedConditionsNeverTurnIntoAbsentValues()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code duplicateModifierAndFamilyAreRejectedBeforeAggregation()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code unsupportedBaseHasEmptyCatalogWithoutSolarFallback()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code allSeventeenReviewedBasesLoadAndExposeOnlyTheirSourceStats()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code java.io.UncheckedIOException}.
+ *   <li>{@code disabledUnknownStatWarnsButDisabledMalformedContentStillFails()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class GoalFilterServiceTest {
   @Test
   void compiledDependencyClosurePreservesEveryAstKindAndPseudoAcrossLossAndMerge() {

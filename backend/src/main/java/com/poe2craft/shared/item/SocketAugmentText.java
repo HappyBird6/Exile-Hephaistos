@@ -7,6 +7,8 @@ import java.util.regex.Pattern;
 /**
  * 복사한 효과 문장에서 가능한 증강물 조합을 역산하고 장착 효과를 표시한다. 슬롯의 원래 순서는 추측하지 않는다.
  *
+ * <p>복사한 효과 문장에서 가능한 증강물 조합을 역산하고 장착 효과를 표시한다. 슬롯의 원래 순서는 추측하지 않는다.
+ *
  * <p>private 생성자는 생성을 막는다. NUMBER는 수치, COMPLEX는 단순 합산으로 역산할 수 없는 조건문을 구별하는 정규식이다. Resolution은 확정 장착
  * 목록과 미해석 문장, Effect는 문장 구조와 수치, Candidate는 증강물 ID와 그 효과다. 카탈로그는 SocketAugments.definitions의 읽기 뷰를
  * 재사용한다.
@@ -19,17 +21,93 @@ import java.util.regex.Pattern;
  * <p>sameEffects는 fingerprint의 구조별 합계를 비교한다. fingerprint는 해석 불가 문장도 opaque 키로 보존한다. effects의 두
  * 오버로드는 상태와 선택적 카탈로그로 증강물 배율·우상 결합·미해석 관측 효과를 렌더링한다. affectsCrafting은 문장이 제작 구조를 바꾸거나 알려지지 않은 효과인지
  * 보수적으로 판정한다. 모든 공개 메서드는 입력 상태·공유 JSON을 수정하지 않는다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code NUMBER}: 숫자 ({@code Pattern}).
+ *   <li>{@code COMPLEX}: COMPLEX ({@code Pattern}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code SocketAugmentText()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code resolve(base, sockets, source)}: 해결의 입력에 따른 분기·결과를 처리한다. 입력: {@code base}(베이스),
+ *       {@code sockets}(장착홈수), {@code source}(출처). 반환: {@code Resolution}.
+ *   <li>{@code resolve(base, sockets, source, multiplier)}: 해결 처리에서 {@code source.isEmpty}, {@code
+ *       BaseRegistry.socketExecutionMaximum}을(를) 사용한다. 입력: {@code base}(베이스), {@code
+ *       sockets}(장착홈수), {@code source}(출처), {@code multiplier}(배수). 반환: {@code Resolution}.
+ *   <li>{@code search(base, sockets, candidates, start, remaining, chosen, solutions)}: 탐색 처리에서
+ *       {@code solutions.size}, {@code remaining.values}을(를) 사용한다. 입력: {@code base}(베이스), {@code
+ *       sockets}(장착홈수), {@code candidates}(후보목록), {@code start}(시작값), {@code remaining}(남은), {@code
+ *       chosen}(chosen), {@code solutions}(solutions).
+ *   <li>{@code fits(part, total)}: fits 처리에서 {@code part.size}, {@code total.size}을(를) 사용한다. 입력:
+ *       {@code part}(part), {@code total}(합계). 반환: {@code boolean}.
+ *   <li>{@code add(a, b)}: 값 또는 항목을 더한다. 입력: {@code a}(a), {@code b}(b). 반환: {@code
+ *       List<BigDecimal>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code effect(source)}: 효과 처리에서 {@code COMPLEX.matcher}, {@code NUMBER.matcher}을(를) 사용한다.
+ *       입력: {@code source}(출처). 반환: {@code Effect}.
+ *   <li>{@code normalize(text)}: 정규화 처리에서 {@code SocketAugmentEffects.visible}을(를) 사용한다. 입력: {@code
+ *       text}(텍스트). 반환: {@code String}.
+ *   <li>{@code sameEffects(a, b)}: 동일·효과목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code a}(a), {@code b}(b). 반환:
+ *       {@code boolean}.
+ *   <li>{@code fingerprint(source)}: 지문 처리에서 {@code effect.key}, {@code effect.values}을(를) 사용한다.
+ *       입력: {@code source}(출처). 반환: {@code Map<String, List<BigDecimal>>}.
+ *   <li>{@code effects(state)}: 효과목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code state}(상태). 반환: {@code
+ *       List<String>}.
+ *   <li>{@code effects(state, catalog)}: 효과목록 처리에서 {@code SocketAugmentEffects.multiplier}, {@code
+ *       state.installedAugments}을(를) 사용한다. 입력: {@code state}(상태), {@code catalog}(카탈로그). 반환: {@code
+ *       List<String>}.
+ *   <li>{@code affectsCrafting(effects)}: affects·제작 처리에서 {@code Pattern.compile}, {@code
+ *       SocketAugments.definitions}을(를) 사용한다. 입력: {@code effects}(효과목록). 반환: {@code boolean}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Resolution}: installed는 유일하게 식별한 장착 목록, unidentified는 추측하지 않고 보존한 원문이다.
+ *   <li>{@code Effect}: key는 수치를 #으로 치환한 문장 구조, values는 등장 순서의 수치 벡터다.
+ *   <li>{@code Candidate}: id는 후보 증강물 식별자, effect는 그 후보가 기여하는 단순 합산 효과다.
+ * </ul>
  */
 public final class SocketAugmentText {
   private SocketAugmentText() {}
 
-  /** installed는 유일하게 식별한 장착 목록, unidentified는 추측하지 않고 보존한 원문이다. */
+  /**
+   * installed는 유일하게 식별한 장착 목록, unidentified는 추측하지 않고 보존한 원문이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code installed}: 장착된 ({@code List<ItemState.InstalledAugment>}).
+   *   <li>{@code unidentified}: unidentified ({@code List<String>}).
+   * </ul>
+   */
   public record Resolution(List<ItemState.InstalledAugment> installed, List<String> unidentified) {}
 
-  /** key는 수치를 #으로 치환한 문장 구조, values는 등장 순서의 수치 벡터다. */
+  /**
+   * key는 수치를 #으로 치환한 문장 구조, values는 등장 순서의 수치 벡터다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code key}: 키 ({@code String}).
+   *   <li>{@code values}: 출처 단위로 보존하는 수치 값 ({@code List<BigDecimal>}).
+   * </ul>
+   */
   private record Effect(String key, List<BigDecimal> values) {}
 
-  /** id는 후보 증강물 식별자, effect는 그 후보가 기여하는 단순 합산 효과다. */
+  /**
+   * id는 후보 증강물 식별자, effect는 그 후보가 기여하는 단순 합산 효과다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code effect}: 효과 ({@code Effect}).
+   * </ul>
+   */
   private record Candidate(String id, Effect effect) {}
 
   private static final Pattern NUMBER = Pattern.compile("\\d+(?:\\.\\d+)?");

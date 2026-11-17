@@ -3,8 +3,67 @@ package com.poe2craft.shared.probability;
 import java.math.BigInteger;
 import java.util.Objects;
 
-/** Exact nonnegative rational arithmetic shared by crafting and search. */
+/**
+ * 제작과 탐색에서 사용하는 정확한 음이 아닌 유리수 연산이다.
+ *
+ * <p>기존 계약: Exact nonnegative rational arithmetic shared by crafting and search.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code value}: 값 ({@code Value}).
+ *   <li>{@code cachedHash}: 캐시된·해시 ({@code long}).
+ *   <li>{@code ZERO}: 영 ({@code Fraction}).
+ *   <li>{@code ONE}: 일 ({@code Fraction}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code Fraction(numerator, denominator)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       numerator}(분자), {@code denominator}(분모).
+ *   <li>{@code Fraction(numerator, denominator, reduced)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       numerator}(분자), {@code denominator}(분모), {@code reduced}(reduced). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code Fraction(exactSum)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code exactSum}(정확값·합계).
+ *   <li>{@code canonical()}: 정규형 값을 조회·구성한다. 반환: {@code Value}.
+ *   <li>{@code numerator()}: 분자 값을 조회·구성한다. 반환: {@code BigInteger}.
+ *   <li>{@code denominator()}: 분모 값을 조회·구성한다. 반환: {@code BigInteger}.
+ *   <li>{@code equals(other)}: 값의 동등성을 비교한다. 입력: {@code other}(비교대상). 반환: {@code boolean}.
+ *   <li>{@code hashCode()}: 동등성 비교와 일치하는 해시를 반환한다. 반환: {@code int}.
+ *   <li>{@code toString()}: 값을 문자열 표현으로 바꾼다. 반환: {@code String}.
+ *   <li>{@code of(numerator, denominator)}: 입력값으로 검증된 값 객체를 만든다. 입력: {@code numerator}(분자), {@code
+ *       denominator}(분모). 반환: {@code Fraction}.
+ *   <li>{@code add(other)}: 값 또는 항목을 더한다. 입력: {@code other}(비교대상). 반환: {@code Fraction}.
+ *   <li>{@code multiply(other)}: 두 값의 곱을 계산한다. 입력: {@code other}(비교대상). 반환: {@code Fraction}.
+ *   <li>{@code multiplyEquals(other, expected)}: multiply·Equals 처리에서 {@code a.numerator}, {@code
+ *       b.numerator}을(를) 사용한다. 입력: {@code other}(비교대상), {@code expected}(기대값). 반환: {@code boolean}.
+ *   <li>{@code pow(exponent)}: pow 처리에서 {@code v.numerator}, {@code v.denominator}을(를) 사용한다. 입력:
+ *       {@code exponent}(exponent). 반환: {@code Fraction}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code complement()}: complement 값을 조회·구성한다. 반환: {@code Fraction}.
+ *   <li>{@code divide(other)}: 두 값의 비를 계산한다. 입력: {@code other}(비교대상). 반환: {@code Fraction}. 사용하는
+ *       예외: {@code IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Value}: {@code Fraction}에서 사용하는 값의 불변 값이다.
+ * </ul>
+ */
 public final class Fraction {
+  /**
+   * {@code Fraction}에서 사용하는 값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code numerator}: 분자 ({@code BigInteger}).
+   *   <li>{@code denominator}: 분모 ({@code BigInteger}).
+   *   <li>{@code reduced}: reduced ({@code boolean}).
+   * </ul>
+   */
   private record Value(BigInteger numerator, BigInteger denominator, boolean reduced) {}
 
   // Atomic immutable snapshots permit concurrent canonical reads while an exact sum is lazy.

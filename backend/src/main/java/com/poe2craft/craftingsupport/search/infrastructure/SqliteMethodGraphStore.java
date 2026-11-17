@@ -7,7 +7,105 @@ import java.nio.file.*;
 import java.sql.*;
 import java.util.*;
 
-/** Job-owned local file. SQLite's page cache is bounded; graph rows are never mirrored in a map. */
+/**
+ * 작업별 SQLite 파일에 계산 그래프를 저장하고 페이지 캐시를 제한한다.
+ *
+ * <p>기존 계약: Job-owned local file. SQLite's page cache is bounded; graph rows are never mirrored in
+ * a map.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code CURRENT_DEPTH_PAGE_SQL}: SQL ({@code String}).
+ *   <li>{@code LATER_DEPTH_PAGE_SQL}: SQL ({@code String}).
+ *   <li>{@code path}: 경로 ({@code Path}).
+ *   <li>{@code connection}: DB연결 ({@code Connection}).
+ *   <li>{@code cacheKiB}: 캐시·Ki·B ({@code int}).
+ *   <li>{@code reads}: 읽기횟수 ({@code long}).
+ *   <li>{@code writes}: 쓰기횟수 ({@code long}).
+ *   <li>{@code closed}: 닫힘 ({@code boolean}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code SqliteMethodGraphStore(path, identity, cacheKiB)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       path}(경로), {@code identity}(정체성), {@code cacheKiB}(캐시·Ki·B). 사용하는 예외: {@code
+ *       IllegalArgumentException}, {@code IllegalStateException}.
+ *   <li>{@code transaction(work)}: 트랜잭션 처리에서 {@code connection.setAutoCommit}, {@code work.run}을(를)
+ *       사용한다. 입력: {@code work}(계산작업). 반환: {@code T}. 사용하는 예외: {@code SQLException}.
+ *   <li>{@code access(work)}: access 처리에서 {@code work.run}을(를) 사용한다. 입력: {@code work}(계산작업). 반환:
+ *       {@code T}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code execute(sql)}: execute 처리에서 {@code connection.createStatement}, {@code
+ *       statement.execute}을(를) 사용한다. 입력: {@code sql}(SQL). 사용하는 예외: {@code SQLException}.
+ *   <li>{@code update(sql, values)}: 갱신 처리에서 {@code connection.prepareStatement}, {@code
+ *       statement.setObject}을(를) 사용한다. 입력: {@code sql}(SQL), {@code values}(값목록). 반환: {@code int}.
+ *       사용하는 예외: {@code SQLException}.
+ *   <li>{@code number(sql)}: 숫자 처리에서 {@code connection.createStatement}, {@code
+ *       statement.executeQuery}을(를) 사용한다. 입력: {@code sql}(SQL). 반환: {@code long}. 사용하는 예외: {@code
+ *       IllegalStateException}, {@code SQLException}.
+ *   <li>{@code revision()}: 리비전 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code commit(expectedRevision, batch)}: 완전히 기록된 상태를 공개 가능한 체크포인트로 확정한다. 입력: {@code
+ *       expectedRevision}(기대값·리비전), {@code batch}(일괄실행). 반환: {@code long}. 사용하는 예외: {@code
+ *       IllegalStateException}, {@code IllegalArgumentException}.
+ *   <li>{@code source(id)}: 출처 처리에서 {@code connection.prepareStatement}, {@code
+ *       statement.setLong}을(를) 사용한다. 입력: {@code id}(식별자). 반환: {@code Optional<Source>}.
+ *   <li>{@code beginExecution(scope, header)}: 시작·실행 처리에서 {@code scope.isBlank}, {@code
+ *       header.isBlank}을(를) 사용한다. 입력: {@code scope}(범위), {@code header}(헤더). 반환: {@code
+ *       ExecutionCursor}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code executionById(id)}: 실행·기준·식별자 처리에서 {@code connection.prepareStatement}, {@code
+ *       statement.setString}을(를) 사용한다. 입력: {@code id}(식별자). 반환: {@code ExecutionCursor}. 사용하는 예외:
+ *       {@code IllegalArgumentException}, {@code SQLException}.
+ *   <li>{@code appendExecution(id, expectedRows, rows)}: append·실행 처리에서 {@code values.isEmpty},
+ *       {@code values.size}을(를) 사용한다. 입력: {@code id}(식별자), {@code expectedRows}(기대값·행목록), {@code
+ *       rows}(행목록). 반환: {@code long}. 사용하는 예외: {@code IllegalArgumentException}, {@code
+ *       IllegalStateException}.
+ *   <li>{@code captureExecution(scope, header, producer)}: capture·실행 처리에서 {@code scope.isBlank},
+ *       {@code header.isBlank}을(를) 사용한다. 입력: {@code scope}(범위), {@code header}(헤더), {@code
+ *       producer}(producer). 반환: {@code ExecutionCursor}. 사용하는 예외: {@code
+ *       IllegalArgumentException}, {@code IllegalStateException}.
+ *   <li>{@code sealExecution(id, expectedRows)}: 봉인·실행의 입력에 따른 분기·결과를 처리한다. 입력: {@code id}(식별자),
+ *       {@code expectedRows}(기대값·행목록). 반환: {@code ExecutionCursor}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code execution(scope)}: 실행 처리에서 {@code reference.isEmpty}, {@code Optional.empty}을(를)
+ *       사용한다. 입력: {@code scope}(범위). 반환: {@code Optional<ExecutionCursor>}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code executionRows(id, offset, limit)}: 실행·행목록 처리에서 {@code cursor.sealed}, {@code
+ *       cursor.rows}을(를) 사용한다. 입력: {@code id}(식별자), {@code offset}(시작위치), {@code limit}(한도). 반환:
+ *       {@code ExecutionPage}. 사용하는 예외: {@code IllegalArgumentException}, {@code
+ *       IllegalStateException}.
+ *   <li>{@code discardExecution(id)}: discard·실행 처리에서 {@code connection.prepareStatement}, {@code
+ *       statement.setString}을(를) 사용한다. 입력: {@code id}(식별자). 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code method(id)}: 제작방법 처리에서 {@code connection.prepareStatement}, {@code
+ *       statement.setString}을(를) 사용한다. 입력: {@code id}(식별자). 반환: {@code Optional<Method>}.
+ *   <li>{@code methods(expectedRevision, after, limit)}: 제작방법목록 처리에서 {@code after.depth}, {@code
+ *       after.ordinal}을(를) 사용한다. 입력: {@code expectedRevision}(기대값·리비전), {@code after}(변경후), {@code
+ *       limit}(한도). 반환: {@code Page}. 사용하는 예외: {@code IllegalArgumentException}, {@code
+ *       IllegalStateException}.
+ *   <li>{@code readMethodRows(rows, sql, parameters)}: 제작방법·행목록을(를) 읽는다. 입력: {@code rows}(행목록),
+ *       {@code sql}(SQL), {@code parameters}(parameters). 사용하는 예외: {@code SQLException}.
+ *   <li>{@code observation(method, cycles)}: 관측값 처리에서 {@code connection.prepareStatement}, {@code
+ *       statement.setString}을(를) 사용한다. 입력: {@code method}(제작방법), {@code cycles}(주기횟수). 반환: {@code
+ *       Optional<Observation>}.
+ *   <li>{@code checkpoint(name)}: 현재 진행 상태의 복구 지점을 기록한다. 입력: {@code name}(이름). 반환: {@code
+ *       Optional<Checkpoint>}.
+ *   <li>{@code internOperator(digest, canonicalContent)}: 공유색인·연산자 처리에서 {@code digest.isBlank},
+ *       {@code canonicalContent.isBlank}을(를) 사용한다. 입력: {@code digest}(다이제스트), {@code
+ *       canonicalContent}(정규형·내용). 반환: {@code long}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code operator(id)}: 연산자 처리에서 {@code connection.prepareStatement}, {@code
+ *       statement.setLong}을(를) 사용한다. 입력: {@code id}(식별자). 반환: {@code String}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code metrics()}: 측정값 값을 조회·구성한다. 반환: {@code Metrics}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code SqlWork}: {@code SqliteMethodGraphStore} 내부의 SQL·계산작업 처리를 맡는다.
+ * </ul>
+ */
 public final class SqliteMethodGraphStore implements MethodGraphStore {
   static final String CURRENT_DEPTH_PAGE_SQL =
       "SELECT ordinal,depth,id,source,program FROM methods WHERE depth=? AND ordinal>? ORDER BY ordinal LIMIT ?";
@@ -85,6 +183,15 @@ public final class SqliteMethodGraphStore implements MethodGraphStore {
     }
   }
 
+  /**
+   * {@code SqliteMethodGraphStore} 내부의 SQL·계산작업 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code run()}: 작업의 실행 루프를 수행한다. 반환: {@code T}. 사용하는 예외: {@code SQLException}.
+   * </ul>
+   */
   private interface SqlWork<T> {
     T run() throws SQLException;
   }

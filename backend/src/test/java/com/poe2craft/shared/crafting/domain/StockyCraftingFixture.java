@@ -10,7 +10,31 @@ import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 
-/** Shared reviewed glove catalog and state setup for rule and HTTP tests. */
+/**
+ * StockyMitts·제작·검증사례 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Shared reviewed glove catalog and state setup for rule and HTTP tests.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ *   <li>{@code root}: 시작점 ({@code ItemState}).
+ *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+ *   <li>{@code target}: 대상; 초기값 {@code "stocky-mitts:suffix:of-fury"} ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code stocky()}: StockyMitts 값을 조회·구성한다. 반환: {@code ItemCatalog}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code rare(level, locked, ids)}: 희귀 처리에서 {@code root.snapshotId}, {@code
+ *       root.baseItemId}을(를) 사용한다. 입력: {@code level}(레벨), {@code locked}(잠긴), {@code ids}(식별자목록).
+ *       반환: {@code ItemState}.
+ * </ul>
+ */
 public class StockyCraftingFixture {
   public final ItemCatalog catalog = stocky();
 

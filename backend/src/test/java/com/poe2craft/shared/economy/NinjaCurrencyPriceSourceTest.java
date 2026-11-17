@@ -13,6 +13,38 @@ import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.junit.jupiter.api.*;
 
+/**
+ * poe.ninja의 리그와 교환 시세 응답을 읽어 가격 스냅샷으로 변환한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code server}: 서버 ({@code HttpServer}).
+ *   <li>{@code index}: 색인 ({@code String}).
+ *   <li>{@code currency}: 화폐 ({@code String}).
+ *   <li>{@code essence}: 에센스 ({@code String}).
+ *   <li>{@code categoryStatus}: 분류·상태; 초기값 {@code 200} ({@code int}).
+ *   <li>{@code paths}: 경로목록 ({@code List<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code start()}: 각 검증에 필요한 독립 초기 상태와 의존성을 준비한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code stop()}: 검증에서 사용한 상태와 자원을 정리한다.
+ *   <li>{@code source()}: 출처 값을 조회·구성한다. 반환: {@code NinjaCurrencyPriceSource}.
+ *   <li>{@code choosesCurrentSoftcoreAndReturnsConsistentImageIndependentCurrencyPrices()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code unavailableCategoryIsUnpricedWhileReferenceRateRemainsUsable()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code missingCurrentLeagueDoesNotFallBackToStandardOrHardcore()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code malformedReferencePricesDoNotBecomeInventedZeroOrReferenceQuotes()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code everyCollectionResolvesTheLeagueAgainAndDoesNotMixOldLeaguePrices()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class NinjaCurrencyPriceSourceTest {
   HttpServer server;
   String index =

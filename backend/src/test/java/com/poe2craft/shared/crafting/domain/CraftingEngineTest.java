@@ -14,6 +14,51 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 공개 가중치 모형 아래 한 번의 제작에서 가능한 모든 옵션 결과를 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code engine}: 계산 실행기 ({@code CraftingEngine}).
+ *   <li>{@code root}: 시작점 ({@code StateBucket}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code fixture()}: 검증사례 값을 조회·구성한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code mod(id, family, prefix, level, weight)}: mod 처리에서 {@code
+ *       ModifierDefinition.StatRange}을(를) 사용한다. 입력: {@code id}(식별자), {@code family}(옵션계열), {@code
+ *       prefix}(접두), {@code level}(레벨), {@code weight}(가중치). 반환: {@code ModifierDefinition}.
+ *   <li>{@code state(rarity, ids)}: 현재 상태 표현을 조회한다. 입력: {@code rarity}(희귀도), {@code ids}(식별자목록).
+ *       반환: {@code StateBucket}.
+ *   <li>{@code sum(result)}: 항목들의 합을 계산한다. 입력: {@code result}(결과). 반환: {@code double}.
+ *   <li>{@code distribution(result)}: 상태 또는 실행의 확률 분포를 조회한다. 입력: {@code result}(결과). 반환: {@code
+ *       Map<StateBucket, Double>}.
+ *   <li>{@code weightedPoolDoesNotForcePrefixAndSuffixToHalf()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code augmentationAndRegalUseTheCorrectPostUpgradeCapacity()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code exaltedRespectsFullSidesAndFamilyConflicts()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code annulmentIsUniformOverInstancesAndPreservesRarity()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code chaosReopensFamiliesRecalculatesDenominatorsAndMergesSelfLoops()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code numericRollProjectionIsExactForTheSupportedActions()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code graphMatchesIndependentUnmergedThreeStepEnumeration()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code graphCyclesAndBlockedActionsDoNotLoseMass()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code truncatedAndCancelledExplorationsKeepTheirUnexploredProbability()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code boundedCacheSeparatesStatesAndActionsAndReusesCanonicalBuckets()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code realCatalogPerformanceAndProbabilityInvariants()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ * </ul>
+ */
 class CraftingEngineTest {
   private final ItemCatalog catalog = fixture();
   private final CraftingEngine engine = new CraftingEngine(catalog);

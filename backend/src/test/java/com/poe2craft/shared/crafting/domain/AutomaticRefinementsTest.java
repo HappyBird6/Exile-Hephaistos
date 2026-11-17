@@ -18,6 +18,39 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 자동·Refinements 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code tiny}: tiny ({@code BasicCurrencyFixture}).
+ *   <li>{@code policy}: 정책 ({@code AutomaticCurrencyPolicy}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code kernel(catalog)}: 전이커널의 입력에 따른 분기·결과를 처리한다. 입력: {@code catalog}(카탈로그). 반환: {@code
+ *       AutomaticCraftingKernel}.
+ *   <li>{@code currentPolicyDefersThreeOmensWithoutRemovingManualDefinitions()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code chaosFirstHitWithin100IncludesEveryFailureAndRestores()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code routeStrategyUsesTheSameFinite100ChaosProbabilityWithoutAnUnlimitedRetryLoop()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code changingChaosFailuresUseTheirOwnLawFor100Attempts()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code incomparablePrefixAndSuffixGoalsKeepBothOmenRoutesAndOrdinaryLaw()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code firstPlainExaltKeepsExactLuckyGoalProbability()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code fullSuffixSlotsKeepPlainExaltAndDoNotDropTarget()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code fullPrefixSlotsKeepPlainExaltAndDoNotDropSuffixTarget()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ * </ul>
+ */
 class AutomaticRefinementsTest {
   final BasicCurrencyFixture tiny = new BasicCurrencyFixture();
   final AutomaticCurrencyPolicy policy = AutomaticCurrencyPolicyLoader.load();

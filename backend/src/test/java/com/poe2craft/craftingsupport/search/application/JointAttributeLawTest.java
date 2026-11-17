@@ -13,6 +13,22 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 결합·속성·분포 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code inProgressV12KeepsProvisionalHorizonsAndUsageWithoutExecutingAnotherTransition()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code oldV12JointSourcesAndConditionalMassRemainIdenticalInReadOnlyViews()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code correlatedWeightedCheckpointIsOneRealStateAndNextTransitionRetainsItsJointSource()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code assertContains(bounds, exact)}: assert·Contains 처리에서 {@code bounds.lower}, {@code
+ *       bounds.upper}을(를) 사용한다. 입력: {@code bounds}(경계값), {@code exact}(정확값).
+ * </ul>
+ */
 class JointAttributeLawTest {
   @Test
   void inProgressV12KeepsProvisionalHorizonsAndUsageWithoutExecutingAnotherTransition()

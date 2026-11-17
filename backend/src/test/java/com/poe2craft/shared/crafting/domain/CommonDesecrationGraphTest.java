@@ -16,6 +16,21 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Common·훼손·그래프 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code commonChoicesQueueAndNodesCarryDesecrationAndOrdinarySuccessors()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code dummyRemovalExcludesFractureAndObservedSelectionKeepsItsCommonSlot()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code commonSixSlotStateSupportsObservedReplacementAndExactProtectedRemoval()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code removalTestPolicy()}: 제거·검증·정책 값을 조회·구성한다. 반환: {@code AutomaticCurrencyPolicy}.
+ * </ul>
+ */
 class CommonDesecrationGraphTest {
   @Test
   void commonChoicesQueueAndNodesCarryDesecrationAndOrdinarySuccessors() {

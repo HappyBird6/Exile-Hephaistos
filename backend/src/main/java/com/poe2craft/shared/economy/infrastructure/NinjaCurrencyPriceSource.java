@@ -18,7 +18,44 @@ import java.time.Instant;
 import java.util.*;
 import java.util.concurrent.*;
 
-/** Uses the same league order and exchange overview endpoints as poe.ninja's PoE2 website. */
+/**
+ * poe.ninja의 리그와 교환 시세 응답을 읽어 가격 스냅샷으로 변환한다.
+ *
+ * <p>기존 계약: Uses the same league order and exchange overview endpoints as poe.ninja's PoE2 website.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code http}: http ({@code HttpClient}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code root}: 시작점 ({@code URI}).
+ *   <li>{@code timeout}: 제한시간 ({@code Duration}).
+ *   <li>{@code userAgent}: 사용자·에이전트 ({@code String}).
+ *   <li>{@code categories}: 분류목록 ({@code List<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code NinjaCurrencyPriceSource(http, json, root, timeout, userAgent, categories)}: 전달받은
+ *       값으로 구성원을 초기화한다. 입력: {@code http}(http), {@code json}(JSON), {@code root}(시작점), {@code
+ *       timeout}(제한시간), {@code userAgent}(사용자·에이전트), {@code categories}(분류목록).
+ *   <li>{@code fetch(collectedAt)}: fetch 처리에서 {@code index.path}, {@code candidate.path}을(를) 사용한다.
+ *       입력: {@code collectedAt}(collected·기준). 반환: {@code PriceSnapshot}. 사용하는 예외: {@code
+ *       IOException}, {@code InterruptedException}, {@code Exception}.
+ *   <li>{@code overview(league, category)}: overview 처리에서 {@code URLEncoder.encode}을(를) 사용한다. 입력:
+ *       {@code league}(league), {@code category}(분류). 반환: {@code JsonNode}. 사용하는 예외: {@code
+ *       IOException}, {@code InterruptedException}.
+ *   <li>{@code rate(core, currency)}: rate 처리에서 {@code core.path}, {@code node.isNumber}을(를) 사용한다.
+ *       입력: {@code core}(core), {@code currency}(화폐). 반환: {@code BigDecimal}. 사용하는 예외: {@code
+ *       IOException}.
+ *   <li>{@code merge(data, exaltedPerDivine, quotes)}: merge 처리에서 {@code data.path}, {@code
+ *       item.path}을(를) 사용한다. 입력: {@code data}(데이터), {@code exaltedPerDivine}(엑잘티드·단위별·신성), {@code
+ *       quotes}(quotes). 사용하는 예외: {@code IOException}.
+ *   <li>{@code get(path)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code path}(경로). 반환: {@code JsonNode}. 사용하는
+ *       예외: {@code IOException}, {@code InterruptedException}.
+ * </ul>
+ */
 public final class NinjaCurrencyPriceSource implements CurrencyPriceSource {
   private final HttpClient http;
   private final ObjectMapper json;

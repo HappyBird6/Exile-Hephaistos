@@ -14,6 +14,54 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 
+/**
+ * 요청 로그를 저장하고 보관 기간이 지난 기록을 아카이브한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code limits}: 한도목록 ({@code BackendSettings.AdminLogs}).
+ *   <li>{@code zone}: 시간대 ({@code ZoneId}).
+ *   <li>{@code pageSize}: 페이지·크기 ({@code int}).
+ *   <li>{@code jdbc}: JDBC ({@code JdbcTemplate}).
+ *   <li>{@code transaction}: 트랜잭션 ({@code TransactionTemplate}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code directory}: 디렉터리 ({@code Path}).
+ *   <li>{@code statistics}: 통계 ({@code Map<StatisticsKey, Statistics>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code RequestLogStore(jdbc, manager, json, settings)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       jdbc}(JDBC), {@code manager}(manager), {@code json}(JSON), {@code settings}(운영설정).
+ *   <li>{@code insert(events)}: insert 처리에서 {@code jdbc.batchUpdate}, {@code events.size}을(를) 사용한다.
+ *       입력: {@code events}(이벤트목록).
+ *   <li>{@code query(f)}: 조회조건의 입력에 따른 분기·결과를 처리한다. 입력: {@code f}(f). 반환: {@code Map<String,
+ *       Object>}.
+ *   <li>{@code query(f, view)}: 조회조건 처리에서 {@code args.add}, {@code Timestamp.from}을(를) 사용한다. 입력:
+ *       {@code f}(f), {@code view}(조회표현). 반환: {@code Map<String, Object>}.
+ *   <li>{@code statistics(f, view, table, where, parameters)}: 보유 기록을 집계한 통계를 반환한다. 입력: {@code
+ *       f}(f), {@code view}(조회표현), {@code table}(table), {@code where}(where), {@code
+ *       parameters}(parameters). 반환: {@code Map<String, Object>}.
+ *   <li>{@code archiveBefore(cutoff, limit)}: 아카이브·변경전 처리에서 {@code transaction.execute}, {@code
+ *       TRUE.equals}을(를) 사용한다. 입력: {@code cutoff}(cutoff), {@code limit}(한도). 반환: {@code boolean}.
+ *       사용하는 예외: {@code java.io.UncheckedIOException}.
+ *   <li>{@code pruneArchives()}: 보관 정책에 따라 오래된 아카이브를 정리한다. 사용하는 예외: {@code IllegalStateException},
+ *       {@code java.io.UncheckedIOException}.
+ *   <li>{@code archives(page)}: archives 처리에서 {@code jdbc.queryForList}, {@code
+ *       row.computeIfPresent}을(를) 사용한다. 입력: {@code page}(페이지). 반환: {@code Map<String, Object>}.
+ *   <li>{@code download(id)}: 다운로드 처리에서 {@code jdbc.queryForList}, {@code rows.isEmpty}을(를) 사용한다.
+ *       입력: {@code id}(식별자). 반환: {@code Path}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code StatisticsKey}: {@code RequestLogStore}에서 사용하는 통계·키의 불변 값이다.
+ *   <li>{@code Statistics}: {@code RequestLogStore}에서 사용하는 통계의 불변 값이다.
+ * </ul>
+ */
 @Repository
 public class RequestLogStore implements com.poe2craft.admin.application.RequestLogRepository {
   private final BackendSettings.AdminLogs limits;
@@ -24,8 +72,28 @@ public class RequestLogStore implements com.poe2craft.admin.application.RequestL
   private final ObjectMapper json;
   private final Path directory;
 
+  /**
+   * {@code RequestLogStore}에서 사용하는 통계·키의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code filters}: 필터목록 ({@code Filters}).
+   *   <li>{@code view}: 조회표현 ({@code String}).
+   * </ul>
+   */
   private record StatisticsKey(Filters filters, String view) {}
 
+  /**
+   * {@code RequestLogStore}에서 사용하는 통계의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code until}: until ({@code long}).
+   *   <li>{@code value}: 값 ({@code Map<String, Object>}).
+   * </ul>
+   */
   private record Statistics(long until, Map<String, Object> value) {}
 
   private final Map<StatisticsKey, Statistics> statistics = new LinkedHashMap<>();

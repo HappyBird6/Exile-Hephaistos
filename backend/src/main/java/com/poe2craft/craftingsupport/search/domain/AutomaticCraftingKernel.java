@@ -24,12 +24,158 @@ import java.math.BigInteger;
 import java.util.*;
 
 /**
- * Finite primitive laws under declared scalar/coupled assumptions, never sampled game
+ * 명시된 단일·복합 수치 가정 아래 유한 제작 전이를 계산한다.
+ *
+ * <p>기존 계약: Finite primitive laws under declared scalar/coupled assumptions, never sampled game
  * probabilities.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "automatic-finite-kernel-v10-strict-exalted"} ({@code
+ *       String}).
+ *   <li>{@code policy}: 정책 ({@code AutomaticCurrencyPolicy}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ *   <li>{@code family}: 옵션계열 ({@code String}).
+ *   <li>{@code identity}: 정체성 ({@code Identity}).
+ *   <li>{@code partition}: 분할 ({@code RollPartition}).
+ *   <li>{@code qualityGoal}: 품질·목표 ({@code int}).
+ *   <li>{@code tierGroupingSafe}: 티어·Grouping·안전범위 ({@code boolean}).
+ *   <li>{@code primitiveNanos}: 개별행동·나노초 ({@code long}).
+ *   <li>{@code primitiveCalls}: 개별행동·호출횟수 ({@code long}).
+ *   <li>{@code primitiveOutcomes}: 개별행동·결과목록 ({@code long}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code identity()}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 반환: {@code Identity}.
+ *   <li>{@code retainedModifierRoles(item)}: 보유·옵션·Roles 처리에서 {@code item.explicits}, {@code
+ *       catalog.modifiers}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code List<RetainedModifierRole>}.
+ *   <li>{@code modifierTier(id)}: 옵션·티어 처리에서 {@code catalog.modifiers}을(를) 사용한다. 입력: {@code
+ *       id}(식별자). 반환: {@code int}.
+ *   <li>{@code attributeKey(modifier)}: 속성·키 처리에서 {@code catalog.modifiers}, {@code
+ *       modifier.modifierId}을(를) 사용한다. 입력: {@code modifier}(옵션). 반환: {@code Object}.
+ *   <li>{@code behaviorKey(item)}: behavior·키 처리에서 {@code item.explicits}, {@code
+ *       catalog.modifiers}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code Object}.
+ *   <li>{@code attributeContext(item)}: 속성·문맥 처리에서 {@code item.explicits}, {@code
+ *       Comparator.comparing}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code Object}.
+ *   <li>{@code withQualityGoal(quality)}: 품질·목표을(를) 반영한 값을 구한다. 입력: {@code quality}(품질). 반환: {@code
+ *       AutomaticCraftingKernel}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code qualityGoal()}: {@code qualityGoal} 값을 조회한다. 반환: {@code int}.
+ *   <li>{@code workedQuality(item, abstractQuality)}: worked·품질 처리에서 {@code
+ *       item.catalystQuality}을(를) 사용한다. 입력: {@code item}(아이템), {@code abstractQuality}(추상화된·품질).
+ *       반환: {@code int}.
+ *   <li>{@code baseQualitySupported(item)}: 베이스·품질·지원 처리에서 {@code CatalystQuality.supportedBase},
+ *       {@code item.baseItemId}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code boolean}.
+ *   <li>{@code abyssStrategies(item, evaluate, inventory)}: 훼손·전략목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       item}(아이템), {@code evaluate}(평가), {@code inventory}(등록자료). 반환: {@code
+ *       List<AbyssStrategyPlanner.Strategy>}.
+ *   <li>{@code abyssInventory(inventory)}: 훼손·등록자료 처리에서 {@code inventory.stream}, {@code
+ *       AutomaticCurrencyPolicy.Context}을(를) 사용한다. 입력: {@code inventory}(등록자료). 반환: {@code
+ *       List<AutomaticCraftingAction>}.
+ *   <li>{@code automaticAbyss(item, evaluate, inventory)}: 자동·훼손 처리에서 {@code action.currency}을(를)
+ *       사용한다. 입력: {@code item}(아이템), {@code evaluate}(평가), {@code inventory}(등록자료). 반환: {@code
+ *       List<AutomaticAbyssSearch.Route>}.
+ *   <li>{@code rollBands(item)}: 수치굴림·Bands 처리에서 {@code item.explicits}, {@code
+ *       catalog.modifiers}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code Map<String, RollBand>}.
+ *   <li>{@code initialChaosOnly()}: 초기값·카오스·제한 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code mutableAffixCount(item)}: 가변·접두접미옵션·개수 처리에서 {@code item.explicits}, {@code
+ *       m.fractured}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code long}.
+ *   <li>{@code sameFractures(first, second)}: 동일·Fractures 처리에서 {@code first.explicits}, {@code
+ *       m.fractured}을(를) 사용한다. 입력: {@code first}(최초), {@code second}(두번째). 반환: {@code boolean}.
+ *   <li>{@code invalidInitialChaos(item, currency)}: 유효하지않은·초기값·카오스 처리에서 {@code item.rarity}을(를)
+ *       사용한다. 입력: {@code item}(아이템), {@code currency}(화폐). 반환: {@code boolean}.
+ *   <li>{@code desecrationActions(item)}: 훼손·행동목록 처리에서 {@code item.desecrated}, {@code
+ *       item.rarity}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code List<AutomaticCraftingAction>}.
+ *   <li>{@code withSelectionComparison(item, action, evaluate)}: 선택·비교을(를) 반영한 값을 구한다. 입력: {@code
+ *       item}(아이템), {@code action}(행동), {@code evaluate}(평가). 반환: {@code AutomaticCraftingAction}.
+ *   <li>{@code slotPlan(item, action)}: 슬롯·계획 처리에서 {@code simulator.abyssPlan}, {@code
+ *       AbyssCraftingState.from}을(를) 사용한다. 입력: {@code item}(아이템), {@code action}(행동). 반환: {@code
+ *       AutomaticCraftingPlan}.
+ *   <li>{@code strictExaltedAllowed(item, action)}: 엄격파서·엑잘티드·허용된 처리에서 {@code action.currency},
+ *       {@code action.purpose}을(를) 사용한다. 입력: {@code item}(아이템), {@code action}(행동). 반환: {@code
+ *       boolean}.
+ *   <li>{@code plan(item, action)}: 지원 규칙 아래 실행할 분기를 계획한다. 입력: {@code item}(아이템), {@code
+ *       action}(행동). 반환: {@code AutomaticCraftingPlan}.
+ *   <li>{@code representatives(plan)}: 대표상태목록 처리에서 {@code plan.branches}, {@code
+ *       branch.candidates}을(를) 사용한다. 입력: {@code plan}(계획). 반환: {@code List<ItemState>}.
+ *   <li>{@code withRollPartition(partition, objective)}: 수치굴림·분할을(를) 반영한 값을 구한다. 입력: {@code
+ *       partition}(분할), {@code objective}(목적). 반환: {@code AutomaticCraftingKernel}.
+ *   <li>{@code AutomaticCraftingKernel(policy, catalog, simulator, family)}: 기본 정책을 보충해 공통 생성자로
+ *       위임한다. 입력: {@code policy}(정책), {@code catalog}(카탈로그), {@code simulator}(제작시뮬레이터), {@code
+ *       family}(옵션계열).
+ *   <li>{@code AutomaticCraftingKernel(policy, catalog, simulator, family, partition,
+ *       partitionIdentity)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code policy}(정책), {@code catalog}(카탈로그),
+ *       {@code simulator}(제작시뮬레이터), {@code family}(옵션계열), {@code partition}(분할), {@code
+ *       partitionIdentity}(분할·정체성).
+ *   <li>{@code expand(state, execution, outcomeBudget)}: 다음 상태 또는 분포 구간을 확장한다. 입력: {@code
+ *       state}(상태), {@code execution}(실행), {@code outcomeBudget}(결과·계산예산). 반환: {@code Result}.
+ *   <li>{@code expandDeferred(state, tiers, execution, outcomeBudget)}: 확장·지연계산의 입력에 따른 분기·결과를
+ *       처리한다. 입력: {@code state}(상태), {@code tiers}(티어목록), {@code execution}(실행), {@code
+ *       outcomeBudget}(결과·계산예산). 반환: {@code Result}.
+ *   <li>{@code metrics()}: 측정값 값을 조회·구성한다. 반환: {@code Metrics}.
+ *   <li>{@code expand(state, retainedTiers, execution, outcomeBudget, deferred, lineage)}: 다음 상태 또는
+ *       분포 구간을 확장한다. 입력: {@code state}(상태), {@code retainedTiers}(보유·티어목록), {@code execution}(실행),
+ *       {@code outcomeBudget}(결과·계산예산), {@code deferred}(지연계산), {@code lineage}(출처이력). 반환: {@code
+ *       Result}.
+ *   <li>{@code deferredCursor(state, tiers, action, budget)}: 지연계산·진행커서의 입력에 따른 분기·결과를 처리한다. 입력:
+ *       {@code state}(상태), {@code tiers}(티어목록), {@code action}(행동), {@code budget}(계산예산). 반환:
+ *       {@code PrimitiveCursor}.
+ *   <li>{@code cursor(state, tiers, action, budget, deferred, lineage)}: 진행커서의 입력에 따른 분기·결과를 처리한다.
+ *       입력: {@code state}(상태), {@code tiers}(티어목록), {@code action}(행동), {@code budget}(계산예산),
+ *       {@code deferred}(지연계산), {@code lineage}(출처이력). 반환: {@code PrimitiveCursor}.
+ *   <li>{@code prepareCursor(state, retainedTiers, execution, outcomeBudget, deferred, lineage)}:
+ *       진행커서을(를) 준비한다. 입력: {@code state}(상태), {@code retainedTiers}(보유·티어목록), {@code
+ *       execution}(실행), {@code outcomeBudget}(결과·계산예산), {@code deferred}(지연계산), {@code
+ *       lineage}(출처이력). 반환: {@code PrimitiveCursor}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code flatten(source, expand)}: flatten 처리에서 {@code Collections.emptyIterator}, {@code
+ *       current.hasNext}을(를) 사용한다. 입력: {@code source}(출처), {@code expand}(확장). 반환: {@code
+ *       Iterator<B>}. 사용하는 예외: {@code NoSuchElementException}.
+ *   <li>{@code result(outcomes, boundary, emitted, assumptions, reason)}: 최종 또는 현재 계산 결과를 구성한다. 입력:
+ *       {@code outcomes}(결과목록), {@code boundary}(경계), {@code emitted}(내보낸), {@code
+ *       assumptions}(계산가정), {@code reason}(이유). 반환: {@code Result}.
+ *   <li>{@code blocked(status, reason)}: 차단의 입력에 따른 분기·결과를 처리한다. 입력: {@code status}(상태), {@code
+ *       reason}(이유). 반환: {@code Result}.
+ *   <li>{@code hasQualityCap(item)}: 품질·상한을(를) 보유 여부를 판정한다. 입력: {@code item}(아이템). 반환: {@code
+ *       boolean}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Identity}: {@code AutomaticCraftingKernel}에서 사용하는 정체성의 불변 값이다.
+ *   <li>{@code Status}: {@code AutomaticCraftingKernel}의 상태 구분값을 정의한다.
+ *   <li>{@code Outcome}: {@code AutomaticCraftingKernel}에서 사용하는 결과의 불변 값이다.
+ *   <li>{@code TierState}: {@code AutomaticCraftingKernel}에서 사용하는 티어·상태의 불변 값이다.
+ *   <li>{@code Result}: {@code AutomaticCraftingKernel}에서 사용하는 결과의 불변 값이다.
+ *   <li>{@code RetainedModifierRole}: {@code AutomaticCraftingKernel}에서 사용하는 보유·옵션·역할의 불변 값이다.
+ *   <li>{@code Role}: {@code AutomaticCraftingKernel}에서 사용하는 역할의 불변 값이다.
+ *   <li>{@code Behavior}: {@code AutomaticCraftingKernel}에서 사용하는 Behavior의 불변 값이다.
+ *   <li>{@code RollBand}: {@code AutomaticCraftingKernel}에서 사용하는 수치굴림·구간의 불변 값이다.
+ *   <li>{@code Metrics}: {@code AutomaticCraftingKernel}에서 사용하는 측정값의 불변 값이다.
+ *   <li>{@code Generated}: {@code AutomaticCraftingKernel}에서 사용하는 생성된의 불변 값이다.
+ *   <li>{@code PrimitiveCursor}: {@code AutomaticCraftingKernel} 내부의 개별행동·진행커서 처리를 맡는다.
+ * </ul>
  */
 public final class AutomaticCraftingKernel {
   public static final String VERSION = "automatic-finite-kernel-v10-strict-exalted";
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 정체성의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code kernelVersion}: 전이커널·버전 ({@code String}).
+   *   <li>{@code policyVersion}: 정책·버전 ({@code String}).
+   *   <li>{@code catalogDigest}: 카탈로그·다이제스트 ({@code String}).
+   *   <li>{@code family}: 옵션계열 ({@code String}).
+   *   <li>{@code rollPartition}: 수치굴림·분할 ({@code String}).
+   *   <li>{@code model}: 모형 ({@code WorkbenchSimulator.AutomaticIdentity}).
+   * </ul>
+   */
   public record Identity(
       String kernelVersion,
       String policyVersion,
@@ -42,6 +188,19 @@ public final class AutomaticCraftingKernel {
     return identity;
   }
 
+  /**
+   * {@code AutomaticCraftingKernel}의 상태 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code COMPLETE}: 완료 구분값.
+   *   <li>{@code PARTIAL}: 부분 구분값.
+   *   <li>{@code UNAVAILABLE}: 사용불가 구분값.
+   *   <li>{@code UNSUPPORTED}: 미지원 구분값.
+   *   <li>{@code POLICY_REJECTED}: 거절된 구분값.
+   * </ul>
+   */
   public enum Status {
     COMPLETE,
     PARTIAL,
@@ -50,6 +209,29 @@ public final class AutomaticCraftingKernel {
     POLICY_REJECTED
   }
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code item}: 아이템 ({@code ItemState}).
+   *   <li>{@code probability}: 확률 ({@code Fraction}).
+   *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierCell>}).
+   *   <li>{@code retained}: 보유 ({@code Set<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Outcome(item, probability, tiers, retained)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       item}(아이템), {@code probability}(확률), {@code tiers}(티어목록), {@code retained}(보유).
+   *   <li>{@code Outcome(item, probability, tiers)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       item}(아이템), {@code probability}(확률), {@code tiers}(티어목록).
+   *   <li>{@code Outcome(item, probability)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code item}(아이템),
+   *       {@code probability}(확률).
+   * </ul>
+   */
   public record Outcome(
       ItemState item, Fraction probability, Map<String, TierCell> tiers, Set<String> retained) {
     public Outcome {
@@ -72,6 +254,25 @@ public final class AutomaticCraftingKernel {
     }
   }
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 티어·상태의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code item}: 아이템 ({@code ItemState}).
+   *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierCell>}).
+   *   <li>{@code retained}: 보유 ({@code Set<String>}).
+   *   <li>{@code lineage}: 출처이력 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code TierState(item, tiers, retained, lineage)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       item}(아이템), {@code tiers}(티어목록), {@code retained}(보유), {@code lineage}(출처이력).
+   * </ul>
+   */
   private record TierState(
       ItemState item, Map<String, TierCell> tiers, Set<String> retained, boolean lineage) {
     TierState {
@@ -79,6 +280,29 @@ public final class AutomaticCraftingKernel {
     }
   }
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code status}: 현재 처리 상태 ({@code Status}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code outcomes}: 결과목록 ({@code List<Outcome>}).
+   *   <li>{@code boundary}: 경계 ({@code Fraction}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code List<WorkbenchSimulator.Assumption>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Result(status, reason, outcomes, boundary, unresolved, assumptions)}: 전달받은 값으로
+   *       구성원을 초기화한다. 입력: {@code status}(상태), {@code reason}(이유), {@code outcomes}(결과목록), {@code
+   *       boundary}(경계), {@code unresolved}(미해결), {@code assumptions}(계산가정). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   * </ul>
+   */
   public record Result(
       Status status,
       String reason,
@@ -105,6 +329,17 @@ public final class AutomaticCraftingKernel {
   private int qualityGoal;
   private final boolean tierGroupingSafe;
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 보유·옵션·역할의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code side}: 접두접미 ({@code ModifierDefinition.AffixType}).
+   *   <li>{@code families}: 옵션계열목록 ({@code Set<String>}).
+   *   <li>{@code fractured}: 분열고정 ({@code boolean}).
+   * </ul>
+   */
   public record RetainedModifierRole(
       ModifierDefinition.AffixType side, Set<String> families, boolean fractured) {}
 
@@ -124,8 +359,29 @@ public final class AutomaticCraftingKernel {
         .toList();
   }
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 역할의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code attribute}: 속성 ({@code Object}).
+   *   <li>{@code tags}: 태그목록 ({@code Set<String>}).
+   *   <li>{@code region}: 영역 ({@code Object}).
+   * </ul>
+   */
   private record Role(Object attribute, Set<String> tags, Object region) {}
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 Behavior의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code context}: 문맥 ({@code ItemState}).
+   *   <li>{@code roles}: roles ({@code List<Role>}).
+   * </ul>
+   */
   private record Behavior(ItemState context, List<Role> roles) {}
 
   public int modifierTier(String id) {
@@ -257,6 +513,17 @@ public final class AutomaticCraftingKernel {
         .expand(new AbyssStrategyPlanner(catalog, simulator, evaluate).recommend(item, permitted));
   }
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 수치굴림·구간의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code stat}: 수치 ({@code String}).
+   *   <li>{@code min}: 허용·표시 범위의 하한 ({@code long}).
+   *   <li>{@code max}: 허용·표시 범위의 상한 ({@code long}).
+   * </ul>
+   */
   public record RollBand(String stat, long min, long max) {}
 
   public Map<String, RollBand> rollBands(ItemState item) {
@@ -497,6 +764,17 @@ public final class AutomaticCraftingKernel {
 
   private long primitiveNanos, primitiveCalls, primitiveOutcomes;
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 측정값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code nanos}: 나노초 ({@code long}).
+   *   <li>{@code calls}: 호출횟수 ({@code long}).
+   *   <li>{@code outcomes}: 결과목록 ({@code long}).
+   * </ul>
+   */
   public record Metrics(long nanos, long calls, long outcomes) {}
 
   public Metrics metrics() {
@@ -694,6 +972,16 @@ public final class AutomaticCraftingKernel {
         plan, retainedTiers, execution, outcomeBudget, deferred, lineage, uniform, unsupportedRoll);
   }
 
+  /**
+   * {@code AutomaticCraftingKernel}에서 사용하는 생성된의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code TierState}).
+   *   <li>{@code mass}: 확률질량 ({@code Fraction}).
+   * </ul>
+   */
   private record Generated(TierState state, Fraction mass) {}
 
   // Stream.flatMap().iterator() may buffer a whole inner stream on hasNext().
@@ -715,7 +1003,48 @@ public final class AutomaticCraftingKernel {
     };
   }
 
-  /** A suspended primitive retains its exact remaining mass; the runner charges it only once. */
+  /**
+   * {@code AutomaticCraftingKernel} 내부의 개별행동·진행커서 처리를 맡는다.
+   *
+   * <p>기존 계약: A suspended primitive retains its exact remaining mass; the runner charges it only
+   * once.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code outcomes}: 결과목록 ({@code Map<TierState, Fraction>}).
+   *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code Set<WorkbenchSimulator.Assumption>}).
+   *   <li>{@code boundary}: 경계 ({@code Fraction}).
+   *   <li>{@code emitted}: 내보낸 ({@code Fraction}).
+   *   <li>{@code budget}: 계산예산 ({@code long}).
+   *   <li>{@code count}: 개수 ({@code long}).
+   *   <li>{@code generatedCount}: 생성된·개수 ({@code long}).
+   *   <li>{@code iterator}: iterator ({@code Iterator<Generated>}).
+   *   <li>{@code unsupportedRoll}: 미지원·수치굴림 ({@code String}).
+   *   <li>{@code completed}: 완료 ({@code Result}).
+   *   <li>{@code limited}: 제한된 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code PrimitiveCursor(result)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code result}(결과).
+   *   <li>{@code PrimitiveCursor(plan, retainedTiers, execution, budget, deferred, lineage,
+   *       uniform, unsupportedRoll)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code plan}(계획), {@code
+   *       retainedTiers}(보유·티어목록), {@code execution}(실행), {@code budget}(계산예산), {@code
+   *       deferred}(지연계산), {@code lineage}(출처이력), {@code uniform}(균등), {@code
+   *       unsupportedRoll}(미지원·수치굴림). 사용하는 예외: {@code IllegalArgumentException}, {@code
+   *       NoSuchElementException}.
+   *   <li>{@code generated(state, mass)}: 생성된의 입력에 따른 분기·결과를 처리한다. 입력: {@code state}(상태), {@code
+   *       mass}(확률질량). 반환: {@code Generated}.
+   *   <li>{@code advance(allowance)}: 허용된 계산량만큼 작업을 진행한다. 입력: {@code allowance}(allowance). 사용하는
+   *       예외: {@code IllegalArgumentException}.
+   *   <li>{@code finished()}: 종료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code limited()}: {@code limited} 값을 조회한다. 반환: {@code boolean}.
+   *   <li>{@code retainedStates()}: 보유·상태목록 값을 조회·구성한다. 반환: {@code long}.
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code Result}.
+   * </ul>
+   */
   public final class PrimitiveCursor {
     private final Map<TierState, Fraction> outcomes = new LinkedHashMap<>();
     private final Set<WorkbenchSimulator.Assumption> assumptions = new LinkedHashSet<>();

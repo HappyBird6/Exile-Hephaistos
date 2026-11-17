@@ -1,3 +1,4 @@
+// Java가 만든 경로 탐색 응답을 프런트 계약으로 읽어 양쪽의 상태·확률 표현이 일치하는지 검사한다.
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');

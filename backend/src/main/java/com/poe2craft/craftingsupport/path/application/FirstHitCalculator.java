@@ -4,16 +4,89 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.*;
 
-/** State propagation with absorbing hits. Budgets describe computation, never crafting limits. */
+/**
+ * 목표 도달 상태를 흡수하면서 최초 성공까지의 상태 확률을 전파한다.
+ *
+ * <p>기존 계약: State propagation with absorbing hits. Budgets describe computation, never crafting
+ * limits.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code calculate(root, observations, goal, transition, budget, cancelled)}: 해당 모형의 계산 결과를
+ *       구한다. 입력: {@code root}(시작점), {@code observations}(관측값목록), {@code goal}(목표), {@code
+ *       transition}(전이), {@code budget}(계산예산), {@code cancelled}(취소여부). 반환: {@code Result}.
+ *   <li>{@code calculate(root, observations, goal, transition, budget, cancelled, policyEnded)}: 해당
+ *       모형의 계산 결과를 구한다. 입력: {@code root}(시작점), {@code observations}(관측값목록), {@code goal}(목표),
+ *       {@code transition}(전이), {@code budget}(계산예산), {@code cancelled}(취소여부), {@code
+ *       policyEnded}(정책·Ended). 반환: {@code Result}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code bits(mass)}: 비트수 처리에서 {@code mass.numerator}, {@code mass.denominator}을(를) 사용한다. 입력:
+ *       {@code mass}(확률질량). 반환: {@code int}.
+ *   <li>{@code observationPoints(observations)}: 관측값·지점목록 처리에서 {@code observations.isEmpty}, {@code
+ *       observations.size}을(를) 사용한다. 입력: {@code observations}(관측값목록). 반환: {@code List<Long>}. 사용하는
+ *       예외: {@code IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Match}: {@code FirstHitCalculator}의 일치 구분값을 정의한다.
+ *   <li>{@code Edge}: {@code FirstHitCalculator}에서 사용하는 간선의 불변 값이다.
+ *   <li>{@code Kernel}: {@code FirstHitCalculator}에서 사용하는 전이커널의 불변 값이다.
+ *   <li>{@code Budget}: {@code FirstHitCalculator}에서 사용하는 계산예산의 불변 값이다.
+ *   <li>{@code Point}: {@code FirstHitCalculator}에서 사용하는 지점의 불변 값이다.
+ *   <li>{@code Result}: {@code FirstHitCalculator}에서 사용하는 결과의 불변 값이다.
+ * </ul>
+ */
 public final class FirstHitCalculator<S> {
+  /**
+   * {@code FirstHitCalculator}의 일치 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code HIT}: 목표도달 구분값.
+   *   <li>{@code MISS}: MISS 구분값.
+   *   <li>{@code UNKNOWN}: 미확정 구분값.
+   * </ul>
+   */
   public enum Match {
     HIT,
     MISS,
     UNKNOWN
   }
 
+  /**
+   * {@code FirstHitCalculator}에서 사용하는 간선의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code S}).
+   *   <li>{@code mass}: 확률질량 ({@code Fraction}).
+   * </ul>
+   */
   public record Edge<S>(S state, Fraction mass) {}
 
+  /**
+   * {@code FirstHitCalculator}에서 사용하는 전이커널의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code edges}: 간선목록 ({@code List<Edge<S>>}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code unavailable}: 사용불가 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Kernel(edges, unresolved, unavailable)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       edges}(간선목록), {@code unresolved}(미해결), {@code unavailable}(사용불가). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   * </ul>
+   */
   public record Kernel<S>(List<Edge<S>> edges, Fraction unresolved, boolean unavailable) {
     public Kernel {
       edges = List.copyOf(edges);
@@ -25,6 +98,25 @@ public final class FirstHitCalculator<S> {
     }
   }
 
+  /**
+   * {@code FirstHitCalculator}에서 사용하는 계산예산의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code evaluations}: 평가목록 ({@code long}).
+   *   <li>{@code frontierStates}: 미탐색경계·상태목록 ({@code int}).
+   *   <li>{@code fractionBits}: 유리수·비트수 ({@code int}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Budget(evaluations, frontierStates, fractionBits)}: 전달받은 값으로 구성원을 초기화한다. 입력:
+   *       {@code evaluations}(평가목록), {@code frontierStates}(미탐색경계·상태목록), {@code
+   *       fractionBits}(유리수·비트수). 사용하는 예외: {@code IllegalArgumentException}.
+   * </ul>
+   */
   public record Budget(long evaluations, int frontierStates, int fractionBits) {
     public Budget {
       if (evaluations < 1 || frontierStates < 1 || fractionBits < 64)
@@ -32,6 +124,21 @@ public final class FirstHitCalculator<S> {
     }
   }
 
+  /**
+   * {@code FirstHitCalculator}에서 사용하는 지점의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code attempts}: 시도수 ({@code long}).
+   *   <li>{@code lower}: 하한 ({@code Fraction}).
+   *   <li>{@code upper}: 상한 ({@code Fraction}).
+   *   <li>{@code active}: 활성 ({@code Fraction}).
+   *   <li>{@code dead}: 종료된 ({@code Fraction}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   * </ul>
+   */
   public record Point(
       long attempts,
       Fraction lower,
@@ -41,6 +148,19 @@ public final class FirstHitCalculator<S> {
       Fraction unresolved,
       String status) {}
 
+  /**
+   * {@code FirstHitCalculator}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code points}: 지점목록 ({@code List<Point>}).
+   *   <li>{@code evaluations}: 평가목록 ({@code long}).
+   *   <li>{@code peakFrontier}: peak·미탐색경계 ({@code int}).
+   *   <li>{@code peakFractionBits}: peak·유리수·비트수 ({@code int}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   * </ul>
+   */
   public record Result(
       List<Point> points,
       long evaluations,

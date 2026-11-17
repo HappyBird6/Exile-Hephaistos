@@ -13,7 +13,31 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/** Reject excess work before body parsing/engine execution; never queue unbounded computation. */
+/**
+ * 동시 계산량을 제한하고 허용량을 넘긴 작업은 대기열에 쌓지 않고 거절한다.
+ *
+ * <p>기존 계약: Reject excess work before body parsing/engine execution; never queue unbounded
+ * computation.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code ordinary}: 일반 ({@code Semaphore}).
+ *   <li>{@code settings}: 운영설정 ({@code BackendSettings}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code PERMIT}: PERMIT ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code WorkloadAdmission(settings, json)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code settings}(운영설정),
+ *       {@code json}(JSON).
+ *   <li>{@code addInterceptors(registry)}: Interceptors을(를) 추가한다. 입력: {@code registry}(등록목록).
+ *   <li>{@code reject(response, status, code)}: 허용되지 않는 요청을 거절한다. 입력: {@code response}(응답), {@code
+ *       status}(상태), {@code code}(코드). 사용하는 예외: {@code java.io.IOException}.
+ * </ul>
+ */
 @Configuration
 @Import(com.poe2craft.configuration.BackendConfiguration.class)
 public class WorkloadAdmission implements WebMvcConfigurer {

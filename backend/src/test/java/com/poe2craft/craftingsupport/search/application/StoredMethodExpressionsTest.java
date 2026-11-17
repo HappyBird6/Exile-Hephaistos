@@ -15,6 +15,31 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+/**
+ * 최초 성공 계산식을 공유하고 등록 시에는 전이를 계산하지 않는다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code PRECISION}: 정밀도 ({@code CertifiedInterval.Precision}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code repeatedDefinitionsReuseBoundedContentCacheWithoutDatabaseLookups(dir)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ *   <li>{@code identity()}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 반환: {@code Identity}.
+ *   <li>{@code f(n, d)}: f 처리에서 {@code BigInteger.valueOf}을(를) 사용한다. 입력: {@code n}(n), {@code
+ *       d}(d). 반환: {@code Fraction}.
+ *   <li>{@code requestsShareProgramsWithoutExecutingOrExpandingUnrequestedHorizons(dir)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ *   <li>{@code lazyEvaluationMatchesIndependentFirstHitAndConsumptionOracle(dir)}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ *   <li>{@code initialFirstHitSkipsAllCyclesAndUnsupportedMassIsRetained(dir)}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ * </ul>
+ */
 class StoredMethodExpressionsTest {
   @Test
   void repeatedDefinitionsReuseBoundedContentCacheWithoutDatabaseLookups(@TempDir Path dir) {

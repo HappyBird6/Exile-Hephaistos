@@ -24,6 +24,33 @@ import java.time.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 경로·탐색·데이터 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code original}: 원본 ({@code ItemCatalog}).
+ *   <li>{@code stat}: 수치; 초기값 {@code "fixture_reviewed_flat"} ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code catalog()}: 카탈로그 값을 조회·구성한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code definitions()}: 정의목록 값을 조회·구성한다. 반환: {@code GoalDefinitions}. 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code request(service, index, key)}: 계산·실행에 사용할 요청 값을 구성한다. 입력: {@code service}(서비스),
+ *       {@code index}(색인), {@code key}(키). 반환: {@code Create}.
+ *   <li>{@code dataOnlyReviewedStatUsesCommonPredicateSearchAndVersionInvalidation()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rootHitAbsorbsAndCompletedCancelDoesNotChangeRevision()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code enormousObservationPreservesKnownLowerButCannotFakeResumePastOutputLimit()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class PathSearchDataTest {
   final ObjectMapper json = new ObjectMapper();
   final ItemCatalog original = ItemCatalogLoader.loadDefault();

@@ -19,6 +19,46 @@ import java.util.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.io.TempDir;
 
+/**
+ * 구버전 자동 탐색 결과를 변경하거나 재개하지 않고 조회한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code directory}: 디렉터리 ({@code Path}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code open()}: 조회할 자원 또는 작업 범위를 연다. 반환: {@code AutomaticSearchService}.
+ *   <li>{@code open(productionCatalog)}: 조회할 자원 또는 작업 범위를 연다. 입력: {@code
+ *       productionCatalog}(production·카탈로그). 반환: {@code AutomaticSearchService}.
+ *   <li>{@code fixture(name)}: 검증사례 처리에서 {@code json.readTree}, {@code node.put}을(를) 사용한다. 입력:
+ *       {@code name}(이름). 반환: {@code ObjectNode}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code save(node)}: 현재 값을 저장 경계에 기록한다. 입력: {@code node}(노드). 반환: {@code String}. 사용하는 예외:
+ *       {@code Exception}.
+ *   <li>{@code bytes(id)}: 바이트수 처리에서 {@code Files.readAllBytes}, {@code directory.resolve}을(를)
+ *       사용한다. 입력: {@code id}(식별자). 반환: {@code byte[]}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code previousSixAffixCatalogAndV12CursorRemainReadableWithoutMutation()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code previousAmuletV5CatalogAndV13CursorRemainReadableWithoutMutation()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code readsActualV8CompletedResultAndOriginalRequestWithoutChangingAnyBytes()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code inProgressV8IsReadOnlyPartialAndNeverPretendsToCompleteOrResume()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code historicalV9ObservationsRemainReadOnlyAcrossThePolicyChange()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code actualV10V3QualityAndChaosObservationsRemainUnchangedAndReadOnly()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code corruptedVersionReferencesAndMassAreRejectedWithoutChangingFiles()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code newV9StillGetsCancelsResumesAndCompletesNormally()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class LegacyAutomaticResultReaderTest {
   final ObjectMapper json = new ObjectMapper();
   @TempDir Path directory;

@@ -21,6 +21,56 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.*;
 
+/**
+ * Community·통합 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code PG}: PG ({@code PostgreSQLContainer<?>}).
+ *   <li>{@code REDIS}: Redis ({@code GenericContainer<?>}).
+ *   <li>{@code board}: 게시판 ({@code SessionBoard}).
+ *   <li>{@code accounts}: 계정목록 ({@code AccountLibrary}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code reactions}: 반응목록 ({@code com.poe2craft.community.application.CommunityReactions}).
+ *   <li>{@code comments}: 댓글목록 ({@code com.poe2craft.community.application.CommunityComments}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code properties(p)}: 속성 처리에서 {@code p.add}, {@code REDIS.getMappedPort}을(를) 사용한다. 입력:
+ *       {@code p}(p).
+ *   <li>{@code member()}: 구성원 값을 조회·구성한다. 반환: {@code Actor}.
+ *   <li>{@code film()}: film 값을 조회·구성한다. 반환: {@code JsonNode}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code draft(film, body, password, revision)}: 초안 처리에서 {@code UUID.randomUUID}을(를) 사용한다.
+ *       입력: {@code film}(film), {@code body}(본문), {@code password}(비밀번호), {@code revision}(리비전).
+ *       반환: {@code Draft}.
+ *   <li>{@code guestPermissionsPasswordAndPublicSnapshot()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       사용하는 예외: {@code Exception}.
+ *   <li>{@code ownerAppendOnlyUpdateVersionAndFilter()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는
+ *       예외: {@code Exception}.
+ *   <li>{@code csrfIsRequiredForCommunityMutations()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는
+ *       예외: {@code Exception}.
+ *   <li>{@code unifiedDownloadsAcrossActionsBrowsersAndLoginAndRecommendations()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code commentOwnershipIdempotencyAndPlainText()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       사용하는 예외: {@code Exception}.
+ *   <li>{@code guestLinkSurvivesLoginWithoutGrantingEditPermission()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code textEditsNeverReplacePublishedStepsAndClassFiltersUseRegistry()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code filtersIncludeUnpublishedSupportedBasesAndEmptyAuthorPagesKeepTheirName()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code priorAnonymousDownloadsConvergeOnLoginWithoutMergingDifferentAccounts()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code changedPublishedFramesAreRejectedAndDeletedPostsRejectAllInteractions()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code concurrentPublicationRetriesCreateOnePostAndKeepThePublishedCopy()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @Testcontainers
 @SpringBootTest
 @AutoConfigureMockMvc

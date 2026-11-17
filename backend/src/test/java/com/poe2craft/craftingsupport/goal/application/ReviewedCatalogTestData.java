@@ -9,7 +9,22 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Explicit inventory of checked-in bases; never assumes unpushed registries or fetches a URL. */
+/**
+ * 카탈로그·검증·데이터의 출처 검토된 베이스 목록과 지원 여부를 제공한다.
+ *
+ * <p>기존 계약: Explicit inventory of checked-in bases; never assumes unpushed registries or fetches a
+ * URL.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ReviewedCatalogTestData()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code load()}: 검증된 자료를 로딩한다. 반환: {@code List<ItemCatalog>}.
+ *   <li>{@code stocky()}: StockyMitts 값을 조회·구성한다. 반환: {@code ItemCatalog}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code workbench()}: 작업대 값을 조회·구성한다. 반환: {@code CatalogCraftingService}.
+ * </ul>
+ */
 public final class ReviewedCatalogTestData {
   private ReviewedCatalogTestData() {}
 

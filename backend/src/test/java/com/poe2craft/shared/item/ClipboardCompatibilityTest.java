@@ -8,6 +8,43 @@ import com.poe2craft.shared.item.text.ItemTextService;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Clipboard·호환성 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code parser}: 파서 ({@code ItemTextService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code header(itemClass, rarity, base)}: 저장 문서의 소유권·만료·초기 조건을 읽는다. 입력: {@code
+ *       itemClass}(아이템·동치류), {@code rarity}(희귀도), {@code base}(베이스). 반환: {@code String}.
+ *   <li>{@code gameLeechDecimalsRecoverPermyriadUnitsAndRejectChangedBounds()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code perMinuteFractionsRoundTripWithoutRoundingToTheCardDisplay()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code compoundImplicitLinesStayOneCatalogModifier()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code hiddenFixedWeaponStatsComeFromTheRegisteredBaseInsteadOfPrivateClipboardLines()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code uniquelyIdentifiedRuneEffectsRestoreInstalledIdentityWithCanonicalSlotOrder()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code equivalentAccuracyRunesRemainUnidentifiedAndDoNotBlockOrdinaryCrafting()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code ambiguousRuneTotalsAreNotMisreadAsAUniqueHigherTier()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code ordinaryGameLeechWithoutAdvancedMetadataRestoresItsExactRollAndFracture()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code advancedCatalystMetadataIdentifiesRawRollsButOrdinaryScaledValuesAreNotGuessed()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code
+ *       editingAffixesKeepsUnidentifiedRuneEffectsAndDoesNotTreatThemAsAnInstalledIdentity()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class ClipboardCompatibilityTest {
   private final ItemTextService parser = new ItemTextService();
 

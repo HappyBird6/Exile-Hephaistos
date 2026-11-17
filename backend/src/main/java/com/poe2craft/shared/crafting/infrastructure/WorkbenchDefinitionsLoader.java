@@ -10,12 +10,33 @@ import java.util.*;
 /**
  * 작업대 정의 JSON을 엄격하게 읽고 실행 카탈로그의 실제 옵션과 연결을 검증한다.
  *
+ * <p>작업대 정의 JSON을 엄격하게 읽고 실행 카탈로그의 실제 옵션과 연결을 검증한다.
+ *
  * <p>private 생성자는 인스턴스 생성을 막는다. read(stream)는 WorkbenchDefinitions를 만들며 입력 누락은
  * IllegalArgumentException, JSON 읽기 실패는 IOException으로 알린다. load는 봉인 파일을 읽고 validateTargets를 수행하며
  * I/O 실패를 IllegalStateException으로 감싼다. readTargets의 ids는 옵션 ID별 실제 정의 목록이다. 같은 ID의 문맥 차이를 보존하며
  * ItemCatalogLoader/EquipmentCurrencyCatalog의 공유 객체를 참조하므로 카탈로그를 다시 파싱하지 않는다. Loaded.DEFINITIONS는
  * 검증을 마친 한 번의 로드 결과이고 initialize는 이를 프로세스의 active 정의로 등록한다. 다른 규칙을 같은 프로세스에 재등록하는 경우는 도메인 초기화 검사가
  * 거절한다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code WorkbenchDefinitionsLoader()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code read(stream)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code stream}(스트림). 반환: {@code
+ *       WorkbenchDefinitions}. 사용하는 예외: {@code IllegalArgumentException}, {@code IOException}.
+ *   <li>{@code load()}: 검증된 자료를 로딩한다. 반환: {@code WorkbenchDefinitions}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code readTargets()}: 대상목록을(를) 읽는다. 반환: {@code Map<String, List<ModifierDefinition>>}.
+ *       사용하는 예외: {@code IOException}.
+ *   <li>{@code initialize()}: 초기화 값을 조회·구성한다. 반환: {@code WorkbenchDefinitions}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Loaded}: DEFINITIONS를 최초 initialize 호출에 한 번 로드하는 홀더다. 실패하면 검증되지 않은 규칙을 공개하지 않는다.
+ * </ul>
  */
 public final class WorkbenchDefinitionsLoader {
   private WorkbenchDefinitionsLoader() {}
@@ -57,7 +78,15 @@ public final class WorkbenchDefinitionsLoader {
     return Map.copyOf(ids);
   }
 
-  /** DEFINITIONS를 최초 initialize 호출에 한 번 로드하는 홀더다. 실패하면 검증되지 않은 규칙을 공개하지 않는다. */
+  /**
+   * DEFINITIONS를 최초 initialize 호출에 한 번 로드하는 홀더다. 실패하면 검증되지 않은 규칙을 공개하지 않는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code DEFINITIONS}: 정의목록 ({@code WorkbenchDefinitions}).
+   * </ul>
+   */
   private static final class Loaded {
     private static final WorkbenchDefinitions DEFINITIONS = load();
   }

@@ -10,7 +10,52 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 /**
- * Catalog-backed current-item mapping; known display scaling is inverted to a usable nearest roll.
+ * 복사한 텍스트를 검증된 카탈로그에 연결하고 표시 배율을 원래 수치로 역산한다.
+ *
+ * <p>기존 계약: Catalog-backed current-item mapping; known display scaling is inverted to a usable
+ * nearest roll.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code RANGE}: 범위 ({@code Pattern}).
+ *   <li>{@code DESECRATION_MINIMUM}: 최소값 ({@code Pattern}).
+ *   <li>{@code DESECRATION_POOL}: 후보풀 ({@code Pattern}).
+ *   <li>{@code catalogs}: 공유하는 검증된 베이스 카탈로그 목록 ({@code List<ItemCatalog>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code SolarTextMapper(catalog)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code catalog}(카탈로그).
+ *   <li>{@code SolarTextMapper(catalogs)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code catalogs}(카탈로그목록).
+ *   <li>{@code map(item)}: 맵 처리에서 {@code item.displayBase}, {@code item.displayName}을(를) 사용한다. 입력:
+ *       {@code item}(아이템). 반환: {@code Result}.
+ *   <li>{@code map(item, catalog)}: 맵 처리에서 {@code BaseRegistry.itemClass}, {@code catalog.base}을(를)
+ *       사용한다. 입력: {@code item}(아이템), {@code catalog}(카탈로그). 반환: {@code Result}.
+ *   <li>{@code desecrationDetails(text, line, issues)}: 훼손·세부정보 처리에서 {@code
+ *       DESECRATION_MINIMUM.matcher}, {@code levelMatch.find}을(를) 사용한다. 입력: {@code text}(텍스트),
+ *       {@code line}(행), {@code issues}(문제목록). 반환: {@code DesecrationDetails}.
+ *   <li>{@code catalystType(label)}: 기폭제·타입의 입력에 따른 분기·결과를 처리한다. 입력: {@code label}(표시이름). 반환:
+ *       {@code CatalystQuality.Type}.
+ *   <li>{@code clipboardScale(definition, quality, metadata)}: clipboard·단위배율 처리에서 {@code
+ *       quality.amount}, {@code quality.type}을(를) 사용한다. 입력: {@code definition}(정의), {@code
+ *       quality}(품질), {@code metadata}(메타데이터). 반환: {@code BigDecimal}.
+ *   <li>{@code match(definition, text, scale, finalValues)}: 일치 처리에서 {@code
+ *       ModifierClipboardText.match}, {@code ModifierClipboardText.visibleText}을(를) 사용한다. 입력:
+ *       {@code definition}(정의), {@code text}(텍스트), {@code scale}(단위배율), {@code
+ *       finalValues}(최종·값목록). 반환: {@code ModifierInstance}.
+ *   <li>{@code normalize(text)}: 정규화 처리에서 {@code text.trim}을(를) 사용한다. 입력: {@code text}(텍스트). 반환:
+ *       {@code String}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code DesecrationDetails}: {@code SolarTextMapper}에서 사용하는 훼손·세부정보의 불변 값이다.
+ *   <li>{@code Issue}: {@code SolarTextMapper}에서 사용하는 문제의 불변 값이다.
+ *   <li>{@code Result}: {@code SolarTextMapper}에서 사용하는 결과의 불변 값이다.
+ * </ul>
  */
 public final class SolarTextMapper {
   private static final Pattern RANGE =
@@ -416,6 +461,16 @@ public final class SolarTextMapper {
     return new Result(issues.isEmpty(), issues.isEmpty() ? state : null, issues);
   }
 
+  /**
+   * {@code SolarTextMapper}에서 사용하는 훼손·세부정보의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code minimumLevel}: 최소값·레벨 ({@code Integer}).
+   *   <li>{@code pool}: 후보풀 ({@code String}).
+   * </ul>
+   */
   private record DesecrationDetails(Integer minimumLevel, String pool) {}
 
   private static DesecrationDetails desecrationDetails(String text, int line, List<Issue> issues) {
@@ -541,8 +596,36 @@ public final class SolarTextMapper {
     return text.trim().replaceAll("\\s+", " ");
   }
 
+  /**
+   * {@code SolarTextMapper}에서 사용하는 문제의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code lineNumber}: 행·숫자 ({@code int}).
+   *   <li>{@code message}: 메시지 ({@code String}).
+   * </ul>
+   */
   public record Issue(int lineNumber, String message) {}
 
+  /**
+   * {@code SolarTextMapper}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code mapped}: mapped ({@code boolean}).
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code ItemState}).
+   *   <li>{@code issues}: 문제목록 ({@code List<Issue>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Result(mapped, state, issues)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code mapped}(mapped),
+   *       {@code state}(상태), {@code issues}(문제목록).
+   * </ul>
+   */
   public record Result(boolean mapped, ItemState state, List<Issue> issues) {
     public Result {
       issues = List.copyOf(issues);

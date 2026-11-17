@@ -5,7 +5,41 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/** Bounded display projection. Stored values, source ranges and weights are never scaled. */
+/**
+ * 원래 수치·가중치를 바꾸지 않고 기폭제 효과를 표시용 수치에 반영한다.
+ *
+ * <p>기존 계약: Bounded display projection. Stored values, source ranges and weights are never scaled.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "catalyst-quality-display-fixed-level-v3"} ({@code
+ *       String}).
+ *   <li>{@code INTEGER_STATS}: 수치목록 ({@code Set<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code CatalystQualityDisplay()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code describe(state, catalog)}: describe 처리에서 {@code Stream.concat}, {@code
+ *       state.implicits}을(를) 사용한다. 입력: {@code state}(상태), {@code catalog}(카탈로그). 반환: {@code
+ *       List<Projection>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code projectStages(modifier, definition, state)}: Stages을(를) 투영한다. 입력: {@code
+ *       modifier}(옵션), {@code definition}(정의), {@code state}(상태). 반환: {@code Projection}.
+ *   <li>{@code project(m, d, state)}: 투영 처리에서 {@code state.catalystQuality}, {@code
+ *       BasicJewel.supported}을(를) 사용한다. 입력: {@code m}(m), {@code d}(d), {@code state}(상태). 반환:
+ *       {@code Projection}.
+ *   <li>{@code projectJewel(m, d, state)}: 주얼을(를) 투영한다. 입력: {@code m}(m), {@code d}(d), {@code
+ *       state}(상태). 반환: {@code Projection}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Projection}: {@code CatalystQualityDisplay}에서 사용하는 투영의 불변 값이다.
+ * </ul>
+ */
 public final class CatalystQualityDisplay {
   public static final String VERSION = "catalyst-quality-display-fixed-level-v3";
   // Reviewed whole-number display units only. Other source units and skill levels require verified
@@ -147,6 +181,26 @@ public final class CatalystQualityDisplay {
         effect == 0 ? "SCALED_INTEGER" : "JEWEL_EFFECT_AND_QUALITY_PROVISIONAL");
   }
 
+  /**
+   * {@code CatalystQualityDisplay}에서 사용하는 투영의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   *   <li>{@code originalValues}: 원본·값목록 ({@code Map<String, Long>}).
+   *   <li>{@code displayedValues}: displayed·값목록 ({@code Map<String, Long>}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Projection(modifierId, originalValues, displayedValues, status)}: 전달받은 값으로 구성원을
+   *       초기화한다. 입력: {@code modifierId}(옵션·식별자), {@code originalValues}(원본·값목록), {@code
+   *       displayedValues}(displayed·값목록), {@code status}(상태).
+   * </ul>
+   */
   public record Projection(
       String modifierId,
       Map<String, Long> originalValues,

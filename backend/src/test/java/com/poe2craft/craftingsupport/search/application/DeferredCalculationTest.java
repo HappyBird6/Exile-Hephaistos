@@ -23,6 +23,37 @@ import java.math.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 지연계산·계산 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code completedProductionSearchMatchesConcreteOracleForEveryMethodAndObservation()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code weightedTierCellsMatchEveryCompletedMethodAndFullConditionalLaw()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code jointFamilyCellsMatchEveryCompletedMethodAndConcreteConditionalLaw()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code verify(weightedTier, orbit)}: 검증의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       weightedTier}(가중·티어), {@code orbit}(교환가능계열). 사용하는 예외: {@code Exception}.
+ *   <li>{@code internalMixturesRestoreFiniteGraphAndEveryConcreteMethodLaw()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code internalOrbitMixturesMatchEveryConcreteMethodAndRestoreOriginalGraphCells()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code verify(weightedTier, orbit, mixture)}: 검증의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       weightedTier}(가중·티어), {@code orbit}(교환가능계열), {@code mixture}(혼합). 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code boundedPrimitiveCachePreservesMixedDependenciesAndEveryConditionalMethodLaw()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code verify(weightedTier, orbit, mixture, cacheLimit)}: 검증 처리에서 {@code
+ *       catalog.modifiers}, {@code definitions.add}을(를) 사용한다. 입력: {@code weightedTier}(가중·티어),
+ *       {@code orbit}(교환가능계열), {@code mixture}(혼합), {@code cacheLimit}(캐시·한도). 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code restore(law)}: 저장된 상태로 실행 또는 조회 상태를 복원한다. 입력: {@code law}(분포). 반환: {@code
+ *       Map<BasicCurrencyState, Fraction>}.
+ * </ul>
+ */
 class DeferredCalculationTest {
   @Test
   void completedProductionSearchMatchesConcreteOracleForEveryMethodAndObservation()

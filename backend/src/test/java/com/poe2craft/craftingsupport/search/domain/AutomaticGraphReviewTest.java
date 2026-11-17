@@ -11,6 +11,37 @@ import java.util.*;
 import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 자동·그래프·Review 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code BasicCurrencyFixture}).
+ *   <li>{@code policy}: 정책 ({@code AutomaticCurrencyPolicy}).
+ *   <li>{@code precision}: 정밀도 ({@code CertifiedInterval.Precision}).
+ *   <li>{@code exalt}: 엑잘티드 ({@code AutomaticCraftingAction}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code kernel(catalog)}: 전이커널의 입력에 따른 분기·결과를 처리한다. 입력: {@code catalog}(카탈로그). 반환: {@code
+ *       AutomaticCraftingKernel}.
+ *   <li>{@code execution(id, root, action, kernel, budget, classify)}: 실행 처리에서 {@code
+ *       AutomaticMethodExecution.Template}을(를) 사용한다. 입력: {@code id}(식별자), {@code root}(시작점), {@code
+ *       action}(행동), {@code kernel}(전이커널), {@code budget}(계산예산), {@code classify}(상태분류). 반환: {@code
+ *       AutomaticMethodExecution}.
+ *   <li>{@code restore(kernel, nodes, methods, ready, budget, rare, evaluate)}: 저장된 상태로 실행 또는 조회
+ *       상태를 복원한다. 입력: {@code kernel}(전이커널), {@code nodes}(노드목록), {@code methods}(제작방법목록), {@code
+ *       ready}(준비완료), {@code budget}(계산예산), {@code rare}(희귀), {@code evaluate}(평가). 반환: {@code
+ *       AutomaticMethodGraph}.
+ *   <li>{@code partialAndCompleteUnpublishedBoundsEncloseFinalRarePolicyEvenWithKnownSuccessor()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code twoLimitedCursorsDoNotBlockSmallMethodAndResumeWithoutDoubleCharging()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AutomaticGraphReviewTest {
   final BasicCurrencyFixture f = new BasicCurrencyFixture();
   final AutomaticCurrencyPolicy policy = AutomaticCurrencyPolicyLoader.load();

@@ -7,6 +7,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * 공개 게시 작업에서 사용할 사용자 신원을 요청 문맥에서 결정한다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code actor(request, response, mutation)}: 작업주체 처리에서 {@code request.getCookies}, {@code
+ *       c.getName}을(를) 사용한다. 입력: {@code request}(요청), {@code response}(응답), {@code mutation}(변경).
+ *       반환: {@code Actor}. 사용하는 예외: {@code ResponseStatusException}.
+ * </ul>
+ */
 @Component
 public class CommunityIdentity {
   public Actor actor(HttpServletRequest request, HttpServletResponse response, boolean mutation) {

@@ -18,7 +18,41 @@ import java.util.*;
 import java.util.stream.*;
 import org.junit.jupiter.api.*;
 
+/**
+ * 독립·Planner·Review 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code completedProductScenarios()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 반환: {@code
+ *       Stream<DynamicTest>}.
+ *   <li>{@code rejectedLegacyChaosScenarios()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 반환: {@code
+ *       Stream<DynamicTest>}.
+ *   <li>{@code reviewedScenarios(rejected)}: 검토된·Scenarios 처리에서 {@code s.id}, {@code
+ *       DynamicTest.dynamicTest}을(를) 사용한다. 입력: {@code rejected}(거절된). 반환: {@code
+ *       Stream<DynamicTest>}.
+ *   <li>{@code tiedRemovalRiskStillAllowsProtectiveTierPreparation()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Scenario}: {@code IndependentPlannerReviewTest}에서 사용하는 Scenario의 불변 값이다.
+ * </ul>
+ */
 class IndependentPlannerReviewTest extends GoalDirectedPlannerScenariosTest {
+  /**
+   * {@code IndependentPlannerReviewTest}에서 사용하는 Scenario의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code start}: 시작값 ({@code ItemState}).
+   *   <li>{@code target}: 대상 ({@code Map<String, Long>}).
+   * </ul>
+   */
   record Scenario(String id, ItemState start, Map<String, Long> target) {}
 
   @TestFactory

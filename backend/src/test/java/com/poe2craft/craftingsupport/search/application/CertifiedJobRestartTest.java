@@ -17,6 +17,42 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+/**
+ * 확률구간·작업·Restart 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code storedCursor(dir, fixture, id)}: 저장된·진행커서 처리에서 {@code repository.list}, {@code
+ *       d.id}을(를) 사용한다. 입력: {@code dir}(디렉터리), {@code fixture}(검증사례), {@code id}(식별자). 반환: {@code
+ *       String}.
+ *   <li>{@code readRenewedLeaseSurvivesRestartWithoutRewritingTheGraph(dir)}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리). 사용하는 예외: {@code Exception}.
+ *   <li>{@code engine(fixture, request)}: 계산엔진 처리에서 {@code request.request}, {@code
+ *       goals.compileEvaluation}을(를) 사용한다. 입력: {@code fixture}(검증사례), {@code request}(요청). 반환:
+ *       {@code CertifiedMethodSearchEngine}.
+ *   <li>{@code continuation(engine)}: continuation 처리에서 {@code engine.step}, {@code
+ *       engine.methods}을(를) 사용한다. 입력: {@code engine}(계산엔진). 반환: {@code
+ *       CertifiedMethodSearchEngine.MethodView}. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code continuedRunnerMatchesUninterruptedExitMassAndCurrencyUses()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code IllegalStateException}, {@code Exception}.
+ *   <li>{@code main(args)}: 애플리케이션 또는 독립 실행 도구를 시작한다. 입력: {@code args}(명령인자). 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code child(dir, id, entry)}: child 처리에서 {@code loader.getParent}, {@code
+ *       urls.getURLs}을(를) 사용한다. 입력: {@code dir}(디렉터리), {@code id}(식별자), {@code entry}(항목). 사용하는 예외:
+ *       {@code Exception}.
+ *   <li>{@code service(fixture, dir)}: 서비스 처리에서 {@code Clock.systemUTC}, {@code
+ *       service.persistence}을(를) 사용한다. 입력: {@code fixture}(검증사례), {@code dir}(디렉터리). 반환: {@code
+ *       MethodSearchService}.
+ *   <li>{@code request(fixture)}: 계산·실행에 사용할 요청 값을 구성한다. 입력: {@code fixture}(검증사례). 반환: {@code
+ *       CertifiedMethodProtocol.Create}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code methods(service, snapshot)}: 제작방법목록 처리에서 {@code service.certifiedGraph}, {@code
+ *       snapshot.jobId}을(를) 사용한다. 입력: {@code service}(서비스), {@code snapshot}(스냅샷). 반환: {@code
+ *       List<CertifiedMethodProtocol.Method>}.
+ *   <li>{@code jobReopensGraphAndPartialConditionalTransportWithNewGeneration(dir)}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리). 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class CertifiedJobRestartTest {
   private String storedCursor(Path dir, PathSearchServiceTest fixture, String id) {
     var repository = new LocalCertifiedJobRepository(dir, fixture.json);

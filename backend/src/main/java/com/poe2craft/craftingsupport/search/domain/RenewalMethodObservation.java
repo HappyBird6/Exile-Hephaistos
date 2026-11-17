@@ -4,7 +4,33 @@ import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner.*;
 import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 
-/** Exact renewal shortcuts with full-state return or invariant conditional-distribution proofs. */
+/**
+ * 전체 상태 또는 불변 조건부 분포의 복귀가 증명된 갱신 결과다.
+ *
+ * <p>기존 계약: Exact renewal shortcuts with full-state return or invariant conditional-distribution
+ * proofs.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code RenewalMethodObservation()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code repeatInvariant(before, after, count)}: 반복·불변조건 처리에서 {@code after.cycles}, {@code
+ *       before.cycles}을(를) 사용한다. 입력: {@code before}(변경전), {@code after}(변경후), {@code count}(개수).
+ *       반환: {@code Optional<Observation<S, A>>}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code divide(a, b)}: 두 값의 비를 계산한다. 입력: {@code a}(a), {@code b}(b). 반환: {@code Fraction}.
+ *   <li>{@code monotone(before, after)}: monotone 처리에서 {@code before.entrySet}, {@code
+ *       entry.getValue}을(를) 사용한다. 입력: {@code before}(변경전), {@code after}(변경후). 반환: {@code boolean}.
+ *   <li>{@code scale(values, factor)}: 단위배율 처리에서 {@code values.forEach}, {@code value.multiply}을(를)
+ *       사용한다. 입력: {@code values}(값목록), {@code factor}(배율). 반환: {@code Map<K, Fraction>}.
+ *   <li>{@code accumulated(before, after, factor)}: accumulated 처리에서 {@code before.keySet}, {@code
+ *       keys.addAll}을(를) 사용한다. 입력: {@code before}(변경전), {@code after}(변경후), {@code factor}(배율). 반환:
+ *       {@code Map<K, Fraction>}.
+ *   <li>{@code repeat(cycle, source, count)}: 반복 처리에서 {@code cycle.cycles}, {@code
+ *       cycle.initialUses}을(를) 사용한다. 입력: {@code cycle}(주기), {@code source}(출처), {@code count}(개수).
+ *       반환: {@code Observation<S, A>}. 사용하는 예외: {@code IllegalArgumentException}, {@code
+ *       IllegalStateException}.
+ * </ul>
+ */
 public final class RenewalMethodObservation {
   private RenewalMethodObservation() {}
 

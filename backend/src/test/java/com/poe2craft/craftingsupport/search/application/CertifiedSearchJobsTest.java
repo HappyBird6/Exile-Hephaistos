@@ -14,6 +14,30 @@ import java.time.Clock;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 하나의 작업자로 구간 확률 탐색 작업과 체크포인트 복구를 관리한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code activeRequestsRenewTheIdleLeaseButAbandonedJobsStillExpire()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code boundedCommandReplayDoesNotLimitTheNumberOfResumptions()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code expiryEvictionAndShutdownInvalidateQueuedWorkWithoutRunningClosedStores()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code realCatalogBoundsKeepExactConditionalLawAndGenerationControls()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code wireNeverConvertsAnUnseparatedRoundedIntervalToOneValue()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code completedGoalPublishesStrategyAndStillHonorsEntryCancellation()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code contains(bounds, value)}: 해당 항목의 포함 여부를 확인한다. 입력: {@code bounds}(경계값), {@code
+ *       value}(값).
+ *   <li>{@code rejected(reason, action)}: 거절된 처리에서 {@code ex.code}을(를) 사용한다. 입력: {@code
+ *       reason}(이유), {@code action}(행동).
+ * </ul>
+ */
 class CertifiedSearchJobsTest {
   @Test
   void activeRequestsRenewTheIdleLeaseButAbandonedJobsStillExpire() throws Exception {

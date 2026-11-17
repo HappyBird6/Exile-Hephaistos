@@ -10,8 +10,51 @@ import java.security.*;
 import java.util.*;
 
 /**
- * A disjoint conditional cell with weighted tiers, independent single-stat rolls and joint
- * without-replacement family assignments. Incoming method laws remain separate.
+ * 티어 가중치와 독립·결합 수치 변수를 보존하는 지연 아이템 셀이다.
+ *
+ * <p>기존 계약: A disjoint conditional cell with weighted tiers, independent single-stat rolls and
+ * joint without-replacement family assignments. Incoming method laws remain separate.
+ *
+ * <p>필드·상수·record 구성요소:
+ *
+ * <ul>
+ *   <li>{@code representative}: 대표상태 ({@code BasicCurrencyState}).
+ *   <li>{@code rolls}: 수치 굴림과 유한 결합 분포 계산기 ({@code Map<String, Band>}).
+ *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierCell>}).
+ *   <li>{@code orbits}: 교환가능계열목록 ({@code Map<String, OrbitCell>}).
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "deferred-joint-family-category-tier-roll-v4"} ({@code
+ *       String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code DeferredItem(representative, rolls, tiers)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       representative}(대표상태), {@code rolls}(수치굴림목록), {@code tiers}(티어목록).
+ *   <li>{@code DeferredItem(representative, rolls)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       representative}(대표상태), {@code rolls}(수치굴림목록).
+ *   <li>{@code DeferredItem(state)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code state}(상태).
+ *   <li>{@code DeferredItem(representative, rolls, tiers, orbits)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       representative}(대표상태), {@code rolls}(수치굴림목록), {@code tiers}(티어목록), {@code
+ *       orbits}(교환가능계열목록). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code item()}: 아이템 값을 조회·구성한다. 반환: {@code ItemState}.
+ *   <li>{@code provenance()}: 출처이력 값을 조회·구성한다. 반환: {@code BasicCurrencyState.Provenance}.
+ *   <li>{@code cardinality()}: cardinality 값을 조회·구성한다. 반환: {@code BigInteger}.
+ *   <li>{@code concrete(offset)}: 구체값 처리에서 {@code offset.signum}, {@code offset.compareTo}을(를)
+ *       사용한다. 입력: {@code offset}(시작위치). 반환: {@code BasicCurrencyState}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code canonicalKey()}: 정규형·키 값을 조회·구성한다. 반환: {@code String}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code concreteProbability(offset)}: 구체값·확률 처리에서 {@code offset.signum}, {@code
+ *       offset.compareTo}을(를) 사용한다. 입력: {@code offset}(시작위치). 반환: {@code Fraction}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Band}: {@code DeferredItem}에서 사용하는 구간의 불변 값이다.
+ * </ul>
  */
 public record DeferredItem(
     BasicCurrencyState representative,
@@ -29,6 +72,25 @@ public record DeferredItem(
     this(representative, rolls, Map.of());
   }
 
+  /**
+   * {@code DeferredItem}에서 사용하는 구간의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code stat}: 수치 ({@code String}).
+   *   <li>{@code min}: 허용·표시 범위의 하한 ({@code long}).
+   *   <li>{@code max}: 허용·표시 범위의 상한 ({@code long}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Band(stat, min, max)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code stat}(수치), {@code
+   *       min}(최소값), {@code max}(최대값). 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code size()}: 보유 항목의 개수를 조회한다. 반환: {@code BigInteger}.
+   * </ul>
+   */
   public record Band(String stat, long min, long max) {
     public Band {
       if (stat == null || stat.isBlank() || min >= max)

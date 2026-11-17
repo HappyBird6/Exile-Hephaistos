@@ -8,13 +8,80 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.*;
 
-/** Lossless state plus provenance; no goal-dependent projection or legacy relabeling. */
+/**
+ * 구체 아이템 상태와 출처를 손실 없이 보존한다.
+ *
+ * <p>기존 계약: Lossless state plus provenance; no goal-dependent projection or legacy relabeling.
+ *
+ * <p>필드·상수·record 구성요소:
+ *
+ * <ul>
+ *   <li>{@code item}: 아이템 ({@code ItemState}).
+ *   <li>{@code provenance}: 출처이력 ({@code Provenance}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code BasicCurrencyState(item, provenance)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code item}(아이템),
+ *       {@code provenance}(출처이력).
+ *   <li>{@code catalogDigest(catalog)}: 카탈로그·다이제스트 처리에서 {@code catalog.metadata}, {@code
+ *       m.snapshotId}을(를) 사용한다. 입력: {@code catalog}(카탈로그). 반환: {@code String}.
+ *   <li>{@code canonicalKey()}: 정규형·키 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code modifiers(out, modifiers)}: 옵션목록 처리에서 {@code out.writeInt}, {@code
+ *       modifiers.size}을(를) 사용한다. 입력: {@code out}(출력), {@code modifiers}(옵션목록). 사용하는 예외: {@code
+ *       IOException}.
+ *   <li>{@code strings(out, values)}: strings 처리에서 {@code out.writeInt}, {@code values.size}을(를)
+ *       사용한다. 입력: {@code out}(출력), {@code values}(값목록). 사용하는 예외: {@code IOException}.
+ *   <li>{@code string(out, value)}: string 처리에서 {@code value.getBytes}, {@code out.writeInt}을(를)
+ *       사용한다. 입력: {@code out}(출력), {@code value}(값). 사용하는 예외: {@code IOException}.
+ *   <li>{@code digest(encoder)}: 다이제스트 처리에서 {@code encoder.write}, {@code HexFormat.of}을(를) 사용한다.
+ *       입력: {@code encoder}(encoder). 반환: {@code String}. 사용하는 예외: {@code IllegalStateException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Provenance}: {@code BasicCurrencyState}에서 사용하는 출처이력의 불변 값이다.
+ *   <li>{@code Encoder}: {@code BasicCurrencyState} 내부의 Encoder 처리를 맡는다.
+ * </ul>
+ */
 public record BasicCurrencyState(ItemState item, Provenance provenance) {
   public BasicCurrencyState {
     Objects.requireNonNull(item, "item");
     Objects.requireNonNull(provenance, "provenance");
   }
 
+  /**
+   * {@code BasicCurrencyState}에서 사용하는 출처이력의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code rulesetIdentity}: 현재 실행 규칙 묶음의 식별자 ({@code String}).
+   *   <li>{@code catalogDigest}: 카탈로그·다이제스트 ({@code String}).
+   *   <li>{@code modelVersion}: 모형·버전 ({@code String}).
+   *   <li>{@code ruleVersion}: 규칙·버전 ({@code String}).
+   *   <li>{@code ledgerVersion}: 규칙장부·버전 ({@code String}).
+   *   <li>{@code weightPolicy}: 가중치·정책 ({@code String}).
+   *   <li>{@code sourceUrl}: 검토에 사용한 원자료 URL ({@code String}).
+   *   <li>{@code retrievedAt}: 수집된·기준 ({@code String}).
+   *   <li>{@code rawSha256}: 원문·SHA·256 ({@code String}).
+   *   <li>{@code detailsSha256}: 세부정보·SHA·256 ({@code String}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Provenance(rulesetIdentity, catalogDigest, modelVersion, ruleVersion,
+   *       ledgerVersion, weightPolicy, sourceUrl, retrievedAt, rawSha256, detailsSha256)}: 전달받은 값으로
+   *       구성원을 초기화한다. 입력: {@code rulesetIdentity}(규칙묶음·정체성), {@code catalogDigest}(카탈로그·다이제스트),
+   *       {@code modelVersion}(모형·버전), {@code ruleVersion}(규칙·버전), {@code ledgerVersion}(규칙장부·버전),
+   *       {@code weightPolicy}(가중치·정책), {@code sourceUrl}(출처·출처주소), {@code retrievedAt}(수집된·기준),
+   *       {@code rawSha256}(원문·SHA·256), {@code detailsSha256}(세부정보·SHA·256). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   * </ul>
+   */
   public record Provenance(
       String rulesetIdentity,
       String catalogDigest,
@@ -177,6 +244,15 @@ public record BasicCurrencyState(ItemState item, Provenance provenance) {
     }
   }
 
+  /**
+   * {@code BasicCurrencyState} 내부의 Encoder 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code write(out)}: 쓰기의 실행 계약을 정의한다. 입력: {@code out}(출력). 사용하는 예외: {@code IOException}.
+   * </ul>
+   */
   private interface Encoder {
     void write(DataOutputStream out) throws IOException;
   }

@@ -11,7 +11,82 @@ import com.poe2craft.shared.probability.Fraction;
 import java.math.BigInteger;
 import java.util.*;
 
-/** Exhaustive finite distribution under declared assumptions, never verified game roll odds. */
+/**
+ * 선언된 수치 가정 아래 기본 화폐의 유한 전이 분포를 계산한다.
+ *
+ * <p>기존 계약: Exhaustive finite distribution under declared assumptions, never verified game roll
+ * odds.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code MODEL_VERSION}: 버전; 초기값 {@code "solar-basic-transition-v1"} ({@code String}).
+ *   <li>{@code INTERPRETATION}: 해석; 초기값 {@code "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY"}
+ *       ({@code String}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ *   <li>{@code provenance}: 출처이력 ({@code Provenance}).
+ *   <li>{@code reviewedCatalog}: 검토된·카탈로그 ({@code boolean}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code forMethodSearch(catalog, rulesetIdentity)}: 대상·제작방법·탐색 처리에서 {@code BASE_ID.equals},
+ *       {@code catalog.base}을(를) 사용한다. 입력: {@code catalog}(카탈로그), {@code
+ *       rulesetIdentity}(규칙묶음·정체성). 반환: {@code BasicCurrencyTransitions}.
+ *   <li>{@code BasicCurrencyTransitions(catalog, rulesetIdentity)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력:
+ *       {@code catalog}(카탈로그), {@code rulesetIdentity}(규칙묶음·정체성).
+ *   <li>{@code BasicCurrencyTransitions(catalog, rulesetIdentity, reviewedCatalog)}: 전달받은 값으로 구성원을
+ *       초기화한다. 입력: {@code catalog}(카탈로그), {@code rulesetIdentity}(규칙묶음·정체성), {@code
+ *       reviewedCatalog}(검토된·카탈로그). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code supportedActions()}: 지원·행동목록 값을 조회·구성한다. 반환: {@code List<WorkbenchCurrency>}.
+ *   <li>{@code reachableActions(root)}: 도달가능·행동목록 처리에서 {@code root.rarity}, {@code
+ *       WorkbenchSimulator.basicRarityAllows}을(를) 사용한다. 입력: {@code root}(시작점). 반환: {@code
+ *       List<WorkbenchCurrency>}.
+ *   <li>{@code provenance()}: {@code provenance} 값을 조회한다. 반환: {@code Provenance}.
+ *   <li>{@code uniformSelection()}: 균등·선택 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code selectionWeight(candidate)}: 선택·가중치 처리에서 {@code candidate.weight}을(를) 사용한다. 입력:
+ *       {@code candidate}(후보). 반환: {@code int}.
+ *   <li>{@code selectionAssumptions(candidates)}: 선택·계산가정 처리에서 {@code
+ *       simulator.basicSelectionAssumptions}, {@code WorkbenchSimulator.Assumption}을(를) 사용한다. 입력:
+ *       {@code candidates}(후보목록). 반환: {@code List<WorkbenchSimulator.Assumption>}.
+ *   <li>{@code primitiveCursor(source, action, activeOmens)}: 개별행동·진행커서의 입력에 따른 분기·결과를 처리한다. 입력:
+ *       {@code source}(출처), {@code action}(행동), {@code activeOmens}(활성·징조목록). 반환: {@code
+ *       PrimitiveCursor}.
+ *   <li>{@code renewalCursor(source, actions)}: 갱신·진행커서의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       source}(출처), {@code actions}(행동목록). 반환: {@code RenewalCursor}.
+ *   <li>{@code proveSingleExplicitChaos(source, target)}: 증명·단일·명시옵션·카오스 처리에서 {@code
+ *       provenance.equals}, {@code source.provenance}을(를) 사용한다. 입력: {@code source}(출처), {@code
+ *       target}(대상). 반환: {@code Optional<ChaosRenewal>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code expand(source, action, activeOmens, maxElementaryOutcomes)}: 다음 상태 또는 분포 구간을 확장한다.
+ *       입력: {@code source}(출처), {@code action}(행동), {@code activeOmens}(활성·징조목록), {@code
+ *       maxElementaryOutcomes}(최대값·기본·결과목록). 반환: {@code Result}. 사용하는 예외: {@code
+ *       IllegalArgumentException}, {@code IllegalStateException}.
+ *   <li>{@code rangeSize(range)}: 범위·크기 처리에서 {@code BigInteger.valueOf}, {@code range.max}을(를)
+ *       사용한다. 입력: {@code range}(범위). 반환: {@code BigInteger}.
+ *   <li>{@code result(source, action, outcomes, emitted, assumptions, expanded)}: 최종 또는 현재 계산 결과를
+ *       구성한다. 입력: {@code source}(출처), {@code action}(행동), {@code outcomes}(결과목록), {@code
+ *       emitted}(내보낸), {@code assumptions}(계산가정), {@code expanded}(확장된). 반환: {@code Result}.
+ *   <li>{@code blocked(source, action, status, reason)}: 차단의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       source}(출처), {@code action}(행동), {@code status}(상태), {@code reason}(이유). 반환: {@code
+ *       Result}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code KernelIdentity}: {@code BasicCurrencyTransitions}에서 사용하는 전이커널·정체성의 불변 값이다.
+ *   <li>{@code KernelBranch}: {@code BasicCurrencyTransitions}에서 사용하는 전이커널·분기의 불변 값이다.
+ *   <li>{@code PrimitiveCursor}: {@code BasicCurrencyTransitions} 내부의 개별행동·진행커서 처리를 맡는다.
+ *   <li>{@code GroupedOutcome}: {@code BasicCurrencyTransitions}에서 사용하는 묶인·결과의 불변 값이다.
+ *   <li>{@code RenewalCursor}: {@code BasicCurrencyTransitions} 내부의 갱신·진행커서 처리를 맡는다.
+ *   <li>{@code ChaosRenewal}: {@code BasicCurrencyTransitions}에서 사용하는 카오스·갱신의 불변 값이다.
+ *   <li>{@code Status}: {@code BasicCurrencyTransitions}의 상태 구분값을 정의한다.
+ *   <li>{@code Outcome}: {@code BasicCurrencyTransitions}에서 사용하는 결과의 불변 값이다.
+ *   <li>{@code Result}: {@code BasicCurrencyTransitions}에서 사용하는 결과의 불변 값이다.
+ * </ul>
+ */
 public final class BasicCurrencyTransitions {
   public static final String MODEL_VERSION = "solar-basic-transition-v1";
   public static final String INTERPRETATION = "DECLARED_MODEL_NOT_VERIFIED_GAME_PROBABILITY";
@@ -102,7 +177,26 @@ public final class BasicCurrencyTransitions {
             "Catalog declares unavailable game weights: equal 1/n after eligibility, without family deduplication or removal of non-goal candidates. Numeric rolls are a separate assumption."));
   }
 
-  /** Equal keys prove the complete next-item law, not equivalence of the input items. */
+  /**
+   * {@code BasicCurrencyTransitions}에서 사용하는 전이커널·정체성의 불변 값이다.
+   *
+   * <p>기존 계약: Equal keys prove the complete next-item law, not equivalence of the input items.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code provenance}: 출처이력 ({@code Provenance}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code branches}: 분기목록 ({@code List<KernelBranch>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code KernelIdentity(provenance, action, branches)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       provenance}(출처이력), {@code action}(행동), {@code branches}(분기목록).
+   * </ul>
+   */
   public record KernelIdentity(
       Provenance provenance, WorkbenchCurrency action, List<KernelBranch> branches) {
     public KernelIdentity {
@@ -110,6 +204,23 @@ public final class BasicCurrencyTransitions {
     }
   }
 
+  /**
+   * {@code BasicCurrencyTransitions}에서 사용하는 전이커널·분기의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code remaining}: 남은 ({@code ItemState}).
+   *   <li>{@code candidates}: 후보목록 ({@code List<ModifierDefinition>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code KernelBranch(remaining, candidates)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       remaining}(남은), {@code candidates}(후보목록).
+   * </ul>
+   */
   public record KernelBranch(ItemState remaining, List<ModifierDefinition> candidates) {
     public KernelBranch {
       candidates = List.copyOf(candidates);
@@ -122,6 +233,65 @@ public final class BasicCurrencyTransitions {
     return new PrimitiveCursor(source, action, activeOmens);
   }
 
+  /**
+   * {@code BasicCurrencyTransitions} 내부의 개별행동·진행커서 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code preflight}: preflight ({@code Result}).
+   *   <li>{@code plan}: 계획 ({@code BasicCurrencyPlan}).
+   *   <li>{@code weights}: 가중치목록 ({@code List<Long>}).
+   *   <li>{@code branchIndex}: 분기·색인 ({@code int}).
+   *   <li>{@code candidateIndex}: 후보·색인 ({@code int}).
+   *   <li>{@code value}: 값 ({@code long}).
+   *   <li>{@code emitted}: 내보낸 ({@code Fraction}).
+   *   <li>{@code remainingOutcomes}: 남은·결과목록 ({@code BigInteger}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code position()}: 진행위치 값을 조회·구성한다. 반환: {@code Position}.
+   *   <li>{@code restorePosition(saved)}: 저장한 진행 위치를 복원한다. 입력: {@code saved}(저장된). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   *   <li>{@code PrimitiveCursor(source, action, activeOmens)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       source}(출처), {@code action}(행동), {@code activeOmens}(활성·징조목록).
+   *   <li>{@code blocked()}: 차단 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code identity()}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 반환: {@code Optional<KernelIdentity>}.
+   *   <li>{@code remainingOutcomes()}: {@code remainingOutcomes} 값을 조회한다. 반환: {@code BigInteger}.
+   *   <li>{@code candidateBandProbability(branch, candidate, first, last)}: 후보·구간·확률 처리에서 {@code
+   *       BigInteger.valueOf}, {@code weights.get}을(를) 사용한다. 입력: {@code branch}(분기), {@code
+   *       candidate}(후보), {@code first}(최초), {@code last}(마지막). 반환: {@code Fraction}.
+   *   <li>{@code candidateWitness(branch, candidate, value)}: 후보·증명상태 처리에서 {@code plan.branches},
+   *       {@code remaining.explicits}을(를) 사용한다. 입력: {@code branch}(분기), {@code candidate}(후보),
+   *       {@code value}(값). 반환: {@code BasicCurrencyState}.
+   *   <li>{@code indexedCandidate(branch, candidate, first, last)}: 색인된·후보 처리에서 {@code
+   *       plan.branches}, {@code definition.stats}을(를) 사용한다. 입력: {@code branch}(분기), {@code
+   *       candidate}(후보), {@code first}(최초), {@code last}(마지막). 반환: {@code ModifierDefinition}.
+   *       사용하는 예외: {@code IllegalStateException}, {@code IllegalArgumentException}.
+   *   <li>{@code status()}: 현재 진행 상태를 조회한다. 반환: {@code Status}.
+   *   <li>{@code reason()}: 이유 값을 조회·구성한다. 반환: {@code String}.
+   *   <li>{@code assumptions()}: 계산가정 값을 조회·구성한다. 반환: {@code List<WorkbenchSimulator.Assumption>}.
+   *   <li>{@code mayApplyAfter(next)}: may·적용·변경후 처리에서 {@code BasicJewel.supportedCrafting}, {@code
+   *       catalog.base}을(를) 사용한다. 입력: {@code next}(다음). 반환: {@code boolean}. 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code unresolved()}: 미해결 값을 조회·구성한다. 반환: {@code Fraction}.
+   *   <li>{@code next()}: 다음 값을 조회·구성한다. 반환: {@code Outcome}.
+   *   <li>{@code nextGrouped(end)}: 다음·묶인 처리에서 {@code plan.branches}, {@code Fraction.of}을(를) 사용한다.
+   *       입력: {@code end}(end). 반환: {@code GroupedOutcome}. 사용하는 예외: {@code IllegalStateException},
+   *       {@code IllegalArgumentException}.
+   *   <li>{@code startRange()}: 시작값·범위 처리에서 {@code plan.branches}을(를) 사용한다.
+   * </ul>
+   *
+   * <p>중첩 타입:
+   *
+   * <ul>
+   *   <li>{@code Position}: {@code PrimitiveCursor}에서 사용하는 진행위치의 불변 값이다.
+   * </ul>
+   */
   public final class PrimitiveCursor {
     private final WorkbenchCurrency action;
     private final Result preflight;
@@ -133,6 +303,19 @@ public final class BasicCurrencyTransitions {
     private Fraction emitted = Fraction.ZERO;
     private BigInteger remainingOutcomes = BigInteger.ZERO;
 
+    /**
+     * {@code PrimitiveCursor}에서 사용하는 진행위치의 불변 값이다.
+     *
+     * <p>필드·상수·record 구성요소:
+     *
+     * <ul>
+     *   <li>{@code branch}: 분기 ({@code int}).
+     *   <li>{@code candidate}: 후보 ({@code int}).
+     *   <li>{@code value}: 값 ({@code long}).
+     *   <li>{@code emitted}: 내보낸 ({@code Fraction}).
+     *   <li>{@code remaining}: 남은 ({@code BigInteger}).
+     * </ul>
+     */
     public record Position(
         int branch, int candidate, long value, Fraction emitted, BigInteger remaining) {}
 
@@ -409,6 +592,20 @@ public final class BasicCurrencyTransitions {
     }
   }
 
+  /**
+   * {@code BasicCurrencyTransitions}에서 사용하는 묶인·결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code outcome}: 결과 ({@code Outcome}).
+   *   <li>{@code addedModifier}: added·옵션 ({@code String}).
+   *   <li>{@code stat}: 수치 ({@code String}).
+   *   <li>{@code min}: 허용·표시 범위의 하한 ({@code long}).
+   *   <li>{@code max}: 허용·표시 범위의 상한 ({@code long}).
+   *   <li>{@code branch}: 분기 ({@code int}).
+   * </ul>
+   */
   public record GroupedOutcome(
       Outcome outcome, String addedModifier, String stat, long min, long max, int branch) {}
 
@@ -420,6 +617,36 @@ public final class BasicCurrencyTransitions {
     return new RenewalCursor(source, actions);
   }
 
+  /**
+   * {@code BasicCurrencyTransitions} 내부의 갱신·진행커서 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code BasicCurrencyState}).
+   *   <li>{@code actions}: 행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code plan}: 계획 ({@code BasicCurrencyPlan}).
+   *   <li>{@code empty}: 빈값 ({@code ItemState}).
+   *   <li>{@code candidateIndex}: 후보·색인 ({@code int}).
+   *   <li>{@code value}: 값 ({@code long}).
+   *   <li>{@code totalWeight}: 합계·가중치 ({@code long}).
+   *   <li>{@code blocked}: 차단 ({@code String}).
+   *   <li>{@code unavailable}: 사용불가 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code RenewalCursor(source, actions)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code source}(출처),
+   *       {@code actions}(행동목록). 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code blocked()}: {@code blocked} 값을 조회한다. 반환: {@code String}.
+   *   <li>{@code unavailable()}: {@code unavailable} 값을 조회한다. 반환: {@code boolean}.
+   *   <li>{@code emptyState()}: 빈값·상태 값을 조회·구성한다. 반환: {@code BasicCurrencyState}.
+   *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code next()}: 다음 값을 조회·구성한다. 반환: {@code Outcome}. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   * </ul>
+   */
   public final class RenewalCursor {
     private final BasicCurrencyState source;
     private final List<WorkbenchCurrency> actions;
@@ -553,6 +780,19 @@ public final class BasicCurrencyTransitions {
     }
   }
 
+  /**
+   * {@code BasicCurrencyTransitions}에서 사용하는 카오스·갱신의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code emptyState}: 빈값·상태 ({@code BasicCurrencyState}).
+   *   <li>{@code targetModifierId}: 대상·옵션·식별자 ({@code String}).
+   *   <li>{@code probability}: 확률 ({@code Fraction}).
+   *   <li>{@code eligibleModifierIds}: 적격·옵션·식별자목록 ({@code List<String>}).
+   *   <li>{@code proofVersion}: 증명·버전 ({@code String}).
+   * </ul>
+   */
   public record ChaosRenewal(
       BasicCurrencyState emptyState,
       String targetModifierId,
@@ -758,6 +998,18 @@ public final class BasicCurrencyTransitions {
         status, reason, source, action, List.of(), Fraction.ONE, List.of(), INTERPRETATION, 0);
   }
 
+  /**
+   * {@code BasicCurrencyTransitions}의 상태 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code COMPLETE}: 완료 구분값.
+   *   <li>{@code PARTIAL}: 부분 구분값.
+   *   <li>{@code UNAVAILABLE}: 사용불가 구분값.
+   *   <li>{@code UNSUPPORTED}: 미지원 구분값.
+   * </ul>
+   */
   public enum Status {
     COMPLETE,
     PARTIAL,
@@ -765,8 +1017,45 @@ public final class BasicCurrencyTransitions {
     UNSUPPORTED
   }
 
+  /**
+   * {@code BasicCurrencyTransitions}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code BasicCurrencyState}).
+   *   <li>{@code probability}: 확률 ({@code Fraction}).
+   * </ul>
+   */
   public record Outcome(BasicCurrencyState state, Fraction probability) {}
 
+  /**
+   * {@code BasicCurrencyTransitions}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code status}: 현재 처리 상태 ({@code Status}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code source}: 출처 ({@code BasicCurrencyState}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code outcomes}: 결과목록 ({@code List<Outcome>}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code List<WorkbenchSimulator.Assumption>}).
+   *   <li>{@code interpretation}: 해석 ({@code String}).
+   *   <li>{@code elementaryOutcomes}: 기본·결과목록 ({@code long}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Result(status, reason, source, action, outcomes, unresolved, assumptions,
+   *       interpretation, elementaryOutcomes)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code status}(상태), {@code
+   *       reason}(이유), {@code source}(출처), {@code action}(행동), {@code outcomes}(결과목록), {@code
+   *       unresolved}(미해결), {@code assumptions}(계산가정), {@code interpretation}(해석), {@code
+   *       elementaryOutcomes}(기본·결과목록).
+   * </ul>
+   */
   public record Result(
       Status status,
       String reason,

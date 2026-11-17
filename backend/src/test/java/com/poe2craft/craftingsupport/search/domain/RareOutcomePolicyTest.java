@@ -7,6 +7,23 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 전체 조건부 방법 분포에 적용하는 희귀 결과 경계 정책이다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code p(n, d)}: p 처리에서 {@code CertifiedInterval.enclose}, {@code Fraction.of}을(를) 사용한다.
+ *       입력: {@code n}(n), {@code d}(d). 반환: {@code CertifiedInterval}.
+ *   <li>{@code point()}: 지점 값을 조회·구성한다. 반환: {@code CertifiedMethodRunner.Observation<String,
+ *       String>}.
+ *   <li>{@code groupsBeforeCuttingKeepsGoalsUnknownAndCostsWithoutRenormalization()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code combinedRareMassCannotExceedMethodAllowanceAndDisabledIsIdentity()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unknownPolicyVersionIsRejected()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class RareOutcomePolicyTest {
   static CertifiedInterval p(long n, long d) {
     return CertifiedInterval.enclose(Fraction.of(n, d), 64);

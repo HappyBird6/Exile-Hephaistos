@@ -8,6 +8,25 @@ import com.poe2craft.shared.item.*;
 import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 베이스·제작재료·생성적격 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code service}: 요청 처리를 위임하는 서비스 ({@code CatalogCraftingService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code BaseMaterialEligibilityTest()}: 전달받은 값으로 구성원을 초기화한다.
+ *   <li>{@code listsReviewedMaterialsForEveryBaseWithoutItemLevelOrRarityGating()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code keepsSupportedMaterialsVisibleBeforeTheirCurrentExecutionConditionsAreMet()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class BaseMaterialEligibilityTest {
   private final CatalogCraftingService service;
 

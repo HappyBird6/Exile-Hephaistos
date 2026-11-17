@@ -11,6 +11,39 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 
+/**
+ * Redis에서 시세·갱신 임대·실패 후 재시도 시간을 공유한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code redis}: Redis ({@code StringRedisTemplate}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code snapshotKey}: 스냅샷·키 ({@code String}).
+ *   <li>{@code cooldownKey}: cooldown·키 ({@code String}).
+ *   <li>{@code lockKey}: 잠금·키 ({@code String}).
+ *   <li>{@code CLAIM}: CLAIM ({@code DefaultRedisScript<Long>}).
+ *   <li>{@code RELEASE}: 해제 ({@code DefaultRedisScript<Long>}).
+ *   <li>{@code SAVE}: SAVE ({@code DefaultRedisScript<Long>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code RedisCurrencyPriceCache(redis, json, prefix)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       redis}(Redis), {@code json}(JSON), {@code prefix}(접두).
+ *   <li>{@code read()}: 지정한 입력 또는 저장된 값을 읽는다. 반환: {@code PriceSnapshot}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code claim(minimumInterval, lease)}: claim 처리에서 {@code UUID.randomUUID}, {@code
+ *       redis.execute}을(를) 사용한다. 입력: {@code minimumInterval}(최소값·구간), {@code lease}(사용권). 반환:
+ *       {@code String}.
+ *   <li>{@code save(snapshot, token)}: 현재 값을 저장 경계에 기록한다. 입력: {@code snapshot}(스냅샷), {@code
+ *       token}(인증토큰). 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code release(token)}: 해제 처리에서 {@code redis.execute}을(를) 사용한다. 입력: {@code token}(인증토큰).
+ *   <li>{@code nextRefreshAllowed(now)}: 다음·갱신·허용된 처리에서 {@code redis.getExpire}, {@code
+ *       now.plusMillis}을(를) 사용한다. 입력: {@code now}(현재시각). 반환: {@code Instant}.
+ * </ul>
+ */
 public final class RedisCurrencyPriceCache implements CurrencyPriceCache {
   private final StringRedisTemplate redis;
   private final ObjectMapper json;

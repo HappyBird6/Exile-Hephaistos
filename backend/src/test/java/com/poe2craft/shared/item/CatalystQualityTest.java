@@ -11,6 +11,39 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 현재 기폭제 품질 값을 표현한다. 화폐 사용이나 원래 옵션 수치와는 구분한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code root}: 시작점 ({@code ItemState}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code state(type, amount, modifiers)}: 현재 상태 표현을 조회한다. 입력: {@code type}(타입), {@code
+ *       amount}(양), {@code modifiers}(옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code originalRollsStayInSourceBoundsWhileDerivedIntegerDisplayRoundsProvisionally()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code singleActiveTypeTagsUseAnyMatchOnceAndNeverInventMissingTags()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code breachCapIsUnscalableAndPreservesReachableInheritedQuality()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code catalystSetsMaximumReplacesTypeAndPreservesOriginalsAndOmensWithoutDrawing()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code provisionalRoundingUsesHalfUpForSignedRatios()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code maximumCapRemovalClampsUnderDeclaredSimulatorPolicy()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code ringIntegerImplicitCanBeDisplayedWhileBeltCapStaysUnknown()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code necroticQualityScalesFixedMinionLevelsWithoutChangingStoredRolls()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class CatalystQualityTest {
   final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   final ItemState root = SolarAmulet.initial(catalog);

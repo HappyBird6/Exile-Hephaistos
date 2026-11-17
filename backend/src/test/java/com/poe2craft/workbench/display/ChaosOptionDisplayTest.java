@@ -21,6 +21,51 @@ import java.util.Map;
 import java.util.Set;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 화폐를 사용하거나 수치를 바꾸지 않고 카오스 결과를 일반 표시로 투영한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code JSON}: 공통 JSON 변환기 ({@code ObjectMapper}).
+ *   <li>{@code SOURCE}: 출처 ({@code Path}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code bytes()}: 바이트수 값을 조회·구성한다. 반환: {@code byte[]}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code hash(bytes)}: 해시 처리에서 {@code HexFormat.of}, {@code MessageDigest.getInstance}을(를)
+ *       사용한다. 입력: {@code bytes}(바이트수). 반환: {@code String}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code templates()}: 템플릿목록 값을 조회·구성한다. 반환: {@code DisplayTemplates}. 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code definition(id)}: 정의 처리에서 {@code JSON.readTree}, {@code root.path}을(를) 사용한다. 입력:
+ *       {@code id}(식별자). 반환: {@code ModifierDefinition}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code simple(id, side, text, stats, tags)}: simple의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       id}(식별자), {@code side}(접두접미), {@code text}(텍스트), {@code stats}(수치목록), {@code tags}(태그목록).
+ *       반환: {@code ModifierDefinition}.
+ *   <li>{@code catalog(definitions, base)}: 카탈로그 처리에서 {@code rows.stream}, {@code d.affixType}을(를)
+ *       사용한다. 입력: {@code definitions}(정의목록), {@code base}(베이스). 반환: {@code ItemCatalog}.
+ *   <li>{@code state(catalog, explicits)}: 현재 상태 표현을 조회한다. 입력: {@code catalog}(카탈로그), {@code
+ *       explicits}(명시옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code realDivisorUsesCurrentLocaleAndDoesNotMutateCanonicalValues()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code keepsModifierAndLfBoundariesAndNormalFracturedPrefixSuffixOrder()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code preservesRawFallbackButBlocksUsingItsNameAndStatIdsAsOptionSentences()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rejectsUnvalidatedStateAndReportsSanctifiedOutsideChaosScope()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code signedSourceDivisorPreservesReducedEffectSentence()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code excludesActualImplicitAndKeepsCanonicalQualityProjectionUnchanged()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code validJewelUsesExistingPrefixEffectAndTypedQualityWithoutChangingRolls()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code verifiesTemplateBytesAndNeverRepairsMissingTranslationsOrBindingMismatch()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class ChaosOptionDisplayTest {
   private static final ObjectMapper JSON = new ObjectMapper();
   private static final Path SOURCE = Path.of("../frontend/src/shared/i18n/modifierTemplates.json");

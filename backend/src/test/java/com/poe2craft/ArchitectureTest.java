@@ -8,6 +8,25 @@ import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Architecture 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code CLASSES}: 동치류목록 ({@code JavaClasses}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code bundledConsumersCannotBypassRulesetSeals()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code servicesAreIndependentAndCommonCodeCannotDependOnConsumers()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code domainModelsStayPureAndApplicationCodeDoesNotDependOnAdapters()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class ArchitectureTest {
   private static final JavaClasses CLASSES =
       new ClassFileImporter()

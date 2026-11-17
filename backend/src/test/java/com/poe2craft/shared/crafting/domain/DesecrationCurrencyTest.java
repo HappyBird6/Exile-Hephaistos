@@ -13,6 +13,47 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 훼손 생성·제거를 앱 정책으로 실행하고 공개 후보 선택은 수동으로 유지한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code HysteriaEssenceTest}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code apply(item, currency, side, removed)}: 주어진 행동 또는 변경을 적용한 결과를 구한다. 입력: {@code
+ *       item}(아이템), {@code currency}(화폐), {@code side}(접두접미), {@code removed}(제거된). 반환: {@code
+ *       AbyssCraftingState}.
+ *   <li>{@code minimum(definition)}: 최소값 처리에서 {@code definition.stats}, {@code values.put}을(를)
+ *       사용한다. 입력: {@code definition}(정의). 반환: {@code ModifierInstance}.
+ *   <li>{@code boneRemainsUnrevealedAcrossEligibilityLookupAndRestoreUntilExplicitSelection()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code jewelCraniumDirectChoiceAndRestoreAllEightBases()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code alteredAndLichPoolsAreExplicitAndSurviveStorage()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code putrefactionRecordsSlotsCorruptionAndProtectionWithoutRandomness()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code necromancyForcesItsSideAndRejectsConflictsWithoutChangingInput()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code markedItemKeepsItsMarkAndAllowsOrdinaryManualDesecration()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code allRegisteredTopEquipmentFamiliesAcceptMatchingBoneTiersOnBothSides()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code preservesFracturesObservationsAndOccupancyAcrossStorage()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code validatesTierClassLevelAndObservedOutcomeWithoutMutatingInput()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code ancientConstraintSurvivesRestoreAndRejectsLowLevelOffer()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code fullItemRequiresObservedRemovalAndProtectsFractureAndAffixCaps()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class DesecrationCurrencyTest {
   final HysteriaEssenceTest f = new HysteriaEssenceTest();
 

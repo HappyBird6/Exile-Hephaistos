@@ -13,6 +13,54 @@ import java.util.Map;
 import java.util.Set;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 확률·경로 이력과 분리된 불변 제작 아이템 상태다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code validator}: 상태·입력 검증기 ({@code ItemStateValidator}).
+ *   <li>{@code initial}: 초기값 ({@code ItemState}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code initialSolarAmuletHasAnIndependentSpiritImplicit()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code emptyMagicAndRareAreValidAndDistinctFromNormal()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code magicCapacityDependsOnEachAffixSide()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code sixAffixesFillRareSlotsAndASeventhIsRejected()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code differentTiersOfOneFamilyConflictButMatchingTagsDoNot()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code spiritImplicitDoesNotBlockAnExplicitSpiritPrefix()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code generationLevelChecksDoNotRewriteExistingItems()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code valueRangesAndExactStatKeysAreCheckedWithoutRepair()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code unknownModifiersWrongLayersAndMissingImplicitsAreExplicitErrors()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unsupportedBaseSnapshotAndConditionsAreReportedInsteadOfAssumed()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code stateEqualityIgnoresDisplayOrderButPreservesRarityLevelAndRolls()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code hybridDefinitionConsumesOneSlotAndEveryFamilyIsChecked()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code invalidStructuralInputsCannotBecomeStates()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code state(rarity, mods)}: 현재 상태 표현을 조회한다. 입력: {@code rarity}(희귀도), {@code mods}(옵션목록).
+ *       반환: {@code ItemState}.
+ *   <li>{@code codes(state)}: codes 처리에서 {@code validator.validate}을(를) 사용한다. 입력: {@code
+ *       state}(상태). 반환: {@code List<ItemStateValidator.Code>}.
+ *   <li>{@code instance(id)}: instance 처리에서 {@code catalog.find}, {@code definition.stats}을(를)
+ *       사용한다. 입력: {@code id}(식별자). 반환: {@code ModifierInstance}.
+ *   <li>{@code distinct(type, count)}: 중복없는 처리에서 {@code catalog.modifiers}, {@code d.affixType}을(를)
+ *       사용한다. 입력: {@code type}(타입), {@code count}(개수). 반환: {@code List<ModifierInstance>}.
+ * </ul>
+ */
 class ItemStateTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   private final ItemStateValidator validator = new ItemStateValidator(catalog);

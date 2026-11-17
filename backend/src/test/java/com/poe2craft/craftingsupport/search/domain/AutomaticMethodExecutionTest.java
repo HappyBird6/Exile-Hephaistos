@@ -19,6 +19,26 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 화폐·징조 조합을 방법 실행으로 묶고 개별 행동의 최초 성공 의미를 유지한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ineligiblePreparedSideStopsWithoutChargingChaos()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code emptyRarePreparationThenChaosHasExactRenewalCostsAndRestores()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code emptyRarePreparationThenDextralChaosHasExactRenewalCostsAndRestores()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code pendingPreparationDecisionRetainsSuccessMassAsUnresolved()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code partialPrimitiveRestoresThroughJsonWithoutRechargingCurrency()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code firstHitAfterPreparationSkipsReplacementAndCountsOnlyConsumedOmens()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AutomaticMethodExecutionTest {
   @Test
   void ineligiblePreparedSideStopsWithoutChargingChaos() {

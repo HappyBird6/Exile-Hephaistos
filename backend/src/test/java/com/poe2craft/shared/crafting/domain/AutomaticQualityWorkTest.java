@@ -16,6 +16,27 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 자동·품질·계산작업 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code kernel}: 전이커널 ({@code AutomaticCraftingKernel}).
+ *   <li>{@code initial}: 초기값 ({@code ItemState}).
+ *   <li>{@code root}: 시작점 ({@code ItemState}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code abstractQualityWorkDoesNotConsumeASelectedCatalystOrRequireCapRemoval()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code removingCapBeforeWorkIsUnresolvedButAfterWorkPreservesTheCheckpoint()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AutomaticQualityWorkTest {
   final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   final AutomaticCraftingKernel kernel =

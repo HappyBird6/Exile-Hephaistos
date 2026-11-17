@@ -6,7 +6,39 @@ import java.security.*;
 import java.util.*;
 
 /**
- * Every bundled consumer verifies membership before parsing; archive-only files may also be sealed.
+ * JSON을 읽기 전에 규칙 manifest에 등록된 경로와 내용 해시를 검사한다.
+ *
+ * <p>기존 계약: Every bundled consumer verifies membership before parsing; archive-only files may also
+ * be sealed.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code FIXED}: 고정 ({@code Set<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code SealedResources()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code open(absolutePath)}: 조회할 자원 또는 작업 범위를 연다. 입력: {@code absolutePath}(absolute·경로). 반환:
+ *       {@code InputStream}. 사용하는 예외: {@code IllegalArgumentException}, {@code IOException}.
+ *   <li>{@code verify(key, bytes, files)}: 검증 처리에서 {@code files.containsKey}, {@code
+ *       HexFormat.of}을(를) 사용한다. 입력: {@code key}(키), {@code bytes}(바이트수), {@code files}(파일목록). 사용하는
+ *       예외: {@code IllegalArgumentException}, {@code IllegalStateException}.
+ *   <li>{@code requiredPaths()}: 필수·경로목록 값을 조회·구성한다. 반환: {@code Set<String>}. 사용하는 예외: {@code
+ *       IOException}.
+ *   <li>{@code requiredPaths(registry)}: 필수·경로목록 처리에서 {@code base.path}, {@code pool.matches}을(를)
+ *       사용한다. 입력: {@code registry}(등록목록). 반환: {@code Set<String>}. 사용하는 예외: {@code
+ *       IllegalArgumentException}, {@code IOException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Bundle}: {@code SealedResources} 내부의 Bundle 처리를 맡는다.
+ *   <li>{@code Dependencies}: {@code SealedResources} 내부의 의존목록 처리를 맡는다.
+ * </ul>
  */
 public final class SealedResources {
   private SealedResources() {}
@@ -66,6 +98,22 @@ public final class SealedResources {
           "crafting/workbench-definitions-v1.json",
           "crafting/automatic-currency-policy-v1.json");
 
+  /**
+   * {@code SealedResources} 내부의 Bundle 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code FILES}: 파일목록 ({@code Map<String, String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code files()}: 파일목록 값을 조회·구성한다. 반환: {@code Map<String, String>}. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   * </ul>
+   */
   private static final class Bundle {
     private static final Map<String, String> FILES = files();
 
@@ -118,6 +166,22 @@ public final class SealedResources {
     return Dependencies.PATHS;
   }
 
+  /**
+   * {@code SealedResources} 내부의 의존목록 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code PATHS}: 경로목록 ({@code Set<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code paths()}: 경로목록 값을 조회·구성한다. 반환: {@code Set<String>}. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   * </ul>
+   */
   private static final class Dependencies {
     private static final Set<String> PATHS = paths();
 

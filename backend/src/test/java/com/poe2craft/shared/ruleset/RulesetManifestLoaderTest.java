@@ -10,6 +10,23 @@ import java.io.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 봉인된 번들 목록과 다이제스트를 검증하고 규칙 식별자를 공유한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code missingConsumedResourcesAndNewUnsealedDependenciesFail()}: 시나리오의 잘못된 입력·상태가 {@code
+ *       IllegalArgumentException}로 거절되는지 검증한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code fractionalSchemaVersionsAreRejected()}: 시나리오의 잘못된 입력·상태가 {@code IOException}로 거절되는지
+ *       검증한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code currentBundleIsSealedAndUnknownSeasonsAreExplicit()}: 시나리오의 잘못된 입력·상태가 {@code
+ *       UnsupportedOperationException}, {@code IllegalArgumentException}로 거절되는지 검증한다.
+ *   <li>{@code schemaEngineLedgerMismatchAndUnsafeResourcePathsAreRejected()}: 시나리오의 잘못된 입력·상태가
+ *       {@code IllegalArgumentException}, {@code IOException}로 거절되는지 검증한다. 사용하는 예외: {@code
+ *       Exception}.
+ * </ul>
+ */
 class RulesetManifestLoaderTest {
   @Test
   void missingConsumedResourcesAndNewUnsealedDependenciesFail() throws Exception {

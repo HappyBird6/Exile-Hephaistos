@@ -12,7 +12,36 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 /**
- * Bounded, per-instance telemetry. Never retains item text, URLs, user identifiers or credentials.
+ * 서버 한 인스턴스의 요청·이벤트 지표를 제한된 메모리로 집계한다.
+ *
+ * <p>기존 계약: Bounded, per-instance telemetry. Never retains item text, URLs, user identifiers or
+ * credentials.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code EVENTS}: 이벤트목록 ({@code Set<String>}).
+ *   <li>{@code meters}: meters ({@code MeterRegistry}).
+ *   <li>{@code health}: 상태점검 ({@code HealthEndpoint}).
+ *   <li>{@code prices}: 시세목록 ({@code CurrencyPriceCache}).
+ *   <li>{@code browser}: browser ({@code Map<String, Long>}).
+ *   <li>{@code samples}: samples ({@code Deque<Map<String, Object>>}).
+ *   <li>{@code previousRequests}: 이전·요청목록 ({@code long}).
+ *   <li>{@code previousErrors}: 이전·오류목록 ({@code long}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code OperationsMonitor(meters, health, prices)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       meters}(meters), {@code health}(상태점검), {@code prices}(시세목록).
+ *   <li>{@code record(kind, count)}: 허용된 이벤트나 관측값을 기록한다. 입력: {@code kind}(종류), {@code count}(개수).
+ *       사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code totals()}: totals 값을 조회·구성한다. 반환: {@code long[]}.
+ *   <li>{@code sample()}: sample 처리에서 {@code samples.addLast}, {@code Instant.now}을(를) 사용한다.
+ *   <li>{@code status(component)}: 현재 진행 상태를 조회한다. 입력: {@code component}(구성요소). 반환: {@code String}.
+ *   <li>{@code snapshot()}: 현재 내용을 불변 관측값으로 구성한다. 반환: {@code Map<String, Object>}.
+ * </ul>
  */
 @Service
 public final class OperationsMonitor {

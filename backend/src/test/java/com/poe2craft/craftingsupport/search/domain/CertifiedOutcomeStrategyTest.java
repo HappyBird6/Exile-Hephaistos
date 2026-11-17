@@ -7,6 +7,36 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 적응형 전략의 도달 확률 경계를 계산하고 반복 오차와 산술 오차를 구분한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code p(n, d)}: p 처리에서 {@code CertifiedInterval.enclose}, {@code Fraction.of}을(를) 사용한다.
+ *       입력: {@code n}(n), {@code d}(d). 반환: {@code CertifiedInterval}.
+ *   <li>{@code choice(id, targets)}: 선택 처리에서 {@code law.merge}, {@code a.add}을(를) 사용한다. 입력: {@code
+ *       id}(식별자), {@code targets}(대상목록). 반환: {@code Choice<String>}.
+ *   <li>{@code state(choices)}: 현재 상태 표현을 조회한다. 입력: {@code choices}(선택목록). 반환: {@code
+ *       State<String>}.
+ *   <li>{@code goal()}: 목표 값을 조회·구성한다. 반환: {@code State<String>}.
+ *   <li>{@code diamondSwitchesActionsByOutcomeAndReversesLocalPreference()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code
+ *       recoveryCycleEnclosesIndependentExactEquationsWithoutAddingRecoveryToDirectSuccess()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code supportProofAvoidsStallingAndUnknownOrMissingWorkIsSeparate()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code communicatingRegionUsesConditionalExitAndAProperNavigationPolicy()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unknownExitAndUnprovenPositiveNavigationCannotProduceFalseCertification()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code communicatingCycleIsNotLimitedToTheSmallExactPolicyOracle()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code cyclicBoundsAndSelectedPoliciesAgreeWithIndependentRationalPolicyEvaluation()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class CertifiedOutcomeStrategyTest {
   private static CertifiedInterval p(long n, long d) {
     return CertifiedInterval.enclose(Fraction.of(n, d), 64);

@@ -17,6 +17,19 @@ import java.util.*;
 import java.util.stream.*;
 import org.junit.jupiter.api.*;
 
+/**
+ * 목걸이·목표·검증의 출처 검토된 베이스 목록과 지원 여부를 제공한다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code everyRegisteredAmuletEvaluatesEveryCatalogStat()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 반환: {@code Stream<DynamicTest>}.
+ *   <li>{@code goal(catalog, stat, range)}: 목표 처리에서 {@code catalog.catalogVersion}, {@code
+ *       catalog.context}을(를) 사용한다. 입력: {@code catalog}(카탈로그), {@code stat}(수치), {@code range}(범위).
+ *       반환: {@code GoalFilter}.
+ * </ul>
+ */
 class ReviewedAmuletGoalTest {
   @TestFactory
   Stream<DynamicTest> everyRegisteredAmuletEvaluatesEveryCatalogStat() {

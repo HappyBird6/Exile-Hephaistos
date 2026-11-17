@@ -4,8 +4,56 @@ import com.poe2craft.craftingsupport.search.domain.CertifiedOutcomeStrategy;
 import java.util.*;
 import java.util.function.IntFunction;
 
-/** Resumable horizon sequencing for the explicitly bounded finite strategy adapter. */
+/**
+ * 유한 전략의 계산 구간을 나눠 이어서 실행한다.
+ *
+ * <p>기존 계약: Resumable horizon sequencing for the explicitly bounded finite strategy adapter.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code states}: 상태목록 ({@code List<String>}).
+ *   <li>{@code factory}: 생성기 ({@code IntFunction<CertifiedOutcomeStrategy<String>>}).
+ *   <li>{@code decimals}: 소수자릿수 ({@code int}).
+ *   <li>{@code completed}: 완료 ({@code List<Row>}).
+ *   <li>{@code current}: 현재 ({@code List<Row>}).
+ *   <li>{@code solver}: solver ({@code CertifiedOutcomeStrategy<String>}).
+ *   <li>{@code horizon}: 계산기간 ({@code int}).
+ *   <li>{@code revision}: 결과를 갱신할 때 비교하는 리비전 ({@code long}).
+ *   <li>{@code pauseReason}: pause·이유 ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code CertifiedStrategyWork(states, decimals, factory)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       states}(상태목록), {@code decimals}(소수자릿수), {@code factory}(생성기).
+ *   <li>{@code revision()}: {@code revision} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code pauseReason()}: {@code pauseReason} 값을 조회한다. 반환: {@code String}.
+ *   <li>{@code status()}: 현재 진행 상태를 조회한다. 반환: {@code String}.
+ *   <li>{@code rows()}: 행목록 값을 조회·구성한다. 반환: {@code List<Row>}.
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Row}: {@code CertifiedStrategyWork}에서 사용하는 행의 불변 값이다.
+ * </ul>
+ */
 final class CertifiedStrategyWork {
+  /**
+   * {@code CertifiedStrategyWork}에서 사용하는 행의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code stateId}: 상태·식별자 ({@code String}).
+   *   <li>{@code cycles}: 주기횟수 ({@code int}).
+   *   <li>{@code result}: 결과 ({@code CertifiedOutcomeStrategy.Result}).
+   * </ul>
+   */
   record Row(String stateId, int cycles, CertifiedOutcomeStrategy.Result result) {}
 
   private final List<String> states;

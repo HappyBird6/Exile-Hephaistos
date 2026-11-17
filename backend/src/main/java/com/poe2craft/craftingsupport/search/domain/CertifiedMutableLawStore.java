@@ -5,7 +5,59 @@ import java.math.BigInteger;
 import java.util.*;
 import java.util.zip.*;
 
-/** Job-local, lossless mutable absorption laws with a shared bounded decoded-page cache. */
+/**
+ * 작업별 가변 흡수 분포를 저장하고 제한된 해독 페이지 캐시를 공유한다.
+ *
+ * <p>기존 계약: Job-local, lossless mutable absorption laws with a shared bounded decoded-page cache.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "mutable-certified-law-pages-v1"} ({@code String}).
+ *   <li>{@code bits}: 비트수 ({@code int}).
+ *   <li>{@code cacheLimit}: 캐시·한도 ({@code int}).
+ *   <li>{@code oneUnits}: 일·단위목록 ({@code BigInteger}).
+ *   <li>{@code laws}: 분포목록 ({@code Set<Law>}).
+ *   <li>{@code cache}: 캐시 ({@code LinkedHashMap<Page, CertifiedInterval[]>}).
+ *   <li>{@code rows}: 행목록 ({@code long}).
+ *   <li>{@code bytes}: 바이트수 ({@code long}).
+ *   <li>{@code evictions}: 캐시제거수 ({@code long}).
+ *   <li>{@code pages}: 페이지목록 ({@code int}).
+ *   <li>{@code decodedRows}: 복원값·행목록 ({@code int}).
+ *   <li>{@code closed}: 닫힘 ({@code boolean}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code CertifiedMutableLawStore(bits, cacheLimit)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       bits}(비트수), {@code cacheLimit}(캐시·한도). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code open()}: 조회할 자원 또는 작업 범위를 연다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code metrics()}: 측정값 값을 조회·구성한다. 반환: {@code Metrics}.
+ *   <li>{@code residentEntries()}: 메모리상주·항목목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code packedBytes()}: {@code bytes} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code create()}: 새 작업 또는 값을 생성한다. 반환: {@code Law}.
+ *   <li>{@code decoded(page)}: 복원값 처리에서 {@code cache.get}, {@code data.readUnsignedShort}을(를) 사용한다.
+ *       입력: {@code page}(페이지). 반환: {@code CertifiedInterval[]}. 사용하는 예외: {@code IOException},
+ *       {@code UncheckedIOException}.
+ *   <li>{@code pack(page, values)}: pack 처리에서 {@code data.writeShort}, {@code data.writeByte}을(를)
+ *       사용한다. 입력: {@code page}(페이지), {@code values}(값목록). 사용하는 예외: {@code UncheckedIOException}.
+ *   <li>{@code integer(data, value)}: 정수 처리에서 {@code value.toByteArray}, {@code data.writeByte}을(를)
+ *       사용한다. 입력: {@code data}(데이터), {@code value}(값). 사용하는 예외: {@code IOException}.
+ *   <li>{@code integer(data)}: 정수 처리에서 {@code data.readUnsignedByte}, {@code data.readNBytes}을(를)
+ *       사용한다. 입력: {@code data}(데이터). 반환: {@code BigInteger}. 사용하는 예외: {@code IOException}, {@code
+ *       EOFException}.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Page}: {@code CertifiedMutableLawStore} 내부의 페이지 처리를 맡는다.
+ *   <li>{@code Metrics}: {@code CertifiedMutableLawStore}에서 사용하는 측정값의 불변 값이다.
+ *   <li>{@code Law}: {@code CertifiedMutableLawStore} 내부의 분포 처리를 맡는다.
+ * </ul>
+ */
 public final class CertifiedMutableLawStore implements AutoCloseable {
   public static final String VERSION = "mutable-certified-law-pages-v1";
   private final int bits, cacheLimit;
@@ -17,11 +69,35 @@ public final class CertifiedMutableLawStore implements AutoCloseable {
   private int pages, decodedRows;
   private boolean closed;
 
+  /**
+   * {@code CertifiedMutableLawStore} 내부의 페이지 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code packed}: 압축된 ({@code byte[]}).
+   *   <li>{@code size}: 크기 ({@code int}).
+   * </ul>
+   */
   private static final class Page {
     byte[] packed;
     int size;
   }
 
+  /**
+   * {@code CertifiedMutableLawStore}에서 사용하는 측정값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code rows}: 행목록 ({@code long}).
+   *   <li>{@code pages}: 페이지목록 ({@code int}).
+   *   <li>{@code laws}: 분포목록 ({@code int}).
+   *   <li>{@code decodedRows}: 복원값·행목록 ({@code int}).
+   *   <li>{@code packedBytes}: 압축된·바이트수 ({@code long}).
+   *   <li>{@code evictions}: 캐시제거수 ({@code long}).
+   * </ul>
+   */
   public record Metrics(
       long rows, int pages, int laws, int decodedRows, long packedBytes, long evictions) {}
 
@@ -125,6 +201,33 @@ public final class CertifiedMutableLawStore implements AutoCloseable {
     return new BigInteger(encoded);
   }
 
+  /**
+   * {@code CertifiedMutableLawStore} 내부의 분포 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code parts}: 부분목록 ({@code NavigableMap<Integer, Page>}).
+   *   <li>{@code size}: 크기 ({@code int}).
+   *   <li>{@code released}: released ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code accessible()}: accessible의 입력에 따른 분기·결과를 처리한다. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   *   <li>{@code size()}: 보유 항목의 개수를 조회한다. 반환: {@code int}.
+   *   <li>{@code get(key)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code key}(키). 반환: {@code
+   *       CertifiedInterval}.
+   *   <li>{@code put(key, value)}: 키에 해당하는 값을 기록한다. 입력: {@code key}(키), {@code value}(값). 반환:
+   *       {@code CertifiedInterval}. 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code entrySet()}: 항목·집합 값을 조회·구성한다. 반환: {@code Set<Map.Entry<Integer,
+   *       CertifiedInterval>>}. 사용하는 예외: {@code NoSuchElementException}.
+   *   <li>{@code clear()}: 보유한 항목을 비운다.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   */
   public final class Law extends AbstractMap<Integer, CertifiedInterval> implements AutoCloseable {
     private final NavigableMap<Integer, Page> parts = new TreeMap<>();
     private int size;

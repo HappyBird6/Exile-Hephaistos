@@ -9,6 +9,26 @@ import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 구체 아이템 상태와 출처를 손실 없이 보존한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code BasicCurrencyFixture}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code reorderedStateCollectionsAreCanonicalWhileEveryValueAndProvenanceFieldIsRetained()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code catalogAndStatSourceArrayOrderAreIdentitySensitiveButSetsAreCanonical()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code binaryLengthsSeparateAmbiguousTextAndConditionsOrderingIsStable()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class BasicCurrencyStateTest {
   final BasicCurrencyFixture fixture = new BasicCurrencyFixture();
 

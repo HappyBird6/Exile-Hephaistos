@@ -8,6 +8,29 @@ import java.math.BigInteger;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 결정적 구간 연산으로 유한 시간의 방법 전이와 최초 성공을 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code provisionalMassEnclosesUnprocessedWorkWithoutCompletingItsHorizon()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code leasedBoundaryBlocksAdvancementUntilCooperativeStorageFinishes()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code f(a, b)}: f 처리에서 {@code BigInteger.valueOf}을(를) 사용한다. 입력: {@code a}(a), {@code
+ *       b}(b). 반환: {@code Fraction}.
+ *   <li>{@code integerOutwardRoundingAndFiveHundredFirstHitCyclesContainExactOracle()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code runner(bits, initial, cycle)}: 실행기 처리에서 {@code initial.stream}, {@code
+ *       cycle.stream}을(를) 사용한다. 입력: {@code bits}(비트수), {@code initial}(초기값), {@code cycle}(주기). 반환:
+ *       {@code CertifiedMethodRunner<Integer, String>}.
+ *   <li>{@code preparationUnknownAndUnavailableRemainSeparateFromRoundingError()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code displayAndRankingRequireProvenSeparationAndClosedEnumeration()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class CertifiedMethodRunnerTest {
   @Test
   void provisionalMassEnclosesUnprocessedWorkWithoutCompletingItsHorizon() {

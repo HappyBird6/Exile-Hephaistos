@@ -19,19 +19,208 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.Function;
 
-/** Job-local, resumable method-depth exploration. UI buckets never key calculation states. */
+/**
+ * 작업 하나의 방법 깊이 탐색을 분할 실행하고 재개한다.
+ *
+ * <p>기존 계약: Job-local, resumable method-depth exploration. UI buckets never key calculation states.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "bounded-phase-kernel-method-search-v16"} ({@code String}).
+ *   <li>{@code OPEN_METHOD_WINDOW}: 시간창; 초기값 {@code 512} ({@code int}).
+ *   <li>{@code TEMPLATES}: 템플릿목록; 초기값 {@code "applicable-single-and-two-action-cycles-v3"} ({@code
+ *       String}).
+ *   <li>{@code OBSERVATIONS}: 관측값목록 ({@code List<Integer>}).
+ *   <li>{@code transitions}: 전이목록 ({@code DeferredTransitions}).
+ *   <li>{@code evaluate}: 평가 ({@code Function<ItemState, Progress>}).
+ *   <li>{@code compact}: 압축여부 ({@code Function<Map<DeferredItem, Fraction>,
+ *       ExactMethodRunner.Compaction<DeferredItem>>}).
+ *   <li>{@code mixtures}: mixtures ({@code DeferredMixtures}).
+ *   <li>{@code states}: 상태목록 ({@code LinkedHashMap<DeferredItem, State>}).
+ *   <li>{@code identities}: 식별자목록 ({@code Map<String, DeferredItem>}).
+ *   <li>{@code methods}: 제작방법목록 ({@code LinkedHashMap<String, Method>}).
+ *   <li>{@code runnable}: runnable ({@code ArrayDeque<Ready>}).
+ *   <li>{@code preferredMethods}: preferred·제작방법목록 ({@code PriorityQueue<Ready>}).
+ *   <li>{@code runnableCount}: runnable·개수 ({@code int}).
+ *   <li>{@code methodRound}: 제작방법·반올림 ({@code int}).
+ *   <li>{@code readySequence}: 준비완료·순서 ({@code long}).
+ *   <li>{@code waiting}: waiting ({@code Map<Key, List<Method>>}).
+ *   <li>{@code fairKernels}: fair·전이커널목록 ({@code ArrayDeque<Key>}).
+ *   <li>{@code frontier}: 미탐색경계 ({@code PriorityQueue<Expansion>}).
+ *   <li>{@code adjacency}: 인접목록 ({@code Map<State, Set<State>>}).
+ *   <li>{@code kernels}: 전이커널목록 ({@code Map<Key, Kernel<DeferredItem>>}).
+ *   <li>{@code completedKernels}: 완료·전이커널목록 ({@code LinkedHashMap<Key, Integer>}).
+ *   <li>{@code derivedKernels}: derived·전이커널목록 ({@code Set<Key>}).
+ *   <li>{@code dependencyPins}: 의존값·Pins ({@code Map<Key, Integer>}).
+ *   <li>{@code kernelDeliveries}: 전이커널·Deliveries ({@code Map<Key, Set<Method>>}).
+ *   <li>{@code executingMethod}: executing·제작방법 ({@code Method}).
+ *   <li>{@code derivedKernelEvictions}: derived·전이커널·캐시제거수 ({@code long}).
+ *   <li>{@code primitiveKernelEvictions}: 개별행동·전이커널·캐시제거수 ({@code long}).
+ *   <li>{@code kernelAliases}: 전이커널·Aliases ({@code Map<Key, Key>}).
+ *   <li>{@code aliasesByKernel}: aliases·기준·전이커널 ({@code Map<Key, Set<Key>>}).
+ *   <li>{@code kernelDepth}: 전이커널·깊이 ({@code Map<Key, Integer>}).
+ *   <li>{@code kernelMethodLength}: 전이커널·제작방법·길이 ({@code Map<Key, Integer>}).
+ *   <li>{@code kernelIdentities}: 전이커널·식별자목록 ({@code Map<DeferredTransitions.Identity, Key>}).
+ *   <li>{@code identityByKernel}: 정체성·기준·전이커널 ({@code Map<Key, DeferredTransitions.Identity>}).
+ *   <li>{@code sharedKernelLookups}: 공유·전이커널·Lookups ({@code long}).
+ *   <li>{@code pendingKernels}: 대기·전이커널목록 ({@code LinkedHashMap<Key, KernelWork>}).
+ *   <li>{@code progress}: 진행상황 ({@code Map<ItemState, Progress>}).
+ *   <li>{@code activeOmens}: 현재 실행에서 고려할 징조 ID 목록 ({@code Set<String>}).
+ *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code Set<WorkbenchSimulator.Assumption>}).
+ *   <li>{@code retainedOutcomeLimit}: 보유·결과·한도 ({@code int}).
+ *   <li>{@code openMethodWindow}: 열린·제작방법·시간창 ({@code int}).
+ *   <li>{@code openMethods}: 열린·제작방법목록 ({@code int}).
+ *   <li>{@code undiscoveredStates}: undiscovered·상태목록 ({@code int}).
+ *   <li>{@code operations}: 연산목록 ({@code long}).
+ *   <li>{@code kernelRound}: 전이커널·반올림 ({@code int}).
+ *   <li>{@code retainedOutcomes}: 보유·결과목록 ({@code int}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code assumptions()}: 계산가정 값을 조회·구성한다. 반환: {@code List<WorkbenchSimulator.Assumption>}.
+ *   <li>{@code MethodSearchCalculation(root, evaluator, transitions, activeOmens,
+ *       retainedOutcomeLimit)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code root}(시작점), {@code
+ *       evaluator}(평가기), {@code transitions}(전이목록), {@code activeOmens}(활성·징조목록), {@code
+ *       retainedOutcomeLimit}(보유·결과·한도).
+ *   <li>{@code MethodSearchCalculation(root, evaluator, transitions, activeOmens,
+ *       retainedOutcomeLimit, partition)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code root}(시작점), {@code
+ *       evaluator}(평가기), {@code transitions}(전이목록), {@code activeOmens}(활성·징조목록), {@code
+ *       retainedOutcomeLimit}(보유·결과·한도), {@code partition}(분할).
+ *   <li>{@code MethodSearchCalculation(root, evaluator, transitions, activeOmens,
+ *       retainedOutcomeLimit, partition, mixtures)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       root}(시작점), {@code evaluator}(평가기), {@code transitions}(전이목록), {@code
+ *       activeOmens}(활성·징조목록), {@code retainedOutcomeLimit}(보유·결과·한도), {@code partition}(분할),
+ *       {@code mixtures}(mixtures).
+ *   <li>{@code MethodSearchCalculation(root, evaluate, transitions, activeOmens,
+ *       retainedOutcomeLimit, direct)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code root}(시작점), {@code
+ *       evaluate}(평가), {@code transitions}(전이목록), {@code activeOmens}(활성·징조목록), {@code
+ *       retainedOutcomeLimit}(보유·결과·한도), {@code direct}(직접).
+ *   <li>{@code MethodSearchCalculation(root, evaluate, transitions, activeOmens,
+ *       retainedOutcomeLimit, direct, openMethodWindow)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       root}(시작점), {@code evaluate}(평가), {@code transitions}(전이목록), {@code activeOmens}(활성·징조목록),
+ *       {@code retainedOutcomeLimit}(보유·결과·한도), {@code direct}(직접), {@code
+ *       openMethodWindow}(열린·제작방법·시간창).
+ *   <li>{@code MethodSearchCalculation(root, evaluate, transitions, activeOmens,
+ *       retainedOutcomeLimit, direct, openMethodWindow, partition)}: 전달받은 값으로 구성원을 초기화한다. 입력:
+ *       {@code root}(시작점), {@code evaluate}(평가), {@code transitions}(전이목록), {@code
+ *       activeOmens}(활성·징조목록), {@code retainedOutcomeLimit}(보유·결과·한도), {@code direct}(직접), {@code
+ *       openMethodWindow}(열린·제작방법·시간창), {@code partition}(분할). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code operations()}: {@code operations} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code mixtureMetrics()}: 혼합·측정값 값을 조회·구성한다. 반환: {@code DeferredMixtures.Metrics}.
+ *   <li>{@code memoryLimited()}: 메모리·제한된 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code increaseMemoryBudget(limit)}: 메모리·계산예산을(를) 한도를 늘린다. 입력: {@code limit}(한도). 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+ *   <li>{@code trimKernels()}: trim·전이커널목록 처리에서 {@code derivedKernels.size}, {@code
+ *       completedKernels.entrySet}을(를) 사용한다.
+ *   <li>{@code alias(request, canonical)}: alias 처리에서 {@code kernelAliases.put}, {@code
+ *       aliasesByKernel.computeIfAbsent}을(를) 사용한다. 입력: {@code request}(요청), {@code canonical}(정규형).
+ *   <li>{@code finishKernel(key, value, ownedOutcomes, derived)}: 완료·전이커널 처리에서 {@code kernels.put},
+ *       {@code completedKernels.put}을(를) 사용한다. 입력: {@code key}(키), {@code value}(값), {@code
+ *       ownedOutcomes}(owned·결과목록), {@code derived}(derived).
+ *   <li>{@code registerKernel(request, depth, methodLength)}: 등록여부·전이커널 처리에서 {@code
+ *       kernelAliases.get}, {@code kernelDepth.merge}을(를) 사용한다. 입력: {@code request}(요청), {@code
+ *       depth}(깊이), {@code methodLength}(제작방법·길이). 반환: {@code Key}.
+ *   <li>{@code derivedKernelEvictions()}: {@code derivedKernelEvictions} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code primitiveKernelEvictions()}: {@code primitiveKernelEvictions} 값을 조회한다. 반환: {@code
+ *       long}.
+ *   <li>{@code cacheMetrics()}: 캐시·측정값 값을 조회·구성한다. 반환: {@code CacheMetrics}.
+ *   <li>{@code matches(state)}: 일치결과의 입력에 따른 분기·결과를 처리한다. 입력: {@code state}(상태). 반환: {@code int}.
+ *   <li>{@code wake(key)}: wake 처리에서 {@code waiting.remove}, {@code ready.forEach}을(를) 사용한다. 입력:
+ *       {@code key}(키).
+ *   <li>{@code queue(method)}: 대기열 처리에서 {@code runnable.addLast}, {@code preferredMethods.add}을(를)
+ *       사용한다. 입력: {@code method}(제작방법). 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code state(value, depth)}: 현재 상태 표현을 조회한다. 입력: {@code value}(값), {@code depth}(깊이). 반환:
+ *       {@code State}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code enqueue(state)}: enqueue 처리에서 {@code frontier.add}을(를) 사용한다. 입력: {@code state}(상태).
+ *   <li>{@code link(source, value)}: 연결 처리에서 {@code states.get}, {@code
+ *       adjacency.computeIfAbsent}을(를) 사용한다. 입력: {@code source}(출처), {@code value}(값).
+ *   <li>{@code progress(state)}: 진행상황 처리에서 {@code progress.computeIfAbsent}, {@code state.item}을(를)
+ *       사용한다. 입력: {@code state}(상태). 반환: {@code Progress}.
+ *   <li>{@code finished(state)}: 종료 처리에서 {@code methods.stream}, {@code methods.get}을(를) 사용한다. 입력:
+ *       {@code state}(상태). 반환: {@code boolean}.
+ *   <li>{@code discover(source)}: discover 처리에서 {@code BasicCurrencyTransitions.supportedActions},
+ *       {@code actions.size}을(를) 사용한다. 입력: {@code source}(출처).
+ *   <li>{@code add(source, actions)}: 값 또는 항목을 더한다. 입력: {@code source}(출처), {@code actions}(행동목록).
+ *   <li>{@code add(source, initial, actions)}: 값 또는 항목을 더한다. 입력: {@code source}(출처), {@code
+ *       initial}(초기값), {@code actions}(행동목록).
+ *   <li>{@code classify(source, outcome, structuralCheckpoint)}: 완전한 전이 특성을 기준으로 상태의 동치류를 판정한다. 입력:
+ *       {@code source}(출처), {@code outcome}(결과), {@code structuralCheckpoint}(구조적·체크포인트). 반환:
+ *       {@code Optional<Exit>}.
+ *   <li>{@code kernel(state, action)}: 전이커널 처리에서 {@code kernelAliases.getOrDefault}, {@code
+ *       kernels.get}을(를) 사용한다. 입력: {@code state}(상태), {@code action}(행동). 반환: {@code
+ *       Kernel<DeferredItem>}. 사용하는 예외: {@code PendingKernel}.
+ *   <li>{@code states()}: 상태목록 값을 조회·구성한다. 반환: {@code List<StateView>}.
+ *   <li>{@code methods()}: 제작방법목록 값을 조회·구성한다. 반환: {@code List<MethodView>}.
+ *   <li>{@code strategy(cycles)}: 전략 처리에서 {@code states.values}, {@code methods.get}을(를) 사용한다. 입력:
+ *       {@code cycles}(주기횟수). 반환: {@code OutcomeStrategy<DeferredItem>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Progress}: {@code MethodSearchCalculation}에서 사용하는 진행상황의 불변 값이다.
+ *   <li>{@code StateView}: {@code MethodSearchCalculation}에서 사용하는 상태·조회표현의 불변 값이다.
+ *   <li>{@code MethodView}: {@code MethodSearchCalculation}에서 사용하는 제작방법·조회표현의 불변 값이다.
+ *   <li>{@code Key}: {@code MethodSearchCalculation}에서 사용하는 키의 불변 값이다.
+ *   <li>{@code PendingKernel}: {@code MethodSearchCalculation} 내부의 대기·전이커널 처리를 맡는다.
+ *   <li>{@code Ready}: {@code MethodSearchCalculation}에서 사용하는 준비완료의 불변 값이다.
+ *   <li>{@code Expansion}: {@code MethodSearchCalculation}에서 사용하는 확장의 불변 값이다.
+ *   <li>{@code CacheMetrics}: {@code MethodSearchCalculation}에서 사용하는 캐시·측정값의 불변 값이다.
+ *   <li>{@code State}: {@code MethodSearchCalculation} 내부의 상태 처리를 맡는다.
+ *   <li>{@code Method}: {@code MethodSearchCalculation} 내부의 제작방법 처리를 맡는다.
+ *   <li>{@code KernelWork}: {@code MethodSearchCalculation} 내부의 전이커널·계산작업 처리를 맡는다.
+ *   <li>{@code MixtureKernelWork}: {@code MethodSearchCalculation} 내부의 혼합·전이커널·계산작업 처리를 맡는다.
+ * </ul>
+ */
 public final class MethodSearchCalculation {
   public static final String VERSION = "bounded-phase-kernel-method-search-v16";
   static final int OPEN_METHOD_WINDOW = 512;
   public static final String TEMPLATES = "applicable-single-and-two-action-cycles-v3";
   public static final List<Integer> OBSERVATIONS = List.of(100, 300, 500);
 
+  /**
+   * {@code MethodSearchCalculation}에서 사용하는 진행상황의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code goal}: 목표 ({@code Status}).
+   *   <li>{@code entries}: 항목목록 ({@code List<Status>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Progress(goal, entries)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code goal}(목표), {@code
+   *       entries}(항목목록).
+   * </ul>
+   */
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
       entries = List.copyOf(entries);
     }
   }
 
+  /**
+   * {@code MethodSearchCalculation}에서 사용하는 상태·조회표현의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code DeferredItem}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code progress}: 진행상황 ({@code Progress}).
+   *   <li>{@code expanded}: 확장된 ({@code boolean}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   * </ul>
+   */
   public record StateView(
       String id,
       DeferredItem state,
@@ -40,6 +229,22 @@ public final class MethodSearchCalculation {
       boolean expanded,
       boolean complete) {}
 
+  /**
+   * {@code MethodSearchCalculation}에서 사용하는 제작방법·조회표현의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code source}: 출처 ({@code String}).
+   *   <li>{@code initialActions}: 초기값·행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code actions}: 행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code points}: 지점목록 ({@code Map<Integer, Observation<DeferredItem,
+   *       WorkbenchCurrency>>}).
+   * </ul>
+   */
   public record MethodView(
       String id,
       String source,
@@ -49,8 +254,33 @@ public final class MethodSearchCalculation {
       String reason,
       Map<Integer, Observation<DeferredItem, WorkbenchCurrency>> points) {}
 
+  /**
+   * {@code MethodSearchCalculation}에서 사용하는 키의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code DeferredItem}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   * </ul>
+   */
   private record Key(DeferredItem state, WorkbenchCurrency action) {}
 
+  /**
+   * {@code MethodSearchCalculation} 내부의 대기·전이커널 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code key}: 키 ({@code Key}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code PendingKernel(key)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code key}(키).
+   * </ul>
+   */
   private static final class PendingKernel extends RuntimeException {
     final Key key;
 
@@ -68,6 +298,16 @@ public final class MethodSearchCalculation {
   private final Map<String, DeferredItem> identities = new HashMap<>();
   private final LinkedHashMap<String, Method> methods = new LinkedHashMap<>();
 
+  /**
+   * {@code MethodSearchCalculation}에서 사용하는 준비완료의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code method}: 제작방법 ({@code Method}).
+   *   <li>{@code ticket}: ticket ({@code long}).
+   * </ul>
+   */
   private record Ready(Method method, long ticket) {}
 
   private final ArrayDeque<Ready> runnable = new ArrayDeque<>();
@@ -84,6 +324,17 @@ public final class MethodSearchCalculation {
   private final Map<Key, List<Method>> waiting = new HashMap<>();
   private final ArrayDeque<Key> fairKernels = new ArrayDeque<>();
 
+  /**
+   * {@code MethodSearchCalculation}에서 사용하는 확장의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code State}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code matches}: 일치결과 ({@code int}).
+   * </ul>
+   */
   private record Expansion(State state, int depth, int matches) {}
 
   private final PriorityQueue<Expansion> frontier =
@@ -410,6 +661,22 @@ public final class MethodSearchCalculation {
     return request;
   }
 
+  /**
+   * {@code MethodSearchCalculation}에서 사용하는 캐시·측정값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code sourceActions}: 출처·행동목록 ({@code int}).
+   *   <li>{@code distinctKernels}: 중복없는·전이커널목록 ({@code int}).
+   *   <li>{@code sharedLookups}: 공유·Lookups ({@code long}).
+   *   <li>{@code outcomes}: 결과목록 ({@code int}).
+   *   <li>{@code methodInstances}: 제작방법·Instances ({@code int}).
+   *   <li>{@code liveRunners}: 현재유효·Runners ({@code long}).
+   *   <li>{@code completedMethods}: 완료·제작방법목록 ({@code int}).
+   *   <li>{@code groupedExecutionInputs}: 묶인·실행·입력목록 ({@code long}).
+   * </ul>
+   */
   public record CacheMetrics(
       int sourceActions,
       int distinctKernels,
@@ -652,6 +919,28 @@ public final class MethodSearchCalculation {
     return new OutcomeStrategy<>(graph);
   }
 
+  /**
+   * {@code MethodSearchCalculation} 내부의 상태 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code value}: 값 ({@code DeferredItem}).
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code methods}: 제작방법목록 ({@code List<String>}).
+   *   <li>{@code matchingEntries}: 일치·항목목록 ({@code int}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code discoveryIndex}: 발견·색인 ({@code int}).
+   *   <li>{@code expanded}: 확장된 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code State(value, id, depth)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code value}(값), {@code
+   *       id}(식별자), {@code depth}(깊이).
+   * </ul>
+   */
   private final class State {
     final DeferredItem value;
     final String id;
@@ -669,6 +958,41 @@ public final class MethodSearchCalculation {
     }
   }
 
+  /**
+   * {@code MethodSearchCalculation} 내부의 제작방법 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code State}).
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code initial}: 초기값 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code actions}: 행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code runner}: 실행기 ({@code ExactMethodRunner<DeferredItem, WorkbenchCurrency>}).
+   *   <li>{@code previousBoundary}: 이전·경계 ({@code Observation<DeferredItem, WorkbenchCurrency>}).
+   *   <li>{@code pendingBoundary}: 대기·경계 ({@code Observation<DeferredItem, WorkbenchCurrency>}).
+   *   <li>{@code activeExpansion}: 활성·확장 ({@code ExactMethodRunner.Compaction<DeferredItem>}).
+   *   <li>{@code foldedInputs}: folded·입력목록 ({@code long}).
+   *   <li>{@code points}: 지점목록 ({@code Map<Integer, Observation<DeferredItem,
+   *       WorkbenchCurrency>>}).
+   *   <li>{@code done}: 완료여부 ({@code boolean}).
+   *   <li>{@code queued}: 대기중 ({@code boolean}).
+   *   <li>{@code ticket}: ticket ({@code long}).
+   *   <li>{@code unresolved}: 미해결 ({@code boolean}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Method(source, id, initial, actions)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       source}(출처), {@code id}(식별자), {@code initial}(초기값), {@code actions}(행동목록).
+   *   <li>{@code initialize()}: 초기화 처리에서 {@code actions.stream}, {@code initial.stream}을(를) 사용한다.
+   *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+   *   <li>{@code save(cycles, point)}: 현재 값을 저장 경계에 기록한다. 입력: {@code cycles}(주기횟수), {@code
+   *       point}(지점). 사용하는 예외: {@code IllegalStateException}.
+   * </ul>
+   */
   private final class Method {
     final State source;
     final String id;
@@ -811,6 +1135,27 @@ public final class MethodSearchCalculation {
     }
   }
 
+  /**
+   * {@code MethodSearchCalculation} 내부의 전이커널·계산작업 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code key}: 키 ({@code Key}).
+   *   <li>{@code cursor}: 진행커서 ({@code DeferredTransitions.Cursor}).
+   *   <li>{@code outcomes}: 결과목록 ({@code Map<DeferredItem, Fraction>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code KernelWork(key, cursor)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code key}(키), {@code
+   *       cursor}(진행커서).
+   *   <li>{@code ready()}: {@code true} 값을 조회한다. 반환: {@code boolean}.
+   *   <li>{@code remainingWork()}: 남은·계산작업 값을 조회·구성한다. 반환: {@code java.math.BigInteger}.
+   *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+   * </ul>
+   */
   private class KernelWork {
     final Key key;
     final DeferredTransitions.Cursor cursor;
@@ -858,7 +1203,37 @@ public final class MethodSearchCalculation {
     }
   }
 
-  /** Linear transport of one conditional mixture through already verified finite-cell kernels. */
+  /**
+   * {@code MethodSearchCalculation} 내부의 혼합·전이커널·계산작업 처리를 맡는다.
+   *
+   * <p>기존 계약: Linear transport of one conditional mixture through already verified finite-cell
+   * kernels.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code dependencies}: 의존목록 ({@code Map<Key, Fraction>}).
+   *   <li>{@code inputs}: 입력목록 ({@code Iterator<Map.Entry<Key, Fraction>>}).
+   *   <li>{@code input}: 입력 ({@code Map.Entry<Key, Fraction>}).
+   *   <li>{@code current}: 현재 ({@code Kernel<DeferredItem>}).
+   *   <li>{@code position}: 진행위치 ({@code int}).
+   *   <li>{@code unavailable}: 사용불가 ({@code Boolean}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code normalizer}: normalizer ({@code ExactMethodRunner.Compaction<DeferredItem>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code MixtureKernelWork(key, dependencies)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code key}(키),
+   *       {@code dependencies}(의존목록).
+   *   <li>{@code ready()}: 준비완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code remainingWork()}: 남은·계산작업 값을 조회·구성한다. 반환: {@code java.math.BigInteger}.
+   *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다. 사용하는 예외: {@code IllegalStateException}.
+   *   <li>{@code releaseDependencies()}: 해제·의존목록 처리에서 {@code dependencies.keySet}, {@code
+   *       dependencyPins.compute}을(를) 사용한다. 사용하는 예외: {@code IllegalStateException}.
+   * </ul>
+   */
   private final class MixtureKernelWork extends KernelWork {
     final Map<Key, Fraction> dependencies;
     Iterator<Map.Entry<Key, Fraction>> inputs;

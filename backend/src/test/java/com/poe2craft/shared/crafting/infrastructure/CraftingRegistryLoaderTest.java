@@ -12,6 +12,38 @@ import java.security.MessageDigest;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 제작 재료 등록 목록을 한 번 검증하고 호출자에게 안전한 JSON 사본을 준다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code M}: 공통 JSON 변환기 ({@code ObjectMapper}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code levelReferencesExpandWithoutChangingApiAndRejectConflictingDefinitions()}: 시나리오의 잘못된
+ *       입력·상태가 {@code IllegalArgumentException}로 거절되는지 검증한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code entryTyposAndNonIntegralSummaryCountsAreRejected()}: 시나리오의 잘못된 입력·상태가 {@code
+ *       IllegalArgumentException}, {@code IOException}로 거절되는지 검증한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code data(name)}: 데이터 처리에서 {@code M.readTree}을(를) 사용한다. 입력: {@code name}(이름). 반환: {@code
+ *       ObjectNode}. 사용하는 예외: {@code IOException}.
+ *   <li>{@code read(data, scopes)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code data}(데이터), {@code
+ *       scopes}(scopes). 반환: {@code JsonNode}. 사용하는 예외: {@code IOException}.
+ *   <li>{@code canonical(node)}: 정규형 처리에서 {@code node.isObject}, {@code M.createObjectNode}을(를)
+ *       사용한다. 입력: {@code node}(노드). 반환: {@code JsonNode}.
+ *   <li>{@code publicRegistryRetainsEveryValueAndArrayOrder()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code publicRegistryDoesNotExposeRetiredCollectionReports()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code newManualPolicyMetadataLabelsTheUserSelectedQualityIncrement()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code invalidIdScopeReferenceVersionAndCountsFailBeforeApiExposure()}: 시나리오의 잘못된 입력·상태가
+ *       {@code IllegalArgumentException}로 거절되는지 검증한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class CraftingRegistryLoaderTest {
   @Test
   void levelReferencesExpandWithoutChangingApiAndRejectConflictingDefinitions() throws Exception {

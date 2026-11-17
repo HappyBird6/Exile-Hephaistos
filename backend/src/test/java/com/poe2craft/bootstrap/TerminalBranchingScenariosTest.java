@@ -17,7 +17,31 @@ import com.poe2craft.shared.item.ModifierDefinition;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-/** Real-policy branching regression: six-affix scope with unchanged resource constants. */
+/**
+ * 종료·Branching·Scenarios 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Real-policy branching regression: six-affix scope with unchanged resource constants.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code GoalDirectedPlannerScenariosTest}).
+ *   <li>{@code directory}: 디렉터리 ({@code java.nio.file.Path}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code fourGoalsKeepPartialEssenceStatesWithoutInventingFinishingExalt()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fourSuffixGoalDoesNotBecomeCompleteSuccessByCompression()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code sevenGoalScopeProofRejectsBeforeCreatingAProductionJob()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code scopeProofAccountsForMultiStatModifiersAndDuplicateConditions()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class TerminalBranchingScenariosTest {
   final GoalDirectedPlannerScenariosTest f = new GoalDirectedPlannerScenariosTest();
 

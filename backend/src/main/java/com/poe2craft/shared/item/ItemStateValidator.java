@@ -7,7 +7,41 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/** Validation does not repair input or remove unsupported modifiers. */
+/**
+ * 입력을 수정하거나 미지원 옵션을 버리지 않고 카탈로그에 맞는지 검증한다.
+ *
+ * <p>기존 계약: Validation does not repair input or remove unsupported modifiers.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ItemStateValidator(catalog)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code catalog}(카탈로그).
+ *   <li>{@code validate(state)}: 입력의 구조·값·지원 조건을 검증한다. 입력: {@code state}(상태). 반환: {@code
+ *       List<Violation>}.
+ *   <li>{@code validateModifiers(instances, layer, errors, finalValues)}: 옵션목록을(를) 검증한다. 입력: {@code
+ *       instances}(instances), {@code layer}(옵션계층), {@code errors}(오류목록), {@code
+ *       finalValues}(최종·값목록).
+ *   <li>{@code validateForGeneration(state)}: 대상·세대번호을(를) 검증한다. 입력: {@code state}(상태). 반환: {@code
+ *       List<Violation>}.
+ *   <li>{@code slots(state)}: 슬롯목록 처리에서 {@code state.snapshotId}, {@code catalog.metadata}을(를)
+ *       사용한다. 입력: {@code state}(상태). 반환: {@code AffixSlots}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code AffixSlots}: {@code ItemStateValidator}에서 사용하는 접두접미옵션·슬롯목록의 불변 값이다.
+ *   <li>{@code Violation}: {@code ItemStateValidator}에서 사용하는 Violation의 불변 값이다.
+ *   <li>{@code Code}: {@code ItemStateValidator}의 코드 구분값을 정의한다.
+ * </ul>
+ */
 public final class ItemStateValidator {
   private final ItemCatalog catalog;
 
@@ -270,6 +304,25 @@ public final class ItemStateValidator {
     return new AffixSlots(prefixes, suffixes, maxPrefixes, maxSuffixes);
   }
 
+  /**
+   * {@code ItemStateValidator}에서 사용하는 접두접미옵션·슬롯목록의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code usedPrefixes}: used·접두목록 ({@code int}).
+   *   <li>{@code usedSuffixes}: used·접미목록 ({@code int}).
+   *   <li>{@code maxPrefixes}: 최대값·접두목록 ({@code int}).
+   *   <li>{@code maxSuffixes}: 최대값·접미목록 ({@code int}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code remainingPrefixes()}: 남은·접두목록 값을 조회·구성한다. 반환: {@code int}.
+   *   <li>{@code remainingSuffixes()}: 남은·접미목록 값을 조회·구성한다. 반환: {@code int}.
+   * </ul>
+   */
   public record AffixSlots(int usedPrefixes, int usedSuffixes, int maxPrefixes, int maxSuffixes) {
     public int remainingPrefixes() {
       return Math.max(0, maxPrefixes - usedPrefixes);
@@ -280,8 +333,39 @@ public final class ItemStateValidator {
     }
   }
 
+  /**
+   * {@code ItemStateValidator}에서 사용하는 Violation의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code code}: 코드 ({@code Code}).
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   *   <li>{@code message}: 메시지 ({@code String}).
+   * </ul>
+   */
   public record Violation(Code code, String modifierId, String message) {}
 
+  /**
+   * {@code ItemStateValidator}의 코드 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code SNAPSHOT_MISMATCH}: MISMATCH 구분값.
+   *   <li>{@code UNSUPPORTED_BASE}: 베이스 구분값.
+   *   <li>{@code UNSUPPORTED_STATE}: 상태 구분값.
+   *   <li>{@code INVALID_IMPLICIT}: 암시옵션 구분값.
+   *   <li>{@code UNKNOWN_MODIFIER}: 옵션 구분값.
+   *   <li>{@code DUPLICATE_MODIFIER}: 옵션 구분값.
+   *   <li>{@code WRONG_MODIFIER_LAYER}: 옵션계층 구분값.
+   *   <li>{@code CONFLICTING_MODIFIERS}: 옵션목록 구분값.
+   *   <li>{@code STAT_SET_MISMATCH}: MISMATCH 구분값.
+   *   <li>{@code VALUE_OUT_OF_RANGE}: 범위 구분값.
+   *   <li>{@code AFFIX_CAPACITY_EXCEEDED}: EXCEEDED 구분값.
+   *   <li>{@code ITEM_LEVEL_TOO_LOW}: LOW 구분값.
+   * </ul>
+   */
   public enum Code {
     SNAPSHOT_MISMATCH,
     UNSUPPORTED_BASE,

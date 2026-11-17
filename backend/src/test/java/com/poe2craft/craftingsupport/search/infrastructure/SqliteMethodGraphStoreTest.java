@@ -9,6 +9,36 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+/**
+ * 작업별 SQLite 파일에 계산 그래프를 저장하고 페이지 캐시를 제한한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code streamingCaptureCommitsOnceAndFailureLeavesPublishedCursorUntouched(dir)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리). 사용하는 예외: {@code Exception}.
+ *   <li>{@code sameDepthPaginationSeeksPastOrdinalRatherThanScanningTheDepthAgain(dir)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리). 사용하는 예외: {@code Exception}.
+ *   <li>{@code uncaughtErrorAfterPartialBatchRollsBackInsteadOfCommittingOnAutocommitRestore(dir)}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리). 사용하는 예외: {@code Exception}.
+ *   <li>{@code identity(input)}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 입력: {@code input}(입력). 반환: {@code
+ *       Identity}.
+ *   <li>{@code committedCheckpointSurvivesProcessExitWithoutClose(dir)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 입력: {@code dir}(디렉터리). 사용하는 예외: {@code Exception}.
+ *   <li>{@code durableCheckpointSeparatesUnrequestedPartialAndReadyObservations(dir)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ *   <li>{@code collisionsAndFailedWritesCannotMergeSourcesOrAdvanceCheckpoints(dir)}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ *   <li>{@code boundedDepthPagesKeepAllAlternativesAndRejectStaleDepthOrdering(dir)}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code CrashWriter}: {@code SqliteMethodGraphStoreTest} 내부의 Crash·쓰기변환기 처리를 맡는다.
+ * </ul>
+ */
 class SqliteMethodGraphStoreTest {
   @Test
   void streamingCaptureCommitsOnceAndFailureLeavesPublishedCursorUntouched(@TempDir Path dir)
@@ -142,6 +172,15 @@ class SqliteMethodGraphStoreTest {
     }
   }
 
+  /**
+   * {@code SqliteMethodGraphStoreTest} 내부의 Crash·쓰기변환기 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code main(args)}: 애플리케이션 또는 독립 실행 도구를 시작한다. 입력: {@code args}(명령인자).
+   * </ul>
+   */
   public static class CrashWriter {
     public static void main(String[] args) {
       var store = new SqliteMethodGraphStore(Path.of(args[0]), identity("crash-input"), 64);

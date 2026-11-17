@@ -8,6 +8,25 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 사용자가 승인한 복합 수치 굴림 가정을 계산한다. 실제 게임에서 증명된 분포는 아니다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code fixture()}: 검증사례 값을 조회·구성한다. 반환: {@code ModifierDefinition}.
+ *   <li>{@code finiteCellsExactlyReproduceTheEntireTickHistogramIncludingUnequalTupleWeights()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code sharedMidpointProducesCoupledValuesAndExplicitConjectureLedger()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code endpointsFixedStatsNegativeTiesAndFullLongRangeRemainExactAndBounded()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code coupledDomainDoesNotBecomeCartesianOrUniformRoundedTuples()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code simulatorRejectsUnknownOrSingleStatOptInsAndDefaultSolarHasNoCoupledModel()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class CoupledStatRollModelTest {
   ModifierDefinition fixture() {
     return new ModifierDefinition(

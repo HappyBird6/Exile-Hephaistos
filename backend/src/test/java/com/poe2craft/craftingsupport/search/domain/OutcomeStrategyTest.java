@@ -7,6 +7,36 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 발견된 유한 결정 그래프와 외부 순환을 포함해 도달 확률 경계를 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code eventualTiesPreserveProperAlternativesWithoutCallingStallingAnOptimalPolicy()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code choice(id, targets)}: 선택 처리에서 {@code mass.merge}, {@code Fraction.of}을(를) 사용한다. 입력:
+ *       {@code id}(식별자), {@code targets}(대상목록). 반환: {@code Choice<String>}.
+ *   <li>{@code state(choices)}: 현재 상태 표현을 조회한다. 입력: {@code choices}(선택목록). 반환: {@code
+ *       State<String>}.
+ *   <li>{@code diamondChoosesByOutcomeAndPreservesParallelAlternativeMethods()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code externalCyclesProduceBoundsAndClosedNonGoalCyclesAreZero()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code equalValueCyclesDoNotDisplaceTheActionThatEstablishedSuccess()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code exactPolicyCursorSolvesRecoveryCyclesAndRetainsAProperWitness()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code exactPolicyCursorNeverCertifiesMissingActionsOrUnknownMass()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code incompleteActionEnumerationPreventsFinalRecommendation()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code largeRecoveryCycleHasExactSuccessAndAProperOutcomeResponsivePolicy()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code qualitativeProofEliminatesRiskyPredecessorsAndDoesNotPromoteUnknownGraphs()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class OutcomeStrategyTest {
   @Test
   void eventualTiesPreserveProperAlternativesWithoutCallingStallingAnOptimalPolicy() {

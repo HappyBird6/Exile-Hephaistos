@@ -15,6 +15,33 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 
 // Keep the real HTTP filters; mock only their external Redis dependency.
+/**
+ * 아이템 복사 텍스트를 표시용 구조로 분석하는 HTTP API다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code mapper}: 입력·출력 표현을 변환하는 구성요소 ({@code ObjectMapper}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code exposesStructuredModifierMetadataAndRejectsKoreanHeaders()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code anonymousParsePreservesTextWithoutCreatingSession(locale)}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 입력: {@code locale}(언어코드). 사용하는 예외: {@code Exception}.
+ *   <li>{@code rejectsInvalidText(body)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code
+ *       body}(본문). 사용하는 예외: {@code Exception}.
+ *   <li>{@code rejectsMalformedJson(body)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code
+ *       body}(본문). 사용하는 예외: {@code Exception}.
+ *   <li>{@code byteLimitCountsMultibyteKorean()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외:
+ *       {@code Exception}.
+ *   <li>{@code exactByteLimitIsAcceptedAndUnknownRoutesAreAbsent()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @org.springframework.test.context.bean.override.mockito.MockitoBean(
     types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest(ItemTextController.class)

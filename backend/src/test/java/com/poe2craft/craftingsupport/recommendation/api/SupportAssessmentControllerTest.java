@@ -20,6 +20,26 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 // Keep the real HTTP filters; mock only their external Redis dependency.
+/**
+ * 제작 목표의 현재 달성 여부와 지원 범위를 평가한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code publishesCatalogFamiliesAndAssessesActualRoot()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code malformedStateUsesProblemDetailsInsteadOfAZeroProbability()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @org.springframework.test.context.bean.override.mockito.MockitoBean(
     types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest(SupportAssessmentController.class)

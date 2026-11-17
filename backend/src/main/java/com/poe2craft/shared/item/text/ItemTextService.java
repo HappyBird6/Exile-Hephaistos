@@ -8,7 +8,47 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
-/** Clipboard display parser adapted from PoB ParseRaw; see docs/legacy/current/text-parsing.md. */
+/**
+ * 게임 복사 텍스트를 속성·옵션·미해석 행으로 나누고 원문을 보존한다.
+ *
+ * <p>기존 계약: Clipboard display parser adapted from PoB ParseRaw; see
+ * docs/legacy/current/text-parsing.md.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code MAX_TEXT_BYTES}: 바이트수; 초기값 {@code 16 * 1024} ({@code int}).
+ *   <li>{@code SEPARATOR}: SEPARATOR ({@code Pattern}).
+ *   <li>{@code MARKER}: MARKER ({@code Pattern}).
+ *   <li>{@code ADVANCED}: ADVANCED ({@code Pattern}).
+ *   <li>{@code AFFIX_NAME}: 이름 ({@code Pattern}).
+ *   <li>{@code TIER}: 티어 ({@code Pattern}).
+ *   <li>{@code DESECRATED_SLOT}: 슬롯 ({@code Pattern}).
+ *   <li>{@code FLAGS}: 상태플래그 ({@code Set<String>}).
+ *   <li>{@code PROPERTY_KEYS}: 키목록 ({@code Set<String>}).
+ *   <li>{@code RARITIES}: 희귀도목록 ({@code Map<String, Rarity>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code tokenizeText(text)}: tokenize·텍스트 처리에서 {@code text.isBlank}, {@code
+ *       text.getBytes}을(를) 사용한다. 입력: {@code text}(텍스트). 반환: {@code TokenizedText}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code parseText(text)}: 텍스트을(를) 해석한다. 입력: {@code text}(텍스트). 반환: {@code Item}. 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code metadataKind(text)}: 메타데이터·종류 처리에서 {@code text.substring}, {@code text.indexOf}을(를)
+ *       사용한다. 입력: {@code text}(텍스트). 반환: {@code ModifierType}.
+ *   <li>{@code match(pattern, text)}: 일치 처리에서 {@code pattern.matcher}, {@code matcher.find}을(를)
+ *       사용한다. 입력: {@code pattern}(패턴), {@code text}(텍스트). 반환: {@code String}.
+ *   <li>{@code unsignedInteger(value)}: unsigned·정수 처리에서 {@code value.matches}, {@code
+ *       Integer.valueOf}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code Integer}.
+ *   <li>{@code key(text)}: 키 처리에서 {@code text.indexOf}, {@code text.substring}을(를) 사용한다. 입력: {@code
+ *       text}(텍스트). 반환: {@code String}.
+ *   <li>{@code valueAfterColon(text)}: 값·변경후·Colon 처리에서 {@code text.substring}, {@code
+ *       text.indexOf}을(를) 사용한다. 입력: {@code text}(텍스트). 반환: {@code String}.
+ * </ul>
+ */
 @org.springframework.stereotype.Service
 public final class ItemTextService {
   public static final int MAX_TEXT_BYTES = 16 * 1024;

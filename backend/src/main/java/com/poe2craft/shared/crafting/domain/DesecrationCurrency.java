@@ -11,8 +11,42 @@ import java.util.*;
 import java.util.random.RandomGenerator;
 
 /**
- * Reveal choices remain manual. Automatic side/removal uses an explicit simulator policy, not
- * published game probabilities; explicit observed inputs remain supported.
+ * 훼손 생성·제거를 앱 정책으로 실행하고 공개 후보 선택은 수동으로 유지한다.
+ *
+ * <p>기존 계약: Reveal choices remain manual. Automatic side/removal uses an explicit simulator policy,
+ * not published game probabilities; explicit observed inputs remain supported.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code ARMOUR}: 방어구 ({@code Set<String>}).
+ *   <li>{@code WEAPONS}: WEAPONS ({@code Set<String>}).
+ *   <li>{@code JEWELLERY}: JEWELLERY ({@code Set<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code DesecrationCurrency()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code supportsRevealPool(baseItemId, pool)}: 공개·후보풀을(를) 지원 여부를 판정한다. 입력: {@code
+ *       baseItemId}(베이스·아이템·식별자), {@code pool}(후보풀). 반환: {@code boolean}.
+ *   <li>{@code putrefy(item, currency, observedSides, omens, catalog)}: putrefy 처리에서 {@code
+ *       observedSides.isEmpty}, {@code observedSides.size}을(를) 사용한다. 입력: {@code item}(아이템), {@code
+ *       currency}(화폐), {@code observedSides}(관측한·Sides), {@code omens}(징조목록), {@code
+ *       catalog}(카탈로그). 반환: {@code AbyssCraftingState}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code apply(item, currency, side, removedSlotId, activeOmens, catalog)}: 주어진 행동 또는 변경을 적용한
+ *       결과를 구한다. 입력: {@code item}(아이템), {@code currency}(화폐), {@code side}(접두접미), {@code
+ *       removedSlotId}(제거된·슬롯·식별자), {@code activeOmens}(활성·징조목록), {@code catalog}(카탈로그). 반환: {@code
+ *       AbyssCraftingState}.
+ *   <li>{@code apply(item, currency, side, removedSlotId, activeOmens, catalog, random)}: 주어진 행동 또는
+ *       변경을 적용한 결과를 구한다. 입력: {@code item}(아이템), {@code currency}(화폐), {@code side}(접두접미), {@code
+ *       removedSlotId}(제거된·슬롯·식별자), {@code activeOmens}(활성·징조목록), {@code catalog}(카탈로그), {@code
+ *       random}(난수생성기). 반환: {@code AbyssCraftingState}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code applyEnriched(item, currency, side, removedSlotId, activeOmens, catalog)}:
+ *       Enriched을(를) 적용한다. 입력: {@code item}(아이템), {@code currency}(화폐), {@code side}(접두접미), {@code
+ *       removedSlotId}(제거된·슬롯·식별자), {@code activeOmens}(활성·징조목록), {@code catalog}(카탈로그). 반환: {@code
+ *       AbyssCraftingState}. 사용하는 예외: {@code IllegalArgumentException}.
+ * </ul>
  */
 public final class DesecrationCurrency {
   private DesecrationCurrency() {}

@@ -17,7 +17,62 @@ import java.util.*;
 import java.util.concurrent.Semaphore;
 import java.util.random.RandomGenerator;
 
-/** Bounded sequential batches; completed uses survive cancellation or time limits. */
+/**
+ * 시간·횟수·취소를 확인하며 반복 실행을 조정하고 이미 끝난 사용 결과를 보존한다.
+ *
+ * <p>기존 계약: Bounded sequential batches; completed uses survive cancellation or time limits.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code workbench}: 작업대 ({@code CraftingOperations}).
+ *   <li>{@code display}: 표시 ({@code ChaosDisplayResources}).
+ *   <li>{@code rulesetIdentity}: 현재 실행 규칙 묶음의 식별자 ({@code String}).
+ *   <li>{@code concreteApply}: 구체값·적용 ({@code ChaosRepeatRunner.Apply}).
+ *   <li>{@code abyssApply}: 훼손·적용 ({@code AbyssApply}).
+ *   <li>{@code admission}: admission ({@code Semaphore}).
+ *   <li>{@code budgetNanos}: 계산예산·나노초 ({@code long}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ChaosRepeatService(workbench, display, identity)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력:
+ *       {@code workbench}(작업대), {@code display}(표시), {@code identity}(정체성).
+ *   <li>{@code ChaosRepeatService(workbench, display, identity, settings)}: 기본 정책을 보충해 공통 생성자로
+ *       위임한다. 입력: {@code workbench}(작업대), {@code display}(표시), {@code identity}(정체성), {@code
+ *       settings}(운영설정).
+ *   <li>{@code ChaosRepeatService(workbench, display, identity, concreteApply, abyssApply)}: 기본 정책을
+ *       보충해 공통 생성자로 위임한다. 입력: {@code workbench}(작업대), {@code display}(표시), {@code identity}(정체성),
+ *       {@code concreteApply}(구체값·적용), {@code abyssApply}(훼손·적용).
+ *   <li>{@code ChaosRepeatService(workbench, display, identity, concreteApply, abyssApply,
+ *       settings)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code workbench}(작업대), {@code display}(표시), {@code
+ *       identity}(정체성), {@code concreteApply}(구체값·적용), {@code abyssApply}(훼손·적용), {@code
+ *       settings}(운영설정).
+ *   <li>{@code run(input, random)}: 작업의 실행 루프를 수행한다. 입력: {@code input}(입력), {@code random}(난수생성기).
+ *       반환: {@code Outcome}.
+ *   <li>{@code run(input, random, cancelled)}: 작업의 실행 루프를 수행한다. 입력: {@code input}(입력), {@code
+ *       random}(난수생성기), {@code cancelled}(취소여부). 반환: {@code Outcome}. 사용하는 예외: {@code
+ *       RepeatRejected}.
+ *   <li>{@code matches(state, catalog, locale, pattern)}: 일치결과 처리에서 {@code display.format}, {@code
+ *       pattern.find}을(를) 사용한다. 입력: {@code state}(상태), {@code catalog}(카탈로그), {@code locale}(언어코드),
+ *       {@code pattern}(패턴). 반환: {@code boolean}.
+ *   <li>{@code abyss(input, binding, catalog, locale, pattern, random, stop)}: 훼손 처리에서 {@code
+ *       input.state}, {@code input.activeOmens}을(를) 사용한다. 입력: {@code input}(입력), {@code
+ *       binding}(결합), {@code catalog}(카탈로그), {@code locale}(언어코드), {@code pattern}(패턴), {@code
+ *       random}(난수생성기), {@code stop}(stop). 반환: {@code Outcome}.
+ *   <li>{@code outcome(binding, state, count, consumed, remaining, witness, termination, rejection,
+ *       failure)}: 결과의 입력에 따른 분기·결과를 처리한다. 입력: {@code binding}(결합), {@code state}(상태), {@code
+ *       count}(개수), {@code consumed}(소비된), {@code remaining}(남은), {@code witness}(증명상태), {@code
+ *       termination}(종료), {@code rejection}(거절), {@code failure}(실패). 반환: {@code Outcome}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code AbyssApply}: {@code ChaosRepeatService} 내부의 훼손·적용 처리를 맡는다.
+ * </ul>
+ */
 public final class ChaosRepeatService {
   private final CraftingOperations workbench;
   private final ChaosDisplayResources display;
@@ -27,6 +82,17 @@ public final class ChaosRepeatService {
   private final Semaphore admission;
   private final long budgetNanos;
 
+  /**
+   * {@code ChaosRepeatService} 내부의 훼손·적용 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code apply(state, action, omens, random)}: 주어진 행동 또는 변경을 적용한 결과를 구한다. 입력: {@code
+   *       state}(상태), {@code action}(행동), {@code omens}(징조목록), {@code random}(난수생성기). 반환: {@code
+   *       AbyssCurrencyExecutor.Result}.
+   * </ul>
+   */
   @FunctionalInterface
   interface AbyssApply {
     AbyssCurrencyExecutor.Result apply(

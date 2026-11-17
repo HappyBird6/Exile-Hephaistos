@@ -17,6 +17,33 @@ import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+/**
+ * 완전히 기록된 불변 커서만 그래프 리비전에 연결한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code PRECISION}: 정밀도 ({@code CertifiedInterval.Precision}).
+ *   <li>{@code TEMPLATE}: 템플릿 ({@code Template<Integer, String>}).
+ *   <li>{@code CLASSIFY}: 상태분류 ({@code Function<Integer, Optional<Exit>>}).
+ *   <li>{@code EMPTY}: 빈값 ({@code Batch}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code f(n, d)}: f 처리에서 {@code BigInteger.valueOf}을(를) 사용한다. 입력: {@code n}(n), {@code
+ *       d}(d). 반환: {@code Fraction}.
+ *   <li>{@code identity()}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 반환: {@code Identity}.
+ *   <li>{@code runner()}: 실행기 값을 조회·구성한다. 반환: {@code CertifiedMethodRunner<Integer, String>}.
+ *   <li>{@code persistedPartialPrimitiveResumesAfterReopenWithExactCostsAndExitMass(dir)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ *   <li>{@code staleOrCancelledWriterCannotReplaceCommittedCursorAndOldRowsCanBeReclaimed(dir)}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ *   <li>{@code unsealedAndWrongScopeReferencesAreRejectedWithoutPublishingOtherChanges(dir)}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code dir}(디렉터리).
+ * </ul>
+ */
 class PersistentMethodCursorTest {
   private static final CertifiedInterval.Precision PRECISION =
       CertifiedInterval.Precision.standard();

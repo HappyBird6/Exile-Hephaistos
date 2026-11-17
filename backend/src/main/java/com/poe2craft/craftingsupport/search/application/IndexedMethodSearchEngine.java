@@ -18,7 +18,77 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.Function;
 
-/** Exact class marginals. Incoming item laws are explicitly bound through retained observations. */
+/**
+ * 검증된 상태 동치류를 사용해 정확한 방법별 주변 확률을 계산한다.
+ *
+ * <p>기존 계약: Exact class marginals. Incoming item laws are explicitly bound through retained
+ * observations.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "indexed-method-map-v1"} ({@code String}).
+ *   <li>{@code index}: 색인 ({@code BasicClassIndex}).
+ *   <li>{@code kernels}: 전이커널목록 ({@code IndexedKernelStore}).
+ *   <li>{@code evaluate}: 평가 ({@code Function<ItemState, Evaluation>}).
+ *   <li>{@code states}: 상태목록 ({@code Map<Integer, State>}).
+ *   <li>{@code methods}: 제작방법목록 ({@code Map<String, Method>}).
+ *   <li>{@code ready}: 준비완료 ({@code ArrayDeque<Method>}).
+ *   <li>{@code adjacency}: 인접목록 ({@code Map<Integer, Set<Integer>>}).
+ *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code Set<WorkbenchSimulator.Assumption>}).
+ *   <li>{@code rootLaw}: 시작점·분포 ({@code ConditionalMethodLaw}).
+ *   <li>{@code root}: 시작점 ({@code int}).
+ *   <li>{@code budget}: 계산예산 ({@code int}).
+ *   <li>{@code operations}: 연산목록 ({@code long}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code IndexedMethodSearchEngine(start, classes, evaluate, budget)}: 전달받은 값으로 구성원을 초기화한다.
+ *       입력: {@code start}(시작값), {@code classes}(동치류목록), {@code evaluate}(평가), {@code budget}(계산예산).
+ *   <li>{@code rootLaw()}: {@code rootLaw} 값을 조회한다. 반환: {@code ConditionalMethodLaw}.
+ *   <li>{@code observation(method, cycles)}: 관측값 처리에서 {@code methods.get}, {@code saved.get}을(를)
+ *       사용한다. 입력: {@code method}(제작방법), {@code cycles}(주기횟수). 반환: {@code
+ *       IndexedMethodRunner.Snapshot}. 사용하는 예외: {@code IllegalArgumentException}, {@code
+ *       IllegalStateException}.
+ *   <li>{@code classId(id)}: 동치류·식별자 처리에서 {@code states.values}을(를) 사용한다. 입력: {@code id}(식별자). 반환:
+ *       {@code int}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code id(key)}: 식별자의 입력에 따른 분기·결과를 처리한다. 입력: {@code key}(키). 반환: {@code String}.
+ *   <li>{@code rootId()}: 시작점·식별자 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code calculationVersion()}: {@code VERSION} 값을 조회한다. 반환: {@code String}.
+ *   <li>{@code stateVersion()}: 상태·버전 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code templatesVersion()}: 템플릿목록·버전 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code operations()}: {@code operations} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code memoryLimited()}: 메모리·제한된 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code increaseMemoryBudget(limit)}: 메모리·계산예산을(를) 한도를 늘린다. 입력: {@code limit}(한도). 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code assumptions()}: 계산가정 값을 조회·구성한다. 반환: {@code List<WorkbenchSimulator.Assumption>}.
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+ *   <li>{@code state(key, depth)}: 현재 상태 표현을 조회한다. 입력: {@code key}(키), {@code depth}(깊이). 반환:
+ *       {@code State}.
+ *   <li>{@code link(source, target)}: 연결 처리에서 {@code adjacency.computeIfAbsent}, {@code
+ *       queue.add}을(를) 사용한다. 입력: {@code source}(출처), {@code target}(대상).
+ *   <li>{@code discover(source)}: discover 처리에서 {@code progress.goal}, {@code
+ *       BasicCurrencyTransitions.supportedActions}을(를) 사용한다. 입력: {@code source}(출처).
+ *   <li>{@code add(source, initial, actions)}: 값 또는 항목을 더한다. 입력: {@code source}(출처), {@code
+ *       initial}(초기값), {@code actions}(행동목록).
+ *   <li>{@code classify(source, key, structural)}: 완전한 전이 특성을 기준으로 상태의 동치류를 판정한다. 입력: {@code
+ *       source}(출처), {@code key}(키), {@code structural}(구조적). 반환: {@code Optional<Exit>}.
+ *   <li>{@code states()}: 상태목록 값을 조회·구성한다. 반환: {@code List<StateView>}.
+ *   <li>{@code methods()}: 제작방법목록 값을 조회·구성한다. 반환: {@code List<MethodView>}.
+ *   <li>{@code ids(input)}: 식별자목록 처리에서 {@code input.forEach}, {@code output.put}을(를) 사용한다. 입력:
+ *       {@code input}(입력). 반환: {@code Map<String, Fraction>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code State}: {@code IndexedMethodSearchEngine} 내부의 상태 처리를 맡는다.
+ *   <li>{@code Method}: {@code IndexedMethodSearchEngine} 내부의 제작방법 처리를 맡는다.
+ * </ul>
+ */
 final class IndexedMethodSearchEngine implements MethodSearchEngine {
   static final String VERSION = "indexed-method-map-v1";
   private final BasicClassIndex index;
@@ -259,6 +329,27 @@ final class IndexedMethodSearchEngine implements MethodSearchEngine {
     return Collections.unmodifiableMap(output);
   }
 
+  /**
+   * {@code IndexedMethodSearchEngine} 내부의 상태 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code key}: 키 ({@code int}).
+   *   <li>{@code progress}: 진행상황 ({@code MethodSearchCalculation.Progress}).
+   *   <li>{@code methods}: 제작방법목록 ({@code List<Method>}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code discovery}: 발견 ({@code int}).
+   *   <li>{@code expanded}: 확장된 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code State(key, depth, progress)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code key}(키), {@code
+   *       depth}(깊이), {@code progress}(진행상황).
+   * </ul>
+   */
   private static final class State {
     final int key;
     final MethodSearchCalculation.Progress progress;
@@ -273,6 +364,33 @@ final class IndexedMethodSearchEngine implements MethodSearchEngine {
     }
   }
 
+  /**
+   * {@code IndexedMethodSearchEngine} 내부의 제작방법 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code State}).
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code initial}: 초기값 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code actions}: 행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code saved}: 저장된 ({@code Map<Integer, IndexedMethodRunner.Snapshot>}).
+   *   <li>{@code points}: 지점목록 ({@code Map<Integer, Observation<String, WorkbenchCurrency>>}).
+   *   <li>{@code runner}: 실행기 ({@code IndexedMethodRunner}).
+   *   <li>{@code done}: 완료여부 ({@code boolean}).
+   *   <li>{@code unresolved}: 미해결 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Method(source, id, initial, actions)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       source}(출처), {@code id}(식별자), {@code initial}(초기값), {@code actions}(행동목록).
+   *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+   *   <li>{@code save(cycles, snapshot)}: 현재 값을 저장 경계에 기록한다. 입력: {@code cycles}(주기횟수), {@code
+   *       snapshot}(스냅샷).
+   * </ul>
+   */
   private final class Method {
     final State source;
     final String id;

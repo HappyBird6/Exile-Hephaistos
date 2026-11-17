@@ -12,9 +12,65 @@ import java.util.*;
 import java.util.function.Function;
 
 /**
- * Finite milestone planner. A method acquires a missing predicate, or prepares that acquisition.
+ * 부족한 목표 조건의 획득·준비 단계로 유한 제작 방법을 구성한다.
+ *
+ * <p>기존 계약: Finite milestone planner. A method acquires a missing predicate, or prepares that
+ * acquisition.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code kernel}: 전이커널 ({@code AutomaticCraftingKernel}).
+ *   <li>{@code evaluate}: 평가 ({@code Function<ItemState, AutomaticMethodGraph.Progress>}).
+ *   <li>{@code inventory}: 등록자료 ({@code List<AutomaticCraftingAction>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code GoalDirectedPlanner(kernel, evaluate, inventory)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       kernel}(전이커널), {@code evaluate}(평가), {@code inventory}(등록자료).
+ *   <li>{@code matched(progress)}: 일치한 처리에서 {@code progress.entries}을(를) 사용한다. 입력: {@code
+ *       progress}(진행상황). 반환: {@code long}.
+ *   <li>{@code advances(source, target)}: advances 처리에서 {@code evaluate.apply}, {@code
+ *       after.goal}을(를) 사용한다. 입력: {@code source}(출처), {@code target}(대상). 반환: {@code boolean}.
+ *   <li>{@code preserves(before, target)}: preserves 처리에서 {@code evaluate.apply}, {@code
+ *       before.entries}을(를) 사용한다. 입력: {@code before}(변경전), {@code target}(대상). 반환: {@code boolean}.
+ *   <li>{@code protectedRemoval(source, plan)}: protected·제거 처리에서 {@code evaluate.apply}, {@code
+ *       plan.status}을(를) 사용한다. 입력: {@code source}(출처), {@code plan}(계획). 반환: {@code boolean}.
+ *   <li>{@code consumesPreparedAffix(source, prepared, next)}: consumes·준비된·접두접미옵션 처리에서 {@code
+ *       prepared.explicits}, {@code source.explicits}을(를) 사용한다. 입력: {@code source}(출처), {@code
+ *       prepared}(준비된), {@code next}(다음). 반환: {@code boolean}.
+ *   <li>{@code guaranteedProtectedRemoval(source, plan)}: guaranteed·Protected·제거 처리에서 {@code
+ *       evaluate.apply}, {@code plan.status}을(를) 사용한다. 입력: {@code source}(출처), {@code plan}(계획).
+ *       반환: {@code boolean}.
+ *   <li>{@code preferAddition(source, choices, currency)}: prefer·추가 처리에서 {@code choices.stream},
+ *       {@code c.initial}을(를) 사용한다. 입력: {@code source}(출처), {@code choices}(선택목록), {@code
+ *       currency}(화폐).
+ *   <li>{@code choices(source)}: 선택목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code source}(출처). 반환: {@code
+ *       List<Choice>}.
+ *   <li>{@code choices(source, initialStage)}: 선택목록 처리에서 {@code evaluate.apply}, {@code
+ *       source.snapshotId}을(를) 사용한다. 입력: {@code source}(출처), {@code initialStage}(초기값·진행단계). 반환:
+ *       {@code List<Choice>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Choice}: {@code GoalDirectedPlanner}에서 사용하는 선택의 불변 값이다.
+ * </ul>
  */
 public final class GoalDirectedPlanner {
+  /**
+   * {@code GoalDirectedPlanner}에서 사용하는 선택의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code initial}: 초기값 ({@code List<AutomaticCraftingAction>}).
+   *   <li>{@code cycle}: 주기 ({@code List<AutomaticCraftingAction>}).
+   * </ul>
+   */
   public record Choice(
       List<AutomaticCraftingAction> initial, List<AutomaticCraftingAction> cycle) {}
 

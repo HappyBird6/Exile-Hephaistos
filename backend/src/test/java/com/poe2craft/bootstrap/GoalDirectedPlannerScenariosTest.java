@@ -33,7 +33,94 @@ import java.util.*;
 import java.util.function.Function;
 import org.junit.jupiter.api.*;
 
-/** Real catalog and the complete production policy, never a reduced currency test inventory. */
+/**
+ * 목표·Directed·Planner·Scenarios 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Real catalog and the complete production policy, never a reduced currency test
+ * inventory.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code cfg}: cfg ({@code CatalogConfiguration}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code workbench}: 작업대 ({@code CatalogCraftingService}).
+ *   <li>{@code goals}: 목표목록 ({@code GoalFilterService}).
+ *   <li>{@code policy}: 정책 ({@code AutomaticCurrencyPolicy}).
+ *   <li>{@code LIFE}: LIFE; 초기값 {@code "base_maximum_life"} ({@code String}).
+ *   <li>{@code CHAOS}: 카오스; 초기값 {@code "base_chaos_damage_resistance_%"} ({@code String}).
+ *   <li>{@code COLD}: COLD; 초기값 {@code "base_cold_damage_resistance_%"} ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code item(rarity, level, explicit)}: 아이템 처리에서 {@code catalog.metadata}, {@code
+ *       catalog.base}을(를) 사용한다. 입력: {@code rarity}(희귀도), {@code level}(레벨), {@code explicit}(명시옵션).
+ *       반환: {@code ItemState}.
+ *   <li>{@code life()}: life 값을 조회·구성한다. 반환: {@code ModifierInstance}.
+ *   <li>{@code goal(root, requirements)}: 목표 처리에서 {@code GoalFilter.Context}, {@code
+ *       root.snapshotId}을(를) 사용한다. 입력: {@code root}(시작점), {@code requirements}(requirements). 반환:
+ *       {@code GoalFilter}.
+ *   <li>{@code evaluation(root, goal)}: 평가 처리에서 {@code goals.compileEvaluation}, {@code
+ *       compiled.apply}을(를) 사용한다. 입력: {@code root}(시작점), {@code goal}(목표). 반환: {@code
+ *       Function<ItemState, AutomaticMethodGraph.Progress>}.
+ *   <li>{@code kernel(root, goal)}: 전이커널 처리에서 {@code goals.rollPartition}, {@code
+ *       goal.toString}을(를) 사용한다. 입력: {@code root}(시작점), {@code goal}(목표). 반환: {@code
+ *       AutomaticCraftingKernel}.
+ *   <li>{@code action(currency, omens)}: 행동의 입력에 따른 분기·결과를 처리한다. 입력: {@code currency}(화폐), {@code
+ *       omens}(징조목록). 반환: {@code AutomaticCraftingAction}.
+ *   <li>{@code historicalKernel(root, goal)}: 과거·전이커널 처리에서 {@code
+ *       HistoricalAutomaticPolicy.beforeDeferrals}, {@code goals.rollPartition}을(를) 사용한다. 입력:
+ *       {@code root}(시작점), {@code goal}(목표). 반환: {@code AutomaticCraftingKernel}.
+ *   <li>{@code graph(root, goal)}: 그래프 처리에서 {@code Precision.standard}을(를) 사용한다. 입력: {@code
+ *       root}(시작점), {@code goal}(목표). 반환: {@code AutomaticMethodGraph}.
+ *   <li>{@code exhaust(graph)}: exhaust 처리에서 {@code graph.finished}, {@code
+ *       graph.resourceLimited}을(를) 사용한다. 입력: {@code graph}(그래프).
+ *   <li>{@code laterSingleAffixCannotReenterInitialChaosStage()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code chaosCannotAcquireFirstTargetFromMultipleExplicitAffixes()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code chaosKernelRejectsMultipleExplicitAffixes()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code magicLifeToRareLifeChaosHasDirectCertainEssence()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code thirdColdGoalKeepsPartialEssenceRoutesWithoutFinishingExalted()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code emptyMagicPreparesRareBeforeChaosAndFracturedAffixIsNotAFreeRetry()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code emptyRareMinionGoalKeepsPreparedChaosAndCompletes()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code minionLevelThreeIsAnIntentionalProbabilisticAcquisition()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code lowLifeAndMinionTwo()}: low·Life·및·Minion·Two 값을 조회·구성한다. 반환: {@code ItemState}.
+ *   <li>{@code highTierPreparationIsPlannedBeforeWhittlingWithoutImmediateGoalGain()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code magicSingleAffixCannotPrepareTwoAffixChaos()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code highTierPreparationStopsFailedPrerequisitesAndConservesAllMass()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code absorbingFailureCompactionPreservesProbabilityAndChargedMaterials()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code emptyRareNeedsPreparedAffixBeforeReplacementEssence()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code lowerLevelDoesNotInventGreaterEssenceEligibility()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code whittlingPreparationUsesActualCatalogModifierLevels()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code unrestrictedChaosKeepsLossRiskInTheLaw()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fourToFiveToSixPreservesProbabilityMassAndStopsAtCapacity()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code impossibleNumericGoalExhaustsScopedPlansWithoutInventedHit()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fracturedWhittlingRemainsUnverifiedRatherThanRenormalized()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code newGoalPurposeDoesNotEnableOtherExcludedCurrencies()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code probabilityBudgetNeverRenormalizesRetainedOutcomes()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code singleAffixChaosRetriesMatchFiniteSeriesIncludingUnresolvedAbsorption()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 @Timeout(90)
 class GoalDirectedPlannerScenariosTest {
   static final CatalogConfiguration cfg = new CatalogConfiguration();

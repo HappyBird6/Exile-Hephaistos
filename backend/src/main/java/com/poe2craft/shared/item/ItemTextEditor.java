@@ -2,7 +2,24 @@ package com.poe2craft.shared.item;
 
 import java.util.List;
 
-/** Applies editable raw-roll text while retaining state which clipboard text cannot encode. */
+/**
+ * 편집한 수치 원문을 적용하면서 복사 텍스트에 없는 기존 상태를 보존한다.
+ *
+ * <p>기존 계약: Applies editable raw-roll text while retaining state which clipboard text cannot
+ * encode.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ItemTextEditor()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code merge(before, mapped, catalog)}: merge 처리에서 {@code ManualRevealCatalog.enrich},
+ *       {@code ItemTextStateValidation.validate}을(를) 사용한다. 입력: {@code before}(변경전), {@code
+ *       mapped}(mapped), {@code catalog}(카탈로그). 반환: {@code SolarTextMapper.Result}.
+ *   <li>{@code blocked(message)}: 차단 처리에서 {@code SolarTextMapper.Result}, {@code
+ *       SolarTextMapper.Issue}을(를) 사용한다. 입력: {@code message}(메시지). 반환: {@code
+ *       SolarTextMapper.Result}.
+ * </ul>
+ */
 public final class ItemTextEditor {
   private ItemTextEditor() {}
 

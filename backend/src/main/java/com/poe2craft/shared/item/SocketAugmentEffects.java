@@ -6,7 +6,43 @@ import com.poe2craft.shared.ruleset.SealedResources;
 import java.util.*;
 import java.util.regex.Pattern;
 
-/** Shared source-span arithmetic for copied Rune effects; structural limits never amplify. */
+/**
+ * 복사한 룬 효과의 수치를 계산하되 구조적 장착 한도는 증폭하지 않는다.
+ *
+ * <p>기존 계약: Shared source-span arithmetic for copied Rune effects; structural limits never amplify.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code NUMBER}: 숫자 ({@code Pattern}).
+ *   <li>{@code TEMPLATES}: 템플릿목록 ({@code JsonNode}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code SocketAugmentEffects()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code load()}: 검증된 자료를 로딩한다. 반환: {@code JsonNode}. 사용하는 예외: {@code
+ *       ExceptionInInitializerError}.
+ *   <li>{@code visible(text)}: visible 처리에서 {@code text.replaceAll}을(를) 사용한다. 입력: {@code
+ *       text}(텍스트). 반환: {@code String}.
+ *   <li>{@code multiplier(state)}: 배수의 입력에 따른 분기·결과를 처리한다. 입력: {@code state}(상태). 반환: {@code
+ *       double}.
+ *   <li>{@code multiplier(state, catalog)}: 배수 처리에서 {@code state.implicits}, {@code
+ *       state.explicits}을(를) 사용한다. 입력: {@code state}(상태), {@code catalog}(카탈로그). 반환: {@code
+ *       double}.
+ *   <li>{@code runeMultiplier(installed, multiplier)}: 룬·배수 처리에서 {@code installed.stream}, {@code
+ *       AugmentCraftingRules.effect}을(를) 사용한다. 입력: {@code installed}(장착된), {@code multiplier}(배수).
+ *       반환: {@code double}.
+ *   <li>{@code structural(id)}: 구조적 처리에서 {@code AugmentCraftingRules.effect}, {@code
+ *       effect.craftedBonus}을(를) 사용한다. 입력: {@code id}(식별자). 반환: {@code boolean}.
+ *   <li>{@code render(base, id, installed, multiplier, bonded)}: 계산 결과를 외부 응답 형태로 만든다. 입력: {@code
+ *       base}(베이스), {@code id}(식별자), {@code installed}(장착된), {@code multiplier}(배수), {@code
+ *       bonded}(bonded). 반환: {@code List<String>}.
+ *   <li>{@code observed(text, ratio)}: 관측한 처리에서 {@code NUMBER.matcher}, {@code Long.toString}을(를)
+ *       사용한다. 입력: {@code text}(텍스트), {@code ratio}(비율). 반환: {@code String}.
+ * </ul>
+ */
 public final class SocketAugmentEffects {
   private SocketAugmentEffects() {}
 

@@ -7,6 +7,23 @@ import java.math.BigDecimal;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 목표·출처·Conversion 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code evaluate(type, number, rowRange, groupRange, weight)}: 입력 조건이나 정책을 평가해 결과를 구한다. 입력:
+ *       {@code type}(타입), {@code number}(숫자), {@code rowRange}(행·범위), {@code groupRange}(그룹·범위),
+ *       {@code weight}(가중치). 반환: {@code GoalEvaluator.Evaluation}.
+ *   <li>{@code repeatingRegenerationNeverUsesRoundedDecimalForInclusiveBounds()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code bothWeightedModesAndPseudoSumsKeepExactRationalValues()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code reviewedLeechConversionHasNoPrematureRounding()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ * </ul>
+ */
 class GoalSourceConversionTest {
   private GoalEvaluator.Evaluation evaluate(
       Type type, GoalNumber number, Range rowRange, Range groupRange, BigDecimal weight) {

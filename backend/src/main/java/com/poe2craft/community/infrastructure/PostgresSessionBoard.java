@@ -14,6 +14,72 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * 공개 세션 게시물을 PostgreSQL에 저장하고 조회한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code db}: DB ({@code JdbcTemplate}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code maxBytes}: 최대값·바이트수 ({@code int}).
+ *   <li>{@code maxFrames}: 최대값·Frames ({@code int}).
+ *   <li>{@code pageSize}: 페이지·크기 ({@code int}).
+ *   <li>{@code maxBody}: 최대값·본문 ({@code int}).
+ *   <li>{@code maxComment}: 최대값·댓글 ({@code int}).
+ *   <li>{@code currentVersion}: 현재·버전 ({@code String}).
+ *   <li>{@code passwords}: passwords ({@code BCryptPasswordEncoder}).
+ *   <li>{@code passwordSlots}: 비밀번호·슬롯목록 ({@code Semaphore}).
+ *   <li>{@code select}: 선택 ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code PostgresSessionBoard(db, json, maxBytes, maxFrames, pageSize, maxBody, maxComment,
+ *       currentVersion)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code db}(DB), {@code json}(JSON), {@code
+ *       maxBytes}(최대값·바이트수), {@code maxFrames}(최대값·Frames), {@code pageSize}(페이지·크기), {@code
+ *       maxBody}(최대값·본문), {@code maxComment}(최대값·댓글), {@code currentVersion}(현재·버전).
+ *   <li>{@code parse(raw)}: 외부 표현을 내부 값으로 해석한다. 입력: {@code raw}(원문). 반환: {@code JsonNode}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code mapper()}: 변환기 값을 조회·구성한다. 반환: {@code RowMapper<Post>}.
+ *   <li>{@code summary(p)}: 요약 처리에서 {@code p.id}, {@code p.authorId}을(를) 사용한다. 입력: {@code p}(p).
+ *       반환: {@code Summary}.
+ *   <li>{@code get(id)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code id}(식별자). 반환: {@code Post}. 사용하는 예외:
+ *       {@code ResponseStatusException}.
+ *   <li>{@code text(value, max)}: 텍스트 처리에서 {@code value.strip}, {@code value.length}을(를) 사용한다. 입력:
+ *       {@code value}(값), {@code max}(최대값). 반환: {@code String}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ *   <li>{@code draft(actor, d)}: 초안 처리에서 {@code d.id}, {@code d.sourceId}을(를) 사용한다. 입력: {@code
+ *       actor}(작업주체), {@code d}(d). 반환: {@code JsonNode}. 사용하는 예외: {@code ResponseStatusException}.
+ *   <li>{@code hash(password)}: 해시 처리에서 {@code password.length}, {@code password.getBytes}을(를)
+ *       사용한다. 입력: {@code password}(비밀번호). 반환: {@code String}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ *   <li>{@code authorize(actor, id, password)}: authorize 처리에서 {@code db.queryForMap}, {@code
+ *       row.get}을(를) 사용한다. 입력: {@code actor}(작업주체), {@code id}(식별자), {@code password}(비밀번호). 사용하는
+ *       예외: {@code ResponseStatusException}.
+ *   <li>{@code create(actor, d)}: 새 작업 또는 값을 생성한다. 입력: {@code actor}(작업주체), {@code d}(d). 반환:
+ *       {@code Post}. 사용하는 예외: {@code ResponseStatusException}.
+ *   <li>{@code update(actor, id, d)}: 갱신 처리에서 {@code d.password}, {@code d.revision}을(를) 사용한다. 입력:
+ *       {@code actor}(작업주체), {@code id}(식별자), {@code d}(d). 반환: {@code Post}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ *   <li>{@code editText(actor, id, title, body, revision)}: 편집·텍스트 처리에서 {@code actor.account},
+ *       {@code old.authorId}을(를) 사용한다. 입력: {@code actor}(작업주체), {@code id}(식별자), {@code title}(제목),
+ *       {@code body}(본문), {@code revision}(리비전). 반환: {@code Post}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ *   <li>{@code delete(actor, id, password, revision)}: 삭제 처리에서 {@code db.update}을(를) 사용한다. 입력:
+ *       {@code actor}(작업주체), {@code id}(식별자), {@code password}(비밀번호), {@code revision}(리비전). 사용하는
+ *       예외: {@code ResponseStatusException}.
+ *   <li>{@code list(base, version, author, page, sort, itemClass)}: 조건에 맞는 목록을 조회한다. 입력: {@code
+ *       base}(베이스), {@code version}(버전), {@code author}(작성자), {@code page}(페이지), {@code
+ *       sort}(sort), {@code itemClass}(아이템·동치류). 반환: {@code Page}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ *   <li>{@code mine(actor, source)}: mine 처리에서 {@code source.length}, {@code SharedSession.bad}을(를)
+ *       사용한다. 입력: {@code actor}(작업주체), {@code source}(출처). 반환: {@code List<Summary>}.
+ *   <li>{@code availableBases()}: 사용가능·베이스목록 값을 조회·구성한다. 반환: {@code List<String>}.
+ *   <li>{@code options()}: options 값을 조회·구성한다. 반환: {@code Map<String, Object>}.
+ * </ul>
+ */
 @Repository
 public class PostgresSessionBoard implements SessionBoard {
   private final JdbcTemplate db;

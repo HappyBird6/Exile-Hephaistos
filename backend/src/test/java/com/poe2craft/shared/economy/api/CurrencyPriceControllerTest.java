@@ -13,6 +13,16 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+/**
+ * 제작 화폐 시세 조회 요청을 가격 서비스에 전달한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code unchangedSnapshotReturns304AndRefreshStatusDoesNotContainQuotes()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class CurrencyPriceControllerTest {
   @Test
   void unchangedSnapshotReturns304AndRefreshStatusDoesNotContainQuotes() throws Exception {

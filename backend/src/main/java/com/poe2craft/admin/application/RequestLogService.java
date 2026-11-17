@@ -9,6 +9,49 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+/**
+ * 요청 로그 수집과 조회 및 날짜별 보관 작업을 조정한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code clock}: 현재 시각 공급자 ({@code Clock}).
+ *   <li>{@code store}: 저장소 ({@code RequestLogRepository}).
+ *   <li>{@code settings}: 운영설정 ({@code BackendSettings.AdminLogs}).
+ *   <li>{@code queue}: 대기열 ({@code ArrayBlockingQueue<RequestEvent>}).
+ *   <li>{@code dropped}: dropped ({@code AtomicLong}).
+ *   <li>{@code budgetDay}: 계산예산·Day ({@code LocalDate}).
+ *   <li>{@code dailyCount}: daily·개수 ({@code int}).
+ *   <li>{@code rejectionSecond}: 거절·두번째; 초기값 {@code -1} ({@code long}).
+ *   <li>{@code storageStatus}: 저장소·상태; 초기값 {@code "OK"} ({@code String}).
+ *   <li>{@code archiveStatus}: 아카이브·상태; 초기값 {@code "OK"} ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code RequestLogService(store, settings)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       store}(저장소), {@code settings}(운영설정).
+ *   <li>{@code RequestLogService(store, settings, clock)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       store}(저장소), {@code settings}(운영설정), {@code clock}(현재 시각 공급자).
+ *   <li>{@code record(event)}: 허용된 이벤트나 관측값을 기록한다. 입력: {@code event}(이벤트).
+ *   <li>{@code flush()}: 수집한 기록을 저장소에 반영한다.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ *   <li>{@code archive()}: 아카이브 처리에서 {@code MILLISECONDS.toNanos}, {@code
+ *       settings.archiveWorkMillis}을(를) 사용한다.
+ *   <li>{@code today()}: today 값을 조회·구성한다. 반환: {@code LocalDate}.
+ *   <li>{@code earliestDate()}: earliest·날짜 값을 조회·구성한다. 반환: {@code LocalDate}.
+ *   <li>{@code query(filters)}: 조회조건의 입력에 따른 분기·결과를 처리한다. 입력: {@code filters}(필터목록). 반환: {@code
+ *       Map<String, Object>}.
+ *   <li>{@code query(filters, view)}: 조회조건 처리에서 {@code filters.date}, {@code view.equals}을(를) 사용한다.
+ *       입력: {@code filters}(필터목록), {@code view}(조회표현). 반환: {@code Map<String, Object>}. 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code archives(page)}: archives 처리에서 {@code store.archives}을(를) 사용한다. 입력: {@code
+ *       page}(페이지). 반환: {@code Map<String, Object>}.
+ *   <li>{@code download(id)}: 다운로드 처리에서 {@code store.download}을(를) 사용한다. 입력: {@code id}(식별자). 반환:
+ *       {@code Path}.
+ * </ul>
+ */
 @Service
 public class RequestLogService {
   private final Clock clock;

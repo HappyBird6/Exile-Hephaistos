@@ -14,7 +14,71 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.Function;
 
-/** One job's exact streaming continuation. Mutated only while holding its job monitor. */
+/**
+ * 작업 잠금 아래에서 정확한 경로 탐색을 이어 계산한다.
+ *
+ * <p>기존 계약: One job's exact streaming continuation. Mutated only while holding its job monitor.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code CANDIDATES}: 후보목록; 초기값 {@code "solar-one-explicit-candidates-v1"} ({@code String}).
+ *   <li>{@code PROOF}: 증명; 초기값 {@code "single-explicit-full-return-numeric-v1"} ({@code String}).
+ *   <li>{@code ACTIONS}: 행동목록 ({@code List<List<WorkbenchCurrency>>}).
+ *   <li>{@code DISPLAY_OUTCOMES}: 결과목록; 초기값 {@code 24} ({@code int}).
+ *   <li>{@code METHOD_DISPLAY_OUTCOMES}: 결과목록; 초기값 {@code 6} ({@code int}).
+ *   <li>{@code root}: 시작점 ({@code BasicCurrencyState}).
+ *   <li>{@code predicate}: 판정조건 ({@code Function<ItemState, Status>}).
+ *   <li>{@code observations}: 관측값목록 ({@code List<String>}).
+ *   <li>{@code candidates}: 후보목록 ({@code List<Candidate>}).
+ *   <li>{@code nodes}: 노드목록 ({@code Map<String, Node>}).
+ *   <li>{@code executions}: 실행목록 ({@code Map<String, Execution>}).
+ *   <li>{@code edges}: 간선목록 ({@code Map<String, Edge>}).
+ *   <li>{@code expansions}: expansions ({@code Map<String, Expansion>}).
+ *   <li>{@code transitions}: 전이목록 ({@code BasicCurrencyTransitions}).
+ *   <li>{@code candidateIndex}: 후보·색인 ({@code int}).
+ *   <li>{@code evaluations}: 평가목록 ({@code long}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code PathSearchCalculation(root, predicate, observations, transitions)}: 전달받은 값으로 구성원을
+ *       초기화한다. 입력: {@code root}(시작점), {@code predicate}(판정조건), {@code observations}(관측값목록), {@code
+ *       transitions}(전이목록).
+ *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code outputLimited()}: output·제한된 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code node(state)}: 노드 처리에서 {@code state.canonicalKey}, {@code state.item}을(를) 사용한다. 입력:
+ *       {@code state}(상태). 반환: {@code String}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code execution(state, policy, phase)}: 실행 처리에서 {@code policy.id}, {@code
+ *       executions.putIfAbsent}을(를) 사용한다. 입력: {@code state}(상태), {@code policy}(정책), {@code
+ *       phase}(단계). 반환: {@code String}.
+ *   <li>{@code edge(from, to, action, mass, kind)}: 간선 처리에서 {@code edges.get}, {@code
+ *       edges.put}을(를) 사용한다. 입력: {@code from}(원본), {@code to}(대상), {@code action}(행동), {@code
+ *       mass}(확률질량), {@code kind}(종류).
+ *   <li>{@code recommendations()}: 추천목록 값을 조회·구성한다. 반환: {@code List<Recommendation>}.
+ *   <li>{@code method(c, points)}: 제작방법 처리에서 {@code exits.add}, {@code cursor.emptyState}을(를) 사용한다.
+ *       입력: {@code c}(c), {@code points}(지점목록). 반환: {@code MethodTransition}.
+ *   <li>{@code share(mass, part, total)}: share 처리에서 {@code total.equals}, {@code
+ *       mass.multiply}을(를) 사용한다. 입력: {@code mass}(확률질량), {@code part}(part), {@code total}(합계). 반환:
+ *       {@code Fraction}.
+ *   <li>{@code subtract(a, b)}: 두 값의 차를 계산한다. 입력: {@code a}(a), {@code b}(b). 반환: {@code Fraction}.
+ *   <li>{@code point(c, n)}: 지점 처리에서 {@code RenewalFirstHit.Mass}, {@code actions.size}을(를) 사용한다.
+ *       입력: {@code c}(c), {@code n}(n). 반환: {@code Point}.
+ *   <li>{@code rankings(recommendations, observations)}: rankings 처리에서 {@code observations.size},
+ *       {@code recommendations.stream}을(를) 사용한다. 입력: {@code recommendations}(추천목록), {@code
+ *       observations}(관측값목록). 반환: {@code List<Ranking>}.
+ *   <li>{@code compare(a, b)}: 비교 처리에서 {@code a.numerator}, {@code b.denominator}을(를) 사용한다. 입력:
+ *       {@code a}(a), {@code b}(b). 반환: {@code int}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Candidate}: {@code PathSearchCalculation} 내부의 후보 처리를 맡는다.
+ * </ul>
+ */
 final class PathSearchCalculation {
   static final String CANDIDATES = "solar-one-explicit-candidates-v1";
   static final String PROOF = "single-explicit-full-return-numeric-v1";
@@ -456,6 +520,36 @@ final class PathSearchCalculation {
         .compareTo(b.numerator().multiply(a.denominator()));
   }
 
+  /**
+   * {@code PathSearchCalculation} 내부의 후보 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code policy}: 정책 ({@code Policy}).
+   *   <li>{@code actions}: 행동목록 ({@code List<WorkbenchCurrency>}).
+   *   <li>{@code cursor}: 진행커서 ({@code BasicCurrencyTransitions.RenewalCursor}).
+   *   <li>{@code hitOutcomes}: 목표도달·결과목록 ({@code Map<BasicCurrencyState, Fraction>}).
+   *   <li>{@code activeOutcomes}: 활성·결과목록 ({@code Map<BasicCurrencyState, Fraction>}).
+   *   <li>{@code success}: 성공 ({@code Fraction}).
+   *   <li>{@code unknown}: 미확정 ({@code Fraction}).
+   *   <li>{@code emitted}: 내보낸 ({@code Fraction}).
+   *   <li>{@code displayMass}: 표시·확률질량 ({@code Fraction}).
+   *   <li>{@code displayed}: displayed ({@code int}).
+   *   <li>{@code rootHit}: 시작점·목표도달 ({@code boolean}).
+   *   <li>{@code emptyHit}: 빈값·목표도달 ({@code boolean}).
+   *   <li>{@code unavailable}: 사용불가 ({@code boolean}).
+   *   <li>{@code done}: 완료여부 ({@code boolean}).
+   *   <li>{@code blocked}: 차단 ({@code String}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Candidate(policy, actions)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code policy}(정책), {@code
+   *       actions}(행동목록).
+   * </ul>
+   */
   private static final class Candidate {
     final Policy policy;
     final List<WorkbenchCurrency> actions;

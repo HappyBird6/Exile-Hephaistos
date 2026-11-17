@@ -8,6 +8,18 @@ import java.io.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 카탈로그·Load·순서 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code historical(pool, extensions)}: 과거 정의의 읽기 전용 실행 환경을 조회한다. 입력: {@code pool}(후보풀),
+ *       {@code extensions}(extensions). 반환: {@code ItemCatalog}. 사용하는 예외: {@code IOException}.
+ *   <li>{@code extensionAndCompatibilityOrderRemainHistoricalWithoutSortingArrays()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class CatalogLoadOrderTest {
   private ItemCatalog historical(String pool, List<String> extensions) throws IOException {
     String root = "/catalog/" + pool + "/";

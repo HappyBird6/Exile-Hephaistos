@@ -6,8 +6,103 @@ import com.poe2craft.shared.ruleset.SealedResources;
 import java.io.IOException;
 import java.util.*;
 
-/** Bundled reviewed identities and explicit class policies. Unknown bases inherit no capability. */
+/**
+ * 검토된 베이스 정체성과 명시적인 장비 분류 정책을 조회한다.
+ *
+ * <p>기존 계약: Bundled reviewed identities and explicit class policies. Unknown bases inherit no
+ * capability.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code TOP}: 상위 ({@code Map<String, Base>}).
+ *   <li>{@code POLICIES}: 정책목록 ({@code Map<String, Policy>}).
+ *   <li>{@code KEYS}: 키목록 ({@code Set<String>}).
+ *   <li>{@code CLASSES}: 동치류목록 ({@code Map<String, String>}).
+ *   <li>{@code GRANTED_SKILLS}: SKILLS ({@code Map<String, Set<String>>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code read(source, rules)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code source}(출처), {@code
+ *       rules}(규칙목록). 반환: {@code Snapshot}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code BaseRegistry()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code required(source, field)}: 필수 처리에서 {@code source.get}, {@code value.isTextual}을(를)
+ *       사용한다. 입력: {@code source}(출처), {@code field}(필드). 반환: {@code String}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code parse(source, mapper, legacy)}: 외부 표현을 내부 값으로 해석한다. 입력: {@code source}(출처), {@code
+ *       mapper}(변환기), {@code legacy}(구버전). 반환: {@code Policy}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code topBases()}: {@code TOP} 값을 조회한다. 반환: {@code Map<String, Base>}.
+ *   <li>{@code registeredKeys()}: {@code KEYS} 값을 조회한다. 반환: {@code Set<String>}.
+ *   <li>{@code require(key)}: 필수 조건을 검사한다. 입력: {@code key}(키). 반환: {@code Base}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code supportedBaseIds()}: 지원·베이스·식별자목록 값을 조회·구성한다. 반환: {@code Set<String>}.
+ *   <li>{@code itemClass(id)}: 아이템·동치류 처리에서 {@code CLASSES.get}을(를) 사용한다. 입력: {@code id}(식별자). 반환:
+ *       {@code String}.
+ *   <li>{@code policy(id)}: 정책 처리에서 {@code POLICIES.get}을(를) 사용한다. 입력: {@code id}(식별자). 반환: {@code
+ *       Policy}.
+ *   <li>{@code supports(id)}: 호출 대상의 지원 여부를 판정한다. 입력: {@code id}(식별자). 반환: {@code boolean}.
+ *   <li>{@code familyBases(families)}: 옵션계열·베이스목록 처리에서 {@code TOP.forEach}, {@code
+ *       allowed.contains}을(를) 사용한다. 입력: {@code families}(옵션계열목록). 반환: {@code Map<String, String>}.
+ *   <li>{@code qualityLimit(id)}: 품질·한도 처리에서 {@code p.qualityLimit}을(를) 사용한다. 입력: {@code id}(식별자).
+ *       반환: {@code boolean}.
+ *   <li>{@code rareOnly(id)}: 희귀·제한 처리에서 {@code TRUE.equals}, {@code policy.rareOnly}을(를) 사용한다. 입력:
+ *       {@code id}(식별자). 반환: {@code boolean}.
+ *   <li>{@code ordinaryCatalyst(id)}: 일반·기폭제 처리에서 {@code p.ordinaryCatalyst}을(를) 사용한다. 입력: {@code
+ *       id}(식별자). 반환: {@code boolean}.
+ *   <li>{@code refinedCatalyst(id)}: refined·기폭제 처리에서 {@code p.refinedCatalyst}을(를) 사용한다. 입력:
+ *       {@code id}(식별자). 반환: {@code boolean}.
+ *   <li>{@code catalystQuality(id)}: 기폭제·품질 처리에서 {@code p.catalystQuality}을(를) 사용한다. 입력: {@code
+ *       id}(식별자). 반환: {@code boolean}.
+ *   <li>{@code maximumQualityBreach(id)}: 최대값·품질·Breach 처리에서 {@code p.maximumQualityBreach}을(를)
+ *       사용한다. 입력: {@code id}(식별자). 반환: {@code boolean}.
+ *   <li>{@code recognizesGrantedSkill(id, line)}: recognizes·부여된·Skill의 입력에 따른 분기·결과를 처리한다. 입력:
+ *       {@code id}(식별자), {@code line}(행). 반환: {@code boolean}.
+ *   <li>{@code observedGrantedSkill(id, line)}: 관측한·부여된·Skill 처리에서 {@code Pattern.compile}, {@code
+ *       m.matches}을(를) 사용한다. 입력: {@code id}(식별자), {@code line}(행). 반환: {@code
+ *       ItemObservations.GrantedSkill}.
+ *   <li>{@code socketExecutionMaximum(id)}: 장착홈·실행·최대값 처리에서 {@code p.socketExecutionMaximum}을(를)
+ *       사용한다. 입력: {@code id}(식별자). 반환: {@code Integer}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Policy}: {@code BaseRegistry}에서 사용하는 정책의 불변 값이다.
+ *   <li>{@code Base}: {@code BaseRegistry}에서 사용하는 베이스의 불변 값이다.
+ *   <li>{@code Snapshot}: {@code BaseRegistry}에서 사용하는 스냅샷의 불변 값이다.
+ * </ul>
+ *
+ * <p>초기화 블록: 선언된 공유 값과 초기 색인을 초기화한다. 초기화 실패는 타입 사용 전에 드러난다.
+ */
 public final class BaseRegistry {
+  /**
+   * {@code BaseRegistry}에서 사용하는 정책의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code itemClass}: 아이템·동치류 ({@code String}).
+   *   <li>{@code ruleVersion}: 규칙·버전 ({@code String}).
+   *   <li>{@code ledgerVersion}: 규칙장부·버전 ({@code String}).
+   *   <li>{@code qualityLimit}: 품질·한도 ({@code boolean}).
+   *   <li>{@code ordinaryCatalyst}: 일반·기폭제 ({@code boolean}).
+   *   <li>{@code refinedCatalyst}: refined·기폭제 ({@code boolean}).
+   *   <li>{@code catalystQuality}: 기폭제·품질 ({@code boolean}).
+   *   <li>{@code maximumQualityBreach}: 최대값·품질·Breach ({@code boolean}).
+   *   <li>{@code initializeImplicit}: 초기화·암시옵션 ({@code boolean}).
+   *   <li>{@code socketExecutionMaximum}: 장착홈·실행·최대값 ({@code Integer}).
+   *   <li>{@code divine}: 신성 ({@code boolean}).
+   *   <li>{@code sourcePropertyUnscaled}: 출처·Property·Unscaled ({@code boolean}).
+   *   <li>{@code snapshotDate}: 스냅샷·날짜 ({@code String}).
+   *   <li>{@code snapshotRetrievedAt}: 스냅샷·수집된·기준 ({@code String}).
+   *   <li>{@code legacyCatalog}: 구버전·카탈로그 ({@code String}).
+   *   <li>{@code rareOnly}: 희귀·제한 ({@code Boolean}).
+   *   <li>{@code newSelection}: new·선택 ({@code Boolean}).
+   * </ul>
+   */
   public record Policy(
       String itemClass,
       String ruleVersion,
@@ -27,6 +122,22 @@ public final class BaseRegistry {
       Boolean rareOnly,
       Boolean newSelection) {}
 
+  /**
+   * {@code BaseRegistry}에서 사용하는 베이스의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code key}: 키 ({@code String}).
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code name}: 표시 또는 조회에 사용하는 이름 ({@code String}).
+   *   <li>{@code family}: 옵션계열 ({@code String}).
+   *   <li>{@code pool}: 후보풀 ({@code String}).
+   *   <li>{@code slug}: slug ({@code String}).
+   *   <li>{@code sourceSha256}: 출처·SHA·256 ({@code String}).
+   *   <li>{@code policy}: 정책 ({@code Policy}).
+   * </ul>
+   */
   public record Base(
       String key,
       String id,
@@ -92,6 +203,17 @@ public final class BaseRegistry {
     }
   }
 
+  /**
+   * {@code BaseRegistry}에서 사용하는 스냅샷의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code top}: 상위 ({@code Map<String, Base>}).
+   *   <li>{@code policies}: 정책목록 ({@code Map<String, Policy>}).
+   *   <li>{@code keys}: 키목록 ({@code Set<String>}).
+   * </ul>
+   */
   record Snapshot(Map<String, Base> top, Map<String, Policy> policies, Set<String> keys) {}
 
   static Snapshot read(JsonNode source, JsonNode rules) {

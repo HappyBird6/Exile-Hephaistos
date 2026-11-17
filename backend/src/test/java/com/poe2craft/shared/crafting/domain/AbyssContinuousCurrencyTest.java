@@ -11,6 +11,39 @@ import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 훼손·Continuous·화폐 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code HysteriaEssenceTest}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code executor}: 작업실행기 ({@code AbyssCurrencyExecutor}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code hidden()}: 미공개 값을 조회·구성한다. 반환: {@code AbyssCraftingState}.
+ *   <li>{@code automaticSideUsesBothAvailableSidesButNeverRevealsAModifier()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code onlyOpenSideIsChosenAndNecromancyCannotExceedItsCapacity()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code hiddenSlotSurvivesAdditionAndCatalystWhileRemovalProtectsFractures()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code rejectedCurrencyPreservesCompleteOfferAndOmens()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code chaosCountsTheHiddenSlotAsARemovalAndKeepsTheFracturedModifier()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code sanctifiedSlotsRejectEveryAbyssMutationBeforeAnySelection()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code removingARevealedModifierAndRollingTheSameIdDoesNotRetainDesecration()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code integratedSanctificationMetadataSurvivesRestoreAndRejectedCraft()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AbyssContinuousCurrencyTest {
   final HysteriaEssenceTest f = new HysteriaEssenceTest();
   final ItemCatalog catalog = ManualRevealCatalog.enrich(f.catalog);

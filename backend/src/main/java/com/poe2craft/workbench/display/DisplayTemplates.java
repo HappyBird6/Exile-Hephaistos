@@ -14,11 +14,83 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Immutable, caller-supplied modifierTemplates.json. No filesystem, classpath or network loader.
+ * 호출자가 제공한 불변 옵션 문장과 언어별 수치 결합을 조회한다.
+ *
+ * <p>기존 계약: Immutable, caller-supplied modifierTemplates.json. No filesystem, classpath or network
+ * loader.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code bindings}: 결합목록 ({@code Map<String, Binding>}).
+ *   <li>{@code templates}: 템플릿목록 ({@code Map<DisplayLocale, Map<String, Translation>>}).
+ *   <li>{@code sha256}: SHA·256 ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code DisplayTemplates(bindings, templates, sha256)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       bindings}(결합목록), {@code templates}(템플릿목록), {@code sha256}(SHA·256).
+ *   <li>{@code sha256()}: {@code sha256} 값을 조회한다. 반환: {@code String}.
+ *   <li>{@code parse(bytes, expectedSha256, mapper)}: 외부 표현을 내부 값으로 해석한다. 입력: {@code bytes}(바이트수),
+ *       {@code expectedSha256}(기대값·SHA·256), {@code mapper}(변환기). 반환: {@code DisplayTemplates}.
+ *       사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code binding(definition)}: 결합 처리에서 {@code bindings.get}, {@code definition.id}을(를) 사용한다.
+ *       입력: {@code definition}(정의). 반환: {@code Binding}.
+ *   <li>{@code englishBinding(definition)}: english·결합 처리에서 {@code bindings.get}, {@code
+ *       definition.id}을(를) 사용한다. 입력: {@code definition}(정의). 반환: {@code Binding}.
+ *   <li>{@code usesEnglishRevealFallback(definition, binding, locale)}: 사용량·English·공개·Fallback
+ *       처리에서 {@code definition.id}, {@code templates.get}을(를) 사용한다. 입력: {@code definition}(정의),
+ *       {@code binding}(결합), {@code locale}(언어코드). 반환: {@code boolean}.
+ *   <li>{@code translation(definition, binding, locale)}: translation 처리에서 {@code templates.get},
+ *       {@code binding.template}을(를) 사용한다. 입력: {@code definition}(정의), {@code binding}(결합), {@code
+ *       locale}(언어코드). 반환: {@code Translation}.
+ *   <li>{@code object(node)}: object 처리에서 {@code node.isObject}을(를) 사용한다. 입력: {@code node}(노드). 반환:
+ *       {@code JsonNode}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code array(node)}: array 처리에서 {@code node.isArray}을(를) 사용한다. 입력: {@code node}(노드). 반환:
+ *       {@code JsonNode}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code string(node)}: string 처리에서 {@code node.isTextual}, {@code node.textValue}을(를) 사용한다.
+ *       입력: {@code node}(노드). 반환: {@code String}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code integer(node)}: 정수 처리에서 {@code node.isIntegralNumber}, {@code
+ *       node.canConvertToLong}을(를) 사용한다. 입력: {@code node}(노드). 반환: {@code long}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code ValueStat}: {@code DisplayTemplates}에서 사용하는 값·수치의 불변 값이다.
+ *   <li>{@code Binding}: {@code DisplayTemplates}에서 사용하는 결합의 불변 값이다.
+ *   <li>{@code Translation}: {@code DisplayTemplates}에서 사용하는 Translation의 불변 값이다.
+ * </ul>
  */
 public final class DisplayTemplates {
+  /**
+   * {@code DisplayTemplates}에서 사용하는 값·수치의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code divisor}: 나누는수 ({@code double}).
+   * </ul>
+   */
   record ValueStat(String id, double divisor) {}
 
+  /**
+   * {@code DisplayTemplates}에서 사용하는 결합의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code englishText}: english·텍스트 ({@code String}).
+   *   <li>{@code stats}: 수치목록 ({@code List<ModifierDefinition.StatRange>}).
+   *   <li>{@code values}: 출처 단위로 보존하는 수치 값 ({@code List<String>}).
+   *   <li>{@code template}: 템플릿 ({@code String}).
+   *   <li>{@code valueStats}: 값·수치목록 ({@code List<ValueStat>}).
+   * </ul>
+   */
   record Binding(
       String englishText,
       List<ModifierDefinition.StatRange> stats,
@@ -26,6 +98,16 @@ public final class DisplayTemplates {
       String template,
       List<ValueStat> valueStats) {}
 
+  /**
+   * {@code DisplayTemplates}에서 사용하는 Translation의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code template}: 템플릿 ({@code String}).
+   *   <li>{@code name}: 표시 또는 조회에 사용하는 이름 ({@code String}).
+   * </ul>
+   */
   record Translation(String template, String name) {}
 
   private final Map<String, Binding> bindings;

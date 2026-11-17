@@ -10,6 +10,31 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 로컬·제작방법·추천 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code MethodSearchCalculationTest}).
+ *   <li>{@code item}: 아이템 ({@code DeferredItem}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code source(expanded)}: 출처 처리에서 {@code StateView.cell}, {@code
+ *       MethodSearchCalculation.StateView}을(를) 사용한다. 입력: {@code expanded}(확장된). 반환: {@code
+ *       StateView}.
+ *   <li>{@code method(id, success, unknown, ready)}: 제작방법 처리에서 {@code Exit.values}, {@code
+ *       exits.put}을(를) 사용한다. 입력: {@code id}(식별자), {@code success}(성공), {@code unknown}(미확정), {@code
+ *       ready}(준비완료). 반환: {@code MethodView}.
+ *   <li>{@code hundredCycleRecommendationDoesNotWaitForLaterObservationsAndKeepsTies()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code missingMethodOrCompetitiveUnresolvedMassPreventsCertification()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class LocalMethodRecommendationTest {
   final MethodSearchCalculationTest fixture = new MethodSearchCalculationTest();
   final DeferredItem item = new DeferredItem(fixture.root());

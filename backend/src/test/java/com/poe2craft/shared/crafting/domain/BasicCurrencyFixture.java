@@ -12,7 +12,42 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 
 /** Tiny independently enumerable test catalog; no production pool is pruned or rewritten. */
-/** Independently enumerable common crafting data used by multiple service tests. */
+/**
+ * 기본·화폐·검증사례 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Independently enumerable common crafting data used by multiple service tests.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code RULESET}: 규칙묶음; 초기값 {@code "synthetic-ruleset-one"} ({@code String}).
+ *   <li>{@code implicit}: 암시옵션 ({@code ModifierDefinition}).
+ *   <li>{@code a}: a ({@code ModifierDefinition}).
+ *   <li>{@code b}: b ({@code ModifierDefinition}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code kernel}: 전이커널 ({@code BasicCurrencyTransitions}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code definition(id, type, min, max, weight)}: 정의 처리에서 {@code
+ *       ModifierDefinition.StatRange}을(를) 사용한다. 입력: {@code id}(식별자), {@code type}(타입), {@code
+ *       min}(최소값), {@code max}(최대값), {@code weight}(가중치). 반환: {@code ModifierDefinition}.
+ *   <li>{@code catalog(definitions)}: 카탈로그 처리에서 {@code definitions.stream}, {@code d.affixType}을(를)
+ *       사용한다. 입력: {@code definitions}(정의목록). 반환: {@code ItemCatalog}.
+ *   <li>{@code item(rarity, mods)}: 아이템 처리에서 {@code catalog.metadata}, {@code catalog.base}을(를)
+ *       사용한다. 입력: {@code rarity}(희귀도), {@code mods}(옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code mod(id, value)}: mod의 입력에 따른 분기·결과를 처리한다. 입력: {@code id}(식별자), {@code value}(값). 반환:
+ *       {@code ModifierInstance}.
+ *   <li>{@code state(item)}: 현재 상태 표현을 조회한다. 입력: {@code item}(아이템). 반환: {@code BasicCurrencyState}.
+ *   <li>{@code expand(item, action)}: 다음 상태 또는 분포 구간을 확장한다. 입력: {@code item}(아이템), {@code
+ *       action}(행동). 반환: {@code Result}.
+ *   <li>{@code masses(result)}: masses 처리에서 {@code result.outcomes}, {@code resultMap.put}을(를)
+ *       사용한다. 입력: {@code result}(결과). 반환: {@code Map<ItemState, Fraction>}.
+ *   <li>{@code normalized(result)}: 입력 JSON 사본에 선택 필드 기본값을 채운다. 입력: {@code result}(결과).
+ * </ul>
+ */
 public class BasicCurrencyFixture {
   public static final String RULESET = "synthetic-ruleset-one";
   public final ModifierDefinition implicit =

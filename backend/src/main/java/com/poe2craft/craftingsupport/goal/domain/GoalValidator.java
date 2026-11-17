@@ -4,10 +4,67 @@ import com.poe2craft.craftingsupport.goal.domain.GoalFilter.*;
 import java.math.BigDecimal;
 import java.util.*;
 
-/** Structural validation also covers disabled content; support warnings do not erase it. */
+/**
+ * 비활성 조건까지 포함해 목표 트리 구조와 지원 범위를 검증한다.
+ *
+ * <p>기존 계약: Structural validation also covers disabled content; support warnings do not erase it.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code validate(context, goal, catalog, known)}: 입력의 구조·값·지원 조건을 검증한다. 입력: {@code
+ *       context}(문맥), {@code goal}(목표), {@code catalog}(카탈로그), {@code known}(알려진). 반환: {@code
+ *       Validation}.
+ *   <li>{@code contextIssues(context)}: 문맥·문제목록 처리에서 {@code context.snapshotId}, {@code
+ *       context.baseItemId}을(를) 사용한다. 입력: {@code context}(문맥). 반환: {@code List<Issue>}.
+ *   <li>{@code result(issues, evaluation)}: 최종 또는 현재 계산 결과를 구성한다. 입력: {@code issues}(문제목록), {@code
+ *       evaluation}(평가). 반환: {@code Validation}.
+ *   <li>{@code identity(value, ids, path, issues)}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 입력: {@code
+ *       value}(값), {@code ids}(식별자목록), {@code path}(경로), {@code issues}(문제목록).
+ *   <li>{@code range(range, path, issues)}: 범위 처리에서 {@code issues.add}, {@code Issue.error}을(를)
+ *       사용한다. 입력: {@code range}(범위), {@code path}(경로), {@code issues}(문제목록).
+ *   <li>{@code integer(value)}: 정수 처리에서 {@code value.stripTrailingZeros}을(를) 사용한다. 입력: {@code
+ *       value}(값). 반환: {@code boolean}.
+ *   <li>{@code invalidLevel(value)}: 유효하지않은·레벨 처리에서 {@code value.compareTo}, {@code
+ *       BigDecimal.valueOf}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code boolean}.
+ *   <li>{@code invalidCount(value, max)}: 유효하지않은·개수 처리에서 {@code value.signum}, {@code
+ *       value.compareTo}을(를) 사용한다. 입력: {@code value}(값), {@code max}(최대값). 반환: {@code boolean}.
+ *   <li>{@code invalidCountMinimum(value)}: 유효하지않은·개수·최소값 처리에서 {@code value.signum}을(를) 사용한다. 입력:
+ *       {@code value}(값). 반환: {@code boolean}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Capabilities}: {@code GoalValidator}에서 사용하는 지원기능의 불변 값이다.
+ *   <li>{@code Validation}: {@code GoalValidator}에서 사용하는 검증의 불변 값이다.
+ * </ul>
+ */
 public final class GoalValidator {
+  /**
+   * {@code GoalValidator}에서 사용하는 지원기능의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code evaluation}: 평가 ({@code Capability}).
+   *   <li>{@code probability}: 확률 ({@code Capability}).
+   * </ul>
+   */
   public record Capabilities(Capability evaluation, Capability probability) {}
 
+  /**
+   * {@code GoalValidator}에서 사용하는 검증의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code version}: 저장·실행 계약의 버전 ({@code int}).
+   *   <li>{@code valid}: 유효한 ({@code boolean}).
+   *   <li>{@code issues}: 문제목록 ({@code List<Issue>}).
+   *   <li>{@code capabilities}: 지원기능 ({@code Capabilities}).
+   * </ul>
+   */
   public record Validation(
       int version, boolean valid, List<Issue> issues, Capabilities capabilities) {}
 

@@ -9,6 +9,46 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * 댓글과 작성자 소유권을 PostgreSQL에서 관리한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code db}: DB ({@code JdbcTemplate}).
+ *   <li>{@code maxLength}: 최대값·길이 ({@code int}).
+ *   <li>{@code pageSize}: 페이지·크기 ({@code int}).
+ *   <li>{@code select}: 선택 ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code PostgresCommunityComments(db, maxLength, pageSize)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       db}(DB), {@code maxLength}(최대값·길이), {@code pageSize}(페이지·크기).
+ *   <li>{@code post(post, lock)}: 게시물 처리에서 {@code db.queryForList}을(를) 사용한다. 입력: {@code post}(게시물),
+ *       {@code lock}(잠금). 사용하는 예외: {@code ResponseStatusException}.
+ *   <li>{@code member(actor)}: 구성원 처리에서 {@code actor.account}을(를) 사용한다. 입력: {@code actor}(작업주체).
+ *       사용하는 예외: {@code ResponseStatusException}.
+ *   <li>{@code body(body)}: 본문 처리에서 {@code body.isBlank}, {@code body.length}을(를) 사용한다. 입력: {@code
+ *       body}(본문). 반환: {@code String}. 사용하는 예외: {@code ResponseStatusException}.
+ *   <li>{@code mapper()}: 변환기 값을 조회·구성한다. 반환: {@code RowMapper<Comment>}.
+ *   <li>{@code read(post, id)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code post}(게시물), {@code id}(식별자). 반환:
+ *       {@code Comment}. 사용하는 예외: {@code ResponseStatusException}.
+ *   <li>{@code list(post, page)}: 조건에 맞는 목록을 조회한다. 입력: {@code post}(게시물), {@code page}(페이지). 반환:
+ *       {@code Page}. 사용하는 예외: {@code ResponseStatusException}.
+ *   <li>{@code create(post, actor, id, body)}: 새 작업 또는 값을 생성한다. 입력: {@code post}(게시물), {@code
+ *       actor}(작업주체), {@code id}(식별자), {@code body}(본문). 반환: {@code Comment}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ *   <li>{@code update(post, id, actor, body, revision)}: 갱신 처리에서 {@code actor.account}, {@code
+ *       db.update}을(를) 사용한다. 입력: {@code post}(게시물), {@code id}(식별자), {@code actor}(작업주체), {@code
+ *       body}(본문), {@code revision}(리비전). 반환: {@code Comment}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ *   <li>{@code delete(post, id, actor, revision)}: 삭제 처리에서 {@code actor.account}, {@code
+ *       db.update}을(를) 사용한다. 입력: {@code post}(게시물), {@code id}(식별자), {@code actor}(작업주체), {@code
+ *       revision}(리비전). 사용하는 예외: {@code ResponseStatusException}.
+ * </ul>
+ */
 @Repository
 public class PostgresCommunityComments implements CommunityComments {
   private final JdbcTemplate db;

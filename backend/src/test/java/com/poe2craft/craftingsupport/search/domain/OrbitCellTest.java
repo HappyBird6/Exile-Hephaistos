@@ -8,6 +8,16 @@ import java.math.BigInteger;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 교환 가능한 목표 무관 옵션 계열의 비복원 결합 분포다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code jointAssignmentsExcludeRepeatedFamiliesAndRestoreUnequalRollCardinalities()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class OrbitCellTest {
   @Test
   void jointAssignmentsExcludeRepeatedFamiliesAndRestoreUnequalRollCardinalities() {

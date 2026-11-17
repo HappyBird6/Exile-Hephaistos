@@ -7,6 +7,26 @@ import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 훼손·화폐·계획 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code HysteriaEssenceTest}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code dummySharesEssenceRemovalRiskAndCanBeRemovedWithoutLosingTheUsefulAffix()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code removalSideRestrictionsIncludeOnlyTheMatchingDummy()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code twoUsefulPrefixesPlusDummyForceFollowingAdditionOntoSuffixes()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AbyssCurrencyPlanTest {
   final HysteriaEssenceTest fixture = new HysteriaEssenceTest();
 

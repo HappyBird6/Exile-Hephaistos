@@ -8,7 +8,63 @@ import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import java.util.random.RandomGenerator;
 
-/** Slot-aware adapter around the existing concrete and Abyss samplers. */
+/**
+ * 구체 상태 제작과 미공개 슬롯 제작을 공통 화폐 실행에 연결한다.
+ *
+ * <p>기존 계약: Slot-aware adapter around the existing concrete and Abyss samplers.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AbyssCurrencyExecutor(catalog, simulator)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       catalog}(카탈로그), {@code simulator}(제작시뮬레이터).
+ *   <li>{@code apply(state, action, activeOmens, random)}: 주어진 행동 또는 변경을 적용한 결과를 구한다. 입력: {@code
+ *       state}(상태), {@code action}(행동), {@code activeOmens}(활성·징조목록), {@code random}(난수생성기). 반환:
+ *       {@code Result}.
+ *   <li>{@code exaltChoices(state, action, activeOmens)}: 엑잘티드·선택목록 처리에서 {@code state.validate},
+ *       {@code state.item}을(를) 사용한다. 입력: {@code state}(상태), {@code action}(행동), {@code
+ *       activeOmens}(활성·징조목록). 반환: {@code List<WorkbenchSimulator.ExaltChoice>}.
+ *   <li>{@code applyChosenExalt(state, action, activeOmens, modifierId, random)}: Chosen·엑잘티드을(를)
+ *       적용한다. 입력: {@code state}(상태), {@code action}(행동), {@code activeOmens}(활성·징조목록), {@code
+ *       modifierId}(옵션·식별자), {@code random}(난수생성기). 반환: {@code Transition}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code exaltTransition(state, action, omens, random, selected)}: 엑잘티드·전이의 입력에 따른 분기·결과를
+ *       처리한다. 입력: {@code state}(상태), {@code action}(행동), {@code omens}(징조목록), {@code
+ *       random}(난수생성기), {@code selected}(선택된). 반환: {@code Transition}.
+ *   <li>{@code concreteTransition(state, action, omens, random, selected)}: 구체값·전이 처리에서 {@code
+ *       simulator.apply}, {@code state.knownItem}을(를) 사용한다. 입력: {@code state}(상태), {@code
+ *       action}(행동), {@code omens}(징조목록), {@code random}(난수생성기), {@code selected}(선택된). 반환: {@code
+ *       Transition}.
+ *   <li>{@code hiddenTransition(state, action, omens, random, selected)}: 미공개·전이 처리에서 {@code
+ *       simulator.triggeredOmens}, {@code simulator.abyssPlan}을(를) 사용한다. 입력: {@code state}(상태),
+ *       {@code action}(행동), {@code omens}(징조목록), {@code random}(난수생성기), {@code selected}(선택된). 반환:
+ *       {@code Transition}.
+ *   <li>{@code transition(next, action, reason, events, assumptions, consumed, remaining)}: 전이 처리에서
+ *       {@code next.validate}, {@code WorkbenchSimulator.Result}을(를) 사용한다. 입력: {@code next}(다음),
+ *       {@code action}(행동), {@code reason}(이유), {@code events}(이벤트목록), {@code assumptions}(계산가정),
+ *       {@code consumed}(소비된), {@code remaining}(남은). 반환: {@code Transition}.
+ *   <li>{@code hasHidden(state)}: 미공개을(를) 보유 여부를 판정한다. 입력: {@code state}(상태). 반환: {@code boolean}.
+ *   <li>{@code requireExalt(action)}: 엑잘티드을(를) 필수 조건을 확인한다. 입력: {@code action}(행동). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code blocked(state, action, omens, reason)}: 차단 처리에서 {@code omens.stream}을(를) 사용한다. 입력:
+ *       {@code state}(상태), {@code action}(행동), {@code omens}(징조목록), {@code reason}(이유). 반환: {@code
+ *       Result}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Result}: {@code AbyssCurrencyExecutor}에서 사용하는 결과의 불변 값이다.
+ *   <li>{@code Transition}: {@code AbyssCurrencyExecutor}에서 사용하는 전이의 불변 값이다.
+ * </ul>
+ */
 public final class AbyssCurrencyExecutor {
   private final ItemCatalog catalog;
   private final WorkbenchSimulator simulator;
@@ -18,6 +74,28 @@ public final class AbyssCurrencyExecutor {
     this.simulator = Objects.requireNonNull(simulator);
   }
 
+  /**
+   * {@code AbyssCurrencyExecutor}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code AbyssCraftingState}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code applied}: 요청한 변경의 실제 적용 여부 ({@code boolean}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code consumedOmens}: 이번 실행으로 소비된 징조 ID 목록 ({@code List<String>}).
+   *   <li>{@code remainingOmens}: 실행 뒤 남은 징조 ID 목록 ({@code List<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Result(state, action, applied, reason, consumedOmens, remainingOmens)}: 전달받은 값으로
+   *       구성원을 초기화한다. 입력: {@code state}(상태), {@code action}(행동), {@code applied}(적용여부), {@code
+   *       reason}(이유), {@code consumedOmens}(소비된·징조목록), {@code remainingOmens}(남은·징조목록).
+   * </ul>
+   */
   public record Result(
       AbyssCraftingState state,
       WorkbenchCurrency action,
@@ -148,7 +226,18 @@ public final class AbyssCurrencyExecutor {
     }
   }
 
-  /** Receipt and slot state are produced atomically from the same accepted operation. */
+  /**
+   * {@code AbyssCurrencyExecutor}에서 사용하는 전이의 불변 값이다.
+   *
+   * <p>기존 계약: Receipt and slot state are produced atomically from the same accepted operation.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code outcome}: 결과 ({@code Result}).
+   *   <li>{@code receipt}: receipt ({@code WorkbenchSimulator.Result}).
+   * </ul>
+   */
   public record Transition(Result outcome, WorkbenchSimulator.Result receipt) {}
 
   public List<WorkbenchSimulator.ExaltChoice> exaltChoices(

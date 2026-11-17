@@ -11,7 +11,32 @@ import com.poe2craft.workbench.display.DisplayLocale;
 import com.poe2craft.workbench.display.DisplayTemplates;
 import java.io.IOException;
 
-/** Exact build-time frontend input, pinned independently of the immutable game ruleset manifest. */
+/**
+ * 빌드 시 복사한 프런트 표시 자료의 해시를 검증해 반복 제작에 제공한다.
+ *
+ * <p>기존 계약: Exact build-time frontend input, pinned independently of the immutable game ruleset
+ * manifest.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code TEMPLATE_SHA256}: 256 ({@code String}).
+ *   <li>{@code bindings}: 결합목록 ({@code JsonNode}).
+ *   <li>{@code display}: 표시 ({@code ChaosOptionDisplay}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ChaosDisplayResources(json)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code json}(JSON). 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code format(state, catalog, locale)}: 지정 언어와 표시 규칙에 맞는 문자열을 만든다. 입력: {@code state}(상태),
+ *       {@code catalog}(카탈로그), {@code locale}(언어코드). 반환: {@code ChaosOptionDisplay.Result}.
+ *   <li>{@code sameStats(stats, definition)}: 동일·수치목록 처리에서 {@code stats.isArray}, {@code
+ *       stats.size}을(를) 사용한다. 입력: {@code stats}(수치목록), {@code definition}(정의). 반환: {@code boolean}.
+ *   <li>{@code unsupported()}: 미지원 조건을 나타내는 결과를 만든다. 반환: {@code RepeatRejected}.
+ * </ul>
+ */
 public final class ChaosDisplayResources {
   public static final String TEMPLATE_SHA256 = ModifierTextResources.TEMPLATE_SHA256;
   private final JsonNode bindings;

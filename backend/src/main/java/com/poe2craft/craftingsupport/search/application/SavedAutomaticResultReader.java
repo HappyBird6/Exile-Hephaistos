@@ -18,7 +18,37 @@ import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 
-/** Historical observations are immutable; never restore a cursor under a new policy. */
+/**
+ * 과거 관측 결과를 새 정책으로 재실행하지 않고 읽는다.
+ *
+ * <p>기존 계약: Historical observations are immutable; never restore a cursor under a new policy.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code read(disk, runtime)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code disk}(디스크), {@code
+ *       runtime}(실행환경). 반환: {@code AutomaticSearchService.View}. 사용하는 예외: {@code
+ *       PathSearchProtocol.Rejected}.
+ *   <li>{@code provisional(saved, horizon)}: provisional 처리에서 {@code saved.template}, {@code
+ *       CertifiedMethodRunner.restoreCursor}을(를) 사용한다. 입력: {@code saved}(저장된), {@code
+ *       horizon}(계산기간). 반환: {@code
+ *       CertifiedMethodRunner.Observation<AutomaticMethodExecution.State,
+ *       AutomaticCraftingAction>}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code usageBounds(spent, actions, repetitions, bits)}: 사용량·경계값 처리에서 {@code
+ *       actions.forEach}, {@code counts.merge}을(를) 사용한다. 입력: {@code spent}(spent), {@code
+ *       actions}(행동목록), {@code repetitions}(repetitions), {@code bits}(비트수). 반환: {@code Map<A,
+ *       CertifiedInterval>}.
+ *   <li>{@code transportedTiers(from, to, state)}: transported·티어목록 처리에서 {@code state.tiers},
+ *       {@code from.item}을(를) 사용한다. 입력: {@code from}(원본), {@code to}(대상), {@code state}(상태). 반환:
+ *       {@code Map<String, TierCell>}.
+ *   <li>{@code transport(from, to, law, kernel)}: 전송 처리에서 {@code law.forEach}, {@code
+ *       result.merge}을(를) 사용한다. 입력: {@code from}(원본), {@code to}(대상), {@code law}(분포), {@code
+ *       kernel}(전이커널). 반환: {@code Map<AutomaticMethodExecution.State, CertifiedInterval>}.
+ *   <li>{@code transportedRetention(from, to, state, kernel)}: transported·보유량 처리에서 {@code
+ *       state.retainedFromRoot}, {@code from.item}을(를) 사용한다. 입력: {@code from}(원본), {@code to}(대상),
+ *       {@code state}(상태), {@code kernel}(전이커널). 반환: {@code Set<String>}.
+ * </ul>
+ */
 final class SavedAutomaticResultReader {
   static AutomaticSearchService.View read(
       AutomaticSearchService.Disk disk, AutomaticSearchService.Runtime runtime) {

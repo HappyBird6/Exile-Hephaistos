@@ -4,10 +4,74 @@ import com.poe2craft.craftingsupport.search.domain.OutcomeStrategy.*;
 import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 
-/** Qualitative reachability with a proper policy witness, without enumerating item histories. */
+/**
+ * 아이템 이력을 나열하지 않고 확률 1의 도달 가능성과 정책 근거를 계산한다.
+ *
+ * <p>기존 계약: Qualitative reachability with a proper policy witness, without enumerating item
+ * histories.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code graph}: 그래프 ({@code Map<S, State<S>>}).
+ *   <li>{@code candidate}: 후보 ({@code Set<S>}).
+ *   <li>{@code reachable}: 도달가능 ({@code Set<S>}).
+ *   <li>{@code reverse}: reverse ({@code Map<S, List<Arc<S>>>}).
+ *   <li>{@code policy}: 정책 ({@code Map<S, String>}).
+ *   <li>{@code queue}: 대기열 ({@code ArrayDeque<S>}).
+ *   <li>{@code states}: 상태목록 ({@code Iterator<Map.Entry<S, State<S>>>}).
+ *   <li>{@code choices}: 선택목록 ({@code Iterator<Choice<S>>}).
+ *   <li>{@code targets}: 대상목록 ({@code Iterator<Map.Entry<S, Fraction>>}).
+ *   <li>{@code predecessors}: predecessors ({@code Iterator<Arc<S>>}).
+ *   <li>{@code source}: 출처 ({@code S}).
+ *   <li>{@code choice}: 선택 ({@code Choice<S>}).
+ *   <li>{@code safe}: 안전범위 ({@code boolean}).
+ *   <li>{@code adding}: adding ({@code boolean}).
+ *   <li>{@code traversing}: traversing ({@code boolean}).
+ *   <li>{@code unsupported}: 미지원 ({@code boolean}).
+ *   <li>{@code solution}: 해 ({@code Solution<S>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AlmostSureReachability(graph)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code graph}(그래프).
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다. 반환: {@code Optional<Solution<S>>}.
+ *   <li>{@code beginPass()}: 시작·Pass 처리에서 {@code graph.entrySet}, {@code
+ *       Collections.emptyIterator}을(를) 사용한다.
+ *   <li>{@code advance()}: 허용된 계산량만큼 작업을 진행한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Solution}: {@code AlmostSureReachability}에서 사용하는 해의 불변 값이다.
+ *   <li>{@code Arc}: {@code AlmostSureReachability}에서 사용하는 Arc의 불변 값이다.
+ * </ul>
+ */
 final class AlmostSureReachability<S> {
+  /**
+   * {@code AlmostSureReachability}에서 사용하는 해의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code winning}: winning ({@code Set<S>}).
+   *   <li>{@code policy}: 정책 ({@code Map<S, String>}).
+   * </ul>
+   */
   record Solution<S>(Set<S> winning, Map<S, String> policy) {}
 
+  /**
+   * {@code AlmostSureReachability}에서 사용하는 Arc의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code S}).
+   *   <li>{@code method}: 제작방법 ({@code String}).
+   * </ul>
+   */
   private record Arc<S>(S source, String method) {}
 
   private final Map<S, State<S>> graph;

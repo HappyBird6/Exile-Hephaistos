@@ -3,7 +3,19 @@ package com.poe2craft.craftingsupport.goal.domain;
 import com.poe2craft.shared.item.ModifierDefinition;
 import java.util.*;
 
-/** Conservative catalog proof, not a count of filter entries or a reachability claim. */
+/**
+ * 목표가 실제 카탈로그의 명시 옵션 범위에 속하는지 보수적으로 판정한다.
+ *
+ * <p>기존 계약: Conservative catalog proof, not a count of filter entries or a reachability claim.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ExplicitGoalScope()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code minimumModifiers(goal, catalog)}: 최소값·옵션목록 처리에서 {@code goal.groups}, {@code
+ *       TRUE.equals}을(를) 사용한다. 입력: {@code goal}(목표), {@code catalog}(카탈로그). 반환: {@code int}.
+ * </ul>
+ */
 public final class ExplicitGoalScope {
   private ExplicitGoalScope() {}
 

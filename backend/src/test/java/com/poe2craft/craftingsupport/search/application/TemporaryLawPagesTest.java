@@ -12,6 +12,26 @@ import java.util.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+/**
+ * 작업 소유의 불변 분포 페이지를 파일에 두고 작은 캐시만 메모리에 유지한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code directory}: 디렉터리 ({@code Path}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code hotCacheSpillsLazilyAndRepeatedReadsDoNotAppendDuplicatePayloads()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code completeLawRowsEndpointsAndDeduplicationSurviveSpillAtEveryPrecision()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code unavailableOrTruncatedBackingFailsExplicitlyWithoutInventingProbability()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class TemporaryLawPagesTest {
   @TempDir Path directory;
 

@@ -18,7 +18,64 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** Pure normal-view projection. Does not select matching units, apply currency, or alter rolls. */
+/**
+ * 화폐를 사용하거나 수치를 바꾸지 않고 카오스 결과를 일반 표시로 투영한다.
+ *
+ * <p>기존 계약: Pure normal-view projection. Does not select matching units, apply currency, or alter
+ * rolls.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "chaos-option-display-v1"} ({@code String}).
+ *   <li>{@code MAX_SAFE_INTEGER}: 정수; 초기값 {@code 9007199254740991L} ({@code long}).
+ *   <li>{@code RANGE}: 범위 ({@code Pattern}).
+ *   <li>{@code PLACEHOLDER}: PLACEHOLDER ({@code Pattern}).
+ *   <li>{@code BASIC_JEWEL}: 주얼 ({@code Pattern}).
+ *   <li>{@code INTEGER_STATS}: 수치목록 ({@code Set<String>}).
+ *   <li>{@code templates}: 템플릿목록 ({@code DisplayTemplates}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ChaosOptionDisplay(templates)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code templates}(템플릿목록).
+ *   <li>{@code format(state, catalog, locale)}: 지정 언어와 표시 규칙에 맞는 문자열을 만든다. 입력: {@code state}(상태),
+ *       {@code catalog}(카탈로그), {@code locale}(언어코드). 반환: {@code Result}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code result(locale, groups, issues)}: 최종 또는 현재 계산 결과를 구성한다. 입력: {@code locale}(언어코드),
+ *       {@code groups}(그룹목록), {@code issues}(문제목록). 반환: {@code Result}.
+ *   <li>{@code project(state, definition, modifier, issues)}: 투영 처리에서 {@code
+ *       ModifierMagnitudes.factor}, {@code values.replaceAll}을(를) 사용한다. 입력: {@code state}(상태),
+ *       {@code definition}(정의), {@code modifier}(옵션), {@code issues}(문제목록). 반환: {@code Map<String,
+ *       Double>}.
+ *   <li>{@code baseProject(state, definition, modifier, issues)}: 베이스·투영 처리에서 {@code
+ *       modifier.values}, {@code source.forEach}을(를) 사용한다. 입력: {@code state}(상태), {@code
+ *       definition}(정의), {@code modifier}(옵션), {@code issues}(문제목록). 반환: {@code Map<String,
+ *       Double>}.
+ *   <li>{@code localized(definition, values, locale, issues)}: localized 처리에서 {@code
+ *       templates.binding}, {@code templates.translation}을(를) 사용한다. 입력: {@code definition}(정의),
+ *       {@code values}(값목록), {@code locale}(언어코드), {@code issues}(문제목록). 반환: {@code String}.
+ *   <li>{@code rolled(definition, values)}: rolled 처리에서 {@code templates.englishBinding}, {@code
+ *       BASIC_JEWEL.matcher}을(를) 사용한다. 입력: {@code definition}(정의), {@code values}(값목록). 반환: {@code
+ *       Rendered}.
+ *   <li>{@code rangeMatches(match, stat)}: 범위·일치결과 처리에서 {@code Double.parseDouble}, {@code
+ *       match.group}을(를) 사용한다. 입력: {@code match}(일치), {@code stat}(수치). 반환: {@code boolean}.
+ *   <li>{@code substitute(template, numbers)}: substitute 처리에서 {@code PLACEHOLDER.matcher}, {@code
+ *       matcher.find}을(를) 사용한다. 입력: {@code template}(템플릿), {@code numbers}(numbers). 반환: {@code
+ *       String}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Code}: {@code ChaosOptionDisplay}의 코드 구분값을 정의한다.
+ *   <li>{@code Issue}: {@code ChaosOptionDisplay}에서 사용하는 문제의 불변 값이다.
+ *   <li>{@code Group}: {@code ChaosOptionDisplay}에서 사용하는 그룹의 불변 값이다.
+ *   <li>{@code Result}: {@code ChaosOptionDisplay}에서 사용하는 결과의 불변 값이다.
+ *   <li>{@code Rendered}: {@code ChaosOptionDisplay}에서 사용하는 Rendered의 불변 값이다.
+ * </ul>
+ */
 public final class ChaosOptionDisplay {
   public static final String VERSION = "chaos-option-display-v1";
   private static final long MAX_SAFE_INTEGER = 9_007_199_254_740_991L;
@@ -57,6 +114,23 @@ public final class ChaosOptionDisplay {
     this.templates = Objects.requireNonNull(templates);
   }
 
+  /**
+   * {@code ChaosOptionDisplay}의 코드 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code ENGLISH_FALLBACK}: FALLBACK 구분값.
+   *   <li>{@code ENGLISH_REVEAL_TEMPLATE_FALLBACK}: FALLBACK 구분값.
+   *   <li>{@code SOURCE_UNITS_FALLBACK}: FALLBACK 구분값.
+   *   <li>{@code UNREVIEWED_QUALITY}: 품질 구분값.
+   *   <li>{@code UNSAFE_DISPLAY_INTEGER}: 정수 구분값.
+   *   <li>{@code UNRESOLVED_TEMPLATE_VALUE}: 값 구분값.
+   *   <li>{@code HIDDEN_OPTIONS_OMITTED}: OMITTED 구분값.
+   *   <li>{@code JEWEL_EFFECT_AND_QUALITY_PROVISIONAL}: PROVISIONAL 구분값.
+   *   <li>{@code SANCTIFIED_UNSUPPORTED}: 미지원 구분값.
+   * </ul>
+   */
   public enum Code {
     ENGLISH_FALLBACK,
     ENGLISH_REVEAL_TEMPLATE_FALLBACK,
@@ -69,8 +143,40 @@ public final class ChaosOptionDisplay {
     SANCTIFIED_UNSUPPORTED
   }
 
+  /**
+   * {@code ChaosOptionDisplay}에서 사용하는 문제의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code code}: 코드 ({@code Code}).
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   *   <li>{@code blocking}: blocking ({@code boolean}).
+   * </ul>
+   */
   public record Issue(Code code, String modifierId, boolean blocking) {}
 
+  /**
+   * {@code ChaosOptionDisplay}에서 사용하는 그룹의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code affixType}: 접두접미옵션·타입 ({@code ModifierDefinition.AffixType}).
+   *   <li>{@code fractured}: 분열고정 ({@code boolean}).
+   *   <li>{@code text}: 원문 또는 표시 문장 ({@code String}).
+   *   <li>{@code lines}: 행목록 ({@code List<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Group(id, affixType, fractured, text, lines)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       id}(식별자), {@code affixType}(접두접미옵션·타입), {@code fractured}(분열고정), {@code text}(텍스트),
+   *       {@code lines}(행목록).
+   * </ul>
+   */
   public record Group(
       String id,
       ModifierDefinition.AffixType affixType,
@@ -82,6 +188,28 @@ public final class ChaosOptionDisplay {
     }
   }
 
+  /**
+   * {@code ChaosOptionDisplay}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code version}: 저장·실행 계약의 버전 ({@code String}).
+   *   <li>{@code templateSha256}: 템플릿·SHA·256 ({@code String}).
+   *   <li>{@code locale}: 언어코드 ({@code DisplayLocale}).
+   *   <li>{@code groups}: 그룹목록 ({@code List<Group>}).
+   *   <li>{@code issues}: 문제목록 ({@code List<Issue>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Result(version, templateSha256, locale, groups, issues)}: 전달받은 값으로 구성원을 초기화한다. 입력:
+   *       {@code version}(버전), {@code templateSha256}(템플릿·SHA·256), {@code locale}(언어코드), {@code
+   *       groups}(그룹목록), {@code issues}(문제목록).
+   *   <li>{@code supported()}: 지원 값을 조회·구성한다. 반환: {@code boolean}.
+   * </ul>
+   */
   public record Result(
       String version,
       String templateSha256,
@@ -214,6 +342,16 @@ public final class ChaosOptionDisplay {
     return values;
   }
 
+  /**
+   * {@code ChaosOptionDisplay}에서 사용하는 Rendered의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code text}: 원문 또는 표시 문장 ({@code String}).
+   *   <li>{@code sourceUnits}: 출처·단위목록 ({@code boolean}).
+   * </ul>
+   */
   private record Rendered(String text, boolean sourceUnits) {}
 
   private String localized(

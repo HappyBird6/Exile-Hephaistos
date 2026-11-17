@@ -14,6 +14,30 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 기본·주얼·Potent 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code catalog(base)}: 카탈로그 처리에서 {@code base.equals}, {@code
+ *       ItemCatalogLoader.loadSapphire}을(를) 사용한다. 입력: {@code base}(베이스). 반환: {@code ItemCatalog}.
+ *   <li>{@code minimum(c, id)}: 최소값 처리에서 {@code c.find}, {@code values.put}을(를) 사용한다. 입력: {@code
+ *       c}(c), {@code id}(식별자). 반환: {@code ModifierInstance}.
+ *   <li>{@code item(c, mods)}: 아이템 처리에서 {@code c.metadata}, {@code c.base}을(를) 사용한다. 입력: {@code
+ *       c}(c), {@code mods}(옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code ordinary(c, p, s)}: 일반 처리에서 {@code c.modifiers}, {@code d.weight}을(를) 사용한다. 입력:
+ *       {@code c}(c), {@code p}(p), {@code s}(s). 반환: {@code List<ModifierInstance>}.
+ *   <li>{@code exactBasePoolsAndApplicabilityAndAllLiquidPositivePaths()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code
+ *       contemplatesBothDirectionsAndPreservesOverflowAfterRemovalWhileRestrictingInsertion()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code
+ *       ferocityProjectsFromOriginalOnceWithQualityAndLeavesMetaAndConditionalEffectsUnscaled()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class BasicJewelPotentTest {
   ItemCatalog catalog(String base) {
     return base.equals("sapphire")

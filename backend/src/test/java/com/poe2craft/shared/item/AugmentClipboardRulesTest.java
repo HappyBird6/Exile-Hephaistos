@@ -5,6 +5,29 @@ import static org.assertj.core.api.Assertions.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 증강물·Clipboard·규칙목록 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code wand}: 마법봉; 초기값 {@code "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2"}
+ *       ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code reconstructsRuneEffectProviderBeforeInvertingItsBoostedCompanion()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code foxRecoversItsIdentityAndConsumesItsAutomaticallyActiveBondedLineOnce()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code capacityBonusesDoNotAmplifyButSeparateBondedNumbersDo()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code rageDelayConvertsSourceMillisecondsAndAcceptsGameSingularAndPluralSeconds()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class AugmentClipboardRulesTest {
   private final String wand = "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2";
 

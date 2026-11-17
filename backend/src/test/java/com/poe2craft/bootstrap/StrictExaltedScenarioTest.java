@@ -18,6 +18,41 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.*;
 
+/**
+ * 엄격파서·엑잘티드·Scenario 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code GoalDirectedPlannerScenariosTest}).
+ *   <li>{@code SPIRIT}: 정신력; 초기값 {@code "base_spirit_from_equipment"} ({@code String}).
+ *   <li>{@code PROJECTILE}: PROJECTILE; 초기값 {@code "projectile_skill_gem_level_+"} ({@code
+ *       String}).
+ *   <li>{@code DEFENCE}: 방어값; 초기값 {@code "global_armour_evasion_energy_shield_+%"} ({@code
+ *       String}).
+ *   <li>{@code CHAOS}: 카오스; 초기값 {@code "base_chaos_damage_resistance_%"} ({@code String}).
+ *   <li>{@code fracture}: fracture ({@code ModifierInstance}).
+ *   <li>{@code projectile}: projectile ({@code ModifierInstance}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code root()}: 시작점 값을 조회·구성한다. 반환: {@code ItemState}.
+ *   <li>{@code exalt(purpose, omens)}: 엑잘티드의 입력에 따른 분기·결과를 처리한다. 입력: {@code purpose}(목적), {@code
+ *       omens}(징조목록). 반환: {@code AutomaticCraftingAction}.
+ *   <li>{@code occupiedMutableSlotRejectsFinishingExaltBeforeAnyProbabilityExpansion()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unreachableNumericGoalStillKeepsStandaloneRarityProgressAndRestoresIt()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code essenceConsumesUnknownSlotWithoutInventingChaosResistance()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code onlyFirstMutableSlotOrWitnessedSideDummyIsAllowed()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code intermediateEssenceStateSurvivesWithoutFinishingExalted()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ */
 @Timeout(90)
 class StrictExaltedScenarioTest {
   final GoalDirectedPlannerScenariosTest f = new GoalDirectedPlannerScenariosTest();

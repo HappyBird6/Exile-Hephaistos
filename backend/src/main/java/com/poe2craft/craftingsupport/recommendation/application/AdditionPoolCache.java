@@ -14,7 +14,53 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Goal-independent family occupancy cache. Returned channels are attached to the caller's tiers.
+ * 목표와 무관한 옵션 계열 점유 상태별 추가 풀을 캐시한다.
+ *
+ * <p>기존 계약: Goal-independent family occupancy cache. Returned channels are attached to the caller's
+ * tiers.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code PROJECTION_VERSION}: 버전; 초기값 {@code "solar-family-pool-v2-omen-composition"} ({@code
+ *       String}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code rules}: 규칙목록 ({@code AdditionRules}).
+ *   <li>{@code validator}: 상태·입력 검증기 ({@code CraftingEngine}).
+ *   <li>{@code store}: 저장소 ({@code AdditionPoolStore}).
+ *   <li>{@code namespace}: 이름공간 ({@code String}).
+ *   <li>{@code memory}: 메모리 ({@code LinkedHashMap<String, Data>}).
+ *   <li>{@code maxEntries}: 최대값·항목목록 ({@code int}).
+ *   <li>{@code hits}: 도달목록 ({@code AtomicLong}).
+ *   <li>{@code computed}: computed ({@code AtomicLong}).
+ *   <li>{@code persistedHits}: persisted·도달목록 ({@code AtomicLong}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AdditionPoolCache(catalog, store, ruleVersion, ledgerDigest, maxEntries)}: 전달받은 값으로
+ *       구성원을 초기화한다. 입력: {@code catalog}(카탈로그), {@code store}(저장소), {@code ruleVersion}(규칙·버전),
+ *       {@code ledgerDigest}(규칙장부·다이제스트), {@code maxEntries}(최대값·항목목록).
+ *   <li>{@code get(state, action, activeOmens)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code state}(상태),
+ *       {@code action}(행동), {@code activeOmens}(활성·징조목록). 반환: {@code Data}.
+ *   <li>{@code remember(key, data)}: remember 처리에서 {@code memory.put}, {@code memory.size}을(를)
+ *       사용한다. 입력: {@code key}(키), {@code data}(데이터).
+ *   <li>{@code validateData(data)}: 데이터을(를) 검증한다. 입력: {@code data}(데이터). 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code namespace()}: {@code namespace} 값을 조회한다. 반환: {@code String}.
+ *   <li>{@code stats()}: 수치목록 값을 조회·구성한다. 반환: {@code Stats}.
+ *   <li>{@code hash(value)}: 해시 처리에서 {@code HexFormat.of}, {@code MessageDigest.getInstance}을(를)
+ *       사용한다. 입력: {@code value}(값). 반환: {@code String}. 사용하는 예외: {@code IllegalStateException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Stats}: {@code AdditionPoolCache}에서 사용하는 수치목록의 불변 값이다.
+ *   <li>{@code Channel}: {@code AdditionPoolCache}에서 사용하는 Channel의 불변 값이다.
+ *   <li>{@code Data}: {@code AdditionPoolCache}에서 사용하는 데이터의 불변 값이다.
+ * </ul>
  */
 public final class AdditionPoolCache {
   public static final String PROJECTION_VERSION = "solar-family-pool-v2-omen-composition";
@@ -175,14 +221,65 @@ public final class AdditionPoolCache {
     }
   }
 
+  /**
+   * {@code AdditionPoolCache}에서 사용하는 수치목록의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code memoryHits}: 메모리·도달목록 ({@code long}).
+   *   <li>{@code persistedHits}: persisted·도달목록 ({@code long}).
+   *   <li>{@code computedPools}: computed·후보풀목록 ({@code long}).
+   * </ul>
+   */
   public record Stats(long memoryHits, long persistedHits, long computedPools) {}
 
+  /**
+   * {@code AdditionPoolCache}에서 사용하는 Channel의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   *   <li>{@code weight}: 후보 선택에 사용하는 가중치 ({@code long}).
+   *   <li>{@code totalWeight}: 합계·가중치 ({@code long}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code probability()}: 현재 조건의 확률을 조회한다. 반환: {@code double}.
+   * </ul>
+   */
   public record Channel(String modifierId, long weight, long totalWeight) {
     public double probability() {
       return (double) weight / totalWeight;
     }
   }
 
+  /**
+   * {@code AdditionPoolCache}에서 사용하는 데이터의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code available}: 사용가능 ({@code boolean}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code rarity}: 현재 아이템 희귀도 ({@code ItemState.Rarity}).
+   *   <li>{@code channels}: channels ({@code List<Channel>}).
+   *   <li>{@code consumedOmens}: 이번 실행으로 소비된 징조 ID 목록 ({@code List<String>}).
+   *   <li>{@code remainingOmens}: 실행 뒤 남은 징조 ID 목록 ({@code List<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Data(available, reason, rarity, channels, consumedOmens, remainingOmens)}: 전달받은
+   *       값으로 구성원을 초기화한다. 입력: {@code available}(사용가능), {@code reason}(이유), {@code rarity}(희귀도),
+   *       {@code channels}(channels), {@code consumedOmens}(소비된·징조목록), {@code
+   *       remainingOmens}(남은·징조목록).
+   * </ul>
+   */
   public record Data(
       boolean available,
       String reason,

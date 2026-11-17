@@ -9,6 +9,21 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.*;
 
+/**
+ * HTTP 본문 크기와 요청 빈도를 제한하고 과도한 작업을 파싱 전에 거절한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code batchReadsChargeTheAdvertisedDocumentBudgetAndRefillNormally()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rateBudgetCannotBeBypassedByForwardedHeadersAndRefills()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code boundsUnknownLengthAndKeepsBodyIntactAndReleasesPermits()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code AssertionError}, {@code java.io.IOException}, {@code
+ *       Exception}.
+ * </ul>
+ */
 class ApiRequestProtectionTest {
   @Test
   void batchReadsChargeTheAdvertisedDocumentBudgetAndRefillNormally() throws Exception {

@@ -22,6 +22,43 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 // Keep the real HTTP filters; mock only their external Redis dependency.
+/**
+ * 사용자가 옵션을 선택하는 엑잘티드 제작 요청을 처리한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code crafting}: 제작 ({@code CatalogCraftingService}).
+ *   <li>{@code references}: 참조목록 ({@code
+ *       com.poe2craft.workbench.application.ModifierReferenceService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code rare(base)}: 희귀 처리에서 {@code crafting.initial}, {@code b.snapshotId}을(를) 사용한다. 입력:
+ *       {@code base}(베이스). 반환: {@code ItemState}.
+ *   <li>{@code call(path, body)}: call 처리에서 {@code json.readTree}, {@code mvc.perform}을(를) 사용한다.
+ *       입력: {@code path}(경로), {@code body}(본문). 반환: {@code JsonNode}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code callWithPool(path, body, before)}: call·With·후보풀 처리에서 {@code references.describe},
+ *       {@code json.readTree}을(를) 사용한다. 입력: {@code path}(경로), {@code body}(본문), {@code
+ *       before}(변경전). 반환: {@code JsonNode}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code everyNewCraftTransportReconstructsTheAuthoritativePool()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code allExaltedTiersKeepNaturalWeightsAndOnlyForceTheChosenTier()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code customExaltPreservesHiddenDesecrationConstraints()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code augmentInstallKeepsBothHiddenAndRevealedDesecratedOptions()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code twoModifierOmenStillAddsTwoAndReferenceChanceIncludesEitherDraw()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code hiddenAndRevealedExaltsShareQualityAndUnrelatedOmenSupportWithOrdinaryCrafting()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @org.springframework.test.context.bean.override.mockito.MockitoBean(
     types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest({CustomExaltController.class, WorkbenchController.class})

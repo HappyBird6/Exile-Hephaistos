@@ -5,14 +5,115 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.Function;
 
-/** Shared exact primitive kernels, with arithmetic precision scoped to one cooperative method. */
+/**
+ * 기본 전이를 공유하며 방법 계산별 정밀도로 확률 구간을 계산한다.
+ *
+ * <p>기존 계약: Shared exact primitive kernels, with arithmetic precision scoped to one cooperative
+ * method.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code store}: 저장소 ({@code IndexedKernelStore}).
+ *   <li>{@code source}: 출처 ({@code int}).
+ *   <li>{@code template}: 템플릿 ({@code ExactMethodRunner.Template<Integer, WorkbenchCurrency>}).
+ *   <li>{@code classify}: 상태분류 ({@code Function<Integer, Optional<ExactMethodRunner.Exit>>}).
+ *   <li>{@code precision}: 정밀도 ({@code CertifiedInterval.Precision}).
+ *   <li>{@code runner}: 실행기 ({@code CertifiedMethodRunner<Integer, WorkbenchCurrency>}).
+ *   <li>{@code pending}: 대기 ({@code IndexedKernelStore.Request}).
+ *   <li>{@code pendingKey}: 대기·키 ({@code Key}).
+ *   <li>{@code absorptionLaws}: 흡수·분포목록 ({@code List<CertifiedMutableLawStore.Law>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code IndexedCertifiedMethodRunner(store, source, template, classify, precision)}: 기본 정책을
+ *       보충해 공통 생성자로 위임한다. 입력: {@code store}(저장소), {@code source}(출처), {@code template}(템플릿), {@code
+ *       classify}(상태분류), {@code precision}(정밀도).
+ *   <li>{@code IndexedCertifiedMethodRunner(store, source, template, classify, precision,
+ *       absorptionStore)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code store}(저장소), {@code source}(출처),
+ *       {@code template}(템플릿), {@code classify}(상태분류), {@code precision}(정밀도), {@code
+ *       absorptionStore}(흡수·저장소).
+ *   <li>{@code IndexedCertifiedMethodRunner(store, source, template, classify, precision,
+ *       absorptionStore, workingMaps)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code store}(저장소), {@code
+ *       source}(출처), {@code template}(템플릿), {@code classify}(상태분류), {@code precision}(정밀도), {@code
+ *       absorptionStore}(흡수·저장소), {@code workingMaps}(계산중·맵목록).
+ *   <li>{@code IndexedCertifiedMethodRunner(store, source, template, classify, precision,
+ *       absorptionStore, workingMaps, initialize)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code store}(저장소),
+ *       {@code source}(출처), {@code template}(템플릿), {@code classify}(상태분류), {@code precision}(정밀도),
+ *       {@code absorptionStore}(흡수·저장소), {@code workingMaps}(계산중·맵목록), {@code initialize}(초기화).
+ *   <li>{@code leaseCursor()}: 사용권·진행커서 값을 조회·구성한다. 반환: {@code CertifiedMethodRunner<Integer,
+ *       WorkbenchCurrency>.CursorLease}.
+ *   <li>{@code restoreCursor(header, store, source, template, classify, precision,
+ *       absorptionStore)}: 진행커서을(를) 복원한다. 입력: {@code header}(헤더), {@code store}(저장소), {@code
+ *       source}(출처), {@code template}(템플릿), {@code classify}(상태분류), {@code precision}(정밀도), {@code
+ *       absorptionStore}(흡수·저장소). 반환: {@code Restoration}.
+ *   <li>{@code restoreCursor(header, store, source, template, classify, precision, absorptionStore,
+ *       workingMaps)}: 진행커서을(를) 복원한다. 입력: {@code header}(헤더), {@code store}(저장소), {@code
+ *       source}(출처), {@code template}(템플릿), {@code classify}(상태분류), {@code precision}(정밀도), {@code
+ *       absorptionStore}(흡수·저장소), {@code workingMaps}(계산중·맵목록). 반환: {@code Restoration}.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ *   <li>{@code kernel(source, action)}: 전이커널 처리에서 {@code pendingKey.equals}, {@code
+ *       pending.complete}을(를) 사용한다. 입력: {@code source}(출처), {@code action}(행동). 반환: {@code
+ *       ExactMethodRunner.Kernel<Integer>}. 사용하는 예외: {@code Missing}.
+ *   <li>{@code retainedStates()}: 보유·상태목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code retention()}: 보유량 값을 조회·구성한다. 반환: {@code CertifiedMethodRunner.Retention}.
+ *   <li>{@code atBoundary()}: 기준·경계 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code absorbed()}: 흡수된 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code cycles()}: 주기횟수 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code beginCycle()}: 시작·주기 처리에서 {@code runner.beginCycle}을(를) 사용한다.
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+ *   <li>{@code observation()}: 관측값 값을 조회·구성한다. 반환: {@code
+ *       CertifiedMethodRunner.Observation<Integer, WorkbenchCurrency>}.
+ *   <li>{@code snapshot()}: 현재 내용을 불변 관측값으로 구성한다. 반환: {@code Snapshot}.
+ *   <li>{@code restoredSnapshot(index, source, template, classify, precision, point)}: restored·스냅샷
+ *       처리에서 {@code index.key}, {@code CertifiedInterval.zero}을(를) 사용한다. 입력: {@code index}(색인),
+ *       {@code source}(출처), {@code template}(템플릿), {@code classify}(상태분류), {@code precision}(정밀도),
+ *       {@code point}(지점). 반환: {@code Snapshot}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code freezeSnapshot(store)}: 불변복사·스냅샷의 입력에 따른 분기·결과를 처리한다. 입력: {@code store}(저장소). 반환:
+ *       {@code FrozenSnapshot}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Missing}: {@code IndexedCertifiedMethodRunner} 내부의 누락 처리를 맡는다.
+ *   <li>{@code Key}: {@code IndexedCertifiedMethodRunner}에서 사용하는 키의 불변 값이다.
+ *   <li>{@code Restoration}: {@code IndexedCertifiedMethodRunner} 내부의 복원 처리를 맡는다.
+ *   <li>{@code FrozenSnapshot}: {@code IndexedCertifiedMethodRunner} 내부의 Frozen·스냅샷 처리를 맡는다.
+ *   <li>{@code InitialLaw}: {@code IndexedCertifiedMethodRunner} 내부의 초기값·분포 처리를 맡는다.
+ *   <li>{@code InitialEquivalence}: {@code IndexedCertifiedMethodRunner} 내부의 초기값·Equivalence 처리를
+ *       맡는다.
+ *   <li>{@code Snapshot}: {@code IndexedCertifiedMethodRunner} 내부의 스냅샷 처리를 맡는다.
+ * </ul>
+ */
 public final class IndexedCertifiedMethodRunner implements AutoCloseable {
+  /**
+   * {@code IndexedCertifiedMethodRunner} 내부의 누락 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Missing()}: 전달받은 값으로 구성원을 초기화한다.
+   * </ul>
+   */
   private static final class Missing extends RuntimeException {
     Missing() {
       super(null, null, false, false);
     }
   }
 
+  /**
+   * {@code IndexedCertifiedMethodRunner}에서 사용하는 키의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code int}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   * </ul>
+   */
   private record Key(int source, WorkbenchCurrency action) {}
 
   private final IndexedKernelStore store;
@@ -157,6 +258,29 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
             workingMaps));
   }
 
+  /**
+   * {@code IndexedCertifiedMethodRunner} 내부의 복원 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code target}: 대상 ({@code IndexedCertifiedMethodRunner}).
+   *   <li>{@code restoration}: 복원 ({@code CertifiedMethodRunner.CursorRestore<Integer,
+   *       WorkbenchCurrency>}).
+   *   <li>{@code finished}: 종료 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Restoration(target, restoration)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code target}(대상),
+   *       {@code restoration}(복원).
+   *   <li>{@code accept(row)}: 수락 처리에서 {@code restoration.accept}을(를) 사용한다. 입력: {@code row}(행).
+   *   <li>{@code retainedStates()}: 보유·상태목록 값을 조회·구성한다. 반환: {@code long}.
+   *   <li>{@code finish()}: 진행 중인 계산 또는 누적 처리를 마무리한다. 반환: {@code IndexedCertifiedMethodRunner}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   */
   public static final class Restoration implements AutoCloseable {
     private final IndexedCertifiedMethodRunner target;
     private final CertifiedMethodRunner.CursorRestore<Integer, WorkbenchCurrency> restoration;
@@ -296,7 +420,38 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
     return new FrozenSnapshot(store);
   }
 
-  /** Cooperative storage of a leased boundary; no duplicate row maps are captured. */
+  /**
+   * {@code IndexedCertifiedMethodRunner} 내부의 Frozen·스냅샷 처리를 맡는다.
+   *
+   * <p>기존 계약: Cooperative storage of a leased boundary; no duplicate row maps are captured.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code store}: 저장소 ({@code CertifiedLawStore}).
+   *   <li>{@code lease}: 사용권 ({@code CertifiedMethodRunner<Integer,
+   *       WorkbenchCurrency>.ObservationLease}).
+   *   <li>{@code exits}: 종료목록 ({@code Map<ExactMethodRunner.Exit, Map<Integer,
+   *       CertifiedInterval>>}).
+   *   <li>{@code current}: 현재 ({@code CertifiedLawStore.Freeze}).
+   *   <li>{@code part}: part ({@code int}).
+   *   <li>{@code result}: 결과 ({@code Snapshot}).
+   *   <li>{@code closed}: 닫힘 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code FrozenSnapshot(store)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code store}(저장소).
+   *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code transientBytes()}: 임시·바이트수 값을 조회·구성한다. 반환: {@code long}.
+   *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다. 사용하는 예외: {@code IllegalStateException}.
+   *   <li>{@code storeIndex()}: 저장소·색인 값을 조회·구성한다. 반환: {@code BasicClassIndex}.
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code Snapshot}. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   */
   public final class FrozenSnapshot implements AutoCloseable {
     private final CertifiedLawStore store;
     private CertifiedMethodRunner<Integer, WorkbenchCurrency>.ObservationLease lease;
@@ -378,7 +533,34 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
     }
   }
 
-  /** Certified from a completed shared primitive request, never from an asserted hash. */
+  /**
+   * {@code IndexedCertifiedMethodRunner} 내부의 초기값·분포 처리를 맡는다.
+   *
+   * <p>기존 계약: Certified from a completed shared primitive request, never from an asserted hash.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code index}: 색인 ({@code BasicClassIndex}).
+   *   <li>{@code source}: 출처 ({@code int}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code outcomes}: 결과목록 ({@code Map<Integer, Fraction>}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   *   <li>{@code unavailable}: 사용불가 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code InitialLaw(request)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code request}(요청).
+   *   <li>{@code outcomes()}: 가능한 결과와 확률을 조회한다. 반환: {@code Map<Integer, Fraction>}.
+   *   <li>{@code unresolved()}: {@code unresolved} 값을 조회한다. 반환: {@code Fraction}.
+   *   <li>{@code unavailable()}: {@code unavailable} 값을 조회한다. 반환: {@code boolean}.
+   *   <li>{@code equivalentTo(other)}: equivalent·대상 처리에서 {@code unresolved.equals}, {@code
+   *       outcomes.equals}을(를) 사용한다. 입력: {@code other}(비교대상). 반환: {@code InitialEquivalence}. 사용하는
+   *       예외: {@code IllegalArgumentException}.
+   * </ul>
+   */
   public static final class InitialLaw {
     private final BasicClassIndex index;
     private final int source;
@@ -421,6 +603,27 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code IndexedCertifiedMethodRunner} 내부의 초기값·Equivalence 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code index}: 색인 ({@code BasicClassIndex}).
+   *   <li>{@code source}: 출처 ({@code int}).
+   *   <li>{@code targetSource}: 대상·출처 ({@code int}).
+   *   <li>{@code from}: 원본 ({@code WorkbenchCurrency}).
+   *   <li>{@code to}: 대상 ({@code WorkbenchCurrency}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code InitialEquivalence(index, source, targetSource, from, to)}: 전달받은 값으로 구성원을 초기화한다.
+   *       입력: {@code index}(색인), {@code source}(출처), {@code targetSource}(대상·출처), {@code from}(원본),
+   *       {@code to}(대상).
+   * </ul>
+   */
   public static final class InitialEquivalence {
     private final BasicClassIndex index;
     private final int source, targetSource;
@@ -440,6 +643,39 @@ public final class IndexedCertifiedMethodRunner implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code IndexedCertifiedMethodRunner} 내부의 스냅샷 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code index}: 색인 ({@code BasicClassIndex}).
+   *   <li>{@code source}: 출처 ({@code int}).
+   *   <li>{@code template}: 템플릿 ({@code ExactMethodRunner.Template<Integer, WorkbenchCurrency>}).
+   *   <li>{@code classify}: 상태분류 ({@code Function<Integer, Optional<ExactMethodRunner.Exit>>}).
+   *   <li>{@code precision}: 정밀도 ({@code CertifiedInterval.Precision}).
+   *   <li>{@code point}: 지점 ({@code CertifiedMethodRunner.Observation<Integer,
+   *       WorkbenchCurrency>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Snapshot(index, source, template, classify, precision, point)}: 전달받은 값으로 구성원을
+   *       초기화한다. 입력: {@code index}(색인), {@code source}(출처), {@code template}(템플릿), {@code
+   *       classify}(상태분류), {@code precision}(정밀도), {@code point}(지점).
+   *   <li>{@code observation()}: {@code point} 값을 조회한다. 반환: {@code
+   *       CertifiedMethodRunner.Observation<Integer, WorkbenchCurrency>}.
+   *   <li>{@code freeze(store)}: 변경 중인 값을 불변 조회·저장 표현으로 만든다. 입력: {@code store}(저장소). 반환: {@code
+   *       Snapshot}.
+   *   <li>{@code atLaterAbsorbedBoundary(cycles)}: 기준·후속·흡수된·경계 처리에서 {@code
+   *       point.atLaterAbsorbedBoundary}을(를) 사용한다. 입력: {@code cycles}(주기횟수). 반환: {@code Snapshot}.
+   *   <li>{@code withEquivalentInitial(proof)}: Equivalent·초기값을(를) 반영한 값을 구한다. 입력: {@code
+   *       proof}(증명). 반환: {@code Snapshot}. 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code condition(input, exit, target)}: 조건에 해당하는 분포를 구한다. 입력: {@code input}(입력), {@code
+   *       exit}(종료), {@code target}(대상). 반환: {@code ConditionalMethodLaw}.
+   * </ul>
+   */
   public static final class Snapshot {
     private final BasicClassIndex index;
     private final int source;

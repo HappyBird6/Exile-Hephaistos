@@ -13,16 +13,202 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.Function;
 
-/** Method transport for approved currency/omen executions, with primitive first-hit semantics. */
+/**
+ * 화폐·징조 조합을 방법 실행으로 묶고 개별 행동의 최초 성공 의미를 유지한다.
+ *
+ * <p>기존 계약: Method transport for approved currency/omen executions, with primitive first-hit
+ * semantics.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "automatic-method-execution-v6-joint-lineage"} ({@code
+ *       String}).
+ *   <li>{@code runner}: 실행기 ({@code CertifiedMethodRunner<State, AutomaticCraftingAction>}).
+ *   <li>{@code initializingRoot}: 초기화중·시작점; 초기값 {@code true} ({@code boolean}).
+ *   <li>{@code root}: 시작점 ({@code ItemState}).
+ *   <li>{@code initialTiers}: 초기값·티어목록 ({@code Map<String, TierCell>}).
+ *   <li>{@code symbolicSource}: symbolic·출처 ({@code boolean}).
+ *   <li>{@code initialQuality40}: 초기값·품질·40 ({@code boolean}).
+ *   <li>{@code initialAbstractQuality}: 초기값·추상화된·품질 ({@code int}).
+ *   <li>{@code template}: 템플릿 ({@code Template}).
+ *   <li>{@code preparedRetryAnchor}: 준비된·재시도·Anchor ({@code ItemState}).
+ *   <li>{@code preparedRepresentatives}: 준비된·대표상태목록 ({@code Map<ItemState, ItemState>}).
+ *   <li>{@code preparedTransitionState}: 준비된·전이·상태 ({@code State}).
+ *   <li>{@code preparedTransitionAction}: 준비된·전이·행동 ({@code AutomaticCraftingAction}).
+ *   <li>{@code preparedTransition}: 준비된·전이 ({@code Kernel<State>}).
+ *   <li>{@code kernel}: 전이커널 ({@code AutomaticCraftingKernel}).
+ *   <li>{@code classify}: 상태분류 ({@code java.util.function.BiFunction<ItemState, Integer,
+ *       Optional<Exit>>}).
+ *   <li>{@code precision}: 정밀도 ({@code CertifiedInterval.Precision}).
+ *   <li>{@code primitiveOutcomeBudget}: 개별행동·결과·계산예산 ({@code long}).
+ *   <li>{@code primitiveLimited}: 개별행동·제한된 ({@code boolean}).
+ *   <li>{@code primitiveCursor}: 개별행동·진행커서 ({@code AutomaticCraftingKernel.PrimitiveCursor}).
+ *   <li>{@code primitiveState}: 개별행동·상태 ({@code State}).
+ *   <li>{@code primitiveAction}: 개별행동·행동 ({@code AutomaticCraftingAction}).
+ *   <li>{@code preparationSuccess}: 준비·성공 ({@code PreparationSuccess}).
+ *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code Set<WorkbenchSimulator.Assumption>}).
+ *   <li>{@code unresolvedReasons}: 미해결·이유목록 ({@code Set<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AutomaticMethodExecution(root, template, kernel, classify, precision,
+ *       primitiveOutcomeBudget)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code root}(시작점), {@code
+ *       template}(템플릿), {@code kernel}(전이커널), {@code classify}(상태분류), {@code precision}(정밀도),
+ *       {@code primitiveOutcomeBudget}(개별행동·결과·계산예산).
+ *   <li>{@code AutomaticMethodExecution(root, template, kernel, classify, precision,
+ *       primitiveOutcomeBudget, preparationSuccess)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       root}(시작점), {@code template}(템플릿), {@code kernel}(전이커널), {@code classify}(상태분류), {@code
+ *       precision}(정밀도), {@code primitiveOutcomeBudget}(개별행동·결과·계산예산), {@code
+ *       preparationSuccess}(준비·성공).
+ *   <li>{@code AutomaticMethodExecution(root, template, kernel, classify, precision,
+ *       primitiveOutcomeBudget, preparationSuccess, initialQuality40)}: 기본 정책을 보충해 공통 생성자로 위임한다.
+ *       입력: {@code root}(시작점), {@code template}(템플릿), {@code kernel}(전이커널), {@code classify}(상태분류),
+ *       {@code precision}(정밀도), {@code primitiveOutcomeBudget}(개별행동·결과·계산예산), {@code
+ *       preparationSuccess}(준비·성공), {@code initialQuality40}(초기값·품질·40).
+ *   <li>{@code AutomaticMethodExecution(root, template, kernel, classify, precision,
+ *       primitiveOutcomeBudget, preparationSuccess, initialQuality40, initialAbstractQuality)}: 기본
+ *       정책을 보충해 공통 생성자로 위임한다. 입력: {@code root}(시작점), {@code template}(템플릿), {@code kernel}(전이커널),
+ *       {@code classify}(상태분류), {@code precision}(정밀도), {@code
+ *       primitiveOutcomeBudget}(개별행동·결과·계산예산), {@code preparationSuccess}(준비·성공), {@code
+ *       initialQuality40}(초기값·품질·40), {@code initialAbstractQuality}(초기값·추상화된·품질).
+ *   <li>{@code AutomaticMethodExecution(root, template, kernel, classify, precision,
+ *       primitiveOutcomeBudget, preparationSuccess, initialQuality40, initialAbstractQuality,
+ *       initialTiers)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code root}(시작점), {@code template}(템플릿),
+ *       {@code kernel}(전이커널), {@code classify}(상태분류), {@code precision}(정밀도), {@code
+ *       primitiveOutcomeBudget}(개별행동·결과·계산예산), {@code preparationSuccess}(준비·성공), {@code
+ *       initialQuality40}(초기값·품질·40), {@code initialAbstractQuality}(초기값·추상화된·품질), {@code
+ *       initialTiers}(초기값·티어목록).
+ *   <li>{@code AutomaticMethodExecution(root, template, kernel, classify, precision,
+ *       primitiveOutcomeBudget, preparationSuccess, initialQuality40, initialAbstractQuality,
+ *       initialTiers, symbolicSource)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code root}(시작점), {@code
+ *       template}(템플릿), {@code kernel}(전이커널), {@code classify}(상태분류), {@code precision}(정밀도),
+ *       {@code primitiveOutcomeBudget}(개별행동·결과·계산예산), {@code preparationSuccess}(준비·성공), {@code
+ *       initialQuality40}(초기값·품질·40), {@code initialAbstractQuality}(초기값·추상화된·품질), {@code
+ *       initialTiers}(초기값·티어목록), {@code symbolicSource}(symbolic·출처). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code compiledTemplate()}: compiled·템플릿 값을 조회·구성한다. 반환: {@code
+ *       ExactMethodRunner.Template<State, AutomaticCraftingAction>}.
+ *   <li>{@code transition(state, action)}: 전이 처리에서 {@code state.equals}, {@code action.equals}을(를)
+ *       사용한다. 입력: {@code state}(상태), {@code action}(행동). 반환: {@code Kernel<State>}. 사용하는 예외: {@code
+ *       PrimitiveBudgetReached}, {@code PrimitiveYield}.
+ *   <li>{@code retained(source, outcome)}: 보유 처리에서 {@code source.retainedFromRoot}, {@code
+ *       retained.retainAll}을(를) 사용한다. 입력: {@code source}(출처), {@code outcome}(결과). 반환: {@code
+ *       Set<String>}.
+ *   <li>{@code retryPlan(item)}: 재시도·계획 처리에서 {@code template.initial}, {@code
+ *       AutomaticCraftingKernel.mutableAffixCount}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code
+ *       AutomaticCraftingPlan}.
+ *   <li>{@code preparedRetryCandidate()}: 준비된·재시도·후보 값을 조회·구성한다. 반환: {@code ItemState}.
+ *   <li>{@code preparedRepresentative(item)}: 준비된·대표상태 처리에서 {@code classify.apply}, {@code
+ *       preparedRepresentatives.computeIfAbsent}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code
+ *       ItemState}.
+ *   <li>{@code classifyState(state)}: 상태분류·상태 처리에서 {@code classify.apply}, {@code state.item}을(를)
+ *       사용한다. 입력: {@code state}(상태). 반환: {@code Optional<Exit>}.
+ *   <li>{@code completedQuality(state)}: 완료·품질 처리에서 {@code kernel.workedQuality}, {@code
+ *       state.item}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code boolean}.
+ *   <li>{@code checkpoint(objectiveIdentity)}: 현재 진행 상태의 복구 지점을 기록한다. 입력: {@code
+ *       objectiveIdentity}(목적·정체성). 반환: {@code Checkpoint}.
+ *   <li>{@code restore(saved, kernel, objectiveIdentity, classify)}: 저장된 상태로 실행 또는 조회 상태를 복원한다. 입력:
+ *       {@code saved}(저장된), {@code kernel}(전이커널), {@code objectiveIdentity}(목적·정체성), {@code
+ *       classify}(상태분류). 반환: {@code AutomaticMethodExecution}.
+ *   <li>{@code restore(saved, kernel, objectiveIdentity, classify)}: 저장된 상태로 실행 또는 조회 상태를 복원한다. 입력:
+ *       {@code saved}(저장된), {@code kernel}(전이커널), {@code objectiveIdentity}(목적·정체성), {@code
+ *       classify}(상태분류). 반환: {@code AutomaticMethodExecution}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code atBoundary()}: 기준·경계 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code absorbed()}: 흡수된 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code cycles()}: 주기횟수 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code retryRepresentatives()}: 재시도·대표상태목록 값을 조회·구성한다. 반환: {@code Set<ItemState>}.
+ *   <li>{@code retainedStates()}: 보유·상태목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code hasPrimitiveInFlight()}: 개별행동·입력·진행중을(를) 보유 여부를 판정한다. 반환: {@code boolean}.
+ *   <li>{@code beginCycle()}: 시작·주기 처리에서 {@code runner.beginCycle}을(를) 사용한다.
+ *   <li>{@code step(outcomes)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code outcomes}(결과목록).
+ *   <li>{@code resourceLimited()}: {@code primitiveLimited} 값을 조회한다. 반환: {@code boolean}.
+ *   <li>{@code increasePrimitiveBudget(budget)}: 개별행동·계산예산을(를) 한도를 늘린다. 입력: {@code budget}(계산예산).
+ *       사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code observation()}: 관측값 값을 조회·구성한다. 반환: {@code CertifiedMethodRunner.Observation<State,
+ *       AutomaticCraftingAction>}.
+ *   <li>{@code provisional(horizon)}: provisional 처리에서 {@code runner.atBoundary}, {@code
+ *       runner.absorbed}을(를) 사용한다. 입력: {@code horizon}(계산기간). 반환: {@code
+ *       CertifiedMethodRunner.Observation<State, AutomaticCraftingAction>}.
+ *   <li>{@code usageBounds(spent, actions, repetitions)}: 사용량·경계값 처리에서 {@code actions.forEach},
+ *       {@code counts.merge}을(를) 사용한다. 입력: {@code spent}(spent), {@code actions}(행동목록), {@code
+ *       repetitions}(repetitions). 반환: {@code Map<AutomaticCraftingAction, CertifiedInterval>}.
+ *   <li>{@code assumptions()}: 계산가정 값을 조회·구성한다. 반환: {@code List<WorkbenchSimulator.Assumption>}.
+ *   <li>{@code unresolvedReasons()}: 미해결·이유목록 값을 조회·구성한다. 반환: {@code Set<String>}.
+ *   <li>{@code materialUses(uses)}: 제작재료·사용량 처리에서 {@code uses.forEach}, {@code action.purpose}을(를)
+ *       사용한다. 입력: {@code uses}(사용량). 반환: {@code Map<String, CertifiedInterval>}.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code PreparationSuccess}: {@code AutomaticMethodExecution}의 준비·성공 구분값을 정의한다.
+ *   <li>{@code State}: {@code AutomaticMethodExecution}에서 사용하는 상태의 불변 값이다.
+ *   <li>{@code Template}: {@code AutomaticMethodExecution}에서 사용하는 템플릿의 불변 값이다.
+ *   <li>{@code PrimitiveBudgetReached}: {@code AutomaticMethodExecution} 내부의 개별행동·계산예산·Reached 처리를
+ *       맡는다.
+ *   <li>{@code PrimitiveYield}: {@code AutomaticMethodExecution} 내부의 개별행동·Yield 처리를 맡는다.
+ *   <li>{@code Checkpoint}: {@code AutomaticMethodExecution}에서 사용하는 체크포인트의 불변 값이다.
+ * </ul>
+ */
 public final class AutomaticMethodExecution implements AutoCloseable {
   public static final String VERSION = "automatic-method-execution-v6-joint-lineage";
 
+  /**
+   * {@code AutomaticMethodExecution}의 준비·성공 구분값을 정의한다.
+   *
+   * <p>필드·상수·열거값:
+   *
+   * <ul>
+   *   <li>{@code UNDECIDED}: UNDECIDED 구분값.
+   *   <li>{@code STOP_ON_FIRST_HIT}: 목표도달 구분값.
+   *   <li>{@code REQUIRE_REPLACEMENT}: 교체 구분값.
+   * </ul>
+   */
   public enum PreparationSuccess {
     UNDECIDED,
     STOP_ON_FIRST_HIT,
     REQUIRE_REPLACEMENT
   }
 
+  /**
+   * {@code AutomaticMethodExecution}에서 사용하는 상태의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code item}: 아이템 ({@code ItemState}).
+   *   <li>{@code temporaryPreparation}: 임시·준비 ({@code boolean}).
+   *   <li>{@code quality40}: 품질·40 ({@code boolean}).
+   *   <li>{@code abstractQuality}: 추상화된·품질 ({@code int}).
+   *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierCell>}).
+   *   <li>{@code retainedFromRoot}: 보유·원본·시작점 ({@code Set<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code State(item, temporaryPreparation, quality40, abstractQuality, tiers,
+   *       retainedFromRoot)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code item}(아이템), {@code
+   *       temporaryPreparation}(임시·준비), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질),
+   *       {@code tiers}(티어목록), {@code retainedFromRoot}(보유·원본·시작점). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   *   <li>{@code State(item, temporaryPreparation, quality40, abstractQuality, tiers)}: 기본 정책을 보충해
+   *       공통 생성자로 위임한다. 입력: {@code item}(아이템), {@code temporaryPreparation}(임시·준비), {@code
+   *       quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code tiers}(티어목록).
+   *   <li>{@code State(item, temporaryPreparation, quality40, abstractQuality)}: 기본 정책을 보충해 공통 생성자로
+   *       위임한다. 입력: {@code item}(아이템), {@code temporaryPreparation}(임시·준비), {@code
+   *       quality40}(품질·40), {@code abstractQuality}(추상화된·품질).
+   *   <li>{@code State(item, temporaryPreparation, quality40)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       item}(아이템), {@code temporaryPreparation}(임시·준비), {@code quality40}(품질·40).
+   *   <li>{@code State(item, temporaryPreparation)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       item}(아이템), {@code temporaryPreparation}(임시·준비).
+   * </ul>
+   */
   public record State(
       ItemState item,
       boolean temporaryPreparation,
@@ -61,6 +247,25 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code AutomaticMethodExecution}에서 사용하는 템플릿의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code initial}: 초기값 ({@code List<AutomaticCraftingAction>}).
+   *   <li>{@code cycle}: 주기 ({@code List<AutomaticCraftingAction>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code boundedChaos()}: 한도내·카오스 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code Template(id, initial, cycle)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자), {@code
+   *       initial}(초기값), {@code cycle}(주기). 사용하는 예외: {@code IllegalArgumentException}.
+   * </ul>
+   */
   public record Template(
       String id, List<AutomaticCraftingAction> initial, List<AutomaticCraftingAction> cycle) {
     public boolean boundedChaos() {
@@ -128,8 +333,22 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   private long primitiveOutcomeBudget;
   private boolean primitiveLimited;
 
+  /**
+   * {@code AutomaticMethodExecution} 내부의 개별행동·계산예산·Reached 처리를 맡는다.
+   *
+   * <p>직접 선언한 필드·생성자·메서드는 없다.
+   */
   private static final class PrimitiveBudgetReached extends RuntimeException {}
 
+  /**
+   * {@code AutomaticMethodExecution} 내부의 개별행동·Yield 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code PrimitiveYield()}: 전달받은 값으로 구성원을 초기화한다.
+   * </ul>
+   */
   private static final class PrimitiveYield extends RuntimeException {
     PrimitiveYield() {
       super(null, null, false, false);
@@ -534,6 +753,49 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     return kernel.workedQuality(state.item(), state.abstractQuality()) >= 40;
   }
 
+  /**
+   * {@code AutomaticMethodExecution}에서 사용하는 체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code version}: 저장·실행 계약의 버전 ({@code String}).
+   *   <li>{@code objectiveIdentity}: 목적·정체성 ({@code String}).
+   *   <li>{@code identity}: 정체성 ({@code AutomaticCraftingKernel.Identity}).
+   *   <li>{@code root}: 시작점 ({@code ItemState}).
+   *   <li>{@code initialQuality40}: 초기값·품질·40 ({@code boolean}).
+   *   <li>{@code initialAbstractQuality}: 초기값·추상화된·품질 ({@code int}).
+   *   <li>{@code initialTiers}: 초기값·티어목록 ({@code Map<String, TierCell>}).
+   *   <li>{@code symbolicSource}: symbolic·출처 ({@code boolean}).
+   *   <li>{@code template}: 템플릿 ({@code Template}).
+   *   <li>{@code precision}: 정밀도 ({@code CertifiedInterval.Precision}).
+   *   <li>{@code primitiveOutcomeBudget}: 개별행동·결과·계산예산 ({@code long}).
+   *   <li>{@code preparationSuccess}: 준비·성공 ({@code PreparationSuccess}).
+   *   <li>{@code header}: 헤더 ({@code CertifiedMethodRunner.CursorHeader<State>}).
+   *   <li>{@code rows}: 행목록 ({@code List<CertifiedMethodRunner.CursorRow<State,
+   *       AutomaticCraftingAction>>}).
+   *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code List<WorkbenchSimulator.Assumption>}).
+   *   <li>{@code unresolvedReasons}: 미해결·이유목록 ({@code Set<String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Checkpoint(version, objectiveIdentity, identity, root, initialQuality40,
+   *       initialAbstractQuality, initialTiers, symbolicSource, template, precision,
+   *       primitiveOutcomeBudget, preparationSuccess, header, rows, assumptions,
+   *       unresolvedReasons)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code version}(버전), {@code
+   *       objectiveIdentity}(목적·정체성), {@code identity}(정체성), {@code root}(시작점), {@code
+   *       initialQuality40}(초기값·품질·40), {@code initialAbstractQuality}(초기값·추상화된·품질), {@code
+   *       initialTiers}(초기값·티어목록), {@code symbolicSource}(symbolic·출처), {@code template}(템플릿),
+   *       {@code precision}(정밀도), {@code primitiveOutcomeBudget}(개별행동·결과·계산예산), {@code
+   *       preparationSuccess}(준비·성공), {@code header}(헤더), {@code rows}(행목록), {@code
+   *       assumptions}(계산가정), {@code unresolvedReasons}(미해결·이유목록). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   *   <li>{@code withIdentity(shared)}: 정체성을(를) 반영한 값을 구한다. 입력: {@code shared}(공유). 반환: {@code
+   *       Checkpoint}.
+   * </ul>
+   */
   public record Checkpoint(
       String version,
       String objectiveIdentity,

@@ -13,7 +13,38 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 원래 수치를 편집하지 않고 독립 정수 배율의 앱 신성화 정책을 적용한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code matchesSharedBrowserProjectionCases()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는
+ *       예외: {@code Exception}.
+ *   <li>{@code qualityUsesUserSelectedMaximumForEveryRarityAndNeverDropsOtherState()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code sanctifiesWithoutRerollingAndPreservesImplicitQualitySlotsObservationsAndLocks()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code sanctificationIsNotConsumedForWrongRarityOrConflictingDivineOmens()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code StateWire}: {@code QualitySanctificationTest} 내부의 상태·Wire 처리를 맡는다.
+ * </ul>
+ */
 class QualitySanctificationTest {
+  /**
+   * {@code QualitySanctificationTest} 내부의 상태·Wire 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code sanctification()}: 신성화 값을 조회·구성한다. 반환: {@code ItemState.Sanctification}.
+   * </ul>
+   */
   abstract static class StateWire {
     @com.fasterxml.jackson.annotation.JsonInclude(
         com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)

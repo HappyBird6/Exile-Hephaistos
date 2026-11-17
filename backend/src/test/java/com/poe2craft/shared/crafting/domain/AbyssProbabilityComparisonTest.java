@@ -8,6 +8,28 @@ import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 다음 옵션 추가 확률의 민감도를 비교한다. 훼손 후보 공개 확률은 계산하지 않는다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code HysteriaEssenceTest}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code comparison}: 비교 ({@code AbyssProbabilityComparison}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code fullPrefixSideExcludesPrefixesEvenThoughUnrevealedHasNoCatalogId()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code conditionalChanceUsesAnActualEligibleHighestWeightBlockerAndRecomputedPool()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fullItemDoesNotClaimZeroChanceForAnUnavailableAddition()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AbyssProbabilityComparisonTest {
   final HysteriaEssenceTest fixture = new HysteriaEssenceTest();
   final ItemCatalog catalog = fixture.catalog;

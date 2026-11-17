@@ -14,6 +14,34 @@ import java.util.*;
 import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 제작방법·전이 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code PathSearchServiceTest}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code calculate(predicate)}: 해당 모형의 계산 결과를 구한다. 입력: {@code predicate}(판정조건). 반환: {@code
+ *       PathSearchCalculation}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code conserved(r)}: conserved 처리에서 {@code r.method}, {@code r.points}을(를) 사용한다. 입력:
+ *       {@code r}(r).
+ *   <li>{@code lateSuccessSurvivesDisplayLimitAndHasStateSpecificAbsorption()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code omittedSuccessUnknownMassAndOddTwoActionObservationRemainDistinct()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code root()}: 시작점 값을 조회·구성한다. 반환: {@code ItemState}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code countExclusionMethodExitsRetainRealExecutionsAndRecoverToRoot()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code emptyIntermediateGoalStopsAfterOneUseAndZeroSuccessHasNoHitEdges()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class MethodTransitionTest {
   final PathSearchServiceTest fixture = new PathSearchServiceTest();
 

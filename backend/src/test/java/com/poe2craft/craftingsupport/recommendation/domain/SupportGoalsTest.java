@@ -11,6 +11,39 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 옵션 계열·티어 목표의 현재 달성과 추가 가능성을 판정한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code goals}: 목표목록 ({@code SupportGoals}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code state(level, family, tier)}: 현재 상태 표현을 조회한다. 입력: {@code level}(레벨), {@code
+ *       family}(옵션계열), {@code tier}(티어). 반환: {@code StateBucket}.
+ *   <li>{@code c(family, tier)}: c 처리에서 {@code SupportGoals.Condition}을(를) 사용한다. 입력: {@code
+ *       family}(옵션계열), {@code tier}(티어). 반환: {@code SupportGoals.Condition}.
+ *   <li>{@code skillFamilyPublishesAllEffectAlternativesAndCountsAnyVariantOnce()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code tierTwoOrBetterMeansTierOneAndTwoButNotThree()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code requiredAndCandidatesUseDistinctFamiliesAndTheirOwnThresholds()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code duplicatesAcrossRequiredAndCandidateSetsAreInvalidRatherThanCountedTwice()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code nonexistentTiersAndInvalidNAndEmptyGoalsAreRejected()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code itemLevelAndAffixCapacityCanMakeAWellFormedGoalImpossible()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code validNormalRootIsReadyAndMalformedStatesAreNotTreatedAsImpossibleGoals()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class SupportGoalsTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   private final SupportGoals goals = new SupportGoals(catalog);

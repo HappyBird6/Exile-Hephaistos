@@ -10,6 +10,51 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+/**
+ * 게임 복사 텍스트를 속성·옵션·미해석 행으로 나누고 원문을 보존한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code service}: 요청 처리를 위임하는 서비스 ({@code ItemTextService}).
+ *   <li>{@code ENGLISH}: ENGLISH ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code upstreamAdvancedClipboardFixturePreservesLegacyRollsAndUnresolvedGrantSkill()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code parsesEnglishWithoutGuessingCatalogIdsOrDiscardingUnknownLines()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code rejectsKoreanUntilASeparateTranslationLayerIsProvided()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code tokenizerPreservesBomOriginalWhitespaceBlankLinesAndSections()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code rejectsEmptyInput(input)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code
+ *       input}(입력).
+ *   <li>{@code limitsUtf8BytesRatherThanCharacters()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code malformedLevelIsUnavailableAndRawFieldIsPreserved(level)}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 입력: {@code level}(레벨).
+ *   <li>{@code duplicateLevelDoesNotChooseOneValue()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code duplicateHeaderIsRejected()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code rejectsMissingHeadersNameAndUnsupportedLanguage(input)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 입력: {@code input}(입력).
+ *   <li>{@code preservesBodyRarityPropertyWithoutConfusingItWithHeader()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code neverInfersBaseFromMagicName()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unknownRarityAndMissingLevelRemainUnknown()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code returnedCollectionsAreImmutable()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code advancedBlocksInheritMetadataAcrossLinesButNeverAcrossSeparators()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code parsesRarityFirstAndRequiresWithoutColonAndExactFlags()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code preservesUnknownGrantSkillAndReminderWithoutGuessingCatalogSemantics()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code malformedOrOrphanMetadataAndOversizedTierRemainSafeAndDoNotLeak()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class ItemTextServiceTest {
   private final ItemTextService service = new ItemTextService();
 

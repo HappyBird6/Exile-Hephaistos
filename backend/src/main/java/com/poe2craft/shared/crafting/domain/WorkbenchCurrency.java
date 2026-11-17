@@ -6,6 +6,8 @@ import java.util.List;
 /**
  * 공개 화폐 실행 ID와 JSON 규칙을 연결한다. enum의 선언 순서는 API 순서이며 삭제·재배열하지 않는다.
  *
+ * <p>공개 화폐 실행 ID와 JSON 규칙을 연결한다. enum의 선언 순서는 API 순서이며 삭제·재배열하지 않는다.
+ *
  * <p>enum 값은 이름 자체가 영속 식별자다. *_LIQUID_*는 감정액 종류/농도(ANCIENT_는 고대형), CATALYST_* /REFINED_CATALYST_*는
  * 촉매 종류·정제형, LESSER_ESSENCE_* /ESSENCE_* /GREATER_ESSENCE_* / PERFECT_ESSENCE_*는 에센스 종류·등급,
  * *_ALLOY는 합금 종류다. TRANSMUTATION/AUGMENTATION/REGAL/ EXALTED/ANNULMENT/CHAOS와 GREATER_/PERFECT_형은
@@ -19,6 +21,205 @@ import java.util.List;
  * replacementEssenceModifiers는 에센스 교체 후보만 반환한다. replacementEssenceSource/replacementSource는 근거
  * URL이며 해당 동작이 아니면 IllegalArgumentException이다. catalystType은 촉매 ID의 종류(그 외 null), refinedCatalyst는
  * 정제형 여부를 판정한다. 모든 메서드는 읽기 전용이며 active 정의 초기화가 선행되어야 한다.
+ *
+ * <p>필드·상수·열거값:
+ *
+ * <ul>
+ *   <li>{@code ANCIENT_DILUTED_LIQUID_IRE}: IRE 구분값.
+ *   <li>{@code ANCIENT_DILUTED_LIQUID_GUILT}: GUILT 구분값.
+ *   <li>{@code ANCIENT_DILUTED_LIQUID_GREED}: GREED 구분값.
+ *   <li>{@code ANCIENT_LIQUID_PARANOIA}: PARANOIA 구분값.
+ *   <li>{@code ANCIENT_LIQUID_ENVY}: ENVY 구분값.
+ *   <li>{@code ANCIENT_LIQUID_DISGUST}: DISGUST 구분값.
+ *   <li>{@code ANCIENT_LIQUID_DESPAIR}: DESPAIR 구분값.
+ *   <li>{@code ANCIENT_CONCENTRATED_LIQUID_FEAR}: FEAR 구분값.
+ *   <li>{@code ANCIENT_CONCENTRATED_LIQUID_SUFFERING}: SUFFERING 구분값.
+ *   <li>{@code ANCIENT_CONCENTRATED_LIQUID_ISOLATION}: ISOLATION 구분값.
+ *   <li>{@code ANCIENT_POTENT_LIQUID_MELANCHOLY}: MELANCHOLY 구분값.
+ *   <li>{@code ANCIENT_POTENT_LIQUID_FEROCITY}: FEROCITY 구분값.
+ *   <li>{@code ANCIENT_POTENT_LIQUID_CONTEMPT}: CONTEMPT 구분값.
+ *   <li>{@code POTENT_LIQUID_MELANCHOLY}: MELANCHOLY 구분값.
+ *   <li>{@code POTENT_LIQUID_FEROCITY}: FEROCITY 구분값.
+ *   <li>{@code POTENT_LIQUID_CONTEMPT}: CONTEMPT 구분값.
+ *   <li>{@code DILUTED_LIQUID_IRE}: IRE 구분값.
+ *   <li>{@code DILUTED_LIQUID_GUILT}: GUILT 구분값.
+ *   <li>{@code DILUTED_LIQUID_GREED}: GREED 구분값.
+ *   <li>{@code LIQUID_PARANOIA}: PARANOIA 구분값.
+ *   <li>{@code LIQUID_ENVY}: ENVY 구분값.
+ *   <li>{@code LIQUID_DISGUST}: DISGUST 구분값.
+ *   <li>{@code LIQUID_DESPAIR}: DESPAIR 구분값.
+ *   <li>{@code CONCENTRATED_LIQUID_FEAR}: FEAR 구분값.
+ *   <li>{@code CONCENTRATED_LIQUID_SUFFERING}: SUFFERING 구분값.
+ *   <li>{@code CONCENTRATED_LIQUID_ISOLATION}: ISOLATION 구분값.
+ *   <li>{@code CATALYST_FLESH}: FLESH 구분값.
+ *   <li>{@code REFINED_CATALYST_FLESH}: FLESH 구분값.
+ *   <li>{@code CATALYST_NEURAL}: NEURAL 구분값.
+ *   <li>{@code REFINED_CATALYST_NEURAL}: NEURAL 구분값.
+ *   <li>{@code CATALYST_CARAPACE}: CARAPACE 구분값.
+ *   <li>{@code REFINED_CATALYST_CARAPACE}: CARAPACE 구분값.
+ *   <li>{@code CATALYST_UUL_NETOL}: NETOL 구분값.
+ *   <li>{@code REFINED_CATALYST_UUL_NETOL}: NETOL 구분값.
+ *   <li>{@code CATALYST_XOPH}: XOPH 구분값.
+ *   <li>{@code REFINED_CATALYST_XOPH}: XOPH 구분값.
+ *   <li>{@code CATALYST_TUL}: TUL 구분값.
+ *   <li>{@code REFINED_CATALYST_TUL}: TUL 구분값.
+ *   <li>{@code CATALYST_ESH}: ESH 구분값.
+ *   <li>{@code REFINED_CATALYST_ESH}: ESH 구분값.
+ *   <li>{@code CATALYST_CHAYULA}: CHAYULA 구분값.
+ *   <li>{@code REFINED_CATALYST_CHAYULA}: CHAYULA 구분값.
+ *   <li>{@code CATALYST_REAVER}: REAVER 구분값.
+ *   <li>{@code REFINED_CATALYST_REAVER}: REAVER 구분값.
+ *   <li>{@code CATALYST_SIBILANT}: SIBILANT 구분값.
+ *   <li>{@code REFINED_CATALYST_SIBILANT}: SIBILANT 구분값.
+ *   <li>{@code CATALYST_SKITTERING}: SKITTERING 구분값.
+ *   <li>{@code REFINED_CATALYST_SKITTERING}: SKITTERING 구분값.
+ *   <li>{@code CATALYST_ADAPTIVE}: ADAPTIVE 구분값.
+ *   <li>{@code REFINED_CATALYST_ADAPTIVE}: ADAPTIVE 구분값.
+ *   <li>{@code CATALYST_NECROTIC}: NECROTIC 구분값.
+ *   <li>{@code REFINED_CATALYST_NECROTIC}: NECROTIC 구분값.
+ *   <li>{@code PERFECT_ESSENCE_MIND}: 정신 구분값.
+ *   <li>{@code PERFECT_ESSENCE_THAWING}: THAWING 구분값.
+ *   <li>{@code PERFECT_ESSENCE_INSULATION}: INSULATION 구분값.
+ *   <li>{@code PERFECT_ESSENCE_COMMAND}: 명령 구분값.
+ *   <li>{@code LESSER_ESSENCE_COMMAND}: 명령 구분값.
+ *   <li>{@code ESSENCE_COMMAND}: 명령 구분값.
+ *   <li>{@code GREATER_ESSENCE_COMMAND}: 명령 구분값.
+ *   <li>{@code PERFECT_ESSENCE_BODY}: 본문 구분값.
+ *   <li>{@code PERFECT_ESSENCE_RUIN}: 파멸 구분값.
+ *   <li>{@code PERFECT_ESSENCE_SEEKING}: SEEKING 구분값.
+ *   <li>{@code LESSER_ESSENCE_ABRASION}: ABRASION 구분값.
+ *   <li>{@code ESSENCE_ABRASION}: ABRASION 구분값.
+ *   <li>{@code GREATER_ESSENCE_ABRASION}: ABRASION 구분값.
+ *   <li>{@code LESSER_ESSENCE_FLAMES}: FLAMES 구분값.
+ *   <li>{@code ESSENCE_FLAMES}: FLAMES 구분값.
+ *   <li>{@code GREATER_ESSENCE_FLAMES}: FLAMES 구분값.
+ *   <li>{@code LESSER_ESSENCE_ICE}: ICE 구분값.
+ *   <li>{@code ESSENCE_ICE}: ICE 구분값.
+ *   <li>{@code GREATER_ESSENCE_ICE}: ICE 구분값.
+ *   <li>{@code LESSER_ESSENCE_ELECTRICITY}: ELECTRICITY 구분값.
+ *   <li>{@code ESSENCE_ELECTRICITY}: ELECTRICITY 구분값.
+ *   <li>{@code GREATER_ESSENCE_ELECTRICITY}: ELECTRICITY 구분값.
+ *   <li>{@code LESSER_ESSENCE_BATTLE}: BATTLE 구분값.
+ *   <li>{@code ESSENCE_BATTLE}: BATTLE 구분값.
+ *   <li>{@code LESSER_ESSENCE_HASTE}: HASTE 구분값.
+ *   <li>{@code ESSENCE_HASTE}: HASTE 구분값.
+ *   <li>{@code GREATER_ESSENCE_HASTE}: HASTE 구분값.
+ *   <li>{@code LESSER_ESSENCE_SEEKING}: SEEKING 구분값.
+ *   <li>{@code ESSENCE_SEEKING}: SEEKING 구분값.
+ *   <li>{@code GREATER_ESSENCE_SEEKING}: SEEKING 구분값.
+ *   <li>{@code ARTIFICER}: ARTIFICER 구분값.
+ *   <li>{@code TRANSMUTATION}: 진화 구분값.
+ *   <li>{@code GREATER_TRANSMUTATION}: 진화 구분값.
+ *   <li>{@code PERFECT_TRANSMUTATION}: 진화 구분값.
+ *   <li>{@code AUGMENTATION}: 확장 구분값.
+ *   <li>{@code GREATER_AUGMENTATION}: 확장 구분값.
+ *   <li>{@code PERFECT_AUGMENTATION}: 확장 구분값.
+ *   <li>{@code REGAL}: 제왕 구분값.
+ *   <li>{@code GREATER_REGAL}: 제왕 구분값.
+ *   <li>{@code PERFECT_REGAL}: 제왕 구분값.
+ *   <li>{@code EXALTED}: 엑잘티드 구분값.
+ *   <li>{@code GREATER_EXALTED}: 엑잘티드 구분값.
+ *   <li>{@code PERFECT_EXALTED}: 엑잘티드 구분값.
+ *   <li>{@code ANNULMENT}: 소멸 구분값.
+ *   <li>{@code CHAOS}: 카오스 구분값.
+ *   <li>{@code GREATER_CHAOS}: 카오스 구분값.
+ *   <li>{@code PERFECT_CHAOS}: 카오스 구분값.
+ *   <li>{@code DIVINE}: 신성 구분값.
+ *   <li>{@code ALCHEMY}: 연금 구분값.
+ *   <li>{@code FRACTURING}: 분열 구분값.
+ *   <li>{@code ESSENCE_HYSTERIA}: HYSTERIA 구분값.
+ *   <li>{@code ESSENCE_HORROR}: HORROR 구분값.
+ *   <li>{@code PERFECT_ESSENCE_SORCERY}: SORCERY 구분값.
+ *   <li>{@code PERFECT_ESSENCE_ALACRITY}: ALACRITY 구분값.
+ *   <li>{@code PERFECT_ESSENCE_ABRASION}: ABRASION 구분값.
+ *   <li>{@code PERFECT_ESSENCE_FLAMES}: FLAMES 구분값.
+ *   <li>{@code PERFECT_ESSENCE_ICE}: ICE 구분값.
+ *   <li>{@code PERFECT_ESSENCE_ELECTRICITY}: ELECTRICITY 구분값.
+ *   <li>{@code PERFECT_ESSENCE_BATTLE}: BATTLE 구분값.
+ *   <li>{@code PERFECT_ESSENCE_HASTE}: HASTE 구분값.
+ *   <li>{@code PERFECT_ESSENCE_GROUNDING}: GROUNDING 구분값.
+ *   <li>{@code PERFECT_ESSENCE_OPULENCE}: 풍요 구분값.
+ *   <li>{@code PERFECT_ESSENCE_INFINITE}: 무한 구분값.
+ *   <li>{@code PERFECT_ESSENCE_ENHANCEMENT}: 강화 구분값.
+ *   <li>{@code ESSENCE_BREACH}: BREACH 구분값.
+ *   <li>{@code RUNIC_ALLOY}: 합금 구분값.
+ *   <li>{@code PRISMATIC_ALLOY}: 합금 구분값.
+ *   <li>{@code ADAPTIVE_ALLOY}: 합금 구분값.
+ *   <li>{@code SWIFT_ALLOY}: 합금 구분값.
+ *   <li>{@code SOVEREIGN_ALLOY}: 합금 구분값.
+ *   <li>{@code EXPANSIVE_ALLOY}: 합금 구분값.
+ *   <li>{@code CYCLONIC_ALLOY}: 합금 구분값.
+ *   <li>{@code MYSTIC_ALLOY}: 합금 구분값.
+ *   <li>{@code ESSENCE_ABYSS}: 훼손 구분값.
+ *   <li>{@code LESSER_ESSENCE_SORCERY}: SORCERY 구분값.
+ *   <li>{@code ESSENCE_SORCERY}: SORCERY 구분값.
+ *   <li>{@code GREATER_ESSENCE_SORCERY}: SORCERY 구분값.
+ *   <li>{@code LESSER_ESSENCE_ALACRITY}: ALACRITY 구분값.
+ *   <li>{@code ESSENCE_ALACRITY}: ALACRITY 구분값.
+ *   <li>{@code GREATER_ESSENCE_ALACRITY}: ALACRITY 구분값.
+ *   <li>{@code LESSER_ESSENCE_ENHANCEMENT}: 강화 구분값.
+ *   <li>{@code ESSENCE_ENHANCEMENT}: 강화 구분값.
+ *   <li>{@code GREATER_ESSENCE_ENHANCEMENT}: 강화 구분값.
+ *   <li>{@code GREATER_ESSENCE_BATTLE}: BATTLE 구분값.
+ *   <li>{@code LESSER_ESSENCE_BODY}: 본문 구분값.
+ *   <li>{@code ESSENCE_BODY}: 본문 구분값.
+ *   <li>{@code GREATER_ESSENCE_BODY}: 본문 구분값.
+ *   <li>{@code LESSER_ESSENCE_MIND}: 정신 구분값.
+ *   <li>{@code ESSENCE_MIND}: 정신 구분값.
+ *   <li>{@code GREATER_ESSENCE_MIND}: 정신 구분값.
+ *   <li>{@code LESSER_ESSENCE_RUIN}: 파멸 구분값.
+ *   <li>{@code ESSENCE_RUIN}: 파멸 구분값.
+ *   <li>{@code GREATER_ESSENCE_RUIN}: 파멸 구분값.
+ *   <li>{@code LESSER_ESSENCE_INSULATION}: INSULATION 구분값.
+ *   <li>{@code ESSENCE_INSULATION}: INSULATION 구분값.
+ *   <li>{@code GREATER_ESSENCE_INSULATION}: INSULATION 구분값.
+ *   <li>{@code LESSER_ESSENCE_THAWING}: THAWING 구분값.
+ *   <li>{@code ESSENCE_THAWING}: THAWING 구분값.
+ *   <li>{@code GREATER_ESSENCE_THAWING}: THAWING 구분값.
+ *   <li>{@code LESSER_ESSENCE_GROUNDING}: GROUNDING 구분값.
+ *   <li>{@code ESSENCE_GROUNDING}: GROUNDING 구분값.
+ *   <li>{@code GREATER_ESSENCE_GROUNDING}: GROUNDING 구분값.
+ *   <li>{@code LESSER_ESSENCE_OPULENCE}: 풍요 구분값.
+ *   <li>{@code ESSENCE_OPULENCE}: 풍요 구분값.
+ *   <li>{@code GREATER_ESSENCE_OPULENCE}: 풍요 구분값.
+ *   <li>{@code LESSER_ESSENCE_INFINITE}: 무한 구분값.
+ *   <li>{@code ESSENCE_INFINITE}: 무한 구분값.
+ *   <li>{@code GREATER_ESSENCE_INFINITE}: 무한 구분값.
+ *   <li>{@code VAAL_ARMOURERS_INFUSER}: INFUSER 구분값.
+ *   <li>{@code VAAL_BLACKSMITHS_INFUSER}: INFUSER 구분값.
+ *   <li>{@code VAAL_ARCANISTS_INFUSER}: INFUSER 구분값.
+ *   <li>{@code VAAL_CATALYSING_INFUSER}: INFUSER 구분값.
+ *   <li>{@code ARMOURERS_SCRAP}: SCRAP 구분값.
+ *   <li>{@code BLACKSMITHS_WHETSTONE}: WHETSTONE 구분값.
+ *   <li>{@code PROTECTIVE_ALLOY}: 합금 구분값.
+ *   <li>{@code CELESTIAL_ALLOY}: 합금 구분값.
+ *   <li>{@code TRANSCENDENT_ALLOY}: 합금 구분값.
+ *   <li>{@code THE_RUNEBINDERS_ALLOY}: 합금 구분값.
+ *   <li>{@code THE_RUNEFATHERS_ALLOY}: 합금 구분값.
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code definition()}: 정의 값을 조회·구성한다. 반환: {@code WorkbenchDefinitions.Currency}.
+ *   <li>{@code essenceModifierIds()}: 에센스·옵션·식별자목록 값을 조회·구성한다. 반환: {@code List<String>}.
+ *   <li>{@code essenceChoiceSource()}: 에센스·선택·출처 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code fixedModifierId()}: 고정·옵션·식별자 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code baseAction()}: 베이스·행동 값을 조회·구성한다. 반환: {@code CraftingAction}.
+ *   <li>{@code minimumModifierLevel()}: 최소값·옵션·레벨 값을 조회·구성한다. 반환: {@code int}.
+ *   <li>{@code replacementEssenceModifiers()}: 교체·에센스·옵션목록 값을 조회·구성한다. 반환: {@code List<String>}.
+ *   <li>{@code materialPolicy()}: 제작재료·정책 값을 조회·구성한다. 반환: {@code
+ *       WorkbenchDefinitions.MaterialPolicy}.
+ *   <li>{@code isLiquid()}: 감정액을(를) 여부를 판정한다. 반환: {@code boolean}.
+ *   <li>{@code isAlloy()}: 합금을(를) 여부를 판정한다. 반환: {@code boolean}.
+ *   <li>{@code replacementModifiers()}: 교체·옵션목록 값을 조회·구성한다. 반환: {@code List<String>}.
+ *   <li>{@code replacementEssenceSource()}: 교체·에센스·출처 값을 조회·구성한다. 반환: {@code String}. 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code catalystType()}: 기폭제·타입 값을 조회·구성한다. 반환: {@code CatalystQuality.Type}.
+ *   <li>{@code refinedCatalyst()}: refined·기폭제 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code replacementSource()}: 교체·출처 값을 조회·구성한다. 반환: {@code String}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ * </ul>
  */
 public enum WorkbenchCurrency {
   ANCIENT_DILUTED_LIQUID_IRE,

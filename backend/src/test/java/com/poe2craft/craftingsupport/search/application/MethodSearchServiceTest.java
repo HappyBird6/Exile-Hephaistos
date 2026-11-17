@@ -16,6 +16,18 @@ import com.poe2craft.shared.ruleset.RulesetManifestLoader;
 import java.time.Clock;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 세대 번호로 오래된 결과 공개를 막으며 프로세스 내부 탐색 작업을 관리한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code uniformBaseUsesItsOwnCatalogProvenanceAndAcceptsMethodSearch()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code cancellationGenerationIdempotencyAndResumePreservePartialWork()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class MethodSearchServiceTest {
   @Test
   void uniformBaseUsesItsOwnCatalogProvenanceAndAcceptsMethodSearch() throws Exception {

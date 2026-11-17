@@ -6,6 +6,40 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 목표 도달 상태를 흡수하면서 최초 성공까지의 상태 확률을 전파한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code calculator}: calculator ({@code FirstHitCalculator<String>}).
+ *   <li>{@code budget}: 계산예산 ({@code FirstHitCalculator.Budget}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code endedPolicyWinsOverExactBudgetExhaustionAndCancellation()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code frontierAndFractionLimitsRemainUnknownAndLargerObservationsAreAllowed()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code independentBinaryPathEnumerationMatchesCyclesAtEveryDepth()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code kernel(a, b)}: 전이커널 처리에서 {@code Fraction.of}을(를) 사용한다. 입력: {@code a}(a), {@code
+ *       b}(b). 반환: {@code FirstHitCalculator.Kernel<String>}.
+ *   <li>{@code goal(state)}: 목표 처리에서 {@code state.equals}을(를) 사용한다. 입력: {@code state}(상태). 반환:
+ *       {@code FirstHitCalculator.Match}.
+ *   <li>{@code geometricOracleAt500AndMassConservation()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code changingStateCycleIsNotIndependentTrials()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code alreadySuccessfulUnreachableAndUnavailable()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       사용하는 예외: {@code AssertionError}.
+ *   <li>{@code partialMassNeverBecomesFailure()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code cancellationAndEvaluationBudgetRetainBounds()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code rejectsNonNormalizedKernelAndDuplicateObservations()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ * </ul>
+ */
 class FirstHitCalculatorTest {
   @Test
   void endedPolicyWinsOverExactBudgetExhaustionAndCancellation() {

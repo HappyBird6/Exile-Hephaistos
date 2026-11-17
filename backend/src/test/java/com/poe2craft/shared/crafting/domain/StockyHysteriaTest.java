@@ -8,6 +8,24 @@ import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * StockyMitts·Hysteria 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code removesOnlyUnlockedInstancesAndPreservesEveryOtherRollWithExactEvidence()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code blocksAnyUnverifiedRemovalBranchWithoutFilteringOrMutatingTheItem()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code canReplaceTheSoleUnlockedCriticalBonusInstanceWithoutCreatingADuplicateFamily()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code crystallisationRestrictsRemovalAndConsumesOnlyTheMatchingOmen()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code primaryHysteriaTargetHasExactCurrentSourceStats()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class StockyHysteriaTest extends StockyCraftingFixture {
   @Test
   void removesOnlyUnlockedInstancesAndPreservesEveryOtherRollWithExactEvidence() {

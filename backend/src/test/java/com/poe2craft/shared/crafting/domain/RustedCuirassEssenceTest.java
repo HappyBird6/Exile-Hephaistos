@@ -16,6 +16,33 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+/**
+ * Rusted·Cuirass·에센스 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code actions()}: 현재 상태에서 가능한 행동과 불가 이유를 조회한다. 반환: {@code Stream<WorkbenchCurrency>}.
+ *   <li>{@code perfect()}: 완벽 값을 조회·구성한다. 반환: {@code Stream<WorkbenchCurrency>}.
+ *   <li>{@code state(level, rarity, ids)}: 현재 상태 표현을 조회한다. 입력: {@code level}(레벨), {@code
+ *       rarity}(희귀도), {@code ids}(식별자목록). 반환: {@code ItemState}.
+ *   <li>{@code exactTargetsLevelsAtomicRefusalsAndNumericSource(action)}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 입력: {@code action}(행동).
+ *   <li>{@code crystallisationRemovalSidesLocksAndPairConflict(action)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 입력: {@code action}(행동).
+ *   <li>{@code completeWeightedPoolNoSpecialSpawnAndNoImplicitLottery()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code independentFifthBaseAndPreviousCatalogsRemainIntact()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ * </ul>
+ */
 class RustedCuirassEssenceTest {
   final ItemCatalog catalog = ItemCatalogLoader.loadBody();
   final WorkbenchSimulator simulator =

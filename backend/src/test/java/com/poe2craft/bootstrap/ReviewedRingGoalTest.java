@@ -24,6 +24,20 @@ import java.math.BigDecimal;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 반지·목표·검증의 출처 검토된 베이스 목록과 지원 여부를 제공한다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code
+ *       reviewedRingUsesItsExistingDeclaredJointModelAndConservesTheFullEligibleDenominator()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code
+ *       reviewedDirectRingStatsEvaluateTheirActualSourceValuesWithoutDroppingHybridComponents()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class ReviewedRingGoalTest {
   @Test
   void reviewedRingUsesItsExistingDeclaredJointModelAndConservesTheFullEligibleDenominator() {

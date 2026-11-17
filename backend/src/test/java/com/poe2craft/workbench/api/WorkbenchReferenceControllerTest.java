@@ -23,6 +23,56 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 // Keep the real HTTP filters; mock only their external Redis dependency.
+/**
+ * 작업대의 후보 옵션·세션 호환성 등 조회용 API를 제공한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code crafting}: 제작 ({@code CatalogCraftingService}).
+ *   <li>{@code references}: 참조목록 ({@code ModifierReferenceService}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code request(path, body)}: 계산·실행에 사용할 요청 값을 구성한다. 입력: {@code path}(경로), {@code body}(본문).
+ *       반환: {@code JsonNode}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rare()}: 희귀 값을 조회·구성한다. 반환: {@code ItemState}.
+ *   <li>{@code staticBasisSurvivesAnotherReplicaAndIgnoresOnlyEligibilityState()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code poolDeltaReconstructsFullReferenceAndRerollsReuseEligibility()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code rebasingPreservesFractureCraftedQualityInfusionAndUnrevealedSlots()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rebasingPreservesInstalledRunesAndEquipmentInfusion()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code oldSnapshotCanBecomeANewCheckpointWithoutChangingRollsOrInput()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rejectsUnknownFieldsAndDoesNotClampUnknownOrOutOfRangeModifiers()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code legacyCheckpointIsValidatedWithoutClaimingSameRules()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code preservesHiddenSlotsAndOffersAndRejectsInconsistentAbyss()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code poolUsesExactExecutionCandidatesAndKeepsExcludedDefinitions()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code hiddenSlotsUseExecutionAndRevealCandidates()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code perItemKeyIgnoresCosmeticsAndSnapshotButDetectsMechanicalChanges()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fullHiddenSideExplainsCapacityAndDoesNotBlockRevealIntoReservedSlots()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code everyReviewedCatalogUsesTheSameOrdinaryCandidatesAsItsSimulator()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code referenceEndpointsStillRequireCurrentTransportIdentity()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code candidateReferencePreservesCatalystQualityWithKnownAndHiddenSlots()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @org.springframework.test.context.bean.override.mockito.MockitoBean(
     types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest(WorkbenchReferenceController.class)

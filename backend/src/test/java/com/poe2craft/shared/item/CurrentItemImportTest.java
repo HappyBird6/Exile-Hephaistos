@@ -8,6 +8,34 @@ import com.poe2craft.shared.item.text.ItemTextService;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 현재·아이템·Import 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code parser}: 파서 ({@code ItemTextService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code item(body)}: 아이템의 입력에 따른 분기·결과를 처리한다. 입력: {@code body}(본문). 반환: {@code String}.
+ *   <li>{@code map(source)}: 맵 처리에서 {@code parser.parseText}을(를) 사용한다. 입력: {@code source}(출처). 반환:
+ *       {@code SolarTextMapper.Result}.
+ *   <li>{@code ordinaryCatalystTextUsesItsKnownPercentageAndContinuesCrafting()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code roundedRegenerationAndCatalystScalingNeedNoExactOriginalRoll()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code sanctifiedImportKeepsCurrentValuesOutsideOriginalBoundsAndIsPermanentlyLocked()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code importedHiddenDesecrationDefaultsToTheOrdinaryPoolWithoutRequiringItsHistory()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code aRevealedOtherworldlyEffectNeedsNoPrivateOriginMetadata()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ */
 class CurrentItemImportTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   private final ItemTextService parser = new ItemTextService();

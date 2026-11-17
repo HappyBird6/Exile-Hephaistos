@@ -22,6 +22,35 @@ import org.junit.jupiter.api.Test;
  * knownButUnimplementedOmenTriggerCombinationsFailClosed는 무효 징조 조합,
  * unknownTargetsAndWrongTargetLayersFailBeforeBootstrap은 대상 정합성,
  * dataOnlyLevelEditsAreTypedButCannotReplaceTheActiveBundleInPlace는 데이터 편집과 active 교체 금지를 검사한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code M}: 공통 JSON 변환기 ({@code ObjectMapper}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code fixture()}: 검증사례 값을 조회·구성한다. 반환: {@code byte[]}. 사용하는 예외: {@code IOException}.
+ *   <li>{@code data()}: 데이터 값을 조회·구성한다. 반환: {@code ObjectNode}. 사용하는 예외: {@code IOException}.
+ *   <li>{@code read(data)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code data}(데이터). 반환: {@code
+ *       WorkbenchDefinitions}. 사용하는 예외: {@code IOException}.
+ *   <li>{@code everyEnumGetterNullExceptionAndTargetOrderMatchesThePriorRuntimeOracle()}: 시나리오의 잘못된
+ *       입력·상태가 {@code IllegalArgumentException}, {@code UnsupportedOperationException}로 거절되는지 검증한다.
+ *       사용하는 예외: {@code Exception}.
+ *   <li>{@code missingDuplicateAndReorderedIdentitiesAreRejected()}: 시나리오의 잘못된 입력·상태가 {@code
+ *       IllegalArgumentException}로 거절되는지 검증한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code unknownFieldsCoercionAndUnimplementedApplicabilityAreRejected()}: 시나리오의 잘못된 입력·상태가
+ *       {@code IOException}, {@code IllegalArgumentException}로 거절되는지 검증한다. 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code knownButUnimplementedOmenTriggerCombinationsFailClosed()}: 시나리오의 잘못된 입력·상태가 {@code
+ *       IllegalArgumentException}로 거절되는지 검증한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code unknownTargetsAndWrongTargetLayersFailBeforeBootstrap()}: 시나리오의 잘못된 입력·상태가 {@code
+ *       IllegalArgumentException}로 거절되는지 검증한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code dataOnlyLevelEditsAreTypedButCannotReplaceTheActiveBundleInPlace()}: 시나리오의 잘못된
+ *       입력·상태가 {@code IllegalStateException}로 거절되는지 검증한다. 사용하는 예외: {@code Exception}.
+ * </ul>
  */
 class WorkbenchDefinitionsLoaderTest {
   private static final ObjectMapper M = new ObjectMapper();

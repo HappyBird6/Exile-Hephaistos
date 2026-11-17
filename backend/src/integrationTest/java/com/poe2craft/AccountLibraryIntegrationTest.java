@@ -16,6 +16,37 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+/**
+ * 계정·보관함·통합 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code PG}: PG ({@code PostgreSQLContainer<?>}).
+ *   <li>{@code REDIS}: Redis ({@code GenericContainer<?>}).
+ *   <li>{@code library}: 보관함 ({@code AccountLibrary}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code properties(p)}: 속성 처리에서 {@code p.add}, {@code REDIS.getMappedPort}을(를) 사용한다. 입력:
+ *       {@code p}(p).
+ *   <li>{@code boundedBatchReadsEnforceOwnerVersionsGenerationAndUniqueKeys()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code identitiesOwnershipVersionsAndTombstones()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       사용하는 예외: {@code Exception}.
+ *   <li>{@code rejectsInvalidDocumentsWithoutWriting()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는
+ *       예외: {@code Exception}.
+ *   <li>{@code bulkClearRejectsStaleUploadsAndKeepsFavorites()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code concurrentClearAndUploadCannotResurrectAnOldGenerationOrAffectAnotherAccount()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code bulkClearReleasesSessionQuotaWithoutAllowingStaleUploads()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @Testcontainers
 @SpringBootTest
 class AccountLibraryIntegrationTest {

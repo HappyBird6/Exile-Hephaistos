@@ -4,7 +4,38 @@ import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner.Exit;
 import java.util.*;
 import java.util.function.Function;
 
-/** Session boundaries apply to complete conditional method laws, never unenumerated mass. */
+/**
+ * 전체 조건부 방법 분포에 적용하는 희귀 결과 경계 정책이다.
+ *
+ * <p>기존 계약: Session boundaries apply to complete conditional method laws, never unenumerated mass.
+ *
+ * <p>필드·상수·record 구성요소:
+ *
+ * <ul>
+ *   <li>{@code version}: 저장·실행 계약의 버전 ({@code String}).
+ *   <li>{@code enabled}: 사용여부 ({@code boolean}).
+ *   <li>{@code groupPartsPerMillion}: 그룹·부분목록·단위별·Million ({@code int}).
+ *   <li>{@code maximumMethodPartsPerMillion}: 최대값·제작방법·부분목록·단위별·Million ({@code int}).
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "rare-conditional-groups-v1"} ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code RareOutcomePolicy(version, enabled, groupPartsPerMillion,
+ *       maximumMethodPartsPerMillion)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code version}(버전), {@code
+ *       enabled}(사용여부), {@code groupPartsPerMillion}(그룹·부분목록·단위별·Million), {@code
+ *       maximumMethodPartsPerMillion}(최대값·제작방법·부분목록·단위별·Million). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code disabled()}: 비활성 값을 조회·구성한다. 반환: {@code RareOutcomePolicy}.
+ *   <li>{@code within(mass, parts)}: within 처리에서 {@code mass.upperUnits}, {@code
+ *       BigInteger.valueOf}을(를) 사용한다. 입력: {@code mass}(확률질량), {@code parts}(부분목록). 반환: {@code
+ *       boolean}.
+ *   <li>{@code apply(point, equivalence, goal, includeActive)}: 주어진 행동 또는 변경을 적용한 결과를 구한다. 입력:
+ *       {@code point}(지점), {@code equivalence}(equivalence), {@code goal}(목표), {@code
+ *       includeActive}(include·활성). 반환: {@code CertifiedMethodRunner.Observation<S, A>}.
+ * </ul>
+ */
 public record RareOutcomePolicy(
     String version, boolean enabled, int groupPartsPerMillion, int maximumMethodPartsPerMillion) {
   public static final String VERSION = "rare-conditional-groups-v1";

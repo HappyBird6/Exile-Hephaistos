@@ -14,6 +14,34 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.*;
 
+/**
+ * 반복·요청·Redis 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code REDIS}: Redis ({@code GenericContainer<?>}).
+ *   <li>{@code connection}: DB연결 ({@code LettuceConnectionFactory}).
+ *   <li>{@code first}: 최초 ({@code RedisRepeatRequestStore}).
+ *   <li>{@code second}: 두번째 ({@code RedisRepeatRequestStore}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code start()}: 각 검증에 필요한 독립 초기 상태와 의존성을 준비한다.
+ *   <li>{@code stop()}: 검증에서 사용한 상태와 자원을 정리한다.
+ *   <li>{@code concurrentReplicaCannotRerollAndCanCancelTheOriginalRequest()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code IllegalStateException}, {@code AssertionError}, {@code
+ *       Exception}.
+ *   <li>{@code busyRequestCanRetryTheSameIdOnceCapacityIsAvailable()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code RepeatRejected}, {@code AssertionError}.
+ *   <li>{@code ambiguousFailureLeavesPendingReceiptAndRejectedInputIsReplayable()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code IllegalStateException}, {@code AssertionError},
+ *       {@code RepeatRejected}.
+ * </ul>
+ */
 @Testcontainers
 class RepeatRequestRedisTest {
   @Container

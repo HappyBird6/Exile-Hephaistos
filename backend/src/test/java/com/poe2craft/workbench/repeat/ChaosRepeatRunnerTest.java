@@ -28,6 +28,65 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
 
+/**
+ * 공통 단일 제작 규칙으로 카오스를 순서대로 실행한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ *   <li>{@code runner}: 실행기 ({@code ChaosRepeatRunner}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code rare(level)}: 희귀 처리에서 {@code simulator.apply}, {@code SolarAmulet.initial}을(를) 사용한다.
+ *       입력: {@code level}(레벨). 반환: {@code ItemState}.
+ *   <li>{@code equalsManualUsesWithSameSeedAtDifferentLevelsAndWithOneShotOmens(action)}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code action}(행동).
+ *   <li>{@code fullSixExplicitItemsKeepFractureAndExistingMetadataAcrossManualUses(action)}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code action}(행동).
+ *   <li>{@code passesDesecratedSlotsThroughExistingApplyWithoutRebuildingTheItem()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code initialMatchIsNotInspectedUntilAfterTheFirstUseAndMatchWinsAtTheLimit()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code matchingStopsWithoutAnotherUse()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unchangedAppliedStateCountsAndNoDefault500CapOrAutomaticSearchCapIsImposed()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unavailableFirstUseCountsZeroAndNeverCallsMatcherOrConsumesOmens()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code laterUnavailableResultPreservesCompletedUsesAndFinalAttempt()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code onlyInitialMatchingOmensAreConsumedOnceAndUnrelatedOmensSurvive()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code stopBeforeFirstUseHasNoSingleUseResult()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       사용하는 예외: {@code AssertionError}.
+ *   <li>{@code stopBetweenUsesPreservesTheCompletedStateAndOmenConsumption()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code applyExceptionPreservesPriorCompletedFactsWithoutRetainingTheException()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code matcherExceptionIncludesTheJustCompletedUseAndConsumedOmen()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code stopSignalExceptionAlsoPreservesCompletedFacts()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code existingRuleExceptionBeforeAnyUseHasZeroCompletedFacts()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code rejectsUnsupportedActionsNonpositiveLimitsAndMissingInputsBeforeApply()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code outcomeContainsNoIntermediateStateEventOrAssumptionCollectionsOrThrowable()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unchanged(state)}: unchanged 처리에서 {@code WorkbenchSimulator.Result}, {@code
+ *       simulator.ruleVersion}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code
+ *       WorkbenchSimulator.Result}.
+ *   <li>{@code assertSameCompletedFacts(actual, expected)}: assert·동일·완료·Facts 처리에서 {@code
+ *       actual.state}, {@code expected.state}을(를) 사용한다. 입력: {@code actual}(실제값), {@code
+ *       expected}(기대값).
+ *   <li>{@code assertCompletedWitness(actual)}: assert·완료·증명상태 처리에서 {@code actual.completedUses},
+ *       {@code actual.lastAppliedResult}을(를) 사용한다. 입력: {@code actual}(실제값).
+ * </ul>
+ */
 class ChaosRepeatRunnerTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   private final WorkbenchSimulator simulator =

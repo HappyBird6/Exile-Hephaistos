@@ -19,6 +19,53 @@ import java.math.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 지연계산·Production 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code PathSearchServiceTest}).
+ *   <li>{@code primitive}: 개별행동 ({@code BasicCurrencyTransitions}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code root()}: 시작점 값을 조회·구성한다. 반환: {@code BasicCurrencyState}.
+ *   <li>{@code goal(spirit)}: 목표 처리에서 {@code index.version}, {@code GoalCatalogIndex.id}을(를) 사용한다.
+ *       입력: {@code spirit}(정신력). 반환: {@code GoalFilter}.
+ *   <li>{@code productionDistributionPagesRestoreEveryConcreteRollOnceAndKeepRevisionScope()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code realSolarCellsRestoreTheFullWeightedLawAndSplitGoalThresholds()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code rarePartitionOmitsOnlyUnreachableCurrencyBoundaries()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code removingTheLastVariableSharesOnlyTheIdenticalCompleteKernel()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code observedAnonymousFamilyIsExcludedFromARecompiledPartition()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code initialIrrelevantFixedValueNeverOverlapsARegeneratedWeightedTierCell()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code initialFixedRollDoesNotOverlapRegeneratedUniformCells()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code existingLifeCanBePreservedOrLostAndReacquiredWithExactConditionalLaws()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code deferredLaw(transitions, source, action)}: 지연계산·분포 처리에서 {@code
+ *       transitions.primitiveCursor}, {@code cursor.complete}을(를) 사용한다. 입력: {@code
+ *       transitions}(전이목록), {@code source}(출처), {@code action}(행동). 반환: {@code Map<DeferredItem,
+ *       Fraction>}.
+ *   <li>{@code productCellsHaveBigIntegerRandomAccessWithoutMaterialization()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code eager(source, action)}: eager 처리에서 {@code i.compareTo}, {@code
+ *       source.cardinality}을(를) 사용한다. 입력: {@code source}(출처), {@code action}(행동). 반환: {@code
+ *       Map<BasicCurrencyState, Fraction>}.
+ *   <li>{@code restore(cells)}: 저장된 상태로 실행 또는 조회 상태를 복원한다. 입력: {@code cells}(셀목록). 반환: {@code
+ *       Map<BasicCurrencyState, Fraction>}.
+ *   <li>{@code statuses(evaluation)}: statuses 처리에서 {@code evaluation.status}, {@code
+ *       evaluation.groups}을(를) 사용한다. 입력: {@code evaluation}(평가). 반환: {@code Object}.
+ * </ul>
+ */
 class DeferredProductionTest {
   final PathSearchServiceTest fixture = new PathSearchServiceTest();
   final BasicCurrencyTransitions primitive =

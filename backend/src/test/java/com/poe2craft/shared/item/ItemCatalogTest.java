@@ -14,6 +14,32 @@ import java.util.List;
 import java.util.stream.StreamSupport;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 검증된 불변 아이템 데이터 스냅샷이다. 외부 조회나 확률 계산을 수행하지 않는다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code allBaseRowsMatchTheReviewedSourceWithoutInventingWeights()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code everyStatRangeMatchesItsSavedDetailAndKnownTierExamples()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code changedSourcesAndMalformedCatalogsAreRejected()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code strings(node)}: strings 처리에서 {@code StreamSupport.stream}, {@code
+ *       node.spliterator}을(를) 사용한다. 입력: {@code node}(노드). 반환: {@code List<String>}.
+ *   <li>{@code resource(name)}: 자원 처리에서 {@code class.getResourceAsStream}을(를) 사용한다. 입력: {@code
+ *       name}(이름). 반환: {@code InputStream}.
+ *   <li>{@code bytes(value)}: 바이트수 처리에서 {@code value.getBytes}을(를) 사용한다. 입력: {@code value}(값). 반환:
+ *       {@code InputStream}.
+ * </ul>
+ */
 class ItemCatalogTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
 

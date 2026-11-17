@@ -12,6 +12,54 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * 소유자별 제작 세션을 PostgreSQL에 저장하고 조회한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code db}: DB ({@code JdbcTemplate}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code maxBytes}: 최대값·바이트수 ({@code int}).
+ *   <li>{@code maxDocuments}: 최대값·문서목록 ({@code int}).
+ *   <li>{@code readBatchSize}: 읽기·일괄실행·크기 ({@code int}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code PostgresAccountLibrary(db, json, maxBytes, maxDocuments, readBatchSize)}: 전달받은 값으로
+ *       구성원을 초기화한다. 입력: {@code db}(DB), {@code json}(JSON), {@code maxBytes}(최대값·바이트수), {@code
+ *       maxDocuments}(최대값·문서목록), {@code readBatchSize}(읽기·일괄실행·크기). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code lockedGeneration(owner)}: 잠긴·세대번호 처리에서 {@code db.queryForList}, {@code
+ *       rows.isEmpty}을(를) 사용한다. 입력: {@code owner}(소유자). 반환: {@code long}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ *   <li>{@code snapshot(owner)}: 현재 내용을 불변 관측값으로 구성한다. 입력: {@code owner}(소유자). 반환: {@code
+ *       Snapshot}.
+ *   <li>{@code clearSessions(owner)}: clear·세션목록 처리에서 {@code db.update}을(를) 사용한다. 입력: {@code
+ *       owner}(소유자). 반환: {@code long}.
+ *   <li>{@code saveSession(owner, id, version, generation, content)}: 세션을(를) 저장한다. 입력: {@code
+ *       owner}(소유자), {@code id}(식별자), {@code version}(버전), {@code generation}(세대번호), {@code
+ *       content}(내용). 반환: {@code Document}. 사용하는 예외: {@code ResponseStatusException}.
+ *   <li>{@code readBatchSize()}: {@code readBatchSize} 값을 조회한다. 반환: {@code int}.
+ *   <li>{@code readBatch(owner, generation, references)}: 일괄실행을(를) 읽는다. 입력: {@code owner}(소유자),
+ *       {@code generation}(세대번호), {@code references}(참조목록). 반환: {@code List<Document>}. 사용하는 예외:
+ *       {@code ResponseStatusException}, {@code IllegalStateException}.
+ *   <li>{@code signIn(subject, name)}: 사용자 인증을 수행한다. 입력: {@code subject}(subject), {@code
+ *       name}(이름). 반환: {@code Account}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code index(owner)}: 색인 처리에서 {@code db.query}, {@code r.getString}을(를) 사용한다. 입력: {@code
+ *       owner}(소유자). 반환: {@code List<Reference>}.
+ *   <li>{@code read(owner, kind, id)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code owner}(소유자), {@code
+ *       kind}(종류), {@code id}(식별자). 반환: {@code Document}. 사용하는 예외: {@code IllegalStateException},
+ *       {@code ResponseStatusException}.
+ *   <li>{@code list(owner)}: 조건에 맞는 목록을 조회한다. 입력: {@code owner}(소유자). 반환: {@code List<Document>}.
+ *       사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code save(owner, kind, id, expectedVersion, content)}: 현재 값을 저장 경계에 기록한다. 입력: {@code
+ *       owner}(소유자), {@code kind}(종류), {@code id}(식별자), {@code expectedVersion}(기대값·버전), {@code
+ *       content}(내용). 반환: {@code Document}. 사용하는 예외: {@code ResponseStatusException}.
+ * </ul>
+ */
 @Repository
 public class PostgresAccountLibrary implements AccountLibrary {
   private final JdbcTemplate db;

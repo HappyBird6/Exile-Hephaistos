@@ -14,6 +14,22 @@ import java.time.Clock;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 색인된·제작방법·탐색·서비스 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code actualLowLevelSolarPreservesConcreteEntryLawAndCancelledGeneration()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code completedIndexedEnumerationCanCancelAndResumeEntryWorkWithoutStrategy()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code fraction(p)}: 유리수 처리에서 {@code math.BigInteger}, {@code p.numerator}을(를) 사용한다. 입력:
+ *       {@code p}(p). 반환: {@code Fraction}.
+ *   <li>{@code rejected(code, action)}: 거절된 처리에서 {@code ex.code}을(를) 사용한다. 입력: {@code code}(코드),
+ *       {@code action}(행동).
+ * </ul>
+ */
 class IndexedMethodSearchServiceTest {
   @Test
   void actualLowLevelSolarPreservesConcreteEntryLawAndCancelledGeneration() throws Exception {

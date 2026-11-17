@@ -10,6 +10,37 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 확률구간·제작방법·진행커서 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code PRECISION}: 정밀도 ({@code CertifiedInterval.Precision}).
+ *   <li>{@code TEMPLATE}: 템플릿 ({@code Template<Integer, String>}).
+ *   <li>{@code CLASSIFY}: 상태분류 ({@code Function<Integer, Optional<Exit>>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code f(n, d)}: f 처리에서 {@code BigInteger.valueOf}을(를) 사용한다. 입력: {@code n}(n), {@code
+ *       d}(d). 반환: {@code Fraction}.
+ *   <li>{@code kernel(calls)}: 전이커널 처리에서 {@code calls.incrementAndGet}, {@code action.equals}을(를)
+ *       사용한다. 입력: {@code calls}(호출횟수). 반환: {@code Transition<Integer, String>}.
+ *   <li>{@code create(calls)}: 새 작업 또는 값을 생성한다. 입력: {@code calls}(호출횟수). 반환: {@code
+ *       CertifiedMethodRunner<Integer, String>}.
+ *   <li>{@code step(runner)}: 계산 또는 실행을 한 단계 진행한다. 입력: {@code runner}(실행기).
+ *   <li>{@code runTo(runner, cycles)}: 실행·대상 처리에서 {@code runner.atBoundary}, {@code
+ *       runner.cycles}을(를) 사용한다. 입력: {@code runner}(실행기), {@code cycles}(주기횟수).
+ *   <li>{@code everyInitialAndCycleYieldRestoresBitIdenticalMassAndCostsWithoutReplayingActions()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code restoredInitialSuccessAndLossRemainDisjointAndDoNotConsumeAnotherCurrency()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code leasesBlockMutationAndRejectTruncatedDuplicatedOrIncompatibleCursors()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class CertifiedMethodCursorTest {
   private static final CertifiedInterval.Precision PRECISION =
       new CertifiedInterval.Precision(64, 2);

@@ -11,6 +11,26 @@ import java.nio.file.Path;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 목표·검증사례 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code fixture()}: 검증사례 값을 조회·구성한다. 반환: {@code JsonNode}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code allSharedEvaluationFixturesMatch()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외:
+ *       {@code Exception}.
+ *   <li>{@code allSharedValidationFixturesMatch()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외:
+ *       {@code Exception}.
+ *   <li>{@code pseudoPresenceAndSupportAreNotNumericZero()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class GoalFixtureTest {
   private final ObjectMapper json = new ObjectMapper();
 

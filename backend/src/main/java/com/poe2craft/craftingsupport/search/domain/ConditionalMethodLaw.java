@@ -8,7 +8,79 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.Function;
 
-/** Exact conditional item transport retained as method operators, separate from class marginals. */
+/**
+ * 상태 동치류의 주변 확률과 별개로 정확한 조건부 아이템 전이를 유지한다.
+ *
+ * <p>기존 계약: Exact conditional item transport retained as method operators, separate from class
+ * marginals.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "conditional-method-operator-v2-certified"} ({@code
+ *       String}).
+ *   <li>{@code index}: 색인 ({@code BasicClassIndex}).
+ *   <li>{@code target}: 대상 ({@code int}).
+ *   <li>{@code probability}: 확률 ({@code Fraction}).
+ *   <li>{@code enclosure}: enclosure ({@code CertifiedInterval}).
+ *   <li>{@code root}: 시작점 ({@code Map<BasicCurrencyState, Fraction>}).
+ *   <li>{@code parent}: 상위값 ({@code ConditionalMethodLaw}).
+ *   <li>{@code template}: 템플릿 ({@code Template<Integer, WorkbenchCurrency>}).
+ *   <li>{@code classify}: 상태분류 ({@code Function<Integer, Optional<Exit>>}).
+ *   <li>{@code cycles}: 주기횟수 ({@code long}).
+ *   <li>{@code exit}: 종료 ({@code Exit}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code root(index, input)}: 시작점 처리에서 {@code input.isEmpty}, {@code index.classOf}을(를) 사용한다.
+ *       입력: {@code index}(색인), {@code input}(입력). 반환: {@code ConditionalMethodLaw}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code output(parent, index, source, template, classify, cycles, exit, target,
+ *       probability)}: output 처리에서 {@code probability.equals}, {@code probability.numerator}을(를)
+ *       사용한다. 입력: {@code parent}(상위값), {@code index}(색인), {@code source}(출처), {@code
+ *       template}(템플릿), {@code classify}(상태분류), {@code cycles}(주기횟수), {@code exit}(종료), {@code
+ *       target}(대상), {@code probability}(확률). 반환: {@code ConditionalMethodLaw}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code boundedOutput(parent, index, source, template, classify, cycles, exit, target,
+ *       enclosure)}: 한도내·Output 처리에서 {@code enclosure.zero}, {@code enclosure.upper}을(를) 사용한다. 입력:
+ *       {@code parent}(상위값), {@code index}(색인), {@code source}(출처), {@code template}(템플릿), {@code
+ *       classify}(상태분류), {@code cycles}(주기횟수), {@code exit}(종료), {@code target}(대상), {@code
+ *       enclosure}(enclosure). 반환: {@code ConditionalMethodLaw}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code enclosure()}: enclosure 값을 조회·구성한다. 반환: {@code Optional<CertifiedInterval>}.
+ *   <li>{@code ConditionalMethodLaw(index, target, probability, enclosure, root, parent, template,
+ *       classify, cycles, exit)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code index}(색인), {@code target}(대상),
+ *       {@code probability}(확률), {@code enclosure}(enclosure), {@code root}(시작점), {@code
+ *       parent}(상위값), {@code template}(템플릿), {@code classify}(상태분류), {@code cycles}(주기횟수), {@code
+ *       exit}(종료).
+ *   <li>{@code classId()}: {@code target} 값을 조회한다. 반환: {@code int}.
+ *   <li>{@code probability()}: 현재 조건의 확률을 조회한다. 반환: {@code Fraction}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code expansion()}: 확장 값을 조회·구성한다. 반환: {@code Expansion}.
+ *   <li>{@code rows(law)}: 행목록 처리에서 {@code law.entrySet}, {@code e.getKey}을(를) 사용한다. 입력: {@code
+ *       law}(분포). 반환: {@code List<WeightedState>}.
+ *   <li>{@code law(rows)}: 분포 처리에서 {@code result.putIfAbsent}, {@code row.state}을(를) 사용한다. 입력:
+ *       {@code rows}(행목록). 반환: {@code Map<BasicCurrencyState, Fraction>}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code restoreExpansion(saved)}: 확장을(를) 복원한다. 입력: {@code saved}(저장된). 반환: {@code
+ *       Expansion}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code skip(rows, count)}: skip 처리에서 {@code rows.hasNext}, {@code rows.next}을(를) 사용한다. 입력:
+ *       {@code rows}(행목록), {@code count}(개수). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code sum(values)}: 항목들의 합을 계산한다. 입력: {@code values}(값목록). 반환: {@code Fraction}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code WeightedState}: {@code ConditionalMethodLaw}에서 사용하는 가중·상태의 불변 값이다.
+ *   <li>{@code TransportCheckpoint}: {@code ConditionalMethodLaw}에서 사용하는 전송·체크포인트의 불변 값이다.
+ *   <li>{@code ExpansionCheckpoint}: {@code ConditionalMethodLaw}에서 사용하는 확장·체크포인트의 불변 값이다.
+ *   <li>{@code Expansion}: {@code ConditionalMethodLaw} 내부의 확장 처리를 맡는다.
+ *   <li>{@code Transport}: {@code ConditionalMethodLaw} 내부의 전송 처리를 맡는다.
+ * </ul>
+ */
 public final class ConditionalMethodLaw {
   public static final String VERSION = "conditional-method-operator-v2-certified";
   private final BasicClassIndex index;
@@ -135,8 +207,47 @@ public final class ConditionalMethodLaw {
     return new Expansion();
   }
 
+  /**
+   * {@code ConditionalMethodLaw}에서 사용하는 가중·상태의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code BasicCurrencyState}).
+   *   <li>{@code mass}: 확률질량 ({@code Fraction}).
+   * </ul>
+   */
   public record WeightedState(BasicCurrencyState state, Fraction mass) {}
 
+  /**
+   * {@code ConditionalMethodLaw}에서 사용하는 전송·체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code remaining}: 남은 ({@code List<WeightedState>}).
+   *   <li>{@code next}: 다음 ({@code List<WeightedState>}).
+   *   <li>{@code selected}: 선택된 ({@code List<WeightedState>}).
+   *   <li>{@code absorbed}: 흡수된 ({@code Fraction}).
+   *   <li>{@code boundaryMass}: 경계·확률질량 ({@code Fraction}).
+   *   <li>{@code nextMass}: 다음·확률질량 ({@code Fraction}).
+   *   <li>{@code selectedMass}: 선택된·확률질량 ({@code Fraction}).
+   *   <li>{@code sourceMass}: 출처·확률질량 ({@code Fraction}).
+   *   <li>{@code phase}: 단계 ({@code int}).
+   *   <li>{@code cycles}: 주기횟수 ({@code long}).
+   *   <li>{@code initializing}: 초기화중 ({@code boolean}).
+   *   <li>{@code preparing}: preparing ({@code boolean}).
+   *   <li>{@code finishing}: finishing ({@code boolean}).
+   *   <li>{@code inputsConsumed}: 입력목록·소비된 ({@code int}).
+   *   <li>{@code activeConsumed}: 활성·소비된 ({@code int}).
+   *   <li>{@code normalized}: normalized ({@code int}).
+   *   <li>{@code selectingActive}: selecting·활성 ({@code boolean}).
+   *   <li>{@code normalizing}: normalizing ({@code boolean}).
+   *   <li>{@code cursorSource}: 진행커서·출처 ({@code BasicCurrencyState}).
+   *   <li>{@code cursorAction}: 진행커서·행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code position}: 진행위치 ({@code BasicCurrencyTransitions.PrimitiveCursor.Position}).
+   * </ul>
+   */
   public record TransportCheckpoint(
       List<WeightedState> remaining,
       List<WeightedState> next,
@@ -160,6 +271,19 @@ public final class ConditionalMethodLaw {
       WorkbenchCurrency cursorAction,
       BasicCurrencyTransitions.PrimitiveCursor.Position position) {}
 
+  /**
+   * {@code ConditionalMethodLaw}에서 사용하는 확장·체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code version}: 저장·실행 계약의 버전 ({@code String}).
+   *   <li>{@code stage}: 진행단계 ({@code int}).
+   *   <li>{@code current}: 현재 ({@code List<WeightedState>}).
+   *   <li>{@code eventProbability}: 이벤트·확률 ({@code Fraction}).
+   *   <li>{@code transport}: 전송 ({@code TransportCheckpoint}).
+   * </ul>
+   */
   public record ExpansionCheckpoint(
       String version,
       int stage,
@@ -240,6 +364,33 @@ public final class ConditionalMethodLaw {
     }
   }
 
+  /**
+   * {@code ConditionalMethodLaw} 내부의 확장 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code stages}: stages ({@code ArrayDeque<ConditionalMethodLaw>}).
+   *   <li>{@code current}: 현재 ({@code Map<BasicCurrencyState, Fraction>}).
+   *   <li>{@code transport}: 전송 ({@code Transport}).
+   *   <li>{@code eventProbability}: 이벤트·확률 ({@code Fraction}).
+   *   <li>{@code stage}: 진행단계 ({@code int}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code checkpoint()}: 현재 진행 상태의 복구 지점을 기록한다. 반환: {@code ExpansionCheckpoint}.
+   *   <li>{@code Expansion()}: 전달받은 값으로 구성원을 초기화한다.
+   *   <li>{@code retainedStates()}: 보유·상태목록 값을 조회·구성한다. 반환: {@code long}.
+   *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+   *   <li>{@code probability()}: 현재 조건의 확률을 조회한다. 반환: {@code Fraction}. 사용하는 예외: {@code
+   *       IllegalStateException}.
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code Map<BasicCurrencyState, Fraction>}.
+   *       사용하는 예외: {@code IllegalStateException}.
+   * </ul>
+   */
   public final class Expansion {
     private final ArrayDeque<ConditionalMethodLaw> stages = new ArrayDeque<>();
     private Map<BasicCurrencyState, Fraction> current;
@@ -324,7 +475,59 @@ public final class ConditionalMethodLaw {
     }
   }
 
-  /** Direct full-state enumeration is used only when the conditional law is requested. */
+  /**
+   * {@code ConditionalMethodLaw} 내부의 전송 처리를 맡는다.
+   *
+   * <p>기존 계약: Direct full-state enumeration is used only when the conditional law is requested.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code law}: 분포 ({@code ConditionalMethodLaw}).
+   *   <li>{@code remaining}: 남은 ({@code Map<BasicCurrencyState, Fraction>}).
+   *   <li>{@code next}: 다음 ({@code Map<BasicCurrencyState, Fraction>}).
+   *   <li>{@code selected}: 선택된 ({@code Map<BasicCurrencyState, Fraction>}).
+   *   <li>{@code absorbed}: 흡수된 ({@code Fraction}).
+   *   <li>{@code boundaryMass}: 경계·확률질량 ({@code Fraction}).
+   *   <li>{@code nextMass}: 다음·확률질량 ({@code Fraction}).
+   *   <li>{@code selectedMass}: 선택된·확률질량 ({@code Fraction}).
+   *   <li>{@code inputs}: 입력목록 ({@code Iterator<Map.Entry<BasicCurrencyState, Fraction>>}).
+   *   <li>{@code activeSelection}: 활성·선택 ({@code Iterator<Map.Entry<BasicCurrencyState,
+   *       Fraction>>}).
+   *   <li>{@code normalization}: normalization ({@code Iterator<Map.Entry<BasicCurrencyState,
+   *       Fraction>>}).
+   *   <li>{@code cursor}: 진행커서 ({@code BasicCurrencyTransitions.PrimitiveCursor}).
+   *   <li>{@code cursorSource}: 진행커서·출처 ({@code BasicCurrencyState}).
+   *   <li>{@code cursorAction}: 진행커서·행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code inputsConsumed}: 입력목록·소비된 ({@code int}).
+   *   <li>{@code activeConsumed}: 활성·소비된 ({@code int}).
+   *   <li>{@code normalized}: normalized ({@code int}).
+   *   <li>{@code sourceMass}: 출처·확률질량 ({@code Fraction}).
+   *   <li>{@code phase}: 단계 ({@code int}).
+   *   <li>{@code cycles}: 주기횟수 ({@code long}).
+   *   <li>{@code initializing}: 초기화중 ({@code boolean}).
+   *   <li>{@code preparing}: preparing; 초기값 {@code true} ({@code boolean}).
+   *   <li>{@code finishing}: finishing ({@code boolean}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   *   <li>{@code result}: 결과 ({@code Map<BasicCurrencyState, Fraction>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Transport(law, input)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code law}(분포), {@code
+   *       input}(입력).
+   *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+   *   <li>{@code absorb(state, id, mass, kind)}: absorb 처리에서 {@code mass.equals}, {@code
+   *       absorbed.add}을(를) 사용한다. 입력: {@code state}(상태), {@code id}(식별자), {@code mass}(확률질량),
+   *       {@code kind}(종류).
+   *   <li>{@code select(state, mass)}: 선택 처리에서 {@code selected.merge}, {@code selectedMass.add}을(를)
+   *       사용한다. 입력: {@code state}(상태), {@code mass}(확률질량).
+   *   <li>{@code finish()}: 진행 중인 계산 또는 누적 처리를 마무리한다. 사용하는 예외: {@code IllegalStateException}.
+   *   <li>{@code finishStep()}: 완료·단계 처리에서 {@code activeSelection.hasNext}, {@code
+   *       activeSelection.next}을(를) 사용한다. 사용하는 예외: {@code IllegalStateException}.
+   * </ul>
+   */
   private static final class Transport {
     final ConditionalMethodLaw law;
     Map<BasicCurrencyState, Fraction> remaining = new LinkedHashMap<>();

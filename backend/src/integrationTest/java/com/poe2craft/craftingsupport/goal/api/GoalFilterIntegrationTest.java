@@ -26,7 +26,39 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-/** Runs against the integration owner's bootstrap registration and disposable DB/Redis only. */
+/**
+ * 목표·필터·통합 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Runs against the integration owner's bootstrap registration and disposable DB/Redis
+ * only.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code POSTGRES}: POSTGRES ({@code PostgreSQLContainer<?>}).
+ *   <li>{@code REDIS}: Redis ({@code GenericContainer<?>}).
+ *   <li>{@code JOBS}: 작업목록 ({@code java.nio.file.Path}).
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code itemCatalog}: 아이템·카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code root}: 시작점; 초기값 {@code "/api/v1/crafting/support/goal-filters"} ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code temporaryJobs()}: 임시·작업목록 값을 조회·구성한다. 반환: {@code java.nio.file.Path}. 사용하는 예외:
+ *       {@code java.io.UncheckedIOException}.
+ *   <li>{@code properties(registry)}: 속성 처리에서 {@code registry.add}, {@code REDIS.getMappedPort}을(를)
+ *       사용한다. 입력: {@code registry}(등록목록).
+ *   <li>{@code unreadableSavedJobDoesNotBlockFreshAutomaticHttpRequest()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code automaticRoutesPreserveGoalAndQualityContextAcrossCancelAndRecalculation()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code registeredEndpointUsesRealItemValuesAndLegacyFamilyEndpointStillExists()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @Testcontainers
 @SpringBootTest
 @AutoConfigureMockMvc

@@ -14,6 +14,28 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.util.UrlPathHelper;
 
+/**
+ * 요청 처리 결과와 소요 시간을 수집하고 로그 서비스에 전달한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code logs}: 로그목록 ({@code ObjectProvider<RequestLogService>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code RequestLogFilter(logs)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code logs}(로그목록).
+ *   <li>{@code shouldNotFilter(request)}: 현재 요청을 필터 적용에서 제외할지 판정한다. 입력: {@code request}(요청). 반환:
+ *       {@code boolean}.
+ *   <li>{@code doFilterInternal(request, response, chain)}: 요청을 검사하고 다음 필터 호출 및 종료 처리를 수행한다. 입력:
+ *       {@code request}(요청), {@code response}(응답), {@code chain}(필터연쇄). 사용하는 예외: {@code
+ *       ServletException}, {@code IOException}.
+ *   <li>{@code clean(value, max)}: clean 처리에서 {@code value.replaceAll}, {@code value.substring}을(를)
+ *       사용한다. 입력: {@code value}(값), {@code max}(최대값). 반환: {@code String}.
+ * </ul>
+ */
 @Component
 @Order(-100)
 public final class RequestLogFilter extends OncePerRequestFilter {

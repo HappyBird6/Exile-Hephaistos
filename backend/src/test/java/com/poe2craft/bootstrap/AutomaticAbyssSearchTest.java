@@ -23,6 +23,33 @@ import java.math.BigInteger;
 import java.util.*;
 import org.junit.jupiter.api.*;
 
+/**
+ * 훼손 상태의 조건부 분포를 확장한다. 공개 후보의 발생 확률은 가정하지 않는다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code GoalDirectedPlannerScenariosTest}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code fracturedGoalDoesNotBlockFirstMutableChaosButTwoMutableAffixesStillDo()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code automaticDiscoveryUsesCommonMethodsAndNodesWithoutAnyUserActionAndPersistsThem()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code fracturedChaosHundredRetriesMatchFiniteSeries()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code
+ *       existingUnrevealedStateContinuesToSixSlotsWithoutLosingFractureOrRangeConstraints()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fraction(ratio)}: 유리수 처리에서 {@code BigInteger.valueOf}, {@code ratio.numerator}을(를)
+ *       사용한다. 입력: {@code ratio}(비율). 반환: {@code Fraction}.
+ *   <li>{@code modifier(d)}: 옵션 처리에서 {@code d.stats}, {@code values.put}을(를) 사용한다. 입력: {@code
+ *       d}(d). 반환: {@code ModifierInstance}.
+ * </ul>
+ */
 @Timeout(90)
 class AutomaticAbyssSearchTest {
   final GoalDirectedPlannerScenariosTest f = new GoalDirectedPlannerScenariosTest();

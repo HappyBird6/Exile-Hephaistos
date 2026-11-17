@@ -18,6 +18,8 @@ import java.util.List;
 /**
  * 봉인된 실행 JSON을 검증하고 불변 카탈로그를 공유하는 로더다. 실행 중 외부 사이트나 raw를 읽지 않는다.
  *
+ * <p>봉인된 실행 JSON을 검증하고 불변 카탈로그를 공유하는 로더다. 실행 중 외부 사이트나 raw를 읽지 않는다.
+ *
  * <p>JSON은 중복 키·알 수 없는 필드·누락·null·뒤따르는 토큰을 거절하도록 mapper가 만든 공용 파서다. CATALOGS는 풀+순서 있는 확장 목록별 결과이며
  * loadBundled의 클래스 잠금으로 보호한다. TOP_CATALOGS는 BaseRegistry에 있는 베이스만, SPECIALS는 번들의 특수 옵션 문서만 저장한다.
  * MODIFIERS는 전체 값이 같은 불변 ModifierDefinition을 sharedDefinition/sharedDefinitions로 공유한다. ID가 같아도
@@ -35,6 +37,81 @@ import java.util.List;
  * IllegalStateException, 지원하지 않는 키·정체성·체크섬은 IllegalArgumentException이다.
  *
  * <p>직렬화 타입은 Document(기본 풀), SpecialMetadata(확장 출처), SpecialDocument(확장 옵션)다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code JSON}: 공통 JSON 변환기 ({@code ObjectMapper}).
+ *   <li>{@code CATALOGS}: 카탈로그목록 ({@code java.util.Map<String, ItemCatalog>}).
+ *   <li>{@code TOP_CATALOGS}: 카탈로그목록 ({@code java.util.concurrent.ConcurrentMap<String,
+ *       ItemCatalog>}).
+ *   <li>{@code SPECIALS}: SPECIALS ({@code java.util.concurrent.ConcurrentMap<String,
+ *       SpecialDocument>}).
+ *   <li>{@code MODIFIERS}: 옵션목록 ({@code java.util.concurrent.ConcurrentMap<ModifierDefinition,
+ *       ModifierDefinition>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ItemCatalogLoader()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code sharedDefinition(definition)}: 봉인 번들에서 읽은 불변 옵션만 전체 값이 같은 경우 공유한다. 사용자 입력은 이 풀에 넣지
+ *       않는다. 입력: {@code definition}(정의). 반환: {@code ModifierDefinition}.
+ *   <li>{@code sharedDefinitions(definitions)}: 공유·정의목록 처리에서 {@code definitions.stream}을(를) 사용한다.
+ *       입력: {@code definitions}(정의목록). 반환: {@code List<ModifierDefinition>}.
+ *   <li>{@code bundledDefinitions(resource)}: 시작 검증에서도 실제 로더의 캐시를 사용해 같은 카탈로그를 다시 역직렬화하지 않는다. 입력:
+ *       {@code resource}(자원). 반환: {@code List<ModifierDefinition>}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code special(resource)}: 특수 처리에서 {@code SPECIALS.computeIfAbsent}, {@code
+ *       SealedResources.open}을(를) 사용한다. 입력: {@code resource}(자원). 반환: {@code SpecialDocument}. 사용하는
+ *       예외: {@code IllegalStateException}.
+ *   <li>{@code loadTopBase(key)}: 상위·베이스을(를) 읽어 검증한다. 입력: {@code key}(키). 반환: {@code ItemCatalog}.
+ *   <li>{@code readTopBase(key)}: 상위·베이스을(를) 읽는다. 입력: {@code key}(키). 반환: {@code ItemCatalog}. 사용하는
+ *       예외: {@code IllegalArgumentException}, {@code IllegalStateException}.
+ *   <li>{@code loadSapphire()}: 사파이어을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code readSapphire()}: 사파이어을(를) 읽는다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadBasicJewel(base)}: 기본·주얼을(를) 읽어 검증한다. 입력: {@code base}(베이스). 반환: {@code
+ *       ItemCatalog}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code loadBow()}: 활을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadWand()}: 마법봉을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadBody()}: 본문을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadSceptre()}: 셉터을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadBelt()}: 허리띠을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadHelmet()}: 투구을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadRing()}: 반지을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadDefault()}: 기본값을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadStocky()}: StockyMitts을(를) 읽어 검증한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code loadBundled(pool, extensions)}: Bundled을(를) 읽어 검증한다. 입력: {@code pool}(후보풀), {@code
+ *       extensions}(extensions). 반환: {@code ItemCatalog}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code load(catalog, raw, details)}: 검증된 자료를 로딩한다. 입력: {@code catalog}(카탈로그), {@code
+ *       raw}(원문), {@code details}(세부정보). 반환: {@code ItemCatalog}. 사용하는 예외: {@code
+ *       IllegalArgumentException}, {@code IOException}.
+ *   <li>{@code loadWithSpecial(catalog, raw, details, special, specialRaw)}: With·특수을(를) 읽어 검증한다.
+ *       입력: {@code catalog}(카탈로그), {@code raw}(원문), {@code details}(세부정보), {@code special}(특수),
+ *       {@code specialRaw}(특수·원문). 반환: {@code ItemCatalog}. 사용하는 예외: {@code IOException}.
+ *   <li>{@code addSpecial(ordinary, special, specialRaw)}: 특수을(를) 추가한다. 입력: {@code ordinary}(일반),
+ *       {@code special}(특수), {@code specialRaw}(특수·원문). 반환: {@code ItemCatalog}. 사용하는 예외: {@code
+ *       IllegalArgumentException}, {@code IOException}.
+ *   <li>{@code addSpecial(ordinary, extension)}: 특수을(를) 추가한다. 입력: {@code ordinary}(일반), {@code
+ *       extension}(extension). 반환: {@code ItemCatalog}. 사용하는 예외: {@code IllegalArgumentException},
+ *       {@code IOException}.
+ *   <li>{@code mapper()}: 변환기 값을 조회·구성한다. 반환: {@code ObjectMapper}.
+ *   <li>{@code digest(input)}: 다이제스트 처리에서 {@code HexFormat.of}, {@code
+ *       MessageDigest.getInstance}을(를) 사용한다. 입력: {@code input}(입력). 반환: {@code String}. 사용하는 예외:
+ *       {@code IllegalStateException}, {@code IOException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Sapphire}: Sapphire의 CATALOG를 첫 접근에 한 번 만들고 이후에는 같은 불변 카탈로그를 반환하는 홀더다.
+ *   <li>{@code Document}: 기본 JSON 문서다. metadata는 snapshot·출처·집계, base는 베이스 정체성·옵션 한도, modifiers는 옵션
+ *       정의다.
+ *   <li>{@code SpecialMetadata}: 특수 옵션 출처다. snapshotId는 확장 식별자, retrievedAt은 수집 시각, sourceUrl은 출처,
+ *       rawSha256은 당시 원자료 해시다.
+ *   <li>{@code SpecialDocument}: 확장 JSON 문서다. metadata는 출처 검증 정보, modifiers는 일반 풀에서 출현하지 않는 명시
+ *       옵션이다.
+ * </ul>
  */
 public final class ItemCatalogLoader {
 
@@ -145,7 +222,15 @@ public final class ItemCatalogLoader {
     return Sapphire.CATALOG;
   }
 
-  /** Sapphire의 CATALOG를 첫 접근에 한 번 만들고 이후에는 같은 불변 카탈로그를 반환하는 홀더다. */
+  /**
+   * Sapphire의 CATALOG를 첫 접근에 한 번 만들고 이후에는 같은 불변 카탈로그를 반환하는 홀더다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code CATALOG}: 카탈로그 ({@code ItemCatalog}).
+   * </ul>
+   */
   private static final class Sapphire {
     private static final ItemCatalog CATALOG = readSapphire();
   }
@@ -351,16 +436,46 @@ public final class ItemCatalogLoader {
     }
   }
 
-  /** 기본 JSON 문서다. metadata는 snapshot·출처·집계, base는 베이스 정체성·옵션 한도, modifiers는 옵션 정의다. */
+  /**
+   * 기본 JSON 문서다. metadata는 snapshot·출처·집계, base는 베이스 정체성·옵션 한도, modifiers는 옵션 정의다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code metadata}: 메타데이터 ({@code ItemCatalog.Metadata}).
+   *   <li>{@code base}: 베이스 ({@code ItemCatalog.BaseItem}).
+   *   <li>{@code modifiers}: 옵션목록 ({@code List<ModifierDefinition>}).
+   * </ul>
+   */
   private record Document(
       ItemCatalog.Metadata metadata,
       ItemCatalog.BaseItem base,
       List<ModifierDefinition> modifiers) {}
 
-  /** 특수 옵션 출처다. snapshotId는 확장 식별자, retrievedAt은 수집 시각, sourceUrl은 출처, rawSha256은 당시 원자료 해시다. */
+  /**
+   * 특수 옵션 출처다. snapshotId는 확장 식별자, retrievedAt은 수집 시각, sourceUrl은 출처, rawSha256은 당시 원자료 해시다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code snapshotId}: 카탈로그 스냅샷 식별자 ({@code String}).
+   *   <li>{@code retrievedAt}: 수집된·기준 ({@code String}).
+   *   <li>{@code sourceUrl}: 검토에 사용한 원자료 URL ({@code String}).
+   *   <li>{@code rawSha256}: 원문·SHA·256 ({@code String}).
+   * </ul>
+   */
   private record SpecialMetadata(
       String snapshotId, String retrievedAt, String sourceUrl, String rawSha256) {}
 
-  /** 확장 JSON 문서다. metadata는 출처 검증 정보, modifiers는 일반 풀에서 출현하지 않는 명시 옵션이다. */
+  /**
+   * 확장 JSON 문서다. metadata는 출처 검증 정보, modifiers는 일반 풀에서 출현하지 않는 명시 옵션이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code metadata}: 메타데이터 ({@code SpecialMetadata}).
+   *   <li>{@code modifiers}: 옵션목록 ({@code List<ModifierDefinition>}).
+   * </ul>
+   */
   private record SpecialDocument(SpecialMetadata metadata, List<ModifierDefinition> modifiers) {}
 }

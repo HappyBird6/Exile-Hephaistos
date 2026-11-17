@@ -10,7 +10,66 @@ import java.sql.*;
 import java.util.*;
 import java.util.function.ToIntFunction;
 
-/** Exact class interning with a bounded witness cache; hashes only select candidates. */
+/**
+ * 동치류를 정확히 식별하고 자주 사용하는 증명 상태만 메모리에 유지한다.
+ *
+ * <p>기존 계약: Exact class interning with a bounded witness cache; hashes only select candidates.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code directory}: 디렉터리 ({@code Path}).
+ *   <li>{@code classes}: 동치류목록 ({@code BasicTransitionClasses}).
+ *   <li>{@code limit}: 한도 ({@code int}).
+ *   <li>{@code hash}: 해시 ({@code ToIntFunction<BasicTransitionClasses.Key>}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code cache}: 캐시 ({@code LinkedHashMap<Integer, BasicClassIndex.Entry>}).
+ *   <li>{@code hot}: hot ({@code Map<BasicTransitionClasses.Key, Integer>}).
+ *   <li>{@code connection}: DB연결 ({@code Connection}).
+ *   <li>{@code find}: find ({@code PreparedStatement}).
+ *   <li>{@code get}: get ({@code PreparedStatement}).
+ *   <li>{@code add}: add ({@code PreparedStatement}).
+ *   <li>{@code path}: 경로 ({@code Path}).
+ *   <li>{@code size}: 크기 ({@code int}).
+ *   <li>{@code reads}: 읽기횟수 ({@code long}).
+ *   <li>{@code writes}: 쓰기횟수 ({@code long}).
+ *   <li>{@code hits}: 도달목록 ({@code long}).
+ *   <li>{@code closed}: 닫힘 ({@code boolean}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code TemporaryClassIndex(directory, classes, limit)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       directory}(디렉터리), {@code classes}(동치류목록), {@code limit}(한도).
+ *   <li>{@code TemporaryClassIndex(directory, classes, limit, hash)}: 전달받은 값으로 구성원을 초기화한다. 입력:
+ *       {@code directory}(디렉터리), {@code classes}(동치류목록), {@code limit}(한도), {@code hash}(해시). 사용하는
+ *       예외: {@code IllegalArgumentException}.
+ *   <li>{@code accessible()}: accessible의 입력에 따른 분기·결과를 처리한다. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code open()}: 조회할 자원 또는 작업 범위를 연다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code retain(id, entry)}: retain 처리에서 {@code cache.put}, {@code hot.put}을(를) 사용한다. 입력:
+ *       {@code id}(식별자), {@code entry}(항목).
+ *   <li>{@code find(key)}: 조건에 맞는 항목을 찾는다. 입력: {@code key}(키). 반환: {@code Integer}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code add(key, witness)}: 값 또는 항목을 더한다. 입력: {@code key}(키), {@code witness}(증명상태). 반환:
+ *       {@code int}. 사용하는 예외: {@code IllegalArgumentException}, {@code IllegalStateException}.
+ *   <li>{@code entry(id)}: 항목 처리에서 {@code cache.get}, {@code get.setInt}을(를) 사용한다. 입력: {@code
+ *       id}(식별자). 반환: {@code BasicClassIndex.Entry}. 사용하는 예외: {@code IllegalArgumentException},
+ *       {@code IllegalStateException}.
+ *   <li>{@code size()}: 보유 항목의 개수를 조회한다. 반환: {@code int}.
+ *   <li>{@code residentEntries()}: 메모리상주·항목목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code metrics()}: 측정값 값을 조회·구성한다. 반환: {@code Metrics}. 사용하는 예외: {@code
+ *       UncheckedIOException}.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다. 사용하는 예외: {@code IllegalStateException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Metrics}: {@code TemporaryClassIndex}에서 사용하는 측정값의 불변 값이다.
+ * </ul>
+ */
 final class TemporaryClassIndex implements BasicClassIndex.Storage {
   private final Path directory;
   private final BasicTransitionClasses classes;
@@ -27,6 +86,21 @@ final class TemporaryClassIndex implements BasicClassIndex.Storage {
   private long reads, writes, hits;
   private boolean closed;
 
+  /**
+   * {@code TemporaryClassIndex}에서 사용하는 측정값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code rows}: 행목록 ({@code int}).
+   *   <li>{@code cachedRows}: 캐시된·행목록 ({@code int}).
+   *   <li>{@code diskBytes}: 디스크·바이트수 ({@code long}).
+   *   <li>{@code reads}: 읽기횟수 ({@code long}).
+   *   <li>{@code writes}: 쓰기횟수 ({@code long}).
+   *   <li>{@code hits}: 도달목록 ({@code long}).
+   *   <li>{@code sqliteCacheKiB}: sqlite·캐시·Ki·B ({@code int}).
+   * </ul>
+   */
   record Metrics(
       int rows,
       int cachedRows,

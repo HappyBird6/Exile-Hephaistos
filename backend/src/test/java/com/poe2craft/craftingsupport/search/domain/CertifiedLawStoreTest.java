@@ -7,6 +7,22 @@ import java.math.BigInteger;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 확률 분포를 손실 없이 페이지로 저장하고 읽기 캐시의 객체 수를 제한한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code freezingIsCooperativeAndCannotPublishAPartialLaw()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code randomAccessPagesAndSummariesDoNotMaterializeTheWholeLaw()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code everyEndpointAndClassSurvivesLazyPagingAtEveryPrecision()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code completePageEqualitySharesStorageAndCloseInvalidatesReaders()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class CertifiedLawStoreTest {
   @Test
   void freezingIsCooperativeAndCannotPublishAPartialLaw() {

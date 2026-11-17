@@ -22,6 +22,34 @@ import java.util.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.io.TempDir;
 
+/**
+ * Six·접두접미옵션·Scenarios 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code GoalDirectedPlannerScenariosTest}).
+ *   <li>{@code directory}: 디렉터리 ({@code Path}).
+ *   <li>{@code STATS}: 수치목록 ({@code List<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code root(count)}: 시작점 처리에서 {@code STATS.subList}, {@code catalog.modifiers}을(를) 사용한다.
+ *       입력: {@code count}(개수). 반환: {@code ItemState}.
+ *   <li>{@code productionAcceptsFiveAndSixStartsAndRejectsSevenOrInvalidRarity()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code priorFourAffixPolicyAndGoalCatalogRemainReadOnlyWithoutChangingSavedBytes()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code fiveAndSixGoalsFromFourAffixesKeepPartialWorkWithoutFinishingExalt()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code sixGoalCancellationResumeAndReloadPreserveResults()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code sixGoalsFromMagicLifeStayBoundedAndOrDoesNotRequireEveryEntry()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 @Timeout(90)
 class SixAffixScenariosTest {
   final GoalDirectedPlannerScenariosTest f = new GoalDirectedPlannerScenariosTest();

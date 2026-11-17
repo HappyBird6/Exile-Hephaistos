@@ -12,6 +12,30 @@ import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 자동 그래프의 상태에 수동 훼손 선택 경로를 연결한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code HysteriaEssenceTest}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code progress(item)}: 진행상황 처리에서 {@code item.explicits}, {@code ids.contains}을(를) 사용한다.
+ *       입력: {@code item}(아이템). 반환: {@code Progress}.
+ *   <li>{@code action(currency)}: 행동의 입력에 따른 분기·결과를 처리한다. 입력: {@code currency}(화폐). 반환: {@code
+ *       AutomaticCraftingAction}.
+ *   <li>{@code preparedRoutesPreserveExistingModifiersAndCompleteTheUsefulSide()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code noRouteIsInventedWithoutPermittedNextActionsOrForCompletedGoals()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code graphRoutesKeepFamilyAndOmenPolicyAndExposeAllThreeStrategies()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AbyssStrategyPlannerTest {
   final HysteriaEssenceTest fixture = new HysteriaEssenceTest();
 

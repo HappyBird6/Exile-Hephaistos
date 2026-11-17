@@ -3,10 +3,81 @@ package com.poe2craft.craftingsupport.search.domain;
 import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 
-/** Reachability bounds for a finite discovered decision graph, including external cycles. */
+/**
+ * 발견된 유한 결정 그래프와 외부 순환을 포함해 도달 확률 경계를 계산한다.
+ *
+ * <p>기존 계약: Reachability bounds for a finite discovered decision graph, including external cycles.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "outcome-responsive-reachability-v5"} ({@code String}).
+ *   <li>{@code graph}: 그래프 ({@code Map<S, State<S>>}).
+ *   <li>{@code values}: 출처 단위로 보존하는 수치 값 ({@code Map<S, Bounds>}).
+ *   <li>{@code iterations}: 반복횟수 ({@code long}).
+ *   <li>{@code improvingChoices}: improving·선택목록 ({@code Map<S, String>}).
+ *   <li>{@code policySolver}: 정책·Solver ({@code FinitePolicySolver<S>}).
+ *   <li>{@code almostSure}: almost·Sure ({@code AlmostSureReachability<S>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code refineAlmostSure()}: 경계정밀화·Almost·Sure 처리에서 {@code almostSure.step}, {@code
+ *       solution.winning}을(를) 사용한다.
+ *   <li>{@code refineExactPolicy()}: 경계정밀화·정확값·정책 처리에서 {@code FinitePolicySolver.supported}, {@code
+ *       policySolver.step}을(를) 사용한다.
+ *   <li>{@code OutcomeStrategy(graph)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code graph}(그래프). 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code refine()}: 경계정밀화 처리에서 {@code graph.entrySet}, {@code entry.getValue}을(를) 사용한다.
+ *   <li>{@code iterations()}: {@code iterations} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code bounds()}: 경계값 값을 조회·구성한다. 반환: {@code Map<S, Bounds>}.
+ *   <li>{@code recommendation(source)}: 추천 처리에서 {@code graph.get}, {@code state.choices}을(를) 사용한다.
+ *       입력: {@code source}(출처). 반환: {@code Optional<Recommendation>}.
+ *   <li>{@code evaluate(choice)}: 입력 조건이나 정책을 평가해 결과를 구한다. 입력: {@code choice}(선택). 반환: {@code
+ *       Bounds}.
+ *   <li>{@code certifiedAlternatives(source)}: 확률구간·Alternatives 처리에서 {@code best.isEmpty}, {@code
+ *       best.get}을(를) 사용한다. 입력: {@code source}(출처). 반환: {@code List<Recommendation>}.
+ *   <li>{@code properReplacement(source, replacement)}: proper·교체 처리에서 {@code pending.add}, {@code
+ *       pending.isEmpty}을(를) 사용한다. 입력: {@code source}(출처), {@code replacement}(교체). 반환: {@code
+ *       boolean}.
+ *   <li>{@code maximum(a, b)}: 최대값의 입력에 따른 분기·결과를 처리한다. 입력: {@code a}(a), {@code b}(b). 반환: {@code
+ *       Fraction}.
+ *   <li>{@code compare(a, b)}: 비교 처리에서 {@code a.numerator}, {@code b.denominator}을(를) 사용한다. 입력:
+ *       {@code a}(a), {@code b}(b). 반환: {@code int}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Choice}: {@code OutcomeStrategy}에서 사용하는 선택의 불변 값이다.
+ *   <li>{@code State}: {@code OutcomeStrategy}에서 사용하는 상태의 불변 값이다.
+ *   <li>{@code Bounds}: {@code OutcomeStrategy}에서 사용하는 경계값의 불변 값이다.
+ *   <li>{@code Recommendation}: {@code OutcomeStrategy}에서 사용하는 추천의 불변 값이다.
+ * </ul>
+ */
 public final class OutcomeStrategy<S> {
   public static final String VERSION = "outcome-responsive-reachability-v5";
 
+  /**
+   * {@code OutcomeStrategy}에서 사용하는 선택의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code methodId}: 제작방법·식별자 ({@code String}).
+   *   <li>{@code outcomes}: 결과목록 ({@code Map<S, Fraction>}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Choice(methodId, outcomes, unresolved)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       methodId}(제작방법·식별자), {@code outcomes}(결과목록), {@code unresolved}(미해결). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   * </ul>
+   */
   public record Choice<S>(String methodId, Map<S, Fraction> outcomes, Fraction unresolved) {
     public Choice {
       if (methodId == null || methodId.isBlank())
@@ -19,6 +90,25 @@ public final class OutcomeStrategy<S> {
     }
   }
 
+  /**
+   * {@code OutcomeStrategy}에서 사용하는 상태의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code goal}: 목표 ({@code boolean}).
+   *   <li>{@code expansionComplete}: 확장·완료 ({@code boolean}).
+   *   <li>{@code choices}: 선택목록 ({@code List<Choice<S>>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code State(goal, expansionComplete, choices)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       goal}(목표), {@code expansionComplete}(확장·완료), {@code choices}(선택목록). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   * </ul>
+   */
   public record State<S>(boolean goal, boolean expansionComplete, List<Choice<S>> choices) {
     public State {
       choices = List.copyOf(choices);
@@ -27,12 +117,39 @@ public final class OutcomeStrategy<S> {
     }
   }
 
+  /**
+   * {@code OutcomeStrategy}에서 사용하는 경계값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code lower}: 하한 ({@code Fraction}).
+   *   <li>{@code upper}: 상한 ({@code Fraction}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code exact()}: 정확값 값을 조회·구성한다. 반환: {@code boolean}.
+   * </ul>
+   */
   public record Bounds(Fraction lower, Fraction upper) {
     public boolean exact() {
       return lower.equals(upper);
     }
   }
 
+  /**
+   * {@code OutcomeStrategy}에서 사용하는 추천의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code methodId}: 제작방법·식별자 ({@code String}).
+   *   <li>{@code value}: 값 ({@code Bounds}).
+   *   <li>{@code certified}: 확률구간 ({@code boolean}).
+   * </ul>
+   */
   public record Recommendation(String methodId, Bounds value, boolean certified) {}
 
   private final Map<S, State<S>> graph;

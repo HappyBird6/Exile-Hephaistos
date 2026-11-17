@@ -28,6 +28,8 @@ import java.util.random.RandomGenerator;
 /**
  * 작업대와 제작 지원 API가 같은 베이스 카탈로그·시뮬레이터를 사용하는 진입점이다.
  *
+ * <p>작업대와 제작 지원 API가 같은 베이스 카탈로그·시뮬레이터를 사용하는 진입점이다.
+ *
  * <p>구성원: RegisteredBase는 catalog와 simulator 한 쌍이다. byKey는 화면용 베이스 키, byItemId는 아이템 원본 ID로 같은 등록
  * 객체를 찾는 인덱스다. 생성·등록 때만 변경하고 요청마다 아이템 상태를 보관하지 않는다. 생성자는 solar/stocky 및 기존 순서의 additional 카탈로그를
  * 받는다. additional 순서는 bow, wand, body, sceptre, belt, helmet, ring, sapphire, ruby, emerald,
@@ -42,9 +44,83 @@ import java.util.random.RandomGenerator;
  * applyAbyss와 applyAbyssCurrency는 해당 상태 전이 결과를 반환한다. apply는 일반 제작, actions는 사용 가능 여부,
  * qualityDisplay는 품질 한도·표시 결과다. 제작 메서드는 전달받은 random만 소비하며 원본 ItemState는 수정하지 않는다. 없는 베이스·잘못된 상태·중복
  * 등록은 IllegalArgumentException으로 거절한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code byKey}: 기준·키 ({@code Map<String, RegisteredBase>}).
+ *   <li>{@code byItemId}: 기준·아이템·식별자 ({@code Map<String, RegisteredBase>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code register(key, catalog, simulator)}: 등록여부 처리에서 {@code simulator.catalog}, {@code
+ *       catalog.base}을(를) 사용한다. 입력: {@code key}(키), {@code catalog}(카탈로그), {@code
+ *       simulator}(제작시뮬레이터). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code reviewedCatalogs()}: 검토된·카탈로그목록 값을 조회·구성한다. 반환: {@code List<ItemCatalog>}.
+ *   <li>{@code CatalogCraftingService(solar, solarSimulator, stocky, additional)}: 전달받은 값으로 구성원을
+ *       초기화한다. 입력: {@code solar}(태양목걸이), {@code solarSimulator}(태양목걸이·제작시뮬레이터), {@code
+ *       stocky}(StockyMitts), {@code additional}(additional).
+ *   <li>{@code registerBase(key, catalog, equipment)}: 등록여부·베이스 처리에서 {@code
+ *       EquipmentCurrencyCatalog.enrich}, {@code WorkbenchDefinitions.active}을(를) 사용한다. 입력: {@code
+ *       key}(키), {@code catalog}(카탈로그), {@code equipment}(장비).
+ *   <li>{@code initial(base, level)}: 제작을 시작할 초기 상태를 만든다. 입력: {@code base}(베이스), {@code level}(레벨).
+ *       반환: {@code Initial}.
+ *   <li>{@code initial(base, level, manualReveal)}: 제작을 시작할 초기 상태를 만든다. 입력: {@code base}(베이스),
+ *       {@code level}(레벨), {@code manualReveal}(수동·공개). 반환: {@code Initial}.
+ *   <li>{@code abyssCatalog(state)}: 훼손·카탈로그 처리에서 {@code catalog.metadata}, {@code
+ *       state.snapshotId}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code ItemCatalog}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code abyssPlan(state, action, omens)}: 훼손 아이템의 다음 화폐 실행 가능성과 분기를 구한다. 입력: {@code
+ *       state}(상태), {@code action}(행동), {@code omens}(징조목록). 반환: {@code AbyssCraftingPlan}.
+ *   <li>{@code applyAbyss(state, action, omens, random)}: 훼손 슬롯을 보존하며 화폐를 실행한다. 입력: {@code
+ *       state}(상태), {@code action}(행동), {@code omens}(징조목록), {@code random}(난수생성기). 반환: {@code
+ *       AbyssCraftingState}.
+ *   <li>{@code applyAbyssCurrency(state, action, omens, random)}: 훼손 상태의 공통 화폐 실행기로 전달한다. 입력:
+ *       {@code state}(상태), {@code action}(행동), {@code omens}(징조목록), {@code random}(난수생성기). 반환:
+ *       {@code AbyssCurrencyExecutor.Result}.
+ *   <li>{@code catalog(base)}: 카탈로그 처리에서 {@code byKey.get}, {@code entry.catalog}을(를) 사용한다. 입력:
+ *       {@code base}(베이스). 반환: {@code ItemCatalog}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code simulator(state)}: 제작시뮬레이터의 입력에 따른 분기·결과를 처리한다. 입력: {@code state}(상태). 반환: {@code
+ *       WorkbenchSimulator}.
+ *   <li>{@code baseSimulator(state)}: 베이스·제작시뮬레이터 처리에서 {@code byItemId.get}, {@code
+ *       state.baseItemId}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code WorkbenchSimulator}. 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code registerReviewedArmour(key, catalog, fixed, replacements)}: 등록여부·검토된·방어구의 입력에 따른
+ *       분기·결과를 처리한다. 입력: {@code key}(키), {@code catalog}(카탈로그), {@code fixed}(고정), {@code
+ *       replacements}(교체목록).
+ *   <li>{@code registerReviewedBase(key, catalog, fixed, replacements)}: 등록여부·검토된·베이스 처리에서 {@code
+ *       EquipmentCurrencyCatalog.enrich}, {@code BaseRegistry.require}을(를) 사용한다. 입력: {@code
+ *       key}(키), {@code catalog}(카탈로그), {@code fixed}(고정), {@code replacements}(교체목록). 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code apply(state, action, omens, random)}: 주어진 행동 또는 변경을 적용한 결과를 구한다. 입력: {@code
+ *       state}(상태), {@code action}(행동), {@code omens}(징조목록), {@code random}(난수생성기). 반환: {@code
+ *       WorkbenchSimulator.Result}.
+ *   <li>{@code actions(state, omens)}: 현재 상태에서 가능한 행동과 불가 이유를 조회한다. 입력: {@code state}(상태), {@code
+ *       omens}(징조목록). 반환: {@code List<WorkbenchSimulator.Availability>}.
+ *   <li>{@code qualityDisplay(state)}: 품질·표시 처리에서 {@code QualityLimitRules.describe}, {@code
+ *       CatalystQualityDisplay.describe}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code
+ *       QualityDisplay}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code RegisteredBase}: catalog는 공유 불변 옵션 목록, simulator는 그 베이스의 제작 규칙과 제한된 계산 캐시다.
+ * </ul>
  */
 public final class CatalogCraftingService implements CraftingOperations {
-  /** catalog는 공유 불변 옵션 목록, simulator는 그 베이스의 제작 규칙과 제한된 계산 캐시다. */
+  /**
+   * catalog는 공유 불변 옵션 목록, simulator는 그 베이스의 제작 규칙과 제한된 계산 캐시다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+   *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+   * </ul>
+   */
   private record RegisteredBase(ItemCatalog catalog, WorkbenchSimulator simulator) {}
 
   private final Map<String, RegisteredBase> byKey = new LinkedHashMap<>();

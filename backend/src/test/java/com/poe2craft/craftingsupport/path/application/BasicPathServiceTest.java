@@ -15,6 +15,40 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 명시적으로 지원하는 고정 제작 경로와 실패 후 복구 확률을 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code BasicCurrencyFixture}).
+ *   <li>{@code service}: 요청 처리를 위임하는 서비스 ({@code BasicPathService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code jointCandidateNeverGetsPrunedByRenewalAndActualSolarHasExact500Points()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code renewalMatchesGeneralEnumerationAndCyclePhaseOrder()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code narrowRenewalFallsBackAndLongMaxRetainsUncomputedMass()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code realSolarAdditionPreservesPartialResidualAtAllObservationPoints()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code singlePassStopsAndFreshRetryDoesNotReuseCancelledMass()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code request(start, action, target)}: 계산·실행에 사용할 요청 값을 구성한다. 입력: {@code start}(시작값),
+ *       {@code action}(행동), {@code target}(대상). 반환: {@code BasicPathService.Request}.
+ *   <li>{@code chaosSyntheticGeometricDistributionWithoutAssumingConstantProbability()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code conditionalRecoveryRestoresExplicitCheckpoint()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code omensAndOldProvenanceNeverBypassSupportBoundary()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code realSolarPreservedExistingStateRecovery()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class BasicPathServiceTest {
   @Test
   void jointCandidateNeverGetsPrunedByRenewalAndActualSolarHasExact500Points() {

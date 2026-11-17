@@ -9,6 +9,27 @@ import com.poe2craft.shared.item.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 증강물·제작·Coverage 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code service()}: 서비스 값을 조회·구성한다. 반환: {@code CatalogCraftingService}.
+ *   <li>{@code available(service, state, action)}: 현재 조건에서 사용할 수 있는지 판정한다. 입력: {@code
+ *       service}(서비스), {@code state}(상태), {@code action}(행동). 반환: {@code boolean}.
+ *   <li>{@code minimum(d)}: 최소값 처리에서 {@code d.stats}, {@code values.put}을(를) 사용한다. 입력: {@code
+ *       d}(d). 반환: {@code ModifierInstance}.
+ *   <li>{@code empty(catalog)}: 빈 초기값 또는 비어 있는지 여부를 구한다. 입력: {@code catalog}(카탈로그). 반환: {@code
+ *       ItemState}.
+ *   <li>{@code sixSourcePoolsActivateOnlyWhileEquippedAndUseDeclaredSimulatorWeights()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code astridAllowsTwoCraftedOutcomesAndRetainsThemAfterReplacement()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code serleAddsSuffixCapacityAndBindsItsSocketWhileGritQualityPersists()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AugmentCraftingCoverageTest {
   private CatalogCraftingService service() {
     var definitions = WorkbenchDefinitionsLoader.initialize();

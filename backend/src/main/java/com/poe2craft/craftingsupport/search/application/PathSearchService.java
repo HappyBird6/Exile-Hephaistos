@@ -20,7 +20,97 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Function;
 
-/** Bounded, process-local jobs. A monitor is the publication/cancel linearization boundary. */
+/**
+ * 작업별 잠금으로 조회·진행·취소를 동기화하고 작업 수와 수명을 제한한다.
+ *
+ * <p>기존 계약: Bounded, process-local jobs. A monitor is the publication/cancel linearization
+ * boundary.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code PREDICATE}: 판정조건; 초기값 {@code "goal-filter-full-item-v1"} ({@code String}).
+ *   <li>{@code SEARCH}: 탐색; 초기값 {@code "solar-streaming-renewal-v1"} ({@code String}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code goals}: 목표목록 ({@code GoalFilterService}).
+ *   <li>{@code transitions}: 전이목록 ({@code BasicCurrencyTransitions}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code clock}: 현재 시각 공급자 ({@code Clock}).
+ *   <li>{@code executor}: 작업실행기 ({@code Executor}).
+ *   <li>{@code runBudget}: 실행·계산예산 ({@code int}).
+ *   <li>{@code jobs}: 작업목록 ({@code Map<String, Job>}).
+ *   <li>{@code requestIds}: 요청·식별자목록 ({@code Map<String, String>}).
+ *   <li>{@code settings}: 운영설정 ({@code BackendSettings.PathSearch}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code PathSearchService(catalog, goals, identity, json)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력:
+ *       {@code catalog}(카탈로그), {@code goals}(목표목록), {@code identity}(정체성), {@code json}(JSON).
+ *   <li>{@code PathSearchService(catalog, goals, identity, json, settings)}: 기본 정책을 보충해 공통 생성자로
+ *       위임한다. 입력: {@code catalog}(카탈로그), {@code goals}(목표목록), {@code identity}(정체성), {@code
+ *       json}(JSON), {@code settings}(운영설정).
+ *   <li>{@code PathSearchService(catalog, goals, identity, json, clock, executor, runBudget)}: 기본
+ *       정책을 보충해 공통 생성자로 위임한다. 입력: {@code catalog}(카탈로그), {@code goals}(목표목록), {@code
+ *       identity}(정체성), {@code json}(JSON), {@code clock}(현재 시각 공급자), {@code executor}(작업실행기),
+ *       {@code runBudget}(실행·계산예산).
+ *   <li>{@code PathSearchService(catalog, goals, identity, json, clock, executor, runBudget,
+ *       settings)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code catalog}(카탈로그), {@code goals}(목표목록), {@code
+ *       identity}(정체성), {@code json}(JSON), {@code clock}(현재 시각 공급자), {@code executor}(작업실행기),
+ *       {@code runBudget}(실행·계산예산), {@code settings}(운영설정). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code provenance()}: 출처이력 값을 조회·구성한다. 반환: {@code BasicCurrencyState.Provenance}.
+ *   <li>{@code create(owner, request)}: 새 작업 또는 값을 생성한다. 입력: {@code owner}(소유자), {@code
+ *       request}(요청). 반환: {@code Snapshot}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code create(owner, request, predicate, recovery, fingerprint)}: 새 작업 또는 값을 생성한다. 입력:
+ *       {@code owner}(소유자), {@code request}(요청), {@code predicate}(판정조건), {@code recovery}(복구),
+ *       {@code fingerprint}(지문). 반환: {@code Snapshot}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code get(owner, id)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code owner}(소유자), {@code id}(식별자). 반환:
+ *       {@code Snapshot}.
+ *   <li>{@code mutate(owner, id, request)}: mutate 처리에서 {@code Integer.valueOf}, {@code
+ *       request.version}을(를) 사용한다. 입력: {@code owner}(소유자), {@code id}(식별자), {@code request}(요청).
+ *       반환: {@code Snapshot}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code graph(owner, id, revision, cursor)}: 그래프 처리에서 {@code revisions.get}, {@code
+ *       cursors.get}을(를) 사용한다. 입력: {@code owner}(소유자), {@code id}(식별자), {@code revision}(리비전),
+ *       {@code cursor}(진행커서). 반환: {@code GraphPage}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code recover(owner, id, request)}: recover 처리에서 {@code Integer.valueOf}, {@code
+ *       request.version}을(를) 사용한다. 입력: {@code owner}(소유자), {@code id}(식별자), {@code request}(요청).
+ *       반환: {@code Snapshot}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code submit(job)}: submit 처리에서 {@code executor.execute}을(를) 사용한다. 입력: {@code job}(작업).
+ *   <li>{@code run(job, generation)}: 작업의 실행 루프를 수행한다. 입력: {@code job}(작업), {@code
+ *       generation}(세대번호).
+ *   <li>{@code live(job, generation)}: 현재유효 처리에서 {@code Thread.currentThread}, {@code
+ *       clock.instant}을(를) 사용한다. 입력: {@code job}(작업), {@code generation}(세대번호). 반환: {@code
+ *       boolean}.
+ *   <li>{@code publish(job)}: 새 결과나 체크포인트를 외부 조회에 공개한다. 입력: {@code job}(작업).
+ *   <li>{@code validate(r)}: 입력의 구조·값·지원 조건을 검증한다. 입력: {@code r}(r). 사용하는 예외: {@code Rejected}.
+ *   <li>{@code observations(values)}: 관측값목록 처리에서 {@code values.isEmpty}, {@code values.size}을(를)
+ *       사용한다. 입력: {@code values}(값목록). 반환: {@code List<String>}. 사용하는 예외: {@code Rejected}, {@code
+ *       NumberFormatException}.
+ *   <li>{@code blocked(request)}: 차단 처리에서 {@code request.start}, {@code BASE_ID.equals}을(를) 사용한다.
+ *       입력: {@code request}(요청). 반환: {@code String}.
+ *   <li>{@code fingerprint(r)}: 지문 처리에서 {@code r.version}, {@code r.start}을(를) 사용한다. 입력: {@code
+ *       r}(r). 반환: {@code String}.
+ *   <li>{@code encode(value)}: 값을 저장·전송 표현으로 부호화한다. 입력: {@code value}(값). 반환: {@code String}. 사용하는
+ *       예외: {@code Rejected}.
+ *   <li>{@code digest(value)}: 다이제스트 처리에서 {@code HexFormat.of}, {@code
+ *       MessageDigest.getInstance}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code String}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code job(owner, id)}: 작업 처리에서 {@code jobs.get}, {@code owner.equals}을(를) 사용한다. 입력: {@code
+ *       owner}(소유자), {@code id}(식별자). 반환: {@code Job}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code expire()}: expire 처리에서 {@code jobs.values}, {@code clock.instant}을(를) 사용한다.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Job}: {@code PathSearchService} 내부의 작업 처리를 맡는다.
+ *   <li>{@code Command}: {@code PathSearchService}에서 사용하는 명령의 불변 값이다.
+ *   <li>{@code Revision}: {@code PathSearchService} 내부의 리비전 처리를 맡는다.
+ * </ul>
+ */
 public final class PathSearchService implements AutoCloseable {
   public static final String PREDICATE = "goal-filter-full-item-v1",
       SEARCH = "solar-streaming-renewal-v1";
@@ -478,6 +568,38 @@ public final class PathSearchService implements AutoCloseable {
     if (executor instanceof ExecutorService service) service.shutdownNow();
   }
 
+  /**
+   * {@code PathSearchService} 내부의 작업 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code owner}: 서버가 확인한 작업 소유자 ({@code String}).
+   *   <li>{@code fingerprint}: 지문 ({@code String}).
+   *   <li>{@code blocked}: 차단 ({@code String}).
+   *   <li>{@code evaluation}: 평가 ({@code String}).
+   *   <li>{@code request}: 작업 생성에 사용한 요청 ({@code Create}).
+   *   <li>{@code recovery}: 복구 ({@code Recovery}).
+   *   <li>{@code expires}: 저장 값의 만료 시각 ({@code Instant}).
+   *   <li>{@code calculation}: 계산 ({@code PathSearchCalculation}).
+   *   <li>{@code revisions}: 리비전목록 ({@code LinkedHashMap<Long, Revision>}).
+   *   <li>{@code commands}: 명령목록 ({@code Map<String, Command>}).
+   *   <li>{@code generation}: 늦은 작업 결과를 구분하는 세대 번호 ({@code long}).
+   *   <li>{@code revision}: 결과를 갱신할 때 비교하는 리비전; 초기값 {@code -1} ({@code long}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code snapshot}: 스냅샷 ({@code Snapshot}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Job(owner, request, fingerprint, predicate, recovery)}: 전달받은 값으로 구성원을 초기화한다. 입력:
+   *       {@code owner}(소유자), {@code request}(요청), {@code fingerprint}(지문), {@code
+   *       predicate}(판정조건), {@code recovery}(복구).
+   * </ul>
+   */
   private final class Job {
     final String id = UUID.randomUUID().toString(), owner, fingerprint, blocked, evaluation;
     final Create request;
@@ -513,8 +635,38 @@ public final class PathSearchService implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code PathSearchService}에서 사용하는 명령의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code request}: 작업 생성에 사용한 요청 ({@code Mutation}).
+   *   <li>{@code response}: 응답 ({@code Snapshot}).
+   * </ul>
+   */
   private record Command(Mutation request, Snapshot response) {}
 
+  /**
+   * {@code PathSearchService} 내부의 리비전 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code nodes}: 노드목록 ({@code Map<String, Node>}).
+   *   <li>{@code executions}: 실행목록 ({@code Map<String, Execution>}).
+   *   <li>{@code edges}: 간선목록 ({@code List<Edge>}).
+   *   <li>{@code pages}: 페이지목록 ({@code List<GraphPage>}).
+   *   <li>{@code cursors}: cursors ({@code Map<String, Integer>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Revision(job, revision, c, pageEdges)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code job}(작업),
+   *       {@code revision}(리비전), {@code c}(c), {@code pageEdges}(페이지·간선목록).
+   * </ul>
+   */
   private static final class Revision {
     final Map<String, Node> nodes;
     final Map<String, Execution> executions;

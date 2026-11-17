@@ -9,7 +9,75 @@ import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 
-/** Manual observed Abyss slots. No distribution over reveal offers is assumed. */
+/**
+ * 관측된 훼손 슬롯과 공개 후보·수동 선택 상태를 보존한다.
+ *
+ * <p>기존 계약: Manual observed Abyss slots. No distribution over reveal offers is assumed.
+ *
+ * <p>필드·상수·record 구성요소:
+ *
+ * <ul>
+ *   <li>{@code item}: 아이템 ({@code ItemState}).
+ *   <li>{@code slots}: 슬롯목록 ({@code List<Slot>}).
+ *   <li>{@code offer}: offer ({@code Offer}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AbyssCraftingState(item, slots, offer)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code item}(아이템),
+ *       {@code slots}(슬롯목록), {@code offer}(offer). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code from(state, catalog)}: 다른 표현의 입력을 현재 표현으로 바꾼다. 입력: {@code state}(상태), {@code
+ *       catalog}(카탈로그). 반환: {@code AbyssCraftingState}.
+ *   <li>{@code knownItem()}: 알려진·아이템 값을 조회·구성한다. 반환: {@code ItemState}.
+ *   <li>{@code storedItem()}: 저장된·아이템 값을 조회·구성한다. 반환: {@code ItemState}.
+ *   <li>{@code validate(catalog)}: 입력의 구조·값·지원 조건을 검증한다. 입력: {@code catalog}(카탈로그). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code count(side)}: 개수 처리에서 {@code slots.stream}, {@code s.side}을(를) 사용한다. 입력: {@code
+ *       side}(접두접미). 반환: {@code long}.
+ *   <li>{@code addUnrevealed(id, side, catalog)}: Unrevealed을(를) 추가한다. 입력: {@code id}(식별자), {@code
+ *       side}(접두접미), {@code catalog}(카탈로그). 반환: {@code AbyssCraftingState}.
+ *   <li>{@code observe(slotId, candidates, catalog)}: observe 처리에서 {@code result.validate}을(를)
+ *       사용한다. 입력: {@code slotId}(슬롯·식별자), {@code candidates}(후보목록), {@code catalog}(카탈로그). 반환:
+ *       {@code AbyssCraftingState}.
+ *   <li>{@code eligibleRevealIds(id, catalog)}: 적격·공개·식별자목록 처리에서 {@code slots.stream}, {@code
+ *       s.id}을(를) 사용한다. 입력: {@code id}(식별자), {@code catalog}(카탈로그). 반환: {@code List<String>}.
+ *   <li>{@code revealEligible(slot, d)}: 공개·적격 처리에서 {@code d.layer}, {@code d.affixType}을(를) 사용한다.
+ *       입력: {@code slot}(슬롯), {@code d}(d). 반환: {@code boolean}.
+ *   <li>{@code selectDirect(id, candidate, catalog)}: 선택·직접 처리에서 {@code candidate.modifierId}을(를)
+ *       사용한다. 입력: {@code id}(식별자), {@code candidate}(후보), {@code catalog}(카탈로그). 반환: {@code
+ *       AbyssCraftingState}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code choose(candidateIndex, catalog)}: choose 처리에서 {@code offer.slotId}, {@code
+ *       offer.candidates}을(를) 사용한다. 입력: {@code candidateIndex}(후보·색인), {@code catalog}(카탈로그). 반환:
+ *       {@code AbyssCraftingState}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code selected(id, candidate, catalog)}: 선택된 처리에서 {@code slots.stream}, {@code s.id}을(를)
+ *       사용한다. 입력: {@code id}(식별자), {@code candidate}(후보), {@code catalog}(카탈로그). 반환: {@code
+ *       AbyssCraftingState}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code append(slotId, modifier, catalog)}: 뒤에 값이나 계산 행을 추가한다. 입력: {@code slotId}(슬롯·식별자),
+ *       {@code modifier}(옵션), {@code catalog}(카탈로그). 반환: {@code AbyssCraftingState}. 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code removalCandidates(side)}: 제거·후보목록 처리에서 {@code slots.stream}, {@code s.modifier}을(를)
+ *       사용한다. 입력: {@code side}(접두접미). 반환: {@code List<Slot>}.
+ *   <li>{@code remove(slotId, side, catalog)}: 지정한 항목을 제거한다. 입력: {@code slotId}(슬롯·식별자), {@code
+ *       side}(접두접미), {@code catalog}(카탈로그). 반환: {@code AbyssCraftingState}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code requireMutable()}: 가변을(를) 필수 조건을 확인한다. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code withKnownItem(nextItem, removedModifierIds, catalog)}: 알려진·아이템을(를) 반영한 값을 구한다. 입력:
+ *       {@code nextItem}(다음·아이템), {@code removedModifierIds}(제거된·옵션·식별자목록), {@code catalog}(카탈로그).
+ *       반환: {@code AbyssCraftingState}.
+ *   <li>{@code occupiedSlotId(id)}: occupied·슬롯·식별자 처리에서 {@code slots.stream}, {@code s.id}을(를)
+ *       사용한다. 입력: {@code id}(식별자). 반환: {@code boolean}.
+ *   <li>{@code withExplicits(s, modifiers)}: 명시옵션목록을(를) 반영한 값을 구한다. 입력: {@code s}(s), {@code
+ *       modifiers}(옵션목록). 반환: {@code ItemState}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Slot}: {@code AbyssCraftingState}에서 사용하는 슬롯의 불변 값이다.
+ *   <li>{@code Offer}: {@code AbyssCraftingState}에서 사용하는 Offer의 불변 값이다.
+ * </ul>
+ */
 public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) {
   public AbyssCraftingState {
     Objects.requireNonNull(item);
@@ -23,6 +91,34 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
       throw new IllegalArgumentException("Offer must target a desecrated slot");
   }
 
+  /**
+   * {@code AbyssCraftingState}에서 사용하는 슬롯의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code side}: 접두접미 ({@code AffixType}).
+   *   <li>{@code modifier}: 옵션 ({@code ModifierInstance}).
+   *   <li>{@code desecrated}: 훼손 ({@code boolean}).
+   *   <li>{@code minimumModifierLevel}: 최소값·옵션·레벨 ({@code Integer}).
+   *   <li>{@code revealPool}: 공개·후보풀 ({@code String}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Slot(id, side, modifier, desecrated, minimumModifierLevel)}: 기본 정책을 보충해 공통 생성자로
+   *       위임한다. 입력: {@code id}(식별자), {@code side}(접두접미), {@code modifier}(옵션), {@code
+   *       desecrated}(훼손), {@code minimumModifierLevel}(최소값·옵션·레벨).
+   *   <li>{@code Slot(id, side, modifier, desecrated)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       id}(식별자), {@code side}(접두접미), {@code modifier}(옵션), {@code desecrated}(훼손).
+   *   <li>{@code Slot(id, side, modifier, desecrated, minimumModifierLevel, revealPool)}: 전달받은 값으로
+   *       구성원을 초기화한다. 입력: {@code id}(식별자), {@code side}(접두접미), {@code modifier}(옵션), {@code
+   *       desecrated}(훼손), {@code minimumModifierLevel}(최소값·옵션·레벨), {@code revealPool}(공개·후보풀).
+   *       사용하는 예외: {@code IllegalArgumentException}.
+   * </ul>
+   */
   public record Slot(
       String id,
       AffixType side,
@@ -59,7 +155,25 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
     }
   }
 
-  /** Exactly the three candidates observed by the user; no probability or omen cost. */
+  /**
+   * {@code AbyssCraftingState}에서 사용하는 Offer의 불변 값이다.
+   *
+   * <p>기존 계약: Exactly the three candidates observed by the user; no probability or omen cost.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code slotId}: 슬롯·식별자 ({@code String}).
+   *   <li>{@code candidates}: 후보목록 ({@code List<ModifierInstance>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Offer(slotId, candidates)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code slotId}(슬롯·식별자),
+   *       {@code candidates}(후보목록). 사용하는 예외: {@code IllegalArgumentException}.
+   * </ul>
+   */
   public record Offer(String slotId, List<ModifierInstance> candidates) {
     public Offer {
       if (slotId == null || slotId.isBlank()) throw new IllegalArgumentException("Target required");

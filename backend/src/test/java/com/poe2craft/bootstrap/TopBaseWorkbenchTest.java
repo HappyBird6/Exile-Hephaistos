@@ -17,6 +17,21 @@ import java.util.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+/**
+ * 상위·베이스·작업대 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code service()}: 서비스 값을 조회·구성한다. 반환: {@code CatalogCraftingService}.
+ *   <li>{@code normal(c)}: 일반 처리에서 {@code c.metadata}, {@code c.base}을(를) 사용한다. 입력: {@code c}(c).
+ *       반환: {@code ItemState}.
+ *   <li>{@code ordinaryCraftingDispatchQualityAndCrossBaseSafety(key)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 입력: {@code key}(키).
+ *   <li>{@code exactPerfectPathsOmenAndClassRestrictions(key)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 입력: {@code key}(키).
+ * </ul>
+ */
 class TopBaseWorkbenchTest {
   private CatalogCraftingService service() {
     var solar = ItemCatalogLoader.loadDefault();

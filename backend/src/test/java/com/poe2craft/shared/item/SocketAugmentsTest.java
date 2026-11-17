@@ -7,7 +7,64 @@ import com.poe2craft.shared.crafting.domain.StockyCraftingFixture;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 장착홈·증강물목록 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code StockyCraftingFixture}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code emptyAugmentsRetainLegacyRecordHashForBoundedSearch()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code empty(count)}: 빈 초기값 또는 비어 있는지 여부를 구한다. 입력: {@code count}(개수). 반환: {@code
+ *       ItemState}.
+ *   <li>{@code installsReplacesAndPreservesThroughOrdinaryCrafting()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code rejectsUnknownIdsOutOfRangeAndDuplicateSlots()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code blocksNewLowerTiersButRetainsLegacyStatesAndOtherReviewedCompositions()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code ordinaryIdolsAndEyesEnforcePerIdentityAndSharedLimitsButAllowReplacement()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code retainsLegacyVizomaDuplicatesButRejectsNewDuplicatesAndDeferredSpecialOperations()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code preservesAllNineOriginalLimitedSoulCoreStatesWithoutAllowingNewDuplicates()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code LegacyItem}: {@code SocketAugmentsTest}에서 사용하는 구버전·아이템의 불변 값이다.
+ * </ul>
+ */
 class SocketAugmentsTest {
+  /**
+   * {@code SocketAugmentsTest}에서 사용하는 구버전·아이템의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code snapshotId}: 카탈로그 스냅샷 식별자 ({@code String}).
+   *   <li>{@code baseItemId}: 원본 베이스 식별자 ({@code String}).
+   *   <li>{@code itemLevel}: 옵션 생성 제한에 사용하는 아이템 레벨 ({@code int}).
+   *   <li>{@code rarity}: 현재 아이템 희귀도 ({@code ItemState.Rarity}).
+   *   <li>{@code implicits}: 아이템의 암시 옵션 목록 ({@code List<ModifierInstance>}).
+   *   <li>{@code explicits}: 아이템의 명시 옵션 목록 ({@code List<ModifierInstance>}).
+   *   <li>{@code conditions}: 타락 등 아이템 상태 조건 ({@code Set<ItemState.Condition>}).
+   *   <li>{@code augmentSockets}: 증강물·장착홈수 ({@code Integer}).
+   *   <li>{@code catalystQuality}: 기폭제·품질 ({@code CatalystQuality}).
+   *   <li>{@code desecrated}: 훼손 ({@code List<ItemState.DesecratedSlot>}).
+   *   <li>{@code equipmentQuality}: 장비·품질 ({@code Integer}).
+   *   <li>{@code observations}: 관측값목록 ({@code ItemObservations}).
+   *   <li>{@code sanctification}: 신성화 ({@code ItemState.Sanctification}).
+   * </ul>
+   */
   record LegacyItem(
       String snapshotId,
       String baseItemId,

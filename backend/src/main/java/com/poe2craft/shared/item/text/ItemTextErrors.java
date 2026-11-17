@@ -9,6 +9,24 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+/**
+ * 아이템 텍스트 분석 오류를 원문 노출 없는 공개 응답으로 바꾼다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code tooLarge(request)}: too·Large의 입력에 따른 분기·결과를 처리한다. 입력: {@code request}(요청). 반환:
+ *       {@code ProblemDetail}.
+ *   <li>{@code invalid(request)}: 잘못된 입력을 나타내는 오류 결과를 만든다. 입력: {@code request}(요청). 반환: {@code
+ *       ProblemDetail}.
+ *   <li>{@code malformed(request)}: 잘못된형식의 입력에 따른 분기·결과를 처리한다. 입력: {@code request}(요청). 반환: {@code
+ *       ProblemDetail}.
+ *   <li>{@code problem(status, code, detail, request)}: 오류상세 처리에서 {@code
+ *       ProblemDetail.forStatusAndDetail}, {@code problem.setTitle}을(를) 사용한다. 입력: {@code
+ *       status}(상태), {@code code}(코드), {@code detail}(상세), {@code request}(요청). 반환: {@code
+ *       ProblemDetail}.
+ * </ul>
+ */
 @RestControllerAdvice(assignableTypes = ItemTextController.class)
 public final class ItemTextErrors {
   @ExceptionHandler(ItemTextController.ItemTextTooLargeException.class)

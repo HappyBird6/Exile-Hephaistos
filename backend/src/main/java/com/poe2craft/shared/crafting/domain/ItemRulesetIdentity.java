@@ -10,10 +10,21 @@ import java.util.*;
 /**
  * 현재 베이스의 제작 의미를 해시로 묶어 저장 상태의 규칙 호환성을 판정한다. 과거 엔진을 재현하는 자료는 아니다.
  *
+ * <p>현재 베이스의 제작 의미를 해시로 묶어 저장 상태의 규칙 호환성을 판정한다. 과거 엔진을 재현하는 자료는 아니다.
+ *
  * <p>private 생성자는 인스턴스 생성을 막는다. of(catalog,simulator,coupled)는 버전·슬롯 한도·베이스 정책· 옵션 정의·복합 수치 대상·에센스
  * 연결·화폐/징조 정책·기본 제작 한도를 parts에 모은다. 집합은 정렬하고 각 문자열 길이를 앞에 붙여 경계가 다른 입력이 합쳐지지 않도록 SHA-256에 넣는다. 반환값은
  * item-rules-v2 접두사의 호환성 ID이며 외관 번역은 제외한다. 입력 객체는 변경하지 않는다. SHA-256 부재는 IllegalStateException이다. 정책
  * JSON이 바뀌면 같은 ID라고 간주하지 않는다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ItemRulesetIdentity()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code of(catalog, simulator, coupled)}: 입력값으로 검증된 값 객체를 만든다. 입력: {@code catalog}(카탈로그),
+ *       {@code simulator}(제작시뮬레이터), {@code coupled}(결합). 반환: {@code String}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ * </ul>
  */
 public final class ItemRulesetIdentity {
   private ItemRulesetIdentity() {}

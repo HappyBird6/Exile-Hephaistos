@@ -7,7 +7,52 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
-/** A validated immutable data snapshot. No database, HTTP, or probability calculation. */
+/**
+ * 검증된 불변 아이템 데이터 스냅샷이다. 외부 조회나 확률 계산을 수행하지 않는다.
+ *
+ * <p>기존 계약: A validated immutable data snapshot. No database, HTTP, or probability calculation.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code augmentContextApplied}: 증강물·문맥·적용여부 ({@code boolean}).
+ *   <li>{@code metadata}: 메타데이터 ({@code Metadata}).
+ *   <li>{@code base}: 베이스 ({@code BaseItem}).
+ *   <li>{@code modifiers}: 옵션목록 ({@code Map<String, ModifierDefinition>}).
+ *   <li>{@code compatibleSnapshotIds}: 호환되는·스냅샷·식별자목록 ({@code List<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ItemCatalog(metadata, base, definitions)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       metadata}(메타데이터), {@code base}(베이스), {@code definitions}(정의목록).
+ *   <li>{@code ItemCatalog(metadata, base, definitions, compatibleSnapshotIds)}: 기본 정책을 보충해 공통 생성자로
+ *       위임한다. 입력: {@code metadata}(메타데이터), {@code base}(베이스), {@code definitions}(정의목록), {@code
+ *       compatibleSnapshotIds}(호환되는·스냅샷·식별자목록).
+ *   <li>{@code ItemCatalog(metadata, base, definitions, compatibleSnapshotIds,
+ *       augmentContextApplied)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code metadata}(메타데이터), {@code
+ *       base}(베이스), {@code definitions}(정의목록), {@code compatibleSnapshotIds}(호환되는·스냅샷·식별자목록),
+ *       {@code augmentContextApplied}(증강물·문맥·적용여부). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code augmentContextApplied()}: {@code augmentContextApplied} 값을 조회한다. 반환: {@code
+ *       boolean}.
+ *   <li>{@code metadata()}: {@code metadata} 값을 조회한다. 반환: {@code Metadata}.
+ *   <li>{@code base()}: {@code base} 값을 조회한다. 반환: {@code BaseItem}.
+ *   <li>{@code modifiers()}: {@code modifiers} 값을 조회한다. 반환: {@code Map<String,
+ *       ModifierDefinition>}.
+ *   <li>{@code compatibleSnapshotIds()}: {@code compatibleSnapshotIds} 값을 조회한다. 반환: {@code
+ *       List<String>}.
+ *   <li>{@code find(id)}: 조건에 맞는 항목을 찾는다. 입력: {@code id}(식별자). 반환: {@code
+ *       Optional<ModifierDefinition>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Metadata}: {@code ItemCatalog}에서 사용하는 메타데이터의 불변 값이다.
+ *   <li>{@code BaseItem}: {@code ItemCatalog}에서 사용하는 베이스·아이템의 불변 값이다.
+ * </ul>
+ */
 public final class ItemCatalog {
   private final boolean augmentContextApplied;
   private final Metadata metadata;
@@ -100,6 +145,36 @@ public final class ItemCatalog {
     return Optional.ofNullable(modifiers.get(id));
   }
 
+  /**
+   * {@code ItemCatalog}에서 사용하는 메타데이터의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code snapshotId}: 카탈로그 스냅샷 식별자 ({@code String}).
+   *   <li>{@code retrievedAt}: 수집된·기준 ({@code String}).
+   *   <li>{@code sourceUrl}: 검토에 사용한 원자료 URL ({@code String}).
+   *   <li>{@code weightPolicy}: 가중치·정책 ({@code String}).
+   *   <li>{@code rawSha256}: 원문·SHA·256 ({@code String}).
+   *   <li>{@code detailsSha256}: 세부정보·SHA·256 ({@code String}).
+   *   <li>{@code prefixCount}: 접두·개수 ({@code int}).
+   *   <li>{@code suffixCount}: 접미·개수 ({@code int}).
+   *   <li>{@code prefixWeight}: 접두·가중치 ({@code long}).
+   *   <li>{@code suffixWeight}: 접미·가중치 ({@code long}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Metadata(snapshotId, retrievedAt, sourceUrl, weightPolicy, rawSha256,
+   *       detailsSha256, prefixCount, suffixCount, prefixWeight, suffixWeight)}: 전달받은 값으로 구성원을
+   *       초기화한다. 입력: {@code snapshotId}(스냅샷·식별자), {@code retrievedAt}(수집된·기준), {@code
+   *       sourceUrl}(출처·출처주소), {@code weightPolicy}(가중치·정책), {@code rawSha256}(원문·SHA·256), {@code
+   *       detailsSha256}(세부정보·SHA·256), {@code prefixCount}(접두·개수), {@code suffixCount}(접미·개수),
+   *       {@code prefixWeight}(접두·가중치), {@code suffixWeight}(접미·가중치). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   * </ul>
+   */
   public record Metadata(
       String snapshotId,
       String retrievedAt,
@@ -132,6 +207,33 @@ public final class ItemCatalog {
     }
   }
 
+  /**
+   * {@code ItemCatalog}에서 사용하는 베이스·아이템의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code name}: 표시 또는 조회에 사용하는 이름 ({@code String}).
+   *   <li>{@code sourceUrl}: 검토에 사용한 원자료 URL ({@code String}).
+   *   <li>{@code implicitModifierId}: 암시옵션·옵션·식별자 ({@code String}).
+   *   <li>{@code magicPrefixes}: 마법·접두목록 ({@code int}).
+   *   <li>{@code magicSuffixes}: 마법·접미목록 ({@code int}).
+   *   <li>{@code rarePrefixes}: 희귀·접두목록 ({@code int}).
+   *   <li>{@code rareSuffixes}: 희귀·접미목록 ({@code int}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code BaseItem(id, name, sourceUrl, implicitModifierId, magicPrefixes, magicSuffixes,
+   *       rarePrefixes, rareSuffixes)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자), {@code name}(이름),
+   *       {@code sourceUrl}(출처·출처주소), {@code implicitModifierId}(암시옵션·옵션·식별자), {@code
+   *       magicPrefixes}(마법·접두목록), {@code magicSuffixes}(마법·접미목록), {@code rarePrefixes}(희귀·접두목록),
+   *       {@code rareSuffixes}(희귀·접미목록). 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code hasImplicit()}: 암시옵션을(를) 보유 여부를 판정한다. 반환: {@code boolean}.
+   * </ul>
+   */
   public record BaseItem(
       String id,
       String name,

@@ -13,7 +13,34 @@ import com.poe2craft.shared.item.ModifierDefinition;
 import java.math.BigDecimal;
 import java.util.*;
 
-/** Independently enumerable weighted-goal catalog; no production inventory is changed. */
+/**
+ * 결합·분포·검증사례 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Independently enumerable weighted-goal catalog; no production inventory is changed.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code policy}: 정책 ({@code AutomaticCurrencyPolicy}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code root}: 시작점 ({@code ItemState}).
+ *   <li>{@code goal}: 목표 ({@code GoalFilter}).
+ *   <li>{@code kernel}: 전이커널 ({@code AutomaticCraftingKernel}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code JointLawFixture()}: 전달받은 값으로 구성원을 초기화한다.
+ *   <li>{@code value(item, stat)}: 값 처리에서 {@code item.explicits}, {@code m.values}을(를) 사용한다. 입력:
+ *       {@code item}(아이템), {@code stat}(수치). 반환: {@code long}.
+ *   <li>{@code evaluate(item)}: 입력 조건이나 정책을 평가해 결과를 구한다. 입력: {@code item}(아이템). 반환: {@code
+ *       AutomaticMethodGraph.Progress}.
+ *   <li>{@code graph()}: 그래프 값을 조회·구성한다. 반환: {@code AutomaticMethodGraph}.
+ *   <li>{@code exhaust(graph)}: exhaust 처리에서 {@code graph.finished}, {@code
+ *       graph.resourceLimited}을(를) 사용한다. 입력: {@code graph}(그래프).
+ * </ul>
+ */
 public final class JointLawFixture {
   public final AutomaticCurrencyPolicy policy = AutomaticCurrencyPolicyLoader.load();
   public final ItemCatalog catalog;

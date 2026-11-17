@@ -15,6 +15,32 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
+/**
+ * 활·에센스 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code essences()}: essences 값을 조회·구성한다. 반환: {@code Stream<WorkbenchCurrency>}.
+ *   <li>{@code state(level, rarity, mods)}: 현재 상태 표현을 조회한다. 입력: {@code level}(레벨), {@code
+ *       rarity}(희귀도), {@code mods}(옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code fixedTargetHasProvenLevelFamilySlotAndProbability(action)}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 입력: {@code action}(행동).
+ *   <li>{@code ordinaryPoolIsCompleteAndDefaultSolarIsUnchanged()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code existingOrdinaryActionsRetainFracturedValuesAndDifferentBasesRejectBowEssences()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code tamperedCatalogSourcesAreRejected()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외:
+ *       {@code Exception}.
+ * </ul>
+ */
 class BowEssenceTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadBow();
   private final WorkbenchSimulator simulator =

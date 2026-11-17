@@ -10,6 +10,39 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * StockyMitts·완벽·Glove·에센스 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code StockyCraftingFixture}).
+ *   <li>{@code actions}: 행동목록 ({@code List<WorkbenchCurrency>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code target(action)}: 대상 처리에서 {@code action.replacementModifiers}을(를) 사용한다. 입력: {@code
+ *       action}(행동). 반환: {@code String}.
+ *   <li>{@code exactPrimaryTargetsRetainRawLevelVersusEffectiveRequirementAndNoOrdinaryWeight()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code everyRemovalAndModelledIntegerIsReachableWithSeparateUnverifiedNumericLedger()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unverifiedLowerLevelsFullSuffixSurvivingFamilyAndLocksBlockWithoutPruning()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code crystallisationConsumesOnlyItsMatchingRemovalSideAndPairConflictKeepsState()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code bothEffectsCanCoexistAndEachFractureSurvivesDivineChaosAnnul()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code newCatalogPreservesExactHorrorProofBytesDefinitionAndPriorIdentity()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code solarNeitherListsNorAppliesTheseGloveTargets()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code fullSuffixAutomaticallyRestrictsRemovalToSuffixes()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ * </ul>
+ */
 class StockyPerfectGloveEssenceTest {
   final StockyCraftingFixture f = new StockyCraftingFixture();
   final List<WorkbenchCurrency> actions =

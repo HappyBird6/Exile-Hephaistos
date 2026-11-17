@@ -8,6 +8,57 @@ import java.util.*;
 import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 완전한 불변 상태를 사용해 유한 관측의 정확한 마르코프 전이를 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code HALF}: HALF ({@code Fraction}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code boundedPhaseBatchesPreserveFirstHitConditionalMassAndCurrencyUses()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code terminalExpansion(input)}: 종료·확장 처리에서 {@code input.values}, {@code
+ *       mass.multiply}을(를) 사용한다. 입력: {@code input}(입력). 반환: {@code Compaction<String>}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code terminalLawIsExpandedOnceWithoutRecurrencyCostsOrCumulativeRecompaction()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code alreadyTerminalRootNormalizationConsumesNoCycleOrCurrency()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code publishedObservationRejectsMassLostByTerminalNormalization()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code publishedObservationRejectsMassLostByFaultyCompaction()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code kernel(states)}: 전이커널 처리에서 {@code Arrays.stream}, {@code Fraction.of}을(를) 사용한다. 입력:
+ *       {@code states}(상태목록). 반환: {@code Kernel<String>}.
+ *   <li>{@code classify(state)}: 완전한 전이 특성을 기준으로 상태의 동치류를 판정한다. 입력: {@code state}(상태). 반환: {@code
+ *       Optional<Exit>}.
+ *   <li>{@code finish(runner)}: 진행 중인 계산 또는 누적 처리를 마무리한다. 입력: {@code runner}(실행기).
+ *   <li>{@code equivalentPhaseInputsShareWorkWithoutAveragingEntryLawsOrUnknownExits()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code equalKernelsDoNotMergeDifferentActionsOrUnavailableInputStates()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code preparationAndCyclesHaveSeparateUsageAndFirstHitStopsBeforeRemoval()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code independentHistoryEnumerationMatchesChangingMarkovPoolAndMergedArrivals()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code AssertionError}.
+ *   <li>{@code enumerate(state, remaining, transition)}: enumerate 처리에서 {@code state.equals},
+ *       {@code transition.apply}을(를) 사용한다. 입력: {@code state}(상태), {@code remaining}(남은), {@code
+ *       transition}(전이). 반환: {@code Fraction}.
+ *   <li>{@code unknownAndUnavailableAreDisjointAndUnavailableDoesNotConsumeCurrency()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code invalidKernelAndFailedEvaluationDoNotAdvanceCursor()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code outcomeSlicesResumeWithoutDuplicateCostMassOrPostHitRemoval()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code laterAbsorptionCannotRewriteAnEarlierObservationOrChargeUnusedCycles()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class ExactMethodRunnerTest {
   private static final Fraction HALF = Fraction.of(1, 2);
 

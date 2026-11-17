@@ -15,7 +15,41 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-/** Tiny independently enumerable test catalog; no production pool is pruned or rewritten. */
+/**
+ * 선언된 수치 가정 아래 기본 화폐의 유한 전이 분포를 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>기존 계약: Tiny independently enumerable test catalog; no production pool is pruned or rewritten.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code reviewedUniformCatalogUsesIndividualEligibleTiersAndSeparateRolls()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code kernelIdentitySharesRemovedInputsButPreservesAllRetainedStateAndAction()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code structuralFollowupPruningNeverRemovesAnApplicableConcreteBranch()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code allSixteenActionsKeepExactMassAndTheExplicitFirstTabScope()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code independentEightTicketAdditionEnumerationAgreesWithFiniteOracle()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code chaosRemovesThenAddsAndMergesTwoElementarySelfLoopBranches()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fractureProtectionAndSourceNumericQualityPreservationAreSharedWithWorkbench()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code actionOrderIsNotSortedOrCollapsedAndNumericBucketProjectionIsNotLossless()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code partialEnumerationKeepsTheExactComplementWithoutRenormalizingOrHidingDuplicates()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unsupportedJointCandidateBlocksTheWholeDistributionIncludingUnrelatedDenominator()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code
+ *       tieredPoolRetainsHighestEligibleFamilyBelowThresholdInsteadOfInventingTierCutoffs()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code nullEmptyUnsupportedAndProvenanceMismatchesAreExplicit()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ */
 class BasicCurrencyTransitionsTest extends BasicCurrencyFixture {
   @Test
   void reviewedUniformCatalogUsesIndividualEligibleTiersAndSeparateRolls() {

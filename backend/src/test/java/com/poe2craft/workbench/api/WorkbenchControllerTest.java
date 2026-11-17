@@ -27,6 +27,57 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 // Keep the real HTTP filters; mock only their external Redis dependency.
+/**
+ * 초기 아이템·일반 제작·훼손 제작·텍스트 편집 요청을 공통 제작 서비스에 전달한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code mapper}: 입력·출력 표현을 변환하는 구성요소 ({@code ObjectMapper}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code service}: 요청 처리를 위임하는 서비스 ({@code CatalogCraftingService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code preparesTextOnceWithEquivalentMappingAndPreservesEditRules()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code hiddenAbyssSlotsAlsoReceivePoolUpdatesWithCurrency()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code optedInApplyIncludesPoolAndLegacyClientsKeepOriginalEnvelope()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code
+ *       importedObservationsSurviveJsonRestorationAndManualCraftsWhileUnresolvedAugmentsStayOnHold()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rulesetBoundaryPreservesReadsAndRejectsOlderAndMismatchedClients()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code legacyHomogenisingWorksAcrossNineBasesAndPreservesUnmatchedOmen()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code typedQualityInspectionPreservesRollsAndRejectsLossyOrCoercedProperties()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code legacyJsonDefaultsToUnlockedAndFractureRoundTripsWithoutLosingLockedValues()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code registrySeparatesInventoryFromImplementedRulesAndPublishesTheLedger()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code applyReturnsConcreteRollsAndAssumptionsWithVersionedEvidence()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code mappingRetainsUnsupportedEvidenceAndOnlyEnablesValidatedSolarStates()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rejectsUnsupportedPropertiesBeforeApplyAndAvailability(field)}:
+ *       rejects·미지원·속성·변경전·적용·및·Availability 처리에서 {@code mapper.valueToTree}, {@code
+ *       SolarAmulet.initial}을(를) 사용한다. 입력: {@code field}(필드). 사용하는 예외: {@code Exception}.
+ *   <li>{@code rejectsUnknownModifierPropertiesButPreservesLegacyDerivedMetadata()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code ordinarySocketCountIsExplicitOnFreshBaseAndLegacyUnknownIsNotZero()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code numericSocketCountMustNotBeCoercedOrAcceptExceptionalState()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code importedEquipmentQualitySurvivesManualCurrencyAndJsonRestore()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @org.springframework.test.context.bean.override.mockito.MockitoBean(
     types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest(WorkbenchController.class)

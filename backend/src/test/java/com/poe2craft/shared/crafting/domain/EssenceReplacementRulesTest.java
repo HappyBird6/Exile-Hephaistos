@@ -7,6 +7,26 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 구체 아이템과 미공개 훼손 슬롯에 같은 대상 우선 교체 규칙을 적용한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code f}: f ({@code StockyCraftingFixture}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code full(fractured)}: 전체 처리에서 {@code f.rare}, {@code state.explicits}을(를) 사용한다. 입력:
+ *       {@code fractured}(분열고정). 반환: {@code ItemState}.
+ *   <li>{@code targetIsUniformWhileFracturedExclusionsMakeConditionalRemovalCountsDifferent()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code hiddenSlotsAndAutomaticSearchUseTheSameSideRestrictionAndProbability()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class EssenceReplacementRulesTest {
   final StockyCraftingFixture f = new StockyCraftingFixture();
 

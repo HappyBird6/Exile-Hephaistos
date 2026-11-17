@@ -14,21 +14,309 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.Function;
 
-/** Cooperative discovery over conditional item laws; distinct joint laws never share identity. */
+/**
+ * 조건부 아이템 분포를 구별하면서 자동 탐색 그래프를 점진적으로 확장한다.
+ *
+ * <p>기존 계약: Cooperative discovery over conditional item laws; distinct joint laws never share
+ * identity.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "goal-directed-milestone-graph-v18-session-policy"} ({@code
+ *       String}).
+ *   <li>{@code rareOutcomePolicy}: 희귀·결과·정책 ({@code RareOutcomePolicy}).
+ *   <li>{@code kernel}: 전이커널 ({@code AutomaticCraftingKernel}).
+ *   <li>{@code evaluate}: 평가 ({@code Function<ItemState, Progress>}).
+ *   <li>{@code precision}: 정밀도 ({@code CertifiedInterval.Precision}).
+ *   <li>{@code candidates}: 후보목록 ({@code List<AutomaticCraftingAction>}).
+ *   <li>{@code nodes}: 노드목록 ({@code Map<Identity, Node>}).
+ *   <li>{@code classes}: 동치류목록 ({@code Map<ClassKey, Node>}).
+ *   <li>{@code terminalClasses}: 종료·동치류목록 ({@code Map<TerminalAdditionClasses.Key, Node>}).
+ *   <li>{@code orderedNodes}: ordered·노드목록 ({@code List<Node>}).
+ *   <li>{@code methods}: 제작방법목록 ({@code Map<String, Method>}).
+ *   <li>{@code ready}: 준비완료 ({@code ArrayDeque<Method>}).
+ *   <li>{@code stateLimit}: 상태·한도 ({@code int}).
+ *   <li>{@code methodLimit}: 제작방법·한도 ({@code int}).
+ *   <li>{@code retainedLimit}: 보유·한도 ({@code long}).
+ *   <li>{@code primitiveOutcomeBudget}: 개별행동·결과·계산예산 ({@code long}).
+ *   <li>{@code operations}: 연산목록 ({@code long}).
+ *   <li>{@code revision}: 결과를 갱신할 때 비교하는 리비전 ({@code long}).
+ *   <li>{@code proofRows}: 증명·행목록 ({@code long}).
+ *   <li>{@code proofNanos}: 증명·나노초 ({@code long}).
+ *   <li>{@code evaluations}: 평가목록 ({@code Map<Integer, Evaluation>}).
+ *   <li>{@code primitiveStart}: 개별행동·시작값 ({@code AutomaticCraftingKernel.Metrics}).
+ *   <li>{@code refinementIterations}: refinement·반복횟수 ({@code long}).
+ *   <li>{@code expansionNanos}: 확장·나노초 ({@code long}).
+ *   <li>{@code evaluationNanos}: 평가·나노초 ({@code long}).
+ *   <li>{@code evaluationBuilds}: 평가·Builds ({@code long}).
+ *   <li>{@code refinementNanos}: refinement·나노초 ({@code long}).
+ *   <li>{@code limited}: 제한된 ({@code boolean}).
+ *   <li>{@code discoveryLimited}: 발견·제한된 ({@code boolean}).
+ *   <li>{@code schedulingPriority}: scheduling·Priority ({@code Map<Integer, Double>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code tierView(tiers)}: 티어·조회표현 처리에서 {@code tiers.forEach}, {@code result.put}을(를) 사용한다.
+ *       입력: {@code tiers}(티어목록). 반환: {@code Map<String, TierLaw>}.
+ *   <li>{@code rareOutcomePolicy()}: {@code rareOutcomePolicy} 값을 조회한다. 반환: {@code
+ *       RareOutcomePolicy}.
+ *   <li>{@code configureRareOutcomes(policy)}: configure·희귀·결과목록 처리에서 {@code methods.isEmpty}을(를)
+ *       사용한다. 입력: {@code policy}(정책). 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code rareGroup(state)}: 희귀·그룹 처리에서 {@code kernel.behaviorKey}, {@code state.item}을(를)
+ *       사용한다. 입력: {@code state}(상태). 반환: {@code Object}.
+ *   <li>{@code sessionPoint(method, point)}: 세션·지점 처리에서 {@code rareOutcomePolicy.apply}, {@code
+ *       state.item}을(를) 사용한다. 입력: {@code method}(제작방법), {@code point}(지점). 반환: {@code
+ *       CertifiedMethodRunner.Observation<AutomaticMethodExecution.State,
+ *       AutomaticCraftingAction>}.
+ *   <li>{@code completeObservation(method, horizon)}: 완료·관측값 처리에서 {@code execution.atBoundary},
+ *       {@code execution.absorbed}을(를) 사용한다. 입력: {@code method}(제작방법), {@code horizon}(계산기간). 반환:
+ *       {@code boolean}.
+ *   <li>{@code evaluationPoint(method, horizon)}: 평가·지점 처리에서 {@code points.get}, {@code
+ *       execution.provisional}을(를) 사용한다. 입력: {@code method}(제작방법), {@code horizon}(계산기간). 반환:
+ *       {@code CertifiedMethodRunner.Observation<AutomaticMethodExecution.State,
+ *       AutomaticCraftingAction>}.
+ *   <li>{@code metrics()}: 측정값 값을 조회·구성한다. 반환: {@code Metrics}.
+ *   <li>{@code AutomaticMethodGraph(root, policy, kernel, evaluate, precision, stateLimit,
+ *       methodLimit, retainedLimit, primitiveOutcomeBudget)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       root}(시작점), {@code policy}(정책), {@code kernel}(전이커널), {@code evaluate}(평가), {@code
+ *       precision}(정밀도), {@code stateLimit}(상태·한도), {@code methodLimit}(제작방법·한도), {@code
+ *       retainedLimit}(보유·한도), {@code primitiveOutcomeBudget}(개별행동·결과·계산예산).
+ *   <li>{@code AutomaticMethodGraph(root, policy, kernel, evaluate, precision, stateLimit,
+ *       methodLimit, retainedLimit, primitiveOutcomeBudget, initialQuality40)}: 기본 정책을 보충해 공통 생성자로
+ *       위임한다. 입력: {@code root}(시작점), {@code policy}(정책), {@code kernel}(전이커널), {@code
+ *       evaluate}(평가), {@code precision}(정밀도), {@code stateLimit}(상태·한도), {@code
+ *       methodLimit}(제작방법·한도), {@code retainedLimit}(보유·한도), {@code
+ *       primitiveOutcomeBudget}(개별행동·결과·계산예산), {@code initialQuality40}(초기값·품질·40).
+ *   <li>{@code AutomaticMethodGraph(root, policy, kernel, evaluate, precision, stateLimit,
+ *       methodLimit, retainedLimit, primitiveOutcomeBudget, initialQuality40,
+ *       initialAbstractQuality)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code root}(시작점), {@code policy}(정책),
+ *       {@code kernel}(전이커널), {@code evaluate}(평가), {@code precision}(정밀도), {@code
+ *       stateLimit}(상태·한도), {@code methodLimit}(제작방법·한도), {@code retainedLimit}(보유·한도), {@code
+ *       primitiveOutcomeBudget}(개별행동·결과·계산예산), {@code initialQuality40}(초기값·품질·40), {@code
+ *       initialAbstractQuality}(초기값·추상화된·품질). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code progress(item, abstractQuality)}: 진행상황 처리에서 {@code evaluate.apply}을(를) 사용한다. 입력:
+ *       {@code item}(아이템), {@code abstractQuality}(추상화된·품질). 반환: {@code Progress}.
+ *   <li>{@code qualityProgress(kernel, item, abstractQuality, raw)}: 품질·진행상황 처리에서 {@code
+ *       kernel.qualityGoal}, {@code kernel.workedQuality}을(를) 사용한다. 입력: {@code kernel}(전이커널),
+ *       {@code item}(아이템), {@code abstractQuality}(추상화된·품질), {@code raw}(원문). 반환: {@code Progress}.
+ *   <li>{@code intern(item, quality40, abstractQuality, depth)}: 동등한 기존 값을 찾아 공유하고 없으면 등록한다. 입력:
+ *       {@code item}(아이템), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code
+ *       depth}(깊이). 반환: {@code Node}.
+ *   <li>{@code intern(item, quality40, abstractQuality, depth, tiers)}: 동등한 기존 값을 찾아 공유하고 없으면 등록한다.
+ *       입력: {@code item}(아이템), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code
+ *       depth}(깊이), {@code tiers}(티어목록). 반환: {@code Node}.
+ *   <li>{@code alias(target, member, depth)}: alias 처리에서 {@code members.add}, {@code nodes.put}을(를)
+ *       사용한다. 입력: {@code target}(대상), {@code member}(구성원), {@code depth}(깊이). 반환: {@code Node}.
+ *   <li>{@code origin(target, method, result, kind)}: origin 처리에서 {@code result.retainedFromRoot},
+ *       {@code item.explicits}을(를) 사용한다. 입력: {@code target}(대상), {@code method}(제작방법), {@code
+ *       result}(결과), {@code kind}(종류).
+ *   <li>{@code relaxDepths(first)}: relax·Depths 처리에서 {@code queue.add}, {@code queue.isEmpty}을(를)
+ *       사용한다. 입력: {@code first}(최초).
+ *   <li>{@code rarityCheckpoint(template)}: 희귀도·체크포인트 처리에서 {@code template.initial}, {@code
+ *       template.cycle}을(를) 사용한다. 입력: {@code template}(템플릿). 반환: {@code boolean}.
+ *   <li>{@code classify(source, item, quality)}: 완전한 전이 특성을 기준으로 상태의 동치류를 판정한다. 입력: {@code
+ *       source}(출처), {@code item}(아이템), {@code quality}(품질). 반환: {@code Optional<Exit>}.
+ *   <li>{@code classify(source, item, quality, retainRarity)}: 완전한 전이 특성을 기준으로 상태의 동치류를 판정한다. 입력:
+ *       {@code source}(출처), {@code item}(아이템), {@code quality}(품질), {@code
+ *       retainRarity}(retain·희귀도). 반환: {@code Optional<Exit>}.
+ *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
+ *   <li>{@code advance()}: 허용된 계산량만큼 작업을 진행한다.
+ *   <li>{@code discover(source)}: discover 처리에서 {@code choices.size}, {@code choices.get}을(를) 사용한다.
+ *       입력: {@code source}(출처).
+ *   <li>{@code add(source, initial, cycle)}: 값 또는 항목을 더한다. 입력: {@code source}(출처), {@code
+ *       initial}(초기값), {@code cycle}(주기).
+ *   <li>{@code publish(method, cycles, point)}: 새 결과나 체크포인트를 외부 조회에 공개한다. 입력: {@code method}(제작방법),
+ *       {@code cycles}(주기횟수), {@code point}(지점).
+ *   <li>{@code publishTargets(method, point)}: publish·대상목록 처리에서 {@code point.exits}, {@code
+ *       law.forEach}을(를) 사용한다. 입력: {@code method}(제작방법), {@code point}(지점).
+ *   <li>{@code publishProgress()}: publish·진행상황 처리에서 {@code methods.values}, {@code
+ *       method.done}을(를) 사용한다.
+ *   <li>{@code visiblePoints(method)}: visible·지점목록 처리에서 {@code result.put}, {@code
+ *       points.containsKey}을(를) 사용한다. 입력: {@code method}(제작방법). 반환: {@code Map<Integer,
+ *       CertifiedMethodRunner.Observation<AutomaticMethodExecution.State,
+ *       AutomaticCraftingAction>>}.
+ *   <li>{@code finished()}: 종료 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code hasPendingObservation()}: 대기·관측값을(를) 보유 여부를 판정한다. 반환: {@code boolean}.
+ *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+ *   <li>{@code increaseLimits(states, methods, retained)}: 한도목록을(를) 한도를 늘린다. 입력: {@code
+ *       states}(상태목록), {@code methods}(제작방법목록), {@code retained}(보유).
+ *   <li>{@code increaseLimits(states, methods, retained, primitiveOutcomes)}: 한도목록을(를) 한도를 늘린다. 입력:
+ *       {@code states}(상태목록), {@code methods}(제작방법목록), {@code retained}(보유), {@code
+ *       primitiveOutcomes}(개별행동·결과목록). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code resourceLimited()}: {@code limited} 값을 조회한다. 반환: {@code boolean}.
+ *   <li>{@code expandableStates()}: expandable·상태목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code canResume()}: 재개을(를) 가능 여부를 판정한다. 반환: {@code boolean}.
+ *   <li>{@code resources()}: 자원목록 값을 조회·구성한다. 반환: {@code ResourceUsage}.
+ *   <li>{@code executionCount()}: 실행·개수 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code computationStates()}: computation·상태목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code proofRows()}: {@code proofRows} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code proofNanos()}: {@code proofNanos} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code transport(method, point)}: 전송 처리에서 {@code point.exits}, {@code exits.put}을(를) 사용한다.
+ *       입력: {@code method}(제작방법), {@code point}(지점). 반환: {@code
+ *       CertifiedMethodRunner.Observation<AutomaticMethodExecution.State,
+ *       AutomaticCraftingAction>}.
+ *   <li>{@code transportLaw(method, law)}: 전송·분포 처리에서 {@code law.forEach}, {@code result.merge}을(를)
+ *       사용한다. 입력: {@code method}(제작방법), {@code law}(분포). 반환: {@code
+ *       Map<AutomaticMethodExecution.State, CertifiedInterval>}.
+ *   <li>{@code transportedRetention(method, state)}: transported·보유량 처리에서 {@code
+ *       state.retainedFromRoot}, {@code item.explicits}을(를) 사용한다. 입력: {@code method}(제작방법), {@code
+ *       state}(상태). 반환: {@code Set<String>}.
+ *   <li>{@code transportedTiers(method, state)}: transported·티어목록 처리에서 {@code state.tiers}, {@code
+ *       item.explicits}을(를) 사용한다. 입력: {@code method}(제작방법), {@code state}(상태). 반환: {@code
+ *       Map<String, TierCell>}.
+ *   <li>{@code operations()}: {@code operations} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code rollModels()}: 수치굴림·모형목록 값을 조회·구성한다. 반환: {@code List<String>}.
+ *   <li>{@code hasGoal()}: 목표을(를) 보유 여부를 판정한다. 반환: {@code boolean}.
+ *   <li>{@code revision()}: {@code revision} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code retainedStates()}: 보유·상태목록 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code abyssStrategies(nodeId)}: 훼손·전략목록 처리에서 {@code orderedNodes.size}, {@code
+ *       orderedNodes.get}을(를) 사용한다. 입력: {@code nodeId}(노드·식별자). 반환: {@code
+ *       List<AbyssStrategyPlanner.Strategy>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code nodes()}: 노드목록 값을 조회·구성한다. 반환: {@code List<NodeView>}.
+ *   <li>{@code attributeSupports()}: 속성·Supports 값을 조회·구성한다. 반환: {@code Map<Integer, Map<String,
+ *       List<AttributeOption>>>}.
+ *   <li>{@code savedAttributeSupports(nodes, kernel)}: 저장된·속성·Supports 처리에서 {@code nodes.size},
+ *       {@code nodes.get}을(를) 사용한다. 입력: {@code nodes}(노드목록), {@code kernel}(전이커널). 반환: {@code
+ *       Map<Integer, Map<String, List<AttributeOption>>>}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code attributeSupports(sources, kernel)}: 속성·Supports 처리에서 {@code item.explicits}, {@code
+ *       fields.put}을(를) 사용한다. 입력: {@code sources}(출처목록), {@code kernel}(전이커널). 반환: {@code
+ *       Map<Integer, Map<String, List<AttributeOption>>>}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code executionMode(method)}: 실행·모드 처리에서 {@code template.cycle}, {@code
+ *       execution.cycles}을(를) 사용한다. 입력: {@code method}(제작방법). 반환: {@code String}.
+ *   <li>{@code completeObservations(method)}: 완료·관측값목록 처리에서 {@code points.keySet}, {@code
+ *       execution.atBoundary}을(를) 사용한다. 입력: {@code method}(제작방법). 반환: {@code Set<Integer>}.
+ *   <li>{@code methods()}: 제작방법목록 값을 조회·구성한다. 반환: {@code List<MethodView>}.
+ *   <li>{@code retryStates(method)}: 재시도·상태목록 처리에서 {@code execution.retryRepresentatives}, {@code
+ *       template.boundedChaos}을(를) 사용한다. 입력: {@code method}(제작방법). 반환: {@code Set<ItemState>}.
+ *   <li>{@code strategy(cycles)}: 전략 처리에서 {@code kernel.identity}, {@code evaluations.get}을(를)
+ *       사용한다. 입력: {@code cycles}(주기횟수). 반환: {@code CertifiedOutcomeStrategy<Integer>}.
+ *   <li>{@code refineStrategy(strategy, iterations)}: 경계정밀화·전략 처리에서 {@code strategy.refine}을(를)
+ *       사용한다. 입력: {@code strategy}(전략), {@code iterations}(반복횟수).
+ *   <li>{@code policyModel(cycles)}: 정책·모형 처리에서 {@code precision.fractionalBits}, {@code
+ *       item.desecrated}을(를) 사용한다. 입력: {@code cycles}(주기횟수). 반환: {@code Map<Integer,
+ *       AutomaticPolicyCandidates.State>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code buildStrategy(cycles)}: 전략을(를) 구성한다. 입력: {@code cycles}(주기횟수). 반환: {@code
+ *       CertifiedOutcomeStrategy<Integer>}.
+ *   <li>{@code policyCandidates(count)}: 정책·후보목록 처리에서 {@code precision.fractionalBits}을(를) 사용한다.
+ *       입력: {@code count}(개수). 반환: {@code List<AutomaticPolicyCandidates.Candidate>}.
+ *   <li>{@code updatePriorities()}: Priorities을(를) 갱신한다.
+ *   <li>{@code ratio(units)}: 비율 처리에서 {@code units.doubleValue}, {@code ONE.shiftLeft}을(를) 사용한다.
+ *       입력: {@code units}(단위목록). 반환: {@code double}.
+ *   <li>{@code encode(point)}: 값을 저장·전송 표현으로 부호화한다. 입력: {@code point}(지점). 반환: {@code Point}.
+ *   <li>{@code decode(point)}: 저장·전송 표현을 내부 값으로 복원한다. 입력: {@code point}(지점). 반환: {@code
+ *       CertifiedMethodRunner.Observation<AutomaticMethodExecution.State,
+ *       AutomaticCraftingAction>}.
+ *   <li>{@code checkpoint(objective)}: 현재 진행 상태의 복구 지점을 기록한다. 입력: {@code objective}(목적). 반환: {@code
+ *       Checkpoint}.
+ *   <li>{@code restore(saved, objective, policy, kernel, evaluate)}: 저장된 상태로 실행 또는 조회 상태를 복원한다. 입력:
+ *       {@code saved}(저장된), {@code objective}(목적), {@code policy}(정책), {@code kernel}(전이커널), {@code
+ *       evaluate}(평가). 반환: {@code AutomaticMethodGraph}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Progress}: {@code AutomaticMethodGraph}에서 사용하는 진행상황의 불변 값이다.
+ *   <li>{@code TierFraction}: {@code AutomaticMethodGraph}에서 사용하는 티어·유리수의 불변 값이다.
+ *   <li>{@code TierVariant}: {@code AutomaticMethodGraph}에서 사용하는 티어·문맥별정의의 불변 값이다.
+ *   <li>{@code TierLaw}: {@code AutomaticMethodGraph}에서 사용하는 티어·분포의 불변 값이다.
+ *   <li>{@code MemberView}: {@code AutomaticMethodGraph}에서 사용하는 구성원·조회표현의 불변 값이다.
+ *   <li>{@code AttributeOption}: {@code AutomaticMethodGraph}에서 사용하는 속성·Option의 불변 값이다.
+ *   <li>{@code Origin}: {@code AutomaticMethodGraph}에서 사용하는 Origin의 불변 값이다.
+ *   <li>{@code ClassKey}: {@code AutomaticMethodGraph}에서 사용하는 동치류·키의 불변 값이다.
+ *   <li>{@code NodeView}: {@code AutomaticMethodGraph}에서 사용하는 노드·조회표현의 불변 값이다.
+ *   <li>{@code MethodView}: {@code AutomaticMethodGraph}에서 사용하는 제작방법·조회표현의 불변 값이다.
+ *   <li>{@code Identity}: {@code AutomaticMethodGraph}에서 사용하는 정체성의 불변 값이다.
+ *   <li>{@code EvaluationKey}: {@code AutomaticMethodGraph}에서 사용하는 평가·키의 불변 값이다.
+ *   <li>{@code Evaluation}: {@code AutomaticMethodGraph}에서 사용하는 평가의 불변 값이다.
+ *   <li>{@code Metrics}: {@code AutomaticMethodGraph}에서 사용하는 측정값의 불변 값이다.
+ *   <li>{@code Node}: {@code AutomaticMethodGraph} 내부의 노드 처리를 맡는다.
+ *   <li>{@code Method}: {@code AutomaticMethodGraph} 내부의 제작방법 처리를 맡는다.
+ *   <li>{@code ResourceUsage}: {@code AutomaticMethodGraph}에서 사용하는 자원·사용량의 불변 값이다.
+ *   <li>{@code AttributeSource}: {@code AutomaticMethodGraph}에서 사용하는 속성·출처의 불변 값이다.
+ *   <li>{@code Mass}: {@code AutomaticMethodGraph}에서 사용하는 확률질량의 불변 값이다.
+ *   <li>{@code Use}: {@code AutomaticMethodGraph}에서 사용하는 사용의 불변 값이다.
+ *   <li>{@code Point}: {@code AutomaticMethodGraph}에서 사용하는 지점의 불변 값이다.
+ *   <li>{@code NodeCursor}: {@code AutomaticMethodGraph}에서 사용하는 노드·진행커서의 불변 값이다.
+ *   <li>{@code MethodCursor}: {@code AutomaticMethodGraph}에서 사용하는 제작방법·진행커서의 불변 값이다.
+ *   <li>{@code Checkpoint}: {@code AutomaticMethodGraph}에서 사용하는 체크포인트의 불변 값이다.
+ * </ul>
+ */
 public final class AutomaticMethodGraph implements AutoCloseable {
   public static final String VERSION = "goal-directed-milestone-graph-v18-session-policy";
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 진행상황의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code goal}: 목표 ({@code Status}).
+   *   <li>{@code entries}: 항목목록 ({@code List<Status>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Progress(goal, entries)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code goal}(목표), {@code
+   *       entries}(항목목록).
+   * </ul>
+   */
   public record Progress(Status goal, List<Status> entries) {
     public Progress {
       entries = List.copyOf(entries);
     }
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 티어·유리수의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code numerator}: 분자 ({@code String}).
+   *   <li>{@code denominator}: 분모 ({@code String}).
+   * </ul>
+   */
   public record TierFraction(String numerator, String denominator) {}
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 티어·문맥별정의의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   *   <li>{@code stat}: 수치 ({@code String}).
+   *   <li>{@code min}: 허용·표시 범위의 하한 ({@code long}).
+   *   <li>{@code max}: 허용·표시 범위의 상한 ({@code long}).
+   *   <li>{@code probability}: 확률 ({@code TierFraction}).
+   * </ul>
+   */
   public record TierVariant(
       String modifierId, String stat, long min, long max, TierFraction probability) {}
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 티어·분포의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code variants}: variants ({@code List<TierVariant>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code from(cell)}: 다른 표현의 입력을 현재 표현으로 바꾼다. 입력: {@code cell}(셀). 반환: {@code TierLaw}.
+   *   <li>{@code cell()}: 셀 값을 조회·구성한다. 반환: {@code TierCell}.
+   * </ul>
+   */
   public record TierLaw(List<TierVariant> variants) {
     static TierLaw from(TierCell cell) {
       return new TierLaw(
@@ -69,21 +357,80 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     return Map.copyOf(result);
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 구성원·조회표현의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code item}: 아이템 ({@code ItemState}).
+   *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierLaw>}).
+   *   <li>{@code rolls}: 수치 굴림과 유한 결합 분포 계산기 ({@code Map<String,
+   *       AutomaticCraftingKernel.RollBand>}).
+   * </ul>
+   */
   public record MemberView(
       ItemState item,
       Map<String, TierLaw> tiers,
       Map<String, AutomaticCraftingKernel.RollBand> rolls) {}
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 속성·Option의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   *   <li>{@code stat}: 수치 ({@code String}).
+   *   <li>{@code min}: 허용·표시 범위의 하한 ({@code long}).
+   *   <li>{@code max}: 허용·표시 범위의 상한 ({@code long}).
+   *   <li>{@code tier}: 정의된 옵션 티어 ({@code int}).
+   *   <li>{@code role}: 역할 ({@code String}).
+   * </ul>
+   */
   public record AttributeOption(
       String modifierId, String stat, long min, long max, int tier, String role) {}
 
-  /** Conditional source projection; row weights remain in the named method's observations. */
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 Origin의 불변 값이다.
+   *
+   * <p>기존 계약: Conditional source projection; row weights remain in the named method's observations.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code method}: 제작방법 ({@code String}).
+   *   <li>{@code source}: 출처 ({@code int}).
+   *   <li>{@code kind}: 종류 ({@code String}).
+   *   <li>{@code retained}: 보유 ({@code Map<String, String>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Origin(method, source, kind, retained)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       method}(제작방법), {@code source}(출처), {@code kind}(종류), {@code retained}(보유).
+   * </ul>
+   */
   public record Origin(String method, int source, String kind, Map<String, String> retained) {
     public Origin {
       retained = Map.copyOf(retained);
     }
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 동치류·키의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code item}: 아이템 ({@code Object}).
+   *   <li>{@code quality40}: 품질·40 ({@code boolean}).
+   *   <li>{@code abstractQuality}: 추상화된·품질 ({@code int}).
+   *   <li>{@code progress}: 진행상황 ({@code Progress}).
+   *   <li>{@code initialStage}: 초기값·진행단계 ({@code boolean}).
+   * </ul>
+   */
   private record ClassKey(
       Object item,
       boolean quality40,
@@ -91,6 +438,61 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       Progress progress,
       boolean initialStage) {}
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 노드·조회표현의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code int}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code item}: 아이템 ({@code ItemState}).
+   *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierLaw>}).
+   *   <li>{@code rolls}: 수치 굴림과 유한 결합 분포 계산기 ({@code Map<String,
+   *       AutomaticCraftingKernel.RollBand>}).
+   *   <li>{@code quality40}: 품질·40 ({@code boolean}).
+   *   <li>{@code abstractQuality}: 추상화된·품질 ({@code int}).
+   *   <li>{@code progress}: 진행상황 ({@code Progress}).
+   *   <li>{@code discoveryFinished}: 발견·종료 ({@code boolean}).
+   *   <li>{@code directFinished}: 직접·종료 ({@code boolean}).
+   *   <li>{@code members}: 구성원목록 ({@code List<MemberView>}).
+   *   <li>{@code attributes}: attributes ({@code Map<String, List<AttributeOption>>}).
+   *   <li>{@code joint}: 결합 ({@code Set<Origin>}).
+   *   <li>{@code abyss}: 훼손 슬롯을 보존하는 제작 실행기 ({@code List<AutomaticAbyssSearch.Route>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code NodeView(id, depth, item, tiers, rolls, quality40, abstractQuality, progress,
+   *       discoveryFinished, directFinished, members, attributes, joint, abyss)}: 전달받은 값으로 구성원을
+   *       초기화한다. 입력: {@code id}(식별자), {@code depth}(깊이), {@code item}(아이템), {@code tiers}(티어목록),
+   *       {@code rolls}(수치굴림목록), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code
+   *       progress}(진행상황), {@code discoveryFinished}(발견·종료), {@code directFinished}(직접·종료), {@code
+   *       members}(구성원목록), {@code attributes}(attributes), {@code joint}(결합), {@code abyss}(훼손).
+   *   <li>{@code NodeView(id, depth, item, tiers, rolls, quality40, abstractQuality, progress,
+   *       discoveryFinished, directFinished, members, attributes, joint)}: 기본 정책을 보충해 공통 생성자로 위임한다.
+   *       입력: {@code id}(식별자), {@code depth}(깊이), {@code item}(아이템), {@code tiers}(티어목록), {@code
+   *       rolls}(수치굴림목록), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code
+   *       progress}(진행상황), {@code discoveryFinished}(발견·종료), {@code directFinished}(직접·종료), {@code
+   *       members}(구성원목록), {@code attributes}(attributes), {@code joint}(결합).
+   *   <li>{@code NodeView(id, depth, item, tiers, rolls, quality40, abstractQuality, progress,
+   *       discoveryFinished, directFinished)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code id}(식별자), {@code
+   *       depth}(깊이), {@code item}(아이템), {@code tiers}(티어목록), {@code rolls}(수치굴림목록), {@code
+   *       quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code progress}(진행상황), {@code
+   *       discoveryFinished}(발견·종료), {@code directFinished}(직접·종료).
+   *   <li>{@code tierCells()}: 티어·셀목록 값을 조회·구성한다. 반환: {@code Map<String, TierCell>}.
+   *   <li>{@code NodeView(id, depth, item, rolls, quality40, abstractQuality, progress,
+   *       discoveryFinished, directFinished)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code id}(식별자), {@code
+   *       depth}(깊이), {@code item}(아이템), {@code rolls}(수치굴림목록), {@code quality40}(품질·40), {@code
+   *       abstractQuality}(추상화된·품질), {@code progress}(진행상황), {@code discoveryFinished}(발견·종료),
+   *       {@code directFinished}(직접·종료).
+   *   <li>{@code NodeView(id, depth, item, rolls, quality40, progress, discoveryFinished,
+   *       directFinished)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code id}(식별자), {@code depth}(깊이), {@code
+   *       item}(아이템), {@code rolls}(수치굴림목록), {@code quality40}(품질·40), {@code progress}(진행상황),
+   *       {@code discoveryFinished}(발견·종료), {@code directFinished}(직접·종료).
+   * </ul>
+   */
   public record NodeView(
       int id,
       int depth,
@@ -225,6 +627,25 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 제작방법·조회표현의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code source}: 출처 ({@code int}).
+   *   <li>{@code template}: 템플릿 ({@code AutomaticMethodExecution.Template}).
+   *   <li>{@code executionMode}: 실행·모드 ({@code String}).
+   *   <li>{@code points}: 지점목록 ({@code Map<Integer,
+   *       CertifiedMethodRunner.Observation<AutomaticMethodExecution.State,
+   *       AutomaticCraftingAction>>}).
+   *   <li>{@code unresolvedReasons}: 미해결·이유목록 ({@code Set<String>}).
+   *   <li>{@code completeObservations}: 완료·관측값목록 ({@code Set<Integer>}).
+   *   <li>{@code retryRepresentatives}: 재시도·대표상태목록 ({@code Set<ItemState>}).
+   *   <li>{@code finished}: 종료 ({@code boolean}).
+   * </ul>
+   */
   public record MethodView(
       String id,
       int source,
@@ -323,6 +744,34 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private final CertifiedInterval.Precision precision;
   private List<AutomaticCraftingAction> candidates;
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 정체성의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code item}: 아이템 ({@code ItemState}).
+   *   <li>{@code quality40}: 품질·40 ({@code boolean}).
+   *   <li>{@code abstractQuality}: 추상화된·품질 ({@code int}).
+   *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierCell>}).
+   *   <li>{@code initialStage}: 초기값·진행단계 ({@code boolean}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Identity(item, quality40, abstractQuality, tiers)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력:
+   *       {@code item}(아이템), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code
+   *       tiers}(티어목록).
+   *   <li>{@code Identity(item, quality40, abstractQuality, tiers, initialStage)}: 전달받은 값으로 구성원을
+   *       초기화한다. 입력: {@code item}(아이템), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질),
+   *       {@code tiers}(티어목록), {@code initialStage}(초기값·진행단계).
+   *   <li>{@code Identity(item, quality40, abstractQuality)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       item}(아이템), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질).
+   *   <li>{@code Identity(item, quality40)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code item}(아이템), {@code
+   *       quality40}(품질·40).
+   * </ul>
+   */
   public record Identity(
       ItemState item,
       boolean quality40,
@@ -360,6 +809,21 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private long proofRows, proofNanos;
   private final Map<Integer, Evaluation> evaluations = new HashMap<>();
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 평가·키의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code revision}: 결과를 갱신할 때 비교하는 리비전 ({@code long}).
+   *   <li>{@code cycles}: 주기횟수 ({@code int}).
+   *   <li>{@code precision}: 정밀도 ({@code CertifiedInterval.Precision}).
+   *   <li>{@code graphVersion}: 그래프·버전 ({@code String}).
+   *   <li>{@code evaluatorVersion}: 평가기·버전 ({@code String}).
+   *   <li>{@code model}: 모형 ({@code AutomaticCraftingKernel.Identity}).
+   *   <li>{@code rarePolicy}: 희귀·정책 ({@code RareOutcomePolicy}).
+   * </ul>
+   */
   private record EvaluationKey(
       long revision,
       int cycles,
@@ -369,12 +833,40 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       AutomaticCraftingKernel.Identity model,
       RareOutcomePolicy rarePolicy) {}
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 평가의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code key}: 키 ({@code EvaluationKey}).
+   *   <li>{@code strategy}: 전략 ({@code CertifiedOutcomeStrategy<Integer>}).
+   * </ul>
+   */
   private record Evaluation(EvaluationKey key, CertifiedOutcomeStrategy<Integer> strategy) {}
 
   private AutomaticCraftingKernel.Metrics primitiveStart;
   private long refinementIterations;
   private long expansionNanos, evaluationNanos, evaluationBuilds, refinementNanos;
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 측정값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code primitive}: 개별행동 ({@code AutomaticCraftingKernel.Metrics}).
+   *   <li>{@code expansionNanos}: 확장·나노초 ({@code long}).
+   *   <li>{@code proofNanos}: 증명·나노초 ({@code long}).
+   *   <li>{@code evaluationNanos}: 평가·나노초 ({@code long}).
+   *   <li>{@code evaluationBuilds}: 평가·Builds ({@code long}).
+   *   <li>{@code refinementNanos}: refinement·나노초 ({@code long}).
+   *   <li>{@code refinementIterations}: refinement·반복횟수 ({@code long}).
+   *   <li>{@code states}: 상태목록 ({@code long}).
+   *   <li>{@code methods}: 제작방법목록 ({@code long}).
+   *   <li>{@code transitions}: 전이목록 ({@code long}).
+   * </ul>
+   */
   public record Metrics(
       AutomaticCraftingKernel.Metrics primitive,
       long expansionNanos,
@@ -412,6 +904,41 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private boolean limited;
   private boolean discoveryLimited;
 
+  /**
+   * {@code AutomaticMethodGraph} 내부의 노드 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code int}).
+   *   <li>{@code item}: 아이템 ({@code ItemState}).
+   *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierCell>}).
+   *   <li>{@code quality40}: 품질·40 ({@code boolean}).
+   *   <li>{@code abstractQuality}: 추상화된·품질 ({@code int}).
+   *   <li>{@code progress}: 진행상황 ({@code Progress}).
+   *   <li>{@code applicable}: 적용가능 ({@code List<AutomaticCraftingAction>}).
+   *   <li>{@code allowedByPolicy}: 허용된·기준·정책 ({@code Set<AutomaticCraftingAction>}).
+   *   <li>{@code outgoing}: outgoing ({@code List<Method>}).
+   *   <li>{@code members}: 구성원목록 ({@code Set<Identity>}).
+   *   <li>{@code origins}: origins ({@code Set<Origin>}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code scan}: 순회 ({@code int}).
+   *   <li>{@code pairs}: 쌍목록 ({@code int}).
+   *   <li>{@code choices}: 선택목록 ({@code List<GoalDirectedPlanner.Choice>}).
+   *   <li>{@code abyss}: 훼손 슬롯을 보존하는 제작 실행기 ({@code List<AutomaticAbyssSearch.Route>}).
+   *   <li>{@code discovered}: 발견된 ({@code boolean}).
+   *   <li>{@code representative}: 대표상태 ({@code Node}).
+   *   <li>{@code terminalKey}: 종료·키 ({@code TerminalAdditionClasses.Key}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Node(item, quality40, abstractQuality, depth, tiers)}: 전달받은 값으로 구성원을 초기화한다. 입력:
+   *       {@code item}(아이템), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code
+   *       depth}(깊이), {@code tiers}(티어목록).
+   * </ul>
+   */
   private final class Node {
     final int id;
     final ItemState item;
@@ -455,6 +982,31 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code AutomaticMethodGraph} 내부의 제작방법 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code source}: 출처 ({@code Node}).
+   *   <li>{@code template}: 템플릿 ({@code AutomaticMethodExecution.Template}).
+   *   <li>{@code execution}: 실행 ({@code AutomaticMethodExecution}).
+   *   <li>{@code points}: 지점목록 ({@code Map<Integer,
+   *       CertifiedMethodRunner.Observation<AutomaticMethodExecution.State,
+   *       AutomaticCraftingAction>>}).
+   *   <li>{@code finished}: 종료 ({@code boolean}).
+   *   <li>{@code owner}: 서버가 확인한 작업 소유자 ({@code Method}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code done()}: 완료여부 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code Method(id, source, template)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자), {@code
+   *       source}(출처), {@code template}(템플릿).
+   * </ul>
+   */
   private final class Method {
     final String id;
     final Node source;
@@ -1062,6 +1614,24 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         || ready.stream().anyMatch(m -> !m.execution.resourceLimited());
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 자원·사용량의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code computationStates}: computation·상태목록 ({@code long}).
+   *   <li>{@code stateLimit}: 상태·한도 ({@code int}).
+   *   <li>{@code methodExecutions}: 제작방법·실행목록 ({@code long}).
+   *   <li>{@code methodLimit}: 제작방법·한도 ({@code int}).
+   *   <li>{@code concreteStates}: 구체값·상태목록 ({@code int}).
+   *   <li>{@code concreteMethods}: 구체값·제작방법목록 ({@code int}).
+   *   <li>{@code retainedRecords}: 보유·기록목록 ({@code long}).
+   *   <li>{@code retainedLimit}: 보유·한도 ({@code long}).
+   *   <li>{@code primitiveOutcomeBudget}: 개별행동·결과·계산예산 ({@code long}).
+   *   <li>{@code blockers}: 차단사유목록 ({@code List<String>}).
+   * </ul>
+   */
   public record ResourceUsage(
       long computationStates,
       int stateLimit,
@@ -1256,6 +1826,18 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         kernel);
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 속성·출처의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code int}).
+   *   <li>{@code item}: 아이템 ({@code ItemState}).
+   *   <li>{@code members}: 구성원목록 ({@code Collection<Identity>}).
+   *   <li>{@code origins}: origins ({@code Set<Origin>}).
+   * </ul>
+   */
   private record AttributeSource(
       int id, ItemState item, Collection<Identity> members, Set<Origin> origins) {}
 
@@ -1553,11 +2135,52 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         / java.math.BigInteger.ONE.shiftLeft(precision.fractionalBits()).doubleValue();
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 확률질량의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code exit}: 종료 ({@code Exit}).
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code AutomaticMethodExecution.State}).
+   *   <li>{@code probability}: 확률 ({@code CertifiedInterval}).
+   * </ul>
+   */
   public record Mass(
       Exit exit, AutomaticMethodExecution.State state, CertifiedInterval probability) {}
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 사용의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code AutomaticCraftingAction}).
+   *   <li>{@code quantity}: quantity ({@code CertifiedInterval}).
+   *   <li>{@code initial}: 초기값 ({@code boolean}).
+   * </ul>
+   */
   public record Use(AutomaticCraftingAction action, CertifiedInterval quantity, boolean initial) {}
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 지점의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code cycles}: 주기횟수 ({@code long}).
+   *   <li>{@code outcomes}: 결과목록 ({@code List<Mass>}).
+   *   <li>{@code uses}: 사용량 ({@code List<Use>}).
+   *   <li>{@code mass}: 확률질량 ({@code CertifiedInterval}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Point(cycles, outcomes, uses, mass)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       cycles}(주기횟수), {@code outcomes}(결과목록), {@code uses}(사용량), {@code mass}(확률질량).
+   * </ul>
+   */
   public record Point(long cycles, List<Mass> outcomes, List<Use> uses, CertifiedInterval mass) {
     public Point {
       outcomes = List.copyOf(outcomes);
@@ -1597,6 +2220,58 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         point.cycles(), exits, active, initial, cycle, point.mass());
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 노드·진행커서의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code item}: 아이템 ({@code ItemState}).
+   *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierCell>}).
+   *   <li>{@code quality40}: 품질·40 ({@code boolean}).
+   *   <li>{@code abstractQuality}: 추상화된·품질 ({@code int}).
+   *   <li>{@code depth}: 깊이 ({@code int}).
+   *   <li>{@code scan}: 순회 ({@code int}).
+   *   <li>{@code pairs}: 쌍목록 ({@code int}).
+   *   <li>{@code discovered}: 발견된 ({@code boolean}).
+   *   <li>{@code applicable}: 적용가능 ({@code List<AutomaticCraftingAction>}).
+   *   <li>{@code allowed}: 허용된 ({@code Set<AutomaticCraftingAction>}).
+   *   <li>{@code members}: 구성원목록 ({@code List<Identity>}).
+   *   <li>{@code joint}: 결합 ({@code Set<Origin>}).
+   *   <li>{@code abyss}: 훼손 슬롯을 보존하는 제작 실행기 ({@code List<AutomaticAbyssSearch.Route>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code NodeCursor(item, tiers, quality40, abstractQuality, depth, scan, pairs,
+   *       discovered, applicable, allowed, members, joint, abyss)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       item}(아이템), {@code tiers}(티어목록), {@code quality40}(품질·40), {@code
+   *       abstractQuality}(추상화된·품질), {@code depth}(깊이), {@code scan}(순회), {@code pairs}(쌍목록),
+   *       {@code discovered}(발견된), {@code applicable}(적용가능), {@code allowed}(허용된), {@code
+   *       members}(구성원목록), {@code joint}(결합), {@code abyss}(훼손).
+   *   <li>{@code NodeCursor(item, tiers, quality40, abstractQuality, depth, scan, pairs,
+   *       discovered, applicable, allowed, members, joint)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+   *       item}(아이템), {@code tiers}(티어목록), {@code quality40}(품질·40), {@code
+   *       abstractQuality}(추상화된·품질), {@code depth}(깊이), {@code scan}(순회), {@code pairs}(쌍목록),
+   *       {@code discovered}(발견된), {@code applicable}(적용가능), {@code allowed}(허용된), {@code
+   *       members}(구성원목록), {@code joint}(결합).
+   *   <li>{@code NodeCursor(item, tiers, quality40, abstractQuality, depth, scan, pairs,
+   *       discovered, applicable, allowed)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code item}(아이템), {@code
+   *       tiers}(티어목록), {@code quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code
+   *       depth}(깊이), {@code scan}(순회), {@code pairs}(쌍목록), {@code discovered}(발견된), {@code
+   *       applicable}(적용가능), {@code allowed}(허용된).
+   *   <li>{@code NodeCursor(item, quality40, abstractQuality, depth, scan, pairs, discovered,
+   *       applicable, allowed)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code item}(아이템), {@code
+   *       quality40}(품질·40), {@code abstractQuality}(추상화된·품질), {@code depth}(깊이), {@code scan}(순회),
+   *       {@code pairs}(쌍목록), {@code discovered}(발견된), {@code applicable}(적용가능), {@code
+   *       allowed}(허용된).
+   *   <li>{@code NodeCursor(item, quality40, depth, scan, pairs, discovered, applicable, allowed)}:
+   *       기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code item}(아이템), {@code quality40}(품질·40), {@code
+   *       depth}(깊이), {@code scan}(순회), {@code pairs}(쌍목록), {@code discovered}(발견된), {@code
+   *       applicable}(적용가능), {@code allowed}(허용된).
+   * </ul>
+   */
   public record NodeCursor(
       ItemState item,
       Map<String, TierCell> tiers,
@@ -1710,6 +2385,28 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 제작방법·진행커서의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code source}: 출처 ({@code int}).
+   *   <li>{@code execution}: 실행 ({@code AutomaticMethodExecution.Checkpoint}).
+   *   <li>{@code points}: 지점목록 ({@code List<Point>}).
+   *   <li>{@code finished}: 종료 ({@code boolean}).
+   *   <li>{@code owner}: 서버가 확인한 작업 소유자 ({@code String}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code MethodCursor(id, source, execution, points, finished)}: 기본 정책을 보충해 공통 생성자로 위임한다.
+   *       입력: {@code id}(식별자), {@code source}(출처), {@code execution}(실행), {@code points}(지점목록),
+   *       {@code finished}(종료).
+   * </ul>
+   */
   public record MethodCursor(
       String id,
       int source,
@@ -1727,6 +2424,52 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code AutomaticMethodGraph}에서 사용하는 체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code version}: 저장·실행 계약의 버전 ({@code String}).
+   *   <li>{@code objective}: 목적 ({@code String}).
+   *   <li>{@code identity}: 정체성 ({@code AutomaticCraftingKernel.Identity}).
+   *   <li>{@code precision}: 정밀도 ({@code CertifiedInterval.Precision}).
+   *   <li>{@code states}: 상태목록 ({@code int}).
+   *   <li>{@code methods}: 제작방법목록 ({@code int}).
+   *   <li>{@code retained}: 보유 ({@code long}).
+   *   <li>{@code primitive}: 개별행동 ({@code long}).
+   *   <li>{@code operations}: 연산목록 ({@code long}).
+   *   <li>{@code revision}: 결과를 갱신할 때 비교하는 리비전 ({@code long}).
+   *   <li>{@code limited}: 제한된 ({@code boolean}).
+   *   <li>{@code discoveryLimited}: 발견·제한된 ({@code boolean}).
+   *   <li>{@code candidates}: 후보목록 ({@code List<AutomaticCraftingAction>}).
+   *   <li>{@code nodes}: 노드목록 ({@code List<NodeCursor>}).
+   *   <li>{@code executions}: 실행목록 ({@code List<MethodCursor>}).
+   *   <li>{@code ready}: 준비완료 ({@code List<String>}).
+   *   <li>{@code rareOutcomePolicy}: 희귀·결과·정책 ({@code RareOutcomePolicy}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Checkpoint(version, objective, identity, precision, states, methods, retained,
+   *       primitive, operations, revision, limited, discoveryLimited, candidates, nodes,
+   *       executions, ready, rareOutcomePolicy)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code version}(버전),
+   *       {@code objective}(목적), {@code identity}(정체성), {@code precision}(정밀도), {@code
+   *       states}(상태목록), {@code methods}(제작방법목록), {@code retained}(보유), {@code primitive}(개별행동),
+   *       {@code operations}(연산목록), {@code revision}(리비전), {@code limited}(제한된), {@code
+   *       discoveryLimited}(발견·제한된), {@code candidates}(후보목록), {@code nodes}(노드목록), {@code
+   *       executions}(실행목록), {@code ready}(준비완료), {@code rareOutcomePolicy}(희귀·결과·정책).
+   *   <li>{@code Checkpoint(version, objective, identity, precision, states, methods, retained,
+   *       primitive, operations, revision, limited, discoveryLimited, candidates, nodes,
+   *       executions, ready)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code version}(버전), {@code
+   *       objective}(목적), {@code identity}(정체성), {@code precision}(정밀도), {@code states}(상태목록),
+   *       {@code methods}(제작방법목록), {@code retained}(보유), {@code primitive}(개별행동), {@code
+   *       operations}(연산목록), {@code revision}(리비전), {@code limited}(제한된), {@code
+   *       discoveryLimited}(발견·제한된), {@code candidates}(후보목록), {@code nodes}(노드목록), {@code
+   *       executions}(실행목록), {@code ready}(준비완료).
+   * </ul>
+   */
   public record Checkpoint(
       String version,
       String objective,

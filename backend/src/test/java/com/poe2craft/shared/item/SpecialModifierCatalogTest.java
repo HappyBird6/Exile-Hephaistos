@@ -12,6 +12,28 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 특수·옵션·카탈로그 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code abyssProofHasExactlyTwoAffixesWithOneSharedFamilyAndFixedMarker()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code resource(name)}: 자원의 입력에 따른 분기·결과를 처리한다. 입력: {@code name}(이름). 반환: {@code
+ *       InputStream}.
+ *   <li>{@code exactSpecialRowsAndDetailStatsMatchWithoutJoiningTheOrdinarySpawnPool()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code enhancementProofRetainsOneCombinedStatAndEveryEarlierDefinitionExactly()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code breachProofIsFixedUnscalablePrefixAndRetainsTheEntirePreviousSnapshot()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code runicProofMatchesOneSourcedWardStatAndPreservesAllExistingDefinitions()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rejectsChangedSpecialSourceOrAnInventedPositiveSpawnWeight()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class SpecialModifierCatalogTest {
   @Test
   void abyssProofHasExactlyTwoAffixesWithOneSharedFamilyAndFixedMarker() throws Exception {

@@ -1,3 +1,5 @@
+// 백엔드 의존성·컴파일·포맷·단위/통합 검사·격리 DB 기반 jOOQ 생성·배포 JAR 작업을 정의한다.
+// 게임 JSON은 원본 생성 절차를 따르며 아래 자원 작업은 표시 자료와 검증 원자료의 실행/테스트 범위를 구분한다.
 plugins {
     java
     id("org.springframework.boot") version "3.5.16"

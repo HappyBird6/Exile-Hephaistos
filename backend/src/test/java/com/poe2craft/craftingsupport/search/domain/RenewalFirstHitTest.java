@@ -5,6 +5,18 @@ import static org.assertj.core.api.Assertions.*;
 import com.poe2craft.shared.probability.Fraction;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 완료된 전체 상태 갱신 증명을 전제로 최초 성공 분포를 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code independentBinaryEnumerationAndTwoPhaseFirstHit()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code unknownMassIsAbsorbingAndOutputBudgetNeverInventsSuccess()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ */
 class RenewalFirstHitTest {
   @Test
   void independentBinaryEnumerationAndTwoPhaseFirstHit() {

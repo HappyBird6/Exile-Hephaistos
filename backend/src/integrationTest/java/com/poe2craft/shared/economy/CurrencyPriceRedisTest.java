@@ -16,6 +16,33 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+/**
+ * 화폐·시세·Redis 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code REDIS}: Redis ({@code GenericContainer<?>}).
+ *   <li>{@code connection}: DB연결 ({@code LettuceConnectionFactory}).
+ *   <li>{@code redis}: Redis ({@code StringRedisTemplate}).
+ *   <li>{@code first}: 최초 ({@code RedisCurrencyPriceCache}).
+ *   <li>{@code second}: 두번째 ({@code RedisCurrencyPriceCache}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code start()}: 각 검증에 필요한 독립 초기 상태와 의존성을 준비한다.
+ *   <li>{@code stop()}: 검증에서 사용한 상태와 자원을 정리한다.
+ *   <li>{@code snapshot()}: 현재 내용을 불변 관측값으로 구성한다. 반환: {@code PriceSnapshot}.
+ *   <li>{@code atomicClaimCooldownAndSnapshotAreSharedAcrossInstances()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code expiredOrForeignLeaseCannotOverwriteNewerSnapshot()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code expiredCollectorCannotWriteOrReleaseTheNewOwnerLease()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @Testcontainers
 class CurrencyPriceRedisTest {
   @Container

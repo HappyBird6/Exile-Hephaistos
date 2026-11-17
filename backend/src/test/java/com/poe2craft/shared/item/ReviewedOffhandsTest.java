@@ -10,6 +10,20 @@ import java.util.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+/**
+ * Offhands·검증의 출처 검토된 베이스 목록과 지원 여부를 제공한다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code sourceClassDefencesAndStateRestrictions(key, ordinary, classId, armour, evasion,
+ *       energyShield, block, str, dex, intelligence, skill)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       입력: {@code key}(키), {@code ordinary}(일반), {@code classId}(동치류·식별자), {@code armour}(방어구),
+ *       {@code evasion}(evasion), {@code energyShield}(energy·Shield), {@code block}(블록), {@code
+ *       str}(str), {@code dex}(dex), {@code intelligence}(intelligence), {@code skill}(skill). 사용하는
+ *       예외: {@code Exception}.
+ * </ul>
+ */
 class ReviewedOffhandsTest {
   @ParameterizedTest
   @CsvSource({

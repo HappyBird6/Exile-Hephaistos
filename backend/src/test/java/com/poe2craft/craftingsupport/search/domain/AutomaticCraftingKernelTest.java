@@ -21,6 +21,37 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 명시된 단일·복합 수치 가정 아래 유한 제작 전이를 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code policy}: 정책 ({@code AutomaticCurrencyPolicy}).
+ *   <li>{@code tiny}: tiny ({@code BasicCurrencyFixture}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code compoundStatsCountAsOneAffixAndMultiAffixExecutionIsRejected()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code goalRollCellsReconstructTheIndependentScalarOracleWithoutMergingModifierTiers()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unverifiedJointCandidateKeepsItsWeightWithoutHidingVerifiedScalarOutcomes()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code optedInJointRollsKeepCorrelationTickWeightsAndUnresolvedBudgetMass()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code scalarOraclePreservesNonGoalCandidatesAndBudgetRemainder()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code replacementHasUniformRemovalAndConsumedOmenChangesOnlyRemovalSide()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fifthExplicitPreservesItsMassAndReplacementCanStillRunAtFour()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code everyApprovedMaterialIsRepresentedAndAbyssRemainsExplicitlyUnsupported()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class AutomaticCraftingKernelTest {
   final AutomaticCurrencyPolicy policy = AutomaticCurrencyPolicyLoader.load();
   final BasicCurrencyFixture tiny = new BasicCurrencyFixture();

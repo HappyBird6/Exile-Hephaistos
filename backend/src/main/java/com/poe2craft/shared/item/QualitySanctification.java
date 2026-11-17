@@ -5,7 +5,48 @@ import java.util.*;
 import java.util.random.RandomGenerator;
 
 /**
- * Explicit simulator policy: independent exact integer-percent factors, never edited source rolls.
+ * 원래 수치를 편집하지 않고 독립 정수 배율의 앱 신성화 정책을 적용한다.
+ *
+ * <p>기존 계약: Explicit simulator policy: independent exact integer-percent factors, never edited
+ * source rolls.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code POLICY}: 정책; 초기값 {@code "unfractured-explicit-stat-percent-v3"} ({@code String}).
+ *   <li>{@code ASSUMPTION}: ASSUMPTION; 초기값 {@code "sanctification-unfractured-rounded-v3"} ({@code
+ *       String}).
+ *   <li>{@code READABLE_POLICIES}: 정책목록 ({@code Set<String>}).
+ *   <li>{@code STRUCTURAL}: 구조적 ({@code Set<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code recognizedPolicy(policy)}: recognized·정책 처리에서 {@code READABLE_POLICIES.contains}을(를)
+ *       사용한다. 입력: {@code policy}(정책). 반환: {@code boolean}.
+ *   <li>{@code QualitySanctification()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code targets(modifier, catalog)}: 대상목록 처리에서 {@code modifier.fractured}을(를) 사용한다. 입력:
+ *       {@code modifier}(옵션), {@code catalog}(카탈로그). 반환: {@code Set<String>}.
+ *   <li>{@code scalableStats(modifier, catalog)}: scalable·수치목록 처리에서 {@code catalog.find}, {@code
+ *       modifier.modifierId}을(를) 사용한다. 입력: {@code modifier}(옵션), {@code catalog}(카탈로그). 반환: {@code
+ *       Set<String>}.
+ *   <li>{@code roll(state, catalog, random)}: 정의된 수치 범위와 분포 가정에 따라 난수로 결과를 정한다. 입력: {@code
+ *       state}(상태), {@code catalog}(카탈로그), {@code random}(난수생성기). 반환: {@code
+ *       ItemState.Sanctification}.
+ *   <li>{@code rollLayer(modifiers, catalog, random)}: 수치굴림·옵션계층 처리에서 {@code factors.put}, {@code
+ *       random.nextInt}을(를) 사용한다. 입력: {@code modifiers}(옵션목록), {@code catalog}(카탈로그), {@code
+ *       random}(난수생성기). 반환: {@code Map<String, Map<String, Integer>>}.
+ *   <li>{@code valid(state, catalog)}: 유효한 처리에서 {@code state.sanctification}, {@code
+ *       value.implicits}을(를) 사용한다. 입력: {@code state}(상태), {@code catalog}(카탈로그). 반환: {@code
+ *       boolean}.
+ *   <li>{@code validLayer(modifiers, factors, catalog, legacy)}: 유효한·옵션계층 처리에서 {@code
+ *       catalog.find}, {@code modifier.modifierId}을(를) 사용한다. 입력: {@code modifiers}(옵션목록), {@code
+ *       factors}(배율목록), {@code catalog}(카탈로그), {@code legacy}(구버전). 반환: {@code boolean}.
+ *   <li>{@code value(state, modifier, stat, implicit)}: 값 처리에서 {@code state.sanctification}, {@code
+ *       modifier.fractured}을(를) 사용한다. 입력: {@code state}(상태), {@code modifier}(옵션), {@code
+ *       stat}(수치), {@code implicit}(암시옵션). 반환: {@code BigDecimal}.
+ * </ul>
  */
 public final class QualitySanctification {
   public static final String POLICY = "unfractured-explicit-stat-percent-v3";

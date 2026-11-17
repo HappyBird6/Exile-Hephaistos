@@ -13,6 +13,28 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * StockyMitts·작업대 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code stocky()}: StockyMitts 값을 조회·구성한다. 반환: {@code ItemCatalog}. 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code service()}: 서비스 값을 조회·구성한다. 반환: {@code CatalogCraftingService}. 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code initial(service)}: 제작을 시작할 초기 상태를 만든다. 입력: {@code service}(서비스). 반환: {@code
+ *       ItemState}.
+ *   <li>{@code fullPoolSupportsOrdinaryCraftingFractureAndModelledRerolls()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code sourcedEssencesHaveOneGuaranteedBaseSpecificResultAndSafeUnsupportedMaterials()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code omenAffixRestrictionAndConflictsPreserveTheFullCatalog()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code additionalBasicEssencesMatchSourceAndPreserveBlockedInputs()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class StockyWorkbenchTest {
   private ItemCatalog stocky() throws Exception {
     try (var data = getClass().getResourceAsStream("/catalog/stocky-mitts/catalog.json");

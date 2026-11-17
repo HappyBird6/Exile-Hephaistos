@@ -9,8 +9,41 @@ import java.util.LinkedHashMap;
 import java.util.regex.Pattern;
 
 /**
- * Inverts known English stat spans, accepting game display rounding without inferring hidden
- * history.
+ * 알려진 영문 옵션 문장과 표시 반올림을 역산해 가능한 원래 수치를 찾는다.
+ *
+ * <p>기존 계약: Inverts known English stat spans, accepting game display rounding without inferring
+ * hidden history.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code DATA}: 데이터 ({@code JsonNode}).
+ *   <li>{@code TOKEN}: 인증토큰 ({@code Pattern}).
+ *   <li>{@code RANGE}: 범위 ({@code Pattern}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ModifierClipboardText()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code load()}: 검증된 자료를 로딩한다. 반환: {@code JsonNode}. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code hasVerifiedValues(definition)}: 검증된·값목록을(를) 보유 여부를 판정한다. 입력: {@code definition}(정의).
+ *       반환: {@code boolean}.
+ *   <li>{@code match(definition, text)}: 일치의 입력에 따른 분기·결과를 처리한다. 입력: {@code definition}(정의), {@code
+ *       text}(텍스트). 반환: {@code ModifierInstance}.
+ *   <li>{@code match(definition, text, scale, rounded, finalValues)}: 일치 처리에서 {@code DATA.path},
+ *       {@code definition.id}을(를) 사용한다. 입력: {@code definition}(정의), {@code text}(텍스트), {@code
+ *       scale}(단위배율), {@code rounded}(rounded), {@code finalValues}(최종·값목록). 반환: {@code
+ *       ModifierInstance}.
+ *   <li>{@code sourceRoll(amount, divisor, scale, minimum, maximum, rounded, finalValues)}: 출처·수치굴림
+ *       처리에서 {@code amount.multiply}, {@code raw.setScale}을(를) 사용한다. 입력: {@code amount}(양), {@code
+ *       divisor}(나누는수), {@code scale}(단위배율), {@code minimum}(최소값), {@code maximum}(최대값), {@code
+ *       rounded}(rounded), {@code finalValues}(최종·값목록). 반환: {@code Long}.
+ *   <li>{@code visibleText(text)}: visible·텍스트 처리에서 {@code text.lines}, {@code line.matches}을(를)
+ *       사용한다. 입력: {@code text}(텍스트). 반환: {@code String}.
+ *   <li>{@code normalize(text)}: 정규화 처리에서 {@code text.trim}을(를) 사용한다. 입력: {@code text}(텍스트). 반환:
+ *       {@code String}.
+ * </ul>
  */
 final class ModifierClipboardText {
   private ModifierClipboardText() {}

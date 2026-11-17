@@ -6,7 +6,18 @@ import com.fasterxml.jackson.databind.cfg.*;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.fasterxml.jackson.databind.type.LogicalType;
 
-/** Shared strict parser policy for reviewed crafting configuration. */
+/**
+ * 번들 설정에 공통으로 적용할 엄격한 JSON 파서 정책을 제공한다.
+ *
+ * <p>기존 계약: Shared strict parser policy for reviewed crafting configuration.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code BundledJson()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code mapper()}: 변환기 값을 조회·구성한다. 반환: {@code ObjectMapper}.
+ * </ul>
+ */
 public final class BundledJson {
   private BundledJson() {}
 

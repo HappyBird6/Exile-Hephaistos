@@ -8,6 +8,22 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+/**
+ * 선형 시간 정규식 엔진에 전달하기 전에 제한된 패턴 문법을 검사한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code substringCaseFoldingAndAnchorsRetainNormalUnicodeSemantics()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unsupportedOrInvalidSyntaxIsRejectedWithoutEchoingInput(source)}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 입력: {@code source}(출처).
+ *   <li>{@code lengthDepthAndExpansionAreBoundedBeforeCompilation()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code nestedRegularQuantifiersDoNotUseBacktracking()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ * </ul>
+ */
 class ChaosRepeatPatternTest {
   @Test
   void substringCaseFoldingAndAnchorsRetainNormalUnicodeSemantics() {

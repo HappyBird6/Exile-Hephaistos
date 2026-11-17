@@ -20,6 +20,37 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+/**
+ * 목표 필터의 카탈로그 조회·검증·평가 요청을 처리한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code itemCatalog}: 아이템·카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code index}: 색인 ({@code GoalCatalogIndex}).
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code root}: 시작점; 초기값 {@code "/api/v1/crafting/support/goal-filters"} ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code numericStringsAreNotCoercedIntoAstNumbers()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       사용하는 예외: {@code Exception}.
+ *   <li>{@code knownOmenIsAValidUnsupportedCapabilityAndServiceFailureIsSanitized()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code goal(version, stat)}: 목표 처리에서 {@code itemCatalog.base}, {@code
+ *       BigDecimal.valueOf}을(를) 사용한다. 입력: {@code version}(버전), {@code stat}(수치). 반환: {@code
+ *       GoalFilter}.
+ *   <li>{@code catalogValidateEvaluateAndPartialRecommendationUseContractWireShape()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code staleUnknownAndMalformedRequestsAreSanitizedProblemDetails()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code spoofedObservationsAndFractionalRollsAreNotAcceptedOrTruncated()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class GoalFilterControllerTest {
   @Test
   void numericStringsAreNotCoercedIntoAstNumbers() throws Exception {

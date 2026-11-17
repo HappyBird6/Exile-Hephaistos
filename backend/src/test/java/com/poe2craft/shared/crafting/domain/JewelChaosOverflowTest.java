@@ -15,6 +15,36 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+/**
+ * 주얼·카오스·Overflow 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixtures}: fixtures ({@code JewelFiveAffixTest}).
+ *   <li>{@code CHAOS}: 카오스 ({@code List<WorkbenchCurrency>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ordinary(catalog, p, s)}: 일반 처리에서 {@code fixtures.ordinary}을(를) 사용한다. 입력: {@code
+ *       catalog}(카탈로그), {@code p}(p), {@code s}(s). 반환: {@code List<ModifierInstance>}.
+ *   <li>{@code item(catalog, modifiers)}: 아이템 처리에서 {@code fixtures.item}을(를) 사용한다. 입력: {@code
+ *       catalog}(카탈로그), {@code modifiers}(옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code side(item, catalog, side)}: 접두접미 처리에서 {@code item.explicits}, {@code
+ *       catalog.find}을(를) 사용한다. 입력: {@code item}(아이템), {@code catalog}(카탈로그), {@code side}(접두접미).
+ *       반환: {@code List<ModifierInstance>}.
+ *   <li>{@code allChaosTiersReplaceOnlyTheSideWithinItsCurrentCap(base)}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 입력: {@code base}(베이스).
+ *   <li>{@code hiddenOverflowAndItsSlotIdentityAreProtectedBeforeChaosSelection()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code repeatsThousandTimesAfterAnOmenIsConsumedWithoutTouchingTheOverflow()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code whittlingChoosesWithinTheUnlockedSideAndAnnulmentStillCanRemoveOverflow()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class JewelChaosOverflowTest {
   private final JewelFiveAffixTest fixtures = new JewelFiveAffixTest();
 

@@ -11,6 +11,44 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Finite·Quotient·카탈로그 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code MethodSearchCalculationTest}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code futureTransitionDifferencesAndCostsForcePartitionRefinement()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code node(observation, target, cost)}: 노드 처리에서 {@code Fraction.of}을(를) 사용한다. 입력: {@code
+ *       observation}(관측값), {@code target}(대상), {@code cost}(비용). 반환: {@code Node<String>}.
+ *   <li>{@code closedGraph()}: 닫힘·그래프 값을 조회·구성한다. 반환: {@code Map<BasicCurrencyState,
+ *       Node<BasicCurrencyState>>}.
+ *   <li>{@code tinyCatalogPreservesAllActionLawsFirstHitObservationsAndDecisionRankings()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code distinctEntryLawsRemainDistinctThroughACommonBlockAndGoalMerge()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code numericGoalDifferencesAndUnprovedBoundariesCannotBeCollapsed()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code goal(node)}: 목표 처리에서 {@code node.observation}을(를) 사용한다. 입력: {@code node}(노드). 반환:
+ *       {@code boolean}.
+ *   <li>{@code initial(graph)}: 제작을 시작할 초기 상태를 만든다. 입력: {@code graph}(그래프). 반환: {@code Map<S,
+ *       Fraction>}.
+ *   <li>{@code ranking(node, values)}: 순위 처리에서 {@code node.actions}, {@code action.outcomes}을(를)
+ *       사용한다. 입력: {@code node}(노드), {@code values}(값목록). 반환: {@code Map<String, Fraction>}.
+ *   <li>{@code bellman(graph, previous)}: bellman 처리에서 {@code graph.forEach}, {@code
+ *       result.put}을(를) 사용한다. 입력: {@code graph}(그래프), {@code previous}(이전). 반환: {@code Map<S,
+ *       Fraction>}.
+ *   <li>{@code firstHit(graph, law, action)}: 최초·목표도달 처리에서 {@code law.forEach}, {@code
+ *       graph.get}을(를) 사용한다. 입력: {@code graph}(그래프), {@code law}(분포), {@code action}(행동). 반환:
+ *       {@code Map<S, Fraction>}.
+ * </ul>
+ */
 class FiniteQuotientCatalogTest {
   private final MethodSearchCalculationTest fixture = new MethodSearchCalculationTest();
 

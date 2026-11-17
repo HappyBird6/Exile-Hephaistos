@@ -15,7 +15,37 @@ import com.poe2craft.shared.ruleset.RulesetManifestLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-/** Real sealed Solar integration cases, separate from the small synthetic oracle. */
+/**
+ * 기본·화폐·태양목걸이 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Real sealed Solar integration cases, separate from the small synthetic oracle.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code workbench}: 작업대 ({@code WorkbenchSimulator}).
+ *   <li>{@code kernel}: 전이커널 ({@code BasicCurrencyTransitions}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code input(rarity, mods)}: 입력 처리에서 {@code SolarAmulet.initial}, {@code
+ *       root.snapshotId}을(를) 사용한다. 입력: {@code rarity}(희귀도), {@code mods}(옵션목록). 반환: {@code
+ *       ItemState}.
+ *   <li>{@code first()}: 최초 값을 조회·구성한다. 반환: {@code ModifierInstance}.
+ *   <li>{@code sixteenActionsAgreeWithWorkbenchEligibilityRetainProvenanceAndNormalizeExactly()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code ordinarySixAffixMarginalsMatchLegacyDistributionWithoutLosingNumericStates()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code higherLevelCurrenciesAndFracturedInputsUseExistingRulesRatherThanNewTierRecipes()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code
+ *       otherBaseAndSpecialConditionsRemainUnsupportedWithoutChangingExistingWorkbenchSupport()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class BasicCurrencySolarTest {
   final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   final WorkbenchSimulator workbench = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));

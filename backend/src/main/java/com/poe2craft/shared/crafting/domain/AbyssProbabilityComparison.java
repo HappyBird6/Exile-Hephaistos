@@ -8,7 +8,42 @@ import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/** Next-addition sensitivity, never the probability of observing an Abyss offer. */
+/**
+ * 다음 옵션 추가 확률의 민감도를 비교한다. 훼손 후보 공개 확률은 계산하지 않는다.
+ *
+ * <p>기존 계약: Next-addition sensitivity, never the probability of observing an Abyss offer.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code additions}: additions ({@code AdditionRules}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AbyssProbabilityComparison(catalog)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       catalog}(카탈로그).
+ *   <li>{@code compare(state, slotId, action, omen, targetIds)}: 비교 처리에서 {@code state.validate},
+ *       {@code action.baseAction}을(를) 사용한다. 입력: {@code state}(상태), {@code slotId}(슬롯·식별자), {@code
+ *       action}(행동), {@code omen}(징조), {@code targetIds}(대상·식별자목록). 반환: {@code
+ *       Optional<Comparison>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code pool(state, action, omen)}: 후보풀 처리에서 {@code state.validate}, {@code
+ *       state.knownItem}을(를) 사용한다. 입력: {@code state}(상태), {@code action}(행동), {@code omen}(징조). 반환:
+ *       {@code List<ModifierDefinition>}.
+ *   <li>{@code chance(pool, targets)}: chance 처리에서 {@code pool.stream}, {@code
+ *       targets.contains}을(를) 사용한다. 입력: {@code pool}(후보풀), {@code targets}(대상목록). 반환: {@code
+ *       Chance}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Chance}: {@code AbyssProbabilityComparison}에서 사용하는 Chance의 불변 값이다.
+ *   <li>{@code Comparison}: {@code AbyssProbabilityComparison}에서 사용하는 비교의 불변 값이다.
+ * </ul>
+ */
 public final class AbyssProbabilityComparison {
   private final ItemCatalog catalog;
   private final AdditionRules additions;
@@ -18,6 +53,25 @@ public final class AbyssProbabilityComparison {
     additions = new AdditionRules(catalog);
   }
 
+  /**
+   * {@code AbyssProbabilityComparison}에서 사용하는 Chance의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code targetWeight}: 대상·가중치 ({@code long}).
+   *   <li>{@code totalWeight}: 합계·가중치 ({@code long}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Chance(targetWeight, totalWeight)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+   *       targetWeight}(대상·가중치), {@code totalWeight}(합계·가중치). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   *   <li>{@code percent()}: 백분율 값을 조회·구성한다. 반환: {@code double}.
+   * </ul>
+   */
   public record Chance(long targetWeight, long totalWeight) {
     public Chance {
       if (targetWeight < 0 || totalWeight <= 0 || targetWeight > totalWeight)
@@ -29,6 +83,18 @@ public final class AbyssProbabilityComparison {
     }
   }
 
+  /**
+   * {@code AbyssProbabilityComparison}에서 사용하는 비교의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code baseline}: baseline ({@code Chance}).
+   *   <li>{@code afterBlocking}: 변경후·Blocking ({@code Chance}).
+   *   <li>{@code blockerModifierId}: blocker·옵션·식별자 ({@code String}).
+   *   <li>{@code blockerWeight}: blocker·가중치 ({@code int}).
+   * </ul>
+   */
   public record Comparison(
       Chance baseline, Chance afterBlocking, String blockerModifierId, int blockerWeight) {}
 

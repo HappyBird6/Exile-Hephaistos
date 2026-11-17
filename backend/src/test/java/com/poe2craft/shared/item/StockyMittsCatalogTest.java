@@ -8,6 +8,25 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.junit.jupiter.api.Test;
 
+/**
+ * StockyMitts·Mitts·카탈로그 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code completePublishedPoolLoadsWithoutPruningOrChangingTheDefault()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code recoveredDetailsPreserveExactSignedSourceBounds()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code sourceChangesFailChecksumValidation()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는
+ *       예외: {@code Exception}.
+ *   <li>{@code abyssAddsOnlyTwoZeroSpawnDefinitionsAndRetainsExactOrdinarySnapshot()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code load()}: 검증된 자료를 로딩한다. 반환: {@code ItemCatalog}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code resource(name)}: 자원 처리에서 {@code class.getResourceAsStream}을(를) 사용한다. 입력: {@code
+ *       name}(이름). 반환: {@code InputStream}.
+ * </ul>
+ */
 class StockyMittsCatalogTest {
   @Test
   void completePublishedPoolLoadsWithoutPruningOrChangingTheDefault() throws Exception {

@@ -2,10 +2,45 @@ package com.poe2craft.craftingsupport.search.domain;
 
 import com.poe2craft.shared.probability.Fraction;
 
-/** Only callers holding a completed full-state renewal proof may use this distribution. */
+/**
+ * 완료된 전체 상태 갱신 증명을 전제로 최초 성공 분포를 계산한다.
+ *
+ * <p>기존 계약: Only callers holding a completed full-state renewal proof may use this distribution.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code RenewalFirstHit()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code complement(value)}: complement 처리에서 {@code value.complement}을(를) 사용한다. 입력: {@code
+ *       value}(값). 반환: {@code Fraction}.
+ *   <li>{@code at(success, unknown, cycleLength, rootHit, emptyHit, attempts, fractionBits)}: 기준
+ *       처리에서 {@code success.add}, {@code survival.equals}을(를) 사용한다. 입력: {@code success}(성공), {@code
+ *       unknown}(미확정), {@code cycleLength}(주기·길이), {@code rootHit}(시작점·목표도달), {@code
+ *       emptyHit}(빈값·목표도달), {@code attempts}(시도수), {@code fractionBits}(유리수·비트수). 반환: {@code Mass}.
+ *       사용하는 예외: {@code IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Mass}: {@code RenewalFirstHit}에서 사용하는 확률질량의 불변 값이다.
+ * </ul>
+ */
 public final class RenewalFirstHit {
   private RenewalFirstHit() {}
 
+  /**
+   * {@code RenewalFirstHit}에서 사용하는 확률질량의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code hit}: 목표도달 ({@code Fraction}).
+   *   <li>{@code active}: 활성 ({@code Fraction}).
+   *   <li>{@code dead}: 종료된 ({@code Fraction}).
+   *   <li>{@code unresolved}: 미해결 ({@code Fraction}).
+   * </ul>
+   */
   public record Mass(Fraction hit, Fraction active, Fraction dead, Fraction unresolved) {}
 
   public static Fraction complement(Fraction value) {

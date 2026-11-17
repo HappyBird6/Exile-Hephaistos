@@ -7,7 +7,27 @@ import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import java.util.*;
 
-/** Uses the actual shared pool rule, including a family's highest-tier fallback below a cutoff. */
+/**
+ * 공유 추가 규칙을 사용해 티어 하한과 최고 티어 대체 후보를 판정한다.
+ *
+ * <p>기존 계약: Uses the actual shared pool rule, including a family's highest-tier fallback below a
+ * cutoff.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code masks}: masks ({@code Map<String, Integer>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code BasicCandidateEligibility(catalog, root)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       catalog}(카탈로그), {@code root}(시작점).
+ *   <li>{@code category(modifier)}: 분류 처리에서 {@code masks.getOrDefault}을(를) 사용한다. 입력: {@code
+ *       modifier}(옵션). 반환: {@code int}.
+ * </ul>
+ */
 final class BasicCandidateEligibility {
   private final Map<String, Integer> masks;
 

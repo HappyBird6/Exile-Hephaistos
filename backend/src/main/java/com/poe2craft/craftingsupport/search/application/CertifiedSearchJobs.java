@@ -21,21 +21,189 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.BiFunction;
 
-/** Certified jobs share one worker; optional local checkpoints survive process restarts. */
+/**
+ * 하나의 작업자로 구간 확률 탐색 작업과 체크포인트 복구를 관리한다.
+ *
+ * <p>기존 계약: Certified jobs share one worker; optional local checkpoints survive process restarts.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code CHECKPOINT_VERSION}: 버전; 초기값 {@code "certified-job-checkpoint-v2-control"} ({@code
+ *       String}).
+ *   <li>{@code repository}: 조회·저장을 위임하는 저장소 ({@code CertifiedJobRepository}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code unavailable}: 사용불가 ({@code Map<String, DiskInput>}).
+ *   <li>{@code jobs}: 작업목록 ({@code Map<String, Job>}).
+ *   <li>{@code clock}: 현재 시각 공급자 ({@code Clock}).
+ *   <li>{@code executor}: 작업실행기 ({@code Executor}).
+ *   <li>{@code runBudget}: 실행·계산예산 ({@code int}).
+ *   <li>{@code factory}: 생성기 ({@code BiFunction<MethodSearchProtocol.Create,
+ *       CertifiedInterval.Precision, CertifiedMethodSearchEngine>}).
+ *   <li>{@code settings}: 운영설정 ({@code BackendSettings.CertifiedSearch}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ownerKey(owner)}: 소유자·키 처리에서 {@code HexFormat.of}, {@code
+ *       MessageDigest.getInstance}을(를) 사용한다. 입력: {@code owner}(소유자). 반환: {@code String}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code persistence(repository, json)}: persistence 처리에서 {@code jobs.isEmpty}, {@code
+ *       json.copy}을(를) 사용한다. 입력: {@code repository}(저장소), {@code json}(JSON). 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code encode(value)}: 값을 저장·전송 표현으로 부호화한다. 입력: {@code value}(값). 반환: {@code String}. 사용하는
+ *       예외: {@code IllegalArgumentException}.
+ *   <li>{@code decode(value, type)}: 저장·전송 표현을 내부 값으로 복원한다. 입력: {@code value}(값), {@code type}(타입).
+ *       반환: {@code T}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code persist(job)}: persist 처리에서 {@code engine.operations}, {@code
+ *       engine.graphRevision}을(를) 사용한다. 입력: {@code job}(작업).
+ *   <li>{@code identity(engine, input)}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 입력: {@code engine}(계산엔진),
+ *       {@code input}(입력). 반환: {@code MethodGraphStore.Identity}.
+ *   <li>{@code identity(engine, input, originalInput)}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 입력: {@code
+ *       engine}(계산엔진), {@code input}(입력), {@code originalInput}(원본·입력). 반환: {@code
+ *       MethodGraphStore.Identity}.
+ *   <li>{@code CertifiedSearchJobs(clock, executor, runBudget, factory)}: 기본 정책을 보충해 공통 생성자로 위임한다.
+ *       입력: {@code clock}(현재 시각 공급자), {@code executor}(작업실행기), {@code runBudget}(실행·계산예산), {@code
+ *       factory}(생성기).
+ *   <li>{@code CertifiedSearchJobs(clock, executor, runBudget, factory, settings)}: 전달받은 값으로 구성원을
+ *       초기화한다. 입력: {@code clock}(현재 시각 공급자), {@code executor}(작업실행기), {@code runBudget}(실행·계산예산),
+ *       {@code factory}(생성기), {@code settings}(운영설정).
+ *   <li>{@code create(owner, request)}: 새 작업 또는 값을 생성한다. 입력: {@code owner}(소유자), {@code
+ *       request}(요청). 반환: {@code Started}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code get(owner, id)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code owner}(소유자), {@code id}(식별자). 반환:
+ *       {@code Snapshot}.
+ *   <li>{@code hasRequest(owner, requestId)}: 요청을(를) 보유 여부를 판정한다. 입력: {@code owner}(소유자), {@code
+ *       requestId}(요청·식별자). 반환: {@code boolean}.
+ *   <li>{@code job(owner, id)}: 작업 처리에서 {@code unavailable.get}, {@code rejected.owner}을(를) 사용한다.
+ *       입력: {@code owner}(소유자), {@code id}(식별자). 반환: {@code Job}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code mutate(owner, id, command)}: mutate 처리에서 {@code Integer.valueOf}, {@code
+ *       command.version}을(를) 사용한다. 입력: {@code owner}(소유자), {@code id}(식별자), {@code command}(명령).
+ *       반환: {@code Snapshot}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code graph(owner, id, revision, stateOffset, methodOffset)}: 그래프 처리에서 {@code
+ *       job.acquireRequest}, {@code states.size}을(를) 사용한다. 입력: {@code owner}(소유자), {@code id}(식별자),
+ *       {@code revision}(리비전), {@code stateOffset}(상태·시작위치), {@code methodOffset}(제작방법·시작위치). 반환:
+ *       {@code Graph}.
+ *   <li>{@code outcomes(owner, id, revision, methodId, cycles, offset)}: 가능한 결과와 확률을 조회한다. 입력:
+ *       {@code owner}(소유자), {@code id}(식별자), {@code revision}(리비전), {@code methodId}(제작방법·식별자),
+ *       {@code cycles}(주기횟수), {@code offset}(시작위치). 반환: {@code Outcomes}.
+ *   <li>{@code map(owner, id, revision, offset)}: 맵 처리에서 {@code job.acquireRequest}, {@code
+ *       CertifiedMapProtocol.graph}을(를) 사용한다. 입력: {@code owner}(소유자), {@code id}(식별자), {@code
+ *       revision}(리비전), {@code offset}(시작위치). 반환: {@code CertifiedMapProtocol.Graph}.
+ *   <li>{@code view(owner, id)}: 내부 계산 상태를 읽기 전용 조회 값으로 구성한다. 입력: {@code owner}(소유자), {@code
+ *       id}(식별자). 반환: {@code CertifiedMapProtocol.View}.
+ *   <li>{@code mapOutcomes(owner, id, revision, methodId, cycles, offset)}: 맵·결과목록 처리에서 {@code
+ *       job.acquireRequest}, {@code CertifiedMapProtocol.distribution}을(를) 사용한다. 입력: {@code
+ *       owner}(소유자), {@code id}(식별자), {@code revision}(리비전), {@code methodId}(제작방법·식별자), {@code
+ *       cycles}(주기횟수), {@code offset}(시작위치). 반환: {@code CertifiedMapProtocol.Distribution}.
+ *   <li>{@code outcomes(job, revision, methodId, cycles, offset)}: 가능한 결과와 확률을 조회한다. 입력: {@code
+ *       job}(작업), {@code revision}(리비전), {@code methodId}(제작방법·식별자), {@code cycles}(주기횟수), {@code
+ *       offset}(시작위치). 반환: {@code Outcomes}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code appendOutcomes(result, kind, law, offset, decimals)}: append·결과목록 처리에서 {@code
+ *       result.size}, {@code law.size}을(를) 사용한다. 입력: {@code result}(결과), {@code kind}(종류), {@code
+ *       law}(분포), {@code offset}(시작위치), {@code decimals}(소수자릿수). 반환: {@code int}.
+ *   <li>{@code bind(owner, id, request)}: 연결 처리에서 {@code Integer.valueOf}, {@code
+ *       request.version}을(를) 사용한다. 입력: {@code owner}(소유자), {@code id}(식별자), {@code request}(요청).
+ *       반환: {@code Entry}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code entry(owner, id, entryId, offset)}: 항목 처리에서 {@code job.acquireRequest}을(를) 사용한다. 입력:
+ *       {@code owner}(소유자), {@code id}(식별자), {@code entryId}(항목·식별자), {@code offset}(시작위치). 반환:
+ *       {@code Entry}.
+ *   <li>{@code advance(owner, id, entryId, request)}: 허용된 계산량만큼 작업을 진행한다. 입력: {@code owner}(소유자),
+ *       {@code id}(식별자), {@code entryId}(항목·식별자), {@code request}(요청). 반환: {@code Entry}. 사용하는 예외:
+ *       {@code Rejected}.
+ *   <li>{@code entryRetained(job)}: 항목·보유 처리에서 {@code entries.values}, {@code
+ *       expansion.retainedStates}을(를) 사용한다. 입력: {@code job}(작업). 반환: {@code long}.
+ *   <li>{@code entryView(job, work, offset)}: 항목·조회표현 처리에서 {@code expansion.complete}, {@code
+ *       expansion.result}을(를) 사용한다. 입력: {@code job}(작업), {@code work}(계산작업), {@code offset}(시작위치).
+ *       반환: {@code Entry}.
+ *   <li>{@code entryWork(job, id)}: 항목·계산작업 처리에서 {@code entries.get}을(를) 사용한다. 입력: {@code job}(작업),
+ *       {@code id}(식별자). 반환: {@code EntryWork}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code checkOffset(offset, size)}: 시작위치을(를) 검사한다. 입력: {@code offset}(시작위치), {@code
+ *       size}(크기). 사용하는 예외: {@code Rejected}.
+ *   <li>{@code method(revision, id)}: 제작방법 처리에서 {@code methods.stream}, {@code m.id}을(를) 사용한다. 입력:
+ *       {@code revision}(리비전), {@code id}(식별자). 반환: {@code CertifiedMethodSearchEngine.MethodView}.
+ *   <li>{@code revision(job, revision)}: 리비전 처리에서 {@code revisions.get}을(를) 사용한다. 입력: {@code
+ *       job}(작업), {@code revision}(리비전). 반환: {@code Revision}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code submit(job)}: submit 처리에서 {@code executor.execute}을(를) 사용한다. 입력: {@code job}(작업).
+ *   <li>{@code run(job, generation)}: 작업의 실행 루프를 수행한다. 입력: {@code job}(작업), {@code
+ *       generation}(세대번호).
+ *   <li>{@code publish(job)}: 새 결과나 체크포인트를 외부 조회에 공개한다. 입력: {@code job}(작업).
+ *   <li>{@code dispose(job)}: dispose 처리에서 {@code job.acquire}, {@code revisions.clear}을(를) 사용한다.
+ *       입력: {@code job}(작업).
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code DiskInput}: {@code CertifiedSearchJobs}에서 사용하는 디스크·입력의 불변 값이다.
+ *   <li>{@code DiskEntry}: {@code CertifiedSearchJobs}에서 사용하는 디스크·항목의 불변 값이다.
+ *   <li>{@code DiskJob}: {@code CertifiedSearchJobs}에서 사용하는 디스크·작업의 불변 값이다.
+ *   <li>{@code ControlCheckpoint}: {@code CertifiedSearchJobs}에서 사용하는 작업제어·체크포인트의 불변 값이다.
+ *   <li>{@code Revision}: {@code CertifiedSearchJobs}에서 사용하는 리비전의 불변 값이다.
+ *   <li>{@code Command}: {@code CertifiedSearchJobs}에서 사용하는 명령의 불변 값이다.
+ *   <li>{@code Guard}: {@code CertifiedSearchJobs} 내부의 Guard 처리를 맡는다.
+ *   <li>{@code EntryWork}: {@code CertifiedSearchJobs} 내부의 항목·계산작업 처리를 맡는다.
+ *   <li>{@code Job}: {@code CertifiedSearchJobs} 내부의 작업 처리를 맡는다.
+ * </ul>
+ */
 final class CertifiedSearchJobs {
   static final String CHECKPOINT_VERSION = "certified-job-checkpoint-v2-control";
   private CertifiedJobRepository repository;
   private ObjectMapper json;
   private final Map<String, DiskInput> unavailable = new LinkedHashMap<>();
 
+  /**
+   * {@code CertifiedSearchJobs}에서 사용하는 디스크·입력의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code owner}: 서버가 확인한 작업 소유자 ({@code String}).
+   *   <li>{@code request}: 작업 생성에 사용한 요청 ({@code Create}).
+   * </ul>
+   */
   private record DiskInput(String owner, Create request) {}
 
+  /**
+   * {@code CertifiedSearchJobs}에서 사용하는 디스크·항목의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code parent}: 상위값 ({@code String}).
+   *   <li>{@code binding}: 결합 ({@code IndexedMethodProtocol.Bind}).
+   *   <li>{@code expansion}: 확장 ({@code ConditionalMethodLaw.ExpansionCheckpoint}).
+   * </ul>
+   */
   private record DiskEntry(
       String id,
       String parent,
       IndexedMethodProtocol.Bind binding,
       ConditionalMethodLaw.ExpansionCheckpoint expansion) {}
 
+  /**
+   * {@code CertifiedSearchJobs}에서 사용하는 디스크·작업의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code version}: 저장·실행 계약의 버전 ({@code String}).
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code revision}: 결과를 갱신할 때 비교하는 리비전 ({@code long}).
+   *   <li>{@code generation}: 늦은 작업 결과를 구분하는 세대 번호 ({@code long}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code limit}: 한도 ({@code int}).
+   *   <li>{@code entryLimit}: 항목·한도 ({@code int}).
+   *   <li>{@code strategySteps}: 전략·단계목록 ({@code long}).
+   *   <li>{@code strategyBlocked}: 전략·차단 ({@code String}).
+   *   <li>{@code commands}: 명령목록 ({@code Map<String, Command>}).
+   *   <li>{@code entries}: 항목목록 ({@code List<DiskEntry>}).
+   *   <li>{@code expires}: 저장 값의 만료 시각 ({@code long}).
+   * </ul>
+   */
   private record DiskJob(
       String version,
       String id,
@@ -51,6 +219,16 @@ final class CertifiedSearchJobs {
       List<DiskEntry> entries,
       long expires) {}
 
+  /**
+   * {@code CertifiedSearchJobs}에서 사용하는 작업제어·체크포인트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code execution}: 실행 ({@code String}).
+   *   <li>{@code job}: 작업 ({@code DiskJob}).
+   * </ul>
+   */
   private record ControlCheckpoint(String execution, DiskJob job) {}
 
   private static String ownerKey(String owner) {
@@ -960,17 +1138,67 @@ final class CertifiedSearchJobs {
     }
   }
 
+  /**
+   * {@code CertifiedSearchJobs}에서 사용하는 리비전의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code states}: 상태목록 ({@code List<MethodSearchEngine.StateView>}).
+   *   <li>{@code methods}: 제작방법목록 ({@code List<CertifiedMethodSearchEngine.MethodView>}).
+   * </ul>
+   */
   private record Revision(
       List<MethodSearchEngine.StateView> states,
       List<CertifiedMethodSearchEngine.MethodView> methods) {}
 
+  /**
+   * {@code CertifiedSearchJobs}에서 사용하는 명령의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code command}: 명령 ({@code MethodSearchProtocol.Mutation}).
+   *   <li>{@code snapshot}: 스냅샷 ({@code Snapshot}).
+   * </ul>
+   */
   private record Command(MethodSearchProtocol.Mutation command, Snapshot snapshot) {}
 
+  /**
+   * {@code CertifiedSearchJobs} 내부의 Guard 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   */
   private interface Guard extends AutoCloseable {
     @Override
     void close();
   }
 
+  /**
+   * {@code CertifiedSearchJobs} 내부의 항목·계산작업 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code parent}: 상위값 ({@code String}).
+   *   <li>{@code law}: 분포 ({@code ConditionalMethodLaw}).
+   *   <li>{@code expansion}: 확장 ({@code ConditionalMethodLaw.Expansion}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code EntryWork(id, parent, law)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자), {@code
+   *       parent}(상위값), {@code law}(분포).
+   *   <li>{@code EntryWork(id, parent, law, saved)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자),
+   *       {@code parent}(상위값), {@code law}(분포), {@code saved}(저장된).
+   * </ul>
+   */
   private static final class EntryWork {
     final String id, parent;
     final ConditionalMethodLaw law;
@@ -995,6 +1223,58 @@ final class CertifiedSearchJobs {
     }
   }
 
+  /**
+   * {@code CertifiedSearchJobs} 내부의 작업 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code lock}: 잠금 ({@code java.util.concurrent.locks.ReentrantLock}).
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code owner}: 서버가 확인한 작업 소유자 ({@code String}).
+   *   <li>{@code store}: 저장소 ({@code MethodGraphStore}).
+   *   <li>{@code strategySteps}: 전략·단계목록 ({@code long}).
+   *   <li>{@code storeRevision}: 저장소·리비전 ({@code long}).
+   *   <li>{@code durableLeaseUntil}: durable·사용권·Until ({@code long}).
+   *   <li>{@code checkpointOperations}: 체크포인트·연산목록; 초기값 {@code -1} ({@code long}).
+   *   <li>{@code checkpointGraphRevision}: 체크포인트·그래프·리비전; 초기값 {@code -1} ({@code long}).
+   *   <li>{@code checkpointExecution}: 체크포인트·실행 ({@code String}).
+   *   <li>{@code request}: 작업 생성에 사용한 요청 ({@code Create}).
+   *   <li>{@code engine}: 계산 실행기 ({@code CertifiedMethodSearchEngine}).
+   *   <li>{@code expires}: 저장 값의 만료 시각 ({@code Instant}).
+   *   <li>{@code revisions}: 리비전목록 ({@code Map<Long, Revision>}).
+   *   <li>{@code commands}: 명령목록 ({@code Map<String, Command>}).
+   *   <li>{@code entries}: 항목목록 ({@code Map<String, EntryWork>}).
+   *   <li>{@code bindings}: 결합목록 ({@code Map<String, IndexedMethodProtocol.Bind>}).
+   *   <li>{@code entryIds}: 항목·식별자목록 ({@code Map<String, String>}).
+   *   <li>{@code revision}: 결과를 갱신할 때 비교하는 리비전; 초기값 {@code -1} ({@code long}).
+   *   <li>{@code generation}: 늦은 작업 결과를 구분하는 세대 번호 ({@code long}).
+   *   <li>{@code publishedGraphRevision}: 공개된·그래프·리비전; 초기값 {@code -1} ({@code long}).
+   *   <li>{@code publishedStrategyRevision}: 공개된·전략·리비전; 초기값 {@code -1} ({@code long}).
+   *   <li>{@code strategy}: 전략 ({@code CertifiedStrategyWork}).
+   *   <li>{@code strategyBlocked}: 전략·차단 ({@code String}).
+   *   <li>{@code disposed}: 해제여부 ({@code boolean}).
+   *   <li>{@code limit}: 한도; 초기값 {@code 100000} ({@code int}).
+   *   <li>{@code entryLimit}: 항목·한도; 초기값 {@code 1} ({@code int}).
+   *   <li>{@code status}: 현재 처리 상태; 초기값 {@code "QUEUED"} ({@code String}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code snapshot}: 스냅샷 ({@code Snapshot}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code acquire()}: acquire 값을 조회·구성한다. 반환: {@code Guard}.
+   *   <li>{@code acquireRequest()}: acquire·요청 값을 조회·구성한다. 반환: {@code Guard}. 사용하는 예외: {@code
+   *       Rejected}.
+   *   <li>{@code finished()}: 종료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code strategyPause()}: 전략·Pause 값을 조회·구성한다. 반환: {@code String}.
+   *   <li>{@code Job(owner, request, engine)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code owner}(소유자),
+   *       {@code request}(요청), {@code engine}(계산엔진).
+   *   <li>{@code Job(id, owner, request, engine)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자), {@code
+   *       owner}(소유자), {@code request}(요청), {@code engine}(계산엔진).
+   * </ul>
+   */
   private final class Job {
     final java.util.concurrent.locks.ReentrantLock lock =
         new java.util.concurrent.locks.ReentrantLock(true);

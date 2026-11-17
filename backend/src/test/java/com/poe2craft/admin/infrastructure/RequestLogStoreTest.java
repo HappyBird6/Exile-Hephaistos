@@ -19,6 +19,42 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.*;
 
+/**
+ * 요청 로그를 저장하고 보관 기간이 지난 기록을 아카이브한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code db}: DB ({@code PostgreSQLContainer<?>}).
+ *   <li>{@code directory}: 디렉터리 ({@code Path}).
+ *   <li>{@code jdbc}: JDBC ({@code JdbcTemplate}).
+ *   <li>{@code transactions}: transactions ({@code DataSourceTransactionManager}).
+ *   <li>{@code store}: 저장소 ({@code RequestLogStore}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code create(path)}: 새 작업 또는 값을 생성한다. 입력: {@code path}(경로). 반환: {@code RequestLogStore}.
+ *   <li>{@code create(path, maximum)}: 새 작업 또는 값을 생성한다. 입력: {@code path}(경로), {@code maximum}(최대값).
+ *       반환: {@code RequestLogStore}.
+ *   <li>{@code setup()}: 각 검증에 필요한 독립 초기 상태와 의존성을 준비한다.
+ *   <li>{@code event(at, status, ip)}: 이벤트 처리에서 {@code UUID.randomUUID}, {@code Instant.parse}을(를)
+ *       사용한다. 입력: {@code at}(기준), {@code status}(상태), {@code ip}(ip). 반환: {@code RequestEvent}.
+ *   <li>{@code viewsAvoidUnusedQueriesAndPagesReuseFilteredStatistics()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code queryCalls()}: 조회조건·호출횟수 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code keepsNewestArchivesWithinByteBudget()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는
+ *       예외: {@code Exception}.
+ *   <li>{@code removesExpiredArchivesEvenWithoutNewExpiredDatabaseRows()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code groupsKoreanDaysFiltersAndPaginates()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code archivesOneKoreanDateBeforeDeletingAndPreservesRetainedBoundary()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code failedArchiveNeverDeletesDatabaseRows()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는
+ *       예외: {@code Exception}.
+ * </ul>
+ */
 @Testcontainers
 class RequestLogStoreTest {
   @Container static PostgreSQLContainer<?> db = new PostgreSQLContainer<>("postgres:16-alpine");

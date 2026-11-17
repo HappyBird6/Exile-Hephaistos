@@ -13,7 +13,24 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 import org.junit.jupiter.api.io.TempDir;
 
-/** Real catalog, isolated disk persistence and JSON encoding; no timing assertions. */
+/**
+ * 자동·요청·Latency 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>기존 계약: Real catalog, isolated disk persistence and JSON encoding; no timing assertions.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code directory}: 디렉터리 ({@code Path}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code firstRecommendationAndWholeRequestLifecycle()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @EnabledIfEnvironmentVariable(named = "AUTOMATIC_BENCHMARK", matches = "true")
 class AutomaticRequestLatencyTest {
   @TempDir Path directory;

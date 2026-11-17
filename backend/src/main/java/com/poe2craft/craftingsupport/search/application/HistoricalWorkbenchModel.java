@@ -6,7 +6,31 @@ import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import java.util.*;
 
-/** Narrow compatibility for immutable observations, never execution or cursor restoration. */
+/**
+ * 과거 작업대 결과를 읽기 전용으로 해석한다. 실행 재개에는 사용하지 않는다.
+ *
+ * <p>기존 계약: Narrow compatibility for immutable observations, never execution or cursor restoration.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code MANUAL_CURRENCIES}: 화폐목록 ({@code Set<WorkbenchCurrency>}).
+ *   <li>{@code MANUAL_SUFFIXES}: 접미목록 ({@code Set<String>}).
+ *   <li>{@code CURRENT_MANUAL_SUFFIX}: 접미 ({@code String}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code requiresReadOnly(model)}: requires·읽기·제한 처리에서 {@code MANUAL_SUFFIXES.stream}, {@code
+ *       suffix.equals}을(를) 사용한다. 입력: {@code model}(모형). 반환: {@code boolean}.
+ *   <li>{@code predatesManualFeatures(model)}: predates·수동·Features 처리에서 {@code model.definitions},
+ *       {@code MANUAL_CURRENCIES.contains}을(를) 사용한다. 입력: {@code model}(모형). 반환: {@code boolean}.
+ *   <li>{@code matchesReadOnly(saved, current)}: 일치결과·읽기·제한 처리에서 {@code saved.equals}, {@code
+ *       current.ruleVersion}을(를) 사용한다. 입력: {@code saved}(저장된), {@code current}(현재). 반환: {@code
+ *       boolean}.
+ * </ul>
+ */
 final class HistoricalWorkbenchModel {
   private static final Set<WorkbenchCurrency> MANUAL_CURRENCIES =
       Set.of(WorkbenchCurrency.ARMOURERS_SCRAP, WorkbenchCurrency.BLACKSMITHS_WHETSTONE);

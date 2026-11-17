@@ -12,6 +12,38 @@ import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 작업대·Extension 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code root(level)}: 시작점 처리에서 {@code SolarAmulet.initial}을(를) 사용한다. 입력: {@code level}(레벨).
+ *       반환: {@code ItemState}.
+ *   <li>{@code item(rarity, families)}: 아이템 처리에서 {@code Arrays.stream}, {@code
+ *       catalog.modifiers}을(를) 사용한다. 입력: {@code rarity}(희귀도), {@code families}(옵션계열목록). 반환: {@code
+ *       ItemState}.
+ *   <li>{@code minimumLevelKeepsTheHighestEligibleTypeInsteadOfDroppingSpiritAndRarity()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code allTenTieredCurrenciesRespectTheItemLevelFloorAndProduceValidStates()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code affixOmensRestrictTheCorrectOperationAndConsumeOnlyTheMatchingOmen()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code conflictingAndUnverifiedCombinationsAreAtomicAndDoNotConsumeOmens()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code whittlingUsesModifierLevelRatherThanComparingTierNumbers()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code divinePreservesIdsAndBlessedPreservesAllExplicitValues()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ * </ul>
+ */
 class WorkbenchExtensionTest {
   private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
   private final WorkbenchSimulator simulator =

@@ -9,6 +9,24 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 유한 전략의 계산 구간을 나눠 이어서 실행한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code p(n, d)}: p 처리에서 {@code CertifiedInterval.enclose}, {@code Fraction.of}을(를) 사용한다.
+ *       입력: {@code n}(n), {@code d}(d). 반환: {@code CertifiedInterval}.
+ *   <li>{@code choice(id, outcomes)}: 선택의 입력에 따른 분기·결과를 처리한다. 입력: {@code id}(식별자), {@code
+ *       outcomes}(결과목록). 반환: {@code CertifiedOutcomeStrategy.Choice<String>}.
+ *   <li>{@code finalAdaptiveChoicesDifferFromTheImmediateChoiceAtAllHorizons()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unknownExitPausesWithItsEnclosureInsteadOfBecomingFailure()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code cyclicNonDyadicTruthStaysInsideEveryPublishedInterval()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ * </ul>
+ */
 class CertifiedStrategyWorkTest {
   private static CertifiedInterval p(long n, long d) {
     return CertifiedInterval.enclose(Fraction.of(n, d), 64);

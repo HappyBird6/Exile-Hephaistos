@@ -12,6 +12,29 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * 비밀번호를 검증하고 세션에 연결할 계정 신원을 만든다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code db}: DB ({@code JdbcTemplate}).
+ *   <li>{@code encoder}: encoder ({@code BCryptPasswordEncoder}).
+ *   <li>{@code dummy}: dummy ({@code String}).
+ *   <li>{@code slots}: 슬롯목록 ({@code Semaphore}).
+ *   <li>{@code minimum}: 최소값 ({@code int}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code PasswordAccounts(db, cost, concurrency, minimum)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       db}(DB), {@code cost}(비용), {@code concurrency}(동시작업수), {@code minimum}(최소값).
+ *   <li>{@code authenticate(username, password, register)}: 제출한 인증 정보를 확인한다. 입력: {@code
+ *       username}(사용자명), {@code password}(비밀번호), {@code register}(등록여부). 반환: {@code Account}. 사용하는
+ *       예외: {@code ResponseStatusException}.
+ * </ul>
+ */
 @Service
 public class PasswordAccounts implements com.poe2craft.account.application.AccountAuthentication {
   private final JdbcTemplate db;

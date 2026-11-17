@@ -12,6 +12,32 @@ import java.util.*;
 import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 검증된 유한 결합 결과에 대한 정확한 수치 확률을 계산한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code accumulatedUnreducedSumsKeepCanonicalJsonAndConcurrentValueIdentity()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code canonicalArithmeticPreservesValueIdentityAndJsonContract()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code arithmeticMatchesDirectRationalOracleWithLargeSharedDenominators()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code state(cold, all)}: 현재 상태 표현을 조회한다. 입력: {@code cold}(cold), {@code all}(all). 반환:
+ *       {@code ItemState}.
+ *   <li>{@code evaluate(state)}: 입력 조건이나 정책을 평가해 결과를 구한다. 입력: {@code state}(상태). 반환: {@code
+ *       Status}.
+ *   <li>{@code fullNumericKeysSeparateStatesMergedByLegacyBucketAndAgreeWithEnumeration()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code hybridJointTuplesAreNotIndependentMarginals()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code firstHitAbsorbsBeforeDestructiveNextStepAndBudgetRetainsMass()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code unsupportedEvaluationNeverBecomesFirstHitSuccessAndInvalidKernelsAreRejected()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class ExactNumericDistributionTest {
   @Test
   void accumulatedUnreducedSumsKeepCanonicalJsonAndConcurrentValueIdentity() throws Exception {

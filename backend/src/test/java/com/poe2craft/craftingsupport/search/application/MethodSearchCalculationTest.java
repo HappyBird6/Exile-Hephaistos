@@ -14,6 +14,35 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 작업 하나의 방법 깊이 탐색을 분할 실행하고 재개한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code fixture}: 검증사례 ({@code PathSearchDataTest}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code transitions}: 전이목록 ({@code BasicCurrencyTransitions}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code root()}: 시작점 값을 조회·구성한다. 반환: {@code BasicCurrencyState}.
+ *   <li>{@code progress(item)}: 진행상황 처리에서 {@code item.explicits}, {@code m.modifierId}을(를) 사용한다.
+ *       입력: {@code item}(아이템). 반환: {@code MethodSearchCalculation.Progress}.
+ *   <li>{@code emptyRareDiscoversDiamondAndAlternativeMethodsWithoutMergingFullRollStates()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code evictedPrimitiveKernelsRebuildAliasesWithoutChangingAnyCompletedMethod()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code memoryBudgetIsNotReportedAsCompleteAndUnsupportedIsNotZeroProbability()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code discoveryBackpressurePreservesEveryCompletedMethodAndConditionalDistribution()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code finiteTinySearchCompletesOnlyAfterEveryStateAndMethodAndChoosesByOutcome()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class MethodSearchCalculationTest {
   final PathSearchDataTest fixture = new PathSearchDataTest();
   final ItemCatalog catalog = fixture.catalog();

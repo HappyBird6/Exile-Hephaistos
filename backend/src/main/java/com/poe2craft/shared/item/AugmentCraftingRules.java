@@ -7,6 +7,8 @@ import java.util.*;
 /**
  * 장착한 증강물 ID에 따라 제작 한도·옵션 풀·수치 보정을 계산한다. 패치 가능한 값은 augment-crafting JSON에서 읽는다.
  *
+ * <p>장착한 증강물 ID에 따라 제작 한도·옵션 풀·수치 보정을 계산한다. 패치 가능한 값은 augment-crafting JSON에서 읽는다.
+ *
  * <p>private 생성자는 생성을 막는다. DATA는 load로 읽은 문서, NONE은 효과가 없는 기본값이다. load는 문서 버전·기본 한도·티어 가중치·증강물 옵션의
  * zero-spawn 조건을 검사하며 오류 시 초기화를 중단한다. effect(id)는 없으면 NONE, socketBound(id)는 제거 금지 여부다.
  * poolWeightPolicy/magnitudeRules는 공통 풀 가중치와 수치 보정 정의, baseCraftedLimit는 JSON의 기본 제작 옵션 수다.
@@ -16,6 +18,63 @@ import java.util.*;
  * enrich는 베이스에서 가능한 옵션을 가중치 0으로 추가한다. forItem은 활성 풀의 가중치와 접미 한도를 반영한 문맥 카탈로그를 만들고 이미 적용된 문맥에는 중복
  * 적용하지 않는다. rebuilt는 옵션 개수·가중치 합계를 다시 계산하되 snapshot과 호환 목록은 유지한다. forItem의 selected는 활성 옵션별 임시 가중치,
  * expanded는 늘어난 슬롯 한도다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code NONE}: NONE ({@code Effect}).
+ *   <li>{@code DATA}: 데이터 ({@code Document}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AugmentCraftingRules()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code load()}: 검증된 자료를 로딩한다. 반환: {@code Document}. 사용하는 예외: {@code
+ *       IllegalArgumentException}, {@code ExceptionInInitializerError}.
+ *   <li>{@code poolWeightPolicy()}: 후보풀·가중치·정책 값을 조회·구성한다. 반환: {@code PoolWeightPolicy}.
+ *   <li>{@code magnitudeRules()}: magnitude·규칙목록 값을 조회·구성한다. 반환: {@code
+ *       List<ModifierMagnitudes.Rule>}.
+ *   <li>{@code effect(id)}: 효과 처리에서 {@code DATA.effects}을(를) 사용한다. 입력: {@code id}(식별자). 반환: {@code
+ *       Effect}.
+ *   <li>{@code socketBound(id)}: 장착홈·경계값 처리에서 {@code DATA.socketBound}을(를) 사용한다. 입력: {@code
+ *       id}(식별자). 반환: {@code boolean}.
+ *   <li>{@code suffixBonus(state)}: 접미·Bonus 처리에서 {@code state.installedAugments}, {@code
+ *       a.augmentId}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code int}.
+ *   <li>{@code baseCraftedLimit()}: 베이스·제작옵션·한도 값을 조회·구성한다. 반환: {@code int}.
+ *   <li>{@code craftedLimit(state)}: 제작옵션·한도 처리에서 {@code DATA.baseCraftedLimit}, {@code
+ *       state.installedAugments}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code int}.
+ *   <li>{@code crafted(modifier, catalog)}: 제작옵션 처리에서 {@code modifier.crafted}, {@code
+ *       DATA.craftedModifierIds}을(를) 사용한다. 입력: {@code modifier}(옵션), {@code catalog}(카탈로그). 반환:
+ *       {@code boolean}.
+ *   <li>{@code maximumQuality(state)}: 최대값·품질 처리에서 {@code state.installedAugments}, {@code
+ *       a.augmentId}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code int}.
+ *   <li>{@code pools(state)}: 후보풀목록 처리에서 {@code state.installedAugments}, {@code
+ *       augment.augmentId}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code Set<String>}.
+ *   <li>{@code affectsSampling(state)}: affects·Sampling의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       state}(상태). 반환: {@code boolean}.
+ *   <li>{@code enrich(catalog)}: enrich 처리에서 {@code DATA.pools}, {@code catalog.base}을(를) 사용한다. 입력:
+ *       {@code catalog}(카탈로그). 반환: {@code ItemCatalog}.
+ *   <li>{@code forItem(catalog, state)}: 대상·아이템 처리에서 {@code catalog.augmentContextApplied}, {@code
+ *       DATA.pools}을(를) 사용한다. 입력: {@code catalog}(카탈로그), {@code state}(상태). 반환: {@code
+ *       ItemCatalog}.
+ *   <li>{@code rebuilt(original, base, definitions, contextual)}: rebuilt 처리에서 {@code
+ *       original.metadata}, {@code definitions.stream}을(를) 사용한다. 입력: {@code original}(원본), {@code
+ *       base}(베이스), {@code definitions}(정의목록), {@code contextual}(contextual). 반환: {@code
+ *       ItemCatalog}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Effect}: 증강물 하나의 효과다. craftedBonus/suffixBonus는 추가 제작·접미 한도, maximumQuality는 품질 한도,
+ *       runeEffectPercent는 룬 효과 보너스, idolBonded는 우상 결합, marker는 표시 표식, pool은 활성 옵션 풀 ID다.
+ *   <li>{@code PoolWeightPolicy}: id는 가중치 정책 식별자, weightPerTier는 티어별 가중치, description은 근거 설명,
+ *       consumers는 적용 소비자 목록이다.
+ *   <li>{@code Document}: schemaVersion은 문서 버전, baseCraftedLimit는 기본 제작 옵션 한도, socketBound는 제거 금지
+ *       ID, craftedModifierIds는 제작 옵션 ID, modifiers는 정의, pools는 베이스→풀→옵션 가중치, effects는 증강물별 효과,
+ *       magnitudeRules는 수치 보정, poolWeightPolicy는 풀 선택 정책이다.
+ * </ul>
  */
 public final class AugmentCraftingRules {
   private AugmentCraftingRules() {}
@@ -23,6 +82,18 @@ public final class AugmentCraftingRules {
   /**
    * 증강물 하나의 효과다. craftedBonus/suffixBonus는 추가 제작·접미 한도, maximumQuality는 품질 한도, runeEffectPercent는 룬
    * 효과 보너스, idolBonded는 우상 결합, marker는 표시 표식, pool은 활성 옵션 풀 ID다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code craftedBonus}: 제작옵션·Bonus ({@code int}).
+   *   <li>{@code suffixBonus}: 접미·Bonus ({@code int}).
+   *   <li>{@code maximumQuality}: 최대값·품질 ({@code int}).
+   *   <li>{@code runeEffectPercent}: 룬·효과·백분율 ({@code int}).
+   *   <li>{@code idolBonded}: idol·Bonded ({@code boolean}).
+   *   <li>{@code marker}: marker ({@code String}).
+   *   <li>{@code pool}: 후보풀 ({@code String}).
+   * </ul>
    */
   public record Effect(
       int craftedBonus,
@@ -33,7 +104,18 @@ public final class AugmentCraftingRules {
       String marker,
       String pool) {}
 
-  /** id는 가중치 정책 식별자, weightPerTier는 티어별 가중치, description은 근거 설명, consumers는 적용 소비자 목록이다. */
+  /**
+   * id는 가중치 정책 식별자, weightPerTier는 티어별 가중치, description은 근거 설명, consumers는 적용 소비자 목록이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code weightPerTier}: 가중치·단위별·티어 ({@code int}).
+   *   <li>{@code description}: 설명 ({@code String}).
+   *   <li>{@code consumers}: consumers ({@code List<String>}).
+   * </ul>
+   */
   public record PoolWeightPolicy(
       String id, int weightPerTier, String description, List<String> consumers) {}
 
@@ -41,6 +123,20 @@ public final class AugmentCraftingRules {
    * schemaVersion은 문서 버전, baseCraftedLimit는 기본 제작 옵션 한도, socketBound는 제거 금지 ID, craftedModifierIds는
    * 제작 옵션 ID, modifiers는 정의, pools는 베이스→풀→옵션 가중치, effects는 증강물별 효과, magnitudeRules는 수치 보정,
    * poolWeightPolicy는 풀 선택 정책이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code schemaVersion}: 스키마·버전 ({@code int}).
+   *   <li>{@code baseCraftedLimit}: 베이스·제작옵션·한도 ({@code int}).
+   *   <li>{@code socketBound}: 장착홈·경계값 ({@code Set<String>}).
+   *   <li>{@code craftedModifierIds}: 제작옵션·옵션·식별자목록 ({@code Set<String>}).
+   *   <li>{@code modifiers}: 옵션목록 ({@code List<ModifierDefinition>}).
+   *   <li>{@code pools}: 후보풀목록 ({@code Map<String, Map<String, Map<String, Integer>>>}).
+   *   <li>{@code effects}: 효과목록 ({@code Map<String, Effect>}).
+   *   <li>{@code magnitudeRules}: magnitude·규칙목록 ({@code List<ModifierMagnitudes.Rule>}).
+   *   <li>{@code poolWeightPolicy}: 후보풀·가중치·정책 ({@code PoolWeightPolicy}).
+   * </ul>
    */
   public record Document(
       int schemaVersion,

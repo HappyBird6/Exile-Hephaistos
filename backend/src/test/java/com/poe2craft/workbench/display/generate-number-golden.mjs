@@ -1,3 +1,4 @@
+// 프런트의 실제 숫자 표시기를 실행해 백엔드 비교 사례를 생성한다. 입력 값·언어 목록과 원본 해시를 함께 기록한다.
 // Run from repository root. Executes the existing frontend formatter, not a handwritten oracle.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { createHash } from "node:crypto";

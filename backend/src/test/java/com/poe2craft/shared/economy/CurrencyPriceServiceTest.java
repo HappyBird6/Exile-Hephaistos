@@ -11,7 +11,55 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 캐시와 외부 수집기를 조정해 리그별 시세 스냅샷을 제공한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code snapshot(time, rate)}: 현재 내용을 불변 관측값으로 구성한다. 입력: {@code time}(시간), {@code
+ *       rate}(rate). 반환: {@code PriceSnapshot}.
+ *   <li>{@code service(source, cache, clock)}: 서비스 처리에서 {@code Duration.ofMinutes}, {@code
+ *       Duration.ofSeconds}을(를) 사용한다. 입력: {@code source}(출처), {@code cache}(캐시), {@code clock}(현재
+ *       시각 공급자). 반환: {@code CurrencyPriceService}.
+ *   <li>{@code httpReadReturnsLastSnapshotWhileOneBackgroundRefreshWaits()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code automaticThirtyMinuteRefreshAndManualFiveMinuteCooldownAreSharedAcrossServices()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code failedCollectionKeepsLastGoodAndDoesNotHammerProvider()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code java.io.IOException}.
+ *   <li>{@code concurrentVisitorsUseOneRefreshAndReceiveSharedSnapshot()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code coldStartFailureReturnsUnavailableAndSharesTheCooldown()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code java.io.IOException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Time}: {@code CurrencyPriceServiceTest} 내부의 시간 처리를 맡는다.
+ *   <li>{@code Cache}: {@code CurrencyPriceServiceTest} 내부의 캐시 처리를 맡는다.
+ * </ul>
+ */
 class CurrencyPriceServiceTest {
+  /**
+   * {@code CurrencyPriceServiceTest} 내부의 시간 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code now}: 현재시각 ({@code Instant}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code getZone()}: 시간대을(를) 조회한다. 반환: {@code ZoneId}.
+   *   <li>{@code withZone(zone)}: {@code this} 값을 조회한다. 입력: {@code zone}(시간대). 반환: {@code Clock}.
+   *   <li>{@code instant()}: {@code now} 값을 조회한다. 반환: {@code Instant}.
+   *   <li>{@code advance(duration)}: 허용된 계산량만큼 작업을 진행한다. 입력: {@code duration}(소요시간).
+   * </ul>
+   */
   static final class Time extends Clock {
     Instant now = Instant.parse("2026-11-09T00:00:00Z");
 
@@ -32,6 +80,33 @@ class CurrencyPriceServiceTest {
     }
   }
 
+  /**
+   * {@code CurrencyPriceServiceTest} 내부의 캐시 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code clock}: 현재 시각 공급자 ({@code Time}).
+   *   <li>{@code snapshot}: 스냅샷 ({@code PriceSnapshot}).
+   *   <li>{@code allowed}: 허용된 ({@code Instant}).
+   *   <li>{@code token}: 인증토큰 ({@code String}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Cache(clock)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code clock}(현재 시각 공급자).
+   *   <li>{@code read()}: 지정한 입력 또는 저장된 값을 읽는다. 반환: {@code PriceSnapshot}.
+   *   <li>{@code claim(interval, lease)}: claim 처리에서 {@code clock.instant}, {@code
+   *       UUID.randomUUID}을(를) 사용한다. 입력: {@code interval}(구간), {@code lease}(사용권). 반환: {@code
+   *       String}.
+   *   <li>{@code save(snapshot, token)}: 현재 값을 저장 경계에 기록한다. 입력: {@code snapshot}(스냅샷), {@code
+   *       token}(인증토큰). 사용하는 예외: {@code IllegalStateException}.
+   *   <li>{@code release(token)}: 해제의 입력에 따른 분기·결과를 처리한다. 입력: {@code token}(인증토큰).
+   *   <li>{@code nextRefreshAllowed(now)}: 다음·갱신·허용된 처리에서 {@code allowed.isBefore}을(를) 사용한다. 입력:
+   *       {@code now}(현재시각). 반환: {@code Instant}.
+   * </ul>
+   */
   static final class Cache implements CurrencyPriceCache {
     final Time clock;
     PriceSnapshot snapshot;

@@ -7,6 +7,28 @@ import java.time.*;
 import java.util.concurrent.RejectedExecutionException;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 제작방법·탐색·Lifecycle 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code request(fixture)}: 계산·실행에 사용할 요청 값을 구성한다. 입력: {@code fixture}(검증사례). 반환: {@code
+ *       Create}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code service(fixture, clock)}: 서비스의 입력에 따른 분기·결과를 처리한다. 입력: {@code fixture}(검증사례), {@code
+ *       clock}(현재 시각 공급자). 반환: {@code MethodSearchService}.
+ *   <li>{@code rejected(code, action)}: 거절된 처리에서 {@code e.code}을(를) 사용한다. 입력: {@code code}(코드),
+ *       {@code action}(행동).
+ *   <li>{@code staleQueuedGenerationCannotPublishAfterCancelAndResume()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code reconnectReadsCurrentRevisionAndRejectsExpiredPagesAndCrossRevisionCursors()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code expiredQueuedJobCannotPublishIntoANewJobWithTheSameRequestId()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code shrinkingResumeBudgetIsARequestErrorWithoutChangingTheJob()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code RejectedExecutionException}, {@code Exception}.
+ * </ul>
+ */
 class MethodSearchLifecycleTest {
   private Create request(PathSearchServiceTest fixture) throws Exception {
     try (var old = fixture.service(1)) {

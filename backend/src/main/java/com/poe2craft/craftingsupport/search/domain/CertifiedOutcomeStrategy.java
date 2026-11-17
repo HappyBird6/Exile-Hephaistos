@@ -3,10 +3,86 @@ package com.poe2craft.craftingsupport.search.domain;
 import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 
-/** Conservative adaptive reachability bounds; residual iteration width is not arithmetic error. */
+/**
+ * 적응형 전략의 도달 확률 경계를 계산하고 반복 오차와 산술 오차를 구분한다.
+ *
+ * <p>기존 계약: Conservative adaptive reachability bounds; residual iteration width is not arithmetic
+ * error.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "certified-adaptive-reachability-v2-end-components"}
+ *       ({@code String}).
+ *   <li>{@code graph}: 그래프 ({@code Map<S, State<S>>}).
+ *   <li>{@code values}: 출처 단위로 보존하는 수치 값 ({@code Map<S, CertifiedInterval>}).
+ *   <li>{@code almostSure}: almost·Sure ({@code Map<S, String>}).
+ *   <li>{@code bits}: 비트수 ({@code int}).
+ *   <li>{@code possible}: possible ({@code Set<S>}).
+ *   <li>{@code open}: 열린 ({@code Set<S>}).
+ *   <li>{@code unresolved}: 미해결 ({@code Set<S>}).
+ *   <li>{@code arithmetic}: 산술 ({@code Set<S>}).
+ *   <li>{@code components}: 구성요소목록 ({@code List<CertifiedEndComponents.Component<S>>}).
+ *   <li>{@code componentStates}: 구성요소·상태목록 ({@code Set<S>}).
+ *   <li>{@code componentWitness}: 구성요소·증명상태 ({@code Map<S, String>}).
+ *   <li>{@code iterations}: 반복횟수 ({@code long}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code CertifiedOutcomeStrategy(graph, bits)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code graph}(그래프),
+ *       {@code bits}(비트수). 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code predecessors(seeds)}: predecessors 처리에서 {@code graph.entrySet}, {@code
+ *       entry.getValue}을(를) 사용한다. 입력: {@code seeds}(seeds). 반환: {@code Set<S>}.
+ *   <li>{@code proveAlmostSure(goals)}: 증명·Almost·Sure 처리에서 {@code graph.keySet}, {@code
+ *       graph.get}을(를) 사용한다. 입력: {@code goals}(목표목록).
+ *   <li>{@code iterations()}: {@code iterations} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code refine()}: 경계정밀화 처리에서 {@code graph.forEach}, {@code values.get}을(를) 사용한다.
+ *   <li>{@code refineComponents()}: 경계정밀화·구성요소목록 처리에서 {@code componentWitness.clear}, {@code
+ *       component.members}을(를) 사용한다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code conditionalExit(choice, region)}: 조건부·종료 처리에서 {@code ONE.shiftLeft}, {@code
+ *       choice.unresolved}을(를) 사용한다. 입력: {@code choice}(선택), {@code region}(영역). 반환: {@code
+ *       CertifiedInterval}.
+ *   <li>{@code action(choice)}: 행동 처리에서 {@code choice.unresolved}, {@code choice.outcomes}을(를)
+ *       사용한다. 입력: {@code choice}(선택). 반환: {@code CertifiedInterval}.
+ *   <li>{@code choiceValues(id)}: 선택·값목록 처리에서 {@code graph.get}, {@code scores.put}을(를) 사용한다. 입력:
+ *       {@code id}(식별자). 반환: {@code Map<String, CertifiedInterval>}.
+ *   <li>{@code result(id)}: 최종 또는 현재 계산 결과를 구성한다. 입력: {@code id}(식별자). 반환: {@code Result}. 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Choice}: {@code CertifiedOutcomeStrategy}에서 사용하는 선택의 불변 값이다.
+ *   <li>{@code State}: {@code CertifiedOutcomeStrategy}에서 사용하는 상태의 불변 값이다.
+ *   <li>{@code Result}: {@code CertifiedOutcomeStrategy}에서 사용하는 결과의 불변 값이다.
+ *   <li>{@code Exit}: {@code CertifiedOutcomeStrategy}에서 사용하는 종료의 불변 값이다.
+ * </ul>
+ */
 public final class CertifiedOutcomeStrategy<S> {
   public static final String VERSION = "certified-adaptive-reachability-v2-end-components";
 
+  /**
+   * {@code CertifiedOutcomeStrategy}에서 사용하는 선택의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code outcomes}: 결과목록 ({@code Map<S, CertifiedInterval>}).
+   *   <li>{@code unresolved}: 미해결 ({@code CertifiedInterval}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Choice(id, outcomes, unresolved)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자),
+   *       {@code outcomes}(결과목록), {@code unresolved}(미해결). 사용하는 예외: {@code
+   *       IllegalArgumentException}.
+   * </ul>
+   */
   public record Choice<S>(
       String id, Map<S, CertifiedInterval> outcomes, CertifiedInterval unresolved) {
     public Choice {
@@ -24,12 +100,45 @@ public final class CertifiedOutcomeStrategy<S> {
     }
   }
 
+  /**
+   * {@code CertifiedOutcomeStrategy}에서 사용하는 상태의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code goal}: 목표 ({@code boolean}).
+   *   <li>{@code open}: 열린 ({@code boolean}).
+   *   <li>{@code choices}: 선택목록 ({@code List<Choice<S>>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code State(goal, open, choices)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code goal}(목표), {@code
+   *       open}(열린), {@code choices}(선택목록).
+   * </ul>
+   */
   public record State<S>(boolean goal, boolean open, List<Choice<S>> choices) {
     public State {
       choices = List.copyOf(choices);
     }
   }
 
+  /**
+   * {@code CertifiedOutcomeStrategy}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code value}: 값 ({@code CertifiedInterval}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   *   <li>{@code methodIds}: 제작방법·식별자목록 ({@code List<String>}).
+   *   <li>{@code reachableOpen}: 도달가능·열린 ({@code boolean}).
+   *   <li>{@code reachableUnresolved}: 도달가능·미해결 ({@code boolean}).
+   *   <li>{@code transitionArithmetic}: 전이·산술 ({@code boolean}).
+   *   <li>{@code fixedPointPending}: 고정·지점·대기 ({@code boolean}).
+   * </ul>
+   */
   public record Result(
       CertifiedInterval value,
       String status,
@@ -193,6 +302,17 @@ public final class CertifiedOutcomeStrategy<S> {
     iterations++;
   }
 
+  /**
+   * {@code CertifiedOutcomeStrategy}에서 사용하는 종료의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code S}).
+   *   <li>{@code choice}: 선택 ({@code Choice<S>}).
+   *   <li>{@code value}: 값 ({@code CertifiedInterval}).
+   * </ul>
+   */
   private record Exit<S>(S source, Choice<S> choice, CertifiedInterval value) {}
 
   /**

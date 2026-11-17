@@ -27,6 +27,38 @@ import java.util.*;
 import java.util.concurrent.Executor;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 작업별 잠금으로 조회·진행·취소를 동기화하고 작업 수와 수명을 제한한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code identity}: 정체성 ({@code String}).
+ *   <li>{@code index}: 색인 ({@code GoalCatalogIndex}).
+ *   <li>{@code goals}: 목표목록 ({@code GoalFilterService}).
+ *   <li>{@code queue}: 대기열 ({@code Queue<Runnable>}).
+ *   <li>{@code executor}: 작업실행기 ({@code Executor}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code configuredCapacityAndTtlApplyToActualJobs()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       사용하는 예외: {@code Exception}.
+ *   <li>{@code service(budget)}: 서비스 처리에서 {@code Clock.systemUTC}을(를) 사용한다. 입력: {@code
+ *       budget}(계산예산). 반환: {@code PathSearchService}.
+ *   <li>{@code request(service)}: 계산·실행에 사용할 요청 값을 구성한다. 입력: {@code service}(서비스). 반환: {@code
+ *       Create}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code finish(service, snapshot)}: 진행 중인 계산 또는 누적 처리를 마무리한다. 입력: {@code service}(서비스),
+ *       {@code snapshot}(스냅샷). 반환: {@code Snapshot}.
+ *   <li>{@code solarOracleAndRealContinuationMatchWithoutLosingPhaseOrMass()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code idempotencyIsolationConflictsAndExpiredRevisions()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 class PathSearchServiceTest {
   @Test
   void configuredCapacityAndTtlApplyToActualJobs() throws Exception {

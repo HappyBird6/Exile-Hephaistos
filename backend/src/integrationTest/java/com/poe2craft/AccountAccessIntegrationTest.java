@@ -19,6 +19,40 @@ import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.*;
 
+/**
+ * 계정·Access·통합 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code PG}: PG ({@code PostgreSQLContainer<?>}).
+ *   <li>{@code REDIS}: Redis ({@code GenericContainer<?>}).
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code db}: DB ({@code JdbcTemplate}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code properties(p)}: 속성 처리에서 {@code p.add}, {@code REDIS.getMappedPort}을(를) 사용한다. 입력:
+ *       {@code p}(p).
+ *   <li>{@code client(r)}: 클라이언트 처리에서 {@code json.readTree}, {@code r.getResponse}을(를) 사용한다. 입력:
+ *       {@code r}(r). 반환: {@code Client}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code registrationSessionRotationCsrfOwnershipLogoutAndAdminIsolation()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code authAttemptsAreBounded()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code
+ *       Exception}.
+ *   <li>{@code boundsCookieLessSessionCreationAcrossEntryPointsButKeepsExistingSessionsUsable()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Client}: {@code AccountAccessIntegrationTest}에서 사용하는 클라이언트의 불변 값이다.
+ * </ul>
+ */
 @Testcontainers
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -45,6 +79,17 @@ class AccountAccessIntegrationTest {
   @Autowired ObjectMapper json;
   @Autowired JdbcTemplate db;
 
+  /**
+   * {@code AccountAccessIntegrationTest}에서 사용하는 클라이언트의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code cookie}: 쿠키 ({@code Cookie}).
+   *   <li>{@code csrf}: csrf ({@code String}).
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   * </ul>
+   */
   record Client(Cookie cookie, String csrf, String id) {}
 
   Client client(MvcResult r) throws Exception {

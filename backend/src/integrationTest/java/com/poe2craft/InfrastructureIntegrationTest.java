@@ -26,6 +26,44 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+/**
+ * Infrastructure·통합 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code POSTGRES}: POSTGRES ({@code PostgreSQLContainer<?>}).
+ *   <li>{@code REDIS}: Redis ({@code GenericContainer<?>}).
+ *   <li>{@code flyway}: flyway ({@code Flyway}).
+ *   <li>{@code dsl}: dsl ({@code DSLContext}).
+ *   <li>{@code redis}: Redis ({@code StringRedisTemplate}).
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code entityManager}: entity·Manager ({@code jakarta.persistence.EntityManager}).
+ *   <li>{@code transaction}: 트랜잭션 ({@code
+ *       org.springframework.transaction.support.TransactionTemplate}).
+ *   <li>{@code supportPools}: 지원범위·후보풀목록 ({@code AdditionPoolStore}).
+ *   <li>{@code itemCatalog}: 아이템·카탈로그 ({@code ItemCatalog}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code properties(registry)}: 속성 처리에서 {@code registry.add}, {@code REDIS.getMappedPort}을(를)
+ *       사용한다. 입력: {@code registry}(등록목록).
+ *   <li>{@code supportPoolSurvivesAColdCacheAndKeepsVersionNamespacesSeparate()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code jpaFlushIsVisibleToJooqAndRollbackIsShared()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code emptyDatabaseMigratesAndRestartDoesNotReapplyMigration()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code redisRoundTripUsesIsolatedContainer()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code probesReflectAvailableInfrastructureWithoutExposingDetails()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code removedSessionSharingEndpointsAreUnavailable()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code removedAdminEndpointsDoNotCreateSessionsOrExposeData()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @Testcontainers
 @SpringBootTest
 @AutoConfigureMockMvc

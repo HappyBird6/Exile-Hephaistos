@@ -14,6 +14,20 @@ import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 
+/**
+ * 표시·Numbers·동일성 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code golden()}: golden 값을 조회·구성한다. 반환: {@code JsonNode}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code goldenWasGeneratedFromTheUnchangedFrontendSource()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code matchesActualFrontendIntlNumbersAndDecimalTextAcrossSupportedLocales()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 반환: {@code List<DynamicTest>}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rejectsNonFiniteValuesAndUnknownLocales()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class DisplayNumbersParityTest {
   private static JsonNode golden() throws Exception {
     return new ObjectMapper()

@@ -4,7 +4,20 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import java.util.function.BooleanSupplier;
 
-/** Only consumes a domain-verified constant post-removal kernel, never an assumed generic p. */
+/**
+ * 전체 상태의 갱신 조건이 증명된 카오스 반복 확률을 계산한다.
+ *
+ * <p>기존 계약: Only consumes a domain-verified constant post-removal kernel, never an assumed generic
+ * p.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code calculate(p, alreadyHit, observations, fractionBits, cancelled)}: 해당 모형의 계산 결과를 구한다.
+ *       입력: {@code p}(p), {@code alreadyHit}(already·목표도달), {@code observations}(관측값목록), {@code
+ *       fractionBits}(유리수·비트수), {@code cancelled}(취소여부). 반환: {@code FirstHitCalculator.Result}.
+ * </ul>
+ */
 public final class ChaosRenewalCalculator {
   public static FirstHitCalculator.Result calculate(
       Fraction p,

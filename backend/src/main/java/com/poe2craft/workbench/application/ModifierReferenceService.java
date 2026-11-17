@@ -6,7 +6,64 @@ import com.poe2craft.shared.item.*;
 import java.util.*;
 import org.springframework.stereotype.Service;
 
-/** Read-only candidate projection. Execution predicates remain in the crafting domain. */
+/**
+ * 실행 규칙을 바꾸지 않고 읽기 전용 후보 옵션을 구성한다.
+ *
+ * <p>기존 계약: Read-only candidate projection. Execution predicates remain in the crafting domain.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code crafting}: 제작 ({@code CraftingOperations}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code com.fasterxml.jackson.databind.ObjectMapper}).
+ *   <li>{@code states}: 상태목록 ({@code Map<String, Reference>}).
+ *   <li>{@code revisions}: 리비전목록 ({@code Map<String, Reference>}).
+ *   <li>{@code staticReferences}: static·참조목록 ({@code Map<ItemCatalog, Reference>}).
+ *   <li>{@code resolvers}: resolvers ({@code Map<ItemCatalog, ModifierPoolResolver>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code bounded(maximum)}: 한도내 처리에서 {@code Collections.synchronizedMap}을(를) 사용한다. 입력: {@code
+ *       maximum}(최대값). 반환: {@code Map<String, V>}.
+ *   <li>{@code digest(value)}: 다이제스트 처리에서 {@code HexFormat.of}, {@code
+ *       MessageDigest.getInstance}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code String}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code stateKey(state, dynamic)}: 상태·키 처리에서 {@code json.valueToTree}, {@code
+ *       tree.withArray}을(를) 사용한다. 입력: {@code state}(상태), {@code dynamic}(dynamic). 반환: {@code
+ *       String}.
+ *   <li>{@code entryKey(entry)}: 항목·키 처리에서 {@code entry.kind}, {@code entry.modifierId}을(를) 사용한다.
+ *       입력: {@code entry}(항목). 반환: {@code String}.
+ *   <li>{@code update(previous, state)}: 갱신의 입력에 따른 분기·결과를 처리한다. 입력: {@code previous}(이전), {@code
+ *       state}(상태). 반환: {@code Update}.
+ *   <li>{@code update(previous, state, staticBasis)}: 갱신의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       previous}(이전), {@code state}(상태), {@code staticBasis}(static·Basis). 반환: {@code Update}.
+ *   <li>{@code update(previous, state, staticRevision)}: 갱신 처리에서 {@code revisions.get}, {@code
+ *       staticRevision.equals}을(를) 사용한다. 입력: {@code previous}(이전), {@code state}(상태), {@code
+ *       staticRevision}(static·리비전). 반환: {@code Update}.
+ *   <li>{@code ModifierReferenceService(crafting)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       crafting}(제작).
+ *   <li>{@code ModifierReferenceService(crafting, settings)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       crafting}(제작), {@code settings}(운영설정).
+ *   <li>{@code describe(input, dynamic)}: describe 처리에서 {@code crafting.abyssCatalog}, {@code
+ *       AbyssCraftingState.from}을(를) 사용한다. 입력: {@code input}(입력), {@code dynamic}(dynamic). 반환:
+ *       {@code Reference}.
+ *   <li>{@code exclusions(state, abyss, resolver, d, replacingHidden)}: exclusions 처리에서 {@code
+ *       abyss.slots}, {@code slot.modifier}을(를) 사용한다. 입력: {@code state}(상태), {@code abyss}(훼손),
+ *       {@code resolver}(resolver), {@code d}(d), {@code replacingHidden}(replacing·미공개). 반환:
+ *       {@code List<String>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Update}: {@code ModifierReferenceService}에서 사용하는 갱신의 불변 값이다.
+ *   <li>{@code Group}: {@code ModifierReferenceService}에서 사용하는 그룹의 불변 값이다.
+ *   <li>{@code Entry}: {@code ModifierReferenceService}에서 사용하는 항목의 불변 값이다.
+ *   <li>{@code Reference}: {@code ModifierReferenceService}에서 사용하는 참조의 불변 값이다.
+ * </ul>
+ */
 @Service
 public final class ModifierReferenceService {
   private final CraftingOperations crafting;
@@ -49,6 +106,21 @@ public final class ModifierReferenceService {
     return digest(List.of(dynamic, tree));
   }
 
+  /**
+   * {@code ModifierReferenceService}에서 사용하는 갱신의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code fromRevision}: 원본·리비전 ({@code String}).
+   *   <li>{@code revision}: 결과를 갱신할 때 비교하는 리비전 ({@code String}).
+   *   <li>{@code reset}: reset ({@code boolean}).
+   *   <li>{@code entries}: 항목목록 ({@code List<Entry>}).
+   *   <li>{@code removed}: 제거된 ({@code List<String>}).
+   *   <li>{@code staticRevision}: static·리비전 ({@code String}).
+   *   <li>{@code groups}: 그룹목록 ({@code List<Group>}).
+   * </ul>
+   */
   public record Update(
       String fromRevision,
       String revision,
@@ -58,6 +130,17 @@ public final class ModifierReferenceService {
       String staticRevision,
       List<Group> groups) {}
 
+  /**
+   * {@code ModifierReferenceService}에서 사용하는 그룹의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code eligible}: 적격 ({@code boolean}).
+   *   <li>{@code reasons}: 이유목록 ({@code List<String>}).
+   *   <li>{@code indices}: indices ({@code List<Integer>}).
+   * </ul>
+   */
   public record Group(boolean eligible, List<String> reasons, List<Integer> indices) {}
 
   private static String entryKey(Entry entry) {
@@ -167,6 +250,19 @@ public final class ModifierReferenceService {
             });
   }
 
+  /**
+   * {@code ModifierReferenceService}에서 사용하는 항목의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   *   <li>{@code kind}: 종류 ({@code String}).
+   *   <li>{@code eligible}: 적격 ({@code boolean}).
+   *   <li>{@code reasons}: 이유목록 ({@code List<String>}).
+   *   <li>{@code actions}: 행동목록 ({@code List<String>}).
+   * </ul>
+   */
   public record Entry(
       String modifierId,
       String kind,
@@ -174,6 +270,17 @@ public final class ModifierReferenceService {
       List<String> reasons,
       List<String> actions) {}
 
+  /**
+   * {@code ModifierReferenceService}에서 사용하는 참조의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code entries}: 항목목록 ({@code List<Entry>}).
+   *   <li>{@code revision}: 결과를 갱신할 때 비교하는 리비전 ({@code String}).
+   *   <li>{@code staticRevision}: static·리비전 ({@code String}).
+   * </ul>
+   */
   public record Reference(List<Entry> entries, String revision, String staticRevision) {}
 
   public Reference describe(ItemState input, boolean dynamic) {

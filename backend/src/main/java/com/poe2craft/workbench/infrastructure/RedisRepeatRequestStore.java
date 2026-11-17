@@ -14,7 +14,36 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.stereotype.Component;
 
-/** Retain the pending marker on ambiguous failure: never reroll an uncertain request on retry. */
+/**
+ * 중복 요청과 취소를 Redis로 관리한다. 결과가 불확실하면 대기 표식을 유지한다.
+ *
+ * <p>기존 계약: Retain the pending marker on ambiguous failure: never reroll an uncertain request on
+ * retry.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code redis}: Redis ({@code StringRedisTemplate}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code ttl}: 만료시간 ({@code Duration}).
+ *   <li>{@code REPLACE}: REPLACE ({@code DefaultRedisScript<Long>}).
+ *   <li>{@code RELEASE}: 해제 ({@code DefaultRedisScript<Long>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code RedisRepeatRequestStore(redis, json, settings)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       redis}(Redis), {@code json}(JSON), {@code settings}(운영설정).
+ *   <li>{@code key(id)}: 키 처리에서 {@code RulesetBoundary.identity}을(를) 사용한다. 입력: {@code id}(식별자). 반환:
+ *       {@code String}.
+ *   <li>{@code execute(id, digest, operation)}: execute 처리에서 {@code TRUE.equals}, {@code
+ *       redis.opsForValue}을(를) 사용한다. 입력: {@code id}(식별자), {@code digest}(다이제스트), {@code
+ *       operation}(연산). 반환: {@code JsonNode}. 사용하는 예외: {@code RepeatRejected}, {@code
+ *       IllegalStateException}.
+ *   <li>{@code cancel(id)}: 작업 취소를 반영하고 이후 실행을 막는다. 입력: {@code id}(식별자).
+ * </ul>
+ */
 @Component
 public final class RedisRepeatRequestStore implements RepeatRequestStore {
   private final StringRedisTemplate redis;

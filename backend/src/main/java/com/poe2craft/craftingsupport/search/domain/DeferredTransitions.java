@@ -12,9 +12,48 @@ import java.math.BigInteger;
 import java.util.*;
 
 /**
- * Basic actions carry retained roll variables and append a fresh declared independent roll cell.
+ * 기존 수치 변수를 유지하며 기본 행동 후 새 옵션 수치 셀을 추가한다.
+ *
+ * <p>기존 계약: Basic actions carry retained roll variables and append a fresh declared independent
+ * roll cell.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code primitive}: 개별행동 ({@code BasicCurrencyTransitions}).
+ *   <li>{@code partition}: 분할 ({@code RollPartition}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code DeferredTransitions(primitive, partition)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       primitive}(개별행동), {@code partition}(분할).
+ *   <li>{@code primitiveCursor(source, action, omens)}: 개별행동·진행커서 처리에서 {@code partition.orbits},
+ *       {@code primitive.primitiveCursor}을(를) 사용한다. 입력: {@code source}(출처), {@code action}(행동),
+ *       {@code omens}(징조목록). 반환: {@code Cursor}. 사용하는 예외: {@code IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Identity}: {@code DeferredTransitions}에서 사용하는 정체성의 불변 값이다.
+ *   <li>{@code Cursor}: {@code DeferredTransitions} 내부의 진행커서 처리를 맡는다.
+ * </ul>
  */
 public final class DeferredTransitions {
+  /**
+   * {@code DeferredTransitions}에서 사용하는 정체성의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code kernel}: 전이커널 ({@code BasicCurrencyTransitions.KernelIdentity}).
+   *   <li>{@code retainedLaws}: 보유·분포목록 ({@code List<Map<String, DeferredItem.Band>>}).
+   *   <li>{@code retainedTiers}: 보유·티어목록 ({@code List<Map<String, TierCell>>}).
+   *   <li>{@code retainedOrbits}: 보유·교환가능계열목록 ({@code List<Map<String, OrbitCell>>}).
+   * </ul>
+   */
   public record Identity(
       BasicCurrencyTransitions.KernelIdentity kernel,
       List<Map<String, DeferredItem.Band>> retainedLaws,
@@ -38,12 +77,59 @@ public final class DeferredTransitions {
     return new Cursor(source, cursor);
   }
 
+  /**
+   * {@code DeferredTransitions} 내부의 진행커서 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code source}: 출처 ({@code DeferredItem}).
+   *   <li>{@code cursor}: 진행커서 ({@code BasicCurrencyTransitions.PrimitiveCursor}).
+   *   <li>{@code emitted}: 내보낸 ({@code Set<TierEmission>}).
+   *   <li>{@code next}: 다음 ({@code ExactMethodRunner.Outcome<DeferredItem>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Cursor(source, cursor)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code source}(출처), {@code
+   *       cursor}(진행커서).
+   *   <li>{@code blocked()}: 차단 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code status()}: 현재 진행 상태를 조회한다. 반환: {@code BasicCurrencyTransitions.Status}.
+   *   <li>{@code reason()}: 이유 값을 조회·구성한다. 반환: {@code String}.
+   *   <li>{@code remainingOutcomes()}: 남은·결과목록 값을 조회·구성한다. 반환: {@code BigInteger}.
+   *   <li>{@code assumptions()}: 계산가정 값을 조회·구성한다. 반환: {@code List<WorkbenchSimulator.Assumption>}.
+   *   <li>{@code mayApplyAfter(action)}: may·적용·변경후 처리에서 {@code cursor.mayApplyAfter}을(를) 사용한다. 입력:
+   *       {@code action}(행동). 반환: {@code boolean}.
+   *   <li>{@code identity()}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 반환: {@code Optional<Identity>}.
+   *   <li>{@code next()}: 다음 값을 조회·구성한다. 반환: {@code ExactMethodRunner.Outcome<DeferredItem>}. 사용하는
+   *       예외: {@code IllegalStateException}.
+   *   <li>{@code advance()}: 허용된 계산량만큼 작업을 진행한다. 사용하는 예외: {@code IllegalStateException}.
+   * </ul>
+   *
+   * <p>중첩 타입:
+   *
+   * <ul>
+   *   <li>{@code TierEmission}: {@code Cursor}에서 사용하는 티어·Emission의 불변 값이다.
+   * </ul>
+   */
   public final class Cursor {
     private final DeferredItem source;
     private final BasicCurrencyTransitions.PrimitiveCursor cursor;
     private final Set<TierEmission> emitted = new HashSet<>();
     private ExactMethodRunner.Outcome<DeferredItem> next;
 
+    /**
+     * {@code Cursor}에서 사용하는 티어·Emission의 불변 값이다.
+     *
+     * <p>필드·상수·record 구성요소:
+     *
+     * <ul>
+     *   <li>{@code branch}: 분기 ({@code int}).
+     *   <li>{@code cell}: 셀 ({@code TierCell}).
+     * </ul>
+     */
     private record TierEmission(int branch, TierCell cell) {}
 
     private Cursor(DeferredItem source, BasicCurrencyTransitions.PrimitiveCursor cursor) {

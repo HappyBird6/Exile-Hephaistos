@@ -7,7 +7,26 @@ import com.poe2craft.shared.crafting.domain.*;
 import com.poe2craft.shared.item.*;
 import java.util.Map;
 
-/** Builds automatic search kernels from the same reviewed rules used by the manual workbench. */
+/**
+ * 수동 작업대와 같은 규칙으로 자동 탐색 커널을 만든다.
+ *
+ * <p>기존 계약: Builds automatic search kernels from the same reviewed rules used by the manual
+ * workbench.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code crafting}: 제작 ({@code CraftingOperations}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code AutomaticKernelFactory(crafting)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code crafting}(제작).
+ *   <li>{@code create(state, policy)}: 새 작업 또는 값을 생성한다. 입력: {@code state}(상태), {@code policy}(정책).
+ *       반환: {@code AutomaticCraftingKernel}.
+ * </ul>
+ */
 public final class AutomaticKernelFactory {
   private final CraftingOperations crafting;
 

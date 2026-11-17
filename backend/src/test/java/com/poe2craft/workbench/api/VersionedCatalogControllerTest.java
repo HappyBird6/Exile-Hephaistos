@@ -18,6 +18,35 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.web.servlet.MockMvc;
 
 // Keep the real HTTP filters; mock only their external Redis dependency.
+/**
+ * 규칙 버전별 불변 카탈로그를 응답하고 전송 형식별 HTTP 캐시를 구분한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code references}: 참조목록 ({@code
+ *       com.poe2craft.shared.crafting.infrastructure.CatalogReferences}).
+ *   <li>{@code crafting}: 제작 ({@code
+ *       com.poe2craft.shared.crafting.application.CraftingOperations}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code identicalBasesShareReferencesAndAnotherReplicaCanResolveThem()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code sharedReferenceIsOptInSoExistingClientsKeepTheirExpectedBaseUrl()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code separateReferenceReconstructsTheOriginalEnvelopeIncludingManualReveal()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code obsoleteVersionCannotBeCachedAsCurrentData()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       사용하는 예외: {@code Exception}.
+ *   <li>{@code cachedReferenceCanBeRevalidatedWithoutRetransmittingDefinitions()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ */
 @org.springframework.test.context.bean.override.mockito.MockitoBean(
     types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest({WorkbenchController.class, VersionedCatalogController.class})

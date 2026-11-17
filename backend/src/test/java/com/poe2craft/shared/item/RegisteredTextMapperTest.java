@@ -8,6 +8,44 @@ import com.poe2craft.shared.item.text.ItemTextService;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Registered·텍스트·변환기 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code parser}: 파서 ({@code ItemTextService}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code legacySkillObservationsUseBundledProofAndRetainUnknownLevel()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code shrineSkillResolvesIdentityAndRetainsExplicitLevelWithoutInventingIt()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code socketObservationsDoNotPretendToBeArtificerCapacityAndRuneEffectsRemainSeparate()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code everyRegisteredTopBaseWithoutImplicitAcceptsExactNormalIdentity()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code derivedPropertiesRemainInOriginalDocumentAndDoNotBecomeRawModifiers()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code onlyExactCatalogGrantedSkillLinesAreAccepted()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code ambiguousNameNeverChoosesAnElementOrFirstCatalog()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ *   <li>{@code mismatchAndUnknownPropertiesDoNotProduceLossyState()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code compoundRangesBindByVerifiedEndpointsRatherThanAlphabeticStatOrder()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code multilineAdvancedModifierRemainsOneAffixAndOrphanMetadataStillBlocks()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code qualityAndUnrevealedSlotsSurviveMappingAndAbyssRoundTrip()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
+ *   <li>{@code revealedDesecratedHybridRetainsOneMarkedSlot()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다.
+ * </ul>
+ */
 class RegisteredTextMapperTest {
   private final ItemTextService parser = new ItemTextService();
 

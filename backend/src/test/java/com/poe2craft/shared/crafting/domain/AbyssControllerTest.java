@@ -26,6 +26,46 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 // Keep the real HTTP filters; mock only their external Redis dependency.
+/**
+ * 훼손·Controller 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code crafting}: 제작 ({@code CatalogCraftingService}).
+ *   <li>{@code fixture}: 검증사례 ({@code CurrentCatalogFixture}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code currentCatalogFixture()}: 각 검증에 필요한 독립 초기 상태와 의존성을 준비한다.
+ *   <li>{@code directChoiceUsesEligiblePoolAndRestoresWithoutThreeCandidates()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code boneApplicationRequiresIdentityAndRestoresCurrencyConstraint()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code request()}: 계산·실행에 사용할 요청 값을 구성한다. 반환: {@code ObjectNode}.
+ *   <li>{@code
+ *       restoresAnUnrevealedSlotWithoutLosingItsOccupancyAndNeverReturnsRevealProbability()}: 이름에
+ *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code unknownFieldsAndFractionalStatValuesAreRejectedBeforeConversion()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code missingRulesetCannotExecuteNewEndpoints()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *       사용하는 예외: {@code Exception}.
+ *   <li>{@code commonSlotsImportWithoutFlatteningAndOrdinaryEndpointStillRefuses()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code importDoesNotDiscardDuplicateMarksForOneRevealedModifier()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code CurrentCatalogFixture}: {@code AbyssControllerTest} 내부의 현재·카탈로그·검증사례 처리를 맡는다.
+ * </ul>
+ */
 @org.springframework.test.context.bean.override.mockito.MockitoBean(
     types = org.springframework.data.redis.core.StringRedisTemplate.class)
 @WebMvcTest(WorkbenchController.class)
@@ -42,6 +82,23 @@ class AbyssControllerTest {
   }
 
   // HTTP boundaries validate the current full catalog, not the legacy domain-test subset.
+  /**
+   * {@code AbyssControllerTest} 내부의 현재·카탈로그·검증사례 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code com.poe2craft.shared.item.ItemCatalog}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code rare(level, locked, ids)}: 희귀 처리에서 {@code crafting.initial}, {@code
+   *       root.snapshotId}을(를) 사용한다. 입력: {@code level}(레벨), {@code locked}(잠긴), {@code ids}(식별자목록).
+   *       반환: {@code ItemState}.
+   * </ul>
+   */
   private final class CurrentCatalogFixture {
     final com.poe2craft.shared.item.ItemCatalog catalog = crafting.abyssCatalog(rare(82, ""));
 

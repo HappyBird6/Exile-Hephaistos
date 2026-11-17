@@ -9,6 +9,26 @@ import com.poe2craft.shared.item.*;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 에센스·증강물·Regression 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code service()}: 서비스 값을 조회·구성한다. 반환: {@code CatalogCraftingService}.
+ *   <li>{@code minimum(d)}: 최소값 처리에서 {@code d.stats}, {@code values.put}을(를) 사용한다. 입력: {@code
+ *       d}(d). 반환: {@code ModifierInstance}.
+ *   <li>{@code empty(c)}: 빈 초기값 또는 비어 있는지 여부를 구한다. 입력: {@code c}(c). 반환: {@code ItemState}.
+ *   <li>{@code fill(sim, state)}: fill 처리에서 {@code sim.apply}, {@code r.applied}을(를) 사용한다. 입력:
+ *       {@code sim}(sim), {@code state}(상태). 반환: {@code ItemState}.
+ *   <li>{@code allSixAugmentPoolsKeepRevealCandidatesAndFullItemEssencesUsable()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code astridCanRetainOneEssenceAndAddAnotherOnFullGloves()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
+ *   <li>{@code sovereignResistancePlainGameTextRecoversRawRollAndProjectsThirtyNine()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class EssenceAugmentRegressionTest {
   private CatalogCraftingService service() {
     var cfg = new CatalogConfiguration();

@@ -8,6 +8,31 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * 사용자별 게시물 반응을 PostgreSQL에서 관리한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code db}: DB ({@code JdbcTemplate}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code PostgresCommunityReactions(db)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code db}(DB).
+ *   <li>{@code lock(post)}: 잠금 처리에서 {@code db.queryForList}을(를) 사용한다. 입력: {@code post}(게시물). 사용하는
+ *       예외: {@code ResponseStatusException}.
+ *   <li>{@code stats(post, actor)}: 수치목록 처리에서 {@code db.query}, {@code r.getLong}을(를) 사용한다. 입력:
+ *       {@code post}(게시물), {@code actor}(작업주체). 반환: {@code Stats}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ *   <li>{@code download(post, actor)}: 다운로드 처리에서 {@code db.queryForList}, {@code actor.browser}을(를)
+ *       사용한다. 입력: {@code post}(게시물), {@code actor}(작업주체). 반환: {@code Stats}.
+ *   <li>{@code recommend(post, actor, enabled)}: 현재 계산에서 제공할 추천 결과를 구성한다. 입력: {@code post}(게시물),
+ *       {@code actor}(작업주체), {@code enabled}(사용여부). 반환: {@code Stats}. 사용하는 예외: {@code
+ *       ResponseStatusException}.
+ * </ul>
+ */
 @Repository
 public class PostgresCommunityReactions implements CommunityReactions {
   private final JdbcTemplate db;

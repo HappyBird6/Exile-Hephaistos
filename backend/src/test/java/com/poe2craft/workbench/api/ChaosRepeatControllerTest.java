@@ -24,6 +24,53 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+/**
+ * 원문 바이트에 묶인 중복 실행 방지 계약으로 카오스 반복 요청을 처리한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code URL}: 출처주소; 초기값 {@code "/api/v1/crafting/workbench/chaos-repeat"} ({@code String}).
+ *   <li>{@code CONTROLLER}: CONTROLLER ({@code ChaosRepeatController}).
+ *   <li>{@code mvc}: MVC검증기 ({@code MockMvc}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code mvc(controller)}: MVC검증기 처리에서 {@code MockMvcBuilders.standaloneSetup}, {@code
+ *       Jackson2ObjectMapperBuilder.json}을(를) 사용한다. 입력: {@code controller}(controller). 반환: {@code
+ *       MockMvc}.
+ *   <li>{@code request(abyss)}: 계산·실행에 사용할 요청 값을 구성한다. 입력: {@code abyss}(훼손). 반환: {@code
+ *       ObjectNode}.
+ *   <li>{@code send(body, status)}: send 처리에서 {@code mvc.perform}, {@code
+ *       RulesetBoundary.identity}을(를) 사용한다. 입력: {@code body}(본문), {@code status}(상태). 반환: {@code
+ *       JsonNode}. 사용하는 예외: {@code Exception}.
+ *   <li>{@code acceptsOmittedLegacyInfusionFlagInConcreteAndAbyssRequests()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code bothStateKindsReturnFlatStateFreeWitnessAndBindExactReceivedBytesWithDefault1000()}:
+ *       이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code normalLimitAppliesAllUsesAndOneIsTheMinimum()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code numericCoercionUnknownPropertiesEnumsAndDuplicatesAreRejected()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code invalidCanonicalStateSanctificationAndWrongSnapshotDoNotReachApply()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code rulesetBoundaryStillRequiresMatchingIdentity()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code byteLimitUsesActualStreamEvenWithNoContentLengthAndUtf8MustBeValid()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code grammarErrorsExposeSafeUsefulCodesWithoutPatternOrTrace()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code partialFailureAndBusyAdmissionKeepProblemDetailsAndRulesetHeader()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code sharedOriginalUtf8FixtureHasIdenticalJavaDigest()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
+ *       비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code optionalFalseModifierFlagsRemainOptionalAtTheStrictHttpBoundary()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code removeFlags(node)}: 상태플래그을(를) 제거한다. 입력: {@code node}(노드).
+ * </ul>
+ */
 class ChaosRepeatControllerTest {
   private static final String URL = "/api/v1/crafting/workbench/chaos-repeat";
   private static final ChaosRepeatController CONTROLLER =

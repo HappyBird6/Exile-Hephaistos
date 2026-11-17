@@ -5,6 +5,29 @@ import com.poe2craft.craftingsupport.search.application.PathSearchProtocol.Rejec
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 탐색 작업의 입력·소유권·진행 오류를 공개 응답으로 변환한다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code rejected(error)}: 거절된 처리에서 {@code error.status}, {@code error.code}을(를) 사용한다. 입력:
+ *       {@code error}(오류). 반환: {@code ResponseEntity<Problem>}.
+ *   <li>{@code goal(error)}: 목표 처리에서 {@code error.staleCatalog}, {@code error.issues}을(를) 사용한다. 입력:
+ *       {@code error}(오류). 반환: {@code ResponseEntity<Problem>}.
+ *   <li>{@code invalid()}: 잘못된 입력을 나타내는 오류 결과를 만든다. 반환: {@code ResponseEntity<Problem>}.
+ *   <li>{@code failed()}: failed 값을 조회·구성한다. 반환: {@code ResponseEntity<Problem>}.
+ *   <li>{@code problem(status, code)}: 오류상세 처리에서 {@code ResponseEntity.status}, {@code
+ *       HttpStatus.valueOf}을(를) 사용한다. 입력: {@code status}(상태), {@code code}(코드). 반환: {@code
+ *       ResponseEntity<Problem>}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Problem}: {@code PathSearchErrors}에서 사용하는 오류상세의 불변 값이다.
+ * </ul>
+ */
 @RestControllerAdvice(
     assignableTypes = {
       PathSearchController.class,
@@ -12,6 +35,18 @@ import org.springframework.web.bind.annotation.*;
       AutomaticSearchController.class
     })
 public final class PathSearchErrors {
+  /**
+   * {@code PathSearchErrors}에서 사용하는 오류상세의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code type}: 타입 ({@code String}).
+   *   <li>{@code title}: 제목 ({@code String}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code int}).
+   *   <li>{@code code}: 코드 ({@code String}).
+   * </ul>
+   */
   public record Problem(String type, String title, int status, String code) {}
 
   @ExceptionHandler(Rejected.class)

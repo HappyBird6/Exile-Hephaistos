@@ -9,7 +9,34 @@ import java.util.Map;
 import java.util.function.BooleanSupplier;
 
 /**
- * Layered probability propagation for a fixed action plan. Shared/cyclic graph nodes remain shared.
+ * 고정 행동 계획의 확률을 층별로 전파하고 같은 상태 노드를 공유한다.
+ *
+ * <p>기존 계약: Layered probability propagation for a fixed action plan. Shared/cyclic graph nodes
+ * remain shared.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code transitions}: 전이목록 ({@code TransitionCache}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code GraphExplorer(transitions)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code transitions}(전이목록).
+ *   <li>{@code explore(root, plan, maxNodes, maxEdges, stop)}: explore 처리에서 {@code plan.isEmpty},
+ *       {@code plan.size}을(를) 사용한다. 입력: {@code root}(시작점), {@code plan}(계획), {@code
+ *       maxNodes}(최대값·노드목록), {@code maxEdges}(최대값·간선목록), {@code stop}(stop). 반환: {@code Result}.
+ *       사용하는 예외: {@code IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Edge}: {@code GraphExplorer}에서 사용하는 간선의 불변 값이다.
+ *   <li>{@code Terminal}: {@code GraphExplorer}에서 사용하는 종료의 불변 값이다.
+ *   <li>{@code Result}: {@code GraphExplorer}에서 사용하는 결과의 불변 값이다.
+ * </ul>
  */
 public final class GraphExplorer {
   private final TransitionCache transitions;
@@ -93,11 +120,51 @@ public final class GraphExplorer {
         deferred == 0);
   }
 
+  /**
+   * {@code GraphExplorer}에서 사용하는 간선의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code fromId}: 원본·식별자 ({@code String}).
+   *   <li>{@code toId}: 대상·식별자 ({@code String}).
+   *   <li>{@code step}: 단계 ({@code int}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code CraftingAction}).
+   *   <li>{@code probability}: 확률 ({@code double}).
+   * </ul>
+   */
   public record Edge(
       String fromId, String toId, int step, CraftingAction action, double probability) {}
 
+  /**
+   * {@code GraphExplorer}에서 사용하는 종료의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code step}: 단계 ({@code int}).
+   *   <li>{@code status}: 현재 처리 상태 ({@code String}).
+   *   <li>{@code probability}: 확률 ({@code double}).
+   * </ul>
+   */
   public record Terminal(String id, int step, String status, double probability) {}
 
+  /**
+   * {@code GraphExplorer}에서 사용하는 결과의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code nodes}: 노드목록 ({@code Map<String, StateBucket>}).
+   *   <li>{@code edges}: 간선목록 ({@code List<Edge>}).
+   *   <li>{@code terminals}: terminals ({@code List<Terminal>}).
+   *   <li>{@code completedProbability}: 완료·확률 ({@code double}).
+   *   <li>{@code blockedProbability}: 차단·확률 ({@code double}).
+   *   <li>{@code unexploredProbability}: unexplored·확률 ({@code double}).
+   *   <li>{@code complete}: 완료 ({@code boolean}).
+   * </ul>
+   */
   public record Result(
       Map<String, StateBucket> nodes,
       List<Edge> edges,

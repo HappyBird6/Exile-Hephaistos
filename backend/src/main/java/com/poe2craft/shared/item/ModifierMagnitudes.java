@@ -3,10 +3,59 @@ package com.poe2craft.shared.item;
 import java.math.BigDecimal;
 import java.util.*;
 
-/** Source-tagged explicit effects; original provider rolls select a single nonrecursive pass. */
+/**
+ * 원래 제공자 수치를 기준으로 출처 태그별 옵션 효과를 한 번 보정한다.
+ *
+ * <p>기존 계약: Source-tagged explicit effects; original provider rolls select a single nonrecursive
+ * pass.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ModifierMagnitudes()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code provider(definition)}: provider 처리에서 {@code definition.stats}, {@code
+ *       AugmentCraftingRules.magnitudeRules}을(를) 사용한다. 입력: {@code definition}(정의). 반환: {@code
+ *       boolean}.
+ *   <li>{@code factor(providers, definition)}: 배율 처리에서 {@code definition.layer}, {@code
+ *       definition.tags}을(를) 사용한다. 입력: {@code providers}(providers), {@code definition}(정의). 반환:
+ *       {@code BigDecimal}.
+ *   <li>{@code factor(state, definition, implicit)}: 배율 처리에서 {@code state.observedSanctified},
+ *       {@code state.explicits}을(를) 사용한다. 입력: {@code state}(상태), {@code definition}(정의), {@code
+ *       implicit}(암시옵션). 반환: {@code BigDecimal}.
+ *   <li>{@code value(state, definition, modifier, stat, implicit)}: 값 처리에서 {@code
+ *       QualitySanctification.value}을(를) 사용한다. 입력: {@code state}(상태), {@code definition}(정의),
+ *       {@code modifier}(옵션), {@code stat}(수치), {@code implicit}(암시옵션). 반환: {@code BigDecimal}.
+ *   <li>{@code rawMetadata(metadata)}: 원문·메타데이터 처리에서 {@code Pattern.compile}, {@code
+ *       metadata.raw}을(를) 사용한다. 입력: {@code metadata}(메타데이터). 반환: {@code boolean}.
+ *   <li>{@code clipboardFactor(definition, providers, metadata, finalValues)}: clipboard·배율의 입력에 따른
+ *       분기·결과를 처리한다. 입력: {@code definition}(정의), {@code providers}(providers), {@code
+ *       metadata}(메타데이터), {@code finalValues}(최종·값목록). 반환: {@code BigDecimal}.
+ *   <li>{@code matchProvider(definition, text, providers)}: 일치·Provider 처리에서 {@code
+ *       definition.stats}, {@code range.max}을(를) 사용한다. 입력: {@code definition}(정의), {@code
+ *       text}(텍스트), {@code providers}(providers). 반환: {@code ModifierInstance}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Rule}: {@code ModifierMagnitudes}에서 사용하는 규칙의 불변 값이다.
+ * </ul>
+ */
 public final class ModifierMagnitudes {
   private ModifierMagnitudes() {}
 
+  /**
+   * {@code ModifierMagnitudes}에서 사용하는 규칙의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code stat}: 수치 ({@code String}).
+   *   <li>{@code tags}: 태그목록 ({@code List<String>}).
+   *   <li>{@code description}: 설명 ({@code String}).
+   *   <li>{@code consumers}: consumers ({@code List<String>}).
+   * </ul>
+   */
   public record Rule(String stat, List<String> tags, String description, List<String> consumers) {}
 
   public static boolean provider(ModifierDefinition definition) {

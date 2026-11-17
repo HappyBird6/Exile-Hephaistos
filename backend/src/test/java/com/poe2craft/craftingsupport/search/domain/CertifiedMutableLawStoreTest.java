@@ -8,6 +8,18 @@ import java.math.BigInteger;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 작업별 가변 흡수 분포를 저장하고 제한된 해독 페이지 캐시를 공유한다. 해당 동작과 실패 경계를 검증하는 테스트다.
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code evictionAndRepeatedUpdatesPreserveEveryEndpointAcrossIndependentLaws()}: 이름에 명시한
+ *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code pagedAbsorptionMatchesOrdinaryRunnerAndCanBeFrozenBeforeRelease()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
+ * </ul>
+ */
 class CertifiedMutableLawStoreTest {
   @Test
   void evictionAndRepeatedUpdatesPreserveEveryEndpointAcrossIndependentLaws() {

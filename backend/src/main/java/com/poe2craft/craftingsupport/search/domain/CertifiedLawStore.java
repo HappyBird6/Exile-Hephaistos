@@ -5,7 +5,81 @@ import java.math.BigInteger;
 import java.util.*;
 import java.util.zip.*;
 
-/** Lossless class-law pages. Interval objects are materialized only in a bounded read cache. */
+/**
+ * 확률 분포를 손실 없이 페이지로 저장하고 읽기 캐시의 객체 수를 제한한다.
+ *
+ * <p>기존 계약: Lossless class-law pages. Interval objects are materialized only in a bounded read
+ * cache.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "certified-law-pages-v2-backed-payloads"} ({@code String}).
+ *   <li>{@code PAGE_ROWS}: 행목록; 초기값 {@code 256} ({@code int}).
+ *   <li>{@code bits}: 비트수 ({@code int}).
+ *   <li>{@code pages}: 페이지목록 ({@code Map<Integer, List<Page>>}).
+ *   <li>{@code backing}: backing ({@code PackedPages}).
+ *   <li>{@code pageCount}: 페이지·개수 ({@code int}).
+ *   <li>{@code cache}: 캐시 ({@code LinkedHashMap<Page, Decoded>}).
+ *   <li>{@code bytes}: 바이트수 ({@code long}).
+ *   <li>{@code rows}: 행목록 ({@code long}).
+ *   <li>{@code reused}: reused ({@code long}).
+ *   <li>{@code decoded}: 짧은 ID에서 원본 키로 가는 도메인별 불변 색인 ({@code long}).
+ *   <li>{@code cachedRows}: 캐시된·행목록 ({@code int}).
+ *   <li>{@code descriptors}: descriptors ({@code long}).
+ *   <li>{@code closed}: 닫힘 ({@code boolean}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code page(law, offset, limit)}: 페이지 처리에서 {@code law.size}, {@code paged.page}을(를) 사용한다.
+ *       입력: {@code law}(분포), {@code offset}(시작위치), {@code limit}(한도). 반환: {@code List<Map.Entry<K,
+ *       CertifiedInterval>>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code CertifiedLawStore(bits)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code bits}(비트수).
+ *   <li>{@code CertifiedLawStore(bits, backing)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code bits}(비트수),
+ *       {@code backing}(backing).
+ *   <li>{@code metrics()}: 측정값 값을 조회·구성한다. 반환: {@code Metrics}.
+ *   <li>{@code materializedRows()}: {@code cachedRows} 값을 조회한다. 반환: {@code int}.
+ *   <li>{@code packedBytes()}: {@code bytes} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code pageCount()}: {@code pageCount} 값을 조회한다. 반환: {@code int}.
+ *   <li>{@code residentPackedBytes()}: 메모리상주·압축된·바이트수 값을 조회·구성한다. 반환: {@code long}.
+ *   <li>{@code descriptors()}: {@code descriptors} 값을 조회한다. 반환: {@code long}.
+ *   <li>{@code open()}: 조회할 자원 또는 작업 범위를 연다. 사용하는 예외: {@code IllegalStateException}.
+ *   <li>{@code freeze(input)}: 변경 중인 값을 불변 조회·저장 표현으로 만든다. 입력: {@code input}(입력). 반환: {@code
+ *       Map<Integer, CertifiedInterval>}.
+ *   <li>{@code prepare(input)}: prepare의 입력에 따른 분기·결과를 처리한다. 입력: {@code input}(입력). 반환: {@code
+ *       Freeze}.
+ *   <li>{@code pack(entries)}: pack 처리에서 {@code data.writeInt}, {@code entries.size}을(를) 사용한다. 입력:
+ *       {@code entries}(항목목록). 반환: {@code Page}. 사용하는 예외: {@code UncheckedIOException}.
+ *   <li>{@code write(data, value)}: 쓰기 처리에서 {@code value.toByteArray}, {@code data.writeByte}을(를)
+ *       사용한다. 입력: {@code data}(데이터), {@code value}(값). 사용하는 예외: {@code IOException}.
+ *   <li>{@code read(page)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code page}(페이지). 반환: {@code Decoded}. 사용하는
+ *       예외: {@code IllegalStateException}, {@code UncheckedIOException}.
+ *   <li>{@code integer(data)}: 정수 처리에서 {@code data.readUnsignedByte}, {@code data.readNBytes}을(를)
+ *       사용한다. 입력: {@code data}(데이터). 반환: {@code BigInteger}. 사용하는 예외: {@code IOException}, {@code
+ *       EOFException}.
+ *   <li>{@code total(law, bits)}: 합계 처리에서 {@code packed.total}, {@code law.values}을(를) 사용한다. 입력:
+ *       {@code law}(분포), {@code bits}(비트수). 반환: {@code CertifiedInterval}.
+ *   <li>{@code total(values, bits)}: 합계 처리에서 {@code law.total}, {@code CertifiedInterval.zero}을(를)
+ *       사용한다. 입력: {@code values}(값목록), {@code bits}(비트수). 반환: {@code CertifiedInterval}.
+ *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code PagedLaw}: {@code CertifiedLawStore} 내부의 Paged·분포 처리를 맡는다.
+ *   <li>{@code PackedPages}: {@code CertifiedLawStore} 내부의 압축된·페이지목록 처리를 맡는다.
+ *   <li>{@code MemoryPages}: {@code CertifiedLawStore} 내부의 메모리·페이지목록 처리를 맡는다.
+ *   <li>{@code Page}: {@code CertifiedLawStore}에서 사용하는 페이지의 불변 값이다.
+ *   <li>{@code Decoded}: {@code CertifiedLawStore}에서 사용하는 복원값의 불변 값이다.
+ *   <li>{@code Metrics}: {@code CertifiedLawStore}에서 사용하는 측정값의 불변 값이다.
+ *   <li>{@code Freeze}: {@code CertifiedLawStore} 내부의 불변복사 처리를 맡는다.
+ *   <li>{@code Values}: {@code CertifiedLawStore} 내부의 값목록 처리를 맡는다.
+ *   <li>{@code Law}: {@code CertifiedLawStore} 내부의 분포 처리를 맡는다.
+ * </ul>
+ */
 public final class CertifiedLawStore implements AutoCloseable {
   public static final String VERSION = "certified-law-pages-v2-backed-payloads";
   private static final int PAGE_ROWS = 256;
@@ -19,6 +93,17 @@ public final class CertifiedLawStore implements AutoCloseable {
   private long descriptors;
   private boolean closed;
 
+  /**
+   * {@code CertifiedLawStore} 내부의 Paged·분포 처리를 맡는다.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code total()}: 합계 값을 조회·구성한다. 반환: {@code CertifiedInterval}.
+   *   <li>{@code page(offset, limit)}: 페이지의 실행 계약을 정의한다. 입력: {@code offset}(시작위치), {@code
+   *       limit}(한도). 반환: {@code List<Map.Entry<K, CertifiedInterval>>}.
+   * </ul>
+   */
   public interface PagedLaw<K> extends Map<K, CertifiedInterval> {
     CertifiedInterval total();
 
@@ -47,8 +132,37 @@ public final class CertifiedLawStore implements AutoCloseable {
     this.backing = Objects.requireNonNull(backing);
   }
 
-  /** Job-owned immutable payload storage; returned byte arrays are borrowed read-only views. */
+  /**
+   * {@code CertifiedLawStore} 내부의 압축된·페이지목록 처리를 맡는다.
+   *
+   * <p>기존 계약: Job-owned immutable payload storage; returned byte arrays are borrowed read-only
+   * views.
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code store(bytes)}: 저장소의 실행 계약을 정의한다. 입력: {@code bytes}(바이트수). 반환: {@code Payload}.
+   *   <li>{@code residentBytes()}: 메모리상주·바이트수 값을 조회·구성한다. 반환: {@code long}.
+   *   <li>{@code diskBytes()}: 디스크·바이트수 값을 조회·구성한다. 반환: {@code long}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   *
+   * <p>중첩 타입:
+   *
+   * <ul>
+   *   <li>{@code Payload}: {@code PackedPages} 내부의 저장내용 처리를 맡는다.
+   * </ul>
+   */
   public interface PackedPages extends AutoCloseable {
+    /**
+     * {@code PackedPages} 내부의 저장내용 처리를 맡는다.
+     *
+     * <p>생성자·메서드:
+     *
+     * <ul>
+     *   <li>{@code read()}: 지정한 입력 또는 저장된 값을 읽는다. 반환: {@code byte[]}.
+     * </ul>
+     */
     interface Payload {
       byte[] read();
     }
@@ -63,10 +177,46 @@ public final class CertifiedLawStore implements AutoCloseable {
     void close();
   }
 
+  /**
+   * {@code CertifiedLawStore} 내부의 메모리·페이지목록 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code data}: 데이터 ({@code Map<Payload, byte[]>}).
+   *   <li>{@code bytes}: 바이트수 ({@code long}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code store(value)}: 저장소 처리에서 {@code data.put}을(를) 사용한다. 입력: {@code value}(값). 반환:
+   *       {@code Payload}.
+   *   <li>{@code residentBytes()}: {@code bytes} 값을 조회한다. 반환: {@code long}.
+   *   <li>{@code diskBytes()}: {@code 0} 값을 조회한다. 반환: {@code long}.
+   *   <li>{@code close()}: 보유한 자원과 작업 상태를 종료·해제한다.
+   * </ul>
+   *
+   * <p>중첩 타입:
+   *
+   * <ul>
+   *   <li>{@code MemoryPayload}: {@code MemoryPages} 내부의 메모리·저장내용 처리를 맡는다.
+   * </ul>
+   */
   private static final class MemoryPages implements PackedPages {
     private final Map<Payload, byte[]> data = new IdentityHashMap<>();
     private long bytes;
 
+    /**
+     * {@code MemoryPages} 내부의 메모리·저장내용 처리를 맡는다.
+     *
+     * <p>생성자·메서드:
+     *
+     * <ul>
+     *   <li>{@code read()}: 지정한 입력 또는 저장된 값을 읽는다. 반환: {@code byte[]}. 사용하는 예외: {@code
+     *       IllegalStateException}.
+     * </ul>
+     */
     private final class MemoryPayload implements Payload {
       public byte[] read() {
         var found = data.get(this);
@@ -96,14 +246,60 @@ public final class CertifiedLawStore implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code CertifiedLawStore}에서 사용하는 페이지의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code bytes}: 바이트수 ({@code PackedPages.Payload}).
+   *   <li>{@code first}: 최초 ({@code int}).
+   *   <li>{@code last}: 마지막 ({@code int}).
+   *   <li>{@code size}: 크기 ({@code int}).
+   * </ul>
+   */
   private record Page(PackedPages.Payload bytes, int first, int last, int size) {}
 
+  /**
+   * {@code CertifiedLawStore}에서 사용하는 복원값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code keys}: 키목록 ({@code int[]}).
+   *   <li>{@code values}: 출처 단위로 보존하는 수치 값 ({@code CertifiedInterval[]}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code entry(index)}: 항목의 입력에 따른 분기·결과를 처리한다. 입력: {@code index}(색인). 반환: {@code
+   *       Map.Entry<Integer, CertifiedInterval>}.
+   * </ul>
+   */
   private record Decoded(int[] keys, CertifiedInterval[] values) {
     Map.Entry<Integer, CertifiedInterval> entry(int index) {
       return Map.entry(keys[index], values[index]);
     }
   }
 
+  /**
+   * {@code CertifiedLawStore}에서 사용하는 측정값의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code storedRows}: 저장된·행목록 ({@code long}).
+   *   <li>{@code packedBytes}: 압축된·바이트수 ({@code long}).
+   *   <li>{@code uniquePages}: 고유·페이지목록 ({@code int}).
+   *   <li>{@code materializedRows}: materialized·행목록 ({@code int}).
+   *   <li>{@code reusedPages}: reused·페이지목록 ({@code long}).
+   *   <li>{@code descriptors}: descriptors ({@code long}).
+   *   <li>{@code decodedPages}: 복원값·페이지목록 ({@code long}).
+   *   <li>{@code residentPackedBytes}: 메모리상주·압축된·바이트수 ({@code long}).
+   *   <li>{@code diskBytes}: 디스크·바이트수 ({@code long}).
+   * </ul>
+   */
   public record Metrics(
       long storedRows,
       long packedBytes,
@@ -164,7 +360,39 @@ public final class CertifiedLawStore implements AutoCloseable {
     return new Freeze(input);
   }
 
-  /** One bounded page per step; the transient source is released when the descriptor is ready. */
+  /**
+   * {@code CertifiedLawStore} 내부의 불변복사 처리를 맡는다.
+   *
+   * <p>기존 계약: One bounded page per step; the transient source is released when the descriptor is
+   * ready.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code input}: 입력 ({@code Map<Integer, CertifiedInterval>}).
+   *   <li>{@code keys}: 키목록 ({@code int[]}).
+   *   <li>{@code scratch}: scratch ({@code int[]}).
+   *   <li>{@code inputKeys}: 입력·키목록 ({@code Iterator<Integer>}).
+   *   <li>{@code counts}: 개수목록 ({@code int[]}).
+   *   <li>{@code phase}: 단계 ({@code int}).
+   *   <li>{@code shift}: shift ({@code int}).
+   *   <li>{@code position}: 진행위치 ({@code int}).
+   *   <li>{@code result}: 결과 ({@code List<Page>}).
+   *   <li>{@code total}: 합계 ({@code CertifiedInterval}).
+   *   <li>{@code finished}: 종료 ({@code Map<Integer, CertifiedInterval>}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Freeze(input)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code input}(입력).
+   *   <li>{@code complete()}: 완료 값을 조회·구성한다. 반환: {@code boolean}.
+   *   <li>{@code transientBytes()}: 임시·바이트수 값을 조회·구성한다. 반환: {@code long}.
+   *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다. 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code result()}: 최종 또는 현재 계산 결과를 구성한다. 반환: {@code Map<Integer, CertifiedInterval>}. 사용하는
+   *       예외: {@code IllegalStateException}.
+   * </ul>
+   */
   public final class Freeze {
     private Map<Integer, CertifiedInterval> input;
     private int[] keys;
@@ -371,6 +599,23 @@ public final class CertifiedLawStore implements AutoCloseable {
     return sum.probability();
   }
 
+  /**
+   * {@code CertifiedLawStore} 내부의 값목록 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code law}: 분포 ({@code Law}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Values(law)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code law}(분포).
+   *   <li>{@code size()}: 보유 항목의 개수를 조회한다. 반환: {@code int}.
+   *   <li>{@code iterator()}: 항목을 순서대로 읽는 반복자를 제공한다. 반환: {@code Iterator<CertifiedInterval>}.
+   * </ul>
+   */
   private final class Values extends AbstractCollection<CertifiedInterval> {
     final Law law;
 
@@ -400,6 +645,35 @@ public final class CertifiedLawStore implements AutoCloseable {
     }
   }
 
+  /**
+   * {@code CertifiedLawStore} 내부의 분포 처리를 맡는다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code parts}: 부분목록 ({@code List<Page>}).
+   *   <li>{@code size}: 크기 ({@code int}).
+   *   <li>{@code total}: 합계 ({@code CertifiedInterval}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Law(parts, size, total)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code parts}(부분목록), {@code
+   *       size}(크기), {@code total}(합계).
+   *   <li>{@code owner()}: 요청 또는 작업의 소유자를 판정한다. 반환: {@code CertifiedLawStore}.
+   *   <li>{@code total()}: 합계 값을 조회·구성한다. 반환: {@code CertifiedInterval}.
+   *   <li>{@code page(offset, limit)}: 페이지 처리에서 {@code parts.get}, {@code result.add}을(를) 사용한다. 입력:
+   *       {@code offset}(시작위치), {@code limit}(한도). 반환: {@code List<Map.Entry<Integer,
+   *       CertifiedInterval>>}. 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code values()}: 값목록 값을 조회·구성한다. 반환: {@code Collection<CertifiedInterval>}.
+   *   <li>{@code size()}: 보유 항목의 개수를 조회한다. 반환: {@code int}.
+   *   <li>{@code get(key)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code key}(키). 반환: {@code
+   *       CertifiedInterval}.
+   *   <li>{@code entrySet()}: 항목·집합 값을 조회·구성한다. 반환: {@code Set<Map.Entry<Integer,
+   *       CertifiedInterval>>}. 사용하는 예외: {@code NoSuchElementException}.
+   * </ul>
+   */
   private final class Law extends AbstractMap<Integer, CertifiedInterval>
       implements PagedLaw<Integer> {
     final List<Page> parts;
