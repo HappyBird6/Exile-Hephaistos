@@ -1,0 +1,93 @@
+[
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.RareOutcomePolicyTest",
+    "tests": "3",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.application.AutomaticSessionPolicyTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernelTest",
+    "tests": "8",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.CertifiedOutcomeStrategyTest",
+    "tests": "7",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.AutomaticPrimitiveCursorTest",
+    "tests": "3",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraphTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.AutomaticPolicyCandidatesTest",
+    "tests": "5",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.AutomaticRebaseGraphTest",
+    "tests": "1",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.application.AutomaticSearchInputReaderTest",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.AutomaticMethodExecutionTest",
+    "tests": "6",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.ArchitectureTest",
+    "tests": "3",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.CertifiedMethodRunnerTest",
+    "tests": "5",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "name": "com.poe2craft.craftingsupport.search.domain.ExactMethodRunnerTest",
+    "tests": "13",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  }
+]

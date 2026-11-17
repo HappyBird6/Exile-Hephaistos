@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.poe2craft.bootstrap.AutomaticPolicyPerformanceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-17T00:37:55.385Z" hostname="ac76ffe17486" time="3.453">
+  <properties/>
+  <testcase name="measuredCatalogGraph()" classname="com.poe2craft.bootstrap.AutomaticPolicyPerformanceTest" time="3.453"/>
+  <system-out><![CDATA[CATALOG run=0 operations=105 Metrics[primitive=Metrics[nanos=324395197, calls=102, outcomes=2187], expansionNanos=564267692, proofNanos=0, evaluationNanos=22333012, evaluationBuilds=1, refinementNanos=1591773, refinementIterations=16, states=33, methods=3, transitions=352]
+CATALOG run=1 operations=105 Metrics[primitive=Metrics[nanos=122528205, calls=102, outcomes=2187], expansionNanos=243382912, proofNanos=0, evaluationNanos=4233552, evaluationBuilds=1, refinementNanos=1234216, refinementIterations=16, states=33, methods=3, transitions=352]
+CATALOG run=2 operations=105 Metrics[primitive=Metrics[nanos=96891706, calls=102, outcomes=2187], expansionNanos=187125841, proofNanos=0, evaluationNanos=4256996, evaluationBuilds=1, refinementNanos=1341445, refinementIterations=16, states=33, methods=3, transitions=352]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.poe2craft.craftingsupport.search.application.AutomaticSearchBenchmarkTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-11-17T00:38:17.324Z" hostname="ac76ffe17486" time="1.343">
+  <properties/>
+  <testcase name="benchmark()" classname="com.poe2craft.craftingsupport.search.application.AutomaticSearchBenchmarkTest" time="1.343"/>
+  <system-out><![CDATA[BENCH run=0 readsNanos=119054773 Diagnostics[graph=Metrics[primitive=Metrics[nanos=4903067, calls=2, outcomes=2], expansionNanos=220147917, proofNanos=1345830, evaluationNanos=10465804, evaluationBuilds=32, refinementNanos=5443001, refinementIterations=0, states=3, methods=2, transitions=8], responseNanos=57098430, responses=32]
+BENCH run=1 readsNanos=71827871 Diagnostics[graph=Metrics[primitive=Metrics[nanos=5175459, calls=4, outcomes=4], expansionNanos=41389049, proofNanos=7661, evaluationNanos=3692974, evaluationBuilds=32, refinementNanos=1876810, refinementIterations=0, states=3, methods=2, transitions=8], responseNanos=22261790, responses=32]
+BENCH run=2 readsNanos=65934517 Diagnostics[graph=Metrics[primitive=Metrics[nanos=5394191, calls=6, outcomes=6], expansionNanos=33940146, proofNanos=6159, evaluationNanos=3621930, evaluationBuilds=32, refinementNanos=1930702, refinementIterations=0, states=3, methods=2, transitions=8], responseNanos=19579044, responses=32]
+BENCH run=3 readsNanos=59866915 Diagnostics[graph=Metrics[primitive=Metrics[nanos=5651480, calls=8, outcomes=8], expansionNanos=39463514, proofNanos=8843, evaluationNanos=3006517, evaluationBuilds=32, refinementNanos=4784571, refinementIterations=0, states=3, methods=2, transitions=8], responseNanos=20371801, responses=32]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

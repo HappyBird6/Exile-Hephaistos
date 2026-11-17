@@ -1,0 +1,89 @@
+diff --git a/backend/src/main/java/com/poe2craft/craftingsupport/search/application/AutomaticSearchService.java b/backend/src/main/java/com/poe2craft/craftingsupport/search/application/AutomaticSearchService.java
+index 2b94efc6..05730bd8 100644
+--- a/backend/src/main/java/com/poe2craft/craftingsupport/search/application/AutomaticSearchService.java
++++ b/backend/src/main/java/com/poe2craft/craftingsupport/search/application/AutomaticSearchService.java
+@@ -184,0 +185 @@ public final class AutomaticSearchService implements AutoCloseable {
++    long responseNanos, responses;
+@@ -781,0 +783,7 @@ public final class AutomaticSearchService implements AutoCloseable {
++  public record Diagnostics(AutomaticMethodGraph.Metrics graph, long responseNanos, long responses) {}
++
++  public synchronized Diagnostics diagnostics(String owner, String id) {
++    var job = load(owner, id);
++    return new Diagnostics(job.graph.metrics(), job.responseNanos, job.responses);
++  }
++
+@@ -782,0 +791,6 @@ public final class AutomaticSearchService implements AutoCloseable {
++    long started = System.nanoTime();
++    try { return render(job); }
++    finally { job.responseNanos += System.nanoTime() - started; job.responses++; }
++  }
++
++  private View render(Job job) {
+@@ -794 +808 @@ public final class AutomaticSearchService implements AutoCloseable {
+-      for (int i = 0; i < 16; i++) strategy.refine();
++      job.graph.refineStrategy(strategy, 16);
+diff --git a/backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticCraftingKernel.java b/backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticCraftingKernel.java
+index 785f9265..4ee02fb4 100644
+--- a/backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticCraftingKernel.java
++++ b/backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticCraftingKernel.java
+@@ -494,0 +495,8 @@ public final class AutomaticCraftingKernel {
++  private long primitiveNanos, primitiveCalls, primitiveOutcomes;
++
++  public record Metrics(long nanos, long calls, long outcomes) {}
++
++  public Metrics metrics() {
++    return new Metrics(primitiveNanos, primitiveCalls, primitiveOutcomes);
++  }
++
+@@ -501,0 +510,14 @@ public final class AutomaticCraftingKernel {
++    long started = System.nanoTime();
++    try {
++      var result = generate(state, retainedTiers, execution, outcomeBudget, deferred, lineage);
++      primitiveOutcomes += result.outcomes().size();
++      return result;
++    } finally {
++      primitiveCalls++;
++      primitiveNanos += System.nanoTime() - started;
++    }
++  }
++
++  private Result generate(
++      ItemState state, Map<String, TierCell> retainedTiers,
++      AutomaticCraftingAction execution, long outcomeBudget, boolean deferred, boolean lineage) {
+diff --git a/backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticMethodGraph.java b/backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticMethodGraph.java
+index 650e03d1..a35b7cbc 100644
+--- a/backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticMethodGraph.java
++++ b/backend/src/main/java/com/poe2craft/craftingsupport/search/domain/AutomaticMethodGraph.java
+@@ -282,0 +283,13 @@ public final class AutomaticMethodGraph implements AutoCloseable {
++  private long expansionNanos, evaluationNanos, evaluationBuilds, refinementNanos;
++
++  public record Metrics(AutomaticCraftingKernel.Metrics primitive, long expansionNanos,
++      long proofNanos, long evaluationNanos, long evaluationBuilds, long refinementNanos,
++      long refinementIterations, long states, long methods, long transitions) {}
++
++  public Metrics metrics() {
++    return new Metrics(kernel.metrics(), expansionNanos, proofNanos, evaluationNanos,
++        evaluationBuilds, refinementNanos, 0, nodes.size(), methods.size(),
++        methods.values().stream().flatMap(m -> m.points.values().stream())
++            .mapToLong(p -> p.active().size() + p.exits().values().stream().mapToLong(Map::size).sum()).sum());
++  }
++
+@@ -642,0 +656,5 @@ public final class AutomaticMethodGraph implements AutoCloseable {
++    long started = System.nanoTime();
++    try { advance(); } finally { expansionNanos += System.nanoTime() - started; }
++  }
++
++  private void advance() {
+@@ -1227,0 +1246,12 @@ public final class AutomaticMethodGraph implements AutoCloseable {
++    long started = System.nanoTime();
++    try { return buildStrategy(cycles); }
++    finally { evaluationNanos += System.nanoTime() - started; evaluationBuilds++; }
++  }
++
++  public void refineStrategy(CertifiedOutcomeStrategy<Integer> strategy, int iterations) {
++    long started = System.nanoTime();
++    for (int i = 0; i < iterations; i++) strategy.refine();
++    refinementNanos += System.nanoTime() - started;
++  }
++
++  private CertifiedOutcomeStrategy<Integer> buildStrategy(int cycles) {
