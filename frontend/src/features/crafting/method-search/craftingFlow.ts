@@ -1,3 +1,4 @@
+import { isRareOutcomePolicy, type RareOutcomePolicy } from './policyCandidates'
 import type { AbyssState } from '../AbyssPanel'
 import { baseAffixCapacity } from '../baseRegistry'
 import type { ConcreteItem, WorkbenchAction } from '../workbenchApi'
@@ -28,6 +29,7 @@ export type FlowBranch = {
   steps: FlowStep[]
 }
 export type CraftingFlow = {
+  rareOutcomePolicy?: RareOutcomePolicy
   origin: string
   request: CreateRequest
   prefix: FlowStep[]
@@ -275,6 +277,11 @@ export function validFlow(
       v.origin !== origin ||
       !Array.isArray(v.prefix) ||
       v.prefix.length > 200
+    )
+      return false
+    if (
+      v.rareOutcomePolicy !== undefined &&
+      !isRareOutcomePolicy(v.rareOutcomePolicy)
     )
       return false
     assertShape('createRequest', v.request)

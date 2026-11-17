@@ -1,3 +1,4 @@
+import { validatePolicies } from './policyCandidates'
 import {
   validateAutomaticAbyss,
   type AutomaticAbyssRoute,
@@ -258,7 +259,7 @@ export function validateScenario(raw: unknown): Scenario {
       'methods',
       'recommendations',
     ],
-    ['canResume', 'resources', 'rollModels'],
+    ['canResume', 'resources', 'rollModels', 'candidates', 'rareOutcomePolicy'],
   )
   if (v.version !== 'automatic-method-job-v1')
     fail('UNSUPPORTED_SCENARIO_VERSION')
@@ -443,6 +444,7 @@ export function validateScenario(raw: unknown): Scenario {
           'LOSS',
           'DEAD',
           'UNRESOLVED',
+          'REBASE',
           'RETRY',
           'ACTIVE',
         ])
@@ -462,7 +464,8 @@ export function validateScenario(raw: unknown): Scenario {
               'MATCH')
         )
           fail()
-        if (o.kind === 'RETRY' && o.target !== null) fail()
+        if (['RETRY', 'REBASE'].includes(o.kind as string) && o.target !== null)
+          fail()
       }
       if (lowerMass > scale || (p.complete && upperMass < scale)) fail()
       for (const key of ['initialUses', 'cycleUses']) {
@@ -473,6 +476,7 @@ export function validateScenario(raw: unknown): Scenario {
       }
     }
   }
+  validatePolicies(result, bounds)
   for (const rawRecommendation of array(v.recommendations, 15000)) {
     const r = object(rawRecommendation, [
       'node',
@@ -566,6 +570,17 @@ function mapWireReferences(
         method(id, names),
       )
   }
+  if (result.candidates !== undefined)
+    for (const raw of array(result.candidates, 10)) {
+      const candidate = record(raw)
+      for (const key of ['success', 'rebase', 'failure', 'unresolved'])
+        candidate[key] = bound(candidate[key])
+      for (const key of ['decisions', 'distinguishingDecisions'])
+        for (const rawDecision of array(candidate[key], 5000)) {
+          const decision = record(rawDecision)
+          decision.method = method(decision.method, names)
+        }
+    }
   for (const raw of array(root.route, 64)) {
     const edge = record(raw)
     edge.method = method(edge.method, names)

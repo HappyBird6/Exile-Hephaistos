@@ -835,3 +835,193 @@ function expectJobAndCatalogCalls(calls: unknown[][], count: number) {
     ),
   ).toBe(true)
 }
+
+it('ends a REBASE session before opening the new start editor and ignores its late response', async () => {
+  setLocale('en')
+  const one = { numerator: '1', denominator: '1' },
+    zero = { numerator: '0', denominator: '1' }
+  const bounds = {
+    lower: one,
+    upper: one,
+    arithmeticWidth: zero,
+    exact: true,
+    confirmedPercent: '100.00',
+  }
+  const first: AutomaticView = {
+    ...initial(),
+    status: 'PAUSED',
+    methods: [
+      {
+        id: 'end',
+        source: 0,
+        initial: [],
+        cycle: [{ currency: 'EXALTED', omens: [], purpose: 'ORDINARY' }],
+        reasons: [],
+        finished: true,
+        points: [
+          {
+            cycles: 100,
+            complete: true,
+            outcomes: [{ target: null, kind: 'REBASE', probability: bounds }],
+            initialUses: {},
+            cycleUses: {},
+          },
+        ],
+      },
+    ],
+  }
+  vi.spyOn(automaticApi, 'create').mockResolvedValue(first)
+  vi.spyOn(automaticApi, 'get').mockResolvedValue(first)
+  let finishCancel: ((v: AutomaticView) => void) | undefined
+  vi.spyOn(automaticApi, 'control').mockImplementation(
+    () =>
+      new Promise((resolve) => {
+        finishCancel = resolve
+      }),
+  )
+  const edit = vi.fn()
+  const mounted = render(
+    <AutomaticMethodSearch
+      request={requestFixture()}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={edit}
+    />,
+  )
+  fireEvent.click(
+    await screen.findByRole('button', {
+      name: 'End session and enter new start',
+    }),
+  )
+  await waitFor(() => expect(finishCancel).toBeDefined())
+  expect(edit).not.toHaveBeenCalled()
+  await act(async () =>
+    finishCancel!({
+      ...first,
+      status: 'CANCELLED',
+      revision: 2,
+      generation: 2,
+    }),
+  )
+  expect(edit).toHaveBeenCalledOnce()
+  const nextRequest = requestFixture()
+  nextRequest.clientRequestId = crypto.randomUUID()
+  const next = {
+    ...initial(),
+    id: '22222222-2222-4222-8222-222222222222',
+    status: 'PARTIAL' as const,
+  }
+  vi.spyOn(automaticApi, 'create').mockResolvedValue(next)
+  mounted.rerender(
+    <AutomaticMethodSearch
+      request={nextRequest}
+      inputGeneration={2}
+      presentItem={present}
+      onRecalculate={edit}
+    />,
+  )
+  await waitFor(() =>
+    expect(automaticApi.create).toHaveBeenLastCalledWith(
+      nextRequest,
+      expect.anything(),
+      false,
+      0,
+      expect.anything(),
+    ),
+  )
+  expect(
+    acceptsAutomatic(next, { ...first, revision: 999, generation: 999 }),
+  ).toBe(false)
+  expect(screen.queryByText(/Guidance ends here/)).not.toBeInTheDocument()
+})
+
+it('does not reopen an old editor when its session cancellation finishes after a new request', async () => {
+  setLocale('en')
+  const p = { numerator: '1', denominator: '1' }
+  const bound = {
+    lower: p,
+    upper: p,
+    arithmeticWidth: { numerator: '0', denominator: '1' },
+    exact: true,
+    confirmedPercent: '100.00',
+  }
+  const old: AutomaticView = {
+    ...initial(),
+    status: 'PAUSED',
+    methods: [
+      {
+        id: 'stop',
+        source: 0,
+        initial: [],
+        cycle: [
+          { currency: 'EXALTED', omens: [], purpose: 'GOAL_ACQUISITION' },
+        ],
+        reasons: [],
+        finished: true,
+        points: [
+          {
+            cycles: 100,
+            complete: true,
+            outcomes: [{ target: null, kind: 'REBASE', probability: bound }],
+            initialUses: {},
+            cycleUses: {},
+          },
+        ],
+      },
+    ],
+  }
+  const create = vi.spyOn(automaticApi, 'create').mockResolvedValue(old)
+  vi.spyOn(automaticApi, 'get').mockResolvedValue(old)
+  let finish: ((v: AutomaticView) => void) | undefined
+  vi.spyOn(automaticApi, 'control').mockImplementation(
+    () =>
+      new Promise((resolve) => {
+        finish = resolve
+      }),
+  )
+  const edit = vi.fn()
+  const mounted = render(
+    <AutomaticMethodSearch
+      request={requestFixture()}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={edit}
+    />,
+  )
+  fireEvent.click(
+    await screen.findByRole('button', {
+      name: 'End session and enter new start',
+    }),
+  )
+  await waitFor(() => expect(finish).toBeDefined())
+  const nextRequest = requestFixture()
+  nextRequest.clientRequestId = crypto.randomUUID()
+  const next: AutomaticView = {
+    ...initial(),
+    id: '33333333-3333-4333-8333-333333333333',
+    status: 'PARTIAL',
+  }
+  create.mockResolvedValue(next)
+  mounted.rerender(
+    <AutomaticMethodSearch
+      request={nextRequest}
+      inputGeneration={2}
+      presentItem={present}
+      onRecalculate={edit}
+    />,
+  )
+  await waitFor(() =>
+    expect(create).toHaveBeenLastCalledWith(
+      nextRequest,
+      expect.anything(),
+      false,
+      0,
+      expect.anything(),
+    ),
+  )
+  await act(async () =>
+    finish!({ ...old, status: 'CANCELLED', revision: 9, generation: 9 }),
+  )
+  expect(edit).not.toHaveBeenCalled()
+  expect(screen.queryByText(/Guidance ends here/)).not.toBeInTheDocument()
+})

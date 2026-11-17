@@ -812,3 +812,36 @@
 .scenario-code-entry > label textarea {
   min-width: 0;
 }
+
+.policy-candidates {
+  padding: 1rem;
+  border: 1px solid var(--border-color, #555);
+  border-radius: 0.5rem;
+  margin-block: 1rem;
+}
+.policy-candidate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+}
+.policy-candidate-grid article {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color, #555);
+  border-radius: 0.4rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.policy-candidate-grid dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.policy-candidate-grid dd {
+  margin: 0;
+}
+.policy-candidates label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-block: 0.5rem;
+}

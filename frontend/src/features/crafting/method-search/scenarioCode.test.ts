@@ -644,3 +644,63 @@ it('preserves common desecration actions and optional empty-slot compatibility i
   malformed.result.methods[0]!.cycle[0]!.currency = 'EXALTED'
   expect(() => validateScenario(malformed)).toThrow()
 })
+
+it('round trips REBASE policy endings and candidates without changing old scenario defaults', () => {
+  const scenario = fixture()
+  const fraction = (n: string) => ({ numerator: n, denominator: '1' })
+  const b = (n: string) => ({
+    lower: fraction(n),
+    upper: fraction(n),
+    arithmeticWidth: fraction('0'),
+    exact: true,
+    confirmedPercent: n === '1' ? '100.00' : '0.00',
+  })
+  scenario.result.nodes[0]!.progress.goal = 'NO_MATCH'
+  scenario.result.rareOutcomePolicy = {
+    version: 'rare-conditional-groups-v1',
+    enabled: true,
+    groupPartsPerMillion: 10000,
+    maximumMethodPartsPerMillion: 50000,
+  }
+  scenario.result.methods = [
+    {
+      id: 'end',
+      source: 0,
+      initial: [],
+      cycle: [{ currency: 'EXALTED', omens: [], purpose: 'ORDINARY' }],
+      reasons: [],
+      finished: true,
+      points: [
+        {
+          cycles: 100,
+          complete: true,
+          outcomes: [{ kind: 'REBASE', target: null, probability: b('1') }],
+          initialUses: {},
+          cycleUses: { EXALTED: b('1') },
+        },
+      ],
+    },
+  ]
+  scenario.result.candidates = [
+    {
+      id: 'candidate',
+      cycles: 100,
+      decisions: [{ node: 0, method: 'end' }],
+      success: b('0'),
+      rebase: b('1'),
+      failure: b('0'),
+      unresolved: b('0'),
+      expectedUses: { EXALTED: { lower: fraction('1'), upper: fraction('1') } },
+      usageStatus: 'BOUNDED',
+      rankStatus: 'SEPARATED_IN_CURRENT_SET',
+      distinguishingDecisions: [],
+    },
+  ]
+  expect(expandScenario(compactScenario(validateScenario(scenario)))).toEqual(
+    scenario,
+  )
+  expect(validateScenario(fixture()).result.rareOutcomePolicy).toBeUndefined()
+  scenario.result.rareOutcomePolicy.version =
+    'future' as 'rare-conditional-groups-v1'
+  expect(() => validateScenario(scenario)).toThrow()
+})

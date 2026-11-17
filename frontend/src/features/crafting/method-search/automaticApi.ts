@@ -1,4 +1,10 @@
 import {
+  validatePolicies,
+  defaultRareOutcomePolicy,
+  type PolicyCandidate,
+  type RareOutcomePolicy,
+} from './policyCandidates'
+import {
   validateAutomaticAbyss,
   type AutomaticAbyssRoute,
 } from './automaticAbyss'
@@ -97,6 +103,8 @@ export type AutomaticArrow = {
   }[]
 }
 export type AutomaticView = {
+  candidates?: PolicyCandidate[]
+  rareOutcomePolicy?: RareOutcomePolicy
   rollModels?: string[]
   version: string
   id: string
@@ -225,6 +233,7 @@ function validate(raw: unknown): AutomaticView {
     }
   }
   for (const r of v.recommendations) bound(r.strategy)
+  validatePolicies(v, bound)
   validateJointGraph(v, bound)
   return v
 }
@@ -289,10 +298,16 @@ export const automaticApi = {
     signal?: AbortSignal,
     abstractQuality40 = false,
     abstractQuality = abstractQuality40 ? 40 : 0,
+    rareOutcomePolicy: RareOutcomePolicy = defaultRareOutcomePolicy,
   ) => {
     if (signal?.aborted)
       return Promise.reject(new DOMException('Aborted', 'AbortError'))
-    const key = JSON.stringify([input, abstractQuality40, abstractQuality])
+    const key = JSON.stringify([
+      input,
+      abstractQuality40,
+      abstractQuality,
+      rareOutcomePolicy,
+    ])
     const pending = pendingCreates.get(key)
     if (pending) return pending
     // A dispatched POST can succeed after a local abort. Keep its result and let
@@ -305,6 +320,7 @@ export const automaticApi = {
           {
             abstractQuality40,
             abstractQuality,
+            rareOutcomePolicy,
             request: {
               version: 2,
               clientRequestId: input.clientRequestId,

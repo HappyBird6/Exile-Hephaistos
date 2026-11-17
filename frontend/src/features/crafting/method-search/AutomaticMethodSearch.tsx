@@ -1,3 +1,10 @@
+import { PolicyCandidates } from './PolicyCandidates'
+import { policyCandidateMessages } from './policyCandidateMessages'
+import {
+  isRareOutcomePolicy,
+  defaultRareOutcomePolicy,
+  type RareOutcomePolicy,
+} from './policyCandidates'
 import { noPlan, planningNotes } from './planningNotes'
 import { create } from 'zustand'
 import { createPathSearchRequest } from '../path-tree/request'
@@ -99,6 +106,9 @@ function Workflow(props: Props) {
             (v): v is CraftingFlow =>
               validFlow(v, props.request.clientRequestId),
           )) ?? {
+        rareOutcomePolicy:
+          readSupport('session-policy-preference', isRareOutcomePolicy) ??
+          defaultRareOutcomePolicy,
         origin: props.request.clientRequestId,
         request: props.request,
         prefix: [],
@@ -225,6 +235,50 @@ function Run({
     })
     if (event.operation !== 'restore') setManualSelected(id)
   }
+  const mounted = useRef(false)
+  const endSession = async (policy?: RareOutcomePolicy) => {
+    const previous = current.current
+    saveSupport(
+      'session-policy-preference',
+      policy ??
+        previous?.rareOutcomePolicy ??
+        flow.rareOutcomePolicy ??
+        defaultRareOutcomePolicy,
+    )
+    alive.current = false
+    const endingTurn = ++token.current
+    for (const controller of controllers.current) controller.abort()
+    setRunEnabled(false)
+    if (previous) {
+      saveSupport('session-end:' + request.clientRequestId, {
+        request: request.clientRequestId,
+        job: previous.id,
+        kind: policy ? 'RECONFIGURED' : 'REBASE',
+      })
+      if (!['COMPLETE', 'PARTIAL'].includes(previous.status))
+        await cancelAutomatic(
+          previous.id,
+          request.start.provenance.rulesetIdentity,
+        )
+    }
+    if (!mounted.current || token.current !== endingTurn) return
+    if (policy)
+      changeFlow((old) => ({
+        ...old,
+        request: createPathSearchRequest(
+          old.request.start.item,
+          old.request.goal,
+          old.request.start.provenance,
+          old.request.activeOmens,
+        ),
+        rareOutcomePolicy: policy,
+        prefix: [],
+        anchor: null,
+        carry: null,
+        branch: null,
+      }))
+    else onRecalculate()
+  }
   const [storageFailed, setStorageFailed] = useState(false)
   const [expired, setExpired] = useState(false)
   const [scopeUnsupported, setScopeUnsupported] = useState(false)
@@ -257,6 +311,7 @@ function Run({
   useEffect(() => {
     if (snapshot) return
     alive.current = true
+    mounted.current = true
     const turn = ++token.current
     const controller = new AbortController()
     controllers.current.add(controller)
@@ -276,6 +331,7 @@ function Run({
                 controller.signal,
                 abstractQuality40,
                 abstractQuality,
+                flow.rareOutcomePolicy,
               )
         } catch (error) {
           if (
@@ -336,6 +392,7 @@ function Run({
     return () => {
       clearTimeout(startTimer)
       alive.current = false
+      mounted.current = false
       token.current = turn + 1
       for (const c of pending) c.abort()
       pending.clear()
@@ -614,6 +671,27 @@ function Run({
         <button onClick={onRecalculate}>{common.recalculate}</button>
       )}
       <NumericRollNotice models={view?.rollModels} />
+      {view && view.reason !== 'LEGACY_READ_ONLY' && (
+        <PolicyCandidates
+          key={view.id}
+          view={view}
+          onInspect={setSelected}
+          onRestart={
+            snapshot
+              ? undefined
+              : () => {
+                  void endSession()
+                }
+          }
+          onPolicy={
+            snapshot
+              ? undefined
+              : (policy) => {
+                  void endSession(policy)
+                }
+          }
+        />
+      )}
       {!view && toolbar}
       {(flow.branch || flow.prefix.length > 0) && (
         <p>{flowExportMessages[locale]}</p>
@@ -952,7 +1030,10 @@ function Run({
                                       {point.outcomes.map((o, i) => (
                                         <li key={i}>
                                           {o.target === null ? (
-                                            o.kind === 'RETRY' ? (
+                                            o.kind === 'REBASE' ? (
+                                              policyCandidateMessages[locale]
+                                                .rebase
+                                            ) : o.kind === 'RETRY' ? (
                                               guide.result
                                             ) : (
                                               common.unknown
@@ -972,20 +1053,23 @@ function Run({
                                             </button>
                                           )}{' '}
                                           —{' '}
-                                          {o.kind === 'RETRY'
-                                            ? retryMessages[locale].replace(
-                                                'N',
-                                                String(cycles),
-                                              )
-                                            : o.kind === 'GOAL'
-                                              ? common.hit
-                                              : o.kind === 'LOSS'
-                                                ? copy.loss
-                                                : o.kind === 'UNRESOLVED'
-                                                  ? common.unknown
-                                                  : o.kind === 'DEAD'
-                                                    ? common.unavailable
-                                                    : copy.checkpoint}
+                                          {o.kind === 'REBASE'
+                                            ? policyCandidateMessages[locale]
+                                                .end
+                                            : o.kind === 'RETRY'
+                                              ? retryMessages[locale].replace(
+                                                  'N',
+                                                  String(cycles),
+                                                )
+                                              : o.kind === 'GOAL'
+                                                ? common.hit
+                                                : o.kind === 'LOSS'
+                                                  ? copy.loss
+                                                  : o.kind === 'UNRESOLVED'
+                                                    ? common.unknown
+                                                    : o.kind === 'DEAD'
+                                                      ? common.unavailable
+                                                      : copy.checkpoint}
                                           :{' '}
                                           {!point.complete &&
                                           o.kind !== 'UNRESOLVED'
