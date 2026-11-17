@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-time-lost-sapphire-ancient-20261004-87dc443c5fcf",
+    "retrievedAt": "2026-10-04T11:14:50.507Z",
+    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire",
+    "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
+    "rawSha256": "87dc443c5fcf3135168ee60f38974140481991547edd998c76cc15d7b2b29cfb",
+    "detailsSha256": "89bd0545e77c749b7c4168b23bbcebd879d34593b035b7d32a2b721ef316c479"
+  },
+  "base": {
+    "id": "Metadata/Items/Jewels/JewelRadiusInt",
+    "name": "Time-Lost Sapphire",
+    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Sapphire",
+    "implicitModifierId": "time-lost-sapphire:implicit:base-radius",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 2,
+    "rareSuffixes": 2
+  },
+  "modifierPool": "time-lost-sapphire-snapshot",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "time-lost-sapphire:implicit:base-radius"
+    }
+  ]
+}

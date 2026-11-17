@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-tawhoan-tower-shield-20261005-d3968657522fcf33",
+    "retrievedAt": "2026-10-05T04:15:46.812Z",
+    "sourceUrl": "https://poe2db.tw/us/Shields_str",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "975b2762e8881bb12dd058336922971e1c39b59ffdf583e8caaab25b3952550b",
+    "detailsSha256": "b82852746a43ff8fbf732417b181493b17c004c1dd435f09cb96e2418b440fcd"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+    "name": "Tawhoan Tower Shield",
+    "sourceUrl": "https://poe2db.tw/us/Tawhoan_Tower_Shield",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "tawhoan-tower-shield-snapshot",
+  "implicitModifiers": []
+}

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-utility-belt-20261005-43c6c0ddad9a8bbc",
+    "retrievedAt": "2026-10-05T01:23:15.092Z",
+    "sourceUrl": "https://poe2db.tw/us/Belts",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "2ee4229e650b26a3bf08c3c22ba33a847a5359b647c24c6694bf25679fa4f990",
+    "detailsSha256": "85ad3b8d2edf97ee87b8029d562fcdb565988c25fd8b4c706ad74de03ba6176e"
+  },
+  "base": {
+    "id": "Metadata/Items/Belts/FourBelt10",
+    "name": "Utility Belt",
+    "sourceUrl": "https://poe2db.tw/us/Utility_Belt",
+    "implicitModifierId": "utility-belt:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "utility-belt:implicit:base"
+    }
+  ]
+}

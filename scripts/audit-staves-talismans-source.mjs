@@ -14,7 +14,7 @@ for(const [page,classId,count]of [['Staves',14,185],['Talismans',110,158]]) {
  assert.equal(selected.length,page==='Staves'?6:3)
  for(const base of selected) {
   const catalog=read(`backend/src/main/resources/catalog/${base.pool}/catalog.json`)
-  const details=read(`backend/src/main/resources/catalog/${base.pool}/details.raw.json`).ordinary
+  const details=read(`docs/legacy/raw-data/catalog/${base.pool}/details.raw.json`).ordinary
   assert.equal(details.length,count)
   for(let i=0;i<count;i++) {
    const row=data.normal[i],proof=details[i]

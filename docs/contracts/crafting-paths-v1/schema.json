@@ -1,13 +1,16 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "urn:hephaistos:crafting-paths:v1",
-  "title": "Crafting path-search v1 contract (not implemented endpoints)",
-  "description": "Compile the named definition for each endpoint; semantic constraints are normative in the companion specification.",
+  "title": "Crafting path-search v1 API contract",
+  "description": "Compile the named definition for each endpoint. Runtime and source-oracle cases are verified by the frontend/backend contract tests and verify.mjs.",
   "definitions": {
     "fraction": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["numerator", "denominator"],
+      "required": [
+        "numerator",
+        "denominator"
+      ],
       "properties": {
         "numerator": {
           "type": "string",
@@ -22,7 +25,10 @@
     "range": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["min", "max"],
+      "required": [
+        "min",
+        "max"
+      ],
       "properties": {
         "min": {
           "anyOf": [
@@ -49,7 +55,11 @@
     "modifier": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["modifierId", "values", "fractured"],
+      "required": [
+        "modifierId",
+        "values",
+        "fractured"
+      ],
       "properties": {
         "modifierId": {
           "type": "string",
@@ -97,7 +107,12 @@
           "maximum": 100
         },
         "rarity": {
-          "enum": ["NORMAL", "MAGIC", "RARE", "UNIQUE"]
+          "enum": [
+            "NORMAL",
+            "MAGIC",
+            "RARE",
+            "UNIQUE"
+          ]
         },
         "implicits": {
           "type": "array",
@@ -116,7 +131,12 @@
         "conditions": {
           "type": "array",
           "items": {
-            "enum": ["CORRUPTED", "MIRRORED", "UNIDENTIFIED", "SANCTIFIED"]
+            "enum": [
+              "CORRUPTED",
+              "MIRRORED",
+              "UNIDENTIFIED",
+              "SANCTIFIED"
+            ]
           },
           "minItems": 0,
           "uniqueItems": true
@@ -138,7 +158,10 @@
             {
               "type": "object",
               "additionalProperties": false,
-              "required": ["type", "amount"],
+              "required": [
+                "type",
+                "amount"
+              ],
               "properties": {
                 "type": {
                   "type": "string",
@@ -161,13 +184,20 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["id", "side", "modifierId"],
+            "required": [
+              "id",
+              "side",
+              "modifierId"
+            ],
             "properties": {
               "id": {
                 "type": "string"
               },
               "side": {
-                "enum": ["PREFIX", "SUFFIX"]
+                "enum": [
+                  "PREFIX",
+                  "SUFFIX"
+                ]
               },
               "modifierId": {
                 "anyOf": [
@@ -245,7 +275,10 @@
     "start": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["item", "provenance"],
+      "required": [
+        "item",
+        "provenance"
+      ],
       "properties": {
         "item": {
           "$ref": "#/definitions/item"
@@ -258,7 +291,14 @@
     "entry": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "statId", "unit", "range", "weight", "disabled"],
+      "required": [
+        "id",
+        "statId",
+        "unit",
+        "range",
+        "weight",
+        "disabled"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -293,14 +333,27 @@
     "group": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "type", "disabled", "range", "entries"],
+      "required": [
+        "id",
+        "type",
+        "disabled",
+        "range",
+        "entries"
+      ],
       "properties": {
         "id": {
           "type": "string",
           "minLength": 1
         },
         "type": {
-          "enum": ["AND", "NOT", "IF", "COUNT", "WEIGHTED_V1", "WEIGHTED_V2"]
+          "enum": [
+            "AND",
+            "NOT",
+            "IF",
+            "COUNT",
+            "WEIGHTED_V1",
+            "WEIGHTED_V2"
+          ]
         },
         "disabled": {
           "type": "boolean"
@@ -327,7 +380,12 @@
     "goal": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["version", "catalogVersion", "general", "groups"],
+      "required": [
+        "version",
+        "catalogVersion",
+        "general",
+        "groups"
+      ],
       "properties": {
         "version": {
           "const": 1
@@ -339,7 +397,11 @@
         "general": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["baseItemId", "itemLevel", "rarities"],
+          "required": [
+            "baseItemId",
+            "itemLevel",
+            "rarities"
+          ],
           "properties": {
             "quality": {
               "anyOf": [
@@ -363,7 +425,12 @@
             "rarities": {
               "type": "array",
               "items": {
-                "enum": ["NORMAL", "MAGIC", "RARE", "UNIQUE"]
+                "enum": [
+                  "NORMAL",
+                  "MAGIC",
+                  "RARE",
+                  "UNIQUE"
+                ]
               },
               "minItems": 1,
               "uniqueItems": true
@@ -434,10 +501,18 @@
       ],
       "properties": {
         "evaluation": {
-          "enum": ["SUPPORTED", "UNKNOWN", "UNSUPPORTED"]
+          "enum": [
+            "SUPPORTED",
+            "UNKNOWN",
+            "UNSUPPORTED"
+          ]
         },
         "search": {
-          "enum": ["SUPPORTED", "UNKNOWN", "UNSUPPORTED"]
+          "enum": [
+            "SUPPORTED",
+            "UNKNOWN",
+            "UNSUPPORTED"
+          ]
         },
         "reasonCode": {
           "anyOf": [
@@ -461,7 +536,10 @@
         "goalGroupTypes": {
           "type": "array",
           "items": {
-            "enum": ["AND", "COUNT"]
+            "enum": [
+              "AND",
+              "COUNT"
+            ]
           },
           "minItems": 0
         },
@@ -542,14 +620,22 @@
           "$ref": "#/definitions/fraction"
         },
         "status": {
-          "enum": ["COMPLETE", "PARTIAL", "UNKNOWN"]
+          "enum": [
+            "COMPLETE",
+            "PARTIAL",
+            "UNKNOWN"
+          ]
         }
       }
     },
     "policy": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "actions", "mode"],
+      "required": [
+        "id",
+        "actions",
+        "mode"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -564,14 +650,21 @@
           "minItems": 1
         },
         "mode": {
-          "enum": ["SINGLE_PASS", "REPEAT_CYCLE"]
+          "enum": [
+            "SINGLE_PASS",
+            "REPEAT_CYCLE"
+          ]
         }
       }
     },
     "recommendation": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["policy", "points", "eventual"],
+      "required": [
+        "policy",
+        "points",
+        "eventual"
+      ],
       "properties": {
         "policy": {
           "$ref": "#/definitions/policy"
@@ -586,10 +679,17 @@
         "eventual": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["status", "probability", "proofVersion"],
+          "required": [
+            "status",
+            "probability",
+            "proofVersion"
+          ],
           "properties": {
             "status": {
-              "enum": ["PROVEN", "UNKNOWN"]
+              "enum": [
+                "PROVEN",
+                "UNKNOWN"
+              ]
             },
             "probability": {
               "anyOf": [
@@ -629,7 +729,10 @@
     "rank": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["policyId", "rank"],
+      "required": [
+        "policyId",
+        "rank"
+      ],
       "properties": {
         "policyId": {
           "type": "string",
@@ -644,14 +747,22 @@
     "ranking": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["attempts", "status", "entries"],
+      "required": [
+        "attempts",
+        "status",
+        "entries"
+      ],
       "properties": {
         "attempts": {
           "type": "string",
           "pattern": "^(0|[1-9][0-9]*)$"
         },
         "status": {
-          "enum": ["CERTIFIED_WITHIN_CANDIDATES", "PROVISIONAL", "UNAVAILABLE"]
+          "enum": [
+            "CERTIFIED_WITHIN_CANDIDATES",
+            "PROVISIONAL",
+            "UNAVAILABLE"
+          ]
         },
         "entries": {
           "type": "array",
@@ -665,7 +776,11 @@
     "node": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "item", "goalStatus"],
+      "required": [
+        "id",
+        "item",
+        "goalStatus"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -675,14 +790,24 @@
           "$ref": "#/definitions/item"
         },
         "goalStatus": {
-          "enum": ["MATCH", "NO_MATCH", "UNKNOWN", "UNSUPPORTED"]
+          "enum": [
+            "MATCH",
+            "NO_MATCH",
+            "UNKNOWN",
+            "UNSUPPORTED"
+          ]
         }
       }
     },
     "execution": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "stateId", "policyId", "phase"],
+      "required": [
+        "id",
+        "stateId",
+        "policyId",
+        "phase"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -706,7 +831,14 @@
     "edge": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["id", "from", "to", "action", "probability", "kind"],
+      "required": [
+        "id",
+        "from",
+        "to",
+        "action",
+        "probability",
+        "kind"
+      ],
       "properties": {
         "id": {
           "type": "string",
@@ -728,21 +860,33 @@
           "$ref": "#/definitions/fraction"
         },
         "kind": {
-          "enum": ["FORWARD", "REPEAT"]
+          "enum": [
+            "FORWARD",
+            "REPEAT"
+          ]
         }
       }
     },
     "expansion": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["executionId", "status", "unresolved"],
+      "required": [
+        "executionId",
+        "status",
+        "unresolved"
+      ],
       "properties": {
         "executionId": {
           "type": "string",
           "minLength": 1
         },
         "status": {
-          "enum": ["COMPLETE", "PARTIAL", "UNSUPPORTED", "UNAVAILABLE"]
+          "enum": [
+            "COMPLETE",
+            "PARTIAL",
+            "UNSUPPORTED",
+            "UNAVAILABLE"
+          ]
         },
         "unresolved": {
           "$ref": "#/definitions/fraction"
@@ -920,7 +1064,12 @@
         "candidateScope": {
           "type": "object",
           "additionalProperties": false,
-          "required": ["kind", "generated", "total", "enumerationComplete"],
+          "required": [
+            "kind",
+            "generated",
+            "total",
+            "enumerationComplete"
+          ],
           "properties": {
             "kind": {
               "const": "FINITE_POLICY_CANDIDATES"
@@ -993,13 +1142,21 @@
     "mutationRequest": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["version", "operation", "commandId", "expectedRevision"],
+      "required": [
+        "version",
+        "operation",
+        "commandId",
+        "expectedRevision"
+      ],
       "properties": {
         "version": {
           "const": 1
         },
         "operation": {
-          "enum": ["CANCEL", "RESUME"]
+          "enum": [
+            "CANCEL",
+            "RESUME"
+          ]
         },
         "commandId": {
           "type": "string",
@@ -1059,7 +1216,12 @@
     "problem": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["type", "title", "status", "code"],
+      "required": [
+        "type",
+        "title",
+        "status",
+        "code"
+      ],
       "properties": {
         "type": {
           "type": "string",
@@ -1083,7 +1245,10 @@
     "exitPoint": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["attempts", "probability"],
+      "required": [
+        "attempts",
+        "probability"
+      ],
       "properties": {
         "attempts": {
           "type": "string",
@@ -1097,14 +1262,21 @@
     "methodExit": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["stateId", "kind", "points"],
+      "required": [
+        "stateId",
+        "kind",
+        "points"
+      ],
       "properties": {
         "stateId": {
           "type": "string",
           "minLength": 1
         },
         "kind": {
-          "enum": ["HIT", "ACTIVE"]
+          "enum": [
+            "HIT",
+            "ACTIVE"
+          ]
         },
         "points": {
           "type": "array",
@@ -1117,7 +1289,11 @@
     "omittedPoint": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["attempts", "hit", "active"],
+      "required": [
+        "attempts",
+        "hit",
+        "active"
+      ],
       "properties": {
         "attempts": {
           "type": "string",
@@ -1151,7 +1327,10 @@
           "const": "FIRST_GOAL_OR_OBSERVATION"
         },
         "cycleUses": {
-          "enum": [1, 2]
+          "enum": [
+            1,
+            2
+          ]
         },
         "proofVersion": {
           "type": "string",

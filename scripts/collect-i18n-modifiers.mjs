@@ -124,10 +124,10 @@ for (const base of Object.keys(pages)) {
   }
   catalogGroups[base] = modifiers;
   for (const filename of fs
-    .readdirSync(path.join(root, base))
+    .readdirSync(path.join("docs/legacy/raw-data/catalog", base))
     .filter((name) => name.endsWith(".raw.json"))) {
     const raw = JSON.parse(
-      fs.readFileSync(path.join(root, base, filename), "utf8"),
+      fs.readFileSync(path.join("docs/legacy/raw-data/catalog", base, filename), "utf8"),
     );
     function retain(record) {
       if (!record || typeof record !== "object") return;

@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-desert-buckler-20261005-37fbaa4fea99d3ce",
+    "retrievedAt": "2026-10-05T04:15:49.324Z",
+    "sourceUrl": "https://poe2db.tw/us/Bucklers",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "0bc89c36ff50ea499378d23070ebbb7d51d126c04600e2afad2bf6f00f592ae3",
+    "detailsSha256": "c07f4f3a80dac6b98aa78a33dc47da093157d607e54bfa1069148e07b42b2d0b"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+    "name": "Desert Buckler",
+    "sourceUrl": "https://poe2db.tw/us/Desert_Buckler",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": []
+}

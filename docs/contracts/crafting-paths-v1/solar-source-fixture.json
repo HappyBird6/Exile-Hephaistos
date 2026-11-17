@@ -2,7 +2,7 @@
   "version": 1,
   "synthetic": false,
   "verification": "SOURCE_CONTRACT_ORACLE_ONLY_NOT_PATH_SEARCH_RUNTIME_VERIFIED",
-  "baselineCommit": "15f02631df176aa191e95d1f19bb62110be7796e",
+  "baselineCommit": "278b3789426eda71b03ce20c095e12a27c106240",
   "sources": [
     {
       "path": "catalog/solar-amulet/catalog.json",
@@ -10,14 +10,14 @@
     },
     {
       "path": "crafting/ruleset-v1.json",
-      "sha256": "8c7d12b521f653915ed57e16d7f58fc3c9a17597706ba9ca3503a1aaddea2b30"
+      "sha256": "8575081bac74860a10ee623a78a73c788f4f804f6e72040f530c2b80fa3f07c5"
     },
     {
       "path": "crafting/goalfilter/definitions-v1.json",
       "sha256": "2f82aede35201999e31b84304b008f54c113b9f1909d148c483795f0a7ee4189"
     }
   ],
-  "rulesetIdentity": "reviewed-equipment-0.5.5-v11-6b7b987cda973d131228cab5e123be06c4f9a4703862c78191c79c9c65bb6037",
+  "rulesetIdentity": "reviewed-equipment-0.5.5-v13-dd63a81d9a4bf39da2b24b89449828f5f397a0826b5fa6499a05d84d79ff9397",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "startItem": {

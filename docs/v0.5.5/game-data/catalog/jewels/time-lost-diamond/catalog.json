@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-time-lost-diamond-ancient-20261004-133c4300ca8a",
+    "retrievedAt": "2026-10-04T11:14:50.621Z",
+    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond",
+    "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
+    "rawSha256": "133c4300ca8a304646452d8c8a4e8e43c74c5196675c37a06902f1bcdd3e0a2d",
+    "detailsSha256": "40a4278bbd80bdce0504126203b21acd3fb59741c616f87f55984c76285f61b0"
+  },
+  "base": {
+    "id": "Metadata/Items/Jewels/JewelRadiusDiamond",
+    "name": "Time-Lost Diamond",
+    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Diamond",
+    "implicitModifierId": "time-lost-diamond:implicit:base-radius",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 2,
+    "rareSuffixes": 2
+  },
+  "modifierPool": "time-lost-diamond-snapshot",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "time-lost-diamond:implicit:base-radius"
+    }
+  ]
+}

@@ -16,7 +16,9 @@ class RulesetManifestLoaderTest {
     var manifest = RulesetManifestLoader.load();
     var required = SealedResources.requiredPaths();
     assertTrue(required.contains("catalog/solar-amulet/perfect-infinite.catalog.json"));
-    assertTrue(required.contains("catalog/stocky-mitts/reviewed-alloys.raw.json"));
+    assertTrue(required.contains("catalog/stocky-mitts/reviewed-alloys.catalog.json"));
+    assertTrue(required.stream().noneMatch(path -> path.endsWith(".raw.json")));
+    assertTrue(manifest.files().keySet().stream().noneMatch(path -> path.endsWith(".raw.json")));
     assertTrue(required.contains("crafting/goalfilter/definitions-v1.json"));
     for (String path : required) {
       var files = new TreeMap<>(manifest.files());

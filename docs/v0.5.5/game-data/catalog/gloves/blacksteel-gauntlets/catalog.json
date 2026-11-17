@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-blacksteel-gauntlets-published-20261109-f42ee3ba2ffdb05f",
+    "retrievedAt": "2026-10-04T17:08:12.400Z",
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str_dex",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "8891cd065ebaac8d004e957f3ebf5b864734f9ff82f84a4e4d439ae5f5730e6f",
+    "detailsSha256": "3e59ea9f2b5123557920844ce1ce4c17072819459f9f9c575982e1dd3bf996c8"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+    "name": "Blacksteel Gauntlets",
+    "sourceUrl": "https://poe2db.tw/us/Blacksteel_Gauntlets",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "blacksteel-gauntlets-snapshot",
+  "implicitModifiers": []
+}

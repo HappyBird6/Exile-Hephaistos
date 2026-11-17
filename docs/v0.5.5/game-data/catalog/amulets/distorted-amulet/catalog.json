@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-distorted-amulet-20261102-87a6b8d06fef08bd",
+    "retrievedAt": "2026-11-02T07:56:57.050Z",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816",
+    "detailsSha256": "55cf5ad5987673d47f9bca7cce139583eb642be0dc2d9d26fb4d63fe72eebc6f"
+  },
+  "base": {
+    "id": "Metadata/Items/Amulets/FourAmuletDelirium2",
+    "name": "Distorted Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Distorted_Amulet",
+    "implicitModifierId": "distorted-amulet:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 0,
+    "rarePrefixes": 3,
+    "rareSuffixes": 2
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "distorted-amulet:implicit:base"
+    }
+  ]
+}

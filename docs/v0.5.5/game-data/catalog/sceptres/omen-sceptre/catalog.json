@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-omen-sceptre-20261005-9c2c1ec6cc4b3dab",
+    "retrievedAt": "2026-10-05T00:43:04.279Z",
+    "sourceUrl": "https://poe2db.tw/us/Sceptres",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "8042c018040e987be4046c5ce49fa3690b2e3ad6718f63013f2669f80f0f92f5",
+    "detailsSha256": "dea0a04d4124dd62ea6bc345729a39d5afe3ccd0a9663fb444a6631827335dc3"
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+    "name": "Omen Sceptre",
+    "sourceUrl": "https://poe2db.tw/us/Omen_Sceptre",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": []
+}

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-gemini-bow-20261004-6935d798fc4bac47",
+    "retrievedAt": "2026-10-04T20:08:28.252Z",
+    "sourceUrl": "https://poe2db.tw/us/Bows",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "417390c5ebe40011abfefa66869c68d15b0d1f1564d811d2ad55fb9d2430800f",
+    "detailsSha256": "ad35c04fbfad0e79ecb863fcdc4972853c59fac9a24908258c5bc08bdf5134c3"
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+    "name": "Gemini Bow",
+    "sourceUrl": "https://poe2db.tw/us/Gemini_Bow",
+    "implicitModifierId": "gemini-bow:implicit:additionalarrows",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 148,
+      "ref": "gemini-bow:implicit:additionalarrows"
+    }
+  ]
+}

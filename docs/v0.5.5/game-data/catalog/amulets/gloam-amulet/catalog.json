@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-gloam-amulet-20261102-bde8cc0099bb88a8",
+    "retrievedAt": "2026-11-02T07:56:58.140Z",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816",
+    "detailsSha256": "a1b2c23981b7824d5ceca7ade5d550d7a5385227f465888910bbc61fd4e24c1f"
+  },
+  "base": {
+    "id": "Metadata/Items/Amulets/FourAmuletLake2",
+    "name": "Gloam Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Gloam_Amulet",
+    "implicitModifierId": "gloam-amulet:implicit:base",
+    "magicPrefixes": 0,
+    "magicSuffixes": 2,
+    "rarePrefixes": 2,
+    "rareSuffixes": 4
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "gloam-amulet:implicit:base"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-drakeskin-boots-published-20261109-ceacf8e69612d205",
+    "retrievedAt": "2026-10-04T18:57:49.389Z",
+    "sourceUrl": "https://poe2db.tw/us/Boots_dex",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "088ad193d6ff5b181c3c6dad2f2b73bb3ccc582c5cbadd5382d73e936f90d569",
+    "detailsSha256": "3ff21d557f0daaeba3f0196595930a528c32e7834446e32ea471c53abbde7f65"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+    "name": "Drakeskin Boots",
+    "sourceUrl": "https://poe2db.tw/us/Drakeskin_Boots",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "drakeskin-boots-snapshot",
+  "implicitModifiers": []
+}

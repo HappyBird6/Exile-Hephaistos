@@ -1,0 +1,11 @@
+{
+  "metadata": {
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
+    "retrievedAt": "2026-10-03T06:33:01.034Z",
+    "snapshotId": "stocky-horror-2026-10-03-871c235ca9af",
+    "rawSha256": "871c235ca9af82a1b4caccdfdcfe27ad28ba57c2946f35417dc270eb68e1d50f"
+  },
+  "modifierRefs": [
+    "stocky-mitts:suffix:essence-socketed-augment-effect"
+  ]
+}

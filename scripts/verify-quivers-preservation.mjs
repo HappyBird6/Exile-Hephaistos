@@ -18,7 +18,7 @@ for(const b of Object.values(read(paths[0])).filter(b=>b.family==='quivers')) {
  const c=read(`backend/src/main/resources/catalog/${b.pool}/catalog.json`),ordinary=c.modifiers.filter(d=>d.weight>0)
  assert.equal(ordinary.length,100);assert.equal(c.modifiers.filter(d=>d.layer==='IMPLICIT').length,1)
  assert.equal(b.classId,20);assert.equal(b.maximumQuality,null);assert.equal(b.ordinarySocketMaximum,0)
- const raw=read(`backend/src/main/resources/catalog/${b.pool}/base.raw.json`)
+ const raw=read(`docs/legacy/raw-data/catalog/${b.pool}/base.raw.json`)
  for(const [i,r]of raw.entries())assert.equal(ordinary[i].weight,+r.DropChance)
 }
 for(const locale of ['kr','jp','cn','tw','sp']) {

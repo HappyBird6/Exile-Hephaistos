@@ -53,11 +53,7 @@ class CatalogLoadOrderTest {
                 "prismatic-alloy",
                 "scalar-alloys",
                 "reviewed-alloys"));
-    var cfg = new CatalogConfiguration();
-    var initial =
-        cfg.workbenchService(
-                actualSolar, cfg.workbenchSimulator(actualSolar, cfg.craftingEngine(actualSolar)))
-            .initial("stocky", 82);
+    var initial = ItemCatalogLoader.loadStocky();
     assertEquals(stocky.metadata(), initial.metadata());
     assertEquals(stocky.compatibleSnapshotIds(), initial.compatibleSnapshotIds());
     assertEquals(

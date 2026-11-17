@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-sapphire-basic-potent-20261004-6df2eea3976b",
+    "retrievedAt": "2026-10-04T10:25:34.485Z",
+    "sourceUrl": "https://poe2db.tw/us/Sapphire",
+    "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
+    "rawSha256": "6df2eea3976b76695af45c9b010df76ea447972bc50e4e671029bf6f905ea454",
+    "detailsSha256": "409590a1d44d9382b7b45e4461ca7c8750f4e7caf34e0299c3bc2d6ecb00e26c"
+  },
+  "base": {
+    "id": "Metadata/Items/Jewels/JewelInt",
+    "name": "Sapphire",
+    "sourceUrl": "https://poe2db.tw/us/Sapphire",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 2,
+    "rareSuffixes": 2
+  },
+  "modifierPool": "sapphire-snapshot",
+  "implicitModifiers": []
+}

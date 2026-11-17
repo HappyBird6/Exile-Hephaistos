@@ -1,4 +1,10 @@
 {
+  "metadata": {
+    "retrievedAt": "2026-10-03T06:33:09.397Z",
+    "snapshotId": "stocky-reviewed-alloys-2026-10-03-9d12e4a4beed",
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
+    "rawSha256": "9d12e4a4beed7235a43dc682bca8d3b38761bcb5d7fbb83df029be51f591df4d"
+  },
   "modifiers": [
     {
       "requiredItemLevel": 25,
@@ -71,11 +77,5 @@
       "tier": 1,
       "tags": []
     }
-  ],
-  "metadata": {
-    "retrievedAt": "2026-10-03T06:33:09.397Z",
-    "snapshotId": "stocky-reviewed-alloys-2026-10-03-9d12e4a4beed",
-    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
-    "rawSha256": "9d12e4a4beed7235a43dc682bca8d3b38761bcb5d7fbb83df029be51f591df4d"
-  }
+  ]
 }

@@ -10,8 +10,8 @@ const known = new Map()
 const catalogRoot = 'backend/src/main/resources/catalog'
 for (const dir of fs.readdirSync(catalogRoot)) {
   const path = `${catalogRoot}/${dir}`
-  if (!fs.statSync(path).isDirectory() || !fs.existsSync(`${path}/base.raw.json`)) continue
-  const raw = JSON.parse(fs.readFileSync(`${path}/base.raw.json`))
+  if (!fs.statSync(path).isDirectory() || !fs.existsSync(`docs/legacy/raw-data/catalog/${dir}/base.raw.json`)) continue
+  const raw = JSON.parse(fs.readFileSync(`docs/legacy/raw-data/catalog/${dir}/base.raw.json`))
   const catalog = JSON.parse(fs.readFileSync(`${path}/catalog.json`))
   // Jewel evidence uses another source format; it cannot prove an armour table row.
   if (!Array.isArray(raw)) continue

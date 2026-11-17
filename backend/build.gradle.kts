@@ -86,3 +86,6 @@ val chaosDisplayResources by tasks.registering(Copy::class) {
 }
 sourceSets.main { resources.srcDir(layout.buildDirectory.dir("generated-resources/chaosrepeat")) }
 tasks.processResources { dependsOn(chaosDisplayResources) }
+
+// Captured source checksums remain testable without shipping raw evidence in the server.
+sourceSets.test { resources.srcDir(layout.projectDirectory.dir("../docs/legacy/raw-data")) }

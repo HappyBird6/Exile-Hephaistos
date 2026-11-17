@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-primordial-wand-20261005-5a34a03437691cdb",
+    "retrievedAt": "2026-10-05T00:06:35.655Z",
+    "sourceUrl": "https://poe2db.tw/us/Wands",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "fecb2f7e1c512ff4e82a8929c8a5236779a54fe986f5aeb67a503ec7e6f7edb9",
+    "detailsSha256": "9900850d6adc75c9cd546633a4521bfb4c6cdc91844a14a64b8485e16e0635d7"
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+    "name": "Primordial Wand",
+    "sourceUrl": "https://poe2db.tw/us/Primordial_Wand",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "primordial-wand-snapshot",
+  "implicitModifiers": []
+}

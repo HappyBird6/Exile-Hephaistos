@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-toxic-quiver-20261005-8584bb369c4385db",
+    "retrievedAt": "2026-10-05T05:29:13.159Z",
+    "sourceUrl": "https://poe2db.tw/us/Quivers",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "c1cceb8e6e15bf113fd13fe215d3b42f95386c0c700aec305d9758cb16551729",
+    "detailsSha256": "f43776382101f91538f01842bdb290c2a4d114e6577c8672837ada28c2277f55"
+  },
+  "base": {
+    "id": "Metadata/Items/Quivers/FourQuiver6",
+    "name": "Toxic Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Toxic_Quiver",
+    "implicitModifierId": "toxic-quiver:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 102,
+      "ref": "toxic-quiver:implicit:base"
+    }
+  ]
+}

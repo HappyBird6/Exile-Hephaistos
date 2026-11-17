@@ -1,0 +1,11 @@
+{
+  "metadata": {
+    "snapshotId": "stocky-prismatic-2026-10-03-38425decc7fc",
+    "retrievedAt": "2026-10-03T06:33:08.442Z",
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
+    "rawSha256": "38425decc7fc27e25aba0ff15d06b640f628387b32b61c9cee90b7b673d2a873"
+  },
+  "modifierRefs": [
+    "stocky-mitts:prefix:alloy-elemental-penetration"
+  ]
+}

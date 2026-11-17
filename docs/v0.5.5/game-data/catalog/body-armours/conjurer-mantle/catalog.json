@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-conjurer-mantle-published-20261109-b5e8d13257755e8e",
+    "retrievedAt": "2026-11-02T07:57:04.737Z",
+    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str_int",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "66b5fb02e6e03881a91fde56e596e0d81d39267825cb486c3a8f1e9a96b6a7c1",
+    "detailsSha256": "d858dae7351c18847793a74ea236090270dd4b17814e8613f28416c36426192a"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+    "name": "Conjurer Mantle",
+    "sourceUrl": "https://poe2db.tw/us/Conjurer_Mantle",
+    "implicitModifierId": "conjurer-mantle:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "conjurer-mantle-snapshot",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "conjurer-mantle:implicit:base"
+    }
+  ]
+}

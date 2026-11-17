@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-fanatic-greathammer-20261005-b1f5b194acb90c3f",
+    "retrievedAt": "2026-10-05T07:00:16.315Z",
+    "sourceUrl": "https://poe2db.tw/us/Two_Hand_Maces",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "c7e52c38d3b4d452e5036c7cfab1f2b907f1edf260e973377475cb4c94b63292",
+    "detailsSha256": "bfbc1dc127e791e0896e0208cd400d4b70e6d765725c1ab498f674e63a9df027"
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame",
+    "name": "Fanatic Greathammer",
+    "sourceUrl": "https://poe2db.tw/us/Fanatic_Greathammer",
+    "implicitModifierId": "fanatic-greathammer:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 158,
+      "ref": "fanatic-greathammer:implicit:base"
+    }
+  ]
+}

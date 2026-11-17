@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-death-mantle-published-20261109-55410fcf70193f08",
+    "retrievedAt": "2026-11-02T07:57:04.428Z",
+    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str_int",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "66b5fb02e6e03881a91fde56e596e0d81d39267825cb486c3a8f1e9a96b6a7c1",
+    "detailsSha256": "f9f392cfeb5b69d12bcb7e8d89b810f1a1c6634a665dd43de8ce7c6237f6d661"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+    "name": "Death Mantle",
+    "sourceUrl": "https://poe2db.tw/us/Death_Mantle",
+    "implicitModifierId": "death-mantle:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "conjurer-mantle-snapshot",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "death-mantle:implicit:base"
+    }
+  ]
+}

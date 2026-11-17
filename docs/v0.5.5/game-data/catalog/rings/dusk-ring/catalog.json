@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-dusk-ring-20261102-833723aa39395edb",
+    "retrievedAt": "2026-11-02T08:17:18.405Z",
+    "sourceUrl": "https://poe2db.tw/us/Rings",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0",
+    "detailsSha256": "4a889f9eb83974930166c847376d40960b629d5fadad67444382dc9cfac48aef"
+  },
+  "base": {
+    "id": "Metadata/Items/Rings/FourRingLake1",
+    "name": "Dusk Ring",
+    "sourceUrl": "https://poe2db.tw/us/Dusk_Ring",
+    "implicitModifierId": "dusk-ring:implicit:base",
+    "magicPrefixes": 2,
+    "magicSuffixes": 0,
+    "rarePrefixes": 4,
+    "rareSuffixes": 2
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "dusk-ring:implicit:base"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "metadata": {
+    "snapshotId": "body-perfect-20261003-7291b4e1d1cd",
+    "retrievedAt": "2026-10-03T15:03:51.893Z",
+    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str",
+    "rawSha256": "7291b4e1d1cddbc3f1561b4f34cf8afadca02eb7331d74a3734770ed0cf4a1ba"
+  },
+  "modifierRefs": [
+    "rusted-cuirass:prefix:essence-maximum-life-percent",
+    "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+    "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"
+  ]
+}

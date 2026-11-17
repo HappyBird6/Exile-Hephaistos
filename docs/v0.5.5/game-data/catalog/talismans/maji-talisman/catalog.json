@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-maji-talisman-20261005-c10db000316ee471",
+    "retrievedAt": "2026-10-05T10:01:13.614Z",
+    "sourceUrl": "https://poe2db.tw/us/Talismans",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "322a833511c3d64fe8a75513e1d31b68baf3bbfe516362cf22b8dce62d58e19b",
+    "detailsSha256": "f013fe4c326647282668b375f2ad6fe9af23d22e79b01534e5c82487edf8de3a"
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+    "name": "Maji Talisman",
+    "sourceUrl": "https://poe2db.tw/us/Maji_Talisman",
+    "implicitModifierId": "maji-talisman:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 166,
+      "ref": "maji-talisman:implicit:base"
+    }
+  ]
+}

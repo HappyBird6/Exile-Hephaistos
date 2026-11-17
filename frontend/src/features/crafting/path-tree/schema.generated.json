@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "urn:hephaistos:crafting-paths:v1",
-  "title": "Crafting path-search v1 contract (not implemented endpoints)",
-  "description": "Compile the named definition for each endpoint; semantic constraints are normative in the companion specification.",
+  "title": "Crafting path-search v1 API contract",
+  "description": "Compile the named definition for each endpoint. Runtime and source-oracle cases are verified by the frontend/backend contract tests and verify.mjs.",
   "definitions": {
     "fraction": {
       "type": "object",

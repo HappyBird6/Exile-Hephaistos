@@ -19,8 +19,8 @@ function index(value) {
   if (value.row?.hover && value.code && value.url) { known.set(value.row.hover, value); known.set(signature(value.row), value) }
   for (const x of Object.values(value)) if (typeof x === 'object') index(x)
 }
-for (const dir of fs.readdirSync('backend/src/main/resources/catalog')) {
-  const p = `backend/src/main/resources/catalog/${dir}`
+for (const dir of fs.readdirSync('docs/legacy/raw-data/catalog')) {
+  const p = `docs/legacy/raw-data/catalog/${dir}`
   if (!fs.statSync(p).isDirectory()) continue
   for (const file of fs.readdirSync(p).filter(f => f.endsWith('.raw.json'))) index(JSON.parse(fs.readFileSync(`${p}/${file}`, 'utf8')))
 }

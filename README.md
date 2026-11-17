@@ -90,7 +90,11 @@ docs/
   v0.5.5/
     i18n/                 # UI·게임 번역 JSON
     game-data/
-      catalog/            # 베이스·옵션·가중치·증강물·출처 JSON
+      catalog/
+        modifiers.json    # 공통 modifier 정의와 기존 스냅샷의 차이값
+        amulets/          # 장비 종류별 폴더 (rings, gloves, bows 등)
+          modifier-pools.json # 함께 사용하는 옵션 ID 목록
+          solar-amulet/   # 베이스 메타데이터·고정 옵션·추가 옵션 참조
       crafting/           # 화폐·징조·목표·지원 범위·ruleset JSON
       display/            # 프런트 전용 게임 표시 데이터 JSON
     game-rule/            # 화폐·아이템·증강물·확률·표시·사용자 정책 MD
@@ -151,24 +155,33 @@ node scripts/versioned-game-data.mjs --check
 
 | 원본 폴더 | 자동 생성되는 실행 위치 |
 |---|---|
-| `game-data/catalog/`, `game-data/crafting/` | backend resources의 같은 하위 경로 |
+| `game-data/catalog/<장비종류>/<베이스>/` | 공통 modifier를 펼쳐 `backend/src/main/resources/catalog/<베이스>/`에 생성 |
+| `catalog/`의 공통 게임 JSON, `game-data/crafting/` | backend resources의 기존 하위 경로 |
 | `game-data/display/` | `frontend/src/features/crafting/`의 같은 하위 경로 |
 | `i18n/` | `frontend/src/shared/i18n/`의 같은 하위 경로 |
 
 기존 실행 경로의 복사본은 서버·프런트 코드의 호환을 위해 유지합니다. 직접 편집하면 검사에서 불일치를 알립니다. 원본 파일을 제거할 때는 기존 실행 복사본도 검토해 함께 보관해야 하며 도구가 자동 삭제하지 않습니다. 발급한 ID 매핑을 지우고 재생성하지 않습니다.
 
-게임 수치·weight·단위·출처를 추측하지 않고 원본 bytes와 배열 순서를 유지합니다. 수집 raw JSON도 출처 검증에 필요하므로 보존합니다. 번역 템플릿을 변경하면 Java `ModifierTextResources.TEMPLATE_SHA256`을 함께 검토·갱신하고 `node scripts/check-display-coverage.mjs`로 검증합니다. 새 메커니즘은 단일·반복·일반/훼손 제작, 저장 복원, 확률·표시의 직접 영향을 검사합니다. 과거 compatibility digest를 현재 값으로 덮어쓰지 않습니다.
+게임 수치·weight·단위·출처를 추측하지 않고 값과 배열 순서를 유지합니다. 수집 raw JSON은 `docs/legacy/raw-data/catalog/<베이스>/`에 당시 bytes 그대로 보관합니다. 서버 시작과 배포 JAR에서는 읽지 않으며, 과거 원자료 대조 테스트와 수집·감사 도구에서만 사용합니다. 서버는 ruleset에 봉인된 실행 JSON의 해시를 검증합니다. 번역 템플릿을 변경하면 Java `ModifierTextResources.TEMPLATE_SHA256`을 함께 검토·갱신하고 `node scripts/check-display-coverage.mjs`로 검증합니다. 새 메커니즘은 단일·반복·일반/훼손 제작, 저장 복원, 확률·표시의 직접 영향을 검사합니다. 과거 compatibility digest를 현재 값으로 덮어쓰지 않습니다.
 
 번역 수집은 `collect-i18n-terms.mjs` / `collect-i18n-modifiers.mjs`의 `--output-dir`로 저장소 밖 검토 결과를 만들고 검토한 값만 i18n 원본에 반영합니다. legacy의 증거 숫자·결정을 현재 정책으로 덮어쓰지 않습니다.
+
+공통 옵션 수정은 `catalog/modifiers.json`의 `definitions`에서 합니다. `variants`에는 같은 원래 ID에 남아 있던 가중치·티어·태그·이름·출처 차이만 저장합니다. `id@번호`는 편집 원본의 참조 키이며 API ID나 `mappings/`의 짧은 ID가 아닙니다. 실행 파일을 만들 때 원래 modifier ID로 복원합니다.
+
+장비 종류별 `modifier-pools.json`은 공통 옵션 목록입니다. 각 베이스의 `modifierPool`이 이 목록을 참조하고, 고정 옵션은 `implicitModifiers`로 위치와 ID만 지정합니다. 추가 제작 옵션 파일도 `modifierRefs`만 보관합니다. 옵션 개수와 가중치 합계는 자동 계산합니다. `*-snapshot` 목록은 기존 수집 시점·능력치 계열·지원 범위 차이를 보존한 것이며, 베이스마다 별도 게임 규칙이 있다는 뜻은 아닙니다. 차이를 합칠 때는 출처를 확인하고 게임 동작 변경으로 검토합니다. 기존 `snapshotId`와 출처 해시는 이력이며 실제 옵션/지원 범위를 바꾸면 해당 snapshot·ruleset 버전도 검토합니다.
+
+`modifiers.json`과 `modifier-pools.json`은 편집용 원본으로만 유지합니다. 서버의 펼친 JSON은 자동 생성 결과이며, 공통 테이블 직접 로딩과 짧은 ID 송수신 전환은 후속 코드 경량화에서 진행합니다. 원자료 보관 위치 변경으로 실행 자원 목록을 줄인 ruleset은 v13이고, 기존 아이템 snapshot과 호환 ID는 유지합니다. 과거 ruleset으로 저장한 탐색 작업은 기존 버전 검증을 그대로 적용하며 자동 재지정하지 않습니다.
 
 ### 공유 계약
 
 기존 루트 `contracts/`는 [docs/contracts](docs/contracts/)로 이동했습니다. API 버전·양쪽 구현 검증 자료이므로 게임 버전 폴더와 구분합니다. Java·TypeScript import, 생성 도구와 Docker 빌드는 새 경로를 사용합니다. 서버가 직접 읽는 `backend/src/main/resources/contracts/`와 생성된 `frontend/src/shared/contracts/`는 기존 실행 위치를 유지합니다.
 
-- `*.schema.json`: 데이터 형식을 정의합니다. `workbench-definitions-v1.schema.json`의 화폐·징조 목록과 개수는 원본 JSON에서 자동 갱신합니다. 경로 검색 타입은 `frontend/src/features/crafting/path-tree/generate-types.mjs`로 생성합니다.
+- 루트의 `goal-definitions-v1.schema.json`, `workbench-definitions-v1.schema.json`: 현재 생성·검증 도구가 사용하는 데이터 형식입니다. 사용처가 없는 goal-bases, reviewed-essences, ruleset, supported-base-sets 스키마는 `docs/legacy/contracts/`에 보관합니다. `workbench-definitions-v1.schema.json`의 화폐·징조 목록과 개수는 원본 JSON에서 자동 갱신합니다. 경로 검색 타입은 `frontend/src/features/crafting/path-tree/generate-types.mjs`로 생성합니다.
 - `crafting-paths-v1/`, `crafting-methods-v2/`, `support-goal-filter-v1/`: API 형식·확률 질량·그래프·목표 판정의 공유 사례입니다. 합성 fixture는 실제 게임 확률이나 전체 기능 지원의 증거가 아닙니다. 확률의 하한·상한·미해결 질량, revision과 cursor 경계를 유지합니다.
 - `chaos-repeat/`: 요청의 UTF-8 bytes와 SHA-256을 양쪽에서 대조합니다. 반복 응답의 최종 상태·횟수·마지막 witness·부분 실패를 구분하고 네트워크 실패 시 자동 재시도하거나 완료 횟수를 추측하지 않습니다.
 - `sanctification/`: Java와 브라우저가 같은 축성 표시 계산을 하는지 검증합니다.
+
+`crafting-paths-v1/solar-source-fixture.json`은 현행 실행 데이터에 묶인 검증 사례입니다. 과거 v11 사례는 `docs/legacy/contracts/crafting-paths-v1/solar-source-fixture-v11.json`에 보존합니다. 데이터 변경 시 먼저 목표·옵션·확률 oracle이 여전히 타당한지 검증한 다음 `node scripts/refresh-source-fixture-identities.mjs`로 현행 사례의 해시를 갱신하고 계약 테스트를 실행합니다. 과거 사례를 최신 값으로 덮어쓰지 않습니다.
 
 계약 설명의 기존 README는 [legacy/contracts](docs/legacy/contracts/)에 보관했습니다. 새로운 관리 안내는 이 README에 통합합니다. 검증 스크립트는 다음 위치에서 실행할 수 있습니다.
 

@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-diamond-basic-potent-20261004-ede747edd595",
+    "retrievedAt": "2026-10-04T10:25:33.783Z",
+    "sourceUrl": "https://poe2db.tw/us/Diamond",
+    "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
+    "rawSha256": "ede747edd595fe7af3263b4d2b7079c112d3acc3d746946b1e2fae1d464a44bb",
+    "detailsSha256": "85189426d7cdd761d89cfcd10b120ad15209baaf9fd3273b71adfe04903173ab"
+  },
+  "base": {
+    "id": "Metadata/Items/Jewels/JewelDiamond",
+    "name": "Diamond",
+    "sourceUrl": "https://poe2db.tw/us/Diamond",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 2,
+    "rareSuffixes": 2
+  },
+  "modifierPool": "default",
+  "implicitModifiers": []
+}

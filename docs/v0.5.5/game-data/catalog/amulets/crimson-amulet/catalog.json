@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-crimson-amulet-20261004-dedffae25e54f843",
+    "retrievedAt": "2026-10-04T21:52:38.825Z",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816",
+    "detailsSha256": "a8ade3b54789accd25b118fa8216479fcf4575d4d144b3619ad8443517fad903"
+  },
+  "base": {
+    "id": "Metadata/Items/Amulets/FourAmulet1",
+    "name": "Crimson Amulet",
+    "sourceUrl": "https://poe2db.tw/us/Crimson_Amulet",
+    "implicitModifierId": "crimson:implicit:liferegeneration",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "crimson:implicit:liferegeneration"
+    }
+  ]
+}

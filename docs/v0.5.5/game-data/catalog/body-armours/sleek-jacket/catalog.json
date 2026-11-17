@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-sleek-jacket-published-20261109-83f234c0397d9469",
+    "retrievedAt": "2026-10-04T17:54:02.808Z",
+    "sourceUrl": "https://poe2db.tw/us/Body_Armours_dex_int",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "93570d397a4175eb09ec53497294bad4ff25bbf38238de09e4b8d766e153b4b9",
+    "detailsSha256": "b4121b81c69926d4ec2cd67a6b6ee0e6cb5d96df708ff677e2cd9ad20c1d3a22"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+    "name": "Sleek Jacket",
+    "sourceUrl": "https://poe2db.tw/us/Sleek_Jacket",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "sleek-jacket-snapshot",
+  "implicitModifiers": []
+}

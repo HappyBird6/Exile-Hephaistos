@@ -14,7 +14,10 @@ import org.junit.jupiter.api.Test;
 class PathSearchContractTest {
   @Test
   void sharedWireFixturesRoundTripAndExactOracleAreConsumed() throws Exception {
-    var json = new ObjectMapper().enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+    var builder = org.springframework.http.converter.json.Jackson2ObjectMapperBuilder.json();
+    new com.poe2craft.bootstrap.CatalogConfiguration().itemStateJson().customize(builder);
+    ObjectMapper json = builder.build();
+    json.enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
     var fixture =
         json.readTree(
             Path.of("../docs/contracts/crafting-paths-v1/synthetic-fixtures.json").toFile());

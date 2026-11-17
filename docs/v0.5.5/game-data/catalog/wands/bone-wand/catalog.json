@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-bone-wand-20261005-504acd2620ae9499",
+    "retrievedAt": "2026-10-05T00:06:33.618Z",
+    "sourceUrl": "https://poe2db.tw/us/Wands",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "90774044ce129039ae191ac20caade56c7a161a23489dbc88a2c206787c6268e",
+    "detailsSha256": "d8fff658030c0a3d68a42b98aa5962beceeced39b98582e2f396c606c04935e3"
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+    "name": "Bone Wand",
+    "sourceUrl": "https://poe2db.tw/us/Bone_Wand",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "offering-wand-snapshot",
+  "implicitModifiers": []
+}

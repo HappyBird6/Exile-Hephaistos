@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-volatile-wand-20261005-33a1e34491160717",
+    "retrievedAt": "2026-10-05T00:06:34.205Z",
+    "sourceUrl": "https://poe2db.tw/us/Wands",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "27ab911e8ccd585a56bf31cdf0c3a2accf9168a0f25613d6af11b71e060cdaae",
+    "detailsSha256": "d7350340a7e4ccbd91290c7a6aabec06685a50b3a27eebd007d1bd73e1f9f720"
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+    "name": "Volatile Wand",
+    "sourceUrl": "https://poe2db.tw/us/Volatile_Wand",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "volatile-wand-snapshot",
+  "implicitModifiers": []
+}

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-guardian-bow-20261004-e44ec06a14df1fc9",
+    "retrievedAt": "2026-10-04T20:08:26.511Z",
+    "sourceUrl": "https://poe2db.tw/us/Bows",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "417390c5ebe40011abfefa66869c68d15b0d1f1564d811d2ad55fb9d2430800f",
+    "detailsSha256": "4e378f5f4a7b210d998c932ba342078d5f36c97a6d12564e203783c0aa8bc554"
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+    "name": "Guardian Bow",
+    "sourceUrl": "https://poe2db.tw/us/Guardian_Bow",
+    "implicitModifierId": "guardian-bow:implicit:chain",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 148,
+      "ref": "guardian-bow:implicit:chain"
+    }
+  ]
+}

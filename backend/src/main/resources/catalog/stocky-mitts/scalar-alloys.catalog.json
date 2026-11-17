@@ -1,4 +1,10 @@
 {
+  "metadata": {
+    "retrievedAt": "2026-10-03T06:33:08.936Z",
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
+    "rawSha256": "1d0316cd396eee84f10d662c3b7ea220fbd93b56b66adbf332fd6a81a46d436b",
+    "snapshotId": "stocky-scalar-alloys-2026-10-03-1d0316cd396e"
+  },
   "modifiers": [
     {
       "stats": [
@@ -70,11 +76,5 @@
       "layer": "EXPLICIT",
       "tier": 1
     }
-  ],
-  "metadata": {
-    "retrievedAt": "2026-10-03T06:33:08.936Z",
-    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
-    "rawSha256": "1d0316cd396eee84f10d662c3b7ea220fbd93b56b66adbf332fd6a81a46d436b",
-    "snapshotId": "stocky-scalar-alloys-2026-10-03-1d0316cd396e"
-  }
+  ]
 }

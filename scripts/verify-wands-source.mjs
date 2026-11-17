@@ -5,8 +5,8 @@ import { cleanSource as clean } from './armour-source.mjs'
 const root = 'evidence:wands-source'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 const old = read('backend/src/main/resources/catalog/attuned-wand/catalog.json')
-const raw = read('backend/src/main/resources/catalog/attuned-wand/base.raw.json')
-const details = read('backend/src/main/resources/catalog/attuned-wand/details.raw.json')
+const raw = read('docs/legacy/raw-data/catalog/attuned-wand/base.raw.json')
+const details = read('docs/legacy/raw-data/catalog/attuned-wand/details.raw.json')
 const current = read(`${root}/Wands.us.json`).data
 assert.deepEqual(current.normal, raw, 'Class pool changed; review before reuse')
 const report = { bases: [], ordinaryRows: raw.length, policy: old.metadata.weightPolicy, localeDiscrepancies: [], blockers: [] }

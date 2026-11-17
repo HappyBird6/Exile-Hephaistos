@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-amethyst-ring-20261004-ac46e24c41b398fe",
+    "retrievedAt": "2026-10-04T20:54:57.688Z",
+    "sourceUrl": "https://poe2db.tw/us/Rings",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0",
+    "detailsSha256": "1b6185b7cfcf6b093e2ae47d569c6021fc4a57d36433fbca526ee354e2d6687f"
+  },
+  "base": {
+    "id": "Metadata/Items/Rings/FourRing6",
+    "name": "Amethyst Ring",
+    "sourceUrl": "https://poe2db.tw/us/Amethyst_Ring",
+    "implicitModifierId": "amethyst:implicit:chaosresistance",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "amethyst:implicit:chaosresistance"
+    }
+  ]
+}

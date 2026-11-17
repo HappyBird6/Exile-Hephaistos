@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "snapshotId": "bow-perfect-20261003-dd984fc65df0",
+    "retrievedAt": "2026-10-03T13:11:13.124Z",
+    "sourceUrl": "https://poe2db.tw/us/Bows",
+    "rawSha256": "dd984fc65df04439eccc7eebd00df46ee31d36cdacb047d5c32b8aaa58505c25"
+  },
+  "modifierRefs": [
+    "crude-bow:prefix:essence-extra-physical-damage",
+    "crude-bow:prefix:essence-extra-fire-damage",
+    "crude-bow:prefix:essence-extra-cold-damage",
+    "crude-bow:prefix:essence-extra-lightning-damage",
+    "crude-bow:suffix:essence-attack-skill-level@1",
+    "crude-bow:suffix:essence-onslaught-on-kill@1"
+  ]
+}

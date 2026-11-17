@@ -9,7 +9,7 @@ for (const [page, pool] of [['Body_Armours_str', 'rusted-cuirass'], ['Helmets_st
   const line = html.split('\n').find((l) => l.includes('new ModsView('))
   assert(line, `${page}: ModsView not found`)
   const data = JSON.parse(line.slice(line.indexOf('new ModsView(') + 13, line.lastIndexOf(');')))
-  const old = JSON.parse(fs.readFileSync(`backend/src/main/resources/catalog/${pool}/base.raw.json`))
+  const old = JSON.parse(fs.readFileSync(`docs/legacy/raw-data/catalog/${pool}/base.raw.json`))
   const before = old.map(signature).sort(), after = data.normal.map(signature).sort()
   const result = { url, retrievedAt: new Date().toISOString(), sha256: crypto.createHash('sha256').update(html).digest('hex'), currentNormalCount: data.normal.length, existingNormalCount: old.length, exactPublishedRowsMatch: JSON.stringify(before) === JSON.stringify(after), normal: data.normal }
   fs.writeFileSync(`evidence:top-base/${pool}.pool-proof.json`, JSON.stringify(result, null, 2) + '\n')

@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-daggerfoot-shoes-published-20261109-37ae063453c92e56",
+    "retrievedAt": "2026-10-04T18:58:33.972Z",
+    "sourceUrl": "https://poe2db.tw/us/Boots_dex_int",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "0328739702830492e2e2ccb60eabbd7e45148f6fd89a51a7a258720b1e50def7",
+    "detailsSha256": "5417848699bc6c1c95f81be66463008c27ce58ec5c9a1f0c9933c07102e6399b"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+    "name": "Daggerfoot Shoes",
+    "sourceUrl": "https://poe2db.tw/us/Daggerfoot_Shoes",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "daggerfoot-shoes-snapshot",
+  "implicitModifiers": []
+}

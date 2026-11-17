@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "snapshotId": "abyss-essence-2026-10-02-f71969ce6f11",
+    "retrievedAt": "2026-10-02T16:28:15.486Z",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "rawSha256": "f71969ce6f113361edf0f5a14e1b92d80e552c8f433e21485d1a35a2372eb548"
+  },
+  "modifierRefs": [
+    "amulet:prefix:essence-abyssal-mark",
+    "amulet:suffix:essence-abyssal-mark"
+  ]
+}

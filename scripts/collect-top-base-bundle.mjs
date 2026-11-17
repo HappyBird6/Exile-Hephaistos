@@ -24,7 +24,7 @@ for (const [slug, family, pool] of candidates) {
   const records = Object.fromEntries(sources)
   const source = records.us
   const tags = source.fields.Tags.split(', ')
-  const details = JSON.parse(fs.readFileSync(`backend/src/main/resources/catalog/${pool}/details.raw.json`))
+  const details = JSON.parse(fs.readFileSync(`docs/legacy/raw-data/catalog/${pool}/details.raw.json`))
   const eligible = details.map((d) => {
     const first = d.parsed.spawn.find((s) => [...tags, 'default'].includes(s.tag))
     assert(first && first.weight > 0, `${slug}: ${d.code}`)

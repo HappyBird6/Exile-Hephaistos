@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict'
+import { catalogOutputs, catalogRuntimePath, dataFiles as files } from './catalog-data.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -14,16 +15,14 @@ export const domains = {
 const digest = bytes => crypto.createHash('sha256').update(bytes).digest('hex')
 const json = value => JSON.stringify(value, null, 2) + '\n'
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'))
-const files = directory => !fs.existsSync(directory) ? [] : fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
-  const file = path.join(directory, entry.name)
-  return entry.isDirectory() ? files(file) : [file]
-}).sort()
-
 // Directory names determine the destination; manifest.resources is generated output.
 export function runtimePathFor(source) {
   assert(source.endsWith('.json') && !source.includes('\\') && source.split('/').every(part => part && part !== '.' && part !== '..'), `Invalid data path: ${source}`)
+  if (source.startsWith('game-data/catalog/')) {
+    const relative = catalogRuntimePath(source.slice('game-data/catalog/'.length))
+    return relative === null ? null : 'backend/src/main/resources/catalog/' + relative
+  }
   for (const [from, to] of [
-    ['game-data/catalog/', 'backend/src/main/resources/catalog/'],
     ['game-data/crafting/', 'backend/src/main/resources/crafting/'],
     ['game-data/display/', 'frontend/src/features/crafting/'],
     ['i18n/', 'frontend/src/shared/i18n/'],
@@ -125,16 +124,18 @@ export function synchronize(root, write = false) {
   }
   const resources = new Map(), runtimePaths = new Set()
   const sourceFiles = ['game-data', 'i18n'].flatMap(folder => files(path.join(directory, folder))).map(file => path.relative(directory, file).replaceAll('\\', '/')).sort()
+  const catalog = new Map(catalogOutputs(path.join(directory, 'game-data/catalog')).map(row => ['game-data/catalog/' + row.relative, row]))
   const entries = sourceFiles.map(source => {
     const runtimePath = runtimePathFor(source)
-    assert(!runtimePaths.has(runtimePath), `Duplicate runtime path: ${runtimePath}`)
-    runtimePaths.add(runtimePath)
+    assert(runtimePath === null || !runtimePaths.has(runtimePath), `Duplicate runtime path: ${runtimePath}`)
+    if (runtimePath !== null) runtimePaths.add(runtimePath)
     const bytes = fs.readFileSync(path.join(directory, source))
     resources.set(source, JSON.parse(bytes))
-    return { path: source, runtimePath, sha256: digest(bytes) }
+    const runtimeBytes = catalog.get(source)?.runtimeBytes ?? bytes
+    return { path: source, runtimePath, sha256: digest(bytes), ...(runtimePath && catalog.get(source) ? { runtimeSha256: digest(runtimeBytes) } : {}) }
   })
   const runtimeGameFiles = ['catalog', 'crafting'].flatMap(folder => files(path.join(root, 'backend/src/main/resources', folder))).filter(file => file.endsWith('.json')).map(file => path.relative(root, file).replaceAll('\\', '/'))
-  const previousMirrors = (manifest.resources ?? []).map(entry => runtimePathFor(entry.path)).filter(file => fs.existsSync(path.join(root, file)))
+  const previousMirrors = (manifest.resources ?? []).filter(entry => !entry.path.endsWith('.raw.json')).map(entry => runtimePathFor(entry.path)).filter(file => file !== null && fs.existsSync(path.join(root, file)))
   const orphaned = [...runtimeGameFiles, ...previousMirrors].filter(file => !runtimePaths.has(file))
   assert.deepEqual([...new Set(orphaned)], [], 'Source data was removed or a runtime file has no canonical source; review and archive it explicitly')
   const keys = collect(resources), mappings = []
@@ -149,7 +150,7 @@ export function synchronize(root, write = false) {
     mappings.push({ path: relative, domain, count: value.entries.length, sha256: digest(contents) })
   }
   assert.deepEqual(files(path.join(directory, 'mappings')).map(file => path.relative(directory, file).replaceAll('\\', '/')).sort(), mappings.filter(row => fs.existsSync(path.join(directory, row.path))).map(row => row.path).sort(), 'Unexpected mapping file')
-  for (const entry of entries) emit(path.join(root, entry.runtimePath), fs.readFileSync(path.join(directory, entry.path)))
+  for (const entry of entries) if (entry.runtimePath !== null) emit(path.join(root, entry.runtimePath), catalog.get(entry.path)?.runtimeBytes ?? fs.readFileSync(path.join(directory, entry.path)))
   for (const [file, contents] of outputs) emit(file, contents)
   const { rules, ...metadata } = manifest // Prose is not an execution resource or checksum input.
   emit(target, json({ ...metadata, resources: entries, mappings }))
@@ -159,7 +160,7 @@ export function synchronize(root, write = false) {
 export function synchronizeAll(root, write = false) {
   const flag = write ? '--write' : '--check'
   const run = script => execFileSync(process.execPath, [path.join(root, 'scripts', script), flag], { cwd: root, stdio: 'inherit' })
-  // Seal the canonical data first, then copy its exact bytes once to the runtime paths.
+  // Seal the generated runtime data, then write mirrors from the same canonical source.
   // --check never updates seals, mirrors or generated documentation.
   run('update-ruleset-manifest.mjs')
   synchronize(root, write)

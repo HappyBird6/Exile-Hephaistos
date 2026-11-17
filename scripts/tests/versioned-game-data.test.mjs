@@ -143,7 +143,7 @@ test('one CLI command updates seals, stable IDs, both mirrors and public policy 
   for (const file of [
     versionRoot, 'README.md', 'backend/src/main/resources/contracts',
     'docs/contracts/workbench-definitions-v1.schema.json', 'docs/contracts/goal-definitions-v1.schema.json',
-    'scripts/versioned-game-data.mjs', 'scripts/update-ruleset-manifest.mjs',
+    'scripts/versioned-game-data.mjs', 'scripts/update-ruleset-manifest.mjs', 'scripts/catalog-data.mjs',
     'scripts/sync-workbench-data.mjs', 'scripts/sync-public-contracts.mjs', 'scripts/public-contracts.mjs',
   ]) {
     fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true })

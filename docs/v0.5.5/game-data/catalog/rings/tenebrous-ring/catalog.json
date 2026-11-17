@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-tenebrous-ring-20261102-10fd535bc8e3952d",
+    "retrievedAt": "2026-11-02T08:17:19.392Z",
+    "sourceUrl": "https://poe2db.tw/us/Rings",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0",
+    "detailsSha256": "5301dfb20a1f1a0b260cb1b5ed3333f212ba5894085d17da3cef9938e0b5e570"
+  },
+  "base": {
+    "id": "Metadata/Items/Rings/FourRingLake4",
+    "name": "Tenebrous Ring",
+    "sourceUrl": "https://poe2db.tw/us/Tenebrous_Ring",
+    "implicitModifierId": "tenebrous-ring:implicit:base",
+    "magicPrefixes": 0,
+    "magicSuffixes": 3,
+    "rarePrefixes": 1,
+    "rareSuffixes": 5
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "tenebrous-ring:implicit:base"
+    }
+  ]
+}

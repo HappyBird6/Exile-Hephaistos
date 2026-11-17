@@ -17,7 +17,6 @@ import java.util.List;
 
 /** Reads a bundled, reviewed snapshot; never fetches data during application execution. */
 public final class ItemCatalogLoader {
-  private static final String ROOT = "/catalog/solar-amulet/";
 
   private ItemCatalogLoader() {}
 
@@ -29,14 +28,7 @@ public final class ItemCatalogLoader {
     if ("BODY".equals(reviewed.policy().legacyCatalog())) pool = loadBody();
     else if ("HELMET".equals(reviewed.policy().legacyCatalog())) pool = loadHelmet();
     else {
-      String root = "/catalog/" + reviewed.pool() + "/";
-      try (var data = SealedResources.open(root + "catalog.json");
-          var raw = SealedResources.open(root + "base.raw.json");
-          var details = SealedResources.open(root + "details.raw.json")) {
-        pool = load(data, raw, details);
-      } catch (IOException e) {
-        throw new IllegalStateException("Cannot load reviewed base catalog", e);
-      }
+      pool = loadBundled(reviewed.pool());
       if (!pool.base().id().equals(id) || !pool.base().name().equals(name))
         throw new IllegalArgumentException("Reviewed catalog identity mismatch");
     }
@@ -83,20 +75,14 @@ public final class ItemCatalogLoader {
 
   /** Sapphire-only ordinary candidates with explicitly modeled equal selection weights. */
   public static ItemCatalog loadSapphire() {
-    try (var data = SealedResources.open("/catalog/sapphire/catalog.json");
-        var raw = SealedResources.open("/catalog/sapphire/base.raw.json");
-        var details = SealedResources.open("/catalog/sapphire/details.raw.json")) {
-      var catalog = load(data, raw, details);
-      return new ItemCatalog(
-          catalog.metadata(),
-          catalog.base(),
-          new ArrayList<>(catalog.modifiers().values()),
-          List.of(
-              "poe2db-sapphire-editor-20261004-63e81efc2080",
-              "poe2db-sapphire-basic-liquid-20261004-2eaf12518879"));
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Sapphire starting-item catalog", e);
-    }
+    var catalog = loadBundled("sapphire");
+    return new ItemCatalog(
+        catalog.metadata(),
+        catalog.base(),
+        new ArrayList<>(catalog.modifiers().values()),
+        List.of(
+            "poe2db-sapphire-editor-20261004-63e81efc2080",
+            "poe2db-sapphire-basic-liquid-20261004-2eaf12518879"));
   }
 
   public static ItemCatalog loadBasicJewel(String base) {
@@ -109,146 +95,76 @@ public final class ItemCatalogLoader {
             "time-lost-sapphire",
             "time-lost-diamond")
         .contains(base)) throw new IllegalArgumentException("Unsupported Basic Jewel catalog");
-    String root = "/catalog/" + base + "/";
-    try (var data = SealedResources.open(root + "catalog.json");
-        var raw = SealedResources.open(root + "base.raw.json");
-        var details = SealedResources.open(root + "details.raw.json")) {
-      return load(data, raw, details);
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Basic Jewel catalog", e);
-    }
+    return loadBundled(base);
   }
 
-  /** Complete ordinary Bow snapshot for Workbench dispatch only. */
   public static ItemCatalog loadBow() {
-    try (var data = SealedResources.open("/catalog/crude-bow/catalog.json");
-        var raw = SealedResources.open("/catalog/crude-bow/base.raw.json");
-        var details = SealedResources.open("/catalog/crude-bow/details.raw.json");
-        var special = SealedResources.open("/catalog/crude-bow/perfect-essences.catalog.json");
-        var specialRaw = SealedResources.open("/catalog/crude-bow/perfect-essences.raw.json")) {
-      return loadWithSpecial(data, raw, details, special, specialRaw);
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Crude Bow catalog", e);
-    }
+    return loadBundled("crude-bow", "perfect-essences");
   }
 
-  /** Complete ordinary Wand snapshot for Workbench dispatch only. */
   public static ItemCatalog loadWand() {
-    try (var data = SealedResources.open("/catalog/attuned-wand/catalog.json");
-        var raw = SealedResources.open("/catalog/attuned-wand/base.raw.json");
-        var details = SealedResources.open("/catalog/attuned-wand/details.raw.json");
-        var special = SealedResources.open("/catalog/attuned-wand/perfect-essences.catalog.json");
-        var specialRaw = SealedResources.open("/catalog/attuned-wand/perfect-essences.raw.json")) {
-      return loadWithSpecial(data, raw, details, special, specialRaw);
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Attuned Wand catalog", e);
-    }
+    return loadBundled("attuned-wand", "perfect-essences");
   }
 
-  /** Complete ordinary Body Armour snapshot for Workbench dispatch only. */
   public static ItemCatalog loadBody() {
-    try (var data = SealedResources.open("/catalog/rusted-cuirass/catalog.json");
-        var raw = SealedResources.open("/catalog/rusted-cuirass/base.raw.json");
-        var details = SealedResources.open("/catalog/rusted-cuirass/details.raw.json");
-        var special =
-            SealedResources.open("/catalog/rusted-cuirass/perfect-essences.catalog.json");
-        var specialRaw =
-            SealedResources.open("/catalog/rusted-cuirass/perfect-essences.raw.json")) {
-      return loadWithSpecial(data, raw, details, special, specialRaw);
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Rusted Cuirass catalog", e);
-    }
+    return loadBundled("rusted-cuirass", "perfect-essences");
   }
 
-  /** Complete ordinary Sceptre snapshot for Workbench dispatch only. */
   public static ItemCatalog loadSceptre() {
-    try (var data = SealedResources.open("/catalog/rattling-sceptre/catalog.json");
-        var raw = SealedResources.open("/catalog/rattling-sceptre/base.raw.json");
-        var details = SealedResources.open("/catalog/rattling-sceptre/details.raw.json");
-        var special =
-            SealedResources.open("/catalog/rattling-sceptre/perfect-essences.catalog.json");
-        var specialRaw =
-            SealedResources.open("/catalog/rattling-sceptre/perfect-essences.raw.json")) {
-      return loadWithSpecial(data, raw, details, special, specialRaw);
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Rattling Sceptre catalog", e);
-    }
+    return loadBundled("rattling-sceptre", "perfect-essences");
   }
 
-  /** Complete ordinary Belt snapshot for Workbench dispatch only. */
   public static ItemCatalog loadBelt() {
-    try (var data = SealedResources.open("/catalog/rawhide-belt/catalog.json");
-        var raw = SealedResources.open("/catalog/rawhide-belt/base.raw.json");
-        var details = SealedResources.open("/catalog/rawhide-belt/details.raw.json");
-        var special = SealedResources.open("/catalog/rawhide-belt/perfect-essences.catalog.json");
-        var specialRaw = SealedResources.open("/catalog/rawhide-belt/perfect-essences.raw.json")) {
-      return loadWithSpecial(data, raw, details, special, specialRaw);
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Rawhide Belt catalog", e);
-    }
+    return loadBundled("rawhide-belt", "perfect-essences");
   }
 
-  /** Complete ordinary Helmet snapshot for Workbench dispatch only. */
   public static ItemCatalog loadHelmet() {
-    try (var data = SealedResources.open("/catalog/rusted-greathelm/catalog.json");
-        var raw = SealedResources.open("/catalog/rusted-greathelm/base.raw.json");
-        var details = SealedResources.open("/catalog/rusted-greathelm/details.raw.json");
-        var special =
-            SealedResources.open("/catalog/rusted-greathelm/perfect-essences.catalog.json");
-        var specialRaw =
-            SealedResources.open("/catalog/rusted-greathelm/perfect-essences.raw.json")) {
-      return loadWithSpecial(data, raw, details, special, specialRaw);
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Rusted Greathelm catalog", e);
-    }
+    return loadBundled("rusted-greathelm", "perfect-essences");
   }
 
-  /** Complete ordinary Ring snapshot for Workbench dispatch only. */
   public static ItemCatalog loadRing() {
-    try (var data = SealedResources.open("/catalog/iron-ring/catalog.json");
-        var raw = SealedResources.open("/catalog/iron-ring/base.raw.json");
-        var details = SealedResources.open("/catalog/iron-ring/details.raw.json");
-        var special = SealedResources.open("/catalog/iron-ring/perfect-essences.catalog.json");
-        var specialRaw = SealedResources.open("/catalog/iron-ring/perfect-essences.raw.json")) {
-      return loadWithSpecial(data, raw, details, special, specialRaw);
-    } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Iron Ring catalog", e);
-    }
+    return loadBundled("iron-ring", "perfect-essences");
   }
 
   public static ItemCatalog loadDefault() {
-    try (var catalog = resource("catalog.json");
-        var raw = resource("base.raw.json");
-        var details = resource("details.raw.json");
-        var special = resource("perfect-infinite.catalog.json");
-        var specialRaw = resource("perfect-infinite.raw.json");
-        var enhancement = resource("perfect-enhancement.catalog.json");
-        var enhancementRaw = resource("perfect-enhancement.raw.json");
-        var breach = resource("breach-essence.catalog.json");
-        var breachRaw = resource("breach-essence.raw.json");
-        var runic = resource("runic-alloy.catalog.json");
-        var runicRaw = resource("runic-alloy.raw.json");
-        var abyss = resource("abyss-essence.catalog.json");
-        var abyssRaw = resource("abyss-essence.raw.json")) {
-      return addSpecial(
-          addSpecial(
-              addSpecial(
-                  addSpecial(
-                      loadWithSpecial(catalog, raw, details, special, specialRaw),
-                      enhancement,
-                      enhancementRaw),
-                  breach,
-                  breachRaw),
-              runic,
-              runicRaw),
-          abyss,
-          abyssRaw);
+    return loadBundled(
+        "solar-amulet",
+        "perfect-infinite",
+        "perfect-enhancement",
+        "breach-essence",
+        "runic-alloy",
+        "abyss-essence");
+  }
+
+  public static ItemCatalog loadStocky() {
+    return loadBundled(
+        "stocky-mitts",
+        "abyss-essence",
+        "horror-essence",
+        "perfect-grounding-opulence",
+        "prismatic-alloy",
+        "scalar-alloys",
+        "reviewed-alloys");
+  }
+
+  // Runtime integrity comes from the ruleset seal. Raw captures are archive-only test evidence.
+  private static ItemCatalog loadBundled(String pool, String... extensions) {
+    String root = "/catalog/" + pool + "/";
+    try (var data = SealedResources.open(root + "catalog.json")) {
+      var document = mapper().readValue(data, Document.class);
+      var catalog = new ItemCatalog(document.metadata(), document.base(), document.modifiers());
+      for (String extension : extensions) {
+        try (var special = SealedResources.open(root + extension + ".catalog.json")) {
+          catalog = addSpecial(catalog, mapper().readValue(special, SpecialDocument.class));
+        }
+      }
+      return catalog;
     } catch (IOException e) {
-      throw new IllegalStateException("Cannot load Solar Amulet catalog", e);
+      throw new IllegalStateException("Cannot load reviewed catalog: " + pool, e);
     }
   }
 
-  /** Streams are owned by the caller. The same contract can receive a future collected snapshot. */
+  /** Offline snapshot import: verify captured evidence before accepting a reviewed catalog. */
   public static ItemCatalog load(InputStream catalog, InputStream raw, InputStream details)
       throws IOException {
     var mapper = mapper();
@@ -281,6 +197,14 @@ public final class ItemCatalogLoader {
     if (!source.rawSha256().matches("[0-9a-f]{64}")
         || !digest(specialRaw).equals(source.rawSha256()))
       throw new IllegalArgumentException("Special modifier source checksum mismatch");
+    return addSpecial(ordinary, extension);
+  }
+
+  private static ItemCatalog addSpecial(ItemCatalog ordinary, SpecialDocument extension)
+      throws IOException {
+    var source = extension.metadata();
+    if (!source.rawSha256().matches("[0-9a-f]{64}"))
+      throw new IllegalArgumentException("Invalid historical source checksum");
     if (source.snapshotId().isBlank()
         || source.retrievedAt().isBlank()
         || source.sourceUrl().isBlank()
@@ -330,12 +254,6 @@ public final class ItemCatalogLoader {
         .enable(DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)
         .enable(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES)
         .enable(DeserializationFeature.FAIL_ON_TRAILING_TOKENS);
-  }
-
-  private static InputStream resource(String name) throws IOException {
-    var input = SealedResources.open(ROOT + name);
-    if (input == null) throw new IOException("Missing catalog resource: " + name);
-    return input;
   }
 
   private static String digest(InputStream input) throws IOException {

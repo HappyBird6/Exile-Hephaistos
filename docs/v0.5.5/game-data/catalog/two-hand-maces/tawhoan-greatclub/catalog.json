@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-tawhoan-greatclub-20261005-e8c535f9c7e3014d",
+    "retrievedAt": "2026-10-05T07:00:16.737Z",
+    "sourceUrl": "https://poe2db.tw/us/Two_Hand_Maces",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "c7e52c38d3b4d452e5036c7cfab1f2b907f1edf260e973377475cb4c94b63292",
+    "detailsSha256": "c96d99ee5aea78ccadabb2efa187d9005e23c18e0c69c9e783fb10c7562b4049"
+  },
+  "base": {
+    "id": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
+    "name": "Tawhoan Greatclub",
+    "sourceUrl": "https://poe2db.tw/us/Tawhoan_Greatclub",
+    "implicitModifierId": "tawhoan-greatclub:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 158,
+      "ref": "tawhoan-greatclub:implicit:base"
+    }
+  ]
+}

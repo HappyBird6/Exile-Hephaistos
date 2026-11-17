@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-tasalian-greaves-published-20261109-33e59ffe307c0291",
+    "retrievedAt": "2026-10-04T18:56:19.795Z",
+    "sourceUrl": "https://poe2db.tw/us/Boots_str",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "a0902c002a1d0d81e46e0c0f0312dd7ce225c0143c0e19354990a95291fa1327",
+    "detailsSha256": "4134882173311e2cd7f9e74a011fdd18a96f100654474cb27bdb5bfaac94d8a7"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+    "name": "Tasalian Greaves",
+    "sourceUrl": "https://poe2db.tw/us/Tasalian_Greaves",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "tasalian-greaves-snapshot",
+  "implicitModifiers": []
+}

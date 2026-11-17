@@ -34,7 +34,7 @@ for(const b of Object.values(bases).filter(b=>b.family==='crossbows')) {
   assert.equal(after.workbenchBases[b.key].ruleVersion,'crossbow-workbench-v1')
   assert.equal(after.workbenchBases[b.key].ledgerVersion,'crossbow-unverified-numeric-assumptions-v1')
   const c=read(`backend/src/main/resources/catalog/${b.pool}/catalog.json`)
-  const details=read(`backend/src/main/resources/catalog/${b.pool}/details.raw.json`)
+  const details=read(`docs/legacy/raw-data/catalog/${b.pool}/details.raw.json`)
   for(const d of details.ordinary) {
     const first=d.spawn.find(s=>[...b.sourceTags,'default'].includes(s.tag))
     assert(first&&first.weight>0,`${b.key}: ${d.row.Name}`)

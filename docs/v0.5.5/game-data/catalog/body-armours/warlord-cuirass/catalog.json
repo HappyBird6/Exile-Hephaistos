@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-warlord-cuirass-20261102-77cd9d78bc0ac1b7",
+    "retrievedAt": "2026-11-02T07:56:31.696Z",
+    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "d7167bf9f969bc893dea6b3c439d30ea6bf60a44eeb9ac146da67148e596a43d",
+    "detailsSha256": "4dfc0e99099650d07c696a66b6a23aa924c80c20def1f749ed73cc5e9cec1d42"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+    "name": "Warlord Cuirass",
+    "sourceUrl": "https://poe2db.tw/us/Warlord_Cuirass",
+    "implicitModifierId": "warlord-cuirass:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "abyssal-cuirass-snapshot",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "warlord-cuirass:implicit:base"
+    }
+  ]
+}

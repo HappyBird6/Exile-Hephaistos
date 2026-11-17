@@ -5,7 +5,7 @@ import { cleanSource as clean } from './armour-source.mjs'
 const read = p => JSON.parse(fs.readFileSync(p, 'utf8'))
 const root = 'evidence:hallowed-source'
 const c = read('backend/src/main/resources/catalog/hallowed-sceptre/catalog.json')
-for (const [file, digest] of [['base.raw.json', c.metadata.rawSha256], ['details.raw.json', c.metadata.detailsSha256]]) assert.equal(crypto.createHash('sha256').update(fs.readFileSync('backend/src/main/resources/catalog/hallowed-sceptre/' + file)).digest('hex'), digest)
+for (const [file, digest] of [['base.raw.json', c.metadata.rawSha256], ['details.raw.json', c.metadata.detailsSha256]]) assert.equal(crypto.createHash('sha256').update(fs.readFileSync('docs/legacy/raw-data/catalog/hallowed-sceptre/' + file)).digest('hex'), digest)
 const display = read('frontend/src/shared/i18n/modifierTemplates.json')
 for (const [l, remote] of Object.entries({ en: 'us', ko: 'kr', ja: 'jp', 'zh-CN': 'cn', 'zh-TW': 'tw', es: 'sp' })) {
   const row = read(`${root}/Sceptres.${remote}.json`).data.perfect_essence.find(r => r.Code === 'EssenceAuraEffect1')

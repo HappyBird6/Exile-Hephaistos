@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-massive-mitts-published-20261109-1fe3d5e5f3ba9116",
+    "retrievedAt": "2026-10-04T16:02:39.082Z",
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3",
+    "detailsSha256": "30d517d58b038aafb4dcf1df9210832b406788f5b47c34562ed3f91cf2a7cc58"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+    "name": "Massive Mitts",
+    "sourceUrl": "https://poe2db.tw/us/Massive_Mitts",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "massive-mitts-snapshot",
+  "implicitModifiers": []
+}

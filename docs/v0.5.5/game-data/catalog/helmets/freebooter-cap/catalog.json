@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-freebooter-cap-published-20261109-e2301a5ab421c215",
+    "retrievedAt": "2026-10-04T17:11:38.730Z",
+    "sourceUrl": "https://poe2db.tw/us/Helmets_dex",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "b81312355e789330879421caf66abc20f5b07570f3e19dbd8a0415672e27c3e1",
+    "detailsSha256": "bb949e6fbef77ed4246cea1812777fc0bc24f9e7fd8b78f5ca4840292d9351d7"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+    "name": "Freebooter Cap",
+    "sourceUrl": "https://poe2db.tw/us/Freebooter_Cap",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "freebooter-cap-snapshot",
+  "implicitModifiers": []
+}

@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-dastard-armour-published-20261109-8177d1981e1807ba",
+    "retrievedAt": "2026-11-02T07:57:03.433Z",
+    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str_dex",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "49722459c2dc49daab2a5627c3d7d7dd594a18355d65f86e69f10e6124fdcc21",
+    "detailsSha256": "a37be34d93f1d47280891bf93ac513cd5ab2a77d811fa57eea606d5f858a8ee7"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+    "name": "Dastard Armour",
+    "sourceUrl": "https://poe2db.tw/us/Dastard_Armour",
+    "implicitModifierId": "dastard-armour:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "default",
+  "implicitModifiers": [
+    {
+      "index": 0,
+      "ref": "dastard-armour:implicit:base"
+    }
+  ]
+}

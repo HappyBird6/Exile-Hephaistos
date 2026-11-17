@@ -1,0 +1,22 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-grinning-mask-published-20261109-1cc20e9d19f7b416",
+    "retrievedAt": "2026-10-04T17:13:06.374Z",
+    "sourceUrl": "https://poe2db.tw/us/Helmets_dex_int",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "5e8832637f48586ab2f4d29c08e3d2fb20e2527d47dd90bddabaa1c0201b23af",
+    "detailsSha256": "3a16ef7f3b0bab1b93c85b1ac223a8b118e8561c999c0467d2050af4b0720a08"
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+    "name": "Grinning Mask",
+    "sourceUrl": "https://poe2db.tw/us/Grinning_Mask",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifierPool": "grinning-mask-snapshot",
+  "implicitModifiers": []
+}
