@@ -1,0 +1,48 @@
+{
+  "id": "Metadata/Items/Rings/FourRing10",
+  "sourceRef": "src0902",
+  "implicitModifierId": "gold-ring:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "gold-ring",
+    "slug": "Gold_Ring",
+    "family": "rings",
+    "sourceSha256": "11a320c8fb231c8645c44e7ab441e9101ab52a3eb4cda1adf46a4590d35b75ac",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 40,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_item_found_rarity_+%",
+        "min": 6,
+        "max": 15
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_item_found_rarity_+%",
+        "min": 6,
+        "max": 15,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 134
+  }
+}

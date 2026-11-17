@@ -1,0 +1,532 @@
+{
+  "groups": {
+    "alloys-001": {
+      "additional": {
+        "EXPANSIVE_ALLOY": [
+          "equipment:suffix:alloy-presence-area-of-effect1"
+        ],
+        "CYCLONIC_ALLOY": [
+          "equipment:suffix:alloy-reduced-slow-potency1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "stocky-mitts:prefix:alloy-local-runic-ward"
+        ]
+      }
+    },
+    "alloys-002": {
+      "additional": {
+        "EXPANSIVE_ALLOY": [
+          "equipment:prefix:alloy-mana-cost-efficiency1"
+        ],
+        "CYCLONIC_ALLOY": [
+          "equipment:suffix:alloy-archon-duration1"
+        ],
+        "MYSTIC_ALLOY": [
+          "equipment:suffix:alloy-spell-area-of-effect1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "stocky-mitts:prefix:alloy-local-runic-ward"
+        ]
+      }
+    },
+    "alloys-003": {
+      "additional": {
+        "ADAPTIVE_ALLOY": [
+          "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+        ],
+        "EXPANSIVE_ALLOY": [
+          "stocky-mitts:suffix:alloy-remnant-pickup-range"
+        ],
+        "SWIFT_ALLOY": [
+          "stocky-mitts:suffix:alloy-cast-speed"
+        ],
+        "CYCLONIC_ALLOY": [
+          "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+        ],
+        "PRISMATIC_ALLOY": [
+          "stocky-mitts:prefix:alloy-elemental-penetration"
+        ],
+        "MYSTIC_ALLOY": [
+          "stocky-mitts:suffix:alloy-attack-area-of-effect"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "stocky-mitts:prefix:alloy-local-runic-ward"
+        ]
+      }
+    },
+    "alloys-004": {
+      "additional": {
+        "EXPANSIVE_ALLOY": [
+          "equipment:suffix:alloy-temporary-minion-skill-limit1"
+        ],
+        "CYCLONIC_ALLOY": [
+          "equipment:suffix:alloy-skill-effect-duration1"
+        ],
+        "MYSTIC_ALLOY": [
+          "equipment:suffix:alloy-spirit-on-boots1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "stocky-mitts:prefix:alloy-local-runic-ward"
+        ]
+      }
+    },
+    "alloys-005": {
+      "additional": {
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-ailment-magnitude1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:suffix:alloy-effect-of-socketed-augments1"
+        ],
+        "CELESTIAL_ALLOY": [
+          "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+        ],
+        "TRANSCENDENT_ALLOY": [
+          "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+        ],
+        "THE_RUNEBINDERS_ALLOY": [
+          "equipment:suffix:alloy-mark-effect"
+        ]
+      }
+    },
+    "alloys-006": {
+      "additional": {
+        "RUNIC_ALLOY": [
+          "equipment:prefix:alloy-maximum-runic-ward1"
+        ],
+        "SWIFT_ALLOY": [
+          "equipment:suffix:alloy-attack-speed-ring1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:prefix:alloy-effect-of-resistance-mods1"
+        ]
+      }
+    },
+    "alloys-007": {
+      "additional": {
+        "RUNIC_ALLOY": [
+          "amulet:prefix:alloy-maximum-runic-ward"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:prefix:alloy-effect-of-resistance-mods1"
+        ]
+      }
+    },
+    "alloys-008": {
+      "additional": {
+        "ADAPTIVE_ALLOY": [
+          "equipment:prefix:alloy-puppet-master-chance1"
+        ],
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+        ],
+        "MYSTIC_ALLOY": [
+          "equipment:suffix:alloy-maximum-elemental-infusions1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:suffix:alloy-effect-of-socketed-augments1"
+        ],
+        "THE_RUNEBINDERS_ALLOY": [
+          "equipment:suffix:alloy-puppeteer-stacks1"
+        ]
+      }
+    },
+    "alloys-009": {
+      "additional": {
+        "ADAPTIVE_ALLOY": [
+          "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+        ],
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-exposure-effect1"
+        ],
+        "MYSTIC_ALLOY": [
+          "equipment:suffix:alloy-maximum-elemental-infusions1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:suffix:alloy-effect-of-socketed-augments1"
+        ],
+        "CELESTIAL_ALLOY": [
+          "equipment:prefix:alloy-spell-level-mana-hybrid1"
+        ],
+        "TRANSCENDENT_ALLOY": [
+          "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+        ],
+        "THE_RUNEBINDERS_ALLOY": [
+          "equipment:suffix:alloy-elemental-skill-limit1"
+        ]
+      }
+    },
+    "alloys-010": {
+      "additional": {
+        "RUNIC_ALLOY": [
+          "equipment:prefix:alloy-runic-ward-recharge-rate1"
+        ],
+        "PROTECTIVE_ALLOY": [
+          "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+        ],
+        "SWIFT_ALLOY": [
+          "equipment:suffix:alloy-flask-charges-per-second1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:prefix:alloy-effect-of-resistance-mods1"
+        ]
+      }
+    },
+    "alloys-011": {
+      "additional": {
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-ailment-magnitude1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:suffix:alloy-effect-of-socketed-augments1"
+        ],
+        "CELESTIAL_ALLOY": [
+          "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+        ],
+        "TRANSCENDENT_ALLOY": [
+          "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+        ],
+        "THE_RUNEBINDERS_ALLOY": [
+          "equipment:suffix:alloy-ballista-limit1"
+        ]
+      }
+    },
+    "alloys-012": {
+      "additional": {
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-runic-ward-on-block1"
+        ],
+        "SWIFT_ALLOY": [
+          "equipment:suffix:alloy-totem-placement-speed1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "stocky-mitts:prefix:alloy-local-runic-ward"
+        ]
+      }
+    },
+    "alloys-013": {
+      "additional": {
+        "SWIFT_ALLOY": [
+          "equipment:suffix:alloy-totem-placement-speed1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-exposure-effect1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "stocky-mitts:prefix:alloy-local-runic-ward"
+        ],
+        "TRANSCENDENT_ALLOY": [
+          "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+        ]
+      }
+    },
+    "alloys-014": {
+      "additional": {
+        "MYSTIC_ALLOY": [
+          "equipment:suffix:alloy-chance-to-chain1"
+        ]
+      }
+    },
+    "alloys-015": {
+      "additional": {
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-ailment-magnitude1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:suffix:alloy-effect-of-socketed-augments1"
+        ],
+        "CELESTIAL_ALLOY": [
+          "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+        ],
+        "TRANSCENDENT_ALLOY": [
+          "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+        ],
+        "THE_RUNEFATHERS_ALLOY": [
+          "equipment:suffix:alloy-retain-glory1"
+        ]
+      }
+    },
+    "alloys-016": {
+      "additional": {
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-ailment-magnitude1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:suffix:alloy-effect-of-socketed-augments1"
+        ],
+        "CELESTIAL_ALLOY": [
+          "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+        ],
+        "TRANSCENDENT_ALLOY": [
+          "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+        ],
+        "THE_RUNEFATHERS_ALLOY": [
+          "equipment:suffix:alloy-bell-limit1"
+        ]
+      }
+    },
+    "alloys-017": {
+      "additional": {
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-ailment-magnitude1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:suffix:alloy-effect-of-socketed-augments1"
+        ],
+        "CELESTIAL_ALLOY": [
+          "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+        ],
+        "TRANSCENDENT_ALLOY": [
+          "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+        ],
+        "THE_RUNEFATHERS_ALLOY": [
+          "equipment:suffix:alloy-melee-strike-range1"
+        ]
+      }
+    },
+    "alloys-018": {
+      "additional": {
+        "ADAPTIVE_ALLOY": [
+          "equipment:prefix:alloy-damage-as-extra-fire-two-hand-while-missing-runic-ward1"
+        ],
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-exposure-effect1"
+        ],
+        "MYSTIC_ALLOY": [
+          "equipment:suffix:alloy-maximum-elemental-infusions1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:suffix:alloy-effect-of-socketed-augments1"
+        ],
+        "CELESTIAL_ALLOY": [
+          "equipment:prefix:alloy-spell-level-mana-hybrid1"
+        ],
+        "TRANSCENDENT_ALLOY": [
+          "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1"
+        ],
+        "THE_RUNEBINDERS_ALLOY": [
+          "equipment:suffix:alloy-natures-archon1"
+        ]
+      }
+    },
+    "alloys-019": {
+      "additional": {
+        "PROTECTIVE_ALLOY": [
+          "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+        ],
+        "PRISMATIC_ALLOY": [
+          "equipment:suffix:alloy-ailment-magnitude1"
+        ],
+        "SOVEREIGN_ALLOY": [
+          "equipment:suffix:alloy-effect-of-socketed-augments1"
+        ],
+        "CELESTIAL_ALLOY": [
+          "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+        ],
+        "TRANSCENDENT_ALLOY": [
+          "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+        ],
+        "THE_RUNEFATHERS_ALLOY": [
+          "equipment:suffix:alloy-lightning-damage-ignites1"
+        ]
+      }
+    }
+  },
+  "bases": {
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": "alloys-001",
+    "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame": "alloys-002",
+    "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame": "alloys-003",
+    "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame": "alloys-003",
+    "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame": "alloys-003",
+    "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame": "alloys-003",
+    "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame": "alloys-003",
+    "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame": "alloys-003",
+    "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame": "alloys-002",
+    "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame": "alloys-002",
+    "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame": "alloys-002",
+    "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame": "alloys-001",
+    "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame": "alloys-002",
+    "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame": "alloys-002",
+    "Metadata/Items/Armours/Boots/FourBootsStr6Endgame": "alloys-004",
+    "Metadata/Items/Armours/Boots/FourBootsDex6Endgame": "alloys-004",
+    "Metadata/Items/Armours/Boots/FourBootsInt6Endgame": "alloys-004",
+    "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame": "alloys-004",
+    "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame": "alloys-004",
+    "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame": "alloys-004",
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame": "alloys-005",
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame": "alloys-005",
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame": "alloys-005",
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame": "alloys-005",
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame": "alloys-005",
+    "Metadata/Items/Rings/FourRingB4": "alloys-006",
+    "Metadata/Items/Rings/FourRingB2": "alloys-006",
+    "Metadata/Items/Rings/FourRingB3": "alloys-006",
+    "Metadata/Items/Rings/FourRing8": "alloys-006",
+    "Metadata/Items/Rings/FourRing6": "alloys-006",
+    "Metadata/Items/Rings/FourRing9": "alloys-006",
+    "Metadata/Items/Rings/FourRing3": "alloys-006",
+    "Metadata/Items/Rings/FourRing13a": "alloys-006",
+    "Metadata/Items/Amulets/FourAmulet8": "alloys-007",
+    "Metadata/Items/Amulets/FourAmulet3": "alloys-007",
+    "Metadata/Items/Amulets/FourAmulet7": "alloys-007",
+    "Metadata/Items/Amulets/FourAmulet6": "alloys-007",
+    "Metadata/Items/Amulets/FourAmulet2": "alloys-007",
+    "Metadata/Items/Amulets/FourAmulet1": "alloys-007",
+    "Metadata/Items/Amulets/FourAmulet11": "alloys-007",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13": "alloys-008",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2": "alloys-009",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4": "alloys-009",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5": "alloys-009",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6": "alloys-009",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7": "alloys-009",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8": "alloys-009",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11": "alloys-009",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12": "alloys-009",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13": "alloys-009",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2": "alloys-008",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4": "alloys-008",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a": "alloys-008",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b": "alloys-008",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c": "alloys-008",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8": "alloys-008",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10": "alloys-008",
+    "Metadata/Items/Belts/FourBelt2": "alloys-010",
+    "Metadata/Items/Belts/FourBelt3": "alloys-010",
+    "Metadata/Items/Belts/FourBelt4": "alloys-010",
+    "Metadata/Items/Belts/FourBelt5": "alloys-010",
+    "Metadata/Items/Belts/FourBelt6": "alloys-010",
+    "Metadata/Items/Belts/FourBelt7": "alloys-010",
+    "Metadata/Items/Belts/FourBelt8": "alloys-010",
+    "Metadata/Items/Belts/FourBelt9": "alloys-010",
+    "Metadata/Items/Belts/FourBelt10": "alloys-010",
+    "Metadata/Items/Belts/FourBelt11": "alloys-010",
+    "Metadata/Items/Belts/FourBeltB2": "alloys-010",
+    "Metadata/Items/Belts/FourBeltB3": "alloys-010",
+    "Metadata/Items/Belts/FourBeltB4": "alloys-010",
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame": "alloys-011",
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame": "alloys-011",
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame": "alloys-011",
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame": "alloys-011",
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame": "alloys-011",
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame": "alloys-011",
+    "Metadata/Items/Armours/Shields/FourShieldStr10Endgame": "alloys-012",
+    "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame": "alloys-012",
+    "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame": "alloys-012",
+    "Metadata/Items/Armours/Shields/FourShieldDex9Endgame": "alloys-012",
+    "Metadata/Items/Armours/Focii/FourFocus10Endgame": "alloys-013",
+    "Metadata/Items/Quivers/FourQuiver11": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver10": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver9": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver8": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver7": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver6": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver5": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver4": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver3": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver2": "alloys-014",
+    "Metadata/Items/Quivers/FourQuiver1": "alloys-014",
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame": "alloys-015",
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame": "alloys-015",
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace10Endgame": "alloys-015",
+    "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace8Endgame": "alloys-015",
+    "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame": "alloys-015",
+    "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame": "alloys-015",
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame": "alloys-016",
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame": "alloys-016",
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame": "alloys-016",
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame": "alloys-017",
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame": "alloys-017",
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame": "alloys-017",
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1": "alloys-018",
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3": "alloys-018",
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13": "alloys-018",
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14": "alloys-018",
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4": "alloys-018",
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12": "alloys-018",
+    "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame": "alloys-019",
+    "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame": "alloys-019",
+    "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame": "alloys-019",
+    "Metadata/Items/Amulets/FourAmulet4": "alloys-007",
+    "Metadata/Items/Amulets/FourAmulet5": "alloys-007",
+    "Metadata/Items/Amulets/FourAmulet10": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletDelirium1": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletDelirium2": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletB1c": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletB1b": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletB1a": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletLake1": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletLake3": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletLake2": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletB2": "alloys-007",
+    "Metadata/Items/Amulets/FourAmuletLake4": "alloys-007",
+    "Metadata/Items/Rings/FourRing2": "alloys-006",
+    "Metadata/Items/Rings/FourRing4": "alloys-006",
+    "Metadata/Items/Rings/FourRing5": "alloys-006",
+    "Metadata/Items/Rings/FourRing7": "alloys-006",
+    "Metadata/Items/Rings/FourRing10": "alloys-006",
+    "Metadata/Items/Rings/FourRing11": "alloys-006",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr15": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyDex14": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame": "alloys-001",
+    "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame": "alloys-001",
+    "Metadata/Items/Rings/FourRingB1": "alloys-006",
+    "Metadata/Items/Rings/FourRingB5": "alloys-006",
+    "Metadata/Items/Rings/FourRingLake1": "alloys-006",
+    "Metadata/Items/Rings/FourRingLake2": "alloys-006",
+    "Metadata/Items/Rings/FourRingLake3": "alloys-006",
+    "Metadata/Items/Rings/FourRingLake4": "alloys-006",
+    "Metadata/Items/Amulets/FourAmulet9": "alloys-007",
+    "Metadata/Items/Armours/Gloves/FourGlovesStr1": "alloys-003",
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1": "alloys-005",
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": "alloys-009",
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr1": "alloys-001",
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1": "alloys-008",
+    "Metadata/Items/Belts/FourBelt1": "alloys-010",
+    "Metadata/Items/Armours/Helmets/FourHelmetStr1": "alloys-002",
+    "Metadata/Items/Rings/FourRing1": "alloys-006"
+  }
+}

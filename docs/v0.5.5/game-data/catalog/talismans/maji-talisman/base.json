@@ -1,0 +1,53 @@
+{
+  "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+  "sourceRef": "src1081",
+  "implicitModifierId": "maji-talisman:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "maji-talisman",
+    "slug": "Maji_Talisman",
+    "family": "talismans",
+    "sourceSha256": "42990b0f29da53678e3da4fb0182f1231ae70de0fb12938e623c1a006864c3f5",
+    "sourceTags": [
+      "vaal_basetype",
+      "talisman",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 100,
+    "dexterity": 0,
+    "intelligence": 67,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "maximum_rage",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "maximum_rage",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "61-114",
+    "criticalHitChance": 8,
+    "attacksPerSecond": 1.25,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110,
+    "order": 114
+  }
+}

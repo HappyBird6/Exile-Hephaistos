@@ -1,0 +1,44 @@
+{
+  "id": "Metadata/Items/Quivers/FourQuiver10",
+  "sourceRef": "src1917",
+  "implicitModifierId": "volant-quiver:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "volant-quiver",
+    "slug": "Volant_Quiver",
+    "family": "quivers",
+    "sourceSha256": "1d805b58f11e99cf84692a5de3ca46ee5da1b5977b9d7c724a8e983de740e2e2",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 61,
+    "maximumQuality": null,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_arrow_speed_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_arrow_speed_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
+    "order": 86
+  }
+}

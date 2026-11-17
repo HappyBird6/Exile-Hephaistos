@@ -1,0 +1,31 @@
+{
+  "id": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+  "sourceRef": "src2260",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "sekhema",
+    "slug": "Sekhema_Sandals",
+    "archetype": "int",
+    "family": "boots",
+    "sourceSha256": "a0301aa77b114eeb27501b0ff2d5b830a25c5365bc12177a972e485dc8f06930",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "boots",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 83,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 108,
+    "maximumQuality": 20,
+    "evasion": 0,
+    "dexterity": 0,
+    "order": 20
+  }
+}

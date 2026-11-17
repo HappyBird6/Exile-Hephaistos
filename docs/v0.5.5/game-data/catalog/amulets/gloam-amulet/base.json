@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmuletLake2",
+  "sourceRef": "src0899",
+  "implicitModifierId": "gloam-amulet:implicit:base",
+  "magicPrefixes": 0,
+  "magicSuffixes": 2,
+  "rarePrefixes": 2,
+  "rareSuffixes": 4,
+  "registration": {
+    "key": "gloam-amulet",
+    "slug": "Gloam_Amulet",
+    "family": "amulets",
+    "sourceSha256": "c3b7177e177110a9e8ff786a4b6907bc38646b308c9e1f077590fe3fb79314ee",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 127
+  }
+}

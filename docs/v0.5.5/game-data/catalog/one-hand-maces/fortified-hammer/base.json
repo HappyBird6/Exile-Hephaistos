@@ -1,0 +1,51 @@
+{
+  "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame",
+  "sourceRef": "src0882",
+  "implicitModifierId": "fortified-hammer:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "fortified-hammer",
+    "slug": "Fortified_Hammer",
+    "family": "one-hand-maces",
+    "sourceSha256": "83bd5d4566393979c7ec4630ae257d3a24c048fdf95a28caad4b61dc60e3b5dc",
+    "sourceTags": [
+      "mace",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 163,
+    "dexterity": 0,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_weapon_daze_chance_%",
+        "min": 40,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_daze_chance_%",
+        "min": 40,
+        "max": 40,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "60-73",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.3,
+    "ordinarySocketMaximum": 1,
+    "classId": 12,
+    "order": 96
+  }
+}

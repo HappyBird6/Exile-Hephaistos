@@ -1,0 +1,48 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmulet10",
+  "sourceRef": "src0901",
+  "implicitModifierId": "gold-amulet:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "gold-amulet",
+    "slug": "Gold_Amulet",
+    "family": "amulets",
+    "sourceSha256": "78385b3bf926dd240da4541b28752b1c060150beee47d4d838e7127c5b7632e4",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 35,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_item_found_rarity_+%",
+        "min": 12,
+        "max": 20
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_item_found_rarity_+%",
+        "min": 12,
+        "max": 20,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 119
+  }
+}

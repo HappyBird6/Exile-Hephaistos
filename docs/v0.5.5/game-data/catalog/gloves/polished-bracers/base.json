@@ -1,0 +1,31 @@
+{
+  "id": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+  "sourceRef": "src2271",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "polished",
+    "slug": "Polished_Bracers",
+    "archetype": "dex",
+    "family": "gloves",
+    "sourceSha256": "ec8acaf4281317b4883f685b89bd37519376f3a78d2aceeb26a2b1cb21f25bb2",
+    "sourceTags": [
+      "dex_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "evasion": 170,
+    "dexterity": 101,
+    "order": 5
+  }
+}

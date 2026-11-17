@@ -1,0 +1,51 @@
+{
+  "id": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+  "sourceRef": "src0872",
+  "implicitModifierId": "falconers-jacket:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "falconers-jacket",
+    "slug": "Falconers_Jacket",
+    "family": "body",
+    "sourceSha256": "f16b752db1d1bf9fbd79feb8b1562e8a6fe4229a4206ccee6f138508c8dfb147",
+    "sourceTags": [
+      "dex_int_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 0,
+    "evasion": 248,
+    "energyShield": 76,
+    "strength": 0,
+    "dexterity": 67,
+    "intelligence": 67,
+    "requiredLevel": 75,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_movement_velocity_+%",
+        "min": 5,
+        "max": 5
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_movement_velocity_+%",
+        "min": 5,
+        "max": 5,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "archetype": "dex_int",
+    "order": 154
+  }
+}

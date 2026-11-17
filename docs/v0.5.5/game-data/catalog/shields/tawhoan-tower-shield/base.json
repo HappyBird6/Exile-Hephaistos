@@ -1,0 +1,40 @@
+{
+  "id": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+  "sourceRef": "src2291",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "tawhoan-tower-shield",
+    "slug": "Tawhoan_Tower_Shield",
+    "family": "shields",
+    "sourceSha256": "47a6d569520839e58bf169ecedb60d0cfa77cabe3590a873a98c4d1060e0cfaf",
+    "sourceTags": [
+      "str_armour",
+      "str_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 264,
+    "evasion": 0,
+    "energyShield": 0,
+    "baseMovementSpeed": -0.03,
+    "blockChance": 26,
+    "strength": 115,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield",
+    "order": 80
+  }
+}

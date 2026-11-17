@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-emerald-basic-potent-20261004-77cd7d0cb0b2",
     "retrievedAt": "2026-10-04T10:25:33.574Z",
-    "sourceUrl": "https://poe2db.tw/us/Emerald",
+    "sourceRef": "src2234",
     "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
     "rawSha256": "77cd7d0cb0b206affb3852e137dcc78942c5796a687505eec3cc8b323868a672",
     "detailsSha256": "e8f1ea2addc16b2e3e93295a6080f9046207ee06b46bc972dd5af4d415b9b95f"
-  },
-  "base": {
-    "id": "Metadata/Items/Jewels/JewelDex",
-    "name": "Emerald",
-    "sourceUrl": "https://poe2db.tw/us/Emerald",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 2,
-    "rareSuffixes": 2
   },
   "modifierPool": "emerald-snapshot",
   "implicitModifiers": []

@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-ancestral-tiara-published-20261109-8b2582a2fccaedee",
     "retrievedAt": "2026-10-04T17:55:19.554Z",
-    "sourceUrl": "https://poe2db.tw/us/Helmets_int",
+    "sourceRef": "src2227",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "e1beac91a0488e4ed5bab31a38775dd15983e07142951031c4536385d55a8405",
     "detailsSha256": "8d79533c7da89993541c367fc0d0cd295c633dccae63baf528d648c80b1c58b3"
-  },
-  "base": {
-    "id": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
-    "name": "Ancestral Tiara",
-    "sourceUrl": "https://poe2db.tw/us/Ancestral_Tiara",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": []

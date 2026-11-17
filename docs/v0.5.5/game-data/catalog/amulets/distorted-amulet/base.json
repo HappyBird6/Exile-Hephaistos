@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmuletDelirium2",
+  "sourceRef": "src0844",
+  "implicitModifierId": "distorted-amulet:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 0,
+  "rarePrefixes": 3,
+  "rareSuffixes": 2,
+  "registration": {
+    "key": "distorted-amulet",
+    "slug": "Distorted_Amulet",
+    "family": "amulets",
+    "sourceSha256": "85aebe1aaaf9b20739789b86593a6c40da137d3a545b66ba47336827df6777a5",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 0,
+        "max": 0
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 0,
+        "max": 0,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 121
+  }
+}

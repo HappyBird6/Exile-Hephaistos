@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Rings/FourRingLake3",
+  "sourceRef": "src1140",
+  "implicitModifierId": "penumbra-ring:implicit:base",
+  "magicPrefixes": 3,
+  "magicSuffixes": 0,
+  "rarePrefixes": 5,
+  "rareSuffixes": 1,
+  "registration": {
+    "key": "penumbra-ring",
+    "slug": "Penumbra_Ring",
+    "family": "rings",
+    "sourceSha256": "f94f3797a1921bacd733cd15437cebb3b7b7b7e22ebf6dd94431cdeb764aace4",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 2,
+        "max": 2
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -2,
+        "max": -2
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 2,
+        "max": 2,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -2,
+        "max": -2,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 160
+  }
+}

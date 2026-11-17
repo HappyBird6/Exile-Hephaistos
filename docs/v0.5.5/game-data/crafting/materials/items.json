@@ -1,0 +1,1727 @@
+{
+  "Artificers_Orb": {
+    "sourceRef": "src2601"
+  },
+  "Orb_of_Transmutation": {
+    "sourceRef": "src2602",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Orb_of_Augmentation": {
+    "sourceRef": "src2603",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Orb_of_Annulment": {
+    "sourceRef": "src2604",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Orb_of_Alchemy": {
+    "sourceRef": "src2605",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Regal_Orb": {
+    "sourceRef": "src2606",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Exalted_Orb": {
+    "sourceRef": "src2607",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Chaos_Orb": {
+    "sourceRef": "src2608",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Vaal_Orb": {
+    "sourceRef": "src2609",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Fracturing_Orb": {
+    "sourceRef": "src2610",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Divine_Orb": {
+    "sourceRef": "src2611",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Orb_of_Transmutation": {
+    "sourceRef": "src2612",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Orb_of_Transmutation": {
+    "sourceRef": "src2613",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Orb_of_Augmentation": {
+    "sourceRef": "src2614",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Orb_of_Augmentation": {
+    "sourceRef": "src2615",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Regal_Orb": {
+    "sourceRef": "src2616",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Regal_Orb": {
+    "sourceRef": "src2617",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Exalted_Orb": {
+    "sourceRef": "src2618",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Exalted_Orb": {
+    "sourceRef": "src2619",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Greater_Chaos_Orb": {
+    "sourceRef": "src2620",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Perfect_Chaos_Orb": {
+    "sourceRef": "src2621",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Hinekoras_Lock": {
+    "sourceRef": "src2622",
+    "sourcePage": "https://poe2db.tw/us/Currency"
+  },
+  "Lesser_Essence_of_the_Body": {
+    "sourceRef": "src2623",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_the_Mind": {
+    "sourceRef": "src2624",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Enhancement": {
+    "sourceRef": "src2625",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Abrasion": {
+    "sourceRef": "src2626",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Flames": {
+    "sourceRef": "src2627",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Ice": {
+    "sourceRef": "src2628",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Electricity": {
+    "sourceRef": "src2629",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Ruin": {
+    "sourceRef": "src2630",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Battle": {
+    "sourceRef": "src2631",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Sorcery": {
+    "sourceRef": "src2632",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Haste": {
+    "sourceRef": "src2633",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_the_Infinite": {
+    "sourceRef": "src2634",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Body": {
+    "sourceRef": "src2635",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Mind": {
+    "sourceRef": "src2636",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Enhancement": {
+    "sourceRef": "src2637",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Abrasion": {
+    "sourceRef": "src2638",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Flames": {
+    "sourceRef": "src2639",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Ice": {
+    "sourceRef": "src2640",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Electricity": {
+    "sourceRef": "src2641",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Ruin": {
+    "sourceRef": "src2642",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Battle": {
+    "sourceRef": "src2643",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Sorcery": {
+    "sourceRef": "src2644",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Haste": {
+    "sourceRef": "src2645",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Infinite": {
+    "sourceRef": "src2646",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_the_Body": {
+    "sourceRef": "src2647",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_the_Mind": {
+    "sourceRef": "src2648",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Enhancement": {
+    "sourceRef": "src2649",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Abrasion": {
+    "sourceRef": "src2650",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Flames": {
+    "sourceRef": "src2651",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Ice": {
+    "sourceRef": "src2652",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Electricity": {
+    "sourceRef": "src2653",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Ruin": {
+    "sourceRef": "src2654",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Battle": {
+    "sourceRef": "src2655",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Sorcery": {
+    "sourceRef": "src2656",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Haste": {
+    "sourceRef": "src2657",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_the_Infinite": {
+    "sourceRef": "src2658",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_the_Body": {
+    "sourceRef": "src2659",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_the_Mind": {
+    "sourceRef": "src2660",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Enhancement": {
+    "sourceRef": "src2661",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Abrasion": {
+    "sourceRef": "src2662",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Flames": {
+    "sourceRef": "src2663",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Ice": {
+    "sourceRef": "src2664",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Electricity": {
+    "sourceRef": "src2665",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Ruin": {
+    "sourceRef": "src2666",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Battle": {
+    "sourceRef": "src2667",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Sorcery": {
+    "sourceRef": "src2668",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Haste": {
+    "sourceRef": "src2669",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_the_Infinite": {
+    "sourceRef": "src2670",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Seeking": {
+    "sourceRef": "src2671",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Seeking": {
+    "sourceRef": "src2672",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Seeking": {
+    "sourceRef": "src2673",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Seeking": {
+    "sourceRef": "src2674",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Hysteria": {
+    "sourceRef": "src2675",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Delirium": {
+    "sourceRef": "src2676",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Horror": {
+    "sourceRef": "src2677",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Insanity": {
+    "sourceRef": "src2678",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Abyss": {
+    "sourceRef": "src2679",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_the_Breach": {
+    "sourceRef": "src2680",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Insulation": {
+    "sourceRef": "src2681",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Insulation": {
+    "sourceRef": "src2682",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Insulation": {
+    "sourceRef": "src2683",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Insulation": {
+    "sourceRef": "src2684",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Thawing": {
+    "sourceRef": "src2685",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Thawing": {
+    "sourceRef": "src2686",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Thawing": {
+    "sourceRef": "src2687",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Thawing": {
+    "sourceRef": "src2688",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Grounding": {
+    "sourceRef": "src2689",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Grounding": {
+    "sourceRef": "src2690",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Grounding": {
+    "sourceRef": "src2691",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Grounding": {
+    "sourceRef": "src2692",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Alacrity": {
+    "sourceRef": "src2693",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Alacrity": {
+    "sourceRef": "src2694",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Alacrity": {
+    "sourceRef": "src2695",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Alacrity": {
+    "sourceRef": "src2696",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Opulence": {
+    "sourceRef": "src2697",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Opulence": {
+    "sourceRef": "src2698",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Opulence": {
+    "sourceRef": "src2699",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Opulence": {
+    "sourceRef": "src2700",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Lesser_Essence_of_Command": {
+    "sourceRef": "src2701",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Essence_of_Command": {
+    "sourceRef": "src2702",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Greater_Essence_of_Command": {
+    "sourceRef": "src2703",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Perfect_Essence_of_Command": {
+    "sourceRef": "src2704",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Runic_Alloy": {
+    "sourceRef": "src2705",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Adaptive_Alloy": {
+    "sourceRef": "src2706",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Protective_Alloy": {
+    "sourceRef": "src2707",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Expansive_Alloy": {
+    "sourceRef": "src2708",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Swift_Alloy": {
+    "sourceRef": "src2709",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Cyclonic_Alloy": {
+    "sourceRef": "src2710",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Prismatic_Alloy": {
+    "sourceRef": "src2711",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Mystic_Alloy": {
+    "sourceRef": "src2712",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Sovereign_Alloy": {
+    "sourceRef": "src2713",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Celestial_Alloy": {
+    "sourceRef": "src2714",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Transcendent_Alloy": {
+    "sourceRef": "src2715",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "The_Runebinders_Alloy": {
+    "sourceRef": "src2716",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "The_Runefathers_Alloy": {
+    "sourceRef": "src2717",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Omen_of_Dextral_Crystallisation": {
+    "sourceRef": "src2718",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Omen_of_Sinistral_Crystallisation": {
+    "sourceRef": "src2719",
+    "sourcePage": "https://poe2db.tw/us/Essence"
+  },
+  "Omen_of_Whittling": {
+    "sourceRef": "src2720",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Erasure": {
+    "sourceRef": "src2721",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Erasure": {
+    "sourceRef": "src2722",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Alchemy": {
+    "sourceRef": "src2723",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Alchemy": {
+    "sourceRef": "src2724",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Coronation": {
+    "sourceRef": "src2725",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Coronation": {
+    "sourceRef": "src2726",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Corruption": {
+    "sourceRef": "src2727",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Greater_Exaltation": {
+    "sourceRef": "src2728",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Exaltation": {
+    "sourceRef": "src2729",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Exaltation": {
+    "sourceRef": "src2730",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Greater_Annulment": {
+    "sourceRef": "src2731",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Annulment": {
+    "sourceRef": "src2732",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Annulment": {
+    "sourceRef": "src2733",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Answered_Prayers": {
+    "sourceRef": "src2734",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Secret_Compartments": {
+    "sourceRef": "src2735",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Hunt": {
+    "sourceRef": "src2736",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Reinforcements": {
+    "sourceRef": "src2737",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Homogenising_Exaltation": {
+    "sourceRef": "src2738",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Homogenising_Coronation": {
+    "sourceRef": "src2739",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Blessed": {
+    "sourceRef": "src2740",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sanctification": {
+    "sourceRef": "src2741",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Catalysing_Exaltation": {
+    "sourceRef": "src2742",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Sovereign": {
+    "sourceRef": "src2743",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Liege": {
+    "sourceRef": "src2744",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_the_Blackblooded": {
+    "sourceRef": "src2745",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Putrefaction": {
+    "sourceRef": "src2746",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Light": {
+    "sourceRef": "src2747",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Sinistral_Necromancy": {
+    "sourceRef": "src2748",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Omen_of_Dextral_Necromancy": {
+    "sourceRef": "src2749",
+    "sourcePage": "https://poe2db.tw/us/Omen"
+  },
+  "Flesh_Catalyst": {
+    "sourceRef": "src2750",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Neural_Catalyst": {
+    "sourceRef": "src2751",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Carapace_Catalyst": {
+    "sourceRef": "src2752",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Uul-Netols_Catalyst": {
+    "sourceRef": "src2753",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Xophs_Catalyst": {
+    "sourceRef": "src2754",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Tuls_Catalyst": {
+    "sourceRef": "src2755",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Eshs_Catalyst": {
+    "sourceRef": "src2756",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Chayulas_Catalyst": {
+    "sourceRef": "src2757",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Reaver_Catalyst": {
+    "sourceRef": "src2758",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Sibilant_Catalyst": {
+    "sourceRef": "src2759",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Skittering_Catalyst": {
+    "sourceRef": "src2760",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Adaptive_Catalyst": {
+    "sourceRef": "src2761",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Necrotic_Catalyst": {
+    "sourceRef": "src2762",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Flesh_Catalyst": {
+    "sourceRef": "src2763",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Neural_Catalyst": {
+    "sourceRef": "src2764",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Carapace_Catalyst": {
+    "sourceRef": "src2765",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Uul-Netols_Catalyst": {
+    "sourceRef": "src2766",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Xophs_Catalyst": {
+    "sourceRef": "src2767",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Tuls_Catalyst": {
+    "sourceRef": "src2768",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Eshs_Catalyst": {
+    "sourceRef": "src2769",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Chayulas_Catalyst": {
+    "sourceRef": "src2770",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Reaver_Catalyst": {
+    "sourceRef": "src2771",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Sibilant_Catalyst": {
+    "sourceRef": "src2772",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Skittering_Catalyst": {
+    "sourceRef": "src2773",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Adaptive_Catalyst": {
+    "sourceRef": "src2774",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Refined_Necrotic_Catalyst": {
+    "sourceRef": "src2775",
+    "sourcePage": "https://poe2db.tw/us/Catalysts"
+  },
+  "Diluted_Liquid_Ire": {
+    "sourceRef": "src0862",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Diluted_Liquid_Guilt": {
+    "sourceRef": "src0864",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Diluted_Liquid_Greed": {
+    "sourceRef": "src0861",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Paranoia": {
+    "sourceRef": "src0859",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Envy": {
+    "sourceRef": "src0860",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Disgust": {
+    "sourceRef": "src0863",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Despair": {
+    "sourceRef": "src0857",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Concentrated_Liquid_Fear": {
+    "sourceRef": "src0858",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Concentrated_Liquid_Suffering": {
+    "sourceRef": "src0865",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Concentrated_Liquid_Isolation": {
+    "sourceRef": "src0682",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Diluted_Liquid_Ire": {
+    "sourceRef": "src1884",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Diluted_Liquid_Guilt": {
+    "sourceRef": "src1887",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Diluted_Liquid_Greed": {
+    "sourceRef": "src1883",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Liquid_Paranoia": {
+    "sourceRef": "src1881",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Liquid_Envy": {
+    "sourceRef": "src1882",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Liquid_Disgust": {
+    "sourceRef": "src1886",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Liquid_Despair": {
+    "sourceRef": "src1879",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Concentrated_Liquid_Fear": {
+    "sourceRef": "src1880",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Concentrated_Liquid_Suffering": {
+    "sourceRef": "src1888",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Concentrated_Liquid_Isolation": {
+    "sourceRef": "src1885",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Potent_Liquid_Melancholy": {
+    "sourceRef": "src0856",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Potent_Liquid_Ferocity": {
+    "sourceRef": "src0683",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Potent_Liquid_Contempt": {
+    "sourceRef": "src0681",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Potent_Liquid_Melancholy": {
+    "sourceRef": "src1717",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Potent_Liquid_Ferocity": {
+    "sourceRef": "src1716",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Ancient_Potent_Liquid_Contempt": {
+    "sourceRef": "src1715",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Liquid_Verisium": {
+    "sourceRef": "src2776",
+    "sourcePage": "https://poe2db.tw/us/Liquid_Emotions"
+  },
+  "Gnawed_Jawbone": {
+    "sourceRef": "src2777"
+  },
+  "Preserved_Jawbone": {
+    "sourceRef": "src2778"
+  },
+  "Ancient_Jawbone": {
+    "sourceRef": "src2779"
+  },
+  "Gnawed_Rib": {
+    "sourceRef": "src2780"
+  },
+  "Preserved_Rib": {
+    "sourceRef": "src2781"
+  },
+  "Ancient_Rib": {
+    "sourceRef": "src2782"
+  },
+  "Gnawed_Collarbone": {
+    "sourceRef": "src2783"
+  },
+  "Preserved_Collarbone": {
+    "sourceRef": "src2784"
+  },
+  "Ancient_Collarbone": {
+    "sourceRef": "src2785"
+  },
+  "Preserved_Cranium": {
+    "sourceRef": "src2786"
+  },
+  "Altered_Collarbone": {
+    "sourceRef": "src2787"
+  },
+  "Armourers_Scrap": {
+    "sourceRef": "src2788"
+  },
+  "Blacksmiths_Whetstone": {
+    "sourceRef": "src2789"
+  },
+  "Lesser_Desert_Rune": {
+    "sourceRef": "src2312"
+  },
+  "Desert_Rune": {
+    "sourceRef": "src2313"
+  },
+  "Greater_Desert_Rune": {
+    "sourceRef": "src2314"
+  },
+  "Perfect_Desert_Rune": {
+    "sourceRef": "src2315"
+  },
+  "Lesser_Glacial_Rune": {
+    "sourceRef": "src2316"
+  },
+  "Glacial_Rune": {
+    "sourceRef": "src2317"
+  },
+  "Greater_Glacial_Rune": {
+    "sourceRef": "src2318"
+  },
+  "Perfect_Glacial_Rune": {
+    "sourceRef": "src2319"
+  },
+  "Lesser_Storm_Rune": {
+    "sourceRef": "src2320"
+  },
+  "Storm_Rune": {
+    "sourceRef": "src2321"
+  },
+  "Greater_Storm_Rune": {
+    "sourceRef": "src2322"
+  },
+  "Perfect_Storm_Rune": {
+    "sourceRef": "src2323"
+  },
+  "Lesser_Iron_Rune": {
+    "sourceRef": "src2324"
+  },
+  "Iron_Rune": {
+    "sourceRef": "src2325"
+  },
+  "Greater_Iron_Rune": {
+    "sourceRef": "src2326"
+  },
+  "Perfect_Iron_Rune": {
+    "sourceRef": "src2327"
+  },
+  "Lesser_Body_Rune": {
+    "sourceRef": "src2328"
+  },
+  "Body_Rune": {
+    "sourceRef": "src2329"
+  },
+  "Greater_Body_Rune": {
+    "sourceRef": "src2330"
+  },
+  "Perfect_Body_Rune": {
+    "sourceRef": "src2331"
+  },
+  "Lesser_Mind_Rune": {
+    "sourceRef": "src2332"
+  },
+  "Mind_Rune": {
+    "sourceRef": "src2333"
+  },
+  "Greater_Mind_Rune": {
+    "sourceRef": "src2334"
+  },
+  "Perfect_Mind_Rune": {
+    "sourceRef": "src2335"
+  },
+  "Lesser_Rebirth_Rune": {
+    "sourceRef": "src2336"
+  },
+  "Rebirth_Rune": {
+    "sourceRef": "src2337"
+  },
+  "Greater_Rebirth_Rune": {
+    "sourceRef": "src2338"
+  },
+  "Perfect_Rebirth_Rune": {
+    "sourceRef": "src2339"
+  },
+  "Lesser_Inspiration_Rune": {
+    "sourceRef": "src2340"
+  },
+  "Inspiration_Rune": {
+    "sourceRef": "src2341"
+  },
+  "Greater_Inspiration_Rune": {
+    "sourceRef": "src2342"
+  },
+  "Perfect_Inspiration_Rune": {
+    "sourceRef": "src2343"
+  },
+  "Lesser_Stone_Rune": {
+    "sourceRef": "src2344"
+  },
+  "Stone_Rune": {
+    "sourceRef": "src2345"
+  },
+  "Greater_Stone_Rune": {
+    "sourceRef": "src2346"
+  },
+  "Perfect_Stone_Rune": {
+    "sourceRef": "src2347"
+  },
+  "Lesser_Vision_Rune": {
+    "sourceRef": "src2348"
+  },
+  "Vision_Rune": {
+    "sourceRef": "src2349"
+  },
+  "Greater_Vision_Rune": {
+    "sourceRef": "src2350"
+  },
+  "Perfect_Vision_Rune": {
+    "sourceRef": "src2351"
+  },
+  "Soul_Core_of_Tacati": {
+    "sourceRef": "src2352"
+  },
+  "Soul_Core_of_Citaqualotl": {
+    "sourceRef": "src2353"
+  },
+  "Soul_Core_of_Puhuarte": {
+    "sourceRef": "src2354"
+  },
+  "Soul_Core_of_Azcapa": {
+    "sourceRef": "src2355"
+  },
+  "Soul_Core_of_Atmohua": {
+    "sourceRef": "src2356"
+  },
+  "Soul_Core_of_Cholotl": {
+    "sourceRef": "src2357"
+  },
+  "Soul_Core_of_Zantipi": {
+    "sourceRef": "src2358"
+  },
+  "Lesser_Robust_Rune": {
+    "sourceRef": "src2359"
+  },
+  "Robust_Rune": {
+    "sourceRef": "src2360"
+  },
+  "Greater_Robust_Rune": {
+    "sourceRef": "src2361"
+  },
+  "Perfect_Robust_Rune": {
+    "sourceRef": "src2362"
+  },
+  "Lesser_Adept_Rune": {
+    "sourceRef": "src2363"
+  },
+  "Adept_Rune": {
+    "sourceRef": "src2364"
+  },
+  "Greater_Adept_Rune": {
+    "sourceRef": "src2365"
+  },
+  "Perfect_Adept_Rune": {
+    "sourceRef": "src2366"
+  },
+  "Lesser_Resolve_Rune": {
+    "sourceRef": "src2367"
+  },
+  "Resolve_Rune": {
+    "sourceRef": "src2368"
+  },
+  "Greater_Resolve_Rune": {
+    "sourceRef": "src2369"
+  },
+  "Perfect_Resolve_Rune": {
+    "sourceRef": "src2370"
+  },
+  "Lesser_Tempered_Rune": {
+    "sourceRef": "src2371"
+  },
+  "Tempered_Rune": {
+    "sourceRef": "src2372"
+  },
+  "Greater_Tempered_Rune": {
+    "sourceRef": "src2373"
+  },
+  "Lesser_Ward_Rune": {
+    "sourceRef": "src2374"
+  },
+  "Ward_Rune": {
+    "sourceRef": "src2375"
+  },
+  "Greater_Ward_Rune": {
+    "sourceRef": "src2376"
+  },
+  "Perfect_Ward_Rune": {
+    "sourceRef": "src2377"
+  },
+  "Lesser_Charging_Rune": {
+    "sourceRef": "src2378"
+  },
+  "Charging_Rune": {
+    "sourceRef": "src2379"
+  },
+  "Greater_Charging_Rune": {
+    "sourceRef": "src2380"
+  },
+  "Perfect_Charging_Rune": {
+    "sourceRef": "src2381"
+  },
+  "Soul_Core_of_Xopec": {
+    "sourceRef": "src2382"
+  },
+  "Soul_Core_of_Topotante": {
+    "sourceRef": "src2383"
+  },
+  "Soul_Core_of_Quipolatl": {
+    "sourceRef": "src2384"
+  },
+  "Soul_Core_of_Opiloti": {
+    "sourceRef": "src2385"
+  },
+  "Soul_Core_of_Zalatl": {
+    "sourceRef": "src2386"
+  },
+  "Soul_Core_of_Tzamoto": {
+    "sourceRef": "src2387"
+  },
+  "Soul_Core_of_Jiquani": {
+    "sourceRef": "src2388"
+  },
+  "Soul_Core_of_Ticaba": {
+    "sourceRef": "src2389"
+  },
+  "Soul_Core_of_Vizoma": {
+    "sourceRef": "src2390"
+  },
+  "Amanamus_Gaze": {
+    "sourceRef": "src2391"
+  },
+  "Ancient_Rune_of_Animosity": {
+    "sourceRef": "src2392"
+  },
+  "Ancient_Rune_of_Control": {
+    "sourceRef": "src2393"
+  },
+  "Ancient_Rune_of_Decay": {
+    "sourceRef": "src2394"
+  },
+  "Ancient_Rune_of_Detonation": {
+    "sourceRef": "src2395"
+  },
+  "Ancient_Rune_of_Discovery": {
+    "sourceRef": "src2396"
+  },
+  "Ancient_Rune_of_Dueling": {
+    "sourceRef": "src2397"
+  },
+  "Ancient_Rune_of_Prowess": {
+    "sourceRef": "src2398"
+  },
+  "Ancient_Rune_of_Retaliation": {
+    "sourceRef": "src2399"
+  },
+  "Ancient_Rune_of_Shattering": {
+    "sourceRef": "src2400"
+  },
+  "Ancient_Rune_of_Splinters": {
+    "sourceRef": "src2401"
+  },
+  "Ancient_Rune_of_the_Titan": {
+    "sourceRef": "src2402"
+  },
+  "Atmohuas_Soul_Core_of_Retreat": {
+    "sourceRef": "src2403"
+  },
+  "Bear_Idol": {
+    "sourceRef": "src2404"
+  },
+  "Boar_Idol": {
+    "sourceRef": "src2405"
+  },
+  "Carved_Cunning": {
+    "sourceRef": "src2406"
+  },
+  "Carved_Majesty": {
+    "sourceRef": "src2407"
+  },
+  "Carved_Mischief": {
+    "sourceRef": "src2408"
+  },
+  "Carved_Tenacity": {
+    "sourceRef": "src2409"
+  },
+  "Cat_Idol": {
+    "sourceRef": "src2410"
+  },
+  "Cholotls_Soul_Core_of_War": {
+    "sourceRef": "src2411"
+  },
+  "Citaqualotls_Soul_Core_of_Foulness": {
+    "sourceRef": "src2412"
+  },
+  "Citaqualotls_Thesis": {
+    "sourceRef": "src2413"
+  },
+  "Countess_Seskes_Rune_of_Archery": {
+    "sourceRef": "src2414"
+  },
+  "Courtesan_Mannans_Rune_of_Cruelty": {
+    "sourceRef": "src2415"
+  },
+  "Craiceanns_Rune_of_Recovery": {
+    "sourceRef": "src2416"
+  },
+  "Craiceanns_Rune_of_Warding": {
+    "sourceRef": "src2417"
+  },
+  "Emergent_Instinct": {
+    "sourceRef": "src2418"
+  },
+  "Emergent_Possibility": {
+    "sourceRef": "src2419"
+  },
+  "Emergent_Protection": {
+    "sourceRef": "src2420"
+  },
+  "Emergent_Vigour": {
+    "sourceRef": "src2421"
+  },
+  "Estazuntis_Soul_Core_of_Convalescence": {
+    "sourceRef": "src2422"
+  },
+  "Farruls_Rune_of_Grace": {
+    "sourceRef": "src2423"
+  },
+  "Farruls_Rune_of_the_Chase": {
+    "sourceRef": "src2424"
+  },
+  "Farruls_Rune_of_the_Hunt": {
+    "sourceRef": "src2425"
+  },
+  "Fenumus_Rune_of_Agony": {
+    "sourceRef": "src2426"
+  },
+  "Fenumus_Rune_of_Draining": {
+    "sourceRef": "src2427"
+  },
+  "Fenumus_Rune_of_Spinning": {
+    "sourceRef": "src2428"
+  },
+  "Greater_Rune_of_Alacrity": {
+    "sourceRef": "src2429"
+  },
+  "Greater_Rune_of_Leadership": {
+    "sourceRef": "src2430"
+  },
+  "Greater_Rune_of_Nobility": {
+    "sourceRef": "src2431"
+  },
+  "Greater_Rune_of_Tithing": {
+    "sourceRef": "src2432"
+  },
+  "Guatelitzis_Soul_Core_of_Endurance": {
+    "sourceRef": "src2433"
+  },
+  "Guatelitzis_Thesis": {
+    "sourceRef": "src2434"
+  },
+  "Hawk_Idol": {
+    "sourceRef": "src2435"
+  },
+  "Hayoxis_Soul_Core_of_Heatproofing": {
+    "sourceRef": "src2436"
+  },
+  "Hedgewitch_Assandras_Rune_of_Wisdom": {
+    "sourceRef": "src2437"
+  },
+  "Idol_of_Alira": {
+    "sourceRef": "src2438"
+  },
+  "Idol_of_Eeshta": {
+    "sourceRef": "src2439"
+  },
+  "Idol_of_Egrin": {
+    "sourceRef": "src2440"
+  },
+  "Idol_of_Eramir": {
+    "sourceRef": "src2441"
+  },
+  "Idol_of_Greust": {
+    "sourceRef": "src2442"
+  },
+  "Idol_of_Grold": {
+    "sourceRef": "src2443"
+  },
+  "Idol_of_Kraityn": {
+    "sourceRef": "src2444"
+  },
+  "Idol_of_Maxarius": {
+    "sourceRef": "src2445"
+  },
+  "Idol_of_Oak": {
+    "sourceRef": "src2446"
+  },
+  "Idol_of_Ralakesh": {
+    "sourceRef": "src2447"
+  },
+  "Idol_of_Silk": {
+    "sourceRef": "src2448"
+  },
+  "Idol_of_Sirrius": {
+    "sourceRef": "src2449"
+  },
+  "Idol_of_Thruldana": {
+    "sourceRef": "src2450"
+  },
+  "Idol_of_Yeena": {
+    "sourceRef": "src2451"
+  },
+  "Idol_of_the_Martyr": {
+    "sourceRef": "src2452"
+  },
+  "Idol_of_the_Pharisee": {
+    "sourceRef": "src2453"
+  },
+  "Idol_of_the_Sycophant": {
+    "sourceRef": "src2454"
+  },
+  "Jiquanis_Soul_Core_of_Abundance": {
+    "sourceRef": "src2455"
+  },
+  "Jiquanis_Soul_Core_of_Automation": {
+    "sourceRef": "src2456"
+  },
+  "Jiquanis_Soul_Core_of_Malediction": {
+    "sourceRef": "src2457"
+  },
+  "Jiquanis_Soul_Core_of_Munitions": {
+    "sourceRef": "src2458"
+  },
+  "Jiquanis_Soul_Core_of_Quaking": {
+    "sourceRef": "src2459"
+  },
+  "Jiquanis_Soul_Core_of_Radiance": {
+    "sourceRef": "src2460"
+  },
+  "Jiquanis_Soul_Core_of_Rallying": {
+    "sourceRef": "src2461"
+  },
+  "Jiquanis_Soul_Core_of_Rippling": {
+    "sourceRef": "src2462"
+  },
+  "Jiquanis_Soul_Core_of_Severing": {
+    "sourceRef": "src2463"
+  },
+  "Jiquanis_Soul_Core_of_Snares": {
+    "sourceRef": "src2464"
+  },
+  "Jiquanis_Soul_Core_of_Squalls": {
+    "sourceRef": "src2465"
+  },
+  "Jiquanis_Soul_Core_of_Targeting": {
+    "sourceRef": "src2466"
+  },
+  "Jiquanis_Soul_Core_of_Thundering": {
+    "sourceRef": "src2467"
+  },
+  "Jiquanis_Thesis": {
+    "sourceRef": "src2468"
+  },
+  "Kurgals_Gaze": {
+    "sourceRef": "src2469"
+  },
+  "Lady_Hestras_Rune_of_Winter": {
+    "sourceRef": "src2470"
+  },
+  "Legacy_of_A_Worthy_Foe": {
+    "sourceRef": "src2471"
+  },
+  "Legacy_of_Adonias_Ego": {
+    "sourceRef": "src2472"
+  },
+  "Legacy_of_Alkem_Eira": {
+    "sourceRef": "src2473"
+  },
+  "Legacy_of_Amor_Mandragora": {
+    "sourceRef": "src2474"
+  },
+  "Legacy_of_Ashrend": {
+    "sourceRef": "src2475"
+  },
+  "Legacy_of_Blackbraid": {
+    "sourceRef": "src2476"
+  },
+  "Legacy_of_Brain_Rattler": {
+    "sourceRef": "src2477"
+  },
+  "Legacy_of_Bramblejack": {
+    "sourceRef": "src2478"
+  },
+  "Legacy_of_Briarpatch": {
+    "sourceRef": "src2479"
+  },
+  "Legacy_of_Briskwrap": {
+    "sourceRef": "src2480"
+  },
+  "Legacy_of_Bristleboar": {
+    "sourceRef": "src2481"
+  },
+  "Legacy_of_Brynhands_Mark": {
+    "sourceRef": "src2482"
+  },
+  "Legacy_of_Bushwhack": {
+    "sourceRef": "src2483"
+  },
+  "Legacy_of_Candlemaker": {
+    "sourceRef": "src2484"
+  },
+  "Legacy_of_Chernobogs_Pillar": {
+    "sourceRef": "src2485"
+  },
+  "Legacy_of_Crown_of_Thorns": {
+    "sourceRef": "src2486"
+  },
+  "Legacy_of_Cursecarver": {
+    "sourceRef": "src2487"
+  },
+  "Legacy_of_Deathblow": {
+    "sourceRef": "src2488"
+  },
+  "Legacy_of_Deidbell": {
+    "sourceRef": "src2489"
+  },
+  "Legacy_of_Dionadair": {
+    "sourceRef": "src2490"
+  },
+  "Legacy_of_Duality": {
+    "sourceRef": "src2491"
+  },
+  "Legacy_of_Dunkelhalt": {
+    "sourceRef": "src2492"
+  },
+  "Legacy_of_Dusk_Vigil": {
+    "sourceRef": "src2493"
+  },
+  "Legacy_of_Edyrns_Tusks": {
+    "sourceRef": "src2494"
+  },
+  "Legacy_of_Elevore": {
+    "sourceRef": "src2495"
+  },
+  "Legacy_of_Erians_Cobble": {
+    "sourceRef": "src2496"
+  },
+  "Legacy_of_Ezomyte_Peak": {
+    "sourceRef": "src2497"
+  },
+  "Legacy_of_Facebreaker": {
+    "sourceRef": "src2498"
+  },
+  "Legacy_of_Foxshade": {
+    "sourceRef": "src2499"
+  },
+  "Legacy_of_Greymake": {
+    "sourceRef": "src2500"
+  },
+  "Legacy_of_Hoghunt": {
+    "sourceRef": "src2501"
+  },
+  "Legacy_of_Horns_of_Bynden": {
+    "sourceRef": "src2502"
+  },
+  "Legacy_of_Hrimnors_Hymn": {
+    "sourceRef": "src2503"
+  },
+  "Legacy_of_Ironbound": {
+    "sourceRef": "src2504"
+  },
+  "Legacy_of_Keeper_of_the_Arc": {
+    "sourceRef": "src2505"
+  },
+  "Legacy_of_Kingsguard": {
+    "sourceRef": "src2506"
+  },
+  "Legacy_of_Legionstride": {
+    "sourceRef": "src2507"
+  },
+  "Legacy_of_Lifesprig": {
+    "sourceRef": "src2508"
+  },
+  "Legacy_of_Mj%C3%B6lner": {
+    "sourceRef": "src2509"
+  },
+  "Legacy_of_Northpaw": {
+    "sourceRef": "src2510"
+  },
+  "Legacy_of_Oaksworn": {
+    "sourceRef": "src2511"
+  },
+  "Legacy_of_Oberns_Bastion": {
+    "sourceRef": "src2512"
+  },
+  "Legacy_of_Olrovasara": {
+    "sourceRef": "src2513"
+  },
+  "Legacy_of_Quill_Rain": {
+    "sourceRef": "src2514"
+  },
+  "Legacy_of_Rondel_de_Ezo": {
+    "sourceRef": "src2515"
+  },
+  "Legacy_of_Spiteful_Floret": {
+    "sourceRef": "src2516"
+  },
+  "Legacy_of_Starkonjas_Head": {
+    "sourceRef": "src2517"
+  },
+  "Legacy_of_Svalinn": {
+    "sourceRef": "src2518"
+  },
+  "Legacy_of_The_Blood_Thorn": {
+    "sourceRef": "src2519"
+  },
+  "Legacy_of_The_Knight-errant": {
+    "sourceRef": "src2520"
+  },
+  "Legacy_of_The_Sentry": {
+    "sourceRef": "src2521"
+  },
+  "Legacy_of_The_Smiling_Knight": {
+    "sourceRef": "src2522"
+  },
+  "Legacy_of_The_Unleashed": {
+    "sourceRef": "src2523"
+  },
+  "Legacy_of_The_Vile_Knight": {
+    "sourceRef": "src2524"
+  },
+  "Legacy_of_Trampletoe": {
+    "sourceRef": "src2525"
+  },
+  "Legacy_of_Trenchtimbre": {
+    "sourceRef": "src2526"
+  },
+  "Legacy_of_Twisted_Empyrean": {
+    "sourceRef": "src2527"
+  },
+  "Legacy_of_Tyrannys_Grip": {
+    "sourceRef": "src2528"
+  },
+  "Legacy_of_Wanderlust": {
+    "sourceRef": "src2529"
+  },
+  "Legacy_of_Wings_of_Caelyn": {
+    "sourceRef": "src2530"
+  },
+  "Legacy_of_Wulfsbane": {
+    "sourceRef": "src2531"
+  },
+  "Opilotis_Soul_Core_of_Assault": {
+    "sourceRef": "src2532"
+  },
+  "Ox_Idol": {
+    "sourceRef": "src2533"
+  },
+  "Panther_Idol": {
+    "sourceRef": "src2534"
+  },
+  "Primate_Idol": {
+    "sourceRef": "src2535"
+  },
+  "Quipolatls_Soul_Core_of_Flow": {
+    "sourceRef": "src2536"
+  },
+  "Quipolatls_Thesis": {
+    "sourceRef": "src2537"
+  },
+  "Rabbit_Idol": {
+    "sourceRef": "src2538"
+  },
+  "Rune_of_Accumulation": {
+    "sourceRef": "src2539"
+  },
+  "Rune_of_Acrobatics": {
+    "sourceRef": "src2540"
+  },
+  "Rune_of_Confrontation": {
+    "sourceRef": "src2541"
+  },
+  "Rune_of_Consistency": {
+    "sourceRef": "src2542"
+  },
+  "Rune_of_Culmination": {
+    "sourceRef": "src2543"
+  },
+  "Rune_of_Foundations": {
+    "sourceRef": "src2544"
+  },
+  "Rune_of_Reach": {
+    "sourceRef": "src2545"
+  },
+  "Rune_of_Renown": {
+    "sourceRef": "src2546"
+  },
+  "Rune_of_Vital_Flame": {
+    "sourceRef": "src2547"
+  },
+  "Rune_of_Vitality": {
+    "sourceRef": "src2548"
+  },
+  "Rune_of_the_Blossom": {
+    "sourceRef": "src2549"
+  },
+  "Rune_of_the_Hunt": {
+    "sourceRef": "src2550"
+  },
+  "Rune_of_the_Prism": {
+    "sourceRef": "src2551"
+  },
+  "Saqawals_Rune_of_Erosion": {
+    "sourceRef": "src2552"
+  },
+  "Saqawals_Rune_of_Memory": {
+    "sourceRef": "src2553"
+  },
+  "Saqawals_Rune_of_the_Sky": {
+    "sourceRef": "src2554"
+  },
+  "Snake_Idol": {
+    "sourceRef": "src2555"
+  },
+  "Stag_Idol": {
+    "sourceRef": "src2556"
+  },
+  "Stoat_Idol": {
+    "sourceRef": "src2557"
+  },
+  "Tacatis_Soul_Core_of_Affliction": {
+    "sourceRef": "src2558"
+  },
+  "Tecrods_Gaze": {
+    "sourceRef": "src2559"
+  },
+  "Thane_Girts_Rune_of_Wildness": {
+    "sourceRef": "src2560"
+  },
+  "Thane_Grannells_Rune_of_Mastery": {
+    "sourceRef": "src2561"
+  },
+  "Thane_Lelds_Rune_of_Spring": {
+    "sourceRef": "src2562"
+  },
+  "Thane_Myrks_Rune_of_Summer": {
+    "sourceRef": "src2563"
+  },
+  "The_Greatwolfs_Rune_of_Claws": {
+    "sourceRef": "src2564"
+  },
+  "The_Greatwolfs_Rune_of_Willpower": {
+    "sourceRef": "src2565"
+  },
+  "Topotantes_Soul_Core_of_Dampening": {
+    "sourceRef": "src2566"
+  },
+  "Tzamotos_Soul_Core_of_Ferocity": {
+    "sourceRef": "src2567"
+  },
+  "Ulamans_Gaze": {
+    "sourceRef": "src2568"
+  },
+  "Uromotis_Soul_Core_of_Attenuation": {
+    "sourceRef": "src2569"
+  },
+  "Warding_Rune_of_Annihilation": {
+    "sourceRef": "src2570"
+  },
+  "Warding_Rune_of_Armature": {
+    "sourceRef": "src2571"
+  },
+  "Warding_Rune_of_Courage": {
+    "sourceRef": "src2572"
+  },
+  "Warding_Rune_of_Desperation": {
+    "sourceRef": "src2573"
+  },
+  "Warding_Rune_of_Disintegration": {
+    "sourceRef": "src2574"
+  },
+  "Warding_Rune_of_Equinox": {
+    "sourceRef": "src2575"
+  },
+  "Warding_Rune_of_Glancing": {
+    "sourceRef": "src2576"
+  },
+  "Warding_Rune_of_Heart": {
+    "sourceRef": "src2577"
+  },
+  "Warding_Rune_of_Hollowing": {
+    "sourceRef": "src2578"
+  },
+  "Warding_Rune_of_Nourishment": {
+    "sourceRef": "src2579"
+  },
+  "Warding_Rune_of_Obsession": {
+    "sourceRef": "src2580"
+  },
+  "Warding_Rune_of_Protection": {
+    "sourceRef": "src2581"
+  },
+  "Warding_Rune_of_Reinforcement": {
+    "sourceRef": "src2582"
+  },
+  "Warding_Rune_of_Stability": {
+    "sourceRef": "src2583"
+  },
+  "Warding_Rune_of_Symbiosis": {
+    "sourceRef": "src2584"
+  },
+  "Wolf_Idol": {
+    "sourceRef": "src2585"
+  },
+  "Xipocados_Soul_Core_of_Dominion": {
+    "sourceRef": "src2586"
+  },
+  "Xopecs_Soul_Core_of_Power": {
+    "sourceRef": "src2587"
+  },
+  "Zalatls_Soul_Core_of_Insulation": {
+    "sourceRef": "src2588"
+  },
+  "Astrids_Creativity": {
+    "sourceRef": "src2589"
+  },
+  "Serles_Triumph": {
+    "sourceRef": "src2590"
+  },
+  "Legacy_of_Serles_Grit": {
+    "sourceRef": "src2591"
+  },
+  "Legacy_of_Runeseekers_Call": {
+    "sourceRef": "src2592"
+  },
+  "Fox_Idol": {
+    "sourceRef": "src2593"
+  },
+  "Raven-Touched_Shard": {
+    "sourceRef": "src2594"
+  },
+  "Uhtreds_Sidereus": {
+    "sourceRef": "src2595"
+  },
+  "Kolrs_Hunt": {
+    "sourceRef": "src2596"
+  },
+  "Voranas_Carnage": {
+    "sourceRef": "src2597"
+  },
+  "Thruds_Might": {
+    "sourceRef": "src2598"
+  },
+  "Medveds_Tending": {
+    "sourceRef": "src2599"
+  },
+  "Katlas_Gloom": {
+    "sourceRef": "src2600"
+  },
+  "Vaal_Arcanists_Infuser": {
+    "sourceRef": "src2790"
+  },
+  "Vaal_Catalysing_Infuser": {
+    "sourceRef": "src2791"
+  },
+  "Vaal_Armourers_Infuser": {
+    "sourceRef": "src2792"
+  },
+  "Vaal_Blacksmiths_Infuser": {
+    "sourceRef": "src2793"
+  }
+}

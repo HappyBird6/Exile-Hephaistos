@@ -59,7 +59,7 @@ Docker 서비스는 localhost에만 노출한다. 관리자 API는 비밀번호 
 
 - 게임 JSON·번역의 편집 원본은 `docs/v0.5.5/game-data/`, `i18n/`이다. 게임 규칙은 `game-rule/`의 MD에 기록한다. backend/frontend의 대응 JSON은 manifest에 명시한 호환용 복사본이며 직접 편집하지 않는다. 새 데이터 파일은 해당 원본 폴더에 추가한다. manifest의 파일 목록과 실행 경로는 폴더 규칙으로 자동 생성하며 직접 편집하지 않는다.
 - 이번 단계는 문서 정리·ID 발급이다. 런타임 매핑 로드, API·저장 형식의 짧은 ID 사용은 후속 코드 경량화 범위다. 기존 게임 값·배열 순서·원문·기록을 보존한다. 실행 자원 목록 변경 시 ruleset 버전·seal과 현행 검증 사례를 검토하되 과거 호환 ID를 현재 값으로 덮어쓰지 않는다.
-- catalog는 `장비종류/베이스/`로 구성한다. 공통 정의는 `catalog/modifiers.json`, 공통 옵션 목록은 각 장비 종류의 `modifier-pools.json`에서 관리한다. 기존 문맥 차이는 variants·snapshot 목록에 보존하고 임의로 통일하지 않는다. 베이스 파일은 참조와 메타데이터만 유지하며 실행 JSON·개수·가중치 합계는 자동 생성한다. raw는 `docs/legacy/raw-data/`에 보관하고 서버·배포 자원에서는 제외한다.
+- catalog는 `장비종류/베이스/`로 구성한다. 공통 정의는 `game-data/modifiers/<종류>.json`, 공통 옵션 목록은 각 장비 종류의 `modifier-pools.json`에서 관리한다. 기존 문맥 차이는 variants·snapshot 목록에 보존하고 임의로 통일하지 않는다. 베이스 정체성은 각 `base.json`, 옵션 연결은 `catalog.json`에서 관리하며 실행 JSON·개수·가중치 합계는 자동 생성한다. raw는 `docs/legacy/raw-data/`에 보관하고 서버·배포 자원에서는 제외한다.
 - `mappings/`의 ID는 종류별 접두사와 base36 일련번호다. 발급 후 재할당·재사용하지 않는다. 제거는 retired tombstone으로 유지하며 기존 매핑을 삭제한 뒤 재생성하지 않는다. 다음 데이터 버전도 이전 매핑을 승계한다. 문자열이 같다는 이유로 다른 종류를 합치지 않는다. 게임 이름·설명은 i18n에서 유지한다.
 - `node scripts/versioned-game-data.mjs --write` 한 명령으로 ruleset digest·ID·manifest·runtime/browser 복사본·공개 계약·README 요약을 순서대로 갱신한다. engine/ledger/ruleset 의미 버전은 먼저 검토한다. `--check`는 읽기 전용이다. MD 문구 변경에는 생성이나 해시 갱신이 필요 없다. 복사본을 수정해 drift를 숨기지 않는다.
 - 일반 관리 안내는 README, 에이전트 규칙은 AGENTS.md에 통합한다. 새 작업 계획·완료 보고·인계·별도 유지보수 문서를 만들지 않는다. 게임 변경은 관련 JSON·규칙 MD만 갱신하고 중복 목록·개수·매핑 digest는 자동 생성한다.
@@ -71,6 +71,9 @@ Docker 서비스는 localhost에만 노출한다. 관리자 API는 비밀번호 
 
 - 경량화는 데이터 크기뿐 아니라 사람이 이해하고 수정하는 비용을 줄이는 작업이다. 기능 변경 시 찾아갈 파일·중간 계층·중복 원본을 줄이고 역할이 분명한 이름과 폴더를 사용한다. 단순한 작업에 범용 실행기·플러그인 구조·추상화를 추가하지 않는다.
 - 현재 사용되는 공통 API schema·FE/BE 검증 사례는 `docs/contracts/`에 둔다. 게임 버전 데이터와 섞지 않는다. 설명용 README는 legacy에 보관하고 새 관리 설명은 루트 README에 통합한다. backend resources의 contracts는 실제 로드되는 정책 파일이며 별도다. 사용하지 않는 schema와 과거 버전에 고정된 fixture는 legacy/contracts에 보존한다. 현행 source fixture의 해시 갱신은 목표·옵션·확률 oracle 검증 후 수행한다.
+
+- 생성 데이터 구조: 베이스 인덱스·주얼·공개 옵션·표시 JSON은 공통 원본에서 생성한다. display 별도 원본을 복원하지 않는다. 증강물·에센스·합금·감정액은 crafting 하위에서 관리하고 이름·툴팁·옵션 문장은 i18n에 둔다. 재료 적용 대상은 명시적 target-classes에서 읽으며 번역 문자열을 파싱하지 않는다.
+- 출처 URL은 sources.json의 sourceRef로 연결한다. 기존 참조를 재사용하지 않는다. 분류 사실·앱 지원 정책·과거 호환 ID를 분리하고 확률 미확정은 null로 표현한다. 동일 목록만 공유하며 등록 order·옵션 순서·문맥별 variants를 보존한다. proof/review는 legacy/raw-data에서 테스트만 읽으며 배포하지 않는다.
 
 ## Git 통합
 

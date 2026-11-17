@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Rings/FourRingLake1",
+  "sourceRef": "src0853",
+  "implicitModifierId": "dusk-ring:implicit:base",
+  "magicPrefixes": 2,
+  "magicSuffixes": 0,
+  "rarePrefixes": 4,
+  "rareSuffixes": 2,
+  "registration": {
+    "key": "dusk-ring",
+    "slug": "Dusk_Ring",
+    "family": "rings",
+    "sourceSha256": "a5ddfec7e44d1e3f6af30c31ca797985bf601c7eb334f505c9519839fca1bf87",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 158
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Jewels/JewelStr",
+  "sourceRef": "src2235",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 2,
+  "legacy": {
+    "key": "ruby",
+    "slug": "Ruby",
+    "order": 9
+  }
+}

@@ -7,6 +7,17 @@
   },
   "modifiers": [
     {
+      "id": "stocky-mitts:suffix:alloy-remnant-pickup-range",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "RemnantPickupRadius"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "Remnants can be collected from (35—50)% further away",
       "stats": [
         {
           "max": 50,
@@ -14,21 +25,21 @@
           "min": 35
         }
       ],
-      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1",
       "tags": [],
-      "id": "stocky-mitts:suffix:alloy-remnant-pickup-range",
-      "name": "of the Stars",
-      "requiredItemLevel": 25,
-      "weight": 0,
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "RemnantPickupRadius"
-      ],
-      "text": "Remnants can be collected from (35—50)% further away",
-      "layer": "EXPLICIT",
-      "tier": 1
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1"
     },
     {
+      "id": "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamagingAilmentDuration"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(20—25)% increased Duration of Damaging Ailments on Enemies",
       "stats": [
         {
           "max": 25,
@@ -36,23 +47,23 @@
           "min": 20
         }
       ],
-      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1",
       "tags": [
         "ailment"
       ],
-      "id": "stocky-mitts:suffix:alloy-damaging-ailment-duration",
-      "name": "of the Stars",
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "DamagingAilmentDuration"
-      ],
-      "text": "(20—25)% increased Duration of Damaging Ailments on Enemies",
-      "layer": "EXPLICIT",
-      "tier": 1
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1"
     },
     {
+      "id": "stocky-mitts:suffix:alloy-attack-area-of-effect",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackAreaOfEffect"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(10—15)% increased Area of Effect for Attacks",
       "stats": [
         {
           "max": 15,
@@ -60,21 +71,10 @@
           "min": 10
         }
       ],
-      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1",
       "tags": [
         "attack"
       ],
-      "id": "stocky-mitts:suffix:alloy-attack-area-of-effect",
-      "name": "of the Stars",
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedAttackAreaOfEffect"
-      ],
-      "text": "(10—15)% increased Area of Effect for Attacks",
-      "layer": "EXPLICIT",
-      "tier": 1
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1"
     }
   ]
 }

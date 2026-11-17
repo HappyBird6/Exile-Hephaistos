@@ -4,7 +4,7 @@
 
 ## 적용 자격
 
-베이스·희귀도·레벨·접두/접미 슬롯·family 충돌·분열·훼손·징조 조건을 함께 검증한다. 베이스별 자격은 [base-policies](../game-data/catalog/base-policies.json)와 [supported-base-sets](../game-data/crafting/supported-base-sets-v1.json)에 있다. 이름만으로 화폐 효과·대상·최소 레벨을 추정하지 않는다.
+베이스·희귀도·레벨·접두/접미 슬롯·family 충돌·분열·훼손·징조 조건을 함께 검증한다. 베이스별 자격은 [base-policies](../game-data/crafting/policies/base-support.json)와 [supported-base-sets](../game-data/crafting/supported-base-sets-v1.json)에 있다. 이름만으로 화폐 효과·대상·최소 레벨을 추정하지 않는다.
 
 화폐 action과 재료 ID는 서로 다른 식별 공간이다. 징조도 실행 key와 표시용 재료 ID를 구분한다. 이번에 부여한 짧은 ID는 아직 실행·통신에 사용하지 않는다.
 
@@ -12,7 +12,7 @@
 
 일반 상태와 숨겨진 훼손 슬롯 모두 같은 교체 규칙을 사용한다. 가능한 결과 옵션을 균등 선택하고, 해당 쪽 슬롯이 가득 찼다면 같은 쪽의 비분열·징조 조건을 만족하는 옵션에서 제거한다. 다른 family 충돌을 임의 재추첨으로 숨기지 않는다. 결과별 제거 후보 수가 다르면 경로 확률도 다르다. 합금·액체 감정은 각각의 선택 규칙을 유지한다.
 
-고정 결과·대상 목록은 [top-base-essences](../game-data/catalog/top-base-essences.json), [equipment-currencies](../game-data/catalog/equipment-currencies.json), 각 pool의 catalog JSON에 있다. 배열 순서는 동작 계약이므로 정렬하거나 임의로 중복을 제거하지 않는다.
+고정 결과·대상 목록은 [top-base-essences](../game-data/crafting/essences/targets.json), [equipment-currencies](../game-data/crafting/alloys/targets.json), 각 pool의 catalog JSON에 있다. 배열 순서는 동작 계약이므로 정렬하거나 임의로 중복을 제거하지 않는다.
 
 ## 품질·축성·숨겨진 상태
 

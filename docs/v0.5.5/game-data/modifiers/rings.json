@@ -1,0 +1,5670 @@
+{
+  "definitions": {
+    "amethyst:implicit:chaosresistance": {
+      "id": "amethyst:implicit:chaosresistance",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src0025"
+    },
+    "biostatic-ring:implicit:base": {
+      "id": "biostatic-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaximumResistances"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "additional_maximum_all_resistances_%",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "resistance"
+      ],
+      "sourceRef": "src0439"
+    },
+    "dusk-ring:implicit:base": {
+      "id": "dusk-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0853"
+    },
+    "emerald-ring:implicit:base": {
+      "id": "emerald-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 120,
+          "max": 160
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0855"
+    },
+    "gloam-ring:implicit:base": {
+      "id": "gloam-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0900"
+    },
+    "gold-ring:implicit:base": {
+      "id": "gold-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src0902"
+    },
+    "iron-ring:implicit:added-physical-damage-to-attacks": {
+      "id": "iron-ring:implicit:added-physical-damage-to-attacks",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 4,
+          "max": 4
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0914"
+    },
+    "iron-ring:prefix:acrobat-s": {
+      "id": "iron-ring:prefix:acrobat-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 39,
+          "max": 51
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0915"
+    },
+    "iron-ring:prefix:adroit": {
+      "id": "iron-ring:prefix:adroit",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 203,
+          "max": 233
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0916"
+    },
+    "iron-ring:prefix:agile": {
+      "id": "iron-ring:prefix:agile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 8,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0917"
+    },
+    "iron-ring:prefix:alpine": {
+      "id": "iron-ring:prefix:alpine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceRef": "src0918"
+    },
+    "iron-ring:prefix:annealed": {
+      "id": "iron-ring:prefix:annealed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 12,
+          "max": 17
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0919"
+    },
+    "iron-ring:prefix:aqua": {
+      "id": "iron-ring:prefix:aqua",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 65,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0253"
+    },
+    "iron-ring:prefix:arcing": {
+      "id": "iron-ring:prefix:arcing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 33,
+          "max": 40
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceRef": "src0920"
+    },
+    "iron-ring:prefix:azure": {
+      "id": "iron-ring:prefix:azure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0257"
+    },
+    "iron-ring:prefix:beryl": {
+      "id": "iron-ring:prefix:beryl",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 12,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0258"
+    },
+    "iron-ring:prefix:biting": {
+      "id": "iron-ring:prefix:biting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceRef": "src0921"
+    },
+    "iron-ring:prefix:bitter": {
+      "id": "iron-ring:prefix:bitter",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceRef": "src0922"
+    },
+    "iron-ring:prefix:blasting": {
+      "id": "iron-ring:prefix:blasting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 300,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 33,
+          "max": 36
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceRef": "src0923"
+    },
+    "iron-ring:prefix:blistering": {
+      "id": "iron-ring:prefix:blistering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceRef": "src0924"
+    },
+    "iron-ring:prefix:blue": {
+      "id": "iron-ring:prefix:blue",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 150,
+          "max": 164
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0262"
+    },
+    "iron-ring:prefix:blurred": {
+      "id": "iron-ring:prefix:blurred",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 80,
+          "max": 107
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0925"
+    },
+    "iron-ring:prefix:bolting": {
+      "id": "iron-ring:prefix:bolting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceRef": "src0926"
+    },
+    "iron-ring:prefix:burning": {
+      "id": "iron-ring:prefix:burning",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 14,
+          "max": 17
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 9,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceRef": "src0927"
+    },
+    "iron-ring:prefix:burnished": {
+      "id": "iron-ring:prefix:burnished",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0928"
+    },
+    "iron-ring:prefix:buzzing": {
+      "id": "iron-ring:prefix:buzzing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceRef": "src0929"
+    },
+    "iron-ring:prefix:cauterising": {
+      "id": "iron-ring:prefix:cauterising",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceRef": "src0930"
+    },
+    "iron-ring:prefix:cerulean": {
+      "id": "iron-ring:prefix:cerulean",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0266"
+    },
+    "iron-ring:prefix:chalybeous": {
+      "id": "iron-ring:prefix:chalybeous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 105,
+          "max": 124
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0267"
+    },
+    "iron-ring:prefix:charged": {
+      "id": "iron-ring:prefix:charged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceRef": "src0931"
+    },
+    "iron-ring:prefix:chilled": {
+      "id": "iron-ring:prefix:chilled",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 5,
+          "max": 8
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceRef": "src0932"
+    },
+    "iron-ring:prefix:clouded": {
+      "id": "iron-ring:prefix:clouded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceRef": "src0933"
+    },
+    "iron-ring:prefix:cobalt": {
+      "id": "iron-ring:prefix:cobalt",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 11,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 15,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0270"
+    },
+    "iron-ring:prefix:collector-s": {
+      "id": "iron-ring:prefix:collector-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ItemFoundRarityIncreasePrefix"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src0934"
+    },
+    "iron-ring:prefix:consistent": {
+      "id": "iron-ring:prefix:consistent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 124,
+          "max": 167
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0935"
+    },
+    "iron-ring:prefix:coursing": {
+      "id": "iron-ring:prefix:coursing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceRef": "src0936"
+    },
+    "iron-ring:prefix:crackling": {
+      "id": "iron-ring:prefix:crackling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 23,
+          "max": 27
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceRef": "src0937"
+    },
+    "iron-ring:prefix:cremating": {
+      "id": "iron-ring:prefix:cremating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 200,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 37,
+          "max": 45
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceRef": "src0938"
+    },
+    "iron-ring:prefix:crystalline": {
+      "id": "iron-ring:prefix:crystalline",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceRef": "src0939"
+    },
+    "iron-ring:prefix:dancer-s": {
+      "id": "iron-ring:prefix:dancer-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 18,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0940"
+    },
+    "iron-ring:prefix:darkened": {
+      "id": "iron-ring:prefix:darkened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceRef": "src0941"
+    },
+    "iron-ring:prefix:deliberate": {
+      "id": "iron-ring:prefix:deliberate",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 85,
+          "max": 123
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0942"
+    },
+    "iron-ring:prefix:discharging": {
+      "id": "iron-ring:prefix:discharging",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 300,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 48,
+          "max": 59
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceRef": "src0943"
+    },
+    "iron-ring:prefix:electrocuting": {
+      "id": "iron-ring:prefix:electrocuting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 200,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 60,
+          "max": 71
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceRef": "src0944"
+    },
+    "iron-ring:prefix:elusory": {
+      "id": "iron-ring:prefix:elusory",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 175,
+          "max": 202
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0945"
+    },
+    "iron-ring:prefix:entombing": {
+      "id": "iron-ring:prefix:entombing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 200,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 32,
+          "max": 37
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceRef": "src0946"
+    },
+    "iron-ring:prefix:essence-increased-maximum-mana": {
+      "id": "iron-ring:prefix:essence-increased-maximum-mana",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0947"
+    },
+    "iron-ring:prefix:flaming": {
+      "id": "iron-ring:prefix:flaming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 18,
+          "max": 20
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 12,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceRef": "src0948"
+    },
+    "iron-ring:prefix:flaring": {
+      "id": "iron-ring:prefix:flaring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 400,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 22,
+          "max": 32
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 12,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0949"
+    },
+    "iron-ring:prefix:fleet": {
+      "id": "iron-ring:prefix:fleet",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 52,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0950"
+    },
+    "iron-ring:prefix:focused": {
+      "id": "iron-ring:prefix:focused",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 61,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0951"
+    },
+    "iron-ring:prefix:freezing": {
+      "id": "iron-ring:prefix:freezing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 15,
+          "max": 17
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 9,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceRef": "src0952"
+    },
+    "iron-ring:prefix:frigid": {
+      "id": "iron-ring:prefix:frigid",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 12,
+          "max": 14
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 7,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceRef": "src0953"
+    },
+    "iron-ring:prefix:frosted": {
+      "id": "iron-ring:prefix:frosted",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceRef": "src0954"
+    },
+    "iron-ring:prefix:frozen": {
+      "id": "iron-ring:prefix:frozen",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 18,
+          "max": 21
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 11,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceRef": "src0955"
+    },
+    "iron-ring:prefix:gentian": {
+      "id": "iron-ring:prefix:gentian",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0285"
+    },
+    "iron-ring:prefix:glaciated": {
+      "id": "iron-ring:prefix:glaciated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 400,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 22,
+          "max": 24
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 14,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceRef": "src0956"
+    },
+    "iron-ring:prefix:gleaming": {
+      "id": "iron-ring:prefix:gleaming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 9,
+          "max": 13
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0957"
+    },
+    "iron-ring:prefix:glinting": {
+      "id": "iron-ring:prefix:glinting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0958"
+    },
+    "iron-ring:prefix:hailing": {
+      "id": "iron-ring:prefix:hailing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceRef": "src0959"
+    },
+    "iron-ring:prefix:hale": {
+      "id": "iron-ring:prefix:hale",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0960"
+    },
+    "iron-ring:prefix:healthy": {
+      "id": "iron-ring:prefix:healthy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0961"
+    },
+    "iron-ring:prefix:heated": {
+      "id": "iron-ring:prefix:heated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceRef": "src0962"
+    },
+    "iron-ring:prefix:hissing": {
+      "id": "iron-ring:prefix:hissing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceRef": "src0963"
+    },
+    "iron-ring:prefix:hoarder-s": {
+      "id": "iron-ring:prefix:hoarder-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ItemFoundRarityIncreasePrefix"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src0964"
+    },
+    "iron-ring:prefix:honed": {
+      "id": "iron-ring:prefix:honed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 8,
+          "max": 11
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0965"
+    },
+    "iron-ring:prefix:humming": {
+      "id": "iron-ring:prefix:humming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceRef": "src0966"
+    },
+    "iron-ring:prefix:hunter-s": {
+      "id": "iron-ring:prefix:hunter-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 237,
+          "max": 346
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0967"
+    },
+    "iron-ring:prefix:icy": {
+      "id": "iron-ring:prefix:icy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 9,
+          "max": 11
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceRef": "src0968"
+    },
+    "iron-ring:prefix:impure": {
+      "id": "iron-ring:prefix:impure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceRef": "src0969"
+    },
+    "iron-ring:prefix:incinerating": {
+      "id": "iron-ring:prefix:incinerating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 400,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 13,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceRef": "src0970"
+    },
+    "iron-ring:prefix:magmatic": {
+      "id": "iron-ring:prefix:magmatic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceRef": "src0971"
+    },
+    "iron-ring:prefix:magpie-s": {
+      "id": "iron-ring:prefix:magpie-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ItemFoundRarityIncreasePrefix"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src0972"
+    },
+    "iron-ring:prefix:malignant": {
+      "id": "iron-ring:prefix:malignant",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceRef": "src0973"
+    },
+    "iron-ring:prefix:mazarine": {
+      "id": "iron-ring:prefix:mazarine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 125,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0301"
+    },
+    "iron-ring:prefix:opalescent": {
+      "id": "iron-ring:prefix:opalescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0303"
+    },
+    "iron-ring:prefix:phased": {
+      "id": "iron-ring:prefix:phased",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 108,
+          "max": 141
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0974"
+    },
+    "iron-ring:prefix:polar": {
+      "id": "iron-ring:prefix:polar",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 300,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 25,
+          "max": 31
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceRef": "src0975"
+    },
+    "iron-ring:prefix:polished": {
+      "id": "iron-ring:prefix:polished",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 5,
+          "max": 8
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0976"
+    },
+    "iron-ring:prefix:precise": {
+      "id": "iron-ring:prefix:precise",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 11,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0977"
+    },
+    "iron-ring:prefix:ranger-s": {
+      "id": "iron-ring:prefix:ranger-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 67,
+      "weight": 400,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 347,
+          "max": 450
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0978"
+    },
+    "iron-ring:prefix:razor-sharp": {
+      "id": "iron-ring:prefix:razor-sharp",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 14,
+          "max": 20
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 7,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0979"
+    },
+    "iron-ring:prefix:reliable": {
+      "id": "iron-ring:prefix:reliable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 800,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 33,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0980"
+    },
+    "iron-ring:prefix:robust": {
+      "id": "iron-ring:prefix:robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0981"
+    },
+    "iron-ring:prefix:rotund": {
+      "id": "iron-ring:prefix:rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0982"
+    },
+    "iron-ring:prefix:sanguine": {
+      "id": "iron-ring:prefix:sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0983"
+    },
+    "iron-ring:prefix:scorching": {
+      "id": "iron-ring:prefix:scorching",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceRef": "src0984"
+    },
+    "iron-ring:prefix:searing": {
+      "id": "iron-ring:prefix:searing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceRef": "src0985"
+    },
+    "iron-ring:prefix:shocking": {
+      "id": "iron-ring:prefix:shocking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 400,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 41,
+          "max": 47
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceRef": "src0986"
+    },
+    "iron-ring:prefix:sizzling": {
+      "id": "iron-ring:prefix:sizzling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceRef": "src0987"
+    },
+    "iron-ring:prefix:smiting": {
+      "id": "iron-ring:prefix:smiting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceRef": "src0988"
+    },
+    "iron-ring:prefix:smoking": {
+      "id": "iron-ring:prefix:smoking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 10,
+          "max": 13
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 6,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceRef": "src0989"
+    },
+    "iron-ring:prefix:smouldering": {
+      "id": "iron-ring:prefix:smouldering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceRef": "src0990"
+    },
+    "iron-ring:prefix:snapping": {
+      "id": "iron-ring:prefix:snapping",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 16,
+          "max": 22
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceRef": "src0991"
+    },
+    "iron-ring:prefix:snowy": {
+      "id": "iron-ring:prefix:snowy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceRef": "src0992"
+    },
+    "iron-ring:prefix:sparking": {
+      "id": "iron-ring:prefix:sparking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 28,
+          "max": 32
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceRef": "src0993"
+    },
+    "iron-ring:prefix:stalwart": {
+      "id": "iron-ring:prefix:stalwart",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 40,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0994"
+    },
+    "iron-ring:prefix:steady": {
+      "id": "iron-ring:prefix:steady",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 168,
+          "max": 236
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0995"
+    },
+    "iron-ring:prefix:stout": {
+      "id": "iron-ring:prefix:stout",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0996"
+    },
+    "iron-ring:prefix:striking": {
+      "id": "iron-ring:prefix:striking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceRef": "src0997"
+    },
+    "iron-ring:prefix:tainted": {
+      "id": "iron-ring:prefix:tainted",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceRef": "src0998"
+    },
+    "iron-ring:prefix:teal": {
+      "id": "iron-ring:prefix:teal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 35,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0322"
+    },
+    "iron-ring:prefix:tempered": {
+      "id": "iron-ring:prefix:tempered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 600,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src0999"
+    },
+    "iron-ring:prefix:vaporous": {
+      "id": "iron-ring:prefix:vaporous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 142,
+          "max": 174
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src1000"
+    },
+    "iron-ring:prefix:vile": {
+      "id": "iron-ring:prefix:vile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceRef": "src1001"
+    },
+    "iron-ring:prefix:virile": {
+      "id": "iron-ring:prefix:virile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1002"
+    },
+    "iron-ring:prefix:volcanic": {
+      "id": "iron-ring:prefix:volcanic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceRef": "src1003"
+    },
+    "iron-ring:prefix:zaffre": {
+      "id": "iron-ring:prefix:zaffre",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 165,
+          "max": 179
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1004"
+    },
+    "iron-ring:suffix:of-absorption": {
+      "id": "iron-ring:suffix:of-absorption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0335"
+    },
+    "iron-ring:suffix:of-archaeology": {
+      "id": "iron-ring:suffix:of-archaeology",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 15,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src1005"
+    },
+    "iron-ring:suffix:of-bameth": {
+      "id": "iron-ring:suffix:of-bameth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 250,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1006"
+    },
+    "iron-ring:suffix:of-banishment": {
+      "id": "iron-ring:suffix:of-banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 250,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1007"
+    },
+    "iron-ring:suffix:of-bliss": {
+      "id": "iron-ring:suffix:of-bliss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 42,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 40,
+          "max": 49
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0342"
+    },
+    "iron-ring:suffix:of-conquest": {
+      "id": "iron-ring:suffix:of-conquest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 750,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 19,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0348"
+    },
+    "iron-ring:suffix:of-consumption": {
+      "id": "iron-ring:suffix:of-consumption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 750,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0349"
+    },
+    "iron-ring:suffix:of-convalescence": {
+      "id": "iron-ring:suffix:of-convalescence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 786,
+          "max": 1080
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1008"
+    },
+    "iron-ring:suffix:of-elation": {
+      "id": "iron-ring:suffix:of-elation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0354"
+    },
+    "iron-ring:suffix:of-enveloping": {
+      "id": "iron-ring:suffix:of-enveloping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 34,
+      "weight": 750,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0357"
+    },
+    "iron-ring:suffix:of-ephij": {
+      "id": "iron-ring:suffix:of-ephij",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1009"
+    },
+    "iron-ring:suffix:of-euphoria": {
+      "id": "iron-ring:suffix:of-euphoria",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 50,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0358"
+    },
+    "iron-ring:suffix:of-eviction": {
+      "id": "iron-ring:suffix:of-eviction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 250,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1010"
+    },
+    "iron-ring:suffix:of-excitement": {
+      "id": "iron-ring:suffix:of-excitement",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0359"
+    },
+    "iron-ring:suffix:of-exile": {
+      "id": "iron-ring:suffix:of-exile",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 250,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1011"
+    },
+    "iron-ring:suffix:of-expertise": {
+      "id": "iron-ring:suffix:of-expertise",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src1012"
+    },
+    "iron-ring:suffix:of-expulsion": {
+      "id": "iron-ring:suffix:of-expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 250,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1013"
+    },
+    "iron-ring:suffix:of-haast": {
+      "id": "iron-ring:suffix:of-haast",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1014"
+    },
+    "iron-ring:suffix:of-infusion": {
+      "id": "iron-ring:suffix:of-infusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 23,
+      "weight": 750,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 6,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0376"
+    },
+    "iron-ring:suffix:of-joy": {
+      "id": "iron-ring:suffix:of-joy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0378"
+    },
+    "iron-ring:suffix:of-kindling": {
+      "id": "iron-ring:suffix:of-kindling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightRadiusAndManaRegeneration"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 10,
+          "max": 10
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0379"
+    },
+    "iron-ring:suffix:of-legerdemain": {
+      "id": "iron-ring:suffix:of-legerdemain",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src1015"
+    },
+    "iron-ring:suffix:of-magma": {
+      "id": "iron-ring:suffix:of-magma",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1016"
+    },
+    "iron-ring:suffix:of-nimbleness": {
+      "id": "iron-ring:suffix:of-nimbleness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 1,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src1017"
+    },
+    "iron-ring:suffix:of-nirvana": {
+      "id": "iron-ring:suffix:of-nirvana",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0384"
+    },
+    "iron-ring:suffix:of-osmosis": {
+      "id": "iron-ring:suffix:of-osmosis",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 750,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 4,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0385"
+    },
+    "iron-ring:suffix:of-plunder": {
+      "id": "iron-ring:suffix:of-plunder",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 3,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src1018"
+    },
+    "iron-ring:suffix:of-raiding": {
+      "id": "iron-ring:suffix:of-raiding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 11,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src1019"
+    },
+    "iron-ring:suffix:of-siphoning": {
+      "id": "iron-ring:suffix:of-siphoning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 750,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 21,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0393"
+    },
+    "iron-ring:suffix:of-sortilege": {
+      "id": "iron-ring:suffix:of-sortilege",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 51,
+      "weight": 1,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src1020"
+    },
+    "iron-ring:suffix:of-success": {
+      "id": "iron-ring:suffix:of-success",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0399"
+    },
+    "iron-ring:suffix:of-talent": {
+      "id": "iron-ring:suffix:of-talent",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src1021"
+    },
+    "iron-ring:suffix:of-the-arid": {
+      "id": "iron-ring:suffix:of-the-arid",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaLeech"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+          "min": 600,
+          "max": 690
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1022"
+    },
+    "iron-ring:suffix:of-the-augur": {
+      "id": "iron-ring:suffix:of-the-augur",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0404"
+    },
+    "iron-ring:suffix:of-the-bear": {
+      "id": "iron-ring:suffix:of-the-bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1023"
+    },
+    "iron-ring:suffix:of-the-brute": {
+      "id": "iron-ring:suffix:of-the-brute",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1024"
+    },
+    "iron-ring:suffix:of-the-cloud": {
+      "id": "iron-ring:suffix:of-the-cloud",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1025"
+    },
+    "iron-ring:suffix:of-the-clouds": {
+      "id": "iron-ring:suffix:of-the-clouds",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 400,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1026"
+    },
+    "iron-ring:suffix:of-the-comet": {
+      "id": "iron-ring:suffix:of-the-comet",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 400,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 11,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1027"
+    },
+    "iron-ring:suffix:of-the-crystal": {
+      "id": "iron-ring:suffix:of-the-crystal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1028"
+    },
+    "iron-ring:suffix:of-the-drake": {
+      "id": "iron-ring:suffix:of-the-drake",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1029"
+    },
+    "iron-ring:suffix:of-the-falcon": {
+      "id": "iron-ring:suffix:of-the-falcon",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0639"
+    },
+    "iron-ring:suffix:of-the-flatworm": {
+      "id": "iron-ring:suffix:of-the-flatworm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 186,
+          "max": 240
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1030"
+    },
+    "iron-ring:suffix:of-the-fox": {
+      "id": "iron-ring:suffix:of-the-fox",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0641"
+    },
+    "iron-ring:suffix:of-the-furnace": {
+      "id": "iron-ring:suffix:of-the-furnace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1031"
+    },
+    "iron-ring:suffix:of-the-goliath": {
+      "id": "iron-ring:suffix:of-the-goliath",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1032"
+    },
+    "iron-ring:suffix:of-the-gorilla": {
+      "id": "iron-ring:suffix:of-the-gorilla",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1033"
+    },
+    "iron-ring:suffix:of-the-hearth": {
+      "id": "iron-ring:suffix:of-the-hearth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightRadiusAndManaRegeneration"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 15,
+          "max": 15
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0407"
+    },
+    "iron-ring:suffix:of-the-hydra": {
+      "id": "iron-ring:suffix:of-the-hydra",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 366,
+          "max": 540
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1034"
+    },
+    "iron-ring:suffix:of-the-ice": {
+      "id": "iron-ring:suffix:of-the-ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1035"
+    },
+    "iron-ring:suffix:of-the-jaguar": {
+      "id": "iron-ring:suffix:of-the-jaguar",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0642"
+    },
+    "iron-ring:suffix:of-the-kaleidoscope": {
+      "id": "iron-ring:suffix:of-the-kaleidoscope",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 9,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1036"
+    },
+    "iron-ring:suffix:of-the-kiln": {
+      "id": "iron-ring:suffix:of-the-kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1037"
+    },
+    "iron-ring:suffix:of-the-leopard": {
+      "id": "iron-ring:suffix:of-the-leopard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0644"
+    },
+    "iron-ring:suffix:of-the-leviathan": {
+      "id": "iron-ring:suffix:of-the-leviathan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1038"
+    },
+    "iron-ring:suffix:of-the-lightning": {
+      "id": "iron-ring:suffix:of-the-lightning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1039"
+    },
+    "iron-ring:suffix:of-the-lion": {
+      "id": "iron-ring:suffix:of-the-lion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1040"
+    },
+    "iron-ring:suffix:of-the-lizard": {
+      "id": "iron-ring:suffix:of-the-lizard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 126,
+          "max": 180
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1041"
+    },
+    "iron-ring:suffix:of-the-locust": {
+      "id": "iron-ring:suffix:of-the-locust",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_life_leech_from_physical_attack_damage_permyriad",
+          "min": 600,
+          "max": 690
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1042"
+    },
+    "iron-ring:suffix:of-the-lost": {
+      "id": "iron-ring:suffix:of-the-lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 250,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1043"
+    },
+    "iron-ring:suffix:of-the-lynx": {
+      "id": "iron-ring:suffix:of-the-lynx",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0646"
+    },
+    "iron-ring:suffix:of-the-maelstrom": {
+      "id": "iron-ring:suffix:of-the-maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1044"
+    },
+    "iron-ring:suffix:of-the-meteor": {
+      "id": "iron-ring:suffix:of-the-meteor",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 400,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1045"
+    },
+    "iron-ring:suffix:of-the-mongoose": {
+      "id": "iron-ring:suffix:of-the-mongoose",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0648"
+    },
+    "iron-ring:suffix:of-the-narwhal": {
+      "id": "iron-ring:suffix:of-the-narwhal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1046"
+    },
+    "iron-ring:suffix:of-the-newt": {
+      "id": "iron-ring:suffix:of-the-newt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 60,
+          "max": 120
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1047"
+    },
+    "iron-ring:suffix:of-the-panther": {
+      "id": "iron-ring:suffix:of-the-panther",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0649"
+    },
+    "iron-ring:suffix:of-the-parched": {
+      "id": "iron-ring:suffix:of-the-parched",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaLeech"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+          "min": 500,
+          "max": 590
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1048"
+    },
+    "iron-ring:suffix:of-the-penguin": {
+      "id": "iron-ring:suffix:of-the-penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1049"
+    },
+    "iron-ring:suffix:of-the-phantom": {
+      "id": "iron-ring:suffix:of-the-phantom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0651"
+    },
+    "iron-ring:suffix:of-the-philosopher": {
+      "id": "iron-ring:suffix:of-the-philosopher",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0410"
+    },
+    "iron-ring:suffix:of-the-polar-bear": {
+      "id": "iron-ring:suffix:of-the-polar-bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1050"
+    },
+    "iron-ring:suffix:of-the-prism": {
+      "id": "iron-ring:suffix:of-the-prism",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 6,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1051"
+    },
+    "iron-ring:suffix:of-the-prodigy": {
+      "id": "iron-ring:suffix:of-the-prodigy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0411"
+    },
+    "iron-ring:suffix:of-the-pupil": {
+      "id": "iron-ring:suffix:of-the-pupil",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0413"
+    },
+    "iron-ring:suffix:of-the-rainbow": {
+      "id": "iron-ring:suffix:of-the-rainbow",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 15,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1052"
+    },
+    "iron-ring:suffix:of-the-remora": {
+      "id": "iron-ring:suffix:of-the-remora",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_life_leech_from_physical_attack_damage_permyriad",
+          "min": 700,
+          "max": 790
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1053"
+    },
+    "iron-ring:suffix:of-the-sage": {
+      "id": "iron-ring:suffix:of-the-sage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0414"
+    },
+    "iron-ring:suffix:of-the-salamander": {
+      "id": "iron-ring:suffix:of-the-salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1054"
+    },
+    "iron-ring:suffix:of-the-savant": {
+      "id": "iron-ring:suffix:of-the-savant",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0415"
+    },
+    "iron-ring:suffix:of-the-seal": {
+      "id": "iron-ring:suffix:of-the-seal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1055"
+    },
+    "iron-ring:suffix:of-the-sky": {
+      "id": "iron-ring:suffix:of-the-sky",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 400,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1056"
+    },
+    "iron-ring:suffix:of-the-squall": {
+      "id": "iron-ring:suffix:of-the-squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1057"
+    },
+    "iron-ring:suffix:of-the-starfish": {
+      "id": "iron-ring:suffix:of-the-starfish",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 17,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 246,
+          "max": 360
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1058"
+    },
+    "iron-ring:suffix:of-the-storm": {
+      "id": "iron-ring:suffix:of-the-storm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1059"
+    },
+    "iron-ring:suffix:of-the-student": {
+      "id": "iron-ring:suffix:of-the-student",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0418"
+    },
+    "iron-ring:suffix:of-the-tempest": {
+      "id": "iron-ring:suffix:of-the-tempest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1060"
+    },
+    "iron-ring:suffix:of-the-thunderhead": {
+      "id": "iron-ring:suffix:of-the-thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1061"
+    },
+    "iron-ring:suffix:of-the-titan": {
+      "id": "iron-ring:suffix:of-the-titan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1062"
+    },
+    "iron-ring:suffix:of-the-troll": {
+      "id": "iron-ring:suffix:of-the-troll",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 546,
+          "max": 780
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1063"
+    },
+    "iron-ring:suffix:of-the-virtuoso": {
+      "id": "iron-ring:suffix:of-the-virtuoso",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0421"
+    },
+    "iron-ring:suffix:of-the-volcano": {
+      "id": "iron-ring:suffix:of-the-volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1064"
+    },
+    "iron-ring:suffix:of-the-walrus": {
+      "id": "iron-ring:suffix:of-the-walrus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1065"
+    },
+    "iron-ring:suffix:of-the-whelpling": {
+      "id": "iron-ring:suffix:of-the-whelpling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1066"
+    },
+    "iron-ring:suffix:of-the-wrestler": {
+      "id": "iron-ring:suffix:of-the-wrestler",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1067"
+    },
+    "iron-ring:suffix:of-the-yeti": {
+      "id": "iron-ring:suffix:of-the-yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1068"
+    },
+    "iron-ring:suffix:of-triumph": {
+      "id": "iron-ring:suffix:of-triumph",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 750,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 10,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0426"
+    },
+    "iron-ring:suffix:of-tzteosh": {
+      "id": "iron-ring:suffix:of-tzteosh",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1069"
+    },
+    "iron-ring:suffix:of-valour": {
+      "id": "iron-ring:suffix:of-valour",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 750,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 41,
+          "max": 53
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0429"
+    },
+    "iron-ring:suffix:of-vanquishing": {
+      "id": "iron-ring:suffix:of-vanquishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 750,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 29,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0430"
+    },
+    "iron-ring:suffix:of-variegation": {
+      "id": "iron-ring:suffix:of-variegation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 12,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1070"
+    },
+    "iron-ring:suffix:of-victory": {
+      "id": "iron-ring:suffix:of-victory",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 750,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 7,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0431"
+    },
+    "iron-ring:suffix:of-warmth": {
+      "id": "iron-ring:suffix:of-warmth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightRadiusAndManaRegeneration"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0434"
+    },
+    "kinetic:implicit:physicaldamage": {
+      "id": "kinetic:implicit:physicaldamage",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 11,
+          "max": 15
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 6,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1072"
+    },
+    "lazuli-ring:implicit:base": {
+      "id": "lazuli-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1075"
+    },
+    "mnemonic:implicit:maximummanaincreasepercent": {
+      "id": "mnemonic:implicit:maximummanaincreasepercent",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1082"
+    },
+    "oneiric-ring:implicit:base": {
+      "id": "oneiric-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 11,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceRef": "src1134"
+    },
+    "pearl:implicit:increasedcastspeed": {
+      "id": "pearl:implicit:increasedcastspeed",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src1136"
+    },
+    "penumbra-ring:implicit:base": {
+      "id": "penumbra-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -2,
+          "max": -2
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1140"
+    },
+    "prismatic:implicit:allresistances": {
+      "id": "prismatic:implicit:allresistances",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1164"
+    },
+    "ring:suffix:essence-hysteria-mana-regeneration": {
+      "id": "ring:suffix:essence-hysteria-mana-regeneration",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 50,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0358"
+    },
+    "ruby-ring:implicit:fireresistance": {
+      "id": "ruby-ring:implicit:fireresistance",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1380"
+    },
+    "sapphire-ring:implicit:base": {
+      "id": "sapphire-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1471"
+    },
+    "tenebrous-ring:implicit:base": {
+      "id": "tenebrous-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -2,
+          "max": -2
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1713"
+    },
+    "topaz-ring:implicit:base": {
+      "id": "topaz-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1892"
+    },
+    "two-stone-fire-cold:implicit:fireandcoldresistance": {
+      "id": "two-stone-fire-cold:implicit:fireandcoldresistance",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "FireAndColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "fire_and_cold_damage_resistance_%",
+          "min": 12,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1900"
+    },
+    "unset-ring:implicit:base": {
+      "id": "unset-ring:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "AdditionalSkillSlots"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_item_additional_skill_slots",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1901"
+    },
+    "vitalic:implicit:increasedlife": {
+      "id": "vitalic:implicit:increasedlife",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1916"
+    }
+  },
+  "variants": {}
+}

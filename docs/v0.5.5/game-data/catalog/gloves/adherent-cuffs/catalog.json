@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-adherent-cuffs-published-20261109-ce0e1f8d68dcb4db",
     "retrievedAt": "2026-10-04T16:02:39.748Z",
-    "sourceUrl": "https://poe2db.tw/us/Gloves_str_int",
+    "sourceRef": "src2221",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "adcffc62663165d5d9b6a3fd17235d6452c8b11160ac3a5095201d68835979e2",
     "detailsSha256": "e110bf2602b83c23d5e298f9e9668aedb8cdcf1bbf40d05f414443789826c9bc"
-  },
-  "base": {
-    "id": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
-    "name": "Adherent Cuffs",
-    "sourceUrl": "https://poe2db.tw/us/Adherent_Cuffs",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": []

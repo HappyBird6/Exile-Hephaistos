@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Jewels/JewelDiamond",
+  "sourceRef": "src2233",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 2,
+  "legacy": {
+    "key": "diamond",
+    "slug": "Diamond",
+    "order": 12
+  }
+}

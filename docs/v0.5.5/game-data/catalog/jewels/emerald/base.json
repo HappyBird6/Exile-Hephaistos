@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Jewels/JewelDex",
+  "sourceRef": "src2234",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 2,
+  "legacy": {
+    "key": "emerald",
+    "slug": "Emerald",
+    "order": 10
+  }
+}

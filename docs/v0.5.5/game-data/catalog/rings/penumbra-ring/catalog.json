@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-penumbra-ring-20261102-9f9569036117aa1a",
     "retrievedAt": "2026-11-02T08:17:18.974Z",
-    "sourceUrl": "https://poe2db.tw/us/Rings",
+    "sourceRef": "src2240",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0",
     "detailsSha256": "0449d0aa049966795b34e29cb42aacb78ed92faa76568c61515c692bf0ab0ea7"
-  },
-  "base": {
-    "id": "Metadata/Items/Rings/FourRingLake3",
-    "name": "Penumbra Ring",
-    "sourceUrl": "https://poe2db.tw/us/Penumbra_Ring",
-    "implicitModifierId": "penumbra-ring:implicit:base",
-    "magicPrefixes": 3,
-    "magicSuffixes": 0,
-    "rarePrefixes": 5,
-    "rareSuffixes": 1
   },
   "modifierPool": "default",
   "implicitModifiers": [

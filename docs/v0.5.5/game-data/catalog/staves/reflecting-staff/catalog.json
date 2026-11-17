@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-reflecting-staff-20261005-b9c1ac1b2470d308",
     "retrievedAt": "2026-10-05T10:01:09.918Z",
-    "sourceUrl": "https://poe2db.tw/us/Staves",
+    "sourceRef": "src2246",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "7ce7affc1221a4c85728d160ebd3f506d9771e89f3e7c2a6759e640f92373fac",
     "detailsSha256": "ed57ab3ea4f40d1639120806dbf4b30a05722b54b68a5e3b19d148ff4350b204"
-  },
-  "base": {
-    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
-    "name": "Reflecting Staff",
-    "sourceUrl": "https://poe2db.tw/us/Reflecting_Staff",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": []

@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-time-lost-ruby-ancient-20261004-7cadbd1d219a",
     "retrievedAt": "2026-10-04T11:14:50.229Z",
-    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby",
+    "sourceRef": "src1890",
     "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
     "rawSha256": "7cadbd1d219a19a5e7c911d0872003ada91838c988156a99326fd9d1883d3737",
     "detailsSha256": "cea0e3bca3ac5f8fea38a8067ec20680e75f7dd35049c92e177a2a99bec9d646"
-  },
-  "base": {
-    "id": "Metadata/Items/Jewels/JewelRadiusStr",
-    "name": "Time-Lost Ruby",
-    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Ruby",
-    "implicitModifierId": "time-lost-ruby:implicit:base-radius",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 2,
-    "rareSuffixes": 2
   },
   "modifierPool": "time-lost-ruby-snapshot",
   "implicitModifiers": [

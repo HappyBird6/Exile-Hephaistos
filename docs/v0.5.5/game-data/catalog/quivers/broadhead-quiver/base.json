@@ -1,0 +1,55 @@
+{
+  "id": "Metadata/Items/Quivers/FourQuiver1",
+  "sourceRef": "src0471",
+  "implicitModifierId": "broadhead-quiver:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "broadhead-quiver",
+    "slug": "Broadhead_Quiver",
+    "family": "quivers",
+    "sourceSha256": "be58842d27b7f029539e01228f65a9a78a23ed4169de1c7100d344a86af523ee",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 0,
+    "maximumQuality": null,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 3,
+        "max": 3
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_maximum_added_physical_damage",
+        "min": 3,
+        "max": 3,
+        "locality": "Global"
+      },
+      {
+        "id": "attack_minimum_added_physical_damage",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
+    "order": 95
+  }
+}

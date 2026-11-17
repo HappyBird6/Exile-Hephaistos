@@ -1,0 +1,44 @@
+{
+  "id": "Metadata/Items/Quivers/FourQuiver6",
+  "sourceRef": "src1893",
+  "implicitModifierId": "toxic-quiver:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "toxic-quiver",
+    "slug": "Toxic_Quiver",
+    "family": "quivers",
+    "sourceSha256": "cf5eb38813326a813e5f374923abdb0097e94bf25ef9ca0a70d5e392b21c4684",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 39,
+    "maximumQuality": null,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "chance_to_poison_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "chance_to_poison_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
+    "order": 90
+  }
+}

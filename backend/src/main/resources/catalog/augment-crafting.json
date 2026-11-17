@@ -106,7 +106,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MaximumLifeIncreasePercent"],
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -118,7 +120,12 @@
           "max": 20
         }
       ],
-      "tags": ["resource", "life", "augment_pool", "soul_pool"],
+      "tags": [
+        "resource",
+        "life",
+        "augment_pool",
+        "soul_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSoulInfluenceIncreasedLifePercent"
     },
     {
@@ -126,7 +133,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MaximumManaIncreasePercent"],
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -138,7 +147,12 @@
           "max": 20
         }
       ],
-      "tags": ["resource", "mana", "augment_pool", "soul_pool"],
+      "tags": [
+        "resource",
+        "mana",
+        "augment_pool",
+        "soul_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSoulInfluenceIncreasedManaPercent"
     },
     {
@@ -146,7 +160,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MaximumSpiritIncreasePercent"],
+      "familyIds": [
+        "MaximumSpiritIncreasePercent"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -158,7 +174,10 @@
           "max": 20
         }
       ],
-      "tags": ["augment_pool", "soul_pool"],
+      "tags": [
+        "augment_pool",
+        "soul_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSoulInfluenceIncreasedSpiritPercent"
     },
     {
@@ -166,7 +185,9 @@
       "name": "of the Soul",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ReducedAilmentDuration"],
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -198,7 +219,9 @@
       "name": "of the Soul",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ReducedCriticalStrikeDamageTaken"],
+      "familyIds": [
+        "ReducedCriticalStrikeDamageTaken"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -210,7 +233,12 @@
           "max": 99
         }
       ],
-      "tags": ["damage", "critical", "augment_pool", "soul_pool"],
+      "tags": [
+        "damage",
+        "critical",
+        "augment_pool",
+        "soul_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSoulInfluenceReducedCriticalDamageAgainstYou"
     },
     {
@@ -218,7 +246,9 @@
       "name": "of the Soul",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["FireAndChaosDamageResistance"],
+      "familyIds": [
+        "FireAndChaosDamageResistance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -248,7 +278,9 @@
       "name": "of the Soul",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ColdAndChaosDamageResistance"],
+      "familyIds": [
+        "ColdAndChaosDamageResistance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -278,7 +310,9 @@
       "name": "of the Soul",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LightningAndChaosDamageResistance"],
+      "familyIds": [
+        "LightningAndChaosDamageResistance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -308,7 +342,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IncreasedLife"],
+      "familyIds": [
+        "IncreasedLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -325,7 +361,13 @@
           "max": 189
         }
       ],
-      "tags": ["resource", "life", "mana", "augment_pool", "soul_pool"],
+      "tags": [
+        "resource",
+        "life",
+        "mana",
+        "augment_pool",
+        "soul_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSoulInfluenceIncreasedLifeAndMana"
     },
     {
@@ -333,7 +375,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -350,7 +394,13 @@
           "max": 52
         }
       ],
-      "tags": ["defences", "armour", "evasion", "augment_pool", "soul_pool"],
+      "tags": [
+        "defences",
+        "armour",
+        "evasion",
+        "augment_pool",
+        "soul_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSoulInfluenceSpiritDefencesHybridArmourEvasion"
     },
     {
@@ -358,7 +408,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -389,7 +441,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -420,7 +474,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -437,7 +493,12 @@
           "max": 52
         }
       ],
-      "tags": ["defences", "armour", "augment_pool", "soul_pool"],
+      "tags": [
+        "defences",
+        "armour",
+        "augment_pool",
+        "soul_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSoulInfluenceSpiritDefencesHybridArmour"
     },
     {
@@ -445,7 +506,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -462,7 +525,12 @@
           "max": 24
         }
       ],
-      "tags": ["defences", "evasion", "augment_pool", "soul_pool"],
+      "tags": [
+        "defences",
+        "evasion",
+        "augment_pool",
+        "soul_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSoulInfluenceSpiritDefencesHybridEvasion"
     },
     {
@@ -470,7 +538,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -487,7 +557,12 @@
           "max": 24
         }
       ],
-      "tags": ["defences", "energy_shield", "augment_pool", "soul_pool"],
+      "tags": [
+        "defences",
+        "energy_shield",
+        "augment_pool",
+        "soul_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FSoulInfluenceSpiritDefencesHybridEnergyShield"
     },
     {
@@ -495,7 +570,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -528,7 +605,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -561,7 +640,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -594,7 +675,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -626,7 +709,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -658,7 +743,9 @@
       "name": "Medved's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseLocalDefencesAndLife"],
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -690,7 +777,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MaximumRage"],
+      "familyIds": [
+        "MaximumRage"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -702,7 +791,10 @@
           "max": 7
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceMaximumRage1"
     },
     {
@@ -710,7 +802,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MaximumRage"],
+      "familyIds": [
+        "MaximumRage"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -722,7 +816,10 @@
           "max": 12
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceMaximumRage2"
     },
     {
@@ -730,7 +827,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["WarcryDamage"],
+      "familyIds": [
+        "WarcryDamage"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -742,7 +841,11 @@
           "max": 34
         }
       ],
-      "tags": ["damage", "augment_pool", "berserking_pool"],
+      "tags": [
+        "damage",
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceDamageWithWarcries1"
     },
     {
@@ -750,7 +853,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["WarcryDamage"],
+      "familyIds": [
+        "WarcryDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -762,7 +867,11 @@
           "max": 49
         }
       ],
-      "tags": ["damage", "augment_pool", "berserking_pool"],
+      "tags": [
+        "damage",
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceDamageWithWarcries2"
     },
     {
@@ -770,7 +879,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["WarcryDamage"],
+      "familyIds": [
+        "WarcryDamage"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -782,7 +893,11 @@
           "max": 75
         }
       ],
-      "tags": ["damage", "augment_pool", "berserking_pool"],
+      "tags": [
+        "damage",
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceDamageWithWarcries3"
     },
     {
@@ -790,7 +905,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["WarcryPower"],
+      "familyIds": [
+        "WarcryPower"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -802,7 +919,10 @@
           "max": 34
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluencePowerWithWarcries1"
     },
     {
@@ -810,7 +930,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["WarcryPower"],
+      "familyIds": [
+        "WarcryPower"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -822,7 +944,10 @@
           "max": 55
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluencePowerWithWarcries2"
     },
     {
@@ -830,7 +955,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ArmourBreakEffect"],
+      "familyIds": [
+        "ArmourBreakEffect"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -842,7 +969,11 @@
           "max": 24
         }
       ],
-      "tags": ["physical", "augment_pool", "berserking_pool"],
+      "tags": [
+        "physical",
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceArmourBreakMagnitude1"
     },
     {
@@ -850,7 +981,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ArmourBreakEffect"],
+      "familyIds": [
+        "ArmourBreakEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -862,7 +995,11 @@
           "max": 39
         }
       ],
-      "tags": ["physical", "augment_pool", "berserking_pool"],
+      "tags": [
+        "physical",
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceArmourBreakMagnitude2"
     },
     {
@@ -870,7 +1007,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ArmourBreakEffect"],
+      "familyIds": [
+        "ArmourBreakEffect"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -882,7 +1021,11 @@
           "max": 60
         }
       ],
-      "tags": ["physical", "augment_pool", "berserking_pool"],
+      "tags": [
+        "physical",
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceArmourBreakMagnitude3"
     },
     {
@@ -890,7 +1033,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["GloryGeneration"],
+      "familyIds": [
+        "GloryGeneration"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -902,7 +1047,10 @@
           "max": 49
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceGloryGeneration1"
     },
     {
@@ -910,7 +1058,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["GloryGeneration"],
+      "familyIds": [
+        "GloryGeneration"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -922,7 +1072,10 @@
           "max": 85
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceGloryGeneration2"
     },
     {
@@ -930,7 +1083,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["RageCost"],
+      "familyIds": [
+        "RageCost"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -942,7 +1097,10 @@
           "max": 34
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceRageCostEfficiency1"
     },
     {
@@ -950,7 +1108,9 @@
       "name": "Vorana's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["RageCost"],
+      "familyIds": [
+        "RageCost"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -962,7 +1122,10 @@
           "max": 60
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceRageCostEfficiency2"
     },
     {
@@ -970,7 +1133,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["RageLossDelay"],
+      "familyIds": [
+        "RageLossDelay"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -982,7 +1147,10 @@
           "max": 2000
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceRageLossDelay1"
     },
     {
@@ -990,7 +1158,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["RageLossDelay"],
+      "familyIds": [
+        "RageLossDelay"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1002,7 +1172,10 @@
           "max": 5000
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceRageLossDelay2"
     },
     {
@@ -1010,7 +1183,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GainRage"],
+      "familyIds": [
+        "GainRage"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1022,7 +1197,10 @@
           "max": 5
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceRageWhenHit1"
     },
     {
@@ -1030,7 +1208,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GainRage"],
+      "familyIds": [
+        "GainRage"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1042,7 +1222,10 @@
           "max": 10
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceRageWhenHit2"
     },
     {
@@ -1050,7 +1233,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WarcrySpeed"],
+      "familyIds": [
+        "WarcrySpeed"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1062,7 +1247,11 @@
           "max": 36
         }
       ],
-      "tags": ["speed", "augment_pool", "berserking_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceWarcrySpeed1"
     },
     {
@@ -1070,7 +1259,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WarcrySpeed"],
+      "familyIds": [
+        "WarcrySpeed"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1082,7 +1273,11 @@
           "max": 50
         }
       ],
-      "tags": ["speed", "augment_pool", "berserking_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceWarcrySpeed2"
     },
     {
@@ -1090,7 +1285,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WarcryCooldownSpeed"],
+      "familyIds": [
+        "WarcryCooldownSpeed"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1102,7 +1299,10 @@
           "max": 36
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceWarcryCooldown1"
     },
     {
@@ -1110,7 +1310,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WarcryCooldownSpeed"],
+      "familyIds": [
+        "WarcryCooldownSpeed"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1122,7 +1324,10 @@
           "max": 50
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceWarcryCooldown2"
     },
     {
@@ -1130,7 +1335,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AreaOfEffect"],
+      "familyIds": [
+        "AreaOfEffect"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1142,7 +1349,10 @@
           "max": 29
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceWarcryArea1"
     },
     {
@@ -1150,7 +1360,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AreaOfEffect"],
+      "familyIds": [
+        "AreaOfEffect"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1162,7 +1374,10 @@
           "max": 50
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceWarcryArea2"
     },
     {
@@ -1170,7 +1385,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WarcryLifeRecovery"],
+      "familyIds": [
+        "WarcryLifeRecovery"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1182,7 +1399,10 @@
           "max": 3
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceWarcryLifeRecovery1"
     },
     {
@@ -1190,7 +1410,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WarcryLifeRecovery"],
+      "familyIds": [
+        "WarcryLifeRecovery"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1202,7 +1424,10 @@
           "max": 5
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceWarcryLifeRecovery2"
     },
     {
@@ -1210,7 +1435,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArmourBreakDuration"],
+      "familyIds": [
+        "ArmourBreakDuration"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1222,7 +1449,10 @@
           "max": 99
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceArmourBreakDuration1"
     },
     {
@@ -1230,7 +1460,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArmourBreakDuration"],
+      "familyIds": [
+        "ArmourBreakDuration"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1242,7 +1474,10 @@
           "max": 150
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceArmourBreakDuration2"
     },
     {
@@ -1250,7 +1485,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AdditionalComboChance"],
+      "familyIds": [
+        "AdditionalComboChance"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1262,7 +1499,10 @@
           "max": 39
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceAdditionalCombo1"
     },
     {
@@ -1270,7 +1510,9 @@
       "name": "of the Berserker",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AdditionalComboChance"],
+      "familyIds": [
+        "AdditionalComboChance"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1282,7 +1524,10 @@
           "max": 60
         }
       ],
-      "tags": ["augment_pool", "berserking_pool"],
+      "tags": [
+        "augment_pool",
+        "berserking_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBerserkInfluenceAdditionalCombo2"
     },
     {
@@ -1290,7 +1535,9 @@
       "name": "Kolr's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileDamage"],
+      "familyIds": [
+        "ProjectileDamage"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1302,7 +1549,11 @@
           "max": 20
         }
       ],
-      "tags": ["damage", "augment_pool", "marksman_pool"],
+      "tags": [
+        "damage",
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceProjectileDamage1"
     },
     {
@@ -1310,7 +1561,9 @@
       "name": "Kolr's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileDamage"],
+      "familyIds": [
+        "ProjectileDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1322,7 +1575,11 @@
           "max": 30
         }
       ],
-      "tags": ["damage", "augment_pool", "marksman_pool"],
+      "tags": [
+        "damage",
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceProjectileDamage2"
     },
     {
@@ -1330,7 +1587,9 @@
       "name": "Kolr's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileDamage"],
+      "familyIds": [
+        "ProjectileDamage"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1342,7 +1601,11 @@
           "max": 40
         }
       ],
-      "tags": ["damage", "augment_pool", "marksman_pool"],
+      "tags": [
+        "damage",
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceProjectileDamage3"
     },
     {
@@ -1350,7 +1613,9 @@
       "name": "Kolr's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["CurseEffectiveness"],
+      "familyIds": [
+        "CurseEffectiveness"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1362,7 +1627,10 @@
           "max": 24
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceMarkEffect1"
     },
     {
@@ -1370,7 +1638,9 @@
       "name": "Kolr's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["CurseEffectiveness"],
+      "familyIds": [
+        "CurseEffectiveness"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1382,7 +1652,10 @@
           "max": 39
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceMarkEffect2"
     },
     {
@@ -1390,7 +1663,9 @@
       "name": "Kolr's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileSpeed"],
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1402,7 +1677,11 @@
           "max": 20
         }
       ],
-      "tags": ["speed", "augment_pool", "marksman_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceProjectileSpeed1"
     },
     {
@@ -1410,7 +1689,9 @@
       "name": "Kolr's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileSpeed"],
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1422,7 +1703,11 @@
           "max": 30
         }
       ],
-      "tags": ["speed", "augment_pool", "marksman_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceProjectileSpeed2"
     },
     {
@@ -1430,7 +1715,9 @@
       "name": "Kolr's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileSpeed"],
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1442,7 +1729,11 @@
           "max": 40
         }
       ],
-      "tags": ["speed", "augment_pool", "marksman_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceProjectileSpeed3"
     },
     {
@@ -1450,7 +1741,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CriticalStrikeChanceIncrease"],
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1462,7 +1755,11 @@
           "max": 21
         }
       ],
-      "tags": ["critical", "augment_pool", "marksman_pool"],
+      "tags": [
+        "critical",
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceCriticalHitChance1"
     },
     {
@@ -1470,7 +1767,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CriticalStrikeChanceIncrease"],
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1482,7 +1781,11 @@
           "max": 27
         }
       ],
-      "tags": ["critical", "augment_pool", "marksman_pool"],
+      "tags": [
+        "critical",
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceCriticalHitChance2"
     },
     {
@@ -1490,7 +1793,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CriticalStrikeChanceIncrease"],
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1502,7 +1807,11 @@
           "max": 34
         }
       ],
-      "tags": ["critical", "augment_pool", "marksman_pool"],
+      "tags": [
+        "critical",
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceCriticalHitChance3"
     },
     {
@@ -1510,7 +1819,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceToPierce"],
+      "familyIds": [
+        "ChanceToPierce"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1522,7 +1833,10 @@
           "max": 50
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceChanceToPierce1"
     },
     {
@@ -1530,7 +1844,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceToPierce"],
+      "familyIds": [
+        "ChanceToPierce"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1542,7 +1858,10 @@
           "max": 100
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceChanceToPierce2"
     },
     {
@@ -1550,7 +1869,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AdditionalProjectileChance"],
+      "familyIds": [
+        "AdditionalProjectileChance"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1562,7 +1883,10 @@
           "max": 36
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceSurpassingChanceAdditionalProjectiles1"
     },
     {
@@ -1570,7 +1894,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AdditionalProjectileChance"],
+      "familyIds": [
+        "AdditionalProjectileChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1582,7 +1908,10 @@
           "max": 50
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceSurpassingChanceAdditionalProjectiles2"
     },
     {
@@ -1590,7 +1919,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AdditionalProjectileChance"],
+      "familyIds": [
+        "AdditionalProjectileChance"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1602,7 +1933,10 @@
           "max": 66
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceSurpassingChanceAdditionalProjectiles3"
     },
     {
@@ -1610,7 +1944,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChainFromTerrain"],
+      "familyIds": [
+        "ChainFromTerrain"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1622,7 +1958,10 @@
           "max": 19
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceChainToChainOffTerrain1"
     },
     {
@@ -1630,7 +1969,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChainFromTerrain"],
+      "familyIds": [
+        "ChainFromTerrain"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1642,7 +1983,10 @@
           "max": 32
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceChainToChainOffTerrain2"
     },
     {
@@ -1650,7 +1994,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ForkingProjectiles"],
+      "familyIds": [
+        "ForkingProjectiles"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1662,7 +2008,10 @@
           "max": 50
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceChanceForAdditionalProjectileWhenForking1"
     },
     {
@@ -1670,7 +2019,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ForkingProjectiles"],
+      "familyIds": [
+        "ForkingProjectiles"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1682,7 +2033,10 @@
           "max": 100
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceChanceForAdditionalProjectileWhenForking2"
     },
     {
@@ -1690,7 +2044,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MarkDuration"],
+      "familyIds": [
+        "MarkDuration"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1702,7 +2058,10 @@
           "max": 74
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceIncreasedMarkDuration1"
     },
     {
@@ -1710,7 +2069,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MarkDuration"],
+      "familyIds": [
+        "MarkDuration"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1722,7 +2083,10 @@
           "max": 100
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceIncreasedMarkDuration2"
     },
     {
@@ -1730,7 +2094,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MarkUseSpeed"],
+      "familyIds": [
+        "MarkUseSpeed"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1742,7 +2108,10 @@
           "max": 23
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceMarkSkillUseSpeed1"
     },
     {
@@ -1750,7 +2119,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MarkUseSpeed"],
+      "familyIds": [
+        "MarkUseSpeed"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1762,7 +2133,10 @@
           "max": 39
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceMarkSkillUseSpeed2"
     },
     {
@@ -1770,7 +2144,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["IncreaseSocketedGemLevel"],
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1782,7 +2158,10 @@
           "max": 2
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceMarkSkillLevels1"
     },
     {
@@ -1790,7 +2169,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["IncreaseSocketedGemLevel"],
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1802,7 +2183,10 @@
           "max": 4
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceMarkSkillLevels2"
     },
     {
@@ -1810,7 +2194,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["IncreaseSocketedGemLevel"],
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1822,7 +2208,10 @@
           "max": 1
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceProjectileSkills1"
     },
     {
@@ -1830,7 +2219,9 @@
       "name": "of the Hunt",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["IncreaseSocketedGemLevel"],
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1842,7 +2233,10 @@
           "max": 2
         }
       ],
-      "tags": ["augment_pool", "marksman_pool"],
+      "tags": [
+        "augment_pool",
+        "marksman_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FMarksmanInfluenceProjectileSkills2"
     },
     {
@@ -1850,7 +2244,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IgniteEffect"],
+      "familyIds": [
+        "IgniteEffect"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1878,7 +2274,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IgniteEffect"],
+      "familyIds": [
+        "IgniteEffect"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1906,7 +2304,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BleedingDamage"],
+      "familyIds": [
+        "BleedingDamage"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1935,7 +2335,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BleedingDamage"],
+      "familyIds": [
+        "BleedingDamage"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1964,7 +2366,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["PoisonEffect"],
+      "familyIds": [
+        "PoisonEffect"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -1976,7 +2380,12 @@
           "max": 29
         }
       ],
-      "tags": ["damage", "ailment", "augment_pool", "decay_pool"],
+      "tags": [
+        "damage",
+        "ailment",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluencePoisonMagnitude1"
     },
     {
@@ -1984,7 +2393,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["PoisonEffect"],
+      "familyIds": [
+        "PoisonEffect"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -1996,7 +2407,12 @@
           "max": 42
         }
       ],
-      "tags": ["damage", "ailment", "augment_pool", "decay_pool"],
+      "tags": [
+        "damage",
+        "ailment",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluencePoisonMagnitude2"
     },
     {
@@ -2004,7 +2420,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["AilmentEffect"],
+      "familyIds": [
+        "AilmentEffect"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2016,7 +2434,12 @@
           "max": 25
         }
       ],
-      "tags": ["damage", "ailment", "augment_pool", "decay_pool"],
+      "tags": [
+        "damage",
+        "ailment",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceAilmentMagnitude1"
     },
     {
@@ -2024,7 +2447,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["AilmentEffect"],
+      "familyIds": [
+        "AilmentEffect"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -2036,7 +2461,12 @@
           "max": 32
         }
       ],
-      "tags": ["damage", "ailment", "augment_pool", "decay_pool"],
+      "tags": [
+        "damage",
+        "ailment",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceAilmentMagnitude2"
     },
     {
@@ -2044,7 +2474,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["FasterAilmentDamage"],
+      "familyIds": [
+        "FasterAilmentDamage"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2056,7 +2488,10 @@
           "max": 13
         }
       ],
-      "tags": ["augment_pool", "decay_pool"],
+      "tags": [
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceFasterDamagingAilments1"
     },
     {
@@ -2064,7 +2499,9 @@
       "name": "Katla's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["FasterAilmentDamage"],
+      "familyIds": [
+        "FasterAilmentDamage"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -2076,7 +2513,10 @@
           "max": 20
         }
       ],
-      "tags": ["augment_pool", "decay_pool"],
+      "tags": [
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceFasterDamagingAilments2"
     },
     {
@@ -2084,7 +2524,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DamagingAilmentDuration"],
+      "familyIds": [
+        "DamagingAilmentDuration"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2096,7 +2538,11 @@
           "max": 19
         }
       ],
-      "tags": ["ailment", "augment_pool", "decay_pool"],
+      "tags": [
+        "ailment",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceAilmentDuration1"
     },
     {
@@ -2104,7 +2550,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DamagingAilmentDuration"],
+      "familyIds": [
+        "DamagingAilmentDuration"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -2116,7 +2564,11 @@
           "max": 30
         }
       ],
-      "tags": ["ailment", "augment_pool", "decay_pool"],
+      "tags": [
+        "ailment",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceAilmentDuration2"
     },
     {
@@ -2124,7 +2576,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LifeLeech"],
+      "familyIds": [
+        "LifeLeech"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2141,7 +2595,12 @@
           "max": 1200
         }
       ],
-      "tags": ["resource", "life", "augment_pool", "decay_pool"],
+      "tags": [
+        "resource",
+        "life",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceFasterLeech1"
     },
     {
@@ -2149,7 +2608,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LifeLeech"],
+      "familyIds": [
+        "LifeLeech"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2166,7 +2627,12 @@
           "max": 1200
         }
       ],
-      "tags": ["resource", "life", "augment_pool", "decay_pool"],
+      "tags": [
+        "resource",
+        "life",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceSlowerLeech1"
     },
     {
@@ -2174,7 +2640,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LifeLeechAmount"],
+      "familyIds": [
+        "LifeLeechAmount"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2186,7 +2654,12 @@
           "max": 40
         }
       ],
-      "tags": ["resource", "life", "augment_pool", "decay_pool"],
+      "tags": [
+        "resource",
+        "life",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceLeechAmount1"
     },
     {
@@ -2194,7 +2667,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WitheredEffect"],
+      "familyIds": [
+        "WitheredEffect"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2206,7 +2681,11 @@
           "max": 24
         }
       ],
-      "tags": ["chaos", "augment_pool", "decay_pool"],
+      "tags": [
+        "chaos",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceWitherMagnitude1"
     },
     {
@@ -2214,7 +2693,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WitheredEffect"],
+      "familyIds": [
+        "WitheredEffect"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -2226,7 +2707,11 @@
           "max": 35
         }
       ],
-      "tags": ["chaos", "augment_pool", "decay_pool"],
+      "tags": [
+        "chaos",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceWitherMagnitude2"
     },
     {
@@ -2234,7 +2719,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CurseEffectiveness"],
+      "familyIds": [
+        "CurseEffectiveness"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2246,7 +2733,12 @@
           "max": 21
         }
       ],
-      "tags": ["caster", "curse", "augment_pool", "decay_pool"],
+      "tags": [
+        "caster",
+        "curse",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceCurseMagnitude1"
     },
     {
@@ -2254,7 +2746,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CurseEffectiveness"],
+      "familyIds": [
+        "CurseEffectiveness"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -2266,7 +2760,12 @@
           "max": 29
         }
       ],
-      "tags": ["caster", "curse", "augment_pool", "decay_pool"],
+      "tags": [
+        "caster",
+        "curse",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceCurseMagnitude2"
     },
     {
@@ -2274,7 +2773,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ExposureEffect"],
+      "familyIds": [
+        "ExposureEffect"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2301,7 +2802,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ExposureEffect"],
+      "familyIds": [
+        "ExposureEffect"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -2328,7 +2831,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["BaseCurseDuration"],
+      "familyIds": [
+        "BaseCurseDuration"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -2340,7 +2845,12 @@
           "max": 99
         }
       ],
-      "tags": ["caster", "curse", "augment_pool", "decay_pool"],
+      "tags": [
+        "caster",
+        "curse",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceIncreasedCurseDuration1"
     },
     {
@@ -2348,7 +2858,9 @@
       "name": "of Decay",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CurseDelay"],
+      "familyIds": [
+        "CurseDelay"
+      ],
       "requiredItemLevel": 75,
       "weight": 0,
       "tier": 0,
@@ -2360,7 +2872,12 @@
           "max": -20
         }
       ],
-      "tags": ["caster", "curse", "augment_pool", "decay_pool"],
+      "tags": [
+        "caster",
+        "curse",
+        "augment_pool",
+        "decay_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDecayInfluenceFasterCurseActivation1"
     },
     {
@@ -2368,7 +2885,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SkillEffectDuration"],
+      "familyIds": [
+        "SkillEffectDuration"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2380,7 +2899,10 @@
           "max": 19
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceIncreasedDuration1"
     },
     {
@@ -2388,7 +2910,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SkillEffectDuration"],
+      "familyIds": [
+        "SkillEffectDuration"
+      ],
       "requiredItemLevel": 55,
       "weight": 0,
       "tier": 0,
@@ -2400,7 +2924,10 @@
           "max": 29
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceIncreasedDuration2"
     },
     {
@@ -2408,7 +2935,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SkillEffectDuration"],
+      "familyIds": [
+        "SkillEffectDuration"
+      ],
       "requiredItemLevel": 78,
       "weight": 0,
       "tier": 0,
@@ -2420,7 +2949,10 @@
           "max": 40
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceIncreasedDuration3"
     },
     {
@@ -2428,7 +2960,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CooldownRecovery"],
+      "familyIds": [
+        "CooldownRecovery"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2440,7 +2974,10 @@
           "max": 17
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceCooldownRecovery1"
     },
     {
@@ -2448,7 +2985,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CooldownRecovery"],
+      "familyIds": [
+        "CooldownRecovery"
+      ],
       "requiredItemLevel": 55,
       "weight": 0,
       "tier": 0,
@@ -2460,7 +2999,10 @@
           "max": 23
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceCooldownRecovery2"
     },
     {
@@ -2468,7 +3010,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CooldownRecovery"],
+      "familyIds": [
+        "CooldownRecovery"
+      ],
       "requiredItemLevel": 78,
       "weight": 0,
       "tier": 0,
@@ -2480,7 +3024,10 @@
           "max": 30
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceCooldownRecovery3"
     },
     {
@@ -2488,7 +3035,9 @@
       "name": "Uhtred's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MovementVelocity"],
+      "familyIds": [
+        "MovementVelocity"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2505,7 +3054,11 @@
           "max": 26
         }
       ],
-      "tags": ["speed", "augment_pool", "chronomancy_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceMovementSpeed1"
     },
     {
@@ -2513,7 +3066,9 @@
       "name": "Uhtred's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MovementVelocity"],
+      "familyIds": [
+        "MovementVelocity"
+      ],
       "requiredItemLevel": 70,
       "weight": 0,
       "tier": 0,
@@ -2530,7 +3085,11 @@
           "max": 29
         }
       ],
-      "tags": ["speed", "augment_pool", "chronomancy_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceMovementSpeed2"
     },
     {
@@ -2538,7 +3097,9 @@
       "name": "Uhtred's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MovementVelocity"],
+      "familyIds": [
+        "MovementVelocity"
+      ],
       "requiredItemLevel": 78,
       "weight": 0,
       "tier": 0,
@@ -2555,7 +3116,11 @@
           "max": 32
         }
       ],
-      "tags": ["speed", "augment_pool", "chronomancy_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceMovementSpeed3"
     },
     {
@@ -2563,7 +3128,9 @@
       "name": "Uhtred's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MovementVelocityWhileSprinting"],
+      "familyIds": [
+        "MovementVelocityWhileSprinting"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2575,7 +3142,11 @@
           "max": 14
         }
       ],
-      "tags": ["speed", "augment_pool", "chronomancy_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceSprintSpeed1"
     },
     {
@@ -2583,7 +3154,9 @@
       "name": "Uhtred's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MovementVelocityWhileSprinting"],
+      "familyIds": [
+        "MovementVelocityWhileSprinting"
+      ],
       "requiredItemLevel": 78,
       "weight": 0,
       "tier": 0,
@@ -2595,7 +3168,11 @@
           "max": 23
         }
       ],
-      "tags": ["speed", "augment_pool", "chronomancy_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceSprintSpeed2"
     },
     {
@@ -2603,7 +3180,9 @@
       "name": "Uhtred's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["DodgeRoll"],
+      "familyIds": [
+        "DodgeRoll"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2615,7 +3194,10 @@
           "max": 4
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceDodgeRoll1"
     },
     {
@@ -2623,7 +3205,9 @@
       "name": "Uhtred's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["DodgeRoll"],
+      "familyIds": [
+        "DodgeRoll"
+      ],
       "requiredItemLevel": 78,
       "weight": 0,
       "tier": 0,
@@ -2635,7 +3219,10 @@
           "max": 5
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceDodgeRoll2"
     },
     {
@@ -2643,7 +3230,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChargeChanceToNotConsume"],
+      "familyIds": [
+        "ChargeChanceToNotConsume"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2655,7 +3244,10 @@
           "max": 10
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceCharges1"
     },
     {
@@ -2663,7 +3255,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChargeChanceToNotConsume"],
+      "familyIds": [
+        "ChargeChanceToNotConsume"
+      ],
       "requiredItemLevel": 78,
       "weight": 0,
       "tier": 0,
@@ -2675,7 +3269,10 @@
           "max": 15
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceCharges2"
     },
     {
@@ -2683,7 +3280,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DebuffTime"],
+      "familyIds": [
+        "DebuffTime"
+      ],
       "requiredItemLevel": 45,
       "weight": 0,
       "tier": 0,
@@ -2695,7 +3294,10 @@
           "max": 69
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceDebuffExpiry1"
     },
     {
@@ -2703,7 +3305,9 @@
       "name": "of Chronomancy",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DebuffTime"],
+      "familyIds": [
+        "DebuffTime"
+      ],
       "requiredItemLevel": 78,
       "weight": 0,
       "tier": 0,
@@ -2715,7 +3319,10 @@
           "max": 89
         }
       ],
-      "tags": ["augment_pool", "chronomancy_pool"],
+      "tags": [
+        "augment_pool",
+        "chronomancy_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FTimeInfluenceDebuffExpiry2"
     },
     {
@@ -2723,7 +3330,9 @@
       "name": "of Destruction",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["PhysicalModifierEffect"],
+      "familyIds": [
+        "PhysicalModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2735,7 +3344,11 @@
           "max": 15
         }
       ],
-      "tags": ["physical", "augment_pool", "destruction_pool"],
+      "tags": [
+        "physical",
+        "augment_pool",
+        "destruction_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDestructionInfluencePhysicalModifierEffect"
     },
     {
@@ -2743,7 +3356,9 @@
       "name": "of Destruction",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ElementalModifierEffect"],
+      "familyIds": [
+        "ElementalModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2755,7 +3370,12 @@
           "max": 20
         }
       ],
-      "tags": ["elemental", "fire", "augment_pool", "destruction_pool"],
+      "tags": [
+        "elemental",
+        "fire",
+        "augment_pool",
+        "destruction_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDestructionInfluenceFireModifierEffect"
     },
     {
@@ -2763,7 +3383,9 @@
       "name": "of Destruction",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ElementalModifierEffect"],
+      "familyIds": [
+        "ElementalModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2775,7 +3397,12 @@
           "max": 20
         }
       ],
-      "tags": ["elemental", "lightning", "augment_pool", "destruction_pool"],
+      "tags": [
+        "elemental",
+        "lightning",
+        "augment_pool",
+        "destruction_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDestructionInfluenceLightningModifierEffect"
     },
     {
@@ -2783,7 +3410,9 @@
       "name": "of Destruction",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ElementalModifierEffect"],
+      "familyIds": [
+        "ElementalModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2795,7 +3424,12 @@
           "max": 20
         }
       ],
-      "tags": ["elemental", "cold", "augment_pool", "destruction_pool"],
+      "tags": [
+        "elemental",
+        "cold",
+        "augment_pool",
+        "destruction_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDestructionInfluenceColdModifierEffect"
     },
     {
@@ -2803,7 +3437,9 @@
       "name": "of Destruction",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ElementalModifierEffect"],
+      "familyIds": [
+        "ElementalModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2815,7 +3451,11 @@
           "max": 20
         }
       ],
-      "tags": ["elemental", "augment_pool", "destruction_pool"],
+      "tags": [
+        "elemental",
+        "augment_pool",
+        "destruction_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDestructionInfluenceElementalModifierEffect"
     },
     {
@@ -2823,7 +3463,9 @@
       "name": "of Destruction",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChaosModifierEffect"],
+      "familyIds": [
+        "ChaosModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2835,7 +3477,11 @@
           "max": 20
         }
       ],
-      "tags": ["chaos", "augment_pool", "destruction_pool"],
+      "tags": [
+        "chaos",
+        "augment_pool",
+        "destruction_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDestructionInfluenceChaosModifierEffect"
     },
     {
@@ -2843,7 +3489,9 @@
       "name": "of Destruction",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ManaModifierEffect"],
+      "familyIds": [
+        "ManaModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2855,7 +3503,12 @@
           "max": 30
         }
       ],
-      "tags": ["resource", "mana", "augment_pool", "destruction_pool"],
+      "tags": [
+        "resource",
+        "mana",
+        "augment_pool",
+        "destruction_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDestructionInfluenceManaModifierEffect"
     },
     {
@@ -2863,7 +3516,9 @@
       "name": "Thrud's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpeedModifierEffect"],
+      "familyIds": [
+        "SpeedModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2875,7 +3530,11 @@
           "max": 30
         }
       ],
-      "tags": ["speed", "augment_pool", "destruction_pool"],
+      "tags": [
+        "speed",
+        "augment_pool",
+        "destruction_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDestructionInfluenceSpeedModifierEffect"
     },
     {
@@ -2883,7 +3542,9 @@
       "name": "Thrud's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["CriticalModifierEffect"],
+      "familyIds": [
+        "CriticalModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2895,7 +3556,11 @@
           "max": 30
         }
       ],
-      "tags": ["critical", "augment_pool", "destruction_pool"],
+      "tags": [
+        "critical",
+        "augment_pool",
+        "destruction_pool"
+      ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDestructionInfluenceCriticalModifierEffect"
     }
   ],
@@ -4765,69 +5430,126 @@
   "magnitudeRules": [
     {
       "stat": "heist_enchantment_physical_mod_effect_+%",
-      "tags": ["physical"],
+      "tags": [
+        "physical"
+      ],
       "description": "(10—15)% increased Explicit Physical Modifier magnitudes",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     },
     {
       "stat": "heist_enchantment_fire_mod_effect_+%",
-      "tags": ["elemental", "fire"],
+      "tags": [
+        "elemental",
+        "fire"
+      ],
       "description": "(15—20)% increased Explicit Fire Modifier magnitudes",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     },
     {
       "stat": "heist_enchantment_lightning_mod_effect_+%",
-      "tags": ["elemental", "lightning"],
+      "tags": [
+        "elemental",
+        "lightning"
+      ],
       "description": "(15—20)% increased Explicit Lightning Modifier magnitudes",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     },
     {
       "stat": "heist_enchantment_cold_mod_effect_+%",
-      "tags": ["elemental", "cold"],
+      "tags": [
+        "elemental",
+        "cold"
+      ],
       "description": "(15—20)% increased Explicit Cold Modifier magnitudes",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     },
     {
       "stat": "local_explicit_elemental_damage_mod_effect_+%",
-      "tags": ["elemental", "damage"],
+      "tags": [
+        "elemental",
+        "damage"
+      ],
       "description": "(15—20)% increased Explicit Elemental Damage Modifier magnitudes",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     },
     {
       "stat": "heist_enchantment_chaos_mod_effect_+%",
-      "tags": ["chaos"],
+      "tags": [
+        "chaos"
+      ],
       "description": "(15—20)% increased Explicit Chaos Modifier magnitudes",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     },
     {
       "stat": "heist_enchantment_mana_mod_effect_+%",
-      "tags": ["mana"],
+      "tags": [
+        "mana"
+      ],
       "description": "(25—30)% increased Explicit Mana Modifier magnitudes",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     },
     {
       "stat": "heist_enchantment_speed_mod_effect_+%",
-      "tags": ["speed"],
+      "tags": [
+        "speed"
+      ],
       "description": "(25—30)% increased Explicit Speed Modifier magnitudes",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     },
     {
       "stat": "heist_enchantment_critical_mod_effect_+%",
-      "tags": ["critical"],
+      "tags": [
+        "critical"
+      ],
       "description": "(20—30)% increased Explicit Critical Modifier magnitudes",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     },
     {
       "stat": "heist_enchantment_resistance_mod_effect_+%",
-      "tags": ["resistance"],
+      "tags": [
+        "resistance"
+      ],
       "description": "Sovereign Alloy: increased Explicit Resistance Modifier magnitudes; implicit modifiers excluded.",
-      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+      "consumers": [
+        "modifierMagnitudes.ts",
+        "ModifierMagnitudes.java"
+      ]
     }
   ],
   "poolWeightPolicy": {
     "id": "user-approved-augment-weight-v1",
     "weightPerTier": 500,
     "description": "Temporary simulator weight for each activated Augment modifier tier; not a published game probability. Pool mappings retain source activation data.",
-    "consumers": ["AugmentCraftingRules.java", "augmentRules.ts"]
+    "consumers": [
+      "AugmentCraftingRules.java",
+      "augmentRules.ts"
+    ]
   }
 }

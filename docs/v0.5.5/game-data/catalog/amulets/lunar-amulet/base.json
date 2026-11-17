@@ -1,0 +1,41 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmulet6",
+  "sourceRef": "src1078",
+  "implicitModifierId": "lunar:implicit:increasedenergyshield",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "lunar",
+    "slug": "Lunar_Amulet",
+    "family": "amulets",
+    "sourceSha256": "c383d5bc88adc97d2c697d225da44cf190ea14b89c138086578de4c6ea9bbc4f",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 14,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_maximum_energy_shield",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_maximum_energy_shield",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "order": 40
+  }
+}

@@ -5,7 +5,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelDamageTakenRecoupLife"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelDamageTakenRecoupLife"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -31,7 +33,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelDamageTakenRecoupMana"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelDamageTakenRecoupMana"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -57,7 +61,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelPercentMaximumMana"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelPercentMaximumMana"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -83,7 +89,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelPercentMaximumLife"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelPercentMaximumLife"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -109,7 +117,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelGlobalDefences"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelGlobalDefences"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -137,7 +147,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelDamageTakenFromManaBeforeLife"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelDamageTakenFromManaBeforeLife"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -163,7 +175,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelRegeneratePercentLifePerSecond"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelRegeneratePercentLifePerSecond"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -189,7 +203,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelManaCostEfficiency"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelManaCostEfficiency"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -229,7 +245,12 @@
           "max": 5
         }
       ],
-      "tags": ["unveiled_mod", "critical", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "critical",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModRadiusJewelPrefixManaFlaskChargesPerSecond": {
@@ -237,7 +258,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelManaFlaskChargesPerSecond"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelManaFlaskChargesPerSecond"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -249,7 +272,12 @@
           "max": 1
         }
       ],
-      "tags": ["flask", "unveiled_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "flask",
+        "unveiled_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModRadiusJewelPrefixLifeFlaskChargesPerSecond": {
@@ -257,7 +285,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelLifeFlaskChargesPerSecond"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelLifeFlaskChargesPerSecond"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -269,7 +299,12 @@
           "max": 1
         }
       ],
-      "tags": ["flask", "unveiled_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "flask",
+        "unveiled_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModRadiusJewelPrefixCharmChargesPerSecond": {
@@ -277,7 +312,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HybridAbyssModRadiusJewelCharmChargesPerSecond"],
+      "familyIds": [
+        "HybridAbyssModRadiusJewelCharmChargesPerSecond"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -289,7 +326,12 @@
           "max": 1
         }
       ],
-      "tags": ["charm", "unveiled_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "charm",
+        "unveiled_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModJewelPrefixSpellDamageArmour": {
@@ -297,7 +339,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelSpellDamageArmour"],
+      "familyIds": [
+        "HybridAbyssModJewelSpellDamageArmour"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -331,7 +375,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelSpellDamageEvasion"],
+      "familyIds": [
+        "HybridAbyssModJewelSpellDamageEvasion"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -365,7 +411,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelSpellDamageEnergyShield"],
+      "familyIds": [
+        "HybridAbyssModJewelSpellDamageEnergyShield"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -399,7 +447,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelAttackDamageArmour"],
+      "familyIds": [
+        "HybridAbyssModJewelAttackDamageArmour"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -432,7 +482,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelAttackDamageEvasion"],
+      "familyIds": [
+        "HybridAbyssModJewelAttackDamageEvasion"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -465,7 +517,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelAttackDamageEnergyShield"],
+      "familyIds": [
+        "HybridAbyssModJewelAttackDamageEnergyShield"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -498,7 +552,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelMinionDamageArmour"],
+      "familyIds": [
+        "HybridAbyssModJewelMinionDamageArmour"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -532,7 +588,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelMinionDamageEvasion"],
+      "familyIds": [
+        "HybridAbyssModJewelMinionDamageEvasion"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -566,7 +624,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelMinionDamageEnergyShield"],
+      "familyIds": [
+        "HybridAbyssModJewelMinionDamageEnergyShield"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -600,7 +660,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelThornsDamageArmour"],
+      "familyIds": [
+        "HybridAbyssModJewelThornsDamageArmour"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -632,7 +694,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelThornsDamageEvasion"],
+      "familyIds": [
+        "HybridAbyssModJewelThornsDamageEvasion"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -664,7 +728,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelThornsDamageEnergyShield"],
+      "familyIds": [
+        "HybridAbyssModJewelThornsDamageEnergyShield"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -696,7 +762,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelTotemDamageArmour"],
+      "familyIds": [
+        "HybridAbyssModJewelTotemDamageArmour"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -728,7 +796,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelTotemDamageEvasion"],
+      "familyIds": [
+        "HybridAbyssModJewelTotemDamageEvasion"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -760,7 +830,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelTotemDamageEnergyShield"],
+      "familyIds": [
+        "HybridAbyssModJewelTotemDamageEnergyShield"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -792,7 +864,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelFireDamageAndPen"],
+      "familyIds": [
+        "HybridAbyssModJewelFireDamageAndPen"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -825,7 +899,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelLightningDamageAndPen"],
+      "familyIds": [
+        "HybridAbyssModJewelLightningDamageAndPen"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -858,7 +934,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelColdDamageAndPen"],
+      "familyIds": [
+        "HybridAbyssModJewelColdDamageAndPen"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -891,7 +969,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelBleedChanceAndMagnitude"],
+      "familyIds": [
+        "HybridAbyssModJewelBleedChanceAndMagnitude"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -920,7 +1000,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelPoisonChanceAndMagnitude"],
+      "familyIds": [
+        "HybridAbyssModJewelPoisonChanceAndMagnitude"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -947,7 +1029,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelWarcryBuffEffectAndDamage"],
+      "familyIds": [
+        "HybridAbyssModJewelWarcryBuffEffectAndDamage"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -964,7 +1048,12 @@
           "max": 10
         }
       ],
-      "tags": ["unveiled_mod", "damage", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "damage",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModJewelPrefixCompanionLifeAndDamage": {
@@ -972,7 +1061,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelCompanionLifeAndDamage"],
+      "familyIds": [
+        "HybridAbyssModJewelCompanionLifeAndDamage"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1006,7 +1097,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelGlobalPhysicalDamageArmourBreak"],
+      "familyIds": [
+        "HybridAbyssModJewelGlobalPhysicalDamageArmourBreak"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1040,7 +1133,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelElementalDamageAilmentMagnitude"],
+      "familyIds": [
+        "HybridAbyssModJewelElementalDamageAilmentMagnitude"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1076,7 +1171,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelChaosDamageWitherEffect"],
+      "familyIds": [
+        "HybridAbyssModJewelChaosDamageWitherEffect"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1108,7 +1205,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelMinionAreaAndLife"],
+      "familyIds": [
+        "HybridAbyssModJewelMinionAreaAndLife"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1135,7 +1234,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelAuraSkillEffectPresenceAreaOfEffect"],
+      "familyIds": [
+        "HybridAbyssModJewelAuraSkillEffectPresenceAreaOfEffect"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1152,7 +1253,12 @@
           "max": 4
         }
       ],
-      "tags": ["unveiled_mod", "aura", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "aura",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModJewelPrefixElementalExposureEffect": {
@@ -1160,7 +1266,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelElementalExposureEffect"],
+      "familyIds": [
+        "HybridAbyssModJewelElementalExposureEffect"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1188,7 +1296,9 @@
       "name": "Lightless",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["HybridAbyssModJewelAbyssalWastingEffect"],
+      "familyIds": [
+        "HybridAbyssModJewelAbyssalWastingEffect"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1200,7 +1310,11 @@
           "max": 20
         }
       ],
-      "tags": ["unveiled_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModJewelSuffixIncreasedStrength": {
@@ -1208,7 +1322,9 @@
       "name": "of the Abyss",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HybridAbyssModJewelIncreasedStrength"],
+      "familyIds": [
+        "HybridAbyssModJewelIncreasedStrength"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1220,7 +1336,12 @@
           "max": 2
         }
       ],
-      "tags": ["unveiled_mod", "attribute", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "attribute",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModJewelSuffixIncreasedDexterity": {
@@ -1228,7 +1349,9 @@
       "name": "of the Abyss",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HybridAbyssModJewelIncreasedDexterity"],
+      "familyIds": [
+        "HybridAbyssModJewelIncreasedDexterity"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1240,7 +1363,12 @@
           "max": 2
         }
       ],
-      "tags": ["unveiled_mod", "attribute", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "attribute",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModJewelSuffixIncreasedIntelligence": {
@@ -1248,7 +1376,9 @@
       "name": "of the Abyss",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HybridAbyssModJewelIncreasedIntelligence"],
+      "familyIds": [
+        "HybridAbyssModJewelIncreasedIntelligence"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -1260,7 +1390,12 @@
           "max": 2
         }
       ],
-      "tags": ["unveiled_mod", "attribute", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "attribute",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModArmourJewelleryUlamanSuffixLightningChaosResistance": {
@@ -1268,7 +1403,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LightningAndChaosDamageResistance"],
+      "familyIds": [
+        "LightningAndChaosDamageResistance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1300,7 +1437,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["StrengthAndDexterity"],
+      "familyIds": [
+        "StrengthAndDexterity"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1326,7 +1465,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["FireAndChaosDamageResistance"],
+      "familyIds": [
+        "FireAndChaosDamageResistance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1358,7 +1499,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["StrengthAndIntelligence"],
+      "familyIds": [
+        "StrengthAndIntelligence"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1384,7 +1527,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ColdAndChaosDamageResistance"],
+      "familyIds": [
+        "ColdAndChaosDamageResistance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1416,7 +1561,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DexterityAndIntelligence"],
+      "familyIds": [
+        "DexterityAndIntelligence"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1442,7 +1589,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ManaCostEfficiency"],
+      "familyIds": [
+        "ManaCostEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1469,7 +1618,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MarkedEnemyTakesIncreasedDamage"],
+      "familyIds": [
+        "MarkedEnemyTakesIncreasedDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1481,7 +1632,12 @@
           "max": 8
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModHelmUlamanSuffixCriticalHitDamage": {
@@ -1489,7 +1645,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CriticalStrikeMultiplier"],
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1516,7 +1674,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LifeCostEfficiency"],
+      "familyIds": [
+        "LifeCostEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1543,7 +1703,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpiritReservationEfficiency"],
+      "familyIds": [
+        "SpiritReservationEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1555,7 +1717,12 @@
           "max": 8
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModHelmAmanamuSuffixGloryGeneration": {
@@ -1563,7 +1730,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GloryGeneration"],
+      "familyIds": [
+        "GloryGeneration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1575,7 +1744,12 @@
           "max": 20
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModHelmAmanamuSuffixPresenceAreaOfEffect": {
@@ -1583,7 +1757,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["PresenceRadius"],
+      "familyIds": [
+        "PresenceRadius"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1609,7 +1785,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArcaneSurgeEffect"],
+      "familyIds": [
+        "ArcaneSurgeEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1637,7 +1815,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AilmentEffect"],
+      "familyIds": [
+        "AilmentEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1664,7 +1844,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["PoisonChanceIncrease"],
+      "familyIds": [
+        "PoisonChanceIncrease"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1676,7 +1858,12 @@
           "max": 30
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModGlovesUlamanSuffixBleedChance": {
@@ -1684,7 +1871,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["BleedChanceIncrease"],
+      "familyIds": [
+        "BleedChanceIncrease"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1696,7 +1885,12 @@
           "max": 30
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModGlovesUlamanSuffixIncisionChance": {
@@ -1704,7 +1898,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["IncisionChance"],
+      "familyIds": [
+        "IncisionChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1732,7 +1928,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SkillSpeedIfConsumedFrenzyChargeRecently"],
+      "familyIds": [
+        "SkillSpeedIfConsumedFrenzyChargeRecently"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1758,7 +1956,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CurseAreaOfEffect"],
+      "familyIds": [
+        "CurseAreaOfEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1785,7 +1985,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DazeBuildup"],
+      "familyIds": [
+        "DazeBuildup"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1797,7 +1999,12 @@
           "max": 20
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModGlovesAmanamuSuffixImmobilisationBuildUp": {
@@ -1805,7 +2012,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ImmobilisationBuildup"],
+      "familyIds": [
+        "ImmobilisationBuildup"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1817,7 +2026,12 @@
           "max": 20
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModGlovesKurgalSuffixArcaneSurgeOnCriticalHit": {
@@ -1825,7 +2039,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GainArcaneSurgeOnCrit"],
+      "familyIds": [
+        "GainArcaneSurgeOnCrit"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1851,7 +2067,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CastSpeedOnFullLife"],
+      "familyIds": [
+        "CastSpeedOnFullLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1879,7 +2097,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ReducedPoisonDuration"],
+      "familyIds": [
+        "ReducedPoisonDuration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1907,7 +2127,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ReducedIgniteDurationOnSelf"],
+      "familyIds": [
+        "ReducedIgniteDurationOnSelf"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1935,7 +2157,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ReducedBleedDuration"],
+      "familyIds": [
+        "ReducedBleedDuration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1963,7 +2187,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CorruptedBloodImmunity"],
+      "familyIds": [
+        "CorruptedBloodImmunity"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -1991,7 +2217,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SlowPotency"],
+      "familyIds": [
+        "SlowPotency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2003,7 +2231,12 @@
           "max": 20
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBootsAmanamuSuffixDodgeRollDistance": {
@@ -2011,7 +2244,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DodgeRollDistance"],
+      "familyIds": [
+        "DodgeRollDistance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2023,7 +2258,12 @@
           "max": 2
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBootsKurgalSuffixManaCostEfficiencyDodgeRolledRecently": {
@@ -2031,7 +2271,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ManaCostEfficiencyIfDodgeRolledRecently"],
+      "familyIds": [
+        "ManaCostEfficiencyIfDodgeRolledRecently"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2058,7 +2300,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ManaRegenerationWhileStationary"],
+      "familyIds": [
+        "ManaRegenerationWhileStationary"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2085,7 +2329,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["LifeFlaskChargeGeneration"],
+      "familyIds": [
+        "LifeFlaskChargeGeneration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2097,7 +2343,12 @@
           "max": 2
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBeltUlamanPrefixChanceToNotConsumeFlaskConsumeCharges": {
@@ -2105,7 +2356,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["FlaskChanceToNotConsumeCharges"],
+      "familyIds": [
+        "FlaskChanceToNotConsumeCharges"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2131,7 +2384,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["LifeRegenerationRateDuringFlaskEffect"],
+      "familyIds": [
+        "LifeRegenerationRateDuringFlaskEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2157,7 +2412,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SlowEffectIfCharmedRecently"],
+      "familyIds": [
+        "SlowEffectIfCharmedRecently"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2183,7 +2440,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["CharmChargeGeneration"],
+      "familyIds": [
+        "CharmChargeGeneration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2209,7 +2468,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ThornsFirePerOneHundredLife"],
+      "familyIds": [
+        "ThornsFirePerOneHundredLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2236,7 +2497,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["CharmChanceToNotConsumeCharges"],
+      "familyIds": [
+        "CharmChanceToNotConsumeCharges"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2262,7 +2525,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ThornsCriticalStrikeChance"],
+      "familyIds": [
+        "ThornsCriticalStrikeChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2289,7 +2554,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ManaFlaskChargeGeneration"],
+      "familyIds": [
+        "ManaFlaskChargeGeneration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2301,7 +2568,12 @@
           "max": 2
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBeltKurgalPrefixGainArmourPercentOfMana": {
@@ -2309,7 +2581,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["GainPercentManaAsArmour"],
+      "familyIds": [
+        "GainPercentManaAsArmour"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2338,7 +2612,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["FlaskChanceToNotConsumeCharges"],
+      "familyIds": [
+        "FlaskChanceToNotConsumeCharges"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2364,7 +2640,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ManaRegeneration"],
+      "familyIds": [
+        "ManaRegeneration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2391,7 +2669,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceToTakeCriticalStrikeUpdated"],
+      "familyIds": [
+        "ChanceToTakeCriticalStrikeUpdated"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2417,7 +2697,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DamageTakenGainedAsLife"],
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2444,7 +2726,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ReducedCurseEffect"],
+      "familyIds": [
+        "ReducedCurseEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2471,7 +2755,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["PercentDamageGoesToMana"],
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2499,7 +2785,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ElementalDamageTakenGoesToEnergyShield"],
+      "familyIds": [
+        "ElementalDamageTakenGoesToEnergyShield"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2511,7 +2799,12 @@
           "max": 20
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBodyShieldKurgalSuffixArmourAppliesToChaosDamage": {
@@ -2519,7 +2812,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArmourPercentAppliesToChaosDamage"],
+      "familyIds": [
+        "ArmourPercentAppliesToChaosDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2531,7 +2826,12 @@
           "max": 31
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBodyArmourUlamanSuffixDeflectDamagePrevented": {
@@ -2539,7 +2839,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DeflectDamageTaken"],
+      "familyIds": [
+        "DeflectDamageTaken"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2551,7 +2853,12 @@
           "max": 5
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBodyArmourUlamanSuffixCompanionReservationEfficiency": {
@@ -2559,7 +2866,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CompanionReservationEfficiency"],
+      "familyIds": [
+        "CompanionReservationEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2571,7 +2880,12 @@
           "max": 18
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBodyArmourAmanamuSuffixSpiritReservationEfficiency": {
@@ -2579,7 +2893,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpiritReservationEfficiency"],
+      "familyIds": [
+        "SpiritReservationEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2591,7 +2907,12 @@
           "max": 12
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBodyArmourKurgalSuffixDamageTakenFromManaBeforeLife": {
@@ -2599,7 +2920,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DamageRemovedFromManaBeforeLife"],
+      "familyIds": [
+        "DamageRemovedFromManaBeforeLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2627,7 +2950,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MaximumBlockChance"],
+      "familyIds": [
+        "MaximumBlockChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2653,7 +2978,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ParryDebuffMagnitude"],
+      "familyIds": [
+        "ParryDebuffMagnitude"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2665,7 +2992,12 @@
           "max": 30
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModShieldUlamanSuffixParryDebuffDuration": {
@@ -2673,7 +3005,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ParryDuration"],
+      "familyIds": [
+        "ParryDuration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2685,7 +3019,12 @@
           "max": 35
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModShieldUlamanSuffixLightningTakenAsPhysAndGlancingWhileActiveBlocking": {
@@ -2693,7 +3032,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["PhysicalTakenAsLightningAndGlancingWhilActiveBlocking"],
+      "familyIds": [
+        "PhysicalTakenAsLightningAndGlancingWhilActiveBlocking"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2727,7 +3068,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["StunningHitsWithShieldSkillsFullyBreakArmour"],
+      "familyIds": [
+        "StunningHitsWithShieldSkillsFullyBreakArmour"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2739,7 +3082,12 @@
           "max": 1
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModShieldAmanamuSuffixHeavyStunDecaySelf": {
@@ -2747,7 +3095,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HeavyStunDecayRate"],
+      "familyIds": [
+        "HeavyStunDecayRate"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2773,7 +3123,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MaximumResistances"],
+      "familyIds": [
+        "MaximumResistances"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2799,7 +3151,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GainManaOnBlock"],
+      "familyIds": [
+        "GainManaOnBlock"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2827,7 +3181,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["EnergyShieldRechargeBlockedRecently"],
+      "familyIds": [
+        "EnergyShieldRechargeBlockedRecently"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2855,7 +3211,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["AdditionalSpellTotem"],
+      "familyIds": [
+        "AdditionalSpellTotem"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2881,7 +3239,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellDamageIfWieldingMeleeWeapon"],
+      "familyIds": [
+        "SpellDamageIfWieldingMeleeWeapon"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2907,7 +3267,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpellLifeCostPercent"],
+      "familyIds": [
+        "SpellLifeCostPercent"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2935,7 +3297,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpellChanceToFireTwoAdditionalProjectiles"],
+      "familyIds": [
+        "SpellChanceToFireTwoAdditionalProjectiles"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2961,7 +3325,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["CurseEffectiveness"],
+      "familyIds": [
+        "CurseEffectiveness"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -2988,7 +3354,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["OfferingEffect"],
+      "familyIds": [
+        "OfferingEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3000,7 +3368,12 @@
           "max": 20
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModFocusAmanamuSuffixGlobalMinionSkillLevels": {
@@ -3008,7 +3381,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GlobalIncreaseMinionSpellSkillGemLevel"],
+      "familyIds": [
+        "GlobalIncreaseMinionSpellSkillGemLevel"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3035,7 +3410,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CurseDelay"],
+      "familyIds": [
+        "CurseDelay"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3062,7 +3439,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["InvocationSpellDamage"],
+      "familyIds": [
+        "InvocationSpellDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3088,7 +3467,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellAreaOfEffectPercent"],
+      "familyIds": [
+        "SpellAreaOfEffectPercent"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3114,7 +3495,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceToGainAdditionalInfusion"],
+      "familyIds": [
+        "ChanceToGainAdditionalInfusion"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3126,7 +3509,12 @@
           "max": 25
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModQuiverUlamanPrefixIncreasesToProjectileSpeedApplyToDamage": {
@@ -3134,7 +3522,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IncreasesToProjectileDamageApplyToBowDamage"],
+      "familyIds": [
+        "IncreasesToProjectileDamageApplyToBowDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3146,7 +3536,12 @@
           "max": 1
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModQuiverUlamanSuffixChanceForExtraProjectilesWhileMoving": {
@@ -3154,7 +3549,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceAttackFiresAdditionalProjectilesWhileMoving"],
+      "familyIds": [
+        "ChanceAttackFiresAdditionalProjectilesWhileMoving"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3166,7 +3563,12 @@
           "max": 12
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModQuiverUlamanSuffixAttackCostConvertedToLifeCost": {
@@ -3174,7 +3576,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LifeCost"],
+      "familyIds": [
+        "LifeCost"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3201,7 +3605,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileDamageCloseRange"],
+      "familyIds": [
+        "ProjectileDamageCloseRange"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3227,7 +3633,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ProjectileCriticalDamageCloseRange"],
+      "familyIds": [
+        "ProjectileCriticalDamageCloseRange"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3239,7 +3647,12 @@
           "max": 26
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModQuiverKurgalPrefixProjectileDamageFar": {
@@ -3247,7 +3660,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileDamageFar"],
+      "familyIds": [
+        "ProjectileDamageFar"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3259,7 +3674,12 @@
           "max": 30
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModQuiverKurgalSuffixProjectileCriticalHitChanceFar": {
@@ -3267,7 +3687,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ProjectileCriticalHitChanceFar"],
+      "familyIds": [
+        "ProjectileCriticalHitChanceFar"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3279,7 +3701,12 @@
           "max": 26
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModRingAmuletUlamanPrefixAttackDamageWhileLowLife": {
@@ -3287,7 +3714,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["AttackDamageOnLowLife"],
+      "familyIds": [
+        "AttackDamageOnLowLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3299,7 +3728,12 @@
           "max": 25
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModRingAmuletUlamanSuffixSkillSpeed": {
@@ -3307,7 +3741,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["IncreasedSkillSpeed"],
+      "familyIds": [
+        "IncreasedSkillSpeed"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3333,7 +3769,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["RecoverPercentMaxLifeOnKill"],
+      "familyIds": [
+        "RecoverPercentMaxLifeOnKill"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3360,7 +3798,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["RemnantEffect"],
+      "familyIds": [
+        "RemnantEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3372,7 +3812,12 @@
           "max": 15
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModRingAmuletAmanamuPrefixMinionDamageIfYou'veHitRecently": {
@@ -3380,7 +3825,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IncreasedMinionDamageIfYouHitEnemy"],
+      "familyIds": [
+        "IncreasedMinionDamageIfYouHitEnemy"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3408,7 +3855,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SkillEffectDuration"],
+      "familyIds": [
+        "SkillEffectDuration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3420,7 +3869,12 @@
           "max": 12
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModRingAmuletAmanamuSuffixRemnantCollectionRange": {
@@ -3428,7 +3882,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["RemnantPickupRadiusIncrease"],
+      "familyIds": [
+        "RemnantPickupRadiusIncrease"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3440,7 +3896,12 @@
           "max": 30
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModRingAmuletKurgalPrefixSpellDamageWhileEnergyShieldFull": {
@@ -3448,7 +3909,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IncreasedSpellDamageOnFullEnergyShield"],
+      "familyIds": [
+        "IncreasedSpellDamageOnFullEnergyShield"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3476,7 +3939,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ElementalExposureEffect"],
+      "familyIds": [
+        "ElementalExposureEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3505,7 +3970,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GlobalCooldownRecovery"],
+      "familyIds": [
+        "GlobalCooldownRecovery"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3517,7 +3984,12 @@
           "max": 12
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModRingAmuletKurgalSuffixRecoverPercentMaxManaOnKill": {
@@ -3525,7 +3997,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ManaGainedOnKillPercentage"],
+      "familyIds": [
+        "ManaGainedOnKillPercentage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3552,7 +4026,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ShockMagnitudeIfConsumedFrenzyChargeRecently"],
+      "familyIds": [
+        "ShockMagnitudeIfConsumedFrenzyChargeRecently"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3579,7 +4055,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IgniteMagnitudeIfConsumedEnduranceChargeRecently"],
+      "familyIds": [
+        "IgniteMagnitudeIfConsumedEnduranceChargeRecently"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3606,7 +4084,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LifeLeechAmount"],
+      "familyIds": [
+        "LifeLeechAmount"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3633,7 +4113,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["FreezeBuildupIfConsumedPowerChargeRecently"],
+      "familyIds": [
+        "FreezeBuildupIfConsumedPowerChargeRecently"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3660,7 +4142,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ManaLeechAmount"],
+      "familyIds": [
+        "ManaLeechAmount"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3687,7 +4171,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["EvasionRatingFromBodyArmour"],
+      "familyIds": [
+        "EvasionRatingFromBodyArmour"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3714,7 +4200,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["GlobalDeflectionRating"],
+      "familyIds": [
+        "GlobalDeflectionRating"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3741,7 +4229,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ChanceToRefund40PercentGlory"],
+      "familyIds": [
+        "ChanceToRefund40PercentGlory"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3753,7 +4243,12 @@
           "max": 30
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModAmuletUlamanSuffixHeraldReservationEfficiency": {
@@ -3761,7 +4256,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HeraldReservationEfficiency"],
+      "familyIds": [
+        "HeraldReservationEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3773,7 +4270,12 @@
           "max": 20
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModAmuletUlamanSuffixGlobalLevelOfSkillGems": {
@@ -3781,7 +4283,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GlobalSkillGemLevel"],
+      "familyIds": [
+        "GlobalSkillGemLevel"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3807,7 +4311,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BodyArmourFromBodyArmour"],
+      "familyIds": [
+        "BodyArmourFromBodyArmour"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3834,7 +4340,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["AllDefences"],
+      "familyIds": [
+        "AllDefences"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3860,7 +4368,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GlobalItemAttributeRequirements"],
+      "familyIds": [
+        "GlobalItemAttributeRequirements"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3872,7 +4382,12 @@
           "max": 15
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModAmuletAmanamuSuffixAuraMagnitude": {
@@ -3880,7 +4395,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AuraMagnitude"],
+      "familyIds": [
+        "AuraMagnitude"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3892,7 +4409,12 @@
           "max": 16
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModAmuletKurgalPrefixEnergyShieldFromEquippedBody": {
@@ -3900,7 +4422,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MaximumEnergyShieldFromBodyArmour"],
+      "familyIds": [
+        "MaximumEnergyShieldFromBodyArmour"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3927,7 +4451,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["InvocatedSpellHalfEnergyChance"],
+      "familyIds": [
+        "InvocatedSpellHalfEnergyChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3953,7 +4479,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MinionCooldownRecoveryRate"],
+      "familyIds": [
+        "MinionCooldownRecoveryRate"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -3979,7 +4507,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["DamageRemovedFromManaBeforeLife"],
+      "familyIds": [
+        "DamageRemovedFromManaBeforeLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4007,7 +4537,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GlobalSkillGemQuality"],
+      "familyIds": [
+        "GlobalSkillGemQuality"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4033,7 +4565,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellDamagePer100Life"],
+      "familyIds": [
+        "SpellDamagePer100Life"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4063,7 +4597,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["DamagingAilmentEffect"],
+      "familyIds": [
+        "DamagingAilmentEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4089,7 +4625,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CastSpeedOnLowLife"],
+      "familyIds": [
+        "CastSpeedOnLowLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4117,7 +4655,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpellChanceToFireTwoAdditionalProjectiles"],
+      "familyIds": [
+        "SpellChanceToFireTwoAdditionalProjectiles"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4143,7 +4683,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellDamageForSpellsCostingLife"],
+      "familyIds": [
+        "SpellDamageForSpellsCostingLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4155,7 +4697,12 @@
           "max": 178
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModStaffAmanamuPrefixFlatSpirit": {
@@ -4163,7 +4710,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BaseSpirit"],
+      "familyIds": [
+        "BaseSpirit"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4175,7 +4724,12 @@
           "max": 50
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModStaffAmanamuPrefixDamageAsChaos": {
@@ -4183,7 +4737,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["DamageGainedAsChaos"],
+      "familyIds": [
+        "DamageGainedAsChaos"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4211,7 +4767,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpellLifeCostPercent"],
+      "familyIds": [
+        "SpellLifeCostPercent"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4239,7 +4797,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArchonDuration"],
+      "familyIds": [
+        "ArchonDuration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4251,7 +4811,12 @@
           "max": 35
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModStaffAmanamuSuffixBlockChance": {
@@ -4259,7 +4824,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AdditionalBlock"],
+      "familyIds": [
+        "AdditionalBlock"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4285,7 +4852,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellDamagePer100Mana"],
+      "familyIds": [
+        "SpellDamagePer100Mana"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4315,7 +4884,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MaximumElementalInfusion"],
+      "familyIds": [
+        "MaximumElementalInfusion"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4341,7 +4912,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArchonDelayRecovery"],
+      "familyIds": [
+        "ArchonDelayRecovery"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4353,7 +4926,12 @@
           "max": 35
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModStaffKurgalSuffixCastSpeedWhileFullMana": {
@@ -4361,7 +4939,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CastSpeedOnFullMana"],
+      "familyIds": [
+        "CastSpeedOnFullMana"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4391,7 +4971,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MaximumPuppeteerStacks"],
+      "familyIds": [
+        "MaximumPuppeteerStacks"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4417,7 +4999,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["DamageasExtraPhysical"],
+      "familyIds": [
+        "DamageasExtraPhysical"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4445,7 +5029,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["BleedDotMultiplier"],
+      "familyIds": [
+        "BleedDotMultiplier"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4476,7 +5062,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArmourBreak"],
+      "familyIds": [
+        "ArmourBreak"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4488,7 +5076,12 @@
           "max": 39
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModWandUlamanSuffixBreakArmourSpellCrits": {
@@ -4496,7 +5089,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArmourBreakPercentOnSpellCrit"],
+      "familyIds": [
+        "ArmourBreakPercentOnSpellCrit"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4524,7 +5119,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HinderedEnemiesTakeIncreasedPhysicalDamage"],
+      "familyIds": [
+        "HinderedEnemiesTakeIncreasedPhysicalDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4536,7 +5133,12 @@
           "max": 7
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModWandAmanamuPrefixIncreasedElementalDamage": {
@@ -4544,7 +5146,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["CasterElementalDamagePercent"],
+      "familyIds": [
+        "CasterElementalDamagePercent"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4575,7 +5179,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MinionAndSpellDamageHybrid"],
+      "familyIds": [
+        "MinionAndSpellDamageHybrid"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4607,7 +5213,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellDamageForSpellsCostingLife"],
+      "familyIds": [
+        "SpellDamageForSpellsCostingLife"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4619,7 +5227,12 @@
           "max": 89
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModWandAmanamuSuffixSpellAreaOfEffect": {
@@ -4627,7 +5240,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpellAreaOfEffectPercent"],
+      "familyIds": [
+        "SpellAreaOfEffectPercent"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4653,7 +5268,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpellLifeCostPercentAndSkillCostEfficiency"],
+      "familyIds": [
+        "SpellLifeCostPercentAndSkillCostEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4686,7 +5303,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HinderedEnemiesTakeIncreasedElementalDamage"],
+      "familyIds": [
+        "HinderedEnemiesTakeIncreasedElementalDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4698,7 +5317,12 @@
           "max": 7
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModWandKurgalPrefixInvocatedSpellDamage": {
@@ -4706,7 +5330,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["InvocationSpellDamage"],
+      "familyIds": [
+        "InvocationSpellDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4732,7 +5358,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CastSpeedPerDifferentSpellCastRecently"],
+      "familyIds": [
+        "CastSpeedPerDifferentSpellCastRecently"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4744,7 +5372,12 @@
           "max": 5
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModWandKurgalSuffixHinderedEnemiesTakeIncreasedChaos": {
@@ -4752,7 +5385,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["HinderedEnemiesTakeIncreasedChaosDamage"],
+      "familyIds": [
+        "HinderedEnemiesTakeIncreasedChaosDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4764,7 +5399,12 @@
           "max": 7
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModGenWeaponUlamanPrefixLightningPenetration": {
@@ -4772,7 +5412,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["LocalLightningPenetration"],
+      "familyIds": [
+        "LocalLightningPenetration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4802,7 +5444,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LifeCost"],
+      "familyIds": [
+        "LifeCost"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4829,7 +5473,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["LocalFirePenetration"],
+      "familyIds": [
+        "LocalFirePenetration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4859,7 +5505,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpiritReservationEfficiency"],
+      "familyIds": [
+        "SpiritReservationEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4871,7 +5519,12 @@
           "max": 10
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModGenWeaponKurgalPrefixColdPenetration": {
@@ -4879,7 +5532,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["LocalColdPenetration"],
+      "familyIds": [
+        "LocalColdPenetration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4909,7 +5564,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AttackSkillCostEfficiency"],
+      "familyIds": [
+        "AttackSkillCostEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4935,7 +5592,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["AdditionalMeleeTotem"],
+      "familyIds": [
+        "AdditionalMeleeTotem"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4947,7 +5606,12 @@
           "max": 1
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModAllMacesKurgalPrefixIncreasedPhysicalDamageReducedAttackSpeed": {
@@ -4955,7 +5619,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["LocalIncreasedPhysicalDamageAttackSpeedHybrid"],
+      "familyIds": [
+        "LocalIncreasedPhysicalDamageAttackSpeedHybrid"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -4983,7 +5649,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AttackSkillCostEfficiency"],
+      "familyIds": [
+        "AttackSkillCostEfficiency"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5009,7 +5677,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IncreasedDamageWhileTotemActive"],
+      "familyIds": [
+        "IncreasedDamageWhileTotemActive"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5035,7 +5705,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SummonTotemCastSpeed"],
+      "familyIds": [
+        "SummonTotemCastSpeed"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5061,7 +5733,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["DamagevsArmourBrokenEnemies"],
+      "familyIds": [
+        "DamagevsArmourBrokenEnemies"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5087,7 +5761,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArmourPenetration"],
+      "familyIds": [
+        "ArmourPenetration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5115,7 +5791,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AdditionalFissureChance"],
+      "familyIds": [
+        "AdditionalFissureChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5141,7 +5819,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MaceSkillSlamAftershockChance"],
+      "familyIds": [
+        "MaceSkillSlamAftershockChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5167,7 +5847,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ExertedAttackDamage"],
+      "familyIds": [
+        "ExertedAttackDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5194,7 +5876,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WarcryCooldownSpeed"],
+      "familyIds": [
+        "WarcryCooldownSpeed"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5206,7 +5890,12 @@
           "max": 25
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssMod2HMaceUlamanPrefixDamageWhileActiveTotem": {
@@ -5214,7 +5903,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IncreasedDamageWhileTotemActive"],
+      "familyIds": [
+        "IncreasedDamageWhileTotemActive"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5240,7 +5931,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SummonTotemCastSpeed"],
+      "familyIds": [
+        "SummonTotemCastSpeed"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5266,7 +5959,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["DamagevsArmourBrokenEnemies"],
+      "familyIds": [
+        "DamagevsArmourBrokenEnemies"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5292,7 +5987,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArmourPenetration"],
+      "familyIds": [
+        "ArmourPenetration"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5320,7 +6017,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AdditionalFissureChance"],
+      "familyIds": [
+        "AdditionalFissureChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5346,7 +6045,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MaceSkillSlamAftershockChance"],
+      "familyIds": [
+        "MaceSkillSlamAftershockChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5372,7 +6073,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ExertedAttackDamage"],
+      "familyIds": [
+        "ExertedAttackDamage"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5399,7 +6102,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["WarcryCooldownSpeed"],
+      "familyIds": [
+        "WarcryCooldownSpeed"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5411,7 +6116,12 @@
           "max": 31
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModQuarterstaffUlamanPrefixLightningDamageShockMagnitude": {
@@ -5419,7 +6129,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["LightningDamageShockMagnitudeHybrid"],
+      "familyIds": [
+        "LightningDamageShockMagnitudeHybrid"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5452,7 +6164,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SkillUseRecoverPercentLifeOnExpendingTenCombo"],
+      "familyIds": [
+        "SkillUseRecoverPercentLifeOnExpendingTenCombo"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5479,7 +6193,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["FireDamageIgniteMagnitudeHybrid"],
+      "familyIds": [
+        "FireDamageIgniteMagnitudeHybrid"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5512,7 +6228,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceToGenerateAdditionalCombo"],
+      "familyIds": [
+        "ChanceToGenerateAdditionalCombo"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5524,7 +6242,12 @@
           "max": 40
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModQuarterstaffKurgalPrefixColdDamageFreezeBuildup": {
@@ -5532,7 +6255,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ColdDamageFreezeBuildupHybrid"],
+      "familyIds": [
+        "ColdDamageFreezeBuildupHybrid"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5565,7 +6290,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SkillUseRecoverPercentManaOnExpendingTenCombo"],
+      "familyIds": [
+        "SkillUseRecoverPercentManaOnExpendingTenCombo"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5592,7 +6319,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["AdditionalBallistaTotem"],
+      "familyIds": [
+        "AdditionalBallistaTotem"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5604,7 +6333,12 @@
           "max": 1
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModCrossbowUlamanSuffixAttacksChainAdditionalTime": {
@@ -5612,7 +6346,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AttacksChainAdditionalTimes"],
+      "familyIds": [
+        "AttacksChainAdditionalTimes"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5624,7 +6360,12 @@
           "max": 1
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModCrossbowUlamanSuffixProjectileCriticalHitDamageCloseRange": {
@@ -5632,7 +6373,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ProjectileCriticalDamageCloseRange"],
+      "familyIds": [
+        "ProjectileCriticalDamageCloseRange"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5644,7 +6387,12 @@
           "max": 38
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModCrossbowAmanamuPrefixGrenadeAdditionalCooldown": {
@@ -5652,7 +6400,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["GrenadeCooldownUse"],
+      "familyIds": [
+        "GrenadeCooldownUse"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5664,7 +6414,12 @@
           "max": 1
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModCrossbowAmanamuPrefixGrenadeDamageAndDuration": {
@@ -5672,7 +6427,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["GrenadeDamageLongFuse"],
+      "familyIds": [
+        "GrenadeDamageLongFuse"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5703,7 +6460,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["GrenadeAdditionalTriggerChance"],
+      "familyIds": [
+        "GrenadeAdditionalTriggerChance"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5715,7 +6474,12 @@
           "max": 25
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModCrossbowKurgalPrefixProjectileDamageCloseRange": {
@@ -5723,7 +6487,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileDamageCloseRange"],
+      "familyIds": [
+        "ProjectileDamageCloseRange"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5749,7 +6515,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LocalReloadSpeed"],
+      "familyIds": [
+        "LocalReloadSpeed"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5776,7 +6544,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceForInstantReload"],
+      "familyIds": [
+        "ChanceForInstantReload"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5788,7 +6558,12 @@
           "max": 20
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowSpearUlamanPrefixProjectileDamageFar": {
@@ -5796,7 +6571,9 @@
       "name": "Ulaman's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ProjectileDamageFar"],
+      "familyIds": [
+        "ProjectileDamageFar"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5808,7 +6585,12 @@
           "max": 79
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowSpearUlamanSuffixChanceForExtraProjectilesWhileMoving": {
@@ -5816,7 +6598,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceAttackFiresAdditionalProjectilesWhileMoving"],
+      "familyIds": [
+        "ChanceAttackFiresAdditionalProjectilesWhileMoving"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5828,7 +6612,12 @@
           "max": 18
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowSpearUlamanSuffixAttackSpeedLocalAndWithCompanion": {
@@ -5836,7 +6625,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LocalAttackSpeedAndAttackSpeedWithCompanion"],
+      "familyIds": [
+        "LocalAttackSpeedAndAttackSpeedWithCompanion"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5853,7 +6644,12 @@
           "max": 13
         }
       ],
-      "tags": ["unveiled_mod", "ulaman_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "ulaman_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowSpearAmanamuPrefixCompanionDamageAndDamageWithCompanion": {
@@ -5861,7 +6657,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["CompanionDamageAndDamageWithCompanion"],
+      "familyIds": [
+        "CompanionDamageAndDamageWithCompanion"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5878,7 +6676,12 @@
           "max": 59
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowSpearAmanamuPrefixAttackSkillAreaOfEffect": {
@@ -5886,7 +6689,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IncreasedAttackAreaOfEffect"],
+      "familyIds": [
+        "IncreasedAttackAreaOfEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5912,7 +6717,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CompanionAndLocalAttackSpeed"],
+      "familyIds": [
+        "CompanionAndLocalAttackSpeed"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5929,7 +6736,12 @@
           "max": 18
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowSpearAmanamuSuffixChancePierceAdditionalTime": {
@@ -5937,7 +6749,9 @@
       "name": "of Amanamu",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceToPierce"],
+      "familyIds": [
+        "ChanceToPierce"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5949,7 +6763,12 @@
           "max": 60
         }
       ],
-      "tags": ["unveiled_mod", "amanamu_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "amanamu_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowSpearKurgalPrefixChanceChainFromTerrain": {
@@ -5957,7 +6776,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ChainFromTerrain"],
+      "familyIds": [
+        "ChainFromTerrain"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5969,7 +6790,12 @@
           "max": 35
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowSpearKurgalSuffixProjectileCriticalHitChanceFar": {
@@ -5977,7 +6803,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ProjectileCriticalHitChanceFar"],
+      "familyIds": [
+        "ProjectileCriticalHitChanceFar"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -5989,7 +6817,12 @@
           "max": 34
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowSpearKurgalSuffixImmobilisationBuildup": {
@@ -5997,7 +6830,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ImmobilisationBuildup"],
+      "familyIds": [
+        "ImmobilisationBuildup"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -6009,7 +6844,12 @@
           "max": 34
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModBowKurgalPrefixIncreasedQuiverStats": {
@@ -6017,7 +6857,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["QuiverModifierEffect"],
+      "familyIds": [
+        "QuiverModifierEffect"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -6029,7 +6871,12 @@
           "max": 40
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModSpearKurgalPrefixMeleeDamageIfProjectileAttackHitEightSeconds": {
@@ -6037,7 +6884,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MeleeDamageIfProjectileAttackHitRecently"],
+      "familyIds": [
+        "MeleeDamageIfProjectileAttackHitRecently"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -6049,7 +6898,12 @@
           "max": 79
         }
       ],
-      "tags": ["unveiled_mod", "kurgal_mod", "reveal_only", "tier_unknown"],
+      "tags": [
+        "unveiled_mod",
+        "kurgal_mod",
+        "reveal_only",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:AbyssModTalismanUlamanSuffixGainXRageOnMeleeHit": {
@@ -6057,7 +6911,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["RageOnHit"],
+      "familyIds": [
+        "RageOnHit"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -6083,7 +6939,9 @@
       "name": "Amanamu's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["IncreasedMinionDamageIfYouHitEnemy"],
+      "familyIds": [
+        "IncreasedMinionDamageIfYouHitEnemy"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -6111,7 +6969,9 @@
       "name": "Kurgal's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["WarcriesExertAnAdditionalAttack"],
+      "familyIds": [
+        "WarcriesExertAnAdditionalAttack"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -6137,7 +6997,9 @@
       "name": "of Kurgal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["CriticalHitChanceAgainstMarkedEnemies"],
+      "familyIds": [
+        "CriticalHitChanceAgainstMarkedEnemies"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -6163,7 +7025,9 @@
       "name": "of Ulaman",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["LifeRegenerationPlusPercentWhileMoving"],
+      "familyIds": [
+        "LifeRegenerationPlusPercentWhileMoving"
+      ],
       "requiredItemLevel": 65,
       "weight": 0,
       "tier": 0,
@@ -6190,7 +7054,9 @@
       "name": "Tul's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ColdDamageAsPortionOfDamage"],
+      "familyIds": [
+        "ColdDamageAsPortionOfDamage"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6220,7 +7086,9 @@
       "name": "Uul-Netol's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["AnaemiaOnHit"],
+      "familyIds": [
+        "AnaemiaOnHit"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6232,7 +7100,12 @@
           "max": 3
         }
       ],
-      "tags": ["physical", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "physical",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeFireSpellBaseCriticalChance": {
@@ -6240,7 +7113,9 @@
       "name": "of Xoph",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["FireSpellBaseCriticalChance"],
+      "familyIds": [
+        "FireSpellBaseCriticalChance"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6269,7 +7144,9 @@
       "name": "of Esh",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["AdditionalMaximumSeals"],
+      "familyIds": [
+        "AdditionalMaximumSeals"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6281,7 +7158,11 @@
           "max": 1
         }
       ],
-      "tags": ["reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeBeltMinionAdditionalProjectileChance": {
@@ -6289,7 +7170,9 @@
       "name": "of Scattering",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MinionAdditionalProjectileChance"],
+      "familyIds": [
+        "MinionAdditionalProjectileChance"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6301,7 +7184,12 @@
           "max": 100
         }
       ],
-      "tags": ["minion", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "minion",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeRingMaximumElementalInfusion": {
@@ -6309,7 +7197,9 @@
       "name": "of Amplification",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MaximumElementalInfusion"],
+      "familyIds": [
+        "MaximumElementalInfusion"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6321,7 +7211,12 @@
           "max": 1
         }
       ],
-      "tags": ["elemental", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "elemental",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeBeltSealGainFrequency": {
@@ -6329,7 +7224,9 @@
       "name": "of Expectation",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SealGainFrequency"],
+      "familyIds": [
+        "SealGainFrequency"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6341,7 +7238,11 @@
           "max": 35
         }
       ],
-      "tags": ["reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeRingOfferingEffect": {
@@ -6349,7 +7250,9 @@
       "name": "Dedicated",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["OfferingEffect"],
+      "familyIds": [
+        "OfferingEffect"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6361,7 +7264,11 @@
           "max": 30
         }
       ],
-      "tags": ["reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeRingTemporaryMinionLimit": {
@@ -6369,7 +7276,9 @@
       "name": "of Multitudes",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["TemporaryMinionLimit"],
+      "familyIds": [
+        "TemporaryMinionLimit"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6381,7 +7290,12 @@
           "max": 1
         }
       ],
-      "tags": ["minion", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "minion",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeRingMinionArmourBreak": {
@@ -6389,7 +7303,9 @@
       "name": "Scratching",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MinionArmourBreak"],
+      "familyIds": [
+        "MinionArmourBreak"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6415,7 +7331,9 @@
       "name": "Contaminating",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MinionDamagingAilments"],
+      "familyIds": [
+        "MinionDamagingAilments"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6427,7 +7345,12 @@
           "max": 45
         }
       ],
-      "tags": ["minion", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "minion",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeRingCommandSkillSpeed": {
@@ -6435,7 +7358,9 @@
       "name": "of Punctuality",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MinionCommandSkillSpeed"],
+      "familyIds": [
+        "MinionCommandSkillSpeed"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6462,7 +7387,9 @@
       "name": "of Invigoration",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MinionCooldownRecoveryRate"],
+      "familyIds": [
+        "MinionCooldownRecoveryRate"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6474,7 +7401,12 @@
           "max": 29
         }
       ],
-      "tags": ["minion", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "minion",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeRingMinionPuppetMaster": {
@@ -6482,7 +7414,9 @@
       "name": "of the Cabal",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MinionGainPuppetMasterOnCommand"],
+      "familyIds": [
+        "MinionGainPuppetMasterOnCommand"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6494,7 +7428,12 @@
           "max": 50
         }
       ],
-      "tags": ["minion", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "minion",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeRingSpellDamageAsExtraLightning": {
@@ -6502,7 +7441,9 @@
       "name": "Storm Chaser's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellDamageGainedAsLightning"],
+      "familyIds": [
+        "SpellDamageGainedAsLightning"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6530,7 +7471,9 @@
       "name": "Fire Breather's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellDamageGainedAsFire"],
+      "familyIds": [
+        "SpellDamageGainedAsFire"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6558,7 +7501,9 @@
       "name": "Tempest Rider's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellDamageGainedAsCold"],
+      "familyIds": [
+        "SpellDamageGainedAsCold"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6586,7 +7531,9 @@
       "name": "Soul Stealer's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["SpellDamageGainedAsChaos"],
+      "familyIds": [
+        "SpellDamageGainedAsChaos"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6612,7 +7559,9 @@
       "name": "Burdensome",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["DamageRemovedFromManaBeforeLife"],
+      "familyIds": [
+        "DamageRemovedFromManaBeforeLife"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6639,7 +7588,9 @@
       "name": "of Drenching",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ElementalExposureEffect"],
+      "familyIds": [
+        "ElementalExposureEffect"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6667,7 +7618,9 @@
       "name": "of Vastness",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["InvocationMaximumEnergy"],
+      "familyIds": [
+        "InvocationMaximumEnergy"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6679,7 +7632,11 @@
           "max": 35
         }
       ],
-      "tags": ["reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeRingSpellImpaleEffect": {
@@ -6687,7 +7644,9 @@
       "name": "of Lancing",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpellImpaleEffect"],
+      "familyIds": [
+        "SpellImpaleEffect"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6713,7 +7672,9 @@
       "name": "Erupting",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["FireDamageIfFireInfusionCollectedLast8Seconds"],
+      "familyIds": [
+        "FireDamageIfFireInfusionCollectedLast8Seconds"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6739,7 +7700,9 @@
       "name": "Energising",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["LightningDamageIfLightningInfusionCollectedLast8Seconds"],
+      "familyIds": [
+        "LightningDamageIfLightningInfusionCollectedLast8Seconds"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6765,7 +7728,9 @@
       "name": "Glacial",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ColdDamageIfColdInfusionCollectedLast8Seconds"],
+      "familyIds": [
+        "ColdDamageIfColdInfusionCollectedLast8Seconds"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6791,7 +7756,9 @@
       "name": "Unshackling",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["ArchonEffect"],
+      "familyIds": [
+        "ArchonEffect"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6803,7 +7770,11 @@
           "max": 39
         }
       ],
-      "tags": ["reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeBeltChanceToNotConsumeInfusionIfLostArchonPast6Seconds": {
@@ -6811,7 +7782,9 @@
       "name": "of Reverberation",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ChanceToNotConsumeInfusionIfLostArchonPast6Seconds"],
+      "familyIds": [
+        "ChanceToNotConsumeInfusionIfLostArchonPast6Seconds"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6839,7 +7812,9 @@
       "name": "of Imbuing",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["SpellElementalAilmentMagnitude"],
+      "familyIds": [
+        "SpellElementalAilmentMagnitude"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6868,7 +7843,9 @@
       "name": "of Exertion",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArchonDuration"],
+      "familyIds": [
+        "ArchonDuration"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6880,7 +7857,11 @@
           "max": 50
         }
       ],
-      "tags": ["reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeBeltArchonUndeathOnOfferingUse": {
@@ -6888,7 +7869,9 @@
       "name": "of Unending",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["ArchonUndeathOnOfferingUse"],
+      "familyIds": [
+        "ArchonUndeathOnOfferingUse"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6900,7 +7883,12 @@
           "max": 50
         }
       ],
-      "tags": ["minion", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "minion",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeBeltMinionDamagePerDifferentCommandSkillUsedLast15Seconds": {
@@ -6908,7 +7896,9 @@
       "name": "Instructor's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MinionDamagePerDifferentCommandSkillUsedLast15Seconds"],
+      "familyIds": [
+        "MinionDamagePerDifferentCommandSkillUsedLast15Seconds"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6935,7 +7925,9 @@
       "name": "Monstrous",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["MinionsGiganticRevivedRecently"],
+      "familyIds": [
+        "MinionsGiganticRevivedRecently"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6947,7 +7939,12 @@
           "max": 1
         }
       ],
-      "tags": ["minion", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "minion",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeBeltDamageRemovedFromSpectres": {
@@ -6955,7 +7952,9 @@
       "name": "Underling's",
       "layer": "EXPLICIT",
       "affixType": "PREFIX",
-      "familyIds": ["DamageRemovedFromSpectres"],
+      "familyIds": [
+        "DamageRemovedFromSpectres"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6967,7 +7966,12 @@
           "max": 1
         }
       ],
-      "tags": ["minion", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "minion",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeBeltMinionReservationEfficiency": {
@@ -6975,7 +7979,9 @@
       "name": "of Coherence",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MinionReservationEfficiency"],
+      "familyIds": [
+        "MinionReservationEfficiency"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -6987,7 +7993,11 @@
           "max": 10
         }
       ],
-      "tags": ["reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeBeltMinionMeleeSplash": {
@@ -6995,7 +8005,9 @@
       "name": "of Ravaging",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MinionMeleeSplash"],
+      "familyIds": [
+        "MinionMeleeSplash"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -7007,7 +8019,11 @@
           "max": 1
         }
       ],
-      "tags": ["reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     },
     "reveal:GenesisTreeBeltMinionDuration": {
@@ -7015,7 +8031,9 @@
       "name": "of Binding",
       "layer": "EXPLICIT",
       "affixType": "SUFFIX",
-      "familyIds": ["MinionDuration"],
+      "familyIds": [
+        "MinionDuration"
+      ],
       "requiredItemLevel": 1,
       "weight": 0,
       "tier": 0,
@@ -7027,7 +8045,12 @@
           "max": 49
         }
       ],
-      "tags": ["minion", "reveal_only", "otherworldly", "tier_unknown"],
+      "tags": [
+        "minion",
+        "reveal_only",
+        "otherworldly",
+        "tier_unknown"
+      ],
       "sourceUrl": "https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/bb52d6b368307457eb9c54bb13f1829993d390b1/src/Data/ModVeiled.lua"
     }
   },

@@ -1,0 +1,64 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmuletB1c",
+  "sourceRef": "src0001",
+  "implicitModifierId": "absent-amulet:implicit:base",
+  "magicPrefixes": 0,
+  "magicSuffixes": 0,
+  "rarePrefixes": 2,
+  "rareSuffixes": 2,
+  "registration": {
+    "key": "absent-amulet",
+    "slug": "Absent_Amulet",
+    "family": "amulets",
+    "sourceSha256": "64824c9d3565c2dd02bc3aa115068d134b4a3b35b2d6efbb964c7bfc54e409ed",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 50,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "temporaryBaseOption": {
+      "kind": "SOURCE_FIRST_GRANTED_SKILL_EXAMPLE",
+      "source": "https://poe2db.tw/us/Absent_Amulet",
+      "rationale": "User explicitly requested one temporary valid option; no skill roll or probability is inferred."
+    },
+    "order": 122
+  }
+}

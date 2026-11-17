@@ -9,16 +9,8 @@ export const dataFiles = directory => !fs.existsSync(directory) ? [] : fs.readdi
   return entry.isDirectory() ? dataFiles(file) : [file]
 }).sort()
 
-// Only base folders are flattened in the compatibility output. Shared source tables stay in docs.
-export function catalogRuntimePath(relative) {
-  const parts = relative.split('/')
-  if (relative === 'modifiers.json' || parts.length === 2 && parts[1] === 'modifier-pools.json') return null
-  assert(!relative.endsWith('.raw.json'), 'Raw evidence belongs in docs/legacy/raw-data')
-  return parts.length === 3 ? parts.slice(1).join('/') : relative
-}
-
-export function catalogResolver(directory) {
-  const registry = fs.existsSync(path.join(directory, 'modifiers.json')) ? read(path.join(directory, 'modifiers.json')) : { definitions: {}, variants: {} }
+// Resolve ordered shared pools and reviewed context variants for the single generator.
+export function catalogResolver(directory, registry, readDocument = read) {
   const { definitions, variants } = registry
   assert.deepEqual(Object.keys(registry).sort(), ['definitions', 'variants'])
   for (const [id, definition] of Object.entries(definitions)) assert.equal(definition.id, id, `Modifier identity mismatch: ${id}`)
@@ -44,7 +36,7 @@ export function catalogResolver(directory) {
     let modifiers
     if (modifierPool !== undefined) {
       const group = relative.split('/')[0]
-      if (!pools.has(group)) pools.set(group, read(path.join(directory, group, 'modifier-pools.json')))
+      if (!pools.has(group)) pools.set(group, readDocument(path.join(directory, group, 'modifier-pools.json')))
       assert(Object.hasOwn(pools.get(group), modifierPool), `Unknown modifier pool: ${relative}:${modifierPool}`)
       modifiers = pools.get(group)[modifierPool].map(resolve)
       assert(modifiers.every(m => m.layer === 'EXPLICIT'), `Implicit definition in shared pool: ${relative}`)
@@ -70,16 +62,4 @@ export function catalogResolver(directory) {
     }
     return { ...document, modifiers }
   }
-}
-
-export function catalogOutputs(directory) {
-  const expand = catalogResolver(directory)
-  return dataFiles(directory).map(file => {
-    const relative = path.relative(directory, file).replaceAll('\\', '/')
-    const bytes = fs.readFileSync(file)
-    const value = JSON.parse(bytes)
-    const runtimePath = catalogRuntimePath(relative)
-    const expanded = runtimePath === null ? value : expand(relative, value)
-    return { relative, bytes, value, runtimePath, runtimeBytes: runtimePath === null ? null : expanded === value ? bytes : jsonBytes(expanded) }
-  })
 }

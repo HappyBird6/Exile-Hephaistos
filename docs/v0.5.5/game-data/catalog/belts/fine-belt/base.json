@@ -1,0 +1,41 @@
+{
+  "id": "Metadata/Items/Belts/FourBelt11",
+  "sourceRef": "src0876",
+  "implicitModifierId": "fine-belt:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "fine-belt",
+    "slug": "Fine_Belt",
+    "family": "belts",
+    "sourceSha256": "39e208bb3831b0b7164d281eb86f4a4b96695f88ec2f1f008063c4d6b66296c5",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 62,
+    "maximumQuality": 0,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "generate_x_charges_for_any_flask_per_minute",
+        "min": 10,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "generate_x_charges_for_any_flask_per_minute",
+        "min": 10,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "order": 70
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+  "sourceRef": "src2295",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "ravenous-staff",
+    "slug": "Ravenous_Staff",
+    "family": "staves",
+    "sourceSha256": "22766176e361dfa42ecfaa350d135638d38222f5487618a386b0ffd56b63c317",
+    "sourceTags": [
+      "staff",
+      "twohand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
+    "order": 111
+  }
+}

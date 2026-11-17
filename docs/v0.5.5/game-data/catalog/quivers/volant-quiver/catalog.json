@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-volant-quiver-20261005-c835322f67202758",
     "retrievedAt": "2026-10-05T05:29:11.983Z",
-    "sourceUrl": "https://poe2db.tw/us/Quivers",
+    "sourceRef": "src2239",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "c1cceb8e6e15bf113fd13fe215d3b42f95386c0c700aec305d9758cb16551729",
     "detailsSha256": "30d4ea3eb1b10848b4079fb1cd7f9f4f5f18f16f1ca86b2127ca33524768856d"
-  },
-  "base": {
-    "id": "Metadata/Items/Quivers/FourQuiver10",
-    "name": "Volant Quiver",
-    "sourceUrl": "https://poe2db.tw/us/Volant_Quiver",
-    "implicitModifierId": "volant-quiver:implicit:base",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": [

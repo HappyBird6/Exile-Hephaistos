@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Jewels/JewelRadiusDex",
+  "sourceRef": "src1889",
+  "implicitModifierId": "time-lost-emerald:implicit:base-radius",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 2,
+  "legacy": {
+    "key": "time-lost-emerald",
+    "slug": "Time-Lost Emerald",
+    "order": 14
+  }
+}

@@ -1,14 +1,32 @@
 {
   "ruby": {
-    "DILUTED_LIQUID_IRE": ["ruby:crafted:JewelArmour"],
-    "DILUTED_LIQUID_GUILT": ["ruby:crafted:JewelFireDamage"],
-    "DILUTED_LIQUID_GREED": ["ruby:crafted:JewelPhysicalDamage"],
-    "LIQUID_PARANOIA": ["ruby:crafted:JewelAttackDamage"],
-    "LIQUID_ENVY": ["ruby:crafted:JewelLifeCost"],
-    "LIQUID_DISGUST": ["ruby:crafted:JewelLifeRegeneration"],
-    "LIQUID_DESPAIR": ["ruby:crafted:JewelRageonHit"],
-    "CONCENTRATED_LIQUID_FEAR": ["ruby:crafted:JewelWarcrySpeed"],
-    "CONCENTRATED_LIQUID_SUFFERING": ["ruby:crafted:JewelMaximumRage"],
+    "DILUTED_LIQUID_IRE": [
+      "ruby:crafted:JewelArmour"
+    ],
+    "DILUTED_LIQUID_GUILT": [
+      "ruby:crafted:JewelFireDamage"
+    ],
+    "DILUTED_LIQUID_GREED": [
+      "ruby:crafted:JewelPhysicalDamage"
+    ],
+    "LIQUID_PARANOIA": [
+      "ruby:crafted:JewelAttackDamage"
+    ],
+    "LIQUID_ENVY": [
+      "ruby:crafted:JewelLifeCost"
+    ],
+    "LIQUID_DISGUST": [
+      "ruby:crafted:JewelLifeRegeneration"
+    ],
+    "LIQUID_DESPAIR": [
+      "ruby:crafted:JewelRageonHit"
+    ],
+    "CONCENTRATED_LIQUID_FEAR": [
+      "ruby:crafted:JewelWarcrySpeed"
+    ],
+    "CONCENTRATED_LIQUID_SUFFERING": [
+      "ruby:crafted:JewelMaximumRage"
+    ],
     "CONCENTRATED_LIQUID_ISOLATION": [
       "ruby:crafted:JewelMaximumFireResistance"
     ],
@@ -25,15 +43,33 @@
     ]
   },
   "emerald": {
-    "DILUTED_LIQUID_IRE": ["emerald:crafted:JewelEvasion"],
-    "DILUTED_LIQUID_GUILT": ["emerald:crafted:JewelLightningDamage"],
-    "DILUTED_LIQUID_GREED": ["emerald:crafted:JewelElementalDamage"],
-    "LIQUID_PARANOIA": ["emerald:crafted:JewelAttackSpeed"],
-    "LIQUID_ENVY": ["emerald:crafted:JewelCooldownSpeed"],
-    "LIQUID_DISGUST": ["emerald:crafted:JewelLifeonKill"],
-    "LIQUID_DESPAIR": ["emerald:crafted:JewelAttackCriticalChance"],
-    "CONCENTRATED_LIQUID_FEAR": ["emerald:crafted:JewelAttackCriticalDamage"],
-    "CONCENTRATED_LIQUID_SUFFERING": ["emerald:crafted:JewelMovementSpeed"],
+    "DILUTED_LIQUID_IRE": [
+      "emerald:crafted:JewelEvasion"
+    ],
+    "DILUTED_LIQUID_GUILT": [
+      "emerald:crafted:JewelLightningDamage"
+    ],
+    "DILUTED_LIQUID_GREED": [
+      "emerald:crafted:JewelElementalDamage"
+    ],
+    "LIQUID_PARANOIA": [
+      "emerald:crafted:JewelAttackSpeed"
+    ],
+    "LIQUID_ENVY": [
+      "emerald:crafted:JewelCooldownSpeed"
+    ],
+    "LIQUID_DISGUST": [
+      "emerald:crafted:JewelLifeonKill"
+    ],
+    "LIQUID_DESPAIR": [
+      "emerald:crafted:JewelAttackCriticalChance"
+    ],
+    "CONCENTRATED_LIQUID_FEAR": [
+      "emerald:crafted:JewelAttackCriticalDamage"
+    ],
+    "CONCENTRATED_LIQUID_SUFFERING": [
+      "emerald:crafted:JewelMovementSpeed"
+    ],
     "CONCENTRATED_LIQUID_ISOLATION": [
       "emerald:crafted:JewelMaximumLightningResistance"
     ],
@@ -63,15 +99,33 @@
     ]
   },
   "sapphire": {
-    "DILUTED_LIQUID_IRE": ["sapphire:crafted:JewelEnergyShield"],
-    "DILUTED_LIQUID_GUILT": ["sapphire:crafted:JewelColdDamage"],
-    "DILUTED_LIQUID_GREED": ["sapphire:crafted:JewelChaosDamage"],
-    "LIQUID_PARANOIA": ["sapphire:crafted:JewelCastSpeed"],
-    "LIQUID_ENVY": ["sapphire:crafted:JewelSpellDamage"],
-    "LIQUID_DISGUST": ["sapphire:crafted:JewelManaonKill"],
-    "LIQUID_DESPAIR": ["sapphire:crafted:JewelSpellCriticalChance"],
-    "CONCENTRATED_LIQUID_FEAR": ["sapphire:crafted:JewelSpellCriticalDamage"],
-    "CONCENTRATED_LIQUID_SUFFERING": ["sapphire:crafted:JewelAreaofEffect"],
+    "DILUTED_LIQUID_IRE": [
+      "sapphire:crafted:JewelEnergyShield"
+    ],
+    "DILUTED_LIQUID_GUILT": [
+      "sapphire:crafted:JewelColdDamage"
+    ],
+    "DILUTED_LIQUID_GREED": [
+      "sapphire:crafted:JewelChaosDamage"
+    ],
+    "LIQUID_PARANOIA": [
+      "sapphire:crafted:JewelCastSpeed"
+    ],
+    "LIQUID_ENVY": [
+      "sapphire:crafted:JewelSpellDamage"
+    ],
+    "LIQUID_DISGUST": [
+      "sapphire:crafted:JewelManaonKill"
+    ],
+    "LIQUID_DESPAIR": [
+      "sapphire:crafted:JewelSpellCriticalChance"
+    ],
+    "CONCENTRATED_LIQUID_FEAR": [
+      "sapphire:crafted:JewelSpellCriticalDamage"
+    ],
+    "CONCENTRATED_LIQUID_SUFFERING": [
+      "sapphire:crafted:JewelAreaofEffect"
+    ],
     "CONCENTRATED_LIQUID_ISOLATION": [
       "sapphire:crafted:JewelMaximumColdResistance"
     ],
@@ -88,7 +142,9 @@
     ]
   },
   "time-lost-ruby": {
-    "ANCIENT_DILUTED_LIQUID_IRE": ["time-lost-ruby:crafted:JewelRadiusArmour"],
+    "ANCIENT_DILUTED_LIQUID_IRE": [
+      "time-lost-ruby:crafted:JewelRadiusArmour"
+    ],
     "ANCIENT_DILUTED_LIQUID_GUILT": [
       "time-lost-ruby:crafted:JewelRadiusFireDamage"
     ],
@@ -98,11 +154,15 @@
     "ANCIENT_LIQUID_PARANOIA": [
       "time-lost-ruby:crafted:JewelRadiusAttackDamage"
     ],
-    "ANCIENT_LIQUID_ENVY": ["time-lost-ruby:crafted:JewelRadiusLifeCost"],
+    "ANCIENT_LIQUID_ENVY": [
+      "time-lost-ruby:crafted:JewelRadiusLifeCost"
+    ],
     "ANCIENT_LIQUID_DISGUST": [
       "time-lost-ruby:crafted:JewelRadiusLifeRegeneration"
     ],
-    "ANCIENT_LIQUID_DESPAIR": ["time-lost-ruby:crafted:JewelRadiusRageonHit"],
+    "ANCIENT_LIQUID_DESPAIR": [
+      "time-lost-ruby:crafted:JewelRadiusRageonHit"
+    ],
     "ANCIENT_CONCENTRATED_LIQUID_FEAR": [
       "time-lost-ruby:crafted:JewelRadiusWarcrySpeed"
     ],

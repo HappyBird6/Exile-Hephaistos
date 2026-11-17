@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "families": {
+    "body": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": false,
+      "socketExecutionMaximum": 3,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "helmet": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": false,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "helmets": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": false,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "gloves": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": false,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "boots": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": false,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "bows": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 3,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    },
+    "rings": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": true,
+      "refinedCatalyst": false,
+      "catalystQuality": true,
+      "maximumQualityBreach": true,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": null,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "amulets": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": true,
+      "refinedCatalyst": false,
+      "catalystQuality": true,
+      "maximumQualityBreach": true,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": null,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "sceptres": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": false,
+      "socketExecutionMaximum": null,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "wands": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": false,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "belts": {
+      "qualityLimit": false,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": null,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "crossbows": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 3,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    },
+    "shields": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    },
+    "bucklers": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    },
+    "foci": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": null,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    },
+    "quivers": {
+      "qualityLimit": false,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": null,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "one-hand-maces": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    },
+    "two-hand-maces": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 3,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    },
+    "quarterstaves": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 3,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    },
+    "spears": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    },
+    "staves": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 3,
+      "divine": true,
+      "sourcePropertyUnscaled": false
+    },
+    "talismans": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "initializeImplicit": true,
+      "socketExecutionMaximum": 3,
+      "divine": true,
+      "sourcePropertyUnscaled": true
+    }
+  },
+  "baseOverrides": {
+    "soldier": {},
+    "imperial": {},
+    "jade-amulet": {
+      "initializeImplicit": true
+    },
+    "lapis-amulet": {
+      "initializeImplicit": true
+    },
+    "gold-amulet": {
+      "initializeImplicit": true
+    },
+    "twisted-amulet": {
+      "initializeImplicit": true
+    },
+    "distorted-amulet": {
+      "initializeImplicit": true
+    },
+    "absent-amulet": {
+      "initializeImplicit": true
+    },
+    "portent-amulet": {
+      "initializeImplicit": true
+    },
+    "lament-amulet": {
+      "initializeImplicit": true
+    },
+    "dusk-amulet": {
+      "initializeImplicit": true,
+      "rareOnly": true
+    },
+    "penumbra-amulet": {
+      "initializeImplicit": true,
+      "rareOnly": true
+    },
+    "gloam-amulet": {
+      "initializeImplicit": true,
+      "rareOnly": true
+    },
+    "corona-amulet": {
+      "initializeImplicit": true,
+      "rareOnly": true
+    },
+    "tenebrous-amulet": {
+      "initializeImplicit": true,
+      "rareOnly": true
+    },
+    "lazuli-ring": {
+      "initializeImplicit": true
+    },
+    "sapphire-ring": {
+      "initializeImplicit": true
+    },
+    "topaz-ring": {
+      "initializeImplicit": true
+    },
+    "emerald-ring": {
+      "initializeImplicit": true
+    },
+    "gold-ring": {
+      "initializeImplicit": true
+    },
+    "unset-ring": {
+      "initializeImplicit": true
+    },
+    "utzaal-cuirass": {
+      "initializeImplicit": true
+    },
+    "abyssal-cuirass": {
+      "initializeImplicit": true
+    },
+    "warlord-cuirass": {
+      "initializeImplicit": true
+    },
+    "mail-coat": {
+      "initializeImplicit": true
+    },
+    "wyrmscale-coat": {
+      "initializeImplicit": true
+    },
+    "corsair-coat": {
+      "initializeImplicit": true
+    },
+    "flowing-raiment": {
+      "initializeImplicit": true
+    },
+    "sacramental-robe": {
+      "initializeImplicit": true
+    },
+    "feathered-raiment": {
+      "initializeImplicit": true
+    },
+    "dastard-armour": {
+      "initializeImplicit": true
+    },
+    "shrouded-mail-fire": {
+      "initializeImplicit": true
+    },
+    "shrouded-mail-cold": {
+      "initializeImplicit": true
+    },
+    "shrouded-mail-lightning": {
+      "initializeImplicit": true
+    },
+    "thane-mail": {
+      "initializeImplicit": true
+    },
+    "death-mantle": {
+      "initializeImplicit": true
+    },
+    "conjurer-mantle": {
+      "initializeImplicit": true
+    },
+    "seastorm-mantle": {
+      "initializeImplicit": true
+    },
+    "rambler-jacket": {
+      "initializeImplicit": true
+    },
+    "falconers-jacket": {
+      "initializeImplicit": true
+    },
+    "austere-garb": {
+      "initializeImplicit": true
+    },
+    "kinetic": {
+      "newSelection": false
+    },
+    "mnemonic": {
+      "newSelection": false
+    },
+    "vitalic": {
+      "newSelection": false
+    },
+    "two-stone-fire-cold": {
+      "newSelection": false
+    },
+    "sinew-belt": {
+      "rareOnly": true
+    },
+    "invoking-belt": {
+      "rareOnly": true
+    },
+    "forking-belt": {
+      "rareOnly": true
+    },
+    "biostatic-ring": {
+      "initializeImplicit": true
+    },
+    "oneiric-ring": {
+      "initializeImplicit": true
+    },
+    "dusk-ring": {
+      "initializeImplicit": true
+    },
+    "gloam-ring": {
+      "initializeImplicit": true
+    },
+    "penumbra-ring": {
+      "initializeImplicit": true
+    },
+    "tenebrous-ring": {
+      "initializeImplicit": true
+    }
+  },
+  "legacy": {
+    "solar": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": true,
+      "refinedCatalyst": false,
+      "catalystQuality": true,
+      "maximumQualityBreach": true,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "stocky": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "itemClass": "Gloves"
+    },
+    "bow": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": 3,
+      "divine": true,
+      "itemClass": "Bows"
+    },
+    "wand": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "itemClass": "Wands"
+    },
+    "body": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": 3,
+      "divine": true,
+      "itemClass": "Body Armours"
+    },
+    "sceptre": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "belt": {
+      "qualityLimit": false,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "helmet": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": 2,
+      "divine": true,
+      "itemClass": "Helmets"
+    },
+    "ring": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": true,
+      "refinedCatalyst": false,
+      "catalystQuality": true,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "ruby": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": true,
+      "catalystQuality": true,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "emerald": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": true,
+      "catalystQuality": true,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "sapphire": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": true,
+      "catalystQuality": true,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "diamond": {
+      "qualityLimit": true,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": true,
+      "catalystQuality": true,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "time-lost-ruby": {
+      "qualityLimit": false,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "time-lost-emerald": {
+      "qualityLimit": false,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "time-lost-sapphire": {
+      "qualityLimit": false,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    },
+    "time-lost-diamond": {
+      "qualityLimit": false,
+      "ordinaryCatalyst": false,
+      "refinedCatalyst": false,
+      "catalystQuality": false,
+      "maximumQualityBreach": false,
+      "socketExecutionMaximum": null,
+      "divine": true
+    }
+  }
+}

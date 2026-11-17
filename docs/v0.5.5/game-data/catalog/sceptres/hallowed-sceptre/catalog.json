@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-hallowed-20261004-8ca6fdcb44534c26",
     "retrievedAt": "2026-10-04T23:03:38.376Z",
-    "sourceUrl": "https://poe2db.tw/us/Sceptres",
+    "sourceRef": "src2241",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "8042c018040e987be4046c5ce49fa3690b2e3ad6718f63013f2669f80f0f92f5",
     "detailsSha256": "6ba177b547bdaf4caf53a7fbd7189b1b0f0803e793e580ee7272b55514828143"
-  },
-  "base": {
-    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
-    "name": "Hallowed Sceptre",
-    "sourceUrl": "https://poe2db.tw/us/Hallowed_Sceptre",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": []

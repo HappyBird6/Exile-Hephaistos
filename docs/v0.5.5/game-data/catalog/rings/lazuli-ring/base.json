@@ -1,0 +1,48 @@
+{
+  "id": "Metadata/Items/Rings/FourRing2",
+  "sourceRef": "src1075",
+  "implicitModifierId": "lazuli-ring:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "lazuli-ring",
+    "slug": "Lazuli_Ring",
+    "family": "rings",
+    "sourceSha256": "cb9bc60bccda997b4617756aaa01288d518055129618e9d2720b728d2318b277",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_maximum_mana",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_maximum_mana",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 130
+  }
+}

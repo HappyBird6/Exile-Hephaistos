@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-war-wraps-published-20261109-5e5fc15fd3892d2a",
     "retrievedAt": "2026-10-04T17:08:38.191Z",
-    "sourceUrl": "https://poe2db.tw/us/Gloves_dex_int",
+    "sourceRef": "src2226",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "1c11531498f4aa683b79b8c44b2e560e25ea69f4ae978c0db89e4278f39719ff",
     "detailsSha256": "acac37bfaeeb182634f8888f15c9bd6626fc20d7b8e84b0439ed8958d6428144"
-  },
-  "base": {
-    "id": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
-    "name": "War Wraps",
-    "sourceUrl": "https://poe2db.tw/us/War_Wraps",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "war-wraps-snapshot",
   "implicitModifiers": []

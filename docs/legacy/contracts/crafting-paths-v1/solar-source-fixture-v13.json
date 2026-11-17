@@ -1,0 +1,123 @@
+{
+  "version": 1,
+  "synthetic": false,
+  "verification": "SOURCE_CONTRACT_ORACLE_ONLY_NOT_PATH_SEARCH_RUNTIME_VERIFIED",
+  "baselineCommit": "278b3789426eda71b03ce20c095e12a27c106240",
+  "sources": [
+    {
+      "path": "catalog/solar-amulet/catalog.json",
+      "sha256": "5562c61495b012e67566417aaa60e0e2cb569ca28515a74e970ca0fd9a16dfe8"
+    },
+    {
+      "path": "crafting/ruleset-v1.json",
+      "sha256": "8575081bac74860a10ee623a78a73c788f4f804f6e72040f530c2b80fa3f07c5"
+    },
+    {
+      "path": "crafting/goalfilter/definitions-v1.json",
+      "sha256": "2f82aede35201999e31b84304b008f54c113b9f1909d148c483795f0a7ee4189"
+    }
+  ],
+  "rulesetIdentity": "reviewed-equipment-0.5.5-v13-dd63a81d9a4bf39da2b24b89449828f5f397a0826b5fa6499a05d84d79ff9397",
+  "gameSeason": "UNVERIFIED",
+  "gamePatch": "UNVERIFIED",
+  "startItem": {
+    "snapshotId": "poe2db-amulets-base-2026-09-29-a4f439852790",
+    "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+    "itemLevel": 82,
+    "rarity": "RARE",
+    "implicits": [
+      {
+        "modifierId": "solar-amulet:implicit:spirit",
+        "values": {
+          "base_spirit_from_equipment": 10
+        },
+        "fractured": false
+      }
+    ],
+    "explicits": [
+      {
+        "modifierId": "amulet:suffix:of-the-seal",
+        "values": {
+          "base_cold_damage_resistance_%": 6
+        },
+        "fractured": false
+      }
+    ],
+    "conditions": [],
+    "augmentSockets": null,
+    "catalystQuality": null
+  },
+  "goalTemplate": {
+    "version": 1,
+    "catalogVersion": "BIND_FROM_CURRENT_GOAL_CATALOG_RESPONSE",
+    "general": {
+      "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
+      "itemLevel": {
+        "min": 1,
+        "max": 100
+      },
+      "rarities": [
+        "RARE"
+      ]
+    },
+    "groups": [
+      {
+        "id": "g1",
+        "type": "AND",
+        "disabled": false,
+        "range": null,
+        "entries": [
+          {
+            "id": "e1",
+            "statId": "hephaistos:v1:explicit:base_cold_damage_resistance_%",
+            "unit": "percent",
+            "range": {
+              "min": 20,
+              "max": null
+            },
+            "weight": null,
+            "disabled": false
+          }
+        ]
+      }
+    ]
+  },
+  "runtimeBindings": [
+    "start.provenance from current basic-paths/provenance; identity must equal this pinned ruleset",
+    "startItem is the pinned ordinary source oracle, not a directly executable loadDefault item; preserve it unchanged",
+    "For runtime acceptance only, construct a separate current-snapshot item from the current Solar catalog/initial response after checking the pinned ruleset, base, ordinary source compatibility and exact modifier definitions/rolls; preserve every field except the explicitly bound snapshotId",
+    "Use the separate current-snapshot item context to fetch the goal catalog; compatibleSnapshotIds alone does not authorize product input migration or bypass ItemStateValidator",
+    "goal.catalogVersion from matching current goal catalog; never send the template marker"
+  ],
+  "modelOracle": {
+    "action": "CHAOS",
+    "mode": "REPEAT_CYCLE",
+    "eligibleModifierCount": 209,
+    "eligibleTotalWeight": "168856",
+    "oneStepSuccess": {
+      "numerator": "650",
+      "denominator": "21107"
+    },
+    "target": "Explicit Cold Resistance >= 20 (not pseudo total)",
+    "assumptions": [
+      "POE2DB_AS_PUBLISHED modifier selection weights",
+      "uniform-integer-roll-v1 single-stat source integer rolls",
+      "Rare one nonfractured explicit; removal returns identical empty-explicit state"
+    ],
+    "observationFormula": "1 - (1-p)^n",
+    "observations": [
+      "100",
+      "300",
+      "500"
+    ],
+    "existingNumericRenewalSupport": false
+  },
+  "requiredRuntimeAcceptance": [
+    "Keep a rejection regression for submitting the unchanged ordinary source snapshot against the extended current catalog (SNAPSHOT_MISMATCH); never silently relabel product inputs",
+    "Verify the separate runtime fixture has the same base, level, rarity, modifier IDs, source rolls, conditions, socket and quality as startItem; only snapshotId is explicitly bound after compatibility checks",
+    "Compile the GoalFilter through the common predicate; do not translate into one modifier ID",
+    "Prove renewal for every eligible outcome and preserve all unrelated candidates",
+    "Compare actual new path-search output to this independent oracle before claiming runtime verification"
+  ],
+  "bindingNote": "Current ruleset digest bindings updated for additive reviewed goal units; the item and numeric oracle retain their historical baseline and are not a fresh runtime capture."
+}

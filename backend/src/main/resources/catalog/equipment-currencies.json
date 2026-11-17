@@ -61,8 +61,8 @@
       "stats": [
         {
           "id": "local_ward_+%",
-          "min": 24,
-          "max": 30
+          "max": 30,
+          "min": 24
         }
       ],
       "tags": [],
@@ -153,9 +153,9 @@
       "text": "60% increased effect of Socketed Augment Items",
       "stats": [
         {
-          "id": "local_socketed_items_effect_+%",
+          "max": 60,
           "min": 60,
-          "max": 60
+          "id": "local_socketed_items_effect_+%"
         }
       ],
       "tags": [],
@@ -176,8 +176,8 @@
       "stats": [
         {
           "id": "attack_speed_+%_while_missing_ward",
-          "min": 10,
-          "max": 15
+          "max": 15,
+          "min": 10
         }
       ],
       "tags": [],
@@ -197,9 +197,9 @@
       "text": "Remnants can be collected from (35—50)% further away",
       "stats": [
         {
+          "max": 50,
           "id": "remnant_pickup_range_+%",
-          "min": 35,
-          "max": 50
+          "min": 35
         }
       ],
       "tags": [],
@@ -221,8 +221,8 @@
       "stats": [
         {
           "id": "base_cast_speed_+%",
-          "min": 9,
-          "max": 12
+          "max": 12,
+          "min": 9
         }
       ],
       "tags": [
@@ -246,9 +246,9 @@
       "text": "(20—25)% increased Duration of Damaging Ailments on Enemies",
       "stats": [
         {
+          "max": 25,
           "id": "damaging_ailment_duration_+%",
-          "min": 20,
-          "max": 25
+          "min": 20
         }
       ],
       "tags": [
@@ -271,8 +271,8 @@
       "stats": [
         {
           "id": "reduce_enemy_elemental_resistance_%",
-          "min": 9,
-          "max": 15
+          "max": 15,
+          "min": 9
         }
       ],
       "tags": [
@@ -296,9 +296,9 @@
       "text": "(10—15)% increased Area of Effect for Attacks",
       "stats": [
         {
+          "max": 15,
           "id": "attack_area_of_effect_+%",
-          "min": 10,
-          "max": 15
+          "min": 10
         }
       ],
       "tags": [
@@ -1185,31 +1185,6 @@
     }
   ],
   "targets": {
-    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-presence-area-of-effect1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-reduced-slow-potency1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:prefix:alloy-mana-cost-efficiency1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-archon-duration1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spell-area-of-effect1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
     "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame": {
       "ESSENCE_HORROR": [
         "stocky-mitts:suffix:essence-socketed-augment-effect"
@@ -1366,6 +1341,159 @@
         "stocky-mitts:prefix:alloy-local-runic-ward"
       ]
     },
+    "Metadata/Items/Armours/Boots/FourBootsStr6Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsDex6Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsInt6Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Gloves/FourGlovesStr1": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-remnant-pickup-range"
+      ],
+      "SWIFT_ALLOY": [
+        "stocky-mitts:suffix:alloy-cast-speed"
+      ],
+      "CYCLONIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+      ],
+      "PRISMATIC_ALLOY": [
+        "stocky-mitts:prefix:alloy-elemental-penetration"
+      ],
+      "MYSTIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-area-of-effect"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
     "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame": {
       "EXPANSIVE_ALLOY": [
         "equipment:prefix:alloy-mana-cost-efficiency1"
@@ -1486,108 +1614,6 @@
       ],
       "MYSTIC_ALLOY": [
         "equipment:suffix:alloy-spell-area-of-effect1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/Boots/FourBootsStr6Endgame": {
-      "ESSENCE_HORROR": [
-        "stocky-mitts:suffix:essence-socketed-augment-effect"
-      ],
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-temporary-minion-skill-limit1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-skill-effect-duration1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spirit-on-boots1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/Boots/FourBootsDex6Endgame": {
-      "ESSENCE_HORROR": [
-        "stocky-mitts:suffix:essence-socketed-augment-effect"
-      ],
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-temporary-minion-skill-limit1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-skill-effect-duration1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spirit-on-boots1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/Boots/FourBootsInt6Endgame": {
-      "ESSENCE_HORROR": [
-        "stocky-mitts:suffix:essence-socketed-augment-effect"
-      ],
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-temporary-minion-skill-limit1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-skill-effect-duration1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spirit-on-boots1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame": {
-      "ESSENCE_HORROR": [
-        "stocky-mitts:suffix:essence-socketed-augment-effect"
-      ],
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-temporary-minion-skill-limit1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-skill-effect-duration1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spirit-on-boots1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame": {
-      "ESSENCE_HORROR": [
-        "stocky-mitts:suffix:essence-socketed-augment-effect"
-      ],
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-temporary-minion-skill-limit1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-skill-effect-duration1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spirit-on-boots1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame": {
-      "ESSENCE_HORROR": [
-        "stocky-mitts:suffix:essence-socketed-augment-effect"
-      ],
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-temporary-minion-skill-limit1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-skill-effect-duration1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spirit-on-boots1"
       ],
       "SOVEREIGN_ALLOY": [
         "stocky-mitts:prefix:alloy-local-runic-ward"
@@ -3564,32 +3590,6 @@
       ],
       "SOVEREIGN_ALLOY": [
         "equipment:prefix:alloy-effect-of-resistance-mods1"
-      ]
-    },
-    "Metadata/Items/Armours/Gloves/FourGlovesStr1": {
-      "ESSENCE_HORROR": [
-        "stocky-mitts:suffix:essence-socketed-augment-effect"
-      ],
-      "ADAPTIVE_ALLOY": [
-        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
-      ],
-      "EXPANSIVE_ALLOY": [
-        "stocky-mitts:suffix:alloy-remnant-pickup-range"
-      ],
-      "SWIFT_ALLOY": [
-        "stocky-mitts:suffix:alloy-cast-speed"
-      ],
-      "CYCLONIC_ALLOY": [
-        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
-      ],
-      "PRISMATIC_ALLOY": [
-        "stocky-mitts:prefix:alloy-elemental-penetration"
-      ],
-      "MYSTIC_ALLOY": [
-        "stocky-mitts:suffix:alloy-attack-area-of-effect"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
       ]
     },
     "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1": {

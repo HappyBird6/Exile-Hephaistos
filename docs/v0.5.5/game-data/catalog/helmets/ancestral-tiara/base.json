@@ -1,0 +1,31 @@
+{
+  "id": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+  "sourceRef": "src2275",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "ancestral",
+    "slug": "Ancestral_Tiara",
+    "archetype": "int",
+    "family": "helmets",
+    "sourceSha256": "f825b78a8351ecd4749c00fe2906fcb3921be3910f70179db5431471df20a84e",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 109,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 115,
+    "maximumQuality": 20,
+    "evasion": 0,
+    "dexterity": 0,
+    "order": 16
+  }
+}

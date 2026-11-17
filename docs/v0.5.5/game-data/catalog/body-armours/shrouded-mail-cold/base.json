@@ -1,0 +1,51 @@
+{
+  "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+  "sourceRef": "src1480",
+  "implicitModifierId": "shrouded-mail-cold:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "shrouded-mail-cold",
+    "slug": "Shrouded_Mail_cold",
+    "family": "body",
+    "sourceSha256": "f242f64b5dff7696ffe89f1c0373685e5e8b378ebaa31199e25dfc3bb04975ae",
+    "sourceTags": [
+      "str_dex_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 273,
+    "evasion": 248,
+    "energyShield": 0,
+    "strength": 67,
+    "dexterity": 67,
+    "intelligence": 0,
+    "requiredLevel": 70,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_cold_damage_resistance_%",
+        "min": 20,
+        "max": 25
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_cold_damage_resistance_%",
+        "min": 20,
+        "max": 25,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "archetype": "str_dex",
+    "order": 147
+  }
+}

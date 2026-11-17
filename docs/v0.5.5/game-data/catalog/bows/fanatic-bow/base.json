@@ -1,0 +1,60 @@
+{
+  "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+  "sourceRef": "src0873",
+  "implicitModifierId": "fanatic-bow:implicit:weaponimplicitdamagetype",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "fanatic",
+    "slug": "Fanatic_Bow",
+    "family": "bows",
+    "sourceSha256": "f4a9c77fc31f73f220cd27c4c9fa198130574b60057e601a8d779dc0b07681c8",
+    "sourceTags": [
+      "bow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+        "min": 64,
+        "max": 64
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+        "min": 28,
+        "max": 28
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+        "min": 64,
+        "max": 64,
+        "locality": "Local"
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+        "min": 28,
+        "max": 28,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "47-79",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.2,
+    "order": 27
+  }
+}

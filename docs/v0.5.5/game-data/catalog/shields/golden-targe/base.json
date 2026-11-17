@@ -1,0 +1,40 @@
+{
+  "id": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+  "sourceRef": "src2290",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "golden-targe",
+    "slug": "Golden_Targe",
+    "family": "shields",
+    "sourceSha256": "ad5a20d37dddf50733c6101684f37f1c7f16ec9687d3f2c9461eabfa39b15609",
+    "sourceTags": [
+      "str_dex_armour",
+      "str_dex_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 145,
+    "evasion": 132,
+    "energyShield": 0,
+    "baseMovementSpeed": -0.015,
+    "blockChance": 25,
+    "strength": 63,
+    "dexterity": 63,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield",
+    "order": 81
+  }
+}

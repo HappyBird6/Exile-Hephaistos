@@ -1,0 +1,41 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmulet7",
+  "sourceRef": "src0468",
+  "implicitModifierId": "bloodstone:implicit:increasedlife",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "bloodstone",
+    "slug": "Bloodstone_Amulet",
+    "family": "amulets",
+    "sourceSha256": "92c27288fc1160bd78016acddd0ec79b52167056ebd96080a416fefc5f7913a1",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 18,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_maximum_life",
+        "min": 30,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_maximum_life",
+        "min": 30,
+        "max": 40,
+        "locality": "Global"
+      }
+    ],
+    "order": 39
+  }
+}

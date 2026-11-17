@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Jewels/JewelRadiusInt",
+  "sourceRef": "src1891",
+  "implicitModifierId": "time-lost-sapphire:implicit:base-radius",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 2,
+  "legacy": {
+    "key": "time-lost-sapphire",
+    "slug": "Time-Lost Sapphire",
+    "order": 15
+  }
+}

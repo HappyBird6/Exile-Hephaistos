@@ -1,0 +1,3567 @@
+{
+  "definitions": {
+    "belt:suffix:essence-hysteria-stun-threshold": {
+      "id": "belt:suffix:essence-hysteria-stun-threshold",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 254,
+          "max": 304
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0438"
+    },
+    "double-belt:implicit:base": {
+      "id": "double-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src0845"
+    },
+    "fine-belt:implicit:base": {
+      "id": "fine-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "FlaskChargeGeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "generate_x_charges_for_any_flask_per_minute",
+          "min": 10,
+          "max": 10
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0876"
+    },
+    "forking-belt:implicit:base": {
+      "id": "forking-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "LightningDamage",
+        "AdditionalCharm"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 20,
+          "max": 30
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_charm_slots",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack",
+        "charm"
+      ],
+      "sourceRef": "src0881"
+    },
+    "heavy-belt:implicit:base": {
+      "id": "heavy-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedStunThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "stun_threshold_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0912"
+    },
+    "invoking-belt:implicit:base": {
+      "id": "invoking-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedCastSpeed",
+        "AdditionalCharm"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 8,
+          "max": 12
+        },
+        {
+          "id": "local_charm_slots",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed",
+        "charm"
+      ],
+      "sourceRef": "src0913"
+    },
+    "linen-belt:implicit:base": {
+      "id": "linen-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BeltFlaskRecovery"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "flask_mana_to_recover_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1076"
+    },
+    "long-belt:implicit:base": {
+      "id": "long-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1077"
+    },
+    "mail-belt:implicit:base": {
+      "id": "mail-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -15,
+          "max": -10
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1079"
+    },
+    "ornate-belt:implicit:base": {
+      "id": "ornate-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -15,
+          "max": -10
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1135"
+    },
+    "plate-belt:implicit:base": {
+      "id": "plate-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 140,
+          "max": 180
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1141"
+    },
+    "rawhide-belt:implicit:base": {
+      "id": "rawhide-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BeltFlaskRecovery"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "flask_life_to_recover_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1306"
+    },
+    "rawhide-belt:prefix:abating": {
+      "id": "rawhide-belt:prefix:abating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 268,
+          "max": 311
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1307"
+    },
+    "rawhide-belt:prefix:affecting": {
+      "id": "rawhide-belt:prefix:affecting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 800,
+      "tier": 11,
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1308"
+    },
+    "rawhide-belt:prefix:aqua": {
+      "id": "rawhide-belt:prefix:aqua",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 65,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0253"
+    },
+    "rawhide-belt:prefix:athlete-s": {
+      "id": "rawhide-belt:prefix:athlete-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 120,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1309"
+    },
+    "rawhide-belt:prefix:azure": {
+      "id": "rawhide-belt:prefix:azure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0257"
+    },
+    "rawhide-belt:prefix:barbed": {
+      "id": "rawhide-belt:prefix:barbed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 19,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 17,
+          "max": 23
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceRef": "src1310"
+    },
+    "rawhide-belt:prefix:beryl": {
+      "id": "rawhide-belt:prefix:beryl",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0258"
+    },
+    "rawhide-belt:prefix:carapaced": {
+      "id": "rawhide-belt:prefix:carapaced",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 141,
+          "max": 186
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1311"
+    },
+    "rawhide-belt:prefix:cerulean": {
+      "id": "rawhide-belt:prefix:cerulean",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0266"
+    },
+    "rawhide-belt:prefix:chalybeous": {
+      "id": "rawhide-belt:prefix:chalybeous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 105,
+          "max": 124
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0267"
+    },
+    "rawhide-belt:prefix:cobalt": {
+      "id": "rawhide-belt:prefix:cobalt",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 15,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0270"
+    },
+    "rawhide-belt:prefix:conservative": {
+      "id": "rawhide-belt:prefix:conservative",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 4,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1312"
+    },
+    "rawhide-belt:prefix:edged": {
+      "id": "rawhide-belt:prefix:edged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 98,
+          "max": 145
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 64,
+          "max": 97
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceRef": "src1313"
+    },
+    "rawhide-belt:prefix:encased": {
+      "id": "rawhide-belt:prefix:encased",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 187,
+          "max": 225
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1314"
+    },
+    "rawhide-belt:prefix:enveloped": {
+      "id": "rawhide-belt:prefix:enveloped",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 226,
+          "max": 267
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1315"
+    },
+    "rawhide-belt:prefix:exciting": {
+      "id": "rawhide-belt:prefix:exciting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 23,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1316"
+    },
+    "rawhide-belt:prefix:fecund": {
+      "id": "rawhide-belt:prefix:fecund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 150,
+          "max": 174
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1317"
+    },
+    "rawhide-belt:prefix:fortified": {
+      "id": "rawhide-belt:prefix:fortified",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 69,
+          "max": 107
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1318"
+    },
+    "rawhide-belt:prefix:galvanizing": {
+      "id": "rawhide-belt:prefix:galvanizing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 29,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1319"
+    },
+    "rawhide-belt:prefix:gentian": {
+      "id": "rawhide-belt:prefix:gentian",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0285"
+    },
+    "rawhide-belt:prefix:hale": {
+      "id": "rawhide-belt:prefix:hale",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0960"
+    },
+    "rawhide-belt:prefix:healthy": {
+      "id": "rawhide-belt:prefix:healthy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0961"
+    },
+    "rawhide-belt:prefix:heartening": {
+      "id": "rawhide-belt:prefix:heartening",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 17,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1320"
+    },
+    "rawhide-belt:prefix:innovative": {
+      "id": "rawhide-belt:prefix:innovative",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 22,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1321"
+    },
+    "rawhide-belt:prefix:inspiring": {
+      "id": "rawhide-belt:prefix:inspiring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 35,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1322"
+    },
+    "rawhide-belt:prefix:jagged": {
+      "id": "rawhide-belt:prefix:jagged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 152,
+          "max": 220
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 101,
+          "max": 151
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceRef": "src1323"
+    },
+    "rawhide-belt:prefix:lacquered": {
+      "id": "rawhide-belt:prefix:lacquered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 12,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1324"
+    },
+    "rawhide-belt:prefix:opalescent": {
+      "id": "rawhide-belt:prefix:opalescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0303"
+    },
+    "rawhide-belt:prefix:plated": {
+      "id": "rawhide-belt:prefix:plated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 108,
+          "max": 140
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1325"
+    },
+    "rawhide-belt:prefix:pointed": {
+      "id": "rawhide-belt:prefix:pointed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 36,
+          "max": 53
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 24,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceRef": "src1326"
+    },
+    "rawhide-belt:prefix:progressive": {
+      "id": "rawhide-belt:prefix:progressive",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 16,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1327"
+    },
+    "rawhide-belt:prefix:recovering": {
+      "id": "rawhide-belt:prefix:recovering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 800,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1328"
+    },
+    "rawhide-belt:prefix:refreshing": {
+      "id": "rawhide-belt:prefix:refreshing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 23,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1329"
+    },
+    "rawhide-belt:prefix:regenerating": {
+      "id": "rawhide-belt:prefix:regenerating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 35,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1330"
+    },
+    "rawhide-belt:prefix:rejuvenating": {
+      "id": "rawhide-belt:prefix:rejuvenating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 29,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1331"
+    },
+    "rawhide-belt:prefix:renewing": {
+      "id": "rawhide-belt:prefix:renewing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 17,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1332"
+    },
+    "rawhide-belt:prefix:restoring": {
+      "id": "rawhide-belt:prefix:restoring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 12,
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1333"
+    },
+    "rawhide-belt:prefix:revolutionary": {
+      "id": "rawhide-belt:prefix:revolutionary",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 28,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1334"
+    },
+    "rawhide-belt:prefix:ribbed": {
+      "id": "rawhide-belt:prefix:ribbed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 52,
+          "max": 68
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1335"
+    },
+    "rawhide-belt:prefix:robust": {
+      "id": "rawhide-belt:prefix:robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0981"
+    },
+    "rawhide-belt:prefix:rotund": {
+      "id": "rawhide-belt:prefix:rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0982"
+    },
+    "rawhide-belt:prefix:sanguine": {
+      "id": "rawhide-belt:prefix:sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0983"
+    },
+    "rawhide-belt:prefix:spiked": {
+      "id": "rawhide-belt:prefix:spiked",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 61,
+          "max": 92
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceRef": "src1336"
+    },
+    "rawhide-belt:prefix:spiny": {
+      "id": "rawhide-belt:prefix:spiny",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceRef": "src1337"
+    },
+    "rawhide-belt:prefix:stalwart": {
+      "id": "rawhide-belt:prefix:stalwart",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 40,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0994"
+    },
+    "rawhide-belt:prefix:stirring": {
+      "id": "rawhide-belt:prefix:stirring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 800,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src1338"
+    },
+    "rawhide-belt:prefix:stout": {
+      "id": "rawhide-belt:prefix:stout",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0996"
+    },
+    "rawhide-belt:prefix:studded": {
+      "id": "rawhide-belt:prefix:studded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 23,
+          "max": 51
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1339"
+    },
+    "rawhide-belt:prefix:teal": {
+      "id": "rawhide-belt:prefix:teal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 35,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0322"
+    },
+    "rawhide-belt:prefix:thorny": {
+      "id": "rawhide-belt:prefix:thorny",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceRef": "src1340"
+    },
+    "rawhide-belt:prefix:transformative": {
+      "id": "rawhide-belt:prefix:transformative",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1341"
+    },
+    "rawhide-belt:prefix:unmoving": {
+      "id": "rawhide-belt:prefix:unmoving",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 312,
+          "max": 351
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1342"
+    },
+    "rawhide-belt:prefix:virile": {
+      "id": "rawhide-belt:prefix:virile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1002"
+    },
+    "rawhide-belt:suffix:essence-fire-damage-recouped-as-life": {
+      "id": "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireDamageTakenRecoupedAsLife"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "fire_damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "elemental",
+        "fire"
+      ],
+      "sourceRef": "src1343"
+    },
+    "rawhide-belt:suffix:of-abundance": {
+      "id": "rawhide-belt:suffix:of-abundance",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 35,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1344"
+    },
+    "rawhide-belt:suffix:of-adamantite-skin": {
+      "id": "rawhide-belt:suffix:of-adamantite-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 164,
+          "max": 206
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1345"
+    },
+    "rawhide-belt:suffix:of-austerity": {
+      "id": "rawhide-belt:suffix:of-austerity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 3,
+      "weight": 800,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -10,
+          "max": -8
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1346"
+    },
+    "rawhide-belt:suffix:of-bameth": {
+      "id": "rawhide-belt:suffix:of-bameth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 250,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1006"
+    },
+    "rawhide-belt:suffix:of-banishment": {
+      "id": "rawhide-belt:suffix:of-banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 250,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1007"
+    },
+    "rawhide-belt:suffix:of-bounty": {
+      "id": "rawhide-belt:suffix:of-bounty",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 23,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1347"
+    },
+    "rawhide-belt:suffix:of-brimming": {
+      "id": "rawhide-belt:suffix:of-brimming",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 29,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1348"
+    },
+    "rawhide-belt:suffix:of-convalescence": {
+      "id": "rawhide-belt:suffix:of-convalescence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 786,
+          "max": 1080
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1008"
+    },
+    "rawhide-belt:suffix:of-corundum-skin": {
+      "id": "rawhide-belt:suffix:of-corundum-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 207,
+          "max": 253
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1349"
+    },
+    "rawhide-belt:suffix:of-economy": {
+      "id": "rawhide-belt:suffix:of-economy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -22,
+          "max": -20
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1350"
+    },
+    "rawhide-belt:suffix:of-ephij": {
+      "id": "rawhide-belt:suffix:of-ephij",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1009"
+    },
+    "rawhide-belt:suffix:of-eviction": {
+      "id": "rawhide-belt:suffix:of-eviction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 250,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1010"
+    },
+    "rawhide-belt:suffix:of-exile": {
+      "id": "rawhide-belt:suffix:of-exile",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 250,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1011"
+    },
+    "rawhide-belt:suffix:of-expulsion": {
+      "id": "rawhide-belt:suffix:of-expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 250,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1013"
+    },
+    "rawhide-belt:suffix:of-fertility": {
+      "id": "rawhide-belt:suffix:of-fertility",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 32,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 17,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1351"
+    },
+    "rawhide-belt:suffix:of-frugality": {
+      "id": "rawhide-belt:suffix:of-frugality",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -13,
+          "max": -11
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1352"
+    },
+    "rawhide-belt:suffix:of-granite-skin": {
+      "id": "rawhide-belt:suffix:of-granite-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 98,
+          "max": 124
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1353"
+    },
+    "rawhide-belt:suffix:of-haast": {
+      "id": "rawhide-belt:suffix:of-haast",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1014"
+    },
+    "rawhide-belt:suffix:of-imbibing": {
+      "id": "rawhide-belt:suffix:of-imbibing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -13,
+          "max": -11
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1354"
+    },
+    "rawhide-belt:suffix:of-iron-skin": {
+      "id": "rawhide-belt:suffix:of-iron-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 800,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 50,
+          "max": 72
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1355"
+    },
+    "rawhide-belt:suffix:of-magma": {
+      "id": "rawhide-belt:suffix:of-magma",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1016"
+    },
+    "rawhide-belt:suffix:of-nourishing": {
+      "id": "rawhide-belt:suffix:of-nourishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -25,
+          "max": -23
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1356"
+    },
+    "rawhide-belt:suffix:of-obsidian-skin": {
+      "id": "rawhide-belt:suffix:of-obsidian-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 254,
+          "max": 304
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0438"
+    },
+    "rawhide-belt:suffix:of-overflowing": {
+      "id": "rawhide-belt:suffix:of-overflowing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 35,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1357"
+    },
+    "rawhide-belt:suffix:of-platinum-skin": {
+      "id": "rawhide-belt:suffix:of-platinum-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 125,
+          "max": 163
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1358"
+    },
+    "rawhide-belt:suffix:of-plenty": {
+      "id": "rawhide-belt:suffix:of-plenty",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 800,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1359"
+    },
+    "rawhide-belt:suffix:of-pouring": {
+      "id": "rawhide-belt:suffix:of-pouring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 23,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1360"
+    },
+    "rawhide-belt:suffix:of-recuperation": {
+      "id": "rawhide-belt:suffix:of-recuperation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1086,
+          "max": 1380
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1361"
+    },
+    "rawhide-belt:suffix:of-refilling": {
+      "id": "rawhide-belt:suffix:of-refilling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 800,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1362"
+    },
+    "rawhide-belt:suffix:of-reinforced-skin": {
+      "id": "rawhide-belt:suffix:of-reinforced-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 800,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 12,
+          "max": 29
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1363"
+    },
+    "rawhide-belt:suffix:of-relishing": {
+      "id": "rawhide-belt:suffix:of-relishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -16,
+          "max": -14
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1364"
+    },
+    "rawhide-belt:suffix:of-replenishing": {
+      "id": "rawhide-belt:suffix:of-replenishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 32,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 17,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1365"
+    },
+    "rawhide-belt:suffix:of-restocking": {
+      "id": "rawhide-belt:suffix:of-restocking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1366"
+    },
+    "rawhide-belt:suffix:of-restraint": {
+      "id": "rawhide-belt:suffix:of-restraint",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -19,
+          "max": -17
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1367"
+    },
+    "rawhide-belt:suffix:of-resurgence": {
+      "id": "rawhide-belt:suffix:of-resurgence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1386,
+          "max": 1740
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1368"
+    },
+    "rawhide-belt:suffix:of-reveling": {
+      "id": "rawhide-belt:suffix:of-reveling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -22,
+          "max": -20
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1369"
+    },
+    "rawhide-belt:suffix:of-savouring": {
+      "id": "rawhide-belt:suffix:of-savouring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -19,
+          "max": -17
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1370"
+    },
+    "rawhide-belt:suffix:of-scarcity": {
+      "id": "rawhide-belt:suffix:of-scarcity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -25,
+          "max": -23
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1371"
+    },
+    "rawhide-belt:suffix:of-sipping": {
+      "id": "rawhide-belt:suffix:of-sipping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 3,
+      "weight": 800,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -10,
+          "max": -8
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1372"
+    },
+    "rawhide-belt:suffix:of-steel-skin": {
+      "id": "rawhide-belt:suffix:of-steel-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 800,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 73,
+          "max": 97
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1373"
+    },
+    "rawhide-belt:suffix:of-stone-skin": {
+      "id": "rawhide-belt:suffix:of-stone-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 800,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 30,
+          "max": 49
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1374"
+    },
+    "rawhide-belt:suffix:of-surplus": {
+      "id": "rawhide-belt:suffix:of-surplus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1375"
+    },
+    "rawhide-belt:suffix:of-temperance": {
+      "id": "rawhide-belt:suffix:of-temperance",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -16,
+          "max": -14
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1376"
+    },
+    "rawhide-belt:suffix:of-the-bear": {
+      "id": "rawhide-belt:suffix:of-the-bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1023"
+    },
+    "rawhide-belt:suffix:of-the-brute": {
+      "id": "rawhide-belt:suffix:of-the-brute",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1024"
+    },
+    "rawhide-belt:suffix:of-the-cloud": {
+      "id": "rawhide-belt:suffix:of-the-cloud",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1025"
+    },
+    "rawhide-belt:suffix:of-the-drake": {
+      "id": "rawhide-belt:suffix:of-the-drake",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1029"
+    },
+    "rawhide-belt:suffix:of-the-flatworm": {
+      "id": "rawhide-belt:suffix:of-the-flatworm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 186,
+          "max": 240
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1030"
+    },
+    "rawhide-belt:suffix:of-the-furnace": {
+      "id": "rawhide-belt:suffix:of-the-furnace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1031"
+    },
+    "rawhide-belt:suffix:of-the-gods": {
+      "id": "rawhide-belt:suffix:of-the-gods",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 34,
+          "max": 36
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1377"
+    },
+    "rawhide-belt:suffix:of-the-goliath": {
+      "id": "rawhide-belt:suffix:of-the-goliath",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1032"
+    },
+    "rawhide-belt:suffix:of-the-gorilla": {
+      "id": "rawhide-belt:suffix:of-the-gorilla",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1033"
+    },
+    "rawhide-belt:suffix:of-the-harvest": {
+      "id": "rawhide-belt:suffix:of-the-harvest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 29,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceRef": "src1378"
+    },
+    "rawhide-belt:suffix:of-the-hydra": {
+      "id": "rawhide-belt:suffix:of-the-hydra",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 366,
+          "max": 540
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1034"
+    },
+    "rawhide-belt:suffix:of-the-ice": {
+      "id": "rawhide-belt:suffix:of-the-ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1035"
+    },
+    "rawhide-belt:suffix:of-the-kiln": {
+      "id": "rawhide-belt:suffix:of-the-kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1037"
+    },
+    "rawhide-belt:suffix:of-the-leviathan": {
+      "id": "rawhide-belt:suffix:of-the-leviathan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1038"
+    },
+    "rawhide-belt:suffix:of-the-lightning": {
+      "id": "rawhide-belt:suffix:of-the-lightning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1039"
+    },
+    "rawhide-belt:suffix:of-the-lion": {
+      "id": "rawhide-belt:suffix:of-the-lion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1040"
+    },
+    "rawhide-belt:suffix:of-the-lizard": {
+      "id": "rawhide-belt:suffix:of-the-lizard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 126,
+          "max": 180
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1041"
+    },
+    "rawhide-belt:suffix:of-the-lost": {
+      "id": "rawhide-belt:suffix:of-the-lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 250,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1043"
+    },
+    "rawhide-belt:suffix:of-the-maelstrom": {
+      "id": "rawhide-belt:suffix:of-the-maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1044"
+    },
+    "rawhide-belt:suffix:of-the-narwhal": {
+      "id": "rawhide-belt:suffix:of-the-narwhal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1046"
+    },
+    "rawhide-belt:suffix:of-the-newt": {
+      "id": "rawhide-belt:suffix:of-the-newt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 60,
+          "max": 120
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1047"
+    },
+    "rawhide-belt:suffix:of-the-penguin": {
+      "id": "rawhide-belt:suffix:of-the-penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1049"
+    },
+    "rawhide-belt:suffix:of-the-polar-bear": {
+      "id": "rawhide-belt:suffix:of-the-polar-bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1050"
+    },
+    "rawhide-belt:suffix:of-the-salamander": {
+      "id": "rawhide-belt:suffix:of-the-salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1054"
+    },
+    "rawhide-belt:suffix:of-the-seal": {
+      "id": "rawhide-belt:suffix:of-the-seal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1055"
+    },
+    "rawhide-belt:suffix:of-the-squall": {
+      "id": "rawhide-belt:suffix:of-the-squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1057"
+    },
+    "rawhide-belt:suffix:of-the-starfish": {
+      "id": "rawhide-belt:suffix:of-the-starfish",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 17,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 246,
+          "max": 360
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1058"
+    },
+    "rawhide-belt:suffix:of-the-storm": {
+      "id": "rawhide-belt:suffix:of-the-storm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1059"
+    },
+    "rawhide-belt:suffix:of-the-tempest": {
+      "id": "rawhide-belt:suffix:of-the-tempest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1060"
+    },
+    "rawhide-belt:suffix:of-the-thunderhead": {
+      "id": "rawhide-belt:suffix:of-the-thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1061"
+    },
+    "rawhide-belt:suffix:of-the-titan": {
+      "id": "rawhide-belt:suffix:of-the-titan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1062"
+    },
+    "rawhide-belt:suffix:of-the-troll": {
+      "id": "rawhide-belt:suffix:of-the-troll",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 546,
+          "max": 780
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1063"
+    },
+    "rawhide-belt:suffix:of-the-volcano": {
+      "id": "rawhide-belt:suffix:of-the-volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1064"
+    },
+    "rawhide-belt:suffix:of-the-walrus": {
+      "id": "rawhide-belt:suffix:of-the-walrus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1065"
+    },
+    "rawhide-belt:suffix:of-the-whelpling": {
+      "id": "rawhide-belt:suffix:of-the-whelpling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1066"
+    },
+    "rawhide-belt:suffix:of-the-wrestler": {
+      "id": "rawhide-belt:suffix:of-the-wrestler",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1067"
+    },
+    "rawhide-belt:suffix:of-the-yeti": {
+      "id": "rawhide-belt:suffix:of-the-yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1068"
+    },
+    "rawhide-belt:suffix:of-thick-skin": {
+      "id": "rawhide-belt:suffix:of-thick-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 6,
+          "max": 11
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1379"
+    },
+    "rawhide-belt:suffix:of-tzteosh": {
+      "id": "rawhide-belt:suffix:of-tzteosh",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1069"
+    },
+    "sinew-belt:implicit:base": {
+      "id": "sinew-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "Strength",
+        "AdditionalCharm"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 15,
+          "max": 20
+        },
+        {
+          "id": "local_charm_slots",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "attribute",
+        "charm"
+      ],
+      "sourceRef": "src1482"
+    },
+    "utility-belt:implicit:base": {
+      "id": "utility-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "InstantFlaskRecovery"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "flask_recovery_amount_%_to_recover_instantly",
+          "min": 20,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1902"
+    },
+    "wide-belt:implicit:base": {
+      "id": "wide-belt:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceRef": "src1936"
+    }
+  },
+  "variants": {}
+}

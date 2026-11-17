@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmuletLake1",
+  "sourceRef": "src0852",
+  "implicitModifierId": "dusk-amulet:implicit:base",
+  "magicPrefixes": 2,
+  "magicSuffixes": 0,
+  "rarePrefixes": 4,
+  "rareSuffixes": 2,
+  "registration": {
+    "key": "dusk-amulet",
+    "slug": "Dusk_Amulet",
+    "family": "amulets",
+    "sourceSha256": "a49ec846228abf4e0cf3ef899bbb116d9a19e1ab0dc32f327afd48d3a8b05970",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 125
+  }
+}

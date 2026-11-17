@@ -1,0 +1,352 @@
+{
+  "families": {
+    "body": {
+      "ruleVersion": "body-workbench-uniform-v1",
+      "ledgerVersion": "body-uniform-candidates-unverified-rolls-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "helmet": {
+      "ruleVersion": "helmet-workbench-perfect-essence-v1",
+      "ledgerVersion": "helmet-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "helmets": {
+      "ruleVersion": "helmets-workbench-uniform-v1",
+      "ledgerVersion": "helmets-uniform-candidates-unverified-rolls-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "gloves": {
+      "ruleVersion": "gloves-workbench-uniform-v1",
+      "ledgerVersion": "gloves-uniform-candidates-unverified-rolls-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "boots": {
+      "ruleVersion": "boots-workbench-uniform-v1",
+      "ledgerVersion": "boots-uniform-candidates-unverified-rolls-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "bows": {
+      "ruleVersion": "endgame-bows-workbench-v1",
+      "ledgerVersion": "bow-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "rings": {
+      "ruleVersion": "distinct-rings-workbench-v1",
+      "ledgerVersion": "ring-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "amulets": {
+      "ruleVersion": "distinct-amulets-workbench-v1",
+      "ledgerVersion": "amulet-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "sceptres": {
+      "ruleVersion": "sceptre-workbench-essence-v1",
+      "ledgerVersion": "sceptre-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "wands": {
+      "ruleVersion": "wand-workbench-essence-v1",
+      "ledgerVersion": "wand-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "belts": {
+      "ruleVersion": "distinct-belts-workbench-v1",
+      "ledgerVersion": "belt-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "crossbows": {
+      "ruleVersion": "crossbow-workbench-v1",
+      "ledgerVersion": "crossbow-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "shields": {
+      "ruleVersion": "offhand-workbench-v1",
+      "ledgerVersion": "offhand-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "bucklers": {
+      "ruleVersion": "offhand-workbench-v1",
+      "ledgerVersion": "offhand-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "foci": {
+      "ruleVersion": "offhand-workbench-v1",
+      "ledgerVersion": "offhand-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "quivers": {
+      "ruleVersion": "quiver-workbench-v1",
+      "ledgerVersion": "quiver-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "one-hand-maces": {
+      "ruleVersion": "maces-workbench-v1",
+      "ledgerVersion": "maces-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "two-hand-maces": {
+      "ruleVersion": "maces-workbench-v1",
+      "ledgerVersion": "maces-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "quarterstaves": {
+      "ruleVersion": "quarterstaves-spears-workbench-v1",
+      "ledgerVersion": "quarterstaves-spears-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "spears": {
+      "ruleVersion": "quarterstaves-spears-workbench-v1",
+      "ledgerVersion": "quarterstaves-spears-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261004",
+      "snapshotRetrievedAt": "2026-10-04"
+    },
+    "staves": {
+      "ruleVersion": "staves-talismans-workbench-v1",
+      "ledgerVersion": "staves-talismans-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "talismans": {
+      "ruleVersion": "staves-talismans-workbench-v1",
+      "ledgerVersion": "staves-talismans-unverified-numeric-assumptions-v1",
+      "snapshotDate": "20261005",
+      "snapshotRetrievedAt": "SOURCE"
+    }
+  },
+  "baseOverrides": {
+    "soldier": {
+      "ruleVersion": "body-workbench-perfect-essence-v1",
+      "ledgerVersion": "body-unverified-numeric-assumptions-v1",
+      "legacyCatalog": "BODY"
+    },
+    "imperial": {
+      "legacyCatalog": "HELMET"
+    },
+    "jade-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "lapis-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "gold-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "twisted-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "distorted-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "absent-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "portent-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "lament-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "dusk-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "penumbra-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "gloam-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "corona-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "tenebrous-amulet": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "lazuli-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "sapphire-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "topaz-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "emerald-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "gold-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "unset-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "utzaal-cuirass": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "abyssal-cuirass": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "warlord-cuirass": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "mail-coat": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "wyrmscale-coat": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "corsair-coat": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "flowing-raiment": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "sacramental-robe": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "feathered-raiment": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "dastard-armour": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "shrouded-mail-fire": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "shrouded-mail-cold": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "shrouded-mail-lightning": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "thane-mail": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "death-mantle": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "conjurer-mantle": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "seastorm-mantle": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "rambler-jacket": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "falconers-jacket": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "austere-garb": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "kinetic": {},
+    "mnemonic": {},
+    "vitalic": {},
+    "two-stone-fire-cold": {},
+    "sinew-belt": {},
+    "invoking-belt": {},
+    "forking-belt": {},
+    "biostatic-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "oneiric-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "dusk-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "gloam-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "penumbra-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    },
+    "tenebrous-ring": {
+      "snapshotDate": "20261102",
+      "snapshotRetrievedAt": "SOURCE"
+    }
+  },
+  "legacy": {
+    "solar": {},
+    "stocky": {},
+    "bow": {},
+    "wand": {},
+    "body": {},
+    "sceptre": {},
+    "belt": {},
+    "helmet": {},
+    "ring": {},
+    "ruby": {},
+    "emerald": {},
+    "sapphire": {},
+    "diamond": {},
+    "time-lost-ruby": {},
+    "time-lost-emerald": {},
+    "time-lost-sapphire": {},
+    "time-lost-diamond": {}
+  }
+}

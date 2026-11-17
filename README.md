@@ -91,19 +91,21 @@ docs/
     i18n/                 # UI·게임 번역 JSON
     game-data/
       catalog/
-        modifiers.json    # 공통 modifier 정의와 기존 스냅샷의 차이값
+        classes.json      # 장비 분류 사실
         amulets/          # 장비 종류별 폴더 (rings, gloves, bows 등)
           modifier-pools.json # 함께 사용하는 옵션 ID 목록
-          solar-amulet/   # 베이스 메타데이터·고정 옵션·추가 옵션 참조
-      crafting/           # 화폐·징조·목표·지원 범위·ruleset JSON
-      display/            # 프런트 전용 게임 표시 데이터 JSON
+          solar-amulet/   # base.json 정체성 + catalog.json 옵션 참조
+      modifiers/          # 장비 종류별 공통 옵션 정의·기존 문맥 차이값
+      crafting/           # essences, alloys, liquids, augments, reveal, materials, policies
+      assets/             # 베이스 이미지 매핑
+      sources.json        # 출처 참조 → URL
     game-rule/            # 화폐·아이템·증강물·확률·표시·사용자 정책 MD
     mappings/             # 종류별 짧은 ID ↔ 기존 식별자 JSON
     manifest.json         # 자동 생성 파일 목록·실행 경로·SHA-256·매핑 목록
   legacy/                 # 재평가 전 보관; 별도 삭제 승인 없이 제거하지 않음
 ```
 
-**현재 단계:** v0.5.5가 게임 JSON·번역의 편집 원본이고 기존 backend/frontend 경로는 호환용 복사본입니다. 이번에는 짧은 ID를 부여했으며 API·저장 형식·서버 시작 로더는 기존 식별자를 계속 사용합니다. 서버의 새 매핑 로드와 송수신 ID 전환은 다음 코드 경량화 단계입니다. 표시 이름·설명·출처 문자열도 이 단계에서 제거하지 않았습니다. `0.5.5`는 저장소의 버전 구분이며 검증된 GGG 패치 번호를 뜻하지 않습니다.
+**현재 단계:** v0.5.5가 게임 JSON·번역의 편집 원본이고 기존 backend/frontend 경로는 호환용 생성 결과입니다. 이번에는 짧은 ID를 부여했으며 API·저장 형식·서버 시작 로더는 기존 식별자를 계속 사용합니다. 서버의 새 매핑 로드와 송수신 ID 전환은 다음 코드 경량화 단계입니다. 이름·설명은 i18n, 출처 URL은 sources.json에서 관리하며 기존 실행 결과에는 다시 합칩니다. `0.5.5`는 저장소의 버전 구분이며 검증된 GGG 패치 번호를 뜻하지 않습니다.
 
 [화폐](docs/v0.5.5/game-rule/currency.md), [상태·저장](docs/v0.5.5/game-rule/item-state.md), [증강물](docs/v0.5.5/game-rule/sockets-and-augments.md), [확률·목표](docs/v0.5.5/game-rule/probability-and-goals.md), [번역](docs/v0.5.5/game-rule/i18n-and-display.md), [사용자 정책](docs/v0.5.5/game-rule/user-policy.md)을 변경 대상에 맞게 수정합니다. 과거 세부 명세는 legacy에 남지만 중복 유지보수하지 않습니다. 기존 runtime JSON에 적힌 `docs/...` 출처 경로는 수집 당시 기록이며 현재 실제 파일은 `docs/legacy/...`에 있습니다. 봉인된 출처 문자열을 이동 경로에 맞춰 다시 직렬화하지 않습니다.
 
@@ -127,9 +129,11 @@ docs/
 
 | 수정할 내용 | 사람이 편집할 파일 |
 |---|---|
-| 베이스·옵션·가중치·화폐·징조·증강물 | `docs/v0.5.5/game-data/catalog/`, `crafting/`의 해당 JSON |
+| 베이스 정체성·옵션 목록 | `game-data/catalog/<종류>/<베이스>/base.json`, `catalog.json`, 종류별 `modifier-pools.json` |
+| 옵션 수치·가중치 | `game-data/modifiers/<종류>.json` (공유 옵션은 shared) |
+| 화폐·증강물·대상·지원 정책 | `game-data/crafting/`의 해당 분류 JSON |
 | 게임 이름·툴팁·옵션 표시·UI 문구 | `docs/v0.5.5/i18n/`의 해당 JSON |
-| 프런트 전용 게임 표시 데이터 | `docs/v0.5.5/game-data/display/`의 해당 JSON |
+| 베이스 이미지·출처 | `game-data/assets/base-images.json`, `game-data/sources.json` |
 | 게임 규칙 설명 | `docs/v0.5.5/game-rule/`의 해당 MD |
 | API 형식·공유 검증 사례 | `docs/contracts/`의 해당 schema·fixture |
 | API 제한·지원 언어 정책 | `backend/src/main/resources/contracts/` |
@@ -151,14 +155,14 @@ node scripts/versioned-game-data.mjs --write
 node scripts/versioned-game-data.mjs --check
 ```
 
-**규칙 MD만 수정하면 생성 명령이 필요 없습니다.** 문서 문구를 실행 데이터의 해시에 포함하지 않습니다. 새 JSON은 해당 폴더에 추가하면 자동으로 파일 목록과 실행 경로를 생성합니다. `manifest.json`의 파일 목록·해시·경로는 직접 편집하지 않습니다.
+**규칙 MD만 수정하면 생성 명령이 필요 없습니다.** 문서 문구를 실행 데이터의 해시에 포함하지 않습니다. 새 베이스·옵션은 위 구조와 참조 규칙에 맞게 추가합니다. 생성기는 원본 목록과 실행 결과 목록을 별도로 기록합니다. 새로운 종류의 원본을 추가할 때는 생성 규칙도 함께 정의합니다. `manifest.json`의 파일 목록·해시·경로는 직접 편집하지 않습니다.
 
 | 원본 폴더 | 자동 생성되는 실행 위치 |
 |---|---|
 | `game-data/catalog/<장비종류>/<베이스>/` | 공통 modifier를 펼쳐 `backend/src/main/resources/catalog/<베이스>/`에 생성 |
-| `catalog/`의 공통 게임 JSON, `game-data/crafting/` | backend resources의 기존 하위 경로 |
-| `game-data/display/` | `frontend/src/features/crafting/`의 같은 하위 경로 |
-| `i18n/` | `frontend/src/shared/i18n/`의 같은 하위 경로 |
+| 베이스·modifiers·crafting·i18n의 조합 | 기존 backend catalog 인덱스·재료·정책 JSON |
+| 같은 원본·assets | frontend 주얼·공개 옵션·툴팁·대상·이미지 JSON |
+| i18n 루트의 UI·번역 JSON | `frontend/src/shared/i18n/`의 같은 하위 경로 |
 
 기존 실행 경로의 복사본은 서버·프런트 코드의 호환을 위해 유지합니다. 직접 편집하면 검사에서 불일치를 알립니다. 원본 파일을 제거할 때는 기존 실행 복사본도 검토해 함께 보관해야 하며 도구가 자동 삭제하지 않습니다. 발급한 ID 매핑을 지우고 재생성하지 않습니다.
 
@@ -166,11 +170,19 @@ node scripts/versioned-game-data.mjs --check
 
 번역 수집은 `collect-i18n-terms.mjs` / `collect-i18n-modifiers.mjs`의 `--output-dir`로 저장소 밖 검토 결과를 만들고 검토한 값만 i18n 원본에 반영합니다. legacy의 증거 숫자·결정을 현재 정책으로 덮어쓰지 않습니다.
 
-공통 옵션 수정은 `catalog/modifiers.json`의 `definitions`에서 합니다. `variants`에는 같은 원래 ID에 남아 있던 가중치·티어·태그·이름·출처 차이만 저장합니다. `id@번호`는 편집 원본의 참조 키이며 API ID나 `mappings/`의 짧은 ID가 아닙니다. 실행 파일을 만들 때 원래 modifier ID로 복원합니다.
+공통 옵션 수정은 `game-data/modifiers/<종류>.json`의 `definitions`에서 합니다. 장비·증강물·공개 옵션·추가 화폐 옵션이 이 정의를 함께 참조합니다. 표시 이름·문장은 `i18n/catalog/modifiers.en.json`에서 수정합니다. `variants`에는 같은 원래 ID에 남아 있던 가중치·티어·태그·이름·출처 차이만 저장합니다. `id@번호`는 편집 원본의 참조 키이며 API ID나 `mappings/`의 짧은 ID가 아닙니다. 실행 파일을 만들 때 원래 modifier ID로 복원합니다.
 
 장비 종류별 `modifier-pools.json`은 공통 옵션 목록입니다. 각 베이스의 `modifierPool`이 이 목록을 참조하고, 고정 옵션은 `implicitModifiers`로 위치와 ID만 지정합니다. 추가 제작 옵션 파일도 `modifierRefs`만 보관합니다. 옵션 개수와 가중치 합계는 자동 계산합니다. `*-snapshot` 목록은 기존 수집 시점·능력치 계열·지원 범위 차이를 보존한 것이며, 베이스마다 별도 게임 규칙이 있다는 뜻은 아닙니다. 차이를 합칠 때는 출처를 확인하고 게임 동작 변경으로 검토합니다. 기존 `snapshotId`와 출처 해시는 이력이며 실제 옵션/지원 범위를 바꾸면 해당 snapshot·ruleset 버전도 검토합니다.
 
-`modifiers.json`과 `modifier-pools.json`은 편집용 원본으로만 유지합니다. 서버의 펼친 JSON은 자동 생성 결과이며, 공통 테이블 직접 로딩과 짧은 ID 송수신 전환은 후속 코드 경량화에서 진행합니다. 원자료 보관 위치 변경으로 실행 자원 목록을 줄인 ruleset은 v13이고, 기존 아이템 snapshot과 호환 ID는 유지합니다. 과거 ruleset으로 저장한 탐색 작업은 기존 버전 검증을 그대로 적용하며 자동 재지정하지 않습니다.
+`modifiers/`와 `modifier-pools.json`은 편집용 원본으로만 유지합니다. 서버의 펼친 JSON은 자동 생성 결과이며, 공통 테이블 직접 로딩과 짧은 ID 송수신 전환은 후속 코드 경량화에서 진행합니다. 검증 기록을 legacy로 분리하고 생성 방식을 변경한 ruleset은 v14이고, 기존 아이템 snapshot과 호환 ID는 유지합니다. 과거 ruleset으로 저장한 탐색 작업은 기존 버전 검증을 그대로 적용하며 자동 재지정하지 않습니다.
+
+베이스의 이름·요구치 표시 문구는 `i18n/catalog/bases.json`, 정체성·등록 순서·능력치는 각 `base.json`에서 관리합니다. 전체 목록 `top-bases.json`을 별도로 편집하지 않습니다. `catalog/classes.json`은 장비 분류, `crafting/policies/base-support.json`은 앱 지원 여부, `catalog-compatibility.json`은 기존 snapshot·규칙 버전 연결입니다. 등록 `order`와 옵션 배열 순서는 기존 표시·동작 순서를 보존합니다.
+
+`crafting/essences`, `alloys`, `liquids`의 targets는 `groups`(행동 → 옵션 참조 목록)와 `bases`(베이스 → 그룹) 형식입니다. 완전히 같은 목록만 공유하며 그룹 이름은 게임 규칙이나 확률을 뜻하지 않습니다. `augments/items.json`은 정체성·분류, `rules.json`은 실행 규칙이고 이름·효과 문구·템플릿은 `i18n/augments/`에 있습니다. 재료 이름·툴팁은 `i18n/materials/en.json`, 출처·표시 메타데이터는 `crafting/materials/items.json`, 대상 분류는 `target-classes.json`에서 수정합니다. 툴팁 번역을 바꿔도 재료 적용 대상은 바뀌지 않습니다.
+
+`crafting/reveal/options.json`의 `probability: null`은 확률 미확정이며 수동 공개만 허용한다는 뜻입니다. 기존 실행 형식의 weight 0을 실제 출현 확률 0으로 해석하지 않습니다. 주얼·수동 공개 옵션의 프런트 정의는 공통 modifier에서 생성하므로 별도 원본을 유지하지 않습니다. 사용하지 않는 sapphire 표시 데이터와 기존 catalog 공통 파일·display 원본은 `docs/legacy/game-data-before-normalization/`에 보관합니다. 검증 proof/review는 `docs/legacy/raw-data/`에서 테스트만 읽습니다.
+
+출처 URL은 `sources.json`에 한 번 등록하고 `sourceRef`로 연결합니다. `src` 참조는 내부 출처 키이며 송수신용 짧은 ID가 아닙니다. 기존 참조 키를 재할당하지 않습니다. 과거 readonly 정의·registry-v1·저장 예제는 당시 원문과 bytes를 유지합니다. 원래 수집 시점·snapshot·근거 해시는 해당 메타데이터에 보존하고 새 수집 기록으로 덮어쓰지 않습니다.
 
 ### 공유 계약
 
@@ -181,7 +193,7 @@ node scripts/versioned-game-data.mjs --check
 - `chaos-repeat/`: 요청의 UTF-8 bytes와 SHA-256을 양쪽에서 대조합니다. 반복 응답의 최종 상태·횟수·마지막 witness·부분 실패를 구분하고 네트워크 실패 시 자동 재시도하거나 완료 횟수를 추측하지 않습니다.
 - `sanctification/`: Java와 브라우저가 같은 축성 표시 계산을 하는지 검증합니다.
 
-`crafting-paths-v1/solar-source-fixture.json`은 현행 실행 데이터에 묶인 검증 사례입니다. 과거 v11 사례는 `docs/legacy/contracts/crafting-paths-v1/solar-source-fixture-v11.json`에 보존합니다. 데이터 변경 시 먼저 목표·옵션·확률 oracle이 여전히 타당한지 검증한 다음 `node scripts/refresh-source-fixture-identities.mjs`로 현행 사례의 해시를 갱신하고 계약 테스트를 실행합니다. 과거 사례를 최신 값으로 덮어쓰지 않습니다.
+`crafting-paths-v1/solar-source-fixture.json`은 현행 실행 데이터에 묶인 검증 사례입니다. 과거 v11·v13 사례는 `docs/legacy/contracts/crafting-paths-v1/solar-source-fixture-v*.json`에 보존합니다. 데이터 변경 시 먼저 목표·옵션·확률 oracle이 여전히 타당한지 검증한 다음 `node scripts/refresh-source-fixture-identities.mjs`로 현행 사례의 해시를 갱신하고 계약 테스트를 실행합니다. 과거 사례를 최신 값으로 덮어쓰지 않습니다.
 
 계약 설명의 기존 README는 [legacy/contracts](docs/legacy/contracts/)에 보관했습니다. 새로운 관리 안내는 이 README에 통합합니다. 검증 스크립트는 다음 위치에서 실행할 수 있습니다.
 

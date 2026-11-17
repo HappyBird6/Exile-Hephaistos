@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-gold-ring-20261102-21ee3247590296c1",
     "retrievedAt": "2026-11-02T07:57:00.080Z",
-    "sourceUrl": "https://poe2db.tw/us/Rings",
+    "sourceRef": "src2240",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0",
     "detailsSha256": "21ef63e04b779087cff16b3957d1926eb7c047ff42862bd4171f47bf696fe156"
-  },
-  "base": {
-    "id": "Metadata/Items/Rings/FourRing10",
-    "name": "Gold Ring",
-    "sourceUrl": "https://poe2db.tw/us/Gold_Ring",
-    "implicitModifierId": "gold-ring:implicit:base",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": [

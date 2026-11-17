@@ -1,0 +1,52 @@
+{
+  "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+  "sourceRef": "src1714",
+  "implicitModifierId": "thane-mail:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "thane-mail",
+    "slug": "Thane_Mail",
+    "family": "body",
+    "sourceSha256": "cbf8328e885885c2c9fdaf80afa3d5635a14e7490a47666bf2df9fac8a98de43",
+    "sourceTags": [
+      "str_dex_armour",
+      "karui_basetype",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 273,
+    "evasion": 248,
+    "energyShield": 0,
+    "strength": 67,
+    "dexterity": 67,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_self_critical_strike_multiplier_-%",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_self_critical_strike_multiplier_-%",
+        "min": 15,
+        "max": 25,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "archetype": "str_dex",
+    "order": 149
+  }
+}

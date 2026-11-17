@@ -1,6 +1,6 @@
 # 소켓과 증강물
 
-[augments](../game-data/catalog/augments.json)는 등록 항목, [augment-crafting](../game-data/catalog/augment-crafting.json)은 홈 귀속·제작/접미 한도·최대 품질·Rune 효과·Idol 결속·전용 풀·배율의 원본이다.
+[augments](../game-data/crafting/augments/items.json)는 등록 항목, [augment-crafting](../game-data/crafting/augments/rules.json)은 홈 귀속·제작/접미 한도·최대 품질·Rune 효과·Idol 결속·전용 풀·배율의 원본이다.
 
 장착 ID, 장비 분류, 실제 슬롯과 동일 아이템 제한을 검증한다. 캐릭터 전체 장비 제한이나 전체 전투를 계산하는 기능은 아니다. Perfect 선택 정책으로 숨긴 하위 Rune도 기존 저장 기록에는 남긴다. 홈 귀속 항목은 일반 교체로 제거하지 않는다.
 

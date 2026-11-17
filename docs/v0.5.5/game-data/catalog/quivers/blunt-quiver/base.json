@@ -1,0 +1,44 @@
+{
+  "id": "Metadata/Items/Quivers/FourQuiver5",
+  "sourceRef": "src0469",
+  "implicitModifierId": "blunt-quiver:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "blunt-quiver",
+    "slug": "Blunt_Quiver",
+    "family": "quivers",
+    "sourceSha256": "418e9093ca5464b00560ed9417a4597a5e60e23c6c1fa0315b0ce616055eb1fc",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 33,
+    "maximumQuality": null,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "hit_damage_stun_multiplier_+%",
+        "min": 25,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "hit_damage_stun_multiplier_+%",
+        "min": 25,
+        "max": 40,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
+    "order": 91
+  }
+}

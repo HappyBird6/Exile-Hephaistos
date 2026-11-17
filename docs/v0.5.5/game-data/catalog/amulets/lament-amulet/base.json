@@ -1,0 +1,64 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmuletB1a",
+  "sourceRef": "src1073",
+  "implicitModifierId": "lament-amulet:implicit:base",
+  "magicPrefixes": 0,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "lament-amulet",
+    "slug": "Lament_Amulet",
+    "family": "amulets",
+    "sourceSha256": "91d69395850bd30fd03974c2ee618c61a301c59b42fc61eab26e7ebd6cd5bc25",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 42,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 0,
+        "max": 0,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "temporaryBaseOption": {
+      "kind": "SOURCE_FIRST_GRANTED_SKILL_EXAMPLE",
+      "source": "https://poe2db.tw/us/Lament_Amulet",
+      "rationale": "User explicitly requested one temporary valid option; no skill roll or probability is inferred."
+    },
+    "order": 124
+  }
+}

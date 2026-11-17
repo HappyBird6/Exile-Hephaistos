@@ -1,0 +1,48 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmulet4",
+  "sourceRef": "src1071",
+  "implicitModifierId": "jade-amulet:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "jade-amulet",
+    "slug": "Jade_Amulet",
+    "family": "amulets",
+    "sourceSha256": "d21ffddffcbdaaf710baf6feb16e5bb77bdb40490e8aa43aea80ffa1e7347b0b",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 8,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "additional_dexterity",
+        "min": 10,
+        "max": 15
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_dexterity",
+        "min": 10,
+        "max": 15,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 117
+  }
+}

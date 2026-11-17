@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-attuned-wand-normal-20261003-c0db9e3bcda5",
     "retrievedAt": "2026-10-03T13:37:18.834Z",
-    "sourceUrl": "https://poe2db.tw/us/Wands",
+    "sourceRef": "src2249",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "c0db9e3bcda5c22ceb37bc21397a96a969dbe8f3a9e0cc4fd5bcbca8aa19d806",
     "detailsSha256": "31b99d8eea5b8f652bb93f8fd18442b30492d87032905482a003ba04837a55d8"
-  },
-  "base": {
-    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
-    "name": "Attuned Wand",
-    "sourceUrl": "https://poe2db.tw/us/Attuned_Wand",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "attuned-wand-snapshot",
   "implicitModifiers": []

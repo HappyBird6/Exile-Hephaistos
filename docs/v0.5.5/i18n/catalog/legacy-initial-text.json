@@ -1,0 +1,19 @@
+{
+  "solar": "Item Class: Amulets\nRarity: Normal\nSolar Amulet",
+  "stocky": "Item Class: Gloves\nRarity: Normal\nStocky Mitts",
+  "bow": "Item Class: Bows\nRarity: Normal\nCrude Bow",
+  "wand": "Item Class: Wands\nRarity: Normal\nAttuned Wand",
+  "body": "Item Class: Body Armours\nRarity: Normal\nRusted Cuirass",
+  "sceptre": "Item Class: Sceptres\nRarity: Normal\nRattling Sceptre",
+  "belt": "Item Class: Belts\nRarity: Normal\nRawhide Belt",
+  "helmet": "Item Class: Helmets\nRarity: Normal\nRusted Greathelm",
+  "ring": "Item Class: Rings\nRarity: Normal\nIron Ring",
+  "ruby": "Item Class: Jewels\nRarity: Normal\nRuby",
+  "emerald": "Item Class: Jewels\nRarity: Normal\nEmerald",
+  "sapphire": "Item Class: Jewels\nRarity: Magic\nSapphire",
+  "diamond": "Item Class: Jewels\nRarity: Normal\nDiamond",
+  "time-lost-ruby": "Item Class: Jewels\nRarity: Normal\nTime-Lost Ruby",
+  "time-lost-emerald": "Item Class: Jewels\nRarity: Normal\nTime-Lost Emerald",
+  "time-lost-sapphire": "Item Class: Jewels\nRarity: Normal\nTime-Lost Sapphire",
+  "time-lost-diamond": "Item Class: Jewels\nRarity: Normal\nTime-Lost Diamond"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "Metadata/Items/Quivers/FourQuiver8",
+  "sourceRef": "src1163",
+  "implicitModifierId": "primed-quiver:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "primed-quiver",
+    "slug": "Primed_Quiver",
+    "family": "quivers",
+    "sourceSha256": "81f0ceb5d0bf015a9ad25b74cfb7b6ac2fd5c4e8e2547f29fa4f7b88e7fc9f56",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 51,
+    "maximumQuality": null,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "attack_speed_+%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_speed_+%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
+    "order": 88
+  }
+}

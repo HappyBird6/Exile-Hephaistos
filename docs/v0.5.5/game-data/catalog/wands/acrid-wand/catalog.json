@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-acrid-wand-20261005-641813d89f8edefe",
     "retrievedAt": "2026-10-05T00:06:34.784Z",
-    "sourceUrl": "https://poe2db.tw/us/Wands",
+    "sourceRef": "src2249",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "c0db9e3bcda5c22ceb37bc21397a96a969dbe8f3a9e0cc4fd5bcbca8aa19d806",
     "detailsSha256": "4f4b042bd6fb70ea32b8a82a7fef5165bcac670678fc9e0da96f6ee47cee1cf2"
-  },
-  "base": {
-    "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
-    "name": "Acrid Wand",
-    "sourceUrl": "https://poe2db.tw/us/Acrid_Wand",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": []

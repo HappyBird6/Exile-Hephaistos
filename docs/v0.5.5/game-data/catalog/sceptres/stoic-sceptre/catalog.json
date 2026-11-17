@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-stoic-sceptre-20261005-1e703271c6ac8eee",
     "retrievedAt": "2026-10-05T00:43:03.883Z",
-    "sourceUrl": "https://poe2db.tw/us/Sceptres",
+    "sourceRef": "src2241",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "8042c018040e987be4046c5ce49fa3690b2e3ad6718f63013f2669f80f0f92f5",
     "detailsSha256": "4aac712d29d708013c558a6256a7231f68b018437d6829166a3e76f399935cdf"
-  },
-  "base": {
-    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
-    "name": "Stoic Sceptre",
-    "sourceUrl": "https://poe2db.tw/us/Stoic_Sceptre",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": []

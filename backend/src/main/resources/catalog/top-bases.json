@@ -56,13 +56,13 @@
   },
   "massive": {
     "key": "massive",
-    "slug": "Massive_Mitts",
-    "archetype": "str",
-    "pool": "massive-mitts",
     "family": "gloves",
+    "pool": "massive-mitts",
+    "slug": "Massive_Mitts",
     "id": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
     "name": "Massive Mitts",
     "sourceUrl": "https://poe2db.tw/us/Massive_Mitts",
+    "archetype": "str",
     "sourceSha256": "c102af998daee85b5188fb4bfed16c9b5ea101d815f8e21f306e5433882615ab",
     "sourceTags": [
       "str_armour",
@@ -87,13 +87,13 @@
   },
   "sirenscale": {
     "key": "sirenscale",
-    "slug": "Sirenscale_Gloves",
-    "archetype": "int",
-    "pool": "sirenscale-gloves",
     "family": "gloves",
+    "pool": "sirenscale-gloves",
+    "slug": "Sirenscale_Gloves",
     "id": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
     "name": "Sirenscale Gloves",
     "sourceUrl": "https://poe2db.tw/us/Sirenscale_Gloves",
+    "archetype": "int",
     "sourceSha256": "4e8523b4d55098dee45af0c93e02d0d148d93cae6f186913be40df9778eacfd7",
     "sourceTags": [
       "int_armour",
@@ -118,13 +118,13 @@
   },
   "adherent": {
     "key": "adherent",
-    "slug": "Adherent_Cuffs",
-    "archetype": "str_int",
-    "pool": "adherent-cuffs",
     "family": "gloves",
+    "pool": "adherent-cuffs",
+    "slug": "Adherent_Cuffs",
     "id": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
     "name": "Adherent Cuffs",
     "sourceUrl": "https://poe2db.tw/us/Adherent_Cuffs",
+    "archetype": "str_int",
     "sourceSha256": "457b9029485796021429f387bd261309a21a5561202903b70463b7e2dd0a3812",
     "sourceTags": [
       "str_int_armour",
@@ -149,13 +149,13 @@
   },
   "polished": {
     "key": "polished",
-    "slug": "Polished_Bracers",
-    "archetype": "dex",
-    "pool": "polished-bracers",
     "family": "gloves",
+    "pool": "polished-bracers",
+    "slug": "Polished_Bracers",
     "id": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
     "name": "Polished Bracers",
     "sourceUrl": "https://poe2db.tw/us/Polished_Bracers",
+    "archetype": "dex",
     "sourceSha256": "ec8acaf4281317b4883f685b89bd37519376f3a78d2aceeb26a2b1cb21f25bb2",
     "sourceTags": [
       "dex_armour",
@@ -169,6 +169,8 @@
     "strength": 0,
     "intelligence": 0,
     "maximumQuality": 20,
+    "evasion": 170,
+    "dexterity": 101,
     "requirements": {
       "en": "Requires:  Level 80, 101 Dex",
       "ko": "요구 사항:  레벨 80, 101 민첩",
@@ -176,19 +178,17 @@
       "zh-CN": "需求：  等级 80, 101 敏捷",
       "zh-TW": "需求:  等級 80, 101 敏捷",
       "es": "Requiere:  Nivel 80, 101 Des"
-    },
-    "evasion": 170,
-    "dexterity": 101
+    }
   },
   "blacksteel-gloves": {
     "key": "blacksteel-gloves",
-    "slug": "Blacksteel_Gauntlets",
-    "archetype": "str_dex",
-    "pool": "blacksteel-gauntlets",
     "family": "gloves",
+    "pool": "blacksteel-gauntlets",
+    "slug": "Blacksteel_Gauntlets",
     "id": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
     "name": "Blacksteel Gauntlets",
     "sourceUrl": "https://poe2db.tw/us/Blacksteel_Gauntlets",
+    "archetype": "str_dex",
     "sourceSha256": "04c265cd0b58b10e4b495fb976bb069797a5d30ba1b6084522539b65b66e95d5",
     "sourceTags": [
       "str_dex_armour",
@@ -202,6 +202,8 @@
     "strength": 55,
     "intelligence": 0,
     "maximumQuality": 20,
+    "evasion": 94,
+    "dexterity": 55,
     "requirements": {
       "en": "Requires:  Level 80, 55 Str, 55 Dex",
       "ko": "요구 사항:  레벨 80, 55 힘, 55 민첩",
@@ -209,19 +211,17 @@
       "zh-CN": "需求：  等级 80, 55 力量, 55 敏捷",
       "zh-TW": "需求:  等級 80, 55 力量, 55 敏捷",
       "es": "Requiere:  Nivel 80, 55 Fue, 55 Des"
-    },
-    "evasion": 94,
-    "dexterity": 55
+    }
   },
   "war-wraps": {
     "key": "war-wraps",
-    "slug": "War_Wraps",
-    "archetype": "dex_int",
-    "pool": "war-wraps",
     "family": "gloves",
+    "pool": "war-wraps",
+    "slug": "War_Wraps",
     "id": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
     "name": "War Wraps",
     "sourceUrl": "https://poe2db.tw/us/War_Wraps",
+    "archetype": "dex_int",
     "sourceSha256": "2d2b191c4188e15a9d28e1030ca2065525226143a37f989d220352c5cd7d7cca",
     "sourceTags": [
       "dex_int_armour",
@@ -234,6 +234,8 @@
     "strength": 0,
     "intelligence": 44,
     "maximumQuality": 20,
+    "evasion": 94,
+    "dexterity": 44,
     "requirements": {
       "en": "Requires:  Level 65, 44 Dex, 44 Int",
       "ko": "요구 사항:  레벨 65, 44 민첩, 44 지능",
@@ -241,19 +243,17 @@
       "zh-CN": "需求：  等级 65, 44 敏捷, 44 智慧",
       "zh-TW": "需求:  等級 65, 44 敏捷, 44 智慧",
       "es": "Requiere:  Nivel 65, 44 Des, 44 Int"
-    },
-    "evasion": 94,
-    "dexterity": 44
+    }
   },
   "freebooter": {
     "key": "freebooter",
-    "slug": "Freebooter_Cap",
-    "archetype": "dex",
-    "pool": "freebooter-cap",
     "family": "helmets",
+    "pool": "freebooter-cap",
+    "slug": "Freebooter_Cap",
     "id": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
     "name": "Freebooter Cap",
     "sourceUrl": "https://poe2db.tw/us/Freebooter_Cap",
+    "archetype": "dex",
     "sourceSha256": "819ac0492069db7faeaac4c14e1f37f92889084bb8022a2e9aee53f7d85cc0d5",
     "sourceTags": [
       "dex_armour",
@@ -267,6 +267,8 @@
     "strength": 0,
     "intelligence": 0,
     "maximumQuality": 20,
+    "evasion": 340,
+    "dexterity": 115,
     "requirements": {
       "en": "Requires:  Level 80, 115 Dex",
       "ko": "요구 사항:  레벨 80, 115 민첩",
@@ -274,19 +276,17 @@
       "zh-CN": "需求：  等级 80, 115 敏捷",
       "zh-TW": "需求:  等級 80, 115 敏捷",
       "es": "Requiere:  Nivel 80, 115 Des"
-    },
-    "evasion": 340,
-    "dexterity": 115
+    }
   },
   "gladiatorial": {
     "key": "gladiatorial",
-    "slug": "Gladiatorial_Helm",
-    "archetype": "str_dex",
-    "pool": "gladiatorial-helm",
     "family": "helmets",
+    "pool": "gladiatorial-helm",
+    "slug": "Gladiatorial_Helm",
     "id": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
     "name": "Gladiatorial Helm",
     "sourceUrl": "https://poe2db.tw/us/Gladiatorial_Helm",
+    "archetype": "str_dex",
     "sourceSha256": "3d0b24237f9b901afcb7c8084d49c2b687084dedde7079637fd2f4e3f0eee83c",
     "sourceTags": [
       "str_dex_armour",
@@ -300,6 +300,8 @@
     "strength": 63,
     "intelligence": 0,
     "maximumQuality": 20,
+    "evasion": 187,
+    "dexterity": 63,
     "requirements": {
       "en": "Requires:  Level 80, 63 Str, 63 Dex",
       "ko": "요구 사항:  레벨 80, 63 힘, 63 민첩",
@@ -307,19 +309,17 @@
       "zh-CN": "需求：  等级 80, 63 力量, 63 敏捷",
       "zh-TW": "需求:  等級 80, 63 力量, 63 敏捷",
       "es": "Requiere:  Nivel 80, 63 Fue, 63 Des"
-    },
-    "evasion": 187,
-    "dexterity": 63
+    }
   },
   "grinning": {
     "key": "grinning",
-    "slug": "Grinning_Mask",
-    "archetype": "dex_int",
-    "pool": "grinning-mask",
     "family": "helmets",
+    "pool": "grinning-mask",
+    "slug": "Grinning_Mask",
     "id": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
     "name": "Grinning Mask",
     "sourceUrl": "https://poe2db.tw/us/Grinning_Mask",
+    "archetype": "dex_int",
     "sourceSha256": "3078bd0e431c072261eef610372b74ba02fd0a6e8ba77ecad8b59409fa937d55",
     "sourceTags": [
       "dex_int_armour",
@@ -333,6 +333,8 @@
     "strength": 0,
     "intelligence": 63,
     "maximumQuality": 20,
+    "evasion": 187,
+    "dexterity": 63,
     "requirements": {
       "en": "Requires:  Level 80, 63 Dex, 63 Int",
       "ko": "요구 사항:  레벨 80, 63 민첩, 63 지능",
@@ -340,19 +342,17 @@
       "zh-CN": "需求：  等级 80, 63 敏捷, 63 智慧",
       "zh-TW": "需求:  等級 80, 63 敏捷, 63 智慧",
       "es": "Requiere:  Nivel 80, 63 Des, 63 Int"
-    },
-    "evasion": 187,
-    "dexterity": 63
+    }
   },
   "slipstrike": {
     "key": "slipstrike",
-    "slug": "Slipstrike_Vest",
-    "archetype": "dex",
-    "pool": "slipstrike-vest",
     "family": "body",
+    "pool": "slipstrike-vest",
+    "slug": "Slipstrike_Vest",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
     "name": "Slipstrike Vest",
     "sourceUrl": "https://poe2db.tw/us/Slipstrike_Vest",
+    "archetype": "dex",
     "sourceSha256": "a7f8d2790d12c4cd8b256cfa6a1cf2554aaf02a7c1eb587946b73f8a6a7b1911",
     "sourceTags": [
       "dex_armour",
@@ -365,6 +365,9 @@
     "strength": 0,
     "intelligence": 0,
     "maximumQuality": 20,
+    "evasion": 519,
+    "dexterity": 121,
+    "baseMovementSpeed": -0.03,
     "requirements": {
       "en": "Requires:  Level 70, 121 Dex",
       "ko": "요구 사항:  레벨 70, 121 민첩",
@@ -373,9 +376,6 @@
       "zh-TW": "需求:  等級 70, 121 敏捷",
       "es": "Requiere:  Nivel 70, 121 Des"
     },
-    "evasion": 519,
-    "dexterity": 121,
-    "baseMovementSpeed": -0.03,
     "sourceProperties": {
       "en": [
         "Base Movement Speed: -0.03"
@@ -399,13 +399,13 @@
   },
   "death-mail": {
     "key": "death-mail",
-    "slug": "Death_Mail",
-    "archetype": "str_dex",
-    "pool": "death-mail",
     "family": "body",
+    "pool": "death-mail",
+    "slug": "Death_Mail",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
     "name": "Death Mail",
     "sourceUrl": "https://poe2db.tw/us/Death_Mail",
+    "archetype": "str_dex",
     "sourceSha256": "ec76db9848b527be3af1a54557987b0b330fcbe613c5aa83dd399e2441328108",
     "sourceTags": [
       "str_dex_armour",
@@ -418,6 +418,9 @@
     "strength": 67,
     "intelligence": 0,
     "maximumQuality": 20,
+    "evasion": 285,
+    "dexterity": 67,
+    "baseMovementSpeed": -0.04,
     "requirements": {
       "en": "Requires:  Level 75, 67 Str, 67 Dex",
       "ko": "요구 사항:  레벨 75, 67 힘, 67 민첩",
@@ -426,9 +429,6 @@
       "zh-TW": "需求:  等級 75, 67 力量, 67 敏捷",
       "es": "Requiere:  Nivel 75, 67 Fue, 67 Des"
     },
-    "evasion": 285,
-    "dexterity": 67,
-    "baseMovementSpeed": -0.04,
     "sourceProperties": {
       "en": [
         "Base Movement Speed: -0.04"
@@ -452,13 +452,13 @@
   },
   "sleek": {
     "key": "sleek",
-    "slug": "Sleek_Jacket",
-    "archetype": "dex_int",
-    "pool": "sleek-jacket",
     "family": "body",
+    "pool": "sleek-jacket",
+    "slug": "Sleek_Jacket",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
     "name": "Sleek Jacket",
     "sourceUrl": "https://poe2db.tw/us/Sleek_Jacket",
+    "archetype": "dex_int",
     "sourceSha256": "f0b55d4da33b0374d01cc95c63c1f65ccaecdf24c98ed208ed303d6c0df2b64c",
     "sourceTags": [
       "dex_int_armour",
@@ -471,6 +471,9 @@
     "strength": 0,
     "intelligence": 67,
     "maximumQuality": 20,
+    "evasion": 285,
+    "dexterity": 67,
+    "baseMovementSpeed": -0.03,
     "requirements": {
       "en": "Requires:  Level 65, 67 Dex, 67 Int",
       "ko": "요구 사항:  레벨 65, 67 민첩, 67 지능",
@@ -479,9 +482,6 @@
       "zh-TW": "需求:  等級 65, 67 敏捷, 67 智慧",
       "es": "Requiere:  Nivel 65, 67 Des, 67 Int"
     },
-    "evasion": 285,
-    "dexterity": 67,
-    "baseMovementSpeed": -0.03,
     "sourceProperties": {
       "en": [
         "Base Movement Speed: -0.03"
@@ -505,13 +505,13 @@
   },
   "vile": {
     "key": "vile",
-    "slug": "Vile_Robe",
-    "archetype": "int",
-    "pool": "vile-robe",
     "family": "body",
+    "pool": "vile-robe",
+    "slug": "Vile_Robe",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
     "name": "Vile Robe",
     "sourceUrl": "https://poe2db.tw/us/Vile_Robe",
+    "archetype": "int",
     "sourceSha256": "cf592bffbd38999ddb013f0ae6355c1e206a3ca36aa8752003000c393750cb99",
     "sourceTags": [
       "int_armour",
@@ -524,6 +524,9 @@
     "strength": 0,
     "intelligence": 121,
     "maximumQuality": 20,
+    "evasion": 0,
+    "dexterity": 0,
+    "baseMovementSpeed": -0.03,
     "requirements": {
       "en": "Requires:  Level 65, 121 Int",
       "ko": "요구 사항:  레벨 65, 121 지능",
@@ -532,9 +535,6 @@
       "zh-TW": "需求:  等級 65, 121 智慧",
       "es": "Requiere:  Nivel 65, 121 Int"
     },
-    "evasion": 0,
-    "dexterity": 0,
-    "baseMovementSpeed": -0.03,
     "sourceProperties": {
       "en": [
         "Base Movement Speed: -0.03"
@@ -558,13 +558,13 @@
   },
   "wolfskin": {
     "key": "wolfskin",
-    "slug": "Wolfskin_Mantle",
-    "archetype": "str_int",
-    "pool": "wolfskin-mantle",
     "family": "body",
+    "pool": "wolfskin-mantle",
+    "slug": "Wolfskin_Mantle",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
     "name": "Wolfskin Mantle",
     "sourceUrl": "https://poe2db.tw/us/Wolfskin_Mantle",
+    "archetype": "str_int",
     "sourceSha256": "aaff93b4b7f430b5f492d8c493fead43cd9dda5d73bf84dd1d0491b8c5b133fb",
     "sourceTags": [
       "str_int_armour",
@@ -577,6 +577,9 @@
     "strength": 67,
     "intelligence": 67,
     "maximumQuality": 20,
+    "evasion": 0,
+    "dexterity": 0,
+    "baseMovementSpeed": -0.04,
     "requirements": {
       "en": "Requires:  Level 65, 67 Str, 67 Int",
       "ko": "요구 사항:  레벨 65, 67 힘, 67 지능",
@@ -585,9 +588,6 @@
       "zh-TW": "需求:  等級 65, 67 力量, 67 智慧",
       "es": "Requiere:  Nivel 65, 67 Fue, 67 Int"
     },
-    "evasion": 0,
-    "dexterity": 0,
-    "baseMovementSpeed": -0.04,
     "sourceProperties": {
       "en": [
         "Base Movement Speed: -0.04"
@@ -611,13 +611,13 @@
   },
   "ancestral": {
     "key": "ancestral",
-    "slug": "Ancestral_Tiara",
-    "archetype": "int",
-    "pool": "ancestral-tiara",
     "family": "helmets",
+    "pool": "ancestral-tiara",
+    "slug": "Ancestral_Tiara",
     "id": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
     "name": "Ancestral Tiara",
     "sourceUrl": "https://poe2db.tw/us/Ancestral_Tiara",
+    "archetype": "int",
     "sourceSha256": "f825b78a8351ecd4749c00fe2906fcb3921be3910f70179db5431471df20a84e",
     "sourceTags": [
       "int_armour",
@@ -631,6 +631,8 @@
     "strength": 0,
     "intelligence": 115,
     "maximumQuality": 20,
+    "evasion": 0,
+    "dexterity": 0,
     "requirements": {
       "en": "Requires:  Level 80, 115 Int",
       "ko": "요구 사항:  레벨 80, 115 지능",
@@ -638,19 +640,17 @@
       "zh-CN": "需求：  等级 80, 115 智慧",
       "zh-TW": "需求:  等級 80, 115 智慧",
       "es": "Requiere:  Nivel 80, 115 Int"
-    },
-    "evasion": 0,
-    "dexterity": 0
+    }
   },
   "cryptic": {
     "key": "cryptic",
-    "slug": "Cryptic_Crown",
-    "archetype": "str_int",
-    "pool": "cryptic-crown",
     "family": "helmets",
+    "pool": "cryptic-crown",
+    "slug": "Cryptic_Crown",
     "id": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
     "name": "Cryptic Crown",
     "sourceUrl": "https://poe2db.tw/us/Cryptic_Crown",
+    "archetype": "str_int",
     "sourceSha256": "bae9d05d2b2bbd98c4893ff53e9b4c3805e52baacbe63862d805a84d342aceb9",
     "sourceTags": [
       "str_int_armour",
@@ -664,6 +664,8 @@
     "strength": 63,
     "intelligence": 63,
     "maximumQuality": 20,
+    "evasion": 0,
+    "dexterity": 0,
     "requirements": {
       "en": "Requires:  Level 80, 63 Str, 63 Int",
       "ko": "요구 사항:  레벨 80, 63 힘, 63 지능",
@@ -671,19 +673,17 @@
       "zh-CN": "需求：  等级 80, 63 力量, 63 智慧",
       "zh-TW": "需求:  等級 80, 63 力量, 63 智慧",
       "es": "Requiere:  Nivel 80, 63 Fue, 63 Int"
-    },
-    "evasion": 0,
-    "dexterity": 0
+    }
   },
   "tasalian": {
     "key": "tasalian",
-    "slug": "Tasalian_Greaves",
-    "archetype": "str",
-    "pool": "tasalian-greaves",
     "family": "boots",
+    "pool": "tasalian-greaves",
+    "slug": "Tasalian_Greaves",
     "id": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
     "name": "Tasalian Greaves",
     "sourceUrl": "https://poe2db.tw/us/Tasalian_Greaves",
+    "archetype": "str",
     "sourceSha256": "8d50cf56f3db2bd52fea1e9462f6bff481646ebd6d7e5658c4a9e8ac08767685",
     "sourceTags": [
       "str_armour",
@@ -697,6 +697,8 @@
     "strength": 108,
     "intelligence": 0,
     "maximumQuality": 20,
+    "evasion": 0,
+    "dexterity": 0,
     "requirements": {
       "en": "Requires:  Level 80, 108 Str",
       "ko": "요구 사항:  레벨 80, 108 힘",
@@ -704,19 +706,17 @@
       "zh-CN": "需求：  等级 80, 108 力量",
       "zh-TW": "需求:  等級 80, 108 力量",
       "es": "Requiere:  Nivel 80, 108 Fue"
-    },
-    "evasion": 0,
-    "dexterity": 0
+    }
   },
   "drakeskin": {
     "key": "drakeskin",
-    "slug": "Drakeskin_Boots",
-    "archetype": "dex",
-    "pool": "drakeskin-boots",
     "family": "boots",
+    "pool": "drakeskin-boots",
+    "slug": "Drakeskin_Boots",
     "id": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
     "name": "Drakeskin Boots",
     "sourceUrl": "https://poe2db.tw/us/Drakeskin_Boots",
+    "archetype": "dex",
     "sourceSha256": "b4a1e781c8b61273ecbb9045799f3c6e4431c48f8bdbfb839e58cc6e4694cbac",
     "sourceTags": [
       "dex_armour",
@@ -730,6 +730,8 @@
     "strength": 0,
     "intelligence": 0,
     "maximumQuality": 20,
+    "evasion": 255,
+    "dexterity": 108,
     "requirements": {
       "en": "Requires:  Level 80, 108 Dex",
       "ko": "요구 사항:  레벨 80, 108 민첩",
@@ -737,19 +739,17 @@
       "zh-CN": "需求：  等级 80, 108 敏捷",
       "zh-TW": "需求:  等級 80, 108 敏捷",
       "es": "Requiere:  Nivel 80, 108 Des"
-    },
-    "evasion": 255,
-    "dexterity": 108
+    }
   },
   "sekhema": {
     "key": "sekhema",
-    "slug": "Sekhema_Sandals",
-    "archetype": "int",
-    "pool": "sekhema-sandals",
     "family": "boots",
+    "pool": "sekhema-sandals",
+    "slug": "Sekhema_Sandals",
     "id": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
     "name": "Sekhema Sandals",
     "sourceUrl": "https://poe2db.tw/us/Sekhema_Sandals",
+    "archetype": "int",
     "sourceSha256": "a0301aa77b114eeb27501b0ff2d5b830a25c5365bc12177a972e485dc8f06930",
     "sourceTags": [
       "int_armour",
@@ -763,6 +763,8 @@
     "strength": 0,
     "intelligence": 108,
     "maximumQuality": 20,
+    "evasion": 0,
+    "dexterity": 0,
     "requirements": {
       "en": "Requires:  Level 80, 108 Int",
       "ko": "요구 사항:  레벨 80, 108 지능",
@@ -770,19 +772,17 @@
       "zh-CN": "需求：  等级 80, 108 智慧",
       "zh-TW": "需求:  等級 80, 108 智慧",
       "es": "Requiere:  Nivel 80, 108 Int"
-    },
-    "evasion": 0,
-    "dexterity": 0
+    }
   },
   "blacksteel-boots": {
     "key": "blacksteel-boots",
-    "slug": "Blacksteel_Sabatons",
-    "archetype": "str_dex",
-    "pool": "blacksteel-sabatons",
     "family": "boots",
+    "pool": "blacksteel-sabatons",
+    "slug": "Blacksteel_Sabatons",
     "id": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
     "name": "Blacksteel Sabatons",
     "sourceUrl": "https://poe2db.tw/us/Blacksteel_Sabatons",
+    "archetype": "str_dex",
     "sourceSha256": "7d04a02a1f36b2662459aaa2c038d83f420cd89b0ce8370217acb1925213367a",
     "sourceTags": [
       "str_dex_armour",
@@ -796,6 +796,8 @@
     "strength": 59,
     "intelligence": 0,
     "maximumQuality": 20,
+    "evasion": 140,
+    "dexterity": 59,
     "requirements": {
       "en": "Requires:  Level 80, 59 Str, 59 Dex",
       "ko": "요구 사항:  레벨 80, 59 힘, 59 민첩",
@@ -803,19 +805,17 @@
       "zh-CN": "需求：  等级 80, 59 力量, 59 敏捷",
       "zh-TW": "需求:  等級 80, 59 力量, 59 敏捷",
       "es": "Requiere:  Nivel 80, 59 Fue, 59 Des"
-    },
-    "evasion": 140,
-    "dexterity": 59
+    }
   },
   "faithful": {
     "key": "faithful",
-    "slug": "Faithful_Leggings",
-    "archetype": "str_int",
-    "pool": "faithful-leggings",
     "family": "boots",
+    "pool": "faithful-leggings",
+    "slug": "Faithful_Leggings",
     "id": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
     "name": "Faithful Leggings",
     "sourceUrl": "https://poe2db.tw/us/Faithful_Leggings",
+    "archetype": "str_int",
     "sourceSha256": "22effc7b863a74d261a248f3fc116ccdbd09b8048299d6cce826c87bf149faf8",
     "sourceTags": [
       "str_int_armour",
@@ -828,6 +828,8 @@
     "strength": 47,
     "intelligence": 47,
     "maximumQuality": 20,
+    "evasion": 0,
+    "dexterity": 0,
     "requirements": {
       "en": "Requires:  Level 65, 47 Str, 47 Int",
       "ko": "요구 사항:  레벨 65, 47 힘, 47 지능",
@@ -835,19 +837,17 @@
       "zh-CN": "需求：  等级 65, 47 力量, 47 智慧",
       "zh-TW": "需求:  等級 65, 47 力量, 47 智慧",
       "es": "Requiere:  Nivel 65, 47 Fue, 47 Int"
-    },
-    "evasion": 0,
-    "dexterity": 0
+    }
   },
   "daggerfoot": {
     "key": "daggerfoot",
-    "slug": "Daggerfoot_Shoes",
-    "archetype": "dex_int",
-    "pool": "daggerfoot-shoes",
     "family": "boots",
+    "pool": "daggerfoot-shoes",
+    "slug": "Daggerfoot_Shoes",
     "id": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
     "name": "Daggerfoot Shoes",
     "sourceUrl": "https://poe2db.tw/us/Daggerfoot_Shoes",
+    "archetype": "dex_int",
     "sourceSha256": "64a63eb38f3c10748dd7be47925da48adc0af518ddf9f264756c7714e1cd4a2a",
     "sourceTags": [
       "dex_int_armour",
@@ -861,6 +861,8 @@
     "strength": 0,
     "intelligence": 59,
     "maximumQuality": 20,
+    "evasion": 140,
+    "dexterity": 59,
     "requirements": {
       "en": "Requires:  Level 80, 59 Dex, 59 Int",
       "ko": "요구 사항:  레벨 80, 59 민첩, 59 지능",
@@ -868,15 +870,13 @@
       "zh-CN": "需求：  等级 80, 59 敏捷, 59 智慧",
       "zh-TW": "需求:  等級 80, 59 敏捷, 59 智慧",
       "es": "Requiere:  Nivel 80, 59 Des, 59 Int"
-    },
-    "evasion": 140,
-    "dexterity": 59
+    }
   },
   "warmonger": {
     "key": "warmonger",
-    "slug": "Warmonger_Bow",
-    "pool": "warmonger-bow",
     "family": "bows",
+    "pool": "warmonger-bow",
+    "slug": "Warmonger_Bow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
     "name": "Warmonger Bow",
     "sourceUrl": "https://poe2db.tw/us/Warmonger_Bow",
@@ -893,6 +893,12 @@
     "dexterity": 163,
     "requiredLevel": 77,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "56-84",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.2,
     "requirements": {
       "en": "Requires:  Level 77, 163 Dex",
       "ko": "요구 사항:  레벨 77, 163 민첩",
@@ -932,19 +938,13 @@
         "Probabilidad de impacto crítico: 5%",
         "Ataques por segundo: 1.2"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "physicalDamage": "56-84",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.2
+    }
   },
   "guardian": {
     "key": "guardian",
-    "slug": "Guardian_Bow",
-    "pool": "guardian-bow",
     "family": "bows",
+    "pool": "guardian-bow",
+    "slug": "Guardian_Bow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
     "name": "Guardian Bow",
     "sourceUrl": "https://poe2db.tw/us/Guardian_Bow",
@@ -961,6 +961,25 @@
     "dexterity": 163,
     "requiredLevel": 77,
     "maximumQuality": 20,
+    "implicitModifierId": "guardian-bow:implicit:chain",
+    "implicitStats": [
+      {
+        "id": "local_additional_attack_chain_chance_%",
+        "min": 25,
+        "max": 35
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_additional_attack_chain_chance_%",
+        "min": 25,
+        "max": 35,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "53-88",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.15,
     "requirements": {
       "en": "Requires:  Level 77, 163 Dex",
       "ko": "요구 사항:  레벨 77, 163 민첩",
@@ -1000,32 +1019,13 @@
         "Probabilidad de impacto crítico: 5%",
         "Ataques por segundo: 1.15"
       ]
-    },
-    "implicitModifierId": "guardian-bow:implicit:chain",
-    "implicitStats": [
-      {
-        "id": "local_additional_attack_chain_chance_%",
-        "min": 25,
-        "max": 35
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_additional_attack_chain_chance_%",
-        "min": 25,
-        "max": 35,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "53-88",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.15
+    }
   },
   "gemini": {
     "key": "gemini",
-    "slug": "Gemini_Bow",
-    "pool": "gemini-bow",
     "family": "bows",
+    "pool": "gemini-bow",
+    "slug": "Gemini_Bow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
     "name": "Gemini Bow",
     "sourceUrl": "https://poe2db.tw/us/Gemini_Bow",
@@ -1042,6 +1042,25 @@
     "dexterity": 163,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "gemini-bow:implicit:additionalarrows",
+    "implicitStats": [
+      {
+        "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+        "min": 50,
+        "max": 50
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+        "min": 50,
+        "max": 50,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "39-72",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.15,
     "requirements": {
       "en": "Requires:  Level 78, 163 Dex",
       "ko": "요구 사항:  레벨 78, 163 민첩",
@@ -1081,32 +1100,13 @@
         "Probabilidad de impacto crítico: 5%",
         "Ataques por segundo: 1.15"
       ]
-    },
-    "implicitModifierId": "gemini-bow:implicit:additionalarrows",
-    "implicitStats": [
-      {
-        "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
-        "min": 50,
-        "max": 50
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
-        "min": 50,
-        "max": 50,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "39-72",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.15
+    }
   },
   "fanatic": {
     "key": "fanatic",
-    "slug": "Fanatic_Bow",
-    "pool": "fanatic-bow",
     "family": "bows",
+    "pool": "fanatic-bow",
+    "slug": "Fanatic_Bow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
     "name": "Fanatic Bow",
     "sourceUrl": "https://poe2db.tw/us/Fanatic_Bow",
@@ -1123,6 +1123,36 @@
     "dexterity": 163,
     "requiredLevel": 79,
     "maximumQuality": 20,
+    "implicitModifierId": "fanatic-bow:implicit:weaponimplicitdamagetype",
+    "implicitStats": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+        "min": 64,
+        "max": 64
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+        "min": 28,
+        "max": 28
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+        "min": 64,
+        "max": 64,
+        "locality": "Local"
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+        "min": 28,
+        "max": 28,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "47-79",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.2,
     "requirements": {
       "en": "Requires:  Level 79, 163 Dex",
       "ko": "요구 사항:  레벨 79, 163 민첩",
@@ -1162,43 +1192,13 @@
         "Probabilidad de impacto crítico: 5%",
         "Ataques por segundo: 1.2"
       ]
-    },
-    "implicitModifierId": "fanatic-bow:implicit:weaponimplicitdamagetype",
-    "implicitStats": [
-      {
-        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
-        "min": 64,
-        "max": 64
-      },
-      {
-        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
-        "min": 28,
-        "max": 28
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
-        "min": 64,
-        "max": 64,
-        "locality": "Local"
-      },
-      {
-        "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
-        "min": 28,
-        "max": 28,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "47-79",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.2
+    }
   },
   "obliterator": {
     "key": "obliterator",
-    "slug": "Obliterator_Bow",
-    "pool": "obliterator-bow",
     "family": "bows",
+    "pool": "obliterator-bow",
+    "slug": "Obliterator_Bow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
     "name": "Obliterator Bow",
     "sourceUrl": "https://poe2db.tw/us/Obliterator_Bow",
@@ -1216,6 +1216,25 @@
     "dexterity": 163,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "obliterator-bow:implicit:projectilerange",
+    "implicitStats": [
+      {
+        "id": "projectile_attack_range_+%",
+        "min": -50,
+        "max": -50
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "projectile_attack_range_+%",
+        "min": -50,
+        "max": -50,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "62-115",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.1,
     "requirements": {
       "en": "Requires:  Level 78, 163 Dex",
       "ko": "요구 사항:  레벨 78, 163 민첩",
@@ -1255,32 +1274,13 @@
         "Probabilidad de impacto crítico: 5%",
         "Ataques por segundo: 1.1"
       ]
-    },
-    "implicitModifierId": "obliterator-bow:implicit:projectilerange",
-    "implicitStats": [
-      {
-        "id": "projectile_attack_range_+%",
-        "min": -50,
-        "max": -50
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "projectile_attack_range_+%",
-        "min": -50,
-        "max": -50,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "62-115",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.1
+    }
   },
   "kinetic": {
     "key": "kinetic",
-    "slug": "Kinetic_Ring",
-    "pool": "kinetic-ring",
     "family": "rings",
+    "pool": "kinetic-ring",
+    "slug": "Kinetic_Ring",
     "id": "Metadata/Items/Rings/FourRingB4",
     "name": "Kinetic Ring",
     "sourceUrl": "https://poe2db.tw/us/Kinetic_Ring",
@@ -1292,14 +1292,6 @@
     "strength": 0,
     "requiredLevel": 40,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 40",
-      "ko": "요구 사항:  레벨 40",
-      "ja": "装備条件： レベル 40",
-      "zh-CN": "需求：  等级 40",
-      "zh-TW": "需求:  等級 40",
-      "es": "Requiere:  Nivel 40"
-    },
     "implicitModifierId": "kinetic:implicit:physicaldamage",
     "implicitStats": [
       {
@@ -1326,13 +1318,21 @@
         "max": 9,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    }
   },
   "vitalic": {
     "key": "vitalic",
-    "slug": "Vitalic_Ring",
-    "pool": "vitalic-ring",
     "family": "rings",
+    "pool": "vitalic-ring",
+    "slug": "Vitalic_Ring",
     "id": "Metadata/Items/Rings/FourRingB2",
     "name": "Vitalic Ring",
     "sourceUrl": "https://poe2db.tw/us/Vitalic_Ring",
@@ -1344,14 +1344,6 @@
     "strength": 0,
     "requiredLevel": 40,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 40",
-      "ko": "요구 사항:  레벨 40",
-      "ja": "装備条件： レベル 40",
-      "zh-CN": "需求：  等级 40",
-      "zh-TW": "需求:  等級 40",
-      "es": "Requiere:  Nivel 40"
-    },
     "implicitModifierId": "vitalic:implicit:increasedlife",
     "implicitStats": [
       {
@@ -1367,13 +1359,21 @@
         "max": 6,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    }
   },
   "mnemonic": {
     "key": "mnemonic",
-    "slug": "Mnemonic_Ring",
-    "pool": "mnemonic-ring",
     "family": "rings",
+    "pool": "mnemonic-ring",
+    "slug": "Mnemonic_Ring",
     "id": "Metadata/Items/Rings/FourRingB3",
     "name": "Mnemonic Ring",
     "sourceUrl": "https://poe2db.tw/us/Mnemonic_Ring",
@@ -1385,14 +1385,6 @@
     "strength": 0,
     "requiredLevel": 40,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 40",
-      "ko": "요구 사항:  레벨 40",
-      "ja": "装備条件： レベル 40",
-      "zh-CN": "需求：  等级 40",
-      "zh-TW": "需求:  等級 40",
-      "es": "Requiere:  Nivel 40"
-    },
     "implicitModifierId": "mnemonic:implicit:maximummanaincreasepercent",
     "implicitStats": [
       {
@@ -1408,13 +1400,21 @@
         "max": 6,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    }
   },
   "pearl": {
     "key": "pearl",
-    "slug": "Pearl_Ring",
-    "pool": "pearl-ring",
     "family": "rings",
+    "pool": "pearl-ring",
+    "slug": "Pearl_Ring",
     "id": "Metadata/Items/Rings/FourRing8",
     "name": "Pearl Ring",
     "sourceUrl": "https://poe2db.tw/us/Pearl_Ring",
@@ -1426,14 +1426,6 @@
     "strength": 0,
     "requiredLevel": 32,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 32",
-      "ko": "요구 사항:  레벨 32",
-      "ja": "装備条件： レベル 32",
-      "zh-CN": "需求：  等级 32",
-      "zh-TW": "需求:  等級 32",
-      "es": "Requiere:  Nivel 32"
-    },
     "implicitModifierId": "pearl:implicit:increasedcastspeed",
     "implicitStats": [
       {
@@ -1449,13 +1441,21 @@
         "max": 10,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    }
   },
   "amethyst": {
     "key": "amethyst",
-    "slug": "Amethyst_Ring",
-    "pool": "amethyst-ring",
     "family": "rings",
+    "pool": "amethyst-ring",
+    "slug": "Amethyst_Ring",
     "id": "Metadata/Items/Rings/FourRing6",
     "name": "Amethyst Ring",
     "sourceUrl": "https://poe2db.tw/us/Amethyst_Ring",
@@ -1467,14 +1467,6 @@
     "strength": 0,
     "requiredLevel": 20,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 20",
-      "ko": "요구 사항:  레벨 20",
-      "ja": "装備条件： レベル 20",
-      "zh-CN": "需求：  等级 20",
-      "zh-TW": "需求:  等級 20",
-      "es": "Requiere:  Nivel 20"
-    },
     "implicitModifierId": "amethyst:implicit:chaosresistance",
     "implicitStats": [
       {
@@ -1490,13 +1482,21 @@
         "max": 13,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 20",
+      "ko": "요구 사항:  레벨 20",
+      "ja": "装備条件： レベル 20",
+      "zh-CN": "需求：  等级 20",
+      "zh-TW": "需求:  等級 20",
+      "es": "Requiere:  Nivel 20"
+    }
   },
   "prismatic": {
     "key": "prismatic",
-    "slug": "Prismatic_Ring",
-    "pool": "prismatic-ring",
     "family": "rings",
+    "pool": "prismatic-ring",
+    "slug": "Prismatic_Ring",
     "id": "Metadata/Items/Rings/FourRing9",
     "name": "Prismatic Ring",
     "sourceUrl": "https://poe2db.tw/us/Prismatic_Ring",
@@ -1508,14 +1508,6 @@
     "strength": 0,
     "requiredLevel": 35,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 35",
-      "ko": "요구 사항:  레벨 35",
-      "ja": "装備条件： レベル 35",
-      "zh-CN": "需求：  等级 35",
-      "zh-TW": "需求:  等級 35",
-      "es": "Requiere:  Nivel 35"
-    },
     "implicitModifierId": "prismatic:implicit:allresistances",
     "implicitStats": [
       {
@@ -1531,13 +1523,21 @@
         "max": 10,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    }
   },
   "ruby-ring": {
     "key": "ruby-ring",
-    "slug": "Ruby_Ring",
-    "pool": "ruby-ring-ring",
     "family": "rings",
+    "pool": "ruby-ring-ring",
+    "slug": "Ruby_Ring",
     "id": "Metadata/Items/Rings/FourRing3",
     "name": "Ruby Ring",
     "sourceUrl": "https://poe2db.tw/us/Ruby_Ring",
@@ -1549,14 +1549,6 @@
     "strength": 0,
     "requiredLevel": 8,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 8",
-      "ko": "요구 사항:  레벨 8",
-      "ja": "装備条件： レベル 8",
-      "zh-CN": "需求：  等级 8",
-      "zh-TW": "需求:  等級 8",
-      "es": "Requiere:  Nivel 8"
-    },
     "implicitModifierId": "ruby-ring:implicit:fireresistance",
     "implicitStats": [
       {
@@ -1572,13 +1564,21 @@
         "max": 30,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    }
   },
   "two-stone-fire-cold": {
     "key": "two-stone-fire-cold",
-    "slug": "Two-Stone_Ring",
-    "pool": "two-stone-fire-cold-ring",
     "family": "rings",
+    "pool": "two-stone-fire-cold-ring",
+    "slug": "Two-Stone_Ring",
     "id": "Metadata/Items/Rings/FourRing13a",
     "name": "Two-Stone Ring",
     "sourceUrl": "https://poe2db.tw/us/Two-Stone_Ring",
@@ -1590,14 +1590,6 @@
     "strength": 0,
     "requiredLevel": 35,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 35",
-      "ko": "요구 사항:  레벨 35",
-      "ja": "装備条件： レベル 35",
-      "zh-CN": "需求：  等级 35",
-      "zh-TW": "需求:  等級 35",
-      "es": "Requiere:  Nivel 35"
-    },
     "implicitModifierId": "two-stone-fire-cold:implicit:fireandcoldresistance",
     "implicitStats": [
       {
@@ -1613,13 +1605,21 @@
         "max": 16,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    }
   },
   "stellar": {
     "key": "stellar",
-    "slug": "Stellar_Amulet",
-    "pool": "stellar-amulet",
     "family": "amulets",
+    "pool": "stellar-amulet",
+    "slug": "Stellar_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet8",
     "name": "Stellar Amulet",
     "sourceUrl": "https://poe2db.tw/us/Stellar_Amulet",
@@ -1631,14 +1631,6 @@
     "strength": 0,
     "requiredLevel": 25,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 25",
-      "ko": "요구 사항:  레벨 25",
-      "ja": "装備条件： レベル 25",
-      "zh-CN": "需求：  等级 25",
-      "zh-TW": "需求:  等級 25",
-      "es": "Requiere:  Nivel 25"
-    },
     "implicitModifierId": "stellar:implicit:allattributes",
     "implicitStats": [
       {
@@ -1654,13 +1646,21 @@
         "max": 7,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 25",
+      "ko": "요구 사항:  레벨 25",
+      "ja": "装備条件： レベル 25",
+      "zh-CN": "需求：  等级 25",
+      "zh-TW": "需求:  等級 25",
+      "es": "Requiere:  Nivel 25"
+    }
   },
   "amber": {
     "key": "amber",
-    "slug": "Amber_Amulet",
-    "pool": "amber-amulet",
     "family": "amulets",
+    "pool": "amber-amulet",
+    "slug": "Amber_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet3",
     "name": "Amber Amulet",
     "sourceUrl": "https://poe2db.tw/us/Amber_Amulet",
@@ -1672,14 +1672,6 @@
     "strength": 0,
     "requiredLevel": 8,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 8",
-      "ko": "요구 사항:  레벨 8",
-      "ja": "装備条件： レベル 8",
-      "zh-CN": "需求：  等级 8",
-      "zh-TW": "需求:  等級 8",
-      "es": "Requiere:  Nivel 8"
-    },
     "implicitModifierId": "amber:implicit:strength",
     "implicitStats": [
       {
@@ -1695,13 +1687,21 @@
         "max": 15,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    }
   },
   "bloodstone": {
     "key": "bloodstone",
-    "slug": "Bloodstone_Amulet",
-    "pool": "bloodstone-amulet",
     "family": "amulets",
+    "pool": "bloodstone-amulet",
+    "slug": "Bloodstone_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet7",
     "name": "Bloodstone Amulet",
     "sourceUrl": "https://poe2db.tw/us/Bloodstone_Amulet",
@@ -1713,14 +1713,6 @@
     "strength": 0,
     "requiredLevel": 18,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 18",
-      "ko": "요구 사항:  레벨 18",
-      "ja": "装備条件： レベル 18",
-      "zh-CN": "需求：  等级 18",
-      "zh-TW": "需求:  等級 18",
-      "es": "Requiere:  Nivel 18"
-    },
     "implicitModifierId": "bloodstone:implicit:increasedlife",
     "implicitStats": [
       {
@@ -1736,13 +1728,21 @@
         "max": 40,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 18",
+      "ko": "요구 사항:  레벨 18",
+      "ja": "装備条件： レベル 18",
+      "zh-CN": "需求：  等级 18",
+      "zh-TW": "需求:  等級 18",
+      "es": "Requiere:  Nivel 18"
+    }
   },
   "lunar": {
     "key": "lunar",
-    "slug": "Lunar_Amulet",
-    "pool": "lunar-amulet",
     "family": "amulets",
+    "pool": "lunar-amulet",
+    "slug": "Lunar_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet6",
     "name": "Lunar Amulet",
     "sourceUrl": "https://poe2db.tw/us/Lunar_Amulet",
@@ -1754,14 +1754,6 @@
     "strength": 0,
     "requiredLevel": 14,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 14",
-      "ko": "요구 사항:  레벨 14",
-      "ja": "装備条件： レベル 14",
-      "zh-CN": "需求：  等级 14",
-      "zh-TW": "需求:  等級 14",
-      "es": "Requiere:  Nivel 14"
-    },
     "implicitModifierId": "lunar:implicit:increasedenergyshield",
     "implicitStats": [
       {
@@ -1777,13 +1769,21 @@
         "max": 30,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 14",
+      "ko": "요구 사항:  레벨 14",
+      "ja": "装備条件： レベル 14",
+      "zh-CN": "需求：  等级 14",
+      "zh-TW": "需求:  等級 14",
+      "es": "Requiere:  Nivel 14"
+    }
   },
   "azure": {
     "key": "azure",
-    "slug": "Azure_Amulet",
-    "pool": "azure-amulet",
     "family": "amulets",
+    "pool": "azure-amulet",
+    "slug": "Azure_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet2",
     "name": "Azure Amulet",
     "sourceUrl": "https://poe2db.tw/us/Azure_Amulet",
@@ -1795,14 +1795,6 @@
     "strength": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "azure:implicit:manaregeneration",
     "implicitStats": [
       {
@@ -1818,13 +1810,21 @@
         "max": 30,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    }
   },
   "crimson": {
     "key": "crimson",
-    "slug": "Crimson_Amulet",
-    "pool": "crimson-amulet",
     "family": "amulets",
+    "pool": "crimson-amulet",
+    "slug": "Crimson_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet1",
     "name": "Crimson Amulet",
     "sourceUrl": "https://poe2db.tw/us/Crimson_Amulet",
@@ -1836,14 +1836,6 @@
     "strength": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "crimson:implicit:liferegeneration",
     "implicitStats": [
       {
@@ -1859,13 +1851,21 @@
         "max": 240,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    }
   },
   "pearlescent": {
     "key": "pearlescent",
-    "slug": "Pearlescent_Amulet",
-    "pool": "pearlescent-amulet",
     "family": "amulets",
+    "pool": "pearlescent-amulet",
+    "slug": "Pearlescent_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet11",
     "name": "Pearlescent Amulet",
     "sourceUrl": "https://poe2db.tw/us/Pearlescent_Amulet",
@@ -1877,14 +1877,6 @@
     "strength": 0,
     "requiredLevel": 8,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 8",
-      "ko": "요구 사항:  레벨 8",
-      "ja": "装備条件： レベル 8",
-      "zh-CN": "需求：  等级 8",
-      "zh-TW": "需求:  等級 8",
-      "es": "Requiere:  Nivel 8"
-    },
     "implicitModifierId": "pearlescent:implicit:allresistances",
     "implicitStats": [
       {
@@ -1900,13 +1892,21 @@
         "max": 10,
         "locality": "Global"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    }
   },
   "hallowed": {
     "key": "hallowed",
-    "slug": "Hallowed_Sceptre",
-    "pool": "hallowed-sceptre",
     "family": "sceptres",
+    "pool": "hallowed-sceptre",
+    "slug": "Hallowed_Sceptre",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
     "name": "Hallowed Sceptre",
     "sourceUrl": "https://poe2db.tw/us/Hallowed_Sceptre",
@@ -1957,9 +1957,9 @@
   },
   "bone": {
     "key": "bone",
-    "slug": "Bone_Wand",
-    "pool": "bone-wand",
     "family": "wands",
+    "pool": "bone-wand",
+    "slug": "Bone_Wand",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
     "name": "Bone Wand",
     "sourceUrl": "https://poe2db.tw/us/Bone_Wand",
@@ -2009,9 +2009,9 @@
   },
   "siphoning": {
     "key": "siphoning",
-    "slug": "Siphoning_Wand",
-    "pool": "siphoning-wand",
     "family": "wands",
+    "pool": "siphoning-wand",
+    "slug": "Siphoning_Wand",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
     "name": "Siphoning Wand",
     "sourceUrl": "https://poe2db.tw/us/Siphoning_Wand",
@@ -2056,9 +2056,9 @@
   },
   "volatile": {
     "key": "volatile",
-    "slug": "Volatile_Wand",
-    "pool": "volatile-wand",
     "family": "wands",
+    "pool": "volatile-wand",
+    "slug": "Volatile_Wand",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
     "name": "Volatile Wand",
     "sourceUrl": "https://poe2db.tw/us/Volatile_Wand",
@@ -2108,9 +2108,9 @@
   },
   "galvanic": {
     "key": "galvanic",
-    "slug": "Galvanic_Wand",
-    "pool": "galvanic-wand",
     "family": "wands",
+    "pool": "galvanic-wand",
+    "slug": "Galvanic_Wand",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
     "name": "Galvanic Wand",
     "sourceUrl": "https://poe2db.tw/us/Galvanic_Wand",
@@ -2160,9 +2160,9 @@
   },
   "acrid": {
     "key": "acrid",
-    "slug": "Acrid_Wand",
-    "pool": "acrid-wand",
     "family": "wands",
+    "pool": "acrid-wand",
+    "slug": "Acrid_Wand",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
     "name": "Acrid Wand",
     "sourceUrl": "https://poe2db.tw/us/Acrid_Wand",
@@ -2207,9 +2207,9 @@
   },
   "offering": {
     "key": "offering",
-    "slug": "Offering_Wand",
-    "pool": "offering-wand",
     "family": "wands",
+    "pool": "offering-wand",
+    "slug": "Offering_Wand",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
     "name": "Offering Wand",
     "sourceUrl": "https://poe2db.tw/us/Offering_Wand",
@@ -2259,9 +2259,9 @@
   },
   "critical": {
     "key": "critical",
-    "slug": "Critical_Wand",
-    "pool": "critical-wand",
     "family": "wands",
+    "pool": "critical-wand",
+    "slug": "Critical_Wand",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
     "name": "Critical Wand",
     "sourceUrl": "https://poe2db.tw/us/Critical_Wand",
@@ -2306,9 +2306,9 @@
   },
   "primordial": {
     "key": "primordial",
-    "slug": "Primordial_Wand",
-    "pool": "primordial-wand",
     "family": "wands",
+    "pool": "primordial-wand",
+    "slug": "Primordial_Wand",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
     "name": "Primordial Wand",
     "sourceUrl": "https://poe2db.tw/us/Primordial_Wand",
@@ -2358,9 +2358,9 @@
   },
   "dueling": {
     "key": "dueling",
-    "slug": "Dueling_Wand",
-    "pool": "dueling-wand",
     "family": "wands",
+    "pool": "dueling-wand",
+    "slug": "Dueling_Wand",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
     "name": "Dueling Wand",
     "sourceUrl": "https://poe2db.tw/us/Dueling_Wand",
@@ -2405,9 +2405,9 @@
   },
   "stoic": {
     "key": "stoic",
-    "slug": "Stoic_Sceptre",
-    "pool": "stoic-sceptre",
     "family": "sceptres",
+    "pool": "stoic-sceptre",
+    "slug": "Stoic_Sceptre",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
     "name": "Stoic Sceptre",
     "sourceUrl": "https://poe2db.tw/us/Stoic_Sceptre",
@@ -2458,9 +2458,9 @@
   },
   "omen": {
     "key": "omen",
-    "slug": "Omen_Sceptre",
-    "pool": "omen-sceptre",
     "family": "sceptres",
+    "pool": "omen-sceptre",
+    "slug": "Omen_Sceptre",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
     "name": "Omen Sceptre",
     "sourceUrl": "https://poe2db.tw/us/Omen_Sceptre",
@@ -2511,9 +2511,9 @@
   },
   "shrine-fire": {
     "key": "shrine-fire",
-    "slug": "Shrine_Sceptre_6a",
-    "pool": "shrine-fire-sceptre",
     "family": "sceptres",
+    "pool": "shrine-fire-sceptre",
+    "slug": "Shrine_Sceptre_6a",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
     "name": "Shrine Sceptre",
     "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
@@ -2565,9 +2565,9 @@
   },
   "shrine-ice": {
     "key": "shrine-ice",
-    "slug": "Shrine_Sceptre_6b",
-    "pool": "shrine-ice-sceptre",
     "family": "sceptres",
+    "pool": "shrine-ice-sceptre",
+    "slug": "Shrine_Sceptre_6b",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
     "name": "Shrine Sceptre",
     "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
@@ -2619,9 +2619,9 @@
   },
   "shrine-lightning": {
     "key": "shrine-lightning",
-    "slug": "Shrine_Sceptre_6c",
-    "pool": "shrine-lightning-sceptre",
     "family": "sceptres",
+    "pool": "shrine-lightning-sceptre",
+    "slug": "Shrine_Sceptre_6c",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
     "name": "Shrine Sceptre",
     "sourceUrl": "https://poe2db.tw/us/Shrine_Sceptre",
@@ -2673,9 +2673,9 @@
   },
   "clasped": {
     "key": "clasped",
-    "slug": "Clasped_Sceptre",
-    "pool": "clasped-sceptre",
     "family": "sceptres",
+    "pool": "clasped-sceptre",
+    "slug": "Clasped_Sceptre",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
     "name": "Clasped Sceptre",
     "sourceUrl": "https://poe2db.tw/us/Clasped_Sceptre",
@@ -2726,9 +2726,9 @@
   },
   "wrath": {
     "key": "wrath",
-    "slug": "Wrath_Sceptre",
-    "pool": "wrath-sceptre",
     "family": "sceptres",
+    "pool": "wrath-sceptre",
+    "slug": "Wrath_Sceptre",
     "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
     "name": "Wrath Sceptre",
     "sourceUrl": "https://poe2db.tw/us/Wrath_Sceptre",
@@ -2780,9 +2780,9 @@
   },
   "linen-belt": {
     "key": "linen-belt",
-    "slug": "Linen_Belt",
-    "pool": "linen-belt",
     "family": "belts",
+    "pool": "linen-belt",
+    "slug": "Linen_Belt",
     "id": "Metadata/Items/Belts/FourBelt2",
     "name": "Linen Belt",
     "sourceUrl": "https://poe2db.tw/us/Linen_Belt",
@@ -2794,6 +2794,22 @@
     "strength": 0,
     "requiredLevel": 0,
     "maximumQuality": 0,
+    "implicitModifierId": "linen-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "flask_mana_to_recover_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "flask_mana_to_recover_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "",
       "ko": "",
@@ -2821,29 +2837,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "linen-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "flask_mana_to_recover_+%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "flask_mana_to_recover_+%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "wide-belt": {
     "key": "wide-belt",
-    "slug": "Wide_Belt",
-    "pool": "wide-belt",
     "family": "belts",
+    "pool": "wide-belt",
+    "slug": "Wide_Belt",
     "id": "Metadata/Items/Belts/FourBelt3",
     "name": "Wide Belt",
     "sourceUrl": "https://poe2db.tw/us/Wide_Belt",
@@ -2855,6 +2855,22 @@
     "strength": 0,
     "requiredLevel": 14,
     "maximumQuality": 0,
+    "implicitModifierId": "wide-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "flask_charges_gained_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "flask_charges_gained_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "Requires:  Level 14",
       "ko": "요구 사항:  레벨 14",
@@ -2882,29 +2898,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "wide-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "flask_charges_gained_+%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "flask_charges_gained_+%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "long-belt": {
     "key": "long-belt",
-    "slug": "Long_Belt",
-    "pool": "long-belt",
     "family": "belts",
+    "pool": "long-belt",
+    "slug": "Long_Belt",
     "id": "Metadata/Items/Belts/FourBelt4",
     "name": "Long Belt",
     "sourceUrl": "https://poe2db.tw/us/Long_Belt",
@@ -2916,6 +2916,22 @@
     "strength": 0,
     "requiredLevel": 20,
     "maximumQuality": 0,
+    "implicitModifierId": "long-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "charm_duration_+%",
+        "min": 15,
+        "max": 20
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "charm_duration_+%",
+        "min": 15,
+        "max": 20,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "Requires:  Level 20",
       "ko": "요구 사항:  레벨 20",
@@ -2943,29 +2959,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "long-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "charm_duration_+%",
-        "min": 15,
-        "max": 20
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "charm_duration_+%",
-        "min": 15,
-        "max": 20,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "plate-belt": {
     "key": "plate-belt",
-    "slug": "Plate_Belt",
-    "pool": "plate-belt",
     "family": "belts",
+    "pool": "plate-belt",
+    "slug": "Plate_Belt",
     "id": "Metadata/Items/Belts/FourBelt5",
     "name": "Plate Belt",
     "sourceUrl": "https://poe2db.tw/us/Plate_Belt",
@@ -2977,6 +2977,22 @@
     "strength": 0,
     "requiredLevel": 25,
     "maximumQuality": 0,
+    "implicitModifierId": "plate-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_physical_damage_reduction_rating",
+        "min": 140,
+        "max": 180
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_physical_damage_reduction_rating",
+        "min": 140,
+        "max": 180,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "Requires:  Level 25",
       "ko": "요구 사항:  레벨 25",
@@ -3004,29 +3020,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "plate-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "base_physical_damage_reduction_rating",
-        "min": 140,
-        "max": 180
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "base_physical_damage_reduction_rating",
-        "min": 140,
-        "max": 180,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "ornate-belt": {
     "key": "ornate-belt",
-    "slug": "Ornate_Belt",
-    "pool": "ornate-belt",
     "family": "belts",
+    "pool": "ornate-belt",
+    "slug": "Ornate_Belt",
     "id": "Metadata/Items/Belts/FourBelt6",
     "name": "Ornate Belt",
     "sourceUrl": "https://poe2db.tw/us/Ornate_Belt",
@@ -3038,6 +3038,22 @@
     "strength": 0,
     "requiredLevel": 31,
     "maximumQuality": 0,
+    "implicitModifierId": "ornate-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "charm_charges_used_+%",
+        "min": -15,
+        "max": -10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "charm_charges_used_+%",
+        "min": -15,
+        "max": -10,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "Requires:  Level 31",
       "ko": "요구 사항:  레벨 31",
@@ -3065,29 +3081,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "ornate-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "charm_charges_used_+%",
-        "min": -15,
-        "max": -10
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "charm_charges_used_+%",
-        "min": -15,
-        "max": -10,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "mail-belt": {
     "key": "mail-belt",
-    "slug": "Mail_Belt",
-    "pool": "mail-belt",
     "family": "belts",
+    "pool": "mail-belt",
+    "slug": "Mail_Belt",
     "id": "Metadata/Items/Belts/FourBelt7",
     "name": "Mail Belt",
     "sourceUrl": "https://poe2db.tw/us/Mail_Belt",
@@ -3099,6 +3099,22 @@
     "strength": 0,
     "requiredLevel": 40,
     "maximumQuality": 0,
+    "implicitModifierId": "mail-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "flask_charges_used_+%",
+        "min": -15,
+        "max": -10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "flask_charges_used_+%",
+        "min": -15,
+        "max": -10,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "Requires:  Level 40",
       "ko": "요구 사항:  레벨 40",
@@ -3126,29 +3142,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "mail-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "flask_charges_used_+%",
-        "min": -15,
-        "max": -10
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "flask_charges_used_+%",
-        "min": -15,
-        "max": -10,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "double-belt": {
     "key": "double-belt",
-    "slug": "Double_Belt",
-    "pool": "double-belt",
     "family": "belts",
+    "pool": "double-belt",
+    "slug": "Double_Belt",
     "id": "Metadata/Items/Belts/FourBelt8",
     "name": "Double Belt",
     "sourceUrl": "https://poe2db.tw/us/Double_Belt",
@@ -3160,6 +3160,22 @@
     "strength": 0,
     "requiredLevel": 44,
     "maximumQuality": 0,
+    "implicitModifierId": "double-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "charm_charges_gained_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "charm_charges_gained_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "Requires:  Level 44",
       "ko": "요구 사항:  레벨 44",
@@ -3187,29 +3203,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "double-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "charm_charges_gained_+%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "charm_charges_gained_+%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "heavy-belt": {
     "key": "heavy-belt",
-    "slug": "Heavy_Belt",
-    "pool": "heavy-belt",
     "family": "belts",
+    "pool": "heavy-belt",
+    "slug": "Heavy_Belt",
     "id": "Metadata/Items/Belts/FourBelt9",
     "name": "Heavy Belt",
     "sourceUrl": "https://poe2db.tw/us/Heavy_Belt",
@@ -3221,6 +3221,22 @@
     "strength": 0,
     "requiredLevel": 50,
     "maximumQuality": 0,
+    "implicitModifierId": "heavy-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "stun_threshold_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "stun_threshold_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "Requires:  Level 50",
       "ko": "요구 사항:  레벨 50",
@@ -3248,29 +3264,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "heavy-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "stun_threshold_+%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "stun_threshold_+%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "utility-belt": {
     "key": "utility-belt",
-    "slug": "Utility_Belt",
-    "pool": "utility-belt",
     "family": "belts",
+    "pool": "utility-belt",
+    "slug": "Utility_Belt",
     "id": "Metadata/Items/Belts/FourBelt10",
     "name": "Utility Belt",
     "sourceUrl": "https://poe2db.tw/us/Utility_Belt",
@@ -3282,6 +3282,22 @@
     "strength": 0,
     "requiredLevel": 55,
     "maximumQuality": 0,
+    "implicitModifierId": "utility-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "flask_recovery_amount_%_to_recover_instantly",
+        "min": 20,
+        "max": 20
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "flask_recovery_amount_%_to_recover_instantly",
+        "min": 20,
+        "max": 20,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "Requires:  Level 55",
       "ko": "요구 사항:  레벨 55",
@@ -3309,29 +3325,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "utility-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "flask_recovery_amount_%_to_recover_instantly",
-        "min": 20,
-        "max": 20
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "flask_recovery_amount_%_to_recover_instantly",
-        "min": 20,
-        "max": 20,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "fine-belt": {
     "key": "fine-belt",
-    "slug": "Fine_Belt",
-    "pool": "fine-belt",
     "family": "belts",
+    "pool": "fine-belt",
+    "slug": "Fine_Belt",
     "id": "Metadata/Items/Belts/FourBelt11",
     "name": "Fine Belt",
     "sourceUrl": "https://poe2db.tw/us/Fine_Belt",
@@ -3343,6 +3343,22 @@
     "strength": 0,
     "requiredLevel": 62,
     "maximumQuality": 0,
+    "implicitModifierId": "fine-belt:implicit:base",
+    "implicitStats": [
+      {
+        "id": "generate_x_charges_for_any_flask_per_minute",
+        "min": 10,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "generate_x_charges_for_any_flask_per_minute",
+        "min": 10,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
     "requirements": {
       "en": "Requires:  Level 62",
       "ko": "요구 사항:  레벨 62",
@@ -3370,29 +3386,13 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
-    "implicitModifierId": "fine-belt:implicit:base",
-    "implicitStats": [
-      {
-        "id": "generate_x_charges_for_any_flask_per_minute",
-        "min": 10,
-        "max": 10
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "generate_x_charges_for_any_flask_per_minute",
-        "min": 10,
-        "max": 10,
-        "locality": "Global"
-      }
-    ]
+    }
   },
   "invoking-belt": {
     "key": "invoking-belt",
-    "slug": "Invoking_Belt",
-    "pool": "invoking-belt",
     "family": "belts",
+    "pool": "invoking-belt",
+    "slug": "Invoking_Belt",
     "id": "Metadata/Items/Belts/FourBeltB2",
     "name": "Invoking Belt",
     "sourceUrl": "https://poe2db.tw/us/Invoking_Belt",
@@ -3404,34 +3404,6 @@
     "strength": 0,
     "requiredLevel": 32,
     "maximumQuality": 0,
-    "requirements": {
-      "en": "Requires:  Level 32",
-      "ko": "요구 사항:  레벨 32",
-      "ja": "装備条件： レベル 32",
-      "zh-CN": "需求：  等级 32",
-      "zh-TW": "需求:  等級 32",
-      "es": "Requiere:  Nivel 32"
-    },
-    "sourceProperties": {
-      "en": [
-        "Has (1—3) Charm Slots"
-      ],
-      "ko": [
-        "호신부 슬롯 (1—3)개 보유"
-      ],
-      "ja": [
-        "(1—3)個のチャームスロットを持つ"
-      ],
-      "zh-CN": [
-        "具有 (1—3) 个咒符位"
-      ],
-      "zh-TW": [
-        "有(1—3)個護符欄位"
-      ],
-      "es": [
-        "Tiene (1—3) espacio para vial"
-      ]
-    },
     "implicitModifierId": "invoking-belt:implicit:base",
     "implicitStats": [
       {
@@ -3458,24 +3430,7 @@
         "max": 1,
         "locality": "Local"
       }
-    ]
-  },
-  "sinew-belt": {
-    "key": "sinew-belt",
-    "slug": "Sinew_Belt",
-    "pool": "sinew-belt",
-    "family": "belts",
-    "id": "Metadata/Items/Belts/FourBeltB3",
-    "name": "Sinew Belt",
-    "sourceUrl": "https://poe2db.tw/us/Sinew_Belt",
-    "sourceSha256": "619c4da87b8920c6ac53b66c319ff2f77effa0bc063faf6ddc8236fafc25b7a9",
-    "sourceTags": [
-      "belt"
     ],
-    "armour": 0,
-    "strength": 0,
-    "requiredLevel": 32,
-    "maximumQuality": 0,
     "requirements": {
       "en": "Requires:  Level 32",
       "ko": "요구 사항:  레벨 32",
@@ -3503,7 +3458,24 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
+    }
+  },
+  "sinew-belt": {
+    "key": "sinew-belt",
+    "family": "belts",
+    "pool": "sinew-belt",
+    "slug": "Sinew_Belt",
+    "id": "Metadata/Items/Belts/FourBeltB3",
+    "name": "Sinew Belt",
+    "sourceUrl": "https://poe2db.tw/us/Sinew_Belt",
+    "sourceSha256": "619c4da87b8920c6ac53b66c319ff2f77effa0bc063faf6ddc8236fafc25b7a9",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 32,
+    "maximumQuality": 0,
     "implicitModifierId": "sinew-belt:implicit:base",
     "implicitStats": [
       {
@@ -3530,24 +3502,7 @@
         "max": 1,
         "locality": "Local"
       }
-    ]
-  },
-  "forking-belt": {
-    "key": "forking-belt",
-    "slug": "Forking_Belt",
-    "pool": "forking-belt",
-    "family": "belts",
-    "id": "Metadata/Items/Belts/FourBeltB4",
-    "name": "Forking Belt",
-    "sourceUrl": "https://poe2db.tw/us/Forking_Belt",
-    "sourceSha256": "a0a3872537bfdc3db46b044f410ffe5adc88b7e9dd92e6184b808fca755d2a2a",
-    "sourceTags": [
-      "belt"
     ],
-    "armour": 0,
-    "strength": 0,
-    "requiredLevel": 32,
-    "maximumQuality": 0,
     "requirements": {
       "en": "Requires:  Level 32",
       "ko": "요구 사항:  레벨 32",
@@ -3575,7 +3530,24 @@
       "es": [
         "Tiene (1—3) espacio para vial"
       ]
-    },
+    }
+  },
+  "forking-belt": {
+    "key": "forking-belt",
+    "family": "belts",
+    "pool": "forking-belt",
+    "slug": "Forking_Belt",
+    "id": "Metadata/Items/Belts/FourBeltB4",
+    "name": "Forking Belt",
+    "sourceUrl": "https://poe2db.tw/us/Forking_Belt",
+    "sourceSha256": "a0a3872537bfdc3db46b044f410ffe5adc88b7e9dd92e6184b808fca755d2a2a",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 32,
+    "maximumQuality": 0,
     "implicitModifierId": "forking-belt:implicit:base",
     "implicitStats": [
       {
@@ -3613,13 +3585,41 @@
         "max": 1,
         "locality": "Local"
       }
-    ]
+    ],
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
   },
   "siege-crossbow": {
     "key": "siege-crossbow",
-    "slug": "Siege_Crossbow",
-    "pool": "siege-crossbow",
     "family": "crossbows",
+    "pool": "siege-crossbow",
+    "slug": "Siege_Crossbow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
     "name": "Siege Crossbow",
     "sourceUrl": "https://poe2db.tw/us/Siege_Crossbow",
@@ -3636,6 +3636,27 @@
     "dexterity": 89,
     "requiredLevel": 79,
     "maximumQuality": 20,
+    "implicitModifierId": "siege-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "grenade_skill_number_of_additional_projectiles",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "grenade_skill_number_of_additional_projectiles",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "29-115",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.65,
+    "reloadTime": 0.75,
+    "ordinarySocketMaximum": 2,
     "requirements": {
       "en": "Requires:  Level 79, 89 Str, 89 Dex",
       "ko": "요구 사항:  레벨 79, 89 힘, 89 민첩",
@@ -3687,34 +3708,13 @@
         "Ataques por segundo: 1.65",
         "Tiempo de recarga: 0.75"
       ]
-    },
-    "implicitModifierId": "siege-crossbow:implicit:base",
-    "implicitStats": [
-      {
-        "id": "grenade_skill_number_of_additional_projectiles",
-        "min": 1,
-        "max": 1
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "grenade_skill_number_of_additional_projectiles",
-        "min": 1,
-        "max": 1,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "29-115",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.65,
-    "reloadTime": 0.75,
-    "ordinarySocketMaximum": 2
+    }
   },
   "gemini-crossbow": {
     "key": "gemini-crossbow",
-    "slug": "Gemini_Crossbow",
-    "pool": "gemini-crossbow",
     "family": "crossbows",
+    "pool": "gemini-crossbow",
+    "slug": "Gemini_Crossbow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
     "name": "Gemini Crossbow",
     "sourceUrl": "https://poe2db.tw/us/Gemini_Crossbow",
@@ -3731,6 +3731,27 @@
     "dexterity": 89,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "gemini-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_number_of_crossbow_bolts",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_number_of_crossbow_bolts",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "28-112",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 1.1,
+    "ordinarySocketMaximum": 2,
     "requirements": {
       "en": "Requires:  Level 78, 89 Str, 89 Dex",
       "ko": "요구 사항:  레벨 78, 89 힘, 89 민첩",
@@ -3782,34 +3803,13 @@
         "Ataques por segundo: 1.6",
         "Tiempo de recarga: 1.1"
       ]
-    },
-    "implicitModifierId": "gemini-crossbow:implicit:base",
-    "implicitStats": [
-      {
-        "id": "base_number_of_crossbow_bolts",
-        "min": 1,
-        "max": 1
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "base_number_of_crossbow_bolts",
-        "min": 1,
-        "max": 1,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "28-112",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.6,
-    "reloadTime": 1.1,
-    "ordinarySocketMaximum": 2
+    }
   },
   "elegant-crossbow": {
     "key": "elegant-crossbow",
-    "slug": "Elegant_Crossbow",
-    "pool": "elegant-crossbow",
     "family": "crossbows",
+    "pool": "elegant-crossbow",
+    "slug": "Elegant_Crossbow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
     "name": "Elegant Crossbow",
     "sourceUrl": "https://poe2db.tw/us/Elegant_Crossbow",
@@ -3827,6 +3827,27 @@
     "dexterity": 89,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "elegant-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "31-123",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.65,
+    "reloadTime": 0.85,
+    "ordinarySocketMaximum": 2,
     "requirements": {
       "en": "Requires:  Level 78, 89 Str, 89 Dex",
       "ko": "요구 사항:  레벨 78, 89 힘, 89 민첩",
@@ -3878,34 +3899,13 @@
         "Ataques por segundo: 1.65",
         "Tiempo de recarga: 0.85"
       ]
-    },
-    "implicitModifierId": "elegant-crossbow:implicit:base",
-    "implicitStats": [
-      {
-        "id": "base_chance_to_pierce_%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "base_chance_to_pierce_%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "31-123",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.65,
-    "reloadTime": 0.85,
-    "ordinarySocketMaximum": 2
+    }
   },
   "flexed-crossbow": {
     "key": "flexed-crossbow",
-    "slug": "Flexed_Crossbow",
-    "pool": "flexed-crossbow",
     "family": "crossbows",
+    "pool": "flexed-crossbow",
+    "slug": "Flexed_Crossbow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
     "name": "Flexed Crossbow",
     "sourceUrl": "https://poe2db.tw/us/Flexed_Crossbow",
@@ -3922,6 +3922,27 @@
     "dexterity": 89,
     "requiredLevel": 77,
     "maximumQuality": 20,
+    "implicitModifierId": "flexed-crossbow:implicit:base",
+    "implicitStats": [
+      {
+        "id": "projectile_speed_+%_with_crossbow_skills",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "projectile_speed_+%_with_crossbow_skills",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "32-127",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 0.85,
+    "ordinarySocketMaximum": 2,
     "requirements": {
       "en": "Requires:  Level 77, 89 Str, 89 Dex",
       "ko": "요구 사항:  레벨 77, 89 힘, 89 민첩",
@@ -3973,34 +3994,13 @@
         "Ataques por segundo: 1.6",
         "Tiempo de recarga: 0.85"
       ]
-    },
-    "implicitModifierId": "flexed-crossbow:implicit:base",
-    "implicitStats": [
-      {
-        "id": "projectile_speed_+%_with_crossbow_skills",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "projectile_speed_+%_with_crossbow_skills",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "32-127",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.6,
-    "reloadTime": 0.85,
-    "ordinarySocketMaximum": 2
+    }
   },
   "desolate-crossbow": {
     "key": "desolate-crossbow",
-    "slug": "Desolate_Crossbow",
-    "pool": "desolate-crossbow",
     "family": "crossbows",
+    "pool": "desolate-crossbow",
+    "slug": "Desolate_Crossbow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
     "name": "Desolate Crossbow",
     "sourceUrl": "https://poe2db.tw/us/Desolate_Crossbow",
@@ -4017,6 +4017,14 @@
     "dexterity": 89,
     "requiredLevel": 77,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "33-132",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 0.8,
+    "ordinarySocketMaximum": 2,
     "requirements": {
       "en": "Requires:  Level 77, 89 Str, 89 Dex",
       "ko": "요구 사항:  레벨 77, 89 힘, 89 민첩",
@@ -4068,21 +4076,13 @@
         "Ataques por segundo: 1.6",
         "Tiempo de recarga: 0.8"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "physicalDamage": "33-132",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.6,
-    "reloadTime": 0.8,
-    "ordinarySocketMaximum": 2
+    }
   },
   "engraved-crossbow": {
     "key": "engraved-crossbow",
-    "slug": "Engraved_Crossbow",
-    "pool": "engraved-crossbow",
     "family": "crossbows",
+    "pool": "engraved-crossbow",
+    "slug": "Engraved_Crossbow",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
     "name": "Engraved Crossbow",
     "sourceUrl": "https://poe2db.tw/us/Engraved_Crossbow",
@@ -4099,6 +4099,14 @@
     "dexterity": 82,
     "requiredLevel": 72,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "31-124",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "reloadTime": 0.8,
+    "ordinarySocketMaximum": 2,
     "requirements": {
       "en": "Requires:  Level 72, 82 Str, 82 Dex",
       "ko": "요구 사항:  레벨 72, 82 힘, 82 민첩",
@@ -4150,21 +4158,13 @@
         "Ataques por segundo: 1.6",
         "Tiempo de recarga: 0.8"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "physicalDamage": "31-124",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.6,
-    "reloadTime": 0.8,
-    "ordinarySocketMaximum": 2
+    }
   },
   "tawhoan-tower-shield": {
     "key": "tawhoan-tower-shield",
-    "slug": "Tawhoan_Tower_Shield",
-    "pool": "tawhoan-tower-shield",
     "family": "shields",
+    "pool": "tawhoan-tower-shield",
+    "slug": "Tawhoan_Tower_Shield",
     "id": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
     "name": "Tawhoan Tower Shield",
     "sourceUrl": "https://poe2db.tw/us/Tawhoan_Tower_Shield",
@@ -4186,6 +4186,11 @@
     "intelligence": 0,
     "requiredLevel": 80,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield",
     "requirements": {
       "en": "Requires:  Level 80, 115 Str",
       "ko": "요구 사항:  레벨 80, 115 힘",
@@ -4251,18 +4256,13 @@
       "es": [
         "Otorga la habilidad: Levantar escudo"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "ordinarySocketMaximum": 1,
-    "classId": 26,
-    "grantedSkill": "Raise_Shield"
+    }
   },
   "golden-targe": {
     "key": "golden-targe",
-    "slug": "Golden_Targe",
-    "pool": "golden-targe",
     "family": "shields",
+    "pool": "golden-targe",
+    "slug": "Golden_Targe",
     "id": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
     "name": "Golden Targe",
     "sourceUrl": "https://poe2db.tw/us/Golden_Targe",
@@ -4284,6 +4284,11 @@
     "intelligence": 0,
     "requiredLevel": 80,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield",
     "requirements": {
       "en": "Requires:  Level 80, 63 Str, 63 Dex",
       "ko": "요구 사항:  레벨 80, 63 힘, 63 민첩",
@@ -4355,18 +4360,13 @@
       "es": [
         "Otorga la habilidad: Levantar escudo"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "ordinarySocketMaximum": 1,
-    "classId": 26,
-    "grantedSkill": "Raise_Shield"
+    }
   },
   "blacksteel-crest-shield": {
     "key": "blacksteel-crest-shield",
-    "slug": "Blacksteel_Crest_Shield",
-    "pool": "blacksteel-crest-shield",
     "family": "shields",
+    "pool": "blacksteel-crest-shield",
+    "slug": "Blacksteel_Crest_Shield",
     "id": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
     "name": "Blacksteel Crest Shield",
     "sourceUrl": "https://poe2db.tw/us/Blacksteel_Crest_Shield",
@@ -4388,6 +4388,11 @@
     "intelligence": 63,
     "requiredLevel": 80,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield",
     "requirements": {
       "en": "Requires:  Level 80, 63 Str, 63 Int",
       "ko": "요구 사항:  레벨 80, 63 힘, 63 지능",
@@ -4459,18 +4464,13 @@
       "es": [
         "Otorga la habilidad: Levantar escudo"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "ordinarySocketMaximum": 1,
-    "classId": 26,
-    "grantedSkill": "Raise_Shield"
+    }
   },
   "desert-buckler": {
     "key": "desert-buckler",
-    "slug": "Desert_Buckler",
-    "pool": "desert-buckler",
     "family": "bucklers",
+    "pool": "desert-buckler",
+    "slug": "Desert_Buckler",
     "id": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
     "name": "Desert Buckler",
     "sourceUrl": "https://poe2db.tw/us/Desert_Buckler",
@@ -4492,6 +4492,11 @@
     "intelligence": 0,
     "requiredLevel": 80,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 94,
+    "grantedSkill": "Parry",
     "requirements": {
       "en": "Requires:  Level 80, 115 Dex",
       "ko": "요구 사항:  레벨 80, 115 민첩",
@@ -4551,18 +4556,13 @@
       "es": [
         "Otorga la habilidad: Parada"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "ordinarySocketMaximum": 1,
-    "classId": 94,
-    "grantedSkill": "Parry"
+    }
   },
   "tasalian-focus": {
     "key": "tasalian-focus",
-    "slug": "Tasalian_Focus",
-    "pool": "tasalian-focus",
     "family": "foci",
+    "pool": "tasalian-focus",
+    "slug": "Tasalian_Focus",
     "id": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
     "name": "Tasalian Focus",
     "sourceUrl": "https://poe2db.tw/us/Tasalian_Focus",
@@ -4582,6 +4582,11 @@
     "intelligence": 115,
     "requiredLevel": 80,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 81,
+    "grantedSkill": null,
     "requirements": {
       "en": "Requires:  Level 80, 115 Int",
       "ko": "요구 사항:  레벨 80, 115 지능",
@@ -4617,18 +4622,13 @@
       "zh-CN": [],
       "zh-TW": [],
       "es": []
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "ordinarySocketMaximum": 1,
-    "classId": 81,
-    "grantedSkill": null
+    }
   },
   "visceral-quiver": {
     "key": "visceral-quiver",
-    "slug": "Visceral_Quiver",
-    "pool": "visceral-quiver",
     "family": "quivers",
+    "pool": "visceral-quiver",
+    "slug": "Visceral_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver11",
     "name": "Visceral Quiver",
     "sourceUrl": "https://poe2db.tw/us/Visceral_Quiver",
@@ -4641,6 +4641,24 @@
     "dexterity": 0,
     "requiredLevel": 65,
     "maximumQuality": null,
+    "implicitModifierId": "visceral-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_critical_strike_chance_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_critical_strike_chance_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
     "requirements": {
       "en": "Requires:  Level 65",
       "ko": "요구 사항:  레벨 65",
@@ -4668,31 +4686,13 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
-    "implicitModifierId": "visceral-quiver:implicit:base",
-    "implicitStats": [
-      {
-        "id": "attack_critical_strike_chance_+%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "attack_critical_strike_chance_+%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ],
-    "classId": 20,
-    "ordinarySocketMaximum": 0
+    }
   },
   "volant-quiver": {
     "key": "volant-quiver",
-    "slug": "Volant_Quiver",
-    "pool": "volant-quiver",
     "family": "quivers",
+    "pool": "volant-quiver",
+    "slug": "Volant_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver10",
     "name": "Volant Quiver",
     "sourceUrl": "https://poe2db.tw/us/Volant_Quiver",
@@ -4705,6 +4705,24 @@
     "dexterity": 0,
     "requiredLevel": 61,
     "maximumQuality": null,
+    "implicitModifierId": "volant-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_arrow_speed_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_arrow_speed_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
     "requirements": {
       "en": "Requires:  Level 61",
       "ko": "요구 사항:  레벨 61",
@@ -4732,31 +4750,13 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
-    "implicitModifierId": "volant-quiver:implicit:base",
-    "implicitStats": [
-      {
-        "id": "base_arrow_speed_+%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "base_arrow_speed_+%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ],
-    "classId": 20,
-    "ordinarySocketMaximum": 0
+    }
   },
   "penetrating-quiver": {
     "key": "penetrating-quiver",
-    "slug": "Penetrating_Quiver",
-    "pool": "penetrating-quiver",
     "family": "quivers",
+    "pool": "penetrating-quiver",
+    "slug": "Penetrating_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver9",
     "name": "Penetrating Quiver",
     "sourceUrl": "https://poe2db.tw/us/Penetrating_Quiver",
@@ -4769,6 +4769,24 @@
     "dexterity": 0,
     "requiredLevel": 55,
     "maximumQuality": null,
+    "implicitModifierId": "penetrating-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 100,
+        "max": 100
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 100,
+        "max": 100,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
     "requirements": {
       "en": "Requires:  Level 55",
       "ko": "요구 사항:  레벨 55",
@@ -4796,31 +4814,13 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
-    "implicitModifierId": "penetrating-quiver:implicit:base",
-    "implicitStats": [
-      {
-        "id": "base_chance_to_pierce_%",
-        "min": 100,
-        "max": 100
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "base_chance_to_pierce_%",
-        "min": 100,
-        "max": 100,
-        "locality": "Global"
-      }
-    ],
-    "classId": 20,
-    "ordinarySocketMaximum": 0
+    }
   },
   "primed-quiver": {
     "key": "primed-quiver",
-    "slug": "Primed_Quiver",
-    "pool": "primed-quiver",
     "family": "quivers",
+    "pool": "primed-quiver",
+    "slug": "Primed_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver8",
     "name": "Primed Quiver",
     "sourceUrl": "https://poe2db.tw/us/Primed_Quiver",
@@ -4833,6 +4833,24 @@
     "dexterity": 0,
     "requiredLevel": 51,
     "maximumQuality": null,
+    "implicitModifierId": "primed-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "attack_speed_+%",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_speed_+%",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
     "requirements": {
       "en": "Requires:  Level 51",
       "ko": "요구 사항:  레벨 51",
@@ -4860,31 +4878,13 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
-    "implicitModifierId": "primed-quiver:implicit:base",
-    "implicitStats": [
-      {
-        "id": "attack_speed_+%",
-        "min": 7,
-        "max": 10
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "attack_speed_+%",
-        "min": 7,
-        "max": 10,
-        "locality": "Global"
-      }
-    ],
-    "classId": 20,
-    "ordinarySocketMaximum": 0
+    }
   },
   "serrated-quiver": {
     "key": "serrated-quiver",
-    "slug": "Serrated_Quiver",
-    "pool": "serrated-quiver",
     "family": "quivers",
+    "pool": "serrated-quiver",
+    "slug": "Serrated_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver7",
     "name": "Serrated Quiver",
     "sourceUrl": "https://poe2db.tw/us/Serrated_Quiver",
@@ -4897,6 +4897,24 @@
     "dexterity": 0,
     "requiredLevel": 44,
     "maximumQuality": null,
+    "implicitModifierId": "serrated-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "bleed_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "bleed_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
     "requirements": {
       "en": "Requires:  Level 44",
       "ko": "요구 사항:  레벨 44",
@@ -4924,31 +4942,13 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
-    "implicitModifierId": "serrated-quiver:implicit:base",
-    "implicitStats": [
-      {
-        "id": "bleed_on_hit_with_attacks_%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "bleed_on_hit_with_attacks_%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ],
-    "classId": 20,
-    "ordinarySocketMaximum": 0
+    }
   },
   "toxic-quiver": {
     "key": "toxic-quiver",
-    "slug": "Toxic_Quiver",
-    "pool": "toxic-quiver",
     "family": "quivers",
+    "pool": "toxic-quiver",
+    "slug": "Toxic_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver6",
     "name": "Toxic Quiver",
     "sourceUrl": "https://poe2db.tw/us/Toxic_Quiver",
@@ -4961,6 +4961,24 @@
     "dexterity": 0,
     "requiredLevel": 39,
     "maximumQuality": null,
+    "implicitModifierId": "toxic-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "chance_to_poison_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "chance_to_poison_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
     "requirements": {
       "en": "Requires:  Level 39",
       "ko": "요구 사항:  레벨 39",
@@ -4988,31 +5006,13 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
-    "implicitModifierId": "toxic-quiver:implicit:base",
-    "implicitStats": [
-      {
-        "id": "chance_to_poison_on_hit_with_attacks_%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "chance_to_poison_on_hit_with_attacks_%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ],
-    "classId": 20,
-    "ordinarySocketMaximum": 0
+    }
   },
   "blunt-quiver": {
     "key": "blunt-quiver",
-    "slug": "Blunt_Quiver",
-    "pool": "blunt-quiver",
     "family": "quivers",
+    "pool": "blunt-quiver",
+    "slug": "Blunt_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver5",
     "name": "Blunt Quiver",
     "sourceUrl": "https://poe2db.tw/us/Blunt_Quiver",
@@ -5025,6 +5025,24 @@
     "dexterity": 0,
     "requiredLevel": 33,
     "maximumQuality": null,
+    "implicitModifierId": "blunt-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "hit_damage_stun_multiplier_+%",
+        "min": 25,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "hit_damage_stun_multiplier_+%",
+        "min": 25,
+        "max": 40,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
     "requirements": {
       "en": "Requires:  Level 33",
       "ko": "요구 사항:  레벨 33",
@@ -5052,31 +5070,13 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
-    "implicitModifierId": "blunt-quiver:implicit:base",
-    "implicitStats": [
-      {
-        "id": "hit_damage_stun_multiplier_+%",
-        "min": 25,
-        "max": 40
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "hit_damage_stun_multiplier_+%",
-        "min": 25,
-        "max": 40,
-        "locality": "Global"
-      }
-    ],
-    "classId": 20,
-    "ordinarySocketMaximum": 0
+    }
   },
   "two-point-quiver": {
     "key": "two-point-quiver",
-    "slug": "Two-Point_Quiver",
-    "pool": "two-point-quiver",
     "family": "quivers",
+    "pool": "two-point-quiver",
+    "slug": "Two-Point_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver4",
     "name": "Two-Point Quiver",
     "sourceUrl": "https://poe2db.tw/us/Two-Point_Quiver",
@@ -5089,6 +5089,24 @@
     "dexterity": 0,
     "requiredLevel": 24,
     "maximumQuality": null,
+    "implicitModifierId": "two-point-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "accuracy_rating_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "accuracy_rating_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
     "requirements": {
       "en": "Requires:  Level 24",
       "ko": "요구 사항:  레벨 24",
@@ -5116,31 +5134,13 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
-    "implicitModifierId": "two-point-quiver:implicit:base",
-    "implicitStats": [
-      {
-        "id": "accuracy_rating_+%",
-        "min": 20,
-        "max": 30
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "accuracy_rating_+%",
-        "min": 20,
-        "max": 30,
-        "locality": "Global"
-      }
-    ],
-    "classId": 20,
-    "ordinarySocketMaximum": 0
+    }
   },
   "sacral-quiver": {
     "key": "sacral-quiver",
-    "slug": "Sacral_Quiver",
-    "pool": "sacral-quiver",
     "family": "quivers",
+    "pool": "sacral-quiver",
+    "slug": "Sacral_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver3",
     "name": "Sacral Quiver",
     "sourceUrl": "https://poe2db.tw/us/Sacral_Quiver",
@@ -5153,6 +5153,24 @@
     "dexterity": 0,
     "requiredLevel": 16,
     "maximumQuality": null,
+    "implicitModifierId": "sacral-quiver:implicit:base",
+    "implicitStats": [
+      {
+        "id": "base_life_gain_per_target",
+        "min": 2,
+        "max": 3
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_life_gain_per_target",
+        "min": 2,
+        "max": 3,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
     "requirements": {
       "en": "Requires:  Level 16",
       "ko": "요구 사항:  레벨 16",
@@ -5180,31 +5198,13 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
-    "implicitModifierId": "sacral-quiver:implicit:base",
-    "implicitStats": [
-      {
-        "id": "base_life_gain_per_target",
-        "min": 2,
-        "max": 3
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "base_life_gain_per_target",
-        "min": 2,
-        "max": 3,
-        "locality": "Global"
-      }
-    ],
-    "classId": 20,
-    "ordinarySocketMaximum": 0
+    }
   },
   "fire-quiver": {
     "key": "fire-quiver",
-    "slug": "Fire_Quiver",
-    "pool": "fire-quiver",
     "family": "quivers",
+    "pool": "fire-quiver",
+    "slug": "Fire_Quiver",
     "id": "Metadata/Items/Quivers/FourQuiver2",
     "name": "Fire Quiver",
     "sourceUrl": "https://poe2db.tw/us/Fire_Quiver",
@@ -5217,34 +5217,6 @@
     "dexterity": 0,
     "requiredLevel": 8,
     "maximumQuality": null,
-    "requirements": {
-      "en": "Requires:  Level 8",
-      "ko": "요구 사항:  레벨 8",
-      "ja": "装備条件： レベル 8",
-      "zh-CN": "需求：  等级 8",
-      "zh-TW": "需求:  等級 8",
-      "es": "Requiere:  Nivel 8"
-    },
-    "sourceProperties": {
-      "en": [
-        "Can only be equipped if you are wielding a Bow."
-      ],
-      "ko": [
-        "활 장착 시에만 장착할 수 있습니다."
-      ],
-      "ja": [
-        "弓装備時のみ装備可能"
-      ],
-      "zh-CN": [
-        "只能在使用弓时装备。"
-      ],
-      "zh-TW": [
-        "持弓時才可裝備。"
-      ],
-      "es": [
-        "Solo se puede equipar si portas un arco."
-      ]
-    },
     "implicitModifierId": "fire-quiver:implicit:base",
     "implicitStats": [
       {
@@ -5273,32 +5245,14 @@
       }
     ],
     "classId": 20,
-    "ordinarySocketMaximum": 0
-  },
-  "broadhead-quiver": {
-    "key": "broadhead-quiver",
-    "slug": "Broadhead_Quiver",
-    "pool": "broadhead-quiver",
-    "family": "quivers",
-    "id": "Metadata/Items/Quivers/FourQuiver1",
-    "name": "Broadhead Quiver",
-    "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver",
-    "sourceSha256": "be58842d27b7f029539e01228f65a9a78a23ed4169de1c7100d344a86af523ee",
-    "sourceTags": [
-      "quiver"
-    ],
-    "armour": 0,
-    "strength": 0,
-    "dexterity": 0,
-    "requiredLevel": 0,
-    "maximumQuality": null,
+    "ordinarySocketMaximum": 0,
     "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
     },
     "sourceProperties": {
       "en": [
@@ -5319,7 +5273,25 @@
       "es": [
         "Solo se puede equipar si portas un arco."
       ]
-    },
+    }
+  },
+  "broadhead-quiver": {
+    "key": "broadhead-quiver",
+    "family": "quivers",
+    "pool": "broadhead-quiver",
+    "slug": "Broadhead_Quiver",
+    "id": "Metadata/Items/Quivers/FourQuiver1",
+    "name": "Broadhead Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver",
+    "sourceSha256": "be58842d27b7f029539e01228f65a9a78a23ed4169de1c7100d344a86af523ee",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 0,
+    "maximumQuality": null,
     "implicitModifierId": "broadhead-quiver:implicit:base",
     "implicitStats": [
       {
@@ -5348,13 +5320,41 @@
       }
     ],
     "classId": 20,
-    "ordinarySocketMaximum": 0
+    "ordinarySocketMaximum": 0,
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
   },
   "fortified-hammer": {
     "key": "fortified-hammer",
-    "slug": "Fortified_Hammer",
-    "pool": "fortified-hammer",
     "family": "one-hand-maces",
+    "pool": "fortified-hammer",
+    "slug": "Fortified_Hammer",
     "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame",
     "name": "Fortified Hammer",
     "sourceUrl": "https://poe2db.tw/us/Fortified_Hammer",
@@ -5370,6 +5370,28 @@
     "dexterity": 0,
     "requiredLevel": 79,
     "maximumQuality": 20,
+    "implicitModifierId": "fortified-hammer:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_weapon_daze_chance_%",
+        "min": 40,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_daze_chance_%",
+        "min": 40,
+        "max": 40,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "60-73",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.3,
+    "ordinarySocketMaximum": 1,
+    "classId": 12,
     "requirements": {
       "en": "Requires:  Level 79, 163 Str",
       "ko": "요구 사항:  레벨 79, 163 힘",
@@ -5421,35 +5443,13 @@
         "Ataques por segundo: 1.4",
         "Alcance de arma: 1.3"
       ]
-    },
-    "implicitModifierId": "fortified-hammer:implicit:base",
-    "implicitStats": [
-      {
-        "id": "local_weapon_daze_chance_%",
-        "min": 40,
-        "max": 40
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_weapon_daze_chance_%",
-        "min": 40,
-        "max": 40,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "60-73",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.4,
-    "weaponRange": 1.3,
-    "ordinarySocketMaximum": 1,
-    "classId": 12
+    }
   },
   "strife-pick": {
     "key": "strife-pick",
-    "slug": "Strife_Pick",
-    "pool": "strife-pick",
     "family": "one-hand-maces",
+    "pool": "strife-pick",
+    "slug": "Strife_Pick",
     "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame",
     "name": "Strife Pick",
     "sourceUrl": "https://poe2db.tw/us/Strife_Pick",
@@ -5465,6 +5465,28 @@
     "dexterity": 0,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "strife-pick:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_critical_strike_multiplier_+",
+        "min": 5,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_critical_strike_multiplier_+",
+        "min": 5,
+        "max": 10,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "49-66",
+    "criticalHitChance": 7,
+    "attacksPerSecond": 1.45,
+    "weaponRange": 1.3,
+    "ordinarySocketMaximum": 1,
+    "classId": 12,
     "requirements": {
       "en": "Requires:  Level 78, 163 Str",
       "ko": "요구 사항:  레벨 78, 163 힘",
@@ -5516,35 +5538,13 @@
         "Ataques por segundo: 1.45",
         "Alcance de arma: 1.3"
       ]
-    },
-    "implicitModifierId": "strife-pick:implicit:base",
-    "implicitStats": [
-      {
-        "id": "local_critical_strike_multiplier_+",
-        "min": 5,
-        "max": 10
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_critical_strike_multiplier_+",
-        "min": 5,
-        "max": 10,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "49-66",
-    "criticalHitChance": 7,
-    "attacksPerSecond": 1.45,
-    "weaponRange": 1.3,
-    "ordinarySocketMaximum": 1,
-    "classId": 12
+    }
   },
   "akoyan-club": {
     "key": "akoyan-club",
-    "slug": "Akoyan_Club",
-    "pool": "akoyan-club",
     "family": "one-hand-maces",
+    "pool": "akoyan-club",
+    "slug": "Akoyan_Club",
     "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace10Endgame",
     "name": "Akoyan Club",
     "sourceUrl": "https://poe2db.tw/us/Akoyan_Club",
@@ -5561,6 +5561,28 @@
     "dexterity": 0,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "akoyan-club:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_always_hit",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_always_hit",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "46-76",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.45,
+    "weaponRange": 1.3,
+    "ordinarySocketMaximum": 1,
+    "classId": 12,
     "requirements": {
       "en": "Requires:  Level 78, 163 Str",
       "ko": "요구 사항:  레벨 78, 163 힘",
@@ -5612,35 +5634,13 @@
         "Ataques por segundo: 1.45",
         "Alcance de arma: 1.3"
       ]
-    },
-    "implicitModifierId": "akoyan-club:implicit:base",
-    "implicitStats": [
-      {
-        "id": "local_always_hit",
-        "min": 1,
-        "max": 1
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_always_hit",
-        "min": 1,
-        "max": 1,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "46-76",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.45,
-    "weaponRange": 1.3,
-    "ordinarySocketMaximum": 1,
-    "classId": 12
+    }
   },
   "ruination-maul": {
     "key": "ruination-maul",
-    "slug": "Ruination_Maul",
-    "pool": "ruination-maul",
     "family": "two-hand-maces",
+    "pool": "ruination-maul",
+    "slug": "Ruination_Maul",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace8Endgame",
     "name": "Ruination Maul",
     "sourceUrl": "https://poe2db.tw/us/Ruination_Maul",
@@ -5656,6 +5656,28 @@
     "dexterity": 0,
     "requiredLevel": 79,
     "maximumQuality": 20,
+    "implicitModifierId": "ruination-maul:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
+        "min": 10,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
+        "min": 10,
+        "max": 10,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "104-127",
+    "criticalHitChance": 8,
+    "attacksPerSecond": 1.1,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 2,
+    "classId": 17,
     "requirements": {
       "en": "Requires:  Level 79, 163 Str",
       "ko": "요구 사항:  레벨 79, 163 힘",
@@ -5707,35 +5729,13 @@
         "Ataques por segundo: 1.1",
         "Alcance de arma: 1.5"
       ]
-    },
-    "implicitModifierId": "ruination-maul:implicit:base",
-    "implicitStats": [
-      {
-        "id": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
-        "min": 10,
-        "max": 10
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
-        "min": 10,
-        "max": 10,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "104-127",
-    "criticalHitChance": 8,
-    "attacksPerSecond": 1.1,
-    "weaponRange": 1.5,
-    "ordinarySocketMaximum": 2,
-    "classId": 17
+    }
   },
   "fanatic-greathammer": {
     "key": "fanatic-greathammer",
-    "slug": "Fanatic_Greathammer",
-    "pool": "fanatic-greathammer",
     "family": "two-hand-maces",
+    "pool": "fanatic-greathammer",
+    "slug": "Fanatic_Greathammer",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame",
     "name": "Fanatic Greathammer",
     "sourceUrl": "https://poe2db.tw/us/Fanatic_Greathammer",
@@ -5751,6 +5751,28 @@
     "dexterity": 0,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "fanatic-greathammer:implicit:base",
+    "implicitStats": [
+      {
+        "id": "melee_splash",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "melee_splash",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "101-137",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.05,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 2,
+    "classId": 17,
     "requirements": {
       "en": "Requires:  Level 78, 163 Str",
       "ko": "요구 사항:  레벨 78, 163 힘",
@@ -5802,35 +5824,13 @@
         "Ataques por segundo: 1.05",
         "Alcance de arma: 1.5"
       ]
-    },
-    "implicitModifierId": "fanatic-greathammer:implicit:base",
-    "implicitStats": [
-      {
-        "id": "melee_splash",
-        "min": 1,
-        "max": 1
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "melee_splash",
-        "min": 1,
-        "max": 1,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "101-137",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.05,
-    "weaponRange": 1.5,
-    "ordinarySocketMaximum": 2,
-    "classId": 17
+    }
   },
   "tawhoan-greatclub": {
     "key": "tawhoan-greatclub",
-    "slug": "Tawhoan_Greatclub",
-    "pool": "tawhoan-greatclub",
     "family": "two-hand-maces",
+    "pool": "tawhoan-greatclub",
+    "slug": "Tawhoan_Greatclub",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
     "name": "Tawhoan Greatclub",
     "sourceUrl": "https://poe2db.tw/us/Tawhoan_Greatclub",
@@ -5847,6 +5847,28 @@
     "dexterity": 0,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "tawhoan-greatclub:implicit:base",
+    "implicitStats": [
+      {
+        "id": "warcry_empowers_next_x_melee_attacks",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "warcry_empowers_next_x_melee_attacks",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "113-153",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.1,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 2,
+    "classId": 17,
     "requirements": {
       "en": "Requires:  Level 78, 163 Str",
       "ko": "요구 사항:  레벨 78, 163 힘",
@@ -5898,35 +5920,13 @@
         "Ataques por segundo: 1.1",
         "Alcance de arma: 1.5"
       ]
-    },
-    "implicitModifierId": "tawhoan-greatclub:implicit:base",
-    "implicitStats": [
-      {
-        "id": "warcry_empowers_next_x_melee_attacks",
-        "min": 1,
-        "max": 1
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "warcry_empowers_next_x_melee_attacks",
-        "min": 1,
-        "max": 1,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "113-153",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.1,
-    "weaponRange": 1.5,
-    "ordinarySocketMaximum": 2,
-    "classId": 17
+    }
   },
   "aegis-quarterstaff": {
     "key": "aegis-quarterstaff",
-    "slug": "Aegis_Quarterstaff",
-    "pool": "aegis-quarterstaff",
     "family": "quarterstaves",
+    "pool": "aegis-quarterstaff",
+    "slug": "Aegis_Quarterstaff",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
     "name": "Aegis Quarterstaff",
     "sourceUrl": "https://poe2db.tw/us/Aegis_Quarterstaff",
@@ -5943,6 +5943,28 @@
     "intelligence": 50,
     "requiredLevel": 79,
     "maximumQuality": 20,
+    "implicitModifierId": "aegis-quarterstaff:implicit:base",
+    "implicitStats": [
+      {
+        "id": "additional_block_%",
+        "min": 12,
+        "max": 18
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "additional_block_%",
+        "min": 12,
+        "max": 18,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "58-97",
+    "criticalHitChance": 10,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58,
     "requirements": {
       "en": "Requires:  Level 79, 127 Dex, 50 Int",
       "ko": "요구 사항:  레벨 79, 127 민첩, 50 지능",
@@ -5994,35 +6016,13 @@
         "Ataques por segundo: 1.4",
         "Alcance de arma: 1.4"
       ]
-    },
-    "implicitModifierId": "aegis-quarterstaff:implicit:base",
-    "implicitStats": [
-      {
-        "id": "additional_block_%",
-        "min": 12,
-        "max": 18
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "additional_block_%",
-        "min": 12,
-        "max": 18,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "58-97",
-    "criticalHitChance": 10,
-    "attacksPerSecond": 1.4,
-    "weaponRange": 1.4,
-    "ordinarySocketMaximum": 2,
-    "classId": 58
+    }
   },
   "bolting-quarterstaff": {
     "key": "bolting-quarterstaff",
-    "slug": "Bolting_Quarterstaff",
-    "pool": "bolting-quarterstaff",
     "family": "quarterstaves",
+    "pool": "bolting-quarterstaff",
+    "slug": "Bolting_Quarterstaff",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
     "name": "Bolting Quarterstaff",
     "sourceUrl": "https://poe2db.tw/us/Bolting_Quarterstaff",
@@ -6039,6 +6039,39 @@
     "intelligence": 50,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "bolting-quarterstaff:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+        "min": 100,
+        "max": 100
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+        "min": 100,
+        "max": 100,
+        "locality": "Local"
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "24-97",
+    "criticalHitChance": 10,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58,
     "requirements": {
       "en": "Requires:  Level 78, 127 Dex, 50 Int",
       "ko": "요구 사항:  레벨 78, 127 민첩, 50 지능",
@@ -6090,46 +6123,13 @@
         "Ataques por segundo: 1.4",
         "Alcance de arma: 1.4"
       ]
-    },
-    "implicitModifierId": "bolting-quarterstaff:implicit:base",
-    "implicitStats": [
-      {
-        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
-        "min": 100,
-        "max": 100
-      },
-      {
-        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
-        "min": 1,
-        "max": 1
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
-        "min": 100,
-        "max": 100,
-        "locality": "Local"
-      },
-      {
-        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
-        "min": 1,
-        "max": 1,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "24-97",
-    "criticalHitChance": 10,
-    "attacksPerSecond": 1.4,
-    "weaponRange": 1.4,
-    "ordinarySocketMaximum": 2,
-    "classId": 58
+    }
   },
   "dreaming-quarterstaff": {
     "key": "dreaming-quarterstaff",
-    "slug": "Dreaming_Quarterstaff",
-    "pool": "dreaming-quarterstaff",
     "family": "quarterstaves",
+    "pool": "dreaming-quarterstaff",
+    "slug": "Dreaming_Quarterstaff",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
     "name": "Dreaming Quarterstaff",
     "sourceUrl": "https://poe2db.tw/us/Dreaming_Quarterstaff",
@@ -6147,6 +6147,15 @@
     "intelligence": 50,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "99-133",
+    "criticalHitChance": 0,
+    "attacksPerSecond": 1.5,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58,
     "requirements": {
       "en": "Requires:  Level 78, 127 Dex, 50 Int",
       "ko": "요구 사항:  레벨 78, 127 민첩, 50 지능",
@@ -6198,22 +6207,13 @@
         "Ataques por segundo: 1.5",
         "Alcance de arma: 1.4"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "physicalDamage": "99-133",
-    "criticalHitChance": 0,
-    "attacksPerSecond": 1.5,
-    "weaponRange": 1.4,
-    "ordinarySocketMaximum": 2,
-    "classId": 58
+    }
   },
   "grand-spear": {
     "key": "grand-spear",
-    "slug": "Grand_Spear",
-    "pool": "grand-spear",
     "family": "spears",
+    "pool": "grand-spear",
+    "slug": "Grand_Spear",
     "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
     "name": "Grand Spear",
     "sourceUrl": "https://poe2db.tw/us/Grand_Spear",
@@ -6230,6 +6230,39 @@
     "intelligence": 0,
     "requiredLevel": 79,
     "maximumQuality": 20,
+    "implicitModifierId": "grand-spear:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_+%_weapon_range",
+        "min": 25,
+        "max": 25
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_+%_weapon_range",
+        "min": 25,
+        "max": 25,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "56-84",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
     "requirements": {
       "en": "Requires:  Level 79, 68 Str, 109 Dex",
       "ko": "요구 사항:  레벨 79, 68 힘, 109 민첩",
@@ -6282,39 +6315,6 @@
         "Alcance de arma: 1.5"
       ]
     },
-    "implicitModifierId": "grand-spear:implicit:base",
-    "implicitStats": [
-      {
-        "id": "local_display_grants_spear_throw_skill",
-        "min": 1,
-        "max": 1
-      },
-      {
-        "id": "local_+%_weapon_range",
-        "min": 25,
-        "max": 25
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_display_grants_spear_throw_skill",
-        "min": 1,
-        "max": 1,
-        "locality": "Local"
-      },
-      {
-        "id": "local_+%_weapon_range",
-        "min": 25,
-        "max": 25,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "56-84",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.4,
-    "weaponRange": 1.5,
-    "ordinarySocketMaximum": 1,
-    "classId": 79,
     "skillLines": {
       "en": [
         "Grants Skill: Spear Throw"
@@ -6338,9 +6338,9 @@
   },
   "flying-spear": {
     "key": "flying-spear",
-    "slug": "Flying_Spear",
-    "pool": "flying-spear",
     "family": "spears",
+    "pool": "flying-spear",
+    "slug": "Flying_Spear",
     "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
     "name": "Flying Spear",
     "sourceUrl": "https://poe2db.tw/us/Flying_Spear",
@@ -6357,6 +6357,39 @@
     "intelligence": 0,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "flying-spear:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_projectile_speed_+%",
+        "min": 25,
+        "max": 35
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_projectile_speed_+%",
+        "min": 25,
+        "max": 35,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "46-77",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.6,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
     "requirements": {
       "en": "Requires:  Level 78, 50 Str, 127 Dex",
       "ko": "요구 사항:  레벨 78, 50 힘, 127 민첩",
@@ -6409,39 +6442,6 @@
         "Alcance de arma: 1.5"
       ]
     },
-    "implicitModifierId": "flying-spear:implicit:base",
-    "implicitStats": [
-      {
-        "id": "local_display_grants_spear_throw_skill",
-        "min": 1,
-        "max": 1
-      },
-      {
-        "id": "local_projectile_speed_+%",
-        "min": 25,
-        "max": 35
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_display_grants_spear_throw_skill",
-        "min": 1,
-        "max": 1,
-        "locality": "Local"
-      },
-      {
-        "id": "local_projectile_speed_+%",
-        "min": 25,
-        "max": 35,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "46-77",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.6,
-    "weaponRange": 1.5,
-    "ordinarySocketMaximum": 1,
-    "classId": 79,
     "skillLines": {
       "en": [
         "Grants Skill: Spear Throw"
@@ -6465,9 +6465,9 @@
   },
   "akoyan-spear": {
     "key": "akoyan-spear",
-    "slug": "Akoyan_Spear",
-    "pool": "akoyan-spear",
     "family": "spears",
+    "pool": "akoyan-spear",
+    "slug": "Akoyan_Spear",
     "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
     "name": "Akoyan Spear",
     "sourceUrl": "https://poe2db.tw/us/Akoyan_Spear",
@@ -6485,6 +6485,28 @@
     "intelligence": 90,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "akoyan-spear:implicit:base",
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "39-72",
+    "criticalHitChance": 7,
+    "attacksPerSecond": 1.6,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
     "requirements": {
       "en": "Requires:  Level 78, 50 Str, 127 Dex, 90 Int",
       "ko": "요구 사항:  레벨 78, 50 힘, 127 민첩, 90 지능",
@@ -6537,28 +6559,6 @@
         "Alcance de arma: 1.5"
       ]
     },
-    "implicitModifierId": "akoyan-spear:implicit:base",
-    "implicitStats": [
-      {
-        "id": "local_display_grants_spear_throw_skill",
-        "min": 1,
-        "max": 1
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "local_display_grants_spear_throw_skill",
-        "min": 1,
-        "max": 1,
-        "locality": "Local"
-      }
-    ],
-    "physicalDamage": "39-72",
-    "criticalHitChance": 7,
-    "attacksPerSecond": 1.6,
-    "weaponRange": 1.5,
-    "ordinarySocketMaximum": 1,
-    "classId": 79,
     "skillLines": {
       "en": [
         "Grants Skill: Spear Throw"
@@ -6582,9 +6582,9 @@
   },
   "permafrost-staff": {
     "key": "permafrost-staff",
-    "slug": "Permafrost_Staff",
-    "pool": "permafrost-staff",
     "family": "staves",
+    "pool": "permafrost-staff",
+    "slug": "Permafrost_Staff",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
     "name": "Permafrost Staff",
     "sourceUrl": "https://poe2db.tw/us/Permafrost_Staff",
@@ -6599,6 +6599,11 @@
     "intelligence": 114,
     "requiredLevel": 75,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
     "requirements": {
       "en": "Requires:  Level 75, 114 Int",
       "ko": "요구 사항:  레벨 75, 114 지능",
@@ -6633,11 +6638,6 @@
         "Otorga la habilidad: Corazón de hielo"
       ]
     },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "ordinarySocketMaximum": 2,
-    "classId": 14,
     "skillLines": {
       "en": [
         "Grants Skill: Heart of Ice"
@@ -6661,9 +6661,9 @@
   },
   "reflecting-staff": {
     "key": "reflecting-staff",
-    "slug": "Reflecting_Staff",
-    "pool": "reflecting-staff",
     "family": "staves",
+    "pool": "reflecting-staff",
+    "slug": "Reflecting_Staff",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
     "name": "Reflecting Staff",
     "sourceUrl": "https://poe2db.tw/us/Reflecting_Staff",
@@ -6678,6 +6678,11 @@
     "intelligence": 114,
     "requiredLevel": 70,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
     "requirements": {
       "en": "Requires:  Level 70, 114 Int",
       "ko": "요구 사항:  레벨 70, 114 지능",
@@ -6712,11 +6717,6 @@
         "Otorga la habilidad: Espejo de refracción"
       ]
     },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "ordinarySocketMaximum": 2,
-    "classId": 14,
     "skillLines": {
       "en": [
         "Grants Skill: Mirror of Refraction"
@@ -6740,9 +6740,9 @@
   },
   "dark-staff": {
     "key": "dark-staff",
-    "slug": "Dark_Staff",
-    "pool": "dark-staff",
     "family": "staves",
+    "pool": "dark-staff",
+    "slug": "Dark_Staff",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
     "name": "Dark Staff",
     "sourceUrl": "https://poe2db.tw/us/Dark_Staff",
@@ -6757,6 +6757,11 @@
     "intelligence": 114,
     "requiredLevel": 65,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
     "requirements": {
       "en": "Requires:  Level 65, 114 Int",
       "ko": "요구 사항:  레벨 65, 114 지능",
@@ -6791,11 +6796,6 @@
         "Otorga la habilidad: Pacto oscuro"
       ]
     },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "ordinarySocketMaximum": 2,
-    "classId": 14,
     "skillLines": {
       "en": [
         "Grants Skill: Dark Pact"
@@ -6819,9 +6819,9 @@
   },
   "ravenous-staff": {
     "key": "ravenous-staff",
-    "slug": "Ravenous_Staff",
-    "pool": "ravenous-staff",
     "family": "staves",
+    "pool": "ravenous-staff",
+    "slug": "Ravenous_Staff",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
     "name": "Ravenous Staff",
     "sourceUrl": "https://poe2db.tw/us/Ravenous_Staff",
@@ -6836,6 +6836,11 @@
     "intelligence": 114,
     "requiredLevel": 65,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
     "requirements": {
       "en": "Requires:  Level 65, 114 Int",
       "ko": "요구 사항:  레벨 65, 114 지능",
@@ -6870,11 +6875,6 @@
         "Otorga la habilidad: Festín de carne"
       ]
     },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "ordinarySocketMaximum": 2,
-    "classId": 14,
     "skillLines": {
       "en": [
         "Grants Skill: Feast of Flesh"
@@ -6898,9 +6898,9 @@
   },
   "perching-staff": {
     "key": "perching-staff",
-    "slug": "Perching_Staff",
-    "pool": "perching-staff",
     "family": "staves",
+    "pool": "perching-staff",
+    "slug": "Perching_Staff",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
     "name": "Perching Staff",
     "sourceUrl": "https://poe2db.tw/us/Perching_Staff",
@@ -6915,6 +6915,11 @@
     "intelligence": 114,
     "requiredLevel": 65,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
     "requirements": {
       "en": "Requires:  Level 65, 114 Int",
       "ko": "요구 사항:  레벨 65, 114 지능",
@@ -6949,11 +6954,6 @@
         "Otorga la habilidad: Cuervos amenazantes"
       ]
     },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "ordinarySocketMaximum": 2,
-    "classId": 14,
     "skillLines": {
       "en": [
         "Grants Skill: Spiraling Conspiracy"
@@ -6977,9 +6977,9 @@
   },
   "sanctified-staff": {
     "key": "sanctified-staff",
-    "slug": "Sanctified_Staff",
-    "pool": "sanctified-staff",
     "family": "staves",
+    "pool": "sanctified-staff",
+    "slug": "Sanctified_Staff",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
     "name": "Sanctified Staff",
     "sourceUrl": "https://poe2db.tw/us/Sanctified_Staff",
@@ -6994,6 +6994,11 @@
     "intelligence": 99,
     "requiredLevel": 56,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "ordinarySocketMaximum": 2,
+    "classId": 14,
     "requirements": {
       "en": "Requires:  Level 56, 99 Int",
       "ko": "요구 사항:  레벨 56, 99 지능",
@@ -7028,11 +7033,6 @@
         "Otorga la habilidad: Consagrar"
       ]
     },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "ordinarySocketMaximum": 2,
-    "classId": 14,
     "skillLines": {
       "en": [
         "Grants Skill: Consecrate"
@@ -7056,9 +7056,9 @@
   },
   "maji-talisman": {
     "key": "maji-talisman",
-    "slug": "Maji_Talisman",
-    "pool": "maji-talisman",
     "family": "talismans",
+    "pool": "maji-talisman",
+    "slug": "Maji_Talisman",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
     "name": "Maji Talisman",
     "sourceUrl": "https://poe2db.tw/us/Maji_Talisman",
@@ -7076,6 +7076,28 @@
     "intelligence": 67,
     "requiredLevel": 79,
     "maximumQuality": 20,
+    "implicitModifierId": "maji-talisman:implicit:base",
+    "implicitStats": [
+      {
+        "id": "maximum_rage",
+        "min": 7,
+        "max": 10
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "maximum_rage",
+        "min": 7,
+        "max": 10,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "61-114",
+    "criticalHitChance": 8,
+    "attacksPerSecond": 1.25,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110,
     "requirements": {
       "en": "Requires:  Level 79, 100 Str, 67 Int",
       "ko": "요구 사항:  레벨 79, 100 힘, 67 지능",
@@ -7127,35 +7149,13 @@
         "Ataques por segundo: 1.25",
         "Alcance de arma: 1.2"
       ]
-    },
-    "implicitModifierId": "maji-talisman:implicit:base",
-    "implicitStats": [
-      {
-        "id": "maximum_rage",
-        "min": 7,
-        "max": 10
-      }
-    ],
-    "implicitLocalities": [
-      {
-        "id": "maximum_rage",
-        "min": 7,
-        "max": 10,
-        "locality": "Global"
-      }
-    ],
-    "physicalDamage": "61-114",
-    "criticalHitChance": 8,
-    "attacksPerSecond": 1.25,
-    "weaponRange": 1.2,
-    "ordinarySocketMaximum": 2,
-    "classId": 110
+    }
   },
   "fungal-talisman": {
     "key": "fungal-talisman",
-    "slug": "Fungal_Talisman",
-    "pool": "fungal-talisman",
     "family": "talismans",
+    "pool": "fungal-talisman",
+    "slug": "Fungal_Talisman",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
     "name": "Fungal Talisman",
     "sourceUrl": "https://poe2db.tw/us/Fungal_Talisman",
@@ -7173,6 +7173,15 @@
     "intelligence": 70,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "59-98",
+    "criticalHitChance": 8,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110,
     "requirements": {
       "en": "Requires:  Level 78, 96 Str, 70 Int",
       "ko": "요구 사항:  레벨 78, 96 힘, 70 지능",
@@ -7224,22 +7233,13 @@
         "Ataques por segundo: 1.4",
         "Alcance de arma: 1.2"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "physicalDamage": "59-98",
-    "criticalHitChance": 8,
-    "attacksPerSecond": 1.4,
-    "weaponRange": 1.2,
-    "ordinarySocketMaximum": 2,
-    "classId": 110
+    }
   },
   "jade-talisman": {
     "key": "jade-talisman",
-    "slug": "Jade_Talisman",
-    "pool": "jade-talisman",
     "family": "talismans",
+    "pool": "jade-talisman",
+    "slug": "Jade_Talisman",
     "id": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
     "name": "Jade Talisman",
     "sourceUrl": "https://poe2db.tw/us/Jade_Talisman",
@@ -7257,6 +7257,15 @@
     "intelligence": 65,
     "requiredLevel": 78,
     "maximumQuality": 20,
+    "implicitModifierId": "",
+    "implicitStats": [],
+    "implicitLocalities": [],
+    "physicalDamage": "101-151",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.1,
+    "weaponRange": 1.2,
+    "ordinarySocketMaximum": 2,
+    "classId": 110,
     "requirements": {
       "en": "Requires:  Level 78, 109 Str, 65 Int",
       "ko": "요구 사항:  레벨 78, 109 힘, 65 지능",
@@ -7308,22 +7317,13 @@
         "Ataques por segundo: 1.1",
         "Alcance de arma: 1.2"
       ]
-    },
-    "implicitModifierId": "",
-    "implicitStats": [],
-    "implicitLocalities": [],
-    "physicalDamage": "101-151",
-    "criticalHitChance": 5,
-    "attacksPerSecond": 1.1,
-    "weaponRange": 1.2,
-    "ordinarySocketMaximum": 2,
-    "classId": 110
+    }
   },
   "jade-amulet": {
     "key": "jade-amulet",
-    "slug": "Jade_Amulet",
-    "pool": "jade-amulet",
     "family": "amulets",
+    "pool": "jade-amulet",
+    "slug": "Jade_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet4",
     "name": "Jade Amulet",
     "sourceUrl": "https://poe2db.tw/us/Jade_Amulet",
@@ -7339,14 +7339,6 @@
     "intelligence": 0,
     "requiredLevel": 8,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 8",
-      "ko": "요구 사항:  레벨 8",
-      "ja": "装備条件： レベル 8",
-      "zh-CN": "需求：  等级 8",
-      "zh-TW": "需求:  等級 8",
-      "es": "Requiere:  Nivel 8"
-    },
     "implicitModifierId": "jade-amulet:implicit:base",
     "implicitStats": [
       {
@@ -7369,13 +7361,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
     "implicitText": "+(10—15) to Dexterity"
   },
   "lapis-amulet": {
     "key": "lapis-amulet",
-    "slug": "Lapis_Amulet",
-    "pool": "lapis-amulet",
     "family": "amulets",
+    "pool": "lapis-amulet",
+    "slug": "Lapis_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet5",
     "name": "Lapis Amulet",
     "sourceUrl": "https://poe2db.tw/us/Lapis_Amulet",
@@ -7391,14 +7391,6 @@
     "intelligence": 0,
     "requiredLevel": 8,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 8",
-      "ko": "요구 사항:  레벨 8",
-      "ja": "装備条件： レベル 8",
-      "zh-CN": "需求：  等级 8",
-      "zh-TW": "需求:  等級 8",
-      "es": "Requiere:  Nivel 8"
-    },
     "implicitModifierId": "lapis-amulet:implicit:base",
     "implicitStats": [
       {
@@ -7421,13 +7413,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
     "implicitText": "+(10—15) to Intelligence"
   },
   "gold-amulet": {
     "key": "gold-amulet",
-    "slug": "Gold_Amulet",
-    "pool": "gold-amulet",
     "family": "amulets",
+    "pool": "gold-amulet",
+    "slug": "Gold_Amulet",
     "id": "Metadata/Items/Amulets/FourAmulet10",
     "name": "Gold Amulet",
     "sourceUrl": "https://poe2db.tw/us/Gold_Amulet",
@@ -7443,14 +7443,6 @@
     "intelligence": 0,
     "requiredLevel": 35,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 35",
-      "ko": "요구 사항:  레벨 35",
-      "ja": "装備条件： レベル 35",
-      "zh-CN": "需求：  等级 35",
-      "zh-TW": "需求:  等級 35",
-      "es": "Requiere:  Nivel 35"
-    },
     "implicitModifierId": "gold-amulet:implicit:base",
     "implicitStats": [
       {
@@ -7473,13 +7465,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    },
     "implicitText": "(12—20)% increased Rarity of Items found"
   },
   "twisted-amulet": {
     "key": "twisted-amulet",
-    "slug": "Twisted_Amulet",
-    "pool": "twisted-amulet",
     "family": "amulets",
+    "pool": "twisted-amulet",
+    "slug": "Twisted_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletDelirium1",
     "name": "Twisted Amulet",
     "sourceUrl": "https://poe2db.tw/us/Twisted_Amulet",
@@ -7495,14 +7495,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "twisted-amulet:implicit:base",
     "implicitStats": [
       {
@@ -7536,13 +7528,21 @@
       "rarePrefixes": 2,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "-1 Prefix Modifier allowed"
   },
   "distorted-amulet": {
     "key": "distorted-amulet",
-    "slug": "Distorted_Amulet",
-    "pool": "distorted-amulet",
     "family": "amulets",
+    "pool": "distorted-amulet",
+    "slug": "Distorted_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletDelirium2",
     "name": "Distorted Amulet",
     "sourceUrl": "https://poe2db.tw/us/Distorted_Amulet",
@@ -7558,14 +7558,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "distorted-amulet:implicit:base",
     "implicitStats": [
       {
@@ -7599,13 +7591,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 2
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "-1 Suffix Modifier allowed"
   },
   "absent-amulet": {
     "key": "absent-amulet",
-    "slug": "Absent_Amulet",
-    "pool": "absent-amulet",
     "family": "amulets",
+    "pool": "absent-amulet",
+    "slug": "Absent_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletB1c",
     "name": "Absent Amulet",
     "sourceUrl": "https://poe2db.tw/us/Absent_Amulet",
@@ -7621,14 +7621,6 @@
     "intelligence": 0,
     "requiredLevel": 50,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 50",
-      "ko": "요구 사항:  레벨 50",
-      "ja": "装備条件： レベル 50",
-      "zh-CN": "需求：  等级 50",
-      "zh-TW": "需求:  等級 50",
-      "es": "Requiere:  Nivel 50"
-    },
     "implicitModifierId": "absent-amulet:implicit:base",
     "implicitStats": [
       {
@@ -7661,6 +7653,19 @@
       "magicSuffixes": 0,
       "rarePrefixes": 2,
       "rareSuffixes": 2
+    },
+    "temporaryBaseOption": {
+      "kind": "SOURCE_FIRST_GRANTED_SKILL_EXAMPLE",
+      "source": "https://poe2db.tw/us/Absent_Amulet",
+      "rationale": "User explicitly requested one temporary valid option; no skill roll or probability is inferred."
+    },
+    "requirements": {
+      "en": "Requires:  Level 50",
+      "ko": "요구 사항:  레벨 50",
+      "ja": "装備条件： レベル 50",
+      "zh-CN": "需求：  等级 50",
+      "zh-TW": "需求:  等級 50",
+      "es": "Requiere:  Nivel 50"
     },
     "sourceProperties": {
       "en": [
@@ -7702,18 +7707,13 @@
         "Otorga la habilidad: Nivel 12 Lanzar al infligir estado alterado elemental"
       ]
     },
-    "temporaryBaseOption": {
-      "kind": "SOURCE_FIRST_GRANTED_SKILL_EXAMPLE",
-      "source": "https://poe2db.tw/us/Absent_Amulet",
-      "rationale": "User explicitly requested one temporary valid option; no skill roll or probability is inferred."
-    },
     "implicitText": "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
   },
   "portent-amulet": {
     "key": "portent-amulet",
-    "slug": "Portent_Amulet",
-    "pool": "portent-amulet",
     "family": "amulets",
+    "pool": "portent-amulet",
+    "slug": "Portent_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletB1b",
     "name": "Portent Amulet",
     "sourceUrl": "https://poe2db.tw/us/Portent_Amulet",
@@ -7729,14 +7729,6 @@
     "intelligence": 0,
     "requiredLevel": 42,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 42",
-      "ko": "요구 사항:  레벨 42",
-      "ja": "装備条件： レベル 42",
-      "zh-CN": "需求：  等级 42",
-      "zh-TW": "需求:  等級 42",
-      "es": "Requiere:  Nivel 42"
-    },
     "implicitModifierId": "portent-amulet:implicit:base",
     "implicitStats": [
       {
@@ -7769,6 +7761,19 @@
       "magicSuffixes": 0,
       "rarePrefixes": 3,
       "rareSuffixes": 2
+    },
+    "temporaryBaseOption": {
+      "kind": "SOURCE_FIRST_GRANTED_SKILL_EXAMPLE",
+      "source": "https://poe2db.tw/us/Portent_Amulet",
+      "rationale": "User explicitly requested one temporary valid option; no skill roll or probability is inferred."
+    },
+    "requirements": {
+      "en": "Requires:  Level 42",
+      "ko": "요구 사항:  레벨 42",
+      "ja": "装備条件： レベル 42",
+      "zh-CN": "需求：  等级 42",
+      "zh-TW": "需求:  等級 42",
+      "es": "Requiere:  Nivel 42"
     },
     "sourceProperties": {
       "en": [
@@ -7810,18 +7815,13 @@
         "Otorga la habilidad: Nivel 11 Manada de lobos"
       ]
     },
-    "temporaryBaseOption": {
-      "kind": "SOURCE_FIRST_GRANTED_SKILL_EXAMPLE",
-      "source": "https://poe2db.tw/us/Portent_Amulet",
-      "rationale": "User explicitly requested one temporary valid option; no skill roll or probability is inferred."
-    },
     "implicitText": "-1 Suffix Modifier allowed"
   },
   "lament-amulet": {
     "key": "lament-amulet",
-    "slug": "Lament_Amulet",
-    "pool": "lament-amulet",
     "family": "amulets",
+    "pool": "lament-amulet",
+    "slug": "Lament_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletB1a",
     "name": "Lament Amulet",
     "sourceUrl": "https://poe2db.tw/us/Lament_Amulet",
@@ -7837,14 +7837,6 @@
     "intelligence": 0,
     "requiredLevel": 42,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 42",
-      "ko": "요구 사항:  레벨 42",
-      "ja": "装備条件： レベル 42",
-      "zh-CN": "需求：  等级 42",
-      "zh-TW": "需求:  等級 42",
-      "es": "Requiere:  Nivel 42"
-    },
     "implicitModifierId": "lament-amulet:implicit:base",
     "implicitStats": [
       {
@@ -7877,6 +7869,19 @@
       "magicSuffixes": 1,
       "rarePrefixes": 2,
       "rareSuffixes": 3
+    },
+    "temporaryBaseOption": {
+      "kind": "SOURCE_FIRST_GRANTED_SKILL_EXAMPLE",
+      "source": "https://poe2db.tw/us/Lament_Amulet",
+      "rationale": "User explicitly requested one temporary valid option; no skill roll or probability is inferred."
+    },
+    "requirements": {
+      "en": "Requires:  Level 42",
+      "ko": "요구 사항:  레벨 42",
+      "ja": "装備条件： レベル 42",
+      "zh-CN": "需求：  等级 42",
+      "zh-TW": "需求:  等級 42",
+      "es": "Requiere:  Nivel 42"
     },
     "sourceProperties": {
       "en": [
@@ -7918,18 +7923,13 @@
         "Otorga la habilidad: Nivel 11 Armadura ártica"
       ]
     },
-    "temporaryBaseOption": {
-      "kind": "SOURCE_FIRST_GRANTED_SKILL_EXAMPLE",
-      "source": "https://poe2db.tw/us/Lament_Amulet",
-      "rationale": "User explicitly requested one temporary valid option; no skill roll or probability is inferred."
-    },
     "implicitText": "-1 Prefix Modifier allowed"
   },
   "dusk-amulet": {
     "key": "dusk-amulet",
-    "slug": "Dusk_Amulet",
-    "pool": "dusk-amulet",
     "family": "amulets",
+    "pool": "dusk-amulet",
+    "slug": "Dusk_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletLake1",
     "name": "Dusk Amulet",
     "sourceUrl": "https://poe2db.tw/us/Dusk_Amulet",
@@ -7945,14 +7945,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "dusk-amulet:implicit:base",
     "implicitStats": [
       {
@@ -7986,13 +7978,21 @@
       "rarePrefixes": 4,
       "rareSuffixes": 2
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
   },
   "penumbra-amulet": {
     "key": "penumbra-amulet",
-    "slug": "Penumbra_Amulet",
-    "pool": "penumbra-amulet",
     "family": "amulets",
+    "pool": "penumbra-amulet",
+    "slug": "Penumbra_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletLake3",
     "name": "Penumbra Amulet",
     "sourceUrl": "https://poe2db.tw/us/Penumbra_Amulet",
@@ -8008,14 +8008,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "penumbra-amulet:implicit:base",
     "implicitStats": [
       {
@@ -8049,13 +8041,21 @@
       "rarePrefixes": 5,
       "rareSuffixes": 1
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
   },
   "gloam-amulet": {
     "key": "gloam-amulet",
-    "slug": "Gloam_Amulet",
-    "pool": "gloam-amulet",
     "family": "amulets",
+    "pool": "gloam-amulet",
+    "slug": "Gloam_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletLake2",
     "name": "Gloam Amulet",
     "sourceUrl": "https://poe2db.tw/us/Gloam_Amulet",
@@ -8071,14 +8071,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "gloam-amulet:implicit:base",
     "implicitStats": [
       {
@@ -8112,13 +8104,21 @@
       "rarePrefixes": 2,
       "rareSuffixes": 4
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
   },
   "corona-amulet": {
     "key": "corona-amulet",
-    "slug": "Corona_Amulet",
-    "pool": "corona-amulet",
     "family": "amulets",
+    "pool": "corona-amulet",
+    "slug": "Corona_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletB2",
     "name": "Corona Amulet",
     "sourceUrl": "https://poe2db.tw/us/Corona_Amulet",
@@ -8134,14 +8134,6 @@
     "intelligence": 0,
     "requiredLevel": 40,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 40",
-      "ko": "요구 사항:  레벨 40",
-      "ja": "装備条件： レベル 40",
-      "zh-CN": "需求：  等级 40",
-      "zh-TW": "需求:  等級 40",
-      "es": "Requiere:  Nivel 40"
-    },
     "implicitModifierId": "corona-amulet:implicit:base",
     "implicitStats": [
       {
@@ -8164,13 +8156,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
     "implicitText": "This item gains bonuses from Socketed Items as though it was a Helmet"
   },
   "tenebrous-amulet": {
     "key": "tenebrous-amulet",
-    "slug": "Tenebrous_Amulet",
-    "pool": "tenebrous-amulet",
     "family": "amulets",
+    "pool": "tenebrous-amulet",
+    "slug": "Tenebrous_Amulet",
     "id": "Metadata/Items/Amulets/FourAmuletLake4",
     "name": "Tenebrous Amulet",
     "sourceUrl": "https://poe2db.tw/us/Tenebrous_Amulet",
@@ -8186,14 +8186,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "tenebrous-amulet:implicit:base",
     "implicitStats": [
       {
@@ -8227,13 +8219,21 @@
       "rarePrefixes": 1,
       "rareSuffixes": 5
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
   },
   "lazuli-ring": {
     "key": "lazuli-ring",
-    "slug": "Lazuli_Ring",
-    "pool": "lazuli-ring",
     "family": "rings",
+    "pool": "lazuli-ring",
+    "slug": "Lazuli_Ring",
     "id": "Metadata/Items/Rings/FourRing2",
     "name": "Lazuli Ring",
     "sourceUrl": "https://poe2db.tw/us/Lazuli_Ring",
@@ -8249,14 +8249,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "lazuli-ring:implicit:base",
     "implicitStats": [
       {
@@ -8279,13 +8271,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "+(20—30) to maximum Mana"
   },
   "sapphire-ring": {
     "key": "sapphire-ring",
-    "slug": "Sapphire_Ring",
-    "pool": "sapphire-ring",
     "family": "rings",
+    "pool": "sapphire-ring",
+    "slug": "Sapphire_Ring",
     "id": "Metadata/Items/Rings/FourRing4",
     "name": "Sapphire Ring",
     "sourceUrl": "https://poe2db.tw/us/Sapphire_Ring",
@@ -8301,14 +8301,6 @@
     "intelligence": 0,
     "requiredLevel": 12,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 12",
-      "ko": "요구 사항:  레벨 12",
-      "ja": "装備条件： レベル 12",
-      "zh-CN": "需求：  等级 12",
-      "zh-TW": "需求:  等級 12",
-      "es": "Requiere:  Nivel 12"
-    },
     "implicitModifierId": "sapphire-ring:implicit:base",
     "implicitStats": [
       {
@@ -8331,13 +8323,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 12",
+      "ko": "요구 사항:  레벨 12",
+      "ja": "装備条件： レベル 12",
+      "zh-CN": "需求：  等级 12",
+      "zh-TW": "需求:  等級 12",
+      "es": "Requiere:  Nivel 12"
+    },
     "implicitText": "+(20—30)% to Cold Resistance"
   },
   "topaz-ring": {
     "key": "topaz-ring",
-    "slug": "Topaz_Ring",
-    "pool": "topaz-ring",
     "family": "rings",
+    "pool": "topaz-ring",
+    "slug": "Topaz_Ring",
     "id": "Metadata/Items/Rings/FourRing5",
     "name": "Topaz Ring",
     "sourceUrl": "https://poe2db.tw/us/Topaz_Ring",
@@ -8353,14 +8353,6 @@
     "intelligence": 0,
     "requiredLevel": 16,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 16",
-      "ko": "요구 사항:  레벨 16",
-      "ja": "装備条件： レベル 16",
-      "zh-CN": "需求：  等级 16",
-      "zh-TW": "需求:  等級 16",
-      "es": "Requiere:  Nivel 16"
-    },
     "implicitModifierId": "topaz-ring:implicit:base",
     "implicitStats": [
       {
@@ -8383,13 +8375,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 16",
+      "ko": "요구 사항:  레벨 16",
+      "ja": "装備条件： レベル 16",
+      "zh-CN": "需求：  等级 16",
+      "zh-TW": "需求:  等級 16",
+      "es": "Requiere:  Nivel 16"
+    },
     "implicitText": "+(20—30)% to Lightning Resistance"
   },
   "emerald-ring": {
     "key": "emerald-ring",
-    "slug": "Emerald_Ring",
-    "pool": "emerald-ring",
     "family": "rings",
+    "pool": "emerald-ring",
+    "slug": "Emerald_Ring",
     "id": "Metadata/Items/Rings/FourRing7",
     "name": "Emerald Ring",
     "sourceUrl": "https://poe2db.tw/us/Emerald_Ring",
@@ -8405,14 +8405,6 @@
     "intelligence": 0,
     "requiredLevel": 26,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 26",
-      "ko": "요구 사항:  레벨 26",
-      "ja": "装備条件： レベル 26",
-      "zh-CN": "需求：  等级 26",
-      "zh-TW": "需求:  等級 26",
-      "es": "Requiere:  Nivel 26"
-    },
     "implicitModifierId": "emerald-ring:implicit:base",
     "implicitStats": [
       {
@@ -8435,13 +8427,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 26",
+      "ko": "요구 사항:  레벨 26",
+      "ja": "装備条件： レベル 26",
+      "zh-CN": "需求：  等级 26",
+      "zh-TW": "需求:  等級 26",
+      "es": "Requiere:  Nivel 26"
+    },
     "implicitText": "+(120—160) to Accuracy Rating"
   },
   "gold-ring": {
     "key": "gold-ring",
-    "slug": "Gold_Ring",
-    "pool": "gold-ring",
     "family": "rings",
+    "pool": "gold-ring",
+    "slug": "Gold_Ring",
     "id": "Metadata/Items/Rings/FourRing10",
     "name": "Gold Ring",
     "sourceUrl": "https://poe2db.tw/us/Gold_Ring",
@@ -8457,14 +8457,6 @@
     "intelligence": 0,
     "requiredLevel": 40,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 40",
-      "ko": "요구 사항:  레벨 40",
-      "ja": "装備条件： レベル 40",
-      "zh-CN": "需求：  等级 40",
-      "zh-TW": "需求:  等級 40",
-      "es": "Requiere:  Nivel 40"
-    },
     "implicitModifierId": "gold-ring:implicit:base",
     "implicitStats": [
       {
@@ -8487,13 +8479,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
     "implicitText": "(6—15)% increased Rarity of Items found"
   },
   "unset-ring": {
     "key": "unset-ring",
-    "slug": "Unset_Ring",
-    "pool": "unset-ring",
     "family": "rings",
+    "pool": "unset-ring",
+    "slug": "Unset_Ring",
     "id": "Metadata/Items/Rings/FourRing11",
     "name": "Unset Ring",
     "sourceUrl": "https://poe2db.tw/us/Unset_Ring",
@@ -8509,14 +8509,6 @@
     "intelligence": 0,
     "requiredLevel": 44,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 44",
-      "ko": "요구 사항:  레벨 44",
-      "ja": "装備条件： レベル 44",
-      "zh-CN": "需求：  等级 44",
-      "zh-TW": "需求:  等級 44",
-      "es": "Requiere:  Nivel 44"
-    },
     "implicitModifierId": "unset-ring:implicit:base",
     "implicitStats": [
       {
@@ -8539,13 +8531,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 44",
+      "ko": "요구 사항:  레벨 44",
+      "ja": "装備条件： レベル 44",
+      "zh-CN": "需求：  等级 44",
+      "zh-TW": "需求:  等級 44",
+      "es": "Requiere:  Nivel 44"
+    },
     "implicitText": "Grants 1 additional Skill Slots"
   },
   "utzaal-cuirass": {
     "key": "utzaal-cuirass",
-    "slug": "Utzaal_Cuirass",
-    "pool": "utzaal-cuirass",
     "family": "body",
+    "pool": "utzaal-cuirass",
+    "slug": "Utzaal_Cuirass",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
     "name": "Utzaal Cuirass",
     "sourceUrl": "https://poe2db.tw/us/Utzaal_Cuirass",
@@ -8563,14 +8563,6 @@
     "intelligence": 0,
     "requiredLevel": 75,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 75, 121 Str",
-      "ko": "요구 사항:  레벨 75, 121 힘",
-      "ja": "装備条件： レベル 75, 121 筋力",
-      "zh-CN": "需求：  等级 75, 121 力量",
-      "zh-TW": "需求:  等級 75, 121 力量",
-      "es": "Requiere:  Nivel 75, 121 Fue"
-    },
     "implicitModifierId": "utzaal-cuirass:implicit:base",
     "implicitStats": [
       {
@@ -8594,13 +8586,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str",
+    "requirements": {
+      "en": "Requires:  Level 75, 121 Str",
+      "ko": "요구 사항:  레벨 75, 121 힘",
+      "ja": "装備条件： レベル 75, 121 筋力",
+      "zh-CN": "需求：  等级 75, 121 力量",
+      "zh-TW": "需求:  等級 75, 121 力量",
+      "es": "Requiere:  Nivel 75, 121 Fue"
+    },
     "implicitText": "(30—40)% increased Stun Threshold"
   },
   "abyssal-cuirass": {
     "key": "abyssal-cuirass",
-    "slug": "Abyssal_Cuirass",
-    "pool": "abyssal-cuirass",
     "family": "body",
+    "pool": "abyssal-cuirass",
+    "slug": "Abyssal_Cuirass",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
     "name": "Abyssal Cuirass",
     "sourceUrl": "https://poe2db.tw/us/Abyssal_Cuirass",
@@ -8618,14 +8618,6 @@
     "intelligence": 0,
     "requiredLevel": 73,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 73, 121 Str",
-      "ko": "요구 사항:  레벨 73, 121 힘",
-      "ja": "装備条件： レベル 73, 121 筋力",
-      "zh-CN": "需求：  等级 73, 121 力量",
-      "zh-TW": "需求:  等級 73, 121 力量",
-      "es": "Requiere:  Nivel 73, 121 Fue"
-    },
     "implicitModifierId": "abyssal-cuirass:implicit:base",
     "implicitStats": [
       {
@@ -8649,13 +8641,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str",
+    "requirements": {
+      "en": "Requires:  Level 73, 121 Str",
+      "ko": "요구 사항:  레벨 73, 121 힘",
+      "ja": "装備条件： レベル 73, 121 筋力",
+      "zh-CN": "需求：  等级 73, 121 力量",
+      "zh-TW": "需求:  等級 73, 121 力量",
+      "es": "Requiere:  Nivel 73, 121 Fue"
+    },
     "implicitText": "Regenerate (1.5—2.5)% of maximum Life per second"
   },
   "warlord-cuirass": {
     "key": "warlord-cuirass",
-    "slug": "Warlord_Cuirass",
-    "pool": "warlord-cuirass",
     "family": "body",
+    "pool": "warlord-cuirass",
+    "slug": "Warlord_Cuirass",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
     "name": "Warlord Cuirass",
     "sourceUrl": "https://poe2db.tw/us/Warlord_Cuirass",
@@ -8674,14 +8674,6 @@
     "intelligence": 0,
     "requiredLevel": 80,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 80, 121 Str",
-      "ko": "요구 사항:  레벨 80, 121 힘",
-      "ja": "装備条件： レベル 80, 121 筋力",
-      "zh-CN": "需求：  等级 80, 121 力量",
-      "zh-TW": "需求:  等級 80, 121 力量",
-      "es": "Requiere:  Nivel 80, 121 Fue"
-    },
     "implicitModifierId": "warlord-cuirass:implicit:base",
     "implicitStats": [
       {
@@ -8705,13 +8697,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str",
+    "requirements": {
+      "en": "Requires:  Level 80, 121 Str",
+      "ko": "요구 사항:  레벨 80, 121 힘",
+      "ja": "装備条件： レベル 80, 121 筋力",
+      "zh-CN": "需求：  等级 80, 121 力量",
+      "zh-TW": "需求:  等級 80, 121 力量",
+      "es": "Requiere:  Nivel 80, 121 Fue"
+    },
     "implicitText": "+(15—25)% of Armour also applies to Elemental Damage"
   },
   "mail-coat": {
     "key": "mail-coat",
-    "slug": "Mail_Coat",
-    "pool": "mail-coat",
     "family": "body",
+    "pool": "mail-coat",
+    "slug": "Mail_Coat",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
     "name": "Mail Coat",
     "sourceUrl": "https://poe2db.tw/us/Mail_Coat",
@@ -8729,14 +8729,6 @@
     "intelligence": 0,
     "requiredLevel": 68,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 68, 121 Dex",
-      "ko": "요구 사항:  레벨 68, 121 민첩",
-      "ja": "装備条件： レベル 68, 121 器用さ",
-      "zh-CN": "需求：  等级 68, 121 敏捷",
-      "zh-TW": "需求:  等級 68, 121 敏捷",
-      "es": "Requiere:  Nivel 68, 121 Des"
-    },
     "implicitModifierId": "mail-coat:implicit:base",
     "implicitStats": [
       {
@@ -8760,13 +8752,21 @@
       "rareSuffixes": 3
     },
     "archetype": "dex",
+    "requirements": {
+      "en": "Requires:  Level 68, 121 Dex",
+      "ko": "요구 사항:  레벨 68, 121 민첩",
+      "ja": "装備条件： レベル 68, 121 器用さ",
+      "zh-CN": "需求：  等级 68, 121 敏捷",
+      "zh-TW": "需求:  等級 68, 121 敏捷",
+      "es": "Requiere:  Nivel 68, 121 Des"
+    },
     "implicitText": "(20—30)% reduced Slowing Potency of Debuffs on You"
   },
   "wyrmscale-coat": {
     "key": "wyrmscale-coat",
-    "slug": "Wyrmscale_Coat",
-    "pool": "wyrmscale-coat",
     "family": "body",
+    "pool": "wyrmscale-coat",
+    "slug": "Wyrmscale_Coat",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
     "name": "Wyrmscale Coat",
     "sourceUrl": "https://poe2db.tw/us/Wyrmscale_Coat",
@@ -8784,14 +8784,6 @@
     "intelligence": 0,
     "requiredLevel": 75,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 75, 121 Dex",
-      "ko": "요구 사항:  레벨 75, 121 민첩",
-      "ja": "装備条件： レベル 75, 121 器用さ",
-      "zh-CN": "需求：  等级 75, 121 敏捷",
-      "zh-TW": "需求:  等級 75, 121 敏捷",
-      "es": "Requiere:  Nivel 75, 121 Des"
-    },
     "implicitModifierId": "wyrmscale-coat:implicit:base",
     "implicitStats": [
       {
@@ -8815,13 +8807,21 @@
       "rareSuffixes": 3
     },
     "archetype": "dex",
+    "requirements": {
+      "en": "Requires:  Level 75, 121 Dex",
+      "ko": "요구 사항:  레벨 75, 121 민첩",
+      "ja": "装備条件： レベル 75, 121 器用さ",
+      "zh-CN": "需求：  等级 75, 121 敏捷",
+      "zh-TW": "需求:  等級 75, 121 敏捷",
+      "es": "Requiere:  Nivel 75, 121 Des"
+    },
     "implicitText": "(30—40)% increased Elemental Ailment Threshold"
   },
   "corsair-coat": {
     "key": "corsair-coat",
-    "slug": "Corsair_Coat",
-    "pool": "corsair-coat",
     "family": "body",
+    "pool": "corsair-coat",
+    "slug": "Corsair_Coat",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
     "name": "Corsair Coat",
     "sourceUrl": "https://poe2db.tw/us/Corsair_Coat",
@@ -8840,14 +8840,6 @@
     "intelligence": 0,
     "requiredLevel": 80,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 80, 121 Dex",
-      "ko": "요구 사항:  레벨 80, 121 민첩",
-      "ja": "装備条件： レベル 80, 121 器用さ",
-      "zh-CN": "需求：  等级 80, 121 敏捷",
-      "zh-TW": "需求:  等級 80, 121 敏捷",
-      "es": "Requiere:  Nivel 80, 121 Des"
-    },
     "implicitModifierId": "corsair-coat:implicit:base",
     "implicitStats": [
       {
@@ -8871,13 +8863,21 @@
       "rareSuffixes": 3
     },
     "archetype": "dex",
+    "requirements": {
+      "en": "Requires:  Level 80, 121 Dex",
+      "ko": "요구 사항:  레벨 80, 121 민첩",
+      "ja": "装備条件： レベル 80, 121 器用さ",
+      "zh-CN": "需求：  等级 80, 121 敏捷",
+      "zh-TW": "需求:  等級 80, 121 敏捷",
+      "es": "Requiere:  Nivel 80, 121 Des"
+    },
     "implicitText": "5% increased Movement Speed"
   },
   "flowing-raiment": {
     "key": "flowing-raiment",
-    "slug": "Flowing_Raiment",
-    "pool": "flowing-raiment",
     "family": "body",
+    "pool": "flowing-raiment",
+    "slug": "Flowing_Raiment",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
     "name": "Flowing Raiment",
     "sourceUrl": "https://poe2db.tw/us/Flowing_Raiment",
@@ -8895,14 +8895,6 @@
     "intelligence": 121,
     "requiredLevel": 70,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 70, 121 Int",
-      "ko": "요구 사항:  레벨 70, 121 지능",
-      "ja": "装備条件： レベル 70, 121 知性",
-      "zh-CN": "需求：  等级 70, 121 智慧",
-      "zh-TW": "需求:  等級 70, 121 智慧",
-      "es": "Requiere:  Nivel 70, 121 Int"
-    },
     "implicitModifierId": "flowing-raiment:implicit:base",
     "implicitStats": [
       {
@@ -8926,13 +8918,21 @@
       "rareSuffixes": 3
     },
     "archetype": "int",
+    "requirements": {
+      "en": "Requires:  Level 70, 121 Int",
+      "ko": "요구 사항:  레벨 70, 121 지능",
+      "ja": "装備条件： レベル 70, 121 知性",
+      "zh-CN": "需求：  等级 70, 121 智慧",
+      "zh-TW": "需求:  等級 70, 121 智慧",
+      "es": "Requiere:  Nivel 70, 121 Int"
+    },
     "implicitText": "(40—50)% increased Mana Regeneration Rate"
   },
   "sacramental-robe": {
     "key": "sacramental-robe",
-    "slug": "Sacramental_Robe",
-    "pool": "sacramental-robe",
     "family": "body",
+    "pool": "sacramental-robe",
+    "slug": "Sacramental_Robe",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
     "name": "Sacramental Robe",
     "sourceUrl": "https://poe2db.tw/us/Sacramental_Robe",
@@ -8950,14 +8950,6 @@
     "intelligence": 121,
     "requiredLevel": 75,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 75, 121 Int",
-      "ko": "요구 사항:  레벨 75, 121 지능",
-      "ja": "装備条件： レベル 75, 121 知性",
-      "zh-CN": "需求：  等级 75, 121 智慧",
-      "zh-TW": "需求:  等級 75, 121 智慧",
-      "es": "Requiere:  Nivel 75, 121 Int"
-    },
     "implicitModifierId": "sacramental-robe:implicit:base",
     "implicitStats": [
       {
@@ -8981,13 +8973,21 @@
       "rareSuffixes": 3
     },
     "archetype": "int",
+    "requirements": {
+      "en": "Requires:  Level 75, 121 Int",
+      "ko": "요구 사항:  레벨 75, 121 지능",
+      "ja": "装備条件： レベル 75, 121 知性",
+      "zh-CN": "需求：  等级 75, 121 智慧",
+      "zh-TW": "需求:  等級 75, 121 智慧",
+      "es": "Requiere:  Nivel 75, 121 Int"
+    },
     "implicitText": "(20—25)% increased Energy Shield Recharge Rate"
   },
   "feathered-raiment": {
     "key": "feathered-raiment",
-    "slug": "Feathered_Raiment",
-    "pool": "feathered-raiment",
     "family": "body",
+    "pool": "feathered-raiment",
+    "slug": "Feathered_Raiment",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
     "name": "Feathered Raiment",
     "sourceUrl": "https://poe2db.tw/us/Feathered_Raiment",
@@ -9006,14 +9006,6 @@
     "intelligence": 121,
     "requiredLevel": 80,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 80, 121 Int",
-      "ko": "요구 사항:  레벨 80, 121 지능",
-      "ja": "装備条件： レベル 80, 121 知性",
-      "zh-CN": "需求：  等级 80, 121 智慧",
-      "zh-TW": "需求:  等級 80, 121 智慧",
-      "es": "Requiere:  Nivel 80, 121 Int"
-    },
     "implicitModifierId": "feathered-raiment:implicit:base",
     "implicitStats": [
       {
@@ -9037,13 +9029,21 @@
       "rareSuffixes": 3
     },
     "archetype": "int",
+    "requirements": {
+      "en": "Requires:  Level 80, 121 Int",
+      "ko": "요구 사항:  레벨 80, 121 지능",
+      "ja": "装備条件： レベル 80, 121 知性",
+      "zh-CN": "需求：  等级 80, 121 智慧",
+      "zh-TW": "需求:  等級 80, 121 智慧",
+      "es": "Requiere:  Nivel 80, 121 Int"
+    },
     "implicitText": "(5—10)% of Damage is taken from Mana before Life"
   },
   "dastard-armour": {
     "key": "dastard-armour",
-    "slug": "Dastard_Armour",
-    "pool": "dastard-armour",
     "family": "body",
+    "pool": "dastard-armour",
+    "slug": "Dastard_Armour",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
     "name": "Dastard Armour",
     "sourceUrl": "https://poe2db.tw/us/Dastard_Armour",
@@ -9061,14 +9061,6 @@
     "intelligence": 0,
     "requiredLevel": 65,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 65, 67 Str, 67 Dex",
-      "ko": "요구 사항:  레벨 65, 67 힘, 67 민첩",
-      "ja": "装備条件： レベル 65, 67 筋力, 67 器用さ",
-      "zh-CN": "需求：  等级 65, 67 力量, 67 敏捷",
-      "zh-TW": "需求:  等級 65, 67 力量, 67 敏捷",
-      "es": "Requiere:  Nivel 65, 67 Fue, 67 Des"
-    },
     "implicitModifierId": "dastard-armour:implicit:base",
     "implicitStats": [
       {
@@ -9092,13 +9084,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str_dex",
+    "requirements": {
+      "en": "Requires:  Level 65, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 65, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 65, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 65, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 65, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 65, 67 Fue, 67 Des"
+    },
     "implicitText": "+(60—80) to maximum Life"
   },
   "shrouded-mail-fire": {
     "key": "shrouded-mail-fire",
-    "slug": "Shrouded_Mail_fire",
-    "pool": "shrouded-mail-fire",
     "family": "body",
+    "pool": "shrouded-mail-fire",
+    "slug": "Shrouded_Mail_fire",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
     "name": "Shrouded Mail",
     "sourceUrl": "https://poe2db.tw/us/Shrouded_Mail",
@@ -9116,14 +9116,6 @@
     "intelligence": 0,
     "requiredLevel": 70,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 70, 67 Str, 67 Dex",
-      "ko": "요구 사항:  레벨 70, 67 힘, 67 민첩",
-      "ja": "装備条件： レベル 70, 67 筋力, 67 器用さ",
-      "zh-CN": "需求：  等级 70, 67 力量, 67 敏捷",
-      "zh-TW": "需求:  等級 70, 67 力量, 67 敏捷",
-      "es": "Requiere:  Nivel 70, 67 Fue, 67 Des"
-    },
     "implicitModifierId": "shrouded-mail-fire:implicit:base",
     "implicitStats": [
       {
@@ -9147,13 +9139,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str_dex",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 70, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 70, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 70, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 70, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 70, 67 Fue, 67 Des"
+    },
     "implicitText": "+(20—25)% to Fire Resistance"
   },
   "shrouded-mail-cold": {
     "key": "shrouded-mail-cold",
-    "slug": "Shrouded_Mail_cold",
-    "pool": "shrouded-mail-cold",
     "family": "body",
+    "pool": "shrouded-mail-cold",
+    "slug": "Shrouded_Mail_cold",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
     "name": "Shrouded Mail",
     "sourceUrl": "https://poe2db.tw/us/Shrouded_Mail",
@@ -9171,14 +9171,6 @@
     "intelligence": 0,
     "requiredLevel": 70,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 70, 67 Str, 67 Dex",
-      "ko": "요구 사항:  레벨 70, 67 힘, 67 민첩",
-      "ja": "装備条件： レベル 70, 67 筋力, 67 器用さ",
-      "zh-CN": "需求：  等级 70, 67 力量, 67 敏捷",
-      "zh-TW": "需求:  等級 70, 67 力量, 67 敏捷",
-      "es": "Requiere:  Nivel 70, 67 Fue, 67 Des"
-    },
     "implicitModifierId": "shrouded-mail-cold:implicit:base",
     "implicitStats": [
       {
@@ -9202,13 +9194,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str_dex",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 70, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 70, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 70, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 70, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 70, 67 Fue, 67 Des"
+    },
     "implicitText": "+(20—25)% to Cold Resistance"
   },
   "shrouded-mail-lightning": {
     "key": "shrouded-mail-lightning",
-    "slug": "Shrouded_Mail_lightning",
-    "pool": "shrouded-mail-lightning",
     "family": "body",
+    "pool": "shrouded-mail-lightning",
+    "slug": "Shrouded_Mail_lightning",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
     "name": "Shrouded Mail",
     "sourceUrl": "https://poe2db.tw/us/Shrouded_Mail",
@@ -9226,14 +9226,6 @@
     "intelligence": 0,
     "requiredLevel": 70,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 70, 67 Str, 67 Dex",
-      "ko": "요구 사항:  레벨 70, 67 힘, 67 민첩",
-      "ja": "装備条件： レベル 70, 67 筋力, 67 器用さ",
-      "zh-CN": "需求：  等级 70, 67 力量, 67 敏捷",
-      "zh-TW": "需求:  等級 70, 67 力量, 67 敏捷",
-      "es": "Requiere:  Nivel 70, 67 Fue, 67 Des"
-    },
     "implicitModifierId": "shrouded-mail-lightning:implicit:base",
     "implicitStats": [
       {
@@ -9257,13 +9249,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str_dex",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 70, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 70, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 70, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 70, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 70, 67 Fue, 67 Des"
+    },
     "implicitText": "+(20—25)% to Lightning Resistance"
   },
   "thane-mail": {
     "key": "thane-mail",
-    "slug": "Thane_Mail",
-    "pool": "thane-mail",
     "family": "body",
+    "pool": "thane-mail",
+    "slug": "Thane_Mail",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
     "name": "Thane Mail",
     "sourceUrl": "https://poe2db.tw/us/Thane_Mail",
@@ -9282,14 +9282,6 @@
     "intelligence": 0,
     "requiredLevel": 80,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 80, 67 Str, 67 Dex",
-      "ko": "요구 사항:  레벨 80, 67 힘, 67 민첩",
-      "ja": "装備条件： レベル 80, 67 筋力, 67 器用さ",
-      "zh-CN": "需求：  等级 80, 67 力量, 67 敏捷",
-      "zh-TW": "需求:  等級 80, 67 力量, 67 敏捷",
-      "es": "Requiere:  Nivel 80, 67 Fue, 67 Des"
-    },
     "implicitModifierId": "thane-mail:implicit:base",
     "implicitStats": [
       {
@@ -9313,13 +9305,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str_dex",
+    "requirements": {
+      "en": "Requires:  Level 80, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 80, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 80, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 80, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 80, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 80, 67 Fue, 67 Des"
+    },
     "implicitText": "Hits against you have (15—25)% reduced Critical Damage Bonus"
   },
   "death-mantle": {
     "key": "death-mantle",
-    "slug": "Death_Mantle",
-    "pool": "death-mantle",
     "family": "body",
+    "pool": "death-mantle",
+    "slug": "Death_Mantle",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
     "name": "Death Mantle",
     "sourceUrl": "https://poe2db.tw/us/Death_Mantle",
@@ -9337,14 +9337,6 @@
     "intelligence": 67,
     "requiredLevel": 75,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 75, 67 Str, 67 Int",
-      "ko": "요구 사항:  레벨 75, 67 힘, 67 지능",
-      "ja": "装備条件： レベル 75, 67 筋力, 67 知性",
-      "zh-CN": "需求：  等级 75, 67 力量, 67 智慧",
-      "zh-TW": "需求:  等級 75, 67 力量, 67 智慧",
-      "es": "Requiere:  Nivel 75, 67 Fue, 67 Int"
-    },
     "implicitModifierId": "death-mantle:implicit:base",
     "implicitStats": [
       {
@@ -9368,13 +9360,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str_int",
+    "requirements": {
+      "en": "Requires:  Level 75, 67 Str, 67 Int",
+      "ko": "요구 사항:  레벨 75, 67 힘, 67 지능",
+      "ja": "装備条件： レベル 75, 67 筋力, 67 知性",
+      "zh-CN": "需求：  等级 75, 67 力量, 67 智慧",
+      "zh-TW": "需求:  等級 75, 67 力量, 67 智慧",
+      "es": "Requiere:  Nivel 75, 67 Fue, 67 Int"
+    },
     "implicitText": "+1% to all Maximum Elemental Resistances"
   },
   "conjurer-mantle": {
     "key": "conjurer-mantle",
-    "slug": "Conjurer_Mantle",
-    "pool": "conjurer-mantle",
     "family": "body",
+    "pool": "conjurer-mantle",
+    "slug": "Conjurer_Mantle",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
     "name": "Conjurer Mantle",
     "sourceUrl": "https://poe2db.tw/us/Conjurer_Mantle",
@@ -9392,14 +9392,6 @@
     "intelligence": 67,
     "requiredLevel": 70,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 70, 67 Str, 67 Int",
-      "ko": "요구 사항:  레벨 70, 67 힘, 67 지능",
-      "ja": "装備条件： レベル 70, 67 筋力, 67 知性",
-      "zh-CN": "需求：  等级 70, 67 力量, 67 智慧",
-      "zh-TW": "需求:  等級 70, 67 力量, 67 智慧",
-      "es": "Requiere:  Nivel 70, 67 Fue, 67 Int"
-    },
     "implicitModifierId": "conjurer-mantle:implicit:base",
     "implicitStats": [
       {
@@ -9423,13 +9415,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str_int",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Str, 67 Int",
+      "ko": "요구 사항:  레벨 70, 67 힘, 67 지능",
+      "ja": "装備条件： レベル 70, 67 筋力, 67 知性",
+      "zh-CN": "需求：  等级 70, 67 力量, 67 智慧",
+      "zh-TW": "需求:  等級 70, 67 力量, 67 智慧",
+      "es": "Requiere:  Nivel 70, 67 Fue, 67 Int"
+    },
     "implicitText": "+(20—30) to Spirit"
   },
   "seastorm-mantle": {
     "key": "seastorm-mantle",
-    "slug": "Seastorm_Mantle",
-    "pool": "seastorm-mantle",
     "family": "body",
+    "pool": "seastorm-mantle",
+    "slug": "Seastorm_Mantle",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
     "name": "Seastorm Mantle",
     "sourceUrl": "https://poe2db.tw/us/Seastorm_Mantle",
@@ -9448,14 +9448,6 @@
     "intelligence": 67,
     "requiredLevel": 80,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 80, 67 Str, 67 Int",
-      "ko": "요구 사항:  레벨 80, 67 힘, 67 지능",
-      "ja": "装備条件： レベル 80, 67 筋力, 67 知性",
-      "zh-CN": "需求：  等级 80, 67 力量, 67 智慧",
-      "zh-TW": "需求:  等級 80, 67 力量, 67 智慧",
-      "es": "Requiere:  Nivel 80, 67 Fue, 67 Int"
-    },
     "implicitModifierId": "seastorm-mantle:implicit:base",
     "implicitStats": [
       {
@@ -9479,13 +9471,21 @@
       "rareSuffixes": 3
     },
     "archetype": "str_int",
+    "requirements": {
+      "en": "Requires:  Level 80, 67 Str, 67 Int",
+      "ko": "요구 사항:  레벨 80, 67 힘, 67 지능",
+      "ja": "装備条件： レベル 80, 67 筋力, 67 知性",
+      "zh-CN": "需求：  等级 80, 67 力量, 67 智慧",
+      "zh-TW": "需求:  等級 80, 67 力量, 67 智慧",
+      "es": "Requiere:  Nivel 80, 67 Fue, 67 Int"
+    },
     "implicitText": "(8—14)% of Damage taken Recouped as Life"
   },
   "rambler-jacket": {
     "key": "rambler-jacket",
-    "slug": "Rambler_Jacket",
-    "pool": "rambler-jacket",
     "family": "body",
+    "pool": "rambler-jacket",
+    "slug": "Rambler_Jacket",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame",
     "name": "Rambler Jacket",
     "sourceUrl": "https://poe2db.tw/us/Rambler_Jacket",
@@ -9503,14 +9503,6 @@
     "intelligence": 67,
     "requiredLevel": 70,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 70, 67 Dex, 67 Int",
-      "ko": "요구 사항:  레벨 70, 67 민첩, 67 지능",
-      "ja": "装備条件： レベル 70, 67 器用さ, 67 知性",
-      "zh-CN": "需求：  等级 70, 67 敏捷, 67 智慧",
-      "zh-TW": "需求:  等級 70, 67 敏捷, 67 智慧",
-      "es": "Requiere:  Nivel 70, 67 Des, 67 Int"
-    },
     "implicitModifierId": "rambler-jacket:implicit:base",
     "implicitStats": [
       {
@@ -9534,13 +9526,21 @@
       "rareSuffixes": 3
     },
     "archetype": "dex_int",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Dex, 67 Int",
+      "ko": "요구 사항:  레벨 70, 67 민첩, 67 지능",
+      "ja": "装備条件： レベル 70, 67 器用さ, 67 知性",
+      "zh-CN": "需求：  等级 70, 67 敏捷, 67 智慧",
+      "zh-TW": "需求:  等級 70, 67 敏捷, 67 智慧",
+      "es": "Requiere:  Nivel 70, 67 Des, 67 Int"
+    },
     "implicitText": "+(7—13)% to Chaos Resistance"
   },
   "falconers-jacket": {
     "key": "falconers-jacket",
-    "slug": "Falconers_Jacket",
-    "pool": "falconers-jacket",
     "family": "body",
+    "pool": "falconers-jacket",
+    "slug": "Falconers_Jacket",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
     "name": "Falconer's Jacket",
     "sourceUrl": "https://poe2db.tw/us/Falconers_Jacket",
@@ -9558,14 +9558,6 @@
     "intelligence": 67,
     "requiredLevel": 75,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 75, 67 Dex, 67 Int",
-      "ko": "요구 사항:  레벨 75, 67 민첩, 67 지능",
-      "ja": "装備条件： レベル 75, 67 器用さ, 67 知性",
-      "zh-CN": "需求：  等级 75, 67 敏捷, 67 智慧",
-      "zh-TW": "需求:  等級 75, 67 敏捷, 67 智慧",
-      "es": "Requiere:  Nivel 75, 67 Des, 67 Int"
-    },
     "implicitModifierId": "falconers-jacket:implicit:base",
     "implicitStats": [
       {
@@ -9589,13 +9581,21 @@
       "rareSuffixes": 3
     },
     "archetype": "dex_int",
+    "requirements": {
+      "en": "Requires:  Level 75, 67 Dex, 67 Int",
+      "ko": "요구 사항:  레벨 75, 67 민첩, 67 지능",
+      "ja": "装備条件： レベル 75, 67 器用さ, 67 知性",
+      "zh-CN": "需求：  等级 75, 67 敏捷, 67 智慧",
+      "zh-TW": "需求:  等級 75, 67 敏捷, 67 智慧",
+      "es": "Requiere:  Nivel 75, 67 Des, 67 Int"
+    },
     "implicitText": "5% increased Movement Speed"
   },
   "austere-garb": {
     "key": "austere-garb",
-    "slug": "Austere_Garb",
-    "pool": "austere-garb",
     "family": "body",
+    "pool": "austere-garb",
+    "slug": "Austere_Garb",
     "id": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
     "name": "Austere Garb",
     "sourceUrl": "https://poe2db.tw/us/Austere_Garb",
@@ -9614,14 +9614,6 @@
     "intelligence": 67,
     "requiredLevel": 80,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 80, 67 Dex, 67 Int",
-      "ko": "요구 사항:  레벨 80, 67 민첩, 67 지능",
-      "ja": "装備条件： レベル 80, 67 器用さ, 67 知性",
-      "zh-CN": "需求：  等级 80, 67 敏捷, 67 智慧",
-      "zh-TW": "需求:  等級 80, 67 敏捷, 67 智慧",
-      "es": "Requiere:  Nivel 80, 67 Des, 67 Int"
-    },
     "implicitModifierId": "austere-garb:implicit:base",
     "implicitStats": [
       {
@@ -9645,13 +9637,21 @@
       "rareSuffixes": 3
     },
     "archetype": "dex_int",
+    "requirements": {
+      "en": "Requires:  Level 80, 67 Dex, 67 Int",
+      "ko": "요구 사항:  레벨 80, 67 민첩, 67 지능",
+      "ja": "装備条件： レベル 80, 67 器用さ, 67 知性",
+      "zh-CN": "需求：  等级 80, 67 敏捷, 67 智慧",
+      "zh-TW": "需求:  等級 80, 67 敏捷, 67 智慧",
+      "es": "Requiere:  Nivel 80, 67 Des, 67 Int"
+    },
     "implicitText": "(10—15)% reduced Elemental Ailment Duration on you"
   },
   "biostatic-ring": {
     "key": "biostatic-ring",
-    "slug": "Biostatic_Ring",
-    "pool": "biostatic-ring",
     "family": "rings",
+    "pool": "biostatic-ring",
+    "slug": "Biostatic_Ring",
     "id": "Metadata/Items/Rings/FourRingB1",
     "name": "Biostatic Ring",
     "sourceUrl": "https://poe2db.tw/us/Biostatic_Ring",
@@ -9667,14 +9667,6 @@
     "intelligence": 0,
     "requiredLevel": 52,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 52",
-      "ko": "요구 사항:  레벨 52",
-      "ja": "装備条件： レベル 52",
-      "zh-CN": "需求：  等级 52",
-      "zh-TW": "需求:  等級 52",
-      "es": "Requiere:  Nivel 52"
-    },
     "implicitModifierId": "biostatic-ring:implicit:base",
     "implicitStats": [
       {
@@ -9697,13 +9689,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 52",
+      "ko": "요구 사항:  레벨 52",
+      "ja": "装備条件： レベル 52",
+      "zh-CN": "需求：  等级 52",
+      "zh-TW": "需求:  等級 52",
+      "es": "Requiere:  Nivel 52"
+    },
     "implicitText": "+1% to all maximum Resistances"
   },
   "oneiric-ring": {
     "key": "oneiric-ring",
-    "slug": "Oneiric_Ring",
-    "pool": "oneiric-ring",
     "family": "rings",
+    "pool": "oneiric-ring",
+    "slug": "Oneiric_Ring",
     "id": "Metadata/Items/Rings/FourRingB5",
     "name": "Oneiric Ring",
     "sourceUrl": "https://poe2db.tw/us/Oneiric_Ring",
@@ -9719,14 +9719,6 @@
     "intelligence": 0,
     "requiredLevel": 47,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "Requires:  Level 47",
-      "ko": "요구 사항:  레벨 47",
-      "ja": "装備条件： レベル 47",
-      "zh-CN": "需求：  等级 47",
-      "zh-TW": "需求:  等級 47",
-      "es": "Requiere:  Nivel 47"
-    },
     "implicitModifierId": "oneiric-ring:implicit:base",
     "implicitStats": [
       {
@@ -9749,13 +9741,21 @@
       "rarePrefixes": 3,
       "rareSuffixes": 3
     },
+    "requirements": {
+      "en": "Requires:  Level 47",
+      "ko": "요구 사항:  레벨 47",
+      "ja": "装備条件： レベル 47",
+      "zh-CN": "需求：  等级 47",
+      "zh-TW": "需求:  等級 47",
+      "es": "Requiere:  Nivel 47"
+    },
     "implicitText": "(11—23)% increased Chaos Damage"
   },
   "dusk-ring": {
     "key": "dusk-ring",
-    "slug": "Dusk_Ring",
-    "pool": "dusk-ring",
     "family": "rings",
+    "pool": "dusk-ring",
+    "slug": "Dusk_Ring",
     "id": "Metadata/Items/Rings/FourRingLake1",
     "name": "Dusk Ring",
     "sourceUrl": "https://poe2db.tw/us/Dusk_Ring",
@@ -9771,14 +9771,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "dusk-ring:implicit:base",
     "implicitStats": [
       {
@@ -9812,13 +9804,21 @@
       "rarePrefixes": 4,
       "rareSuffixes": 2
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
   },
   "gloam-ring": {
     "key": "gloam-ring",
-    "slug": "Gloam_Ring",
-    "pool": "gloam-ring",
     "family": "rings",
+    "pool": "gloam-ring",
+    "slug": "Gloam_Ring",
     "id": "Metadata/Items/Rings/FourRingLake2",
     "name": "Gloam Ring",
     "sourceUrl": "https://poe2db.tw/us/Gloam_Ring",
@@ -9834,14 +9834,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "gloam-ring:implicit:base",
     "implicitStats": [
       {
@@ -9875,13 +9867,21 @@
       "rarePrefixes": 2,
       "rareSuffixes": 4
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
   },
   "penumbra-ring": {
     "key": "penumbra-ring",
-    "slug": "Penumbra_Ring",
-    "pool": "penumbra-ring",
     "family": "rings",
+    "pool": "penumbra-ring",
+    "slug": "Penumbra_Ring",
     "id": "Metadata/Items/Rings/FourRingLake3",
     "name": "Penumbra Ring",
     "sourceUrl": "https://poe2db.tw/us/Penumbra_Ring",
@@ -9897,14 +9897,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "penumbra-ring:implicit:base",
     "implicitStats": [
       {
@@ -9938,13 +9930,21 @@
       "rarePrefixes": 5,
       "rareSuffixes": 1
     },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
     "implicitText": "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
   },
   "tenebrous-ring": {
     "key": "tenebrous-ring",
-    "slug": "Tenebrous_Ring",
-    "pool": "tenebrous-ring",
     "family": "rings",
+    "pool": "tenebrous-ring",
+    "slug": "Tenebrous_Ring",
     "id": "Metadata/Items/Rings/FourRingLake4",
     "name": "Tenebrous Ring",
     "sourceUrl": "https://poe2db.tw/us/Tenebrous_Ring",
@@ -9960,14 +9960,6 @@
     "intelligence": 0,
     "requiredLevel": 0,
     "maximumQuality": 20,
-    "requirements": {
-      "en": "",
-      "ko": "",
-      "ja": "",
-      "zh-CN": "",
-      "zh-TW": "",
-      "es": ""
-    },
     "implicitModifierId": "tenebrous-ring:implicit:base",
     "implicitStats": [
       {
@@ -10000,6 +9992,14 @@
       "magicSuffixes": 3,
       "rarePrefixes": 1,
       "rareSuffixes": 5
+    },
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
     },
     "implicitText": "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
   }

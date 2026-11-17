@@ -7,10 +7,17 @@
   },
   "modifiers": [
     {
-      "requiredItemLevel": 25,
+      "id": "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
       "name": "of the Stars",
-      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 25,
       "weight": 0,
+      "tier": 1,
+      "text": "(10—15)% increased Attack Speed while missing Runic Ward",
       "stats": [
         {
           "id": "attack_speed_+%_while_missing_ward",
@@ -18,21 +25,22 @@
           "min": 10
         }
       ],
-      "familyIds": [
-        "IncreasedAttackSpeed"
-      ],
-      "id": "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
-      "affixType": "SUFFIX",
-      "text": "(10—15)% increased Attack Speed while missing Runic Ward",
-      "layer": "EXPLICIT",
-      "tier": 1,
-      "tags": []
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1"
     },
     {
-      "requiredItemLevel": 45,
+      "id": "stocky-mitts:suffix:alloy-cast-speed",
       "name": "of the Stars",
-      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed",
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 45,
       "weight": 0,
+      "tier": 1,
+      "text": "(9—12)% increased Cast Speed",
       "stats": [
         {
           "id": "base_cast_speed_+%",
@@ -40,26 +48,25 @@
           "min": 9
         }
       ],
-      "familyIds": [
-        "IncreasedCastSpeed",
-        "IncreasedAttackSpeed"
-      ],
-      "id": "stocky-mitts:suffix:alloy-cast-speed",
-      "affixType": "SUFFIX",
-      "text": "(9—12)% increased Cast Speed",
-      "layer": "EXPLICIT",
-      "tier": 1,
       "tags": [
         "caster_speed",
         "caster",
         "speed"
-      ]
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1"
     },
     {
-      "requiredItemLevel": 25,
+      "id": "stocky-mitts:prefix:alloy-local-runic-ward",
       "name": "Verisium",
-      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LocalRunicWardPercent"
+      ],
+      "requiredItemLevel": 25,
       "weight": 0,
+      "tier": 1,
+      "text": "(24—30)% increased Runic Ward",
       "stats": [
         {
           "id": "local_ward_+%",
@@ -67,15 +74,8 @@
           "min": 24
         }
       ],
-      "familyIds": [
-        "LocalRunicWardPercent"
-      ],
-      "id": "stocky-mitts:prefix:alloy-local-runic-ward",
-      "affixType": "PREFIX",
-      "text": "(24—30)% increased Runic Ward",
-      "layer": "EXPLICIT",
-      "tier": 1,
-      "tags": []
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1"
     }
   ]
 }

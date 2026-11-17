@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-ruby-basic-potent-20261004-c6eff1a9f30a",
     "retrievedAt": "2026-10-04T10:25:33.482Z",
-    "sourceUrl": "https://poe2db.tw/us/Ruby",
+    "sourceRef": "src2235",
     "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
     "rawSha256": "c6eff1a9f30a4e44f39daa731a9d53a30e87b55c778f3ea28f1a1f587c600b7e",
     "detailsSha256": "3d2ba8ca8ee2e676ea8f7c4c7e29171cd8fdbe2ee41a1e76b28329be8dc7c2ee"
-  },
-  "base": {
-    "id": "Metadata/Items/Jewels/JewelStr",
-    "name": "Ruby",
-    "sourceUrl": "https://poe2db.tw/us/Ruby",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 2,
-    "rareSuffixes": 2
   },
   "modifierPool": "ruby-snapshot",
   "implicitModifiers": []

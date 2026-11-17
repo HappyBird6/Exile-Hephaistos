@@ -1,0 +1,41 @@
+{
+  "id": "Metadata/Items/Belts/FourBelt4",
+  "sourceRef": "src1077",
+  "implicitModifierId": "long-belt:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "long-belt",
+    "slug": "Long_Belt",
+    "family": "belts",
+    "sourceSha256": "2762a91fcae5ffcbbd2c72c885be22fc42d7b99f3a60dd42f01965862375ddbb",
+    "sourceTags": [
+      "belt"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 20,
+    "maximumQuality": 0,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "charm_duration_+%",
+        "min": 15,
+        "max": 20
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "charm_duration_+%",
+        "min": 15,
+        "max": 20,
+        "locality": "Global"
+      }
+    ],
+    "order": 63
+  }
+}

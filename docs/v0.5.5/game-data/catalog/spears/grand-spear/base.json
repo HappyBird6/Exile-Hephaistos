@@ -1,0 +1,63 @@
+{
+  "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+  "sourceRef": "src0903",
+  "implicitModifierId": "grand-spear:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "grand-spear",
+    "slug": "Grand_Spear",
+    "family": "spears",
+    "sourceSha256": "37c053bf3b1535bc0dcf9396c9a1c142486ed623bb3255329cffa0fd83c6151e",
+    "sourceTags": [
+      "spear",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 68,
+    "dexterity": 109,
+    "intelligence": 0,
+    "requiredLevel": 79,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1
+      },
+      {
+        "id": "local_+%_weapon_range",
+        "min": 25,
+        "max": 25
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_display_grants_spear_throw_skill",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_+%_weapon_range",
+        "min": 25,
+        "max": 25,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "56-84",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 1,
+    "classId": 79,
+    "order": 105
+  }
+}

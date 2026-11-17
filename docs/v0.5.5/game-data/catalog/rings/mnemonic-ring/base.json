@@ -1,0 +1,41 @@
+{
+  "id": "Metadata/Items/Rings/FourRingB3",
+  "sourceRef": "src1082",
+  "implicitModifierId": "mnemonic:implicit:maximummanaincreasepercent",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "mnemonic",
+    "slug": "Mnemonic_Ring",
+    "family": "rings",
+    "sourceSha256": "3aa1f8c90b326bb25fe0776e5753c76fb0718c7bcc04b18a44fe31b5b735f032",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 40,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "maximum_mana_+%",
+        "min": 4,
+        "max": 6
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "maximum_mana_+%",
+        "min": 4,
+        "max": 6,
+        "locality": "Global"
+      }
+    ],
+    "order": 31
+  }
+}

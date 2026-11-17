@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmuletLake4",
+  "sourceRef": "src1712",
+  "implicitModifierId": "tenebrous-amulet:implicit:base",
+  "magicPrefixes": 0,
+  "magicSuffixes": 3,
+  "rarePrefixes": 1,
+  "rareSuffixes": 5,
+  "registration": {
+    "key": "tenebrous-amulet",
+    "slug": "Tenebrous_Amulet",
+    "family": "amulets",
+    "sourceSha256": "5a97dc2d26d13566ac621ed3860b3879959a08e753d866f09cda8bd3f1ba9d3d",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -2,
+        "max": -2
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 2,
+        "max": 2
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -2,
+        "max": -2,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 2,
+        "max": 2,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 129
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Rings/FourRingLake2",
+  "sourceRef": "src0900",
+  "implicitModifierId": "gloam-ring:implicit:base",
+  "magicPrefixes": 0,
+  "magicSuffixes": 2,
+  "rarePrefixes": 2,
+  "rareSuffixes": 4,
+  "registration": {
+    "key": "gloam-ring",
+    "slug": "Gloam_Ring",
+    "family": "rings",
+    "sourceSha256": "ed7a43b7341f8dd4c8402cf859ddcdedad6992546e549ed762769984a11dc696",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 159
+  }
+}

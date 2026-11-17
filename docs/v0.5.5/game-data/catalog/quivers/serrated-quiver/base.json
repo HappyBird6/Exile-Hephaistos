@@ -1,0 +1,44 @@
+{
+  "id": "Metadata/Items/Quivers/FourQuiver7",
+  "sourceRef": "src1479",
+  "implicitModifierId": "serrated-quiver:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "serrated-quiver",
+    "slug": "Serrated_Quiver",
+    "family": "quivers",
+    "sourceSha256": "6900f60bbf7b46fb00ef7867ffa0408b2637263e95aa5f3d8987d91d514e01d3",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 44,
+    "maximumQuality": null,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "bleed_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "bleed_on_hit_with_attacks_%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
+    "order": 89
+  }
+}

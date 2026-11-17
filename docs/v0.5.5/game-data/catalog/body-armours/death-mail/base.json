@@ -1,0 +1,31 @@
+{
+  "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+  "sourceRef": "src2250",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "death-mail",
+    "slug": "Death_Mail",
+    "archetype": "str_dex",
+    "family": "body",
+    "sourceSha256": "ec76db9848b527be3af1a54557987b0b330fcbe613c5aa83dd399e2441328108",
+    "sourceTags": [
+      "str_dex_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 313,
+    "energyShield": 0,
+    "requiredLevel": 75,
+    "strength": 67,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "evasion": 285,
+    "dexterity": 67,
+    "baseMovementSpeed": -0.04,
+    "order": 12
+  }
+}

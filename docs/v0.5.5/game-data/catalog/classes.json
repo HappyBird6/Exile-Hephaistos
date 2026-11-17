@@ -1,0 +1,68 @@
+{
+  "body": {
+    "itemClass": "Body Armours"
+  },
+  "helmet": {
+    "itemClass": "Helmets"
+  },
+  "helmets": {
+    "itemClass": "Helmets"
+  },
+  "gloves": {
+    "itemClass": "Gloves"
+  },
+  "boots": {
+    "itemClass": "Boots"
+  },
+  "bows": {
+    "itemClass": "Bows"
+  },
+  "rings": {
+    "itemClass": "Rings"
+  },
+  "amulets": {
+    "itemClass": "Amulets"
+  },
+  "sceptres": {
+    "itemClass": "Sceptres"
+  },
+  "wands": {
+    "itemClass": "Wands"
+  },
+  "belts": {
+    "itemClass": "Belts"
+  },
+  "crossbows": {
+    "itemClass": "Crossbows"
+  },
+  "shields": {
+    "itemClass": "Shields"
+  },
+  "bucklers": {
+    "itemClass": "Bucklers"
+  },
+  "foci": {
+    "itemClass": "Foci"
+  },
+  "quivers": {
+    "itemClass": "Quivers"
+  },
+  "one-hand-maces": {
+    "itemClass": "One Hand Maces"
+  },
+  "two-hand-maces": {
+    "itemClass": "Two Hand Maces"
+  },
+  "quarterstaves": {
+    "itemClass": "Quarterstaves"
+  },
+  "spears": {
+    "itemClass": "Spears"
+  },
+  "staves": {
+    "itemClass": "Staves"
+  },
+  "talismans": {
+    "itemClass": "Talismans"
+  }
+}

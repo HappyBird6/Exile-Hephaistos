@@ -1,0 +1,4654 @@
+{
+  "Metadata/Items/Amulets/FourAmuletB1c": {
+    "name": "Absent Amulet",
+    "requirements": {
+      "en": "Requires:  Level 50",
+      "ko": "요구 사항:  레벨 50",
+      "ja": "装備条件： レベル 50",
+      "zh-CN": "需求：  等级 50",
+      "zh-TW": "需求:  等級 50",
+      "es": "Requiere:  Nivel 50"
+    },
+    "sourceProperties": {
+      "en": [
+        "Temporary example (user policy): Grants Skill: Level 12 Cast on Elemental Ailment"
+      ],
+      "ko": [
+        "임시 예시 (사용자 정책): 스킬 부여: 레벨 12 원소 상태 이상 시 시전"
+      ],
+      "ja": [
+        "仮の例（ユーザー方針）: スキルを付与: レベル 12 元素系状態異常時キャスト"
+      ],
+      "zh-CN": [
+        "临时示例（用户策略）: 获得技能: 等级 12 元素异常状态时施放"
+      ],
+      "zh-TW": [
+        "暫時範例（使用者方針）: 賦予技能: 等級 12 元素異常狀態時施放"
+      ],
+      "es": [
+        "Ejemplo temporal (política del usuario): Otorga la habilidad: Nivel 12 Lanzar al infligir estado alterado elemental"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Level 12 Cast on Elemental Ailment"
+      ],
+      "ko": [
+        "스킬 부여: 레벨 12 원소 상태 이상 시 시전"
+      ],
+      "ja": [
+        "スキルを付与: レベル 12 元素系状態異常時キャスト"
+      ],
+      "zh-CN": [
+        "获得技能: 等级 12 元素异常状态时施放"
+      ],
+      "zh-TW": [
+        "賦予技能: 等級 12 元素異常狀態時施放"
+      ],
+      "es": [
+        "Otorga la habilidad: Nivel 12 Lanzar al infligir estado alterado elemental"
+      ]
+    },
+    "implicitText": "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+  },
+  "Metadata/Items/Amulets/FourAmulet3": {
+    "name": "Amber Amulet",
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    }
+  },
+  "Metadata/Items/Amulets/FourAmulet2": {
+    "name": "Azure Amulet",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    }
+  },
+  "Metadata/Items/Amulets/FourAmulet7": {
+    "name": "Bloodstone Amulet",
+    "requirements": {
+      "en": "Requires:  Level 18",
+      "ko": "요구 사항:  레벨 18",
+      "ja": "装備条件： レベル 18",
+      "zh-CN": "需求：  等级 18",
+      "zh-TW": "需求:  等級 18",
+      "es": "Requiere:  Nivel 18"
+    }
+  },
+  "Metadata/Items/Amulets/FourAmuletB2": {
+    "name": "Corona Amulet",
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "implicitText": "This item gains bonuses from Socketed Items as though it was a Helmet"
+  },
+  "Metadata/Items/Amulets/FourAmulet1": {
+    "name": "Crimson Amulet",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    }
+  },
+  "Metadata/Items/Amulets/FourAmuletDelirium2": {
+    "name": "Distorted Amulet",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "-1 Suffix Modifier allowed"
+  },
+  "Metadata/Items/Amulets/FourAmuletLake1": {
+    "name": "Dusk Amulet",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+  },
+  "Metadata/Items/Amulets/FourAmuletLake2": {
+    "name": "Gloam Amulet",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
+  },
+  "Metadata/Items/Amulets/FourAmulet10": {
+    "name": "Gold Amulet",
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    },
+    "implicitText": "(12—20)% increased Rarity of Items found"
+  },
+  "Metadata/Items/Amulets/FourAmulet4": {
+    "name": "Jade Amulet",
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "implicitText": "+(10—15) to Dexterity"
+  },
+  "Metadata/Items/Amulets/FourAmuletB1a": {
+    "name": "Lament Amulet",
+    "requirements": {
+      "en": "Requires:  Level 42",
+      "ko": "요구 사항:  레벨 42",
+      "ja": "装備条件： レベル 42",
+      "zh-CN": "需求：  等级 42",
+      "zh-TW": "需求:  等級 42",
+      "es": "Requiere:  Nivel 42"
+    },
+    "sourceProperties": {
+      "en": [
+        "Temporary example (user policy): Grants Skill: Level 11 Arctic Armour"
+      ],
+      "ko": [
+        "임시 예시 (사용자 정책): 스킬 부여: 레벨 11 한기의 방어구"
+      ],
+      "ja": [
+        "仮の例（ユーザー方針）: スキルを付与: レベル 11 アークティックアーマー"
+      ],
+      "zh-CN": [
+        "临时示例（用户策略）: 获得技能: 等级 11 极地装甲"
+      ],
+      "zh-TW": [
+        "暫時範例（使用者方針）: 賦予技能: 等級 11 極地裝甲"
+      ],
+      "es": [
+        "Ejemplo temporal (política del usuario): Otorga la habilidad: Nivel 11 Armadura ártica"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Level 11 Arctic Armour"
+      ],
+      "ko": [
+        "스킬 부여: 레벨 11 한기의 방어구"
+      ],
+      "ja": [
+        "スキルを付与: レベル 11 アークティックアーマー"
+      ],
+      "zh-CN": [
+        "获得技能: 等级 11 极地装甲"
+      ],
+      "zh-TW": [
+        "賦予技能: 等級 11 極地裝甲"
+      ],
+      "es": [
+        "Otorga la habilidad: Nivel 11 Armadura ártica"
+      ]
+    },
+    "implicitText": "-1 Prefix Modifier allowed"
+  },
+  "Metadata/Items/Amulets/FourAmulet5": {
+    "name": "Lapis Amulet",
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "implicitText": "+(10—15) to Intelligence"
+  },
+  "Metadata/Items/Amulets/FourAmulet6": {
+    "name": "Lunar Amulet",
+    "requirements": {
+      "en": "Requires:  Level 14",
+      "ko": "요구 사항:  레벨 14",
+      "ja": "装備条件： レベル 14",
+      "zh-CN": "需求：  等级 14",
+      "zh-TW": "需求:  等級 14",
+      "es": "Requiere:  Nivel 14"
+    }
+  },
+  "Metadata/Items/Amulets/FourAmulet11": {
+    "name": "Pearlescent Amulet",
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    }
+  },
+  "Metadata/Items/Amulets/FourAmuletLake3": {
+    "name": "Penumbra Amulet",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
+  },
+  "Metadata/Items/Amulets/FourAmuletB1b": {
+    "name": "Portent Amulet",
+    "requirements": {
+      "en": "Requires:  Level 42",
+      "ko": "요구 사항:  레벨 42",
+      "ja": "装備条件： レベル 42",
+      "zh-CN": "需求：  等级 42",
+      "zh-TW": "需求:  等級 42",
+      "es": "Requiere:  Nivel 42"
+    },
+    "sourceProperties": {
+      "en": [
+        "Temporary example (user policy): Grants Skill: Level 11 Wolf Pack"
+      ],
+      "ko": [
+        "임시 예시 (사용자 정책): 스킬 부여: 레벨 11 늑대 무리"
+      ],
+      "ja": [
+        "仮の例（ユーザー方針）: スキルを付与: レベル 11 ウルフパック"
+      ],
+      "zh-CN": [
+        "临时示例（用户策略）: 获得技能: 等级 11 狼群"
+      ],
+      "zh-TW": [
+        "暫時範例（使用者方針）: 賦予技能: 等級 11 召喚惡狼"
+      ],
+      "es": [
+        "Ejemplo temporal (política del usuario): Otorga la habilidad: Nivel 11 Manada de lobos"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Level 11 Wolf Pack"
+      ],
+      "ko": [
+        "스킬 부여: 레벨 11 늑대 무리"
+      ],
+      "ja": [
+        "スキルを付与: レベル 11 ウルフパック"
+      ],
+      "zh-CN": [
+        "获得技能: 等级 11 狼群"
+      ],
+      "zh-TW": [
+        "賦予技能: 等級 11 召喚惡狼"
+      ],
+      "es": [
+        "Otorga la habilidad: Nivel 11 Manada de lobos"
+      ]
+    },
+    "implicitText": "-1 Suffix Modifier allowed"
+  },
+  "Metadata/Items/Amulets/FourAmulet9": {
+    "name": "Solar Amulet"
+  },
+  "Metadata/Items/Amulets/FourAmulet8": {
+    "name": "Stellar Amulet",
+    "requirements": {
+      "en": "Requires:  Level 25",
+      "ko": "요구 사항:  레벨 25",
+      "ja": "装備条件： レベル 25",
+      "zh-CN": "需求：  等级 25",
+      "zh-TW": "需求:  等級 25",
+      "es": "Requiere:  Nivel 25"
+    }
+  },
+  "Metadata/Items/Amulets/FourAmuletLake4": {
+    "name": "Tenebrous Amulet",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
+  },
+  "Metadata/Items/Amulets/FourAmuletDelirium1": {
+    "name": "Twisted Amulet",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "-1 Prefix Modifier allowed"
+  },
+  "Metadata/Items/Belts/FourBelt8": {
+    "name": "Double Belt",
+    "requirements": {
+      "en": "Requires:  Level 44",
+      "ko": "요구 사항:  레벨 44",
+      "ja": "装備条件： レベル 44",
+      "zh-CN": "需求：  等级 44",
+      "zh-TW": "需求:  等級 44",
+      "es": "Requiere:  Nivel 44"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt11": {
+    "name": "Fine Belt",
+    "requirements": {
+      "en": "Requires:  Level 62",
+      "ko": "요구 사항:  레벨 62",
+      "ja": "装備条件： レベル 62",
+      "zh-CN": "需求：  等级 62",
+      "zh-TW": "需求:  等級 62",
+      "es": "Requiere:  Nivel 62"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBeltB4": {
+    "name": "Forking Belt",
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt9": {
+    "name": "Heavy Belt",
+    "requirements": {
+      "en": "Requires:  Level 50",
+      "ko": "요구 사항:  레벨 50",
+      "ja": "装備条件： レベル 50",
+      "zh-CN": "需求：  等级 50",
+      "zh-TW": "需求:  等級 50",
+      "es": "Requiere:  Nivel 50"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBeltB2": {
+    "name": "Invoking Belt",
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt2": {
+    "name": "Linen Belt",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt4": {
+    "name": "Long Belt",
+    "requirements": {
+      "en": "Requires:  Level 20",
+      "ko": "요구 사항:  레벨 20",
+      "ja": "装備条件： レベル 20",
+      "zh-CN": "需求：  等级 20",
+      "zh-TW": "需求:  等級 20",
+      "es": "Requiere:  Nivel 20"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt7": {
+    "name": "Mail Belt",
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt6": {
+    "name": "Ornate Belt",
+    "requirements": {
+      "en": "Requires:  Level 31",
+      "ko": "요구 사항:  레벨 31",
+      "ja": "装備条件： レベル 31",
+      "zh-CN": "需求：  等级 31",
+      "zh-TW": "需求:  等級 31",
+      "es": "Requiere:  Nivel 31"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt5": {
+    "name": "Plate Belt",
+    "requirements": {
+      "en": "Requires:  Level 25",
+      "ko": "요구 사항:  레벨 25",
+      "ja": "装備条件： レベル 25",
+      "zh-CN": "需求：  等级 25",
+      "zh-TW": "需求:  等級 25",
+      "es": "Requiere:  Nivel 25"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt1": {
+    "name": "Rawhide Belt"
+  },
+  "Metadata/Items/Belts/FourBeltB3": {
+    "name": "Sinew Belt",
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt10": {
+    "name": "Utility Belt",
+    "requirements": {
+      "en": "Requires:  Level 55",
+      "ko": "요구 사항:  레벨 55",
+      "ja": "装備条件： レベル 55",
+      "zh-CN": "需求：  等级 55",
+      "zh-TW": "需求:  等級 55",
+      "es": "Requiere:  Nivel 55"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Belts/FourBelt3": {
+    "name": "Wide Belt",
+    "requirements": {
+      "en": "Requires:  Level 14",
+      "ko": "요구 사항:  레벨 14",
+      "ja": "装備条件： レベル 14",
+      "zh-CN": "需求：  等级 14",
+      "zh-TW": "需求:  等級 14",
+      "es": "Requiere:  Nivel 14"
+    },
+    "sourceProperties": {
+      "en": [
+        "Has (1—3) Charm Slots"
+      ],
+      "ko": [
+        "호신부 슬롯 (1—3)개 보유"
+      ],
+      "ja": [
+        "(1—3)個のチャームスロットを持つ"
+      ],
+      "zh-CN": [
+        "具有 (1—3) 个咒符位"
+      ],
+      "zh-TW": [
+        "有(1—3)個護符欄位"
+      ],
+      "es": [
+        "Tiene (1—3) espacio para vial"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr15": {
+    "name": "Abyssal Cuirass",
+    "requirements": {
+      "en": "Requires:  Level 73, 121 Str",
+      "ko": "요구 사항:  레벨 73, 121 힘",
+      "ja": "装備条件： レベル 73, 121 筋力",
+      "zh-CN": "需求：  等级 73, 121 力量",
+      "zh-TW": "需求:  等級 73, 121 力量",
+      "es": "Requiere:  Nivel 73, 121 Fue"
+    },
+    "implicitText": "Regenerate (1.5—2.5)% of maximum Life per second"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame": {
+    "name": "Austere Garb",
+    "requirements": {
+      "en": "Requires:  Level 80, 67 Dex, 67 Int",
+      "ko": "요구 사항:  레벨 80, 67 민첩, 67 지능",
+      "ja": "装備条件： レベル 80, 67 器用さ, 67 知性",
+      "zh-CN": "需求：  等级 80, 67 敏捷, 67 智慧",
+      "zh-TW": "需求:  等級 80, 67 敏捷, 67 智慧",
+      "es": "Requiere:  Nivel 80, 67 Des, 67 Int"
+    },
+    "implicitText": "(10—15)% reduced Elemental Ailment Duration on you"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame": {
+    "name": "Conjurer Mantle",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Str, 67 Int",
+      "ko": "요구 사항:  레벨 70, 67 힘, 67 지능",
+      "ja": "装備条件： レベル 70, 67 筋力, 67 知性",
+      "zh-CN": "需求：  等级 70, 67 力量, 67 智慧",
+      "zh-TW": "需求:  等級 70, 67 力量, 67 智慧",
+      "es": "Requiere:  Nivel 70, 67 Fue, 67 Int"
+    },
+    "implicitText": "+(20—30) to Spirit"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame": {
+    "name": "Corsair Coat",
+    "requirements": {
+      "en": "Requires:  Level 80, 121 Dex",
+      "ko": "요구 사항:  레벨 80, 121 민첩",
+      "ja": "装備条件： レベル 80, 121 器用さ",
+      "zh-CN": "需求：  等级 80, 121 敏捷",
+      "zh-TW": "需求:  等級 80, 121 敏捷",
+      "es": "Requiere:  Nivel 80, 121 Des"
+    },
+    "implicitText": "5% increased Movement Speed"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame": {
+    "name": "Dastard Armour",
+    "requirements": {
+      "en": "Requires:  Level 65, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 65, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 65, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 65, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 65, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 65, 67 Fue, 67 Des"
+    },
+    "implicitText": "+(60—80) to maximum Life"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame": {
+    "name": "Death Mail",
+    "requirements": {
+      "en": "Requires:  Level 75, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 75, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 75, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 75, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 75, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 75, 67 Fue, 67 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.04"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.04"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.04"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.04"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.04"
+      ],
+      "es": [
+        "Base Movement Speed: -0.04"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame": {
+    "name": "Death Mantle",
+    "requirements": {
+      "en": "Requires:  Level 75, 67 Str, 67 Int",
+      "ko": "요구 사항:  레벨 75, 67 힘, 67 지능",
+      "ja": "装備条件： レベル 75, 67 筋力, 67 知性",
+      "zh-CN": "需求：  等级 75, 67 力量, 67 智慧",
+      "zh-TW": "需求:  等級 75, 67 力量, 67 智慧",
+      "es": "Requiere:  Nivel 75, 67 Fue, 67 Int"
+    },
+    "implicitText": "+1% to all Maximum Elemental Resistances"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame": {
+    "name": "Falconer's Jacket",
+    "requirements": {
+      "en": "Requires:  Level 75, 67 Dex, 67 Int",
+      "ko": "요구 사항:  레벨 75, 67 민첩, 67 지능",
+      "ja": "装備条件： レベル 75, 67 器用さ, 67 知性",
+      "zh-CN": "需求：  等级 75, 67 敏捷, 67 智慧",
+      "zh-TW": "需求:  等級 75, 67 敏捷, 67 智慧",
+      "es": "Requiere:  Nivel 75, 67 Des, 67 Int"
+    },
+    "implicitText": "5% increased Movement Speed"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame": {
+    "name": "Feathered Raiment",
+    "requirements": {
+      "en": "Requires:  Level 80, 121 Int",
+      "ko": "요구 사항:  레벨 80, 121 지능",
+      "ja": "装備条件： レベル 80, 121 知性",
+      "zh-CN": "需求：  等级 80, 121 智慧",
+      "zh-TW": "需求:  等級 80, 121 智慧",
+      "es": "Requiere:  Nivel 80, 121 Int"
+    },
+    "implicitText": "(5—10)% of Damage is taken from Mana before Life"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame": {
+    "name": "Flowing Raiment",
+    "requirements": {
+      "en": "Requires:  Level 70, 121 Int",
+      "ko": "요구 사항:  레벨 70, 121 지능",
+      "ja": "装備条件： レベル 70, 121 知性",
+      "zh-CN": "需求：  等级 70, 121 智慧",
+      "zh-TW": "需求:  等級 70, 121 智慧",
+      "es": "Requiere:  Nivel 70, 121 Int"
+    },
+    "implicitText": "(40—50)% increased Mana Regeneration Rate"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDex14": {
+    "name": "Mail Coat",
+    "requirements": {
+      "en": "Requires:  Level 68, 121 Dex",
+      "ko": "요구 사항:  레벨 68, 121 민첩",
+      "ja": "装備条件： レベル 68, 121 器用さ",
+      "zh-CN": "需求：  等级 68, 121 敏捷",
+      "zh-TW": "需求:  等級 68, 121 敏捷",
+      "es": "Requiere:  Nivel 68, 121 Des"
+    },
+    "implicitText": "(20—30)% reduced Slowing Potency of Debuffs on You"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame": {
+    "name": "Rambler Jacket",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Dex, 67 Int",
+      "ko": "요구 사항:  레벨 70, 67 민첩, 67 지능",
+      "ja": "装備条件： レベル 70, 67 器用さ, 67 知性",
+      "zh-CN": "需求：  等级 70, 67 敏捷, 67 智慧",
+      "zh-TW": "需求:  等級 70, 67 敏捷, 67 智慧",
+      "es": "Requiere:  Nivel 70, 67 Des, 67 Int"
+    },
+    "implicitText": "+(7—13)% to Chaos Resistance"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr1": {
+    "name": "Rusted Cuirass"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame": {
+    "name": "Sacramental Robe",
+    "requirements": {
+      "en": "Requires:  Level 75, 121 Int",
+      "ko": "요구 사항:  레벨 75, 121 지능",
+      "ja": "装備条件： レベル 75, 121 知性",
+      "zh-CN": "需求：  等级 75, 121 智慧",
+      "zh-TW": "需求:  等級 75, 121 智慧",
+      "es": "Requiere:  Nivel 75, 121 Int"
+    },
+    "implicitText": "(20—25)% increased Energy Shield Recharge Rate"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame": {
+    "name": "Seastorm Mantle",
+    "requirements": {
+      "en": "Requires:  Level 80, 67 Str, 67 Int",
+      "ko": "요구 사항:  레벨 80, 67 힘, 67 지능",
+      "ja": "装備条件： レベル 80, 67 筋力, 67 知性",
+      "zh-CN": "需求：  等级 80, 67 力量, 67 智慧",
+      "zh-TW": "需求:  等級 80, 67 力量, 67 智慧",
+      "es": "Requiere:  Nivel 80, 67 Fue, 67 Int"
+    },
+    "implicitText": "(8—14)% of Damage taken Recouped as Life"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame": {
+    "name": "Shrouded Mail",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 70, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 70, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 70, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 70, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 70, 67 Fue, 67 Des"
+    },
+    "implicitText": "+(20—25)% to Cold Resistance"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame": {
+    "name": "Shrouded Mail",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 70, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 70, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 70, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 70, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 70, 67 Fue, 67 Des"
+    },
+    "implicitText": "+(20—25)% to Fire Resistance"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame": {
+    "name": "Shrouded Mail",
+    "requirements": {
+      "en": "Requires:  Level 70, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 70, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 70, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 70, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 70, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 70, 67 Fue, 67 Des"
+    },
+    "implicitText": "+(20—25)% to Lightning Resistance"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame": {
+    "name": "Sleek Jacket",
+    "requirements": {
+      "en": "Requires:  Level 65, 67 Dex, 67 Int",
+      "ko": "요구 사항:  레벨 65, 67 민첩, 67 지능",
+      "ja": "装備条件： レベル 65, 67 器用さ, 67 知性",
+      "zh-CN": "需求：  等级 65, 67 敏捷, 67 智慧",
+      "zh-TW": "需求:  等級 65, 67 敏捷, 67 智慧",
+      "es": "Requiere:  Nivel 65, 67 Des, 67 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.03"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.03"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.03"
+      ],
+      "es": [
+        "Base Movement Speed: -0.03"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame": {
+    "name": "Slipstrike Vest",
+    "requirements": {
+      "en": "Requires:  Level 70, 121 Dex",
+      "ko": "요구 사항:  레벨 70, 121 민첩",
+      "ja": "装備条件： レベル 70, 121 器用さ",
+      "zh-CN": "需求：  等级 70, 121 敏捷",
+      "zh-TW": "需求:  等級 70, 121 敏捷",
+      "es": "Requiere:  Nivel 70, 121 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.03"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.03"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.03"
+      ],
+      "es": [
+        "Base Movement Speed: -0.03"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame": {
+    "name": "Thane Mail",
+    "requirements": {
+      "en": "Requires:  Level 80, 67 Str, 67 Dex",
+      "ko": "요구 사항:  레벨 80, 67 힘, 67 민첩",
+      "ja": "装備条件： レベル 80, 67 筋力, 67 器用さ",
+      "zh-CN": "需求：  等级 80, 67 力量, 67 敏捷",
+      "zh-TW": "需求:  等級 80, 67 力量, 67 敏捷",
+      "es": "Requiere:  Nivel 80, 67 Fue, 67 Des"
+    },
+    "implicitText": "Hits against you have (15—25)% reduced Critical Damage Bonus"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame": {
+    "name": "Utzaal Cuirass",
+    "requirements": {
+      "en": "Requires:  Level 75, 121 Str",
+      "ko": "요구 사항:  레벨 75, 121 힘",
+      "ja": "装備条件： レベル 75, 121 筋力",
+      "zh-CN": "需求：  等级 75, 121 力量",
+      "zh-TW": "需求:  等級 75, 121 力量",
+      "es": "Requiere:  Nivel 75, 121 Fue"
+    },
+    "implicitText": "(30—40)% increased Stun Threshold"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame": {
+    "name": "Vile Robe",
+    "requirements": {
+      "en": "Requires:  Level 65, 121 Int",
+      "ko": "요구 사항:  레벨 65, 121 지능",
+      "ja": "装備条件： レベル 65, 121 知性",
+      "zh-CN": "需求：  等级 65, 121 智慧",
+      "zh-TW": "需求:  等級 65, 121 智慧",
+      "es": "Requiere:  Nivel 65, 121 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.03"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.03"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.03"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.03"
+      ],
+      "es": [
+        "Base Movement Speed: -0.03"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame": {
+    "name": "Warlord Cuirass",
+    "requirements": {
+      "en": "Requires:  Level 80, 121 Str",
+      "ko": "요구 사항:  레벨 80, 121 힘",
+      "ja": "装備条件： レベル 80, 121 筋力",
+      "zh-CN": "需求：  等级 80, 121 力量",
+      "zh-TW": "需求:  等級 80, 121 力量",
+      "es": "Requiere:  Nivel 80, 121 Fue"
+    },
+    "implicitText": "+(15—25)% of Armour also applies to Elemental Damage"
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame": {
+    "name": "Wolfskin Mantle",
+    "requirements": {
+      "en": "Requires:  Level 65, 67 Str, 67 Int",
+      "ko": "요구 사항:  레벨 65, 67 힘, 67 지능",
+      "ja": "装備条件： レベル 65, 67 筋力, 67 知性",
+      "zh-CN": "需求：  等级 65, 67 力量, 67 智慧",
+      "zh-TW": "需求:  等級 65, 67 力量, 67 智慧",
+      "es": "Requiere:  Nivel 65, 67 Fue, 67 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Base Movement Speed: -0.04"
+      ],
+      "ko": [
+        "Base Movement Speed: -0.04"
+      ],
+      "ja": [
+        "Base Movement Speed: -0.04"
+      ],
+      "zh-CN": [
+        "基础移动速度: -0.04"
+      ],
+      "zh-TW": [
+        "基礎移動速度: -0.04"
+      ],
+      "es": [
+        "Base Movement Speed: -0.04"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame": {
+    "name": "Wyrmscale Coat",
+    "requirements": {
+      "en": "Requires:  Level 75, 121 Dex",
+      "ko": "요구 사항:  레벨 75, 121 민첩",
+      "ja": "装備条件： レベル 75, 121 器用さ",
+      "zh-CN": "需求：  等级 75, 121 敏捷",
+      "zh-TW": "需求:  等級 75, 121 敏捷",
+      "es": "Requiere:  Nivel 75, 121 Des"
+    },
+    "implicitText": "(30—40)% increased Elemental Ailment Threshold"
+  },
+  "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame": {
+    "name": "Blacksteel Sabatons",
+    "requirements": {
+      "en": "Requires:  Level 80, 59 Str, 59 Dex",
+      "ko": "요구 사항:  레벨 80, 59 힘, 59 민첩",
+      "ja": "装備条件： レベル 80, 59 筋力, 59 器用さ",
+      "zh-CN": "需求：  等级 80, 59 力量, 59 敏捷",
+      "zh-TW": "需求:  等級 80, 59 力量, 59 敏捷",
+      "es": "Requiere:  Nivel 80, 59 Fue, 59 Des"
+    }
+  },
+  "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame": {
+    "name": "Daggerfoot Shoes",
+    "requirements": {
+      "en": "Requires:  Level 80, 59 Dex, 59 Int",
+      "ko": "요구 사항:  레벨 80, 59 민첩, 59 지능",
+      "ja": "装備条件： レベル 80, 59 器用さ, 59 知性",
+      "zh-CN": "需求：  等级 80, 59 敏捷, 59 智慧",
+      "zh-TW": "需求:  等級 80, 59 敏捷, 59 智慧",
+      "es": "Requiere:  Nivel 80, 59 Des, 59 Int"
+    }
+  },
+  "Metadata/Items/Armours/Boots/FourBootsDex6Endgame": {
+    "name": "Drakeskin Boots",
+    "requirements": {
+      "en": "Requires:  Level 80, 108 Dex",
+      "ko": "요구 사항:  레벨 80, 108 민첩",
+      "ja": "装備条件： レベル 80, 108 器用さ",
+      "zh-CN": "需求：  等级 80, 108 敏捷",
+      "zh-TW": "需求:  等級 80, 108 敏捷",
+      "es": "Requiere:  Nivel 80, 108 Des"
+    }
+  },
+  "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame": {
+    "name": "Faithful Leggings",
+    "requirements": {
+      "en": "Requires:  Level 65, 47 Str, 47 Int",
+      "ko": "요구 사항:  레벨 65, 47 힘, 47 지능",
+      "ja": "装備条件： レベル 65, 47 筋力, 47 知性",
+      "zh-CN": "需求：  等级 65, 47 力量, 47 智慧",
+      "zh-TW": "需求:  等級 65, 47 力量, 47 智慧",
+      "es": "Requiere:  Nivel 65, 47 Fue, 47 Int"
+    }
+  },
+  "Metadata/Items/Armours/Boots/FourBootsInt6Endgame": {
+    "name": "Sekhema Sandals",
+    "requirements": {
+      "en": "Requires:  Level 80, 108 Int",
+      "ko": "요구 사항:  레벨 80, 108 지능",
+      "ja": "装備条件： レベル 80, 108 知性",
+      "zh-CN": "需求：  等级 80, 108 智慧",
+      "zh-TW": "需求:  等級 80, 108 智慧",
+      "es": "Requiere:  Nivel 80, 108 Int"
+    }
+  },
+  "Metadata/Items/Armours/Boots/FourBootsStr6Endgame": {
+    "name": "Tasalian Greaves",
+    "requirements": {
+      "en": "Requires:  Level 80, 108 Str",
+      "ko": "요구 사항:  레벨 80, 108 힘",
+      "ja": "装備条件： レベル 80, 108 筋力",
+      "zh-CN": "需求：  等级 80, 108 力量",
+      "zh-TW": "需求:  等級 80, 108 力量",
+      "es": "Requiere:  Nivel 80, 108 Fue"
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1": {
+    "name": "Crude Bow"
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame": {
+    "name": "Fanatic Bow",
+    "requirements": {
+      "en": "Requires:  Level 79, 163 Dex",
+      "ko": "요구 사항:  레벨 79, 163 민첩",
+      "ja": "装備条件： レベル 79, 163 器用さ",
+      "zh-CN": "需求：  等级 79, 163 敏捷",
+      "zh-TW": "需求:  等級 79, 163 敏捷",
+      "es": "Requiere:  Nivel 79, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 47-79",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.2"
+      ],
+      "ko": [
+        "물리 피해: 47-79",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.2"
+      ],
+      "ja": [
+        "物理ダメージ: 47-79",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.2"
+      ],
+      "zh-CN": [
+        "物理伤害: 47-79",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.2"
+      ],
+      "zh-TW": [
+        "物理傷害: 47-79",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.2"
+      ],
+      "es": [
+        "Daño físico: 47-79",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.2"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame": {
+    "name": "Gemini Bow",
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Dex",
+      "ko": "요구 사항:  레벨 78, 163 민첩",
+      "ja": "装備条件： レベル 78, 163 器用さ",
+      "zh-CN": "需求：  等级 78, 163 敏捷",
+      "zh-TW": "需求:  等級 78, 163 敏捷",
+      "es": "Requiere:  Nivel 78, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 39-72",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.15"
+      ],
+      "ko": [
+        "물리 피해: 39-72",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.15"
+      ],
+      "ja": [
+        "物理ダメージ: 39-72",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.15"
+      ],
+      "zh-CN": [
+        "物理伤害: 39-72",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.15"
+      ],
+      "zh-TW": [
+        "物理傷害: 39-72",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.15"
+      ],
+      "es": [
+        "Daño físico: 39-72",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.15"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame": {
+    "name": "Guardian Bow",
+    "requirements": {
+      "en": "Requires:  Level 77, 163 Dex",
+      "ko": "요구 사항:  레벨 77, 163 민첩",
+      "ja": "装備条件： レベル 77, 163 器用さ",
+      "zh-CN": "需求：  等级 77, 163 敏捷",
+      "zh-TW": "需求:  等級 77, 163 敏捷",
+      "es": "Requiere:  Nivel 77, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 53-88",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.15"
+      ],
+      "ko": [
+        "물리 피해: 53-88",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.15"
+      ],
+      "ja": [
+        "物理ダメージ: 53-88",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.15"
+      ],
+      "zh-CN": [
+        "物理伤害: 53-88",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.15"
+      ],
+      "zh-TW": [
+        "物理傷害: 53-88",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.15"
+      ],
+      "es": [
+        "Daño físico: 53-88",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.15"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame": {
+    "name": "Obliterator Bow",
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Dex",
+      "ko": "요구 사항:  레벨 78, 163 민첩",
+      "ja": "装備条件： レベル 78, 163 器用さ",
+      "zh-CN": "需求：  等级 78, 163 敏捷",
+      "zh-TW": "需求:  等級 78, 163 敏捷",
+      "es": "Requiere:  Nivel 78, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 62-115",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1"
+      ],
+      "ko": [
+        "물리 피해: 62-115",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.1"
+      ],
+      "ja": [
+        "物理ダメージ: 62-115",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.1"
+      ],
+      "zh-CN": [
+        "物理伤害: 62-115",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.1"
+      ],
+      "zh-TW": [
+        "物理傷害: 62-115",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.1"
+      ],
+      "es": [
+        "Daño físico: 62-115",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.1"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame": {
+    "name": "Warmonger Bow",
+    "requirements": {
+      "en": "Requires:  Level 77, 163 Dex",
+      "ko": "요구 사항:  레벨 77, 163 민첩",
+      "ja": "装備条件： レベル 77, 163 器用さ",
+      "zh-CN": "需求：  等级 77, 163 敏捷",
+      "zh-TW": "需求:  等級 77, 163 敏捷",
+      "es": "Requiere:  Nivel 77, 163 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Physical Damage: 56-84",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.2"
+      ],
+      "ko": [
+        "물리 피해: 56-84",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.2"
+      ],
+      "ja": [
+        "物理ダメージ: 56-84",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.2"
+      ],
+      "zh-CN": [
+        "物理伤害: 56-84",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.2"
+      ],
+      "zh-TW": [
+        "物理傷害: 56-84",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.2"
+      ],
+      "es": [
+        "Daño físico: 56-84",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.2"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/Shields/FourShieldDex9Endgame": {
+    "name": "Desert Buckler",
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Dex",
+      "ko": "요구 사항:  레벨 80, 115 민첩",
+      "ja": "装備条件： レベル 80, 115 器用さ",
+      "zh-CN": "需求：  等级 80, 115 敏捷",
+      "zh-TW": "需求:  等級 80, 115 敏捷",
+      "es": "Requiere:  Nivel 80, 115 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 20%",
+        "Evasion Rating: 192",
+        "Grants Skill: Parry"
+      ],
+      "ko": [
+        "막기 확률: 20%",
+        "회피: 192",
+        "스킬 부여: 흘려보내기"
+      ],
+      "ja": [
+        "ブロック率: 20%",
+        "回避力: 192",
+        "スキルを付与: パリィ"
+      ],
+      "zh-CN": [
+        "格挡几率: 20%",
+        "闪避值: 192",
+        "获得技能: 招架"
+      ],
+      "zh-TW": [
+        "格擋機率: 20%",
+        "閃避值: 192",
+        "賦予技能: 招架"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 20%",
+        "Evasión: 192",
+        "Otorga la habilidad: Parada"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Parry"
+      ],
+      "ko": [
+        "스킬 부여: 흘려보내기"
+      ],
+      "ja": [
+        "スキルを付与: パリィ"
+      ],
+      "zh-CN": [
+        "获得技能: 招架"
+      ],
+      "zh-TW": [
+        "賦予技能: 招架"
+      ],
+      "es": [
+        "Otorga la habilidad: Parada"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame": {
+    "name": "Desolate Crossbow",
+    "requirements": {
+      "en": "Requires:  Level 77, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 77, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 77, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 77, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 77, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 77, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 33-132",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.8"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 33-132",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.8"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 33-132",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.8"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 33-132",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.8"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 33-132",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.8"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 33-132",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.8"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame": {
+    "name": "Elegant Crossbow",
+    "requirements": {
+      "en": "Requires:  Level 78, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 78, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 78, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 78, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 78, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 78, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 31-123",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.65",
+        "Reload Time: 0.85"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 31-123",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.65",
+        "재장전 시간: 0.85"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 31-123",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.65",
+        "再装填時間: 0.85"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 31-123",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.65",
+        "装填时间: 0.85"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 31-123",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.65",
+        "重新裝填時間: 0.85"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 31-123",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.65",
+        "Tiempo de recarga: 0.85"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame": {
+    "name": "Engraved Crossbow",
+    "requirements": {
+      "en": "Requires:  Level 72, 82 Str, 82 Dex",
+      "ko": "요구 사항:  레벨 72, 82 힘, 82 민첩",
+      "ja": "装備条件： レベル 72, 82 筋力, 82 器用さ",
+      "zh-CN": "需求：  等级 72, 82 力量, 82 敏捷",
+      "zh-TW": "需求:  等級 72, 82 力量, 82 敏捷",
+      "es": "Requiere:  Nivel 72, 82 Fue, 82 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 31-124",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.8"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 31-124",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.8"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 31-124",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.8"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 31-124",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.8"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 31-124",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.8"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 31-124",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.8"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame": {
+    "name": "Flexed Crossbow",
+    "requirements": {
+      "en": "Requires:  Level 77, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 77, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 77, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 77, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 77, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 77, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 32-127",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 0.85"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 32-127",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 0.85"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 32-127",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 0.85"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 32-127",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 0.85"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 32-127",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 0.85"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 32-127",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 0.85"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame": {
+    "name": "Gemini Crossbow",
+    "requirements": {
+      "en": "Requires:  Level 78, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 78, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 78, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 78, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 78, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 78, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 28-112",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Reload Time: 1.1"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 28-112",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "재장전 시간: 1.1"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 28-112",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "再装填時間: 1.1"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 28-112",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "装填时间: 1.1"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 28-112",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "重新裝填時間: 1.1"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 28-112",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Tiempo de recarga: 1.1"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame": {
+    "name": "Siege Crossbow",
+    "requirements": {
+      "en": "Requires:  Level 79, 89 Str, 89 Dex",
+      "ko": "요구 사항:  레벨 79, 89 힘, 89 민첩",
+      "ja": "装備条件： レベル 79, 89 筋力, 89 器用さ",
+      "zh-CN": "需求：  等级 79, 89 力量, 89 敏捷",
+      "zh-TW": "需求:  等級 79, 89 力量, 89 敏捷",
+      "es": "Requiere:  Nivel 79, 89 Fue, 89 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Crossbows",
+        "Physical Damage: 29-115",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.65",
+        "Reload Time: 0.75"
+      ],
+      "ko": [
+        "쇠뇌",
+        "물리 피해: 29-115",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.65",
+        "재장전 시간: 0.75"
+      ],
+      "ja": [
+        "クロスボウ",
+        "物理ダメージ: 29-115",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.65",
+        "再装填時間: 0.75"
+      ],
+      "zh-CN": [
+        "战弩",
+        "物理伤害: 29-115",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.65",
+        "装填时间: 0.75"
+      ],
+      "zh-TW": [
+        "十字弓",
+        "物理傷害: 29-115",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.65",
+        "重新裝填時間: 0.75"
+      ],
+      "es": [
+        "Ballestas",
+        "Daño físico: 29-115",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.65",
+        "Tiempo de recarga: 0.75"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/Focii/FourFocus10Endgame": {
+    "name": "Tasalian Focus",
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Int",
+      "ko": "요구 사항:  레벨 80, 115 지능",
+      "ja": "装備条件： レベル 80, 115 知性",
+      "zh-CN": "需求：  等级 80, 115 智慧",
+      "zh-TW": "需求:  等級 80, 115 智慧",
+      "es": "Requiere:  Nivel 80, 115 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Energy Shield: 91"
+      ],
+      "ko": [
+        "에너지 보호막: 91"
+      ],
+      "ja": [
+        "エナジーシールド: 91"
+      ],
+      "zh-CN": [
+        "能量护盾: 91"
+      ],
+      "zh-TW": [
+        "能量護盾: 91"
+      ],
+      "es": [
+        "Escudo de energía: 91"
+      ]
+    },
+    "skillLines": {
+      "en": [],
+      "ko": [],
+      "ja": [],
+      "zh-CN": [],
+      "zh-TW": [],
+      "es": []
+    }
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame": {
+    "name": "Adherent Cuffs",
+    "requirements": {
+      "en": "Requires:  Level 80, 55 Str, 55 Int",
+      "ko": "요구 사항:  레벨 80, 55 힘, 55 지능",
+      "ja": "装備条件： レベル 80, 55 筋力, 55 知性",
+      "zh-CN": "需求：  等级 80, 55 力量, 55 智慧",
+      "zh-TW": "需求:  等級 80, 55 力量, 55 智慧",
+      "es": "Requiere:  Nivel 80, 55 Fue, 55 Int"
+    }
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame": {
+    "name": "Blacksteel Gauntlets",
+    "requirements": {
+      "en": "Requires:  Level 80, 55 Str, 55 Dex",
+      "ko": "요구 사항:  레벨 80, 55 힘, 55 민첩",
+      "ja": "装備条件： レベル 80, 55 筋力, 55 器用さ",
+      "zh-CN": "需求：  等级 80, 55 力量, 55 敏捷",
+      "zh-TW": "需求:  等級 80, 55 力量, 55 敏捷",
+      "es": "Requiere:  Nivel 80, 55 Fue, 55 Des"
+    }
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame": {
+    "name": "Massive Mitts",
+    "requirements": {
+      "en": "Requires:  Level 80, 101 Str",
+      "ko": "요구 사항:  레벨 80, 101 힘",
+      "ja": "装備条件： レベル 80, 101 筋力",
+      "zh-CN": "需求：  等级 80, 101 力量",
+      "zh-TW": "需求:  等級 80, 101 力量",
+      "es": "Requiere:  Nivel 80, 101 Fue"
+    }
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame": {
+    "name": "Polished Bracers",
+    "requirements": {
+      "en": "Requires:  Level 80, 101 Dex",
+      "ko": "요구 사항:  레벨 80, 101 민첩",
+      "ja": "装備条件： レベル 80, 101 器用さ",
+      "zh-CN": "需求：  等级 80, 101 敏捷",
+      "zh-TW": "需求:  等級 80, 101 敏捷",
+      "es": "Requiere:  Nivel 80, 101 Des"
+    }
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame": {
+    "name": "Sirenscale Gloves",
+    "requirements": {
+      "en": "Requires:  Level 80, 101 Int",
+      "ko": "요구 사항:  레벨 80, 101 지능",
+      "ja": "装備条件： レベル 80, 101 知性",
+      "zh-CN": "需求：  等级 80, 101 智慧",
+      "zh-TW": "需求:  等級 80, 101 智慧",
+      "es": "Requiere:  Nivel 80, 101 Int"
+    }
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesStr1": {
+    "name": "Stocky Mitts"
+  },
+  "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame": {
+    "name": "War Wraps",
+    "requirements": {
+      "en": "Requires:  Level 65, 44 Dex, 44 Int",
+      "ko": "요구 사항:  레벨 65, 44 민첩, 44 지능",
+      "ja": "装備条件： レベル 65, 44 器用さ, 44 知性",
+      "zh-CN": "需求：  等级 65, 44 敏捷, 44 智慧",
+      "zh-TW": "需求:  等級 65, 44 敏捷, 44 智慧",
+      "es": "Requiere:  Nivel 65, 44 Des, 44 Int"
+    }
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame": {
+    "name": "Ancestral Tiara",
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Int",
+      "ko": "요구 사항:  레벨 80, 115 지능",
+      "ja": "装備条件： レベル 80, 115 知性",
+      "zh-CN": "需求：  等级 80, 115 智慧",
+      "zh-TW": "需求:  等級 80, 115 智慧",
+      "es": "Requiere:  Nivel 80, 115 Int"
+    }
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame": {
+    "name": "Cryptic Crown",
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Int",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 지능",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 知性",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 智慧",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 智慧",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Int"
+    }
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame": {
+    "name": "Freebooter Cap",
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Dex",
+      "ko": "요구 사항:  레벨 80, 115 민첩",
+      "ja": "装備条件： レベル 80, 115 器用さ",
+      "zh-CN": "需求：  等级 80, 115 敏捷",
+      "zh-TW": "需求:  等級 80, 115 敏捷",
+      "es": "Requiere:  Nivel 80, 115 Des"
+    }
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame": {
+    "name": "Gladiatorial Helm",
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Dex",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 민첩",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 器用さ",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 敏捷",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 敏捷",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Des"
+    }
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame": {
+    "name": "Grinning Mask",
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Dex, 63 Int",
+      "ko": "요구 사항:  레벨 80, 63 민첩, 63 지능",
+      "ja": "装備条件： レベル 80, 63 器用さ, 63 知性",
+      "zh-CN": "需求：  等级 80, 63 敏捷, 63 智慧",
+      "zh-TW": "需求:  等級 80, 63 敏捷, 63 智慧",
+      "es": "Requiere:  Nivel 80, 63 Des, 63 Int"
+    }
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetStr1": {
+    "name": "Rusted Greathelm"
+  },
+  "Metadata/Items/Jewels/JewelDiamond": {
+    "name": "Diamond"
+  },
+  "Metadata/Items/Jewels/JewelDex": {
+    "name": "Emerald"
+  },
+  "Metadata/Items/Jewels/JewelStr": {
+    "name": "Ruby"
+  },
+  "Metadata/Items/Jewels/JewelInt": {
+    "name": "Sapphire"
+  },
+  "Metadata/Items/Jewels/JewelRadiusDiamond": {
+    "name": "Time-Lost Diamond"
+  },
+  "Metadata/Items/Jewels/JewelRadiusDex": {
+    "name": "Time-Lost Emerald"
+  },
+  "Metadata/Items/Jewels/JewelRadiusStr": {
+    "name": "Time-Lost Ruby"
+  },
+  "Metadata/Items/Jewels/JewelRadiusInt": {
+    "name": "Time-Lost Sapphire"
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace10Endgame": {
+    "name": "Akoyan Club",
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Str",
+      "ko": "요구 사항:  레벨 78, 163 힘",
+      "ja": "装備条件： レベル 78, 163 筋力",
+      "zh-CN": "需求：  等级 78, 163 力量",
+      "zh-TW": "需求:  等級 78, 163 力量",
+      "es": "Requiere:  Nivel 78, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "One Hand Maces",
+        "Physical Damage: 46-76",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.45",
+        "Weapon Range: 1.3"
+      ],
+      "ko": [
+        "한손 철퇴",
+        "물리 피해: 46-76",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.45",
+        "무기 범위: 1.3"
+      ],
+      "ja": [
+        "片手メイス",
+        "物理ダメージ: 46-76",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.45",
+        "武器攻撃距離: 1.3"
+      ],
+      "zh-CN": [
+        "单手锤",
+        "物理伤害: 46-76",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.45",
+        "武器范围: 1.3"
+      ],
+      "zh-TW": [
+        "單手錘",
+        "物理傷害: 46-76",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.45",
+        "武器範圍: 1.3"
+      ],
+      "es": [
+        "Mazas a una mano",
+        "Daño físico: 46-76",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.45",
+        "Alcance de arma: 1.3"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame": {
+    "name": "Fortified Hammer",
+    "requirements": {
+      "en": "Requires:  Level 79, 163 Str",
+      "ko": "요구 사항:  레벨 79, 163 힘",
+      "ja": "装備条件： レベル 79, 163 筋力",
+      "zh-CN": "需求：  等级 79, 163 力量",
+      "zh-TW": "需求:  等級 79, 163 力量",
+      "es": "Requiere:  Nivel 79, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "One Hand Maces",
+        "Physical Damage: 60-73",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.3"
+      ],
+      "ko": [
+        "한손 철퇴",
+        "물리 피해: 60-73",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.3"
+      ],
+      "ja": [
+        "片手メイス",
+        "物理ダメージ: 60-73",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.3"
+      ],
+      "zh-CN": [
+        "单手锤",
+        "物理伤害: 60-73",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.3"
+      ],
+      "zh-TW": [
+        "單手錘",
+        "物理傷害: 60-73",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.3"
+      ],
+      "es": [
+        "Mazas a una mano",
+        "Daño físico: 60-73",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.3"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame": {
+    "name": "Strife Pick",
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Str",
+      "ko": "요구 사항:  레벨 78, 163 힘",
+      "ja": "装備条件： レベル 78, 163 筋力",
+      "zh-CN": "需求：  等级 78, 163 力量",
+      "zh-TW": "需求:  等級 78, 163 力量",
+      "es": "Requiere:  Nivel 78, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "One Hand Maces",
+        "Physical Damage: 49-66",
+        "Critical Hit Chance: 7%",
+        "Attacks per Second: 1.45",
+        "Weapon Range: 1.3"
+      ],
+      "ko": [
+        "한손 철퇴",
+        "물리 피해: 49-66",
+        "치명타 명중 확률: 7%",
+        "초당 공격 횟수: 1.45",
+        "무기 범위: 1.3"
+      ],
+      "ja": [
+        "片手メイス",
+        "物理ダメージ: 49-66",
+        "クリティカルヒット率: 7%",
+        "秒間アタック回数: 1.45",
+        "武器攻撃距離: 1.3"
+      ],
+      "zh-CN": [
+        "单手锤",
+        "物理伤害: 49-66",
+        "暴击率: 7%",
+        "每秒攻击次数: 1.45",
+        "武器范围: 1.3"
+      ],
+      "zh-TW": [
+        "單手錘",
+        "物理傷害: 49-66",
+        "暴擊率: 7%",
+        "每秒攻擊次數: 1.45",
+        "武器範圍: 1.3"
+      ],
+      "es": [
+        "Mazas a una mano",
+        "Daño físico: 49-66",
+        "Probabilidad de impacto crítico: 7%",
+        "Ataques por segundo: 1.45",
+        "Alcance de arma: 1.3"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame": {
+    "name": "Aegis Quarterstaff",
+    "requirements": {
+      "en": "Requires:  Level 79, 127 Dex, 50 Int",
+      "ko": "요구 사항:  레벨 79, 127 민첩, 50 지능",
+      "ja": "装備条件： レベル 79, 127 器用さ, 50 知性",
+      "zh-CN": "需求：  等级 79, 127 敏捷, 50 智慧",
+      "zh-TW": "需求:  等級 79, 127 敏捷, 50 智慧",
+      "es": "Requiere:  Nivel 79, 127 Des, 50 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Quarterstaves",
+        "Physical Damage: 58-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ],
+      "ko": [
+        "육척봉",
+        "물리 피해: 58-97",
+        "치명타 명중 확률: 10%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.4"
+      ],
+      "ja": [
+        "クォータースタッフ",
+        "物理ダメージ: 58-97",
+        "クリティカルヒット率: 10%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.4"
+      ],
+      "zh-CN": [
+        "节杖",
+        "物理伤害: 58-97",
+        "暴击率: 10%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.4"
+      ],
+      "zh-TW": [
+        "細杖",
+        "物理傷害: 58-97",
+        "暴擊率: 10%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.4"
+      ],
+      "es": [
+        "Bastones",
+        "Daño físico: 58-97",
+        "Probabilidad de impacto crítico: 10%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.4"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame": {
+    "name": "Bolting Quarterstaff",
+    "requirements": {
+      "en": "Requires:  Level 78, 127 Dex, 50 Int",
+      "ko": "요구 사항:  레벨 78, 127 민첩, 50 지능",
+      "ja": "装備条件： レベル 78, 127 器用さ, 50 知性",
+      "zh-CN": "需求：  等级 78, 127 敏捷, 50 智慧",
+      "zh-TW": "需求:  等級 78, 127 敏捷, 50 智慧",
+      "es": "Requiere:  Nivel 78, 127 Des, 50 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Quarterstaves",
+        "Physical Damage: 24-97",
+        "Critical Hit Chance: 10%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.4"
+      ],
+      "ko": [
+        "육척봉",
+        "물리 피해: 24-97",
+        "치명타 명중 확률: 10%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.4"
+      ],
+      "ja": [
+        "クォータースタッフ",
+        "物理ダメージ: 24-97",
+        "クリティカルヒット率: 10%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.4"
+      ],
+      "zh-CN": [
+        "节杖",
+        "物理伤害: 24-97",
+        "暴击率: 10%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.4"
+      ],
+      "zh-TW": [
+        "細杖",
+        "物理傷害: 24-97",
+        "暴擊率: 10%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.4"
+      ],
+      "es": [
+        "Bastones",
+        "Daño físico: 24-97",
+        "Probabilidad de impacto crítico: 10%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.4"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame": {
+    "name": "Dreaming Quarterstaff",
+    "requirements": {
+      "en": "Requires:  Level 78, 127 Dex, 50 Int",
+      "ko": "요구 사항:  레벨 78, 127 민첩, 50 지능",
+      "ja": "装備条件： レベル 78, 127 器用さ, 50 知性",
+      "zh-CN": "需求：  等级 78, 127 敏捷, 50 智慧",
+      "zh-TW": "需求:  等級 78, 127 敏捷, 50 智慧",
+      "es": "Requiere:  Nivel 78, 127 Des, 50 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Quarterstaves",
+        "Physical Damage: 99-133",
+        "Critical Hit Chance: 0%",
+        "Attacks per Second: 1.5",
+        "Weapon Range: 1.4"
+      ],
+      "ko": [
+        "육척봉",
+        "물리 피해: 99-133",
+        "치명타 명중 확률: 0%",
+        "초당 공격 횟수: 1.5",
+        "무기 범위: 1.4"
+      ],
+      "ja": [
+        "クォータースタッフ",
+        "物理ダメージ: 99-133",
+        "クリティカルヒット率: 0%",
+        "秒間アタック回数: 1.5",
+        "武器攻撃距離: 1.4"
+      ],
+      "zh-CN": [
+        "节杖",
+        "物理伤害: 99-133",
+        "暴击率: 0%",
+        "每秒攻击次数: 1.5",
+        "武器范围: 1.4"
+      ],
+      "zh-TW": [
+        "細杖",
+        "物理傷害: 99-133",
+        "暴擊率: 0%",
+        "每秒攻擊次數: 1.5",
+        "武器範圍: 1.4"
+      ],
+      "es": [
+        "Bastones",
+        "Daño físico: 99-133",
+        "Probabilidad de impacto crítico: 0%",
+        "Ataques por segundo: 1.5",
+        "Alcance de arma: 1.4"
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver5": {
+    "name": "Blunt Quiver",
+    "requirements": {
+      "en": "Requires:  Level 33",
+      "ko": "요구 사항:  레벨 33",
+      "ja": "装備条件： レベル 33",
+      "zh-CN": "需求：  等级 33",
+      "zh-TW": "需求:  等級 33",
+      "es": "Requiere:  Nivel 33"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver1": {
+    "name": "Broadhead Quiver",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver2": {
+    "name": "Fire Quiver",
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver9": {
+    "name": "Penetrating Quiver",
+    "requirements": {
+      "en": "Requires:  Level 55",
+      "ko": "요구 사항:  레벨 55",
+      "ja": "装備条件： レベル 55",
+      "zh-CN": "需求：  等级 55",
+      "zh-TW": "需求:  等級 55",
+      "es": "Requiere:  Nivel 55"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver8": {
+    "name": "Primed Quiver",
+    "requirements": {
+      "en": "Requires:  Level 51",
+      "ko": "요구 사항:  레벨 51",
+      "ja": "装備条件： レベル 51",
+      "zh-CN": "需求：  等级 51",
+      "zh-TW": "需求:  等級 51",
+      "es": "Requiere:  Nivel 51"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver3": {
+    "name": "Sacral Quiver",
+    "requirements": {
+      "en": "Requires:  Level 16",
+      "ko": "요구 사항:  레벨 16",
+      "ja": "装備条件： レベル 16",
+      "zh-CN": "需求：  等级 16",
+      "zh-TW": "需求:  等級 16",
+      "es": "Requiere:  Nivel 16"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver7": {
+    "name": "Serrated Quiver",
+    "requirements": {
+      "en": "Requires:  Level 44",
+      "ko": "요구 사항:  레벨 44",
+      "ja": "装備条件： レベル 44",
+      "zh-CN": "需求：  等级 44",
+      "zh-TW": "需求:  等級 44",
+      "es": "Requiere:  Nivel 44"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver6": {
+    "name": "Toxic Quiver",
+    "requirements": {
+      "en": "Requires:  Level 39",
+      "ko": "요구 사항:  레벨 39",
+      "ja": "装備条件： レベル 39",
+      "zh-CN": "需求：  等级 39",
+      "zh-TW": "需求:  等級 39",
+      "es": "Requiere:  Nivel 39"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver4": {
+    "name": "Two-Point Quiver",
+    "requirements": {
+      "en": "Requires:  Level 24",
+      "ko": "요구 사항:  레벨 24",
+      "ja": "装備条件： レベル 24",
+      "zh-CN": "需求：  等级 24",
+      "zh-TW": "需求:  等級 24",
+      "es": "Requiere:  Nivel 24"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver11": {
+    "name": "Visceral Quiver",
+    "requirements": {
+      "en": "Requires:  Level 65",
+      "ko": "요구 사항:  레벨 65",
+      "ja": "装備条件： レベル 65",
+      "zh-CN": "需求：  等级 65",
+      "zh-TW": "需求:  等級 65",
+      "es": "Requiere:  Nivel 65"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Quivers/FourQuiver10": {
+    "name": "Volant Quiver",
+    "requirements": {
+      "en": "Requires:  Level 61",
+      "ko": "요구 사항:  레벨 61",
+      "ja": "装備条件： レベル 61",
+      "zh-CN": "需求：  等级 61",
+      "zh-TW": "需求:  等級 61",
+      "es": "Requiere:  Nivel 61"
+    },
+    "sourceProperties": {
+      "en": [
+        "Can only be equipped if you are wielding a Bow."
+      ],
+      "ko": [
+        "활 장착 시에만 장착할 수 있습니다."
+      ],
+      "ja": [
+        "弓装備時のみ装備可能"
+      ],
+      "zh-CN": [
+        "只能在使用弓时装备。"
+      ],
+      "zh-TW": [
+        "持弓時才可裝備。"
+      ],
+      "es": [
+        "Solo se puede equipar si portas un arco."
+      ]
+    }
+  },
+  "Metadata/Items/Rings/FourRing6": {
+    "name": "Amethyst Ring",
+    "requirements": {
+      "en": "Requires:  Level 20",
+      "ko": "요구 사항:  레벨 20",
+      "ja": "装備条件： レベル 20",
+      "zh-CN": "需求：  等级 20",
+      "zh-TW": "需求:  等級 20",
+      "es": "Requiere:  Nivel 20"
+    }
+  },
+  "Metadata/Items/Rings/FourRingB1": {
+    "name": "Biostatic Ring",
+    "requirements": {
+      "en": "Requires:  Level 52",
+      "ko": "요구 사항:  레벨 52",
+      "ja": "装備条件： レベル 52",
+      "zh-CN": "需求：  等级 52",
+      "zh-TW": "需求:  等級 52",
+      "es": "Requiere:  Nivel 52"
+    },
+    "implicitText": "+1% to all maximum Resistances"
+  },
+  "Metadata/Items/Rings/FourRingLake1": {
+    "name": "Dusk Ring",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed"
+  },
+  "Metadata/Items/Rings/FourRing7": {
+    "name": "Emerald Ring",
+    "requirements": {
+      "en": "Requires:  Level 26",
+      "ko": "요구 사항:  레벨 26",
+      "ja": "装備条件： レベル 26",
+      "zh-CN": "需求：  等级 26",
+      "zh-TW": "需求:  等級 26",
+      "es": "Requiere:  Nivel 26"
+    },
+    "implicitText": "+(120—160) to Accuracy Rating"
+  },
+  "Metadata/Items/Rings/FourRingLake2": {
+    "name": "Gloam Ring",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed"
+  },
+  "Metadata/Items/Rings/FourRing10": {
+    "name": "Gold Ring",
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    },
+    "implicitText": "(6—15)% increased Rarity of Items found"
+  },
+  "Metadata/Items/Rings/FourRing1": {
+    "name": "Iron Ring"
+  },
+  "Metadata/Items/Rings/FourRingB4": {
+    "name": "Kinetic Ring",
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    }
+  },
+  "Metadata/Items/Rings/FourRing2": {
+    "name": "Lazuli Ring",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "+(20—30) to maximum Mana"
+  },
+  "Metadata/Items/Rings/FourRingB3": {
+    "name": "Mnemonic Ring",
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    }
+  },
+  "Metadata/Items/Rings/FourRingB5": {
+    "name": "Oneiric Ring",
+    "requirements": {
+      "en": "Requires:  Level 47",
+      "ko": "요구 사항:  레벨 47",
+      "ja": "装備条件： レベル 47",
+      "zh-CN": "需求：  等级 47",
+      "zh-TW": "需求:  等級 47",
+      "es": "Requiere:  Nivel 47"
+    },
+    "implicitText": "(11—23)% increased Chaos Damage"
+  },
+  "Metadata/Items/Rings/FourRing8": {
+    "name": "Pearl Ring",
+    "requirements": {
+      "en": "Requires:  Level 32",
+      "ko": "요구 사항:  레벨 32",
+      "ja": "装備条件： レベル 32",
+      "zh-CN": "需求：  等级 32",
+      "zh-TW": "需求:  等級 32",
+      "es": "Requiere:  Nivel 32"
+    }
+  },
+  "Metadata/Items/Rings/FourRingLake3": {
+    "name": "Penumbra Ring",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed"
+  },
+  "Metadata/Items/Rings/FourRing9": {
+    "name": "Prismatic Ring",
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    }
+  },
+  "Metadata/Items/Rings/FourRing3": {
+    "name": "Ruby Ring",
+    "requirements": {
+      "en": "Requires:  Level 8",
+      "ko": "요구 사항:  레벨 8",
+      "ja": "装備条件： レベル 8",
+      "zh-CN": "需求：  等级 8",
+      "zh-TW": "需求:  等級 8",
+      "es": "Requiere:  Nivel 8"
+    }
+  },
+  "Metadata/Items/Rings/FourRing4": {
+    "name": "Sapphire Ring",
+    "requirements": {
+      "en": "Requires:  Level 12",
+      "ko": "요구 사항:  레벨 12",
+      "ja": "装備条件： レベル 12",
+      "zh-CN": "需求：  等级 12",
+      "zh-TW": "需求:  等級 12",
+      "es": "Requiere:  Nivel 12"
+    },
+    "implicitText": "+(20—30)% to Cold Resistance"
+  },
+  "Metadata/Items/Rings/FourRingLake4": {
+    "name": "Tenebrous Ring",
+    "requirements": {
+      "en": "",
+      "ko": "",
+      "ja": "",
+      "zh-CN": "",
+      "zh-TW": "",
+      "es": ""
+    },
+    "implicitText": "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed"
+  },
+  "Metadata/Items/Rings/FourRing5": {
+    "name": "Topaz Ring",
+    "requirements": {
+      "en": "Requires:  Level 16",
+      "ko": "요구 사항:  레벨 16",
+      "ja": "装備条件： レベル 16",
+      "zh-CN": "需求：  等级 16",
+      "zh-TW": "需求:  等級 16",
+      "es": "Requiere:  Nivel 16"
+    },
+    "implicitText": "+(20—30)% to Lightning Resistance"
+  },
+  "Metadata/Items/Rings/FourRing13a": {
+    "name": "Two-Stone Ring",
+    "requirements": {
+      "en": "Requires:  Level 35",
+      "ko": "요구 사항:  레벨 35",
+      "ja": "装備条件： レベル 35",
+      "zh-CN": "需求：  等级 35",
+      "zh-TW": "需求:  等級 35",
+      "es": "Requiere:  Nivel 35"
+    }
+  },
+  "Metadata/Items/Rings/FourRing11": {
+    "name": "Unset Ring",
+    "requirements": {
+      "en": "Requires:  Level 44",
+      "ko": "요구 사항:  레벨 44",
+      "ja": "装備条件： レベル 44",
+      "zh-CN": "需求：  等级 44",
+      "zh-TW": "需求:  等級 44",
+      "es": "Requiere:  Nivel 44"
+    },
+    "implicitText": "Grants 1 additional Skill Slots"
+  },
+  "Metadata/Items/Rings/FourRingB2": {
+    "name": "Vitalic Ring",
+    "requirements": {
+      "en": "Requires:  Level 40",
+      "ko": "요구 사항:  레벨 40",
+      "ja": "装備条件： レベル 40",
+      "zh-CN": "需求：  等级 40",
+      "zh-TW": "需求:  等級 40",
+      "es": "Requiere:  Nivel 40"
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8": {
+    "name": "Clasped Sceptre",
+    "requirements": {
+      "en": "Requires:  Level 36, 65 Int",
+      "ko": "요구 사항:  레벨 36, 65 지능",
+      "ja": "装備条件： レベル 36, 65 知性",
+      "zh-CN": "需求：  等级 36, 65 智慧",
+      "zh-TW": "需求:  等級 36, 65 智慧",
+      "es": "Requiere:  Nivel 36, 65 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Heart of Ice"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 얼음의 심장"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ハートオブアイス"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 冰雪之心"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 冰雪之心"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Corazón de hielo"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13": {
+    "name": "Hallowed Sceptre",
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Skeletal Warrior"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 해골 전사"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: スケルトンウォーリアー"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 魔侍武士"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 骷髏戰士"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Guerrero esqueleto"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4": {
+    "name": "Omen Sceptre",
+    "requirements": {
+      "en": "Requires:  Level 16, 12 Str, 25 Int",
+      "ko": "요구 사항:  레벨 16, 12 힘, 25 지능",
+      "ja": "装備条件： レベル 16, 12 筋力, 25 知性",
+      "zh-CN": "需求：  等级 16, 12 力量, 25 智慧",
+      "zh-TW": "需求:  等級 16, 12 力量, 25 智慧",
+      "es": "Requiere:  Nivel 16, 12 Fue, 25 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Malice"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 적의"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: マリス"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 怨毒"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 絕滅恨惡"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Malicia"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1": {
+    "name": "Rattling Sceptre"
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a": {
+    "name": "Shrine Sceptre",
+    "requirements": {
+      "en": "Requires:  Level 26, 17 Str, 38 Int",
+      "ko": "요구 사항:  레벨 26, 17 힘, 38 지능",
+      "ja": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "zh-CN": "需求：  等级 26, 17 力量, 38 智慧",
+      "zh-TW": "需求:  等級 26, 17 力量, 38 智慧",
+      "es": "Requiere:  Nivel 26, 17 Fue, 38 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Purity of Fire"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 불의 순수함"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ピュリティオブファイヤー"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 火焰净化"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 火焰淨化"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Pureza de fuego"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b": {
+    "name": "Shrine Sceptre",
+    "requirements": {
+      "en": "Requires:  Level 26, 17 Str, 38 Int",
+      "ko": "요구 사항:  레벨 26, 17 힘, 38 지능",
+      "ja": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "zh-CN": "需求：  等级 26, 17 力量, 38 智慧",
+      "zh-TW": "需求:  等級 26, 17 力量, 38 智慧",
+      "es": "Requiere:  Nivel 26, 17 Fue, 38 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Purity of Ice"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 얼음의 순수함"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ピュリティオブアイス"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 冰霜净化"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 冰霜淨化"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Pureza de hielo"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c": {
+    "name": "Shrine Sceptre",
+    "requirements": {
+      "en": "Requires:  Level 26, 17 Str, 38 Int",
+      "ko": "요구 사항:  레벨 26, 17 힘, 38 지능",
+      "ja": "装備条件： レベル 26, 17 筋力, 38 知性",
+      "zh-CN": "需求：  等级 26, 17 力量, 38 智慧",
+      "zh-TW": "需求:  等級 26, 17 力量, 38 智慧",
+      "es": "Requiere:  Nivel 26, 17 Fue, 38 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Purity of Lightning"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 번개의 순수함"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ピュリティオブライトニング"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 闪电净化"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 閃電淨化"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Pureza de rayo"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2": {
+    "name": "Stoic Sceptre",
+    "requirements": {
+      "en": "Requires:  Level 6, 12 Int",
+      "ko": "요구 사항:  레벨 6, 12 지능",
+      "ja": "装備条件： レベル 6, 12 知性",
+      "zh-CN": "需求：  等级 6, 12 智慧",
+      "zh-TW": "需求:  等級 6, 12 智慧",
+      "es": "Requiere:  Nivel 6, 12 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Discipline"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 단련"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: ディシプリン"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 纪律"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 紀律"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Disciplina"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10": {
+    "name": "Wrath Sceptre",
+    "requirements": {
+      "en": "Requires:  Level 49, 87 Int",
+      "ko": "요구 사항:  레벨 49, 87 지능",
+      "ja": "装備条件： レベル 49, 87 知性",
+      "zh-CN": "需求：  等级 49, 87 智慧",
+      "zh-TW": "需求:  等級 49, 87 智慧",
+      "es": "Requiere:  Nivel 49, 87 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spirit: 100",
+        "Grants Skill: Fulmination"
+      ],
+      "ko": [
+        "정신력: 100",
+        "스킬 부여: 노호"
+      ],
+      "ja": [
+        "スピリット: 100",
+        "スキルを付与: フルミネーション"
+      ],
+      "zh-CN": [
+        "精魂: 100",
+        "获得技能: 轰鸣烈焰"
+      ],
+      "zh-TW": [
+        "精魂: 100",
+        "賦予技能: 劇烈爆發"
+      ],
+      "es": [
+        "Espíritu: 100",
+        "Otorga la habilidad: Fulminación"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame": {
+    "name": "Blacksteel Crest Shield",
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Int",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 지능",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 知性",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 智慧",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 智慧",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 25%",
+        "Armour: 145",
+        "Energy Shield: 40",
+        "Base Movement Speed: -0.015",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 25%",
+        "방어도: 145",
+        "에너지 보호막: 40",
+        "Base Movement Speed: -0.015",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 25%",
+        "アーマー: 145",
+        "エナジーシールド: 40",
+        "Base Movement Speed: -0.015",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 25%",
+        "护甲: 145",
+        "能量护盾: 40",
+        "基础移动速度: -0.015",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 25%",
+        "護甲值: 145",
+        "能量護盾: 40",
+        "基礎移動速度: -0.015",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 25%",
+        "Armadura: 145",
+        "Escudo de energía: 40",
+        "Base Movement Speed: -0.015",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame": {
+    "name": "Golden Targe",
+    "requirements": {
+      "en": "Requires:  Level 80, 63 Str, 63 Dex",
+      "ko": "요구 사항:  레벨 80, 63 힘, 63 민첩",
+      "ja": "装備条件： レベル 80, 63 筋力, 63 器用さ",
+      "zh-CN": "需求：  等级 80, 63 力量, 63 敏捷",
+      "zh-TW": "需求:  等級 80, 63 力量, 63 敏捷",
+      "es": "Requiere:  Nivel 80, 63 Fue, 63 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 25%",
+        "Armour: 145",
+        "Evasion Rating: 132",
+        "Base Movement Speed: -0.015",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 25%",
+        "방어도: 145",
+        "회피: 132",
+        "Base Movement Speed: -0.015",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 25%",
+        "アーマー: 145",
+        "回避力: 132",
+        "Base Movement Speed: -0.015",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 25%",
+        "护甲: 145",
+        "闪避值: 132",
+        "基础移动速度: -0.015",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 25%",
+        "護甲值: 145",
+        "閃避值: 132",
+        "基礎移動速度: -0.015",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 25%",
+        "Armadura: 145",
+        "Evasión: 132",
+        "Base Movement Speed: -0.015",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/Shields/FourShieldStr10Endgame": {
+    "name": "Tawhoan Tower Shield",
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Str",
+      "ko": "요구 사항:  레벨 80, 115 힘",
+      "ja": "装備条件： レベル 80, 115 筋力",
+      "zh-CN": "需求：  等级 80, 115 力量",
+      "zh-TW": "需求:  等級 80, 115 力量",
+      "es": "Requiere:  Nivel 80, 115 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Block chance: 26%",
+        "Armour: 264",
+        "Base Movement Speed: -0.03",
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "막기 확률: 26%",
+        "방어도: 264",
+        "Base Movement Speed: -0.03",
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "ブロック率: 26%",
+        "アーマー: 264",
+        "Base Movement Speed: -0.03",
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "格挡几率: 26%",
+        "护甲: 264",
+        "基础移动速度: -0.03",
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "格擋機率: 26%",
+        "護甲值: 264",
+        "基礎移動速度: -0.03",
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Probabilidad de bloqueo: 26%",
+        "Armadura: 264",
+        "Base Movement Speed: -0.03",
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Raise Shield"
+      ],
+      "ko": [
+        "스킬 부여: 방패 들기"
+      ],
+      "ja": [
+        "スキルを付与: レイズシールド"
+      ],
+      "zh-CN": [
+        "获得技能: 架盾"
+      ],
+      "zh-TW": [
+        "賦予技能: 展開護盾"
+      ],
+      "es": [
+        "Otorga la habilidad: Levantar escudo"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame": {
+    "name": "Akoyan Spear",
+    "requirements": {
+      "en": "Requires:  Level 78, 50 Str, 127 Dex, 90 Int",
+      "ko": "요구 사항:  레벨 78, 50 힘, 127 민첩, 90 지능",
+      "ja": "装備条件： レベル 78, 50 筋力, 127 器用さ, 90 知性",
+      "zh-CN": "需求：  等级 78, 50 力量, 127 敏捷, 90 智慧",
+      "zh-TW": "需求:  等級 78, 50 力量, 127 敏捷, 90 智慧",
+      "es": "Requiere:  Nivel 78, 50 Fue, 127 Des, 90 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spears",
+        "Physical Damage: 39-72",
+        "Critical Hit Chance: 7%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "창",
+        "물리 피해: 39-72",
+        "치명타 명중 확률: 7%",
+        "초당 공격 횟수: 1.6",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "スピア",
+        "物理ダメージ: 39-72",
+        "クリティカルヒット率: 7%",
+        "秒間アタック回数: 1.6",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "战矛",
+        "物理伤害: 39-72",
+        "暴击率: 7%",
+        "每秒攻击次数: 1.6",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "長矛",
+        "物理傷害: 39-72",
+        "暴擊率: 7%",
+        "每秒攻擊次數: 1.6",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Lanzas",
+        "Daño físico: 39-72",
+        "Probabilidad de impacto crítico: 7%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Spear Throw"
+      ],
+      "ko": [
+        "스킬 부여: 창 투척"
+      ],
+      "ja": [
+        "スキルを付与: スピアスロー"
+      ],
+      "zh-CN": [
+        "获得技能: 战矛飞掷"
+      ],
+      "zh-TW": [
+        "賦予技能: 長矛投擲"
+      ],
+      "es": [
+        "Otorga la habilidad: Lanzamiento de lanza"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame": {
+    "name": "Flying Spear",
+    "requirements": {
+      "en": "Requires:  Level 78, 50 Str, 127 Dex",
+      "ko": "요구 사항:  레벨 78, 50 힘, 127 민첩",
+      "ja": "装備条件： レベル 78, 50 筋力, 127 器用さ",
+      "zh-CN": "需求：  等级 78, 50 力量, 127 敏捷",
+      "zh-TW": "需求:  等級 78, 50 力量, 127 敏捷",
+      "es": "Requiere:  Nivel 78, 50 Fue, 127 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spears",
+        "Physical Damage: 46-77",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.6",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "창",
+        "물리 피해: 46-77",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.6",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "スピア",
+        "物理ダメージ: 46-77",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.6",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "战矛",
+        "物理伤害: 46-77",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.6",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "長矛",
+        "物理傷害: 46-77",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.6",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Lanzas",
+        "Daño físico: 46-77",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.6",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Spear Throw"
+      ],
+      "ko": [
+        "스킬 부여: 창 투척"
+      ],
+      "ja": [
+        "スキルを付与: スピアスロー"
+      ],
+      "zh-CN": [
+        "获得技能: 战矛飞掷"
+      ],
+      "zh-TW": [
+        "賦予技能: 長矛投擲"
+      ],
+      "es": [
+        "Otorga la habilidad: Lanzamiento de lanza"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame": {
+    "name": "Grand Spear",
+    "requirements": {
+      "en": "Requires:  Level 79, 68 Str, 109 Dex",
+      "ko": "요구 사항:  레벨 79, 68 힘, 109 민첩",
+      "ja": "装備条件： レベル 79, 68 筋力, 109 器用さ",
+      "zh-CN": "需求：  等级 79, 68 力量, 109 敏捷",
+      "zh-TW": "需求:  等級 79, 68 力量, 109 敏捷",
+      "es": "Requiere:  Nivel 79, 68 Fue, 109 Des"
+    },
+    "sourceProperties": {
+      "en": [
+        "Spears",
+        "Physical Damage: 56-84",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "창",
+        "물리 피해: 56-84",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "スピア",
+        "物理ダメージ: 56-84",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "战矛",
+        "物理伤害: 56-84",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "長矛",
+        "物理傷害: 56-84",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Lanzas",
+        "Daño físico: 56-84",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.5"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Spear Throw"
+      ],
+      "ko": [
+        "스킬 부여: 창 투척"
+      ],
+      "ja": [
+        "スキルを付与: スピアスロー"
+      ],
+      "zh-CN": [
+        "获得技能: 战矛飞掷"
+      ],
+      "zh-TW": [
+        "賦予技能: 長矛投擲"
+      ],
+      "es": [
+        "Otorga la habilidad: Lanzamiento de lanza"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13": {
+    "name": "Dark Staff",
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Dark Pact"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 어둠의 서약"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: ダークパクト"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 暗夜契约"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 暗夜血契"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Pacto oscuro"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Dark Pact"
+      ],
+      "ko": [
+        "스킬 부여: 어둠의 서약"
+      ],
+      "ja": [
+        "スキルを付与: ダークパクト"
+      ],
+      "zh-CN": [
+        "获得技能: 暗夜契约"
+      ],
+      "zh-TW": [
+        "賦予技能: 暗夜血契"
+      ],
+      "es": [
+        "Otorga la habilidad: Pacto oscuro"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4": {
+    "name": "Perching Staff",
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Spiraling Conspiracy"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 고조되는 음모"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: スパイラリングコンスピラシー"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 鸦群密谋"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 邪鴉旋纏"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Cuervos amenazantes"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Spiraling Conspiracy"
+      ],
+      "ko": [
+        "스킬 부여: 고조되는 음모"
+      ],
+      "ja": [
+        "スキルを付与: スパイラリングコンスピラシー"
+      ],
+      "zh-CN": [
+        "获得技能: 鸦群密谋"
+      ],
+      "zh-TW": [
+        "賦予技能: 邪鴉旋纏"
+      ],
+      "es": [
+        "Otorga la habilidad: Cuervos amenazantes"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1": {
+    "name": "Permafrost Staff",
+    "requirements": {
+      "en": "Requires:  Level 75, 114 Int",
+      "ko": "요구 사항:  레벨 75, 114 지능",
+      "ja": "装備条件： レベル 75, 114 知性",
+      "zh-CN": "需求：  等级 75, 114 智慧",
+      "zh-TW": "需求:  等級 75, 114 智慧",
+      "es": "Requiere:  Nivel 75, 131 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Heart of Ice"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 얼음의 심장"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: ハートオブアイス"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 冰雪之心"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 冰雪之心"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Corazón de hielo"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Heart of Ice"
+      ],
+      "ko": [
+        "스킬 부여: 얼음의 심장"
+      ],
+      "ja": [
+        "スキルを付与: ハートオブアイス"
+      ],
+      "zh-CN": [
+        "获得技能: 冰雪之心"
+      ],
+      "zh-TW": [
+        "賦予技能: 冰雪之心"
+      ],
+      "es": [
+        "Otorga la habilidad: Corazón de hielo"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14": {
+    "name": "Ravenous Staff",
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Feast of Flesh"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 육체의 연회"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: フィーストオブフレッシュ"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 血肉盛宴"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 血肉盛宴"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Festín de carne"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Feast of Flesh"
+      ],
+      "ko": [
+        "스킬 부여: 육체의 연회"
+      ],
+      "ja": [
+        "スキルを付与: フィーストオブフレッシュ"
+      ],
+      "zh-CN": [
+        "获得技能: 血肉盛宴"
+      ],
+      "zh-TW": [
+        "賦予技能: 血肉盛宴"
+      ],
+      "es": [
+        "Otorga la habilidad: Festín de carne"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3": {
+    "name": "Reflecting Staff",
+    "requirements": {
+      "en": "Requires:  Level 70, 114 Int",
+      "ko": "요구 사항:  레벨 70, 114 지능",
+      "ja": "装備条件： レベル 70, 114 知性",
+      "zh-CN": "需求：  等级 70, 114 智慧",
+      "zh-TW": "需求:  等級 70, 114 智慧",
+      "es": "Requiere:  Nivel 70, 123 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Mirror of Refraction"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 굴절의 거울"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: 屈折の鏡"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 折射之镜"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 鏡面折射"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Espejo de refracción"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Mirror of Refraction"
+      ],
+      "ko": [
+        "스킬 부여: 굴절의 거울"
+      ],
+      "ja": [
+        "スキルを付与: 屈折の鏡"
+      ],
+      "zh-CN": [
+        "获得技能: 折射之镜"
+      ],
+      "zh-TW": [
+        "賦予技能: 鏡面折射"
+      ],
+      "es": [
+        "Otorga la habilidad: Espejo de refracción"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12": {
+    "name": "Sanctified Staff",
+    "requirements": {
+      "en": "Requires:  Level 56, 99 Int",
+      "ko": "요구 사항:  레벨 56, 99 지능",
+      "ja": "装備条件： レベル 56, 99 知性",
+      "zh-CN": "需求：  等级 56, 99 智慧",
+      "zh-TW": "需求:  等級 56, 99 智慧",
+      "es": "Requiere:  Nivel 56, 99 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Staves",
+        "Grants Skill: Consecrate"
+      ],
+      "ko": [
+        "지팡이",
+        "스킬 부여: 신성화"
+      ],
+      "ja": [
+        "スタッフ",
+        "スキルを付与: コンセクレート"
+      ],
+      "zh-CN": [
+        "长杖",
+        "获得技能: 奉献"
+      ],
+      "zh-TW": [
+        "長杖",
+        "賦予技能: 奉獻"
+      ],
+      "es": [
+        "Báculos",
+        "Otorga la habilidad: Consagrar"
+      ]
+    },
+    "skillLines": {
+      "en": [
+        "Grants Skill: Consecrate"
+      ],
+      "ko": [
+        "스킬 부여: 신성화"
+      ],
+      "ja": [
+        "スキルを付与: コンセクレート"
+      ],
+      "zh-CN": [
+        "获得技能: 奉献"
+      ],
+      "zh-TW": [
+        "賦予技能: 奉獻"
+      ],
+      "es": [
+        "Otorga la habilidad: Consagrar"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame": {
+    "name": "Fungal Talisman",
+    "requirements": {
+      "en": "Requires:  Level 78, 96 Str, 70 Int",
+      "ko": "요구 사항:  레벨 78, 96 힘, 70 지능",
+      "ja": "装備条件： レベル 78, 96 筋力, 70 知性",
+      "zh-CN": "需求：  等级 78, 96 力量, 70 智慧",
+      "zh-TW": "需求:  等級 78, 96 力量, 70 智慧",
+      "es": "Requiere:  Nivel 78, 96 Fue, 70 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Talismans",
+        "Physical Damage: 59-98",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.4",
+        "Weapon Range: 1.2"
+      ],
+      "ko": [
+        "부적",
+        "물리 피해: 59-98",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.4",
+        "무기 범위: 1.2"
+      ],
+      "ja": [
+        "タリスマン",
+        "物理ダメージ: 59-98",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.4",
+        "武器攻撃距離: 1.2"
+      ],
+      "zh-CN": [
+        "魔符",
+        "物理伤害: 59-98",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.4",
+        "武器范围: 1.2"
+      ],
+      "zh-TW": [
+        "魔符",
+        "物理傷害: 59-98",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.4",
+        "武器範圍: 1.2"
+      ],
+      "es": [
+        "Talismanes",
+        "Daño físico: 59-98",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.4",
+        "Alcance de arma: 1.2"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame": {
+    "name": "Jade Talisman",
+    "requirements": {
+      "en": "Requires:  Level 78, 109 Str, 65 Int",
+      "ko": "요구 사항:  레벨 78, 109 힘, 65 지능",
+      "ja": "装備条件： レベル 78, 109 筋力, 65 知性",
+      "zh-CN": "需求：  等级 78, 109 力量, 65 智慧",
+      "zh-TW": "需求:  等級 78, 109 力量, 65 智慧",
+      "es": "Requiere:  Nivel 78, 109 Fue, 65 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Talismans",
+        "Physical Damage: 101-151",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.2"
+      ],
+      "ko": [
+        "부적",
+        "물리 피해: 101-151",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.1",
+        "무기 범위: 1.2"
+      ],
+      "ja": [
+        "タリスマン",
+        "物理ダメージ: 101-151",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.1",
+        "武器攻撃距離: 1.2"
+      ],
+      "zh-CN": [
+        "魔符",
+        "物理伤害: 101-151",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.1",
+        "武器范围: 1.2"
+      ],
+      "zh-TW": [
+        "魔符",
+        "物理傷害: 101-151",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.1",
+        "武器範圍: 1.2"
+      ],
+      "es": [
+        "Talismanes",
+        "Daño físico: 101-151",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.1",
+        "Alcance de arma: 1.2"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame": {
+    "name": "Maji Talisman",
+    "requirements": {
+      "en": "Requires:  Level 79, 100 Str, 67 Int",
+      "ko": "요구 사항:  레벨 79, 100 힘, 67 지능",
+      "ja": "装備条件： レベル 79, 100 筋力, 67 知性",
+      "zh-CN": "需求：  等级 79, 100 力量, 67 智慧",
+      "zh-TW": "需求:  等級 79, 100 力量, 67 智慧",
+      "es": "Requiere:  Nivel 79, 100 Fue, 67 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Talismans",
+        "Physical Damage: 61-114",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.25",
+        "Weapon Range: 1.2"
+      ],
+      "ko": [
+        "부적",
+        "물리 피해: 61-114",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.25",
+        "무기 범위: 1.2"
+      ],
+      "ja": [
+        "タリスマン",
+        "物理ダメージ: 61-114",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.25",
+        "武器攻撃距離: 1.2"
+      ],
+      "zh-CN": [
+        "魔符",
+        "物理伤害: 61-114",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.25",
+        "武器范围: 1.2"
+      ],
+      "zh-TW": [
+        "魔符",
+        "物理傷害: 61-114",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.25",
+        "武器範圍: 1.2"
+      ],
+      "es": [
+        "Talismanes",
+        "Daño físico: 61-114",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.25",
+        "Alcance de arma: 1.2"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame": {
+    "name": "Fanatic Greathammer",
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Str",
+      "ko": "요구 사항:  레벨 78, 163 힘",
+      "ja": "装備条件： レベル 78, 163 筋力",
+      "zh-CN": "需求：  等级 78, 163 力量",
+      "zh-TW": "需求:  等級 78, 163 力量",
+      "es": "Requiere:  Nivel 78, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Two Hand Maces",
+        "Physical Damage: 101-137",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.05",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "양손 철퇴",
+        "물리 피해: 101-137",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.05",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "両手メイス",
+        "物理ダメージ: 101-137",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.05",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "双手锤",
+        "物理伤害: 101-137",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.05",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "雙手錘",
+        "物理傷害: 101-137",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.05",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Mazas a dos manos",
+        "Daño físico: 101-137",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.05",
+        "Alcance de arma: 1.5"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace8Endgame": {
+    "name": "Ruination Maul",
+    "requirements": {
+      "en": "Requires:  Level 79, 163 Str",
+      "ko": "요구 사항:  레벨 79, 163 힘",
+      "ja": "装備条件： レベル 79, 163 筋力",
+      "zh-CN": "需求：  等级 79, 163 力量",
+      "zh-TW": "需求:  等級 79, 163 力量",
+      "es": "Requiere:  Nivel 79, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Two Hand Maces",
+        "Physical Damage: 104-127",
+        "Critical Hit Chance: 8%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "양손 철퇴",
+        "물리 피해: 104-127",
+        "치명타 명중 확률: 8%",
+        "초당 공격 횟수: 1.1",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "両手メイス",
+        "物理ダメージ: 104-127",
+        "クリティカルヒット率: 8%",
+        "秒間アタック回数: 1.1",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "双手锤",
+        "物理伤害: 104-127",
+        "暴击率: 8%",
+        "每秒攻击次数: 1.1",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "雙手錘",
+        "物理傷害: 104-127",
+        "暴擊率: 8%",
+        "每秒攻擊次數: 1.1",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Mazas a dos manos",
+        "Daño físico: 104-127",
+        "Probabilidad de impacto crítico: 8%",
+        "Ataques por segundo: 1.1",
+        "Alcance de arma: 1.5"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame": {
+    "name": "Tawhoan Greatclub",
+    "requirements": {
+      "en": "Requires:  Level 78, 163 Str",
+      "ko": "요구 사항:  레벨 78, 163 힘",
+      "ja": "装備条件： レベル 78, 163 筋力",
+      "zh-CN": "需求：  等级 78, 163 力量",
+      "zh-TW": "需求:  等級 78, 163 力量",
+      "es": "Requiere:  Nivel 78, 163 Fue"
+    },
+    "sourceProperties": {
+      "en": [
+        "Two Hand Maces",
+        "Physical Damage: 113-153",
+        "Critical Hit Chance: 5%",
+        "Attacks per Second: 1.1",
+        "Weapon Range: 1.5"
+      ],
+      "ko": [
+        "양손 철퇴",
+        "물리 피해: 113-153",
+        "치명타 명중 확률: 5%",
+        "초당 공격 횟수: 1.1",
+        "무기 범위: 1.5"
+      ],
+      "ja": [
+        "両手メイス",
+        "物理ダメージ: 113-153",
+        "クリティカルヒット率: 5%",
+        "秒間アタック回数: 1.1",
+        "武器攻撃距離: 1.5"
+      ],
+      "zh-CN": [
+        "双手锤",
+        "物理伤害: 113-153",
+        "暴击率: 5%",
+        "每秒攻击次数: 1.1",
+        "武器范围: 1.5"
+      ],
+      "zh-TW": [
+        "雙手錘",
+        "物理傷害: 113-153",
+        "暴擊率: 5%",
+        "每秒攻擊次數: 1.1",
+        "武器範圍: 1.5"
+      ],
+      "es": [
+        "Mazas a dos manos",
+        "Daño físico: 113-153",
+        "Probabilidad de impacto crítico: 5%",
+        "Ataques por segundo: 1.1",
+        "Alcance de arma: 1.5"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7": {
+    "name": "Acrid Wand",
+    "requirements": {
+      "en": "Requires:  Level 33, 60 Int",
+      "ko": "요구 사항:  레벨 33, 60 지능",
+      "ja": "装備条件： レベル 33, 60 知性",
+      "zh-CN": "需求：  等级 33, 60 智慧",
+      "zh-TW": "需求:  等級 33, 60 智慧",
+      "es": "Requiere:  Nivel 33, 60 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Decompose"
+      ],
+      "ko": [
+        "스킬 부여: 부패"
+      ],
+      "ja": [
+        "スキルを付与: デコンポーズ"
+      ],
+      "zh-CN": [
+        "获得技能: 降解"
+      ],
+      "zh-TW": [
+        "賦予技能: 分解"
+      ],
+      "es": [
+        "Otorga la habilidad: Descomposición"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": {
+    "name": "Attuned Wand"
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2": {
+    "name": "Bone Wand",
+    "requirements": {
+      "en": "Requires:  Level 2",
+      "ko": "요구 사항:  레벨 2",
+      "ja": "装備条件： レベル 2",
+      "zh-CN": "需求：  等级 2",
+      "zh-TW": "需求:  等級 2",
+      "es": "Requiere:  Nivel 2"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Bone Blast"
+      ],
+      "ko": [
+        "스킬 부여: 뼈 폭발"
+      ],
+      "ja": [
+        "スキルを付与: ボーンブラスト"
+      ],
+      "zh-CN": [
+        "获得技能: 针刺爆发"
+      ],
+      "zh-TW": [
+        "賦予技能: 骨之爆破"
+      ],
+      "es": [
+        "Otorga la habilidad: Explosión de huesos"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11": {
+    "name": "Critical Wand",
+    "requirements": {
+      "en": "Requires:  Level 52, 92 Int",
+      "ko": "요구 사항:  레벨 52, 92 지능",
+      "ja": "装備条件： レベル 52, 92 知性",
+      "zh-CN": "需求：  等级 52, 92 智慧",
+      "zh-TW": "需求:  等級 52, 92 智慧",
+      "es": "Requiere:  Nivel 52, 92 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Chaos Bolt"
+      ],
+      "ko": [
+        "스킬 부여: 카오스 화살"
+      ],
+      "ja": [
+        "スキルを付与: カオスボルト"
+      ],
+      "zh-CN": [
+        "获得技能: 混沌箭"
+      ],
+      "zh-TW": [
+        "賦予技能: 混沌弩箭"
+      ],
+      "es": [
+        "Otorga la habilidad: Descarga de caos"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13": {
+    "name": "Dueling Wand",
+    "requirements": {
+      "en": "Requires:  Level 65, 114 Int",
+      "ko": "요구 사항:  레벨 65, 114 지능",
+      "ja": "装備条件： レベル 65, 114 知性",
+      "zh-CN": "需求：  等级 65, 114 智慧",
+      "zh-TW": "需求:  等級 65, 114 智慧",
+      "es": "Requiere:  Nivel 65, 114 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Spellslinger"
+      ],
+      "ko": [
+        "스킬 부여: 주문투척"
+      ],
+      "ja": [
+        "スキルを付与: スペルスリンガー"
+      ],
+      "zh-CN": [
+        "获得技能: 法术节魔"
+      ],
+      "zh-TW": [
+        "賦予技能: 拋法者"
+      ],
+      "es": [
+        "Otorga la habilidad: Lanzahechizos"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6": {
+    "name": "Galvanic Wand",
+    "requirements": {
+      "en": "Requires:  Level 25, 46 Int",
+      "ko": "요구 사항:  레벨 25, 46 지능",
+      "ja": "装備条件： レベル 25, 46 知性",
+      "zh-CN": "需求：  等级 25, 46 智慧",
+      "zh-TW": "需求:  等級 25, 46 智慧",
+      "es": "Requiere:  Nivel 25, 46 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Galvanic Field"
+      ],
+      "ko": [
+        "스킬 부여: 충격장"
+      ],
+      "ja": [
+        "スキルを付与: ガルヴァニックフィールド"
+      ],
+      "zh-CN": [
+        "获得技能: 电流场"
+      ],
+      "zh-TW": [
+        "賦予技能: 電光領域"
+      ],
+      "es": [
+        "Otorga la habilidad: Campo galvánico"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8": {
+    "name": "Offering Wand",
+    "requirements": {
+      "en": "Requires:  Level 38, 68 Int",
+      "ko": "요구 사항:  레벨 38, 68 지능",
+      "ja": "装備条件： レベル 38, 68 知性",
+      "zh-CN": "需求：  等级 38, 68 智慧",
+      "zh-TW": "需求:  等級 38, 68 智慧",
+      "es": "Requiere:  Nivel 38, 68 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Exsanguinate"
+      ],
+      "ko": [
+        "스킬 부여: 방혈"
+      ],
+      "ja": [
+        "スキルを付与: イグザングイネイト"
+      ],
+      "zh-CN": [
+        "获得技能: 赤炼魔光"
+      ],
+      "zh-TW": [
+        "賦予技能: 抽血"
+      ],
+      "es": [
+        "Otorga la habilidad: Desangrar"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12": {
+    "name": "Primordial Wand",
+    "requirements": {
+      "en": "Requires:  Level 56, 99 Int",
+      "ko": "요구 사항:  레벨 56, 99 지능",
+      "ja": "装備条件： レベル 56, 99 知性",
+      "zh-CN": "需求：  等级 56, 99 智慧",
+      "zh-TW": "需求:  等級 56, 99 智慧",
+      "es": "Requiere:  Nivel 56, 99 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Wither"
+      ],
+      "ko": [
+        "스킬 부여: 위축"
+      ],
+      "ja": [
+        "スキルを付与: ウィザー"
+      ],
+      "zh-CN": [
+        "获得技能: 死亡凋零"
+      ],
+      "zh-TW": [
+        "賦予技能: 死亡凋零"
+      ],
+      "es": [
+        "Otorga la habilidad: Marchitar"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4": {
+    "name": "Siphoning Wand",
+    "requirements": {
+      "en": "Requires:  Level 11, 23 Int",
+      "ko": "요구 사항:  레벨 11, 23 지능",
+      "ja": "装備条件： レベル 11, 23 知性",
+      "zh-CN": "需求：  等级 11, 23 智慧",
+      "zh-TW": "需求:  等級 11, 23 智慧",
+      "es": "Requiere:  Nivel 11, 23 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Power Siphon"
+      ],
+      "ko": [
+        "스킬 부여: 권능 착취"
+      ],
+      "ja": [
+        "スキルを付与: パワーサイフォン"
+      ],
+      "zh-CN": [
+        "获得技能: 力量抽取"
+      ],
+      "zh-TW": [
+        "賦予技能: 力量抽取"
+      ],
+      "es": [
+        "Otorga la habilidad: Robo de poder"
+      ]
+    }
+  },
+  "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5": {
+    "name": "Volatile Wand",
+    "requirements": {
+      "en": "Requires:  Level 16, 31 Int",
+      "ko": "요구 사항:  레벨 16, 31 지능",
+      "ja": "装備条件： レベル 16, 31 知性",
+      "zh-CN": "需求：  等级 16, 31 智慧",
+      "zh-TW": "需求:  等級 16, 31 智慧",
+      "es": "Requiere:  Nivel 16, 31 Int"
+    },
+    "sourceProperties": {
+      "en": [
+        "Grants Skill: Volatile Dead"
+      ],
+      "ko": [
+        "스킬 부여: 시체 불덩이"
+      ],
+      "ja": [
+        "スキルを付与: ボラタイルデッド"
+      ],
+      "zh-CN": [
+        "获得技能: 灵体火球"
+      ],
+      "zh-TW": [
+        "賦予技能: 致命之息"
+      ],
+      "es": [
+        "Otorga la habilidad: Muertos volátiles"
+      ]
+    }
+  },
+  "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": {
+    "name": "Soldier Cuirass",
+    "requirements": {
+      "en": "Requires:  Level 65, 121 Str",
+      "ko": "요구 사항:  레벨 65, 121 힘",
+      "ja": "装備条件： レベル 65, 121 筋力",
+      "zh-CN": "需求：  等级 65, 121 力量",
+      "zh-TW": "需求:  等級 65, 121 力量",
+      "es": "Requiere:  Nivel 65, 121 Fue"
+    }
+  },
+  "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame": {
+    "name": "Imperial Greathelm",
+    "requirements": {
+      "en": "Requires:  Level 80, 115 Str",
+      "ko": "요구 사항:  레벨 80, 115 힘",
+      "ja": "装備条件： レベル 80, 115 筋力",
+      "zh-CN": "需求：  等级 80, 115 力量",
+      "zh-TW": "需求:  等級 80, 115 力量",
+      "es": "Requiere:  Nivel 80, 115 Fue"
+    }
+  }
+}

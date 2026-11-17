@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-penetrating-quiver-20261005-eafaf9eac0a90f7e",
     "retrievedAt": "2026-10-05T05:29:12.284Z",
-    "sourceUrl": "https://poe2db.tw/us/Quivers",
+    "sourceRef": "src2239",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "c1cceb8e6e15bf113fd13fe215d3b42f95386c0c700aec305d9758cb16551729",
     "detailsSha256": "e3db9089e122eaa63a5939f983735b761ef8d7c55420827f0657566dd5993010"
-  },
-  "base": {
-    "id": "Metadata/Items/Quivers/FourQuiver9",
-    "name": "Penetrating Quiver",
-    "sourceUrl": "https://poe2db.tw/us/Penetrating_Quiver",
-    "implicitModifierId": "penetrating-quiver:implicit:base",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": [

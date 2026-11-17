@@ -9,7 +9,6 @@
   "entries": [
     {
       "id": "Orb_of_Transmutation",
-      "name": "Orb of Transmutation",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Orb_of_Transmutation",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -26,11 +25,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "TRANSMUTATION"
+      "minimumModifierLevelRef": "TRANSMUTATION",
+      "name": "Orb of Transmutation"
     },
     {
       "id": "Orb_of_Augmentation",
-      "name": "Orb of Augmentation",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Orb_of_Augmentation",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -47,11 +46,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "AUGMENTATION"
+      "minimumModifierLevelRef": "AUGMENTATION",
+      "name": "Orb of Augmentation"
     },
     {
       "id": "Orb_of_Annulment",
-      "name": "Orb of Annulment",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Orb_of_Annulment",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -68,11 +67,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "ANNULMENT"
+      "minimumModifierLevelRef": "ANNULMENT",
+      "name": "Orb of Annulment"
     },
     {
       "id": "Orb_of_Alchemy",
-      "name": "Orb of Alchemy",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Orb_of_Alchemy",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -86,11 +85,11 @@
       "ruleSource": "https://www.pathofexile.com/forum/view-thread/3862213",
       "ruleVerifiedAt": "2026-10-02",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "orb-of-transmutation"
+      "supportedBaseSet": "orb-of-transmutation",
+      "name": "Orb of Alchemy"
     },
     {
       "id": "Regal_Orb",
-      "name": "Regal Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Regal_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -107,11 +106,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "REGAL"
+      "minimumModifierLevelRef": "REGAL",
+      "name": "Regal Orb"
     },
     {
       "id": "Exalted_Orb",
-      "name": "Exalted Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Exalted_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -128,11 +127,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "EXALTED"
+      "minimumModifierLevelRef": "EXALTED",
+      "name": "Exalted Orb"
     },
     {
       "id": "Chaos_Orb",
-      "name": "Chaos Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Chaos_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -149,11 +148,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "CHAOS"
+      "minimumModifierLevelRef": "CHAOS",
+      "name": "Chaos Orb"
     },
     {
       "id": "Vaal_Orb",
-      "name": "Vaal Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Vaal_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -165,11 +164,11 @@
       "action": null,
       "reason": "Excluded from the current Workbench implementation scope by user request on 2026-10-02; registered data is retained. This is not a completion blocker.",
       "implementationScope": "USER_EXCLUDED_CURRENT_SCOPE",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Vaal Orb"
     },
     {
       "id": "Fracturing_Orb",
-      "name": "Fracturing Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Fracturing_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -184,11 +183,11 @@
       "ruleVerifiedAt": "2026-10-02",
       "interactionScope": "Rare Solar with four or more supported explicit modifiers, including verified essence results, and no existing fracture. Uniform 1/N selection assumption. Locked option preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is blocked pending priority evidence.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Fracturing Orb"
     },
     {
       "id": "Divine_Orb",
-      "name": "Divine Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Divine_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -205,11 +204,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "divine-orb",
-      "minimumModifierLevelRef": "DIVINE"
+      "minimumModifierLevelRef": "DIVINE",
+      "name": "Divine Orb"
     },
     {
       "id": "Greater_Orb_of_Transmutation",
-      "name": "Greater Orb of Transmutation",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Greater_Orb_of_Transmutation",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -226,11 +225,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "GREATER_TRANSMUTATION"
+      "minimumModifierLevelRef": "GREATER_TRANSMUTATION",
+      "name": "Greater Orb of Transmutation"
     },
     {
       "id": "Perfect_Orb_of_Transmutation",
-      "name": "Perfect Orb of Transmutation",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Orb_of_Transmutation",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -247,11 +246,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "PERFECT_TRANSMUTATION"
+      "minimumModifierLevelRef": "PERFECT_TRANSMUTATION",
+      "name": "Perfect Orb of Transmutation"
     },
     {
       "id": "Greater_Orb_of_Augmentation",
-      "name": "Greater Orb of Augmentation",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Greater_Orb_of_Augmentation",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -268,11 +267,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "GREATER_AUGMENTATION"
+      "minimumModifierLevelRef": "GREATER_AUGMENTATION",
+      "name": "Greater Orb of Augmentation"
     },
     {
       "id": "Perfect_Orb_of_Augmentation",
-      "name": "Perfect Orb of Augmentation",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Orb_of_Augmentation",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -289,11 +288,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "PERFECT_AUGMENTATION"
+      "minimumModifierLevelRef": "PERFECT_AUGMENTATION",
+      "name": "Perfect Orb of Augmentation"
     },
     {
       "id": "Greater_Regal_Orb",
-      "name": "Greater Regal Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Greater_Regal_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -310,11 +309,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "GREATER_REGAL"
+      "minimumModifierLevelRef": "GREATER_REGAL",
+      "name": "Greater Regal Orb"
     },
     {
       "id": "Perfect_Regal_Orb",
-      "name": "Perfect Regal Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Regal_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -331,11 +330,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "PERFECT_REGAL"
+      "minimumModifierLevelRef": "PERFECT_REGAL",
+      "name": "Perfect Regal Orb"
     },
     {
       "id": "Greater_Exalted_Orb",
-      "name": "Greater Exalted Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Greater_Exalted_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -352,11 +351,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "GREATER_EXALTED"
+      "minimumModifierLevelRef": "GREATER_EXALTED",
+      "name": "Greater Exalted Orb"
     },
     {
       "id": "Perfect_Exalted_Orb",
-      "name": "Perfect Exalted Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Exalted_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -373,11 +372,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "PERFECT_EXALTED"
+      "minimumModifierLevelRef": "PERFECT_EXALTED",
+      "name": "Perfect Exalted Orb"
     },
     {
       "id": "Greater_Chaos_Orb",
-      "name": "Greater Chaos Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Greater_Chaos_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -394,11 +393,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "GREATER_CHAOS"
+      "minimumModifierLevelRef": "GREATER_CHAOS",
+      "name": "Greater Chaos Orb"
     },
     {
       "id": "Perfect_Chaos_Orb",
-      "name": "Perfect Chaos Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Chaos_Orb",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -415,11 +414,11 @@
       "minimumLevelException": "Retain the highest eligible modifier level in each PoE2DB generation-type/first-family group.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "orb-of-transmutation",
-      "minimumModifierLevelRef": "PERFECT_CHAOS"
+      "minimumModifierLevelRef": "PERFECT_CHAOS",
+      "name": "Perfect Chaos Orb"
     },
     {
       "id": "Hinekoras_Lock",
-      "name": "Hinekora's Lock",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Hinekoras_Lock",
       "sourcePage": "https://poe2db.tw/us/Currency",
@@ -431,11 +430,11 @@
       "action": null,
       "reason": "Excluded from the current Workbench implementation scope by user request on 2026-10-02; registered data is retained. This is not a completion blocker.",
       "implementationScope": "USER_EXCLUDED_CURRENT_SCOPE",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Hinekora's Lock"
     },
     {
       "id": "Lesser_Essence_of_the_Body",
-      "name": "Lesser Essence of the Body",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_the_Body",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -447,11 +446,11 @@
       "action": "LESSER_ESSENCE_BODY",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-the-body"
+      "supportedBaseSet": "lesser-essence-of-the-body",
+      "name": "Lesser Essence of the Body"
     },
     {
       "id": "Lesser_Essence_of_the_Mind",
-      "name": "Lesser Essence of the Mind",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_the_Mind",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -463,11 +462,11 @@
       "action": "LESSER_ESSENCE_MIND",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-the-mind"
+      "supportedBaseSet": "lesser-essence-of-the-mind",
+      "name": "Lesser Essence of the Mind"
     },
     {
       "id": "Lesser_Essence_of_Enhancement",
-      "name": "Lesser Essence of Enhancement",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Enhancement",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -482,11 +481,11 @@
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Enhancement",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-enhancement"
+      "supportedBaseSet": "lesser-essence-of-enhancement",
+      "name": "Lesser Essence of Enhancement"
     },
     {
       "id": "Lesser_Essence_of_Abrasion",
-      "name": "Lesser Essence of Abrasion",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Abrasion",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -501,11 +500,11 @@
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Abrasion",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Lesser Essence of Abrasion"
     },
     {
       "id": "Lesser_Essence_of_Flames",
-      "name": "Lesser Essence of Flames",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Flames",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -520,11 +519,11 @@
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Flames",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Lesser Essence of Flames"
     },
     {
       "id": "Lesser_Essence_of_Ice",
-      "name": "Lesser Essence of Ice",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Ice",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -539,11 +538,11 @@
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Ice",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Lesser Essence of Ice"
     },
     {
       "id": "Lesser_Essence_of_Electricity",
-      "name": "Lesser Essence of Electricity",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Electricity",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -558,11 +557,11 @@
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Electricity",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Lesser Essence of Electricity"
     },
     {
       "id": "Lesser_Essence_of_Ruin",
-      "name": "Lesser Essence of Ruin",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Ruin",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -574,11 +573,11 @@
       "action": "LESSER_ESSENCE_RUIN",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Lesser Essence of Ruin"
     },
     {
       "id": "Lesser_Essence_of_Battle",
-      "name": "Lesser Essence of Battle",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Battle",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -593,11 +592,11 @@
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Battle",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Lesser Essence of Battle"
     },
     {
       "id": "Lesser_Essence_of_Sorcery",
-      "name": "Lesser Essence of Sorcery",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Sorcery",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -621,11 +620,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-sorcery"
+      "supportedBaseSet": "lesser-essence-of-sorcery",
+      "name": "Lesser Essence of Sorcery"
     },
     {
       "id": "Lesser_Essence_of_Haste",
-      "name": "Lesser Essence of Haste",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Haste",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -640,11 +639,11 @@
       "ruleSource": "https://poe2db.tw/us/Lesser_Essence_of_Haste",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Lesser Essence of Haste"
     },
     {
       "id": "Lesser_Essence_of_the_Infinite",
-      "name": "Lesser Essence of the Infinite",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_the_Infinite",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -656,11 +655,11 @@
       "action": "LESSER_ESSENCE_INFINITE",
       "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-the-infinite"
+      "supportedBaseSet": "lesser-essence-of-the-infinite",
+      "name": "Lesser Essence of the Infinite"
     },
     {
       "id": "Essence_of_the_Body",
-      "name": "Essence of the Body",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Body",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -672,11 +671,11 @@
       "action": "ESSENCE_BODY",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-the-body"
+      "supportedBaseSet": "lesser-essence-of-the-body",
+      "name": "Essence of the Body"
     },
     {
       "id": "Essence_of_the_Mind",
-      "name": "Essence of the Mind",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Mind",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -688,11 +687,11 @@
       "action": "ESSENCE_MIND",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-the-mind"
+      "supportedBaseSet": "lesser-essence-of-the-mind",
+      "name": "Essence of the Mind"
     },
     {
       "id": "Essence_of_Enhancement",
-      "name": "Essence of Enhancement",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Enhancement",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -707,11 +706,11 @@
       "ruleSource": "https://poe2db.tw/us/Essence_of_Enhancement",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-enhancement"
+      "supportedBaseSet": "lesser-essence-of-enhancement",
+      "name": "Essence of Enhancement"
     },
     {
       "id": "Essence_of_Abrasion",
-      "name": "Essence of Abrasion",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Abrasion",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -726,11 +725,11 @@
       "ruleSource": "https://poe2db.tw/us/Essence_of_Abrasion",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Essence of Abrasion"
     },
     {
       "id": "Essence_of_Flames",
-      "name": "Essence of Flames",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Flames",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -745,11 +744,11 @@
       "ruleSource": "https://poe2db.tw/us/Essence_of_Flames",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Essence of Flames"
     },
     {
       "id": "Essence_of_Ice",
-      "name": "Essence of Ice",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Ice",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -764,11 +763,11 @@
       "ruleSource": "https://poe2db.tw/us/Essence_of_Ice",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Essence of Ice"
     },
     {
       "id": "Essence_of_Electricity",
-      "name": "Essence of Electricity",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Electricity",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -783,11 +782,11 @@
       "ruleSource": "https://poe2db.tw/us/Essence_of_Electricity",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Essence of Electricity"
     },
     {
       "id": "Essence_of_Ruin",
-      "name": "Essence of Ruin",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Ruin",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -799,11 +798,11 @@
       "action": "ESSENCE_RUIN",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Essence of Ruin"
     },
     {
       "id": "Essence_of_Battle",
-      "name": "Essence of Battle",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Battle",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -818,11 +817,11 @@
       "ruleSource": "https://poe2db.tw/us/Essence_of_Battle",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Essence of Battle"
     },
     {
       "id": "Essence_of_Sorcery",
-      "name": "Essence of Sorcery",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Sorcery",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -846,11 +845,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-sorcery"
+      "supportedBaseSet": "lesser-essence-of-sorcery",
+      "name": "Essence of Sorcery"
     },
     {
       "id": "Essence_of_Haste",
-      "name": "Essence of Haste",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Haste",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -865,11 +864,11 @@
       "ruleSource": "https://poe2db.tw/us/Essence_of_Haste",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Essence of Haste"
     },
     {
       "id": "Essence_of_the_Infinite",
-      "name": "Essence of the Infinite",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Infinite",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -881,11 +880,11 @@
       "action": "ESSENCE_INFINITE",
       "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-the-infinite"
+      "supportedBaseSet": "lesser-essence-of-the-infinite",
+      "name": "Essence of the Infinite"
     },
     {
       "id": "Greater_Essence_of_the_Body",
-      "name": "Greater Essence of the Body",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_the_Body",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -897,11 +896,11 @@
       "action": "GREATER_ESSENCE_BODY",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "greater-essence-of-the-body"
+      "supportedBaseSet": "greater-essence-of-the-body",
+      "name": "Greater Essence of the Body"
     },
     {
       "id": "Greater_Essence_of_the_Mind",
-      "name": "Greater Essence of the Mind",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_the_Mind",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -913,11 +912,11 @@
       "action": "GREATER_ESSENCE_MIND",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-the-mind"
+      "supportedBaseSet": "lesser-essence-of-the-mind",
+      "name": "Greater Essence of the Mind"
     },
     {
       "id": "Greater_Essence_of_Enhancement",
-      "name": "Greater Essence of Enhancement",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Enhancement",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -932,11 +931,11 @@
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Enhancement",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-enhancement"
+      "supportedBaseSet": "lesser-essence-of-enhancement",
+      "name": "Greater Essence of Enhancement"
     },
     {
       "id": "Greater_Essence_of_Abrasion",
-      "name": "Greater Essence of Abrasion",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Abrasion",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -951,11 +950,11 @@
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Abrasion",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Greater Essence of Abrasion"
     },
     {
       "id": "Greater_Essence_of_Flames",
-      "name": "Greater Essence of Flames",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Flames",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -970,11 +969,11 @@
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Flames",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Greater Essence of Flames"
     },
     {
       "id": "Greater_Essence_of_Ice",
-      "name": "Greater Essence of Ice",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Ice",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -989,11 +988,11 @@
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Ice",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Greater Essence of Ice"
     },
     {
       "id": "Greater_Essence_of_Electricity",
-      "name": "Greater Essence of Electricity",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Electricity",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1008,11 +1007,11 @@
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Electricity",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Greater Essence of Electricity"
     },
     {
       "id": "Greater_Essence_of_Ruin",
-      "name": "Greater Essence of Ruin",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Ruin",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1024,11 +1023,11 @@
       "action": "GREATER_ESSENCE_RUIN",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Greater Essence of Ruin"
     },
     {
       "id": "Greater_Essence_of_Battle",
-      "name": "Greater Essence of Battle",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Battle",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1044,11 +1043,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "bowStatus": "SUPPORTED_WITH_UNVERIFIED_NUMERIC_MODEL",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "greater-essence-of-battle"
+      "supportedBaseSet": "greater-essence-of-battle",
+      "name": "Greater Essence of Battle"
     },
     {
       "id": "Greater_Essence_of_Sorcery",
-      "name": "Greater Essence of Sorcery",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Sorcery",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1072,11 +1071,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-sorcery"
+      "supportedBaseSet": "lesser-essence-of-sorcery",
+      "name": "Greater Essence of Sorcery"
     },
     {
       "id": "Greater_Essence_of_Haste",
-      "name": "Greater Essence of Haste",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Haste",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1091,11 +1090,11 @@
       "ruleSource": "https://poe2db.tw/us/Greater_Essence_of_Haste",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Greater Essence of Haste"
     },
     {
       "id": "Greater_Essence_of_the_Infinite",
-      "name": "Greater Essence of the Infinite",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_the_Infinite",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1107,11 +1106,11 @@
       "action": "GREATER_ESSENCE_INFINITE",
       "reason": "Magic Solar becomes Rare with one sourced Strength/Dexterity/Intelligence suffix; uniform 1/3 choice assumption. All three catalog-level outcomes must be eligible. Any attribute overlap and low-level bypass remain unsupported.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-the-infinite"
+      "supportedBaseSet": "lesser-essence-of-the-infinite",
+      "name": "Greater Essence of the Infinite"
     },
     {
       "id": "Perfect_Essence_of_the_Body",
-      "name": "Perfect Essence of the Body",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Body",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1135,11 +1134,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-the-body"
+      "supportedBaseSet": "perfect-essence-of-the-body",
+      "name": "Perfect Essence of the Body"
     },
     {
       "id": "Perfect_Essence_of_the_Mind",
-      "name": "Perfect Essence of the Mind",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Mind",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1163,11 +1162,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-the-mind"
+      "supportedBaseSet": "perfect-essence-of-the-mind",
+      "name": "Perfect Essence of the Mind"
     },
     {
       "id": "Perfect_Essence_of_Enhancement",
-      "name": "Perfect Essence of Enhancement",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Enhancement",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1182,11 +1181,11 @@
       "ruleVerifiedAt": "2026-10-02",
       "implementationScope": "Rare Solar, modifier item level 72+, remove one unlocked explicit and add the sourced global defences prefix. Every removal branch must permit the result. Crystallisation side restriction and fractured preservation supported. Single guaranteed result, uniform removal and integer 20-30 roll assumptions only.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-enhancement"
+      "supportedBaseSet": "perfect-essence-of-enhancement",
+      "name": "Perfect Essence of Enhancement"
     },
     {
       "id": "Perfect_Essence_of_Abrasion",
-      "name": "Perfect Essence of Abrasion",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Abrasion",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1203,11 +1202,11 @@
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
       "minimumSupportedItemLevel": 72,
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Perfect Essence of Abrasion"
     },
     {
       "id": "Perfect_Essence_of_Flames",
-      "name": "Perfect Essence of Flames",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Flames",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1224,11 +1223,11 @@
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
       "minimumSupportedItemLevel": 72,
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Perfect Essence of Flames"
     },
     {
       "id": "Perfect_Essence_of_Ice",
-      "name": "Perfect Essence of Ice",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ice",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1245,11 +1244,11 @@
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
       "minimumSupportedItemLevel": 72,
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Perfect Essence of Ice"
     },
     {
       "id": "Perfect_Essence_of_Electricity",
-      "name": "Perfect Essence of Electricity",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Electricity",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1266,11 +1265,11 @@
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
       "minimumSupportedItemLevel": 72,
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Perfect Essence of Electricity"
     },
     {
       "id": "Perfect_Essence_of_Ruin",
-      "name": "Perfect Essence of Ruin",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ruin",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1294,11 +1293,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-the-body"
+      "supportedBaseSet": "perfect-essence-of-the-body",
+      "name": "Perfect Essence of Ruin"
     },
     {
       "id": "Perfect_Essence_of_Battle",
-      "name": "Perfect Essence of Battle",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Battle",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1315,11 +1314,11 @@
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
       "minimumSupportedItemLevel": 72,
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Perfect Essence of Battle"
     },
     {
       "id": "Perfect_Essence_of_Sorcery",
-      "name": "Perfect Essence of Sorcery",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Sorcery",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1343,11 +1342,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-sorcery"
+      "supportedBaseSet": "perfect-essence-of-sorcery",
+      "name": "Perfect Essence of Sorcery"
     },
     {
       "id": "Perfect_Essence_of_Haste",
-      "name": "Perfect Essence of Haste",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Haste",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1364,11 +1363,11 @@
       "modifierSource": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
       "minimumSupportedItemLevel": 72,
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-abrasion"
+      "supportedBaseSet": "lesser-essence-of-abrasion",
+      "name": "Perfect Essence of Haste"
     },
     {
       "id": "Perfect_Essence_of_the_Infinite",
-      "name": "Perfect Essence of the Infinite",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_the_Infinite",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1383,11 +1382,11 @@
       "ruleVerifiedAt": "2026-10-02",
       "implementationScope": "Rare Solar, item level 72+, remove one unlocked explicit and add one sourced percentage attribute suffix. Crystallisation side restriction supported; every removal branch must permit all three outcomes. Uniform 1/3 choice is an explicit assumption, not ordinary spawn weighting.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-enhancement"
+      "supportedBaseSet": "perfect-essence-of-enhancement",
+      "name": "Perfect Essence of the Infinite"
     },
     {
       "id": "Lesser_Essence_of_Seeking",
-      "name": "Lesser Essence of Seeking",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Seeking",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1414,11 +1413,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-seeking"
+      "supportedBaseSet": "lesser-essence-of-seeking",
+      "name": "Lesser Essence of Seeking"
     },
     {
       "id": "Essence_of_Seeking",
-      "name": "Essence of Seeking",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Seeking",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1445,11 +1444,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-seeking"
+      "supportedBaseSet": "lesser-essence-of-seeking",
+      "name": "Essence of Seeking"
     },
     {
       "id": "Greater_Essence_of_Seeking",
-      "name": "Greater Essence of Seeking",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Seeking",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1476,11 +1475,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-seeking"
+      "supportedBaseSet": "lesser-essence-of-seeking",
+      "name": "Greater Essence of Seeking"
     },
     {
       "id": "Perfect_Essence_of_Seeking",
-      "name": "Perfect Essence of Seeking",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Seeking",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1504,11 +1503,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-the-body"
+      "supportedBaseSet": "perfect-essence-of-the-body",
+      "name": "Perfect Essence of Seeking"
     },
     {
       "id": "Essence_of_Hysteria",
-      "name": "Essence of Hysteria",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Hysteria",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1520,11 +1519,11 @@
       "action": "ESSENCE_HYSTERIA",
       "reason": "Rare Solar (catalog level 68+, 19-21% life recoup suffix) or Stocky Mitts (45+, 25-29% Critical Damage Bonus suffix): remove one non-Fractured explicit and add the base-specific fixed target. All eligible removal branches must permit addition; unsupported level/family/slot cases preserve input. Individually verified Crystallisation omens restrict the removal side; matching pairs are blocked. Other rolls, locks, implicits and unrelated omens are preserved.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "essence-of-hysteria"
+      "supportedBaseSet": "essence-of-hysteria",
+      "name": "Essence of Hysteria"
     },
     {
       "id": "Essence_of_Delirium",
-      "name": "Essence of Delirium",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Delirium",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1536,11 +1535,11 @@
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
       "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Essence of Delirium"
     },
     {
       "id": "Essence_of_Horror",
-      "name": "Essence of Horror",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Horror",
       "sourcePage": "https://poe2db.tw/us/Essence_of_Horror",
@@ -1555,11 +1554,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky Mitts affix assignment only; Solar unsupported; no socket effect simulation.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror",
+      "name": "Essence of Horror"
     },
     {
       "id": "Essence_of_Insanity",
-      "name": "Essence of Insanity",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Insanity",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1571,11 +1570,11 @@
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
       "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Essence of Insanity"
     },
     {
       "id": "Essence_of_the_Abyss",
-      "name": "Essence of the Abyss",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Abyss",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1590,11 +1589,11 @@
       "ruleVerifiedAt": "2026-10-02",
       "implementationScope": "Rare Solar Amulet level 1+: random unlocked explicit replacement with either sourced Mark prefix or suffix. Every removal branch must permit both results; Crystallisation restricts removal only. Shared family prevents duplicate Marks. Desecration/reveal follow-up unsupported.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "essence-of-the-abyss"
+      "supportedBaseSet": "essence-of-the-abyss",
+      "name": "Essence of the Abyss"
     },
     {
       "id": "Essence_of_the_Breach",
-      "name": "Essence of the Breach",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Breach",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1609,11 +1608,11 @@
       "ruleVerifiedAt": "2026-10-02",
       "implementationScope": "Rare Solar, modifier level 1+, remove one unlocked explicit and add the sourced fixed maximum-quality prefix. Every removal branch must permit the result. Crystallisation restrictions and fracture preservation supported. Single fixed value: no essence-choice or numeric-roll assumption. No Catalyst application, scaling or weighting is implemented.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "essence-of-the-breach"
+      "supportedBaseSet": "essence-of-the-breach",
+      "name": "Essence of the Breach"
     },
     {
       "id": "Lesser_Essence_of_Insulation",
-      "name": "Lesser Essence of Insulation",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Insulation",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1625,11 +1624,11 @@
       "action": "LESSER_ESSENCE_INSULATION",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Lesser Essence of Insulation"
     },
     {
       "id": "Essence_of_Insulation",
-      "name": "Essence of Insulation",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Insulation",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1641,11 +1640,11 @@
       "action": "ESSENCE_INSULATION",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Essence of Insulation"
     },
     {
       "id": "Greater_Essence_of_Insulation",
-      "name": "Greater Essence of Insulation",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Insulation",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1657,11 +1656,11 @@
       "action": "GREATER_ESSENCE_INSULATION",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Greater Essence of Insulation"
     },
     {
       "id": "Perfect_Essence_of_Insulation",
-      "name": "Perfect Essence of Insulation",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Insulation",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1685,11 +1684,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-insulation"
+      "supportedBaseSet": "perfect-essence-of-insulation",
+      "name": "Perfect Essence of Insulation"
     },
     {
       "id": "Lesser_Essence_of_Thawing",
-      "name": "Lesser Essence of Thawing",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Thawing",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1701,11 +1700,11 @@
       "action": "LESSER_ESSENCE_THAWING",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Lesser Essence of Thawing"
     },
     {
       "id": "Essence_of_Thawing",
-      "name": "Essence of Thawing",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Thawing",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1717,11 +1716,11 @@
       "action": "ESSENCE_THAWING",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Essence of Thawing"
     },
     {
       "id": "Greater_Essence_of_Thawing",
-      "name": "Greater Essence of Thawing",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Thawing",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1733,11 +1732,11 @@
       "action": "GREATER_ESSENCE_THAWING",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Greater Essence of Thawing"
     },
     {
       "id": "Perfect_Essence_of_Thawing",
-      "name": "Perfect Essence of Thawing",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Thawing",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1761,11 +1760,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-thawing"
+      "supportedBaseSet": "perfect-essence-of-thawing",
+      "name": "Perfect Essence of Thawing"
     },
     {
       "id": "Lesser_Essence_of_Grounding",
-      "name": "Lesser Essence of Grounding",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Grounding",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1777,11 +1776,11 @@
       "action": "LESSER_ESSENCE_GROUNDING",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Lesser Essence of Grounding"
     },
     {
       "id": "Essence_of_Grounding",
-      "name": "Essence of Grounding",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Grounding",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1793,11 +1792,11 @@
       "action": "ESSENCE_GROUNDING",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Essence of Grounding"
     },
     {
       "id": "Greater_Essence_of_Grounding",
-      "name": "Greater Essence of Grounding",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Grounding",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1809,11 +1808,11 @@
       "action": "GREATER_ESSENCE_GROUNDING",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-ruin"
+      "supportedBaseSet": "lesser-essence-of-ruin",
+      "name": "Greater Essence of Grounding"
     },
     {
       "id": "Perfect_Essence_of_Grounding",
-      "name": "Perfect Essence of Grounding",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Grounding",
       "sourcePage": "https://poe2db.tw/us/Perfect_Essence_of_Grounding",
@@ -1828,11 +1827,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-grounding"
+      "supportedBaseSet": "perfect-essence-of-grounding",
+      "name": "Perfect Essence of Grounding"
     },
     {
       "id": "Lesser_Essence_of_Alacrity",
-      "name": "Lesser Essence of Alacrity",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Alacrity",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1856,11 +1855,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-sorcery"
+      "supportedBaseSet": "lesser-essence-of-sorcery",
+      "name": "Lesser Essence of Alacrity"
     },
     {
       "id": "Essence_of_Alacrity",
-      "name": "Essence of Alacrity",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Alacrity",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1884,11 +1883,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-sorcery"
+      "supportedBaseSet": "lesser-essence-of-sorcery",
+      "name": "Essence of Alacrity"
     },
     {
       "id": "Greater_Essence_of_Alacrity",
-      "name": "Greater Essence of Alacrity",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Alacrity",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1912,11 +1911,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-sorcery"
+      "supportedBaseSet": "lesser-essence-of-sorcery",
+      "name": "Greater Essence of Alacrity"
     },
     {
       "id": "Perfect_Essence_of_Alacrity",
-      "name": "Perfect Essence of Alacrity",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Alacrity",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1940,11 +1939,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-sorcery"
+      "supportedBaseSet": "lesser-essence-of-sorcery",
+      "name": "Perfect Essence of Alacrity"
     },
     {
       "id": "Lesser_Essence_of_Opulence",
-      "name": "Lesser Essence of Opulence",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Opulence",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1956,11 +1955,11 @@
       "action": "LESSER_ESSENCE_OPULENCE",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-opulence"
+      "supportedBaseSet": "lesser-essence-of-opulence",
+      "name": "Lesser Essence of Opulence"
     },
     {
       "id": "Essence_of_Opulence",
-      "name": "Essence of Opulence",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Opulence",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1972,11 +1971,11 @@
       "action": "ESSENCE_OPULENCE",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-opulence"
+      "supportedBaseSet": "lesser-essence-of-opulence",
+      "name": "Essence of Opulence"
     },
     {
       "id": "Greater_Essence_of_Opulence",
-      "name": "Greater Essence of Opulence",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Opulence",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -1988,11 +1987,11 @@
       "action": "GREATER_ESSENCE_OPULENCE",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-opulence"
+      "supportedBaseSet": "lesser-essence-of-opulence",
+      "name": "Greater Essence of Opulence"
     },
     {
       "id": "Perfect_Essence_of_Opulence",
-      "name": "Perfect Essence of Opulence",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Opulence",
       "sourcePage": "https://poe2db.tw/us/Perfect_Essence_of_Opulence",
@@ -2007,11 +2006,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky affix assignment at supported item level 72+ only; Solar unsupported, lower item levels unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "perfect-essence-of-grounding"
+      "supportedBaseSet": "perfect-essence-of-grounding",
+      "name": "Perfect Essence of Opulence"
     },
     {
       "id": "Lesser_Essence_of_Command",
-      "name": "Lesser Essence of Command",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Command",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2035,11 +2034,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-command"
+      "supportedBaseSet": "lesser-essence-of-command",
+      "name": "Lesser Essence of Command"
     },
     {
       "id": "Essence_of_Command",
-      "name": "Essence of Command",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Essence_of_Command",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2063,11 +2062,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-command"
+      "supportedBaseSet": "lesser-essence-of-command",
+      "name": "Essence of Command"
     },
     {
       "id": "Greater_Essence_of_Command",
-      "name": "Greater Essence of Command",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Command",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2091,11 +2090,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-command"
+      "supportedBaseSet": "lesser-essence-of-command",
+      "name": "Greater Essence of Command"
     },
     {
       "id": "Perfect_Essence_of_Command",
-      "name": "Perfect Essence of Command",
       "category": "ESSENCE",
       "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Command",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2119,11 +2118,11 @@
         ]
       },
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-command"
+      "supportedBaseSet": "lesser-essence-of-command",
+      "name": "Perfect Essence of Command"
     },
     {
       "id": "Runic_Alloy",
-      "name": "Runic Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Runic_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2138,11 +2137,11 @@
       "ruleVerifiedAt": "2026-10-02",
       "implementationScope": "Rare Solar at modifier item level 13+, remove one unlocked explicit and add a sourced 6-10% maximum Runic Ward prefix; every removal branch must permit the result. Fractures and unrelated omens preserved. Crystallisation is Essence-only and does not restrict or consume on Alloy. No character-stat calculation or armour Runeforging is implied.",
       "serviceScope": "DEFERRED",
-      "supportedBaseSet": "runic-alloy"
+      "supportedBaseSet": "runic-alloy",
+      "name": "Runic Alloy"
     },
     {
       "id": "Adaptive_Alloy",
-      "name": "Adaptive Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Adaptive_Alloy",
       "sourcePage": "https://poe2db.tw/us/Adaptive_Alloy",
@@ -2157,11 +2156,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced modifier at conservative supported ilvl 25+ only; Solar outcomes unsupported",
       "serviceScope": "DEFERRED",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror",
+      "name": "Adaptive Alloy"
     },
     {
       "id": "Protective_Alloy",
-      "name": "Protective Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Protective_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2172,11 +2171,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Protective Alloy"
     },
     {
       "id": "Expansive_Alloy",
-      "name": "Expansive Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Expansive_Alloy",
       "sourcePage": "https://poe2db.tw/us/Expansive_Alloy",
@@ -2191,11 +2190,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced suffix at conservative supported ilvl 25+ only",
       "serviceScope": "DEFERRED",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror",
+      "name": "Expansive Alloy"
     },
     {
       "id": "Swift_Alloy",
-      "name": "Swift Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Swift_Alloy",
       "sourcePage": "https://poe2db.tw/us/Swift_Alloy",
@@ -2210,11 +2209,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced modifier at conservative supported ilvl 45+ only; Solar outcomes unsupported",
       "serviceScope": "DEFERRED",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror",
+      "name": "Swift Alloy"
     },
     {
       "id": "Cyclonic_Alloy",
-      "name": "Cyclonic Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Cyclonic_Alloy",
       "sourcePage": "https://poe2db.tw/us/Cyclonic_Alloy",
@@ -2229,11 +2228,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced suffix at conservative supported ilvl 45+ only",
       "serviceScope": "DEFERRED",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror",
+      "name": "Cyclonic Alloy"
     },
     {
       "id": "Prismatic_Alloy",
-      "name": "Prismatic Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Prismatic_Alloy",
       "sourcePage": "https://poe2db.tw/us/Prismatic_Alloy",
@@ -2248,11 +2247,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky prefix assignment at supported ilvl 45+ only; Solar and lower ilvl unsupported.",
       "serviceScope": "DEFERRED",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror",
+      "name": "Prismatic Alloy"
     },
     {
       "id": "Mystic_Alloy",
-      "name": "Mystic Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Mystic_Alloy",
       "sourcePage": "https://poe2db.tw/us/Mystic_Alloy",
@@ -2267,11 +2266,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced suffix at conservative supported ilvl 45+ only",
       "serviceScope": "DEFERRED",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror",
+      "name": "Mystic Alloy"
     },
     {
       "id": "Sovereign_Alloy",
-      "name": "Sovereign Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Sovereign_Alloy",
       "sourcePage": "https://poe2db.tw/us/Sovereign_Alloy",
@@ -2286,11 +2285,11 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky sourced modifier at conservative supported ilvl 25+ only; Solar outcomes unsupported",
       "serviceScope": "DEFERRED",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror",
+      "name": "Sovereign Alloy"
     },
     {
       "id": "Celestial_Alloy",
-      "name": "Celestial Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Celestial_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2301,11 +2300,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Celestial Alloy"
     },
     {
       "id": "Transcendent_Alloy",
-      "name": "Transcendent Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/Transcendent_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2316,11 +2315,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Transcendent Alloy"
     },
     {
       "id": "The_Runebinders_Alloy",
-      "name": "The Runebinder's Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/The_Runebinders_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2331,11 +2330,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "The Runebinder's Alloy"
     },
     {
       "id": "The_Runefathers_Alloy",
-      "name": "The Runefather's Alloy",
       "category": "ALLOY",
       "sourceUrl": "https://poe2db.tw/us/The_Runefathers_Alloy",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2346,11 +2345,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "The Runefather's Alloy"
     },
     {
       "id": "Omen_of_Dextral_Crystallisation",
-      "name": "Omen of Dextral Crystallisation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Crystallisation",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2362,11 +2361,11 @@
       "action": "DEXTRAL_CRYSTALLISATION",
       "reason": "Supported replacement Essence results on all nine supported bases; restrict unlocked removal to the indicated side. Every removal branch must permit every sourced target. Other same-trigger combinations remain unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Dextral Crystallisation"
     },
     {
       "id": "Omen_of_Sinistral_Crystallisation",
-      "name": "Omen of Sinistral Crystallisation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Crystallisation",
       "sourcePage": "https://poe2db.tw/us/Essence",
@@ -2378,11 +2377,11 @@
       "action": "SINISTRAL_CRYSTALLISATION",
       "reason": "Supported replacement Essence results on all nine supported bases; restrict unlocked removal to the indicated side. Every removal branch must permit every sourced target. Other same-trigger combinations remain unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Sinistral Crystallisation"
     },
     {
       "id": "Omen_of_Whittling",
-      "name": "Omen of Whittling",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Whittling",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2398,11 +2397,11 @@
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "interactionScope": "Ordinary/Greater/Perfect Chaos: removal restrictions precede an unrestricted-side replacement pool with the currency minimum-added-level rule. Sinistral Erasure + Whittling uses the user-specified prefix -> minimum modifier level -> uniform ties order; Dextral uses the symmetric suffix composition model. Other same-trigger combinations remain unverified. Whittling with Fractured or missing-level modifiers remains unsupported.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Whittling"
     },
     {
       "id": "Omen_of_Sinistral_Erasure",
-      "name": "Omen of Sinistral Erasure",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Erasure",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2418,11 +2417,11 @@
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "interactionScope": "Ordinary/Greater/Perfect Chaos: removal restrictions precede an unrestricted-side replacement pool with the currency minimum-added-level rule. Sinistral Erasure + Whittling uses the user-specified prefix -> minimum modifier level -> uniform ties order; Dextral uses the symmetric suffix composition model. Other same-trigger combinations remain unverified. Whittling with Fractured or missing-level modifiers remains unsupported.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Sinistral Erasure"
     },
     {
       "id": "Omen_of_Dextral_Erasure",
-      "name": "Omen of Dextral Erasure",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Erasure",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2438,11 +2437,11 @@
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "interactionScope": "Ordinary/Greater/Perfect Chaos: removal restrictions precede an unrestricted-side replacement pool with the currency minimum-added-level rule. Sinistral Erasure + Whittling uses the user-specified prefix -> minimum modifier level -> uniform ties order; Dextral uses the symmetric suffix composition model. Other same-trigger combinations remain unverified. Whittling with Fractured or missing-level modifiers remains unsupported.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Dextral Erasure"
     },
     {
       "id": "Omen_of_Sinistral_Alchemy",
-      "name": "Omen of Sinistral Alchemy",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Alchemy",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2458,11 +2457,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Sinistral Alchemy"
     },
     {
       "id": "Omen_of_Dextral_Alchemy",
-      "name": "Omen of Dextral Alchemy",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Alchemy",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2478,11 +2477,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Dextral Alchemy"
     },
     {
       "id": "Omen_of_Sinistral_Coronation",
-      "name": "Omen of Sinistral Coronation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Coronation",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2499,11 +2498,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-04",
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified.",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Sinistral Coronation"
     },
     {
       "id": "Omen_of_Dextral_Coronation",
-      "name": "Omen of Dextral Coronation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Coronation",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2520,11 +2519,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-04",
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified.",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Dextral Coronation"
     },
     {
       "id": "Omen_of_Corruption",
-      "name": "Omen of Corruption",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Corruption",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2535,11 +2534,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of Corruption"
     },
     {
       "id": "Omen_of_Greater_Exaltation",
-      "name": "Omen of Greater Exaltation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Greater_Exaltation",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2554,11 +2553,11 @@
       "ruleVerifiedAt": "2026-10-02",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Greater Exaltation"
     },
     {
       "id": "Omen_of_Sinistral_Exaltation",
-      "name": "Omen of Sinistral Exaltation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Exaltation",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2574,11 +2573,11 @@
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Sinistral Exaltation"
     },
     {
       "id": "Omen_of_Dextral_Exaltation",
-      "name": "Omen of Dextral Exaltation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Exaltation",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2594,11 +2593,11 @@
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "interactionScope": "Single directional omen with ordinary/Greater/Perfect matching currency. Affix eligibility precedes the existing minimum-added-level group fallback. Other same-trigger combinations remain unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Dextral Exaltation"
     },
     {
       "id": "Omen_of_Greater_Annulment",
-      "name": "Omen of Greater Annulment",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Greater_Annulment",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2615,11 +2614,11 @@
       "ruleSource": "https://poe2db.tw/us/Omen",
       "ruleVerifiedAt": "2026-10-04",
       "interactionScope": "Greater Annulment + Sinistral Annulment supports two distinct unlocked prefixes, based on the audited community example; Dextral uses the symmetric suffix composition model. Requires at least two eligible modifiers on the chosen side; both matching omens consumed on success. Other combinations and one-target behavior remain unverified.",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Greater Annulment"
     },
     {
       "id": "Omen_of_Sinistral_Annulment",
-      "name": "Omen of Sinistral Annulment",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Annulment",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2635,11 +2634,11 @@
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "interactionScope": "Greater Annulment + Sinistral Annulment supports two distinct unlocked prefixes, based on the audited community example; Dextral uses the symmetric suffix composition model. Requires at least two eligible modifiers on the chosen side; both matching omens consumed on success. Other combinations and one-target behavior remain unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Sinistral Annulment"
     },
     {
       "id": "Omen_of_Dextral_Annulment",
-      "name": "Omen of Dextral Annulment",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Annulment",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2655,11 +2654,11 @@
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "interactionScope": "Greater Annulment + Sinistral Annulment supports two distinct unlocked prefixes, based on the audited community example; Dextral uses the symmetric suffix composition model. Requires at least two eligible modifiers on the chosen side; both matching omens consumed on success. Other combinations and one-target behavior remain unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "fracturing-orb"
+      "supportedBaseSet": "fracturing-orb",
+      "name": "Omen of Dextral Annulment"
     },
     {
       "id": "Omen_of_Answered_Prayers",
-      "name": "Omen of Answered Prayers",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Answered_Prayers",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2670,11 +2669,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of Answered Prayers"
     },
     {
       "id": "Omen_of_Secret_Compartments",
-      "name": "Omen of Secret Compartments",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Secret_Compartments",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2685,11 +2684,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of Secret Compartments"
     },
     {
       "id": "Omen_of_the_Hunt",
-      "name": "Omen of the Hunt",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Hunt",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2700,11 +2699,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of the Hunt"
     },
     {
       "id": "Omen_of_Reinforcements",
-      "name": "Omen of Reinforcements",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Reinforcements",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2715,11 +2714,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of Reinforcements"
     },
     {
       "id": "Omen_of_Homogenising_Exaltation",
-      "name": "Omen of Homogenising Exaltation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Homogenising_Exaltation",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2734,11 +2733,11 @@
       "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff",
       "ruleSource": "https://www.poe2wiki.net/wiki/Omen_of_Homogenising_Exaltation",
       "ruleVerifiedAt": "2026-10-03",
-      "serviceScope": "ACTIVE"
+      "serviceScope": "ACTIVE",
+      "name": "Omen of Homogenising Exaltation"
     },
     {
       "id": "Omen_of_Homogenising_Coronation",
-      "name": "Omen of Homogenising Coronation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Homogenising_Coronation",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2753,11 +2752,11 @@
       "availabilitySource": "https://www.pathofexile.com/forum/view-thread/3883495/filter-account-type/staff",
       "ruleSource": "https://www.poe2wiki.net/wiki/Omen_of_Homogenising_Coronation",
       "ruleVerifiedAt": "2026-10-03",
-      "serviceScope": "ACTIVE"
+      "serviceScope": "ACTIVE",
+      "name": "Omen of Homogenising Coronation"
     },
     {
       "id": "Omen_of_the_Blessed",
-      "name": "Omen of the Blessed",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Blessed",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2773,11 +2772,11 @@
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "interactionScope": "Single matching omen with ordinary currency; same-operation combinations and Greater/Perfect interactions are pending.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "omen-of-the-blessed"
+      "supportedBaseSet": "omen-of-the-blessed",
+      "name": "Omen of the Blessed"
     },
     {
       "id": "Omen_of_Sanctification",
-      "name": "Omen of Sanctification",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Sanctification",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2794,11 +2793,11 @@
       "ruleVerifiedAt": "2026-11-03",
       "availabilityStatus": "CURRENT_OBTAINABILITY_NOT_ASSERTED",
       "interactionScope": "Uncorrupted Rare with Divine; incompatible with Blessed. No supported post-sanctification edits. Read, save and restore are retained.",
-      "supportedBaseSet": "divine-orb"
+      "supportedBaseSet": "divine-orb",
+      "name": "Omen of Sanctification"
     },
     {
       "id": "Omen_of_Catalysing_Exaltation",
-      "name": "Omen of Catalysing Exaltation",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Catalysing_Exaltation",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2810,11 +2809,11 @@
       "action": null,
       "reason": "Effect text registered; candidate tag weighting, type-selection distribution, multi-add edge cases or interactions require verification.",
       "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Omen of Catalysing Exaltation"
     },
     {
       "id": "Omen_of_the_Sovereign",
-      "name": "Omen of the Sovereign",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Sovereign",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2825,11 +2824,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of the Sovereign"
     },
     {
       "id": "Omen_of_the_Liege",
-      "name": "Omen of the Liege",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Liege",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2840,11 +2839,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of the Liege"
     },
     {
       "id": "Omen_of_the_Blackblooded",
-      "name": "Omen of the Blackblooded",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_the_Blackblooded",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2855,11 +2854,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of the Blackblooded"
     },
     {
       "id": "Omen_of_Putrefaction",
-      "name": "Omen of Putrefaction",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Putrefaction",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2870,11 +2869,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of Putrefaction"
     },
     {
       "id": "Omen_of_Light",
-      "name": "Omen of Light",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Light",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2885,11 +2884,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Omen of Light"
     },
     {
       "id": "Omen_of_Sinistral_Necromancy",
-      "name": "Omen of Sinistral Necromancy",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Sinistral_Necromancy",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2901,11 +2900,11 @@
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
       "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Omen of Sinistral Necromancy"
     },
     {
       "id": "Omen_of_Dextral_Necromancy",
-      "name": "Omen of Dextral Necromancy",
       "category": "OMEN",
       "sourceUrl": "https://poe2db.tw/us/Omen_of_Dextral_Necromancy",
       "sourcePage": "https://poe2db.tw/us/Omen",
@@ -2917,11 +2916,11 @@
       "action": null,
       "reason": "Registered from display inventory; effect, eligibility and probability rules must be verified before application.",
       "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Omen of Dextral Necromancy"
     },
     {
       "id": "Flesh_Catalyst",
-      "name": "Flesh Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Flesh_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -2944,11 +2943,11 @@
       "ruleSource": "https://poe2db.tw/us/Flesh_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Flesh Catalyst"
     },
     {
       "id": "Neural_Catalyst",
-      "name": "Neural Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Neural_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -2971,11 +2970,11 @@
       "ruleSource": "https://poe2db.tw/us/Neural_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Neural Catalyst"
     },
     {
       "id": "Carapace_Catalyst",
-      "name": "Carapace Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Carapace_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -2998,11 +2997,11 @@
       "ruleSource": "https://poe2db.tw/us/Carapace_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Carapace Catalyst"
     },
     {
       "id": "Uul-Netols_Catalyst",
-      "name": "Uul-Netol's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Uul-Netols_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3025,11 +3024,11 @@
       "ruleSource": "https://poe2db.tw/us/Uul-Netols_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Uul-Netol's Catalyst"
     },
     {
       "id": "Xophs_Catalyst",
-      "name": "Xoph's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Xophs_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3052,11 +3051,11 @@
       "ruleSource": "https://poe2db.tw/us/Xophs_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Xoph's Catalyst"
     },
     {
       "id": "Tuls_Catalyst",
-      "name": "Tul's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Tuls_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3079,11 +3078,11 @@
       "ruleSource": "https://poe2db.tw/us/Tuls_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Tul's Catalyst"
     },
     {
       "id": "Eshs_Catalyst",
-      "name": "Esh's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Eshs_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3106,11 +3105,11 @@
       "ruleSource": "https://poe2db.tw/us/Eshs_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Esh's Catalyst"
     },
     {
       "id": "Chayulas_Catalyst",
-      "name": "Chayula's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Chayulas_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3133,11 +3132,11 @@
       "ruleSource": "https://poe2db.tw/us/Chayulas_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Chayula's Catalyst"
     },
     {
       "id": "Reaver_Catalyst",
-      "name": "Reaver Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Reaver_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3160,11 +3159,11 @@
       "ruleSource": "https://poe2db.tw/us/Reaver_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Reaver Catalyst"
     },
     {
       "id": "Sibilant_Catalyst",
-      "name": "Sibilant Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Sibilant_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3187,11 +3186,11 @@
       "ruleSource": "https://poe2db.tw/us/Sibilant_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Sibilant Catalyst"
     },
     {
       "id": "Skittering_Catalyst",
-      "name": "Skittering Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Skittering_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3214,11 +3213,11 @@
       "ruleSource": "https://poe2db.tw/us/Skittering_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Skittering Catalyst"
     },
     {
       "id": "Adaptive_Catalyst",
-      "name": "Adaptive Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Adaptive_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3241,11 +3240,11 @@
       "ruleSource": "https://poe2db.tw/us/Adaptive_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Adaptive Catalyst"
     },
     {
       "id": "Necrotic_Catalyst",
-      "name": "Necrotic Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Necrotic_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3268,11 +3267,11 @@
       "ruleSource": "https://poe2db.tw/us/Necrotic_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "flesh-catalyst"
+      "supportedBaseSet": "flesh-catalyst",
+      "name": "Necrotic Catalyst"
     },
     {
       "id": "Refined_Flesh_Catalyst",
-      "name": "Refined Flesh Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Flesh_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3295,11 +3294,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Flesh_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Flesh Catalyst"
     },
     {
       "id": "Refined_Neural_Catalyst",
-      "name": "Refined Neural Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Neural_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3322,11 +3321,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Neural_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Neural Catalyst"
     },
     {
       "id": "Refined_Carapace_Catalyst",
-      "name": "Refined Carapace Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Carapace_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3349,11 +3348,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Carapace_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Carapace Catalyst"
     },
     {
       "id": "Refined_Uul-Netols_Catalyst",
-      "name": "Refined Uul-Netol's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Uul-Netols_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3376,11 +3375,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Uul-Netols_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Uul-Netol's Catalyst"
     },
     {
       "id": "Refined_Xophs_Catalyst",
-      "name": "Refined Xoph's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Xophs_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3403,11 +3402,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Xophs_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Xoph's Catalyst"
     },
     {
       "id": "Refined_Tuls_Catalyst",
-      "name": "Refined Tul's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Tuls_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3430,11 +3429,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Tuls_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Tul's Catalyst"
     },
     {
       "id": "Refined_Eshs_Catalyst",
-      "name": "Refined Esh's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Eshs_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3457,11 +3456,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Eshs_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Esh's Catalyst"
     },
     {
       "id": "Refined_Chayulas_Catalyst",
-      "name": "Refined Chayula's Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Chayulas_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3484,11 +3483,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Chayulas_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Chayula's Catalyst"
     },
     {
       "id": "Refined_Reaver_Catalyst",
-      "name": "Refined Reaver Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Reaver_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3511,11 +3510,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Reaver_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Reaver Catalyst"
     },
     {
       "id": "Refined_Sibilant_Catalyst",
-      "name": "Refined Sibilant Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Sibilant_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3538,11 +3537,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Sibilant_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Sibilant Catalyst"
     },
     {
       "id": "Refined_Skittering_Catalyst",
-      "name": "Refined Skittering Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Skittering_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3565,11 +3564,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Skittering_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Skittering Catalyst"
     },
     {
       "id": "Refined_Adaptive_Catalyst",
-      "name": "Refined Adaptive Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Adaptive_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3592,11 +3591,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Adaptive_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Adaptive Catalyst"
     },
     {
       "id": "Refined_Necrotic_Catalyst",
-      "name": "Refined Necrotic Catalyst",
       "category": "CATALYST",
       "sourceUrl": "https://poe2db.tw/us/Refined_Necrotic_Catalyst",
       "sourcePage": "https://poe2db.tw/us/Catalysts",
@@ -3619,11 +3618,11 @@
       "ruleSource": "https://poe2db.tw/us/Refined_Necrotic_Catalyst",
       "ruleVerifiedAt": "2026-10-04",
       "qualityPolicy": "Preserve canonical rolls; replace Catalyst type; max(existing,current cap) provisional repeat/type-change policy; cap-loss preserves existing quality.",
-      "supportedBaseSet": "refined-flesh-catalyst"
+      "supportedBaseSet": "refined-flesh-catalyst",
+      "name": "Refined Necrotic Catalyst"
     },
     {
       "id": "Diluted_Liquid_Ire",
-      "name": "Diluted Liquid Ire",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Ire",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3637,11 +3636,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Diluted_Liquid_Ire",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Diluted Liquid Ire"
     },
     {
       "id": "Diluted_Liquid_Guilt",
-      "name": "Diluted Liquid Guilt",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Guilt",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3655,11 +3654,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Diluted_Liquid_Guilt",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Diluted Liquid Guilt"
     },
     {
       "id": "Diluted_Liquid_Greed",
-      "name": "Diluted Liquid Greed",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Diluted_Liquid_Greed",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3673,11 +3672,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Diluted_Liquid_Greed",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Diluted Liquid Greed"
     },
     {
       "id": "Liquid_Paranoia",
-      "name": "Liquid Paranoia",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Liquid_Paranoia",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3691,11 +3690,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Liquid_Paranoia",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Liquid Paranoia"
     },
     {
       "id": "Liquid_Envy",
-      "name": "Liquid Envy",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Liquid_Envy",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3709,11 +3708,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Liquid_Envy",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Liquid Envy"
     },
     {
       "id": "Liquid_Disgust",
-      "name": "Liquid Disgust",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Liquid_Disgust",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3727,11 +3726,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Liquid_Disgust",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Liquid Disgust"
     },
     {
       "id": "Liquid_Despair",
-      "name": "Liquid Despair",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Liquid_Despair",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3745,11 +3744,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Liquid_Despair",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Liquid Despair"
     },
     {
       "id": "Concentrated_Liquid_Fear",
-      "name": "Concentrated Liquid Fear",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Fear",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3763,11 +3762,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Concentrated_Liquid_Fear",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Concentrated Liquid Fear"
     },
     {
       "id": "Concentrated_Liquid_Suffering",
-      "name": "Concentrated Liquid Suffering",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Suffering",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3781,11 +3780,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Concentrated_Liquid_Suffering",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Concentrated Liquid Suffering"
     },
     {
       "id": "Concentrated_Liquid_Isolation",
-      "name": "Concentrated Liquid Isolation",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Isolation",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3799,11 +3798,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Concentrated_Liquid_Isolation",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "concentrated-liquid-isolation"
+      "supportedBaseSet": "concentrated-liquid-isolation",
+      "name": "Concentrated Liquid Isolation"
     },
     {
       "id": "Ancient_Diluted_Liquid_Ire",
-      "name": "Ancient Diluted Liquid Ire",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Ire",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3817,11 +3816,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Ire",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Diluted Liquid Ire"
     },
     {
       "id": "Ancient_Diluted_Liquid_Guilt",
-      "name": "Ancient Diluted Liquid Guilt",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Guilt",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3835,11 +3834,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Guilt",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Diluted Liquid Guilt"
     },
     {
       "id": "Ancient_Diluted_Liquid_Greed",
-      "name": "Ancient Diluted Liquid Greed",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Greed",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3853,11 +3852,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Diluted_Liquid_Greed",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Diluted Liquid Greed"
     },
     {
       "id": "Ancient_Liquid_Paranoia",
-      "name": "Ancient Liquid Paranoia",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Paranoia",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3871,11 +3870,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Liquid_Paranoia",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Liquid Paranoia"
     },
     {
       "id": "Ancient_Liquid_Envy",
-      "name": "Ancient Liquid Envy",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Envy",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3889,11 +3888,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Liquid_Envy",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Liquid Envy"
     },
     {
       "id": "Ancient_Liquid_Disgust",
-      "name": "Ancient Liquid Disgust",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Disgust",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3907,11 +3906,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Liquid_Disgust",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Liquid Disgust"
     },
     {
       "id": "Ancient_Liquid_Despair",
-      "name": "Ancient Liquid Despair",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Liquid_Despair",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3925,11 +3924,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Liquid_Despair",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Liquid Despair"
     },
     {
       "id": "Ancient_Concentrated_Liquid_Fear",
-      "name": "Ancient Concentrated Liquid Fear",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Fear",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3943,11 +3942,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Fear",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Concentrated Liquid Fear"
     },
     {
       "id": "Ancient_Concentrated_Liquid_Suffering",
-      "name": "Ancient Concentrated Liquid Suffering",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Suffering",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3961,11 +3960,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Suffering",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Concentrated Liquid Suffering"
     },
     {
       "id": "Ancient_Concentrated_Liquid_Isolation",
-      "name": "Ancient Concentrated Liquid Isolation",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Isolation",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3979,11 +3978,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Concentrated_Liquid_Isolation",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-diluted-liquid-ire"
+      "supportedBaseSet": "ancient-diluted-liquid-ire",
+      "name": "Ancient Concentrated Liquid Isolation"
     },
     {
       "id": "Potent_Liquid_Melancholy",
-      "name": "Potent Liquid Melancholy",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Melancholy",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -3997,11 +3996,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Potent_Liquid_Melancholy",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "diluted-liquid-ire"
+      "supportedBaseSet": "diluted-liquid-ire",
+      "name": "Potent Liquid Melancholy"
     },
     {
       "id": "Potent_Liquid_Ferocity",
-      "name": "Potent Liquid Ferocity",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -4015,11 +4014,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Potent_Liquid_Ferocity",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "concentrated-liquid-isolation"
+      "supportedBaseSet": "concentrated-liquid-isolation",
+      "name": "Potent Liquid Ferocity"
     },
     {
       "id": "Potent_Liquid_Contempt",
-      "name": "Potent Liquid Contempt",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Contempt",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -4033,11 +4032,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Potent_Liquid_Contempt",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "concentrated-liquid-isolation"
+      "supportedBaseSet": "concentrated-liquid-isolation",
+      "name": "Potent Liquid Contempt"
     },
     {
       "id": "Ancient_Potent_Liquid_Melancholy",
-      "name": "Ancient Potent Liquid Melancholy",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Melancholy",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -4051,11 +4050,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Potent_Liquid_Melancholy",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-potent-liquid-melancholy"
+      "supportedBaseSet": "ancient-potent-liquid-melancholy",
+      "name": "Ancient Potent Liquid Melancholy"
     },
     {
       "id": "Ancient_Potent_Liquid_Ferocity",
-      "name": "Ancient Potent Liquid Ferocity",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Ferocity",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -4069,11 +4068,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Potent_Liquid_Ferocity",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-potent-liquid-melancholy"
+      "supportedBaseSet": "ancient-potent-liquid-melancholy",
+      "name": "Ancient Potent Liquid Ferocity"
     },
     {
       "id": "Ancient_Potent_Liquid_Contempt",
-      "name": "Ancient Potent Liquid Contempt",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Ancient_Potent_Liquid_Contempt",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -4087,11 +4086,11 @@
       "serviceScope": "ACTIVE",
       "ruleSource": "https://poe2db.tw/us/Ancient_Potent_Liquid_Contempt",
       "ruleVerifiedAt": "2026-10-04",
-      "supportedBaseSet": "ancient-potent-liquid-melancholy"
+      "supportedBaseSet": "ancient-potent-liquid-melancholy",
+      "name": "Ancient Potent Liquid Contempt"
     },
     {
       "id": "Liquid_Verisium",
-      "name": "Liquid Verisium",
       "category": "LIQUID_EMOTION",
       "sourceUrl": "https://poe2db.tw/us/Liquid_Verisium",
       "sourcePage": "https://poe2db.tw/us/Liquid_Emotions",
@@ -4102,11 +4101,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "This is unrelated to Basic/Time-Lost Jewel crafting.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Liquid Verisium"
     },
     {
       "id": "Blacksmiths_Whetstone",
-      "name": "Blacksmith's Whetstone",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Blacksmiths_Whetstone",
       "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
@@ -4144,11 +4143,11 @@
         "maji-talisman",
         "fungal-talisman",
         "jade-talisman"
-      ]
+      ],
+      "name": "Blacksmith's Whetstone"
     },
     {
       "id": "Arcanists_Etcher",
-      "name": "Arcanist's Etcher",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
       "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
@@ -4160,11 +4159,11 @@
       "action": null,
       "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
       "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Arcanist's Etcher"
     },
     {
       "id": "Armourers_Scrap",
-      "name": "Armourer's Scrap",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Armourers_Scrap",
       "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
@@ -4230,11 +4229,11 @@
         "rambler-jacket",
         "falconers-jacket",
         "austere-garb"
-      ]
+      ],
+      "name": "Armourer's Scrap"
     },
     {
       "id": "Scroll_of_Wisdom",
-      "name": "Scroll of Wisdom",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
       "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
@@ -4246,11 +4245,11 @@
       "action": null,
       "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
       "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Scroll of Wisdom"
     },
     {
       "id": "Orb_of_Chance",
-      "name": "Orb of Chance",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
       "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
@@ -4262,11 +4261,11 @@
       "action": null,
       "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
       "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Orb of Chance"
     },
     {
       "id": "Mirror_of_Kalandra",
-      "name": "Mirror of Kalandra",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
       "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
@@ -4277,11 +4276,11 @@
       "solarStatus": "NOT_VALIDATED",
       "action": null,
       "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
-      "serviceScope": "DEFERRED"
+      "serviceScope": "DEFERRED",
+      "name": "Mirror of Kalandra"
     },
     {
       "id": "Artificers_Orb",
-      "name": "Artificer's Orb",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Artificers_Orb",
       "sourcePage": "https://poe2db.tw/us/Artificers_Orb",
@@ -4296,180 +4295,11 @@
       "ruleSource": "https://www.poe2wiki.net/wiki/Item_socket",
       "ruleVerifiedAt": "2026-10-03",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror",
+      "name": "Artificer's Orb"
     },
     {
       "id": "Architects_Orb",
-      "name": "Architect's Orb",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
-      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
-      "sourceRetrievedAt": null,
-      "sourceSha256": null,
-      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
-      "serviceScope": "DEFERRED"
-    },
-    {
-      "id": "Core_Destabiliser",
-      "name": "Core Destabiliser",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
-      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
-      "sourceRetrievedAt": null,
-      "sourceSha256": null,
-      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
-      "serviceScope": "DEFERRED"
-    },
-    {
-      "id": "Vaal_Cultivation_Orb",
-      "name": "Vaal Cultivation Orb",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
-      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
-      "sourceRetrievedAt": null,
-      "sourceSha256": null,
-      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
-      "serviceScope": "DEFERRED"
-    },
-    {
-      "id": "Yaomacs_Orb_of_Sacrifice",
-      "name": "Yaomac's Orb of Sacrifice",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
-      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
-      "sourceRetrievedAt": null,
-      "sourceSha256": null,
-      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
-      "serviceScope": "DEFERRED"
-    },
-    {
-      "id": "Kopecs_Orb_of_Sacrifice",
-      "name": "Kopec's Orb of Sacrifice",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
-      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
-      "sourceRetrievedAt": null,
-      "sourceSha256": null,
-      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
-      "serviceScope": "DEFERRED"
-    },
-    {
-      "id": "Kamasas_Orb_of_Sacrifice",
-      "name": "Kamasa's Orb of Sacrifice",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
-      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
-      "sourceRetrievedAt": null,
-      "sourceSha256": null,
-      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
-      "serviceScope": "DEFERRED"
-    },
-    {
-      "id": "Yuguls_Orb_of_Sacrifice",
-      "name": "Yugul's Orb of Sacrifice",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
-      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
-      "sourceRetrievedAt": null,
-      "sourceSha256": null,
-      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
-      "serviceScope": "DEFERRED"
-    },
-    {
-      "id": "Vaal_Armourers_Infuser",
-      "name": "Vaal Armourer's Infuser",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Vaal_Armourers_Infuser",
-      "sourcePage": "https://poe2db.tw/us/Vaal_Armourers_Infuser",
-      "sourceRetrievedAt": "2026-11-11T02:44:38.346Z",
-      "sourceSha256": "e83a64f1e696cfb83a1cb35b7f366b2380eacb4c0c376108c08ecff54bb613af",
-      "registrationStatus": "REGISTERED",
-      "effectStatus": "IMPLEMENTED",
-      "solarStatus": "VALIDATED_SIMULATOR_POLICY",
-      "action": "VAAL_ARMOURERS_INFUSER",
-      "reason": "Simulator: once per item, +10 quality points capped at active maximum quality +10, without corruption. No minimum current quality requirement.",
-      "serviceScope": "ACTIVE",
-      "qualityPolicy": "quality-infuser-once-plus-ten-v1"
-    },
-    {
-      "id": "Vaal_Blacksmiths_Infuser",
-      "name": "Vaal Blacksmith's Infuser",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Vaal_Blacksmiths_Infuser",
-      "sourcePage": "https://poe2db.tw/us/Vaal_Blacksmiths_Infuser",
-      "sourceRetrievedAt": "2026-11-11T02:44:38.346Z",
-      "sourceSha256": "05249b99d3fdd334d34fc93897e1402a63e739d51d901bcd581f532d951552d5",
-      "registrationStatus": "REGISTERED",
-      "effectStatus": "IMPLEMENTED",
-      "solarStatus": "VALIDATED_SIMULATOR_POLICY",
-      "action": "VAAL_BLACKSMITHS_INFUSER",
-      "reason": "Simulator: once per item, +10 quality points capped at active maximum quality +10, without corruption. No minimum current quality requirement.",
-      "serviceScope": "ACTIVE",
-      "qualityPolicy": "quality-infuser-once-plus-ten-v1"
-    },
-    {
-      "id": "Vaal_Arcanists_Infuser",
-      "name": "Vaal Arcanist's Infuser",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Vaal_Arcanists_Infuser",
-      "sourcePage": "https://poe2db.tw/us/Vaal_Arcanists_Infuser",
-      "sourceRetrievedAt": "2026-11-11T02:44:38.344Z",
-      "sourceSha256": "f5498a903c449947fb96ed531c20e06636dba8cf13325d184d872f9f9488b15c",
-      "registrationStatus": "REGISTERED",
-      "effectStatus": "IMPLEMENTED",
-      "solarStatus": "VALIDATED_SIMULATOR_POLICY",
-      "action": "VAAL_ARCANISTS_INFUSER",
-      "reason": "Simulator: once per item, +10 quality points capped at active maximum quality +10, without corruption. No minimum current quality requirement.",
-      "serviceScope": "ACTIVE",
-      "qualityPolicy": "quality-infuser-once-plus-ten-v1"
-    },
-    {
-      "id": "Vaal_Catalysing_Infuser",
-      "name": "Vaal Catalysing Infuser",
-      "category": "CURRENCY",
-      "sourceUrl": "https://poe2db.tw/us/Vaal_Catalysing_Infuser",
-      "sourcePage": "https://poe2db.tw/us/Vaal_Catalysing_Infuser",
-      "sourceRetrievedAt": "2026-11-11T02:44:38.346Z",
-      "sourceSha256": "a341c0e7c7330bc160cb221c064d8f1a9368bd4ce971b47b52bfa9ceca91c26f",
-      "registrationStatus": "REGISTERED",
-      "effectStatus": "IMPLEMENTED",
-      "solarStatus": "VALIDATED_SIMULATOR_POLICY",
-      "action": "VAAL_CATALYSING_INFUSER",
-      "reason": "Simulator: once per item, +10 quality points capped at active maximum quality +10, without corruption. No minimum current quality requirement.",
-      "serviceScope": "ACTIVE",
-      "qualityPolicy": "quality-infuser-once-plus-ten-v1"
-    },
-    {
-      "id": "Orb_of_Extraction",
-      "name": "Orb of Extraction",
       "category": "CURRENCY",
       "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
       "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
@@ -4481,7 +4311,177 @@
       "action": null,
       "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
       "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "name": "Architect's Orb"
+    },
+    {
+      "id": "Core_Destabiliser",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "name": "Core Destabiliser"
+    },
+    {
+      "id": "Vaal_Cultivation_Orb",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "name": "Vaal Cultivation Orb"
+    },
+    {
+      "id": "Yaomacs_Orb_of_Sacrifice",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "name": "Yaomac's Orb of Sacrifice"
+    },
+    {
+      "id": "Kopecs_Orb_of_Sacrifice",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "name": "Kopec's Orb of Sacrifice"
+    },
+    {
+      "id": "Kamasas_Orb_of_Sacrifice",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "name": "Kamasa's Orb of Sacrifice"
+    },
+    {
+      "id": "Yuguls_Orb_of_Sacrifice",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "name": "Yugul's Orb of Sacrifice"
+    },
+    {
+      "id": "Vaal_Armourers_Infuser",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Armourers_Infuser",
+      "sourcePage": "https://poe2db.tw/us/Vaal_Armourers_Infuser",
+      "sourceRetrievedAt": "2026-11-11T02:44:38.346Z",
+      "sourceSha256": "e83a64f1e696cfb83a1cb35b7f366b2380eacb4c0c376108c08ecff54bb613af",
+      "registrationStatus": "REGISTERED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED_SIMULATOR_POLICY",
+      "action": "VAAL_ARMOURERS_INFUSER",
+      "reason": "Simulator: once per item, +10 quality points capped at active maximum quality +10, without corruption. No minimum current quality requirement.",
+      "serviceScope": "ACTIVE",
+      "qualityPolicy": "quality-infuser-once-plus-ten-v1",
+      "name": "Vaal Armourer's Infuser"
+    },
+    {
+      "id": "Vaal_Blacksmiths_Infuser",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Blacksmiths_Infuser",
+      "sourcePage": "https://poe2db.tw/us/Vaal_Blacksmiths_Infuser",
+      "sourceRetrievedAt": "2026-11-11T02:44:38.346Z",
+      "sourceSha256": "05249b99d3fdd334d34fc93897e1402a63e739d51d901bcd581f532d951552d5",
+      "registrationStatus": "REGISTERED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED_SIMULATOR_POLICY",
+      "action": "VAAL_BLACKSMITHS_INFUSER",
+      "reason": "Simulator: once per item, +10 quality points capped at active maximum quality +10, without corruption. No minimum current quality requirement.",
+      "serviceScope": "ACTIVE",
+      "qualityPolicy": "quality-infuser-once-plus-ten-v1",
+      "name": "Vaal Blacksmith's Infuser"
+    },
+    {
+      "id": "Vaal_Arcanists_Infuser",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Arcanists_Infuser",
+      "sourcePage": "https://poe2db.tw/us/Vaal_Arcanists_Infuser",
+      "sourceRetrievedAt": "2026-11-11T02:44:38.344Z",
+      "sourceSha256": "f5498a903c449947fb96ed531c20e06636dba8cf13325d184d872f9f9488b15c",
+      "registrationStatus": "REGISTERED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED_SIMULATOR_POLICY",
+      "action": "VAAL_ARCANISTS_INFUSER",
+      "reason": "Simulator: once per item, +10 quality points capped at active maximum quality +10, without corruption. No minimum current quality requirement.",
+      "serviceScope": "ACTIVE",
+      "qualityPolicy": "quality-infuser-once-plus-ten-v1",
+      "name": "Vaal Arcanist's Infuser"
+    },
+    {
+      "id": "Vaal_Catalysing_Infuser",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Vaal_Catalysing_Infuser",
+      "sourcePage": "https://poe2db.tw/us/Vaal_Catalysing_Infuser",
+      "sourceRetrievedAt": "2026-11-11T02:44:38.346Z",
+      "sourceSha256": "a341c0e7c7330bc160cb221c064d8f1a9368bd4ce971b47b52bfa9ceca91c26f",
+      "registrationStatus": "REGISTERED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "VALIDATED_SIMULATOR_POLICY",
+      "action": "VAAL_CATALYSING_INFUSER",
+      "reason": "Simulator: once per item, +10 quality points capped at active maximum quality +10, without corruption. No minimum current quality requirement.",
+      "serviceScope": "ACTIVE",
+      "qualityPolicy": "quality-infuser-once-plus-ten-v1",
+      "name": "Vaal Catalysing Infuser"
+    },
+    {
+      "id": "Orb_of_Extraction",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Orb of Extraction"
     }
   ],
   "assumptionLedger": [

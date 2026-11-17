@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmuletLake3",
+  "sourceRef": "src1139",
+  "implicitModifierId": "penumbra-amulet:implicit:base",
+  "magicPrefixes": 3,
+  "magicSuffixes": 0,
+  "rarePrefixes": 5,
+  "rareSuffixes": 1,
+  "registration": {
+    "key": "penumbra-amulet",
+    "slug": "Penumbra_Amulet",
+    "family": "amulets",
+    "sourceSha256": "a8f0b24bf54ddc01bbd1e2915977533f7e069703db10ab68eae818fe42dc0914",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 2,
+        "max": 2
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -2,
+        "max": -2
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": 2,
+        "max": 2,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": -2,
+        "max": -2,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 126
+  }
+}

@@ -1,0 +1,817 @@
+{
+  "definitions": {
+    "daggerfoot-shoes:prefix:illusionist-s": {
+      "id": "daggerfoot-shoes:prefix:illusionist-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 41,
+          "max": 63
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0663"
+    },
+    "daggerfoot-shoes:prefix:intuitive": {
+      "id": "daggerfoot-shoes:prefix:intuitive",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 8,
+          "max": 13
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0664"
+    },
+    "daggerfoot-shoes:prefix:mentalist-s": {
+      "id": "daggerfoot-shoes:prefix:mentalist-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 64,
+          "max": 94
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0665"
+    },
+    "daggerfoot-shoes:prefix:psychic": {
+      "id": "daggerfoot-shoes:prefix:psychic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 19,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 14,
+          "max": 24
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0666"
+    },
+    "daggerfoot-shoes:prefix:telepath-s": {
+      "id": "daggerfoot-shoes:prefix:telepath-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 25,
+          "max": 40
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0667"
+    },
+    "daggerfoot-shoes:prefix:trickster-s": {
+      "id": "daggerfoot-shoes:prefix:trickster-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 95,
+          "max": 136
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0668"
+    },
+    "sekhema-sandals:prefix:boggart-s": {
+      "id": "sekhema-sandals:prefix:boggart-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 25,
+          "max": 40
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1473"
+    },
+    "sekhema-sandals:prefix:djinn-s": {
+      "id": "sekhema-sandals:prefix:djinn-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 64,
+          "max": 94
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1474"
+    },
+    "sekhema-sandals:prefix:gremlin-s": {
+      "id": "sekhema-sandals:prefix:gremlin-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 19,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 14,
+          "max": 24
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1475"
+    },
+    "sekhema-sandals:prefix:naga-s": {
+      "id": "sekhema-sandals:prefix:naga-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 41,
+          "max": 63
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1476"
+    },
+    "sekhema-sandals:prefix:pixie-s": {
+      "id": "sekhema-sandals:prefix:pixie-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 8,
+          "max": 13
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1477"
+    },
+    "sekhema-sandals:prefix:seraphim-s": {
+      "id": "sekhema-sandals:prefix:seraphim-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercentAndStunThreshold"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 95,
+          "max": 136
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1478"
+    },
+    "tasalian-greaves:prefix:cheetah-s": {
+      "id": "tasalian-greaves:prefix:cheetah-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MovementVelocity"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 30,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceRef": "src1685"
+    },
+    "tasalian-greaves:prefix:gazelle-s": {
+      "id": "tasalian-greaves:prefix:gazelle-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MovementVelocity"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 25,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceRef": "src1688"
+    },
+    "tasalian-greaves:prefix:hellion-s": {
+      "id": "tasalian-greaves:prefix:hellion-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MovementVelocity"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 35,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceRef": "src1689"
+    },
+    "tasalian-greaves:prefix:runner-s": {
+      "id": "tasalian-greaves:prefix:runner-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MovementVelocity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 10,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceRef": "src1692"
+    },
+    "tasalian-greaves:prefix:sprinter-s": {
+      "id": "tasalian-greaves:prefix:sprinter-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MovementVelocity"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 15,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceRef": "src1693"
+    },
+    "tasalian-greaves:prefix:stallion-s": {
+      "id": "tasalian-greaves:prefix:stallion-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MovementVelocity"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 20,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceRef": "src1694"
+    },
+    "tasalian-greaves:suffix:of-convection": {
+      "id": "tasalian-greaves:suffix:of-convection",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 20,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1695"
+    },
+    "tasalian-greaves:suffix:of-defrosting": {
+      "id": "tasalian-greaves:suffix:of-defrosting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 46,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1696"
+    },
+    "tasalian-greaves:suffix:of-dissipation": {
+      "id": "tasalian-greaves:suffix:of-dissipation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 51,
+          "max": 55
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1697"
+    },
+    "tasalian-greaves:suffix:of-earthing": {
+      "id": "tasalian-greaves:suffix:of-earthing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 20,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceRef": "src1698"
+    },
+    "tasalian-greaves:suffix:of-entropy": {
+      "id": "tasalian-greaves:suffix:of-entropy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 46,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1699"
+    },
+    "tasalian-greaves:suffix:of-fluidity": {
+      "id": "tasalian-greaves:suffix:of-fluidity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1700"
+    },
+    "tasalian-greaves:suffix:of-grounding": {
+      "id": "tasalian-greaves:suffix:of-grounding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 56,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceRef": "src1701"
+    },
+    "tasalian-greaves:suffix:of-heating": {
+      "id": "tasalian-greaves:suffix:of-heating",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 20,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1702"
+    },
+    "tasalian-greaves:suffix:of-insulation": {
+      "id": "tasalian-greaves:suffix:of-insulation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceRef": "src1703"
+    },
+    "tasalian-greaves:suffix:of-thawing": {
+      "id": "tasalian-greaves:suffix:of-thawing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 56,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1704"
+    },
+    "tasalian-greaves:suffix:of-the-dielectric": {
+      "id": "tasalian-greaves:suffix:of-the-dielectric",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 51,
+          "max": 55
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceRef": "src1705"
+    },
+    "tasalian-greaves:suffix:of-the-impedance": {
+      "id": "tasalian-greaves:suffix:of-the-impedance",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_self_shock_duration_-%",
+          "min": 46,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceRef": "src1706"
+    },
+    "tasalian-greaves:suffix:of-the-reversal": {
+      "id": "tasalian-greaves:suffix:of-the-reversal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_self_chill_duration_-%",
+          "min": 56,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1707"
+    },
+    "tasalian-greaves:suffix:of-the-temperate": {
+      "id": "tasalian-greaves:suffix:of-the-temperate",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 51,
+          "max": 55
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1708"
+    },
+    "tasalian-greaves:suffix:of-titanium-skin": {
+      "id": "tasalian-greaves:suffix:of-titanium-skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 305,
+          "max": 352
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1709"
+    },
+    "tasalian-greaves:suffix:of-unfreezing": {
+      "id": "tasalian-greaves:suffix:of-unfreezing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_self_freeze_duration_-%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceRef": "src1710"
+    }
+  },
+  "variants": {}
+}

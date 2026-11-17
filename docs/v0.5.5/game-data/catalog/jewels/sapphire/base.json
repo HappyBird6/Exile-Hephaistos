@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Jewels/JewelInt",
+  "sourceRef": "src2236",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 2,
+  "legacy": {
+    "key": "sapphire",
+    "slug": "Sapphire",
+    "order": 11
+  }
+}

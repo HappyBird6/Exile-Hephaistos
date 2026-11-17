@@ -7,7 +7,7 @@
 - 복합 modifier의 여러 줄은 하나의 옵션이다. 기존 상태 검증과 새 후보의 requiredItemLevel 검증은 별도다.
 - 지원 밖 분열·희귀도·소켓 조합을 허용하지 않는다. 새 상태 필드는 Java 공통 읽기 계약과 단일·반복 제작에서 동일하게 처리한다.
 
-[카탈로그](../game-data/catalog/top-bases.json), [베이스 정책](../game-data/catalog/base-policies.json), 각 pool의 catalog가 수치와 자격의 원본이다.
+[카탈로그](../game-data/catalog/), [베이스 정책](../game-data/crafting/policies/base-support.json), 각 pool의 catalog가 수치와 자격의 원본이다.
 
 ## 규칙 identity와 기록
 

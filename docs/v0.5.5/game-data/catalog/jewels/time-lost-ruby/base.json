@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Jewels/JewelRadiusStr",
+  "sourceRef": "src1890",
+  "implicitModifierId": "time-lost-ruby:implicit:base-radius",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 2,
+  "legacy": {
+    "key": "time-lost-ruby",
+    "slug": "Time-Lost Ruby",
+    "order": 13
+  }
+}

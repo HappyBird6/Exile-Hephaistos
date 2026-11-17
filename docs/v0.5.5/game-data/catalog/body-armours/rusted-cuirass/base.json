@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr1",
+  "sourceRef": "src2251",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "legacy": {
+    "key": "body",
+    "slug": "Rusted_Cuirass",
+    "order": 4
+  }
+}

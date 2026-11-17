@@ -1,0 +1,51 @@
+{
+  "id": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame",
+  "sourceRef": "src0874",
+  "implicitModifierId": "fanatic-greathammer:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "fanatic-greathammer",
+    "slug": "Fanatic_Greathammer",
+    "family": "two-hand-maces",
+    "sourceSha256": "268926f0e4b692ec535be95453f83fc2aef376bdf5937a30c6b4a8c02455d062",
+    "sourceTags": [
+      "mace",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 163,
+    "dexterity": 0,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "melee_splash",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "melee_splash",
+        "min": 1,
+        "max": 1,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "101-137",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.05,
+    "weaponRange": 1.5,
+    "ordinarySocketMaximum": 2,
+    "classId": 17,
+    "order": 100
+  }
+}

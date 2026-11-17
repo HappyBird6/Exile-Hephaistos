@@ -1,0 +1,52 @@
+{
+  "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+  "sourceRef": "src1935",
+  "implicitModifierId": "warlord-cuirass:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "warlord-cuirass",
+    "slug": "Warlord_Cuirass",
+    "family": "body",
+    "sourceSha256": "c3ceebada164edb64d19ef0bac41f1ec619cdd4f67d24ee82b74268f98614bfa",
+    "sourceTags": [
+      "str_armour",
+      "karui_basetype",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 496,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 121,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "armour_%_applies_to_fire_cold_lightning_damage",
+        "min": 15,
+        "max": 25
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "armour_%_applies_to_fire_cold_lightning_damage",
+        "min": 15,
+        "max": 25,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "archetype": "str",
+    "order": 138
+  }
+}

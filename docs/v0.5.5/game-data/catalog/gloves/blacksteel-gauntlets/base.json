@@ -1,0 +1,31 @@
+{
+  "id": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+  "sourceRef": "src2269",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "blacksteel-gloves",
+    "slug": "Blacksteel_Gauntlets",
+    "archetype": "str_dex",
+    "family": "gloves",
+    "sourceSha256": "04c265cd0b58b10e4b495fb976bb069797a5d30ba1b6084522539b65b66e95d5",
+    "sourceTags": [
+      "str_dex_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 103,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 55,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "evasion": 94,
+    "dexterity": 55,
+    "order": 6
+  }
+}

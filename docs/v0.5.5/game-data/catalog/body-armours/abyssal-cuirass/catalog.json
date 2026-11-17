@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-abyssal-cuirass-20261102-3fbba5b6d2933fa2",
     "retrievedAt": "2026-11-02T07:57:01.110Z",
-    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str",
+    "sourceRef": "src2205",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "d7167bf9f969bc893dea6b3c439d30ea6bf60a44eeb9ac146da67148e596a43d",
     "detailsSha256": "0f2b5bfcf35a5cfda5ba1f319b661b4a6f3772ee324a7581b61c30603a3e570c"
-  },
-  "base": {
-    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
-    "name": "Abyssal Cuirass",
-    "sourceUrl": "https://poe2db.tw/us/Abyssal_Cuirass",
-    "implicitModifierId": "abyssal-cuirass:implicit:base",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "abyssal-cuirass-snapshot",
   "implicitModifiers": [

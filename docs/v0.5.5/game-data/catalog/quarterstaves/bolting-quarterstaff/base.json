@@ -1,0 +1,63 @@
+{
+  "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+  "sourceRef": "src0470",
+  "implicitModifierId": "bolting-quarterstaff:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "bolting-quarterstaff",
+    "slug": "Bolting_Quarterstaff",
+    "family": "quarterstaves",
+    "sourceSha256": "752e3041a0613ccb882a94b6ad31af67d94a60d6fca78e91ca1a5398d5e50837",
+    "sourceTags": [
+      "warstaff",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 127,
+    "intelligence": 50,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+        "min": 100,
+        "max": 100
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+        "min": 100,
+        "max": 100,
+        "locality": "Local"
+      },
+      {
+        "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "24-97",
+    "criticalHitChance": 10,
+    "attacksPerSecond": 1.4,
+    "weaponRange": 1.4,
+    "ordinarySocketMaximum": 2,
+    "classId": 58,
+    "order": 103
+  }
+}

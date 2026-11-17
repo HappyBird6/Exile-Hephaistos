@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmuletDelirium1",
+  "sourceRef": "src1894",
+  "implicitModifierId": "twisted-amulet:implicit:base",
+  "magicPrefixes": 0,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "twisted-amulet",
+    "slug": "Twisted_Amulet",
+    "family": "amulets",
+    "sourceSha256": "f1b06197643c29fd7ebd685ef2ac21756e300b5453991f5d59a67756db887fee",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 0,
+        "max": 0
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -1,
+        "max": -1,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 0,
+        "max": 0,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 120
+  }
+}

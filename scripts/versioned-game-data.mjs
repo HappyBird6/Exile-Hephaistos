@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
-import { catalogOutputs, catalogRuntimePath, dataFiles as files } from './catalog-data.mjs'
+import { dataFiles as files } from './catalog-data.mjs'
+import { gameDataOutputs } from './game-data-outputs.mjs'
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
@@ -15,23 +16,6 @@ export const domains = {
 const digest = bytes => crypto.createHash('sha256').update(bytes).digest('hex')
 const json = value => JSON.stringify(value, null, 2) + '\n'
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'))
-// Directory names determine the destination; manifest.resources is generated output.
-export function runtimePathFor(source) {
-  assert(source.endsWith('.json') && !source.includes('\\') && source.split('/').every(part => part && part !== '.' && part !== '..'), `Invalid data path: ${source}`)
-  if (source.startsWith('game-data/catalog/')) {
-    const relative = catalogRuntimePath(source.slice('game-data/catalog/'.length))
-    return relative === null ? null : 'backend/src/main/resources/catalog/' + relative
-  }
-  for (const [from, to] of [
-    ['game-data/crafting/', 'backend/src/main/resources/crafting/'],
-    ['game-data/display/', 'frontend/src/features/crafting/'],
-    ['i18n/', 'frontend/src/shared/i18n/'],
-  ]) {
-    if (source.startsWith(from)) return to + source.slice(from.length)
-  }
-  throw new Error(`Unknown data directory: ${source}`)
-}
-
 // Append-only allocation: removed keys keep their ID and become retired tombstones.
 export function allocate(previous, keys, domain) {
   const prefix = domains[domain]
@@ -114,7 +98,7 @@ export function synchronize(root, write = false) {
   const directory = path.join(root, versionRoot)
   const target = path.join(directory, 'manifest.json')
   const manifest = read(target)
-  assert.equal(manifest.schemaVersion, 1)
+  assert([1, 2].includes(manifest.schemaVersion), 'Unknown source manifest version')
   assert.equal(manifest.dataVersion, '0.5.5')
   const emit = (file, contents) => {
     const unchanged = fs.existsSync(file) && fs.readFileSync(file).equals(Buffer.from(contents))
@@ -122,20 +106,23 @@ export function synchronize(root, write = false) {
       if (!unchanged) { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, contents) }
     } else assert(unchanged, `Data drift: ${path.relative(root, file)}; review source and run node scripts/versioned-game-data.mjs --write`)
   }
-  const resources = new Map(), runtimePaths = new Set()
-  const sourceFiles = ['game-data', 'i18n'].flatMap(folder => files(path.join(directory, folder))).map(file => path.relative(directory, file).replaceAll('\\', '/')).sort()
-  const catalog = new Map(catalogOutputs(path.join(directory, 'game-data/catalog')).map(row => ['game-data/catalog/' + row.relative, row]))
-  const entries = sourceFiles.map(source => {
-    const runtimePath = runtimePathFor(source)
-    assert(runtimePath === null || !runtimePaths.has(runtimePath), `Duplicate runtime path: ${runtimePath}`)
-    if (runtimePath !== null) runtimePaths.add(runtimePath)
-    const bytes = fs.readFileSync(path.join(directory, source))
-    resources.set(source, JSON.parse(bytes))
-    const runtimeBytes = catalog.get(source)?.runtimeBytes ?? bytes
-    return { path: source, runtimePath, sha256: digest(bytes), ...(runtimePath && catalog.get(source) ? { runtimeSha256: digest(runtimeBytes) } : {}) }
-  })
+  const generated = gameDataOutputs(directory)
+  const runtimePaths = new Set(generated.keys())
+  const sourceFiles = ['game-data', 'i18n'].flatMap(folder => files(path.join(directory, folder)))
+  const entries = sourceFiles.map(file => ({ path: path.relative(directory, file).replaceAll('\\', '/'), sha256: digest(fs.readFileSync(file)) })).sort((a, b) => a.path.localeCompare(b.path, 'en'))
+  // Stable IDs are collected from the executable projections, independent of source layout.
+  const resources = new Map([...generated].map(([file, { value }]) => [
+    file.startsWith('backend/src/main/resources/') ? 'game-data/' + file.slice('backend/src/main/resources/'.length)
+      : file.startsWith('frontend/src/shared/i18n/') ? 'i18n/' + file.slice('frontend/src/shared/i18n/'.length)
+      : 'game-data/display/' + file.slice('frontend/src/features/crafting/'.length), value,
+  ]))
   const runtimeGameFiles = ['catalog', 'crafting'].flatMap(folder => files(path.join(root, 'backend/src/main/resources', folder))).filter(file => file.endsWith('.json')).map(file => path.relative(root, file).replaceAll('\\', '/'))
-  const previousMirrors = (manifest.resources ?? []).filter(entry => !entry.path.endsWith('.raw.json')).map(entry => runtimePathFor(entry.path)).filter(file => file !== null && fs.existsSync(path.join(root, file)))
+  const previousMirrors = (manifest.generated ?? manifest.resources ?? []).map(entry => entry.runtimePath).filter(file => {
+    if (file == null) return false
+    assert(typeof file === 'string' && !file.includes('\\') && file.split('/').every(part => part && part !== '.' && part !== '..'), 'Invalid generated resource path')
+    assert(file.startsWith('backend/src/main/resources/') || file.startsWith('frontend/src/'), 'Invalid generated resource directory')
+    return fs.existsSync(path.join(root, file))
+  })
   const orphaned = [...runtimeGameFiles, ...previousMirrors].filter(file => !runtimePaths.has(file))
   assert.deepEqual([...new Set(orphaned)], [], 'Source data was removed or a runtime file has no canonical source; review and archive it explicitly')
   const keys = collect(resources), mappings = []
@@ -150,10 +137,10 @@ export function synchronize(root, write = false) {
     mappings.push({ path: relative, domain, count: value.entries.length, sha256: digest(contents) })
   }
   assert.deepEqual(files(path.join(directory, 'mappings')).map(file => path.relative(directory, file).replaceAll('\\', '/')).sort(), mappings.filter(row => fs.existsSync(path.join(directory, row.path))).map(row => row.path).sort(), 'Unexpected mapping file')
-  for (const entry of entries) if (entry.runtimePath !== null) emit(path.join(root, entry.runtimePath), catalog.get(entry.path)?.runtimeBytes ?? fs.readFileSync(path.join(directory, entry.path)))
+  for (const [file, { bytes }] of generated) emit(path.join(root, file), bytes)
   for (const [file, contents] of outputs) emit(file, contents)
-  const { rules, ...metadata } = manifest // Prose is not an execution resource or checksum input.
-  emit(target, json({ ...metadata, resources: entries, mappings }))
+  const { rules, resources: previousResources, generated: previousGenerated, ...metadata } = manifest
+  emit(target, json({ ...metadata, schemaVersion: 2, resources: entries, generated: [...generated].map(([runtimePath, { bytes }]) => ({ runtimePath, sha256: digest(bytes) })).sort((a, b) => a.runtimePath.localeCompare(b.runtimePath, 'en')), mappings }))
   console.log(`Versioned data verified: ${entries.length} resources, ${mappings.reduce((n, row) => n + row.count, 0)} IDs`)
 }
 

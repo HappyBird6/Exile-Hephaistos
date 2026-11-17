@@ -1,0 +1,50 @@
+{
+  "id": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+  "sourceRef": "src1083",
+  "implicitModifierId": "obliterator-bow:implicit:projectilerange",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "obliterator",
+    "slug": "Obliterator_Bow",
+    "family": "bows",
+    "sourceSha256": "90f6f625eb5558d2c4ff68e913fd69ccce48c7a5141878c5efa6cced954d2791",
+    "sourceTags": [
+      "karui_basetype",
+      "bow",
+      "ranged",
+      "two_hand_weapon",
+      "twohand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 163,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "projectile_attack_range_+%",
+        "min": -50,
+        "max": -50
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "projectile_attack_range_+%",
+        "min": -50,
+        "max": -50,
+        "locality": "Global"
+      }
+    ],
+    "physicalDamage": "62-115",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.1,
+    "order": 28
+  }
+}

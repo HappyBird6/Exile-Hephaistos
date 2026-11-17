@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-invoking-belt-20261005-a1d516f799273ba3",
     "retrievedAt": "2026-10-05T01:23:16.889Z",
-    "sourceUrl": "https://poe2db.tw/us/Belts",
+    "sourceRef": "src2204",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "2ee4229e650b26a3bf08c3c22ba33a847a5359b647c24c6694bf25679fa4f990",
     "detailsSha256": "0709e715eb9743508bc7b460b3870f3a74b8195221043d3e380acbc9994b893f"
-  },
-  "base": {
-    "id": "Metadata/Items/Belts/FourBeltB2",
-    "name": "Invoking Belt",
-    "sourceUrl": "https://poe2db.tw/us/Invoking_Belt",
-    "implicitModifierId": "invoking-belt:implicit:base",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": [

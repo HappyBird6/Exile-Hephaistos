@@ -1,0 +1,51 @@
+{
+  "id": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+  "sourceRef": "src1948",
+  "implicitModifierId": "wyrmscale-coat:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "wyrmscale-coat",
+    "slug": "Wyrmscale_Coat",
+    "family": "body",
+    "sourceSha256": "e7f81230131d70286ca3d8445379e4bb9863210ba4adbd919af8141bed4cdca6",
+    "sourceTags": [
+      "dex_armour",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 0,
+    "evasion": 451,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 121,
+    "intelligence": 0,
+    "requiredLevel": 75,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "ailment_threshold_+%",
+        "min": 30,
+        "max": 40
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "ailment_threshold_+%",
+        "min": 30,
+        "max": 40,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "archetype": "dex",
+    "order": 140
+  }
+}

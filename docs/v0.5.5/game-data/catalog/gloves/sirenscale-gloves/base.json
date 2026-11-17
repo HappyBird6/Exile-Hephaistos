@@ -1,0 +1,29 @@
+{
+  "id": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+  "sourceRef": "src2272",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "sirenscale",
+    "slug": "Sirenscale_Gloves",
+    "archetype": "int",
+    "family": "gloves",
+    "sourceSha256": "4e8523b4d55098dee45af0c93e02d0d148d93cae6f186913be40df9778eacfd7",
+    "sourceTags": [
+      "int_armour",
+      "karui_basetype",
+      "gloves",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 54,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 101,
+    "maximumQuality": 20,
+    "order": 3
+  }
+}

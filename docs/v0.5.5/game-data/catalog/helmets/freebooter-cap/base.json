@@ -1,0 +1,31 @@
+{
+  "id": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+  "sourceRef": "src2277",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "freebooter",
+    "slug": "Freebooter_Cap",
+    "archetype": "dex",
+    "family": "helmets",
+    "sourceSha256": "819ac0492069db7faeaac4c14e1f37f92889084bb8022a2e9aee53f7d85cc0d5",
+    "sourceTags": [
+      "dex_armour",
+      "karui_basetype",
+      "helmet",
+      "armour"
+    ],
+    "armour": 0,
+    "energyShield": 0,
+    "requiredLevel": 80,
+    "strength": 0,
+    "intelligence": 0,
+    "maximumQuality": 20,
+    "evasion": 340,
+    "dexterity": 115,
+    "order": 8
+  }
+}

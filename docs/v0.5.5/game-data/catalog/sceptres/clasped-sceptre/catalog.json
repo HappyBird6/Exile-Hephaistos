@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-clasped-sceptre-20261005-2efb730875728156",
     "retrievedAt": "2026-10-05T00:43:05.588Z",
-    "sourceUrl": "https://poe2db.tw/us/Sceptres",
+    "sourceRef": "src2241",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "8042c018040e987be4046c5ce49fa3690b2e3ad6718f63013f2669f80f0f92f5",
     "detailsSha256": "cd98d1c597918310fd93d227da1c2cb7241d49e7bfe5707356113b8397f50522"
-  },
-  "base": {
-    "id": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
-    "name": "Clasped Sceptre",
-    "sourceUrl": "https://poe2db.tw/us/Clasped_Sceptre",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": []

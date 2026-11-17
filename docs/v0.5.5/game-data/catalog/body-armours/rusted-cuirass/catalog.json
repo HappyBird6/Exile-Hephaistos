@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-rusted-cuirass-normal-20261003-d7167bf9f969",
     "retrievedAt": "2026-10-03T14:55:06.681Z",
-    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str",
+    "sourceRef": "src2205",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "d7167bf9f969bc893dea6b3c439d30ea6bf60a44eeb9ac146da67148e596a43d",
     "detailsSha256": "53e93866ed46009e84750e4c8e79ea200667e55749993668ecede92308cde466"
-  },
-  "base": {
-    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr1",
-    "name": "Rusted Cuirass",
-    "sourceUrl": "https://poe2db.tw/us/Rusted_Cuirass",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "rusted-cuirass-snapshot",
   "implicitModifiers": []

@@ -4,7 +4,7 @@ import { augmentEffect } from '../socketAugments'
 import { workbenchCurrencyActions } from '../workbenchApi'
 import { isBone } from '../desecrationCurrency'
 import { isWorkbenchJewel } from '../basicJewel'
-import descriptions from '../materialTooltips.json'
+import materialTargets from '../materialTargetClasses.json'
 import type { WorkbenchResource } from './stashTypes'
 
 const itemTargets: Record<string, string> = {
@@ -31,19 +31,6 @@ const itemTargets: Record<string, string> = {
   Belts: 'Belt',
   Quivers: 'Quiver',
 }
-const groupTargets = [
-  'Armour',
-  'Jewellery',
-  'Equipment',
-  'Weapons',
-  'Martial Weapon',
-  'Caster Weapon',
-  'Melee Weapon',
-  'One Handed Melee Weapon',
-  'Two Handed Melee Weapon',
-]
-const knownTargets = new Set([...Object.values(itemTargets), ...groupTargets])
-
 /** Source target labels and registered class containment; never the current rarity or roll. */
 export function baseMaterialTargets(base: string): ReadonlySet<string> {
   const targets = new Set<string>()
@@ -114,19 +101,8 @@ export function supportsBaseMaterial(
   )
     return true
   if (resource.category === 'Essence' || resource.category === 'Alloy') {
-    const source = (descriptions as Record<string, { lines: string[] }>)[
-      resource.id
-    ]
     const labels =
-      source?.lines.flatMap((line) => {
-        const colon = line.indexOf(':')
-        return colon < 0
-          ? []
-          : line
-              .slice(0, colon)
-              .split(/, | or /)
-              .filter((label) => knownTargets.has(label))
-      }) ?? []
+      (materialTargets as Record<string, string[]>)[resource.id] ?? []
     if (labels.length) return labels.some((label) => targets.has(label))
   }
   // Keep the catalog visible until its matching server metadata has arrived.

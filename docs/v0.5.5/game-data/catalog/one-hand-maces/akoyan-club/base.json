@@ -1,0 +1,52 @@
+{
+  "id": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace10Endgame",
+  "sourceRef": "src0022",
+  "implicitModifierId": "akoyan-club:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "akoyan-club",
+    "slug": "Akoyan_Club",
+    "family": "one-hand-maces",
+    "sourceSha256": "c14246a0e6f2caf954b1b9b2e347f01f534515dc2dbf7f21e0fcfc31ae339cad",
+    "sourceTags": [
+      "karui_basetype",
+      "mace",
+      "one_hand_weapon",
+      "onehand",
+      "weapon"
+    ],
+    "armour": 0,
+    "strength": 163,
+    "dexterity": 0,
+    "requiredLevel": 78,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_always_hit",
+        "min": 1,
+        "max": 1
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_always_hit",
+        "min": 1,
+        "max": 1,
+        "locality": "Local"
+      }
+    ],
+    "physicalDamage": "46-76",
+    "criticalHitChance": 5,
+    "attacksPerSecond": 1.45,
+    "weaponRange": 1.3,
+    "ordinarySocketMaximum": 1,
+    "classId": 12,
+    "order": 98
+  }
+}

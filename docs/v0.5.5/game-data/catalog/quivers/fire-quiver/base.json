@@ -1,0 +1,55 @@
+{
+  "id": "Metadata/Items/Quivers/FourQuiver2",
+  "sourceRef": "src0877",
+  "implicitModifierId": "fire-quiver:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "fire-quiver",
+    "slug": "Fire_Quiver",
+    "family": "quivers",
+    "sourceSha256": "d5ad43b19c0c545e0fd1eadaa654534c8c81efd8bf4a63592ec5bd17c88029e1",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 8,
+    "maximumQuality": null,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "attack_maximum_added_fire_damage",
+        "min": 5,
+        "max": 5
+      },
+      {
+        "id": "attack_minimum_added_fire_damage",
+        "min": 3,
+        "max": 3
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "attack_maximum_added_fire_damage",
+        "min": 5,
+        "max": 5,
+        "locality": "Global"
+      },
+      {
+        "id": "attack_minimum_added_fire_damage",
+        "min": 3,
+        "max": 3,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
+    "order": 94
+  }
+}

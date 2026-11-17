@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-rusted-greathelm-normal-20261003-b0d1721814d5",
     "retrievedAt": "2026-10-03T17:38:07.186Z",
-    "sourceUrl": "https://poe2db.tw/us/Helmets_str",
+    "sourceRef": "src2232",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "b0d1721814d5d6e474e38c22589d832e0c6982c6cccdbd61270fb4c8dde8f7cc",
     "detailsSha256": "9b659cdd16035ba4a96323426c606244529b22307abb0f41068d91d61eb5768e"
-  },
-  "base": {
-    "id": "Metadata/Items/Armours/Helmets/FourHelmetStr1",
-    "name": "Rusted Greathelm",
-    "sourceUrl": "https://poe2db.tw/us/Rusted_Greathelm",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "rusted-greathelm-snapshot",
   "implicitModifiers": []

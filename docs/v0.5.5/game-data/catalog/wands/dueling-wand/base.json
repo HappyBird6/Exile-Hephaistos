@@ -1,0 +1,25 @@
+{
+  "id": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+  "sourceRef": "src2304",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "dueling",
+    "slug": "Dueling_Wand",
+    "family": "wands",
+    "sourceSha256": "a514c92f4bdf3469568fdf7165b9b06e8b5a86e66479b81d70bebebc1684ba56",
+    "sourceTags": [
+      "wand",
+      "onehand"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "intelligence": 114,
+    "requiredLevel": 65,
+    "maximumQuality": 20,
+    "order": 53
+  }
+}

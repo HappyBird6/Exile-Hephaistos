@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-gloam-ring-20261102-a9f441ff75763c32",
     "retrievedAt": "2026-11-02T08:17:18.690Z",
-    "sourceUrl": "https://poe2db.tw/us/Rings",
+    "sourceRef": "src2240",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0",
     "detailsSha256": "a3cd7e4e47b93cfd876b31e89dabbdb03807f353e95f55cbf700225e16a1fcb4"
-  },
-  "base": {
-    "id": "Metadata/Items/Rings/FourRingLake2",
-    "name": "Gloam Ring",
-    "sourceUrl": "https://poe2db.tw/us/Gloam_Ring",
-    "implicitModifierId": "gloam-ring:implicit:base",
-    "magicPrefixes": 0,
-    "magicSuffixes": 2,
-    "rarePrefixes": 2,
-    "rareSuffixes": 4
   },
   "modifierPool": "default",
   "implicitModifiers": [

@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-vile-robe-published-20261109-918b8a0602bda7a2",
     "retrievedAt": "2026-10-04T17:54:19.736Z",
-    "sourceUrl": "https://poe2db.tw/us/Body_Armours_int",
+    "sourceRef": "src2210",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "5205a7532a37ff1276f5555961aaca129d7739cd8923388632d2205bec37f8da",
     "detailsSha256": "107b5fd987dec2a9dcd42bb7ed1d2d1ac7c5b0e226a32aede4f0a98e3ee98769"
-  },
-  "base": {
-    "id": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
-    "name": "Vile Robe",
-    "sourceUrl": "https://poe2db.tw/us/Vile_Robe",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "flowing-raiment-snapshot",
   "implicitModifiers": []

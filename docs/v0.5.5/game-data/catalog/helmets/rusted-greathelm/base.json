@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Armours/Helmets/FourHelmetStr1",
+  "sourceRef": "src2280",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "legacy": {
+    "key": "helmet",
+    "slug": "Rusted_Greathelm",
+    "order": 7
+  }
+}

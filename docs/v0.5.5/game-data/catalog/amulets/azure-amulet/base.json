@@ -1,0 +1,41 @@
+{
+  "id": "Metadata/Items/Amulets/FourAmulet2",
+  "sourceRef": "src0437",
+  "implicitModifierId": "azure:implicit:manaregeneration",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "azure",
+    "slug": "Azure_Amulet",
+    "family": "amulets",
+    "sourceSha256": "9a780eba692859c1930398140505dd17efd64c1d9e8a67de18e28dc66c6a1974",
+    "sourceTags": [
+      "amulet"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "mana_regeneration_rate_+%",
+        "min": 20,
+        "max": 30
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "mana_regeneration_rate_+%",
+        "min": 20,
+        "max": 30,
+        "locality": "Global"
+      }
+    ],
+    "order": 41
+  }
+}

@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-sekhema-sandals-published-20261109-61897c5fc163aec7",
     "retrievedAt": "2026-10-04T18:58:00.022Z",
-    "sourceUrl": "https://poe2db.tw/us/Boots_int",
+    "sourceRef": "src2215",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "87f74c49f8bc55745f56f48f06a966e6ed3f03014318c1df8108816adc6c1271",
     "detailsSha256": "07e07f6e5783cc4ddca0ef5b6a1def6c5b5b815ec1e0055a033d4feef09de767"
-  },
-  "base": {
-    "id": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
-    "name": "Sekhema Sandals",
-    "sourceUrl": "https://poe2db.tw/us/Sekhema_Sandals",
-    "implicitModifierId": "",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "sekhema-sandals-snapshot",
   "implicitModifiers": []

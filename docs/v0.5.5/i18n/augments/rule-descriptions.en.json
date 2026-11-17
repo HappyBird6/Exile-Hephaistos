@@ -1,0 +1,12 @@
+{
+  "heist_enchantment_physical_mod_effect_+%": "(10—15)% increased Explicit Physical Modifier magnitudes",
+  "heist_enchantment_fire_mod_effect_+%": "(15—20)% increased Explicit Fire Modifier magnitudes",
+  "heist_enchantment_lightning_mod_effect_+%": "(15—20)% increased Explicit Lightning Modifier magnitudes",
+  "heist_enchantment_cold_mod_effect_+%": "(15—20)% increased Explicit Cold Modifier magnitudes",
+  "local_explicit_elemental_damage_mod_effect_+%": "(15—20)% increased Explicit Elemental Damage Modifier magnitudes",
+  "heist_enchantment_chaos_mod_effect_+%": "(15—20)% increased Explicit Chaos Modifier magnitudes",
+  "heist_enchantment_mana_mod_effect_+%": "(25—30)% increased Explicit Mana Modifier magnitudes",
+  "heist_enchantment_speed_mod_effect_+%": "(25—30)% increased Explicit Speed Modifier magnitudes",
+  "heist_enchantment_critical_mod_effect_+%": "(20—30)% increased Explicit Critical Modifier magnitudes",
+  "heist_enchantment_resistance_mod_effect_+%": "Sovereign Alloy: increased Explicit Resistance Modifier magnitudes; implicit modifiers excluded."
+}

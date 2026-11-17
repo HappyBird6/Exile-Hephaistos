@@ -1,0 +1,1077 @@
+{
+  "Lesser_Essence_of_the_Body": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Lesser_Essence_of_the_Mind": [
+    "Belt",
+    "Boots",
+    "Gloves",
+    "Helmet",
+    "Jewellery"
+  ],
+  "Lesser_Essence_of_Enhancement": [
+    "Armour"
+  ],
+  "Lesser_Essence_of_Abrasion": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Lesser_Essence_of_Flames": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Lesser_Essence_of_Ice": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Lesser_Essence_of_Electricity": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Lesser_Essence_of_Ruin": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Lesser_Essence_of_Battle": [
+    "Martial Weapon"
+  ],
+  "Lesser_Essence_of_Sorcery": [
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Lesser_Essence_of_Haste": [
+    "Melee Weapon",
+    "Bow",
+    "Crossbow"
+  ],
+  "Lesser_Essence_of_the_Infinite": [
+    "Equipment"
+  ],
+  "Essence_of_the_Body": [
+    "Belt",
+    "Body Armour",
+    "Helmet",
+    "Shield",
+    "Amulet",
+    "Boots",
+    "Gloves",
+    "Ring"
+  ],
+  "Essence_of_the_Mind": [
+    "Belt",
+    "Boots",
+    "Gloves",
+    "Helmet",
+    "Jewellery"
+  ],
+  "Essence_of_Enhancement": [
+    "Armour"
+  ],
+  "Essence_of_Abrasion": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Essence_of_Flames": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Essence_of_Ice": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Essence_of_Electricity": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Essence_of_Ruin": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Essence_of_Battle": [
+    "Martial Weapon"
+  ],
+  "Essence_of_Sorcery": [
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Essence_of_Haste": [
+    "Melee Weapon",
+    "Bow",
+    "Crossbow"
+  ],
+  "Essence_of_the_Infinite": [
+    "Equipment"
+  ],
+  "Greater_Essence_of_the_Body": [
+    "Belt",
+    "Body Armour",
+    "Helmet",
+    "Shield",
+    "Amulet",
+    "Boots",
+    "Gloves"
+  ],
+  "Greater_Essence_of_the_Mind": [
+    "Belt",
+    "Boots",
+    "Gloves",
+    "Helmet",
+    "Jewellery"
+  ],
+  "Greater_Essence_of_Enhancement": [
+    "Armour"
+  ],
+  "Greater_Essence_of_Abrasion": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Greater_Essence_of_Flames": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Greater_Essence_of_Ice": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Greater_Essence_of_Electricity": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Greater_Essence_of_Ruin": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Greater_Essence_of_Battle": [
+    "Martial Weapon",
+    "Gloves",
+    "Quiver"
+  ],
+  "Greater_Essence_of_Sorcery": [
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Greater_Essence_of_Haste": [
+    "Melee Weapon",
+    "Bow",
+    "Crossbow"
+  ],
+  "Greater_Essence_of_the_Infinite": [
+    "Equipment"
+  ],
+  "Perfect_Essence_of_the_Body": [
+    "Body Armour"
+  ],
+  "Perfect_Essence_of_the_Mind": [
+    "Ring"
+  ],
+  "Perfect_Essence_of_Enhancement": [
+    "Amulet"
+  ],
+  "Perfect_Essence_of_Abrasion": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Perfect_Essence_of_Flames": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Perfect_Essence_of_Ice": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Perfect_Essence_of_Electricity": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Perfect_Essence_of_Ruin": [
+    "Body Armour"
+  ],
+  "Perfect_Essence_of_Battle": [
+    "One Handed Melee Weapon",
+    "Bow",
+    "Two Handed Melee Weapon",
+    "Crossbow"
+  ],
+  "Perfect_Essence_of_Sorcery": [
+    "Wand",
+    "Staff"
+  ],
+  "Perfect_Essence_of_Haste": [
+    "Martial Weapon"
+  ],
+  "Perfect_Essence_of_the_Infinite": [
+    "Amulet"
+  ],
+  "Lesser_Essence_of_Seeking": [
+    "Martial Weapon",
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Essence_of_Seeking": [
+    "Martial Weapon",
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Greater_Essence_of_Seeking": [
+    "Martial Weapon",
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Perfect_Essence_of_Seeking": [
+    "Body Armour"
+  ],
+  "Essence_of_Hysteria": [
+    "Helmet",
+    "Body Armour",
+    "Gloves",
+    "Boots",
+    "Ring",
+    "Amulet",
+    "Belt",
+    "Shield",
+    "Quiver",
+    "Focus"
+  ],
+  "Essence_of_Delirium": [
+    "Body Armour"
+  ],
+  "Essence_of_Horror": [
+    "Gloves",
+    "Boots"
+  ],
+  "Essence_of_Insanity": [
+    "Belt"
+  ],
+  "Essence_of_the_Abyss": [
+    "Equipment"
+  ],
+  "Essence_of_the_Breach": [
+    "Jewellery"
+  ],
+  "Lesser_Essence_of_Insulation": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Essence_of_Insulation": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Greater_Essence_of_Insulation": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Perfect_Essence_of_Insulation": [
+    "Belt"
+  ],
+  "Lesser_Essence_of_Thawing": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Essence_of_Thawing": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Greater_Essence_of_Thawing": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Perfect_Essence_of_Thawing": [
+    "Helmet"
+  ],
+  "Lesser_Essence_of_Grounding": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Essence_of_Grounding": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Greater_Essence_of_Grounding": [
+    "Armour",
+    "Belt",
+    "Jewellery"
+  ],
+  "Perfect_Essence_of_Grounding": [
+    "Gloves"
+  ],
+  "Lesser_Essence_of_Alacrity": [
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Essence_of_Alacrity": [
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Greater_Essence_of_Alacrity": [
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Perfect_Essence_of_Alacrity": [
+    "Focus",
+    "Wand",
+    "Staff"
+  ],
+  "Lesser_Essence_of_Opulence": [
+    "Boots",
+    "Gloves",
+    "Helmet",
+    "Jewellery"
+  ],
+  "Essence_of_Opulence": [
+    "Boots",
+    "Gloves",
+    "Helmet",
+    "Jewellery"
+  ],
+  "Greater_Essence_of_Opulence": [
+    "Boots",
+    "Gloves",
+    "Helmet",
+    "Jewellery"
+  ],
+  "Perfect_Essence_of_Opulence": [
+    "Gloves"
+  ],
+  "Lesser_Essence_of_Command": [
+    "Sceptre"
+  ],
+  "Essence_of_Command": [
+    "Sceptre"
+  ],
+  "Greater_Essence_of_Command": [
+    "Sceptre"
+  ],
+  "Perfect_Essence_of_Command": [
+    "Sceptre"
+  ],
+  "Runic_Alloy": [
+    "Ring",
+    "Amulet",
+    "Belt"
+  ],
+  "Adaptive_Alloy": [
+    "Staff",
+    "Wand",
+    "Sceptre",
+    "Gloves"
+  ],
+  "Protective_Alloy": [
+    "Belt",
+    "Weapons",
+    "Shield"
+  ],
+  "Expansive_Alloy": [
+    "Gloves",
+    "Body Armour",
+    "Helmet",
+    "Boots"
+  ],
+  "Swift_Alloy": [
+    "Gloves",
+    "Ring",
+    "Belt",
+    "Shield",
+    "Focus"
+  ],
+  "Cyclonic_Alloy": [
+    "Body Armour",
+    "Boots",
+    "Gloves",
+    "Helmet"
+  ],
+  "Prismatic_Alloy": [
+    "Gloves",
+    "Martial Weapon",
+    "Focus",
+    "Staff",
+    "Wand",
+    "Sceptre"
+  ],
+  "Mystic_Alloy": [
+    "Helmet",
+    "Gloves",
+    "Boots",
+    "Quiver",
+    "Caster Weapon"
+  ],
+  "Sovereign_Alloy": [
+    "Weapons",
+    "Armour",
+    "Jewellery",
+    "Belt"
+  ],
+  "Celestial_Alloy": [
+    "Staff",
+    "Wand",
+    "Martial Weapon"
+  ],
+  "Transcendent_Alloy": [
+    "Staff",
+    "Focus",
+    "Wand",
+    "Martial Weapon"
+  ],
+  "The_Runebinders_Alloy": [
+    "Staff",
+    "Wand",
+    "Sceptre",
+    "Crossbow",
+    "Bow"
+  ],
+  "The_Runefathers_Alloy": [
+    "Mace",
+    "Quarterstaff",
+    "Spear",
+    "Talisman"
+  ],
+  "Lesser_Desert_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Desert_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Desert_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Desert_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Glacial_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Glacial_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Glacial_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Glacial_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Storm_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Storm_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Storm_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Storm_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Iron_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Iron_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Iron_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Iron_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Body_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Body_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Body_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Body_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Mind_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Mind_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Mind_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Mind_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Rebirth_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Rebirth_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Rebirth_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Rebirth_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Inspiration_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Inspiration_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Inspiration_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Inspiration_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Stone_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Stone_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Stone_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Stone_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Vision_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Vision_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Vision_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Vision_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Soul_Core_of_Tacati": [
+    "Gloves",
+    "Boots"
+  ],
+  "Soul_Core_of_Citaqualotl": [
+    "Gloves",
+    "Boots"
+  ],
+  "Soul_Core_of_Puhuarte": [
+    "Gloves"
+  ],
+  "Soul_Core_of_Azcapa": [
+    "Gloves"
+  ],
+  "Soul_Core_of_Atmohua": [
+    "Gloves",
+    "Boots"
+  ],
+  "Soul_Core_of_Cholotl": [
+    "Gloves",
+    "Boots"
+  ],
+  "Soul_Core_of_Zantipi": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Robust_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Robust_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Robust_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Robust_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Adept_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Adept_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Adept_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Adept_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Resolve_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Resolve_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Resolve_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Resolve_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Tempered_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Tempered_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Tempered_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Ward_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Ward_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Ward_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Ward_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lesser_Charging_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Charging_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Greater_Charging_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Perfect_Charging_Rune": [
+    "Gloves",
+    "Boots"
+  ],
+  "Soul_Core_of_Xopec": [
+    "Boots"
+  ],
+  "Soul_Core_of_Topotante": [
+    "Boots"
+  ],
+  "Soul_Core_of_Quipolatl": [
+    "Boots"
+  ],
+  "Amanamus_Gaze": [
+    "Boots"
+  ],
+  "Boar_Idol": [
+    "Gloves"
+  ],
+  "Carved_Cunning": [
+    "Boots"
+  ],
+  "Carved_Majesty": [
+    "Gloves",
+    "Boots"
+  ],
+  "Carved_Mischief": [
+    "Gloves"
+  ],
+  "Carved_Tenacity": [
+    "Gloves",
+    "Boots"
+  ],
+  "Cat_Idol": [
+    "Gloves"
+  ],
+  "Citaqualotls_Soul_Core_of_Foulness": [
+    "Martial Weapon"
+  ],
+  "Citaqualotls_Thesis": [
+    "Gloves",
+    "Boots"
+  ],
+  "Courtesan_Mannans_Rune_of_Cruelty": [
+    "Gloves"
+  ],
+  "Emergent_Instinct": [
+    "Gloves"
+  ],
+  "Emergent_Possibility": [
+    "Gloves",
+    "Boots"
+  ],
+  "Emergent_Protection": [
+    "Gloves",
+    "Boots"
+  ],
+  "Emergent_Vigour": [
+    "Boots"
+  ],
+  "Estazuntis_Soul_Core_of_Convalescence": [
+    "Boots"
+  ],
+  "Farruls_Rune_of_Grace": [
+    "Boots"
+  ],
+  "Farruls_Rune_of_the_Chase": [
+    "Boots"
+  ],
+  "Farruls_Rune_of_the_Hunt": [
+    "Martial Weapon"
+  ],
+  "Fenumus_Rune_of_Agony": [
+    "Martial Weapon",
+    "Wand",
+    "Staff"
+  ],
+  "Fenumus_Rune_of_Draining": [
+    "Gloves"
+  ],
+  "Fenumus_Rune_of_Spinning": [
+    "Gloves"
+  ],
+  "Greater_Rune_of_Alacrity": [
+    "Martial Weapon",
+    "Armour"
+  ],
+  "Greater_Rune_of_Leadership": [
+    "Martial Weapon",
+    "Armour"
+  ],
+  "Greater_Rune_of_Nobility": [
+    "Martial Weapon",
+    "Armour"
+  ],
+  "Greater_Rune_of_Tithing": [
+    "Martial Weapon",
+    "Armour"
+  ],
+  "Guatelitzis_Soul_Core_of_Endurance": [
+    "Martial Weapon",
+    "Wand",
+    "Staff"
+  ],
+  "Guatelitzis_Thesis": [
+    "Boots"
+  ],
+  "Hedgewitch_Assandras_Rune_of_Wisdom": [
+    "Wand",
+    "Staff"
+  ],
+  "Idol_of_Grold": [
+    "Boots"
+  ],
+  "Idol_of_Kraityn": [
+    "Gloves"
+  ],
+  "Idol_of_Oak": [
+    "Boots"
+  ],
+  "Idol_of_Sirrius": [
+    "Gloves"
+  ],
+  "Idol_of_Thruldana": [
+    "Martial Weapon"
+  ],
+  "Idol_of_Yeena": [
+    "Boots"
+  ],
+  "Idol_of_the_Martyr": [
+    "Martial Weapon",
+    "Wand",
+    "Staff"
+  ],
+  "Idol_of_the_Pharisee": [
+    "Martial Weapon",
+    "Wand",
+    "Staff"
+  ],
+  "Idol_of_the_Sycophant": [
+    "Martial Weapon",
+    "Wand",
+    "Staff"
+  ],
+  "Jiquanis_Thesis": [
+    "Gloves",
+    "Boots"
+  ],
+  "Kurgals_Gaze": [
+    "Gloves",
+    "Boots"
+  ],
+  "Lady_Hestras_Rune_of_Winter": [
+    "Martial Weapon"
+  ],
+  "Legacy_of_Briarpatch": [
+    "Boots"
+  ],
+  "Legacy_of_Bushwhack": [
+    "Boots"
+  ],
+  "Legacy_of_Candlemaker": [
+    "Gloves"
+  ],
+  "Legacy_of_Deathblow": [
+    "Gloves"
+  ],
+  "Legacy_of_Facebreaker": [
+    "Gloves"
+  ],
+  "Legacy_of_Legionstride": [
+    "Boots"
+  ],
+  "Legacy_of_Northpaw": [
+    "Gloves"
+  ],
+  "Legacy_of_Oberns_Bastion": [
+    "Boots"
+  ],
+  "Legacy_of_The_Knight-errant": [
+    "Boots"
+  ],
+  "Legacy_of_Trampletoe": [
+    "Boots"
+  ],
+  "Legacy_of_Wanderlust": [
+    "Boots"
+  ],
+  "Opilotis_Soul_Core_of_Assault": [
+    "Martial Weapon",
+    "Wand",
+    "Staff"
+  ],
+  "Quipolatls_Thesis": [
+    "Gloves"
+  ],
+  "Rune_of_Accumulation": [
+    "Gloves",
+    "Crossbow",
+    "Bow",
+    "Spear"
+  ],
+  "Rune_of_Acrobatics": [
+    "Boots"
+  ],
+  "Rune_of_Confrontation": [
+    "Quarterstaff",
+    "Spear"
+  ],
+  "Rune_of_Consistency": [
+    "Caster Weapon"
+  ],
+  "Rune_of_Culmination": [
+    "Gloves",
+    "Quarterstaff"
+  ],
+  "Rune_of_Reach": [
+    "Wand",
+    "Staff"
+  ],
+  "Rune_of_Renown": [
+    "Gloves",
+    "Caster Weapon"
+  ],
+  "Rune_of_Vital_Flame": [
+    "Talisman"
+  ],
+  "Rune_of_the_Hunt": [
+    "Boots"
+  ],
+  "Saqawals_Rune_of_the_Sky": [
+    "Martial Weapon",
+    "Wand",
+    "Staff"
+  ],
+  "Snake_Idol": [
+    "Gloves"
+  ],
+  "Tecrods_Gaze": [
+    "Gloves",
+    "Boots"
+  ],
+  "Thane_Girts_Rune_of_Wildness": [
+    "Wand",
+    "Staff"
+  ],
+  "Thane_Grannells_Rune_of_Mastery": [
+    "Gloves"
+  ],
+  "Thane_Lelds_Rune_of_Spring": [
+    "Martial Weapon"
+  ],
+  "Thane_Myrks_Rune_of_Summer": [
+    "Martial Weapon"
+  ],
+  "The_Greatwolfs_Rune_of_Claws": [
+    "Gloves"
+  ],
+  "Topotantes_Soul_Core_of_Dampening": [
+    "Gloves"
+  ],
+  "Ulamans_Gaze": [
+    "Gloves"
+  ],
+  "Uromotis_Soul_Core_of_Attenuation": [
+    "Boots"
+  ],
+  "Warding_Rune_of_Annihilation": [
+    "Martial Weapon"
+  ],
+  "Warding_Rune_of_Armature": [
+    "Martial Weapon"
+  ],
+  "Warding_Rune_of_Desperation": [
+    "Wand",
+    "Staff"
+  ],
+  "Warding_Rune_of_Disintegration": [
+    "Martial Weapon"
+  ],
+  "Warding_Rune_of_Equinox": [
+    "Caster Weapon"
+  ],
+  "Warding_Rune_of_Hollowing": [
+    "Caster Weapon"
+  ],
+  "Warding_Rune_of_Nourishment": [
+    "Armour"
+  ],
+  "Warding_Rune_of_Protection": [
+    "Armour"
+  ],
+  "Warding_Rune_of_Reinforcement": [
+    "Armour"
+  ],
+  "Warding_Rune_of_Symbiosis": [
+    "Boots"
+  ],
+  "Wolf_Idol": [
+    "Gloves"
+  ],
+  "Xipocados_Soul_Core_of_Dominion": [
+    "Wand",
+    "Staff"
+  ],
+  "Xopecs_Soul_Core_of_Power": [
+    "Martial Weapon",
+    "Wand",
+    "Staff"
+  ],
+  "Zalatls_Soul_Core_of_Insulation": [
+    "Boots"
+  ],
+  "Uhtreds_Sidereus": [
+    "Boots"
+  ],
+  "Kolrs_Hunt": [
+    "Gloves"
+  ],
+  "Katlas_Gloom": [
+    "Gloves"
+  ]
+}

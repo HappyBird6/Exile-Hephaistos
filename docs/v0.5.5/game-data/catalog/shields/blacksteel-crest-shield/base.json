@@ -1,0 +1,40 @@
+{
+  "id": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+  "sourceRef": "src2289",
+  "implicitModifierId": "",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "blacksteel-crest-shield",
+    "slug": "Blacksteel_Crest_Shield",
+    "family": "shields",
+    "sourceSha256": "8b49535e38ee89480ddfc988c0472ba79143010bb5a7f163044fcf1b34250d02",
+    "sourceTags": [
+      "str_int_armour",
+      "str_int_shield",
+      "karui_basetype",
+      "shield",
+      "armour"
+    ],
+    "armour": 145,
+    "evasion": 0,
+    "energyShield": 40,
+    "baseMovementSpeed": -0.015,
+    "blockChance": 25,
+    "strength": 63,
+    "dexterity": 0,
+    "intelligence": 63,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [],
+    "ordinarySocketMaximum": 1,
+    "classId": 26,
+    "grantedSkill": "Raise_Shield",
+    "order": 82
+  }
+}

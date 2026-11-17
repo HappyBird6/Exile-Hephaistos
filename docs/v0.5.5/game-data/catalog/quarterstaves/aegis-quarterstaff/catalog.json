@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-aegis-quarterstaff-20261005-8df2a2f45a692d67",
     "retrievedAt": "2026-10-05T08:05:45.520Z",
-    "sourceUrl": "https://poe2db.tw/us/Quarterstaves",
+    "sourceRef": "src2238",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "657a547ca92a2267f16d689ae67d47c1470bc86752b2cef7c59ad07ccf20adfa",
     "detailsSha256": "ffd9368982262c98526e6b04788f983aa65f28741c2eea861b3639688d8eeafd"
-  },
-  "base": {
-    "id": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
-    "name": "Aegis Quarterstaff",
-    "sourceUrl": "https://poe2db.tw/us/Aegis_Quarterstaff",
-    "implicitModifierId": "aegis-quarterstaff:implicit:base",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": [

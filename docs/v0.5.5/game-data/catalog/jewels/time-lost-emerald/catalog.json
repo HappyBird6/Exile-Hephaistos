@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-time-lost-emerald-ancient-20261004-dcaf5e8e98cd",
     "retrievedAt": "2026-10-04T11:14:50.330Z",
-    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald",
+    "sourceRef": "src1889",
     "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
     "rawSha256": "dcaf5e8e98cddd6ea66a9c55dac8b5c2e8ebab7e15a1a262f67d67e0e0df935d",
     "detailsSha256": "ba8472d52a4903e948677b9cf183e1805ef587b2a1bcffe26846f7fb04e16dec"
-  },
-  "base": {
-    "id": "Metadata/Items/Jewels/JewelRadiusDex",
-    "name": "Time-Lost Emerald",
-    "sourceUrl": "https://poe2db.tw/us/Time-Lost_Emerald",
-    "implicitModifierId": "time-lost-emerald:implicit:base-radius",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 2,
-    "rareSuffixes": 2
   },
   "modifierPool": "time-lost-emerald-snapshot",
   "implicitModifiers": [

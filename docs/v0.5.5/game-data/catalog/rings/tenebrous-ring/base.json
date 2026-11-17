@@ -1,0 +1,59 @@
+{
+  "id": "Metadata/Items/Rings/FourRingLake4",
+  "sourceRef": "src1713",
+  "implicitModifierId": "tenebrous-ring:implicit:base",
+  "magicPrefixes": 0,
+  "magicSuffixes": 3,
+  "rarePrefixes": 1,
+  "rareSuffixes": 5,
+  "registration": {
+    "key": "tenebrous-ring",
+    "slug": "Tenebrous_Ring",
+    "family": "rings",
+    "sourceSha256": "2827be6cf197e3f60a4b1444fd57c64745ab3a368e744e49a04cf749ebc52867",
+    "sourceTags": [
+      "ring"
+    ],
+    "armour": 0,
+    "evasion": 0,
+    "energyShield": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "intelligence": 0,
+    "requiredLevel": 0,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -2,
+        "max": -2
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 2,
+        "max": 2
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "local_maximum_prefixes_allowed_+",
+        "min": -2,
+        "max": -2,
+        "locality": "Local"
+      },
+      {
+        "id": "local_maximum_suffixes_allowed_+",
+        "min": 2,
+        "max": 2,
+        "locality": "Local"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "order": 161
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "Metadata/Items/Quivers/FourQuiver9",
+  "sourceRef": "src1138",
+  "implicitModifierId": "penetrating-quiver:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "penetrating-quiver",
+    "slug": "Penetrating_Quiver",
+    "family": "quivers",
+    "sourceSha256": "7a722e6674d0af24163757688b8bcff002bbf3d3ad502c2163da143dd0e0f89b",
+    "sourceTags": [
+      "quiver"
+    ],
+    "armour": 0,
+    "strength": 0,
+    "dexterity": 0,
+    "requiredLevel": 55,
+    "maximumQuality": null,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 100,
+        "max": 100
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "base_chance_to_pierce_%",
+        "min": 100,
+        "max": 100,
+        "locality": "Global"
+      }
+    ],
+    "classId": 20,
+    "ordinarySocketMaximum": 0,
+    "order": 87
+  }
+}

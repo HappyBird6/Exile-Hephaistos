@@ -26,7 +26,10 @@
   },
   "Orb_of_Annulment": {
     "name": "Orb of Annulment",
-    "lines": ["Stack Size: 1 / 20", "Removes a random modifier from an item"],
+    "lines": [
+      "Stack Size: 1 / 20",
+      "Removes a random modifier from an item"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Orb_of_Annulment",
     "sourcePage": "https://poe2db.tw/us/Currency"
   },
@@ -2106,7 +2109,9 @@
   },
   "Preserved_Jawbone": {
     "name": "Preserved Jawbone",
-    "lines": ["Rare weapon or quiver: add an unrevealed desecrated modifier."],
+    "lines": [
+      "Rare weapon or quiver: add an unrevealed desecrated modifier."
+    ],
     "sourceUrl": "https://poe2db.tw/us/Preserved_Jawbone"
   },
   "Ancient_Jawbone": {
@@ -2127,7 +2132,9 @@
   },
   "Preserved_Rib": {
     "name": "Preserved Rib",
-    "lines": ["Rare armour: add an unrevealed desecrated modifier."],
+    "lines": [
+      "Rare armour: add an unrevealed desecrated modifier."
+    ],
     "sourceUrl": "https://poe2db.tw/us/Preserved_Rib"
   },
   "Ancient_Rib": {
@@ -2163,7 +2170,9 @@
   },
   "Preserved_Cranium": {
     "name": "Preserved Cranium",
-    "lines": ["Desecrates a Rare Jewel."],
+    "lines": [
+      "Desecrates a Rare Jewel."
+    ],
     "sourceUrl": "https://poe2db.tw/us/Preserved_Cranium"
   },
   "Altered_Collarbone": {
@@ -2175,12 +2184,16 @@
   },
   "Armourers_Scrap": {
     "name": "Armourer's Scrap",
-    "lines": ["Improves the quality of an armour"],
+    "lines": [
+      "Improves the quality of an armour"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Armourers_Scrap"
   },
   "Blacksmiths_Whetstone": {
     "name": "Blacksmith's Whetstone",
-    "lines": ["Improves the quality of a martial weapon"],
+    "lines": [
+      "Improves the quality of a martial weapon"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Blacksmiths_Whetstone"
   },
   "Lesser_Desert_Rune": {
@@ -3698,27 +3711,37 @@
   },
   "Ancient_Rune_of_Control": {
     "name": "Ancient Rune of Control",
-    "lines": ["Quarterstaves: 50% increased Immobilisation buildup"],
+    "lines": [
+      "Quarterstaves: 50% increased Immobilisation buildup"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Control"
   },
   "Ancient_Rune_of_Decay": {
     "name": "Ancient Rune of Decay",
-    "lines": ["Wands: 25% increased Withered Magnitude"],
+    "lines": [
+      "Wands: 25% increased Withered Magnitude"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Decay"
   },
   "Ancient_Rune_of_Detonation": {
     "name": "Ancient Rune of Detonation",
-    "lines": ["Crossbows: Grenades have 10% chance to activate a second time"],
+    "lines": [
+      "Crossbows: Grenades have 10% chance to activate a second time"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Detonation"
   },
   "Ancient_Rune_of_Discovery": {
     "name": "Ancient Rune of Discovery",
-    "lines": ["Staves: 30% chance to create an additional Remnant"],
+    "lines": [
+      "Staves: 30% chance to create an additional Remnant"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Discovery"
   },
   "Ancient_Rune_of_Dueling": {
     "name": "Ancient Rune of Dueling",
-    "lines": ["Bucklers: 30% increased Parried Debuff Magnitude"],
+    "lines": [
+      "Bucklers: 30% increased Parried Debuff Magnitude"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Dueling"
   },
   "Ancient_Rune_of_Prowess": {
@@ -3737,12 +3760,16 @@
   },
   "Ancient_Rune_of_Shattering": {
     "name": "Ancient Rune of Shattering",
-    "lines": ["One Hand Maces: 40% increased effect of Fully Broken Armour"],
+    "lines": [
+      "One Hand Maces: 40% increased effect of Fully Broken Armour"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Shattering"
   },
   "Ancient_Rune_of_Splinters": {
     "name": "Ancient Rune of Splinters",
-    "lines": ["Bows: +50% Surpassing chance to fire an additional Arrow"],
+    "lines": [
+      "Bows: +50% Surpassing chance to fire an additional Arrow"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Ancient_Rune_of_Splinters"
   },
   "Ancient_Rune_of_the_Titan": {
@@ -3829,7 +3856,9 @@
   },
   "Citaqualotls_Soul_Core_of_Foulness": {
     "name": "Citaqualotl's Soul Core of Foulness",
-    "lines": ["Martial Weapon: Adds 19 to 29 Chaos damage"],
+    "lines": [
+      "Martial Weapon: Adds 19 to 29 Chaos damage"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Citaqualotls_Soul_Core_of_Foulness"
   },
   "Citaqualotls_Thesis": {
@@ -3843,7 +3872,9 @@
   },
   "Countess_Seskes_Rune_of_Archery": {
     "name": "Countess Seske's Rune of Archery",
-    "lines": ["Bows: Bow Attacks fire 1 additional Arrows"],
+    "lines": [
+      "Bows: Bow Attacks fire 1 additional Arrows"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Countess_Seskes_Rune_of_Archery"
   },
   "Courtesan_Mannans_Rune_of_Cruelty": {
@@ -3855,12 +3886,16 @@
   },
   "Craiceanns_Rune_of_Recovery": {
     "name": "Craiceann's Rune of Recovery",
-    "lines": ["Body Armours: 30% increased Energy Shield Recharge Rate"],
+    "lines": [
+      "Body Armours: 30% increased Energy Shield Recharge Rate"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Craiceanns_Rune_of_Recovery"
   },
   "Craiceanns_Rune_of_Warding": {
     "name": "Craiceann's Rune of Warding",
-    "lines": ["Body Armours: 50% reduced effect of Curses on you"],
+    "lines": [
+      "Body Armours: 50% reduced effect of Curses on you"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Craiceanns_Rune_of_Warding"
   },
   "Emergent_Instinct": {
@@ -3909,12 +3944,16 @@
   },
   "Farruls_Rune_of_Grace": {
     "name": "Farrul's Rune of Grace",
-    "lines": ["Boots: 8% increased Deflection Rating while moving"],
+    "lines": [
+      "Boots: 8% increased Deflection Rating while moving"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Farruls_Rune_of_Grace"
   },
   "Farruls_Rune_of_the_Chase": {
     "name": "Farrul's Rune of the Chase",
-    "lines": ["Boots: 5% increased Movement Speed"],
+    "lines": [
+      "Boots: 5% increased Movement Speed"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Farruls_Rune_of_the_Chase"
   },
   "Farruls_Rune_of_the_Hunt": {
@@ -3934,12 +3973,16 @@
   },
   "Fenumus_Rune_of_Draining": {
     "name": "Fenumus' Rune of Draining",
-    "lines": ["Gloves: 20% increased Withered Magnitude"],
+    "lines": [
+      "Gloves: 20% increased Withered Magnitude"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Fenumus_Rune_of_Draining"
   },
   "Fenumus_Rune_of_Spinning": {
     "name": "Fenumus' Rune of Spinning",
-    "lines": ["Gloves: 8% increased Cast Speed"],
+    "lines": [
+      "Gloves: 8% increased Cast Speed"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Fenumus_Rune_of_Spinning"
   },
   "Greater_Rune_of_Alacrity": {
@@ -4001,12 +4044,16 @@
   },
   "Hayoxis_Soul_Core_of_Heatproofing": {
     "name": "Hayoxi's Soul Core of Heatproofing",
-    "lines": ["Helmets: +40% of Armour also applies to Cold Damage"],
+    "lines": [
+      "Helmets: +40% of Armour also applies to Cold Damage"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Hayoxis_Soul_Core_of_Heatproofing"
   },
   "Hedgewitch_Assandras_Rune_of_Wisdom": {
     "name": "Hedgewitch Assandra's Rune of Wisdom",
-    "lines": ["Wand or Staff: +1 to Level of all Spell Skills"],
+    "lines": [
+      "Wand or Staff: +1 to Level of all Spell Skills"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Hedgewitch_Assandras_Rune_of_Wisdom"
   },
   "Idol_of_Alira": {
@@ -4149,67 +4196,93 @@
   },
   "Jiquanis_Soul_Core_of_Abundance": {
     "name": "Jiquani's Soul Core of Abundance",
-    "lines": ["Weapon: +1 to Level of all Plant Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Plant Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Abundance"
   },
   "Jiquanis_Soul_Core_of_Automation": {
     "name": "Jiquani's Soul Core of Automation",
-    "lines": ["Weapon: +1 to Level of all Totem Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Totem Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Automation"
   },
   "Jiquanis_Soul_Core_of_Malediction": {
     "name": "Jiquani's Soul Core of Malediction",
-    "lines": ["Weapon: +1 to Level of all Curse Skills"],
+    "lines": [
+      "Weapon: +1 to Level of all Curse Skills"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Malediction"
   },
   "Jiquanis_Soul_Core_of_Munitions": {
     "name": "Jiquani's Soul Core of Munitions",
-    "lines": ["Weapon: +1 to Level of all Grenade Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Grenade Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Munitions"
   },
   "Jiquanis_Soul_Core_of_Quaking": {
     "name": "Jiquani's Soul Core of Quaking",
-    "lines": ["Weapon: +1 to Level of all Slam Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Slam Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Quaking"
   },
   "Jiquanis_Soul_Core_of_Radiance": {
     "name": "Jiquani's Soul Core of Radiance",
-    "lines": ["Weapon: +1 to Level of all Herald Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Herald Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Radiance"
   },
   "Jiquanis_Soul_Core_of_Rallying": {
     "name": "Jiquani's Soul Core of Rallying",
-    "lines": ["Weapon: +1 to Level of all Warcry Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Warcry Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Rallying"
   },
   "Jiquanis_Soul_Core_of_Rippling": {
     "name": "Jiquani's Soul Core of Rippling",
-    "lines": ["Weapon: +1 to Level of all Nova Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Nova Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Rippling"
   },
   "Jiquanis_Soul_Core_of_Severing": {
     "name": "Jiquani's Soul Core of Severing",
-    "lines": ["Weapon: +1 to Level of all Strike Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Strike Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Severing"
   },
   "Jiquanis_Soul_Core_of_Snares": {
     "name": "Jiquani's Soul Core of Snares",
-    "lines": ["Weapon: +1 to Level of all Hazard Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Hazard Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Snares"
   },
   "Jiquanis_Soul_Core_of_Squalls": {
     "name": "Jiquani's Soul Core of Squalls",
-    "lines": ["Weapon: +1 to Level of all Wind Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Wind Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Squalls"
   },
   "Jiquanis_Soul_Core_of_Targeting": {
     "name": "Jiquani's Soul Core of Targeting",
-    "lines": ["Weapon: +1 to Level of all Mark Skills"],
+    "lines": [
+      "Weapon: +1 to Level of all Mark Skills"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Targeting"
   },
   "Jiquanis_Soul_Core_of_Thundering": {
     "name": "Jiquani's Soul Core of Thundering",
-    "lines": ["Weapon: +1 to Level of all Storm Skill Gems"],
+    "lines": [
+      "Weapon: +1 to Level of all Storm Skill Gems"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Jiquanis_Soul_Core_of_Thundering"
   },
   "Jiquanis_Thesis": {
@@ -4239,17 +4312,23 @@
   },
   "Legacy_of_A_Worthy_Foe": {
     "name": "Legacy of A Worthy Foe",
-    "lines": ["Shields: Off-hand Hits inflict Runefather's Challenge"],
+    "lines": [
+      "Shields: Off-hand Hits inflict Runefather's Challenge"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_A_Worthy_Foe"
   },
   "Legacy_of_Adonias_Ego": {
     "name": "Legacy of Adonia's Ego",
-    "lines": ["Wands: +1 to Maximum Power Charges"],
+    "lines": [
+      "Wands: +1 to Maximum Power Charges"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Adonias_Ego"
   },
   "Legacy_of_Alkem_Eira": {
     "name": "Legacy of Alkem Eira",
-    "lines": ["Shields: 30% of damage Blocked is Recouped as Mana"],
+    "lines": [
+      "Shields: 30% of damage Blocked is Recouped as Mana"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Alkem_Eira"
   },
   "Legacy_of_Amor_Mandragora": {
@@ -4268,7 +4347,9 @@
   },
   "Legacy_of_Blackbraid": {
     "name": "Legacy of Blackbraid",
-    "lines": ["Body Armours: +50% of Armour also applies to Elemental Damage"],
+    "lines": [
+      "Body Armours: +50% of Armour also applies to Elemental Damage"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Blackbraid"
   },
   "Legacy_of_Brain_Rattler": {
@@ -4287,7 +4368,9 @@
   },
   "Legacy_of_Briarpatch": {
     "name": "Legacy of Briarpatch",
-    "lines": ["Boots: +15% to Thorns Critical Hit Chance"],
+    "lines": [
+      "Boots: +15% to Thorns Critical Hit Chance"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Briarpatch"
   },
   "Legacy_of_Briskwrap": {
@@ -4306,12 +4389,16 @@
   },
   "Legacy_of_Brynhands_Mark": {
     "name": "Legacy of Brynhand's Mark",
-    "lines": ["One Hand Maces: Causes Double Stun Buildup"],
+    "lines": [
+      "One Hand Maces: Causes Double Stun Buildup"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Brynhands_Mark"
   },
   "Legacy_of_Bushwhack": {
     "name": "Legacy of Bushwhack",
-    "lines": ["Boots: Physical Damage is Pinning"],
+    "lines": [
+      "Boots: Physical Damage is Pinning"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Bushwhack"
   },
   "Legacy_of_Candlemaker": {
@@ -4330,17 +4417,23 @@
   },
   "Legacy_of_Crown_of_Thorns": {
     "name": "Legacy of Crown of Thorns",
-    "lines": ["Helmets: Pain Attunement"],
+    "lines": [
+      "Helmets: Pain Attunement"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Crown_of_Thorns"
   },
   "Legacy_of_Cursecarver": {
     "name": "Legacy of Cursecarver",
-    "lines": ["Wands: +3 to Level of all Curse Skills"],
+    "lines": [
+      "Wands: +3 to Level of all Curse Skills"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Cursecarver"
   },
   "Legacy_of_Deathblow": {
     "name": "Legacy of Deathblow",
-    "lines": ["Gloves: Culling Strike"],
+    "lines": [
+      "Gloves: Culling Strike"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Deathblow"
   },
   "Legacy_of_Deidbell": {
@@ -4352,7 +4445,9 @@
   },
   "Legacy_of_Dionadair": {
     "name": "Legacy of Dionadair",
-    "lines": ["Shields: Double Stun Threshold while Shield is Raised"],
+    "lines": [
+      "Shields: Double Stun Threshold while Shield is Raised"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Dionadair"
   },
   "Legacy_of_Duality": {
@@ -4364,12 +4459,16 @@
   },
   "Legacy_of_Dunkelhalt": {
     "name": "Legacy of Dunkelhalt",
-    "lines": ["Bucklers: 50% increased Parried Debuff Magnitude"],
+    "lines": [
+      "Bucklers: 50% increased Parried Debuff Magnitude"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Dunkelhalt"
   },
   "Legacy_of_Dusk_Vigil": {
     "name": "Legacy of Dusk Vigil",
-    "lines": ["Staves: Gain 30% of Physical Damage as Extra Fire Damage"],
+    "lines": [
+      "Staves: Gain 30% of Physical Damage as Extra Fire Damage"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Dusk_Vigil"
   },
   "Legacy_of_Edyrns_Tusks": {
@@ -4381,7 +4480,9 @@
   },
   "Legacy_of_Elevore": {
     "name": "Legacy of Elevore",
-    "lines": ["Helmets: Charms gain 1 charge per Second, +1 Charm Slots"],
+    "lines": [
+      "Helmets: Charms gain 1 charge per Second, +1 Charm Slots"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Elevore"
   },
   "Legacy_of_Erians_Cobble": {
@@ -4393,12 +4494,16 @@
   },
   "Legacy_of_Ezomyte_Peak": {
     "name": "Legacy of Ezomyte Peak",
-    "lines": ["Helmets: 15% increased Area of Effect, Unwavering Stance"],
+    "lines": [
+      "Helmets: 15% increased Area of Effect, Unwavering Stance"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Ezomyte_Peak"
   },
   "Legacy_of_Facebreaker": {
     "name": "Legacy of Facebreaker",
-    "lines": ["Gloves: +1 to Armour per Strength"],
+    "lines": [
+      "Gloves: +1 to Armour per Strength"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Facebreaker"
   },
   "Legacy_of_Foxshade": {
@@ -4410,7 +4515,9 @@
   },
   "Legacy_of_Greymake": {
     "name": "Legacy of Greymake",
-    "lines": ["Helmets: +50 to all Attributes"],
+    "lines": [
+      "Helmets: +50 to all Attributes"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Greymake"
   },
   "Legacy_of_Hoghunt": {
@@ -4457,12 +4564,16 @@
   },
   "Legacy_of_Legionstride": {
     "name": "Legacy of Legionstride",
-    "lines": ["Boots: +10% to Block chance"],
+    "lines": [
+      "Boots: +10% to Block chance"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Legionstride"
   },
   "Legacy_of_Lifesprig": {
     "name": "Legacy of Lifesprig",
-    "lines": ["Wands: +2 to Level of all Spell Skills"],
+    "lines": [
+      "Wands: +2 to Level of all Spell Skills"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Lifesprig"
   },
   "Legacy_of_Mj%C3%B6lner": {
@@ -4481,12 +4592,16 @@
   },
   "Legacy_of_Oaksworn": {
     "name": "Legacy of Oaksworn",
-    "lines": ["Shields: 50% increased Life Regeneration rate"],
+    "lines": [
+      "Shields: 50% increased Life Regeneration rate"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Oaksworn"
   },
   "Legacy_of_Oberns_Bastion": {
     "name": "Legacy of Obern's Bastion",
-    "lines": ["Boots: 200% increased Stun Recovery"],
+    "lines": [
+      "Boots: 200% increased Stun Recovery"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Oberns_Bastion"
   },
   "Legacy_of_Olrovasara": {
@@ -4498,12 +4613,16 @@
   },
   "Legacy_of_Quill_Rain": {
     "name": "Legacy of Quill Rain",
-    "lines": ["Bows: 50% increased Attack Speed, 20% less Attack Damage"],
+    "lines": [
+      "Bows: 50% increased Attack Speed, 20% less Attack Damage"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Quill_Rain"
   },
   "Legacy_of_Rondel_de_Ezo": {
     "name": "Legacy of Rondel de Ezo",
-    "lines": ["Bucklers: Curse Enemies with Enfeeble on Block"],
+    "lines": [
+      "Bucklers: Curse Enemies with Enfeeble on Block"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Rondel_de_Ezo"
   },
   "Legacy_of_Spiteful_Floret": {
@@ -4536,7 +4655,9 @@
   },
   "Legacy_of_The_Knight-errant": {
     "name": "Legacy of The Knight-errant",
-    "lines": ["Boots: Iron Reflexes"],
+    "lines": [
+      "Boots: Iron Reflexes"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_The_Knight-errant"
   },
   "Legacy_of_The_Sentry": {
@@ -4590,12 +4711,16 @@
   },
   "Legacy_of_Tyrannys_Grip": {
     "name": "Legacy of Tyranny's Grip",
-    "lines": ["Spears: Strikes deal Splash Damage"],
+    "lines": [
+      "Spears: Strikes deal Splash Damage"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Tyrannys_Grip"
   },
   "Legacy_of_Wanderlust": {
     "name": "Legacy of Wanderlust",
-    "lines": ["Boots: Your speed is unaffected by Slows"],
+    "lines": [
+      "Boots: Your speed is unaffected by Slows"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Wanderlust"
   },
   "Legacy_of_Wings_of_Caelyn": {
@@ -4607,7 +4732,9 @@
   },
   "Legacy_of_Wulfsbane": {
     "name": "Legacy of Wulfsbane",
-    "lines": ["Shields: Intimidate Enemies on Block for 8 seconds"],
+    "lines": [
+      "Shields: Intimidate Enemies on Block for 8 seconds"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Wulfsbane"
   },
   "Opilotis_Soul_Core_of_Assault": {
@@ -4745,7 +4872,9 @@
   },
   "Rune_of_the_Blossom": {
     "name": "Rune of the Blossom",
-    "lines": ["Body Armours: +50 to Spirit, -1 to Spirit per 2 Levels"],
+    "lines": [
+      "Body Armours: +50 to Spirit, -1 to Spirit per 2 Levels"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Rune_of_the_Blossom"
   },
   "Rune_of_the_Hunt": {
@@ -4765,12 +4894,16 @@
   },
   "Saqawals_Rune_of_Erosion": {
     "name": "Saqawal's Rune of Erosion",
-    "lines": ["Helmets: 25% increased Exposure Effect"],
+    "lines": [
+      "Helmets: 25% increased Exposure Effect"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Saqawals_Rune_of_Erosion"
   },
   "Saqawals_Rune_of_Memory": {
     "name": "Saqawal's Rune of Memory",
-    "lines": ["Helmets: 2% increased Experience gain"],
+    "lines": [
+      "Helmets: 2% increased Experience gain"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Saqawals_Rune_of_Memory"
   },
   "Saqawals_Rune_of_the_Sky": {
@@ -4807,7 +4940,9 @@
   },
   "Tacatis_Soul_Core_of_Affliction": {
     "name": "Tacati's Soul Core of Affliction",
-    "lines": ["Helmets: Enemies you Curse have -5% to Chaos Resistance"],
+    "lines": [
+      "Helmets: Enemies you Curse have -5% to Chaos Resistance"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Tacatis_Soul_Core_of_Affliction"
   },
   "Tecrods_Gaze": {
@@ -4849,22 +4984,30 @@
   },
   "The_Greatwolfs_Rune_of_Claws": {
     "name": "The Greatwolf's Rune of Claws",
-    "lines": ["Gloves: Adds 5 to 12 Physical Damage to Attacks"],
+    "lines": [
+      "Gloves: Adds 5 to 12 Physical Damage to Attacks"
+    ],
     "sourceUrl": "https://poe2db.tw/us/The_Greatwolfs_Rune_of_Claws"
   },
   "The_Greatwolfs_Rune_of_Willpower": {
     "name": "The Greatwolf's Rune of Willpower",
-    "lines": ["Body Armours: 15% of Damage is taken from Mana before Life"],
+    "lines": [
+      "Body Armours: 15% of Damage is taken from Mana before Life"
+    ],
     "sourceUrl": "https://poe2db.tw/us/The_Greatwolfs_Rune_of_Willpower"
   },
   "Topotantes_Soul_Core_of_Dampening": {
     "name": "Topotante's Soul Core of Dampening",
-    "lines": ["Gloves: +40% of Armour also applies to Fire Damage"],
+    "lines": [
+      "Gloves: +40% of Armour also applies to Fire Damage"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Topotantes_Soul_Core_of_Dampening"
   },
   "Tzamotos_Soul_Core_of_Ferocity": {
     "name": "Tzamoto's Soul Core of Ferocity",
-    "lines": ["Helmets: +4 to Maximum Rage"],
+    "lines": [
+      "Helmets: +4 to Maximum Rage"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Tzamotos_Soul_Core_of_Ferocity"
   },
   "Ulamans_Gaze": {
@@ -4969,7 +5112,9 @@
   },
   "Warding_Rune_of_Reinforcement": {
     "name": "Warding Rune of Reinforcement",
-    "lines": ["Armour: 20% increased Runic Ward"],
+    "lines": [
+      "Armour: 20% increased Runic Ward"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Warding_Rune_of_Reinforcement"
   },
   "Warding_Rune_of_Stability": {
@@ -5012,12 +5157,16 @@
   },
   "Zalatls_Soul_Core_of_Insulation": {
     "name": "Zalatl's Soul Core of Insulation",
-    "lines": ["Boots: +40% of Armour also applies to Lightning Damage"],
+    "lines": [
+      "Boots: +40% of Armour also applies to Lightning Damage"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Zalatls_Soul_Core_of_Insulation"
   },
   "Astrids_Creativity": {
     "name": "Astrid's Creativity",
-    "lines": ["All Equipment: Can have 1 additional Crafted Modifiers"],
+    "lines": [
+      "All Equipment: Can have 1 additional Crafted Modifiers"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Astrids_Creativity"
   },
   "Serles_Triumph": {
@@ -5029,12 +5178,16 @@
   },
   "Legacy_of_Serles_Grit": {
     "name": "Legacy of Serle's Grit",
-    "lines": ["One Hand Maces: Maximum Quality is 40%"],
+    "lines": [
+      "One Hand Maces: Maximum Quality is 40%"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Serles_Grit"
   },
   "Legacy_of_Runeseekers_Call": {
     "name": "Legacy of Runeseeker's Call",
-    "lines": ["Wands: 75% increased effect of Socketed Runes"],
+    "lines": [
+      "Wands: 75% increased effect of Socketed Runes"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Legacy_of_Runeseekers_Call"
   },
   "Fox_Idol": {
@@ -5047,37 +5200,51 @@
   },
   "Raven-Touched_Shard": {
     "name": "Raven-Touched Shard",
-    "lines": ["Helmets: Raven-Touched"],
+    "lines": [
+      "Helmets: Raven-Touched"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Raven-Touched_Shard"
   },
   "Uhtreds_Sidereus": {
     "name": "Uhtred's Sidereus",
-    "lines": ["Boots: Can roll Chronomancy modifiers"],
+    "lines": [
+      "Boots: Can roll Chronomancy modifiers"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Uhtreds_Sidereus"
   },
   "Kolrs_Hunt": {
     "name": "Kolr's Hunt",
-    "lines": ["Gloves: Can roll Marksman modifiers"],
+    "lines": [
+      "Gloves: Can roll Marksman modifiers"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Kolrs_Hunt"
   },
   "Voranas_Carnage": {
     "name": "Vorana's Carnage",
-    "lines": ["Helmets: Can roll Berserking modifiers"],
+    "lines": [
+      "Helmets: Can roll Berserking modifiers"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Voranas_Carnage"
   },
   "Thruds_Might": {
     "name": "Thrud's Might",
-    "lines": ["Weapon: Can roll Destruction modifiers"],
+    "lines": [
+      "Weapon: Can roll Destruction modifiers"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Thruds_Might"
   },
   "Medveds_Tending": {
     "name": "Medved's Tending",
-    "lines": ["Body Armours: Can roll Soul modifiers"],
+    "lines": [
+      "Body Armours: Can roll Soul modifiers"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Medveds_Tending"
   },
   "Katlas_Gloom": {
     "name": "Katla's Gloom",
-    "lines": ["Gloves: Can roll Decay modifiers"],
+    "lines": [
+      "Gloves: Can roll Decay modifiers"
+    ],
     "sourceUrl": "https://poe2db.tw/us/Katlas_Gloom"
   },
   "Vaal_Arcanists_Infuser": {

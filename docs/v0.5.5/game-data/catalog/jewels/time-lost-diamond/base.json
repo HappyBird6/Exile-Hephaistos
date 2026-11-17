@@ -1,0 +1,14 @@
+{
+  "id": "Metadata/Items/Jewels/JewelRadiusDiamond",
+  "sourceRef": "src1718",
+  "implicitModifierId": "time-lost-diamond:implicit:base-radius",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 2,
+  "rareSuffixes": 2,
+  "legacy": {
+    "key": "time-lost-diamond",
+    "slug": "Time-Lost Diamond",
+    "order": 16
+  }
+}

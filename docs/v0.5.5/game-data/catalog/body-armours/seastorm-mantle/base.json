@@ -1,0 +1,52 @@
+{
+  "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+  "sourceRef": "src1472",
+  "implicitModifierId": "seastorm-mantle:implicit:base",
+  "magicPrefixes": 1,
+  "magicSuffixes": 1,
+  "rarePrefixes": 3,
+  "rareSuffixes": 3,
+  "registration": {
+    "key": "seastorm-mantle",
+    "slug": "Seastorm_Mantle",
+    "family": "body",
+    "sourceSha256": "5b315b1299656918a4ca12d39656bb4f9be5e7e81c0ddc8fe4eee09760a9df7c",
+    "sourceTags": [
+      "str_int_armour",
+      "karui_basetype",
+      "body_armour",
+      "armour"
+    ],
+    "armour": 273,
+    "evasion": 0,
+    "energyShield": 76,
+    "strength": 67,
+    "dexterity": 0,
+    "intelligence": 67,
+    "requiredLevel": 80,
+    "maximumQuality": 20,
+    "implicitModifierId": {
+      "fromBase": true
+    },
+    "implicitStats": [
+      {
+        "id": "damage_taken_goes_to_life_over_4_seconds_%",
+        "min": 8,
+        "max": 14
+      }
+    ],
+    "implicitLocalities": [
+      {
+        "id": "damage_taken_goes_to_life_over_4_seconds_%",
+        "min": 8,
+        "max": 14,
+        "locality": "Global"
+      }
+    ],
+    "affixLimits": {
+      "fromBase": true
+    },
+    "archetype": "str_int",
+    "order": 152
+  }
+}

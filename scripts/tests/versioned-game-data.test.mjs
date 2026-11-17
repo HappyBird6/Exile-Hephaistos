@@ -5,7 +5,8 @@ import os from 'node:os'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { spawnSync } from 'node:child_process'
-import { allocate, domains, runtimePathFor, synchronize, versionRoot } from '../versioned-game-data.mjs'
+import { gameDataOutputs } from '../game-data-outputs.mjs'
+import { allocate, domains, synchronize, versionRoot } from '../versioned-game-data.mjs'
 
 test('IDs survive sorting changes, retirement, restoration and JSON round trips', () => {
   const initial = allocate(null, ['zulu', 'middle'], 'bases')
@@ -35,130 +36,111 @@ test('ambiguous or malformed registries fail instead of silently assigning new I
   assert.equal(new Set(Object.values(domains)).size, Object.keys(domains).length)
 })
 
+const repository = fileURLToPath(new URL('../..', import.meta.url))
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'versioned-data-'))
   t.after(() => fs.rmSync(root, { recursive: true, force: true }))
+  fs.cpSync(path.join(repository, versionRoot), path.join(root, versionRoot), { recursive: true })
+  const read = name => fs.readFileSync(path.join(root, name))
+  const load = name => JSON.parse(read(name))
   const write = (name, value) => {
     const file = path.join(root, name)
     fs.mkdirSync(path.dirname(file), { recursive: true })
-    fs.writeFileSync(file, typeof value === 'string' ? value : JSON.stringify(value))
+    fs.writeFileSync(file, Buffer.isBuffer(value) || typeof value === 'string' ? value : JSON.stringify(value))
   }
-  const resources = [
-    { path: 'game-data/catalog/top-bases.json', runtimePath: 'backend/src/main/resources/catalog/top-bases.json' },
-    { path: 'game-data/crafting/workbench-definitions-v1.json', runtimePath: 'backend/src/main/resources/crafting/workbench-definitions-v1.json' },
-    { path: 'i18n/messages.json', runtimePath: 'frontend/src/shared/i18n/messages.json' },
-  ]
-  const values = ['{\r\n "zulu": {"key":"zulu"}\r\n}\r\n', { currencies: [{ id: 'CHAOS' }], omens: [] }, { en: { hello: 'Hello' }, ko: { hello: '안녕' } }]
-  resources.forEach((entry, i) => { write(`${versionRoot}/${entry.path}`, values[i]); write(entry.runtimePath, values[i]) })
-  write(`${versionRoot}/manifest.json`, { schemaVersion: 1, dataVersion: '0.5.5', resources })
-  write(`${versionRoot}/game-rule/currency.md`, '# Rules\n')
-  fs.mkdirSync(path.join(root, versionRoot, 'mappings'))
   synchronize(root, true)
-  return { root, write, resources, read: name => fs.readFileSync(path.join(root, name)) }
+  return { root, read, load, write }
 }
 
-test('canonical bytes are preserved and read-only checks reject stale runtime data', t => {
-  const { root, read, write, resources } = fixture(t)
-  const entry = resources[0]
-  assert.deepEqual(read(entry.runtimePath), read(`${versionRoot}/${entry.path}`))
+test('read-only checks reject drift and no-op generation leaves file watchers alone', t => {
+  const { root, read, write } = fixture(t)
+  const mirror = 'backend/src/main/resources/catalog/top-bases.json'
   synchronize(root)
+  const readonly = 'crafting/goalfilter/definitions-v5-readonly.json'
+  assert.deepEqual(read(`backend/src/main/resources/${readonly}`), read(`${versionRoot}/game-data/${readonly}`))
   const original = read(`${versionRoot}/manifest.json`)
-  write(entry.runtimePath, '{}')
+  write(mirror, '{}')
   assert.throws(() => synchronize(root), /Data drift/)
-  assert.equal(read(entry.runtimePath).toString(), '{}')
+  assert.equal(read(mirror).toString(), '{}')
   assert.deepEqual(read(`${versionRoot}/manifest.json`), original)
   synchronize(root, true)
-  synchronize(root)
-  const mirror = path.join(root, entry.runtimePath)
-  fs.utimesSync(mirror, new Date('2000-01-01'), new Date('2000-01-01'))
-  const modifiedAt = fs.statSync(mirror).mtimeMs
+  fs.utimesSync(path.join(root, mirror), new Date('2000-01-01'), new Date('2000-01-01'))
   synchronize(root, true)
-  assert.equal(fs.statSync(mirror).mtimeMs, modifiedAt, 'No-op generation must not trigger file watchers')
+  assert.equal(fs.statSync(path.join(root, mirror)).mtimeMs, new Date('2000-01-01').getTime())
 })
 
-test('translation changes keep IDs while new keys append; prose changes need no generation', t => {
-  const { root, read, write } = fixture(t)
-  const mapping = `${versionRoot}/mappings/messages.json`
-  const first = JSON.parse(read(mapping)).entries[0]
-  write(`${versionRoot}/i18n/messages.json`, { en: { earlier: 'New', hello: 'Updated' }, ko: { hello: '수정' } })
-  synchronize(root, true)
-  const rows = JSON.parse(read(mapping)).entries
-  assert.deepEqual(rows[0], first)
-  assert.equal(rows[1].sourceKey, 'earlier')
-  write(`${versionRoot}/game-rule/currency.md`, '# Changed\n')
-  const before = read(`${versionRoot}/manifest.json`)
-  synchronize(root)
-  assert.deepEqual(read(`${versionRoot}/manifest.json`), before)
-})
-
-test('missing published mappings fail before mirror writes; new files need no manifest editing', t => {
-  const { root, read, write, resources } = fixture(t)
+test('translation changes preserve IDs and prose needs no generation', t => {
+  const { root, load, read, write } = fixture(t)
   const mapping = `${versionRoot}/mappings/bases.json`
-  const saved = read(mapping)
-  fs.unlinkSync(path.join(root, mapping))
-  write(`${versionRoot}/${resources[0].path}`, { alpha: { key: 'alpha' } })
-  const original = read(resources[0].runtimePath)
-  assert.throws(() => synchronize(root, true), /Published mapping is missing/)
-  assert.deepEqual(read(resources[0].runtimePath), original)
-  write(mapping, saved.toString())
-  write(`${versionRoot}/game-data/catalog/unlisted.json`, {})
+  const initial = read(mapping)
+  const texts = `${versionRoot}/i18n/catalog/bases.json`
+  const names = load(texts)
+  const id = load('backend/src/main/resources/catalog/top-bases.json').soldier.id
+  names[id].name = 'Changed display name'
+  write(texts, names)
   synchronize(root, true)
-  assert.equal(read('backend/src/main/resources/catalog/unlisted.json').toString(), '{}')
+  assert.equal(load('backend/src/main/resources/catalog/top-bases.json').soldier.name, 'Changed display name')
+  assert.deepEqual(read(mapping), initial)
+  write(`${versionRoot}/game-rule/currency.md`, '# Changed prose\n')
   synchronize(root)
 })
 
-test('destinations come from four directory conventions, never editable manifest paths', t => {
+test('missing published mappings fail before runtime writes', t => {
   const { root, read, write } = fixture(t)
-  assert.equal(runtimePathFor('game-data/display/base-picker/images.json'), 'frontend/src/features/crafting/base-picker/images.json')
-  assert.throws(() => runtimePathFor('game-data/catalog/../../outside.json'), /Invalid data path/)
-  assert.throws(() => runtimePathFor('game-data/unknown/new.json'), /Unknown data directory/)
-  const manifest = JSON.parse(read(`${versionRoot}/manifest.json`))
-  manifest.resources[0].runtimePath = 'backend/src/main/resources/catalog/../../../../../../outside.json'
-  write(`${versionRoot}/manifest.json`, manifest)
-  assert.throws(() => synchronize(root), /Data drift/)
-  synchronize(root, true)
-  assert.equal(fs.existsSync(path.join(root, 'outside.json')), false)
-  assert.equal(JSON.parse(read(`${versionRoot}/manifest.json`)).resources[0].runtimePath, 'backend/src/main/resources/catalog/top-bases.json')
+  fs.unlinkSync(path.join(root, versionRoot, 'mappings/bases.json'))
+  write(`${versionRoot}/game-data/crafting/new-resource.json`, {})
+  const original = read('backend/src/main/resources/catalog/top-bases.json')
+  assert.throws(() => synchronize(root, true), /Published mapping is missing/)
+  assert.deepEqual(read('backend/src/main/resources/catalog/top-bases.json'), original)
+  assert(!fs.existsSync(path.join(root, 'backend/src/main/resources/crafting/new-resource.json')))
 })
 
-test('removing a source never silently leaves a live runtime copy', t => {
-  const { root, resources } = fixture(t)
-  const source = path.join(root, versionRoot, resources[0].path)
-  fs.unlinkSync(source)
+test('generated paths cannot escape the repository and unknown source folders fail', t => {
+  const { root, load, write } = fixture(t)
+  const name = `${versionRoot}/manifest.json`
+  const manifest = load(name)
+  manifest.generated[0].runtimePath = 'backend/src/main/resources/../../../../outside.json'
+  write(name, manifest)
+  assert.throws(() => synchronize(root, true), /Invalid generated resource path/)
+  assert(!fs.existsSync(path.join(root, 'outside.json')))
+  write(`${versionRoot}/game-data/unknown/new.json`, {})
+  assert.throws(() => synchronize(root, true), /Unknown game-data directory/)
+})
+
+test('removing a source requires explicit archival of its runtime output', t => {
+  const { root, write } = fixture(t)
+  const source = `${versionRoot}/game-data/crafting/workflow-test.json`
+  const runtime = 'backend/src/main/resources/crafting/workflow-test.json'
+  write(source, {})
+  synchronize(root, true)
+  fs.unlinkSync(path.join(root, source))
   assert.throws(() => synchronize(root, true), /review and archive it explicitly/)
-  assert(fs.existsSync(path.join(root, resources[0].runtimePath)))
-  // Explicitly archive/remove the old runtime copy before regenerating the inventory.
-  fs.unlinkSync(path.join(root, resources[0].runtimePath))
+  assert(fs.existsSync(path.join(root, runtime)))
+  fs.unlinkSync(path.join(root, runtime))
   synchronize(root, true)
   synchronize(root)
-  const rows = JSON.parse(fs.readFileSync(path.join(root, versionRoot, 'mappings/bases.json'))).entries
-  assert.equal(rows[0].sourceKey, 'zulu')
-  assert.equal(rows[0].retired, true)
 })
 
-test('one CLI command updates seals, stable IDs, both mirrors and public policy from source edits', t => {
-  const repository = fileURLToPath(new URL('../..', import.meta.url))
-  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'data-workflow-'))
-  t.after(() => fs.rmSync(root, { recursive: true, force: true }))
+test('one CLI command updates seals, stable IDs, both mirrors and public policy', t => {
+  const { root, load, write, read } = fixture(t)
   for (const file of [
-    versionRoot, 'README.md', 'backend/src/main/resources/contracts',
+    'README.md', 'backend/src/main/resources/contracts',
     'docs/contracts/workbench-definitions-v1.schema.json', 'docs/contracts/goal-definitions-v1.schema.json',
     'scripts/versioned-game-data.mjs', 'scripts/update-ruleset-manifest.mjs', 'scripts/catalog-data.mjs',
-    'scripts/sync-workbench-data.mjs', 'scripts/sync-public-contracts.mjs', 'scripts/public-contracts.mjs',
+    'scripts/game-data-outputs.mjs', 'scripts/sync-workbench-data.mjs',
+    'scripts/sync-public-contracts.mjs', 'scripts/public-contracts.mjs',
   ]) {
     fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true })
     fs.cpSync(path.join(repository, file), path.join(root, file), { recursive: true })
   }
   for (const folder of ['frontend/src/shared/contracts', 'infra/docker']) fs.mkdirSync(path.join(root, folder), { recursive: true })
-  const load = file => JSON.parse(fs.readFileSync(path.join(root, file)))
-  const save = (file, value) => fs.writeFileSync(path.join(root, file), JSON.stringify(value))
-  const basePath = `${versionRoot}/game-data/catalog/top-bases.json`
-  const bases = load(basePath)
-  bases.soldier.name = 'Workflow test base'
-  save(basePath, bases)
-  save(`${versionRoot}/game-data/catalog/workflow-test.json`, { modifiers: [{ id: 'workflow:test', affixType: 'PREFIX', stats: [] }] })
-  const policyPath = 'backend/src/main/resources/contracts/chaos-repeat.json'
-  save(policyPath, { ...load(policyPath), defaultUses: 700 })
+  const namesFile = `${versionRoot}/i18n/catalog/bases.json`
+  const names = load(namesFile)
+  names[load('backend/src/main/resources/catalog/top-bases.json').soldier.id].name = 'Workflow test base'
+  write(namesFile, names)
+  write(`${versionRoot}/game-data/crafting/workflow-test.json`, { modifiers: [{ id: 'workflow:test', affixType: 'PREFIX', stats: [] }] })
+  const policy = 'backend/src/main/resources/contracts/chaos-repeat.json'
+  write(policy, { ...load(policy), defaultUses: 700 })
   const oldIds = load(`${versionRoot}/mappings/modifiers.json`).entries
   const run = flag => spawnSync(process.execPath, [path.join(root, 'scripts/versioned-game-data.mjs'), flag], {
     cwd: os.tmpdir(), encoding: 'utf8', env: { ...process.env, HEPHAISTOS_CONTRACT_ROOT: root },
@@ -169,13 +151,50 @@ test('one CLI command updates seals, stable IDs, both mirrors and public policy 
   assert.equal(run('--check').status, 0)
   assert.equal(load('backend/src/main/resources/catalog/top-bases.json').soldier.name, 'Workflow test base')
   assert.equal(load('frontend/src/features/crafting/topBases.json').soldier.name, 'Workflow test base')
-  assert(load('backend/src/main/resources/crafting/ruleset-v1.json').files['catalog/workflow-test.json'])
+  assert(load('backend/src/main/resources/crafting/ruleset-v1.json').files['catalog/solar-amulet/catalog.json'])
   const newIds = load(`${versionRoot}/mappings/modifiers.json`).entries
   assert.deepEqual(newIds.slice(0, oldIds.length), oldIds)
   assert.equal(newIds.at(-1).sourceKey, 'workflow:test')
-  assert.match(fs.readFileSync(path.join(root, 'README.md'), 'utf8'), /기본 700/)
-  assert.match(fs.readFileSync(path.join(root, 'frontend/src/shared/contracts/public.ts'), 'utf8'), /"defaultUses":700/)
-  const manifest = fs.readFileSync(path.join(root, versionRoot, 'manifest.json'))
+  assert.match(read('README.md').toString(), /기본 700/)
+  assert.match(read('frontend/src/shared/contracts/public.ts').toString(), /"defaultUses":700/)
+  const manifest = read(`${versionRoot}/manifest.json`)
   assert.equal(run('--write').status, 0)
-  assert.deepEqual(fs.readFileSync(path.join(root, versionRoot, 'manifest.json')), manifest)
+  assert.deepEqual(read(`${versionRoot}/manifest.json`), manifest)
+})
+
+test('shared reveal definitions drive both consumers and missing references fail', t => {
+  const { root, load, write } = fixture(t)
+  const source = `${versionRoot}/game-data/modifiers/reveal.json`
+  const registry = load(source)
+  const id = Object.keys(registry.definitions)[0]
+  registry.definitions[id].stats[0].max = 42
+  write(source, registry)
+  const outputs = gameDataOutputs(path.join(root, versionRoot))
+  assert.equal(outputs.get('backend/src/main/resources/catalog/manual-reveal.json').value.definitions.find(d => d.id === id).stats[0].max, 42)
+  assert.equal(outputs.get('frontend/src/features/crafting/manualRevealDefinitions.json').value.definitions[id].stats[0].max, 42)
+  delete registry.definitions[id]
+  write(source, registry)
+  assert.throws(() => gameDataOutputs(path.join(root, versionRoot)), /Unknown modifier reference/)
+})
+
+test('translated tooltip wording cannot change target eligibility; unknown probability stays explicit', t => {
+  const { root, load, write } = fixture(t)
+  const texts = `${versionRoot}/i18n/materials/en.json`
+  const translated = load(texts)
+  for (const item of Object.values(translated)) if (item.lines) item.lines = ['번역된 설명']
+  const targets = load('frontend/src/features/crafting/materialTargetClasses.json')
+  write(texts, translated)
+  const outputs = gameDataOutputs(path.join(root, versionRoot))
+  assert.deepEqual(outputs.get('frontend/src/features/crafting/materialTargetClasses.json').value, targets)
+  const source = `${versionRoot}/game-data/crafting/reveal/options.json`
+  const options = load(source)
+  options.selectionPolicy.probability = 0
+  write(source, options)
+  assert.throws(() => gameDataOutputs(path.join(root, versionRoot)), /no reviewed probability/)
+})
+
+test('unhandled files fail instead of becoming unused second sources', t => {
+  const { root, write } = fixture(t)
+  write(`${versionRoot}/game-data/crafting/essences/unhandled.json`, {})
+  assert.throws(() => gameDataOutputs(path.join(root, versionRoot)), /Source has no generation rule/)
 })

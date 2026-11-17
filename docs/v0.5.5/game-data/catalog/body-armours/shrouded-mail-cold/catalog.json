@@ -2,20 +2,10 @@
   "metadata": {
     "snapshotId": "poe2db-shrouded-mail-cold-published-20261109-ea43d9196ecf2f26",
     "retrievedAt": "2026-11-02T07:57:03.784Z",
-    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str_dex",
+    "sourceRef": "src2209",
     "weightPolicy": "POE2DB_AS_PUBLISHED",
     "rawSha256": "49722459c2dc49daab2a5627c3d7d7dd594a18355d65f86e69f10e6124fdcc21",
     "detailsSha256": "e45901eb02a1d760cdd476decec4c4a54566bf4445252d4391456636b9bf561c"
-  },
-  "base": {
-    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
-    "name": "Shrouded Mail",
-    "sourceUrl": "https://poe2db.tw/us/Shrouded_Mail",
-    "implicitModifierId": "shrouded-mail-cold:implicit:base",
-    "magicPrefixes": 1,
-    "magicSuffixes": 1,
-    "rarePrefixes": 3,
-    "rareSuffixes": 3
   },
   "modifierPool": "default",
   "implicitModifiers": [
