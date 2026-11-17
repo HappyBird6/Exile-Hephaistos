@@ -247,10 +247,7 @@ function Run({
     for (const controller of controllers.current) controller.abort()
     setRunEnabled(false)
     setEndingFailed(false)
-    if (
-      previous &&
-      !['COMPLETE', 'PARTIAL', 'CANCELLED'].includes(previous.status)
-    ) {
+    if (previous && !['COMPLETE', 'PARTIAL'].includes(previous.status)) {
       const result = await cancelAutomatic(
         previous.id,
         request.start.provenance.rulesetIdentity,

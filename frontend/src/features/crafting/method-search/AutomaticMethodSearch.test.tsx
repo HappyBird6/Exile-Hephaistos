@@ -16,7 +16,7 @@ import type { AutomaticView } from './automaticApi'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import { createItemPresentation } from '../path-tree/presentation'
 import { setLocale } from '../../../shared/i18n/i18n'
-import { saveSupport } from './supportStorage'
+import { saveSupport, readSupport } from './supportStorage'
 
 const id = '11111111-1111-4111-8111-111111111111'
 function initial(): AutomaticView {
@@ -247,6 +247,7 @@ it.each([404, 409])(
 afterEach(() => {
   vi.unstubAllGlobals()
   sessionStorage.clear()
+  localStorage.clear()
 })
 it('shows stop pending until server confirmation rather than claiming it has stopped', async () => {
   const request = requestFixture()
@@ -1053,7 +1054,7 @@ it.each([false, true])(
     const old = {
       ...initial(),
       status: 'PARTIAL' as const,
-      rareOutcomePolicy: disabledRareOutcomePolicy,
+      ...(hasJob ? {} : { rareOutcomePolicy: disabledRareOutcomePolicy }),
     }
     vi.spyOn(automaticApi, 'create').mockResolvedValue(old)
     vi.spyOn(automaticApi, 'get').mockResolvedValue(old)
@@ -1150,6 +1151,12 @@ it.each(['network', '500', 'conflicts'])(
     ).toBeVisible()
     expect(edit).not.toHaveBeenCalled()
     expect(
+      readSupport(
+        'session-end:' + request.clientRequestId,
+        (v): v is object => !!v && typeof v === 'object',
+      ),
+    ).toBeNull()
+    expect(
       control.mock.calls.filter(([, operation]) => operation === 'CANCEL'),
     ).toHaveLength(failure === 'conflicts' ? 2 : 1)
     await waitFor(() => expect(button).toBeEnabled())
@@ -1163,3 +1170,62 @@ it.each(['network', '500', 'conflicts'])(
     await waitFor(() => expect(edit).toHaveBeenCalledOnce())
   },
 )
+
+it('keeps a missing saved job expired instead of recreating it with new-session defaults', async () => {
+  setLocale('en')
+  const request = requestFixture()
+  saveSupport('crafting-flow:' + request.clientRequestId, {
+    origin: request.clientRequestId,
+    request,
+    prefix: [],
+    anchor: null,
+    carry: null,
+    branch: null,
+  })
+  saveSupport('run', {
+    request: request.clientRequestId,
+    job: id,
+    selected: 0,
+    cycles: 100,
+    route: [],
+  })
+  vi.spyOn(automaticApi, 'get').mockRejectedValue(new AutomaticError(404))
+  const create = vi.spyOn(automaticApi, 'create')
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={() => {}}
+    />,
+  )
+  await waitFor(() =>
+    expect(screen.getAllByRole('alert').length).toBeGreaterThan(0),
+  )
+  expect(create).not.toHaveBeenCalled()
+})
+
+it('uses the explicit enabled default only when creating a new flow', async () => {
+  const { defaultRareOutcomePolicy } = await import('./policyCandidates')
+  const request = requestFixture()
+  const create = vi
+    .spyOn(automaticApi, 'create')
+    .mockResolvedValue({ ...initial(), status: 'PARTIAL' })
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={() => {}}
+    />,
+  )
+  await waitFor(() =>
+    expect(create).toHaveBeenCalledWith(
+      request,
+      expect.anything(),
+      false,
+      0,
+      defaultRareOutcomePolicy,
+    ),
+  )
+})

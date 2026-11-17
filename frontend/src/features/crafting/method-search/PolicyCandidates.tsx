@@ -5,7 +5,7 @@ import type { WorkbenchAction } from '../workbenchApi'
 import type { AutomaticAction, AutomaticView } from './automaticApi'
 import { probabilityText, quantityText } from './probabilityPresentation'
 import {
-  defaultRareOutcomePolicy,
+  disabledRareOutcomePolicy,
   type RareOutcomePolicy,
 } from './policyCandidates'
 import { policyCandidateMessages } from './policyCandidateMessages'
@@ -26,7 +26,7 @@ export function PolicyCandidates({
   const { locale, name } = useI18n()
   const copy = policyCandidateMessages[locale]
   const [settings, setSettings] = useState(
-    view.rareOutcomePolicy ?? defaultRareOutcomePolicy,
+    view.rareOutcomePolicy ?? disabledRareOutcomePolicy,
   )
   const [busy, setBusy] = useState(false)
   const actionName = (a: AutomaticAction) =>
