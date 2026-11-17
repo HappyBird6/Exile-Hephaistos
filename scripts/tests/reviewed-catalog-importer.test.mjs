@@ -4,8 +4,8 @@ import fs from '../evidence-files.cjs'
 import { createDisplayBinder, orderedSpawnEligible } from '../reviewed-catalog-importer.mjs'
 import { cleanSource } from '../armour-source.mjs'
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'))
-const old=read('docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-baseline.json')
-const contexts=read('docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-before-context.json')
+const old=read('docs/legacy/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-baseline.json')
+const contexts=read('docs/legacy/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-before-context.json')
 const locales={en:'us',ko:'kr',ja:'jp','zh-CN':'cn','zh-TW':'tw',es:'sp'}
 test('ordered spawn uses the first matched source tag, including explicit denial',()=>{
  assert.equal(orderedSpawnEligible({url:'source',spawn:[{tag:'staff',weight:0},{tag:'weapon',weight:100}]},['staff','weapon']),false)

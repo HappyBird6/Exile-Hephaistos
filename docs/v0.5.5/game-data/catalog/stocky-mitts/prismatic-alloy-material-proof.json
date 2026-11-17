@@ -1,0 +1,22 @@
+{
+  "slug": "Prismatic_Alloy",
+  "url": "https://poe2db.tw/us/Prismatic_Alloy",
+  "retrievedAt": "2026-10-03T06:50:24.091Z",
+  "sha256": "49970de77066d3460369d4a54d36ba0f452fc4c51e1c40e429b3c307dbda1978",
+  "blocks": [
+    "Prismatic Alloy",
+    "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+    "Gloves: Damage Penetrates (9—15)% Elemental Resistances",
+    "Martial Weapon: (20—30)% increased Magnitude of Ailments you inflict",
+    "Focus, Staff or Wand: (40—50)% increased Exposure Effect",
+    "Sceptre: Minions have (40—49)% increased Magnitude of Damaging Ailments"
+  ],
+  "materialBlocks": [
+    "Prismatic Alloy",
+    "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+    "Gloves: Damage Penetrates (9—15)% Elemental Resistances",
+    "Martial Weapon: (20—30)% increased Magnitude of Ailments you inflict",
+    "Focus, Staff or Wand: (40—50)% increased Exposure Effect",
+    "Sceptre: Minions have (40—49)% increased Magnitude of Damaging Ailments"
+  ]
+}

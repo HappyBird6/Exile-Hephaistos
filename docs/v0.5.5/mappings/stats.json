@@ -1,0 +1,1527 @@
+{
+  "schemaVersion": 1,
+  "domain": "stats",
+  "prefix": "s",
+  "entries": [
+    {
+      "id": "s0001",
+      "sourceKey": "accuracy_rating",
+      "retired": false
+    },
+    {
+      "id": "s0002",
+      "sourceKey": "accuracy_rating_+%",
+      "retired": false
+    },
+    {
+      "id": "s0003",
+      "sourceKey": "additional_all_attributes",
+      "retired": false
+    },
+    {
+      "id": "s0004",
+      "sourceKey": "additional_ballista_totems_allowed",
+      "retired": false
+    },
+    {
+      "id": "s0005",
+      "sourceKey": "additional_block_%",
+      "retired": false
+    },
+    {
+      "id": "s0006",
+      "sourceKey": "additional_combo_gain_chance_%",
+      "retired": false
+    },
+    {
+      "id": "s0007",
+      "sourceKey": "additional_dexterity",
+      "retired": false
+    },
+    {
+      "id": "s0008",
+      "sourceKey": "additional_intelligence",
+      "retired": false
+    },
+    {
+      "id": "s0009",
+      "sourceKey": "additional_maximum_all_elemental_resistances_%",
+      "retired": false
+    },
+    {
+      "id": "s000a",
+      "sourceKey": "additional_maximum_all_resistances_%",
+      "retired": false
+    },
+    {
+      "id": "s000b",
+      "sourceKey": "additional_maximum_infusion_stacks",
+      "retired": false
+    },
+    {
+      "id": "s000c",
+      "sourceKey": "additional_strength",
+      "retired": false
+    },
+    {
+      "id": "s000d",
+      "sourceKey": "ailment_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s000e",
+      "sourceKey": "ailment_threshold_+%",
+      "retired": false
+    },
+    {
+      "id": "s000f",
+      "sourceKey": "allies_in_presence_attack_maximum_added_cold_damage",
+      "retired": false
+    },
+    {
+      "id": "s000g",
+      "sourceKey": "allies_in_presence_attack_maximum_added_fire_damage",
+      "retired": false
+    },
+    {
+      "id": "s000h",
+      "sourceKey": "allies_in_presence_attack_maximum_added_lightning_damage",
+      "retired": false
+    },
+    {
+      "id": "s000i",
+      "sourceKey": "allies_in_presence_attack_maximum_added_physical_damage",
+      "retired": false
+    },
+    {
+      "id": "s000j",
+      "sourceKey": "allies_in_presence_attack_minimum_added_cold_damage",
+      "retired": false
+    },
+    {
+      "id": "s000k",
+      "sourceKey": "allies_in_presence_attack_minimum_added_fire_damage",
+      "retired": false
+    },
+    {
+      "id": "s000l",
+      "sourceKey": "allies_in_presence_attack_minimum_added_lightning_damage",
+      "retired": false
+    },
+    {
+      "id": "s000m",
+      "sourceKey": "allies_in_presence_attack_minimum_added_physical_damage",
+      "retired": false
+    },
+    {
+      "id": "s000n",
+      "sourceKey": "allies_in_presence_attack_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s000o",
+      "sourceKey": "allies_in_presence_cast_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s000p",
+      "sourceKey": "allies_in_presence_critical_strike_chance_+%",
+      "retired": false
+    },
+    {
+      "id": "s000q",
+      "sourceKey": "allies_in_presence_critical_strike_multiplier_+",
+      "retired": false
+    },
+    {
+      "id": "s000r",
+      "sourceKey": "allies_in_presence_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s000s",
+      "sourceKey": "allies_in_presence_life_regeneration_rate_per_minute",
+      "retired": false
+    },
+    {
+      "id": "s000t",
+      "sourceKey": "allies_in_presence_resist_all_elements_%",
+      "retired": false
+    },
+    {
+      "id": "s000u",
+      "sourceKey": "archon_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s000v",
+      "sourceKey": "armour_%_applies_to_fire_cold_lightning_damage",
+      "retired": false
+    },
+    {
+      "id": "s000w",
+      "sourceKey": "armour_break_and_sundered_armour_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s000x",
+      "sourceKey": "attack_area_of_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s000y",
+      "sourceKey": "attack_critical_strike_chance_+%",
+      "retired": false
+    },
+    {
+      "id": "s000z",
+      "sourceKey": "attack_critical_strike_multiplier_+",
+      "retired": false
+    },
+    {
+      "id": "s0010",
+      "sourceKey": "attack_maximum_added_cold_damage",
+      "retired": false
+    },
+    {
+      "id": "s0011",
+      "sourceKey": "attack_maximum_added_fire_damage",
+      "retired": false
+    },
+    {
+      "id": "s0012",
+      "sourceKey": "attack_maximum_added_lightning_damage",
+      "retired": false
+    },
+    {
+      "id": "s0013",
+      "sourceKey": "attack_maximum_added_physical_damage",
+      "retired": false
+    },
+    {
+      "id": "s0014",
+      "sourceKey": "attack_minimum_added_cold_damage",
+      "retired": false
+    },
+    {
+      "id": "s0015",
+      "sourceKey": "attack_minimum_added_fire_damage",
+      "retired": false
+    },
+    {
+      "id": "s0016",
+      "sourceKey": "attack_minimum_added_lightning_damage",
+      "retired": false
+    },
+    {
+      "id": "s0017",
+      "sourceKey": "attack_minimum_added_physical_damage",
+      "retired": false
+    },
+    {
+      "id": "s0018",
+      "sourceKey": "attack_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s0019",
+      "sourceKey": "attack_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s001a",
+      "sourceKey": "attack_speed_+%_while_missing_ward",
+      "retired": false
+    },
+    {
+      "id": "s001b",
+      "sourceKey": "aura_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s001c",
+      "sourceKey": "base_additional_physical_damage_reduction_%",
+      "retired": false
+    },
+    {
+      "id": "s001d",
+      "sourceKey": "base_all_ailment_duration_on_self_+%",
+      "retired": false
+    },
+    {
+      "id": "s001e",
+      "sourceKey": "base_all_attributes",
+      "retired": false
+    },
+    {
+      "id": "s001f",
+      "sourceKey": "base_arrow_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s001g",
+      "sourceKey": "base_bleeding_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s001h",
+      "sourceKey": "base_cast_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s001i",
+      "sourceKey": "base_chance_to_pierce_%",
+      "retired": false
+    },
+    {
+      "id": "s001j",
+      "sourceKey": "base_chaos_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s001k",
+      "sourceKey": "base_cold_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s001l",
+      "sourceKey": "base_cooldown_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s001m",
+      "sourceKey": "base_critical_strike_multiplier_+",
+      "retired": false
+    },
+    {
+      "id": "s001n",
+      "sourceKey": "base_curse_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s001o",
+      "sourceKey": "base_damage_removed_from_mana_before_life_%",
+      "retired": false
+    },
+    {
+      "id": "s001p",
+      "sourceKey": "base_deflection_rating_%_of_evasion_rating",
+      "retired": false
+    },
+    {
+      "id": "s001q",
+      "sourceKey": "base_evasion_rating",
+      "retired": false
+    },
+    {
+      "id": "s001r",
+      "sourceKey": "base_fire_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s001s",
+      "sourceKey": "base_ignite_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s001t",
+      "sourceKey": "base_item_found_rarity_+%",
+      "retired": false
+    },
+    {
+      "id": "s001u",
+      "sourceKey": "base_life_gain_per_target",
+      "retired": false
+    },
+    {
+      "id": "s001v",
+      "sourceKey": "base_life_gained_on_enemy_death",
+      "retired": false
+    },
+    {
+      "id": "s001w",
+      "sourceKey": "base_life_leech_amount_+%",
+      "retired": false
+    },
+    {
+      "id": "s001x",
+      "sourceKey": "base_life_leech_from_physical_attack_damage_permyriad",
+      "retired": false
+    },
+    {
+      "id": "s001y",
+      "sourceKey": "base_life_leech_rate_+%",
+      "retired": false
+    },
+    {
+      "id": "s001z",
+      "sourceKey": "base_life_regeneration_rate_per_minute",
+      "retired": false
+    },
+    {
+      "id": "s0020",
+      "sourceKey": "base_lightning_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s0021",
+      "sourceKey": "base_mana_cost_efficiency_+%",
+      "retired": false
+    },
+    {
+      "id": "s0022",
+      "sourceKey": "base_mana_gained_on_enemy_death",
+      "retired": false
+    },
+    {
+      "id": "s0023",
+      "sourceKey": "base_mana_leech_from_physical_attack_damage_permyriad",
+      "retired": false
+    },
+    {
+      "id": "s0024",
+      "sourceKey": "base_maximum_chaos_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s0025",
+      "sourceKey": "base_maximum_cold_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s0026",
+      "sourceKey": "base_maximum_energy_shield",
+      "retired": false
+    },
+    {
+      "id": "s0027",
+      "sourceKey": "base_maximum_fire_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s0028",
+      "sourceKey": "base_maximum_life",
+      "retired": false
+    },
+    {
+      "id": "s0029",
+      "sourceKey": "base_maximum_lightning_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s002a",
+      "sourceKey": "base_maximum_mana",
+      "retired": false
+    },
+    {
+      "id": "s002b",
+      "sourceKey": "base_maximum_ward",
+      "retired": false
+    },
+    {
+      "id": "s002c",
+      "sourceKey": "base_movement_velocity_+%",
+      "retired": false
+    },
+    {
+      "id": "s002d",
+      "sourceKey": "base_number_of_crossbow_bolts",
+      "retired": false
+    },
+    {
+      "id": "s002e",
+      "sourceKey": "base_physical_damage_reduction_rating",
+      "retired": false
+    },
+    {
+      "id": "s002f",
+      "sourceKey": "base_poison_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s002g",
+      "sourceKey": "base_projectile_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s002h",
+      "sourceKey": "base_rage_cost_efficiency_+%",
+      "retired": false
+    },
+    {
+      "id": "s002i",
+      "sourceKey": "base_resist_all_elements_%",
+      "retired": false
+    },
+    {
+      "id": "s002j",
+      "sourceKey": "base_self_chill_duration_-%",
+      "retired": false
+    },
+    {
+      "id": "s002k",
+      "sourceKey": "base_self_critical_strike_multiplier_-%",
+      "retired": false
+    },
+    {
+      "id": "s002l",
+      "sourceKey": "base_self_freeze_duration_-%",
+      "retired": false
+    },
+    {
+      "id": "s002m",
+      "sourceKey": "base_self_ignite_duration_-%",
+      "retired": false
+    },
+    {
+      "id": "s002n",
+      "sourceKey": "base_self_shock_duration_-%",
+      "retired": false
+    },
+    {
+      "id": "s002o",
+      "sourceKey": "base_slow_potency_+%",
+      "retired": false
+    },
+    {
+      "id": "s002p",
+      "sourceKey": "base_spell_critical_strike_multiplier_+",
+      "retired": false
+    },
+    {
+      "id": "s002q",
+      "sourceKey": "base_spirit_from_equipment",
+      "retired": false
+    },
+    {
+      "id": "s002r",
+      "sourceKey": "bell_hit_limit",
+      "retired": false
+    },
+    {
+      "id": "s002s",
+      "sourceKey": "bleed_on_hit_with_attacks_%",
+      "retired": false
+    },
+    {
+      "id": "s002t",
+      "sourceKey": "broken_armour_and_sundered_armour_debuff_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s002u",
+      "sourceKey": "chance_%_to_gain_archon_of_nature_on_overgrowing_plant",
+      "retired": false
+    },
+    {
+      "id": "s002v",
+      "sourceKey": "chance_to_fire_1_additional_projectile_%_with_rollover",
+      "retired": false
+    },
+    {
+      "id": "s002w",
+      "sourceKey": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+      "retired": false
+    },
+    {
+      "id": "s002x",
+      "sourceKey": "chance_to_fork_extra_projectile_%",
+      "retired": false
+    },
+    {
+      "id": "s002y",
+      "sourceKey": "chance_to_poison_on_hit_with_attacks_%",
+      "retired": false
+    },
+    {
+      "id": "s002z",
+      "sourceKey": "chance_to_retain_40%_of_glory_on_use_%",
+      "retired": false
+    },
+    {
+      "id": "s0030",
+      "sourceKey": "chaos_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s0031",
+      "sourceKey": "chaos_spell_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s0032",
+      "sourceKey": "charge_skip_consume_chance_%",
+      "retired": false
+    },
+    {
+      "id": "s0033",
+      "sourceKey": "charm_charges_gained_+%",
+      "retired": false
+    },
+    {
+      "id": "s0034",
+      "sourceKey": "charm_charges_used_+%",
+      "retired": false
+    },
+    {
+      "id": "s0035",
+      "sourceKey": "charm_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s0036",
+      "sourceKey": "cold_and_chaos_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s0037",
+      "sourceKey": "cold_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s0038",
+      "sourceKey": "cold_damage_taken_goes_to_life_over_4_seconds_%",
+      "retired": false
+    },
+    {
+      "id": "s0039",
+      "sourceKey": "cold_spell_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s003a",
+      "sourceKey": "critical_strike_chance_+%",
+      "retired": false
+    },
+    {
+      "id": "s003b",
+      "sourceKey": "curse_delay_+%",
+      "retired": false
+    },
+    {
+      "id": "s003c",
+      "sourceKey": "curse_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s003d",
+      "sourceKey": "damage_+%_with_bow_skills",
+      "retired": false
+    },
+    {
+      "id": "s003e",
+      "sourceKey": "damage_taken_goes_to_life_over_4_seconds_%",
+      "retired": false
+    },
+    {
+      "id": "s003f",
+      "sourceKey": "damage_taken_goes_to_mana_%",
+      "retired": false
+    },
+    {
+      "id": "s003g",
+      "sourceKey": "damaging_ailment_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s003h",
+      "sourceKey": "damaging_ailments_deal_damage_+%_faster",
+      "retired": false
+    },
+    {
+      "id": "s003i",
+      "sourceKey": "debuff_time_passed_+%",
+      "retired": false
+    },
+    {
+      "id": "s003j",
+      "sourceKey": "dexterity_+%",
+      "retired": false
+    },
+    {
+      "id": "s003k",
+      "sourceKey": "display_cast_speed_percent",
+      "retired": false
+    },
+    {
+      "id": "s003l",
+      "sourceKey": "display_condition_present",
+      "retired": false
+    },
+    {
+      "id": "s003m",
+      "sourceKey": "display_reveal_present",
+      "retired": false
+    },
+    {
+      "id": "s003n",
+      "sourceKey": "display_reveal_value_0",
+      "retired": false
+    },
+    {
+      "id": "s003o",
+      "sourceKey": "display_reveal_value_1",
+      "retired": false
+    },
+    {
+      "id": "s003p",
+      "sourceKey": "display_source_value",
+      "retired": false
+    },
+    {
+      "id": "s003q",
+      "sourceKey": "dodge_roll_base_travel_distance",
+      "retired": false
+    },
+    {
+      "id": "s003r",
+      "sourceKey": "elemental_damage_with_attack_skills_+%",
+      "retired": false
+    },
+    {
+      "id": "s003s",
+      "sourceKey": "elemental_skill_limit_+",
+      "retired": false
+    },
+    {
+      "id": "s003t",
+      "sourceKey": "energy_shield_recharge_rate_+%",
+      "retired": false
+    },
+    {
+      "id": "s003u",
+      "sourceKey": "essence_abyss_guaranteed_pick",
+      "retired": false
+    },
+    {
+      "id": "s003v",
+      "sourceKey": "evasion_rating_+%",
+      "retired": false
+    },
+    {
+      "id": "s003w",
+      "sourceKey": "exposure_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s003x",
+      "sourceKey": "fire_and_chaos_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s003y",
+      "sourceKey": "fire_and_cold_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s003z",
+      "sourceKey": "fire_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s0040",
+      "sourceKey": "fire_damage_taken_goes_to_life_over_4_seconds_%",
+      "retired": false
+    },
+    {
+      "id": "s0041",
+      "sourceKey": "fire_spell_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s0042",
+      "sourceKey": "flask_charges_gained_+%",
+      "retired": false
+    },
+    {
+      "id": "s0043",
+      "sourceKey": "flask_charges_used_+%",
+      "retired": false
+    },
+    {
+      "id": "s0044",
+      "sourceKey": "flask_life_recovery_rate_+%",
+      "retired": false
+    },
+    {
+      "id": "s0045",
+      "sourceKey": "flask_life_to_recover_+%",
+      "retired": false
+    },
+    {
+      "id": "s0046",
+      "sourceKey": "flask_mana_recovery_rate_+%",
+      "retired": false
+    },
+    {
+      "id": "s0047",
+      "sourceKey": "flask_mana_to_recover_+%",
+      "retired": false
+    },
+    {
+      "id": "s0048",
+      "sourceKey": "flask_recovery_amount_%_to_recover_instantly",
+      "retired": false
+    },
+    {
+      "id": "s0049",
+      "sourceKey": "gain_x_rage_when_hit",
+      "retired": false
+    },
+    {
+      "id": "s004a",
+      "sourceKey": "generate_x_charges_for_any_flask_per_minute",
+      "retired": false
+    },
+    {
+      "id": "s004b",
+      "sourceKey": "global_armour_evasion_energy_shield_+%",
+      "retired": false
+    },
+    {
+      "id": "s004c",
+      "sourceKey": "glory_generation_+%",
+      "retired": false
+    },
+    {
+      "id": "s004d",
+      "sourceKey": "gold_+%_from_enemies",
+      "retired": false
+    },
+    {
+      "id": "s004e",
+      "sourceKey": "grenade_skill_number_of_additional_projectiles",
+      "retired": false
+    },
+    {
+      "id": "s004f",
+      "sourceKey": "heist_enchantment_chaos_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s004g",
+      "sourceKey": "heist_enchantment_cold_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s004h",
+      "sourceKey": "heist_enchantment_critical_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s004i",
+      "sourceKey": "heist_enchantment_fire_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s004j",
+      "sourceKey": "heist_enchantment_lightning_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s004k",
+      "sourceKey": "heist_enchantment_mana_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s004l",
+      "sourceKey": "heist_enchantment_physical_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s004m",
+      "sourceKey": "heist_enchantment_resistance_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s004n",
+      "sourceKey": "heist_enchantment_speed_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s004o",
+      "sourceKey": "hephaistos:v1:explicit:additional_all_attributes",
+      "retired": false
+    },
+    {
+      "id": "s004p",
+      "sourceKey": "hephaistos:v1:explicit:additional_dexterity",
+      "retired": false
+    },
+    {
+      "id": "s004q",
+      "sourceKey": "hephaistos:v1:explicit:additional_intelligence",
+      "retired": false
+    },
+    {
+      "id": "s004r",
+      "sourceKey": "hephaistos:v1:explicit:additional_strength",
+      "retired": false
+    },
+    {
+      "id": "s004s",
+      "sourceKey": "hephaistos:v1:explicit:base_cold_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s004t",
+      "sourceKey": "hephaistos:v1:explicit:base_fire_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s004u",
+      "sourceKey": "hephaistos:v1:explicit:base_lightning_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s004v",
+      "sourceKey": "hephaistos:v1:explicit:base_resist_all_elements_%",
+      "retired": false
+    },
+    {
+      "id": "s004w",
+      "sourceKey": "hit_damage_freeze_multiplier_+%",
+      "retired": false
+    },
+    {
+      "id": "s004x",
+      "sourceKey": "hit_damage_stun_multiplier_+%",
+      "retired": false
+    },
+    {
+      "id": "s004y",
+      "sourceKey": "ignite_chance_+%",
+      "retired": false
+    },
+    {
+      "id": "s004z",
+      "sourceKey": "intelligence_+%",
+      "retired": false
+    },
+    {
+      "id": "s0050",
+      "sourceKey": "life_regeneration_rate_per_minute_%",
+      "retired": false
+    },
+    {
+      "id": "s0051",
+      "sourceKey": "light_radius_+%",
+      "retired": false
+    },
+    {
+      "id": "s0052",
+      "sourceKey": "lightning_and_chaos_damage_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s0053",
+      "sourceKey": "lightning_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s0054",
+      "sourceKey": "lightning_damage_can_ignite",
+      "retired": false
+    },
+    {
+      "id": "s0055",
+      "sourceKey": "lightning_damage_taken_goes_to_life_over_4_seconds_%",
+      "retired": false
+    },
+    {
+      "id": "s0056",
+      "sourceKey": "lightning_spell_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s0057",
+      "sourceKey": "local_+%_weapon_range",
+      "retired": false
+    },
+    {
+      "id": "s0058",
+      "sourceKey": "local_accuracy_rating",
+      "retired": false
+    },
+    {
+      "id": "s0059",
+      "sourceKey": "local_additional_attack_chain_chance_%",
+      "retired": false
+    },
+    {
+      "id": "s005a",
+      "sourceKey": "local_always_hit",
+      "retired": false
+    },
+    {
+      "id": "s005b",
+      "sourceKey": "local_armour_and_energy_shield_+%",
+      "retired": false
+    },
+    {
+      "id": "s005c",
+      "sourceKey": "local_armour_and_evasion_+%",
+      "retired": false
+    },
+    {
+      "id": "s005d",
+      "sourceKey": "local_attack_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s005e",
+      "sourceKey": "local_attribute_requirements_+%",
+      "retired": false
+    },
+    {
+      "id": "s005f",
+      "sourceKey": "local_base_evasion_rating",
+      "retired": false
+    },
+    {
+      "id": "s005g",
+      "sourceKey": "local_base_physical_damage_reduction_rating",
+      "retired": false
+    },
+    {
+      "id": "s005h",
+      "sourceKey": "local_base_stun_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s005i",
+      "sourceKey": "local_block_chance_+%",
+      "retired": false
+    },
+    {
+      "id": "s005j",
+      "sourceKey": "local_chance_to_gain_onslaught_on_killing_blow_%",
+      "retired": false
+    },
+    {
+      "id": "s005k",
+      "sourceKey": "local_charm_slots",
+      "retired": false
+    },
+    {
+      "id": "s005l",
+      "sourceKey": "local_critical_strike_chance",
+      "retired": false
+    },
+    {
+      "id": "s005m",
+      "sourceKey": "local_critical_strike_multiplier_+",
+      "retired": false
+    },
+    {
+      "id": "s005n",
+      "sourceKey": "local_display_grants_spear_throw_skill",
+      "retired": false
+    },
+    {
+      "id": "s005o",
+      "sourceKey": "local_energy_shield",
+      "retired": false
+    },
+    {
+      "id": "s005p",
+      "sourceKey": "local_energy_shield_+%",
+      "retired": false
+    },
+    {
+      "id": "s005q",
+      "sourceKey": "local_evasion_and_energy_shield_+%",
+      "retired": false
+    },
+    {
+      "id": "s005r",
+      "sourceKey": "local_evasion_rating_+%",
+      "retired": false
+    },
+    {
+      "id": "s005s",
+      "sourceKey": "local_explicit_elemental_damage_mod_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s005t",
+      "sourceKey": "local_explode_on_kill_with_crit_%_physical_damage_to_deal",
+      "retired": false
+    },
+    {
+      "id": "s005u",
+      "sourceKey": "local_hit_damage_stun_multiplier_+%",
+      "retired": false
+    },
+    {
+      "id": "s005v",
+      "sourceKey": "local_item_additional_skill_slots",
+      "retired": false
+    },
+    {
+      "id": "s005w",
+      "sourceKey": "local_item_benefit_socketable_as_if_helmet",
+      "retired": false
+    },
+    {
+      "id": "s005x",
+      "sourceKey": "local_jewel_effect_base_radius",
+      "retired": false
+    },
+    {
+      "id": "s005y",
+      "sourceKey": "local_life_gain_per_target",
+      "retired": false
+    },
+    {
+      "id": "s005z",
+      "sourceKey": "local_life_leech_from_physical_damage_permyriad",
+      "retired": false
+    },
+    {
+      "id": "s0060",
+      "sourceKey": "local_mana_leech_from_physical_damage_permyriad",
+      "retired": false
+    },
+    {
+      "id": "s0061",
+      "sourceKey": "local_maximum_added_cold_damage",
+      "retired": false
+    },
+    {
+      "id": "s0062",
+      "sourceKey": "local_maximum_added_fire_damage",
+      "retired": false
+    },
+    {
+      "id": "s0063",
+      "sourceKey": "local_maximum_added_lightning_damage",
+      "retired": false
+    },
+    {
+      "id": "s0064",
+      "sourceKey": "local_maximum_added_physical_damage",
+      "retired": false
+    },
+    {
+      "id": "s0065",
+      "sourceKey": "local_maximum_prefixes_allowed_+",
+      "retired": false
+    },
+    {
+      "id": "s0066",
+      "sourceKey": "local_maximum_quality_+",
+      "retired": false
+    },
+    {
+      "id": "s0067",
+      "sourceKey": "local_maximum_suffixes_allowed_+",
+      "retired": false
+    },
+    {
+      "id": "s0068",
+      "sourceKey": "local_minimum_added_cold_damage",
+      "retired": false
+    },
+    {
+      "id": "s0069",
+      "sourceKey": "local_minimum_added_fire_damage",
+      "retired": false
+    },
+    {
+      "id": "s006a",
+      "sourceKey": "local_minimum_added_lightning_damage",
+      "retired": false
+    },
+    {
+      "id": "s006b",
+      "sourceKey": "local_minimum_added_physical_damage",
+      "retired": false
+    },
+    {
+      "id": "s006c",
+      "sourceKey": "local_physical_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s006d",
+      "sourceKey": "local_physical_damage_reduction_rating_+%",
+      "retired": false
+    },
+    {
+      "id": "s006e",
+      "sourceKey": "local_projectile_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s006f",
+      "sourceKey": "local_socketed_items_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s006g",
+      "sourceKey": "local_spirit_+%",
+      "retired": false
+    },
+    {
+      "id": "s006h",
+      "sourceKey": "local_ward_+%",
+      "retired": false
+    },
+    {
+      "id": "s006i",
+      "sourceKey": "local_weapon_daze_chance_%",
+      "retired": false
+    },
+    {
+      "id": "s006j",
+      "sourceKey": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+      "retired": false
+    },
+    {
+      "id": "s006k",
+      "sourceKey": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+      "retired": false
+    },
+    {
+      "id": "s006l",
+      "sourceKey": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+      "retired": false
+    },
+    {
+      "id": "s006m",
+      "sourceKey": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+      "retired": false
+    },
+    {
+      "id": "s006n",
+      "sourceKey": "local_weapon_range_+",
+      "retired": false
+    },
+    {
+      "id": "s006o",
+      "sourceKey": "mana_regeneration_rate_+%",
+      "retired": false
+    },
+    {
+      "id": "s006p",
+      "sourceKey": "mark_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s006q",
+      "sourceKey": "mark_skill_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s006r",
+      "sourceKey": "mark_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s006s",
+      "sourceKey": "mark_use_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s006t",
+      "sourceKey": "max_puppet_master_stacks_+",
+      "retired": false
+    },
+    {
+      "id": "s006u",
+      "sourceKey": "maximum_energy_shield_+%",
+      "retired": false
+    },
+    {
+      "id": "s006v",
+      "sourceKey": "maximum_life_+%",
+      "retired": false
+    },
+    {
+      "id": "s006w",
+      "sourceKey": "maximum_mana_+%",
+      "retired": false
+    },
+    {
+      "id": "s006x",
+      "sourceKey": "maximum_rage",
+      "retired": false
+    },
+    {
+      "id": "s006y",
+      "sourceKey": "maximum_ward_+%",
+      "retired": false
+    },
+    {
+      "id": "s006z",
+      "sourceKey": "melee_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s0070",
+      "sourceKey": "melee_splash",
+      "retired": false
+    },
+    {
+      "id": "s0071",
+      "sourceKey": "minion_base_damaging_ailment_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s0072",
+      "sourceKey": "minion_maximum_life_+%",
+      "retired": false
+    },
+    {
+      "id": "s0073",
+      "sourceKey": "minion_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s0074",
+      "sourceKey": "non_skill_base_all_damage_%_to_gain_as_cold",
+      "retired": false
+    },
+    {
+      "id": "s0075",
+      "sourceKey": "non_skill_base_all_damage_%_to_gain_as_fire",
+      "retired": false
+    },
+    {
+      "id": "s0076",
+      "sourceKey": "non_skill_base_all_damage_%_to_gain_as_fire_while_missing_ward",
+      "retired": false
+    },
+    {
+      "id": "s0077",
+      "sourceKey": "non_skill_base_all_damage_%_to_gain_as_lightning",
+      "retired": false
+    },
+    {
+      "id": "s0078",
+      "sourceKey": "non_skill_base_all_damage_%_to_gain_as_physical",
+      "retired": false
+    },
+    {
+      "id": "s0079",
+      "sourceKey": "non_skill_base_elemental_damage_%_to_gain_as_cold",
+      "retired": false
+    },
+    {
+      "id": "s007a",
+      "sourceKey": "physical_damage_reduction_rating_+%",
+      "retired": false
+    },
+    {
+      "id": "s007b",
+      "sourceKey": "physical_damage_taken_%_as_chaos",
+      "retired": false
+    },
+    {
+      "id": "s007c",
+      "sourceKey": "physical_spell_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s007d",
+      "sourceKey": "presence_area_+%",
+      "retired": false
+    },
+    {
+      "id": "s007e",
+      "sourceKey": "projectile_attack_range_+%",
+      "retired": false
+    },
+    {
+      "id": "s007f",
+      "sourceKey": "projectile_chance_to_chain_1_extra_time_from_terrain_%",
+      "retired": false
+    },
+    {
+      "id": "s007g",
+      "sourceKey": "projectile_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s007h",
+      "sourceKey": "projectile_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s007i",
+      "sourceKey": "projectile_speed_+%_with_crossbow_skills",
+      "retired": false
+    },
+    {
+      "id": "s007j",
+      "sourceKey": "rage_loss_delay_ms_+",
+      "retired": false
+    },
+    {
+      "id": "s007k",
+      "sourceKey": "recover_X_ward_on_block",
+      "retired": false
+    },
+    {
+      "id": "s007l",
+      "sourceKey": "recover_X_ward_on_charm_use",
+      "retired": false
+    },
+    {
+      "id": "s007m",
+      "sourceKey": "reduce_enemy_elemental_resistance_%",
+      "retired": false
+    },
+    {
+      "id": "s007n",
+      "sourceKey": "remnant_pickup_range_+%",
+      "retired": false
+    },
+    {
+      "id": "s007o",
+      "sourceKey": "restore_life_on_warcry_%",
+      "retired": false
+    },
+    {
+      "id": "s007p",
+      "sourceKey": "self_bleed_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s007q",
+      "sourceKey": "self_elemental_status_duration_-%",
+      "retired": false
+    },
+    {
+      "id": "s007r",
+      "sourceKey": "self_poison_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s007s",
+      "sourceKey": "shock_chance_+%",
+      "retired": false
+    },
+    {
+      "id": "s007t",
+      "sourceKey": "skill_effect_duration_+%",
+      "retired": false
+    },
+    {
+      "id": "s007u",
+      "sourceKey": "spell_area_of_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s007v",
+      "sourceKey": "spell_critical_strike_chance_+%",
+      "retired": false
+    },
+    {
+      "id": "s007w",
+      "sourceKey": "spell_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s007x",
+      "sourceKey": "spell_physical_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s007y",
+      "sourceKey": "spell_skill_gem_level_+",
+      "retired": false
+    },
+    {
+      "id": "s007z",
+      "sourceKey": "spirit_+%",
+      "retired": false
+    },
+    {
+      "id": "s0080",
+      "sourceKey": "sprint_movement_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s0081",
+      "sourceKey": "strength_+%",
+      "retired": false
+    },
+    {
+      "id": "s0082",
+      "sourceKey": "stun_threshold_+",
+      "retired": false
+    },
+    {
+      "id": "s0083",
+      "sourceKey": "stun_threshold_+%",
+      "retired": false
+    },
+    {
+      "id": "s0084",
+      "sourceKey": "summon_totem_cast_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s0085",
+      "sourceKey": "surpassing_chance_%_to_gain_1_puppeteer_stack_on_using_command_skill",
+      "retired": false
+    },
+    {
+      "id": "s0086",
+      "sourceKey": "temporary_minion_limit_+",
+      "retired": false
+    },
+    {
+      "id": "s0087",
+      "sourceKey": "thorns_maximum_base_physical_damage",
+      "retired": false
+    },
+    {
+      "id": "s0088",
+      "sourceKey": "thorns_minimum_base_physical_damage",
+      "retired": false
+    },
+    {
+      "id": "s0089",
+      "sourceKey": "warcry_cooldown_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s008a",
+      "sourceKey": "warcry_damage_+%",
+      "retired": false
+    },
+    {
+      "id": "s008b",
+      "sourceKey": "warcry_empowers_next_x_melee_attacks",
+      "retired": false
+    },
+    {
+      "id": "s008c",
+      "sourceKey": "warcry_monster_power_+%",
+      "retired": false
+    },
+    {
+      "id": "s008d",
+      "sourceKey": "warcry_skill_area_of_effect_+%",
+      "retired": false
+    },
+    {
+      "id": "s008e",
+      "sourceKey": "warcry_speed_+%",
+      "retired": false
+    },
+    {
+      "id": "s008f",
+      "sourceKey": "ward_regeneration_rate_+%",
+      "retired": false
+    },
+    {
+      "id": "s008g",
+      "sourceKey": "withered_magnitude_+%",
+      "retired": false
+    }
+  ]
+}

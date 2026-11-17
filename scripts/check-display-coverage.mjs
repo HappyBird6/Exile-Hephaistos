@@ -34,7 +34,7 @@ const augmentDisplay = JSON.parse(
 );
 const addedSources = JSON.parse(
   fs.readFileSync(
-    "docs/evidence/0.5.5/i18n/sources/additional-locales.json",
+    "docs/legacy/evidence/0.5.5/i18n/sources/additional-locales.json",
     "utf8",
   ),
 );

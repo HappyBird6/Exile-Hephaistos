@@ -1,0 +1,862 @@
+{
+  "schemaVersion": 1,
+  "domain": "actions",
+  "prefix": "c",
+  "entries": [
+    {
+      "id": "c0001",
+      "sourceKey": "ADAPTIVE_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c0002",
+      "sourceKey": "ALCHEMY",
+      "retired": false
+    },
+    {
+      "id": "c0003",
+      "sourceKey": "ANCIENT_CONCENTRATED_LIQUID_FEAR",
+      "retired": false
+    },
+    {
+      "id": "c0004",
+      "sourceKey": "ANCIENT_CONCENTRATED_LIQUID_ISOLATION",
+      "retired": false
+    },
+    {
+      "id": "c0005",
+      "sourceKey": "ANCIENT_CONCENTRATED_LIQUID_SUFFERING",
+      "retired": false
+    },
+    {
+      "id": "c0006",
+      "sourceKey": "ANCIENT_DILUTED_LIQUID_GREED",
+      "retired": false
+    },
+    {
+      "id": "c0007",
+      "sourceKey": "ANCIENT_DILUTED_LIQUID_GUILT",
+      "retired": false
+    },
+    {
+      "id": "c0008",
+      "sourceKey": "ANCIENT_DILUTED_LIQUID_IRE",
+      "retired": false
+    },
+    {
+      "id": "c0009",
+      "sourceKey": "ANCIENT_LIQUID_DESPAIR",
+      "retired": false
+    },
+    {
+      "id": "c000a",
+      "sourceKey": "ANCIENT_LIQUID_DISGUST",
+      "retired": false
+    },
+    {
+      "id": "c000b",
+      "sourceKey": "ANCIENT_LIQUID_ENVY",
+      "retired": false
+    },
+    {
+      "id": "c000c",
+      "sourceKey": "ANCIENT_LIQUID_PARANOIA",
+      "retired": false
+    },
+    {
+      "id": "c000d",
+      "sourceKey": "ANCIENT_POTENT_LIQUID_CONTEMPT",
+      "retired": false
+    },
+    {
+      "id": "c000e",
+      "sourceKey": "ANCIENT_POTENT_LIQUID_FEROCITY",
+      "retired": false
+    },
+    {
+      "id": "c000f",
+      "sourceKey": "ANCIENT_POTENT_LIQUID_MELANCHOLY",
+      "retired": false
+    },
+    {
+      "id": "c000g",
+      "sourceKey": "ANNULMENT",
+      "retired": false
+    },
+    {
+      "id": "c000h",
+      "sourceKey": "ARMOURERS_SCRAP",
+      "retired": false
+    },
+    {
+      "id": "c000i",
+      "sourceKey": "ARTIFICER",
+      "retired": false
+    },
+    {
+      "id": "c000j",
+      "sourceKey": "AUGMENTATION",
+      "retired": false
+    },
+    {
+      "id": "c000k",
+      "sourceKey": "BLACKSMITHS_WHETSTONE",
+      "retired": false
+    },
+    {
+      "id": "c000l",
+      "sourceKey": "CATALYST_ADAPTIVE",
+      "retired": false
+    },
+    {
+      "id": "c000m",
+      "sourceKey": "CATALYST_CARAPACE",
+      "retired": false
+    },
+    {
+      "id": "c000n",
+      "sourceKey": "CATALYST_CHAYULA",
+      "retired": false
+    },
+    {
+      "id": "c000o",
+      "sourceKey": "CATALYST_ESH",
+      "retired": false
+    },
+    {
+      "id": "c000p",
+      "sourceKey": "CATALYST_FLESH",
+      "retired": false
+    },
+    {
+      "id": "c000q",
+      "sourceKey": "CATALYST_NECROTIC",
+      "retired": false
+    },
+    {
+      "id": "c000r",
+      "sourceKey": "CATALYST_NEURAL",
+      "retired": false
+    },
+    {
+      "id": "c000s",
+      "sourceKey": "CATALYST_REAVER",
+      "retired": false
+    },
+    {
+      "id": "c000t",
+      "sourceKey": "CATALYST_SIBILANT",
+      "retired": false
+    },
+    {
+      "id": "c000u",
+      "sourceKey": "CATALYST_SKITTERING",
+      "retired": false
+    },
+    {
+      "id": "c000v",
+      "sourceKey": "CATALYST_TUL",
+      "retired": false
+    },
+    {
+      "id": "c000w",
+      "sourceKey": "CATALYST_UUL_NETOL",
+      "retired": false
+    },
+    {
+      "id": "c000x",
+      "sourceKey": "CATALYST_XOPH",
+      "retired": false
+    },
+    {
+      "id": "c000y",
+      "sourceKey": "CELESTIAL_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c000z",
+      "sourceKey": "CHAOS",
+      "retired": false
+    },
+    {
+      "id": "c0010",
+      "sourceKey": "CONCENTRATED_LIQUID_FEAR",
+      "retired": false
+    },
+    {
+      "id": "c0011",
+      "sourceKey": "CONCENTRATED_LIQUID_ISOLATION",
+      "retired": false
+    },
+    {
+      "id": "c0012",
+      "sourceKey": "CONCENTRATED_LIQUID_SUFFERING",
+      "retired": false
+    },
+    {
+      "id": "c0013",
+      "sourceKey": "CYCLONIC_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c0014",
+      "sourceKey": "DILUTED_LIQUID_GREED",
+      "retired": false
+    },
+    {
+      "id": "c0015",
+      "sourceKey": "DILUTED_LIQUID_GUILT",
+      "retired": false
+    },
+    {
+      "id": "c0016",
+      "sourceKey": "DILUTED_LIQUID_IRE",
+      "retired": false
+    },
+    {
+      "id": "c0017",
+      "sourceKey": "DIVINE",
+      "retired": false
+    },
+    {
+      "id": "c0018",
+      "sourceKey": "ESSENCE_ABRASION",
+      "retired": false
+    },
+    {
+      "id": "c0019",
+      "sourceKey": "ESSENCE_ABYSS",
+      "retired": false
+    },
+    {
+      "id": "c001a",
+      "sourceKey": "ESSENCE_ALACRITY",
+      "retired": false
+    },
+    {
+      "id": "c001b",
+      "sourceKey": "ESSENCE_BATTLE",
+      "retired": false
+    },
+    {
+      "id": "c001c",
+      "sourceKey": "ESSENCE_BODY",
+      "retired": false
+    },
+    {
+      "id": "c001d",
+      "sourceKey": "ESSENCE_BREACH",
+      "retired": false
+    },
+    {
+      "id": "c001e",
+      "sourceKey": "ESSENCE_COMMAND",
+      "retired": false
+    },
+    {
+      "id": "c001f",
+      "sourceKey": "ESSENCE_ELECTRICITY",
+      "retired": false
+    },
+    {
+      "id": "c001g",
+      "sourceKey": "ESSENCE_ENHANCEMENT",
+      "retired": false
+    },
+    {
+      "id": "c001h",
+      "sourceKey": "ESSENCE_FLAMES",
+      "retired": false
+    },
+    {
+      "id": "c001i",
+      "sourceKey": "ESSENCE_GROUNDING",
+      "retired": false
+    },
+    {
+      "id": "c001j",
+      "sourceKey": "ESSENCE_HASTE",
+      "retired": false
+    },
+    {
+      "id": "c001k",
+      "sourceKey": "ESSENCE_HORROR",
+      "retired": false
+    },
+    {
+      "id": "c001l",
+      "sourceKey": "ESSENCE_HYSTERIA",
+      "retired": false
+    },
+    {
+      "id": "c001m",
+      "sourceKey": "ESSENCE_ICE",
+      "retired": false
+    },
+    {
+      "id": "c001n",
+      "sourceKey": "ESSENCE_INFINITE",
+      "retired": false
+    },
+    {
+      "id": "c001o",
+      "sourceKey": "ESSENCE_INSULATION",
+      "retired": false
+    },
+    {
+      "id": "c001p",
+      "sourceKey": "ESSENCE_MIND",
+      "retired": false
+    },
+    {
+      "id": "c001q",
+      "sourceKey": "ESSENCE_OPULENCE",
+      "retired": false
+    },
+    {
+      "id": "c001r",
+      "sourceKey": "ESSENCE_RUIN",
+      "retired": false
+    },
+    {
+      "id": "c001s",
+      "sourceKey": "ESSENCE_SEEKING",
+      "retired": false
+    },
+    {
+      "id": "c001t",
+      "sourceKey": "ESSENCE_SORCERY",
+      "retired": false
+    },
+    {
+      "id": "c001u",
+      "sourceKey": "ESSENCE_THAWING",
+      "retired": false
+    },
+    {
+      "id": "c001v",
+      "sourceKey": "EXALTED",
+      "retired": false
+    },
+    {
+      "id": "c001w",
+      "sourceKey": "EXPANSIVE_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c001x",
+      "sourceKey": "FRACTURING",
+      "retired": false
+    },
+    {
+      "id": "c001y",
+      "sourceKey": "GREATER_AUGMENTATION",
+      "retired": false
+    },
+    {
+      "id": "c001z",
+      "sourceKey": "GREATER_CHAOS",
+      "retired": false
+    },
+    {
+      "id": "c0020",
+      "sourceKey": "GREATER_ESSENCE_ABRASION",
+      "retired": false
+    },
+    {
+      "id": "c0021",
+      "sourceKey": "GREATER_ESSENCE_ALACRITY",
+      "retired": false
+    },
+    {
+      "id": "c0022",
+      "sourceKey": "GREATER_ESSENCE_BATTLE",
+      "retired": false
+    },
+    {
+      "id": "c0023",
+      "sourceKey": "GREATER_ESSENCE_BODY",
+      "retired": false
+    },
+    {
+      "id": "c0024",
+      "sourceKey": "GREATER_ESSENCE_COMMAND",
+      "retired": false
+    },
+    {
+      "id": "c0025",
+      "sourceKey": "GREATER_ESSENCE_ELECTRICITY",
+      "retired": false
+    },
+    {
+      "id": "c0026",
+      "sourceKey": "GREATER_ESSENCE_ENHANCEMENT",
+      "retired": false
+    },
+    {
+      "id": "c0027",
+      "sourceKey": "GREATER_ESSENCE_FLAMES",
+      "retired": false
+    },
+    {
+      "id": "c0028",
+      "sourceKey": "GREATER_ESSENCE_GROUNDING",
+      "retired": false
+    },
+    {
+      "id": "c0029",
+      "sourceKey": "GREATER_ESSENCE_HASTE",
+      "retired": false
+    },
+    {
+      "id": "c002a",
+      "sourceKey": "GREATER_ESSENCE_ICE",
+      "retired": false
+    },
+    {
+      "id": "c002b",
+      "sourceKey": "GREATER_ESSENCE_INFINITE",
+      "retired": false
+    },
+    {
+      "id": "c002c",
+      "sourceKey": "GREATER_ESSENCE_INSULATION",
+      "retired": false
+    },
+    {
+      "id": "c002d",
+      "sourceKey": "GREATER_ESSENCE_MIND",
+      "retired": false
+    },
+    {
+      "id": "c002e",
+      "sourceKey": "GREATER_ESSENCE_OPULENCE",
+      "retired": false
+    },
+    {
+      "id": "c002f",
+      "sourceKey": "GREATER_ESSENCE_RUIN",
+      "retired": false
+    },
+    {
+      "id": "c002g",
+      "sourceKey": "GREATER_ESSENCE_SEEKING",
+      "retired": false
+    },
+    {
+      "id": "c002h",
+      "sourceKey": "GREATER_ESSENCE_SORCERY",
+      "retired": false
+    },
+    {
+      "id": "c002i",
+      "sourceKey": "GREATER_ESSENCE_THAWING",
+      "retired": false
+    },
+    {
+      "id": "c002j",
+      "sourceKey": "GREATER_EXALTED",
+      "retired": false
+    },
+    {
+      "id": "c002k",
+      "sourceKey": "GREATER_REGAL",
+      "retired": false
+    },
+    {
+      "id": "c002l",
+      "sourceKey": "GREATER_TRANSMUTATION",
+      "retired": false
+    },
+    {
+      "id": "c002m",
+      "sourceKey": "LESSER_ESSENCE_ABRASION",
+      "retired": false
+    },
+    {
+      "id": "c002n",
+      "sourceKey": "LESSER_ESSENCE_ALACRITY",
+      "retired": false
+    },
+    {
+      "id": "c002o",
+      "sourceKey": "LESSER_ESSENCE_BATTLE",
+      "retired": false
+    },
+    {
+      "id": "c002p",
+      "sourceKey": "LESSER_ESSENCE_BODY",
+      "retired": false
+    },
+    {
+      "id": "c002q",
+      "sourceKey": "LESSER_ESSENCE_COMMAND",
+      "retired": false
+    },
+    {
+      "id": "c002r",
+      "sourceKey": "LESSER_ESSENCE_ELECTRICITY",
+      "retired": false
+    },
+    {
+      "id": "c002s",
+      "sourceKey": "LESSER_ESSENCE_ENHANCEMENT",
+      "retired": false
+    },
+    {
+      "id": "c002t",
+      "sourceKey": "LESSER_ESSENCE_FLAMES",
+      "retired": false
+    },
+    {
+      "id": "c002u",
+      "sourceKey": "LESSER_ESSENCE_GROUNDING",
+      "retired": false
+    },
+    {
+      "id": "c002v",
+      "sourceKey": "LESSER_ESSENCE_HASTE",
+      "retired": false
+    },
+    {
+      "id": "c002w",
+      "sourceKey": "LESSER_ESSENCE_ICE",
+      "retired": false
+    },
+    {
+      "id": "c002x",
+      "sourceKey": "LESSER_ESSENCE_INFINITE",
+      "retired": false
+    },
+    {
+      "id": "c002y",
+      "sourceKey": "LESSER_ESSENCE_INSULATION",
+      "retired": false
+    },
+    {
+      "id": "c002z",
+      "sourceKey": "LESSER_ESSENCE_MIND",
+      "retired": false
+    },
+    {
+      "id": "c0030",
+      "sourceKey": "LESSER_ESSENCE_OPULENCE",
+      "retired": false
+    },
+    {
+      "id": "c0031",
+      "sourceKey": "LESSER_ESSENCE_RUIN",
+      "retired": false
+    },
+    {
+      "id": "c0032",
+      "sourceKey": "LESSER_ESSENCE_SEEKING",
+      "retired": false
+    },
+    {
+      "id": "c0033",
+      "sourceKey": "LESSER_ESSENCE_SORCERY",
+      "retired": false
+    },
+    {
+      "id": "c0034",
+      "sourceKey": "LESSER_ESSENCE_THAWING",
+      "retired": false
+    },
+    {
+      "id": "c0035",
+      "sourceKey": "LIQUID_DESPAIR",
+      "retired": false
+    },
+    {
+      "id": "c0036",
+      "sourceKey": "LIQUID_DISGUST",
+      "retired": false
+    },
+    {
+      "id": "c0037",
+      "sourceKey": "LIQUID_ENVY",
+      "retired": false
+    },
+    {
+      "id": "c0038",
+      "sourceKey": "LIQUID_PARANOIA",
+      "retired": false
+    },
+    {
+      "id": "c0039",
+      "sourceKey": "MYSTIC_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c003a",
+      "sourceKey": "PERFECT_AUGMENTATION",
+      "retired": false
+    },
+    {
+      "id": "c003b",
+      "sourceKey": "PERFECT_CHAOS",
+      "retired": false
+    },
+    {
+      "id": "c003c",
+      "sourceKey": "PERFECT_ESSENCE_ABRASION",
+      "retired": false
+    },
+    {
+      "id": "c003d",
+      "sourceKey": "PERFECT_ESSENCE_ALACRITY",
+      "retired": false
+    },
+    {
+      "id": "c003e",
+      "sourceKey": "PERFECT_ESSENCE_BATTLE",
+      "retired": false
+    },
+    {
+      "id": "c003f",
+      "sourceKey": "PERFECT_ESSENCE_BODY",
+      "retired": false
+    },
+    {
+      "id": "c003g",
+      "sourceKey": "PERFECT_ESSENCE_COMMAND",
+      "retired": false
+    },
+    {
+      "id": "c003h",
+      "sourceKey": "PERFECT_ESSENCE_ELECTRICITY",
+      "retired": false
+    },
+    {
+      "id": "c003i",
+      "sourceKey": "PERFECT_ESSENCE_ENHANCEMENT",
+      "retired": false
+    },
+    {
+      "id": "c003j",
+      "sourceKey": "PERFECT_ESSENCE_FLAMES",
+      "retired": false
+    },
+    {
+      "id": "c003k",
+      "sourceKey": "PERFECT_ESSENCE_GROUNDING",
+      "retired": false
+    },
+    {
+      "id": "c003l",
+      "sourceKey": "PERFECT_ESSENCE_HASTE",
+      "retired": false
+    },
+    {
+      "id": "c003m",
+      "sourceKey": "PERFECT_ESSENCE_ICE",
+      "retired": false
+    },
+    {
+      "id": "c003n",
+      "sourceKey": "PERFECT_ESSENCE_INFINITE",
+      "retired": false
+    },
+    {
+      "id": "c003o",
+      "sourceKey": "PERFECT_ESSENCE_INSULATION",
+      "retired": false
+    },
+    {
+      "id": "c003p",
+      "sourceKey": "PERFECT_ESSENCE_MIND",
+      "retired": false
+    },
+    {
+      "id": "c003q",
+      "sourceKey": "PERFECT_ESSENCE_OPULENCE",
+      "retired": false
+    },
+    {
+      "id": "c003r",
+      "sourceKey": "PERFECT_ESSENCE_RUIN",
+      "retired": false
+    },
+    {
+      "id": "c003s",
+      "sourceKey": "PERFECT_ESSENCE_SEEKING",
+      "retired": false
+    },
+    {
+      "id": "c003t",
+      "sourceKey": "PERFECT_ESSENCE_SORCERY",
+      "retired": false
+    },
+    {
+      "id": "c003u",
+      "sourceKey": "PERFECT_ESSENCE_THAWING",
+      "retired": false
+    },
+    {
+      "id": "c003v",
+      "sourceKey": "PERFECT_EXALTED",
+      "retired": false
+    },
+    {
+      "id": "c003w",
+      "sourceKey": "PERFECT_REGAL",
+      "retired": false
+    },
+    {
+      "id": "c003x",
+      "sourceKey": "PERFECT_TRANSMUTATION",
+      "retired": false
+    },
+    {
+      "id": "c003y",
+      "sourceKey": "POTENT_LIQUID_CONTEMPT",
+      "retired": false
+    },
+    {
+      "id": "c003z",
+      "sourceKey": "POTENT_LIQUID_FEROCITY",
+      "retired": false
+    },
+    {
+      "id": "c0040",
+      "sourceKey": "POTENT_LIQUID_MELANCHOLY",
+      "retired": false
+    },
+    {
+      "id": "c0041",
+      "sourceKey": "PRISMATIC_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c0042",
+      "sourceKey": "PROTECTIVE_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c0043",
+      "sourceKey": "REFINED_CATALYST_ADAPTIVE",
+      "retired": false
+    },
+    {
+      "id": "c0044",
+      "sourceKey": "REFINED_CATALYST_CARAPACE",
+      "retired": false
+    },
+    {
+      "id": "c0045",
+      "sourceKey": "REFINED_CATALYST_CHAYULA",
+      "retired": false
+    },
+    {
+      "id": "c0046",
+      "sourceKey": "REFINED_CATALYST_ESH",
+      "retired": false
+    },
+    {
+      "id": "c0047",
+      "sourceKey": "REFINED_CATALYST_FLESH",
+      "retired": false
+    },
+    {
+      "id": "c0048",
+      "sourceKey": "REFINED_CATALYST_NECROTIC",
+      "retired": false
+    },
+    {
+      "id": "c0049",
+      "sourceKey": "REFINED_CATALYST_NEURAL",
+      "retired": false
+    },
+    {
+      "id": "c004a",
+      "sourceKey": "REFINED_CATALYST_REAVER",
+      "retired": false
+    },
+    {
+      "id": "c004b",
+      "sourceKey": "REFINED_CATALYST_SIBILANT",
+      "retired": false
+    },
+    {
+      "id": "c004c",
+      "sourceKey": "REFINED_CATALYST_SKITTERING",
+      "retired": false
+    },
+    {
+      "id": "c004d",
+      "sourceKey": "REFINED_CATALYST_TUL",
+      "retired": false
+    },
+    {
+      "id": "c004e",
+      "sourceKey": "REFINED_CATALYST_UUL_NETOL",
+      "retired": false
+    },
+    {
+      "id": "c004f",
+      "sourceKey": "REFINED_CATALYST_XOPH",
+      "retired": false
+    },
+    {
+      "id": "c004g",
+      "sourceKey": "REGAL",
+      "retired": false
+    },
+    {
+      "id": "c004h",
+      "sourceKey": "RUNIC_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c004i",
+      "sourceKey": "SOVEREIGN_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c004j",
+      "sourceKey": "SWIFT_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c004k",
+      "sourceKey": "THE_RUNEBINDERS_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c004l",
+      "sourceKey": "THE_RUNEFATHERS_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c004m",
+      "sourceKey": "TRANSCENDENT_ALLOY",
+      "retired": false
+    },
+    {
+      "id": "c004n",
+      "sourceKey": "TRANSMUTATION",
+      "retired": false
+    },
+    {
+      "id": "c004o",
+      "sourceKey": "VAAL_ARCANISTS_INFUSER",
+      "retired": false
+    },
+    {
+      "id": "c004p",
+      "sourceKey": "VAAL_ARMOURERS_INFUSER",
+      "retired": false
+    },
+    {
+      "id": "c004q",
+      "sourceKey": "VAAL_BLACKSMITHS_INFUSER",
+      "retired": false
+    },
+    {
+      "id": "c004r",
+      "sourceKey": "VAAL_CATALYSING_INFUSER",
+      "retired": false
+    }
+  ]
+}

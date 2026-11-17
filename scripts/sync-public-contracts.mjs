@@ -76,7 +76,7 @@ const table = [
   `| 패턴 | 길이 ${clean.patternLength}, 깊이 ${clean.patternDepth}, 문법 노드 ${clean.patternNodes}, 프로그램 ${clean.patternProgram} |`,
   `| 제작지원 정책 | ${policy.policyVersion} |`,
 ].join("\n");
-const document = "docs/current/support.md",
+const document = "README.md",
   content = fs.readFileSync(root + document, "utf8");
 const marker =
   /<!-- generated:public-contracts:start -->[\s\S]*?<!-- generated:public-contracts:end -->/;

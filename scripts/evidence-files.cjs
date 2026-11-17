@@ -2,7 +2,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const repository = path.resolve(__dirname, "..");
-const versionRoot = "docs/evidence/0.5.5";
+const versionRoot = "docs/legacy/evidence/0.5.5";
 let index;
 function catalog() {
   return (index ??= JSON.parse(

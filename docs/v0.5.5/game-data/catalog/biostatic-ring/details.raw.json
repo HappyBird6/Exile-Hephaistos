@@ -1,0 +1,60 @@
+{
+  "explicitPoolProvenance": {
+    "template": "amethyst",
+    "pool": "amethyst-ring",
+    "snapshotId": "poe2db-amethyst-ring-20261004-ac46e24c41b398fe",
+    "rawSha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0",
+    "detailsSha256": "1b6185b7cfcf6b093e2ae47d569c6021fc4a57d36433fbca526ee354e2d6687f",
+    "note": "Existing reviewed class/archetype explicit pool; no new game weights inferred."
+  },
+  "sourceBase": {
+    "url": "https://poe2db.tw/us/Biostatic_Ring",
+    "retrievedAt": "2026-11-02T08:17:17.036Z",
+    "sha256": "64d00884ccec6a10a0d878845bbc9c28f20af32f64f22c577adf92f38a15be34",
+    "variants": [
+      {
+        "name": "Biostatic Ring",
+        "card": "Biostatic Ring\n        \n    \n    \n        \n            RingsRequires:  Level 52+1% to all maximum Resistances\n        \n\n        \n        \n            Preserve the essence, so that it may evolve.",
+        "requirements": "Requires:  Level 52",
+        "fields": {
+          "DropLevel": "52",
+          "BaseType": "Biostatic Ring",
+          "Class": "Rings",
+          "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+          "Type": "Metadata/Items/Rings/FourRingB1",
+          "Tags": "ring",
+          "Icon": "Art/2DItems/Rings/BreachlordRing_Tul",
+          "Base.base_level": "1",
+          "Base.tag": "default, ring",
+          "Base.x_size": "1",
+          "Base.y_size": "1",
+          "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+          "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+          "Mods.enable_rarity": "normal, magic, rare, unique",
+          "Mods.inventory_type": "Ring",
+          "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+        }
+      }
+    ],
+    "proofs": [
+      {
+        "text": "+1% to all maximum Resistances",
+        "family": "MaximumResistances",
+        "tags": [
+          "resistance"
+        ],
+        "stats": [
+          {
+            "id": "additional_maximum_all_resistances_%",
+            "min": 1,
+            "max": 1,
+            "locality": "Global"
+          }
+        ],
+        "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+1</span>% to all maximum Resistances</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaximumResistances\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>65 (Effective: 52)\n<tr><th>Stats<td><li>additional maximum all resistances % <span class=\"badge bg-primary\">1 <span class=\"ndash\">—</span> 1</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Craft Tags<td><span class='badge bg-primary'>Resistance</span> </table>"
+      }
+    ],
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Rings/BreachlordRing_Tul.webp"
+  },
+  "variantIndex": 0
+}

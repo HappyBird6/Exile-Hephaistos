@@ -30,4 +30,4 @@ for(const [id,b]of Object.entries(data.definitions)) {
 }
 assert.equal(mappings.length,228)
 fs.writeFileSync(file,JSON.stringify(data,null,2)+'\n')
-fs.writeFileSync('docs/evidence/0.5.5/i18n/mappings/i18n-compound-rolls.json',JSON.stringify({method:'Reviewed English stat semantics/order, canonical stat identity and exact numeric bounds; no inferred conversion',count:mappings.length,mappings},null,2)+'\n')
+fs.writeFileSync('docs/legacy/evidence/0.5.5/i18n/mappings/i18n-compound-rolls.json',JSON.stringify({method:'Reviewed English stat semantics/order, canonical stat identity and exact numeric bounds; no inferred conversion',count:mappings.length,mappings},null,2)+'\n')

@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "domain": "tags",
+  "prefix": "t",
+  "entries": [
+    {
+      "id": "t0001",
+      "sourceKey": "ailment",
+      "retired": false
+    },
+    {
+      "id": "t0002",
+      "sourceKey": "amanamu_mod",
+      "retired": false
+    },
+    {
+      "id": "t0003",
+      "sourceKey": "armour",
+      "retired": false
+    },
+    {
+      "id": "t0004",
+      "sourceKey": "attack",
+      "retired": false
+    },
+    {
+      "id": "t0005",
+      "sourceKey": "attribute",
+      "retired": false
+    },
+    {
+      "id": "t0006",
+      "sourceKey": "augment_pool",
+      "retired": false
+    },
+    {
+      "id": "t0007",
+      "sourceKey": "aura",
+      "retired": false
+    },
+    {
+      "id": "t0008",
+      "sourceKey": "berserking_pool",
+      "retired": false
+    },
+    {
+      "id": "t0009",
+      "sourceKey": "bleed",
+      "retired": false
+    },
+    {
+      "id": "t000a",
+      "sourceKey": "block",
+      "retired": false
+    },
+    {
+      "id": "t000b",
+      "sourceKey": "caster",
+      "retired": false
+    },
+    {
+      "id": "t000c",
+      "sourceKey": "caster_critical",
+      "retired": false
+    },
+    {
+      "id": "t000d",
+      "sourceKey": "caster_damage",
+      "retired": false
+    },
+    {
+      "id": "t000e",
+      "sourceKey": "caster_speed",
+      "retired": false
+    },
+    {
+      "id": "t000f",
+      "sourceKey": "chaos",
+      "retired": false
+    },
+    {
+      "id": "t000g",
+      "sourceKey": "chaos_damage",
+      "retired": false
+    },
+    {
+      "id": "t000h",
+      "sourceKey": "chaos_resistance",
+      "retired": false
+    },
+    {
+      "id": "t000i",
+      "sourceKey": "chaos_warband",
+      "retired": false
+    },
+    {
+      "id": "t000j",
+      "sourceKey": "charm",
+      "retired": false
+    },
+    {
+      "id": "t000k",
+      "sourceKey": "chronomancy_pool",
+      "retired": false
+    },
+    {
+      "id": "t000l",
+      "sourceKey": "cold",
+      "retired": false
+    },
+    {
+      "id": "t000m",
+      "sourceKey": "cold_resistance",
+      "retired": false
+    },
+    {
+      "id": "t000n",
+      "sourceKey": "crafted",
+      "retired": false
+    },
+    {
+      "id": "t000o",
+      "sourceKey": "critical",
+      "retired": false
+    },
+    {
+      "id": "t000p",
+      "sourceKey": "curse",
+      "retired": false
+    },
+    {
+      "id": "t000q",
+      "sourceKey": "damage",
+      "retired": false
+    },
+    {
+      "id": "t000r",
+      "sourceKey": "decay_pool",
+      "retired": false
+    },
+    {
+      "id": "t000s",
+      "sourceKey": "defences",
+      "retired": false
+    },
+    {
+      "id": "t000t",
+      "sourceKey": "destruction_pool",
+      "retired": false
+    },
+    {
+      "id": "t000u",
+      "sourceKey": "drop",
+      "retired": false
+    },
+    {
+      "id": "t000v",
+      "sourceKey": "elemental",
+      "retired": false
+    },
+    {
+      "id": "t000w",
+      "sourceKey": "elemental_damage",
+      "retired": false
+    },
+    {
+      "id": "t000x",
+      "sourceKey": "elemental_resistance",
+      "retired": false
+    },
+    {
+      "id": "t000y",
+      "sourceKey": "endurance_charge",
+      "retired": false
+    },
+    {
+      "id": "t000z",
+      "sourceKey": "energy_shield",
+      "retired": false
+    },
+    {
+      "id": "t0010",
+      "sourceKey": "energyshield",
+      "retired": false
+    },
+    {
+      "id": "t0011",
+      "sourceKey": "evasion",
+      "retired": false
+    },
+    {
+      "id": "t0012",
+      "sourceKey": "fire",
+      "retired": false
+    },
+    {
+      "id": "t0013",
+      "sourceKey": "fire_resistance",
+      "retired": false
+    },
+    {
+      "id": "t0014",
+      "sourceKey": "flask",
+      "retired": false
+    },
+    {
+      "id": "t0015",
+      "sourceKey": "flat_life_regen",
+      "retired": false
+    },
+    {
+      "id": "t0016",
+      "sourceKey": "frenzy_charge",
+      "retired": false
+    },
+    {
+      "id": "t0017",
+      "sourceKey": "gem",
+      "retired": false
+    },
+    {
+      "id": "t0018",
+      "sourceKey": "has_attack_mod",
+      "retired": false
+    },
+    {
+      "id": "t0019",
+      "sourceKey": "kurgal_mod",
+      "retired": false
+    },
+    {
+      "id": "t001a",
+      "sourceKey": "life",
+      "retired": false
+    },
+    {
+      "id": "t001b",
+      "sourceKey": "life_flask",
+      "retired": false
+    },
+    {
+      "id": "t001c",
+      "sourceKey": "lightning",
+      "retired": false
+    },
+    {
+      "id": "t001d",
+      "sourceKey": "lightning_resistance",
+      "retired": false
+    },
+    {
+      "id": "t001e",
+      "sourceKey": "mana",
+      "retired": false
+    },
+    {
+      "id": "t001f",
+      "sourceKey": "marksman_pool",
+      "retired": false
+    },
+    {
+      "id": "t001g",
+      "sourceKey": "minion",
+      "retired": false
+    },
+    {
+      "id": "t001h",
+      "sourceKey": "minion_damage",
+      "retired": false
+    },
+    {
+      "id": "t001i",
+      "sourceKey": "minion_resistance",
+      "retired": false
+    },
+    {
+      "id": "t001j",
+      "sourceKey": "minion_speed",
+      "retired": false
+    },
+    {
+      "id": "t001k",
+      "sourceKey": "otherworldly",
+      "retired": false
+    },
+    {
+      "id": "t001l",
+      "sourceKey": "passive-radius-condition",
+      "retired": false
+    },
+    {
+      "id": "t001m",
+      "sourceKey": "physical",
+      "retired": false
+    },
+    {
+      "id": "t001n",
+      "sourceKey": "physical_damage",
+      "retired": false
+    },
+    {
+      "id": "t001o",
+      "sourceKey": "poison",
+      "retired": false
+    },
+    {
+      "id": "t001p",
+      "sourceKey": "power_charge",
+      "retired": false
+    },
+    {
+      "id": "t001q",
+      "sourceKey": "resistance",
+      "retired": false
+    },
+    {
+      "id": "t001r",
+      "sourceKey": "resource",
+      "retired": false
+    },
+    {
+      "id": "t001s",
+      "sourceKey": "reveal_only",
+      "retired": false
+    },
+    {
+      "id": "t001t",
+      "sourceKey": "runic_ward",
+      "retired": false
+    },
+    {
+      "id": "t001u",
+      "sourceKey": "soul_pool",
+      "retired": false
+    },
+    {
+      "id": "t001v",
+      "sourceKey": "speed",
+      "retired": false
+    },
+    {
+      "id": "t001w",
+      "sourceKey": "tier_unknown",
+      "retired": false
+    },
+    {
+      "id": "t001x",
+      "sourceKey": "ulaman_mod",
+      "retired": false
+    },
+    {
+      "id": "t001y",
+      "sourceKey": "unscalable",
+      "retired": false
+    },
+    {
+      "id": "t001z",
+      "sourceKey": "unveiled_mod",
+      "retired": false
+    }
+  ]
+}

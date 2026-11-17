@@ -85,6 +85,6 @@ count 문구, SR step 이름, 실제 화폐/징조 tooltip data attribute, 단�
 
 ## 연결과 검증
 
-현재 Page는 반복 controls와 전용 API adapter를 사용한다. 이 문서는 Film 저장 경계를 정의하며 HTTP·정규식·실행 UI는 각각의 전용 계약을 따른다. [현재 연결과 보존 규칙](../../../../../docs/development.md#chaos-repeat)을 참고한다.
+현재 Page는 반복 controls와 전용 API adapter를 사용한다. 이 문서는 Film 저장 경계를 정의하며 HTTP·정규식·실행 UI는 각각의 전용 계약을 따른다. [현재 연결과 보존 규칙](../../../../../docs/legacy/development.md#chaos-repeat)을 참고한다.
 
 검사에는 합성 fixture와 메모리 storage를 사용하며 실제 사용자 기록을 변경하지 않는다. 일반 단일 사용, 반복 receipt, ABYSS/CONCRETE, 실패·취소·늦은 응답, 복원과 기보 투영을 구별해 확인한다. 과거 Worker 실행 결과는 통합 전 Git 원문에서 조회한다.

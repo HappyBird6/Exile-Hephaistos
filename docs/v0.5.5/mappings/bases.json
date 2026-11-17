@@ -1,0 +1,902 @@
+{
+  "schemaVersion": 1,
+  "domain": "bases",
+  "prefix": "b",
+  "entries": [
+    {
+      "id": "b0001",
+      "sourceKey": "absent-amulet",
+      "retired": false
+    },
+    {
+      "id": "b0002",
+      "sourceKey": "abyssal-cuirass",
+      "retired": false
+    },
+    {
+      "id": "b0003",
+      "sourceKey": "acrid",
+      "retired": false
+    },
+    {
+      "id": "b0004",
+      "sourceKey": "adherent",
+      "retired": false
+    },
+    {
+      "id": "b0005",
+      "sourceKey": "aegis-quarterstaff",
+      "retired": false
+    },
+    {
+      "id": "b0006",
+      "sourceKey": "akoyan-club",
+      "retired": false
+    },
+    {
+      "id": "b0007",
+      "sourceKey": "akoyan-spear",
+      "retired": false
+    },
+    {
+      "id": "b0008",
+      "sourceKey": "amber",
+      "retired": false
+    },
+    {
+      "id": "b0009",
+      "sourceKey": "amethyst",
+      "retired": false
+    },
+    {
+      "id": "b000a",
+      "sourceKey": "ancestral",
+      "retired": false
+    },
+    {
+      "id": "b000b",
+      "sourceKey": "austere-garb",
+      "retired": false
+    },
+    {
+      "id": "b000c",
+      "sourceKey": "azure",
+      "retired": false
+    },
+    {
+      "id": "b000d",
+      "sourceKey": "belt",
+      "retired": false
+    },
+    {
+      "id": "b000e",
+      "sourceKey": "biostatic-ring",
+      "retired": false
+    },
+    {
+      "id": "b000f",
+      "sourceKey": "blacksteel-boots",
+      "retired": false
+    },
+    {
+      "id": "b000g",
+      "sourceKey": "blacksteel-crest-shield",
+      "retired": false
+    },
+    {
+      "id": "b000h",
+      "sourceKey": "blacksteel-gloves",
+      "retired": false
+    },
+    {
+      "id": "b000i",
+      "sourceKey": "bloodstone",
+      "retired": false
+    },
+    {
+      "id": "b000j",
+      "sourceKey": "blunt-quiver",
+      "retired": false
+    },
+    {
+      "id": "b000k",
+      "sourceKey": "body",
+      "retired": false
+    },
+    {
+      "id": "b000l",
+      "sourceKey": "bolting-quarterstaff",
+      "retired": false
+    },
+    {
+      "id": "b000m",
+      "sourceKey": "bone",
+      "retired": false
+    },
+    {
+      "id": "b000n",
+      "sourceKey": "bow",
+      "retired": false
+    },
+    {
+      "id": "b000o",
+      "sourceKey": "broadhead-quiver",
+      "retired": false
+    },
+    {
+      "id": "b000p",
+      "sourceKey": "clasped",
+      "retired": false
+    },
+    {
+      "id": "b000q",
+      "sourceKey": "conjurer-mantle",
+      "retired": false
+    },
+    {
+      "id": "b000r",
+      "sourceKey": "corona-amulet",
+      "retired": false
+    },
+    {
+      "id": "b000s",
+      "sourceKey": "corsair-coat",
+      "retired": false
+    },
+    {
+      "id": "b000t",
+      "sourceKey": "crimson",
+      "retired": false
+    },
+    {
+      "id": "b000u",
+      "sourceKey": "critical",
+      "retired": false
+    },
+    {
+      "id": "b000v",
+      "sourceKey": "cryptic",
+      "retired": false
+    },
+    {
+      "id": "b000w",
+      "sourceKey": "daggerfoot",
+      "retired": false
+    },
+    {
+      "id": "b000x",
+      "sourceKey": "dark-staff",
+      "retired": false
+    },
+    {
+      "id": "b000y",
+      "sourceKey": "dastard-armour",
+      "retired": false
+    },
+    {
+      "id": "b000z",
+      "sourceKey": "death-mail",
+      "retired": false
+    },
+    {
+      "id": "b0010",
+      "sourceKey": "death-mantle",
+      "retired": false
+    },
+    {
+      "id": "b0011",
+      "sourceKey": "desert-buckler",
+      "retired": false
+    },
+    {
+      "id": "b0012",
+      "sourceKey": "desolate-crossbow",
+      "retired": false
+    },
+    {
+      "id": "b0013",
+      "sourceKey": "diamond",
+      "retired": false
+    },
+    {
+      "id": "b0014",
+      "sourceKey": "distorted-amulet",
+      "retired": false
+    },
+    {
+      "id": "b0015",
+      "sourceKey": "double-belt",
+      "retired": false
+    },
+    {
+      "id": "b0016",
+      "sourceKey": "drakeskin",
+      "retired": false
+    },
+    {
+      "id": "b0017",
+      "sourceKey": "dreaming-quarterstaff",
+      "retired": false
+    },
+    {
+      "id": "b0018",
+      "sourceKey": "dueling",
+      "retired": false
+    },
+    {
+      "id": "b0019",
+      "sourceKey": "dusk-amulet",
+      "retired": false
+    },
+    {
+      "id": "b001a",
+      "sourceKey": "dusk-ring",
+      "retired": false
+    },
+    {
+      "id": "b001b",
+      "sourceKey": "elegant-crossbow",
+      "retired": false
+    },
+    {
+      "id": "b001c",
+      "sourceKey": "emerald",
+      "retired": false
+    },
+    {
+      "id": "b001d",
+      "sourceKey": "emerald-ring",
+      "retired": false
+    },
+    {
+      "id": "b001e",
+      "sourceKey": "engraved-crossbow",
+      "retired": false
+    },
+    {
+      "id": "b001f",
+      "sourceKey": "faithful",
+      "retired": false
+    },
+    {
+      "id": "b001g",
+      "sourceKey": "falconers-jacket",
+      "retired": false
+    },
+    {
+      "id": "b001h",
+      "sourceKey": "fanatic",
+      "retired": false
+    },
+    {
+      "id": "b001i",
+      "sourceKey": "fanatic-greathammer",
+      "retired": false
+    },
+    {
+      "id": "b001j",
+      "sourceKey": "feathered-raiment",
+      "retired": false
+    },
+    {
+      "id": "b001k",
+      "sourceKey": "fine-belt",
+      "retired": false
+    },
+    {
+      "id": "b001l",
+      "sourceKey": "fire-quiver",
+      "retired": false
+    },
+    {
+      "id": "b001m",
+      "sourceKey": "flexed-crossbow",
+      "retired": false
+    },
+    {
+      "id": "b001n",
+      "sourceKey": "flowing-raiment",
+      "retired": false
+    },
+    {
+      "id": "b001o",
+      "sourceKey": "flying-spear",
+      "retired": false
+    },
+    {
+      "id": "b001p",
+      "sourceKey": "forking-belt",
+      "retired": false
+    },
+    {
+      "id": "b001q",
+      "sourceKey": "fortified-hammer",
+      "retired": false
+    },
+    {
+      "id": "b001r",
+      "sourceKey": "freebooter",
+      "retired": false
+    },
+    {
+      "id": "b001s",
+      "sourceKey": "fungal-talisman",
+      "retired": false
+    },
+    {
+      "id": "b001t",
+      "sourceKey": "galvanic",
+      "retired": false
+    },
+    {
+      "id": "b001u",
+      "sourceKey": "gemini",
+      "retired": false
+    },
+    {
+      "id": "b001v",
+      "sourceKey": "gemini-crossbow",
+      "retired": false
+    },
+    {
+      "id": "b001w",
+      "sourceKey": "gladiatorial",
+      "retired": false
+    },
+    {
+      "id": "b001x",
+      "sourceKey": "gloam-amulet",
+      "retired": false
+    },
+    {
+      "id": "b001y",
+      "sourceKey": "gloam-ring",
+      "retired": false
+    },
+    {
+      "id": "b001z",
+      "sourceKey": "gold-amulet",
+      "retired": false
+    },
+    {
+      "id": "b0020",
+      "sourceKey": "gold-ring",
+      "retired": false
+    },
+    {
+      "id": "b0021",
+      "sourceKey": "golden-targe",
+      "retired": false
+    },
+    {
+      "id": "b0022",
+      "sourceKey": "grand-spear",
+      "retired": false
+    },
+    {
+      "id": "b0023",
+      "sourceKey": "grinning",
+      "retired": false
+    },
+    {
+      "id": "b0024",
+      "sourceKey": "guardian",
+      "retired": false
+    },
+    {
+      "id": "b0025",
+      "sourceKey": "hallowed",
+      "retired": false
+    },
+    {
+      "id": "b0026",
+      "sourceKey": "heavy-belt",
+      "retired": false
+    },
+    {
+      "id": "b0027",
+      "sourceKey": "helmet",
+      "retired": false
+    },
+    {
+      "id": "b0028",
+      "sourceKey": "imperial",
+      "retired": false
+    },
+    {
+      "id": "b0029",
+      "sourceKey": "invoking-belt",
+      "retired": false
+    },
+    {
+      "id": "b002a",
+      "sourceKey": "jade-amulet",
+      "retired": false
+    },
+    {
+      "id": "b002b",
+      "sourceKey": "jade-talisman",
+      "retired": false
+    },
+    {
+      "id": "b002c",
+      "sourceKey": "kinetic",
+      "retired": false
+    },
+    {
+      "id": "b002d",
+      "sourceKey": "lament-amulet",
+      "retired": false
+    },
+    {
+      "id": "b002e",
+      "sourceKey": "lapis-amulet",
+      "retired": false
+    },
+    {
+      "id": "b002f",
+      "sourceKey": "lazuli-ring",
+      "retired": false
+    },
+    {
+      "id": "b002g",
+      "sourceKey": "linen-belt",
+      "retired": false
+    },
+    {
+      "id": "b002h",
+      "sourceKey": "long-belt",
+      "retired": false
+    },
+    {
+      "id": "b002i",
+      "sourceKey": "lunar",
+      "retired": false
+    },
+    {
+      "id": "b002j",
+      "sourceKey": "mail-belt",
+      "retired": false
+    },
+    {
+      "id": "b002k",
+      "sourceKey": "mail-coat",
+      "retired": false
+    },
+    {
+      "id": "b002l",
+      "sourceKey": "maji-talisman",
+      "retired": false
+    },
+    {
+      "id": "b002m",
+      "sourceKey": "massive",
+      "retired": false
+    },
+    {
+      "id": "b002n",
+      "sourceKey": "mnemonic",
+      "retired": false
+    },
+    {
+      "id": "b002o",
+      "sourceKey": "obliterator",
+      "retired": false
+    },
+    {
+      "id": "b002p",
+      "sourceKey": "offering",
+      "retired": false
+    },
+    {
+      "id": "b002q",
+      "sourceKey": "omen",
+      "retired": false
+    },
+    {
+      "id": "b002r",
+      "sourceKey": "oneiric-ring",
+      "retired": false
+    },
+    {
+      "id": "b002s",
+      "sourceKey": "ornate-belt",
+      "retired": false
+    },
+    {
+      "id": "b002t",
+      "sourceKey": "pearl",
+      "retired": false
+    },
+    {
+      "id": "b002u",
+      "sourceKey": "pearlescent",
+      "retired": false
+    },
+    {
+      "id": "b002v",
+      "sourceKey": "penetrating-quiver",
+      "retired": false
+    },
+    {
+      "id": "b002w",
+      "sourceKey": "penumbra-amulet",
+      "retired": false
+    },
+    {
+      "id": "b002x",
+      "sourceKey": "penumbra-ring",
+      "retired": false
+    },
+    {
+      "id": "b002y",
+      "sourceKey": "perching-staff",
+      "retired": false
+    },
+    {
+      "id": "b002z",
+      "sourceKey": "permafrost-staff",
+      "retired": false
+    },
+    {
+      "id": "b0030",
+      "sourceKey": "plate-belt",
+      "retired": false
+    },
+    {
+      "id": "b0031",
+      "sourceKey": "polished",
+      "retired": false
+    },
+    {
+      "id": "b0032",
+      "sourceKey": "portent-amulet",
+      "retired": false
+    },
+    {
+      "id": "b0033",
+      "sourceKey": "primed-quiver",
+      "retired": false
+    },
+    {
+      "id": "b0034",
+      "sourceKey": "primordial",
+      "retired": false
+    },
+    {
+      "id": "b0035",
+      "sourceKey": "prismatic",
+      "retired": false
+    },
+    {
+      "id": "b0036",
+      "sourceKey": "rambler-jacket",
+      "retired": false
+    },
+    {
+      "id": "b0037",
+      "sourceKey": "ravenous-staff",
+      "retired": false
+    },
+    {
+      "id": "b0038",
+      "sourceKey": "reflecting-staff",
+      "retired": false
+    },
+    {
+      "id": "b0039",
+      "sourceKey": "ring",
+      "retired": false
+    },
+    {
+      "id": "b003a",
+      "sourceKey": "ruby",
+      "retired": false
+    },
+    {
+      "id": "b003b",
+      "sourceKey": "ruby-ring",
+      "retired": false
+    },
+    {
+      "id": "b003c",
+      "sourceKey": "ruination-maul",
+      "retired": false
+    },
+    {
+      "id": "b003d",
+      "sourceKey": "sacral-quiver",
+      "retired": false
+    },
+    {
+      "id": "b003e",
+      "sourceKey": "sacramental-robe",
+      "retired": false
+    },
+    {
+      "id": "b003f",
+      "sourceKey": "sanctified-staff",
+      "retired": false
+    },
+    {
+      "id": "b003g",
+      "sourceKey": "sapphire",
+      "retired": false
+    },
+    {
+      "id": "b003h",
+      "sourceKey": "sapphire-ring",
+      "retired": false
+    },
+    {
+      "id": "b003i",
+      "sourceKey": "sceptre",
+      "retired": false
+    },
+    {
+      "id": "b003j",
+      "sourceKey": "seastorm-mantle",
+      "retired": false
+    },
+    {
+      "id": "b003k",
+      "sourceKey": "sekhema",
+      "retired": false
+    },
+    {
+      "id": "b003l",
+      "sourceKey": "serrated-quiver",
+      "retired": false
+    },
+    {
+      "id": "b003m",
+      "sourceKey": "shrine-fire",
+      "retired": false
+    },
+    {
+      "id": "b003n",
+      "sourceKey": "shrine-ice",
+      "retired": false
+    },
+    {
+      "id": "b003o",
+      "sourceKey": "shrine-lightning",
+      "retired": false
+    },
+    {
+      "id": "b003p",
+      "sourceKey": "shrouded-mail-cold",
+      "retired": false
+    },
+    {
+      "id": "b003q",
+      "sourceKey": "shrouded-mail-fire",
+      "retired": false
+    },
+    {
+      "id": "b003r",
+      "sourceKey": "shrouded-mail-lightning",
+      "retired": false
+    },
+    {
+      "id": "b003s",
+      "sourceKey": "siege-crossbow",
+      "retired": false
+    },
+    {
+      "id": "b003t",
+      "sourceKey": "sinew-belt",
+      "retired": false
+    },
+    {
+      "id": "b003u",
+      "sourceKey": "siphoning",
+      "retired": false
+    },
+    {
+      "id": "b003v",
+      "sourceKey": "sirenscale",
+      "retired": false
+    },
+    {
+      "id": "b003w",
+      "sourceKey": "sleek",
+      "retired": false
+    },
+    {
+      "id": "b003x",
+      "sourceKey": "slipstrike",
+      "retired": false
+    },
+    {
+      "id": "b003y",
+      "sourceKey": "solar",
+      "retired": false
+    },
+    {
+      "id": "b003z",
+      "sourceKey": "soldier",
+      "retired": false
+    },
+    {
+      "id": "b0040",
+      "sourceKey": "stellar",
+      "retired": false
+    },
+    {
+      "id": "b0041",
+      "sourceKey": "stocky",
+      "retired": false
+    },
+    {
+      "id": "b0042",
+      "sourceKey": "stoic",
+      "retired": false
+    },
+    {
+      "id": "b0043",
+      "sourceKey": "strife-pick",
+      "retired": false
+    },
+    {
+      "id": "b0044",
+      "sourceKey": "tasalian",
+      "retired": false
+    },
+    {
+      "id": "b0045",
+      "sourceKey": "tasalian-focus",
+      "retired": false
+    },
+    {
+      "id": "b0046",
+      "sourceKey": "tawhoan-greatclub",
+      "retired": false
+    },
+    {
+      "id": "b0047",
+      "sourceKey": "tawhoan-tower-shield",
+      "retired": false
+    },
+    {
+      "id": "b0048",
+      "sourceKey": "tenebrous-amulet",
+      "retired": false
+    },
+    {
+      "id": "b0049",
+      "sourceKey": "tenebrous-ring",
+      "retired": false
+    },
+    {
+      "id": "b004a",
+      "sourceKey": "thane-mail",
+      "retired": false
+    },
+    {
+      "id": "b004b",
+      "sourceKey": "time-lost-diamond",
+      "retired": false
+    },
+    {
+      "id": "b004c",
+      "sourceKey": "time-lost-emerald",
+      "retired": false
+    },
+    {
+      "id": "b004d",
+      "sourceKey": "time-lost-ruby",
+      "retired": false
+    },
+    {
+      "id": "b004e",
+      "sourceKey": "time-lost-sapphire",
+      "retired": false
+    },
+    {
+      "id": "b004f",
+      "sourceKey": "topaz-ring",
+      "retired": false
+    },
+    {
+      "id": "b004g",
+      "sourceKey": "toxic-quiver",
+      "retired": false
+    },
+    {
+      "id": "b004h",
+      "sourceKey": "twisted-amulet",
+      "retired": false
+    },
+    {
+      "id": "b004i",
+      "sourceKey": "two-point-quiver",
+      "retired": false
+    },
+    {
+      "id": "b004j",
+      "sourceKey": "two-stone-fire-cold",
+      "retired": false
+    },
+    {
+      "id": "b004k",
+      "sourceKey": "unset-ring",
+      "retired": false
+    },
+    {
+      "id": "b004l",
+      "sourceKey": "utility-belt",
+      "retired": false
+    },
+    {
+      "id": "b004m",
+      "sourceKey": "utzaal-cuirass",
+      "retired": false
+    },
+    {
+      "id": "b004n",
+      "sourceKey": "vile",
+      "retired": false
+    },
+    {
+      "id": "b004o",
+      "sourceKey": "visceral-quiver",
+      "retired": false
+    },
+    {
+      "id": "b004p",
+      "sourceKey": "vitalic",
+      "retired": false
+    },
+    {
+      "id": "b004q",
+      "sourceKey": "volant-quiver",
+      "retired": false
+    },
+    {
+      "id": "b004r",
+      "sourceKey": "volatile",
+      "retired": false
+    },
+    {
+      "id": "b004s",
+      "sourceKey": "wand",
+      "retired": false
+    },
+    {
+      "id": "b004t",
+      "sourceKey": "war-wraps",
+      "retired": false
+    },
+    {
+      "id": "b004u",
+      "sourceKey": "warlord-cuirass",
+      "retired": false
+    },
+    {
+      "id": "b004v",
+      "sourceKey": "warmonger",
+      "retired": false
+    },
+    {
+      "id": "b004w",
+      "sourceKey": "wide-belt",
+      "retired": false
+    },
+    {
+      "id": "b004x",
+      "sourceKey": "wolfskin",
+      "retired": false
+    },
+    {
+      "id": "b004y",
+      "sourceKey": "wrath",
+      "retired": false
+    },
+    {
+      "id": "b004z",
+      "sourceKey": "wyrmscale-coat",
+      "retired": false
+    }
+  ]
+}

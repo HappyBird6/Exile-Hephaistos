@@ -12,7 +12,7 @@ const top = JSON.parse(
 const policies = JSON.parse(
   readFileSync(resolve(destination, '../basePolicies.json'), 'utf8'),
 )
-const evidence = resolve(root, 'docs/evidence/0.5.5')
+const evidence = resolve(root, 'docs/legacy/evidence/0.5.5')
 const files = readdirSync(evidence, { recursive: true }).map((file) =>
   resolve(evidence, file),
 )
@@ -44,7 +44,7 @@ for (const [key, base] of Object.entries({ ...policies.legacy, ...top })) {
   )
   const priorSource = previous[base.id]?.source
   if (
-    priorSource?.startsWith('docs/evidence/0.5.5/') &&
+    priorSource?.startsWith('docs/legacy/evidence/0.5.5/') &&
     existsSync(resolve(root, priorSource))
   ) {
     candidates.unshift(resolve(root, priorSource))

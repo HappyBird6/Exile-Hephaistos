@@ -1,0 +1,73 @@
+[
+  {
+    "id": "Perfect_Essence_of_Insulation",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_Insulation",
+    "retrievedAt": "2026-10-03T16:47:39.795Z",
+    "sha256": "82fe756c7136b641039b29543c8487845ca42d8ec9659f08bbfdd6d8a5069f58",
+    "card": "Perfect Essence of Insulation Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierBelt: (26—30)% of Fire Damage taken Recouped as Life Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>",
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "life",
+        "elemental",
+        "fire"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/bd48169d70c7ea794059a18e2c9110bbaf1c31559657a412b15d884b78667879\" href=\"Perfect_Essence_of_Insulation\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/FireResistanceEssencePerfect.webp\" alt=\"FireResistanceEssencePerfect\" height=\"16\" />Perfect Essence of Insulation</a>",
+      "Code": "EssenceFireRecoupLife1",
+      "ModFamilyList": [
+        "FireDamageTakenRecoupedAsLife"
+      ],
+      "str": "<span class='mod-value'>(26<span class=\"ndash\">—</span>30)</span>% of <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage taken <a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c83824668de5af953edb328359ea3c64e3076d5589052471bb7d5ce14727322\">Recouped</a> as Life",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceFireRecoupLife1",
+    "detailRetrievedAt": "2026-10-03T17:00:41.474Z",
+    "detailSha256": "091ef8d74ba80e9f8ecfb082c69b7aa18434b2a9fede355f249aeaa69b4df122",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(26<span class=\"ndash\">—</span>30)</span>% of <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage taken <a data-keyword=\"Recoup\" href=\"Recoup\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3c83824668de5af953edb328359ea3c64e3076d5589052471bb7d5ce14727322\">Recouped</a> as Life</span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>FireDamageTakenRecoupedAsLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>fire damage taken goes to life over 4 seconds % <span class=\"badge bg-primary\">26 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "of the Essence",
+        "Family": "FireDamageTakenRecoupedAsLife",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "72 (Effective: 57)",
+        "Gold Price": "3266",
+        "Stats": "fire damage taken goes to life over 4 seconds % 26 — 30 Global",
+        "Spawn Tags": "default: 0",
+        "Craft Tags": "resource Life Elemental Fire"
+      },
+      "effect": "(26—30)% of Fire Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "fire_damage_taken_goes_to_life_over_4_seconds_%",
+          "bounds": [
+            26,
+            30
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 72,
+    "requiredCharacterLevel": 57,
+    "matchedModifierIds": [
+      "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+    ]
+  }
+]

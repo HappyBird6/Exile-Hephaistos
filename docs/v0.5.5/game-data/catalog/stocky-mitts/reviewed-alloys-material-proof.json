@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "Adaptive_Alloy",
+    "url": "https://poe2db.tw/us/Adaptive_Alloy",
+    "retrievedAt": "2026-10-03T06:50:19.657Z",
+    "sha256": "1fd5b80b9833a715c8743e35ba8f143bb08d36431791527a31f2f060f75f4415",
+    "blocks": [
+      "Adaptive Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Staff: Gain (42—52)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "Wand: Gain (21—26)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "Sceptre: (30—50)% Surpassing Chance to gain a Puppet Master stack whenever you use a Command Skill",
+      "Gloves: (10—15)% increased Attack Speed while missing Runic Ward"
+    ],
+    "materialBlocks": [
+      "Adaptive Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Staff: Gain (42—52)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "Wand: Gain (21—26)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "Sceptre: (30—50)% Surpassing Chance to gain a Puppet Master stack whenever you use a Command Skill",
+      "Gloves: (10—15)% increased Attack Speed while missing Runic Ward"
+    ]
+  },
+  {
+    "slug": "Swift_Alloy",
+    "url": "https://poe2db.tw/us/Swift_Alloy",
+    "retrievedAt": "2026-10-03T06:50:21Z",
+    "sha256": "3c5bea9dc1718d54068f4de4f9d57ca00b27f4b5eaf4729e470b55e9b7231bef",
+    "blocks": [
+      "Swift Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: (9—12)% increased Cast Speed",
+      "Ring: (7—9)% increased Attack Speed",
+      "Belt: Flasks gain (0.75—1) charges per Second",
+      "Shield or Focus: (30—49)% increased Totem Placement speed"
+    ],
+    "materialBlocks": [
+      "Swift Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: (9—12)% increased Cast Speed",
+      "Ring: (7—9)% increased Attack Speed",
+      "Belt: Flasks gain (0.75—1) charges per Second",
+      "Shield or Focus: (30—49)% increased Totem Placement speed"
+    ]
+  },
+  {
+    "slug": "Sovereign_Alloy",
+    "url": "https://poe2db.tw/us/Sovereign_Alloy",
+    "retrievedAt": "2026-10-03T06:50:26.954Z",
+    "sha256": "192e4ef04d42bd752985ae4549b07e920978a2bce2b4298c5dc6199d85ba55bc",
+    "blocks": [
+      "Sovereign Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Weapons: (20—30)% increased effect of Socketed Augment Items",
+      "Armour: (24—30)% increased Runic Ward",
+      "Jewellery or Belt: (20—30)% increased Explicit Resistance Modifier magnitudes"
+    ],
+    "materialBlocks": [
+      "Sovereign Alloy",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Weapons: (20—30)% increased effect of Socketed Augment Items",
+      "Armour: (24—30)% increased Runic Ward",
+      "Jewellery or Belt: (20—30)% increased Explicit Resistance Modifier magnitudes"
+    ]
+  }
+]

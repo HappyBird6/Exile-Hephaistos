@@ -1,0 +1,81 @@
+{
+  "modifiers": [
+    {
+      "requiredItemLevel": 25,
+      "name": "of the Stars",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
+      "weight": 0,
+      "stats": [
+        {
+          "id": "attack_speed_+%_while_missing_ward",
+          "max": 15,
+          "min": 10
+        }
+      ],
+      "familyIds": [
+        "IncreasedAttackSpeed"
+      ],
+      "id": "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
+      "affixType": "SUFFIX",
+      "text": "(10—15)% increased Attack Speed while missing Runic Ward",
+      "layer": "EXPLICIT",
+      "tier": 1,
+      "tags": []
+    },
+    {
+      "requiredItemLevel": 45,
+      "name": "of the Stars",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
+      "weight": 0,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "max": 12,
+          "min": 9
+        }
+      ],
+      "familyIds": [
+        "IncreasedCastSpeed",
+        "IncreasedAttackSpeed"
+      ],
+      "id": "stocky-mitts:suffix:alloy-cast-speed",
+      "affixType": "SUFFIX",
+      "text": "(9—12)% increased Cast Speed",
+      "layer": "EXPLICIT",
+      "tier": 1,
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ]
+    },
+    {
+      "requiredItemLevel": 25,
+      "name": "Verisium",
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
+      "weight": 0,
+      "stats": [
+        {
+          "id": "local_ward_+%",
+          "max": 30,
+          "min": 24
+        }
+      ],
+      "familyIds": [
+        "LocalRunicWardPercent"
+      ],
+      "id": "stocky-mitts:prefix:alloy-local-runic-ward",
+      "affixType": "PREFIX",
+      "text": "(24—30)% increased Runic Ward",
+      "layer": "EXPLICIT",
+      "tier": 1,
+      "tags": []
+    }
+  ],
+  "metadata": {
+    "retrievedAt": "2026-10-03T06:33:09.397Z",
+    "snapshotId": "stocky-reviewed-alloys-2026-10-03-9d12e4a4beed",
+    "sourceUrl": "https://poe2db.tw/us/Gloves_str#ModifiersCalc",
+    "rawSha256": "9d12e4a4beed7235a43dc682bca8d3b38761bcb5d7fbb83df029be51f591df4d"
+  }
+}

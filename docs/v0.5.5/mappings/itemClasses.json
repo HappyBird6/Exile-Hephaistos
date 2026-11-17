@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "domain": "itemClasses",
+  "prefix": "k",
+  "entries": [
+    {
+      "id": "k0001",
+      "sourceKey": "Amulet",
+      "retired": false
+    },
+    {
+      "id": "k0002",
+      "sourceKey": "Amulets",
+      "retired": false
+    },
+    {
+      "id": "k0003",
+      "sourceKey": "Belt",
+      "retired": false
+    },
+    {
+      "id": "k0004",
+      "sourceKey": "Belts",
+      "retired": false
+    },
+    {
+      "id": "k0005",
+      "sourceKey": "Body Armour",
+      "retired": false
+    },
+    {
+      "id": "k0006",
+      "sourceKey": "Body Armours",
+      "retired": false
+    },
+    {
+      "id": "k0007",
+      "sourceKey": "Boot",
+      "retired": false
+    },
+    {
+      "id": "k0008",
+      "sourceKey": "Boots",
+      "retired": false
+    },
+    {
+      "id": "k0009",
+      "sourceKey": "Bow",
+      "retired": false
+    },
+    {
+      "id": "k000a",
+      "sourceKey": "Bows",
+      "retired": false
+    },
+    {
+      "id": "k000b",
+      "sourceKey": "Bucklers",
+      "retired": false
+    },
+    {
+      "id": "k000c",
+      "sourceKey": "Crossbows",
+      "retired": false
+    },
+    {
+      "id": "k000d",
+      "sourceKey": "Foci",
+      "retired": false
+    },
+    {
+      "id": "k000e",
+      "sourceKey": "Glove",
+      "retired": false
+    },
+    {
+      "id": "k000f",
+      "sourceKey": "Gloves",
+      "retired": false
+    },
+    {
+      "id": "k000g",
+      "sourceKey": "Helmet",
+      "retired": false
+    },
+    {
+      "id": "k000h",
+      "sourceKey": "Helmets",
+      "retired": false
+    },
+    {
+      "id": "k000i",
+      "sourceKey": "Jewels",
+      "retired": false
+    },
+    {
+      "id": "k000j",
+      "sourceKey": "One Hand Maces",
+      "retired": false
+    },
+    {
+      "id": "k000k",
+      "sourceKey": "Quarterstaves",
+      "retired": false
+    },
+    {
+      "id": "k000l",
+      "sourceKey": "Quivers",
+      "retired": false
+    },
+    {
+      "id": "k000m",
+      "sourceKey": "Ring",
+      "retired": false
+    },
+    {
+      "id": "k000n",
+      "sourceKey": "Rings",
+      "retired": false
+    },
+    {
+      "id": "k000o",
+      "sourceKey": "Sceptre",
+      "retired": false
+    },
+    {
+      "id": "k000p",
+      "sourceKey": "Sceptres",
+      "retired": false
+    },
+    {
+      "id": "k000q",
+      "sourceKey": "Shields",
+      "retired": false
+    },
+    {
+      "id": "k000r",
+      "sourceKey": "Spears",
+      "retired": false
+    },
+    {
+      "id": "k000s",
+      "sourceKey": "Staves",
+      "retired": false
+    },
+    {
+      "id": "k000t",
+      "sourceKey": "Talismans",
+      "retired": false
+    },
+    {
+      "id": "k000u",
+      "sourceKey": "Two Hand Maces",
+      "retired": false
+    },
+    {
+      "id": "k000v",
+      "sourceKey": "Wand",
+      "retired": false
+    },
+    {
+      "id": "k000w",
+      "sourceKey": "Wands",
+      "retired": false
+    }
+  ]
+}

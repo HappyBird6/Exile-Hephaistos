@@ -1,0 +1,2363 @@
+[
+  {
+    "action": "LESSER_ESSENCE_BODY",
+    "material": "Lesser_Essence_of_the_Body",
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_the_Body",
+    "code": "IncreasedLife3",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "16",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "life"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/367601da493a95d9061d208a8766855b46650888c93d86d851e871ba9c9bb6d3\" href=\"Lesser_Essence_of_the_Body\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/LifeEssenceLesser.webp\" alt=\"LifeEssenceLesser\" height=\"16\" />Lesser Essence of the Body</a>",
+      "Code": "IncreasedLife3",
+      "ModFamilyList": [
+        "IncreasedLife"
+      ],
+      "str": "<span class='mod-value'>+(30<span class=\"ndash\">—</span>39)</span> to maximum Life",
+      "adds_no": [],
+      "spawn_no": [
+        "body_armour",
+        "shield",
+        "helmet",
+        "gloves",
+        "boots",
+        "belt",
+        "amulet",
+        "ring",
+        "default"
+      ],
+      "reqlvl": 12,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "Sanguine",
+      "Level": "16",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "IncreasedLife"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(30<span class=\"ndash\">—</span>39)</span> to maximum Life",
+      "fossil_no": [
+        "resource",
+        "life"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "body_armour",
+        "shield",
+        "helmet",
+        "gloves",
+        "boots",
+        "belt",
+        "amulet",
+        "ring",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/436dd8d7a7bcc1bdfa78e9fba034f9ed8566831456e5894083e10e331e6c8c1a"
+    },
+    "definition": {
+      "id": "stocky-mitts:prefix:sanguine",
+      "name": "Sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(30—39) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/436dd8d7a7bcc1bdfa78e9fba034f9ed8566831456e5894083e10e331e6c8c1a"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife3",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(30<span class=\"ndash\">—</span>39)</span> to maximum Life</span></h5>   <span data-tabname=\"Sanguine\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Sanguine\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>212\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">30 <span class=\"ndash\">—</span> 39</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>7</span>% less damage taken while on [LowLife|Low Life]</table>  </div></div>",
+    "parsed": {
+      "text": "+(30—39) to maximum Life   \nNameSanguine\nFamilyIncreasedLife\nDomainsItem (1)\nGenerationTypePrefix (1)\nReq. level16 (Effective: 12)\nGold Price212\nStatsbase maximum life 30 — 39 Global\nSpawn Tagsbody_armour: 1 shield: 1 helmet: 1 gloves: 1 boots: 1 belt: 1 amulet: 1 ring: 1 default: 0 \nCraft Tagsresource Life \nFists of Stone7% less damage taken while on [LowLife|Low Life]",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "ESSENCE_BODY",
+    "material": "Essence_of_the_Body",
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Body",
+    "code": "IncreasedLife6",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "38",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "life"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/fcbad666467a423e23161309c2eead3e766f105a5845a5361f58d9fabf77fbb7\" href=\"Essence_of_the_Body\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/LifeEssence.webp\" alt=\"LifeEssence\" height=\"16\" />Essence of the Body</a>",
+      "Code": "IncreasedLife6",
+      "ModFamilyList": [
+        "IncreasedLife"
+      ],
+      "str": "<span class='mod-value'>+(70<span class=\"ndash\">—</span>84)</span> to maximum Life",
+      "adds_no": [],
+      "spawn_no": [
+        "body_armour",
+        "shield",
+        "helmet",
+        "gloves",
+        "boots",
+        "belt",
+        "amulet",
+        "ring",
+        "default"
+      ],
+      "reqlvl": 30,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "Robust",
+      "Level": "38",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "IncreasedLife"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(70<span class=\"ndash\">—</span>84)</span> to maximum Life",
+      "fossil_no": [
+        "resource",
+        "life"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "body_armour",
+        "shield",
+        "helmet",
+        "gloves",
+        "boots",
+        "belt",
+        "amulet",
+        "ring",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/72a00abccf75cc0c4f91fe969e6fd13df8cc361c59cdc53f6f3b6e9121549c9b"
+    },
+    "definition": {
+      "id": "stocky-mitts:prefix:robust",
+      "name": "Robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(70—84) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/72a00abccf75cc0c4f91fe969e6fd13df8cc361c59cdc53f6f3b6e9121549c9b"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife6",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(70<span class=\"ndash\">—</span>84)</span> to maximum Life</span></h5>   <span data-tabname=\"Robust\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Robust\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>38 (Effective: 30)\n<tr><th>Gold Price<td>558\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">70 <span class=\"ndash\">—</span> 84</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>10</span>% less damage taken while on [LowLife|Low Life]</table>  </div></div>",
+    "parsed": {
+      "text": "+(70—84) to maximum Life   \nNameRobust\nFamilyIncreasedLife\nDomainsItem (1)\nGenerationTypePrefix (1)\nReq. level38 (Effective: 30)\nGold Price558\nStatsbase maximum life 70 — 84 Global\nSpawn Tagsbody_armour: 1 shield: 1 helmet: 1 gloves: 1 boots: 1 belt: 1 amulet: 1 ring: 1 default: 0 \nCraft Tagsresource Life \nFists of Stone10% less damage taken while on [LowLife|Low Life]",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "GREATER_ESSENCE_BODY",
+    "material": "Greater_Essence_of_the_Body",
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_the_Body",
+    "code": "IncreasedLife7",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "46",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "life"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/bc3013870ee079f7ca8dead6f566d540168105edd5904fcf88a63d70a84f5e50\" href=\"Greater_Essence_of_the_Body\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterLifeEssence.webp\" alt=\"GreaterLifeEssence\" height=\"16\" />Greater Essence of the Body</a>",
+      "Code": "IncreasedLife7",
+      "ModFamilyList": [
+        "IncreasedLife"
+      ],
+      "str": "<span class='mod-value'>+(85<span class=\"ndash\">—</span>99)</span> to maximum Life",
+      "adds_no": [],
+      "spawn_no": [
+        "body_armour",
+        "shield",
+        "helmet",
+        "gloves",
+        "boots",
+        "belt",
+        "amulet",
+        "ring",
+        "default"
+      ],
+      "reqlvl": 36,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "Rotund",
+      "Level": "46",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "IncreasedLife"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(85<span class=\"ndash\">—</span>99)</span> to maximum Life",
+      "fossil_no": [
+        "resource",
+        "life"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "body_armour",
+        "shield",
+        "helmet",
+        "gloves",
+        "boots",
+        "belt",
+        "amulet",
+        "ring",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftinglife\" data-tag=\"life\">Life</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/23bda55be13599a91446f74c6d8cee65ada6ee7fb9189c68412270cf7a727ab8"
+    },
+    "definition": {
+      "id": "stocky-mitts:prefix:rotund",
+      "name": "Rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(85—99) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/23bda55be13599a91446f74c6d8cee65ada6ee7fb9189c68412270cf7a727ab8"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife7",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(85<span class=\"ndash\">—</span>99)</span> to maximum Life</span></h5>   <span data-tabname=\"Rotund\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Rotund\n<tr><th>Family<td>IncreasedLife\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>720\n<tr><th>Stats<td><li>base maximum life <span class=\"badge bg-primary\">85 <span class=\"ndash\">—</span> 99</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>body_armour: 1</span> <span class='badge bg-primary'>shield: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Life</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>11</span>% less damage taken while on [LowLife|Low Life]</table>  </div></div>",
+    "parsed": {
+      "text": "+(85—99) to maximum Life   \nNameRotund\nFamilyIncreasedLife\nDomainsItem (1)\nGenerationTypePrefix (1)\nReq. level46 (Effective: 36)\nGold Price720\nStatsbase maximum life 85 — 99 Global\nSpawn Tagsbody_armour: 1 shield: 1 helmet: 1 gloves: 1 boots: 1 belt: 1 amulet: 1 ring: 1 default: 0 \nCraft Tagsresource Life \nFists of Stone11% less damage taken while on [LowLife|Low Life]",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "LESSER_ESSENCE_MIND",
+    "material": "Lesser_Essence_of_the_Mind",
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_the_Mind",
+    "code": "IncreasedMana3",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "16",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e159703c3e8cd4a5b1f284da2a1d8120d7b6e867f2a504652e9657914ba1ac54\" href=\"Lesser_Essence_of_the_Mind\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ManaEssenceLesser.webp\" alt=\"ManaEssenceLesser\" height=\"16\" />Lesser Essence of the Mind</a>",
+      "Code": "IncreasedMana3",
+      "ModFamilyList": [
+        "IncreasedMana"
+      ],
+      "str": "<span class='mod-value'>+(25<span class=\"ndash\">—</span>34)</span> to maximum Mana",
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "belt",
+        "helmet",
+        "gloves",
+        "boots",
+        "focus",
+        "sceptre",
+        "wand",
+        "trap",
+        "default"
+      ],
+      "reqlvl": 12,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "Azure",
+      "Level": "16",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "IncreasedMana"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(25<span class=\"ndash\">—</span>34)</span> to maximum Mana",
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "belt",
+        "helmet",
+        "gloves",
+        "boots",
+        "focus",
+        "sceptre",
+        "wand",
+        "trap",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2f01ed20aa9c98a994c86fa2c72c78f11e25e13ae6d84bb6b7d944af8b77a3a1"
+    },
+    "definition": {
+      "id": "stocky-mitts:prefix:azure",
+      "name": "Azure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(25—34) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2f01ed20aa9c98a994c86fa2c72c78f11e25e13ae6d84bb6b7d944af8b77a3a1"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana3",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(25<span class=\"ndash\">—</span>34)</span> to maximum Mana</span></h5>   <span data-tabname=\"Azure\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Azure\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>272\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">25 <span class=\"ndash\">—</span> 34</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(14<span class=\"ndash\">—</span>15)</span>% more [Attack|Attack] damage while on [LowMana|Low Mana]</table>  </div></div>",
+    "parsed": {
+      "text": "+(25—34) to maximum Mana   \nNameAzure\nFamilyIncreasedMana\nDomainsItem (1)\nGenerationTypePrefix (1)\nReq. level16 (Effective: 12)\nGold Price272\nStatsbase maximum mana 25 — 34 Global\nSpawn Tagsring: 1 amulet: 1 belt: 1 helmet: 1 gloves: 1 boots: 1 focus: 1 sceptre: 1 wand: 1 trap: 1 default: 0 \nCraft Tagsresource Mana \nFists of Stone(14—15)% more [Attack|Attack] damage while on [LowMana|Low Mana]",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 34,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "ESSENCE_MIND",
+    "material": "Essence_of_the_Mind",
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_the_Mind",
+    "code": "IncreasedMana6",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "38",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/bbfcc021117f0f9e77352ce4329378fba53d1a46671f8f2477102110fffbd151\" href=\"Essence_of_the_Mind\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ManaEssence.webp\" alt=\"ManaEssence\" height=\"16\" />Essence of the Mind</a>",
+      "Code": "IncreasedMana6",
+      "ModFamilyList": [
+        "IncreasedMana"
+      ],
+      "str": "<span class='mod-value'>+(65<span class=\"ndash\">—</span>79)</span> to maximum Mana",
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "belt",
+        "helmet",
+        "gloves",
+        "boots",
+        "focus",
+        "sceptre",
+        "wand",
+        "trap",
+        "default"
+      ],
+      "reqlvl": 30,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "Aqua",
+      "Level": "38",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "IncreasedMana"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(65<span class=\"ndash\">—</span>79)</span> to maximum Mana",
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "belt",
+        "helmet",
+        "gloves",
+        "boots",
+        "focus",
+        "sceptre",
+        "wand",
+        "trap",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4f71a1256f36c81a59173079a8670c49d439f8be79df898aead1e63be9d960c9"
+    },
+    "definition": {
+      "id": "stocky-mitts:prefix:aqua",
+      "name": "Aqua",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(65—79) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 65,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4f71a1256f36c81a59173079a8670c49d439f8be79df898aead1e63be9d960c9"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana6",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(65<span class=\"ndash\">—</span>79)</span> to maximum Mana</span></h5>   <span data-tabname=\"Aqua\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Aqua\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>38 (Effective: 30)\n<tr><th>Gold Price<td>667\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">65 <span class=\"ndash\">—</span> 79</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(20<span class=\"ndash\">—</span>21)</span>% more [Attack|Attack] damage while on [LowMana|Low Mana]</table>  </div></div>",
+    "parsed": {
+      "text": "+(65—79) to maximum Mana   \nNameAqua\nFamilyIncreasedMana\nDomainsItem (1)\nGenerationTypePrefix (1)\nReq. level38 (Effective: 30)\nGold Price667\nStatsbase maximum mana 65 — 79 Global\nSpawn Tagsring: 1 amulet: 1 belt: 1 helmet: 1 gloves: 1 boots: 1 focus: 1 sceptre: 1 wand: 1 trap: 1 default: 0 \nCraft Tagsresource Mana \nFists of Stone(20—21)% more [Attack|Attack] damage while on [LowMana|Low Mana]",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 65,
+          "max": 79,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "GREATER_ESSENCE_MIND",
+    "material": "Greater_Essence_of_the_Mind",
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_the_Mind",
+    "code": "IncreasedMana7",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "46",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/6a6a673303fead82d9ef27872ed3bfcc88d9cf9308f49f87c1d1fe6e6d60fb89\" href=\"Greater_Essence_of_the_Mind\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterManaEssence.webp\" alt=\"GreaterManaEssence\" height=\"16\" />Greater Essence of the Mind</a>",
+      "Code": "IncreasedMana7",
+      "ModFamilyList": [
+        "IncreasedMana"
+      ],
+      "str": "<span class='mod-value'>+(80<span class=\"ndash\">—</span>89)</span> to maximum Mana",
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "belt",
+        "helmet",
+        "gloves",
+        "boots",
+        "focus",
+        "sceptre",
+        "wand",
+        "trap",
+        "default"
+      ],
+      "reqlvl": 36,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "Opalescent",
+      "Level": "46",
+      "ModGenerationTypeID": "1",
+      "ModFamilyList": [
+        "IncreasedMana"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(80<span class=\"ndash\">—</span>89)</span> to maximum Mana",
+      "fossil_no": [
+        "resource",
+        "mana"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "belt",
+        "helmet",
+        "gloves",
+        "boots",
+        "focus",
+        "sceptre",
+        "wand",
+        "trap",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingmana\" data-tag=\"mana\">Mana</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2cc78709264e5d3acc2e5a4c3c1486b6713091b0c5ada7aaa4b30ba6d7ea2399"
+    },
+    "definition": {
+      "id": "stocky-mitts:prefix:opalescent",
+      "name": "Opalescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(80—89) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2cc78709264e5d3acc2e5a4c3c1486b6713091b0c5ada7aaa4b30ba6d7ea2399"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana7",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(80<span class=\"ndash\">—</span>89)</span> to maximum Mana</span></h5>   <span data-tabname=\"Opalescent\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Opalescent\n<tr><th>Family<td>IncreasedMana\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>46 (Effective: 36)\n<tr><th>Gold Price<td>872\n<tr><th>Stats<td><li>base maximum mana <span class=\"badge bg-primary\">80 <span class=\"ndash\">—</span> 89</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>focus: 1</span> <span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>wand: 1</span> <span class='badge bg-primary'>trap: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>resource</i></span> <span class='badge bg-primary'>Mana</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(22<span class=\"ndash\">—</span>23)</span>% more [Attack|Attack] damage while on [LowMana|Low Mana]</table>  </div></div>",
+    "parsed": {
+      "text": "+(80—89) to maximum Mana   \nNameOpalescent\nFamilyIncreasedMana\nDomainsItem (1)\nGenerationTypePrefix (1)\nReq. level46 (Effective: 36)\nGold Price872\nStatsbase maximum mana 80 — 89 Global\nSpawn Tagsring: 1 amulet: 1 belt: 1 helmet: 1 gloves: 1 boots: 1 focus: 1 sceptre: 1 wand: 1 trap: 1 default: 0 \nCraft Tagsresource Mana \nFists of Stone(22—23)% more [Attack|Attack] damage while on [LowMana|Low Mana]",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 80,
+          "max": 89,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "LESSER_ESSENCE_RUIN",
+    "material": "Lesser_Essence_of_Ruin",
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Ruin",
+    "code": "ChaosResist1",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "16",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/23f63d0fa572ee8536eba8c480cd17d86a76f2cc9339b1dd2915c36da8320075\" href=\"Lesser_Essence_of_Ruin\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ChaosEssenceLesser.webp\" alt=\"ChaosEssenceLesser\" height=\"16\" />Lesser Essence of Ruin</a>",
+      "Code": "ChaosResist1",
+      "ModFamilyList": [
+        "ChaosResistance"
+      ],
+      "str": "<span class='mod-value'>+(4<span class=\"ndash\">—</span>7)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 12,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Lost",
+      "Level": "16",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ChaosResistance"
+      ],
+      "DropChance": "250",
+      "str": "<span class='mod-value'>+(4<span class=\"ndash\">—</span>7)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+      "fossil_no": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/806559f788ece5107fd457dc884cd57a9d6c7316f189c29ed33e186a1a615540"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-lost",
+      "name": "of the Lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 250,
+      "tier": 6,
+      "text": "+(4—7)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/806559f788ece5107fd457dc884cd57a9d6c7316f189c29ed33e186a1a615540"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist1",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(4<span class=\"ndash\">—</span>7)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a></span></h5>   <span data-tabname=\"of the Lost\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Lost\n<tr><th>Family<td>ChaosResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>16 (Effective: 12)\n<tr><th>Gold Price<td>393\n<tr><th>Stats<td><li>base chaos damage resistance % <span class=\"badge bg-primary\">4 <span class=\"ndash\">—</span> 7</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_resistance</i></span> <span class='badge bg-primary'>Chaos</span> <span class='badge bg-primary'>Resistance</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Chaos Resistance]<br><span class='mod-value'>+(6<span class=\"ndash\">—</span>9)</span>% to [Resistances|Chaos Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(4—7)% to Chaos Resistance   \nNameof the Lost\nFamilyChaosResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level16 (Effective: 12)\nGold Price393\nStatsbase chaos damage resistance % 4 — 7 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagschaos_resistance Chaos Resistance \nFists of Stone+1% to [MaximumResistances|Maximum Chaos Resistance]+(6—9)% to [Resistances|Chaos Resistance]",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "ESSENCE_RUIN",
+    "material": "Essence_of_Ruin",
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Ruin",
+    "code": "ChaosResist2",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "30",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/2859f5ae7d9936d926717629725037a291d5749ab76295d87575e17ce5451d66\" href=\"Essence_of_Ruin\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ChaosEssence.webp\" alt=\"ChaosEssence\" height=\"16\" />Essence of Ruin</a>",
+      "Code": "ChaosResist2",
+      "ModFamilyList": [
+        "ChaosResistance"
+      ],
+      "str": "<span class='mod-value'>+(8<span class=\"ndash\">—</span>11)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 24,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of Banishment",
+      "Level": "30",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ChaosResistance"
+      ],
+      "DropChance": "250",
+      "str": "<span class='mod-value'>+(8<span class=\"ndash\">—</span>11)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+      "fossil_no": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/029a70baae414597b1e49bad3fcd3339908fb3dce889c0f08c7cc47a3ce1d387"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-banishment",
+      "name": "of Banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 250,
+      "tier": 5,
+      "text": "+(8—11)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/029a70baae414597b1e49bad3fcd3339908fb3dce889c0f08c7cc47a3ce1d387"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist2",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(8<span class=\"ndash\">—</span>11)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a></span></h5>   <span data-tabname=\"of Banishment\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Banishment\n<tr><th>Family<td>ChaosResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>30 (Effective: 24)\n<tr><th>Gold Price<td>652\n<tr><th>Stats<td><li>base chaos damage resistance % <span class=\"badge bg-primary\">8 <span class=\"ndash\">—</span> 11</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_resistance</i></span> <span class='badge bg-primary'>Chaos</span> <span class='badge bg-primary'>Resistance</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Chaos Resistance]<br><span class='mod-value'>+(10<span class=\"ndash\">—</span>13)</span>% to [Resistances|Chaos Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(8—11)% to Chaos Resistance   \nNameof Banishment\nFamilyChaosResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level30 (Effective: 24)\nGold Price652\nStatsbase chaos damage resistance % 8 — 11 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagschaos_resistance Chaos Resistance \nFists of Stone+1% to [MaximumResistances|Maximum Chaos Resistance]+(10—13)% to [Resistances|Chaos Resistance]",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "GREATER_ESSENCE_RUIN",
+    "material": "Greater_Essence_of_Ruin",
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Ruin",
+    "code": "ChaosResist4",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "56",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/24f75fbafa84a632ac5a436623d516ca5dc9901d8e3581a8e9a33f7a552897bc\" href=\"Greater_Essence_of_Ruin\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterChaosEssence.webp\" alt=\"GreaterChaosEssence\" height=\"16\" />Greater Essence of Ruin</a>",
+      "Code": "ChaosResist4",
+      "ModFamilyList": [
+        "ChaosResistance"
+      ],
+      "str": "<span class='mod-value'>+(16<span class=\"ndash\">—</span>19)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 44,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of Expulsion",
+      "Level": "56",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ChaosResistance"
+      ],
+      "DropChance": "250",
+      "str": "<span class='mod-value'>+(16<span class=\"ndash\">—</span>19)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a>",
+      "fossil_no": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingchaos\" data-tag=\"chaos\">Chaos</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c77bae9fddfed1121200621047161c73aba40be67c34e4cda19e915e5ab2c068"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-expulsion",
+      "name": "of Expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 250,
+      "tier": 3,
+      "text": "+(16—19)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c77bae9fddfed1121200621047161c73aba40be67c34e4cda19e915e5ab2c068"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist4",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(16<span class=\"ndash\">—</span>19)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Chaos Resistance</a></span></h5>   <span data-tabname=\"of Expulsion\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Expulsion\n<tr><th>Family<td>ChaosResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>56 (Effective: 44)\n<tr><th>Gold Price<td>1569\n<tr><th>Stats<td><li>base chaos damage resistance % <span class=\"badge bg-primary\">16 <span class=\"ndash\">—</span> 19</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>chaos_resistance</i></span> <span class='badge bg-primary'>Chaos</span> <span class='badge bg-primary'>Resistance</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Chaos Resistance]<br><span class='mod-value'>+(18<span class=\"ndash\">—</span>21)</span>% to [Resistances|Chaos Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(16—19)% to Chaos Resistance   \nNameof Expulsion\nFamilyChaosResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level56 (Effective: 44)\nGold Price1569\nStatsbase chaos damage resistance % 16 — 19 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagschaos_resistance Chaos Resistance \nFists of Stone+1% to [MaximumResistances|Maximum Chaos Resistance]+(18—21)% to [Resistances|Chaos Resistance]",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "LESSER_ESSENCE_INSULATION",
+    "material": "Lesser_Essence_of_Insulation",
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Insulation",
+    "code": "FireResist2",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "12",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/4c9c692795c5fc7540649c396b9fc1c6d608c38ce20f4b84ca8b1e59207eacdf\" href=\"Lesser_Essence_of_Insulation\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/FireResistanceEssenceLesser.webp\" alt=\"FireResistanceEssenceLesser\" height=\"16\" />Lesser Essence of Insulation</a>",
+      "Code": "FireResist2",
+      "ModFamilyList": [
+        "FireResistance"
+      ],
+      "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 9,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Salamander",
+      "Level": "12",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "FireResistance"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+      "fossil_no": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/533bfdc2d201d628fed036ebf2b0a1e9c5228f3f7ba2598a763c83d3fea892a1"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-salamander",
+      "name": "of the Salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/533bfdc2d201d628fed036ebf2b0a1e9c5228f3f7ba2598a763c83d3fea892a1"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist2",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a></span></h5>   <span data-tabname=\"of the Salamander\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Salamander\n<tr><th>Family<td>FireResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>12 (Effective: 9)\n<tr><th>Gold Price<td>244\n<tr><th>Stats<td><li>base fire damage resistance % <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Fire Resistance]<br><span class='mod-value'>+(16<span class=\"ndash\">—</span>20)</span>% to [Resistances|Fire Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(11—15)% to Fire Resistance   \nNameof the Salamander\nFamilyFireResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level12 (Effective: 9)\nGold Price244\nStatsbase fire damage resistance % 11 — 15 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagselemental_resistance fire_resistance Elemental Fire Resistance \nHorticraftingCan change Element modifier\nFists of Stone+1% to [MaximumResistances|Maximum Fire Resistance]+(16—20)% to [Resistances|Fire Resistance]",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "ESSENCE_INSULATION",
+    "material": "Essence_of_Insulation",
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Insulation",
+    "code": "FireResist4",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "36",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/38f8f8ae6e48b8e46acf9f01ed3969932fa816886f3f53d2ce54831033793f47\" href=\"Essence_of_Insulation\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/FireResistanceEssence.webp\" alt=\"FireResistanceEssence\" height=\"16\" />Essence of Insulation</a>",
+      "Code": "FireResist4",
+      "ModFamilyList": [
+        "FireResistance"
+      ],
+      "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 28,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Kiln",
+      "Level": "36",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "FireResistance"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+      "fossil_no": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/03e5b5f00c9a49607c0cb7c5e37e96d2272adf4fc2dfc395fe927ff4317cc0a8"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-kiln",
+      "name": "of the Kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/03e5b5f00c9a49607c0cb7c5e37e96d2272adf4fc2dfc395fe927ff4317cc0a8"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist4",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a></span></h5>   <span data-tabname=\"of the Kiln\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Kiln\n<tr><th>Family<td>FireResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>36 (Effective: 28)\n<tr><th>Gold Price<td>620\n<tr><th>Stats<td><li>base fire damage resistance % <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Fire Resistance]<br><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to [Resistances|Fire Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(21—25)% to Fire Resistance   \nNameof the Kiln\nFamilyFireResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level36 (Effective: 28)\nGold Price620\nStatsbase fire damage resistance % 21 — 25 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagselemental_resistance fire_resistance Elemental Fire Resistance \nHorticraftingCan change Element modifier\nFists of Stone+2% to [MaximumResistances|Maximum Fire Resistance]+(21—25)% to [Resistances|Fire Resistance]",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "GREATER_ESSENCE_INSULATION",
+    "material": "Greater_Essence_of_Insulation",
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Insulation",
+    "code": "FireResist6",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/f43b1955f9a905e013615b986b6e9f33544b812d0580fe584a4457c70ac6bf96\" href=\"Greater_Essence_of_Insulation\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterFireResistanceEssence.webp\" alt=\"GreaterFireResistanceEssence\" height=\"16\" />Greater Essence of Insulation</a>",
+      "Code": "FireResist6",
+      "ModFamilyList": [
+        "FireResistance"
+      ],
+      "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Volcano",
+      "Level": "60",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "FireResistance"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a>",
+      "fossil_no": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5d75d013cd619918dfc6668e410aebdbf2edddbf0ec8681e7870f011263281d2"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-volcano",
+      "name": "of the Volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5d75d013cd619918dfc6668e410aebdbf2edddbf0ec8681e7870f011263281d2"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist6",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Fire Resistance</a></span></h5>   <span data-tabname=\"of the Volcano\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Volcano\n<tr><th>Family<td>FireResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1398\n<tr><th>Stats<td><li>base fire damage resistance % <span class=\"badge bg-primary\">31 <span class=\"ndash\">—</span> 35</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>fire_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Fire Resistance]<br><span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to [Resistances|Fire Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(31—35)% to Fire Resistance   \nNameof the Volcano\nFamilyFireResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level60 (Effective: 48)\nGold Price1398\nStatsbase fire damage resistance % 31 — 35 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagselemental_resistance fire_resistance Elemental Fire Resistance \nHorticraftingCan change Element modifier\nFists of Stone+2% to [MaximumResistances|Maximum Fire Resistance]+(31—35)% to [Resistances|Fire Resistance]",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "LESSER_ESSENCE_THAWING",
+    "material": "Lesser_Essence_of_Thawing",
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Thawing",
+    "code": "ColdResist2",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "14",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/0d287c93092521a6bbd5b0eb51df8ae10a806e74d7ee767213bb2592302d6f41\" href=\"Lesser_Essence_of_Thawing\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ColdResistanceEssenceLesser.webp\" alt=\"ColdResistanceEssenceLesser\" height=\"16\" />Lesser Essence of Thawing</a>",
+      "Code": "ColdResist2",
+      "ModFamilyList": [
+        "ColdResistance"
+      ],
+      "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 11,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Penguin",
+      "Level": "14",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ColdResistance"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+      "fossil_no": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4418a8f0a3227b6d5b1f2ba4f97046eedc807935155fb7a562f7d07aab32ef9e"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-penguin",
+      "name": "of the Penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4418a8f0a3227b6d5b1f2ba4f97046eedc807935155fb7a562f7d07aab32ef9e"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist2",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a></span></h5>   <span data-tabname=\"of the Penguin\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Penguin\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>14 (Effective: 11)\n<tr><th>Gold Price<td>268\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Cold Resistance]<br><span class='mod-value'>+(16<span class=\"ndash\">—</span>20)</span>% to [Resistances|Cold Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(11—15)% to Cold Resistance   \nNameof the Penguin\nFamilyColdResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level14 (Effective: 11)\nGold Price268\nStatsbase cold damage resistance % 11 — 15 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagscold_resistance elemental_resistance Elemental Cold Resistance \nHorticraftingCan change Element modifier\nFists of Stone+1% to [MaximumResistances|Maximum Cold Resistance]+(16—20)% to [Resistances|Cold Resistance]",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "ESSENCE_THAWING",
+    "material": "Essence_of_Thawing",
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Thawing",
+    "code": "ColdResist4",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "38",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/7e86ee106538402f20915fa394ef4476aee82e18ca59cb16f24563b52970f6a3\" href=\"Essence_of_Thawing\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ColdResistanceEssence.webp\" alt=\"ColdResistanceEssence\" height=\"16\" />Essence of Thawing</a>",
+      "Code": "ColdResist4",
+      "ModFamilyList": [
+        "ColdResistance"
+      ],
+      "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 30,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Yeti",
+      "Level": "38",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ColdResistance"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+      "fossil_no": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f5587c04163dc2361565d314feebe3819ec6ae593add79ad36902964883270c0"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-yeti",
+      "name": "of the Yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f5587c04163dc2361565d314feebe3819ec6ae593add79ad36902964883270c0"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist4",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a></span></h5>   <span data-tabname=\"of the Yeti\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Yeti\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>38 (Effective: 30)\n<tr><th>Gold Price<td>665\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Cold Resistance]<br><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to [Resistances|Cold Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(21—25)% to Cold Resistance   \nNameof the Yeti\nFamilyColdResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level38 (Effective: 30)\nGold Price665\nStatsbase cold damage resistance % 21 — 25 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagscold_resistance elemental_resistance Elemental Cold Resistance \nHorticraftingCan change Element modifier\nFists of Stone+2% to [MaximumResistances|Maximum Cold Resistance]+(21—25)% to [Resistances|Cold Resistance]",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "GREATER_ESSENCE_THAWING",
+    "material": "Greater_Essence_of_Thawing",
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Thawing",
+    "code": "ColdResist6",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/06a3c92b62872eb79cc52f57312b823922279a6d739290329e7a4765757b48fb\" href=\"Greater_Essence_of_Thawing\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterColdResistanceEssence.webp\" alt=\"GreaterColdResistanceEssence\" height=\"16\" />Greater Essence of Thawing</a>",
+      "Code": "ColdResist6",
+      "ModFamilyList": [
+        "ColdResistance"
+      ],
+      "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Polar Bear",
+      "Level": "60",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ColdResistance"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a>",
+      "fossil_no": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4ead34b3b4a3a69abad4a88df44774b079021a43d52e533cb84674e85f72fb93"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-polar-bear",
+      "name": "of the Polar Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4ead34b3b4a3a69abad4a88df44774b079021a43d52e533cb84674e85f72fb93"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist6",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Cold Resistance</a></span></h5>   <span data-tabname=\"of the Polar Bear\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Polar Bear\n<tr><th>Family<td>ColdResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1398\n<tr><th>Stats<td><li>base cold damage resistance % <span class=\"badge bg-primary\">31 <span class=\"ndash\">—</span> 35</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>cold_resistance</i></span> <span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Cold Resistance]<br><span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to [Resistances|Cold Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(31—35)% to Cold Resistance   \nNameof the Polar Bear\nFamilyColdResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level60 (Effective: 48)\nGold Price1398\nStatsbase cold damage resistance % 31 — 35 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagscold_resistance elemental_resistance Elemental Cold Resistance \nHorticraftingCan change Element modifier\nFists of Stone+2% to [MaximumResistances|Maximum Cold Resistance]+(31—35)% to [Resistances|Cold Resistance]",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "LESSER_ESSENCE_GROUNDING",
+    "material": "Lesser_Essence_of_Grounding",
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Grounding",
+    "code": "LightningResist2",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "13",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e2738de2bda349bf70f9ccee4aa1d68639c70ecc690ffb279868de98e5643857\" href=\"Lesser_Essence_of_Grounding\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/LightningResistanceEssenceLesser.webp\" alt=\"LightningResistanceEssenceLesser\" height=\"16\" />Lesser Essence of Grounding</a>",
+      "Code": "LightningResist2",
+      "ModFamilyList": [
+        "LightningResistance"
+      ],
+      "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 10,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Squall",
+      "Level": "13",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "LightningResistance"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+      "fossil_no": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e94770e924952957544158cb8d135abc2637b3e343bda198f1791d72af514493"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-squall",
+      "name": "of the Squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e94770e924952957544158cb8d135abc2637b3e343bda198f1791d72af514493"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist2",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(11<span class=\"ndash\">—</span>15)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a></span></h5>   <span data-tabname=\"of the Squall\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Squall\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>13 (Effective: 10)\n<tr><th>Gold Price<td>255\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+1</span>% to [MaximumResistances|Maximum Lightning Resistance]<br><span class='mod-value'>+(16<span class=\"ndash\">—</span>20)</span>% to [Resistances|Lightning Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(11—15)% to Lightning Resistance   \nNameof the Squall\nFamilyLightningResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level13 (Effective: 10)\nGold Price255\nStatsbase lightning damage resistance % 11 — 15 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagselemental_resistance lightning_resistance Elemental Lightning Resistance \nHorticraftingCan change Element modifier\nFists of Stone+1% to [MaximumResistances|Maximum Lightning Resistance]+(16—20)% to [Resistances|Lightning Resistance]",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "ESSENCE_GROUNDING",
+    "material": "Essence_of_Grounding",
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Grounding",
+    "code": "LightningResist4",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "37",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/2298c144de994f4b6e2012dc4cc2885a968997ccaff7fa1feafd5b4010482570\" href=\"Essence_of_Grounding\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/LightningResistanceEssence.webp\" alt=\"LightningResistanceEssence\" height=\"16\" />Essence of Grounding</a>",
+      "Code": "LightningResist4",
+      "ModFamilyList": [
+        "LightningResistance"
+      ],
+      "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 29,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Thunderhead",
+      "Level": "37",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "LightningResistance"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+      "fossil_no": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/43956c46e2939b2b5146daf4f1878a48088a5098dbb527caa731258d2cf8fa97"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-thunderhead",
+      "name": "of the Thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/43956c46e2939b2b5146daf4f1878a48088a5098dbb527caa731258d2cf8fa97"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist4",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a></span></h5>   <span data-tabname=\"of the Thunderhead\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Thunderhead\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>37 (Effective: 29)\n<tr><th>Gold Price<td>643\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">21 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Lightning Resistance]<br><span class='mod-value'>+(21<span class=\"ndash\">—</span>25)</span>% to [Resistances|Lightning Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(21—25)% to Lightning Resistance   \nNameof the Thunderhead\nFamilyLightningResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level37 (Effective: 29)\nGold Price643\nStatsbase lightning damage resistance % 21 — 25 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagselemental_resistance lightning_resistance Elemental Lightning Resistance \nHorticraftingCan change Element modifier\nFists of Stone+2% to [MaximumResistances|Maximum Lightning Resistance]+(21—25)% to [Resistances|Lightning Resistance]",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "GREATER_ESSENCE_GROUNDING",
+    "material": "Greater_Essence_of_Grounding",
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Grounding",
+    "code": "LightningResist6",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "fossil_no": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/2073e308c6a4fc46a390c626827ee84f1210c0b0854c2ddad6f86c3aefbfd16f\" href=\"Greater_Essence_of_Grounding\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterLightningResistanceEssence.webp\" alt=\"GreaterLightningResistanceEssence\" height=\"16\" />Greater Essence of Grounding</a>",
+      "Code": "LightningResist6",
+      "ModFamilyList": [
+        "LightningResistance"
+      ],
+      "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of the Maelstrom",
+      "Level": "60",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "LightningResistance"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a>",
+      "fossil_no": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "armour",
+        "ring",
+        "amulet",
+        "belt",
+        "default"
+      ],
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+        "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>",
+        "<span class=\"badge bg-primary craftingresistance\" data-tag=\"resistance\">Resistance</span>"
+      ],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/35a9a740c4fc222bd0fd7e4efe0d56c93ea42ddf60cad93a805d35e7b96e2312"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-the-maelstrom",
+      "name": "of the Maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/35a9a740c4fc222bd0fd7e4efe0d56c93ea42ddf60cad93a805d35e7b96e2312"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist6",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to <a data-keyword=\"Resistances\" href=\"Resistances\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/db4c6abcef93529140785545e1f998e1af1cab37c19b8c87e99ef4f74952266a\">Lightning Resistance</a></span></h5>   <span data-tabname=\"of the Maelstrom\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Maelstrom\n<tr><th>Family<td>LightningResistance\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>1398\n<tr><th>Stats<td><li>base lightning damage resistance % <span class=\"badge bg-primary\">31 <span class=\"ndash\">—</span> 35</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>armour: 1</span> <span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>belt: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_resistance</i></span> <span class='badge bg-primary'><i>lightning_resistance</i></span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> <span class='badge bg-primary'>Resistance</span> \n<tr><th>Horticrafting<td>Can change Element modifier\n<tr><td>Fists of Stone<td><span class='mod-value'>+2</span>% to [MaximumResistances|Maximum Lightning Resistance]<br><span class='mod-value'>+(31<span class=\"ndash\">—</span>35)</span>% to [Resistances|Lightning Resistance]</table>  </div></div>",
+    "parsed": {
+      "text": "+(31—35)% to Lightning Resistance   \nNameof the Maelstrom\nFamilyLightningResistance\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level60 (Effective: 48)\nGold Price1398\nStatsbase lightning damage resistance % 31 — 35 Global\nSpawn Tagsarmour: 1 ring: 1 amulet: 1 belt: 1 default: 0 \nCraft Tagselemental_resistance lightning_resistance Elemental Lightning Resistance \nHorticraftingCan change Element modifier\nFists of Stone+2% to [MaximumResistances|Maximum Lightning Resistance]+(31—35)% to [Resistances|Lightning Resistance]",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "LESSER_ESSENCE_OPULENCE",
+    "material": "Lesser_Essence_of_Opulence",
+    "sourceUrl": "https://poe2db.tw/us/Lesser_Essence_of_Opulence",
+    "code": "ItemFoundRarityIncrease1",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "3",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [],
+      "fossil_no": [
+        "drop"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/599959f0ac453286468ff35f170f077a353bf621f7c9c256513e998697141f4d\" href=\"Lesser_Essence_of_Opulence\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/RarityResistanceEssenceLesser.webp\" alt=\"RarityResistanceEssenceLesser\" height=\"16\" />Lesser Essence of Opulence</a>",
+      "Code": "ItemFoundRarityIncrease1",
+      "ModFamilyList": [
+        "ItemFoundRarityIncrease"
+      ],
+      "str": "<span class='mod-value'>(6<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found",
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "gloves",
+        "boots",
+        "helmet",
+        "default"
+      ],
+      "reqlvl": 2,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of Plunder",
+      "Level": "3",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ItemFoundRarityIncrease"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>(6<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found",
+      "fossil_no": [
+        "drop"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "gloves",
+        "boots",
+        "helmet",
+        "default"
+      ],
+      "mod_no": [],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1df72d2bf2c114638bf17dd4893844e59bf2f090feadca87cb15d0568fb15a36"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-plunder",
+      "name": "of Plunder",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 3,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(6—10)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1df72d2bf2c114638bf17dd4893844e59bf2f090feadca87cb15d0568fb15a36"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncrease1",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(6<span class=\"ndash\">—</span>10)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found</span></h5>   <span data-tabname=\"of Plunder\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Plunder\n<tr><th>Family<td>ItemFoundRarityIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>3 (Effective: 2)\n<tr><th>Gold Price<td>255\n<tr><th>Stats<td><li>base item found rarity +% <span class=\"badge bg-primary\">6 <span class=\"ndash\">—</span> 10</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>drop</i></span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% increased Quantity of Gold Dropped by Slain Enemies</table>  </div></div>",
+    "parsed": {
+      "text": "(6—10)% increased Rarity of Items found   \nNameof Plunder\nFamilyItemFoundRarityIncrease\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level3 (Effective: 2)\nGold Price255\nStatsbase item found rarity +% 6 — 10 Global\nSpawn Tagsring: 1 amulet: 1 gloves: 1 boots: 1 helmet: 1 default: 0 \nCraft Tagsdrop \nFists of Stone(15—20)% increased Quantity of Gold Dropped by Slain Enemies",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 10,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "ESSENCE_OPULENCE",
+    "material": "Essence_of_Opulence",
+    "sourceUrl": "https://poe2db.tw/us/Essence_of_Opulence",
+    "code": "ItemFoundRarityIncrease2",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "24",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [],
+      "fossil_no": [
+        "drop"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/2f783e69a8f180bffe7bc2739d4ddb47096cd342ee62825ae5da9861cf981505\" href=\"Essence_of_Opulence\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/RarityResistanceEssence.webp\" alt=\"RarityResistanceEssence\" height=\"16\" />Essence of Opulence</a>",
+      "Code": "ItemFoundRarityIncrease2",
+      "ModFamilyList": [
+        "ItemFoundRarityIncrease"
+      ],
+      "str": "<span class='mod-value'>(11<span class=\"ndash\">—</span>14)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found",
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "gloves",
+        "boots",
+        "helmet",
+        "default"
+      ],
+      "reqlvl": 19,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of Raiding",
+      "Level": "24",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ItemFoundRarityIncrease"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>(11<span class=\"ndash\">—</span>14)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found",
+      "fossil_no": [
+        "drop"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "gloves",
+        "boots",
+        "helmet",
+        "default"
+      ],
+      "mod_no": [],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6bfcf1f60f0d20bfa636677824b1fc2bb4f20cf29ac8824cde7bd58893f2d294"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-raiding",
+      "name": "of Raiding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(11—14)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 11,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6bfcf1f60f0d20bfa636677824b1fc2bb4f20cf29ac8824cde7bd58893f2d294"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncrease2",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(11<span class=\"ndash\">—</span>14)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found</span></h5>   <span data-tabname=\"of Raiding\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Raiding\n<tr><th>Family<td>ItemFoundRarityIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>24 (Effective: 19)\n<tr><th>Gold Price<td>586\n<tr><th>Stats<td><li>base item found rarity +% <span class=\"badge bg-primary\">11 <span class=\"ndash\">—</span> 14</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>drop</i></span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(21<span class=\"ndash\">—</span>25)</span>% increased Quantity of Gold Dropped by Slain Enemies</table>  </div></div>",
+    "parsed": {
+      "text": "(11—14)% increased Rarity of Items found   \nNameof Raiding\nFamilyItemFoundRarityIncrease\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level24 (Effective: 19)\nGold Price586\nStatsbase item found rarity +% 11 — 14 Global\nSpawn Tagsring: 1 amulet: 1 gloves: 1 boots: 1 helmet: 1 default: 0 \nCraft Tagsdrop \nFists of Stone(21—25)% increased Quantity of Gold Dropped by Slain Enemies",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 11,
+          "max": 14,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  },
+  {
+    "action": "GREATER_ESSENCE_OPULENCE",
+    "material": "Greater_Essence_of_Opulence",
+    "sourceUrl": "https://poe2db.tw/us/Greater_Essence_of_Opulence",
+    "code": "ItemFoundRarityIncrease3",
+    "sourceRow": {
+      "type": "essence",
+      "Level": "40",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [],
+      "fossil_no": [
+        "drop"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/795c038e5166a4da82263a21440fa6fc1508cb5b1d38a6d56e2cbccbcc16c78c\" href=\"Greater_Essence_of_Opulence\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterRarityResistanceEssence.webp\" alt=\"GreaterRarityResistanceEssence\" height=\"16\" />Greater Essence of Opulence</a>",
+      "Code": "ItemFoundRarityIncrease3",
+      "ModFamilyList": [
+        "ItemFoundRarityIncrease"
+      ],
+      "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>18)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found",
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "gloves",
+        "boots",
+        "helmet",
+        "default"
+      ],
+      "reqlvl": 32,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "normalRow": {
+      "Name": "of Archaeology",
+      "Level": "40",
+      "ModGenerationTypeID": "2",
+      "ModFamilyList": [
+        "ItemFoundRarityIncrease"
+      ],
+      "DropChance": "1000",
+      "str": "<span class='mod-value'>(15<span class=\"ndash\">—</span>18)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found",
+      "fossil_no": [
+        "drop"
+      ],
+      "adds_no": [],
+      "spawn_no": [
+        "ring",
+        "amulet",
+        "gloves",
+        "boots",
+        "helmet",
+        "default"
+      ],
+      "mod_no": [],
+      "mod_fossil_item": [],
+      "hover": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0f55550190c13d88f82351e36746b59f96ecd8da31cdf2d08fd216d0e9631b90"
+    },
+    "definition": {
+      "id": "stocky-mitts:suffix:of-archaeology",
+      "name": "of Archaeology",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(15—18)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 15,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0f55550190c13d88f82351e36746b59f96ecd8da31cdf2d08fd216d0e9631b90"
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncrease3",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(15<span class=\"ndash\">—</span>18)</span>% increased <a data-keyword=\"ItemRarity\" href=\"Item_Rarity\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/5030879006be0619dfbb00cc160ac03b96eb72747e7a1503e290980b8d55e969\">Rarity of Items</a> found</span></h5>   <span data-tabname=\"of Archaeology\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of Archaeology\n<tr><th>Family<td>ItemFoundRarityIncrease\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>40 (Effective: 32)\n<tr><th>Gold Price<td>1020\n<tr><th>Stats<td><li>base item found rarity +% <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 18</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>ring: 1</span> <span class='badge bg-primary'>amulet: 1</span> <span class='badge bg-primary'>gloves: 1</span> <span class='badge bg-primary'>boots: 1</span> <span class='badge bg-primary'>helmet: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>drop</i></span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(26<span class=\"ndash\">—</span>30)</span>% increased Quantity of Gold Dropped by Slain Enemies</table>  </div></div>",
+    "parsed": {
+      "text": "(15—18)% increased Rarity of Items found   \nNameof Archaeology\nFamilyItemFoundRarityIncrease\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level40 (Effective: 32)\nGold Price1020\nStatsbase item found rarity +% 15 — 18 Global\nSpawn Tagsring: 1 amulet: 1 gloves: 1 boots: 1 helmet: 1 default: 0 \nCraft Tagsdrop \nFists of Stone(26—30)% increased Quantity of Gold Dropped by Slain Enemies",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 15,
+          "max": 18,
+          "locality": "Global"
+        }
+      ]
+    },
+    "matched": true
+  }
+]

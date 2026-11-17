@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "domain": "pseudos",
+  "prefix": "p",
+  "entries": [
+    {
+      "id": "p0001",
+      "sourceKey": "total_cold_resistance",
+      "retired": false
+    },
+    {
+      "id": "p0002",
+      "sourceKey": "total_dexterity",
+      "retired": false
+    },
+    {
+      "id": "p0003",
+      "sourceKey": "total_fire_resistance",
+      "retired": false
+    },
+    {
+      "id": "p0004",
+      "sourceKey": "total_intelligence",
+      "retired": false
+    },
+    {
+      "id": "p0005",
+      "sourceKey": "total_lightning_resistance",
+      "retired": false
+    },
+    {
+      "id": "p0006",
+      "sourceKey": "total_strength",
+      "retired": false
+    }
+  ]
+}

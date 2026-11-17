@@ -5,7 +5,7 @@ import path from 'node:path'
 import crypto from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const resources = path.join(root, 'backend/src/main/resources')
+const resources = path.join(root, 'docs/v0.5.5/game-data')
 const target = path.join(resources, 'crafting/ruleset-v1.json')
 const manifest = JSON.parse(fs.readFileSync(target, 'utf8'))
 const files = []

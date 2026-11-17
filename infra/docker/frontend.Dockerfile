@@ -7,8 +7,9 @@ COPY scripts/ /workspace/scripts/
 COPY contracts/ /workspace/contracts/
 # Prebuild verifies both sealed resources and the backend translation loader's source contract.
 COPY backend/src/main/ /workspace/backend/src/main/
-COPY docs/evidence/ /workspace/docs/evidence/
-COPY docs/current/support.md /workspace/docs/current/support.md
+COPY docs/legacy/evidence/ /workspace/docs/legacy/evidence/
+COPY README.md /workspace/README.md
+COPY docs/v0.5.5/ /workspace/docs/v0.5.5/
 ARG VITE_CRAFT_SUPPORT_ENABLED=true
 ENV VITE_CRAFT_SUPPORT_ENABLED=$VITE_CRAFT_SUPPORT_ENABLED
 # Public assets may arrive with restrictive workspace permissions; Nginx runs as UID 101.

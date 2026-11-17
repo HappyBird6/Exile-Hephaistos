@@ -1,0 +1,68 @@
+{
+  "sources": [
+    {
+      "id": "Wands",
+      "url": "https://poe2db.tw/us/Wands",
+      "retrievedAt": "2026-10-03T13:37:18.834Z",
+      "sha256": "0cde259f09f5e3eb6ef3c7031fe8f9e3967fb3fce1727726950ede7268b3bd0a"
+    },
+    {
+      "id": "Attuned_Wand",
+      "url": "https://poe2db.tw/us/Attuned_Wand",
+      "retrievedAt": "2026-10-03T13:37:19.383Z",
+      "sha256": "adad6ac4e6d1b4421c8c8e49baadf2693a236d747d89dd3d303fe23f870248dc"
+    },
+    {
+      "id": "Withered_Wand",
+      "url": "https://poe2db.tw/us/Withered_Wand",
+      "retrievedAt": "2026-10-03T13:37:19.677Z",
+      "sha256": "9aae7398d2500118d2e7dc69cd31c460543258996725c708ab965cf1d3f73d5c"
+    },
+    {
+      "id": "Siphoning_Wand",
+      "url": "https://poe2db.tw/us/Siphoning_Wand",
+      "retrievedAt": "2026-10-03T13:37:19.962Z",
+      "sha256": "42a5028905380a759e44290da1a29ce519448df9b5e699e3fcaab5b79c33f948"
+    },
+    {
+      "id": "Runic_Fork",
+      "url": "https://poe2db.tw/us/Runic_Fork",
+      "retrievedAt": "2026-10-03T13:37:20.249Z",
+      "sha256": "fc6904d4b9ec0704583d8fcb9f6ac031d551689b2c53ba94c07fd9a2935cd54f"
+    }
+  ],
+  "selectedBase": {
+    "Name": "Show Full Descriptions",
+    "DropLevel": "2",
+    "BaseType": "Attuned Wand",
+    "Class": "Wands",
+    "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+    "Type": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+    "Tags": "wand, onehand",
+    "Icon": "Art/2DItems/Weapons/OneHandWeapons/Wands/Basetypes/Wand03",
+    "key": "val",
+    "Base.base_level": "1",
+    "Base.tag": "default, wand, onehand",
+    "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+    "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+    "Mods.enable_rarity": "normal, magic, rare, unique",
+    "Mods.inventory_type": "Weapon",
+    "Quality.max_quality": "20",
+    "Sockets.socket_info": "1:5:100"
+  },
+  "innateSkill": {
+    "name": "Mana Drain",
+    "source": "https://poe2db.tw/us/Wands",
+    "status": "DISPLAY_ONLY_NOT_SIMULATED"
+  },
+  "withheldBases": [
+    "Withered_Wand: restrictive no_*_spell_mods tags",
+    "Runic_Fork: unique/runeforged provenance; not used as a generic normal base"
+  ],
+  "poolRows185": 185,
+  "ambiguousResolved": 11,
+  "publishedRowWeightPolicy": "POE2DB_AS_PUBLISHED",
+  "detailSpawnUsedForEligibilityOnly": true,
+  "weightFieldsDiffer": 185,
+  "numericModels": "Existing authorised unverified source-unit integers/shared ratio; no combat, innate-skill progression, quality or sockets."
+}

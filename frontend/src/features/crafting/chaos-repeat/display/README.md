@@ -1,6 +1,6 @@
 # Chaos 반복용 explicit 표시 자료
 
-이 문서는 explicit 표시 helper와 공유 golden의 계약이다. Page·정규식·실행·저장 계약은 [통합 유지보수 문서](../../../../../../docs/development.md#chaos-repeat)와 해당 전용 모듈을 따른다.
+이 문서는 explicit 표시 helper와 공유 golden의 계약이다. Page·정규식·실행·저장 계약은 [통합 유지보수 문서](../../../../../../docs/legacy/development.md#chaos-repeat)와 해당 전용 모듈을 따른다.
 
 ## helper 계약
 

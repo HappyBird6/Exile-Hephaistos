@@ -79,9 +79,9 @@ HTTP 주소에 `workbench`가 있다고 해서 카탈로그 구현을 제작지�
 
 설정 변경은 서버 재시작 후 적용된다. Spring의 외부 설정으로 덮어쓸 수도 있다. 예를 들어 `backend.path-search.max-jobs`의 환경변수 이름은 `BACKEND_PATHSEARCH_MAXJOBS`다. 기존 `crafting.method-job-directory` / `CRAFTING_METHOD_JOB_DIRECTORY`도 계속 지원하며, 새 `backend.storage.method-job-directory`를 지정하면 새 설정이 우선한다. 저장 경로를 바꾼다고 기존 파일을 자동으로 옮기지 않는다.
 
-세션 공유 API와 서버 파일 저장 기능은 제거했다. 세션 JSON import/export와 PNG 생성은 프론트에서 처리하며 [히스토리와 세션 오버뷰](../docs/current/session-history.md)를 따른다. 서버에 이미 존재하던 공유 파일을 자동으로 삭제하지 않는다.
+세션 공유 API와 서버 파일 저장 기능은 제거했다. 세션 JSON import/export와 PNG 생성은 프론트에서 처리하며 [히스토리와 세션 오버뷰](../docs/legacy/current/session-history.md)를 따른다. 서버에 이미 존재하던 공유 파일을 자동으로 삭제하지 않는다.
 
-DB·Redis 연결과 비밀값은 기존 `application.yaml`·환경변수에서 관리한다. 게임 확률·weight·옵션 수는 `src/main/resources/catalog`·`crafting`의 봉인된 게임 데이터다. API의 허용 범위, 버전 문자열, 저장 스키마, 수학적 알고리즘 내부 상수도 운영 설정과 구분한다.
+DB·Redis 연결과 비밀값은 기존 `application.yaml`·환경변수에서 관리한다. 게임 확률·weight·옵션 수의 편집 원본은 `docs/v0.5.5/game-data`이고, `src/main/resources/catalog`·`crafting`은 봉인된 실행 복사본이다. 갱신 절차는 [루트 README](../README.md#갱신과-검증)를 따른다. API의 허용 범위, 버전 문자열, 저장 스키마, 수학적 알고리즘 내부 상수도 운영 설정과 구분한다.
 
 ## 이후 변경을 합칠 때
 

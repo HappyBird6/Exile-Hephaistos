@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "Perfect_Essence_of_Grounding",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_Grounding",
+    "retrievedAt": "2026-10-03T06:50:18.15Z",
+    "sha256": "cd685832df957b98c29c3128bdcd4c5929fc5382c2787e392fca219c19cf91f5",
+    "blocks": [
+      "Perfect Essence of Grounding",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: (26—30)% of Lightning Damage taken Recouped as Life"
+    ],
+    "materialBlocks": [
+      "Perfect Essence of Grounding",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: (26—30)% of Lightning Damage taken Recouped as Life"
+    ]
+  },
+  {
+    "slug": "Perfect_Essence_of_Opulence",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_Opulence",
+    "retrievedAt": "2026-10-03T06:50:18.998Z",
+    "sha256": "d77a1e278df18a391766a24f8ef748558063ffc28f4083e4192cc95293afe8fb",
+    "blocks": [
+      "Perfect Essence of Opulence",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: (10—15)% increased Quantity of Gold Dropped by Slain Enemies"
+    ],
+    "materialBlocks": [
+      "Perfect Essence of Opulence",
+      "Removes a random modifier and augments a Rare item with a new guaranteed modifier",
+      "Gloves: (10—15)% increased Quantity of Gold Dropped by Slain Enemies"
+    ]
+  }
+]

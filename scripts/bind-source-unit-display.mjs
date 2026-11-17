@@ -17,4 +17,4 @@ for(const[id,b]of Object.entries(data.definitions)) {
 }
 assert.equal(mappings.length,103)
 fs.writeFileSync(file,JSON.stringify(data,null,2)+'\n')
-fs.writeFileSync('docs/evidence/0.5.5/i18n/mappings/i18n-source-unit-display.json',JSON.stringify({count:mappings.length,method:'Verified canonical stat IDs and both source display endpoints: per-minute /60; permyriad and local crit /100; explicit reduced percentage sign reversal. Formatting adds no rounding to canonical values or game precision claim.',mappings},null,2)+'\n')
+fs.writeFileSync('docs/legacy/evidence/0.5.5/i18n/mappings/i18n-source-unit-display.json',JSON.stringify({count:mappings.length,method:'Verified canonical stat IDs and both source display endpoints: per-minute /60; permyriad and local crit /100; explicit reduced percentage sign reversal. Formatting adds no rounding to canonical values or game precision claim.',mappings},null,2)+'\n')

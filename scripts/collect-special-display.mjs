@@ -54,5 +54,5 @@ for (const d of missing) {
   console.log(d.id,Object.keys(rows).length)
 }
 fs.writeFileSync(file,JSON.stringify(data,null,2)+'\n')
-fs.writeFileSync('docs/evidence/0.5.5/i18n/sources/i18n-special-sources.json',JSON.stringify(evidence,null,2)+'\n')
+fs.writeFileSync('docs/legacy/evidence/0.5.5/i18n/sources/i18n-special-sources.json',JSON.stringify(evidence,null,2)+'\n')
 console.log('bindings',evidence.bindings.length,'gaps',evidence.gaps)

@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "snapshotId": "abyss-essence-2026-10-02-f71969ce6f11",
+    "retrievedAt": "2026-10-02T16:28:15.486Z",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "rawSha256": "f71969ce6f113361edf0f5a14e1b92d80e552c8f433e21485d1a35a2372eb548"
+  },
+  "modifiers": [
+    {
+      "id": "amulet:prefix:essence-abyssal-mark",
+      "name": "Abyssal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix"
+    },
+    {
+      "id": "amulet:suffix:essence-abyssal-mark",
+      "name": "of the Abyss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix"
+    }
+  ]
+}

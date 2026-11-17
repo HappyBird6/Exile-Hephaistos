@@ -1,0 +1,34 @@
+{
+  "metadata": {
+    "snapshotId": "perfect-enhancement-2026-10-02-187593819b25",
+    "retrievedAt": "2026-10-02T15:31:29.244Z",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "rawSha256": "187593819b25cec41f7f782920e4685bbdbbbda4ed896765244d5212bc6c8fa5"
+  },
+  "modifiers": [
+    {
+      "id": "amulet:prefix:essence-global-defences",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AllDefences"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(20—30)% increased Global Armour, Evasion and Energy Shield",
+      "stats": [
+        {
+          "id": "global_armour_evasion_energy_shield_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "defences"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceGlobalDefences1"
+    }
+  ]
+}

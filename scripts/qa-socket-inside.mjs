@@ -4,7 +4,7 @@ import { chromium } from '../.toolchains/socket-inside-qa/node_modules/playwrigh
 
 // Uses only synthetic item storage in fresh browser contexts, never the user's browser.
 const origin = process.env.SOCKET_INSIDE_UI ?? 'http://127.0.0.1:19411'
-const output = 'docs/verification/socket-inside-20261105'
+const output = 'docs/legacy/verification/socket-inside-20261105'
 const historyKey = 'hephaistos.workbench.films.v1'
 const localeNames = { en: 'English', ko: '한국어', 'zh-CN': '简体中文 (CN)', 'zh-TW': '繁體中文 (TW)', ja: '日本語', es: 'Español' }
 const checks = []

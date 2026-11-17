@@ -1,8 +1,8 @@
 # Exile-Hephaistos
 
-PoE2 아이템 텍스트 파싱, 검토된 카탈로그 기반 Workbench와 최대 6옵션 자동 탐색을 제공하는 로컬 작업대입니다. 실제 지원 범위와 계산 한계는 [현행 개요](docs/current/overview.md), 개발 문서는 [문서 지도](docs/README.md)를 확인하세요.
+PoE2 아이템 텍스트 파싱, 검토된 카탈로그 기반 Workbench와 최대 6옵션 자동 탐색을 제공하는 로컬 작업대입니다. 게임 데이터와 규칙은 [v0.5.5](docs/v0.5.5/), 개발·관리 원칙은 [AGENTS.md](AGENTS.md)를 확인하세요.
 
-등록 베이스와 지원 UI 언어는 [자동 생성된 현행 요약](docs/current/support.md)을 따릅니다. 등록 수가 모든 화폐·목표의 계산 완료를 보장하지는 않습니다. 확률은 출처 스냅샷과 명시된 모델 가정에 따릅니다.
+등록 베이스와 지원 UI 언어는 [자동 생성된 현행 요약](#현행-데이터-요약)을 따릅니다. 등록 수가 모든 화폐·목표의 계산 완료를 보장하지는 않습니다. 확률은 출처 스냅샷과 명시된 모델 가정에 따릅니다.
 
 백엔드 코드 위치·API 담당 기능·설정 변경 방법은 [백엔드 안내](backend/README.md)를 확인하세요.
 
@@ -49,7 +49,7 @@ Java 21 (`JAVA_HOME`), Node 24.18.1 / npm 11.16.0, Docker를 사용합니다.
 ```
 
 Vite는 http://localhost:5173 에서 실행하고 `/api`를 Backend 8080 포트로 전달합니다. Python은 앱 실행에 필요하지 않습니다.
-사용자 로그인·역할 기반 접근 통제는 없습니다. 계산 job은 소유권 cookie로 구분합니다. Compose 포트는 localhost에만 노출합니다.
+임시 계정 로그인은 Redis 세션을 사용하며 관리자 인증과 별개입니다. 계산 job은 기존 소유권 cookie로 구분합니다. Compose 포트는 localhost에만 노출합니다.
 
 ## 검증
 
@@ -77,4 +77,84 @@ docker compose --env-file .env -f infra/compose.yaml --profile stack config --qu
 
 GitHub Actions는 사용하지 않습니다. `.gitattributes`는 Windows/Linux 줄바꿈을, `.editorconfig`는 편집기 인코딩·들여쓰기를 통일합니다.
 
-운영 보안·요청 제한·비용 보호 설정은 [보안 개발 문서](docs/security.md)를 참고하세요.
+운영 설정은 `backend-settings.yaml`과 `infra/docker/nginx.conf`에서 관리합니다. 관리자 인증은 HTTPS와 별도 비밀번호를 사용하며, HTTPS 환경의 계정 쿠키에는 `ACCOUNT_COOKIE_SECURE=true`를 설정합니다. 요청 제한·로그 보관·디스크 사용량을 함께 확인하세요. 과거 보안 검토는 [보관 자료](docs/legacy/security.md)에 남아 있습니다.
+
+
+## 문서와 데이터 관리
+
+현재 편집 위치는 아래와 같습니다. 과거 문서·원본 HTML·검증 보고서·라이선스는 삭제하지 않고 `docs/legacy/`에 기존 하위 구조로 보관했습니다. 관리 방법은 이 README, 에이전트 지침은 AGENTS.md만 갱신하며 작업별 계획·완료·인계 문서는 새로 만들지 않습니다.
+
+```text
+docs/
+  v0.5.5/
+    i18n/                 # UI·게임 번역 JSON
+    game-data/
+      catalog/            # 베이스·옵션·가중치·증강물·출처 JSON
+      crafting/           # 화폐·징조·목표·지원 범위·ruleset JSON
+      display/            # 프런트 전용 게임 표시 데이터 JSON
+    game-rule/            # 화폐·아이템·증강물·확률·표시·사용자 정책 MD
+    mappings/             # 종류별 짧은 ID ↔ 기존 식별자 JSON
+    manifest.json         # 파일·실행 복사본·SHA-256·매핑 목록
+  legacy/                 # 재평가 전 보관; 별도 삭제 승인 없이 제거하지 않음
+```
+
+**현재 단계:** v0.5.5가 게임 JSON·번역의 편집 원본이고 기존 backend/frontend 경로는 호환용 복사본입니다. 이번에는 짧은 ID를 부여했으며 API·저장 형식·서버 시작 로더는 기존 식별자를 계속 사용합니다. 서버의 새 매핑 로드와 송수신 ID 전환은 다음 코드 경량화 단계입니다. 표시 이름·설명·출처 문자열도 이 단계에서 제거하지 않았습니다. `0.5.5`는 저장소의 버전 구분이며 검증된 GGG 패치 번호를 뜻하지 않습니다.
+
+[화폐](docs/v0.5.5/game-rule/currency.md), [상태·저장](docs/v0.5.5/game-rule/item-state.md), [증강물](docs/v0.5.5/game-rule/sockets-and-augments.md), [확률·목표](docs/v0.5.5/game-rule/probability-and-goals.md), [번역](docs/v0.5.5/game-rule/i18n-and-display.md), [사용자 정책](docs/v0.5.5/game-rule/user-policy.md)을 변경 대상에 맞게 수정합니다. 과거 세부 명세는 legacy에 남지만 중복 유지보수하지 않습니다. 기존 runtime JSON에 적힌 `docs/...` 출처 경로는 수집 당시 기록이며 현재 실제 파일은 `docs/legacy/...`에 있습니다. 봉인된 출처 문자열을 이동 경로에 맞춰 다시 직렬화하지 않습니다.
+
+### ID 규칙
+
+`b0001`처럼 종류 접두사 + 소문자 base36 일련번호(최소 네 자리)를 사용합니다. 이름의 번역·파일 정렬·데이터 추가로 기존 ID를 다시 부여하지 않습니다. 삭제된 항목은 `retired: true`로 남기고 번호를 재사용하지 않습니다. 동일한 원래 키를 복구하면 원래 ID를 다시 활성화합니다. 다음 데이터 버전을 만들 때도 이전 매핑을 승계해 기존 ID와 retired 항목을 보존합니다. 서로 다른 종류의 원래 키가 같아도 합치지 않습니다.
+
+| 접두사 | 대상 | 기존 식별 기준 |
+|---|---|---|
+| b | 베이스 | top-bases / base-policies.legacy의 key |
+| m / s | 옵션 / stat | modifier ID / source stat ID |
+| r / c / o | 재료 / 화폐 실행 / 징조 실행 | registry entry ID / currency ID / omen key |
+| a | 증강물 | augments의 ID |
+| t / f / p | 태그 / 옵션 family / pseudo | 각 원본의 식별자 |
+| k | 장비 분류 | itemClass |
+| n / x / u | 게임 번역 항목 / 옵션 템플릿 / UI 문구 | 번역 객체의 key |
+
+각 매핑은 `domain`, `prefix`, `entries[{id, sourceKey, retired}]` 형식입니다. `manifest.mappings`가 파일 목록과 digest를 제공합니다. 향후 로더는 각 종류에서 `id → sourceKey`, `sourceKey → id` 인덱스를 만들 수 있습니다. 베이스 key와 게임 Metadata ID, 화폐 action과 표시용 재료 ID는 별개이며 원본 JSON의 명시적 연결을 사용합니다. 이름 유사성으로 자동 병합하지 않습니다. 역사 자료·테스트 fixture·파일 경로·provenance 버전은 새 게임 ID의 대상이 아닙니다.
+
+### 갱신과 검증
+
+1. `docs/v0.5.5`의 해당 JSON 또는 규칙 MD를 수정합니다. 게임 수치·weight·단위·출처를 추측하지 않고 기존 배열 순서를 유지합니다. 수집 raw JSON도 출처 검증에 필요하므로 보존합니다. 새 실행 파일은 `manifest.resources`에 원본 경로와 runtimePath를 함께 등록합니다.
+2. 아래 명령으로 ID와 기존 경로의 복사본을 갱신합니다. `--check`는 읽기 전용이며 누락·중복 ID·파일 누락·복사본 불일치를 거부합니다. 이미 발급한 매핑 파일을 지우고 재생성하지 않습니다.
+
+```sh
+node scripts/versioned-game-data.mjs --write
+node scripts/sync-workbench-data.mjs --write
+node scripts/sync-public-contracts.mjs --write
+```
+
+게임 데이터의 의미가 바뀌면 engine/ledger/ruleset 버전을 먼저 검토하고 `node scripts/update-ruleset-manifest.mjs`로 **원본의** ruleset digest를 갱신한 뒤 `node scripts/versioned-game-data.mjs --write`를 다시 실행합니다. 이 봉인은 게임 사실이나 과거 저장 호환성을 인증하지 않습니다. 번역 템플릿 변경 시 Java `ModifierTextResources.TEMPLATE_SHA256`도 검토·갱신합니다.
+
+```sh
+node scripts/versioned-game-data.mjs --check
+node scripts/sync-workbench-data.mjs --check
+node scripts/sync-public-contracts.mjs --check
+node scripts/update-ruleset-manifest.mjs --check
+node scripts/check-display-coverage.mjs
+node --test scripts/tests/versioned-game-data.test.mjs
+```
+
+새 메커니즘은 위 정합성 검사 외에 단일·반복·일반/훼손 제작, 저장 복원, 확률·표시의 직접 영향을 검증합니다. 과거 snapshot의 compatibility digest를 새 데이터에 맞춰 덮어쓰지 않습니다. 공개 API 제한·지원 언어 정책은 `backend/src/main/resources/contracts/`, 운영 값은 `backend-settings.yaml`이 원본입니다. UI 복사본·schema·Nginx 제한·아래 요약은 생성 결과입니다.
+
+번역 수집은 `collect-i18n-terms.mjs` / `collect-i18n-modifiers.mjs`의 `--output-dir`로 저장소 밖 검토 결과를 만들고 검토한 값만 i18n 원본에 반영합니다. legacy의 증거 숫자·결정을 현재 정책으로 덮어쓰지 않습니다. 기존 도구의 증거 경로는 legacy를 사용하며, 과거 프로브는 당시 실행 환경의 재현 자료입니다.
+
+## 현행 데이터 요약
+
+<!-- generated:public-contracts:start -->
+| 항목 | 현행 값 |
+|---|---|
+| 등록 베이스 | 179 |
+| UI 언어 | en, ko, zh-CN, zh-TW, ja, es, ru, th (기본 ko) |
+| 증강물 | 등록 289 / 선택 244 |
+| 화폐·징조 실행 정의 | 171 / 20 (보관함 표시 정책과 별개) |
+| 카오스 반복 | 기본 1000, 범위 1–1000 |
+| 반복 요청 본문 | 65536 UTF-8 bytes |
+| 패턴 | 길이 512, 깊이 16, 문법 노드 512, 프로그램 4096 |
+| 제작지원 정책 | approved-187-2026-10-30-strict-exalted-v8 |
+<!-- generated:public-contracts:end -->

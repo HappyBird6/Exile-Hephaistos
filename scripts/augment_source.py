@@ -64,7 +64,7 @@ def cards(path):
     return result
 
 if __name__ == '__main__':
-    directory = Path(__file__).resolve().parents[1] / 'docs/evidence/0.5.5/augment-expansion-20261105'
+    directory = Path(__file__).resolve().parents[1] / 'docs/legacy/evidence/0.5.5/augment-expansion-20261105'
     for locale in ['us','kr','cn','tw','jp','sp']:
         parsed = cards(directory / ('Augment.' + locale + '.html'))
         (directory / ('cards.' + locale + '.json')).write_bytes((json.dumps(list(parsed.values()), ensure_ascii=False, indent=2) + '\n').encode('utf-8'))

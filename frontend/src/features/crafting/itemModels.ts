@@ -1,4 +1,4 @@
-// Manual DTO mirror of docs/openapi-item.yaml, shared by API validation and UI.
+// Manual DTO mirror of docs/legacy/openapi-item.yaml, shared by API validation and UI.
 export interface TextLine {
   number: number
   section: number

@@ -14,5 +14,5 @@ for(const [namespace,{head,pools}]of Object.entries(specs)) {
  assert(Object.keys(definitions).length>0)
  result[namespace]={baseHead:head,pools,display:{definitions,templates}}
 }
-fs.writeFileSync('docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-before-context.json',JSON.stringify(result,null,2)+'\n',{flag:'wx'})
+fs.writeFileSync('docs/legacy/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-importer-before-context.json',JSON.stringify(result,null,2)+'\n',{flag:'wx'})
 console.log(Object.fromEntries(Object.entries(result).map(([key,r])=>[key,Object.keys(r.display.definitions).length])))

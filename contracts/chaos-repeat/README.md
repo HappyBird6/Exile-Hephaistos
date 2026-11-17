@@ -4,7 +4,7 @@
 
 요청은 `{requestId,state,action,activeOmens,pattern,locale,maximumUses?}`다.
 `requestId`는 UUID 문자열이다. state는 `{kind:"CONCRETE",item:ItemState}` 또는
-`{kind:"ABYSS",abyss:AbyssCraftingState}`다. 횟수·본문·패턴 제한은 `backend/src/main/resources/contracts/chaos-repeat.json` 원본과 [자동 생성 요약](../../docs/current/support.md)을 따른다.
+`{kind:"ABYSS",abyss:AbyssCraftingState}`다. 횟수·본문·패턴 제한은 `backend/src/main/resources/contracts/chaos-repeat.json` 원본과 [자동 생성 요약](../../docs/legacy/current/support.md)을 따른다.
 지원 locale은 `backend/src/main/resources/contracts/locales.json`을 따른다.
 
 응답은 다음 필드를 가진다. 초기 상태, 직전 상태, 중간 상태 목록은 반환하지 않는다.

@@ -1,0 +1,165 @@
+{
+  "metadata": {
+    "snapshotId": "bow-perfect-20261003-dd984fc65df0",
+    "retrievedAt": "2026-10-03T13:11:13.124Z",
+    "sourceUrl": "https://poe2db.tw/us/Bows",
+    "rawSha256": "dd984fc65df04439eccc7eebd00df46ee31d36cdacb047d5c32b8aaa58505c25"
+  },
+  "modifiers": [
+    {
+      "id": "crude-bow:prefix:essence-extra-physical-damage",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MartialWeaponGainedDamage"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (15—20)% of Damage as Extra Physical Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_physical",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1"
+    },
+    {
+      "id": "crude-bow:prefix:essence-extra-fire-damage",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MartialWeaponGainedDamage"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (15—20)% of Damage as Extra Fire Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1"
+    },
+    {
+      "id": "crude-bow:prefix:essence-extra-cold-damage",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MartialWeaponGainedDamage"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (15—20)% of Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1"
+    },
+    {
+      "id": "crude-bow:prefix:essence-extra-lightning-damage",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MartialWeaponGainedDamage"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (15—20)% of Damage as Extra Lightning Damage",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1"
+    },
+    {
+      "id": "crude-bow:suffix:essence-attack-skill-level",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "+2 to Level of all Attack Skills",
+      "stats": [
+        {
+          "id": "attack_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1"
+    },
+    {
+      "id": "crude-bow:suffix:essence-onslaught-on-kill",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Onslaught"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(20—25)% chance to gain Onslaught on Killing Hits with this Weapon",
+      "stats": [
+        {
+          "id": "local_chance_to_gain_onslaught_on_killing_blow_%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1"
+    }
+  ]
+}

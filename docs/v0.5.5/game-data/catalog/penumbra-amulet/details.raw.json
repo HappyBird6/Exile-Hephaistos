@@ -1,0 +1,64 @@
+{
+  "explicitPoolProvenance": {
+    "template": "stellar",
+    "pool": "stellar-amulet",
+    "snapshotId": "poe2db-stellar-amulet-20261004-ce1bdfb664e8a41e",
+    "rawSha256": "945483629d385e81018be9d807b5262da8ac180b4d8d02db2e44a1bbc6133816",
+    "detailsSha256": "2229f604a28f466235b6b92f6dc9a2e1e6446ff8366621217816665fc31fcdc5",
+    "note": "Existing reviewed class/archetype explicit pool; no new game weights inferred."
+  },
+  "sourceBase": {
+    "url": "https://poe2db.tw/us/Penumbra_Amulet",
+    "retrievedAt": "2026-11-02T07:56:57.861Z",
+    "sha256": "a8f0b24bf54ddc01bbd1e2915977533f7e069703db10ab68eae818fe42dc0914",
+    "variants": [
+      {
+        "name": "Penumbra Amulet",
+        "card": "Penumbra Amulet\n        \n    \n    \n        \n            Amulets+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
+        "requirements": "",
+        "fields": {
+          "DropLevel": "1",
+          "BaseType": "Penumbra Amulet",
+          "Class": "Amulets",
+          "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+          "Type": "Metadata/Items/Amulets/FourAmuletLake3",
+          "Tags": "amulet",
+          "Icon": "Art/2DItems/Amulets/HeistAmulet2",
+          "Base.base_level": "1",
+          "Base.tag": "default, amulet",
+          "Base.x_size": "1",
+          "Base.y_size": "1",
+          "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+          "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+          "Mods.enable_rarity": "normal, magic, rare, unique",
+          "Mods.inventory_type": "Amulet",
+          "Sockets.socket_info": "0:1:1 1:9999:100 2:9999:90 3:9999:80 4:9999:30 5:9999:20 6:9999:5"
+        }
+      }
+    ],
+    "proofs": [
+      {
+        "text": "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
+        "family": "MaxPrefixMaxSuffix",
+        "tags": [],
+        "stats": [
+          {
+            "id": "local_maximum_prefixes_allowed_+",
+            "min": 2,
+            "max": 2,
+            "locality": "Local"
+          },
+          {
+            "id": "local_maximum_suffixes_allowed_+",
+            "min": -2,
+            "max": -2,
+            "locality": "Local"
+          }
+        ],
+        "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+2</span> Prefix Modifiers allowed<br><span class='mod-value'>-2</span> Suffix Modifiers allowed</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>MaxPrefixMaxSuffix\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>local maximum prefixes allowed + <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Local</span></li><li>local maximum suffixes allowed + <span class=\"badge bg-primary\">-2 <span class=\"ndash\">—</span> -2</span> <span class=\"badge bg-secondary\">Local</span></li></table>"
+      }
+    ],
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Amulets/HeistAmulet2.webp"
+  },
+  "variantIndex": 0
+}

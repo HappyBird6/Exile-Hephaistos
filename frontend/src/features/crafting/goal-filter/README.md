@@ -1,6 +1,6 @@
 # Goal filter
 
-시작 아이템·목표 편집과 수치 판정을 담당한다. [목표 조건](../../../../../docs/current/goals.md), [자동 탐색](../../../../../docs/current/automatic-planning.md), [아이템 상태](../../../../../docs/current/item-state.md)를 따른다.
+시작 아이템·목표 편집과 수치 판정을 담당한다. [목표 조건](../../../../../docs/legacy/current/goals.md), [자동 탐색](../../../../../docs/legacy/current/automatic-planning.md), [아이템 상태](../../../../../docs/legacy/current/item-state.md)를 따른다.
 
 - `CraftStart.tsx`: 시작 아이템·목표 설정과 자동 계산 연결.
 - `GoalFilterPanel.tsx`, `editor.ts`: 그룹·수치 조건 편집과 입력 상태.

@@ -5,7 +5,7 @@ import { chromium } from '../frontend/node_modules/.socket-qa/node_modules/playw
 // Dedicated browser context and synthetic public items only; no personal storage.
 const ui = process.env.SOCKET_QA_UI ?? 'http://127.0.0.1:19011'
 const api = process.env.SOCKET_QA_ORIGIN ?? 'http://127.0.0.1:19010'
-const output = 'docs/verification/socket-reference-20261105'
+const output = 'docs/legacy/verification/socket-reference-20261105'
 fs.mkdirSync(output, { recursive: true })
 const checks = []
 const check = (label, value) => { assert(value, label); checks.push(label) }

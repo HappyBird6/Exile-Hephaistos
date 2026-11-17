@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import { chromium } from '../frontend/node_modules/.history-qa/node_modules/playwright/index.mjs'
 const api='http://127.0.0.1:19310', ui='http://127.0.0.1:19311'
-const output='docs/verification/session-history-20261105'
+const output='docs/legacy/verification/session-history-20261105'
 fs.mkdirSync(output,{recursive:true})
 const checks=[]
 const check=(label,value)=>{assert(value,label);checks.push(label)}

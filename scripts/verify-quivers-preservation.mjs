@@ -22,7 +22,7 @@ for(const b of Object.values(read(paths[0])).filter(b=>b.family==='quivers')) {
  for(const [i,r]of raw.entries())assert.equal(ordinary[i].weight,+r.DropChance)
 }
 for(const locale of ['kr','jp','cn','tw','sp']) {
- const original=read('docs/evidence/0.5.5/i18n/sources/en/quivers-quivers.en.json').data,local=read(`evidence:quivers-source/Quivers.${locale}.json`).data
+ const original=read('docs/legacy/evidence/0.5.5/i18n/sources/en/quivers-quivers.en.json').data,local=read(`evidence:quivers-source/Quivers.${locale}.json`).data
  for(const kind of ['normal']) {
   assert.equal(local[kind].length,original[kind].length)
   for(const [i,r]of original[kind].entries())for(const field of ['Level','ModGenerationTypeID','ModFamilyList','DropChance','Code'])assert.deepEqual(local[kind][i][field],r[field],`${locale}/${kind}/${i}/${field}`)

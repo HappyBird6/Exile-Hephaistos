@@ -1,0 +1,424 @@
+{
+  "pool": {
+    "url": "https://poe2db.tw/us/Bows",
+    "retrievedAt": "2026-10-03T13:11:13.124Z",
+    "sha256": "b07d41b5bcc07e972bccffa67f97d221212242a537457709d4487a7b78741a1a",
+    "ordinaryRowsUnchanged": 140
+  },
+  "materials": [
+    {
+      "id": "Perfect_Essence_of_Abrasion",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Abrasion",
+      "retrievedAt": "2026-10-03T13:11:10.061Z",
+      "cardSha256": "07c55ce7bec49d6f833bc37b0919ab13fe806280444a105f292f892fb253703d",
+      "row": {
+        "type": "essence",
+        "Level": "72",
+        "DropChance": 0,
+        "ModGenerationTypeID": "1",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+          "<span class=\"badge bg-primary craftingphysical\" data-tag=\"physical\">Physical</span>"
+        ],
+        "fossil_no": [
+          "physical_damage",
+          "damage",
+          "physical"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e8ae970d5be32efbe9e53c254e96feca4273c5e16852e33fc9fe14db9b154225\" href=\"Perfect_Essence_of_Abrasion\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/PhysicalEssencePerfect.webp\" alt=\"PhysicalEssencePerfect\" height=\"16\" />Perfect Essence of Abrasion</a>",
+        "Code": "EssenceDamageasExtraPhysical1",
+        "ModFamilyList": [
+          "MartialWeaponGainedDamage"
+        ],
+        "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% of Damage as Extra <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage",
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "reqlvl": 57,
+        "IsPerfect": "1",
+        "IsAlloy": false,
+        "Removes": true
+      },
+      "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
+      "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% of Damage as Extra <a data-keyword=\"Physical\" href=\"Physical_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/2a4a05bef20150254be47d9bbdb10386255ebd697bc52e4bd6f14e88741dde97\">Physical</a> Damage</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>MartialWeaponGainedDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>non skill base all damage % to gain as physical <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>physical_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Physical</span> </table>  </div></div>",
+      "parsed": {
+        "fields": {
+          "Name": "Essences",
+          "Family": "MartialWeaponGainedDamage",
+          "Domains": "Item (1)",
+          "GenerationType": "Prefix (1)",
+          "Req. level": "72 (Effective: 57)",
+          "Gold Price": "3266",
+          "Stats": "non skill base all damage % to gain as physical 15 — 20 Global",
+          "Spawn Tags": "default: 0",
+          "Craft Tags": "physical_damage Damage Physical"
+        },
+        "effect": "Gain (15—20)% of Damage as Extra Physical Damage",
+        "poolEffect": "Gain (15—20)% of Damage as Extra Physical Damage",
+        "target": [
+          "Bows",
+          "Gain (15—20)% of Damage as Extra Physical Damage",
+          "Prefix",
+          "57"
+        ],
+        "card": "Perfect Essence of Abrasion Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierOne Handed Melee Weapon or Bow: Gain (15—20)% of Damage as Extra Physical DamageTwo Handed Melee Weapon or Crossbow: Gain (25—33)% of Damage as Extra Physical Damage Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_physical",
+            "bounds": [
+              15,
+              20
+            ],
+            "locality": "Global"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Perfect_Essence_of_Flames",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Flames",
+      "retrievedAt": "2026-10-03T13:11:10.648Z",
+      "cardSha256": "583af851285e28472cb8a60d111c48aedb7b117d8c5257206c810276104fe9be",
+      "row": {
+        "type": "essence",
+        "Level": "72",
+        "DropChance": 0,
+        "ModGenerationTypeID": "1",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+          "<span class=\"badge bg-primary craftingfire\" data-tag=\"fire\">Fire</span>"
+        ],
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/7f0c01c567d25cb2940ae522d79184c48aa5471337be2eec2e34c7481e69a127\" href=\"Perfect_Essence_of_Flames\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/FireEssencePerfect.webp\" alt=\"FireEssencePerfect\" height=\"16\" />Perfect Essence of Flames</a>",
+        "Code": "EssenceDamageasExtraFire1",
+        "ModFamilyList": [
+          "MartialWeaponGainedDamage"
+        ],
+        "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% of Damage as Extra <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage",
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "reqlvl": 57,
+        "IsPerfect": "1",
+        "IsAlloy": false,
+        "Removes": true
+      },
+      "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
+      "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% of Damage as Extra <a data-keyword=\"Fire\" href=\"Fire_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/b5d8acaae74359659060318919bfa3de84e8587e6fa6487df3f2423250d85c87\">Fire</a> Damage</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>MartialWeaponGainedDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>non skill base all damage % to gain as fire <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Fire</span> </table>  </div></div>",
+      "parsed": {
+        "fields": {
+          "Name": "Essences",
+          "Family": "MartialWeaponGainedDamage",
+          "Domains": "Item (1)",
+          "GenerationType": "Prefix (1)",
+          "Req. level": "72 (Effective: 57)",
+          "Gold Price": "3266",
+          "Stats": "non skill base all damage % to gain as fire 15 — 20 Global",
+          "Spawn Tags": "default: 0",
+          "Craft Tags": "elemental_damage Damage Elemental Fire"
+        },
+        "effect": "Gain (15—20)% of Damage as Extra Fire Damage",
+        "poolEffect": "Gain (15—20)% of Damage as Extra Fire Damage",
+        "target": [
+          "Bows",
+          "Gain (15—20)% of Damage as Extra Fire Damage",
+          "Prefix",
+          "57"
+        ],
+        "card": "Perfect Essence of Flames Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierOne Handed Melee Weapon or Bow: Gain (15—20)% of Damage as Extra Fire DamageTwo Handed Melee Weapon or Crossbow: Gain (25—33)% of Damage as Extra Fire Damage Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+            "bounds": [
+              15,
+              20
+            ],
+            "locality": "Global"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Perfect_Essence_of_Ice",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Ice",
+      "retrievedAt": "2026-10-03T13:11:11.232Z",
+      "cardSha256": "d46fa5db000413838715715e3905af99b68af6913bab038ec3bbda7f40ed1cef",
+      "row": {
+        "type": "essence",
+        "Level": "72",
+        "DropChance": 0,
+        "ModGenerationTypeID": "1",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+          "<span class=\"badge bg-primary craftingcold\" data-tag=\"cold\">Cold</span>"
+        ],
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/553a9dd24b5d751b650d59e35d41de38cdc3000d5de2ec69258ffb08ed199a46\" href=\"Perfect_Essence_of_Ice\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/ColdEssencePerfect.webp\" alt=\"ColdEssencePerfect\" height=\"16\" />Perfect Essence of Ice</a>",
+        "Code": "EssenceDamageasExtraCold1",
+        "ModFamilyList": [
+          "MartialWeaponGainedDamage"
+        ],
+        "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% of Damage as Extra <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage",
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "reqlvl": 57,
+        "IsPerfect": "1",
+        "IsAlloy": false,
+        "Removes": true
+      },
+      "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
+      "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% of Damage as Extra <a data-keyword=\"Cold\" href=\"Cold_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/f21f67a8e373075456094ebfda444134ee0773c15ff816500dcfbca6b25b3a35\">Cold</a> Damage</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>MartialWeaponGainedDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>non skill base all damage % to gain as cold <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Cold</span> </table>  </div></div>",
+      "parsed": {
+        "fields": {
+          "Name": "Essences",
+          "Family": "MartialWeaponGainedDamage",
+          "Domains": "Item (1)",
+          "GenerationType": "Prefix (1)",
+          "Req. level": "72 (Effective: 57)",
+          "Gold Price": "3266",
+          "Stats": "non skill base all damage % to gain as cold 15 — 20 Global",
+          "Spawn Tags": "default: 0",
+          "Craft Tags": "elemental_damage Damage Elemental Cold"
+        },
+        "effect": "Gain (15—20)% of Damage as Extra Cold Damage",
+        "poolEffect": "Gain (15—20)% of Damage as Extra Cold Damage",
+        "target": [
+          "Bows",
+          "Gain (15—20)% of Damage as Extra Cold Damage",
+          "Prefix",
+          "57"
+        ],
+        "card": "Perfect Essence of Ice Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierOne Handed Melee Weapon or Bow: Gain (15—20)% of Damage as Extra Cold DamageTwo Handed Melee Weapon or Crossbow: Gain (25—33)% of Damage as Extra Cold Damage Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+            "bounds": [
+              15,
+              20
+            ],
+            "locality": "Global"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Perfect_Essence_of_Electricity",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Electricity",
+      "retrievedAt": "2026-10-03T13:11:11.825Z",
+      "cardSha256": "7fee407fc36dcc4432e66fd02af8397c4b76a2e5fcd124298dfd9fc3a694923e",
+      "row": {
+        "type": "essence",
+        "Level": "72",
+        "DropChance": 0,
+        "ModGenerationTypeID": "1",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>",
+          "<span class=\"badge bg-primary craftingelemental\" data-tag=\"elemental\">Elemental</span>",
+          "<span class=\"badge bg-primary craftinglightning\" data-tag=\"lightning\">Lightning</span>"
+        ],
+        "fossil_no": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/a84fee6408886603ba0f343e2d74bab05704926f965c8f05d56a901ade330383\" href=\"Perfect_Essence_of_Electricity\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/LightningEssencePerfect.webp\" alt=\"LightningEssencePerfect\" height=\"16\" />Perfect Essence of Electricity</a>",
+        "Code": "EssenceDamageasExtraLightning1",
+        "ModFamilyList": [
+          "MartialWeaponGainedDamage"
+        ],
+        "str": "<a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% of Damage as Extra <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage",
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "reqlvl": 57,
+        "IsPerfect": "1",
+        "IsAlloy": false,
+        "Removes": true
+      },
+      "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
+      "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Gain\" href=\"Damage_Gained_as_extra_X\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/3f20b148973906396f16a44625c72369b409f41f42f8032a1f80d9b3b6efc307\">Gain</a> <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% of Damage as Extra <a data-keyword=\"Lightning\" href=\"Lightning_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1d5815b2f2bd5f23d99d435288c3b41e79adf38037cf8d2a266bc276f527201d\">Lightning</a> Damage</span></h5>   <span data-tabname=\"Essences\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Essences\n<tr><th>Family<td>MartialWeaponGainedDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>non skill base all damage % to gain as lightning <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>elemental_damage</i></span> <span class='badge bg-primary'>Damage</span> <span class='badge bg-primary'>Elemental</span> <span class='badge bg-primary'>Lightning</span> </table>  </div></div>",
+      "parsed": {
+        "fields": {
+          "Name": "Essences",
+          "Family": "MartialWeaponGainedDamage",
+          "Domains": "Item (1)",
+          "GenerationType": "Prefix (1)",
+          "Req. level": "72 (Effective: 57)",
+          "Gold Price": "3266",
+          "Stats": "non skill base all damage % to gain as lightning 15 — 20 Global",
+          "Spawn Tags": "default: 0",
+          "Craft Tags": "elemental_damage Damage Elemental Lightning"
+        },
+        "effect": "Gain (15—20)% of Damage as Extra Lightning Damage",
+        "poolEffect": "Gain (15—20)% of Damage as Extra Lightning Damage",
+        "target": [
+          "Bows",
+          "Gain (15—20)% of Damage as Extra Lightning Damage",
+          "Prefix",
+          "57"
+        ],
+        "card": "Perfect Essence of Electricity Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierOne Handed Melee Weapon or Bow: Gain (15—20)% of Damage as Extra Lightning DamageTwo Handed Melee Weapon or Crossbow: Gain (25—33)% of Damage as Extra Lightning Damage Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+            "bounds": [
+              15,
+              20
+            ],
+            "locality": "Global"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Perfect_Essence_of_Battle",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Battle",
+      "retrievedAt": "2026-10-03T13:11:12.541Z",
+      "cardSha256": "8d5835057fc21d420517d90d2023b1caf2bd46b46ccc919e3cc939e35bf911e3",
+      "row": {
+        "type": "essence",
+        "Level": "72",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingattack\" data-tag=\"attack\">Attack</span>"
+        ],
+        "fossil_no": [
+          "attack"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/51cb77059044f332703fc01057fe4bb9931f7e28715d18b9ffbcf9dd0dc077b6\" href=\"Perfect_Essence_of_Battle\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AttackEssencePerfect.webp\" alt=\"AttackEssencePerfect\" height=\"16\" />Perfect Essence of Battle</a>",
+        "Code": "EssenceAttackSkillLevel1H1",
+        "ModFamilyList": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "str": "<span class='mod-value'>+2</span> to Level of all <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Skills",
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "reqlvl": 57,
+        "IsPerfect": "1",
+        "IsAlloy": false,
+        "Removes": true
+      },
+      "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
+      "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>+2</span> to Level of all <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Skills</span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>IncreaseSocketedGemLevel\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>attack skill gem level + <span class=\"badge bg-primary\">2 <span class=\"ndash\">—</span> 2</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Attack</span> </table>  </div></div>",
+      "parsed": {
+        "fields": {
+          "Name": "of the Essence",
+          "Family": "IncreaseSocketedGemLevel",
+          "Domains": "Item (1)",
+          "GenerationType": "Suffix (2)",
+          "Req. level": "72 (Effective: 57)",
+          "Gold Price": "3266",
+          "Stats": "attack skill gem level + 2 — 2 Global",
+          "Spawn Tags": "default: 0",
+          "Craft Tags": "Attack"
+        },
+        "effect": "+2 to Level of all Attack Skills",
+        "poolEffect": "+2 to Level of all Attack Skills",
+        "target": [
+          "Bows",
+          "+2 to Level of all Attack Skills",
+          "Suffix",
+          "57"
+        ],
+        "card": "Perfect Essence of Battle Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierOne Handed Melee Weapon or Bow: +2 to Level of all Attack SkillsTwo Handed Melee Weapon or Crossbow: +3 to Level of all Attack Skills Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "stats": [
+          {
+            "id": "attack_skill_gem_level_+",
+            "bounds": [
+              2,
+              2
+            ],
+            "locality": "Global"
+          }
+        ]
+      }
+    },
+    {
+      "id": "Perfect_Essence_of_Haste",
+      "sourceUrl": "https://poe2db.tw/us/Perfect_Essence_of_Haste",
+      "retrievedAt": "2026-10-03T13:11:13.124Z",
+      "cardSha256": "a1e05c331c7e4aec314c8dc235c58a2a112303da76eaf46a5597ac6e0737909f",
+      "row": {
+        "type": "essence",
+        "Level": "72",
+        "DropChance": 0,
+        "ModGenerationTypeID": "2",
+        "mod_no": [
+          "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+        ],
+        "fossil_no": [
+          "speed"
+        ],
+        "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/ae38552f5f2a9439a389ba075a5cd2d969364102c25f9f166078a7d440b6e586\" href=\"Perfect_Essence_of_Haste\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/SpeedEssencePerfect.webp\" alt=\"SpeedEssencePerfect\" height=\"16\" />Perfect Essence of Haste</a>",
+        "Code": "EssenceOnslaughtonKill1",
+        "ModFamilyList": [
+          "Onslaught"
+        ],
+        "str": "<span class='mod-value'>(20<span class=\"ndash\">—</span>25)</span>% chance to gain <a data-keyword=\"Onslaught\" href=\"Onslaught\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/56bc1221c5b3aea1df1e12cb5d59fe0cd1e4a38231301fbd7ee726ede17dc4ac\">Onslaught</a> on Killing <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> with this Weapon",
+        "adds_no": [],
+        "spawn_no": [
+          "default"
+        ],
+        "reqlvl": 57,
+        "IsPerfect": "1",
+        "IsAlloy": false,
+        "Removes": true
+      },
+      "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
+      "detailHtml": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(20<span class=\"ndash\">—</span>25)</span>% chance to gain <a data-keyword=\"Onslaught\" href=\"Onslaught\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/56bc1221c5b3aea1df1e12cb5d59fe0cd1e4a38231301fbd7ee726ede17dc4ac\">Onslaught</a> on Killing <a data-keyword=\"Hit\" href=\"Hit_Damage\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/396ec0ccc46f63acd9059876455d4a9f7d5108864acf9fc0f4c56be5a6f9cd57\">Hits</a> with this Weapon</span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>Onslaught\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>local chance to gain onslaught on killing blow % <span class=\"badge bg-primary\">20 <span class=\"ndash\">—</span> 25</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Speed</span> </table>  </div></div>",
+      "parsed": {
+        "fields": {
+          "Name": "of the Essence",
+          "Family": "Onslaught",
+          "Domains": "Item (1)",
+          "GenerationType": "Suffix (2)",
+          "Req. level": "72 (Effective: 57)",
+          "Gold Price": "3266",
+          "Stats": "local chance to gain onslaught on killing blow % 20 — 25 Global",
+          "Spawn Tags": "default: 0",
+          "Craft Tags": "Speed"
+        },
+        "effect": "(20—25)% chance to gain Onslaught on Killing Hits with this Weapon",
+        "poolEffect": "(20—25)% chance to gain Onslaught on Killing Hits with this Weapon",
+        "target": [
+          "Bows",
+          "(20—25)% chance to gain Onslaught on Killing Hits with this Weapon",
+          "Suffix",
+          "57"
+        ],
+        "card": "Perfect Essence of Haste Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierMartial Weapon: (20—25)% chance to gain Onslaught on Killing Hits with this Weapon Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+        "stats": [
+          {
+            "id": "local_chance_to_gain_onslaught_on_killing_blow_%",
+            "bounds": [
+              20,
+              25
+            ],
+            "locality": "Global"
+          }
+        ]
+      }
+    }
+  ]
+}

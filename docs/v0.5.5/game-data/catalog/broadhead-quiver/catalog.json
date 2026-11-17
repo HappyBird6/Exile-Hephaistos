@@ -1,0 +1,2790 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-broadhead-quiver-20261005-bd1c790b75f934e7",
+    "retrievedAt": "2026-10-05T05:29:14.615Z",
+    "sourceUrl": "https://poe2db.tw/us/Quivers",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "c1cceb8e6e15bf113fd13fe215d3b42f95386c0c700aec305d9758cb16551729",
+    "detailsSha256": "0f537320389119746d325678ad868604fba3d5b5e1b10a756ee19509e84271fb",
+    "prefixCount": 57,
+    "suffixCount": 45,
+    "prefixWeight": 33700,
+    "suffixWeight": 29752
+  },
+  "base": {
+    "id": "Metadata/Items/Quivers/FourQuiver1",
+    "name": "Broadhead Quiver",
+    "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver",
+    "implicitModifierId": "broadhead-quiver:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifiers": [
+    {
+      "id": "stocky-mitts:suffix:of-the-mongoose",
+      "name": "of the Mongoose",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1a9eaad1fb009e4f6d6e858e8835b03c59e946e3b2fc6a9ef3ccd66e2f2b1bc8"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-lynx",
+      "name": "of the Lynx",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(9—12) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f85043355e5f274fb0c19687f2f4a62e0cb84e0883e94f4b5ac8f2fa8797f54f"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-fox",
+      "name": "of the Fox",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(13—16) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eb670b8b3781e94f0b888f2b7db12a60b25a10321285ea7d1cd5c12415cc3215"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-falcon",
+      "name": "of the Falcon",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(17—20) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ec8013eace876a96e613ad537dd2c8d45cdec6f77dbc0b3808ac61de3cbefb32"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-panther",
+      "name": "of the Panther",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(21—24) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0dd10bcd590ddebcfcf886e80eb3ec5a6b4a0ec4404948e2d556c7eb69564689"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-leopard",
+      "name": "of the Leopard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(25—27) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c01d9eddbbcbf1c2171a2487d83c3d9c2d68950787dc7bc5175ccc9ce8b3ea45"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-jaguar",
+      "name": "of the Jaguar",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(28—30) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f2a74850296b774128bf69d2f635db85b80d8022af76cbab1a8411a4f0efeab"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-the-phantom",
+      "name": "of the Phantom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(31—33) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bb1545c456b949d12034f73f4f8798ee0a1890e1f1faca0133b322261c0da130"
+    },
+    {
+      "id": "stocky-mitts:prefix:glinting",
+      "name": "Glinting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "text": "Adds (1—2) to 3 Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage1"
+    },
+    {
+      "id": "stocky-mitts:prefix:burnished",
+      "name": "Burnished",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 8,
+      "text": "Adds (2—3) to (4—6) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage2"
+    },
+    {
+      "id": "stocky-mitts:prefix:polished",
+      "name": "Polished",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "text": "Adds (2—4) to (5—8) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 5,
+          "max": 8
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage3"
+    },
+    {
+      "id": "stocky-mitts:prefix:honed",
+      "name": "Honed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "text": "Adds (4—6) to (8—11) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 8,
+          "max": 11
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage4"
+    },
+    {
+      "id": "stocky-mitts:prefix:gleaming",
+      "name": "Gleaming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "text": "Adds (5—7) to (9—13) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 9,
+          "max": 13
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage5"
+    },
+    {
+      "id": "stocky-mitts:prefix:annealed",
+      "name": "Annealed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "text": "Adds (6—10) to (12—17) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 12,
+          "max": 17
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage6"
+    },
+    {
+      "id": "stocky-mitts:prefix:razor-sharp",
+      "name": "Razor-sharp",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 800,
+      "tier": 3,
+      "text": "Adds (7—11) to (14—20) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 14,
+          "max": 20
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 7,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage7"
+    },
+    {
+      "id": "stocky-mitts:prefix:tempered",
+      "name": "Tempered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 600,
+      "tier": 2,
+      "text": "Adds (10—15) to (18—26) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage8"
+    },
+    {
+      "id": "stocky-mitts:prefix:flaring",
+      "name": "Flaring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 400,
+      "tier": 1,
+      "text": "Adds (12—19) to (22—32) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 22,
+          "max": 32
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 12,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage9"
+    },
+    {
+      "id": "stocky-mitts:prefix:heated",
+      "name": "Heated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 9,
+      "text": "Adds (1—2) to 3 Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage1"
+    },
+    {
+      "id": "stocky-mitts:prefix:smouldering",
+      "name": "Smouldering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 8,
+      "text": "Adds (3—5) to (6—9) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage2"
+    },
+    {
+      "id": "stocky-mitts:prefix:smoking",
+      "name": "Smoking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 7,
+      "text": "Adds (6—8) to (10—13) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 10,
+          "max": 13
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 6,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage3"
+    },
+    {
+      "id": "stocky-mitts:prefix:burning",
+      "name": "Burning",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "text": "Adds (9—11) to (14—17) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 14,
+          "max": 17
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 9,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage4"
+    },
+    {
+      "id": "stocky-mitts:prefix:flaming",
+      "name": "Flaming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "text": "Adds (12—13) to (18—20) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 18,
+          "max": 20
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 12,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage5"
+    },
+    {
+      "id": "stocky-mitts:prefix:scorching",
+      "name": "Scorching",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 500,
+      "tier": 4,
+      "text": "Adds (11—16) to (21—26) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage6"
+    },
+    {
+      "id": "stocky-mitts:prefix:incinerating",
+      "name": "Incinerating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 400,
+      "tier": 3,
+      "text": "Adds (13—19) to (27—32) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 13,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage7"
+    },
+    {
+      "id": "stocky-mitts:prefix:blasting",
+      "name": "Blasting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 300,
+      "tier": 2,
+      "text": "Adds (20—24) to (33—36) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 33,
+          "max": 36
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage8"
+    },
+    {
+      "id": "stocky-mitts:prefix:cremating",
+      "name": "Cremating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 200,
+      "tier": 1,
+      "text": "Adds (25—29) to (37—45) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 37,
+          "max": 45
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage9"
+    },
+    {
+      "id": "stocky-mitts:prefix:frosted",
+      "name": "Frosted",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 9,
+      "text": "Adds 1 to (2—3) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage1"
+    },
+    {
+      "id": "stocky-mitts:prefix:chilled",
+      "name": "Chilled",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 8,
+      "text": "Adds (3—4) to (5—8) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 5,
+          "max": 8
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage2"
+    },
+    {
+      "id": "stocky-mitts:prefix:icy",
+      "name": "Icy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 7,
+      "text": "Adds (5—6) to (9—11) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 9,
+          "max": 11
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage3"
+    },
+    {
+      "id": "stocky-mitts:prefix:frigid",
+      "name": "Frigid",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "text": "Adds (7—8) to (12—14) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 12,
+          "max": 14
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 7,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage4"
+    },
+    {
+      "id": "stocky-mitts:prefix:freezing",
+      "name": "Freezing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "text": "Adds (9—10) to (15—17) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 15,
+          "max": 17
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 9,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage5"
+    },
+    {
+      "id": "stocky-mitts:prefix:frozen",
+      "name": "Frozen",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 500,
+      "tier": 4,
+      "text": "Adds (11—13) to (18—21) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 18,
+          "max": 21
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 11,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage6"
+    },
+    {
+      "id": "stocky-mitts:prefix:glaciated",
+      "name": "Glaciated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 400,
+      "tier": 3,
+      "text": "Adds (14—15) to (22—24) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 22,
+          "max": 24
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 14,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage7"
+    },
+    {
+      "id": "stocky-mitts:prefix:polar",
+      "name": "Polar",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 300,
+      "tier": 2,
+      "text": "Adds (16—20) to (25—31) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 25,
+          "max": 31
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage8"
+    },
+    {
+      "id": "stocky-mitts:prefix:entombing",
+      "name": "Entombing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 200,
+      "tier": 1,
+      "text": "Adds (21—24) to (32—37) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 32,
+          "max": 37
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage9"
+    },
+    {
+      "id": "stocky-mitts:prefix:humming",
+      "name": "Humming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 9,
+      "text": "Adds 1 to (4—6) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage1"
+    },
+    {
+      "id": "stocky-mitts:prefix:buzzing",
+      "name": "Buzzing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 8,
+      "text": "Adds 1 to (10—15) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage2"
+    },
+    {
+      "id": "stocky-mitts:prefix:snapping",
+      "name": "Snapping",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 7,
+      "text": "Adds 1 to (16—22) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 16,
+          "max": 22
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage3"
+    },
+    {
+      "id": "stocky-mitts:prefix:crackling",
+      "name": "Crackling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "text": "Adds 1 to (23—27) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 23,
+          "max": 27
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage4"
+    },
+    {
+      "id": "stocky-mitts:prefix:sparking",
+      "name": "Sparking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "text": "Adds 1 to (28—32) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 28,
+          "max": 32
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage5"
+    },
+    {
+      "id": "stocky-mitts:prefix:arcing",
+      "name": "Arcing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 500,
+      "tier": 4,
+      "text": "Adds (1—2) to (33—40) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 33,
+          "max": 40
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage6"
+    },
+    {
+      "id": "stocky-mitts:prefix:shocking",
+      "name": "Shocking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 400,
+      "tier": 3,
+      "text": "Adds (1—2) to (41—47) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 41,
+          "max": 47
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage7"
+    },
+    {
+      "id": "stocky-mitts:prefix:discharging",
+      "name": "Discharging",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 300,
+      "tier": 2,
+      "text": "Adds (1—3) to (48—59) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 48,
+          "max": 59
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage8"
+    },
+    {
+      "id": "stocky-mitts:prefix:electrocuting",
+      "name": "Electrocuting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 200,
+      "tier": 1,
+      "text": "Adds (1—4) to (60—71) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 60,
+          "max": 71
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage9"
+    },
+    {
+      "id": "amulet:suffix:of-the-archer",
+      "name": "of the Archer",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 500,
+      "tier": 1,
+      "text": "+1 to Level of all Projectile Skills",
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0ba3ba83cc850b2f4fbc9d3f0fe8cd896805e371c5083142b24f1c0a4ae58ea4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-success",
+      "name": "of Success",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 6,
+      "text": "Gain (4—6) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-victory",
+      "name": "of Victory",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 750,
+      "tier": 5,
+      "text": "Gain (7—9) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 7,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-triumph",
+      "name": "of Triumph",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 750,
+      "tier": 4,
+      "text": "Gain (10—18) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 10,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-conquest",
+      "name": "of Conquest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 750,
+      "tier": 3,
+      "text": "Gain (19—28) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 19,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-vanquishing",
+      "name": "of Vanquishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 750,
+      "tier": 2,
+      "text": "Gain (29—40) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 29,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-valour",
+      "name": "of Valour",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 750,
+      "tier": 1,
+      "text": "Gain (41—53) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 41,
+          "max": 53
+        }
+      ],
+      "tags": [
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath6"
+    },
+    {
+      "id": "attuned-wand:suffix:of-absorption",
+      "name": "of Absorption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 6,
+      "text": "Gain (2—3) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath1"
+    },
+    {
+      "id": "attuned-wand:suffix:of-osmosis",
+      "name": "of Osmosis",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 750,
+      "tier": 5,
+      "text": "Gain (4—5) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 4,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath2"
+    },
+    {
+      "id": "attuned-wand:suffix:of-infusion",
+      "name": "of Infusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 23,
+      "weight": 750,
+      "tier": 4,
+      "text": "Gain (6—9) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 6,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath3"
+    },
+    {
+      "id": "attuned-wand:suffix:of-enveloping",
+      "name": "of Enveloping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 34,
+      "weight": 750,
+      "tier": 3,
+      "text": "Gain (10—14) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath4"
+    },
+    {
+      "id": "attuned-wand:suffix:of-consumption",
+      "name": "of Consumption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 750,
+      "tier": 2,
+      "text": "Gain (15—20) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath5"
+    },
+    {
+      "id": "attuned-wand:suffix:of-siphoning",
+      "name": "of Siphoning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 750,
+      "tier": 1,
+      "text": "Gain (21—27) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 21,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath6"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-skill",
+      "name": "of Skill",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 4,
+      "text": "(5—7)% increased Attack Speed",
+      "stats": [
+        {
+          "id": "attack_speed_+%",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAttackSpeed1"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-ease",
+      "name": "of Ease",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 500,
+      "tier": 3,
+      "text": "(8—10)% increased Attack Speed",
+      "stats": [
+        {
+          "id": "attack_speed_+%",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FIncreasedAttackSpeed2"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-mastery",
+      "name": "of Mastery",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 500,
+      "tier": 2,
+      "text": "(11—13)% increased Attack Speed",
+      "stats": [
+        {
+          "id": "attack_speed_+%",
+          "min": 11,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FIncreasedAttackSpeed3"
+    },
+    {
+      "id": "stocky-mitts:suffix:of-renown",
+      "name": "of Renown",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 500,
+      "tier": 1,
+      "text": "(14—16)% increased Attack Speed",
+      "stats": [
+        {
+          "id": "attack_speed_+%",
+          "min": 14,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FIncreasedAttackSpeed4"
+    },
+    {
+      "id": "stocky-mitts:prefix:precise",
+      "name": "Precise",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 9,
+      "text": "+(11—32) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 11,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f3abcab60ec8a82575dfb303c75407d21ae0d5a4460a33c3c79f9135c012e9e7"
+    },
+    {
+      "id": "stocky-mitts:prefix:reliable",
+      "name": "Reliable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 800,
+      "tier": 8,
+      "text": "+(33—60) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 33,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/abcdb0bd40835de14d7d72ff877d52fe08a5ed7221603912318521b1820f09a7"
+    },
+    {
+      "id": "stocky-mitts:prefix:focused",
+      "name": "Focused",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 7,
+      "text": "+(61—84) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 61,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/41ec683ecb6b8e2012706329d8a0bfa1a5565aa729bb664fa59038a45449d047"
+    },
+    {
+      "id": "stocky-mitts:prefix:deliberate",
+      "name": "Deliberate",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 6,
+      "text": "+(85—123) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 85,
+          "max": 123
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/eca7b521bb134cbed453e80b63a48ff94831b06fbb8b55e8ff8dfd35974ae061"
+    },
+    {
+      "id": "stocky-mitts:prefix:consistent",
+      "name": "Consistent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 5,
+      "text": "+(124—167) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 124,
+          "max": 167
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5b87729da1a1380abc600df6b6785295bf380ace91526e2f38729a5ddfcefdf1"
+    },
+    {
+      "id": "stocky-mitts:prefix:steady",
+      "name": "Steady",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 800,
+      "tier": 4,
+      "text": "+(168—236) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 168,
+          "max": 236
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7f420ee5c51ea59f421ccc9534d4985eab64380b034c5a9facaf0a4b689f2c65"
+    },
+    {
+      "id": "stocky-mitts:prefix:hunter-s",
+      "name": "Hunter's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 800,
+      "tier": 3,
+      "text": "+(237—346) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 237,
+          "max": 346
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/52b427c6f65bdf0f92e8a49c2baee20e4b1c23904bae4481cb9abb2b3c73cc65"
+    },
+    {
+      "id": "stocky-mitts:prefix:ranger-s",
+      "name": "Ranger's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 67,
+      "weight": 400,
+      "tier": 2,
+      "text": "+(347—450) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 347,
+          "max": 450
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7fbc497d6e4af1fc9e47d4b85929da46e0740dbb58f4b5086cbebfeef5f66257"
+    },
+    {
+      "id": "stocky-mitts:prefix:amazon-s",
+      "name": "Amazon's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 200,
+      "tier": 1,
+      "text": "+(451—550) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 451,
+          "max": 550
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy9"
+    },
+    {
+      "id": "quiver:suffix:of-menace:AttackCriticalStrikeChance1",
+      "name": "of Menace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(10—14)% increased Critical Hit Chance for Attacks",
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeChance1"
+    },
+    {
+      "id": "quiver:suffix:of-havoc:AttackCriticalStrikeChance2",
+      "name": "of Havoc",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 20,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(15—19)% increased Critical Hit Chance for Attacks",
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeChance2"
+    },
+    {
+      "id": "quiver:suffix:of-disaster:AttackCriticalStrikeChance3",
+      "name": "of Disaster",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(20—24)% increased Critical Hit Chance for Attacks",
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FAttackCriticalStrikeChance3"
+    },
+    {
+      "id": "quiver:suffix:of-calamity:AttackCriticalStrikeChance4",
+      "name": "of Calamity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 500,
+      "tier": 3,
+      "text": "(25—29)% increased Critical Hit Chance for Attacks",
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAttackCriticalStrikeChance4"
+    },
+    {
+      "id": "quiver:suffix:of-ruin:AttackCriticalStrikeChance5",
+      "name": "of Ruin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 250,
+      "tier": 2,
+      "text": "(30—34)% increased Critical Hit Chance for Attacks",
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 30,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAttackCriticalStrikeChance5"
+    },
+    {
+      "id": "quiver:suffix:of-unmaking:AttackCriticalStrikeChance6",
+      "name": "of Unmaking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 125,
+      "tier": 1,
+      "text": "(35—38)% increased Critical Hit Chance for Attacks",
+      "stats": [
+        {
+          "id": "attack_critical_strike_chance_+%",
+          "min": 35,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeChance6"
+    },
+    {
+      "id": "quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1",
+      "name": "of Ire",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(10—14)% increased Critical Damage Bonus for Attack Damage",
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier1"
+    },
+    {
+      "id": "quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2",
+      "name": "of Anger",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(15—19)% increased Critical Damage Bonus for Attack Damage",
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier2"
+    },
+    {
+      "id": "quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3",
+      "name": "of Rage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 31,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(20—24)% increased Critical Damage Bonus for Attack Damage",
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier3"
+    },
+    {
+      "id": "quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4",
+      "name": "of Fury",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 500,
+      "tier": 3,
+      "text": "(25—29)% increased Critical Damage Bonus for Attack Damage",
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier4"
+    },
+    {
+      "id": "quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5",
+      "name": "of Ferocity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 59,
+      "weight": 250,
+      "tier": 2,
+      "text": "(30—34)% increased Critical Damage Bonus for Attack Damage",
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 30,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier5"
+    },
+    {
+      "id": "quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6",
+      "name": "of Destruction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 125,
+      "tier": 1,
+      "text": "(35—39)% increased Critical Damage Bonus for Attack Damage",
+      "stats": [
+        {
+          "id": "attack_critical_strike_multiplier_+",
+          "min": 35,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAttackCriticalStrikeMultiplier6"
+    },
+    {
+      "id": "quiver:suffix:of-piercing:ArrowPierceChance1",
+      "name": "of Piercing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChanceToPierce"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 500,
+      "tier": 5,
+      "text": "(12—14)% chance to Pierce an Enemy",
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 12,
+          "max": 14
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FArrowPierceChance1"
+    },
+    {
+      "id": "quiver:suffix:of-drilling:ArrowPierceChance2",
+      "name": "of Drilling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChanceToPierce"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 500,
+      "tier": 4,
+      "text": "(15—17)% chance to Pierce an Enemy",
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 15,
+          "max": 17
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FArrowPierceChance2"
+    },
+    {
+      "id": "quiver:suffix:of-puncturing:ArrowPierceChance3",
+      "name": "of Puncturing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChanceToPierce"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 500,
+      "tier": 3,
+      "text": "(18—20)% chance to Pierce an Enemy",
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 18,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FArrowPierceChance3"
+    },
+    {
+      "id": "quiver:suffix:of-skewering:ArrowPierceChance4",
+      "name": "of Skewering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChanceToPierce"
+      ],
+      "requiredItemLevel": 61,
+      "weight": 500,
+      "tier": 2,
+      "text": "(21—23)% chance to Pierce an Enemy",
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 21,
+          "max": 23
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FArrowPierceChance4"
+    },
+    {
+      "id": "quiver:suffix:of-penetrating:ArrowPierceChance5",
+      "name": "of Penetrating",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChanceToPierce"
+      ],
+      "requiredItemLevel": 77,
+      "weight": 500,
+      "tier": 1,
+      "text": "(24—26)% chance to Pierce an Enemy",
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 24,
+          "max": 26
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FArrowPierceChance5"
+    },
+    {
+      "id": "quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1",
+      "name": "of Surplus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AdditionalArrows"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1,
+      "tier": 2,
+      "text": "+(25—40)% Surpassing chance to fire an additional Arrow",
+      "stats": [
+        {
+          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+          "min": 25,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAdditionalArrowChanceQuiver1"
+    },
+    {
+      "id": "quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2",
+      "name": "of Splintering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AdditionalArrows"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(41—60)% Surpassing chance to fire an additional Arrow",
+      "stats": [
+        {
+          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+          "min": 41,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FAdditionalArrowChanceQuiver2"
+    },
+    {
+      "id": "quiver:prefix:darting:ProjectileSpeed1",
+      "name": "Darting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(10—17)% increased Projectile Speed",
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 10,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FProjectileSpeed1"
+    },
+    {
+      "id": "quiver:prefix:brisk:ProjectileSpeed2",
+      "name": "Brisk",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
+      "requiredItemLevel": 27,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(18—25)% increased Projectile Speed",
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 18,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/tw/hover?s=Data%5CMods%2FProjectileSpeed2"
+    },
+    {
+      "id": "quiver:prefix:quick:ProjectileSpeed3",
+      "name": "Quick",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(26—33)% increased Projectile Speed",
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 26,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FProjectileSpeed3"
+    },
+    {
+      "id": "quiver:prefix:rapid:ProjectileSpeed4",
+      "name": "Rapid",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(34—41)% increased Projectile Speed",
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 34,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FProjectileSpeed4"
+    },
+    {
+      "id": "quiver:prefix:nimble:ProjectileSpeed5",
+      "name": "Nimble",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(42—46)% increased Projectile Speed",
+      "stats": [
+        {
+          "id": "base_projectile_speed_+%",
+          "min": 42,
+          "max": 46
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FProjectileSpeed5"
+    },
+    {
+      "id": "quiver:prefix:acute:DamageWithBows1",
+      "name": "Acute",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageWithWeaponTypeSkill"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 6,
+      "text": "(11—20)% increased Damage with Bow Skills",
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 11,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FDamageWithBows1"
+    },
+    {
+      "id": "quiver:prefix:trenchant:DamageWithBows2",
+      "name": "Trenchant",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageWithWeaponTypeSkill"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "text": "(21—30)% increased Damage with Bow Skills",
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 21,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FDamageWithBows2"
+    },
+    {
+      "id": "quiver:prefix:perforating:DamageWithBows3",
+      "name": "Perforating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageWithWeaponTypeSkill"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "text": "(31—36)% increased Damage with Bow Skills",
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 31,
+          "max": 36
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/jp/hover?s=Data%5CMods%2FDamageWithBows3"
+    },
+    {
+      "id": "quiver:prefix:incisive:DamageWithBows4",
+      "name": "Incisive",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageWithWeaponTypeSkill"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "text": "(37—42)% increased Damage with Bow Skills",
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 37,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/kr/hover?s=Data%5CMods%2FDamageWithBows4"
+    },
+    {
+      "id": "quiver:prefix:lacerating:DamageWithBows5",
+      "name": "Lacerating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageWithWeaponTypeSkill"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 500,
+      "tier": 2,
+      "text": "(43—50)% increased Damage with Bow Skills",
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 43,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FDamageWithBows5"
+    },
+    {
+      "id": "quiver:prefix:impaling:DamageWithBows6",
+      "name": "Impaling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageWithWeaponTypeSkill"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 500,
+      "tier": 1,
+      "text": "(51—59)% increased Damage with Bow Skills",
+      "stats": [
+        {
+          "id": "damage_+%_with_bow_skills",
+          "min": 51,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://poe2db.tw/sp/hover?s=Data%5CMods%2FDamageWithBows6"
+    },
+    {
+      "id": "stocky-mitts:prefix:essence-abyssal-mark",
+      "name": "Essence of the Abyss",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix"
+    },
+    {
+      "id": "stocky-mitts:suffix:essence-abyssal-mark",
+      "name": "Essence of the Abyss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix"
+    },
+    {
+      "id": "broadhead-quiver:implicit:base",
+      "name": "Broadhead Quiver",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "text": "Adds 1 to 3 Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Broadhead_Quiver"
+    }
+  ]
+}

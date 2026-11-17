@@ -1,0 +1,322 @@
+{
+  "Bows": {
+    "en": "Bows",
+    "ko": "활",
+    "zh-CN": "弓",
+    "zh-TW": "弓",
+    "ja": "弓",
+    "es": "Arcos",
+    "ru": "Луки",
+    "th": "ธนู"
+  },
+  "Crossbows": {
+    "en": "Crossbows",
+    "ko": "쇠뇌",
+    "zh-CN": "弩",
+    "zh-TW": "弩",
+    "ja": "クロスボウ",
+    "es": "Ballestas",
+    "ru": "Арбалеты",
+    "th": "หน้าไม้"
+  },
+  "One Hand Maces": {
+    "en": "One Hand Maces",
+    "ko": "한손 철퇴",
+    "zh-CN": "单手锤",
+    "zh-TW": "單手錘",
+    "ja": "片手メイス",
+    "es": "Mazas a una mano",
+    "ru": "Одноручные булавы",
+    "th": "กระบองมือเดียว"
+  },
+  "Two Hand Maces": {
+    "en": "Two Hand Maces",
+    "ko": "양손 철퇴",
+    "zh-CN": "双手锤",
+    "zh-TW": "雙手錘",
+    "ja": "両手メイス",
+    "es": "Mazas a dos manos",
+    "ru": "Двуручные булавы",
+    "th": "กระบองสองมือ"
+  },
+  "Quarterstaves": {
+    "en": "Quarterstaves",
+    "ko": "육척봉",
+    "zh-CN": "长杖",
+    "zh-TW": "長杖",
+    "ja": "クォータースタッフ",
+    "es": "Bastones",
+    "ru": "Посохи",
+    "th": "ไม้พลอง"
+  },
+  "Spears": {
+    "en": "Spears",
+    "ko": "창",
+    "zh-CN": "矛",
+    "zh-TW": "矛",
+    "ja": "槍",
+    "es": "Lanzas",
+    "ru": "Копья",
+    "th": "หอก"
+  },
+  "Talismans": {
+    "en": "Talismans",
+    "ko": "부적",
+    "zh-CN": "护符",
+    "zh-TW": "護符",
+    "ja": "タリスマン",
+    "es": "Talismanes",
+    "ru": "Талисманы",
+    "th": "เครื่องราง"
+  },
+  "Wands": {
+    "en": "Wands",
+    "ko": "마법봉",
+    "zh-CN": "法杖",
+    "zh-TW": "法杖",
+    "ja": "ワンド",
+    "es": "Varitas",
+    "ru": "Жезлы",
+    "th": "ไม้กายสิทธิ์"
+  },
+  "Staves": {
+    "en": "Staves",
+    "ko": "지팡이",
+    "zh-CN": "长杖",
+    "zh-TW": "長杖",
+    "ja": "スタッフ",
+    "es": "Báculos",
+    "ru": "Посохи",
+    "th": "ไม้เท้า"
+  },
+  "Sceptres": {
+    "en": "Sceptres",
+    "ko": "셉터",
+    "zh-CN": "权杖",
+    "zh-TW": "權杖",
+    "ja": "セプター",
+    "es": "Cetros",
+    "ru": "Скипетры",
+    "th": "คทา"
+  },
+  "Gloves": {
+    "en": "Gloves",
+    "ko": "장갑",
+    "zh-CN": "手套",
+    "zh-TW": "手套",
+    "ja": "手袋",
+    "es": "Guantes",
+    "ru": "Перчатки",
+    "th": "ถุงมือ"
+  },
+  "Boots": {
+    "en": "Boots",
+    "ko": "장화",
+    "zh-CN": "靴子",
+    "zh-TW": "鞋子",
+    "ja": "靴",
+    "es": "Botas",
+    "ru": "Сапоги",
+    "th": "รองเท้า"
+  },
+  "Helmets": {
+    "en": "Helmets",
+    "ko": "투구",
+    "zh-CN": "头盔",
+    "zh-TW": "頭盔",
+    "ja": "兜",
+    "es": "Cascos",
+    "ru": "Шлемы",
+    "th": "หมวก"
+  },
+  "Body Armours": {
+    "en": "Body Armours",
+    "ko": "갑옷",
+    "zh-CN": "胸甲",
+    "zh-TW": "胸甲",
+    "ja": "鎧",
+    "es": "Armaduras",
+    "ru": "Нательные доспехи",
+    "th": "เสื้อเกราะ"
+  },
+  "Shields": {
+    "en": "Shields",
+    "ko": "방패",
+    "zh-CN": "盾牌",
+    "zh-TW": "盾牌",
+    "ja": "盾",
+    "es": "Escudos",
+    "ru": "Щиты",
+    "th": "โล่"
+  },
+  "Bucklers": {
+    "en": "Bucklers",
+    "ko": "버클러",
+    "zh-CN": "轻盾",
+    "zh-TW": "輕盾",
+    "ja": "バックラー",
+    "es": "Broqueles",
+    "ru": "Баклеры",
+    "th": "โล่เล็ก"
+  },
+  "Foci": {
+    "en": "Foci",
+    "ko": "집중구",
+    "zh-CN": "法器",
+    "zh-TW": "法器",
+    "ja": "フォーカス",
+    "es": "Focos",
+    "ru": "Фокусы",
+    "th": "โฟกัส"
+  },
+  "Quivers": {
+    "en": "Quivers",
+    "ko": "화살통",
+    "zh-CN": "箭袋",
+    "zh-TW": "箭袋",
+    "ja": "矢筒",
+    "es": "Carcajes",
+    "ru": "Колчаны",
+    "th": "ซองธนู"
+  },
+  "Belts": {
+    "en": "Belts",
+    "ko": "허리띠",
+    "zh-CN": "腰带",
+    "zh-TW": "腰帶",
+    "ja": "ベルト",
+    "es": "Cinturones",
+    "ru": "Пояса",
+    "th": "เข็มขัด"
+  },
+  "Amulets": {
+    "en": "Amulets",
+    "ko": "목걸이",
+    "zh-CN": "项链",
+    "zh-TW": "項鍊",
+    "ja": "アミュレット",
+    "es": "Amuletos",
+    "ru": "Амулеты",
+    "th": "สร้อย"
+  },
+  "Rings": {
+    "en": "Rings",
+    "ko": "반지",
+    "zh-CN": "戒指",
+    "zh-TW": "戒指",
+    "ja": "指輪",
+    "es": "Anillos",
+    "ru": "Кольца",
+    "th": "แหวน"
+  },
+  "Jewels": {
+    "en": "Jewels",
+    "ko": "주얼",
+    "zh-CN": "珠宝",
+    "zh-TW": "珠寶",
+    "ja": "ジュエル",
+    "es": "Joyas",
+    "ru": "Самоцветы",
+    "th": "จิวเวล"
+  },
+  "Amulet": {
+    "en": "Amulet",
+    "ko": "목걸이",
+    "zh-CN": "项链",
+    "zh-TW": "項鍊",
+    "ja": "アミュレット",
+    "es": "Amuletos",
+    "ru": "Амулеты",
+    "th": "สร้อย"
+  },
+  "Boot": {
+    "en": "Boot",
+    "ko": "장화",
+    "zh-CN": "靴子",
+    "zh-TW": "鞋子",
+    "ja": "靴",
+    "es": "Botas",
+    "ru": "Сапоги",
+    "th": "รองเท้า"
+  },
+  "Ring": {
+    "en": "Ring",
+    "ko": "반지",
+    "zh-CN": "戒指",
+    "zh-TW": "戒指",
+    "ja": "指輪",
+    "es": "Anillos",
+    "ru": "Кольца",
+    "th": "แหวน"
+  },
+  "Belt": {
+    "en": "Belt",
+    "ko": "허리띠",
+    "zh-CN": "腰带",
+    "zh-TW": "腰帶",
+    "ja": "ベルト",
+    "es": "Cinturones",
+    "ru": "Пояса",
+    "th": "เข็มขัด"
+  },
+  "Glove": {
+    "en": "Glove",
+    "ko": "장갑",
+    "zh-CN": "手套",
+    "zh-TW": "手套",
+    "ja": "手袋",
+    "es": "Guantes",
+    "ru": "Перчатки",
+    "th": "ถุงมือ"
+  },
+  "Helmet": {
+    "en": "Helmet",
+    "ko": "투구",
+    "zh-CN": "头盔",
+    "zh-TW": "頭盔",
+    "ja": "兜",
+    "es": "Cascos",
+    "ru": "Шлемы",
+    "th": "หมวก"
+  },
+  "Body Armour": {
+    "en": "Body Armour",
+    "ko": "갑옷",
+    "zh-CN": "胸甲",
+    "zh-TW": "胸甲",
+    "ja": "鎧",
+    "es": "Armaduras",
+    "ru": "Нательные доспехи",
+    "th": "เสื้อเกราะ"
+  },
+  "Bow": {
+    "en": "Bow",
+    "ko": "활",
+    "zh-CN": "弓",
+    "zh-TW": "弓",
+    "ja": "弓",
+    "es": "Arcos",
+    "ru": "Луки",
+    "th": "ธนู"
+  },
+  "Wand": {
+    "en": "Wand",
+    "ko": "마법봉",
+    "zh-CN": "法杖",
+    "zh-TW": "法杖",
+    "ja": "ワンド",
+    "es": "Varitas",
+    "ru": "Жезлы",
+    "th": "ไม้กายสิทธิ์"
+  },
+  "Sceptre": {
+    "en": "Sceptre",
+    "ko": "셉터",
+    "zh-CN": "权杖",
+    "zh-TW": "權杖",
+    "ja": "セプター",
+    "es": "Cetros",
+    "ru": "Скипетры",
+    "th": "คทา"
+  }
+}

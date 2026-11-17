@@ -101,4 +101,4 @@ undo/redo는 batch 전체를 한 단계로 이동하고, 과거 cursor에서 기
 
 ## 검증 범위
 
-합성 fixture와 메모리 storage로 요청 원문·응답 필드·receipt·원본 상태 보존을 검사한다. 현재 Page 연결은 [통합 유지보수 문서](../../../../../../docs/development.md#chaos-repeat)를 따른다. 실제 서버/브라우저·전체 앱 검사는 단위 adapter 검사와 구별하며, 과거 Worker의 명령·결과는 정리 전 Git 원문에서 조회한다.
+합성 fixture와 메모리 storage로 요청 원문·응답 필드·receipt·원본 상태 보존을 검사한다. 현재 Page 연결은 [통합 유지보수 문서](../../../../../../docs/legacy/development.md#chaos-repeat)를 따른다. 실제 서버/브라우저·전체 앱 검사는 단위 adapter 검사와 구별하며, 과거 Worker의 명령·결과는 정리 전 Git 원문에서 조회한다.

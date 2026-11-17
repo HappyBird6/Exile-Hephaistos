@@ -41,5 +41,5 @@ for(const name of fs.readdirSync('backend/src/main/java/com/poe2craft/item').fil
  assert(pairs.length>0,name)
 }
 fs.mkdirSync('evidence:base-registry-refactor',{recursive:true})
-write('docs/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-registration-baseline.json',proof)
+write('docs/legacy/evidence/0.5.5/tooling/catalog-import/base-registry-refactor-registration-baseline.json',proof)
 console.log('policy families',Object.keys(families).length,'top bases',Object.keys(bases).length,'legacy',legacyKeys.length)

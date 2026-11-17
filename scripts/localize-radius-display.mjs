@@ -9,4 +9,4 @@ for(const id of ids) {
  for(const locale of Object.keys(text))data.templates[locale][binding.template].template=text[locale]
 }
 fs.writeFileSync(file,JSON.stringify(data,null,2)+'\n')
-fs.writeFileSync('docs/evidence/0.5.5/i18n/mappings/i18n-radius-display.json',JSON.stringify({ids,text,provenance:'OWN_DISPLAY_LABEL_FROM_CANONICAL_STAT_ID',policy:'Raw [1000] is preserved. No distance unit, Medium/Large label, additive radius, or tree effect is inferred.'},null,2)+'\n')
+fs.writeFileSync('docs/legacy/evidence/0.5.5/i18n/mappings/i18n-radius-display.json',JSON.stringify({ids,text,provenance:'OWN_DISPLAY_LABEL_FROM_CANONICAL_STAT_ID',policy:'Raw [1000] is preserved. No distance unit, Medium/Large label, additive radius, or tree effect is inferred.'},null,2)+'\n')

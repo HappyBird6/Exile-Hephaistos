@@ -20,7 +20,7 @@ test("one policy change propagates to adapter, proxy, schema and documentation; 
       "backend/src/main/resources/catalog/augments.json",
       "contracts/workbench-definitions-v1.schema.json",
       "contracts/goal-definitions-v1.schema.json",
-      "docs/current/support.md",
+      "README.md",
       "frontend/src/shared/contracts/public.ts",
       "infra/docker/chaos-repeat-limits.conf",
     ];
@@ -84,7 +84,7 @@ test("one policy change propagates to adapter, proxy, schema and documentation; 
       /32000/,
     );
     assert.match(
-      fs.readFileSync(temporary + "/docs/current/support.md", "utf8"),
+      fs.readFileSync(temporary + "/README.md", "utf8"),
       /기본 700/,
     );
   } finally {

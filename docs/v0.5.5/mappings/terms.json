@@ -1,0 +1,3522 @@
+{
+  "schemaVersion": 1,
+  "domain": "terms",
+  "prefix": "n",
+  "entries": [
+    {
+      "id": "n0001",
+      "sourceKey": "Absent_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n0002",
+      "sourceKey": "Abyssal_Cuirass",
+      "retired": false
+    },
+    {
+      "id": "n0003",
+      "sourceKey": "Acrid_Wand",
+      "retired": false
+    },
+    {
+      "id": "n0004",
+      "sourceKey": "Adaptive_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n0005",
+      "sourceKey": "Adaptive_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n0006",
+      "sourceKey": "Adept_Rune",
+      "retired": false
+    },
+    {
+      "id": "n0007",
+      "sourceKey": "Adherent_Cuffs",
+      "retired": false
+    },
+    {
+      "id": "n0008",
+      "sourceKey": "Aegis_Quarterstaff",
+      "retired": false
+    },
+    {
+      "id": "n0009",
+      "sourceKey": "Akoyan_Club",
+      "retired": false
+    },
+    {
+      "id": "n000a",
+      "sourceKey": "Akoyan_Spear",
+      "retired": false
+    },
+    {
+      "id": "n000b",
+      "sourceKey": "Altered_Collarbone",
+      "retired": false
+    },
+    {
+      "id": "n000c",
+      "sourceKey": "Amanamus_Gaze",
+      "retired": false
+    },
+    {
+      "id": "n000d",
+      "sourceKey": "Amber_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n000e",
+      "sourceKey": "Amethyst_Ring",
+      "retired": false
+    },
+    {
+      "id": "n000f",
+      "sourceKey": "Ancestral_Tiara",
+      "retired": false
+    },
+    {
+      "id": "n000g",
+      "sourceKey": "Ancient_Collarbone",
+      "retired": false
+    },
+    {
+      "id": "n000h",
+      "sourceKey": "Ancient_Concentrated_Liquid_Fear",
+      "retired": false
+    },
+    {
+      "id": "n000i",
+      "sourceKey": "Ancient_Concentrated_Liquid_Isolation",
+      "retired": false
+    },
+    {
+      "id": "n000j",
+      "sourceKey": "Ancient_Concentrated_Liquid_Suffering",
+      "retired": false
+    },
+    {
+      "id": "n000k",
+      "sourceKey": "Ancient_Diluted_Liquid_Greed",
+      "retired": false
+    },
+    {
+      "id": "n000l",
+      "sourceKey": "Ancient_Diluted_Liquid_Guilt",
+      "retired": false
+    },
+    {
+      "id": "n000m",
+      "sourceKey": "Ancient_Diluted_Liquid_Ire",
+      "retired": false
+    },
+    {
+      "id": "n000n",
+      "sourceKey": "Ancient_Jawbone",
+      "retired": false
+    },
+    {
+      "id": "n000o",
+      "sourceKey": "Ancient_Liquid_Despair",
+      "retired": false
+    },
+    {
+      "id": "n000p",
+      "sourceKey": "Ancient_Liquid_Disgust",
+      "retired": false
+    },
+    {
+      "id": "n000q",
+      "sourceKey": "Ancient_Liquid_Envy",
+      "retired": false
+    },
+    {
+      "id": "n000r",
+      "sourceKey": "Ancient_Liquid_Paranoia",
+      "retired": false
+    },
+    {
+      "id": "n000s",
+      "sourceKey": "Ancient_Potent_Liquid_Contempt",
+      "retired": false
+    },
+    {
+      "id": "n000t",
+      "sourceKey": "Ancient_Potent_Liquid_Ferocity",
+      "retired": false
+    },
+    {
+      "id": "n000u",
+      "sourceKey": "Ancient_Potent_Liquid_Melancholy",
+      "retired": false
+    },
+    {
+      "id": "n000v",
+      "sourceKey": "Ancient_Rib",
+      "retired": false
+    },
+    {
+      "id": "n000w",
+      "sourceKey": "Ancient_Rune_of_Animosity",
+      "retired": false
+    },
+    {
+      "id": "n000x",
+      "sourceKey": "Ancient_Rune_of_Control",
+      "retired": false
+    },
+    {
+      "id": "n000y",
+      "sourceKey": "Ancient_Rune_of_Decay",
+      "retired": false
+    },
+    {
+      "id": "n000z",
+      "sourceKey": "Ancient_Rune_of_Detonation",
+      "retired": false
+    },
+    {
+      "id": "n0010",
+      "sourceKey": "Ancient_Rune_of_Discovery",
+      "retired": false
+    },
+    {
+      "id": "n0011",
+      "sourceKey": "Ancient_Rune_of_Dueling",
+      "retired": false
+    },
+    {
+      "id": "n0012",
+      "sourceKey": "Ancient_Rune_of_Prowess",
+      "retired": false
+    },
+    {
+      "id": "n0013",
+      "sourceKey": "Ancient_Rune_of_Retaliation",
+      "retired": false
+    },
+    {
+      "id": "n0014",
+      "sourceKey": "Ancient_Rune_of_Shattering",
+      "retired": false
+    },
+    {
+      "id": "n0015",
+      "sourceKey": "Ancient_Rune_of_Splinters",
+      "retired": false
+    },
+    {
+      "id": "n0016",
+      "sourceKey": "Ancient_Rune_of_the_Titan",
+      "retired": false
+    },
+    {
+      "id": "n0017",
+      "sourceKey": "Arcanists_Etcher",
+      "retired": false
+    },
+    {
+      "id": "n0018",
+      "sourceKey": "Architects_Orb",
+      "retired": false
+    },
+    {
+      "id": "n0019",
+      "sourceKey": "Armourers_Scrap",
+      "retired": false
+    },
+    {
+      "id": "n001a",
+      "sourceKey": "Artificers_Orb",
+      "retired": false
+    },
+    {
+      "id": "n001b",
+      "sourceKey": "Astrids_Creativity",
+      "retired": false
+    },
+    {
+      "id": "n001c",
+      "sourceKey": "Atmohuas_Soul_Core_of_Retreat",
+      "retired": false
+    },
+    {
+      "id": "n001d",
+      "sourceKey": "Attuned_Wand",
+      "retired": false
+    },
+    {
+      "id": "n001e",
+      "sourceKey": "Austere_Garb",
+      "retired": false
+    },
+    {
+      "id": "n001f",
+      "sourceKey": "Azure_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n001g",
+      "sourceKey": "Bear_Idol",
+      "retired": false
+    },
+    {
+      "id": "n001h",
+      "sourceKey": "Biostatic_Ring",
+      "retired": false
+    },
+    {
+      "id": "n001i",
+      "sourceKey": "Blacksmiths_Whetstone",
+      "retired": false
+    },
+    {
+      "id": "n001j",
+      "sourceKey": "Blacksteel_Crest_Shield",
+      "retired": false
+    },
+    {
+      "id": "n001k",
+      "sourceKey": "Blacksteel_Gauntlets",
+      "retired": false
+    },
+    {
+      "id": "n001l",
+      "sourceKey": "Blacksteel_Sabatons",
+      "retired": false
+    },
+    {
+      "id": "n001m",
+      "sourceKey": "Bloodstone_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n001n",
+      "sourceKey": "Blunt_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n001o",
+      "sourceKey": "Boar_Idol",
+      "retired": false
+    },
+    {
+      "id": "n001p",
+      "sourceKey": "Body_Rune",
+      "retired": false
+    },
+    {
+      "id": "n001q",
+      "sourceKey": "Bolting_Quarterstaff",
+      "retired": false
+    },
+    {
+      "id": "n001r",
+      "sourceKey": "Bone_Wand",
+      "retired": false
+    },
+    {
+      "id": "n001s",
+      "sourceKey": "Broadhead_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n001t",
+      "sourceKey": "Carapace_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n001u",
+      "sourceKey": "Carved_Cunning",
+      "retired": false
+    },
+    {
+      "id": "n001v",
+      "sourceKey": "Carved_Majesty",
+      "retired": false
+    },
+    {
+      "id": "n001w",
+      "sourceKey": "Carved_Mischief",
+      "retired": false
+    },
+    {
+      "id": "n001x",
+      "sourceKey": "Carved_Tenacity",
+      "retired": false
+    },
+    {
+      "id": "n001y",
+      "sourceKey": "Cat_Idol",
+      "retired": false
+    },
+    {
+      "id": "n001z",
+      "sourceKey": "Celestial_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n0020",
+      "sourceKey": "Chaos_Orb",
+      "retired": false
+    },
+    {
+      "id": "n0021",
+      "sourceKey": "Charging_Rune",
+      "retired": false
+    },
+    {
+      "id": "n0022",
+      "sourceKey": "Chayulas_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n0023",
+      "sourceKey": "Cholotls_Soul_Core_of_War",
+      "retired": false
+    },
+    {
+      "id": "n0024",
+      "sourceKey": "Citaqualotls_Soul_Core_of_Foulness",
+      "retired": false
+    },
+    {
+      "id": "n0025",
+      "sourceKey": "Citaqualotls_Thesis",
+      "retired": false
+    },
+    {
+      "id": "n0026",
+      "sourceKey": "Clasped_Sceptre",
+      "retired": false
+    },
+    {
+      "id": "n0027",
+      "sourceKey": "Concentrated_Liquid_Fear",
+      "retired": false
+    },
+    {
+      "id": "n0028",
+      "sourceKey": "Concentrated_Liquid_Isolation",
+      "retired": false
+    },
+    {
+      "id": "n0029",
+      "sourceKey": "Concentrated_Liquid_Suffering",
+      "retired": false
+    },
+    {
+      "id": "n002a",
+      "sourceKey": "Conjurer_Mantle",
+      "retired": false
+    },
+    {
+      "id": "n002b",
+      "sourceKey": "Core_Destabiliser",
+      "retired": false
+    },
+    {
+      "id": "n002c",
+      "sourceKey": "Corona_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n002d",
+      "sourceKey": "Corsair_Coat",
+      "retired": false
+    },
+    {
+      "id": "n002e",
+      "sourceKey": "Countess_Seskes_Rune_of_Archery",
+      "retired": false
+    },
+    {
+      "id": "n002f",
+      "sourceKey": "Courtesan_Mannans_Rune_of_Cruelty",
+      "retired": false
+    },
+    {
+      "id": "n002g",
+      "sourceKey": "Craiceanns_Rune_of_Recovery",
+      "retired": false
+    },
+    {
+      "id": "n002h",
+      "sourceKey": "Craiceanns_Rune_of_Warding",
+      "retired": false
+    },
+    {
+      "id": "n002i",
+      "sourceKey": "Crimson_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n002j",
+      "sourceKey": "Critical_Wand",
+      "retired": false
+    },
+    {
+      "id": "n002k",
+      "sourceKey": "Crude_Bow",
+      "retired": false
+    },
+    {
+      "id": "n002l",
+      "sourceKey": "Cryptic_Crown",
+      "retired": false
+    },
+    {
+      "id": "n002m",
+      "sourceKey": "Cyclonic_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n002n",
+      "sourceKey": "Daggerfoot_Shoes",
+      "retired": false
+    },
+    {
+      "id": "n002o",
+      "sourceKey": "Dark_Staff",
+      "retired": false
+    },
+    {
+      "id": "n002p",
+      "sourceKey": "Dastard_Armour",
+      "retired": false
+    },
+    {
+      "id": "n002q",
+      "sourceKey": "Death_Mail",
+      "retired": false
+    },
+    {
+      "id": "n002r",
+      "sourceKey": "Death_Mantle",
+      "retired": false
+    },
+    {
+      "id": "n002s",
+      "sourceKey": "Desert_Buckler",
+      "retired": false
+    },
+    {
+      "id": "n002t",
+      "sourceKey": "Desert_Rune",
+      "retired": false
+    },
+    {
+      "id": "n002u",
+      "sourceKey": "Desolate_Crossbow",
+      "retired": false
+    },
+    {
+      "id": "n002v",
+      "sourceKey": "Diamond",
+      "retired": false
+    },
+    {
+      "id": "n002w",
+      "sourceKey": "Diluted_Liquid_Greed",
+      "retired": false
+    },
+    {
+      "id": "n002x",
+      "sourceKey": "Diluted_Liquid_Guilt",
+      "retired": false
+    },
+    {
+      "id": "n002y",
+      "sourceKey": "Diluted_Liquid_Ire",
+      "retired": false
+    },
+    {
+      "id": "n002z",
+      "sourceKey": "Distorted_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n0030",
+      "sourceKey": "Divine_Orb",
+      "retired": false
+    },
+    {
+      "id": "n0031",
+      "sourceKey": "Double_Belt",
+      "retired": false
+    },
+    {
+      "id": "n0032",
+      "sourceKey": "Drakeskin_Boots",
+      "retired": false
+    },
+    {
+      "id": "n0033",
+      "sourceKey": "Dreaming_Quarterstaff",
+      "retired": false
+    },
+    {
+      "id": "n0034",
+      "sourceKey": "Dueling_Wand",
+      "retired": false
+    },
+    {
+      "id": "n0035",
+      "sourceKey": "Dusk_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n0036",
+      "sourceKey": "Dusk_Ring",
+      "retired": false
+    },
+    {
+      "id": "n0037",
+      "sourceKey": "Elegant_Crossbow",
+      "retired": false
+    },
+    {
+      "id": "n0038",
+      "sourceKey": "Emerald",
+      "retired": false
+    },
+    {
+      "id": "n0039",
+      "sourceKey": "Emerald_Ring",
+      "retired": false
+    },
+    {
+      "id": "n003a",
+      "sourceKey": "Emergent_Instinct",
+      "retired": false
+    },
+    {
+      "id": "n003b",
+      "sourceKey": "Emergent_Possibility",
+      "retired": false
+    },
+    {
+      "id": "n003c",
+      "sourceKey": "Emergent_Protection",
+      "retired": false
+    },
+    {
+      "id": "n003d",
+      "sourceKey": "Emergent_Vigour",
+      "retired": false
+    },
+    {
+      "id": "n003e",
+      "sourceKey": "Engraved_Crossbow",
+      "retired": false
+    },
+    {
+      "id": "n003f",
+      "sourceKey": "Eshs_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n003g",
+      "sourceKey": "Essence_of_Abrasion",
+      "retired": false
+    },
+    {
+      "id": "n003h",
+      "sourceKey": "Essence_of_Alacrity",
+      "retired": false
+    },
+    {
+      "id": "n003i",
+      "sourceKey": "Essence_of_Battle",
+      "retired": false
+    },
+    {
+      "id": "n003j",
+      "sourceKey": "Essence_of_Command",
+      "retired": false
+    },
+    {
+      "id": "n003k",
+      "sourceKey": "Essence_of_Delirium",
+      "retired": false
+    },
+    {
+      "id": "n003l",
+      "sourceKey": "Essence_of_Electricity",
+      "retired": false
+    },
+    {
+      "id": "n003m",
+      "sourceKey": "Essence_of_Enhancement",
+      "retired": false
+    },
+    {
+      "id": "n003n",
+      "sourceKey": "Essence_of_Flames",
+      "retired": false
+    },
+    {
+      "id": "n003o",
+      "sourceKey": "Essence_of_Grounding",
+      "retired": false
+    },
+    {
+      "id": "n003p",
+      "sourceKey": "Essence_of_Haste",
+      "retired": false
+    },
+    {
+      "id": "n003q",
+      "sourceKey": "Essence_of_Horror",
+      "retired": false
+    },
+    {
+      "id": "n003r",
+      "sourceKey": "Essence_of_Hysteria",
+      "retired": false
+    },
+    {
+      "id": "n003s",
+      "sourceKey": "Essence_of_Ice",
+      "retired": false
+    },
+    {
+      "id": "n003t",
+      "sourceKey": "Essence_of_Insanity",
+      "retired": false
+    },
+    {
+      "id": "n003u",
+      "sourceKey": "Essence_of_Insulation",
+      "retired": false
+    },
+    {
+      "id": "n003v",
+      "sourceKey": "Essence_of_Opulence",
+      "retired": false
+    },
+    {
+      "id": "n003w",
+      "sourceKey": "Essence_of_Ruin",
+      "retired": false
+    },
+    {
+      "id": "n003x",
+      "sourceKey": "Essence_of_Seeking",
+      "retired": false
+    },
+    {
+      "id": "n003y",
+      "sourceKey": "Essence_of_Sorcery",
+      "retired": false
+    },
+    {
+      "id": "n003z",
+      "sourceKey": "Essence_of_Thawing",
+      "retired": false
+    },
+    {
+      "id": "n0040",
+      "sourceKey": "Essence_of_the_Abyss",
+      "retired": false
+    },
+    {
+      "id": "n0041",
+      "sourceKey": "Essence_of_the_Body",
+      "retired": false
+    },
+    {
+      "id": "n0042",
+      "sourceKey": "Essence_of_the_Breach",
+      "retired": false
+    },
+    {
+      "id": "n0043",
+      "sourceKey": "Essence_of_the_Infinite",
+      "retired": false
+    },
+    {
+      "id": "n0044",
+      "sourceKey": "Essence_of_the_Mind",
+      "retired": false
+    },
+    {
+      "id": "n0045",
+      "sourceKey": "Estazuntis_Soul_Core_of_Convalescence",
+      "retired": false
+    },
+    {
+      "id": "n0046",
+      "sourceKey": "Exalted_Orb",
+      "retired": false
+    },
+    {
+      "id": "n0047",
+      "sourceKey": "Expansive_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n0048",
+      "sourceKey": "Faithful_Leggings",
+      "retired": false
+    },
+    {
+      "id": "n0049",
+      "sourceKey": "Falconers_Jacket",
+      "retired": false
+    },
+    {
+      "id": "n004a",
+      "sourceKey": "Fanatic_Bow",
+      "retired": false
+    },
+    {
+      "id": "n004b",
+      "sourceKey": "Fanatic_Greathammer",
+      "retired": false
+    },
+    {
+      "id": "n004c",
+      "sourceKey": "Farruls_Rune_of_Grace",
+      "retired": false
+    },
+    {
+      "id": "n004d",
+      "sourceKey": "Farruls_Rune_of_the_Chase",
+      "retired": false
+    },
+    {
+      "id": "n004e",
+      "sourceKey": "Farruls_Rune_of_the_Hunt",
+      "retired": false
+    },
+    {
+      "id": "n004f",
+      "sourceKey": "Feathered_Raiment",
+      "retired": false
+    },
+    {
+      "id": "n004g",
+      "sourceKey": "Fenumus_Rune_of_Agony",
+      "retired": false
+    },
+    {
+      "id": "n004h",
+      "sourceKey": "Fenumus_Rune_of_Draining",
+      "retired": false
+    },
+    {
+      "id": "n004i",
+      "sourceKey": "Fenumus_Rune_of_Spinning",
+      "retired": false
+    },
+    {
+      "id": "n004j",
+      "sourceKey": "Fine_Belt",
+      "retired": false
+    },
+    {
+      "id": "n004k",
+      "sourceKey": "Fire_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n004l",
+      "sourceKey": "Flesh_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n004m",
+      "sourceKey": "Flexed_Crossbow",
+      "retired": false
+    },
+    {
+      "id": "n004n",
+      "sourceKey": "Flowing_Raiment",
+      "retired": false
+    },
+    {
+      "id": "n004o",
+      "sourceKey": "Flying_Spear",
+      "retired": false
+    },
+    {
+      "id": "n004p",
+      "sourceKey": "Forking_Belt",
+      "retired": false
+    },
+    {
+      "id": "n004q",
+      "sourceKey": "Fortified_Hammer",
+      "retired": false
+    },
+    {
+      "id": "n004r",
+      "sourceKey": "Fox_Idol",
+      "retired": false
+    },
+    {
+      "id": "n004s",
+      "sourceKey": "Fracturing_Orb",
+      "retired": false
+    },
+    {
+      "id": "n004t",
+      "sourceKey": "Freebooter_Cap",
+      "retired": false
+    },
+    {
+      "id": "n004u",
+      "sourceKey": "Fungal_Talisman",
+      "retired": false
+    },
+    {
+      "id": "n004v",
+      "sourceKey": "Galvanic_Wand",
+      "retired": false
+    },
+    {
+      "id": "n004w",
+      "sourceKey": "Gemini_Bow",
+      "retired": false
+    },
+    {
+      "id": "n004x",
+      "sourceKey": "Gemini_Crossbow",
+      "retired": false
+    },
+    {
+      "id": "n004y",
+      "sourceKey": "Glacial_Rune",
+      "retired": false
+    },
+    {
+      "id": "n004z",
+      "sourceKey": "Gladiatorial_Helm",
+      "retired": false
+    },
+    {
+      "id": "n0050",
+      "sourceKey": "Gloam_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n0051",
+      "sourceKey": "Gloam_Ring",
+      "retired": false
+    },
+    {
+      "id": "n0052",
+      "sourceKey": "Gnawed_Collarbone",
+      "retired": false
+    },
+    {
+      "id": "n0053",
+      "sourceKey": "Gnawed_Jawbone",
+      "retired": false
+    },
+    {
+      "id": "n0054",
+      "sourceKey": "Gnawed_Rib",
+      "retired": false
+    },
+    {
+      "id": "n0055",
+      "sourceKey": "Gold_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n0056",
+      "sourceKey": "Gold_Ring",
+      "retired": false
+    },
+    {
+      "id": "n0057",
+      "sourceKey": "Golden_Targe",
+      "retired": false
+    },
+    {
+      "id": "n0058",
+      "sourceKey": "Grand_Spear",
+      "retired": false
+    },
+    {
+      "id": "n0059",
+      "sourceKey": "Greater_Adept_Rune",
+      "retired": false
+    },
+    {
+      "id": "n005a",
+      "sourceKey": "Greater_Body_Rune",
+      "retired": false
+    },
+    {
+      "id": "n005b",
+      "sourceKey": "Greater_Chaos_Orb",
+      "retired": false
+    },
+    {
+      "id": "n005c",
+      "sourceKey": "Greater_Charging_Rune",
+      "retired": false
+    },
+    {
+      "id": "n005d",
+      "sourceKey": "Greater_Desert_Rune",
+      "retired": false
+    },
+    {
+      "id": "n005e",
+      "sourceKey": "Greater_Essence_of_Abrasion",
+      "retired": false
+    },
+    {
+      "id": "n005f",
+      "sourceKey": "Greater_Essence_of_Alacrity",
+      "retired": false
+    },
+    {
+      "id": "n005g",
+      "sourceKey": "Greater_Essence_of_Battle",
+      "retired": false
+    },
+    {
+      "id": "n005h",
+      "sourceKey": "Greater_Essence_of_Command",
+      "retired": false
+    },
+    {
+      "id": "n005i",
+      "sourceKey": "Greater_Essence_of_Electricity",
+      "retired": false
+    },
+    {
+      "id": "n005j",
+      "sourceKey": "Greater_Essence_of_Enhancement",
+      "retired": false
+    },
+    {
+      "id": "n005k",
+      "sourceKey": "Greater_Essence_of_Flames",
+      "retired": false
+    },
+    {
+      "id": "n005l",
+      "sourceKey": "Greater_Essence_of_Grounding",
+      "retired": false
+    },
+    {
+      "id": "n005m",
+      "sourceKey": "Greater_Essence_of_Haste",
+      "retired": false
+    },
+    {
+      "id": "n005n",
+      "sourceKey": "Greater_Essence_of_Ice",
+      "retired": false
+    },
+    {
+      "id": "n005o",
+      "sourceKey": "Greater_Essence_of_Insulation",
+      "retired": false
+    },
+    {
+      "id": "n005p",
+      "sourceKey": "Greater_Essence_of_Opulence",
+      "retired": false
+    },
+    {
+      "id": "n005q",
+      "sourceKey": "Greater_Essence_of_Ruin",
+      "retired": false
+    },
+    {
+      "id": "n005r",
+      "sourceKey": "Greater_Essence_of_Seeking",
+      "retired": false
+    },
+    {
+      "id": "n005s",
+      "sourceKey": "Greater_Essence_of_Sorcery",
+      "retired": false
+    },
+    {
+      "id": "n005t",
+      "sourceKey": "Greater_Essence_of_Thawing",
+      "retired": false
+    },
+    {
+      "id": "n005u",
+      "sourceKey": "Greater_Essence_of_the_Body",
+      "retired": false
+    },
+    {
+      "id": "n005v",
+      "sourceKey": "Greater_Essence_of_the_Infinite",
+      "retired": false
+    },
+    {
+      "id": "n005w",
+      "sourceKey": "Greater_Essence_of_the_Mind",
+      "retired": false
+    },
+    {
+      "id": "n005x",
+      "sourceKey": "Greater_Exalted_Orb",
+      "retired": false
+    },
+    {
+      "id": "n005y",
+      "sourceKey": "Greater_Glacial_Rune",
+      "retired": false
+    },
+    {
+      "id": "n005z",
+      "sourceKey": "Greater_Inspiration_Rune",
+      "retired": false
+    },
+    {
+      "id": "n0060",
+      "sourceKey": "Greater_Iron_Rune",
+      "retired": false
+    },
+    {
+      "id": "n0061",
+      "sourceKey": "Greater_Mind_Rune",
+      "retired": false
+    },
+    {
+      "id": "n0062",
+      "sourceKey": "Greater_Orb_of_Augmentation",
+      "retired": false
+    },
+    {
+      "id": "n0063",
+      "sourceKey": "Greater_Orb_of_Transmutation",
+      "retired": false
+    },
+    {
+      "id": "n0064",
+      "sourceKey": "Greater_Rebirth_Rune",
+      "retired": false
+    },
+    {
+      "id": "n0065",
+      "sourceKey": "Greater_Regal_Orb",
+      "retired": false
+    },
+    {
+      "id": "n0066",
+      "sourceKey": "Greater_Resolve_Rune",
+      "retired": false
+    },
+    {
+      "id": "n0067",
+      "sourceKey": "Greater_Robust_Rune",
+      "retired": false
+    },
+    {
+      "id": "n0068",
+      "sourceKey": "Greater_Rune_of_Alacrity",
+      "retired": false
+    },
+    {
+      "id": "n0069",
+      "sourceKey": "Greater_Rune_of_Leadership",
+      "retired": false
+    },
+    {
+      "id": "n006a",
+      "sourceKey": "Greater_Rune_of_Nobility",
+      "retired": false
+    },
+    {
+      "id": "n006b",
+      "sourceKey": "Greater_Rune_of_Tithing",
+      "retired": false
+    },
+    {
+      "id": "n006c",
+      "sourceKey": "Greater_Stone_Rune",
+      "retired": false
+    },
+    {
+      "id": "n006d",
+      "sourceKey": "Greater_Storm_Rune",
+      "retired": false
+    },
+    {
+      "id": "n006e",
+      "sourceKey": "Greater_Tempered_Rune",
+      "retired": false
+    },
+    {
+      "id": "n006f",
+      "sourceKey": "Greater_Vision_Rune",
+      "retired": false
+    },
+    {
+      "id": "n006g",
+      "sourceKey": "Greater_Ward_Rune",
+      "retired": false
+    },
+    {
+      "id": "n006h",
+      "sourceKey": "Grinning_Mask",
+      "retired": false
+    },
+    {
+      "id": "n006i",
+      "sourceKey": "Guardian_Bow",
+      "retired": false
+    },
+    {
+      "id": "n006j",
+      "sourceKey": "Guatelitzis_Soul_Core_of_Endurance",
+      "retired": false
+    },
+    {
+      "id": "n006k",
+      "sourceKey": "Guatelitzis_Thesis",
+      "retired": false
+    },
+    {
+      "id": "n006l",
+      "sourceKey": "Hallowed_Sceptre",
+      "retired": false
+    },
+    {
+      "id": "n006m",
+      "sourceKey": "Hawk_Idol",
+      "retired": false
+    },
+    {
+      "id": "n006n",
+      "sourceKey": "Hayoxis_Soul_Core_of_Heatproofing",
+      "retired": false
+    },
+    {
+      "id": "n006o",
+      "sourceKey": "Heavy_Belt",
+      "retired": false
+    },
+    {
+      "id": "n006p",
+      "sourceKey": "Hedgewitch_Assandras_Rune_of_Wisdom",
+      "retired": false
+    },
+    {
+      "id": "n006q",
+      "sourceKey": "Hinekoras_Lock",
+      "retired": false
+    },
+    {
+      "id": "n006r",
+      "sourceKey": "Idol_of_Alira",
+      "retired": false
+    },
+    {
+      "id": "n006s",
+      "sourceKey": "Idol_of_Eeshta",
+      "retired": false
+    },
+    {
+      "id": "n006t",
+      "sourceKey": "Idol_of_Egrin",
+      "retired": false
+    },
+    {
+      "id": "n006u",
+      "sourceKey": "Idol_of_Eramir",
+      "retired": false
+    },
+    {
+      "id": "n006v",
+      "sourceKey": "Idol_of_Greust",
+      "retired": false
+    },
+    {
+      "id": "n006w",
+      "sourceKey": "Idol_of_Grold",
+      "retired": false
+    },
+    {
+      "id": "n006x",
+      "sourceKey": "Idol_of_Kraityn",
+      "retired": false
+    },
+    {
+      "id": "n006y",
+      "sourceKey": "Idol_of_Maxarius",
+      "retired": false
+    },
+    {
+      "id": "n006z",
+      "sourceKey": "Idol_of_Oak",
+      "retired": false
+    },
+    {
+      "id": "n0070",
+      "sourceKey": "Idol_of_Ralakesh",
+      "retired": false
+    },
+    {
+      "id": "n0071",
+      "sourceKey": "Idol_of_Silk",
+      "retired": false
+    },
+    {
+      "id": "n0072",
+      "sourceKey": "Idol_of_Sirrius",
+      "retired": false
+    },
+    {
+      "id": "n0073",
+      "sourceKey": "Idol_of_Thruldana",
+      "retired": false
+    },
+    {
+      "id": "n0074",
+      "sourceKey": "Idol_of_Yeena",
+      "retired": false
+    },
+    {
+      "id": "n0075",
+      "sourceKey": "Idol_of_the_Martyr",
+      "retired": false
+    },
+    {
+      "id": "n0076",
+      "sourceKey": "Idol_of_the_Pharisee",
+      "retired": false
+    },
+    {
+      "id": "n0077",
+      "sourceKey": "Idol_of_the_Sycophant",
+      "retired": false
+    },
+    {
+      "id": "n0078",
+      "sourceKey": "Imperial_Greathelm",
+      "retired": false
+    },
+    {
+      "id": "n0079",
+      "sourceKey": "Inspiration_Rune",
+      "retired": false
+    },
+    {
+      "id": "n007a",
+      "sourceKey": "Invoking_Belt",
+      "retired": false
+    },
+    {
+      "id": "n007b",
+      "sourceKey": "Iron_Ring",
+      "retired": false
+    },
+    {
+      "id": "n007c",
+      "sourceKey": "Iron_Rune",
+      "retired": false
+    },
+    {
+      "id": "n007d",
+      "sourceKey": "Jade_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n007e",
+      "sourceKey": "Jade_Talisman",
+      "retired": false
+    },
+    {
+      "id": "n007f",
+      "sourceKey": "Jiquanis_Soul_Core_of_Abundance",
+      "retired": false
+    },
+    {
+      "id": "n007g",
+      "sourceKey": "Jiquanis_Soul_Core_of_Automation",
+      "retired": false
+    },
+    {
+      "id": "n007h",
+      "sourceKey": "Jiquanis_Soul_Core_of_Malediction",
+      "retired": false
+    },
+    {
+      "id": "n007i",
+      "sourceKey": "Jiquanis_Soul_Core_of_Munitions",
+      "retired": false
+    },
+    {
+      "id": "n007j",
+      "sourceKey": "Jiquanis_Soul_Core_of_Quaking",
+      "retired": false
+    },
+    {
+      "id": "n007k",
+      "sourceKey": "Jiquanis_Soul_Core_of_Radiance",
+      "retired": false
+    },
+    {
+      "id": "n007l",
+      "sourceKey": "Jiquanis_Soul_Core_of_Rallying",
+      "retired": false
+    },
+    {
+      "id": "n007m",
+      "sourceKey": "Jiquanis_Soul_Core_of_Rippling",
+      "retired": false
+    },
+    {
+      "id": "n007n",
+      "sourceKey": "Jiquanis_Soul_Core_of_Severing",
+      "retired": false
+    },
+    {
+      "id": "n007o",
+      "sourceKey": "Jiquanis_Soul_Core_of_Snares",
+      "retired": false
+    },
+    {
+      "id": "n007p",
+      "sourceKey": "Jiquanis_Soul_Core_of_Squalls",
+      "retired": false
+    },
+    {
+      "id": "n007q",
+      "sourceKey": "Jiquanis_Soul_Core_of_Targeting",
+      "retired": false
+    },
+    {
+      "id": "n007r",
+      "sourceKey": "Jiquanis_Soul_Core_of_Thundering",
+      "retired": false
+    },
+    {
+      "id": "n007s",
+      "sourceKey": "Jiquanis_Thesis",
+      "retired": false
+    },
+    {
+      "id": "n007t",
+      "sourceKey": "Kamasas_Orb_of_Sacrifice",
+      "retired": false
+    },
+    {
+      "id": "n007u",
+      "sourceKey": "Katlas_Gloom",
+      "retired": false
+    },
+    {
+      "id": "n007v",
+      "sourceKey": "Kinetic_Ring",
+      "retired": false
+    },
+    {
+      "id": "n007w",
+      "sourceKey": "Kolrs_Hunt",
+      "retired": false
+    },
+    {
+      "id": "n007x",
+      "sourceKey": "Kopecs_Orb_of_Sacrifice",
+      "retired": false
+    },
+    {
+      "id": "n007y",
+      "sourceKey": "Kurgals_Gaze",
+      "retired": false
+    },
+    {
+      "id": "n007z",
+      "sourceKey": "Lady_Hestras_Rune_of_Winter",
+      "retired": false
+    },
+    {
+      "id": "n0080",
+      "sourceKey": "Lament_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n0081",
+      "sourceKey": "Lapis_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n0082",
+      "sourceKey": "Lazuli_Ring",
+      "retired": false
+    },
+    {
+      "id": "n0083",
+      "sourceKey": "Legacy_of_A_Worthy_Foe",
+      "retired": false
+    },
+    {
+      "id": "n0084",
+      "sourceKey": "Legacy_of_Adonias_Ego",
+      "retired": false
+    },
+    {
+      "id": "n0085",
+      "sourceKey": "Legacy_of_Alkem_Eira",
+      "retired": false
+    },
+    {
+      "id": "n0086",
+      "sourceKey": "Legacy_of_Amor_Mandragora",
+      "retired": false
+    },
+    {
+      "id": "n0087",
+      "sourceKey": "Legacy_of_Ashrend",
+      "retired": false
+    },
+    {
+      "id": "n0088",
+      "sourceKey": "Legacy_of_Blackbraid",
+      "retired": false
+    },
+    {
+      "id": "n0089",
+      "sourceKey": "Legacy_of_Brain_Rattler",
+      "retired": false
+    },
+    {
+      "id": "n008a",
+      "sourceKey": "Legacy_of_Bramblejack",
+      "retired": false
+    },
+    {
+      "id": "n008b",
+      "sourceKey": "Legacy_of_Briarpatch",
+      "retired": false
+    },
+    {
+      "id": "n008c",
+      "sourceKey": "Legacy_of_Briskwrap",
+      "retired": false
+    },
+    {
+      "id": "n008d",
+      "sourceKey": "Legacy_of_Bristleboar",
+      "retired": false
+    },
+    {
+      "id": "n008e",
+      "sourceKey": "Legacy_of_Brynhands_Mark",
+      "retired": false
+    },
+    {
+      "id": "n008f",
+      "sourceKey": "Legacy_of_Bushwhack",
+      "retired": false
+    },
+    {
+      "id": "n008g",
+      "sourceKey": "Legacy_of_Candlemaker",
+      "retired": false
+    },
+    {
+      "id": "n008h",
+      "sourceKey": "Legacy_of_Chernobogs_Pillar",
+      "retired": false
+    },
+    {
+      "id": "n008i",
+      "sourceKey": "Legacy_of_Crown_of_Thorns",
+      "retired": false
+    },
+    {
+      "id": "n008j",
+      "sourceKey": "Legacy_of_Cursecarver",
+      "retired": false
+    },
+    {
+      "id": "n008k",
+      "sourceKey": "Legacy_of_Deathblow",
+      "retired": false
+    },
+    {
+      "id": "n008l",
+      "sourceKey": "Legacy_of_Deidbell",
+      "retired": false
+    },
+    {
+      "id": "n008m",
+      "sourceKey": "Legacy_of_Dionadair",
+      "retired": false
+    },
+    {
+      "id": "n008n",
+      "sourceKey": "Legacy_of_Duality",
+      "retired": false
+    },
+    {
+      "id": "n008o",
+      "sourceKey": "Legacy_of_Dunkelhalt",
+      "retired": false
+    },
+    {
+      "id": "n008p",
+      "sourceKey": "Legacy_of_Dusk_Vigil",
+      "retired": false
+    },
+    {
+      "id": "n008q",
+      "sourceKey": "Legacy_of_Edyrns_Tusks",
+      "retired": false
+    },
+    {
+      "id": "n008r",
+      "sourceKey": "Legacy_of_Elevore",
+      "retired": false
+    },
+    {
+      "id": "n008s",
+      "sourceKey": "Legacy_of_Erians_Cobble",
+      "retired": false
+    },
+    {
+      "id": "n008t",
+      "sourceKey": "Legacy_of_Ezomyte_Peak",
+      "retired": false
+    },
+    {
+      "id": "n008u",
+      "sourceKey": "Legacy_of_Facebreaker",
+      "retired": false
+    },
+    {
+      "id": "n008v",
+      "sourceKey": "Legacy_of_Foxshade",
+      "retired": false
+    },
+    {
+      "id": "n008w",
+      "sourceKey": "Legacy_of_Greymake",
+      "retired": false
+    },
+    {
+      "id": "n008x",
+      "sourceKey": "Legacy_of_Hoghunt",
+      "retired": false
+    },
+    {
+      "id": "n008y",
+      "sourceKey": "Legacy_of_Horns_of_Bynden",
+      "retired": false
+    },
+    {
+      "id": "n008z",
+      "sourceKey": "Legacy_of_Hrimnors_Hymn",
+      "retired": false
+    },
+    {
+      "id": "n0090",
+      "sourceKey": "Legacy_of_Ironbound",
+      "retired": false
+    },
+    {
+      "id": "n0091",
+      "sourceKey": "Legacy_of_Keeper_of_the_Arc",
+      "retired": false
+    },
+    {
+      "id": "n0092",
+      "sourceKey": "Legacy_of_Kingsguard",
+      "retired": false
+    },
+    {
+      "id": "n0093",
+      "sourceKey": "Legacy_of_Legionstride",
+      "retired": false
+    },
+    {
+      "id": "n0094",
+      "sourceKey": "Legacy_of_Lifesprig",
+      "retired": false
+    },
+    {
+      "id": "n0095",
+      "sourceKey": "Legacy_of_Mj%C3%B6lner",
+      "retired": false
+    },
+    {
+      "id": "n0096",
+      "sourceKey": "Legacy_of_Northpaw",
+      "retired": false
+    },
+    {
+      "id": "n0097",
+      "sourceKey": "Legacy_of_Oaksworn",
+      "retired": false
+    },
+    {
+      "id": "n0098",
+      "sourceKey": "Legacy_of_Oberns_Bastion",
+      "retired": false
+    },
+    {
+      "id": "n0099",
+      "sourceKey": "Legacy_of_Olrovasara",
+      "retired": false
+    },
+    {
+      "id": "n009a",
+      "sourceKey": "Legacy_of_Quill_Rain",
+      "retired": false
+    },
+    {
+      "id": "n009b",
+      "sourceKey": "Legacy_of_Rondel_de_Ezo",
+      "retired": false
+    },
+    {
+      "id": "n009c",
+      "sourceKey": "Legacy_of_Runeseekers_Call",
+      "retired": false
+    },
+    {
+      "id": "n009d",
+      "sourceKey": "Legacy_of_Serles_Grit",
+      "retired": false
+    },
+    {
+      "id": "n009e",
+      "sourceKey": "Legacy_of_Spiteful_Floret",
+      "retired": false
+    },
+    {
+      "id": "n009f",
+      "sourceKey": "Legacy_of_Starkonjas_Head",
+      "retired": false
+    },
+    {
+      "id": "n009g",
+      "sourceKey": "Legacy_of_Svalinn",
+      "retired": false
+    },
+    {
+      "id": "n009h",
+      "sourceKey": "Legacy_of_The_Blood_Thorn",
+      "retired": false
+    },
+    {
+      "id": "n009i",
+      "sourceKey": "Legacy_of_The_Knight-errant",
+      "retired": false
+    },
+    {
+      "id": "n009j",
+      "sourceKey": "Legacy_of_The_Sentry",
+      "retired": false
+    },
+    {
+      "id": "n009k",
+      "sourceKey": "Legacy_of_The_Smiling_Knight",
+      "retired": false
+    },
+    {
+      "id": "n009l",
+      "sourceKey": "Legacy_of_The_Unleashed",
+      "retired": false
+    },
+    {
+      "id": "n009m",
+      "sourceKey": "Legacy_of_The_Vile_Knight",
+      "retired": false
+    },
+    {
+      "id": "n009n",
+      "sourceKey": "Legacy_of_Trampletoe",
+      "retired": false
+    },
+    {
+      "id": "n009o",
+      "sourceKey": "Legacy_of_Trenchtimbre",
+      "retired": false
+    },
+    {
+      "id": "n009p",
+      "sourceKey": "Legacy_of_Twisted_Empyrean",
+      "retired": false
+    },
+    {
+      "id": "n009q",
+      "sourceKey": "Legacy_of_Tyrannys_Grip",
+      "retired": false
+    },
+    {
+      "id": "n009r",
+      "sourceKey": "Legacy_of_Wanderlust",
+      "retired": false
+    },
+    {
+      "id": "n009s",
+      "sourceKey": "Legacy_of_Wings_of_Caelyn",
+      "retired": false
+    },
+    {
+      "id": "n009t",
+      "sourceKey": "Legacy_of_Wulfsbane",
+      "retired": false
+    },
+    {
+      "id": "n009u",
+      "sourceKey": "Lesser_Adept_Rune",
+      "retired": false
+    },
+    {
+      "id": "n009v",
+      "sourceKey": "Lesser_Body_Rune",
+      "retired": false
+    },
+    {
+      "id": "n009w",
+      "sourceKey": "Lesser_Charging_Rune",
+      "retired": false
+    },
+    {
+      "id": "n009x",
+      "sourceKey": "Lesser_Desert_Rune",
+      "retired": false
+    },
+    {
+      "id": "n009y",
+      "sourceKey": "Lesser_Essence_of_Abrasion",
+      "retired": false
+    },
+    {
+      "id": "n009z",
+      "sourceKey": "Lesser_Essence_of_Alacrity",
+      "retired": false
+    },
+    {
+      "id": "n00a0",
+      "sourceKey": "Lesser_Essence_of_Battle",
+      "retired": false
+    },
+    {
+      "id": "n00a1",
+      "sourceKey": "Lesser_Essence_of_Command",
+      "retired": false
+    },
+    {
+      "id": "n00a2",
+      "sourceKey": "Lesser_Essence_of_Electricity",
+      "retired": false
+    },
+    {
+      "id": "n00a3",
+      "sourceKey": "Lesser_Essence_of_Enhancement",
+      "retired": false
+    },
+    {
+      "id": "n00a4",
+      "sourceKey": "Lesser_Essence_of_Flames",
+      "retired": false
+    },
+    {
+      "id": "n00a5",
+      "sourceKey": "Lesser_Essence_of_Grounding",
+      "retired": false
+    },
+    {
+      "id": "n00a6",
+      "sourceKey": "Lesser_Essence_of_Haste",
+      "retired": false
+    },
+    {
+      "id": "n00a7",
+      "sourceKey": "Lesser_Essence_of_Ice",
+      "retired": false
+    },
+    {
+      "id": "n00a8",
+      "sourceKey": "Lesser_Essence_of_Insulation",
+      "retired": false
+    },
+    {
+      "id": "n00a9",
+      "sourceKey": "Lesser_Essence_of_Opulence",
+      "retired": false
+    },
+    {
+      "id": "n00aa",
+      "sourceKey": "Lesser_Essence_of_Ruin",
+      "retired": false
+    },
+    {
+      "id": "n00ab",
+      "sourceKey": "Lesser_Essence_of_Seeking",
+      "retired": false
+    },
+    {
+      "id": "n00ac",
+      "sourceKey": "Lesser_Essence_of_Sorcery",
+      "retired": false
+    },
+    {
+      "id": "n00ad",
+      "sourceKey": "Lesser_Essence_of_Thawing",
+      "retired": false
+    },
+    {
+      "id": "n00ae",
+      "sourceKey": "Lesser_Essence_of_the_Body",
+      "retired": false
+    },
+    {
+      "id": "n00af",
+      "sourceKey": "Lesser_Essence_of_the_Infinite",
+      "retired": false
+    },
+    {
+      "id": "n00ag",
+      "sourceKey": "Lesser_Essence_of_the_Mind",
+      "retired": false
+    },
+    {
+      "id": "n00ah",
+      "sourceKey": "Lesser_Glacial_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00ai",
+      "sourceKey": "Lesser_Inspiration_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00aj",
+      "sourceKey": "Lesser_Iron_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00ak",
+      "sourceKey": "Lesser_Mind_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00al",
+      "sourceKey": "Lesser_Rebirth_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00am",
+      "sourceKey": "Lesser_Resolve_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00an",
+      "sourceKey": "Lesser_Robust_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00ao",
+      "sourceKey": "Lesser_Stone_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00ap",
+      "sourceKey": "Lesser_Storm_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00aq",
+      "sourceKey": "Lesser_Tempered_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00ar",
+      "sourceKey": "Lesser_Vision_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00as",
+      "sourceKey": "Lesser_Ward_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00at",
+      "sourceKey": "Linen_Belt",
+      "retired": false
+    },
+    {
+      "id": "n00au",
+      "sourceKey": "Liquid_Despair",
+      "retired": false
+    },
+    {
+      "id": "n00av",
+      "sourceKey": "Liquid_Disgust",
+      "retired": false
+    },
+    {
+      "id": "n00aw",
+      "sourceKey": "Liquid_Envy",
+      "retired": false
+    },
+    {
+      "id": "n00ax",
+      "sourceKey": "Liquid_Paranoia",
+      "retired": false
+    },
+    {
+      "id": "n00ay",
+      "sourceKey": "Liquid_Verisium",
+      "retired": false
+    },
+    {
+      "id": "n00az",
+      "sourceKey": "Long_Belt",
+      "retired": false
+    },
+    {
+      "id": "n00b0",
+      "sourceKey": "Lunar_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n00b1",
+      "sourceKey": "Mail_Belt",
+      "retired": false
+    },
+    {
+      "id": "n00b2",
+      "sourceKey": "Mail_Coat",
+      "retired": false
+    },
+    {
+      "id": "n00b3",
+      "sourceKey": "Maji_Talisman",
+      "retired": false
+    },
+    {
+      "id": "n00b4",
+      "sourceKey": "Massive_Mitts",
+      "retired": false
+    },
+    {
+      "id": "n00b5",
+      "sourceKey": "Medveds_Tending",
+      "retired": false
+    },
+    {
+      "id": "n00b6",
+      "sourceKey": "Mind_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00b7",
+      "sourceKey": "Mirror_of_Kalandra",
+      "retired": false
+    },
+    {
+      "id": "n00b8",
+      "sourceKey": "Mnemonic_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00b9",
+      "sourceKey": "Mystic_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n00ba",
+      "sourceKey": "Necrotic_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00bb",
+      "sourceKey": "Neural_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00bc",
+      "sourceKey": "Obliterator_Bow",
+      "retired": false
+    },
+    {
+      "id": "n00bd",
+      "sourceKey": "Offering_Wand",
+      "retired": false
+    },
+    {
+      "id": "n00be",
+      "sourceKey": "Omen_Sceptre",
+      "retired": false
+    },
+    {
+      "id": "n00bf",
+      "sourceKey": "Omen_of_Answered_Prayers",
+      "retired": false
+    },
+    {
+      "id": "n00bg",
+      "sourceKey": "Omen_of_Catalysing_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "n00bh",
+      "sourceKey": "Omen_of_Corruption",
+      "retired": false
+    },
+    {
+      "id": "n00bi",
+      "sourceKey": "Omen_of_Dextral_Alchemy",
+      "retired": false
+    },
+    {
+      "id": "n00bj",
+      "sourceKey": "Omen_of_Dextral_Annulment",
+      "retired": false
+    },
+    {
+      "id": "n00bk",
+      "sourceKey": "Omen_of_Dextral_Coronation",
+      "retired": false
+    },
+    {
+      "id": "n00bl",
+      "sourceKey": "Omen_of_Dextral_Crystallisation",
+      "retired": false
+    },
+    {
+      "id": "n00bm",
+      "sourceKey": "Omen_of_Dextral_Erasure",
+      "retired": false
+    },
+    {
+      "id": "n00bn",
+      "sourceKey": "Omen_of_Dextral_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "n00bo",
+      "sourceKey": "Omen_of_Dextral_Necromancy",
+      "retired": false
+    },
+    {
+      "id": "n00bp",
+      "sourceKey": "Omen_of_Greater_Annulment",
+      "retired": false
+    },
+    {
+      "id": "n00bq",
+      "sourceKey": "Omen_of_Greater_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "n00br",
+      "sourceKey": "Omen_of_Homogenising_Coronation",
+      "retired": false
+    },
+    {
+      "id": "n00bs",
+      "sourceKey": "Omen_of_Homogenising_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "n00bt",
+      "sourceKey": "Omen_of_Light",
+      "retired": false
+    },
+    {
+      "id": "n00bu",
+      "sourceKey": "Omen_of_Putrefaction",
+      "retired": false
+    },
+    {
+      "id": "n00bv",
+      "sourceKey": "Omen_of_Reinforcements",
+      "retired": false
+    },
+    {
+      "id": "n00bw",
+      "sourceKey": "Omen_of_Sanctification",
+      "retired": false
+    },
+    {
+      "id": "n00bx",
+      "sourceKey": "Omen_of_Secret_Compartments",
+      "retired": false
+    },
+    {
+      "id": "n00by",
+      "sourceKey": "Omen_of_Sinistral_Alchemy",
+      "retired": false
+    },
+    {
+      "id": "n00bz",
+      "sourceKey": "Omen_of_Sinistral_Annulment",
+      "retired": false
+    },
+    {
+      "id": "n00c0",
+      "sourceKey": "Omen_of_Sinistral_Coronation",
+      "retired": false
+    },
+    {
+      "id": "n00c1",
+      "sourceKey": "Omen_of_Sinistral_Crystallisation",
+      "retired": false
+    },
+    {
+      "id": "n00c2",
+      "sourceKey": "Omen_of_Sinistral_Erasure",
+      "retired": false
+    },
+    {
+      "id": "n00c3",
+      "sourceKey": "Omen_of_Sinistral_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "n00c4",
+      "sourceKey": "Omen_of_Sinistral_Necromancy",
+      "retired": false
+    },
+    {
+      "id": "n00c5",
+      "sourceKey": "Omen_of_Whittling",
+      "retired": false
+    },
+    {
+      "id": "n00c6",
+      "sourceKey": "Omen_of_the_Blackblooded",
+      "retired": false
+    },
+    {
+      "id": "n00c7",
+      "sourceKey": "Omen_of_the_Blessed",
+      "retired": false
+    },
+    {
+      "id": "n00c8",
+      "sourceKey": "Omen_of_the_Hunt",
+      "retired": false
+    },
+    {
+      "id": "n00c9",
+      "sourceKey": "Omen_of_the_Liege",
+      "retired": false
+    },
+    {
+      "id": "n00ca",
+      "sourceKey": "Omen_of_the_Sovereign",
+      "retired": false
+    },
+    {
+      "id": "n00cb",
+      "sourceKey": "Oneiric_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00cc",
+      "sourceKey": "Opilotis_Soul_Core_of_Assault",
+      "retired": false
+    },
+    {
+      "id": "n00cd",
+      "sourceKey": "Orb_of_Alchemy",
+      "retired": false
+    },
+    {
+      "id": "n00ce",
+      "sourceKey": "Orb_of_Annulment",
+      "retired": false
+    },
+    {
+      "id": "n00cf",
+      "sourceKey": "Orb_of_Augmentation",
+      "retired": false
+    },
+    {
+      "id": "n00cg",
+      "sourceKey": "Orb_of_Chance",
+      "retired": false
+    },
+    {
+      "id": "n00ch",
+      "sourceKey": "Orb_of_Extraction",
+      "retired": false
+    },
+    {
+      "id": "n00ci",
+      "sourceKey": "Orb_of_Transmutation",
+      "retired": false
+    },
+    {
+      "id": "n00cj",
+      "sourceKey": "Ornate_Belt",
+      "retired": false
+    },
+    {
+      "id": "n00ck",
+      "sourceKey": "Ox_Idol",
+      "retired": false
+    },
+    {
+      "id": "n00cl",
+      "sourceKey": "Panther_Idol",
+      "retired": false
+    },
+    {
+      "id": "n00cm",
+      "sourceKey": "Pearl_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00cn",
+      "sourceKey": "Pearlescent_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n00co",
+      "sourceKey": "Penetrating_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n00cp",
+      "sourceKey": "Penumbra_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n00cq",
+      "sourceKey": "Penumbra_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00cr",
+      "sourceKey": "Perching_Staff",
+      "retired": false
+    },
+    {
+      "id": "n00cs",
+      "sourceKey": "Perfect_Adept_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00ct",
+      "sourceKey": "Perfect_Body_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00cu",
+      "sourceKey": "Perfect_Chaos_Orb",
+      "retired": false
+    },
+    {
+      "id": "n00cv",
+      "sourceKey": "Perfect_Charging_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00cw",
+      "sourceKey": "Perfect_Desert_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00cx",
+      "sourceKey": "Perfect_Essence_of_Abrasion",
+      "retired": false
+    },
+    {
+      "id": "n00cy",
+      "sourceKey": "Perfect_Essence_of_Alacrity",
+      "retired": false
+    },
+    {
+      "id": "n00cz",
+      "sourceKey": "Perfect_Essence_of_Battle",
+      "retired": false
+    },
+    {
+      "id": "n00d0",
+      "sourceKey": "Perfect_Essence_of_Command",
+      "retired": false
+    },
+    {
+      "id": "n00d1",
+      "sourceKey": "Perfect_Essence_of_Electricity",
+      "retired": false
+    },
+    {
+      "id": "n00d2",
+      "sourceKey": "Perfect_Essence_of_Enhancement",
+      "retired": false
+    },
+    {
+      "id": "n00d3",
+      "sourceKey": "Perfect_Essence_of_Flames",
+      "retired": false
+    },
+    {
+      "id": "n00d4",
+      "sourceKey": "Perfect_Essence_of_Grounding",
+      "retired": false
+    },
+    {
+      "id": "n00d5",
+      "sourceKey": "Perfect_Essence_of_Haste",
+      "retired": false
+    },
+    {
+      "id": "n00d6",
+      "sourceKey": "Perfect_Essence_of_Ice",
+      "retired": false
+    },
+    {
+      "id": "n00d7",
+      "sourceKey": "Perfect_Essence_of_Insulation",
+      "retired": false
+    },
+    {
+      "id": "n00d8",
+      "sourceKey": "Perfect_Essence_of_Opulence",
+      "retired": false
+    },
+    {
+      "id": "n00d9",
+      "sourceKey": "Perfect_Essence_of_Ruin",
+      "retired": false
+    },
+    {
+      "id": "n00da",
+      "sourceKey": "Perfect_Essence_of_Seeking",
+      "retired": false
+    },
+    {
+      "id": "n00db",
+      "sourceKey": "Perfect_Essence_of_Sorcery",
+      "retired": false
+    },
+    {
+      "id": "n00dc",
+      "sourceKey": "Perfect_Essence_of_Thawing",
+      "retired": false
+    },
+    {
+      "id": "n00dd",
+      "sourceKey": "Perfect_Essence_of_the_Body",
+      "retired": false
+    },
+    {
+      "id": "n00de",
+      "sourceKey": "Perfect_Essence_of_the_Infinite",
+      "retired": false
+    },
+    {
+      "id": "n00df",
+      "sourceKey": "Perfect_Essence_of_the_Mind",
+      "retired": false
+    },
+    {
+      "id": "n00dg",
+      "sourceKey": "Perfect_Exalted_Orb",
+      "retired": false
+    },
+    {
+      "id": "n00dh",
+      "sourceKey": "Perfect_Glacial_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00di",
+      "sourceKey": "Perfect_Inspiration_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00dj",
+      "sourceKey": "Perfect_Iron_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00dk",
+      "sourceKey": "Perfect_Mind_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00dl",
+      "sourceKey": "Perfect_Orb_of_Augmentation",
+      "retired": false
+    },
+    {
+      "id": "n00dm",
+      "sourceKey": "Perfect_Orb_of_Transmutation",
+      "retired": false
+    },
+    {
+      "id": "n00dn",
+      "sourceKey": "Perfect_Rebirth_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00do",
+      "sourceKey": "Perfect_Regal_Orb",
+      "retired": false
+    },
+    {
+      "id": "n00dp",
+      "sourceKey": "Perfect_Resolve_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00dq",
+      "sourceKey": "Perfect_Robust_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00dr",
+      "sourceKey": "Perfect_Stone_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00ds",
+      "sourceKey": "Perfect_Storm_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00dt",
+      "sourceKey": "Perfect_Vision_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00du",
+      "sourceKey": "Perfect_Ward_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00dv",
+      "sourceKey": "Permafrost_Staff",
+      "retired": false
+    },
+    {
+      "id": "n00dw",
+      "sourceKey": "Plate_Belt",
+      "retired": false
+    },
+    {
+      "id": "n00dx",
+      "sourceKey": "Polished_Bracers",
+      "retired": false
+    },
+    {
+      "id": "n00dy",
+      "sourceKey": "Portent_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n00dz",
+      "sourceKey": "Potent_Liquid_Contempt",
+      "retired": false
+    },
+    {
+      "id": "n00e0",
+      "sourceKey": "Potent_Liquid_Ferocity",
+      "retired": false
+    },
+    {
+      "id": "n00e1",
+      "sourceKey": "Potent_Liquid_Melancholy",
+      "retired": false
+    },
+    {
+      "id": "n00e2",
+      "sourceKey": "Preserved_Collarbone",
+      "retired": false
+    },
+    {
+      "id": "n00e3",
+      "sourceKey": "Preserved_Cranium",
+      "retired": false
+    },
+    {
+      "id": "n00e4",
+      "sourceKey": "Preserved_Jawbone",
+      "retired": false
+    },
+    {
+      "id": "n00e5",
+      "sourceKey": "Preserved_Rib",
+      "retired": false
+    },
+    {
+      "id": "n00e6",
+      "sourceKey": "Primate_Idol",
+      "retired": false
+    },
+    {
+      "id": "n00e7",
+      "sourceKey": "Primed_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n00e8",
+      "sourceKey": "Primordial_Wand",
+      "retired": false
+    },
+    {
+      "id": "n00e9",
+      "sourceKey": "Prismatic_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n00ea",
+      "sourceKey": "Prismatic_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00eb",
+      "sourceKey": "Protective_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n00ec",
+      "sourceKey": "Quipolatls_Soul_Core_of_Flow",
+      "retired": false
+    },
+    {
+      "id": "n00ed",
+      "sourceKey": "Quipolatls_Thesis",
+      "retired": false
+    },
+    {
+      "id": "n00ee",
+      "sourceKey": "Rabbit_Idol",
+      "retired": false
+    },
+    {
+      "id": "n00ef",
+      "sourceKey": "Rambler_Jacket",
+      "retired": false
+    },
+    {
+      "id": "n00eg",
+      "sourceKey": "Rattling_Sceptre",
+      "retired": false
+    },
+    {
+      "id": "n00eh",
+      "sourceKey": "Raven-Touched_Shard",
+      "retired": false
+    },
+    {
+      "id": "n00ei",
+      "sourceKey": "Ravenous_Staff",
+      "retired": false
+    },
+    {
+      "id": "n00ej",
+      "sourceKey": "Rawhide_Belt",
+      "retired": false
+    },
+    {
+      "id": "n00ek",
+      "sourceKey": "Reaver_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00el",
+      "sourceKey": "Rebirth_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00em",
+      "sourceKey": "Refined_Adaptive_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00en",
+      "sourceKey": "Refined_Carapace_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00eo",
+      "sourceKey": "Refined_Chayulas_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00ep",
+      "sourceKey": "Refined_Eshs_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00eq",
+      "sourceKey": "Refined_Flesh_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00er",
+      "sourceKey": "Refined_Necrotic_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00es",
+      "sourceKey": "Refined_Neural_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00et",
+      "sourceKey": "Refined_Reaver_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00eu",
+      "sourceKey": "Refined_Sibilant_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00ev",
+      "sourceKey": "Refined_Skittering_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00ew",
+      "sourceKey": "Refined_Tuls_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00ex",
+      "sourceKey": "Refined_Uul-Netols_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00ey",
+      "sourceKey": "Refined_Xophs_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00ez",
+      "sourceKey": "Reflecting_Staff",
+      "retired": false
+    },
+    {
+      "id": "n00f0",
+      "sourceKey": "Regal_Orb",
+      "retired": false
+    },
+    {
+      "id": "n00f1",
+      "sourceKey": "Resolve_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00f2",
+      "sourceKey": "Robust_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00f3",
+      "sourceKey": "Ruby",
+      "retired": false
+    },
+    {
+      "id": "n00f4",
+      "sourceKey": "Ruby_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00f5",
+      "sourceKey": "Ruination_Maul",
+      "retired": false
+    },
+    {
+      "id": "n00f6",
+      "sourceKey": "Rune_of_Accumulation",
+      "retired": false
+    },
+    {
+      "id": "n00f7",
+      "sourceKey": "Rune_of_Acrobatics",
+      "retired": false
+    },
+    {
+      "id": "n00f8",
+      "sourceKey": "Rune_of_Confrontation",
+      "retired": false
+    },
+    {
+      "id": "n00f9",
+      "sourceKey": "Rune_of_Consistency",
+      "retired": false
+    },
+    {
+      "id": "n00fa",
+      "sourceKey": "Rune_of_Culmination",
+      "retired": false
+    },
+    {
+      "id": "n00fb",
+      "sourceKey": "Rune_of_Foundations",
+      "retired": false
+    },
+    {
+      "id": "n00fc",
+      "sourceKey": "Rune_of_Reach",
+      "retired": false
+    },
+    {
+      "id": "n00fd",
+      "sourceKey": "Rune_of_Renown",
+      "retired": false
+    },
+    {
+      "id": "n00fe",
+      "sourceKey": "Rune_of_Vital_Flame",
+      "retired": false
+    },
+    {
+      "id": "n00ff",
+      "sourceKey": "Rune_of_Vitality",
+      "retired": false
+    },
+    {
+      "id": "n00fg",
+      "sourceKey": "Rune_of_the_Blossom",
+      "retired": false
+    },
+    {
+      "id": "n00fh",
+      "sourceKey": "Rune_of_the_Hunt",
+      "retired": false
+    },
+    {
+      "id": "n00fi",
+      "sourceKey": "Rune_of_the_Prism",
+      "retired": false
+    },
+    {
+      "id": "n00fj",
+      "sourceKey": "Runic_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n00fk",
+      "sourceKey": "Rusted_Cuirass",
+      "retired": false
+    },
+    {
+      "id": "n00fl",
+      "sourceKey": "Rusted_Greathelm",
+      "retired": false
+    },
+    {
+      "id": "n00fm",
+      "sourceKey": "Sacral_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n00fn",
+      "sourceKey": "Sacramental_Robe",
+      "retired": false
+    },
+    {
+      "id": "n00fo",
+      "sourceKey": "Sanctified_Staff",
+      "retired": false
+    },
+    {
+      "id": "n00fp",
+      "sourceKey": "Sapphire",
+      "retired": false
+    },
+    {
+      "id": "n00fq",
+      "sourceKey": "Sapphire_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00fr",
+      "sourceKey": "Saqawals_Rune_of_Erosion",
+      "retired": false
+    },
+    {
+      "id": "n00fs",
+      "sourceKey": "Saqawals_Rune_of_Memory",
+      "retired": false
+    },
+    {
+      "id": "n00ft",
+      "sourceKey": "Saqawals_Rune_of_the_Sky",
+      "retired": false
+    },
+    {
+      "id": "n00fu",
+      "sourceKey": "Scroll_of_Wisdom",
+      "retired": false
+    },
+    {
+      "id": "n00fv",
+      "sourceKey": "Seastorm_Mantle",
+      "retired": false
+    },
+    {
+      "id": "n00fw",
+      "sourceKey": "Sekhema_Sandals",
+      "retired": false
+    },
+    {
+      "id": "n00fx",
+      "sourceKey": "Serles_Triumph",
+      "retired": false
+    },
+    {
+      "id": "n00fy",
+      "sourceKey": "Serrated_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n00fz",
+      "sourceKey": "Shrine_Sceptre_6a",
+      "retired": false
+    },
+    {
+      "id": "n00g0",
+      "sourceKey": "Shrine_Sceptre_6b",
+      "retired": false
+    },
+    {
+      "id": "n00g1",
+      "sourceKey": "Shrine_Sceptre_6c",
+      "retired": false
+    },
+    {
+      "id": "n00g2",
+      "sourceKey": "Shrouded_Mail_cold",
+      "retired": false
+    },
+    {
+      "id": "n00g3",
+      "sourceKey": "Shrouded_Mail_fire",
+      "retired": false
+    },
+    {
+      "id": "n00g4",
+      "sourceKey": "Shrouded_Mail_lightning",
+      "retired": false
+    },
+    {
+      "id": "n00g5",
+      "sourceKey": "Sibilant_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00g6",
+      "sourceKey": "Siege_Crossbow",
+      "retired": false
+    },
+    {
+      "id": "n00g7",
+      "sourceKey": "Sinew_Belt",
+      "retired": false
+    },
+    {
+      "id": "n00g8",
+      "sourceKey": "Siphoning_Wand",
+      "retired": false
+    },
+    {
+      "id": "n00g9",
+      "sourceKey": "Sirenscale_Gloves",
+      "retired": false
+    },
+    {
+      "id": "n00ga",
+      "sourceKey": "Skittering_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00gb",
+      "sourceKey": "Sleek_Jacket",
+      "retired": false
+    },
+    {
+      "id": "n00gc",
+      "sourceKey": "Slipstrike_Vest",
+      "retired": false
+    },
+    {
+      "id": "n00gd",
+      "sourceKey": "Snake_Idol",
+      "retired": false
+    },
+    {
+      "id": "n00ge",
+      "sourceKey": "Solar_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n00gf",
+      "sourceKey": "Soldier_Cuirass",
+      "retired": false
+    },
+    {
+      "id": "n00gg",
+      "sourceKey": "Soul_Core_of_Atmohua",
+      "retired": false
+    },
+    {
+      "id": "n00gh",
+      "sourceKey": "Soul_Core_of_Azcapa",
+      "retired": false
+    },
+    {
+      "id": "n00gi",
+      "sourceKey": "Soul_Core_of_Cholotl",
+      "retired": false
+    },
+    {
+      "id": "n00gj",
+      "sourceKey": "Soul_Core_of_Citaqualotl",
+      "retired": false
+    },
+    {
+      "id": "n00gk",
+      "sourceKey": "Soul_Core_of_Jiquani",
+      "retired": false
+    },
+    {
+      "id": "n00gl",
+      "sourceKey": "Soul_Core_of_Opiloti",
+      "retired": false
+    },
+    {
+      "id": "n00gm",
+      "sourceKey": "Soul_Core_of_Puhuarte",
+      "retired": false
+    },
+    {
+      "id": "n00gn",
+      "sourceKey": "Soul_Core_of_Quipolatl",
+      "retired": false
+    },
+    {
+      "id": "n00go",
+      "sourceKey": "Soul_Core_of_Tacati",
+      "retired": false
+    },
+    {
+      "id": "n00gp",
+      "sourceKey": "Soul_Core_of_Ticaba",
+      "retired": false
+    },
+    {
+      "id": "n00gq",
+      "sourceKey": "Soul_Core_of_Topotante",
+      "retired": false
+    },
+    {
+      "id": "n00gr",
+      "sourceKey": "Soul_Core_of_Tzamoto",
+      "retired": false
+    },
+    {
+      "id": "n00gs",
+      "sourceKey": "Soul_Core_of_Vizoma",
+      "retired": false
+    },
+    {
+      "id": "n00gt",
+      "sourceKey": "Soul_Core_of_Xopec",
+      "retired": false
+    },
+    {
+      "id": "n00gu",
+      "sourceKey": "Soul_Core_of_Zalatl",
+      "retired": false
+    },
+    {
+      "id": "n00gv",
+      "sourceKey": "Soul_Core_of_Zantipi",
+      "retired": false
+    },
+    {
+      "id": "n00gw",
+      "sourceKey": "Sovereign_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n00gx",
+      "sourceKey": "Stag_Idol",
+      "retired": false
+    },
+    {
+      "id": "n00gy",
+      "sourceKey": "Stellar_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n00gz",
+      "sourceKey": "Stoat_Idol",
+      "retired": false
+    },
+    {
+      "id": "n00h0",
+      "sourceKey": "Stocky_Mitts",
+      "retired": false
+    },
+    {
+      "id": "n00h1",
+      "sourceKey": "Stoic_Sceptre",
+      "retired": false
+    },
+    {
+      "id": "n00h2",
+      "sourceKey": "Stone_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00h3",
+      "sourceKey": "Storm_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00h4",
+      "sourceKey": "Strife_Pick",
+      "retired": false
+    },
+    {
+      "id": "n00h5",
+      "sourceKey": "Swift_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n00h6",
+      "sourceKey": "Tacatis_Soul_Core_of_Affliction",
+      "retired": false
+    },
+    {
+      "id": "n00h7",
+      "sourceKey": "Tasalian_Focus",
+      "retired": false
+    },
+    {
+      "id": "n00h8",
+      "sourceKey": "Tasalian_Greaves",
+      "retired": false
+    },
+    {
+      "id": "n00h9",
+      "sourceKey": "Tawhoan_Greatclub",
+      "retired": false
+    },
+    {
+      "id": "n00ha",
+      "sourceKey": "Tawhoan_Tower_Shield",
+      "retired": false
+    },
+    {
+      "id": "n00hb",
+      "sourceKey": "Tecrods_Gaze",
+      "retired": false
+    },
+    {
+      "id": "n00hc",
+      "sourceKey": "Tempered_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00hd",
+      "sourceKey": "Tenebrous_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n00he",
+      "sourceKey": "Tenebrous_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00hf",
+      "sourceKey": "Thane_Girts_Rune_of_Wildness",
+      "retired": false
+    },
+    {
+      "id": "n00hg",
+      "sourceKey": "Thane_Grannells_Rune_of_Mastery",
+      "retired": false
+    },
+    {
+      "id": "n00hh",
+      "sourceKey": "Thane_Lelds_Rune_of_Spring",
+      "retired": false
+    },
+    {
+      "id": "n00hi",
+      "sourceKey": "Thane_Mail",
+      "retired": false
+    },
+    {
+      "id": "n00hj",
+      "sourceKey": "Thane_Myrks_Rune_of_Summer",
+      "retired": false
+    },
+    {
+      "id": "n00hk",
+      "sourceKey": "The_Greatwolfs_Rune_of_Claws",
+      "retired": false
+    },
+    {
+      "id": "n00hl",
+      "sourceKey": "The_Greatwolfs_Rune_of_Willpower",
+      "retired": false
+    },
+    {
+      "id": "n00hm",
+      "sourceKey": "The_Runebinders_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n00hn",
+      "sourceKey": "The_Runefathers_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n00ho",
+      "sourceKey": "Thruds_Might",
+      "retired": false
+    },
+    {
+      "id": "n00hp",
+      "sourceKey": "Time-Lost Diamond",
+      "retired": false
+    },
+    {
+      "id": "n00hq",
+      "sourceKey": "Time-Lost Emerald",
+      "retired": false
+    },
+    {
+      "id": "n00hr",
+      "sourceKey": "Time-Lost Ruby",
+      "retired": false
+    },
+    {
+      "id": "n00hs",
+      "sourceKey": "Time-Lost Sapphire",
+      "retired": false
+    },
+    {
+      "id": "n00ht",
+      "sourceKey": "Time_Lost_Diamond",
+      "retired": false
+    },
+    {
+      "id": "n00hu",
+      "sourceKey": "Time_Lost_Emerald",
+      "retired": false
+    },
+    {
+      "id": "n00hv",
+      "sourceKey": "Time_Lost_Ruby",
+      "retired": false
+    },
+    {
+      "id": "n00hw",
+      "sourceKey": "Time_Lost_Sapphire",
+      "retired": false
+    },
+    {
+      "id": "n00hx",
+      "sourceKey": "Topaz_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00hy",
+      "sourceKey": "Topotantes_Soul_Core_of_Dampening",
+      "retired": false
+    },
+    {
+      "id": "n00hz",
+      "sourceKey": "Toxic_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n00i0",
+      "sourceKey": "Transcendent_Alloy",
+      "retired": false
+    },
+    {
+      "id": "n00i1",
+      "sourceKey": "Tuls_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00i2",
+      "sourceKey": "Twisted_Amulet",
+      "retired": false
+    },
+    {
+      "id": "n00i3",
+      "sourceKey": "Two-Point_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n00i4",
+      "sourceKey": "Two-Stone_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00i5",
+      "sourceKey": "Tzamotos_Soul_Core_of_Ferocity",
+      "retired": false
+    },
+    {
+      "id": "n00i6",
+      "sourceKey": "Uhtreds_Sidereus",
+      "retired": false
+    },
+    {
+      "id": "n00i7",
+      "sourceKey": "Ulamans_Gaze",
+      "retired": false
+    },
+    {
+      "id": "n00i8",
+      "sourceKey": "Unset_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00i9",
+      "sourceKey": "Uromotis_Soul_Core_of_Attenuation",
+      "retired": false
+    },
+    {
+      "id": "n00ia",
+      "sourceKey": "Utility_Belt",
+      "retired": false
+    },
+    {
+      "id": "n00ib",
+      "sourceKey": "Utzaal_Cuirass",
+      "retired": false
+    },
+    {
+      "id": "n00ic",
+      "sourceKey": "Uul-Netols_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00id",
+      "sourceKey": "Vaal_Arcanists_Infuser",
+      "retired": false
+    },
+    {
+      "id": "n00ie",
+      "sourceKey": "Vaal_Armourers_Infuser",
+      "retired": false
+    },
+    {
+      "id": "n00if",
+      "sourceKey": "Vaal_Blacksmiths_Infuser",
+      "retired": false
+    },
+    {
+      "id": "n00ig",
+      "sourceKey": "Vaal_Catalysing_Infuser",
+      "retired": false
+    },
+    {
+      "id": "n00ih",
+      "sourceKey": "Vaal_Cultivation_Orb",
+      "retired": false
+    },
+    {
+      "id": "n00ii",
+      "sourceKey": "Vaal_Orb",
+      "retired": false
+    },
+    {
+      "id": "n00ij",
+      "sourceKey": "Vile_Robe",
+      "retired": false
+    },
+    {
+      "id": "n00ik",
+      "sourceKey": "Visceral_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n00il",
+      "sourceKey": "Vision_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00im",
+      "sourceKey": "Vitalic_Ring",
+      "retired": false
+    },
+    {
+      "id": "n00in",
+      "sourceKey": "Volant_Quiver",
+      "retired": false
+    },
+    {
+      "id": "n00io",
+      "sourceKey": "Volatile_Wand",
+      "retired": false
+    },
+    {
+      "id": "n00ip",
+      "sourceKey": "Voranas_Carnage",
+      "retired": false
+    },
+    {
+      "id": "n00iq",
+      "sourceKey": "War_Wraps",
+      "retired": false
+    },
+    {
+      "id": "n00ir",
+      "sourceKey": "Ward_Rune",
+      "retired": false
+    },
+    {
+      "id": "n00is",
+      "sourceKey": "Warding_Rune_of_Annihilation",
+      "retired": false
+    },
+    {
+      "id": "n00it",
+      "sourceKey": "Warding_Rune_of_Armature",
+      "retired": false
+    },
+    {
+      "id": "n00iu",
+      "sourceKey": "Warding_Rune_of_Courage",
+      "retired": false
+    },
+    {
+      "id": "n00iv",
+      "sourceKey": "Warding_Rune_of_Desperation",
+      "retired": false
+    },
+    {
+      "id": "n00iw",
+      "sourceKey": "Warding_Rune_of_Disintegration",
+      "retired": false
+    },
+    {
+      "id": "n00ix",
+      "sourceKey": "Warding_Rune_of_Equinox",
+      "retired": false
+    },
+    {
+      "id": "n00iy",
+      "sourceKey": "Warding_Rune_of_Glancing",
+      "retired": false
+    },
+    {
+      "id": "n00iz",
+      "sourceKey": "Warding_Rune_of_Heart",
+      "retired": false
+    },
+    {
+      "id": "n00j0",
+      "sourceKey": "Warding_Rune_of_Hollowing",
+      "retired": false
+    },
+    {
+      "id": "n00j1",
+      "sourceKey": "Warding_Rune_of_Nourishment",
+      "retired": false
+    },
+    {
+      "id": "n00j2",
+      "sourceKey": "Warding_Rune_of_Obsession",
+      "retired": false
+    },
+    {
+      "id": "n00j3",
+      "sourceKey": "Warding_Rune_of_Protection",
+      "retired": false
+    },
+    {
+      "id": "n00j4",
+      "sourceKey": "Warding_Rune_of_Reinforcement",
+      "retired": false
+    },
+    {
+      "id": "n00j5",
+      "sourceKey": "Warding_Rune_of_Stability",
+      "retired": false
+    },
+    {
+      "id": "n00j6",
+      "sourceKey": "Warding_Rune_of_Symbiosis",
+      "retired": false
+    },
+    {
+      "id": "n00j7",
+      "sourceKey": "Warlord_Cuirass",
+      "retired": false
+    },
+    {
+      "id": "n00j8",
+      "sourceKey": "Warmonger_Bow",
+      "retired": false
+    },
+    {
+      "id": "n00j9",
+      "sourceKey": "Wide_Belt",
+      "retired": false
+    },
+    {
+      "id": "n00ja",
+      "sourceKey": "Wolf_Idol",
+      "retired": false
+    },
+    {
+      "id": "n00jb",
+      "sourceKey": "Wolfskin_Mantle",
+      "retired": false
+    },
+    {
+      "id": "n00jc",
+      "sourceKey": "Wrath_Sceptre",
+      "retired": false
+    },
+    {
+      "id": "n00jd",
+      "sourceKey": "Wyrmscale_Coat",
+      "retired": false
+    },
+    {
+      "id": "n00je",
+      "sourceKey": "Xipocados_Soul_Core_of_Dominion",
+      "retired": false
+    },
+    {
+      "id": "n00jf",
+      "sourceKey": "Xopecs_Soul_Core_of_Power",
+      "retired": false
+    },
+    {
+      "id": "n00jg",
+      "sourceKey": "Xophs_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "n00jh",
+      "sourceKey": "Yaomacs_Orb_of_Sacrifice",
+      "retired": false
+    },
+    {
+      "id": "n00ji",
+      "sourceKey": "Yuguls_Orb_of_Sacrifice",
+      "retired": false
+    },
+    {
+      "id": "n00jj",
+      "sourceKey": "Zalatls_Soul_Core_of_Insulation",
+      "retired": false
+    }
+  ]
+}

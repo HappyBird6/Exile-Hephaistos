@@ -1,0 +1,264 @@
+[
+  {
+    "id": "Lesser_Essence_of_Command",
+    "url": "https://poe2db.tw/us/Lesser_Essence_of_Command",
+    "retrievedAt": "2026-10-03T14:19:15.893Z",
+    "sha256": "a18466b01d1b7739a71f637db5a7ae1f8c2c5cfb10b88a4aa1d37ee1f2fd8364",
+    "card": "Lesser Essence of Command Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierSceptre: Allies in your Presence deal (35—44)% increased Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "8",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+      ],
+      "fossil_no": [
+        "damage"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/5c8c60958c4342858b651f4d621e8475a9816f398a3ecdea9d0414408c234526\" href=\"Lesser_Essence_of_Command\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AllyEssenceLesser.webp\" alt=\"AllyEssenceLesser\" height=\"16\" />Lesser Essence of Command</a>",
+      "Code": "NearbyAlliesAllDamage2",
+      "ModFamilyList": [
+        "AllDamage"
+      ],
+      "str": "<a data-keyword=\"Allies\" href=\"Allies\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9cf8c14b8a02e0209486c642f336321437b4bf4940dd241c485ba5351bf7f434\">Allies</a> in your <a data-keyword=\"Presence\" href=\"Presence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7\">Presence</a> deal <span class='mod-value'>(35<span class=\"ndash\">—</span>44)</span>% increased Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "sceptre",
+        "default"
+      ],
+      "reqlvl": 6,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage2",
+    "detailRetrievedAt": "2026-10-03T16:10:11.072Z",
+    "detailSha256": "fcdddeea8a317996c4620c0441476822f5c835593a74797c09fe939332363068",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Allies\" href=\"Allies\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9cf8c14b8a02e0209486c642f336321437b4bf4940dd241c485ba5351bf7f434\">Allies</a> in your <a data-keyword=\"Presence\" href=\"Presence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7\">Presence</a> deal <span class='mod-value'>(35<span class=\"ndash\">—</span>44)</span>% increased Damage</span></h5>   <span data-tabname=\"Agitative\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Agitative\n<tr><th>Family<td>AllDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>8 (Effective: 6)\n<tr><th>Gold Price<td>221\n<tr><th>Stats<td><li>allies in presence damage +% <span class=\"badge bg-primary\">35 <span class=\"ndash\">—</span> 44</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Damage</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "Agitative",
+        "Family": "AllDamage",
+        "Domains": "Item (1)",
+        "GenerationType": "Prefix (1)",
+        "Req. level": "8 (Effective: 6)",
+        "Gold Price": "221",
+        "Stats": "allies in presence damage +% 35 — 44 Global",
+        "Spawn Tags": "sceptre: 1 default: 0",
+        "Craft Tags": "Damage"
+      },
+      "effect": "Allies in your Presence deal (35—44)% increased Damage",
+      "stats": [
+        {
+          "id": "allies_in_presence_damage_+%",
+          "bounds": [
+            35,
+            44
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 8,
+    "requiredCharacterLevel": 6,
+    "matchedModifierIds": [
+      "rattling-sceptre:prefix:agitative"
+    ]
+  },
+  {
+    "id": "Essence_of_Command",
+    "url": "https://poe2db.tw/us/Essence_of_Command",
+    "retrievedAt": "2026-10-03T14:19:16.399Z",
+    "sha256": "fcf5a1f3dca6a63633013fb47ce192525613a279ffce6e36df7040c92f1d9079",
+    "card": "Essence of Command Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierSceptre: Allies in your Presence deal (55—64)% increased Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "33",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+      ],
+      "fossil_no": [
+        "damage"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/8b1c43c846bbb8de3e3fad8f0236c5fda0864edf5fd7d0ef381955f316474c0a\" href=\"Essence_of_Command\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AllyEssence.webp\" alt=\"AllyEssence\" height=\"16\" />Essence of Command</a>",
+      "Code": "NearbyAlliesAllDamage4",
+      "ModFamilyList": [
+        "AllDamage"
+      ],
+      "str": "<a data-keyword=\"Allies\" href=\"Allies\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9cf8c14b8a02e0209486c642f336321437b4bf4940dd241c485ba5351bf7f434\">Allies</a> in your <a data-keyword=\"Presence\" href=\"Presence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7\">Presence</a> deal <span class='mod-value'>(55<span class=\"ndash\">—</span>64)</span>% increased Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "sceptre",
+        "default"
+      ],
+      "reqlvl": 26,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage4",
+    "detailRetrievedAt": "2026-10-03T16:10:54.071Z",
+    "detailSha256": "6b726f438888b1b19ff5e9f63ab5e50425ae3fec58710f8b22e90f6f01c5264a",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Allies\" href=\"Allies\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9cf8c14b8a02e0209486c642f336321437b4bf4940dd241c485ba5351bf7f434\">Allies</a> in your <a data-keyword=\"Presence\" href=\"Presence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7\">Presence</a> deal <span class='mod-value'>(55<span class=\"ndash\">—</span>64)</span>% increased Damage</span></h5>   <span data-tabname=\"Provocative\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Provocative\n<tr><th>Family<td>AllDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>33 (Effective: 26)\n<tr><th>Gold Price<td>699\n<tr><th>Stats<td><li>allies in presence damage +% <span class=\"badge bg-primary\">55 <span class=\"ndash\">—</span> 64</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Damage</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "Provocative",
+        "Family": "AllDamage",
+        "Domains": "Item (1)",
+        "GenerationType": "Prefix (1)",
+        "Req. level": "33 (Effective: 26)",
+        "Gold Price": "699",
+        "Stats": "allies in presence damage +% 55 — 64 Global",
+        "Spawn Tags": "sceptre: 1 default: 0",
+        "Craft Tags": "Damage"
+      },
+      "effect": "Allies in your Presence deal (55—64)% increased Damage",
+      "stats": [
+        {
+          "id": "allies_in_presence_damage_+%",
+          "bounds": [
+            55,
+            64
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 33,
+    "requiredCharacterLevel": 26,
+    "matchedModifierIds": [
+      "rattling-sceptre:prefix:provocative"
+    ]
+  },
+  {
+    "id": "Greater_Essence_of_Command",
+    "url": "https://poe2db.tw/us/Greater_Essence_of_Command",
+    "retrievedAt": "2026-10-03T14:19:16.904Z",
+    "sha256": "6e567597b7041e803e68cda5571de0f6d62210f3653b4f88d4bc6043a359abc4",
+    "card": "Greater Essence of Command Stackable CurrencyStack Size: 1 / 10Upgrades a Magic item to a Rare item, adding a guaranteed modifierSceptre: Allies in your Presence deal (75—89)% increased Damage Right click this item then left click a Magic item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "60",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingdamage\" data-tag=\"damage\">Damage</span>"
+      ],
+      "fossil_no": [
+        "damage"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/3a36abd6b34e165caacff8154981b003e8fb3161357b2b30a02e8df8172c028a\" href=\"Greater_Essence_of_Command\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/GreaterAllyEssence.webp\" alt=\"GreaterAllyEssence\" height=\"16\" />Greater Essence of Command</a>",
+      "Code": "NearbyAlliesAllDamage6",
+      "ModFamilyList": [
+        "AllDamage"
+      ],
+      "str": "<a data-keyword=\"Allies\" href=\"Allies\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9cf8c14b8a02e0209486c642f336321437b4bf4940dd241c485ba5351bf7f434\">Allies</a> in your <a data-keyword=\"Presence\" href=\"Presence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7\">Presence</a> deal <span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>% increased Damage",
+      "adds_no": [],
+      "spawn_no": [
+        "sceptre",
+        "default"
+      ],
+      "reqlvl": 48,
+      "IsPerfect": "0",
+      "IsAlloy": false,
+      "Removes": false
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FNearbyAlliesAllDamage6",
+    "detailRetrievedAt": "2026-10-03T16:10:54.603Z",
+    "detailSha256": "4ab6051c91962c0824cbb03374563cf7ca5821bf7ee2087ae9ef99a93517acc9",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Allies\" href=\"Allies\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9cf8c14b8a02e0209486c642f336321437b4bf4940dd241c485ba5351bf7f434\">Allies</a> in your <a data-keyword=\"Presence\" href=\"Presence\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/7dcbc7de023224f0f506877302060b1aaa814dd225382c87c2ea241a5bb299e7\">Presence</a> deal <span class='mod-value'>(75<span class=\"ndash\">—</span>89)</span>% increased Damage</span></h5>   <span data-tabname=\"Motivating\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Motivating\n<tr><th>Family<td>AllDamage\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>60 (Effective: 48)\n<tr><th>Gold Price<td>2107\n<tr><th>Stats<td><li>allies in presence damage +% <span class=\"badge bg-primary\">75 <span class=\"ndash\">—</span> 89</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>sceptre: 1</span> <span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'>Damage</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "Motivating",
+        "Family": "AllDamage",
+        "Domains": "Item (1)",
+        "GenerationType": "Prefix (1)",
+        "Req. level": "60 (Effective: 48)",
+        "Gold Price": "2107",
+        "Stats": "allies in presence damage +% 75 — 89 Global",
+        "Spawn Tags": "sceptre: 1 default: 0",
+        "Craft Tags": "Damage"
+      },
+      "effect": "Allies in your Presence deal (75—89)% increased Damage",
+      "stats": [
+        {
+          "id": "allies_in_presence_damage_+%",
+          "bounds": [
+            75,
+            89
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 60,
+    "requiredCharacterLevel": 48,
+    "matchedModifierIds": [
+      "rattling-sceptre:prefix:motivating"
+    ]
+  },
+  {
+    "id": "Perfect_Essence_of_Command",
+    "url": "https://poe2db.tw/us/Perfect_Essence_of_Command",
+    "retrievedAt": "2026-10-03T14:19:17.445Z",
+    "sha256": "ef32897f0404f3252382abb6178701af671c6f492a997e44b534394bb2419032",
+    "card": "Perfect Essence of Command Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierSceptre: Aura Skills have (15—20)% increased Magnitudes Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+    "row": {
+      "type": "essence",
+      "Level": "72",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [],
+      "fossil_no": [],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/e9a782ae7d3206e785b6fd9f952e0891dd162346b7f9e5dbe019c752d1912b9a\" href=\"Perfect_Essence_of_Command\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/AllyEssencePerfect.webp\" alt=\"AllyEssencePerfect\" height=\"16\" />Perfect Essence of Command</a>",
+      "Code": "EssenceAuraEffect1",
+      "ModFamilyList": [
+        "AuraEffect"
+      ],
+      "str": "<a data-keyword=\"Aura\" href=\"Auras\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9c33e23c455e029b1d437a71f978feba47c97fc78c293518c0554551040dbc59\">Aura</a> Skills have <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitudes</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 57,
+      "IsPerfect": "1",
+      "IsAlloy": false,
+      "Removes": true
+    },
+    "detailUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAuraEffect1",
+    "detailRetrievedAt": "2026-10-03T16:10:55.119Z",
+    "detailSha256": "e2ce8fb18c49a4b00397c088be4f6d0cdef140060ce6ea98452c019c4a02dad4",
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><a data-keyword=\"Aura\" href=\"Auras\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/9c33e23c455e029b1d437a71f978feba47c97fc78c293518c0554551040dbc59\">Aura</a> Skills have <span class='mod-value'>(15<span class=\"ndash\">—</span>20)</span>% increased <a data-keyword=\"BuffMagnitude\" href=\"Buff_Debuff_Magnitude\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/6ddd7dbb8996529f934041ebd9ccc413104a06d1266ab7a3ec342dfdc4e3c6b4\">Magnitudes</a></span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>AuraEffect\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>72 (Effective: 57)\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>aura effect +% <span class=\"badge bg-primary\">15 <span class=\"ndash\">—</span> 20</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+    "parsed": {
+      "fields": {
+        "Name": "of the Essence",
+        "Family": "AuraEffect",
+        "Domains": "Item (1)",
+        "GenerationType": "Suffix (2)",
+        "Req. level": "72 (Effective: 57)",
+        "Gold Price": "3266",
+        "Stats": "aura effect +% 15 — 20 Global",
+        "Spawn Tags": "default: 0"
+      },
+      "effect": "Aura Skills have (15—20)% increased Magnitudes",
+      "stats": [
+        {
+          "id": "aura_effect_+%",
+          "bounds": [
+            15,
+            20
+          ]
+        }
+      ],
+      "sameEffect": true
+    },
+    "minimumSupportedItemLevel": 72,
+    "requiredCharacterLevel": 57,
+    "matchedModifierIds": [
+      "rattling-sceptre:suffix:essence-aura-magnitude"
+    ]
+  }
+]

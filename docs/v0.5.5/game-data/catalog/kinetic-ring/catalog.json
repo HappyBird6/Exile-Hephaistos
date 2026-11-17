@@ -1,0 +1,5676 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-kinetic-ring-20261004-e64c792ee0b0833f",
+    "retrievedAt": "2026-10-04T20:54:49.880Z",
+    "sourceUrl": "https://poe2db.tw/us/Rings",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0",
+    "detailsSha256": "496b4079ebbb1d8265c7ba0b8faa56ccbec66577f422d931fc1b82e7cd1ed1c4",
+    "prefixCount": 103,
+    "suffixCount": 105,
+    "prefixWeight": 69500,
+    "suffixWeight": 87105
+  },
+  "base": {
+    "id": "Metadata/Items/Rings/FourRingB4",
+    "name": "Kinetic Ring",
+    "sourceUrl": "https://poe2db.tw/us/Kinetic_Ring",
+    "implicitModifierId": "kinetic:implicit:physicaldamage",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifiers": [
+    {
+      "id": "kinetic:implicit:physicaldamage",
+      "name": "Kinetic Ring implicit",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "text": "Adds (6—9) to (11—15) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 11,
+          "max": 15
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 6,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Kinetic_Ring"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-brute",
+      "name": "of the Brute",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength1"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-wrestler",
+      "name": "of the Wrestler",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(9—12) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-bear",
+      "name": "of the Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(13—16) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength3"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-lion",
+      "name": "of the Lion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(17—20) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength4"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-gorilla",
+      "name": "of the Gorilla",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(21—24) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength5"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-goliath",
+      "name": "of the Goliath",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(25—27) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength6"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-leviathan",
+      "name": "of the Leviathan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(28—30) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength7"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-titan",
+      "name": "of the Titan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(31—33) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength8"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-mongoose",
+      "name": "of the Mongoose",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity1"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-lynx",
+      "name": "of the Lynx",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(9—12) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-fox",
+      "name": "of the Fox",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(13—16) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity3"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-falcon",
+      "name": "of the Falcon",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(17—20) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity4"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-panther",
+      "name": "of the Panther",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(21—24) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity5"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-leopard",
+      "name": "of the Leopard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(25—27) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity6"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-jaguar",
+      "name": "of the Jaguar",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(28—30) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity7"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-phantom",
+      "name": "of the Phantom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(31—33) to Dexterity",
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FDexterity8"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-pupil",
+      "name": "of the Pupil",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence1"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-student",
+      "name": "of the Student",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(9—12) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-prodigy",
+      "name": "of the Prodigy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(13—16) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence3"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-augur",
+      "name": "of the Augur",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(17—20) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence4"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-philosopher",
+      "name": "of the Philosopher",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(21—24) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence5"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-sage",
+      "name": "of the Sage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(25—27) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence6"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-savant",
+      "name": "of the Savant",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(28—30) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence7"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-virtuoso",
+      "name": "of the Virtuoso",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(31—33) to Intelligence",
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIntelligence8"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-clouds",
+      "name": "of the Clouds",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 400,
+      "tier": 4,
+      "text": "+(2—4) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAllAttributes1"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-sky",
+      "name": "of the Sky",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 400,
+      "tier": 3,
+      "text": "+(5—7) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAllAttributes2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-meteor",
+      "name": "of the Meteor",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 400,
+      "tier": 2,
+      "text": "+(8—10) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAllAttributes3"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-comet",
+      "name": "of the Comet",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 400,
+      "tier": 1,
+      "text": "+(11—13) to all Attributes",
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 11,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAllAttributes4"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-whelpling",
+      "name": "of the Whelpling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist1"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-salamander",
+      "name": "of the Salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-drake",
+      "name": "of the Drake",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist3"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-kiln",
+      "name": "of the Kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist4"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-furnace",
+      "name": "of the Furnace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist5"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-volcano",
+      "name": "of the Volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist6"
+    },
+    {
+      "id": "iron-ring:suffix:of-magma",
+      "name": "of Magma",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist7"
+    },
+    {
+      "id": "iron-ring:suffix:of-tzteosh",
+      "name": "of Tzteosh",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist8"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-seal",
+      "name": "of the Seal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist1"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-penguin",
+      "name": "of the Penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-narwhal",
+      "name": "of the Narwhal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist3"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-yeti",
+      "name": "of the Yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist4"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-walrus",
+      "name": "of the Walrus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist5"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-polar-bear",
+      "name": "of the Polar Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist6"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-ice",
+      "name": "of the Ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist7"
+    },
+    {
+      "id": "iron-ring:suffix:of-haast",
+      "name": "of Haast",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist8"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-cloud",
+      "name": "of the Cloud",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist1"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-squall",
+      "name": "of the Squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-storm",
+      "name": "of the Storm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist3"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-thunderhead",
+      "name": "of the Thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist4"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-tempest",
+      "name": "of the Tempest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist5"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-maelstrom",
+      "name": "of the Maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist6"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-lightning",
+      "name": "of the Lightning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist7"
+    },
+    {
+      "id": "iron-ring:suffix:of-ephij",
+      "name": "of Ephij",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist8"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-crystal",
+      "name": "of the Crystal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 800,
+      "tier": 5,
+      "text": "+(3—5)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAllResistances1"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-prism",
+      "name": "of the Prism",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 4,
+      "text": "+(6—8)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 6,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAllResistances2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-kaleidoscope",
+      "name": "of the Kaleidoscope",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 800,
+      "tier": 3,
+      "text": "+(9—11)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 9,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAllResistances3"
+    },
+    {
+      "id": "iron-ring:suffix:of-variegation",
+      "name": "of Variegation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 800,
+      "tier": 2,
+      "text": "+(12—14)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 12,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAllResistances4"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-rainbow",
+      "name": "of the Rainbow",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 800,
+      "tier": 1,
+      "text": "+(15—16)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 15,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAllResistances5"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-lost",
+      "name": "of the Lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 250,
+      "tier": 6,
+      "text": "+(4—7)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist1"
+    },
+    {
+      "id": "iron-ring:suffix:of-banishment",
+      "name": "of Banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 250,
+      "tier": 5,
+      "text": "+(8—11)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist2"
+    },
+    {
+      "id": "iron-ring:suffix:of-eviction",
+      "name": "of Eviction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 250,
+      "tier": 4,
+      "text": "+(12—15)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist3"
+    },
+    {
+      "id": "iron-ring:suffix:of-expulsion",
+      "name": "of Expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 250,
+      "tier": 3,
+      "text": "+(16—19)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist4"
+    },
+    {
+      "id": "iron-ring:suffix:of-exile",
+      "name": "of Exile",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 250,
+      "tier": 2,
+      "text": "+(20—23)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist5"
+    },
+    {
+      "id": "iron-ring:suffix:of-bameth",
+      "name": "of Bameth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 250,
+      "tier": 1,
+      "text": "+(24—27)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist6"
+    },
+    {
+      "id": "iron-ring:prefix:hale",
+      "name": "Hale",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(10—19) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife1"
+    },
+    {
+      "id": "iron-ring:prefix:healthy",
+      "name": "Healthy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(20—29) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife2"
+    },
+    {
+      "id": "iron-ring:prefix:sanguine",
+      "name": "Sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(30—39) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife3"
+    },
+    {
+      "id": "iron-ring:prefix:stalwart",
+      "name": "Stalwart",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(40—59) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 40,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife4"
+    },
+    {
+      "id": "iron-ring:prefix:stout",
+      "name": "Stout",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(60—69) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife5"
+    },
+    {
+      "id": "iron-ring:prefix:robust",
+      "name": "Robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(70—84) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife6"
+    },
+    {
+      "id": "iron-ring:prefix:rotund",
+      "name": "Rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(85—99) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife7"
+    },
+    {
+      "id": "iron-ring:prefix:virile",
+      "name": "Virile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(100—119) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife8"
+    },
+    {
+      "id": "iron-ring:prefix:beryl",
+      "name": "Beryl",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 12,
+      "text": "+(10—14) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana1"
+    },
+    {
+      "id": "iron-ring:prefix:cobalt",
+      "name": "Cobalt",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 11,
+      "text": "+(15—24) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 15,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana2"
+    },
+    {
+      "id": "iron-ring:prefix:azure",
+      "name": "Azure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 10,
+      "text": "+(25—34) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana3"
+    },
+    {
+      "id": "iron-ring:prefix:teal",
+      "name": "Teal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(35—54) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 35,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana4"
+    },
+    {
+      "id": "iron-ring:prefix:cerulean",
+      "name": "Cerulean",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(55—64) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana5"
+    },
+    {
+      "id": "iron-ring:prefix:aqua",
+      "name": "Aqua",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(65—79) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 65,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana6"
+    },
+    {
+      "id": "iron-ring:prefix:opalescent",
+      "name": "Opalescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(80—89) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana7"
+    },
+    {
+      "id": "iron-ring:prefix:gentian",
+      "name": "Gentian",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(90—104) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana8"
+    },
+    {
+      "id": "iron-ring:prefix:chalybeous",
+      "name": "Chalybeous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(105—124) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 105,
+          "max": 124
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana9"
+    },
+    {
+      "id": "iron-ring:prefix:mazarine",
+      "name": "Mazarine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(125—149) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 125,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana10"
+    },
+    {
+      "id": "iron-ring:prefix:blue",
+      "name": "Blue",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(150—164) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 150,
+          "max": 164
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana11"
+    },
+    {
+      "id": "iron-ring:prefix:zaffre",
+      "name": "Zaffre",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(165—179) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 165,
+          "max": 179
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana12"
+    },
+    {
+      "id": "iron-ring:prefix:agile",
+      "name": "Agile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(8—17) to Evasion Rating",
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 8,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedEvasionRating1"
+    },
+    {
+      "id": "iron-ring:prefix:dancer-s",
+      "name": "Dancer's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(18—38) to Evasion Rating",
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 18,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedEvasionRating2"
+    },
+    {
+      "id": "iron-ring:prefix:acrobat-s",
+      "name": "Acrobat's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(39—51) to Evasion Rating",
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 39,
+          "max": 51
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedEvasionRating3"
+    },
+    {
+      "id": "iron-ring:prefix:fleet",
+      "name": "Fleet",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(52—79) to Evasion Rating",
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 52,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedEvasionRating4"
+    },
+    {
+      "id": "iron-ring:prefix:blurred",
+      "name": "Blurred",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(80—107) to Evasion Rating",
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 80,
+          "max": 107
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedEvasionRating5"
+    },
+    {
+      "id": "iron-ring:prefix:phased",
+      "name": "Phased",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(108—141) to Evasion Rating",
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 108,
+          "max": 141
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedEvasionRating6"
+    },
+    {
+      "id": "iron-ring:prefix:vaporous",
+      "name": "Vaporous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(142—174) to Evasion Rating",
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 142,
+          "max": 174
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedEvasionRating7"
+    },
+    {
+      "id": "iron-ring:prefix:elusory",
+      "name": "Elusory",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(175—202) to Evasion Rating",
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 175,
+          "max": 202
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedEvasionRating8"
+    },
+    {
+      "id": "iron-ring:prefix:adroit",
+      "name": "Adroit",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEvasionRating"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(203—233) to Evasion Rating",
+      "stats": [
+        {
+          "id": "base_evasion_rating",
+          "min": 203,
+          "max": 233
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedEvasionRating9"
+    },
+    {
+      "id": "iron-ring:prefix:glinting",
+      "name": "Glinting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "text": "Adds (1—2) to 3 Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage1"
+    },
+    {
+      "id": "iron-ring:prefix:burnished",
+      "name": "Burnished",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 8,
+      "text": "Adds (2—3) to (4—6) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage2"
+    },
+    {
+      "id": "iron-ring:prefix:polished",
+      "name": "Polished",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "text": "Adds (2—4) to (5—8) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 5,
+          "max": 8
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage3"
+    },
+    {
+      "id": "iron-ring:prefix:honed",
+      "name": "Honed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "text": "Adds (4—6) to (8—11) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 8,
+          "max": 11
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage4"
+    },
+    {
+      "id": "iron-ring:prefix:gleaming",
+      "name": "Gleaming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "text": "Adds (5—7) to (9—13) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 9,
+          "max": 13
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage5"
+    },
+    {
+      "id": "iron-ring:prefix:annealed",
+      "name": "Annealed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "text": "Adds (6—10) to (12—17) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 12,
+          "max": 17
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage6"
+    },
+    {
+      "id": "iron-ring:prefix:razor-sharp",
+      "name": "Razor-sharp",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 800,
+      "tier": 3,
+      "text": "Adds (7—11) to (14—20) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 14,
+          "max": 20
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 7,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage7"
+    },
+    {
+      "id": "iron-ring:prefix:tempered",
+      "name": "Tempered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 600,
+      "tier": 2,
+      "text": "Adds (10—15) to (18—26) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage8"
+    },
+    {
+      "id": "iron-ring:prefix:flaring",
+      "name": "Flaring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 400,
+      "tier": 1,
+      "text": "Adds (12—19) to (22—32) Physical Damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_physical_damage",
+          "min": 22,
+          "max": 32
+        },
+        {
+          "id": "attack_minimum_added_physical_damage",
+          "min": 12,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedPhysicalDamage9"
+    },
+    {
+      "id": "iron-ring:prefix:heated",
+      "name": "Heated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 9,
+      "text": "Adds (1—2) to 3 Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 3,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage1"
+    },
+    {
+      "id": "iron-ring:prefix:smouldering",
+      "name": "Smouldering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 8,
+      "text": "Adds (3—5) to (6—9) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage2"
+    },
+    {
+      "id": "iron-ring:prefix:smoking",
+      "name": "Smoking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 7,
+      "text": "Adds (6—8) to (10—13) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 10,
+          "max": 13
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 6,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage3"
+    },
+    {
+      "id": "iron-ring:prefix:burning",
+      "name": "Burning",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "text": "Adds (9—11) to (14—17) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 14,
+          "max": 17
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 9,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage4"
+    },
+    {
+      "id": "iron-ring:prefix:flaming",
+      "name": "Flaming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "text": "Adds (12—13) to (18—20) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 18,
+          "max": 20
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 12,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage5"
+    },
+    {
+      "id": "iron-ring:prefix:scorching",
+      "name": "Scorching",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 500,
+      "tier": 4,
+      "text": "Adds (11—16) to (21—26) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage6"
+    },
+    {
+      "id": "iron-ring:prefix:incinerating",
+      "name": "Incinerating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 400,
+      "tier": 3,
+      "text": "Adds (13—19) to (27—32) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 13,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage7"
+    },
+    {
+      "id": "iron-ring:prefix:blasting",
+      "name": "Blasting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 300,
+      "tier": 2,
+      "text": "Adds (20—24) to (33—36) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 33,
+          "max": 36
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage8"
+    },
+    {
+      "id": "iron-ring:prefix:cremating",
+      "name": "Cremating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 200,
+      "tier": 1,
+      "text": "Adds (25—29) to (37—45) Fire damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_fire_damage",
+          "min": 37,
+          "max": 45
+        },
+        {
+          "id": "attack_minimum_added_fire_damage",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedFireDamage9"
+    },
+    {
+      "id": "iron-ring:prefix:frosted",
+      "name": "Frosted",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 9,
+      "text": "Adds 1 to (2—3) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage1"
+    },
+    {
+      "id": "iron-ring:prefix:chilled",
+      "name": "Chilled",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 8,
+      "text": "Adds (3—4) to (5—8) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 5,
+          "max": 8
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage2"
+    },
+    {
+      "id": "iron-ring:prefix:icy",
+      "name": "Icy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 7,
+      "text": "Adds (5—6) to (9—11) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 9,
+          "max": 11
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage3"
+    },
+    {
+      "id": "iron-ring:prefix:frigid",
+      "name": "Frigid",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "text": "Adds (7—8) to (12—14) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 12,
+          "max": 14
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 7,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage4"
+    },
+    {
+      "id": "iron-ring:prefix:freezing",
+      "name": "Freezing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "text": "Adds (9—10) to (15—17) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 15,
+          "max": 17
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 9,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage5"
+    },
+    {
+      "id": "iron-ring:prefix:frozen",
+      "name": "Frozen",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 500,
+      "tier": 4,
+      "text": "Adds (11—13) to (18—21) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 18,
+          "max": 21
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 11,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage6"
+    },
+    {
+      "id": "iron-ring:prefix:glaciated",
+      "name": "Glaciated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 400,
+      "tier": 3,
+      "text": "Adds (14—15) to (22—24) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 22,
+          "max": 24
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 14,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage7"
+    },
+    {
+      "id": "iron-ring:prefix:polar",
+      "name": "Polar",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 300,
+      "tier": 2,
+      "text": "Adds (16—20) to (25—31) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 25,
+          "max": 31
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage8"
+    },
+    {
+      "id": "iron-ring:prefix:entombing",
+      "name": "Entombing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 200,
+      "tier": 1,
+      "text": "Adds (21—24) to (32—37) Cold damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_cold_damage",
+          "min": 32,
+          "max": 37
+        },
+        {
+          "id": "attack_minimum_added_cold_damage",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedColdDamage9"
+    },
+    {
+      "id": "iron-ring:prefix:humming",
+      "name": "Humming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 9,
+      "text": "Adds 1 to (4—6) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage1"
+    },
+    {
+      "id": "iron-ring:prefix:buzzing",
+      "name": "Buzzing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 8,
+      "text": "Adds 1 to (10—15) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage2"
+    },
+    {
+      "id": "iron-ring:prefix:snapping",
+      "name": "Snapping",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 7,
+      "text": "Adds 1 to (16—22) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 16,
+          "max": 22
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage3"
+    },
+    {
+      "id": "iron-ring:prefix:crackling",
+      "name": "Crackling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "text": "Adds 1 to (23—27) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 23,
+          "max": 27
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage4"
+    },
+    {
+      "id": "iron-ring:prefix:sparking",
+      "name": "Sparking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "text": "Adds 1 to (28—32) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 28,
+          "max": 32
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage5"
+    },
+    {
+      "id": "iron-ring:prefix:arcing",
+      "name": "Arcing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 500,
+      "tier": 4,
+      "text": "Adds (1—2) to (33—40) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 33,
+          "max": 40
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage6"
+    },
+    {
+      "id": "iron-ring:prefix:shocking",
+      "name": "Shocking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 400,
+      "tier": 3,
+      "text": "Adds (1—2) to (41—47) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 41,
+          "max": 47
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage7"
+    },
+    {
+      "id": "iron-ring:prefix:discharging",
+      "name": "Discharging",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 300,
+      "tier": 2,
+      "text": "Adds (1—3) to (48—59) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 48,
+          "max": 59
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage8"
+    },
+    {
+      "id": "iron-ring:prefix:electrocuting",
+      "name": "Electrocuting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 200,
+      "tier": 1,
+      "text": "Adds (1—4) to (60—71) Lightning damage to Attacks",
+      "stats": [
+        {
+          "id": "attack_maximum_added_lightning_damage",
+          "min": 60,
+          "max": 71
+        },
+        {
+          "id": "attack_minimum_added_lightning_damage",
+          "min": 1,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAddedLightningDamage9"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-newt",
+      "name": "of the Newt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(1—2) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 60,
+          "max": 120
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration1"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-lizard",
+      "name": "of the Lizard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(2.1—3) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 126,
+          "max": 180
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-flatworm",
+      "name": "of the Flatworm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(3.1—4) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 186,
+          "max": 240
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration3"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-starfish",
+      "name": "of the Starfish",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 17,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(4.1—6) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 246,
+          "max": 360
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration4"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-hydra",
+      "name": "of the Hydra",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(6.1—9) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 366,
+          "max": 540
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration5"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-troll",
+      "name": "of the Troll",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(9.1—13) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 546,
+          "max": 780
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration6"
+    },
+    {
+      "id": "iron-ring:suffix:of-convalescence",
+      "name": "of Convalescence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(13.1—18) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 786,
+          "max": 1080
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration7"
+    },
+    {
+      "id": "iron-ring:suffix:of-excitement",
+      "name": "of Excitement",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(10—19)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration1"
+    },
+    {
+      "id": "iron-ring:suffix:of-joy",
+      "name": "of Joy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(20—29)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration2"
+    },
+    {
+      "id": "iron-ring:suffix:of-elation",
+      "name": "of Elation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(30—39)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration3"
+    },
+    {
+      "id": "iron-ring:suffix:of-bliss",
+      "name": "of Bliss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 42,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(40—49)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 40,
+          "max": 49
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration4"
+    },
+    {
+      "id": "iron-ring:suffix:of-euphoria",
+      "name": "of Euphoria",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(50—59)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 50,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration5"
+    },
+    {
+      "id": "iron-ring:suffix:of-nirvana",
+      "name": "of Nirvana",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(60—69)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration6"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-locust",
+      "name": "of the Locust",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 2,
+      "text": "Leech (6—6.9)% of Physical Attack Damage as Life",
+      "stats": [
+        {
+          "id": "base_life_leech_from_physical_attack_damage_permyriad",
+          "min": 600,
+          "max": 690
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeLeech2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-remora",
+      "name": "of the Remora",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 1,
+      "text": "Leech (7—7.9)% of Physical Attack Damage as Life",
+      "stats": [
+        {
+          "id": "base_life_leech_from_physical_attack_damage_permyriad",
+          "min": 700,
+          "max": 790
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeLeech3"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-parched",
+      "name": "of the Parched",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaLeech"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 2,
+      "text": "Leech (5—5.9)% of Physical Attack Damage as Mana",
+      "stats": [
+        {
+          "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+          "min": 500,
+          "max": 590
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaLeech2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-arid",
+      "name": "of the Arid",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaLeech"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 1,
+      "text": "Leech (6—6.9)% of Physical Attack Damage as Mana",
+      "stats": [
+        {
+          "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+          "min": 600,
+          "max": 690
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana",
+        "physical",
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaLeech3"
+    },
+    {
+      "id": "iron-ring:suffix:of-success",
+      "name": "of Success",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 6,
+      "text": "Gain (4—6) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath1"
+    },
+    {
+      "id": "iron-ring:suffix:of-victory",
+      "name": "of Victory",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 750,
+      "tier": 5,
+      "text": "Gain (7—9) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 7,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath2"
+    },
+    {
+      "id": "iron-ring:suffix:of-triumph",
+      "name": "of Triumph",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 750,
+      "tier": 4,
+      "text": "Gain (10—18) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 10,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath3"
+    },
+    {
+      "id": "iron-ring:suffix:of-conquest",
+      "name": "of Conquest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 750,
+      "tier": 3,
+      "text": "Gain (19—28) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 19,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath4"
+    },
+    {
+      "id": "iron-ring:suffix:of-vanquishing",
+      "name": "of Vanquishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 750,
+      "tier": 2,
+      "text": "Gain (29—40) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 29,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath5"
+    },
+    {
+      "id": "iron-ring:suffix:of-valour",
+      "name": "of Valour",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 750,
+      "tier": 1,
+      "text": "Gain (41—53) Life per enemy killed",
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 41,
+          "max": 53
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeGainedFromEnemyDeath6"
+    },
+    {
+      "id": "iron-ring:suffix:of-absorption",
+      "name": "of Absorption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 6,
+      "text": "Gain (2—3) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath1"
+    },
+    {
+      "id": "iron-ring:suffix:of-osmosis",
+      "name": "of Osmosis",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 750,
+      "tier": 5,
+      "text": "Gain (4—5) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 4,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath2"
+    },
+    {
+      "id": "iron-ring:suffix:of-infusion",
+      "name": "of Infusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 23,
+      "weight": 750,
+      "tier": 4,
+      "text": "Gain (6—9) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 6,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath3"
+    },
+    {
+      "id": "iron-ring:suffix:of-enveloping",
+      "name": "of Enveloping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 34,
+      "weight": 750,
+      "tier": 3,
+      "text": "Gain (10—14) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath4"
+    },
+    {
+      "id": "iron-ring:suffix:of-consumption",
+      "name": "of Consumption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 750,
+      "tier": 2,
+      "text": "Gain (15—20) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath5"
+    },
+    {
+      "id": "iron-ring:suffix:of-siphoning",
+      "name": "of Siphoning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 750,
+      "tier": 1,
+      "text": "Gain (21—27) Mana per enemy killed",
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 21,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaGainedFromEnemyDeath6"
+    },
+    {
+      "id": "iron-ring:prefix:precise",
+      "name": "Precise",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 8,
+      "text": "+(11—32) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 11,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy1"
+    },
+    {
+      "id": "iron-ring:prefix:reliable",
+      "name": "Reliable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 800,
+      "tier": 7,
+      "text": "+(33—60) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 33,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy2"
+    },
+    {
+      "id": "iron-ring:prefix:focused",
+      "name": "Focused",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 6,
+      "text": "+(61—84) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 61,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy3"
+    },
+    {
+      "id": "iron-ring:prefix:deliberate",
+      "name": "Deliberate",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 5,
+      "text": "+(85—123) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 85,
+          "max": 123
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy4"
+    },
+    {
+      "id": "iron-ring:prefix:consistent",
+      "name": "Consistent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 4,
+      "text": "+(124—167) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 124,
+          "max": 167
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy5"
+    },
+    {
+      "id": "iron-ring:prefix:steady",
+      "name": "Steady",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 800,
+      "tier": 3,
+      "text": "+(168—236) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 168,
+          "max": 236
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy6"
+    },
+    {
+      "id": "iron-ring:prefix:hunter-s",
+      "name": "Hunter's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 800,
+      "tier": 2,
+      "text": "+(237—346) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 237,
+          "max": 346
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy7"
+    },
+    {
+      "id": "iron-ring:prefix:ranger-s",
+      "name": "Ranger's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 67,
+      "weight": 400,
+      "tier": 1,
+      "text": "+(347—450) to Accuracy Rating",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 347,
+          "max": 450
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedAccuracy8"
+    },
+    {
+      "id": "iron-ring:suffix:of-plunder",
+      "name": "of Plunder",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 3,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(6—10)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncrease1"
+    },
+    {
+      "id": "iron-ring:suffix:of-raiding",
+      "name": "of Raiding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(11—14)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 11,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncrease2"
+    },
+    {
+      "id": "iron-ring:suffix:of-archaeology",
+      "name": "of Archaeology",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(15—18)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 15,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncrease3"
+    },
+    {
+      "id": "iron-ring:prefix:magpie-s",
+      "name": "Magpie's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ItemFoundRarityIncreasePrefix"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(8—11)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncreasePrefix1"
+    },
+    {
+      "id": "iron-ring:prefix:collector-s",
+      "name": "Collector's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ItemFoundRarityIncreasePrefix"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(12—15)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncreasePrefix2"
+    },
+    {
+      "id": "iron-ring:prefix:hoarder-s",
+      "name": "Hoarder's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ItemFoundRarityIncreasePrefix"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(16—19)% increased Rarity of Items found",
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FItemFoundRarityIncreasePrefix3"
+    },
+    {
+      "id": "iron-ring:suffix:of-warmth",
+      "name": "of Warmth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightRadiusAndManaRegeneration"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(8—12)% increased Mana Regeneration Rate5% increased Light Radius",
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 5,
+          "max": 5
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration1"
+    },
+    {
+      "id": "iron-ring:suffix:of-kindling",
+      "name": "of Kindling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightRadiusAndManaRegeneration"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(13—17)% increased Mana Regeneration Rate10% increased Light Radius",
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 10,
+          "max": 10
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration2"
+    },
+    {
+      "id": "iron-ring:suffix:of-the-hearth",
+      "name": "of the Hearth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightRadiusAndManaRegeneration"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(18—22)% increased Mana Regeneration Rate15% increased Light Radius",
+      "stats": [
+        {
+          "id": "light_radius_+%",
+          "min": 15,
+          "max": 15
+        },
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightRadiusAndManaRegeneration3"
+    },
+    {
+      "id": "iron-ring:prefix:searing",
+      "name": "Searing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 6,
+      "text": "(3—7)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePercent1"
+    },
+    {
+      "id": "iron-ring:prefix:sizzling",
+      "name": "Sizzling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "text": "(8—12)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePercent2"
+    },
+    {
+      "id": "iron-ring:prefix:blistering",
+      "name": "Blistering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "text": "(13—17)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePercent3"
+    },
+    {
+      "id": "iron-ring:prefix:cauterising",
+      "name": "Cauterising",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "text": "(18—22)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePercent4"
+    },
+    {
+      "id": "iron-ring:prefix:volcanic",
+      "name": "Volcanic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 500,
+      "tier": 2,
+      "text": "(23—26)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePercent5"
+    },
+    {
+      "id": "iron-ring:prefix:magmatic",
+      "name": "Magmatic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "text": "(27—30)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "fire_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireDamagePercent6"
+    },
+    {
+      "id": "iron-ring:prefix:bitter",
+      "name": "Bitter",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 6,
+      "text": "(3—7)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePercent1"
+    },
+    {
+      "id": "iron-ring:prefix:biting",
+      "name": "Biting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "text": "(8—12)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePercent2"
+    },
+    {
+      "id": "iron-ring:prefix:alpine",
+      "name": "Alpine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "text": "(13—17)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePercent3"
+    },
+    {
+      "id": "iron-ring:prefix:snowy",
+      "name": "Snowy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "text": "(18—22)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePercent4"
+    },
+    {
+      "id": "iron-ring:prefix:hailing",
+      "name": "Hailing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 500,
+      "tier": 2,
+      "text": "(23—26)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePercent5"
+    },
+    {
+      "id": "iron-ring:prefix:crystalline",
+      "name": "Crystalline",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "text": "(27—30)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "cold_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdDamagePercent6"
+    },
+    {
+      "id": "iron-ring:prefix:charged",
+      "name": "Charged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 6,
+      "text": "(3—7)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePercent1"
+    },
+    {
+      "id": "iron-ring:prefix:hissing",
+      "name": "Hissing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "text": "(8—12)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePercent2"
+    },
+    {
+      "id": "iron-ring:prefix:bolting",
+      "name": "Bolting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "text": "(13—17)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePercent3"
+    },
+    {
+      "id": "iron-ring:prefix:coursing",
+      "name": "Coursing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "text": "(18—22)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePercent4"
+    },
+    {
+      "id": "iron-ring:prefix:striking",
+      "name": "Striking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 500,
+      "tier": 2,
+      "text": "(23—26)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePercent5"
+    },
+    {
+      "id": "iron-ring:prefix:smiting",
+      "name": "Smiting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "text": "(27—30)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "lightning_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningDamagePercent6"
+    },
+    {
+      "id": "iron-ring:prefix:impure",
+      "name": "Impure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 500,
+      "tier": 6,
+      "text": "(3—7)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePercent1"
+    },
+    {
+      "id": "iron-ring:prefix:tainted",
+      "name": "Tainted",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 5,
+      "text": "(8—12)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePercent2"
+    },
+    {
+      "id": "iron-ring:prefix:clouded",
+      "name": "Clouded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 4,
+      "text": "(13—17)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePercent3"
+    },
+    {
+      "id": "iron-ring:prefix:darkened",
+      "name": "Darkened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 3,
+      "text": "(18—22)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePercent4"
+    },
+    {
+      "id": "iron-ring:prefix:malignant",
+      "name": "Malignant",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 500,
+      "tier": 2,
+      "text": "(23—26)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePercent5"
+    },
+    {
+      "id": "iron-ring:prefix:vile",
+      "name": "Vile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 500,
+      "tier": 1,
+      "text": "(27—30)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "chaos_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosDamagePercent6"
+    },
+    {
+      "id": "iron-ring:suffix:of-talent",
+      "name": "of Talent",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 5,
+      "text": "(9—12)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FCastSpeedJewellery1"
+    },
+    {
+      "id": "iron-ring:suffix:of-nimbleness",
+      "name": "of Nimbleness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 1,
+      "tier": 4,
+      "text": "(13—15)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FCastSpeedJewellery2"
+    },
+    {
+      "id": "iron-ring:suffix:of-expertise",
+      "name": "of Expertise",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1,
+      "tier": 3,
+      "text": "(16—18)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FCastSpeedJewellery3"
+    },
+    {
+      "id": "iron-ring:suffix:of-sortilege",
+      "name": "of Sortilege",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 51,
+      "weight": 1,
+      "tier": 2,
+      "text": "(19—21)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FCastSpeedJewellery4"
+    },
+    {
+      "id": "iron-ring:suffix:of-legerdemain",
+      "name": "of Legerdemain",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 1,
+      "text": "(22—24)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FCastSpeedJewellery5"
+    },
+    {
+      "id": "iron-ring:prefix:essence-increased-maximum-mana",
+      "name": "Essences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(4—6)% increased maximum Mana",
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedManaPercent1"
+    },
+    {
+      "id": "stocky-mitts:prefix:essence-abyssal-mark",
+      "name": "Abyssal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix"
+    },
+    {
+      "id": "stocky-mitts:suffix:essence-abyssal-mark",
+      "name": "of the Abyss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix"
+    },
+    {
+      "id": "amulet:prefix:essence-maximum-quality",
+      "name": "Breachlord's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LocalMaximumQuality"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+20% to Maximum Quality",
+      "stats": [
+        {
+          "id": "local_maximum_quality_+",
+          "min": 20,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceBreach"
+    },
+    {
+      "id": "ring:suffix:essence-hysteria-mana-regeneration",
+      "name": "of Euphoria",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 0,
+      "tier": 1,
+      "text": "(50—59)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 50,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FManaRegeneration5"
+    }
+  ]
+}

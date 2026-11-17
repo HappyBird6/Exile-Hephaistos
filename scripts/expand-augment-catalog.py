@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 def audit():
     catalog = json.loads((ROOT / 'backend/src/main/resources/catalog/augments.json').read_text())
     rules = json.loads((ROOT / 'backend/src/main/resources/catalog/augment-crafting.json').read_text())
-    source = json.loads((ROOT / 'docs/evidence/0.5.5/augment-expansion-20261105/cards.us.json').read_text())
+    source = json.loads((ROOT / 'docs/legacy/evidence/0.5.5/augment-expansion-20261105/cards.us.json').read_text())
     ids = {row['id'] for row in catalog}
     assert len(ids) == len(catalog), 'Duplicate Augment IDs'
     assert ids <= {row['id'] for row in source}, 'New source identities require source review'

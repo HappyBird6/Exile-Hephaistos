@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "snapshotId": "helmet-perfect-20261003-19cace75f418",
+    "retrievedAt": "2026-10-03T17:41:46.828Z",
+    "sourceUrl": "https://poe2db.tw/us/Helmets_str",
+    "rawSha256": "19cace75f41855b78d2dad52ddd637e64837263cddf8c100b7543a9878f9b943"
+  },
+  "modifiers": [
+    {
+      "id": "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdDamageTakenRecoupedAsLife"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(26—30)% of Cold Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "cold_damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceColdRecoupLife1"
+    }
+  ]
+}

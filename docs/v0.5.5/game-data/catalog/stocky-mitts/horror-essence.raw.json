@@ -1,0 +1,38 @@
+{
+  "row": {
+    "type": "essence",
+    "Level": "1",
+    "DropChance": 0,
+    "ModGenerationTypeID": "2",
+    "mod_no": [],
+    "fossil_no": [],
+    "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/3f586f305b57cae17cee1ceabdf06677b7a54dfd9120e6785ddab731a9fd5110\" href=\"Essence_of_Horror\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Essence/CorruptedEssenceHorror.webp\" alt=\"CorruptedEssenceHorror\" height=\"16\" />Essence of Horror</a>",
+    "Code": "EssenceLocalRuneAndSoulCoreEffect1",
+    "ModFamilyList": [
+      "SoulCore"
+    ],
+    "str": "<span class='mod-value'>60</span>% increased effect of Socketed <a data-keyword=\"Augment\" href=\"Augment\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/c39bcdf32d811d9233f59c1dced143bf90a65029a0c6aaa6947d388f3921d651\">Augment</a> Items",
+    "adds_no": [],
+    "spawn_no": [
+      "default"
+    ],
+    "reqlvl": 0,
+    "IsPerfect": "0",
+    "IsAlloy": false,
+    "Removes": true
+  },
+  "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1",
+  "retrievedAt": "2026-10-03T06:33:01.034Z",
+  "status": 200,
+  "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>60</span>% increased effect of Socketed <a data-keyword=\"Augment\" href=\"Augment\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/c39bcdf32d811d9233f59c1dced143bf90a65029a0c6aaa6947d388f3921d651\">Augment</a> Items</span></h5>   <span data-tabname=\"of the Essence\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Essence\n<tr><th>Family<td>SoulCore\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>1\n<tr><th>Gold Price<td>3266\n<tr><th>Stats<td><li>local socketed items effect +% <span class=\"badge bg-primary\">60 <span class=\"ndash\">—</span> 60</span> <span class=\"badge bg-secondary\">Local</span> <span class=\"badge bg-warning\"><span class=\"italic\"><span style=\"color:rgb(170,170,170)\"> — Unscalable Value</span></span></span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><td>Fists of Stone<td>Life [Flask|Flasks] gain <span class='mod-value'>(0.13<span class=\"ndash\">—</span>0.27)</span> charges per Second<br>Mana [Flask|Flasks] gain <span class='mod-value'>(0.13<span class=\"ndash\">—</span>0.27)</span> charges per Second</table>  </div></div>",
+  "parsed": {
+    "text": "60% increased effect of Socketed Augment Items   \nNameof the Essence\nFamilySoulCore\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level1\nGold Price3266\nStatslocal socketed items effect +% 60 — 60 Local  — Unscalable Value\nSpawn Tagsdefault: 0 \nFists of StoneLife [Flask|Flasks] gain (0.13—0.27) charges per SecondMana [Flask|Flasks] gain (0.13—0.27) charges per Second",
+    "stats": [
+      {
+        "caption": "local socketed items effect +%",
+        "bounds": "60 — 60",
+        "locality": "Local"
+      }
+    ]
+  }
+}

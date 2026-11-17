@@ -199,9 +199,9 @@ const report = {
   calls,
   passed: true,
 };
-fs.mkdirSync("docs/verification/socket-augments-20261105", { recursive: true });
+fs.mkdirSync("docs/legacy/verification/socket-augments-20261105", { recursive: true });
 fs.writeFileSync(
-  "docs/verification/socket-augments-20261105/api.json",
+  "docs/legacy/verification/socket-augments-20261105/api.json",
   JSON.stringify(report, null, 2) + "\n",
 );
 console.log(report);

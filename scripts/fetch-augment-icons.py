@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'frontend/public/assets/augments'
-EVIDENCE = ROOT / 'docs/evidence/0.5.5/augment-expansion-20261105'
+EVIDENCE = ROOT / 'docs/legacy/evidence/0.5.5/augment-expansion-20261105'
 
 
 def main():

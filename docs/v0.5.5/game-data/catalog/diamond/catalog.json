@@ -1,0 +1,4113 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-diamond-basic-potent-20261004-ede747edd595",
+    "retrievedAt": "2026-10-04T10:25:33.783Z",
+    "sourceUrl": "https://poe2db.tw/us/Diamond",
+    "weightPolicy": "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS",
+    "rawSha256": "ede747edd595fe7af3263b4d2b7079c112d3acc3d746946b1e2fae1d464a44bb",
+    "detailsSha256": "85189426d7cdd761d89cfcd10b120ad15209baaf9fd3273b71adfe04903173ab",
+    "prefixCount": 72,
+    "suffixCount": 93,
+    "prefixWeight": 70,
+    "suffixWeight": 90
+  },
+  "base": {
+    "id": "Metadata/Items/Jewels/JewelDiamond",
+    "name": "Diamond",
+    "sourceUrl": "https://poe2db.tw/us/Diamond",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 2,
+    "rareSuffixes": 2
+  },
+  "modifiers": [
+    {
+      "id": "diamond:prefix:accurate",
+      "name": "Accurate",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracyPercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Accuracy Rating",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ca0de213478fb26a4a5d1ab2c13c16321536448b53f6e8f7f79b186246be1876"
+    },
+    {
+      "id": "diamond:suffix:of-ailing",
+      "name": "of Ailing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AilmentChance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased chance to inflict Ailments",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2cb0d253c07cb0a34afddbf435e68483693caa54c2dbedd84e971ddaf65943c3"
+    },
+    {
+      "id": "diamond:prefix:acrimonious",
+      "name": "Acrimonious",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AilmentEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Magnitude of Ailments you inflict",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "damage",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fd398bf5a9d833a6f5d15ef21dc837c2d1d00bbd0366c07a4d8decb18d997559"
+    },
+    {
+      "id": "diamond:suffix:of-enduring",
+      "name": "of Enduring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AilmentThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Elemental Ailment Threshold",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5621ee3d24c60253585052dc32306a537686395b67bfb334d5abf254e836f21e"
+    },
+    {
+      "id": "diamond:prefix:blasting",
+      "name": "Blasting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AreaOfEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(4—6)% increased Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/46e25dee58ebbd7b669acd122190ccf07df0f6664bc6c89c228be6a927d85583"
+    },
+    {
+      "id": "diamond:prefix:armoured",
+      "name": "Armoured",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Armour",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/14191f9b3de5c6737a6c5ff6c173f8efaee819313f6fcbf95aa62a7fce9bba12"
+    },
+    {
+      "id": "diamond:prefix:shattering",
+      "name": "Shattering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ArmourBreak"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Break (5—15)% increased Armour",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3e0ad26f2663b9a35fb3a41331f97b0fb676e748c2701ff7afad013e22c13cca"
+    },
+    {
+      "id": "diamond:suffix:resonating",
+      "name": "Resonating",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourBreakDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Armour Break Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c02ad5f0253f4d131e06cae8c720e08a71f9856ae6f6f55e62a2352e8239678f"
+    },
+    {
+      "id": "diamond:suffix:of-deadliness",
+      "name": "of Deadliness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(6—16)% increased Critical Hit Chance for Attacks",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/242fa60ed414503ab7fb7a03b242a9076a0f7d17adbf4dfc548cbb7465799eb3"
+    },
+    {
+      "id": "diamond:suffix:of-demolishing",
+      "name": "of Demolishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Critical Damage Bonus for Attack Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/10aec76ab3163c2f65a13f8ab4f9d6c7f32a5391bf15fb478e0779e67e150dd7"
+    },
+    {
+      "id": "diamond:prefix:combat",
+      "name": "Combat",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AttackDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Attack Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f55f32c487bbc43f7b4844d9ed1f6d962fe6dc1e93ad56facb0a575dbb13ccf2"
+    },
+    {
+      "id": "diamond:suffix:of-alacrity",
+      "name": "of Alacrity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Attack Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f355f7904f80df126f41e2274df4cec0d6f531e1f082633f4fda0b5c03332d5f"
+    },
+    {
+      "id": "diamond:prefix:bleeding",
+      "name": "Bleeding",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BleedChanceIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(3—7)% chance to inflict Bleeding on Hit",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5a519b6f60145612417f7790a45d951b37e444c9598c4164a3b096c74358f0a7"
+    },
+    {
+      "id": "diamond:suffix:of-haemophilia",
+      "name": "of Haemophilia",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BleedDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Bleeding Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "attack",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/db2845dfa17b09f0c988c1ee4a51d2b5cc0b4b6585808cfee37fabb2bb424238"
+    },
+    {
+      "id": "diamond:prefix:stifling",
+      "name": "Stifling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BlindEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Blind Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e59d825ef30717e73f6aa312bcd548a5b8b7b4b5ee920e124133e2f6d936969c"
+    },
+    {
+      "id": "diamond:suffix:of-blinding",
+      "name": "of Blinding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BlindOnHit"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(3—7)% chance to Blind Enemies on Hit with Attacks",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/45824e4179147cd49124766275d475a64e143f029556f50e88126e99bfb09edd"
+    },
+    {
+      "id": "diamond:prefix:protecting",
+      "name": "Protecting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedBlockChance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(3—7)% increased Block chance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "block"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ae4f2a0879fcfea4c9295b342e8900a6bd792b70c26239ebecad8f0803beec1a"
+    },
+    {
+      "id": "diamond:prefix:slaying",
+      "name": "Slaying",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageVsRareOrUnique"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Damage with Hits against Rare and Unique Enemies",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0294b637c30f5eedb2d160c7365575a6e15002f35504e1c09c0bc0f135cf244f"
+    },
+    {
+      "id": "diamond:prefix:precise",
+      "name": "Precise",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpecificWeaponAccuracy"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Accuracy Rating with Bows",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7dd2d1c081d829073c1d476b36514c891ceb79384aa45ae5f517b8c59f0807df"
+    },
+    {
+      "id": "diamond:prefix:perforating",
+      "name": "Perforating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpecificWeaponDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(6—16)% increased Damage with Bows",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3a9ce053fd3003605003ac5c5ea602a73b496c193a1cf59e95e7912e99e06142"
+    },
+    {
+      "id": "diamond:suffix:of-nocking",
+      "name": "of Nocking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpecificWeaponSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Attack Speed with Bows",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3cc8b3e2a53c0ee6df695b6361dfe6cbb61d61d69af6b6f719e80d80329cefa8"
+    },
+    {
+      "id": "diamond:suffix:of-enchanting",
+      "name": "of Enchanting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e4ea5426c228f5cb0c1474726fbc38c23e7bb1138dbf13a4a49647c562ecc3cf"
+    },
+    {
+      "id": "diamond:suffix:of-chaining",
+      "name": "of Chaining",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChainFromTerrain"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Projectiles have (3—5)% chance to Chain an additional time from terrain",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/712aa2333751205f0bfa14a212a474771b91a9269c6a031453521cd321616488"
+    },
+    {
+      "id": "diamond:suffix:of-the-woodland",
+      "name": "of the Woodland",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CharmDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Charm Effect Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/652e054c7ce26d1ad5dd01d9dcb93be304e1d83966292cd0dc0423fdc3ace264"
+    },
+    {
+      "id": "diamond:suffix:of-the-thicker",
+      "name": "of the Thicker",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CharmChargesGained"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Charm Charges gained",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1c5db358e40e9616e3ecdc2adc9035b1c4425e54e0f9714c8f39e51531a3fc05"
+    },
+    {
+      "id": "diamond:prefix:verdant",
+      "name": "Verdant",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "CharmDamageWhileUsing"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Damage while you have an active Charm",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "charm",
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/60d44d7febc5f1314cf0e5ae9dc203a9c8c5ff47fe9f68e486fb818bc30edaa5"
+    },
+    {
+      "id": "diamond:prefix:chaotic",
+      "name": "Chaotic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedChaosDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(7—13)% increased Chaos Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "chaos_damage",
+        "damage",
+        "chaos"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f82a6d7a556da1979b2270849e047fff6b8b8ce3afbd239e7385a23cbebce045"
+    },
+    {
+      "id": "diamond:suffix:of-frost",
+      "name": "of Frost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedChillDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Chill Duration on Enemies",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/42a1c82085fdfae9f0dd2717abfc9b7118ebcac9322db66747d8fc3b5a04c658"
+    },
+    {
+      "id": "diamond:prefix:chilling",
+      "name": "Chilling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdDamagePercentage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Cold Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2f135b654f8a7d807d1a1bf06b3690be48499edeb9bd50305f02e76a6c26f3a8"
+    },
+    {
+      "id": "diamond:prefix:numbing",
+      "name": "Numbing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ColdResistancePenetration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Damage Penetrates (5—10)% Cold Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "cold"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/49731376c6f5687555e6f7a0e78341bb4e77ffc6a57f7133aa7779e1df6e9f2c"
+    },
+    {
+      "id": "diamond:suffix:of-chronomancy",
+      "name": "of Chronomancy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CooldownRecovery"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(3—5)% increased Cooldown Recovery Rate",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/723cfef1fe89b0fbd5a93c1e7ca5c71594233fac13dd1b4e9a947ead0d7077fe"
+    },
+    {
+      "id": "diamond:prefix:necromantic",
+      "name": "Necromantic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AllDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Damage if you have Consumed a Corpse Recently",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1949ad16226a7be731dabbe46eb7a12d9cd74f6852a56cd229ee9eaa2fcca599"
+    },
+    {
+      "id": "diamond:prefix:rancorous",
+      "name": "Rancorous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "CriticalAilmentEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Magnitude of Damaging Ailments you inflict with Critical Hits",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bdd523789ab60c031b98a4e38e483127d95f8d7fa66c876bf31f919d600de062"
+    },
+    {
+      "id": "diamond:suffix:of-annihilation",
+      "name": "of Annihilation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a085d4e1fea2983bc270bd90b2d64b094a1d5322b55362fab9c04c5380368921"
+    },
+    {
+      "id": "diamond:suffix:of-potency",
+      "name": "of Potency",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/dad0708652410f86728f483413722da4629203ca944a33ff58a3734e498826e6"
+    },
+    {
+      "id": "diamond:suffix:of-unmaking",
+      "name": "of Unmaking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FormCritMultiplier"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Critical Spell Damage Bonus",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster_damage",
+        "damage",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ed4ea208f5630ee5562bd256ac981ade873f9751d20ab5b38199f7730de6746b"
+    },
+    {
+      "id": "diamond:prefix:bolting",
+      "name": "Bolting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "CrossbowDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(6—16)% increased Damage with Crossbows",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d501e7b82700db28408c23c6b7a6b2da6daebd3ceb7e3aeab3869b72a679709d"
+    },
+    {
+      "id": "diamond:suffix:of-reloading",
+      "name": "of Reloading",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CrossbowReloadSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—15)% increased Crossbow Reload Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/16f8129260776221357fb64fed53114231d8ba5b8209598c0335b46581cf7626"
+    },
+    {
+      "id": "diamond:suffix:of-rapidity",
+      "name": "of Rapidity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CrossbowSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Attack Speed with Crossbows",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/068cf8e37152734058cfe1c15f5048571b02e924931d13dc8a2d75543be5c057"
+    },
+    {
+      "id": "diamond:prefix:expanding",
+      "name": "Expanding",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "CurseAreaOfEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(8—12)% increased Area of Effect of Curses",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "caster",
+        "curse"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/bb1811cffa086345d71978fb593ba1cd21d15ef005195033d64a0cdf99937d8d"
+    },
+    {
+      "id": "diamond:suffix:of-chanting",
+      "name": "of Chanting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CurseDelay"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% faster Curse Activation",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "caster",
+        "curse"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/16e6b6e51682edc001ded5d68076ff68b85e910c162fb7f98d302860feb2c6ca"
+    },
+    {
+      "id": "diamond:suffix:of-continuation",
+      "name": "of Continuation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BaseCurseDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Curse Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "caster",
+        "curse"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/619a41f50d7b600ea5344ab2fee5efc4ce9ecfb9c5154914bcf7e4370268efb4"
+    },
+    {
+      "id": "diamond:prefix:hexing",
+      "name": "Hexing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "CurseEffectiveness"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Curse Magnitudes",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "caster",
+        "curse"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6e1c3ff3032f84db263b1beae0ad9bb094a4c15ed182bd0d0cf18ee4c5046435"
+    },
+    {
+      "id": "diamond:suffix:of-mind",
+      "name": "of Mind",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageRemovedFromManaBeforeLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% of Damage is taken from Mana before Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/45ae90ba175d147d71890fb16ff49f461065f5eb8e3da47733d5e06376521e58"
+    },
+    {
+      "id": "diamond:prefix:exploiting",
+      "name": "Exploiting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamagevsArmourBrokenEnemies"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Damage against Enemies with Fully Broken Armour",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/89a15f3fd61998cef31d3ce2f262bd14b412450581efd876507e45a94b373b57"
+    },
+    {
+      "id": "diamond:suffix:of-suffusion",
+      "name": "of Suffusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamagingAilmentDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Duration of Damaging Ailments on Enemies",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/19dd48f518875def003ef6479bdde13bd8925a3da5451f104d10446ce1a8aa1d"
+    },
+    {
+      "id": "diamond:suffix:of-dazing",
+      "name": "of Dazing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DazeBuildup"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% chance to Daze on Hit",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/90d811c4e648e8f2196e87696f40f442677c9a465a4f290ca1cfd336630d90f7"
+    },
+    {
+      "id": "diamond:suffix:of-diminishing",
+      "name": "of Diminishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DebuffTime"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Debuffs on you expire (5—10)% faster",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0094078a67e9ac671d74373dbec8ef24dfeff8580ff91c542ab414756d8b5a67"
+    },
+    {
+      "id": "diamond:suffix:of-suffering",
+      "name": "of Suffering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ElementalAilmentDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Duration of Ignite, Shock and Chill on Enemies",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/869d3c02ba0cb1d7164885605c01e075990c7cc6869d0c58004bc5c4569c1a90"
+    },
+    {
+      "id": "diamond:prefix:prismatic",
+      "name": "Prismatic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ElementalDamagePercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Elemental Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b009e92695e9860a256bacac0dafe9daf1ad9f124c137cd1c7c37f018b44378f"
+    },
+    {
+      "id": "diamond:prefix:empowering",
+      "name": "Empowering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ExertedAttackDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Empowered Attacks deal (10—20)% increased Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/df748beffce29ede4a4a4bd58ef04f7000090242cec7453913a898fdc938099a"
+    },
+    {
+      "id": "diamond:suffix:of-generation",
+      "name": "of Generation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Energy"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Meta Skills gain (4—8)% increased Energy",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 8
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f2de99c71d7efff075d6951418fb956e05bf0105234c2613b2ee799f6ae97f85"
+    },
+    {
+      "id": "diamond:prefix:shimmering",
+      "name": "Shimmering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased maximum Energy Shield",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/381a40d3487984f4f62bdadd5d7e451e3d35b2fd230e415c345287ca09d17fb6"
+    },
+    {
+      "id": "diamond:prefix:serene",
+      "name": "Serene",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldDelay"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—15)% faster start of Energy Shield Recharge",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1a3cb0386ec8edf2821c83ea5fb639b00d0035a36c0ae00525d5bc599f5ea793"
+    },
+    {
+      "id": "diamond:prefix:evasive",
+      "name": "Evasive",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Evasion Rating",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e712ed07bf1c9e7b89c80ecadd787d08b1ffb9b8ba88ea2591269f673056d8e4"
+    },
+    {
+      "id": "diamond:suffix:of-decrepifying",
+      "name": "of Decrepifying",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FasterAilmentDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Damaging Ailments deal damage (3—7)% faster",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "damage",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/734fb9d10c29b057eb9c9d2a6d50cd09870bba84848c4152b1dcdda049954024"
+    },
+    {
+      "id": "diamond:prefix:flaming",
+      "name": "Flaming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamagePercentage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Fire Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d06b6acbfa937794246aba9d58c1915ac24ad70dc7bd21adfbd15561c6a4ff5f"
+    },
+    {
+      "id": "diamond:prefix:searing",
+      "name": "Searing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireResistancePenetration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Damage Penetrates (5—10)% Fire Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2a055de1a082853c06726de44e8713a918fa6d26d1e63337a6d012d078ad839a"
+    },
+    {
+      "id": "diamond:suffix:of-gathering",
+      "name": "of Gathering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Flask Charges gained",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cf95881a5a67737609c7fbf74f92b3accebf837441a4e48f3c75e41f85e9d658"
+    },
+    {
+      "id": "diamond:suffix:of-prolonging",
+      "name": "of Prolonging",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FlaskDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Flask Effect Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/01c9c0f10a585b3a31a236803ed95d0327bfc9059a35a14c2e656bce55d3ae47"
+    },
+    {
+      "id": "diamond:prefix:focusing",
+      "name": "Focusing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FocusEnergyShield"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(30—50)% increased Energy Shield from Equipped Focus",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 30,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/de2b432a91ade820e1dbe1a9b4fa980b3e35e436277f434f4f9cad7fd2b1df43"
+    },
+    {
+      "id": "diamond:suffix:of-forking",
+      "name": "of Forking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ForkingProjectiles"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Projectiles have (10—15)% chance for an additional Projectile when Forking",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d36e4e5d1b92b8e932e1879e37314f61fdfbe65d9ff653b9106053614e226bf8"
+    },
+    {
+      "id": "diamond:suffix:of-freezing",
+      "name": "of Freezing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FreezeDamageIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Freeze Buildup",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6c525a4192b8f047641f382dfac5903afb79dfb96c25b935610b452d46d1dd30"
+    },
+    {
+      "id": "diamond:suffix:of-snowbreathing",
+      "name": "of Snowbreathing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FreezeThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(18—32)% increased Freeze Threshold",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 18,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d93b3421106e531baed5003cb3071099f2bde2793e0c33ccbadbf3e8724cbe0d"
+    },
+    {
+      "id": "diamond:prefix:heralding",
+      "name": "Heralding",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "HeraldDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Herald Skills deal (15—25)% increased Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b07b64b829e0af0d3ba5e98cd8ed49c8a647a89b4ebbc2cb8a7667b033a8b176"
+    },
+    {
+      "id": "diamond:suffix:of-ignition",
+      "name": "of Ignition",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IgniteChanceIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Flammability Magnitude",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e415f5ad8032abd068fa9b22cc2fbce0d6a481f5fdb18b6a3f9bc1b6844ba49e"
+    },
+    {
+      "id": "diamond:prefix:burning",
+      "name": "Burning",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IgniteEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Ignite Magnitude",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b68653c51f31953b3d912b9e79aed4949f91eb029e78da84c3ef6273d0ab0b90"
+    },
+    {
+      "id": "diamond:suffix:of-lengthening",
+      "name": "of Lengthening",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SkillEffectDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Skill Effect Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/591f2ce707e99e1be65b4fdbd2b686ab7de9cc754d5a5dd143b987973f22bebd"
+    },
+    {
+      "id": "diamond:suffix:of-fending",
+      "name": "of Fending",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Knockback"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Knockback Distance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/02daa02789063da23ca2ef536e05359f8ab8631628b3eb0fc985d08221e498c4"
+    },
+    {
+      "id": "diamond:suffix:of-sacrifice",
+      "name": "of Sacrifice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeCost"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(4—6)% of Skill Mana Costs Converted to Life Costs",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d4019f7ca669123ad706f4563dd38a890f1a440861b488f4505b2e0d6599f772"
+    },
+    {
+      "id": "diamond:suffix:of-recovery",
+      "name": "of Recovery",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FlaskLifeRecovery"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Life Recovery from Flasks",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3cbff1eb2b4019d87bf5c295e4ac69d29ddef1b18e34b777c2f3843df4b952de"
+    },
+    {
+      "id": "diamond:suffix:of-pathfinding",
+      "name": "of Pathfinding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FlaskChargeGenerationPercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Life Flask Charges gained",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/aa69863373d7fc1de0b058c6c595e431fd7943cd5a46953ac037352efd388395"
+    },
+    {
+      "id": "diamond:suffix:of-frenzy",
+      "name": "of Frenzy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased amount of Life Leeched",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/799b93478cc6650f18a710263a2e8fa8f66f5a59e2e5c28273eb0072ff30c840"
+    },
+    {
+      "id": "diamond:suffix:of-success",
+      "name": "of Success",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaximumLifeOnKillPercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Recover (1—2)% of maximum Life on Kill",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3f0756e4f76da894949d224857226dc42e8d9e46bbe6c0157a15340afb7958c4"
+    },
+    {
+      "id": "diamond:suffix:of-infusion",
+      "name": "of Infusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—3)% of Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/21bfe3daf08672683b4093271ec550452bdbe9c51b1b29d40b0b314a16f90345"
+    },
+    {
+      "id": "diamond:suffix:of-regeneration",
+      "name": "of Regeneration",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegenerationRate"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Life Regeneration rate",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/524f36a43378828a0c23e06b6e50829ef653d7fae6f01f46b46addaf383286e7"
+    },
+    {
+      "id": "diamond:prefix:humming",
+      "name": "Humming",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningDamagePercentage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Lightning Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/823af9dfab306b48fbecb8d57ce0b0c2fbec85e66052a2aff6147d109a7062ad"
+    },
+    {
+      "id": "diamond:prefix:surging",
+      "name": "Surging",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LightningResistancePenetration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Damage Penetrates (5—10)% Lightning Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "lightning"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/94e266e30af5652d3cf0a41a50768d717aecd6817195069c209ee59c933061e3"
+    },
+    {
+      "id": "diamond:prefix:beating",
+      "name": "Beating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpecificWeaponDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(6—16)% increased Damage with Maces",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3a7df344c72c7f8cb955555658e6aaacbee5a017113ba879abc894735fcf52cd"
+    },
+    {
+      "id": "diamond:suffix:of-thumping",
+      "name": "of Thumping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaceStun"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Stun Buildup with Maces",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/de5bb8d6e41fc908814a1d6df7543ac8f38bdf23c159558a3e9080582aedb656"
+    },
+    {
+      "id": "diamond:suffix:of-quenching",
+      "name": "of Quenching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FlaskManaRecovery"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Mana Recovery from Flasks",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7cebe7821436d89b4c545feab600d8ce011f986713a80adbaa4e971b01d4f163"
+    },
+    {
+      "id": "diamond:suffix:of-fountains",
+      "name": "of Fountains",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FlaskChargeGenerationPercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Mana Flask Charges gained",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a235802c7db912afc2f9f9b7f6734a34d4366ce95dc6d3696e79439e2cef6405"
+    },
+    {
+      "id": "diamond:suffix:of-thirsting",
+      "name": "of Thirsting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaLeechAmount"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased amount of Mana Leeched",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5bcce8e5b9673389342c27b9fe36d478152baca6652c4da73ff663cebc728165"
+    },
+    {
+      "id": "diamond:suffix:of-osmosis",
+      "name": "of Osmosis",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedOnKillPercentage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Recover (1—2)% of maximum Mana on Kill",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/66eed97dd2b3b2ec396d358883b2c008a3ae5aa389ce08200440a2510c13fc8a"
+    },
+    {
+      "id": "diamond:suffix:of-energy",
+      "name": "of Energy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Mana Regeneration Rate",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/2626c9c0cf0d4ebc0567e3f5e9948d3a619127ea3eec8aee4968e8206f62a5ca"
+    },
+    {
+      "id": "diamond:suffix:of-targeting",
+      "name": "of Targeting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CurseCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Mark Skills have (5—15)% increased Use Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/42dd4b4951ba528c624bfa681d59b521d2ac90101bad6abde94d999b664dc479"
+    },
+    {
+      "id": "diamond:suffix:of-tracking",
+      "name": "of Tracking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MarkDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Mark Skills have (18—32)% increased Skill Effect Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 18,
+          "max": 32
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cf139c23f597bc9d329fcc22871aec9a847180063e9d8fa157edb370878c3986"
+    },
+    {
+      "id": "diamond:prefix:marking",
+      "name": "Marking",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "CurseEffectiveness"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(4—8)% increased Effect of your Mark Skills",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 8
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b832ae6ab9d3b60a1a9184983ecc51490986a84c3276d22f184292b3d14b557f"
+    },
+    {
+      "id": "diamond:suffix:of-the-kraken",
+      "name": "of the Kraken",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaximumColdResist"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "+1% to Maximum Cold Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/3235949ad566ea66af4f33f75dc206c757669fcc0d3de9e82406f1ad69b4b160"
+    },
+    {
+      "id": "diamond:suffix:of-the-phoenix",
+      "name": "of the Phoenix",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaximumFireResist"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "+1% to Maximum Fire Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7402856f471134957b4a1077542c197b92bc3722e706cdf08c30ec5d7dfbfec6"
+    },
+    {
+      "id": "diamond:suffix:of-the-leviathan",
+      "name": "of the Leviathan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaximumLightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "+1% to Maximum Lightning Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9135fd6159cab59e51c90227d02b71537acae0dc07c5ccdb36a1152800c98ffd"
+    },
+    {
+      "id": "diamond:prefix:angry",
+      "name": "Angry",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumRage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "+(1—2) to Maximum Rage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7996474b6b5c9afae1e7083d33ff3658aadab6d33a5b443907adcb35c26fb912"
+    },
+    {
+      "id": "diamond:prefix:clashing",
+      "name": "Clashing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MeleeDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Melee Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f3cf039da60e041839c30f45625db90af24bbffb3c043a2b7791d0338979e6e4"
+    },
+    {
+      "id": "diamond:prefix:companion",
+      "name": "Companion",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MinionAreaOfEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have (5—8)% increased Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6fa7f3c98da896b8c4e5d4327bd2fb766d5a3bbd0d372d8c7f457f38c259d1c6"
+    },
+    {
+      "id": "diamond:suffix:of-orchestration",
+      "name": "of Orchestration",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MinionAttackSpeedAndCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have (2—4)% increased Attack and Cast Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "minion_speed",
+        "attack",
+        "caster",
+        "speed",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/01a6a4c01e605e6894133b51fb45ab46ac3e17a5e6534938dacaa9d327674b62"
+    },
+    {
+      "id": "diamond:suffix:of-righteousness",
+      "name": "of Righteousness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MinionChaosResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have +(7—13)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "minion_resistance",
+        "chaos",
+        "resistance",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4e05109db3fff920859bef2d2e3568481e84223134e628cc49b12d2db0181d35"
+    },
+    {
+      "id": "diamond:suffix:of-marshalling",
+      "name": "of Marshalling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MinionCriticalStrikeChance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have (10—20)% increased Critical Hit Chance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "minion",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e124bee6157ce61bb24221975eca412d5ee0665109be35de57f7b0150a915dae"
+    },
+    {
+      "id": "diamond:suffix:of-gripping",
+      "name": "of Gripping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MinionCriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have (15—25)% increased Critical Damage Bonus",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "minion_damage",
+        "damage",
+        "minion",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/991688d0c8250bb932105c3427462524076c208bcaf6e61250149d49355d0994"
+    },
+    {
+      "id": "diamond:prefix:authoritative",
+      "name": "Authoritative",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MinionDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions deal (5—15)% increased Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "minion_damage",
+        "damage",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ae83f7a2583ce8c71526e7cc47aa4a22502b73744f13b9ad148370d22ccb00d1"
+    },
+    {
+      "id": "diamond:prefix:fortuitous",
+      "name": "Fortuitous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MinionLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have (5—15)% increased maximum Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/593c95eea2556bf03a3f9ed7ccfd51df812e07484ab9355add0ccbe74a5bbe0f"
+    },
+    {
+      "id": "diamond:suffix:of-confidence",
+      "name": "of Confidence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MinionPhysicalDamageReduction"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have (6—16)% additional Physical Damage Reduction",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "physical",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a0b144640a551fa08e884404822144638a22972937cc7b2fadf6a062b5cab622"
+    },
+    {
+      "id": "diamond:suffix:of-acclimatisation",
+      "name": "of Acclimatisation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MinionElementalResistances"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Minions have +(5—10)% to all Elemental Resistances",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "minion_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d4577b49d9252722ac37ccae52046267653c23f6b5a70663dc2dadec04f3a455"
+    },
+    {
+      "id": "diamond:suffix:of-speed",
+      "name": "of Speed",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MovementVelocity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(1—2)% increased Movement Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/8649b77619b935effbcd270f2c6ae760f6c893b367173c27028fd86be9b6d368"
+    },
+    {
+      "id": "diamond:suffix:of-offering",
+      "name": "of Offering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "OfferingDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Offering Skills have (15—25)% increased Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6f08e25bdf0664717100bfd0551cd38a4eefbea7e7c0c84da069064b7e463da3"
+    },
+    {
+      "id": "diamond:prefix:sacrificial",
+      "name": "Sacrificial",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "OfferingLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Offerings have (15—25)% increased Maximum Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/96af4eea65b4378e3bbeda618692ea9dc762a00adc4dcad5437aef6992af930d"
+    },
+    {
+      "id": "diamond:prefix:sharpened",
+      "name": "Sharpened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamagePercent"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Global Physical Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7d48e446459c2e880ab07d887532fc48a786bd87e03d0de5a00a1570c5a86659"
+    },
+    {
+      "id": "diamond:suffix:of-piercing",
+      "name": "of Piercing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChanceToPierce"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% chance to Pierce an Enemy",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7154298eee65ea518bd9039e26be7bf6bd98ce3e0b0d4e2687fbef502eacd0f9"
+    },
+    {
+      "id": "diamond:suffix:of-pinning",
+      "name": "of Pinning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PinBuildup"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Pin Buildup",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6362f54074edc2a353ef02fd086effe47cdaa35cbfaee2bd0f861b5f5850911b"
+    },
+    {
+      "id": "diamond:suffix:of-poisoning",
+      "name": "of Poisoning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PoisonChanceIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% chance to Poison on Hit",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f92c27cbfd3ab43c3c649e3fe608a1d88adefdc479f1eb449fc0ed5e9107c24f"
+    },
+    {
+      "id": "diamond:prefix:venomous",
+      "name": "Venomous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PoisonEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Magnitude of Poison you inflict",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "damage",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/1808198efa9d7b0a71c290d075863ff4f527a0b428ac693b7bf9f7abb7e2efe1"
+    },
+    {
+      "id": "diamond:suffix:of-infection",
+      "name": "of Infection",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PoisonDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Poison Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/07e206546ad3a320b4b61d56fed5be9e74de1213a39403f4f3d724d1a207cc6c"
+    },
+    {
+      "id": "diamond:prefix:archer-s",
+      "name": "Archer's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ProjectileDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Projectile Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a18a786a676e5de0380157784e93fcbf34913fd4cabfc1a42782bb37062540f9"
+    },
+    {
+      "id": "diamond:prefix:soaring",
+      "name": "Soaring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(4—8)% increased Projectile Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a80afb3953f582689da64aa7a6141adf0a3d8c450658783fac39e1ad7fd23f3d"
+    },
+    {
+      "id": "diamond:prefix:monk-s",
+      "name": "Monk's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpecificWeaponDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(6—16)% increased Damage with Quarterstaves",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9d8f5936aa80d73ea70201698901f545233cbf7a0a9760acfcb1aba78281de0c"
+    },
+    {
+      "id": "diamond:suffix:of-glaciers",
+      "name": "of Glaciers",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "QuarterstaffFreezeBuildup"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Freeze Buildup with Quarterstaves",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental",
+        "cold",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9385b643197d9e2006a10d20f775a6a3f433209e0b75e0d32e97bf79ee6cb903"
+    },
+    {
+      "id": "diamond:suffix:of-sequencing",
+      "name": "of Sequencing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpecificWeaponSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Attack Speed with Quarterstaves",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/902b88282bec7975c4f4b629da4c0e293951584ab27312d50261a4e212c348ab"
+    },
+    {
+      "id": "diamond:prefix:fletching",
+      "name": "Fletching",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EquipmentModifierEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(4—6)% increased bonuses gained from Equipped Quiver",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cbffc71787fd1f0a46dd515161bf063bf22109e2defcb0f77b8af604a59a38ce"
+    },
+    {
+      "id": "diamond:suffix:of-raging",
+      "name": "of Raging",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "RageOnHit"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Gain 1 Rage on Melee Hit",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c1fa74b6025499cf93244371200e0fe6ef078798d205794af74db50788e97f89"
+    },
+    {
+      "id": "diamond:suffix:of-retribution",
+      "name": "of Retribution",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "GainRage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Gain (1—3) Rage when Hit by an Enemy",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 3
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b66ba4c033406bdd39d968f09c5a55affe6eade9e506467e7c753acc9b08eec7"
+    },
+    {
+      "id": "diamond:prefix:shielding",
+      "name": "Shielding",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ShieldArmourIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(18—32)% increased Armour, Evasion and Energy Shield from Equipped Shield",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 18,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/d0d6d0b4b320b3724bf6acaeafd20a5b6ab95a017abd89c9f8bee4754e2fc213"
+    },
+    {
+      "id": "diamond:suffix:of-shocking",
+      "name": "of Shocking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ShockChanceIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased chance to Shock",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/40c7f3c6e5e0bd89bf478c8d4fdcfde16859ef5d86225bd7c98b604ea9ad4da8"
+    },
+    {
+      "id": "diamond:suffix:of-paralyzing",
+      "name": "of Paralyzing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ShockDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Shock Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6ed2093a15f01cab992da21fa1a3c27fe74794b3829f3391b97cf5db8d099410"
+    },
+    {
+      "id": "diamond:prefix:jolting",
+      "name": "Jolting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ShockEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—15)% increased Magnitude of Shock you inflict",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental",
+        "lightning",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/850e800353436864583c6639f61b682bb4f336f7eaac5ba2e298804922988375"
+    },
+    {
+      "id": "diamond:suffix:of-hastening",
+      "name": "of Hastening",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SlowPotency"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% reduced Slowing Potency of Debuffs on You",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a6a8e18b9c720dec0b32d44b3e612b176df455a6bfce4fa1dbdd72e9e8eb3958"
+    },
+    {
+      "id": "diamond:suffix:of-spearing",
+      "name": "of Spearing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpearAttackSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Attack Speed with Spears",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e53360a6068878093339ef428712e734d38cc9c245448d75415f6ad8c923d68e"
+    },
+    {
+      "id": "diamond:suffix:of-hunting",
+      "name": "of Hunting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpearCriticalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Critical Damage Bonus with Spears",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attack",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f4c295e5e8fd99c823b411baa91ba8ae13d9383b2a12ec4b0c03a7054a8a780d"
+    },
+    {
+      "id": "diamond:prefix:spearheaded",
+      "name": "Spearheaded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpearDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(6—16)% increased Damage with Spears",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ba00136c0af93707169adbf92329ac1ef2607c19a2d53a59304080b367b828f2"
+    },
+    {
+      "id": "diamond:suffix:of-annihilating",
+      "name": "of Annihilating",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpellCriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Critical Hit Chance for Spells",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "caster_critical",
+        "caster",
+        "critical"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/59ad600c5dff03d1cd8dc7a8c124982c2d12aaf519ddc820276169f3246b3a50"
+    },
+    {
+      "id": "diamond:prefix:mystic",
+      "name": "Mystic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WeaponCasterDamagePrefix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/cdca08bef3b642342e79a9f573c5ad1b71ddadc461e6f38eae3ec59140edae7d"
+    },
+    {
+      "id": "diamond:suffix:of-stunning",
+      "name": "of Stunning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunDamageIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Stun Buildup",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4f7df84de08f0b16099a532f5da05126a54d76b7938b21d19c996efb8daf6382"
+    },
+    {
+      "id": "diamond:suffix:of-withstanding",
+      "name": "of Withstanding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedStunThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(6—16)% increased Stun Threshold",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f27efa040fbd7f82f0ddd8449b7e71f5fad2e62c97e5f2df7e8ff134d681b0b6"
+    },
+    {
+      "id": "diamond:suffix:of-barriers",
+      "name": "of Barriers",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThresholdfromEnergyShield"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Gain additional Stun Threshold equal to (5—15)% of maximum Energy Shield",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7cf221c9da16f7dbac20a003b0057836409f618a1e025b0f102e87ba22e8140f"
+    },
+    {
+      "id": "diamond:suffix:of-inuring",
+      "name": "of Inuring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AilmentThresholdfromEnergyShield"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Gain additional Ailment Threshold equal to (5—15)% of maximum Energy Shield",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/9dfa9339c6307113b80912dda2f0bdf7862b0d01800c02b306976d71d97ee67c"
+    },
+    {
+      "id": "diamond:suffix:of-stoutness",
+      "name": "of Stoutness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedStunThresholdIfNoRecentStun"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Stun Threshold if you haven't been Stunned Recently",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/06fa334059191a0fb3e30a5d9c675613cdb680674b2ad6aea542d8e767b2b314"
+    },
+    {
+      "id": "diamond:prefix:haemorrhaging",
+      "name": "Haemorrhaging",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BleedingDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Magnitude of Bleeding you inflict",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical_damage",
+        "damage",
+        "physical",
+        "attack",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/f22eebf23f755941195e1257518ad47f4e1ea52e776f3ed2f317778992a6a361"
+    },
+    {
+      "id": "diamond:prefix:retaliating",
+      "name": "Retaliating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Thorns damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/48441a92f5173fc3988e5a9ba36a08922f1a20798d2a9b8dd4ec16d21129fdc1"
+    },
+    {
+      "id": "diamond:prefix:shaman-s",
+      "name": "Shaman's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "TotemDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—18)% increased Totem Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/12a1c19590a3046da3c0569919cfb4babd68220090f7388b6a5d80490643227d"
+    },
+    {
+      "id": "diamond:prefix:carved",
+      "name": "Carved",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedTotemLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Totem Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/96e9aba4064a4569953434d45825c44f4376b96683f97ccec41976758d1862a0"
+    },
+    {
+      "id": "diamond:suffix:of-ancestry",
+      "name": "of Ancestry",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SummonTotemCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Totem Placement speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/019b5464ab5b5ce0b275c7ba2f88be38673e1b6539b48758808834374ec13742"
+    },
+    {
+      "id": "diamond:prefix:triggered",
+      "name": "Triggered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageWithTriggeredSpells"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Triggered Spells deal (10—18)% increased Spell Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5370a2facf47421e19747b8122723c3baffaa1d25f2a639a944af86169cb7819"
+    },
+    {
+      "id": "diamond:suffix:of-rallying",
+      "name": "of Rallying",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "WarcryCooldownSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Warcry Cooldown Recovery Rate",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/107870ae1bbbd8921cda59892bed19074e1aad14dc5bb81dc36b55e15b3af195"
+    },
+    {
+      "id": "diamond:prefix:yelling",
+      "name": "Yelling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WarcryDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Damage with Warcries",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/31727ebd22d20990cd36590603332f9603c6a931e64abe7e6da584a83025ce8a"
+    },
+    {
+      "id": "diamond:suffix:of-lungs",
+      "name": "of Lungs",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "WarcrySpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Warcry Speed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/92e75764e38a0cd7e315b96b9b2b32dd13ed1fda1b6d04bac984341682a2471c"
+    },
+    {
+      "id": "diamond:prefix:withering",
+      "name": "Withering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WitheredEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—10)% increased Withered Magnitude",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "chaos"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/0a95372e534294bc4938e6681fe3e46d6c29603fec72a802f45167dbb54b7f2f"
+    },
+    {
+      "id": "diamond:prefix:retreating",
+      "name": "Retreating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ProjectileDamageIfMeleeHitRecently"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a0d7a847e367c89a925df7f264cacd4495a8ba662c1d793cad3fc37c30f15066"
+    },
+    {
+      "id": "diamond:prefix:engaging",
+      "name": "Engaging",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MeleeDamageIfProjectileHitRecently"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage",
+        "attack"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/447c0bbe702049f315cb9ad9d8f67b0a0070930293d6a4d966093c168a184d27"
+    },
+    {
+      "id": "diamond:prefix:parrying",
+      "name": "Parrying",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AllDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Parry Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "block",
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/5a6dd2fab14f95d0b9068f5be33584f8488248be6cec057d3a4a1e60fa3fbc46"
+    },
+    {
+      "id": "diamond:suffix:of-unsettling",
+      "name": "of Unsettling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ParriedDebuff"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—15)% increased Parried Debuff Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "block"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6ed20aae413554f4fcd28868be518b5f1cd5f06b42fbaf9560f5b03bed1b8c3e"
+    },
+    {
+      "id": "diamond:suffix:of-biding",
+      "name": "of Biding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThresholdDuringParry"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Stun Threshold while Parrying",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "block"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/fad40ef973b331d3da63568634bdb2b4205a0ccd59f9b3a36124378d81ca68d3"
+    },
+    {
+      "id": "diamond:prefix:kinship",
+      "name": "Kinship",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "CompanionDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Companions deal (10—20)% increased Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "minion_damage",
+        "damage",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/c5c5db86ab85c7134fe97f810cf2563962e11eba15f0ae8d7d4fb368ceba7677"
+    },
+    {
+      "id": "diamond:prefix:kindred",
+      "name": "Kindred",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "CompanionLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Companions have (10—20)% increased maximum Life",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "minion"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/a356e98df73671efebf6fc0049c1ac7f92e4f2795ab8114f78763589d580852b"
+    },
+    {
+      "id": "diamond:prefix:hazardous",
+      "name": "Hazardous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "HazardDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(10—20)% increased Hazard Damage",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 10,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/ab1af3015a6c52da8a087d04902202137bdcf200b1962e3790992608c84613b6"
+    },
+    {
+      "id": "diamond:prefix:incise",
+      "name": "Incise",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncisionChance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% chance for Attack Hits to apply Incision",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/4379fa7cc88c674edef43a38d87ebdc3e18ca5326eabf58338bdef1c4ad1e88c"
+    },
+    {
+      "id": "diamond:suffix:of-valour",
+      "name": "of Valour",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BannerValourGained"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—20)% increased Glory generation for Banner Skills",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/b5cb62abde63afc7087f4951efe472ac3b2f684a984b5bbc08ed220ae8935a16"
+    },
+    {
+      "id": "diamond:prefix:rallying",
+      "name": "Rallying",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BannerArea"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Banner Skills have (6—16)% increased Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/7cac041eec447f12ed0d9807da99bf635d09409f63840701e12fcb14a54d1f86"
+    },
+    {
+      "id": "diamond:suffix:of-inspiring",
+      "name": "of Inspiring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BannerDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "Banner Skills have (15—25)% increased Duration",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6440bb1161073d16488196b1fd6c6194734df0f09b10740da4e60890d41e8a41"
+    },
+    {
+      "id": "diamond:prefix:iconic",
+      "name": "Iconic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PresenceRadius"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(15—25)% increased Presence Area of Effect",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "aura"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e861546e33a8d0d0a8762ddd575ad0e8908290ad2f6fb57c6d141efdb6329a5f"
+    },
+    {
+      "id": "diamond:suffix:of-the-wild",
+      "name": "of the Wild",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpecificWeaponSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(2—4)% increased Skill Speed while Shapeshifted",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/340da9a26dcd10769af0c137044ccbb602da8dad7c3ea948cb0f88d6c435fa7c"
+    },
+    {
+      "id": "diamond:prefix:bestial",
+      "name": "Bestial",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageForm"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Damage while Shapeshifted",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6ac80e8530a02b0928de22de9e6e5c8307e421fa22ddeb0f72481da1ecc5ee66"
+    },
+    {
+      "id": "diamond:prefix:overgrown",
+      "name": "Overgrown",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DamageForm"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 1,
+      "text": "(5—15)% increased Damage with Plant Skills",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 5,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "damage"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/e2f88f322e8fcbee4fac391372cab0442782c463ded7a725998efbe9cd531812"
+    },
+    {
+      "id": "diamond:crafted:CraftedJewelMaximumChaosResistance",
+      "name": "Concentrated Liquid Isolation (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaximumChaosResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1% to Maximum Chaos Resistance",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance",
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Concentrated_Liquid_Isolation"
+    },
+    {
+      "id": "diamond:crafted:CraftedJewelSuffixEffect",
+      "name": "Potent Liquid Ferocity (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LocalPrefixSuffixEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(40—60)% increased Effect of Suffixes",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity"
+    },
+    {
+      "id": "diamond:crafted:CraftedJewelPrefixEffect",
+      "name": "Potent Liquid Ferocity (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalPrefixSuffixEffect"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "(40—60)% increased Effect of Prefixes",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Ferocity"
+    },
+    {
+      "id": "diamond:crafted:CraftedJewelAdditionalSuffixAllowed",
+      "name": "Potent Liquid Contempt (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1 Suffix Modifier allowed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Contempt"
+    },
+    {
+      "id": "diamond:crafted:CraftedJewelAdditionalPrefixAllowed",
+      "name": "Potent Liquid Contempt (Crafted)",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1 Prefix Modifier allowed",
+      "stats": [
+        {
+          "id": "display_source_value",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "crafted",
+        "unscalable"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Potent_Liquid_Contempt"
+    }
+  ]
+}

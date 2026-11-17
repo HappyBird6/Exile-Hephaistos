@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "snapshotId": "perfect-infinite-2026-10-02-18dd1e515063",
+    "retrievedAt": "2026-10-02T14:55:49.277Z",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "rawSha256": "18dd1e515063bbcbb0cffa72bc09ddaa1d721d1cc0c50ba5bf9e96c109e08362"
+  },
+  "modifiers": [
+    {
+      "id": "amulet:suffix:essence-percent-strength",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentageStrength"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(7—10)% increased Strength",
+      "stats": [
+        {
+          "id": "strength_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentStrength1"
+    },
+    {
+      "id": "amulet:suffix:essence-percent-dexterity",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentageDexterity"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(7—10)% increased Dexterity",
+      "stats": [
+        {
+          "id": "dexterity_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentDexterity1"
+    },
+    {
+      "id": "amulet:suffix:essence-percent-intelligence",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentageIntelligence"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(7—10)% increased Intelligence",
+      "stats": [
+        {
+          "id": "intelligence_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentIntelligence1"
+    }
+  ]
+}

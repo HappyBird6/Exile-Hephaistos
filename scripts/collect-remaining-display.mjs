@@ -48,4 +48,4 @@ for (const locale of Object.keys(locales)) {
   console.log(locale, JSON.stringify(evidence.coverage[locale]))
 }
 fs.writeFileSync(termsPath, JSON.stringify(terms, null, 2) + '\n')
-fs.writeFileSync('docs/evidence/0.5.5/i18n/sources/i18n-remaining-terms.json', JSON.stringify(evidence, null, 2) + '\n')
+fs.writeFileSync('docs/legacy/evidence/0.5.5/i18n/sources/i18n-remaining-terms.json', JSON.stringify(evidence, null, 2) + '\n')

@@ -6,7 +6,9 @@ FROM dependencies AS verify
 COPY frontend/ ./
 COPY contracts/ /contracts/
 COPY scripts/ /scripts/
-COPY backend/src/main/resources/ /backend/src/main/resources/
-COPY docs/evidence/ /docs/evidence/
+COPY backend/src/main/ /backend/src/main/
+COPY docs/legacy/evidence/ /docs/legacy/evidence/
+COPY docs/v0.5.5/ /docs/v0.5.5/
+COPY README.md /README.md
 RUN ln -s /app /frontend
 CMD ["sh", "-c", "npm run lint && npm run typecheck && npm run format:check && npm run test -- --run && npm run build"]

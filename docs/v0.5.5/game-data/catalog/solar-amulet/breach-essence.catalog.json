@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "snapshotId": "breach-essence-2026-10-02-9ef56d4a7169",
+    "retrievedAt": "2026-10-02T15:51:01.927Z",
+    "sourceUrl": "https://poe2db.tw/us/Amulets#ModifiersCalc",
+    "rawSha256": "9ef56d4a7169cd71ca4b20527fa8447a4666e890ce3776eefdc792d7b54d8778"
+  },
+  "modifiers": [
+    {
+      "id": "amulet:prefix:essence-maximum-quality",
+      "name": "Breachlord's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LocalMaximumQuality"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+20% to Maximum Quality",
+      "stats": [
+        {
+          "id": "local_maximum_quality_+",
+          "min": 20,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceBreach"
+    }
+  ]
+}

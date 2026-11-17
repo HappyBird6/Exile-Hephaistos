@@ -4,4 +4,7 @@
 # This reviewed raw proof is checksum-bound to its exact captured bytes.
 backend/src/main/resources/catalog/stocky-mitts/horror-essence.raw.json -text whitespace=cr-at-eol
 # Feature-organized source HTML retains its original checksum-bound bytes.
-docs/evidence/0.5.5/**/*.html -text -whitespace
+docs/legacy/evidence/0.5.5/**/*.html -text -whitespace
+
+# Canonical proof and its runtime mirror must retain the same captured bytes.
+docs/v0.5.5/game-data/catalog/stocky-mitts/horror-essence.raw.json -text whitespace=cr-at-eol

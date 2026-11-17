@@ -1,4 +1,4 @@
-// Backend resources are canonical. Browser projections are explicit and checked without writes by default.
+// Backend resources mirror docs/v0.5.5. Browser projections are explicit and checked without writes by default.
 import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'

@@ -1,0 +1,3773 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-rusted-cuirass-normal-20261003-d7167bf9f969",
+    "retrievedAt": "2026-10-03T14:55:06.681Z",
+    "sourceUrl": "https://poe2db.tw/us/Body_Armours_str",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "d7167bf9f969bc893dea6b3c439d30ea6bf60a44eeb9ac146da67148e596a43d",
+    "detailsSha256": "53e93866ed46009e84750e4c8e79ea200667e55749993668ecede92308cde466",
+    "prefixCount": 59,
+    "suffixCount": 85,
+    "prefixWeight": 54000,
+    "suffixWeight": 70500
+  },
+  "base": {
+    "id": "Metadata/Items/Armours/BodyArmours/FourBodyStr1",
+    "name": "Rusted Cuirass",
+    "sourceUrl": "https://poe2db.tw/us/Rusted_Cuirass",
+    "implicitModifierId": "",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifiers": [
+    {
+      "id": "rusted-cuirass:suffix:of-the-brute",
+      "name": "of the Brute",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(5—8) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-wrestler",
+      "name": "of the Wrestler",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(9—12) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-bear",
+      "name": "of the Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(13—16) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-lion",
+      "name": "of the Lion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(17—20) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-gorilla",
+      "name": "of the Gorilla",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(21—24) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-goliath",
+      "name": "of the Goliath",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(25—27) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength6"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-leviathan",
+      "name": "of the Leviathan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(28—30) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength7"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-titan",
+      "name": "of the Titan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(31—33) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength8"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-whelpling",
+      "name": "of the Whelpling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-salamander",
+      "name": "of the Salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-drake",
+      "name": "of the Drake",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-kiln",
+      "name": "of the Kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-furnace",
+      "name": "of the Furnace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-volcano",
+      "name": "of the Volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist6"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-magma",
+      "name": "of Magma",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist7"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-tzteosh",
+      "name": "of Tzteosh",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist8"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-seal",
+      "name": "of the Seal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-penguin",
+      "name": "of the Penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-narwhal",
+      "name": "of the Narwhal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-yeti",
+      "name": "of the Yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-walrus",
+      "name": "of the Walrus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-polar-bear",
+      "name": "of the Polar Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist6"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-ice",
+      "name": "of the Ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist7"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-haast",
+      "name": "of Haast",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist8"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-cloud",
+      "name": "of the Cloud",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-squall",
+      "name": "of the Squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-storm",
+      "name": "of the Storm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-thunderhead",
+      "name": "of the Thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-tempest",
+      "name": "of the Tempest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-maelstrom",
+      "name": "of the Maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist6"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-lightning",
+      "name": "of the Lightning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist7"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-ephij",
+      "name": "of Ephij",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist8"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-lost",
+      "name": "of the Lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 250,
+      "tier": 6,
+      "text": "+(4—7)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-banishment",
+      "name": "of Banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 250,
+      "tier": 5,
+      "text": "+(8—11)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-eviction",
+      "name": "of Eviction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 250,
+      "tier": 4,
+      "text": "+(12—15)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-expulsion",
+      "name": "of Expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 250,
+      "tier": 3,
+      "text": "+(16—19)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-exile",
+      "name": "of Exile",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 250,
+      "tier": 2,
+      "text": "+(20—23)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-bameth",
+      "name": "of Bameth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 250,
+      "tier": 1,
+      "text": "+(24—27)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist6"
+    },
+    {
+      "id": "rusted-cuirass:prefix:hale",
+      "name": "Hale",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 13,
+      "text": "+(10—19) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:healthy",
+      "name": "Healthy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 12,
+      "text": "+(20—29) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife2"
+    },
+    {
+      "id": "rusted-cuirass:prefix:sanguine",
+      "name": "Sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 11,
+      "text": "+(30—39) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife3"
+    },
+    {
+      "id": "rusted-cuirass:prefix:stalwart",
+      "name": "Stalwart",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 10,
+      "text": "+(40—59) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 40,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife4"
+    },
+    {
+      "id": "rusted-cuirass:prefix:stout",
+      "name": "Stout",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(60—69) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife5"
+    },
+    {
+      "id": "rusted-cuirass:prefix:robust",
+      "name": "Robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(70—84) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife6"
+    },
+    {
+      "id": "rusted-cuirass:prefix:rotund",
+      "name": "Rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(85—99) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife7"
+    },
+    {
+      "id": "rusted-cuirass:prefix:virile",
+      "name": "Virile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(100—119) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife8"
+    },
+    {
+      "id": "rusted-cuirass:prefix:athlete-s",
+      "name": "Athlete's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(120—149) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 120,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife9"
+    },
+    {
+      "id": "rusted-cuirass:prefix:fecund",
+      "name": "Fecund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(150—174) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 150,
+          "max": 174
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife10"
+    },
+    {
+      "id": "rusted-cuirass:prefix:vigorous",
+      "name": "Vigorous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(175—189) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 175,
+          "max": 189
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife11"
+    },
+    {
+      "id": "rusted-cuirass:prefix:rapturous",
+      "name": "Rapturous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(190—199) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 190,
+          "max": 199
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife12"
+    },
+    {
+      "id": "rusted-cuirass:prefix:prime",
+      "name": "Prime",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(200—214) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 200,
+          "max": 214
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife13"
+    },
+    {
+      "id": "rusted-cuirass:prefix:lacquered",
+      "name": "Lacquered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 11,
+      "text": "+(16—27) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 16,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:studded",
+      "name": "Studded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 10,
+      "text": "+(28—56) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 28,
+          "max": 56
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating2"
+    },
+    {
+      "id": "rusted-cuirass:prefix:ribbed",
+      "name": "Ribbed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(57—77) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 57,
+          "max": 77
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating3"
+    },
+    {
+      "id": "rusted-cuirass:prefix:fortified",
+      "name": "Fortified",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(78—98) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 78,
+          "max": 98
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating4"
+    },
+    {
+      "id": "rusted-cuirass:prefix:plated",
+      "name": "Plated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(99—127) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 99,
+          "max": 127
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating5"
+    },
+    {
+      "id": "rusted-cuirass:prefix:carapaced",
+      "name": "Carapaced",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(128—159) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 128,
+          "max": 159
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating6"
+    },
+    {
+      "id": "rusted-cuirass:prefix:encased",
+      "name": "Encased",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(160—190) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 160,
+          "max": 190
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating7__"
+    },
+    {
+      "id": "rusted-cuirass:prefix:enveloped",
+      "name": "Enveloped",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(191—221) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 191,
+          "max": 221
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating8"
+    },
+    {
+      "id": "rusted-cuirass:prefix:abating",
+      "name": "Abating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(222—248) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 222,
+          "max": 248
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating9_"
+    },
+    {
+      "id": "rusted-cuirass:prefix:unmoving",
+      "name": "Unmoving",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(249—277) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 249,
+          "max": 277
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating10"
+    },
+    {
+      "id": "rusted-cuirass:prefix:impervious",
+      "name": "Impervious",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(278—310) to Armour",
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 278,
+          "max": 310
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRating11"
+    },
+    {
+      "id": "rusted-cuirass:prefix:reinforced",
+      "name": "Reinforced",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 8,
+      "text": "(15—26)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 15,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:layered",
+      "name": "Layered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(27—42)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent2"
+    },
+    {
+      "id": "rusted-cuirass:prefix:lobstered",
+      "name": "Lobstered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(43—55)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 43,
+          "max": 55
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent3"
+    },
+    {
+      "id": "rusted-cuirass:prefix:buttressed",
+      "name": "Buttressed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(56—67)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 56,
+          "max": 67
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent4"
+    },
+    {
+      "id": "rusted-cuirass:prefix:thickened",
+      "name": "Thickened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(68—79)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 68,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent5"
+    },
+    {
+      "id": "rusted-cuirass:prefix:girded",
+      "name": "Girded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(80—91)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 80,
+          "max": 91
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent6"
+    },
+    {
+      "id": "rusted-cuirass:prefix:impregnable",
+      "name": "Impregnable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(92—100)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 92,
+          "max": 100
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent7"
+    },
+    {
+      "id": "rusted-cuirass:prefix:impenetrable",
+      "name": "Impenetrable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(101—110)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 101,
+          "max": 110
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedPhysicalDamageReductionRatingPercent8_"
+    },
+    {
+      "id": "rusted-cuirass:prefix:oyster-s",
+      "name": "Oyster's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(6—13)% increased Armour+(7—10) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:lobster-s",
+      "name": "Lobster's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(14—20)% increased Armour+(11—19) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 11,
+          "max": 19
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife2"
+    },
+    {
+      "id": "rusted-cuirass:prefix:urchin-s",
+      "name": "Urchin's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(21—26)% increased Armour+(20—25) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 25
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife3"
+    },
+    {
+      "id": "rusted-cuirass:prefix:nautilus",
+      "name": "Nautilus'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(27—32)% increased Armour+(26—32) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 26,
+          "max": 32
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife4"
+    },
+    {
+      "id": "rusted-cuirass:prefix:octopus",
+      "name": "Octopus'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(33—38)% increased Armour+(33—41) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 33,
+          "max": 41
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife5"
+    },
+    {
+      "id": "rusted-cuirass:prefix:crocodile-s",
+      "name": "Crocodile's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(39—42)% increased Armour+(42—49) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 42,
+          "max": 49
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndLife6"
+    },
+    {
+      "id": "rusted-cuirass:prefix:abalone-s",
+      "name": "Abalone's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(5—9) to Armour(6—13)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 6,
+          "max": 13
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 5,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:snail-s",
+      "name": "Snail's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(10—29) to Armour(14—20)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 14,
+          "max": 20
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 10,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase2"
+    },
+    {
+      "id": "rusted-cuirass:prefix:tortoise-s",
+      "name": "Tortoise's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(30—41) to Armour(21—26)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 30,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase3"
+    },
+    {
+      "id": "rusted-cuirass:prefix:pangolin-s",
+      "name": "Pangolin's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(42—57) to Armour(27—32)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 42,
+          "max": 57
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase4"
+    },
+    {
+      "id": "rusted-cuirass:prefix:shelled",
+      "name": "Shelled",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(58—75) to Armour(33—38)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 58,
+          "max": 75
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase5"
+    },
+    {
+      "id": "rusted-cuirass:prefix:hardened",
+      "name": "Hardened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(76—95) to Armour(39—42)% increased Armour",
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 42
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 76,
+          "max": 95
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLocalIncreasedArmourAndBase6"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-worthy",
+      "name": "of the Worthy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 900,
+      "tier": 5,
+      "text": "15% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -15,
+          "max": -15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-apt",
+      "name": "of the Apt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 32,
+      "weight": 900,
+      "tier": 4,
+      "text": "20% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -20,
+          "max": -20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-talented",
+      "name": "of the Talented",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 900,
+      "tier": 3,
+      "text": "25% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -25,
+          "max": -25
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-skilled",
+      "name": "of the Skilled",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 52,
+      "weight": 900,
+      "tier": 2,
+      "text": "30% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -30,
+          "max": -30
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-proficient",
+      "name": "of the Proficient",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 900,
+      "tier": 1,
+      "text": "35% reduced Attribute Requirements",
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -35,
+          "max": -35
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedLocalAttributeRequirements5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-thick-skin",
+      "name": "of Thick Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 10,
+      "text": "+(6—11) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 6,
+          "max": 11
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-reinforced-skin",
+      "name": "of Reinforced Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 800,
+      "tier": 9,
+      "text": "+(12—29) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 12,
+          "max": 29
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-stone-skin",
+      "name": "of Stone Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 800,
+      "tier": 8,
+      "text": "+(30—49) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 30,
+          "max": 49
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-iron-skin",
+      "name": "of Iron Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 800,
+      "tier": 7,
+      "text": "+(50—72) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 50,
+          "max": 72
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-steel-skin",
+      "name": "of Steel Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 800,
+      "tier": 6,
+      "text": "+(73—97) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 73,
+          "max": 97
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-granite-skin",
+      "name": "of Granite Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 5,
+      "text": "+(98—124) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 98,
+          "max": 124
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold6"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-platinum-skin",
+      "name": "of Platinum Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 800,
+      "tier": 4,
+      "text": "+(125—163) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 125,
+          "max": 163
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold7"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-adamantite-skin",
+      "name": "of Adamantite Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 800,
+      "tier": 3,
+      "text": "+(164—206) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 164,
+          "max": 206
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold8"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-corundum-skin",
+      "name": "of Corundum Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 800,
+      "tier": 2,
+      "text": "+(207—253) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 207,
+          "max": 253
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold9"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-obsidian-skin",
+      "name": "of Obsidian Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 800,
+      "tier": 1,
+      "text": "+(254—304) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 254,
+          "max": 304
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold10"
+    },
+    {
+      "id": "rusted-cuirass:prefix:thorny",
+      "name": "Thorny",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(1—2) to (3—4) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:spiny",
+      "name": "Spiny",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(5—7) to (7—10) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage2"
+    },
+    {
+      "id": "rusted-cuirass:prefix:barbed",
+      "name": "Barbed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 19,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(11—16) to (17—23) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 17,
+          "max": 23
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage3"
+    },
+    {
+      "id": "rusted-cuirass:prefix:pointed",
+      "name": "Pointed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(24—35) to (36—53) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 36,
+          "max": 53
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 24,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage4"
+    },
+    {
+      "id": "rusted-cuirass:prefix:spiked",
+      "name": "Spiked",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(40—60) to (61—92) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 61,
+          "max": 92
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage5"
+    },
+    {
+      "id": "rusted-cuirass:prefix:edged",
+      "name": "Edged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(64—97) to (98—145) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 98,
+          "max": 145
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 64,
+          "max": 97
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage6"
+    },
+    {
+      "id": "rusted-cuirass:prefix:jagged",
+      "name": "Jagged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(101—151) to (152—220) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 152,
+          "max": 220
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 101,
+          "max": 151
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage7"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-newt",
+      "name": "of the Newt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 11,
+      "text": "(1—2) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 60,
+          "max": 120
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-lizard",
+      "name": "of the Lizard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1000,
+      "tier": 10,
+      "text": "(2.1—3) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 126,
+          "max": 180
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-flatworm",
+      "name": "of the Flatworm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 9,
+      "text": "(3.1—4) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 186,
+          "max": 240
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-starfish",
+      "name": "of the Starfish",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 17,
+      "weight": 1000,
+      "tier": 8,
+      "text": "(4.1—6) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 246,
+          "max": 360
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-hydra",
+      "name": "of the Hydra",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(6.1—9) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 366,
+          "max": 540
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-troll",
+      "name": "of the Troll",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(9.1—13) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 546,
+          "max": 780
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration6"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-convalescence",
+      "name": "of Convalescence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(13.1—18) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 786,
+          "max": 1080
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration7"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-recuperation",
+      "name": "of Recuperation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(18.1—23) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1086,
+          "max": 1380
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration8_"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-resurgence",
+      "name": "of Resurgence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(23.1—29) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1386,
+          "max": 1740
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration9"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-immortality",
+      "name": "of Immortality",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(29.1—33) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1746,
+          "max": 1980
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration10__"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-phoenix",
+      "name": "of the Phoenix",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(33.1—36) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1986,
+          "max": 2160
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration11____"
+    },
+    {
+      "id": "rusted-cuirass:prefix:lady-s",
+      "name": "Lady's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 8,
+      "text": "+(30—33) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 30,
+          "max": 33
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit1"
+    },
+    {
+      "id": "rusted-cuirass:prefix:baronness",
+      "name": "Baronness'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 500,
+      "tier": 7,
+      "text": "+(34—37) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 34,
+          "max": 37
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit2"
+    },
+    {
+      "id": "rusted-cuirass:prefix:viscountess",
+      "name": "Viscountess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "text": "+(38—42) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 38,
+          "max": 42
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit3"
+    },
+    {
+      "id": "rusted-cuirass:prefix:marchioness",
+      "name": "Marchioness'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "text": "+(43—46) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 43,
+          "max": 46
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit4"
+    },
+    {
+      "id": "rusted-cuirass:prefix:countess",
+      "name": "Countess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 400,
+      "tier": 4,
+      "text": "+(47—50) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 47,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit5"
+    },
+    {
+      "id": "rusted-cuirass:prefix:duchess",
+      "name": "Duchess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 300,
+      "tier": 3,
+      "text": "+(51—53) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 51,
+          "max": 53
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit6"
+    },
+    {
+      "id": "rusted-cuirass:prefix:princess",
+      "name": "Princess'",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 200,
+      "tier": 2,
+      "text": "+(54—56) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 54,
+          "max": 56
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit7"
+    },
+    {
+      "id": "rusted-cuirass:prefix:queen-s",
+      "name": "Queen's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 100,
+      "tier": 1,
+      "text": "+(57—61) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 57,
+          "max": 61
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedSpirit8"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-sealing",
+      "name": "of Sealing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 500,
+      "tier": 5,
+      "text": "(36—40)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -40,
+          "max": -36
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-alleviation",
+      "name": "of Alleviation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 500,
+      "tier": 4,
+      "text": "(41—45)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -45,
+          "max": -41
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-allaying",
+      "name": "of Allaying",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 500,
+      "tier": 3,
+      "text": "(46—50)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -50,
+          "max": -46
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-assuaging",
+      "name": "of Assuaging",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 64,
+      "weight": 500,
+      "tier": 2,
+      "text": "(51—55)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -55,
+          "max": -51
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-staunching",
+      "name": "of Staunching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 500,
+      "tier": 1,
+      "text": "(56—60)% reduced Duration of Bleeding on You",
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -60,
+          "max": -56
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBleedDuration5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-antitoxin",
+      "name": "of the Antitoxin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 500,
+      "tier": 5,
+      "text": "(36—40)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -40,
+          "max": -36
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-remedy",
+      "name": "of the Remedy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 500,
+      "tier": 4,
+      "text": "(41—45)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -45,
+          "max": -41
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-cure",
+      "name": "of the Cure",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 500,
+      "tier": 3,
+      "text": "(46—50)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -50,
+          "max": -46
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-panacea",
+      "name": "of the Panacea",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 64,
+      "weight": 500,
+      "tier": 2,
+      "text": "(51—55)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -55,
+          "max": -51
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-the-antidote",
+      "name": "of the Antidote",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 500,
+      "tier": 1,
+      "text": "(56—60)% reduced Poison Duration on you",
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -60,
+          "max": -56
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedPoisonDuration5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-damping",
+      "name": "of Damping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 500,
+      "tier": 5,
+      "text": "(36—40)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-quashing",
+      "name": "of Quashing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 500,
+      "tier": 4,
+      "text": "(41—45)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-quelling",
+      "name": "of Quelling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 500,
+      "tier": 3,
+      "text": "(46—50)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 46,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-quenching",
+      "name": "of Quenching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 64,
+      "weight": 500,
+      "tier": 2,
+      "text": "(51—55)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 51,
+          "max": 55
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-dousing",
+      "name": "of Dousing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 500,
+      "tier": 1,
+      "text": "(56—60)% reduced Ignite Duration on you",
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 56,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FReducedBurnDuration5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-covering",
+      "name": "of Covering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(14—19)% of Armour also applies to Elemental Damage",
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 14,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FArmourAppliesToElementalDamage1"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-sheathing",
+      "name": "of Sheathing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(20—25)% of Armour also applies to Elemental Damage",
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FArmourAppliesToElementalDamage2"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-lining",
+      "name": "of Lining",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—31)% of Armour also applies to Elemental Damage",
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 26,
+          "max": 31
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FArmourAppliesToElementalDamage3"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-padding",
+      "name": "of Padding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(32—37)% of Armour also applies to Elemental Damage",
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 32,
+          "max": 37
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FArmourAppliesToElementalDamage4"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-furring",
+      "name": "of Furring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(38—43)% of Armour also applies to Elemental Damage",
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 38,
+          "max": 43
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FArmourAppliesToElementalDamage5"
+    },
+    {
+      "id": "rusted-cuirass:suffix:of-thermokryptance",
+      "name": "of Thermokryptance",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(44—50)% of Armour also applies to Elemental Damage",
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 44,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FArmourAppliesToElementalDamage6"
+    }
+  ]
+}

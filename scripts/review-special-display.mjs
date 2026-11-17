@@ -18,4 +18,4 @@ for(const[id,[item,span]]of Object.entries(changes)) {
 const iron=data.definitions['iron-ring:implicit:added-physical-damage-to-attacks']
 iron.valueStats=[{id:'attack_minimum_added_physical_damage',divisor:1},{id:'attack_maximum_added_physical_damage',divisor:1}]
 fs.writeFileSync(file,JSON.stringify(data,null,2)+'\n')
-fs.writeFileSync('docs/evidence/0.5.5/i18n/sources/i18n-special-review.json',JSON.stringify({exceptions,review:'All 37 English/Korean/Spanish effect strings reviewed semantically; numeric placeholders reviewed in every locale'},null,2)+'\n')
+fs.writeFileSync('docs/legacy/evidence/0.5.5/i18n/sources/i18n-special-review.json',JSON.stringify({exceptions,review:'All 37 English/Korean/Spanish effect strings reviewed semantically; numeric placeholders reviewed in every locale'},null,2)+'\n')

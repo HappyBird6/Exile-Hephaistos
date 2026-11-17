@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "snapshotId": "wand-perfect-20261003-662df7573407",
+    "retrievedAt": "2026-10-03T13:39:00.203Z",
+    "sourceUrl": "https://poe2db.tw/us/Wands",
+    "rawSha256": "662df7573407ee448428d062a800bc641a23850262517f93c82fdb1e92b44bd7"
+  },
+  "modifiers": [
+    {
+      "id": "attuned-wand:suffix:essence-spell-skill-level",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "+3 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceSpellSkillLevel1H1"
+    },
+    {
+      "id": "attuned-wand:suffix:essence-mana-cost-efficiency",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaCostEfficiency"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(18—20)% increased Mana Cost Efficiency",
+      "stats": [
+        {
+          "id": "base_mana_cost_efficiency_+%",
+          "min": 18,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceManaCostReduction"
+    }
+  ]
+}

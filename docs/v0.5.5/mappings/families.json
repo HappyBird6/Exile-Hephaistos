@@ -1,0 +1,2572 @@
+{
+  "schemaVersion": 1,
+  "domain": "families",
+  "prefix": "f",
+  "entries": [
+    {
+      "id": "f0001",
+      "sourceKey": "AdditionalAmmo",
+      "retired": false
+    },
+    {
+      "id": "f0002",
+      "sourceKey": "AdditionalArrows",
+      "retired": false
+    },
+    {
+      "id": "f0003",
+      "sourceKey": "AdditionalBallistaTotem",
+      "retired": false
+    },
+    {
+      "id": "f0004",
+      "sourceKey": "AdditionalBlock",
+      "retired": false
+    },
+    {
+      "id": "f0005",
+      "sourceKey": "AdditionalCharm",
+      "retired": false
+    },
+    {
+      "id": "f0006",
+      "sourceKey": "AdditionalComboChance",
+      "retired": false
+    },
+    {
+      "id": "f0007",
+      "sourceKey": "AdditionalFissureChance",
+      "retired": false
+    },
+    {
+      "id": "f0008",
+      "sourceKey": "AdditionalMaximumSeals",
+      "retired": false
+    },
+    {
+      "id": "f0009",
+      "sourceKey": "AdditionalMeleeTotem",
+      "retired": false
+    },
+    {
+      "id": "f000a",
+      "sourceKey": "AdditionalProjectileChance",
+      "retired": false
+    },
+    {
+      "id": "f000b",
+      "sourceKey": "AdditionalProjectiles",
+      "retired": false
+    },
+    {
+      "id": "f000c",
+      "sourceKey": "AdditionalSkillSlots",
+      "retired": false
+    },
+    {
+      "id": "f000d",
+      "sourceKey": "AdditionalSpellTotem",
+      "retired": false
+    },
+    {
+      "id": "f000e",
+      "sourceKey": "AilmentChance",
+      "retired": false
+    },
+    {
+      "id": "f000f",
+      "sourceKey": "AilmentEffect",
+      "retired": false
+    },
+    {
+      "id": "f000g",
+      "sourceKey": "AilmentThreshold",
+      "retired": false
+    },
+    {
+      "id": "f000h",
+      "sourceKey": "AilmentThresholdfromEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f000i",
+      "sourceKey": "AllAttributes",
+      "retired": false
+    },
+    {
+      "id": "f000j",
+      "sourceKey": "AllDamage",
+      "retired": false
+    },
+    {
+      "id": "f000k",
+      "sourceKey": "AllDefences",
+      "retired": false
+    },
+    {
+      "id": "f000l",
+      "sourceKey": "AllResistances",
+      "retired": false
+    },
+    {
+      "id": "f000m",
+      "sourceKey": "AlwaysHits",
+      "retired": false
+    },
+    {
+      "id": "f000n",
+      "sourceKey": "AnaemiaOnHit",
+      "retired": false
+    },
+    {
+      "id": "f000o",
+      "sourceKey": "ArcaneSurgeEffect",
+      "retired": false
+    },
+    {
+      "id": "f000p",
+      "sourceKey": "ArchonDelayRecovery",
+      "retired": false
+    },
+    {
+      "id": "f000q",
+      "sourceKey": "ArchonDuration",
+      "retired": false
+    },
+    {
+      "id": "f000r",
+      "sourceKey": "ArchonEffect",
+      "retired": false
+    },
+    {
+      "id": "f000s",
+      "sourceKey": "ArchonUndeathOnOfferingUse",
+      "retired": false
+    },
+    {
+      "id": "f000t",
+      "sourceKey": "AreaOfEffect",
+      "retired": false
+    },
+    {
+      "id": "f000u",
+      "sourceKey": "ArmourAppliesToElementalDamage",
+      "retired": false
+    },
+    {
+      "id": "f000v",
+      "sourceKey": "ArmourBreak",
+      "retired": false
+    },
+    {
+      "id": "f000w",
+      "sourceKey": "ArmourBreakDuration",
+      "retired": false
+    },
+    {
+      "id": "f000x",
+      "sourceKey": "ArmourBreakEffect",
+      "retired": false
+    },
+    {
+      "id": "f000y",
+      "sourceKey": "ArmourBreakPercentOnSpellCrit",
+      "retired": false
+    },
+    {
+      "id": "f000z",
+      "sourceKey": "ArmourPenetration",
+      "retired": false
+    },
+    {
+      "id": "f0010",
+      "sourceKey": "ArmourPercentAppliesToChaosDamage",
+      "retired": false
+    },
+    {
+      "id": "f0011",
+      "sourceKey": "ArrowSpeed",
+      "retired": false
+    },
+    {
+      "id": "f0012",
+      "sourceKey": "AttackDamage",
+      "retired": false
+    },
+    {
+      "id": "f0013",
+      "sourceKey": "AttackDamageOnLowLife",
+      "retired": false
+    },
+    {
+      "id": "f0014",
+      "sourceKey": "AttackSkillCostEfficiency",
+      "retired": false
+    },
+    {
+      "id": "f0015",
+      "sourceKey": "AttacksChainAdditionalTimes",
+      "retired": false
+    },
+    {
+      "id": "f0016",
+      "sourceKey": "AuraEffect",
+      "retired": false
+    },
+    {
+      "id": "f0017",
+      "sourceKey": "AuraMagnitude",
+      "retired": false
+    },
+    {
+      "id": "f0018",
+      "sourceKey": "BannerArea",
+      "retired": false
+    },
+    {
+      "id": "f0019",
+      "sourceKey": "BannerDuration",
+      "retired": false
+    },
+    {
+      "id": "f001a",
+      "sourceKey": "BannerValourGained",
+      "retired": false
+    },
+    {
+      "id": "f001b",
+      "sourceKey": "BaseCurseDuration",
+      "retired": false
+    },
+    {
+      "id": "f001c",
+      "sourceKey": "BaseLocalDefences",
+      "retired": false
+    },
+    {
+      "id": "f001d",
+      "sourceKey": "BaseLocalDefencesAndDefencePercent",
+      "retired": false
+    },
+    {
+      "id": "f001e",
+      "sourceKey": "BaseLocalDefencesAndLife",
+      "retired": false
+    },
+    {
+      "id": "f001f",
+      "sourceKey": "BaseLocalDefencesAndMana",
+      "retired": false
+    },
+    {
+      "id": "f001g",
+      "sourceKey": "BaseRunicWard",
+      "retired": false
+    },
+    {
+      "id": "f001h",
+      "sourceKey": "BaseSpirit",
+      "retired": false
+    },
+    {
+      "id": "f001i",
+      "sourceKey": "BellHitLimit",
+      "retired": false
+    },
+    {
+      "id": "f001j",
+      "sourceKey": "BeltCharmChargesGained",
+      "retired": false
+    },
+    {
+      "id": "f001k",
+      "sourceKey": "BeltCharmChargesUsed",
+      "retired": false
+    },
+    {
+      "id": "f001l",
+      "sourceKey": "BeltCharmDuration",
+      "retired": false
+    },
+    {
+      "id": "f001m",
+      "sourceKey": "BeltFlaskChargesGained",
+      "retired": false
+    },
+    {
+      "id": "f001n",
+      "sourceKey": "BeltFlaskChargesUsed",
+      "retired": false
+    },
+    {
+      "id": "f001o",
+      "sourceKey": "BeltFlaskRecovery",
+      "retired": false
+    },
+    {
+      "id": "f001p",
+      "sourceKey": "BeltFlaskRecoveryRate",
+      "retired": false
+    },
+    {
+      "id": "f001q",
+      "sourceKey": "BleedChanceIncrease",
+      "retired": false
+    },
+    {
+      "id": "f001r",
+      "sourceKey": "BleedDotMultiplier",
+      "retired": false
+    },
+    {
+      "id": "f001s",
+      "sourceKey": "BleedDuration",
+      "retired": false
+    },
+    {
+      "id": "f001t",
+      "sourceKey": "BleedingDamage",
+      "retired": false
+    },
+    {
+      "id": "f001u",
+      "sourceKey": "BlindEffect",
+      "retired": false
+    },
+    {
+      "id": "f001v",
+      "sourceKey": "BlindOnHit",
+      "retired": false
+    },
+    {
+      "id": "f001w",
+      "sourceKey": "BodyArmourFromBodyArmour",
+      "retired": false
+    },
+    {
+      "id": "f001x",
+      "sourceKey": "CastSpeedOnFullLife",
+      "retired": false
+    },
+    {
+      "id": "f001y",
+      "sourceKey": "CastSpeedOnFullMana",
+      "retired": false
+    },
+    {
+      "id": "f001z",
+      "sourceKey": "CastSpeedOnLowLife",
+      "retired": false
+    },
+    {
+      "id": "f0020",
+      "sourceKey": "CastSpeedPerDifferentSpellCastRecently",
+      "retired": false
+    },
+    {
+      "id": "f0021",
+      "sourceKey": "CasterElementalDamagePercent",
+      "retired": false
+    },
+    {
+      "id": "f0022",
+      "sourceKey": "Chain",
+      "retired": false
+    },
+    {
+      "id": "f0023",
+      "sourceKey": "ChainFromTerrain",
+      "retired": false
+    },
+    {
+      "id": "f0024",
+      "sourceKey": "ChanceAttackFiresAdditionalProjectilesWhileMoving",
+      "retired": false
+    },
+    {
+      "id": "f0025",
+      "sourceKey": "ChanceForInstantReload",
+      "retired": false
+    },
+    {
+      "id": "f0026",
+      "sourceKey": "ChanceToBleed",
+      "retired": false
+    },
+    {
+      "id": "f0027",
+      "sourceKey": "ChanceToGainAdditionalInfusion",
+      "retired": false
+    },
+    {
+      "id": "f0028",
+      "sourceKey": "ChanceToGainNaturesArchon",
+      "retired": false
+    },
+    {
+      "id": "f0029",
+      "sourceKey": "ChanceToGenerateAdditionalCombo",
+      "retired": false
+    },
+    {
+      "id": "f002a",
+      "sourceKey": "ChanceToNotConsumeInfusionIfLostArchonPast6Seconds",
+      "retired": false
+    },
+    {
+      "id": "f002b",
+      "sourceKey": "ChanceToPierce",
+      "retired": false
+    },
+    {
+      "id": "f002c",
+      "sourceKey": "ChanceToPoisonWithAttacks",
+      "retired": false
+    },
+    {
+      "id": "f002d",
+      "sourceKey": "ChanceToRefund40PercentGlory",
+      "retired": false
+    },
+    {
+      "id": "f002e",
+      "sourceKey": "ChanceToTakeCriticalStrikeUpdated",
+      "retired": false
+    },
+    {
+      "id": "f002f",
+      "sourceKey": "ChaosModifierEffect",
+      "retired": false
+    },
+    {
+      "id": "f002g",
+      "sourceKey": "ChaosResistance",
+      "retired": false
+    },
+    {
+      "id": "f002h",
+      "sourceKey": "ChargeChanceToNotConsume",
+      "retired": false
+    },
+    {
+      "id": "f002i",
+      "sourceKey": "CharmChanceToNotConsumeCharges",
+      "retired": false
+    },
+    {
+      "id": "f002j",
+      "sourceKey": "CharmChargeGeneration",
+      "retired": false
+    },
+    {
+      "id": "f002k",
+      "sourceKey": "CharmChargesGained",
+      "retired": false
+    },
+    {
+      "id": "f002l",
+      "sourceKey": "CharmDamageWhileUsing",
+      "retired": false
+    },
+    {
+      "id": "f002m",
+      "sourceKey": "CharmDuration",
+      "retired": false
+    },
+    {
+      "id": "f002n",
+      "sourceKey": "ColdAndChaosDamageResistance",
+      "retired": false
+    },
+    {
+      "id": "f002o",
+      "sourceKey": "ColdDamage",
+      "retired": false
+    },
+    {
+      "id": "f002p",
+      "sourceKey": "ColdDamageAsPortionOfDamage",
+      "retired": false
+    },
+    {
+      "id": "f002q",
+      "sourceKey": "ColdDamageFreezeBuildupHybrid",
+      "retired": false
+    },
+    {
+      "id": "f002r",
+      "sourceKey": "ColdDamageIfColdInfusionCollectedLast8Seconds",
+      "retired": false
+    },
+    {
+      "id": "f002s",
+      "sourceKey": "ColdDamagePercentage",
+      "retired": false
+    },
+    {
+      "id": "f002t",
+      "sourceKey": "ColdDamageTakenRecoupedAsLife",
+      "retired": false
+    },
+    {
+      "id": "f002u",
+      "sourceKey": "ColdResistance",
+      "retired": false
+    },
+    {
+      "id": "f002v",
+      "sourceKey": "ColdResistancePenetration",
+      "retired": false
+    },
+    {
+      "id": "f002w",
+      "sourceKey": "CompanionAndLocalAttackSpeed",
+      "retired": false
+    },
+    {
+      "id": "f002x",
+      "sourceKey": "CompanionDamage",
+      "retired": false
+    },
+    {
+      "id": "f002y",
+      "sourceKey": "CompanionDamageAndDamageWithCompanion",
+      "retired": false
+    },
+    {
+      "id": "f002z",
+      "sourceKey": "CompanionLife",
+      "retired": false
+    },
+    {
+      "id": "f0030",
+      "sourceKey": "CompanionReservationEfficiency",
+      "retired": false
+    },
+    {
+      "id": "f0031",
+      "sourceKey": "CooldownRecovery",
+      "retired": false
+    },
+    {
+      "id": "f0032",
+      "sourceKey": "CorruptedBloodImmunity",
+      "retired": false
+    },
+    {
+      "id": "f0033",
+      "sourceKey": "CriticalAilmentEffect",
+      "retired": false
+    },
+    {
+      "id": "f0034",
+      "sourceKey": "CriticalHitChanceAgainstMarkedEnemies",
+      "retired": false
+    },
+    {
+      "id": "f0035",
+      "sourceKey": "CriticalModifierEffect",
+      "retired": false
+    },
+    {
+      "id": "f0036",
+      "sourceKey": "CriticalStrikeChanceIncrease",
+      "retired": false
+    },
+    {
+      "id": "f0037",
+      "sourceKey": "CriticalStrikeMultiplier",
+      "retired": false
+    },
+    {
+      "id": "f0038",
+      "sourceKey": "CrossbowDamage",
+      "retired": false
+    },
+    {
+      "id": "f0039",
+      "sourceKey": "CrossbowReloadSpeed",
+      "retired": false
+    },
+    {
+      "id": "f003a",
+      "sourceKey": "CrossbowSpeed",
+      "retired": false
+    },
+    {
+      "id": "f003b",
+      "sourceKey": "CurseAreaOfEffect",
+      "retired": false
+    },
+    {
+      "id": "f003c",
+      "sourceKey": "CurseCastSpeed",
+      "retired": false
+    },
+    {
+      "id": "f003d",
+      "sourceKey": "CurseDelay",
+      "retired": false
+    },
+    {
+      "id": "f003e",
+      "sourceKey": "CurseEffectiveness",
+      "retired": false
+    },
+    {
+      "id": "f003f",
+      "sourceKey": "DamageForm",
+      "retired": false
+    },
+    {
+      "id": "f003g",
+      "sourceKey": "DamageGainedAsChaos",
+      "retired": false
+    },
+    {
+      "id": "f003h",
+      "sourceKey": "DamageRemovedFromManaBeforeLife",
+      "retired": false
+    },
+    {
+      "id": "f003i",
+      "sourceKey": "DamageRemovedFromSpectres",
+      "retired": false
+    },
+    {
+      "id": "f003j",
+      "sourceKey": "DamageTakenGainedAsLife",
+      "retired": false
+    },
+    {
+      "id": "f003k",
+      "sourceKey": "DamageVsRareOrUnique",
+      "retired": false
+    },
+    {
+      "id": "f003l",
+      "sourceKey": "DamageWithTriggeredSpells",
+      "retired": false
+    },
+    {
+      "id": "f003m",
+      "sourceKey": "DamageWithWeaponTypeSkill",
+      "retired": false
+    },
+    {
+      "id": "f003n",
+      "sourceKey": "DamageasExtraPhysical",
+      "retired": false
+    },
+    {
+      "id": "f003o",
+      "sourceKey": "DamagevsArmourBrokenEnemies",
+      "retired": false
+    },
+    {
+      "id": "f003p",
+      "sourceKey": "DamagingAilmentDuration",
+      "retired": false
+    },
+    {
+      "id": "f003q",
+      "sourceKey": "DamagingAilmentEffect",
+      "retired": false
+    },
+    {
+      "id": "f003r",
+      "sourceKey": "DazeBuildup",
+      "retired": false
+    },
+    {
+      "id": "f003s",
+      "sourceKey": "DebuffTime",
+      "retired": false
+    },
+    {
+      "id": "f003t",
+      "sourceKey": "DefencesPercent",
+      "retired": false
+    },
+    {
+      "id": "f003u",
+      "sourceKey": "DefencesPercentAndStunThreshold",
+      "retired": false
+    },
+    {
+      "id": "f003v",
+      "sourceKey": "DeflectDamageTaken",
+      "retired": false
+    },
+    {
+      "id": "f003w",
+      "sourceKey": "Dexterity",
+      "retired": false
+    },
+    {
+      "id": "f003x",
+      "sourceKey": "DexterityAndIntelligence",
+      "retired": false
+    },
+    {
+      "id": "f003y",
+      "sourceKey": "DisplaySpearThrow",
+      "retired": false
+    },
+    {
+      "id": "f003z",
+      "sourceKey": "DodgeRoll",
+      "retired": false
+    },
+    {
+      "id": "f0040",
+      "sourceKey": "DodgeRollDistance",
+      "retired": false
+    },
+    {
+      "id": "f0041",
+      "sourceKey": "ElementalAilmentDuration",
+      "retired": false
+    },
+    {
+      "id": "f0042",
+      "sourceKey": "ElementalDamagePercent",
+      "retired": false
+    },
+    {
+      "id": "f0043",
+      "sourceKey": "ElementalDamageTakenGoesToEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f0044",
+      "sourceKey": "ElementalExposureEffect",
+      "retired": false
+    },
+    {
+      "id": "f0045",
+      "sourceKey": "ElementalInfusion",
+      "retired": false
+    },
+    {
+      "id": "f0046",
+      "sourceKey": "ElementalModifierEffect",
+      "retired": false
+    },
+    {
+      "id": "f0047",
+      "sourceKey": "ElementalPenetration",
+      "retired": false
+    },
+    {
+      "id": "f0048",
+      "sourceKey": "ElementalSkillLimit",
+      "retired": false
+    },
+    {
+      "id": "f0049",
+      "sourceKey": "EnchantmentHeistArmour",
+      "retired": false
+    },
+    {
+      "id": "f004a",
+      "sourceKey": "EnemiesExplodeOnDeath",
+      "retired": false
+    },
+    {
+      "id": "f004b",
+      "sourceKey": "Energy",
+      "retired": false
+    },
+    {
+      "id": "f004c",
+      "sourceKey": "EnergyShieldDelay",
+      "retired": false
+    },
+    {
+      "id": "f004d",
+      "sourceKey": "EnergyShieldPercent",
+      "retired": false
+    },
+    {
+      "id": "f004e",
+      "sourceKey": "EnergyShieldRechargeBlockedRecently",
+      "retired": false
+    },
+    {
+      "id": "f004f",
+      "sourceKey": "EnergyShieldRegeneration",
+      "retired": false
+    },
+    {
+      "id": "f004g",
+      "sourceKey": "EquipmentModifierEffect",
+      "retired": false
+    },
+    {
+      "id": "f004h",
+      "sourceKey": "EssenceAbyss",
+      "retired": false
+    },
+    {
+      "id": "f004i",
+      "sourceKey": "EssenceGoldDropped",
+      "retired": false
+    },
+    {
+      "id": "f004j",
+      "sourceKey": "EvasionAppliesToDeflection",
+      "retired": false
+    },
+    {
+      "id": "f004k",
+      "sourceKey": "EvasionRatingFromBodyArmour",
+      "retired": false
+    },
+    {
+      "id": "f004l",
+      "sourceKey": "EvasionRatingPercent",
+      "retired": false
+    },
+    {
+      "id": "f004m",
+      "sourceKey": "ExertedAttackDamage",
+      "retired": false
+    },
+    {
+      "id": "f004n",
+      "sourceKey": "ExposureEffect",
+      "retired": false
+    },
+    {
+      "id": "f004o",
+      "sourceKey": "FasterAilmentDamage",
+      "retired": false
+    },
+    {
+      "id": "f004p",
+      "sourceKey": "FireAndChaosDamageResistance",
+      "retired": false
+    },
+    {
+      "id": "f004q",
+      "sourceKey": "FireAndColdResistance",
+      "retired": false
+    },
+    {
+      "id": "f004r",
+      "sourceKey": "FireDamage",
+      "retired": false
+    },
+    {
+      "id": "f004s",
+      "sourceKey": "FireDamageIfFireInfusionCollectedLast8Seconds",
+      "retired": false
+    },
+    {
+      "id": "f004t",
+      "sourceKey": "FireDamageIgniteMagnitudeHybrid",
+      "retired": false
+    },
+    {
+      "id": "f004u",
+      "sourceKey": "FireDamagePercentage",
+      "retired": false
+    },
+    {
+      "id": "f004v",
+      "sourceKey": "FireDamageTakenRecoupedAsLife",
+      "retired": false
+    },
+    {
+      "id": "f004w",
+      "sourceKey": "FireResistance",
+      "retired": false
+    },
+    {
+      "id": "f004x",
+      "sourceKey": "FireResistancePenetration",
+      "retired": false
+    },
+    {
+      "id": "f004y",
+      "sourceKey": "FireSpellBaseCriticalChance",
+      "retired": false
+    },
+    {
+      "id": "f004z",
+      "sourceKey": "FlaskChanceToNotConsumeCharges",
+      "retired": false
+    },
+    {
+      "id": "f0050",
+      "sourceKey": "FlaskChargeGeneration",
+      "retired": false
+    },
+    {
+      "id": "f0051",
+      "sourceKey": "FlaskChargeGenerationPercent",
+      "retired": false
+    },
+    {
+      "id": "f0052",
+      "sourceKey": "FlaskDuration",
+      "retired": false
+    },
+    {
+      "id": "f0053",
+      "sourceKey": "FlaskLifeRecovery",
+      "retired": false
+    },
+    {
+      "id": "f0054",
+      "sourceKey": "FlaskManaRecovery",
+      "retired": false
+    },
+    {
+      "id": "f0055",
+      "sourceKey": "FocusEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f0056",
+      "sourceKey": "ForkingProjectiles",
+      "retired": false
+    },
+    {
+      "id": "f0057",
+      "sourceKey": "FormCritMultiplier",
+      "retired": false
+    },
+    {
+      "id": "f0058",
+      "sourceKey": "FreezeBuildupIfConsumedPowerChargeRecently",
+      "retired": false
+    },
+    {
+      "id": "f0059",
+      "sourceKey": "FreezeDamageIncrease",
+      "retired": false
+    },
+    {
+      "id": "f005a",
+      "sourceKey": "FreezeThreshold",
+      "retired": false
+    },
+    {
+      "id": "f005b",
+      "sourceKey": "GainArcaneSurgeOnCrit",
+      "retired": false
+    },
+    {
+      "id": "f005c",
+      "sourceKey": "GainFlatLifeOnBlock",
+      "retired": false
+    },
+    {
+      "id": "f005d",
+      "sourceKey": "GainManaOnBlock",
+      "retired": false
+    },
+    {
+      "id": "f005e",
+      "sourceKey": "GainPercentManaAsArmour",
+      "retired": false
+    },
+    {
+      "id": "f005f",
+      "sourceKey": "GainRage",
+      "retired": false
+    },
+    {
+      "id": "f005g",
+      "sourceKey": "GlobalCooldownRecovery",
+      "retired": false
+    },
+    {
+      "id": "f005h",
+      "sourceKey": "GlobalDeflectionRating",
+      "retired": false
+    },
+    {
+      "id": "f005i",
+      "sourceKey": "GlobalIncreaseMinionSpellSkillGemLevel",
+      "retired": false
+    },
+    {
+      "id": "f005j",
+      "sourceKey": "GlobalItemAttributeRequirements",
+      "retired": false
+    },
+    {
+      "id": "f005k",
+      "sourceKey": "GlobalSkillGemLevel",
+      "retired": false
+    },
+    {
+      "id": "f005l",
+      "sourceKey": "GlobalSkillGemQuality",
+      "retired": false
+    },
+    {
+      "id": "f005m",
+      "sourceKey": "GloryChanceToNotConsume",
+      "retired": false
+    },
+    {
+      "id": "f005n",
+      "sourceKey": "GloryGeneration",
+      "retired": false
+    },
+    {
+      "id": "f005o",
+      "sourceKey": "GrenadeAdditionalTriggerChance",
+      "retired": false
+    },
+    {
+      "id": "f005p",
+      "sourceKey": "GrenadeCooldownUse",
+      "retired": false
+    },
+    {
+      "id": "f005q",
+      "sourceKey": "GrenadeDamageLongFuse",
+      "retired": false
+    },
+    {
+      "id": "f005r",
+      "sourceKey": "HazardDamage",
+      "retired": false
+    },
+    {
+      "id": "f005s",
+      "sourceKey": "HeavyStunDecayRate",
+      "retired": false
+    },
+    {
+      "id": "f005t",
+      "sourceKey": "HeraldDamage",
+      "retired": false
+    },
+    {
+      "id": "f005u",
+      "sourceKey": "HeraldReservationEfficiency",
+      "retired": false
+    },
+    {
+      "id": "f005v",
+      "sourceKey": "HinderedEnemiesTakeIncreasedChaosDamage",
+      "retired": false
+    },
+    {
+      "id": "f005w",
+      "sourceKey": "HinderedEnemiesTakeIncreasedElementalDamage",
+      "retired": false
+    },
+    {
+      "id": "f005x",
+      "sourceKey": "HinderedEnemiesTakeIncreasedPhysicalDamage",
+      "retired": false
+    },
+    {
+      "id": "f005y",
+      "sourceKey": "HybridAbyssModJewelAbyssalWastingEffect",
+      "retired": false
+    },
+    {
+      "id": "f005z",
+      "sourceKey": "HybridAbyssModJewelAttackDamageArmour",
+      "retired": false
+    },
+    {
+      "id": "f0060",
+      "sourceKey": "HybridAbyssModJewelAttackDamageEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f0061",
+      "sourceKey": "HybridAbyssModJewelAttackDamageEvasion",
+      "retired": false
+    },
+    {
+      "id": "f0062",
+      "sourceKey": "HybridAbyssModJewelAuraSkillEffectPresenceAreaOfEffect",
+      "retired": false
+    },
+    {
+      "id": "f0063",
+      "sourceKey": "HybridAbyssModJewelBleedChanceAndMagnitude",
+      "retired": false
+    },
+    {
+      "id": "f0064",
+      "sourceKey": "HybridAbyssModJewelChaosDamageWitherEffect",
+      "retired": false
+    },
+    {
+      "id": "f0065",
+      "sourceKey": "HybridAbyssModJewelColdDamageAndPen",
+      "retired": false
+    },
+    {
+      "id": "f0066",
+      "sourceKey": "HybridAbyssModJewelCompanionLifeAndDamage",
+      "retired": false
+    },
+    {
+      "id": "f0067",
+      "sourceKey": "HybridAbyssModJewelElementalDamageAilmentMagnitude",
+      "retired": false
+    },
+    {
+      "id": "f0068",
+      "sourceKey": "HybridAbyssModJewelElementalExposureEffect",
+      "retired": false
+    },
+    {
+      "id": "f0069",
+      "sourceKey": "HybridAbyssModJewelFireDamageAndPen",
+      "retired": false
+    },
+    {
+      "id": "f006a",
+      "sourceKey": "HybridAbyssModJewelGlobalPhysicalDamageArmourBreak",
+      "retired": false
+    },
+    {
+      "id": "f006b",
+      "sourceKey": "HybridAbyssModJewelIncreasedDexterity",
+      "retired": false
+    },
+    {
+      "id": "f006c",
+      "sourceKey": "HybridAbyssModJewelIncreasedIntelligence",
+      "retired": false
+    },
+    {
+      "id": "f006d",
+      "sourceKey": "HybridAbyssModJewelIncreasedStrength",
+      "retired": false
+    },
+    {
+      "id": "f006e",
+      "sourceKey": "HybridAbyssModJewelLightningDamageAndPen",
+      "retired": false
+    },
+    {
+      "id": "f006f",
+      "sourceKey": "HybridAbyssModJewelMinionAreaAndLife",
+      "retired": false
+    },
+    {
+      "id": "f006g",
+      "sourceKey": "HybridAbyssModJewelMinionDamageArmour",
+      "retired": false
+    },
+    {
+      "id": "f006h",
+      "sourceKey": "HybridAbyssModJewelMinionDamageEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f006i",
+      "sourceKey": "HybridAbyssModJewelMinionDamageEvasion",
+      "retired": false
+    },
+    {
+      "id": "f006j",
+      "sourceKey": "HybridAbyssModJewelPoisonChanceAndMagnitude",
+      "retired": false
+    },
+    {
+      "id": "f006k",
+      "sourceKey": "HybridAbyssModJewelSpellDamageArmour",
+      "retired": false
+    },
+    {
+      "id": "f006l",
+      "sourceKey": "HybridAbyssModJewelSpellDamageEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f006m",
+      "sourceKey": "HybridAbyssModJewelSpellDamageEvasion",
+      "retired": false
+    },
+    {
+      "id": "f006n",
+      "sourceKey": "HybridAbyssModJewelThornsDamageArmour",
+      "retired": false
+    },
+    {
+      "id": "f006o",
+      "sourceKey": "HybridAbyssModJewelThornsDamageEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f006p",
+      "sourceKey": "HybridAbyssModJewelThornsDamageEvasion",
+      "retired": false
+    },
+    {
+      "id": "f006q",
+      "sourceKey": "HybridAbyssModJewelTotemDamageArmour",
+      "retired": false
+    },
+    {
+      "id": "f006r",
+      "sourceKey": "HybridAbyssModJewelTotemDamageEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f006s",
+      "sourceKey": "HybridAbyssModJewelTotemDamageEvasion",
+      "retired": false
+    },
+    {
+      "id": "f006t",
+      "sourceKey": "HybridAbyssModJewelWarcryBuffEffectAndDamage",
+      "retired": false
+    },
+    {
+      "id": "f006u",
+      "sourceKey": "HybridAbyssModRadiusJewelCharmChargesPerSecond",
+      "retired": false
+    },
+    {
+      "id": "f006v",
+      "sourceKey": "HybridAbyssModRadiusJewelDamageTakenFromManaBeforeLife",
+      "retired": false
+    },
+    {
+      "id": "f006w",
+      "sourceKey": "HybridAbyssModRadiusJewelDamageTakenRecoupLife",
+      "retired": false
+    },
+    {
+      "id": "f006x",
+      "sourceKey": "HybridAbyssModRadiusJewelDamageTakenRecoupMana",
+      "retired": false
+    },
+    {
+      "id": "f006y",
+      "sourceKey": "HybridAbyssModRadiusJewelGlobalDefences",
+      "retired": false
+    },
+    {
+      "id": "f006z",
+      "sourceKey": "HybridAbyssModRadiusJewelLifeFlaskChargesPerSecond",
+      "retired": false
+    },
+    {
+      "id": "f0070",
+      "sourceKey": "HybridAbyssModRadiusJewelManaCostEfficiency",
+      "retired": false
+    },
+    {
+      "id": "f0071",
+      "sourceKey": "HybridAbyssModRadiusJewelManaFlaskChargesPerSecond",
+      "retired": false
+    },
+    {
+      "id": "f0072",
+      "sourceKey": "HybridAbyssModRadiusJewelPercentMaximumLife",
+      "retired": false
+    },
+    {
+      "id": "f0073",
+      "sourceKey": "HybridAbyssModRadiusJewelPercentMaximumMana",
+      "retired": false
+    },
+    {
+      "id": "f0074",
+      "sourceKey": "HybridAbyssModRadiusJewelReducedCriticalHitChanceAgainstYou",
+      "retired": false
+    },
+    {
+      "id": "f0075",
+      "sourceKey": "HybridAbyssModRadiusJewelRegeneratePercentLifePerSecond",
+      "retired": false
+    },
+    {
+      "id": "f0076",
+      "sourceKey": "IgniteChanceIncrease",
+      "retired": false
+    },
+    {
+      "id": "f0077",
+      "sourceKey": "IgniteEffect",
+      "retired": false
+    },
+    {
+      "id": "f0078",
+      "sourceKey": "IgniteMagnitudeIfConsumedEnduranceChargeRecently",
+      "retired": false
+    },
+    {
+      "id": "f0079",
+      "sourceKey": "ImmobilisationBuildup",
+      "retired": false
+    },
+    {
+      "id": "f007a",
+      "sourceKey": "IncisionChance",
+      "retired": false
+    },
+    {
+      "id": "f007b",
+      "sourceKey": "IncreaseSocketedGemLevel",
+      "retired": false
+    },
+    {
+      "id": "f007c",
+      "sourceKey": "IncreasedAccuracy",
+      "retired": false
+    },
+    {
+      "id": "f007d",
+      "sourceKey": "IncreasedAccuracyPercent",
+      "retired": false
+    },
+    {
+      "id": "f007e",
+      "sourceKey": "IncreasedAttackAreaOfEffect",
+      "retired": false
+    },
+    {
+      "id": "f007f",
+      "sourceKey": "IncreasedAttackSpeed",
+      "retired": false
+    },
+    {
+      "id": "f007g",
+      "sourceKey": "IncreasedBlockChance",
+      "retired": false
+    },
+    {
+      "id": "f007h",
+      "sourceKey": "IncreasedCastSpeed",
+      "retired": false
+    },
+    {
+      "id": "f007i",
+      "sourceKey": "IncreasedChaosDamage",
+      "retired": false
+    },
+    {
+      "id": "f007j",
+      "sourceKey": "IncreasedChillDuration",
+      "retired": false
+    },
+    {
+      "id": "f007k",
+      "sourceKey": "IncreasedDamageWhileTotemActive",
+      "retired": false
+    },
+    {
+      "id": "f007l",
+      "sourceKey": "IncreasedEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f007m",
+      "sourceKey": "IncreasedEvasionRating",
+      "retired": false
+    },
+    {
+      "id": "f007n",
+      "sourceKey": "IncreasedLife",
+      "retired": false
+    },
+    {
+      "id": "f007o",
+      "sourceKey": "IncreasedMana",
+      "retired": false
+    },
+    {
+      "id": "f007p",
+      "sourceKey": "IncreasedMinionDamageIfYouHitEnemy",
+      "retired": false
+    },
+    {
+      "id": "f007q",
+      "sourceKey": "IncreasedPhysicalDamageReductionRating",
+      "retired": false
+    },
+    {
+      "id": "f007r",
+      "sourceKey": "IncreasedPhysicalDamageReductionRatingPercent",
+      "retired": false
+    },
+    {
+      "id": "f007s",
+      "sourceKey": "IncreasedShieldBlockPercentage",
+      "retired": false
+    },
+    {
+      "id": "f007t",
+      "sourceKey": "IncreasedSkillSpeed",
+      "retired": false
+    },
+    {
+      "id": "f007u",
+      "sourceKey": "IncreasedSpellDamageOnFullEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f007v",
+      "sourceKey": "IncreasedStunThreshold",
+      "retired": false
+    },
+    {
+      "id": "f007w",
+      "sourceKey": "IncreasedStunThresholdIfNoRecentStun",
+      "retired": false
+    },
+    {
+      "id": "f007x",
+      "sourceKey": "IncreasedTotemLife",
+      "retired": false
+    },
+    {
+      "id": "f007y",
+      "sourceKey": "IncreasedWeaponElementalDamagePercent",
+      "retired": false
+    },
+    {
+      "id": "f007z",
+      "sourceKey": "IncreasesToProjectileDamageApplyToBowDamage",
+      "retired": false
+    },
+    {
+      "id": "f0080",
+      "sourceKey": "InstantFlaskRecovery",
+      "retired": false
+    },
+    {
+      "id": "f0081",
+      "sourceKey": "Intelligence",
+      "retired": false
+    },
+    {
+      "id": "f0082",
+      "sourceKey": "InvocatedSpellHalfEnergyChance",
+      "retired": false
+    },
+    {
+      "id": "f0083",
+      "sourceKey": "InvocationMaximumEnergy",
+      "retired": false
+    },
+    {
+      "id": "f0084",
+      "sourceKey": "InvocationSpellDamage",
+      "retired": false
+    },
+    {
+      "id": "f0085",
+      "sourceKey": "ItemFoundRarityIncrease",
+      "retired": false
+    },
+    {
+      "id": "f0086",
+      "sourceKey": "ItemFoundRarityIncreasePrefix",
+      "retired": false
+    },
+    {
+      "id": "f0087",
+      "sourceKey": "JewelEffectBaseRadius",
+      "retired": false
+    },
+    {
+      "id": "f0088",
+      "sourceKey": "JewelRadiusLargerRadius",
+      "retired": false
+    },
+    {
+      "id": "f0089",
+      "sourceKey": "JewelRadiusNotableEffect",
+      "retired": false
+    },
+    {
+      "id": "f008a",
+      "sourceKey": "JewelRadiusSmallNodeEffect",
+      "retired": false
+    },
+    {
+      "id": "f008b",
+      "sourceKey": "JewelStatusOnHitWhileSocketed",
+      "retired": false
+    },
+    {
+      "id": "f008c",
+      "sourceKey": "Knockback",
+      "retired": false
+    },
+    {
+      "id": "f008d",
+      "sourceKey": "LifeCost",
+      "retired": false
+    },
+    {
+      "id": "f008e",
+      "sourceKey": "LifeCostEfficiency",
+      "retired": false
+    },
+    {
+      "id": "f008f",
+      "sourceKey": "LifeFlaskChargeGeneration",
+      "retired": false
+    },
+    {
+      "id": "f008g",
+      "sourceKey": "LifeGainPerTarget",
+      "retired": false
+    },
+    {
+      "id": "f008h",
+      "sourceKey": "LifeGainedFromEnemyDeath",
+      "retired": false
+    },
+    {
+      "id": "f008i",
+      "sourceKey": "LifeLeech",
+      "retired": false
+    },
+    {
+      "id": "f008j",
+      "sourceKey": "LifeLeechAmount",
+      "retired": false
+    },
+    {
+      "id": "f008k",
+      "sourceKey": "LifeRegeneration",
+      "retired": false
+    },
+    {
+      "id": "f008l",
+      "sourceKey": "LifeRegenerationPlusPercentWhileMoving",
+      "retired": false
+    },
+    {
+      "id": "f008m",
+      "sourceKey": "LifeRegenerationRate",
+      "retired": false
+    },
+    {
+      "id": "f008n",
+      "sourceKey": "LifeRegenerationRateDuringFlaskEffect",
+      "retired": false
+    },
+    {
+      "id": "f008o",
+      "sourceKey": "LifeRegenerationRatePercentage",
+      "retired": false
+    },
+    {
+      "id": "f008p",
+      "sourceKey": "LightRadiusAndAccuracy",
+      "retired": false
+    },
+    {
+      "id": "f008q",
+      "sourceKey": "LightRadiusAndManaRegeneration",
+      "retired": false
+    },
+    {
+      "id": "f008r",
+      "sourceKey": "LightningAndChaosDamageResistance",
+      "retired": false
+    },
+    {
+      "id": "f008s",
+      "sourceKey": "LightningDamage",
+      "retired": false
+    },
+    {
+      "id": "f008t",
+      "sourceKey": "LightningDamageCanIgnite",
+      "retired": false
+    },
+    {
+      "id": "f008u",
+      "sourceKey": "LightningDamageIfLightningInfusionCollectedLast8Seconds",
+      "retired": false
+    },
+    {
+      "id": "f008v",
+      "sourceKey": "LightningDamagePercentage",
+      "retired": false
+    },
+    {
+      "id": "f008w",
+      "sourceKey": "LightningDamageShockMagnitudeHybrid",
+      "retired": false
+    },
+    {
+      "id": "f008x",
+      "sourceKey": "LightningDamageTakenRecoupedAsLife",
+      "retired": false
+    },
+    {
+      "id": "f008y",
+      "sourceKey": "LightningResistance",
+      "retired": false
+    },
+    {
+      "id": "f008z",
+      "sourceKey": "LightningResistancePenetration",
+      "retired": false
+    },
+    {
+      "id": "f0090",
+      "sourceKey": "LocalAttackSpeedAndAttackSpeedWithCompanion",
+      "retired": false
+    },
+    {
+      "id": "f0091",
+      "sourceKey": "LocalAttributeRequirements",
+      "retired": false
+    },
+    {
+      "id": "f0092",
+      "sourceKey": "LocalColdPenetration",
+      "retired": false
+    },
+    {
+      "id": "f0093",
+      "sourceKey": "LocalFirePenetration",
+      "retired": false
+    },
+    {
+      "id": "f0094",
+      "sourceKey": "LocalIncreasedPhysicalDamageAttackSpeedHybrid",
+      "retired": false
+    },
+    {
+      "id": "f0095",
+      "sourceKey": "LocalIncreasedPhysicalDamagePercentAndAccuracyRating",
+      "retired": false
+    },
+    {
+      "id": "f0096",
+      "sourceKey": "LocalIncreasedSpiritAndMana",
+      "retired": false
+    },
+    {
+      "id": "f0097",
+      "sourceKey": "LocalIncreasedSpiritPercent",
+      "retired": false
+    },
+    {
+      "id": "f0098",
+      "sourceKey": "LocalItemBenefitSocketableAsIf",
+      "retired": false
+    },
+    {
+      "id": "f0099",
+      "sourceKey": "LocalLightningPenetration",
+      "retired": false
+    },
+    {
+      "id": "f009a",
+      "sourceKey": "LocalMaximumQuality",
+      "retired": false
+    },
+    {
+      "id": "f009b",
+      "sourceKey": "LocalPhysicalDamagePercent",
+      "retired": false
+    },
+    {
+      "id": "f009c",
+      "sourceKey": "LocalPrefixSuffixEffect",
+      "retired": false
+    },
+    {
+      "id": "f009d",
+      "sourceKey": "LocalReloadSpeed",
+      "retired": false
+    },
+    {
+      "id": "f009e",
+      "sourceKey": "LocalRunicWardPercent",
+      "retired": false
+    },
+    {
+      "id": "f009f",
+      "sourceKey": "MaceSkillSlamAftershockChance",
+      "retired": false
+    },
+    {
+      "id": "f009g",
+      "sourceKey": "MaceStun",
+      "retired": false
+    },
+    {
+      "id": "f009h",
+      "sourceKey": "ManaCostEfficiency",
+      "retired": false
+    },
+    {
+      "id": "f009i",
+      "sourceKey": "ManaCostEfficiencyIfDodgeRolledRecently",
+      "retired": false
+    },
+    {
+      "id": "f009j",
+      "sourceKey": "ManaFlaskChargeGeneration",
+      "retired": false
+    },
+    {
+      "id": "f009k",
+      "sourceKey": "ManaGainedFromEnemyDeath",
+      "retired": false
+    },
+    {
+      "id": "f009l",
+      "sourceKey": "ManaGainedOnKillPercentage",
+      "retired": false
+    },
+    {
+      "id": "f009m",
+      "sourceKey": "ManaLeech",
+      "retired": false
+    },
+    {
+      "id": "f009n",
+      "sourceKey": "ManaLeechAmount",
+      "retired": false
+    },
+    {
+      "id": "f009o",
+      "sourceKey": "ManaModifierEffect",
+      "retired": false
+    },
+    {
+      "id": "f009p",
+      "sourceKey": "ManaRegeneration",
+      "retired": false
+    },
+    {
+      "id": "f009q",
+      "sourceKey": "ManaRegenerationWhileStationary",
+      "retired": false
+    },
+    {
+      "id": "f009r",
+      "sourceKey": "MarkDuration",
+      "retired": false
+    },
+    {
+      "id": "f009s",
+      "sourceKey": "MarkUseSpeed",
+      "retired": false
+    },
+    {
+      "id": "f009t",
+      "sourceKey": "MarkedEnemyTakesIncreasedDamage",
+      "retired": false
+    },
+    {
+      "id": "f009u",
+      "sourceKey": "MartialWeaponGainedDamage",
+      "retired": false
+    },
+    {
+      "id": "f009v",
+      "sourceKey": "MaxPrefixMaxSuffix",
+      "retired": false
+    },
+    {
+      "id": "f009w",
+      "sourceKey": "MaximumBlockChance",
+      "retired": false
+    },
+    {
+      "id": "f009x",
+      "sourceKey": "MaximumChaosResistance",
+      "retired": false
+    },
+    {
+      "id": "f009y",
+      "sourceKey": "MaximumColdResist",
+      "retired": false
+    },
+    {
+      "id": "f009z",
+      "sourceKey": "MaximumElementalInfusion",
+      "retired": false
+    },
+    {
+      "id": "f00a0",
+      "sourceKey": "MaximumEnergyShieldFromBodyArmour",
+      "retired": false
+    },
+    {
+      "id": "f00a1",
+      "sourceKey": "MaximumFireResist",
+      "retired": false
+    },
+    {
+      "id": "f00a2",
+      "sourceKey": "MaximumLifeIncreasePercent",
+      "retired": false
+    },
+    {
+      "id": "f00a3",
+      "sourceKey": "MaximumLifeOnKillPercent",
+      "retired": false
+    },
+    {
+      "id": "f00a4",
+      "sourceKey": "MaximumLightningResistance",
+      "retired": false
+    },
+    {
+      "id": "f00a5",
+      "sourceKey": "MaximumManaIncreasePercent",
+      "retired": false
+    },
+    {
+      "id": "f00a6",
+      "sourceKey": "MaximumPuppeteerStacks",
+      "retired": false
+    },
+    {
+      "id": "f00a7",
+      "sourceKey": "MaximumRage",
+      "retired": false
+    },
+    {
+      "id": "f00a8",
+      "sourceKey": "MaximumResistances",
+      "retired": false
+    },
+    {
+      "id": "f00a9",
+      "sourceKey": "MaximumSpiritIncreasePercent",
+      "retired": false
+    },
+    {
+      "id": "f00aa",
+      "sourceKey": "MeleeDamage",
+      "retired": false
+    },
+    {
+      "id": "f00ab",
+      "sourceKey": "MeleeDamageIfProjectileAttackHitRecently",
+      "retired": false
+    },
+    {
+      "id": "f00ac",
+      "sourceKey": "MeleeDamageIfProjectileHitRecently",
+      "retired": false
+    },
+    {
+      "id": "f00ad",
+      "sourceKey": "MeleeSplash",
+      "retired": false
+    },
+    {
+      "id": "f00ae",
+      "sourceKey": "MeleeWeaponAndUnarmedRange",
+      "retired": false
+    },
+    {
+      "id": "f00af",
+      "sourceKey": "MinionAdditionalProjectileChance",
+      "retired": false
+    },
+    {
+      "id": "f00ag",
+      "sourceKey": "MinionAndSpellDamageHybrid",
+      "retired": false
+    },
+    {
+      "id": "f00ah",
+      "sourceKey": "MinionAreaOfEffect",
+      "retired": false
+    },
+    {
+      "id": "f00ai",
+      "sourceKey": "MinionArmourBreak",
+      "retired": false
+    },
+    {
+      "id": "f00aj",
+      "sourceKey": "MinionAttackSpeedAndCastSpeed",
+      "retired": false
+    },
+    {
+      "id": "f00ak",
+      "sourceKey": "MinionChaosResistance",
+      "retired": false
+    },
+    {
+      "id": "f00al",
+      "sourceKey": "MinionCommandSkillSpeed",
+      "retired": false
+    },
+    {
+      "id": "f00am",
+      "sourceKey": "MinionCooldownRecoveryRate",
+      "retired": false
+    },
+    {
+      "id": "f00an",
+      "sourceKey": "MinionCriticalStrikeChance",
+      "retired": false
+    },
+    {
+      "id": "f00ao",
+      "sourceKey": "MinionCriticalStrikeMultiplier",
+      "retired": false
+    },
+    {
+      "id": "f00ap",
+      "sourceKey": "MinionDamage",
+      "retired": false
+    },
+    {
+      "id": "f00aq",
+      "sourceKey": "MinionDamagePerDifferentCommandSkillUsedLast15Seconds",
+      "retired": false
+    },
+    {
+      "id": "f00ar",
+      "sourceKey": "MinionDamagingAilments",
+      "retired": false
+    },
+    {
+      "id": "f00as",
+      "sourceKey": "MinionDuration",
+      "retired": false
+    },
+    {
+      "id": "f00at",
+      "sourceKey": "MinionElementalResistances",
+      "retired": false
+    },
+    {
+      "id": "f00au",
+      "sourceKey": "MinionGainPuppetMasterOnCommand",
+      "retired": false
+    },
+    {
+      "id": "f00av",
+      "sourceKey": "MinionLife",
+      "retired": false
+    },
+    {
+      "id": "f00aw",
+      "sourceKey": "MinionMeleeSplash",
+      "retired": false
+    },
+    {
+      "id": "f00ax",
+      "sourceKey": "MinionPhysicalDamageReduction",
+      "retired": false
+    },
+    {
+      "id": "f00ay",
+      "sourceKey": "MinionReservationEfficiency",
+      "retired": false
+    },
+    {
+      "id": "f00az",
+      "sourceKey": "MinionsGiganticRevivedRecently",
+      "retired": false
+    },
+    {
+      "id": "f00b0",
+      "sourceKey": "MovementVelocity",
+      "retired": false
+    },
+    {
+      "id": "f00b1",
+      "sourceKey": "MovementVelocityWhileSprinting",
+      "retired": false
+    },
+    {
+      "id": "f00b2",
+      "sourceKey": "OfferingDuration",
+      "retired": false
+    },
+    {
+      "id": "f00b3",
+      "sourceKey": "OfferingEffect",
+      "retired": false
+    },
+    {
+      "id": "f00b4",
+      "sourceKey": "OfferingLife",
+      "retired": false
+    },
+    {
+      "id": "f00b5",
+      "sourceKey": "Onslaught",
+      "retired": false
+    },
+    {
+      "id": "f00b6",
+      "sourceKey": "ParriedDebuff",
+      "retired": false
+    },
+    {
+      "id": "f00b7",
+      "sourceKey": "ParryDebuffMagnitude",
+      "retired": false
+    },
+    {
+      "id": "f00b8",
+      "sourceKey": "ParryDuration",
+      "retired": false
+    },
+    {
+      "id": "f00b9",
+      "sourceKey": "PercentDamageGoesToMana",
+      "retired": false
+    },
+    {
+      "id": "f00ba",
+      "sourceKey": "PercentageDexterity",
+      "retired": false
+    },
+    {
+      "id": "f00bb",
+      "sourceKey": "PercentageIntelligence",
+      "retired": false
+    },
+    {
+      "id": "f00bc",
+      "sourceKey": "PercentageStrength",
+      "retired": false
+    },
+    {
+      "id": "f00bd",
+      "sourceKey": "PhysicalDamage",
+      "retired": false
+    },
+    {
+      "id": "f00be",
+      "sourceKey": "PhysicalDamagePercent",
+      "retired": false
+    },
+    {
+      "id": "f00bf",
+      "sourceKey": "PhysicalDamageTakenAsChaos",
+      "retired": false
+    },
+    {
+      "id": "f00bg",
+      "sourceKey": "PhysicalModifierEffect",
+      "retired": false
+    },
+    {
+      "id": "f00bh",
+      "sourceKey": "PhysicalTakenAsLightningAndGlancingWhilActiveBlocking",
+      "retired": false
+    },
+    {
+      "id": "f00bi",
+      "sourceKey": "PinBuildup",
+      "retired": false
+    },
+    {
+      "id": "f00bj",
+      "sourceKey": "PoisonChanceIncrease",
+      "retired": false
+    },
+    {
+      "id": "f00bk",
+      "sourceKey": "PoisonDuration",
+      "retired": false
+    },
+    {
+      "id": "f00bl",
+      "sourceKey": "PoisonEffect",
+      "retired": false
+    },
+    {
+      "id": "f00bm",
+      "sourceKey": "PresenceRadius",
+      "retired": false
+    },
+    {
+      "id": "f00bn",
+      "sourceKey": "ProjectileCriticalDamageCloseRange",
+      "retired": false
+    },
+    {
+      "id": "f00bo",
+      "sourceKey": "ProjectileCriticalHitChanceFar",
+      "retired": false
+    },
+    {
+      "id": "f00bp",
+      "sourceKey": "ProjectileDamage",
+      "retired": false
+    },
+    {
+      "id": "f00bq",
+      "sourceKey": "ProjectileDamageCloseRange",
+      "retired": false
+    },
+    {
+      "id": "f00br",
+      "sourceKey": "ProjectileDamageFar",
+      "retired": false
+    },
+    {
+      "id": "f00bs",
+      "sourceKey": "ProjectileDamageIfMeleeHitRecently",
+      "retired": false
+    },
+    {
+      "id": "f00bt",
+      "sourceKey": "ProjectileRange",
+      "retired": false
+    },
+    {
+      "id": "f00bu",
+      "sourceKey": "ProjectileSpeed",
+      "retired": false
+    },
+    {
+      "id": "f00bv",
+      "sourceKey": "QuarterstaffFreezeBuildup",
+      "retired": false
+    },
+    {
+      "id": "f00bw",
+      "sourceKey": "QuiverModifierEffect",
+      "retired": false
+    },
+    {
+      "id": "f00bx",
+      "sourceKey": "RageCost",
+      "retired": false
+    },
+    {
+      "id": "f00by",
+      "sourceKey": "RageLossDelay",
+      "retired": false
+    },
+    {
+      "id": "f00bz",
+      "sourceKey": "RageOnHit",
+      "retired": false
+    },
+    {
+      "id": "f00c0",
+      "sourceKey": "RecoverPercentMaxLifeOnKill",
+      "retired": false
+    },
+    {
+      "id": "f00c1",
+      "sourceKey": "RecoverRunicWardOnCharmUse",
+      "retired": false
+    },
+    {
+      "id": "f00c2",
+      "sourceKey": "ReducedAilmentDuration",
+      "retired": false
+    },
+    {
+      "id": "f00c3",
+      "sourceKey": "ReducedBleedDuration",
+      "retired": false
+    },
+    {
+      "id": "f00c4",
+      "sourceKey": "ReducedCriticalStrikeDamageTaken",
+      "retired": false
+    },
+    {
+      "id": "f00c5",
+      "sourceKey": "ReducedCurseEffect",
+      "retired": false
+    },
+    {
+      "id": "f00c6",
+      "sourceKey": "ReducedExtraDamageFromCrits",
+      "retired": false
+    },
+    {
+      "id": "f00c7",
+      "sourceKey": "ReducedIgniteDurationOnSelf",
+      "retired": false
+    },
+    {
+      "id": "f00c8",
+      "sourceKey": "ReducedPhysicalDamageTaken",
+      "retired": false
+    },
+    {
+      "id": "f00c9",
+      "sourceKey": "ReducedPoisonDuration",
+      "retired": false
+    },
+    {
+      "id": "f00ca",
+      "sourceKey": "RemnantEffect",
+      "retired": false
+    },
+    {
+      "id": "f00cb",
+      "sourceKey": "RemnantPickupRadius",
+      "retired": false
+    },
+    {
+      "id": "f00cc",
+      "sourceKey": "RemnantPickupRadiusIncrease",
+      "retired": false
+    },
+    {
+      "id": "f00cd",
+      "sourceKey": "RunicWardPercent",
+      "retired": false
+    },
+    {
+      "id": "f00ce",
+      "sourceKey": "SealGainFrequency",
+      "retired": false
+    },
+    {
+      "id": "f00cf",
+      "sourceKey": "SelfStatusAilmentDuration",
+      "retired": false
+    },
+    {
+      "id": "f00cg",
+      "sourceKey": "ShieldArmourIncrease",
+      "retired": false
+    },
+    {
+      "id": "f00ch",
+      "sourceKey": "ShockChanceIncrease",
+      "retired": false
+    },
+    {
+      "id": "f00ci",
+      "sourceKey": "ShockDuration",
+      "retired": false
+    },
+    {
+      "id": "f00cj",
+      "sourceKey": "ShockEffect",
+      "retired": false
+    },
+    {
+      "id": "f00ck",
+      "sourceKey": "ShockMagnitudeIfConsumedFrenzyChargeRecently",
+      "retired": false
+    },
+    {
+      "id": "f00cl",
+      "sourceKey": "SkillEffectDuration",
+      "retired": false
+    },
+    {
+      "id": "f00cm",
+      "sourceKey": "SkillSpeedIfConsumedFrenzyChargeRecently",
+      "retired": false
+    },
+    {
+      "id": "f00cn",
+      "sourceKey": "SkillUseRecoverPercentLifeOnExpendingTenCombo",
+      "retired": false
+    },
+    {
+      "id": "f00co",
+      "sourceKey": "SkillUseRecoverPercentManaOnExpendingTenCombo",
+      "retired": false
+    },
+    {
+      "id": "f00cp",
+      "sourceKey": "SlowEffectIfCharmedRecently",
+      "retired": false
+    },
+    {
+      "id": "f00cq",
+      "sourceKey": "SlowPotency",
+      "retired": false
+    },
+    {
+      "id": "f00cr",
+      "sourceKey": "SoulCore",
+      "retired": false
+    },
+    {
+      "id": "f00cs",
+      "sourceKey": "SpearAttackSpeed",
+      "retired": false
+    },
+    {
+      "id": "f00ct",
+      "sourceKey": "SpearCriticalDamage",
+      "retired": false
+    },
+    {
+      "id": "f00cu",
+      "sourceKey": "SpearDamage",
+      "retired": false
+    },
+    {
+      "id": "f00cv",
+      "sourceKey": "SpecificWeaponAccuracy",
+      "retired": false
+    },
+    {
+      "id": "f00cw",
+      "sourceKey": "SpecificWeaponDamage",
+      "retired": false
+    },
+    {
+      "id": "f00cx",
+      "sourceKey": "SpecificWeaponSpeed",
+      "retired": false
+    },
+    {
+      "id": "f00cy",
+      "sourceKey": "SpeedModifierEffect",
+      "retired": false
+    },
+    {
+      "id": "f00cz",
+      "sourceKey": "SpellAreaOfEffect",
+      "retired": false
+    },
+    {
+      "id": "f00d0",
+      "sourceKey": "SpellAreaOfEffectPercent",
+      "retired": false
+    },
+    {
+      "id": "f00d1",
+      "sourceKey": "SpellChanceToFireTwoAdditionalProjectiles",
+      "retired": false
+    },
+    {
+      "id": "f00d2",
+      "sourceKey": "SpellCriticalStrikeChanceIncrease",
+      "retired": false
+    },
+    {
+      "id": "f00d3",
+      "sourceKey": "SpellDamage",
+      "retired": false
+    },
+    {
+      "id": "f00d4",
+      "sourceKey": "SpellDamageAndMana",
+      "retired": false
+    },
+    {
+      "id": "f00d5",
+      "sourceKey": "SpellDamageForSpellsCostingLife",
+      "retired": false
+    },
+    {
+      "id": "f00d6",
+      "sourceKey": "SpellDamageGainedAsChaos",
+      "retired": false
+    },
+    {
+      "id": "f00d7",
+      "sourceKey": "SpellDamageGainedAsCold",
+      "retired": false
+    },
+    {
+      "id": "f00d8",
+      "sourceKey": "SpellDamageGainedAsFire",
+      "retired": false
+    },
+    {
+      "id": "f00d9",
+      "sourceKey": "SpellDamageGainedAsLightning",
+      "retired": false
+    },
+    {
+      "id": "f00da",
+      "sourceKey": "SpellDamageIfWieldingMeleeWeapon",
+      "retired": false
+    },
+    {
+      "id": "f00db",
+      "sourceKey": "SpellDamagePer100Life",
+      "retired": false
+    },
+    {
+      "id": "f00dc",
+      "sourceKey": "SpellDamagePer100Mana",
+      "retired": false
+    },
+    {
+      "id": "f00dd",
+      "sourceKey": "SpellElementalAilmentMagnitude",
+      "retired": false
+    },
+    {
+      "id": "f00de",
+      "sourceKey": "SpellImpaleEffect",
+      "retired": false
+    },
+    {
+      "id": "f00df",
+      "sourceKey": "SpellLifeCostPercent",
+      "retired": false
+    },
+    {
+      "id": "f00dg",
+      "sourceKey": "SpellLifeCostPercentAndSkillCostEfficiency",
+      "retired": false
+    },
+    {
+      "id": "f00dh",
+      "sourceKey": "SpiritReservationEfficiency",
+      "retired": false
+    },
+    {
+      "id": "f00di",
+      "sourceKey": "Strength",
+      "retired": false
+    },
+    {
+      "id": "f00dj",
+      "sourceKey": "StrengthAndDexterity",
+      "retired": false
+    },
+    {
+      "id": "f00dk",
+      "sourceKey": "StrengthAndIntelligence",
+      "retired": false
+    },
+    {
+      "id": "f00dl",
+      "sourceKey": "StunDamageIncrease",
+      "retired": false
+    },
+    {
+      "id": "f00dm",
+      "sourceKey": "StunDurationIncreasePercent",
+      "retired": false
+    },
+    {
+      "id": "f00dn",
+      "sourceKey": "StunThreshold",
+      "retired": false
+    },
+    {
+      "id": "f00do",
+      "sourceKey": "StunThresholdDuringParry",
+      "retired": false
+    },
+    {
+      "id": "f00dp",
+      "sourceKey": "StunThresholdfromEnergyShield",
+      "retired": false
+    },
+    {
+      "id": "f00dq",
+      "sourceKey": "StunningHitsWithShieldSkillsFullyBreakArmour",
+      "retired": false
+    },
+    {
+      "id": "f00dr",
+      "sourceKey": "SummonTotemCastSpeed",
+      "retired": false
+    },
+    {
+      "id": "f00ds",
+      "sourceKey": "TemporaryMinionLimit",
+      "retired": false
+    },
+    {
+      "id": "f00dt",
+      "sourceKey": "Thorns",
+      "retired": false
+    },
+    {
+      "id": "f00du",
+      "sourceKey": "ThornsCriticalStrikeChance",
+      "retired": false
+    },
+    {
+      "id": "f00dv",
+      "sourceKey": "ThornsFirePerOneHundredLife",
+      "retired": false
+    },
+    {
+      "id": "f00dw",
+      "sourceKey": "TotemDamage",
+      "retired": false
+    },
+    {
+      "id": "f00dx",
+      "sourceKey": "TransformIncreasedDamageInRadius",
+      "retired": false
+    },
+    {
+      "id": "f00dy",
+      "sourceKey": "WarcriesExertAnAdditionalAttack",
+      "retired": false
+    },
+    {
+      "id": "f00dz",
+      "sourceKey": "WarcryCooldownSpeed",
+      "retired": false
+    },
+    {
+      "id": "f00e0",
+      "sourceKey": "WarcryDamage",
+      "retired": false
+    },
+    {
+      "id": "f00e1",
+      "sourceKey": "WarcryLifeRecovery",
+      "retired": false
+    },
+    {
+      "id": "f00e2",
+      "sourceKey": "WarcryPower",
+      "retired": false
+    },
+    {
+      "id": "f00e3",
+      "sourceKey": "WarcrySpeed",
+      "retired": false
+    },
+    {
+      "id": "f00e4",
+      "sourceKey": "WardRegenerationRate",
+      "retired": false
+    },
+    {
+      "id": "f00e5",
+      "sourceKey": "WeaponCasterDamagePrefix",
+      "retired": false
+    },
+    {
+      "id": "f00e6",
+      "sourceKey": "WeaponDamageTypePrefix",
+      "retired": false
+    },
+    {
+      "id": "f00e7",
+      "sourceKey": "WeaponImplicit",
+      "retired": false
+    },
+    {
+      "id": "f00e8",
+      "sourceKey": "WeaponImplicitDamageType",
+      "retired": false
+    },
+    {
+      "id": "f00e9",
+      "sourceKey": "WitheredEffect",
+      "retired": false
+    }
+  ]
+}

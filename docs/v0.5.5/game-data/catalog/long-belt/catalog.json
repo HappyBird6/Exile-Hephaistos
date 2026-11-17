@@ -1,0 +1,3591 @@
+{
+  "metadata": {
+    "snapshotId": "poe2db-long-belt-20261005-4cb211293321ecc7",
+    "retrievedAt": "2026-10-05T01:23:06.780Z",
+    "sourceUrl": "https://poe2db.tw/us/Belts",
+    "weightPolicy": "POE2DB_AS_PUBLISHED",
+    "rawSha256": "2ee4229e650b26a3bf08c3c22ba33a847a5359b647c24c6694bf25679fa4f990",
+    "detailsSha256": "4332bb93a17c2d137741525c533151d34d0b6a84c1225df291d6698521f100a9",
+    "prefixCount": 54,
+    "suffixCount": 85,
+    "prefixWeight": 49600,
+    "suffixWeight": 70700
+  },
+  "base": {
+    "id": "Metadata/Items/Belts/FourBelt4",
+    "name": "Long Belt",
+    "sourceUrl": "https://poe2db.tw/us/Long_Belt",
+    "implicitModifierId": "long-belt:implicit:base",
+    "magicPrefixes": 1,
+    "magicSuffixes": 1,
+    "rarePrefixes": 3,
+    "rareSuffixes": 3
+  },
+  "modifiers": [
+    {
+      "id": "long-belt:implicit:base",
+      "name": "Long Belt implicit",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "text": "(15—20)% increased Charm Effect Duration",
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/Long_Belt"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-brute",
+      "name": "of the Brute",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(5—8) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-wrestler",
+      "name": "of the Wrestler",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(9—12) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-bear",
+      "name": "of the Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(13—16) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-lion",
+      "name": "of the Lion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(17—20) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-gorilla",
+      "name": "of the Gorilla",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—24) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-goliath",
+      "name": "of the Goliath",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(25—27) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength6"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-leviathan",
+      "name": "of the Leviathan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(28—30) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength7"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-titan",
+      "name": "of the Titan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(31—33) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength8"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-gods",
+      "name": "of the Gods",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(34—36) to Strength",
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 34,
+          "max": 36
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStrength9"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-whelpling",
+      "name": "of the Whelpling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-salamander",
+      "name": "of the Salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-drake",
+      "name": "of the Drake",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-kiln",
+      "name": "of the Kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-furnace",
+      "name": "of the Furnace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-volcano",
+      "name": "of the Volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist6"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-magma",
+      "name": "of Magma",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist7"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-tzteosh",
+      "name": "of Tzteosh",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Fire Resistance",
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FFireResist8"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-seal",
+      "name": "of the Seal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-penguin",
+      "name": "of the Penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-narwhal",
+      "name": "of the Narwhal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-yeti",
+      "name": "of the Yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-walrus",
+      "name": "of the Walrus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-polar-bear",
+      "name": "of the Polar Bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist6"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-ice",
+      "name": "of the Ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist7"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-haast",
+      "name": "of Haast",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Cold Resistance",
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FColdResist8"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-cloud",
+      "name": "of the Cloud",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(6—10)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-squall",
+      "name": "of the Squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(11—15)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-storm",
+      "name": "of the Storm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(16—20)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-thunderhead",
+      "name": "of the Thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(21—25)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-tempest",
+      "name": "of the Tempest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(26—30)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-maelstrom",
+      "name": "of the Maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(31—35)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist6"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-lightning",
+      "name": "of the Lightning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(36—40)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist7"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-ephij",
+      "name": "of Ephij",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(41—45)% to Lightning Resistance",
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLightningResist8"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-lost",
+      "name": "of the Lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 250,
+      "tier": 6,
+      "text": "+(4—7)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-banishment",
+      "name": "of Banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 250,
+      "tier": 5,
+      "text": "+(8—11)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-eviction",
+      "name": "of Eviction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 250,
+      "tier": 4,
+      "text": "+(12—15)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-expulsion",
+      "name": "of Expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 250,
+      "tier": 3,
+      "text": "+(16—19)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-exile",
+      "name": "of Exile",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 250,
+      "tier": 2,
+      "text": "+(20—23)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-bameth",
+      "name": "of Bameth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 250,
+      "tier": 1,
+      "text": "+(24—27)% to Chaos Resistance",
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FChaosResist6"
+    },
+    {
+      "id": "rawhide-belt:prefix:hale",
+      "name": "Hale",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 10,
+      "text": "+(10—19) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife1"
+    },
+    {
+      "id": "rawhide-belt:prefix:healthy",
+      "name": "Healthy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(20—29) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife2"
+    },
+    {
+      "id": "rawhide-belt:prefix:sanguine",
+      "name": "Sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(30—39) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife3"
+    },
+    {
+      "id": "rawhide-belt:prefix:stalwart",
+      "name": "Stalwart",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(40—59) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 40,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife4"
+    },
+    {
+      "id": "rawhide-belt:prefix:stout",
+      "name": "Stout",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(60—69) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife5"
+    },
+    {
+      "id": "rawhide-belt:prefix:robust",
+      "name": "Robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(70—84) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife6"
+    },
+    {
+      "id": "rawhide-belt:prefix:rotund",
+      "name": "Rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(85—99) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife7"
+    },
+    {
+      "id": "rawhide-belt:prefix:virile",
+      "name": "Virile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(100—119) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife8"
+    },
+    {
+      "id": "rawhide-belt:prefix:athlete-s",
+      "name": "Athlete's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(120—149) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 120,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife9"
+    },
+    {
+      "id": "rawhide-belt:prefix:fecund",
+      "name": "Fecund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(150—174) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 150,
+          "max": 174
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedLife10"
+    },
+    {
+      "id": "rawhide-belt:prefix:beryl",
+      "name": "Beryl",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(10—14) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana1"
+    },
+    {
+      "id": "rawhide-belt:prefix:cobalt",
+      "name": "Cobalt",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(15—24) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 15,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana2"
+    },
+    {
+      "id": "rawhide-belt:prefix:azure",
+      "name": "Azure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(25—34) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana3"
+    },
+    {
+      "id": "rawhide-belt:prefix:teal",
+      "name": "Teal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(35—54) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 35,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana4"
+    },
+    {
+      "id": "rawhide-belt:prefix:cerulean",
+      "name": "Cerulean",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(55—64) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana5"
+    },
+    {
+      "id": "rawhide-belt:prefix:aqua",
+      "name": "Aqua",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(65—79) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 65,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana6"
+    },
+    {
+      "id": "rawhide-belt:prefix:opalescent",
+      "name": "Opalescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(80—89) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana7"
+    },
+    {
+      "id": "rawhide-belt:prefix:gentian",
+      "name": "Gentian",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(90—104) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana8"
+    },
+    {
+      "id": "rawhide-belt:prefix:chalybeous",
+      "name": "Chalybeous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(105—124) to maximum Mana",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 105,
+          "max": 124
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedMana9"
+    },
+    {
+      "id": "rawhide-belt:prefix:lacquered",
+      "name": "Lacquered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 10,
+      "text": "+(12—22) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 12,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating1"
+    },
+    {
+      "id": "rawhide-belt:prefix:studded",
+      "name": "Studded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 9,
+      "text": "+(23—51) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 23,
+          "max": 51
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating2"
+    },
+    {
+      "id": "rawhide-belt:prefix:ribbed",
+      "name": "Ribbed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 8,
+      "text": "+(52—68) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 52,
+          "max": 68
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating3"
+    },
+    {
+      "id": "rawhide-belt:prefix:fortified",
+      "name": "Fortified",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 7,
+      "text": "+(69—107) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 69,
+          "max": 107
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating4"
+    },
+    {
+      "id": "rawhide-belt:prefix:plated",
+      "name": "Plated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "text": "+(108—140) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 108,
+          "max": 140
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating5"
+    },
+    {
+      "id": "rawhide-belt:prefix:carapaced",
+      "name": "Carapaced",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "text": "+(141—186) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 141,
+          "max": 186
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating6"
+    },
+    {
+      "id": "rawhide-belt:prefix:encased",
+      "name": "Encased",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "text": "+(187—225) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 187,
+          "max": 225
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating7"
+    },
+    {
+      "id": "rawhide-belt:prefix:enveloped",
+      "name": "Enveloped",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 3,
+      "text": "+(226—267) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 226,
+          "max": 267
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating8_"
+    },
+    {
+      "id": "rawhide-belt:prefix:abating",
+      "name": "Abating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 2,
+      "text": "+(268—311) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 268,
+          "max": 311
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating9"
+    },
+    {
+      "id": "rawhide-belt:prefix:unmoving",
+      "name": "Unmoving",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRating"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 1000,
+      "tier": 1,
+      "text": "+(312—351) to Armour",
+      "stats": [
+        {
+          "id": "base_physical_damage_reduction_rating",
+          "min": 312,
+          "max": 351
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FIncreasedPhysicalDamageReductionRating10"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-thick-skin",
+      "name": "of Thick Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 10,
+      "text": "+(6—11) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 6,
+          "max": 11
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-reinforced-skin",
+      "name": "of Reinforced Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 800,
+      "tier": 9,
+      "text": "+(12—29) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 12,
+          "max": 29
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-stone-skin",
+      "name": "of Stone Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 15,
+      "weight": 800,
+      "tier": 8,
+      "text": "+(30—49) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 30,
+          "max": 49
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-iron-skin",
+      "name": "of Iron Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 800,
+      "tier": 7,
+      "text": "+(50—72) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 50,
+          "max": 72
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-steel-skin",
+      "name": "of Steel Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 800,
+      "tier": 6,
+      "text": "+(73—97) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 73,
+          "max": 97
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-granite-skin",
+      "name": "of Granite Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 5,
+      "text": "+(98—124) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 98,
+          "max": 124
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold6"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-platinum-skin",
+      "name": "of Platinum Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 800,
+      "tier": 4,
+      "text": "+(125—163) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 125,
+          "max": 163
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold7"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-adamantite-skin",
+      "name": "of Adamantite Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 800,
+      "tier": 3,
+      "text": "+(164—206) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 164,
+          "max": 206
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold8"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-corundum-skin",
+      "name": "of Corundum Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 800,
+      "tier": 2,
+      "text": "+(207—253) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 207,
+          "max": 253
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold9"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-obsidian-skin",
+      "name": "of Obsidian Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 800,
+      "tier": 1,
+      "text": "+(254—304) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 254,
+          "max": 304
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold10"
+    },
+    {
+      "id": "rawhide-belt:prefix:thorny",
+      "name": "Thorny",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(1—2) to (3—4) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage1"
+    },
+    {
+      "id": "rawhide-belt:prefix:spiny",
+      "name": "Spiny",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 10,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(5—7) to (7—10) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage2"
+    },
+    {
+      "id": "rawhide-belt:prefix:barbed",
+      "name": "Barbed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 19,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(11—16) to (17—23) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 17,
+          "max": 23
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage3"
+    },
+    {
+      "id": "rawhide-belt:prefix:pointed",
+      "name": "Pointed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(24—35) to (36—53) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 36,
+          "max": 53
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 24,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage4"
+    },
+    {
+      "id": "rawhide-belt:prefix:spiked",
+      "name": "Spiked",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(40—60) to (61—92) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 61,
+          "max": 92
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 40,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage5"
+    },
+    {
+      "id": "rawhide-belt:prefix:edged",
+      "name": "Edged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(64—97) to (98—145) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 98,
+          "max": 145
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 64,
+          "max": 97
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage6"
+    },
+    {
+      "id": "rawhide-belt:prefix:jagged",
+      "name": "Jagged",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "Thorns"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(101—151) to (152—220) Physical Thorns damage",
+      "stats": [
+        {
+          "id": "thorns_maximum_base_physical_damage",
+          "min": 152,
+          "max": 220
+        },
+        {
+          "id": "thorns_minimum_base_physical_damage",
+          "min": 101,
+          "max": 151
+        }
+      ],
+      "tags": [
+        "physical_damage",
+        "damage",
+        "physical"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAttackerTakesDamage7"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-newt",
+      "name": "of the Newt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "text": "(1—2) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 60,
+          "max": 120
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-lizard",
+      "name": "of the Lizard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1000,
+      "tier": 8,
+      "text": "(2.1—3) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 126,
+          "max": 180
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-flatworm",
+      "name": "of the Flatworm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "text": "(3.1—4) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 186,
+          "max": 240
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-starfish",
+      "name": "of the Starfish",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 17,
+      "weight": 1000,
+      "tier": 6,
+      "text": "(4.1—6) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 246,
+          "max": 360
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-hydra",
+      "name": "of the Hydra",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 5,
+      "text": "(6.1—9) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 366,
+          "max": 540
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-troll",
+      "name": "of the Troll",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1000,
+      "tier": 4,
+      "text": "(9.1—13) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 546,
+          "max": 780
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration6"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-convalescence",
+      "name": "of Convalescence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 3,
+      "text": "(13.1—18) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 786,
+          "max": 1080
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration7"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-recuperation",
+      "name": "of Recuperation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 1000,
+      "tier": 2,
+      "text": "(18.1—23) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1086,
+          "max": 1380
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration8_"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-resurgence",
+      "name": "of Resurgence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 1000,
+      "tier": 1,
+      "text": "(23.1—29) Life Regeneration per second",
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1386,
+          "max": 1740
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FLifeRegeneration9"
+    },
+    {
+      "id": "rawhide-belt:prefix:restoring",
+      "name": "Restoring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 12,
+      "text": "(5—10)% increased Flask Life Recovery rate",
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskLifeRecoveryRate1"
+    },
+    {
+      "id": "rawhide-belt:prefix:recovering",
+      "name": "Recovering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 800,
+      "tier": 9,
+      "text": "(11—16)% increased Flask Life Recovery rate",
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskLifeRecoveryRate2"
+    },
+    {
+      "id": "rawhide-belt:prefix:renewing",
+      "name": "Renewing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 7,
+      "text": "(17—22)% increased Flask Life Recovery rate",
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 17,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskLifeRecoveryRate3_"
+    },
+    {
+      "id": "rawhide-belt:prefix:refreshing",
+      "name": "Refreshing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 800,
+      "tier": 5,
+      "text": "(23—28)% increased Flask Life Recovery rate",
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 23,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskLifeRecoveryRate4"
+    },
+    {
+      "id": "rawhide-belt:prefix:rejuvenating",
+      "name": "Rejuvenating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 800,
+      "tier": 3,
+      "text": "(29—34)% increased Flask Life Recovery rate",
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 29,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskLifeRecoveryRate5"
+    },
+    {
+      "id": "rawhide-belt:prefix:regenerating",
+      "name": "Regenerating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 800,
+      "tier": 1,
+      "text": "(35—40)% increased Flask Life Recovery rate",
+      "stats": [
+        {
+          "id": "flask_life_recovery_rate_+%",
+          "min": 35,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskLifeRecoveryRate6"
+    },
+    {
+      "id": "rawhide-belt:prefix:affecting",
+      "name": "Affecting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 800,
+      "tier": 11,
+      "text": "(5—10)% increased Flask Mana Recovery rate",
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskManaRecoveryRate1_"
+    },
+    {
+      "id": "rawhide-belt:prefix:stirring",
+      "name": "Stirring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 800,
+      "tier": 10,
+      "text": "(11—16)% increased Flask Mana Recovery rate",
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskManaRecoveryRate2"
+    },
+    {
+      "id": "rawhide-belt:prefix:heartening",
+      "name": "Heartening",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 8,
+      "text": "(17—22)% increased Flask Mana Recovery rate",
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 17,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskManaRecoveryRate3_"
+    },
+    {
+      "id": "rawhide-belt:prefix:exciting",
+      "name": "Exciting",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 6,
+      "text": "(23—28)% increased Flask Mana Recovery rate",
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 23,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskManaRecoveryRate4__"
+    },
+    {
+      "id": "rawhide-belt:prefix:galvanizing",
+      "name": "Galvanizing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 800,
+      "tier": 4,
+      "text": "(29—34)% increased Flask Mana Recovery rate",
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 29,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskManaRecoveryRate5"
+    },
+    {
+      "id": "rawhide-belt:prefix:inspiring",
+      "name": "Inspiring",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltFlaskRecoveryRate"
+      ],
+      "requiredItemLevel": 63,
+      "weight": 800,
+      "tier": 2,
+      "text": "(35—40)% increased Flask Mana Recovery rate",
+      "stats": [
+        {
+          "id": "flask_mana_recovery_rate_+%",
+          "min": 35,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "flask",
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltFlaskManaRecoveryRate6"
+    },
+    {
+      "id": "rawhide-belt:prefix:conservative",
+      "name": "Conservative",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 800,
+      "tier": 5,
+      "text": "(4—9)% increased Charm Effect Duration",
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 4,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmDuration1"
+    },
+    {
+      "id": "rawhide-belt:prefix:transformative",
+      "name": "Transformative",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 4,
+      "text": "(10—15)% increased Charm Effect Duration",
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmDuration2"
+    },
+    {
+      "id": "rawhide-belt:prefix:progressive",
+      "name": "Progressive",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 800,
+      "tier": 3,
+      "text": "(16—21)% increased Charm Effect Duration",
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 16,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmDuration3"
+    },
+    {
+      "id": "rawhide-belt:prefix:innovative",
+      "name": "Innovative",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 800,
+      "tier": 2,
+      "text": "(22—27)% increased Charm Effect Duration",
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 22,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmDuration4"
+    },
+    {
+      "id": "rawhide-belt:prefix:revolutionary",
+      "name": "Revolutionary",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BeltCharmDuration"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 800,
+      "tier": 1,
+      "text": "(28—33)% increased Charm Effect Duration",
+      "stats": [
+        {
+          "id": "charm_duration_+%",
+          "min": 28,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmDuration5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-refilling",
+      "name": "of Refilling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 800,
+      "tier": 6,
+      "text": "(5—10)% increased Flask Charges gained",
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedFlaskChargesGained1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-restocking",
+      "name": "of Restocking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 800,
+      "tier": 5,
+      "text": "(11—16)% increased Flask Charges gained",
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedFlaskChargesGained2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-replenishing",
+      "name": "of Replenishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 32,
+      "weight": 800,
+      "tier": 4,
+      "text": "(17—22)% increased Flask Charges gained",
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 17,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedFlaskChargesGained3_____"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-pouring",
+      "name": "of Pouring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 800,
+      "tier": 3,
+      "text": "(23—28)% increased Flask Charges gained",
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 23,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedFlaskChargesGained4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-brimming",
+      "name": "of Brimming",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 800,
+      "tier": 2,
+      "text": "(29—34)% increased Flask Charges gained",
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 29,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedFlaskChargesGained5_"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-overflowing",
+      "name": "of Overflowing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesGained"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 800,
+      "tier": 1,
+      "text": "(35—40)% increased Flask Charges gained",
+      "stats": [
+        {
+          "id": "flask_charges_gained_+%",
+          "min": 35,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedFlaskChargesGained6"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-sipping",
+      "name": "of Sipping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 3,
+      "weight": 800,
+      "tier": 6,
+      "text": "(8—10)% reduced Flask Charges used",
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -10,
+          "max": -8
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedFlaskChargesUsed1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-imbibing",
+      "name": "of Imbibing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 5,
+      "text": "(11—13)% reduced Flask Charges used",
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -13,
+          "max": -11
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedFlaskChargesUsed2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-relishing",
+      "name": "of Relishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 4,
+      "text": "(14—16)% reduced Flask Charges used",
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -16,
+          "max": -14
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedFlaskChargesUsed3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-savouring",
+      "name": "of Savouring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 800,
+      "tier": 3,
+      "text": "(17—19)% reduced Flask Charges used",
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -19,
+          "max": -17
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedFlaskChargesUsed4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-reveling",
+      "name": "of Reveling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 800,
+      "tier": 2,
+      "text": "(20—22)% reduced Flask Charges used",
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -22,
+          "max": -20
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedFlaskChargesUsed5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-nourishing",
+      "name": "of Nourishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltFlaskChargesUsed"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 800,
+      "tier": 1,
+      "text": "(23—25)% reduced Flask Charges used",
+      "stats": [
+        {
+          "id": "flask_charges_used_+%",
+          "min": -25,
+          "max": -23
+        }
+      ],
+      "tags": [
+        "flask"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedFlaskChargesUsed6"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-plenty",
+      "name": "of Plenty",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 800,
+      "tier": 6,
+      "text": "(5—10)% increased Charm Charges gained",
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmChargesGained1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-surplus",
+      "name": "of Surplus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 800,
+      "tier": 5,
+      "text": "(11—16)% increased Charm Charges gained",
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmChargesGained2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-fertility",
+      "name": "of Fertility",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 32,
+      "weight": 800,
+      "tier": 4,
+      "text": "(17—22)% increased Charm Charges gained",
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 17,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmChargesGained3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-bounty",
+      "name": "of Bounty",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 800,
+      "tier": 3,
+      "text": "(23—28)% increased Charm Charges gained",
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 23,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmChargesGained4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-the-harvest",
+      "name": "of the Harvest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 800,
+      "tier": 2,
+      "text": "(29—34)% increased Charm Charges gained",
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 29,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmChargesGained5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-abundance",
+      "name": "of Abundance",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesGained"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 800,
+      "tier": 1,
+      "text": "(35—40)% increased Charm Charges gained",
+      "stats": [
+        {
+          "id": "charm_charges_gained_+%",
+          "min": 35,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltIncreasedCharmChargesGained6"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-austerity",
+      "name": "of Austerity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 3,
+      "weight": 800,
+      "tier": 6,
+      "text": "(8—10)% reduced Charm Charges used",
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -10,
+          "max": -8
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedCharmChargesUsed1"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-frugality",
+      "name": "of Frugality",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 5,
+      "text": "(11—13)% reduced Charm Charges used",
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -13,
+          "max": -11
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedCharmChargesUsed2"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-temperance",
+      "name": "of Temperance",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 4,
+      "text": "(14—16)% reduced Charm Charges used",
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -16,
+          "max": -14
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedCharmChargesUsed3"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-restraint",
+      "name": "of Restraint",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 800,
+      "tier": 3,
+      "text": "(17—19)% reduced Charm Charges used",
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -19,
+          "max": -17
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedCharmChargesUsed4"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-economy",
+      "name": "of Economy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 800,
+      "tier": 2,
+      "text": "(20—22)% reduced Charm Charges used",
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -22,
+          "max": -20
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedCharmChargesUsed5"
+    },
+    {
+      "id": "rawhide-belt:suffix:of-scarcity",
+      "name": "of Scarcity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BeltCharmChargesUsed"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 800,
+      "tier": 1,
+      "text": "(23—25)% reduced Charm Charges used",
+      "stats": [
+        {
+          "id": "charm_charges_used_+%",
+          "min": -25,
+          "max": -23
+        }
+      ],
+      "tags": [
+        "charm"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FBeltReducedCharmChargesUsed6"
+    },
+    {
+      "id": "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireDamageTakenRecoupedAsLife"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(26—30)% of Fire Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "fire_damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceFireRecoupLife1"
+    },
+    {
+      "id": "stocky-mitts:prefix:essence-abyssal-mark",
+      "name": "Abyssal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix"
+    },
+    {
+      "id": "stocky-mitts:suffix:essence-abyssal-mark",
+      "name": "of the Abyss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix"
+    },
+    {
+      "id": "belt:suffix:essence-hysteria-stun-threshold",
+      "name": "of Obsidian Skin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "StunThreshold"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "+(254—304) to Stun Threshold",
+      "stats": [
+        {
+          "id": "stun_threshold_+",
+          "min": 254,
+          "max": 304
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FStunThreshold10"
+    }
+  ]
+}

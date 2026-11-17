@@ -1,0 +1,123 @@
+{
+  "selectedBase": {
+    "id": "Rusted_Greathelm",
+    "url": "https://poe2db.tw/us/Rusted_Greathelm",
+    "retrievedAt": "2026-10-03T17:38:07.605Z",
+    "sha256": "cc4b74212d4d674b9c1de4a9f0cae4128196b226015371fbf30a593cc1a087d3",
+    "fields": {
+      "Name": "Show Full Descriptions",
+      "DropLevel": "1",
+      "BaseType": "Rusted Greathelm",
+      "Class": "Helmets",
+      "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+      "Type": "Metadata/Items/Armours/Helmets/FourHelmetStr1",
+      "Tags": "str_armour, ezomyte_basetype, helmet, armour",
+      "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetStr01",
+      "key": "val",
+      "Base.base_level": "1",
+      "Base.tag": "default, armour, helmet",
+      "Base.x_size": "2",
+      "Base.y_size": "2",
+      "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+      "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+      "Mods.enable_rarity": "normal, magic, rare, unique",
+      "Mods.inventory_type": "Helm",
+      "Quality.max_quality": "20",
+      "Sockets.socket_info": "1:5:100"
+    },
+    "card": "Rusted Greathelm HelmetsArmour: 29",
+    "modTables": []
+  },
+  "comparison": [
+    {
+      "id": "Helmets_str",
+      "url": "https://poe2db.tw/us/Helmets_str",
+      "retrievedAt": "2026-10-03T17:38:07.186Z",
+      "sha256": "5ffa7e69dfeb94d16b76c194f83bedde83c88d5b82f107be0d6979f1b507e2d9",
+      "fields": {
+        "1": "(10—20)% reduced Attribute Requirements",
+        "Item Level": "Local"
+      },
+      "card": "Crafting Project Item Level:",
+      "modTables": []
+    },
+    {
+      "id": "Rusted_Greathelm",
+      "url": "https://poe2db.tw/us/Rusted_Greathelm",
+      "retrievedAt": "2026-10-03T17:38:07.605Z",
+      "sha256": "cc4b74212d4d674b9c1de4a9f0cae4128196b226015371fbf30a593cc1a087d3",
+      "fields": {
+        "Name": "Show Full Descriptions",
+        "DropLevel": "1",
+        "BaseType": "Rusted Greathelm",
+        "Class": "Helmets",
+        "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+        "Type": "Metadata/Items/Armours/Helmets/FourHelmetStr1",
+        "Tags": "str_armour, ezomyte_basetype, helmet, armour",
+        "Icon": "Art/2DItems/Armours/Helmets/Basetypes/HelmetStr01",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, armour, helmet",
+        "Base.x_size": "2",
+        "Base.y_size": "2",
+        "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+        "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "Mods.enable_rarity": "normal, magic, rare, unique",
+        "Mods.inventory_type": "Helm",
+        "Quality.max_quality": "20",
+        "Sockets.socket_info": "1:5:100"
+      },
+      "card": "Rusted Greathelm HelmetsArmour: 29",
+      "modTables": []
+    },
+    {
+      "id": "Perfect_Essence_of_Thawing",
+      "url": "https://poe2db.tw/us/Perfect_Essence_of_Thawing",
+      "retrievedAt": "2026-10-03T17:38:07.896Z",
+      "sha256": "406590f10ba47a6cb4d108331f4457c67bf8fad8e2f9fee3dd051d7e5c4117f6",
+      "fields": {
+        "Class": "Modifier",
+        "Helmets": "(26—30)% of Cold Damage taken Recouped as Life",
+        "Name": "Show Full Descriptions",
+        "Currency Exchange": "1000 Gold",
+        "NoteCode": "perfect-essence-of-thawing",
+        "DropLevel": "1",
+        "BaseType": "Perfect Essence of Thawing",
+        "Flags": "AlwaysAllocate",
+        "Type": "Metadata/Items/Currency/CurrencyPerfectEssenceColdResist",
+        "Sound": "Audio/Sound Effects/ItemSounds/4.0/Currency/Orbs/OrbUse.ogg",
+        "Tags": "essence, currency",
+        "Icon": "Art/2DItems/Currency/Essence/ColdResistanceEssencePerfect",
+        "MTX Tab Stacks": "5000",
+        "key": "val",
+        "Base.base_level": "1",
+        "Base.tag": "default, currency",
+        "Base.x_size": "1",
+        "Base.y_size": "1",
+        "24h Value": "24h volume traded",
+        "4.7 Exalted Orb  1 Perfect Essence of Thawing": "10"
+      },
+      "card": "Perfect Essence of Thawing Stackable CurrencyStack Size: 1 / 10Removes a random modifier and augments a Rare item with a new guaranteed modifierHelmet: (26—30)% of Cold Damage taken Recouped as Life Right click this item then left click a Rare item to apply it. Shift click to unstack.",
+      "modTables": []
+    }
+  ],
+  "primary": {
+    "id": "Helmets_str",
+    "url": "https://poe2db.tw/us/Helmets_str",
+    "retrievedAt": "2026-10-03T17:38:07.186Z",
+    "sha256": "5ffa7e69dfeb94d16b76c194f83bedde83c88d5b82f107be0d6979f1b507e2d9"
+  },
+  "selectionRationale": "Rusted Greathelm is the lowest class-index strength Helmet at DropLevel1. Full137-row positive-weight normal pool; one verified Perfect Thawing result. Helmet200 codes/59 fresh lookups versus Ring391/106.",
+  "sourceFacts": {
+    "dropLevel": 1,
+    "armour": 29,
+    "maximumQuality": 20
+  },
+  "simulationBoundary": "Explicit affix assignment only; Armour29 and maximum quality20 are source facts. Computed Armour, quality application, sockets, paste mapping and combat unsupported; socket count unknown. No variable implicit is projected.",
+  "excludedMaterial": null,
+  "publishedRowWeightPolicy": "POE2DB_AS_PUBLISHED_MODEL_NOT_VERIFIED_GAME_ODDS",
+  "detailSpawnUsedForEligibilityOnly": true,
+  "weightFieldsDiffer": 137,
+  "weightMismatchRootCause": "NOT_ESTABLISHED",
+  "coupledNumericModel": "Authorised UNVERIFIED shared-ratio tick/HALF_UP; scalar source-unit integers also UNVERIFIED"
+}

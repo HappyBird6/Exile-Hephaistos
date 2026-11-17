@@ -1,0 +1,1107 @@
+{
+  "schemaVersion": 1,
+  "domain": "materials",
+  "prefix": "r",
+  "entries": [
+    {
+      "id": "r0001",
+      "sourceKey": "Adaptive_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r0002",
+      "sourceKey": "Adaptive_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r0003",
+      "sourceKey": "Ancient_Concentrated_Liquid_Fear",
+      "retired": false
+    },
+    {
+      "id": "r0004",
+      "sourceKey": "Ancient_Concentrated_Liquid_Isolation",
+      "retired": false
+    },
+    {
+      "id": "r0005",
+      "sourceKey": "Ancient_Concentrated_Liquid_Suffering",
+      "retired": false
+    },
+    {
+      "id": "r0006",
+      "sourceKey": "Ancient_Diluted_Liquid_Greed",
+      "retired": false
+    },
+    {
+      "id": "r0007",
+      "sourceKey": "Ancient_Diluted_Liquid_Guilt",
+      "retired": false
+    },
+    {
+      "id": "r0008",
+      "sourceKey": "Ancient_Diluted_Liquid_Ire",
+      "retired": false
+    },
+    {
+      "id": "r0009",
+      "sourceKey": "Ancient_Liquid_Despair",
+      "retired": false
+    },
+    {
+      "id": "r000a",
+      "sourceKey": "Ancient_Liquid_Disgust",
+      "retired": false
+    },
+    {
+      "id": "r000b",
+      "sourceKey": "Ancient_Liquid_Envy",
+      "retired": false
+    },
+    {
+      "id": "r000c",
+      "sourceKey": "Ancient_Liquid_Paranoia",
+      "retired": false
+    },
+    {
+      "id": "r000d",
+      "sourceKey": "Ancient_Potent_Liquid_Contempt",
+      "retired": false
+    },
+    {
+      "id": "r000e",
+      "sourceKey": "Ancient_Potent_Liquid_Ferocity",
+      "retired": false
+    },
+    {
+      "id": "r000f",
+      "sourceKey": "Ancient_Potent_Liquid_Melancholy",
+      "retired": false
+    },
+    {
+      "id": "r000g",
+      "sourceKey": "Arcanists_Etcher",
+      "retired": false
+    },
+    {
+      "id": "r000h",
+      "sourceKey": "Architects_Orb",
+      "retired": false
+    },
+    {
+      "id": "r000i",
+      "sourceKey": "Armourers_Scrap",
+      "retired": false
+    },
+    {
+      "id": "r000j",
+      "sourceKey": "Artificers_Orb",
+      "retired": false
+    },
+    {
+      "id": "r000k",
+      "sourceKey": "Blacksmiths_Whetstone",
+      "retired": false
+    },
+    {
+      "id": "r000l",
+      "sourceKey": "Carapace_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r000m",
+      "sourceKey": "Celestial_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r000n",
+      "sourceKey": "Chaos_Orb",
+      "retired": false
+    },
+    {
+      "id": "r000o",
+      "sourceKey": "Chayulas_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r000p",
+      "sourceKey": "Concentrated_Liquid_Fear",
+      "retired": false
+    },
+    {
+      "id": "r000q",
+      "sourceKey": "Concentrated_Liquid_Isolation",
+      "retired": false
+    },
+    {
+      "id": "r000r",
+      "sourceKey": "Concentrated_Liquid_Suffering",
+      "retired": false
+    },
+    {
+      "id": "r000s",
+      "sourceKey": "Core_Destabiliser",
+      "retired": false
+    },
+    {
+      "id": "r000t",
+      "sourceKey": "Cyclonic_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r000u",
+      "sourceKey": "Diluted_Liquid_Greed",
+      "retired": false
+    },
+    {
+      "id": "r000v",
+      "sourceKey": "Diluted_Liquid_Guilt",
+      "retired": false
+    },
+    {
+      "id": "r000w",
+      "sourceKey": "Diluted_Liquid_Ire",
+      "retired": false
+    },
+    {
+      "id": "r000x",
+      "sourceKey": "Divine_Orb",
+      "retired": false
+    },
+    {
+      "id": "r000y",
+      "sourceKey": "Eshs_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r000z",
+      "sourceKey": "Essence_of_Abrasion",
+      "retired": false
+    },
+    {
+      "id": "r0010",
+      "sourceKey": "Essence_of_Alacrity",
+      "retired": false
+    },
+    {
+      "id": "r0011",
+      "sourceKey": "Essence_of_Battle",
+      "retired": false
+    },
+    {
+      "id": "r0012",
+      "sourceKey": "Essence_of_Command",
+      "retired": false
+    },
+    {
+      "id": "r0013",
+      "sourceKey": "Essence_of_Delirium",
+      "retired": false
+    },
+    {
+      "id": "r0014",
+      "sourceKey": "Essence_of_Electricity",
+      "retired": false
+    },
+    {
+      "id": "r0015",
+      "sourceKey": "Essence_of_Enhancement",
+      "retired": false
+    },
+    {
+      "id": "r0016",
+      "sourceKey": "Essence_of_Flames",
+      "retired": false
+    },
+    {
+      "id": "r0017",
+      "sourceKey": "Essence_of_Grounding",
+      "retired": false
+    },
+    {
+      "id": "r0018",
+      "sourceKey": "Essence_of_Haste",
+      "retired": false
+    },
+    {
+      "id": "r0019",
+      "sourceKey": "Essence_of_Horror",
+      "retired": false
+    },
+    {
+      "id": "r001a",
+      "sourceKey": "Essence_of_Hysteria",
+      "retired": false
+    },
+    {
+      "id": "r001b",
+      "sourceKey": "Essence_of_Ice",
+      "retired": false
+    },
+    {
+      "id": "r001c",
+      "sourceKey": "Essence_of_Insanity",
+      "retired": false
+    },
+    {
+      "id": "r001d",
+      "sourceKey": "Essence_of_Insulation",
+      "retired": false
+    },
+    {
+      "id": "r001e",
+      "sourceKey": "Essence_of_Opulence",
+      "retired": false
+    },
+    {
+      "id": "r001f",
+      "sourceKey": "Essence_of_Ruin",
+      "retired": false
+    },
+    {
+      "id": "r001g",
+      "sourceKey": "Essence_of_Seeking",
+      "retired": false
+    },
+    {
+      "id": "r001h",
+      "sourceKey": "Essence_of_Sorcery",
+      "retired": false
+    },
+    {
+      "id": "r001i",
+      "sourceKey": "Essence_of_Thawing",
+      "retired": false
+    },
+    {
+      "id": "r001j",
+      "sourceKey": "Essence_of_the_Abyss",
+      "retired": false
+    },
+    {
+      "id": "r001k",
+      "sourceKey": "Essence_of_the_Body",
+      "retired": false
+    },
+    {
+      "id": "r001l",
+      "sourceKey": "Essence_of_the_Breach",
+      "retired": false
+    },
+    {
+      "id": "r001m",
+      "sourceKey": "Essence_of_the_Infinite",
+      "retired": false
+    },
+    {
+      "id": "r001n",
+      "sourceKey": "Essence_of_the_Mind",
+      "retired": false
+    },
+    {
+      "id": "r001o",
+      "sourceKey": "Exalted_Orb",
+      "retired": false
+    },
+    {
+      "id": "r001p",
+      "sourceKey": "Expansive_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r001q",
+      "sourceKey": "Flesh_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r001r",
+      "sourceKey": "Fracturing_Orb",
+      "retired": false
+    },
+    {
+      "id": "r001s",
+      "sourceKey": "Greater_Chaos_Orb",
+      "retired": false
+    },
+    {
+      "id": "r001t",
+      "sourceKey": "Greater_Essence_of_Abrasion",
+      "retired": false
+    },
+    {
+      "id": "r001u",
+      "sourceKey": "Greater_Essence_of_Alacrity",
+      "retired": false
+    },
+    {
+      "id": "r001v",
+      "sourceKey": "Greater_Essence_of_Battle",
+      "retired": false
+    },
+    {
+      "id": "r001w",
+      "sourceKey": "Greater_Essence_of_Command",
+      "retired": false
+    },
+    {
+      "id": "r001x",
+      "sourceKey": "Greater_Essence_of_Electricity",
+      "retired": false
+    },
+    {
+      "id": "r001y",
+      "sourceKey": "Greater_Essence_of_Enhancement",
+      "retired": false
+    },
+    {
+      "id": "r001z",
+      "sourceKey": "Greater_Essence_of_Flames",
+      "retired": false
+    },
+    {
+      "id": "r0020",
+      "sourceKey": "Greater_Essence_of_Grounding",
+      "retired": false
+    },
+    {
+      "id": "r0021",
+      "sourceKey": "Greater_Essence_of_Haste",
+      "retired": false
+    },
+    {
+      "id": "r0022",
+      "sourceKey": "Greater_Essence_of_Ice",
+      "retired": false
+    },
+    {
+      "id": "r0023",
+      "sourceKey": "Greater_Essence_of_Insulation",
+      "retired": false
+    },
+    {
+      "id": "r0024",
+      "sourceKey": "Greater_Essence_of_Opulence",
+      "retired": false
+    },
+    {
+      "id": "r0025",
+      "sourceKey": "Greater_Essence_of_Ruin",
+      "retired": false
+    },
+    {
+      "id": "r0026",
+      "sourceKey": "Greater_Essence_of_Seeking",
+      "retired": false
+    },
+    {
+      "id": "r0027",
+      "sourceKey": "Greater_Essence_of_Sorcery",
+      "retired": false
+    },
+    {
+      "id": "r0028",
+      "sourceKey": "Greater_Essence_of_Thawing",
+      "retired": false
+    },
+    {
+      "id": "r0029",
+      "sourceKey": "Greater_Essence_of_the_Body",
+      "retired": false
+    },
+    {
+      "id": "r002a",
+      "sourceKey": "Greater_Essence_of_the_Infinite",
+      "retired": false
+    },
+    {
+      "id": "r002b",
+      "sourceKey": "Greater_Essence_of_the_Mind",
+      "retired": false
+    },
+    {
+      "id": "r002c",
+      "sourceKey": "Greater_Exalted_Orb",
+      "retired": false
+    },
+    {
+      "id": "r002d",
+      "sourceKey": "Greater_Orb_of_Augmentation",
+      "retired": false
+    },
+    {
+      "id": "r002e",
+      "sourceKey": "Greater_Orb_of_Transmutation",
+      "retired": false
+    },
+    {
+      "id": "r002f",
+      "sourceKey": "Greater_Regal_Orb",
+      "retired": false
+    },
+    {
+      "id": "r002g",
+      "sourceKey": "Hinekoras_Lock",
+      "retired": false
+    },
+    {
+      "id": "r002h",
+      "sourceKey": "Kamasas_Orb_of_Sacrifice",
+      "retired": false
+    },
+    {
+      "id": "r002i",
+      "sourceKey": "Kopecs_Orb_of_Sacrifice",
+      "retired": false
+    },
+    {
+      "id": "r002j",
+      "sourceKey": "Lesser_Essence_of_Abrasion",
+      "retired": false
+    },
+    {
+      "id": "r002k",
+      "sourceKey": "Lesser_Essence_of_Alacrity",
+      "retired": false
+    },
+    {
+      "id": "r002l",
+      "sourceKey": "Lesser_Essence_of_Battle",
+      "retired": false
+    },
+    {
+      "id": "r002m",
+      "sourceKey": "Lesser_Essence_of_Command",
+      "retired": false
+    },
+    {
+      "id": "r002n",
+      "sourceKey": "Lesser_Essence_of_Electricity",
+      "retired": false
+    },
+    {
+      "id": "r002o",
+      "sourceKey": "Lesser_Essence_of_Enhancement",
+      "retired": false
+    },
+    {
+      "id": "r002p",
+      "sourceKey": "Lesser_Essence_of_Flames",
+      "retired": false
+    },
+    {
+      "id": "r002q",
+      "sourceKey": "Lesser_Essence_of_Grounding",
+      "retired": false
+    },
+    {
+      "id": "r002r",
+      "sourceKey": "Lesser_Essence_of_Haste",
+      "retired": false
+    },
+    {
+      "id": "r002s",
+      "sourceKey": "Lesser_Essence_of_Ice",
+      "retired": false
+    },
+    {
+      "id": "r002t",
+      "sourceKey": "Lesser_Essence_of_Insulation",
+      "retired": false
+    },
+    {
+      "id": "r002u",
+      "sourceKey": "Lesser_Essence_of_Opulence",
+      "retired": false
+    },
+    {
+      "id": "r002v",
+      "sourceKey": "Lesser_Essence_of_Ruin",
+      "retired": false
+    },
+    {
+      "id": "r002w",
+      "sourceKey": "Lesser_Essence_of_Seeking",
+      "retired": false
+    },
+    {
+      "id": "r002x",
+      "sourceKey": "Lesser_Essence_of_Sorcery",
+      "retired": false
+    },
+    {
+      "id": "r002y",
+      "sourceKey": "Lesser_Essence_of_Thawing",
+      "retired": false
+    },
+    {
+      "id": "r002z",
+      "sourceKey": "Lesser_Essence_of_the_Body",
+      "retired": false
+    },
+    {
+      "id": "r0030",
+      "sourceKey": "Lesser_Essence_of_the_Infinite",
+      "retired": false
+    },
+    {
+      "id": "r0031",
+      "sourceKey": "Lesser_Essence_of_the_Mind",
+      "retired": false
+    },
+    {
+      "id": "r0032",
+      "sourceKey": "Liquid_Despair",
+      "retired": false
+    },
+    {
+      "id": "r0033",
+      "sourceKey": "Liquid_Disgust",
+      "retired": false
+    },
+    {
+      "id": "r0034",
+      "sourceKey": "Liquid_Envy",
+      "retired": false
+    },
+    {
+      "id": "r0035",
+      "sourceKey": "Liquid_Paranoia",
+      "retired": false
+    },
+    {
+      "id": "r0036",
+      "sourceKey": "Liquid_Verisium",
+      "retired": false
+    },
+    {
+      "id": "r0037",
+      "sourceKey": "Mirror_of_Kalandra",
+      "retired": false
+    },
+    {
+      "id": "r0038",
+      "sourceKey": "Mystic_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r0039",
+      "sourceKey": "Necrotic_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r003a",
+      "sourceKey": "Neural_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r003b",
+      "sourceKey": "Omen_of_Answered_Prayers",
+      "retired": false
+    },
+    {
+      "id": "r003c",
+      "sourceKey": "Omen_of_Catalysing_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "r003d",
+      "sourceKey": "Omen_of_Corruption",
+      "retired": false
+    },
+    {
+      "id": "r003e",
+      "sourceKey": "Omen_of_Dextral_Alchemy",
+      "retired": false
+    },
+    {
+      "id": "r003f",
+      "sourceKey": "Omen_of_Dextral_Annulment",
+      "retired": false
+    },
+    {
+      "id": "r003g",
+      "sourceKey": "Omen_of_Dextral_Coronation",
+      "retired": false
+    },
+    {
+      "id": "r003h",
+      "sourceKey": "Omen_of_Dextral_Crystallisation",
+      "retired": false
+    },
+    {
+      "id": "r003i",
+      "sourceKey": "Omen_of_Dextral_Erasure",
+      "retired": false
+    },
+    {
+      "id": "r003j",
+      "sourceKey": "Omen_of_Dextral_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "r003k",
+      "sourceKey": "Omen_of_Dextral_Necromancy",
+      "retired": false
+    },
+    {
+      "id": "r003l",
+      "sourceKey": "Omen_of_Greater_Annulment",
+      "retired": false
+    },
+    {
+      "id": "r003m",
+      "sourceKey": "Omen_of_Greater_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "r003n",
+      "sourceKey": "Omen_of_Homogenising_Coronation",
+      "retired": false
+    },
+    {
+      "id": "r003o",
+      "sourceKey": "Omen_of_Homogenising_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "r003p",
+      "sourceKey": "Omen_of_Light",
+      "retired": false
+    },
+    {
+      "id": "r003q",
+      "sourceKey": "Omen_of_Putrefaction",
+      "retired": false
+    },
+    {
+      "id": "r003r",
+      "sourceKey": "Omen_of_Reinforcements",
+      "retired": false
+    },
+    {
+      "id": "r003s",
+      "sourceKey": "Omen_of_Sanctification",
+      "retired": false
+    },
+    {
+      "id": "r003t",
+      "sourceKey": "Omen_of_Secret_Compartments",
+      "retired": false
+    },
+    {
+      "id": "r003u",
+      "sourceKey": "Omen_of_Sinistral_Alchemy",
+      "retired": false
+    },
+    {
+      "id": "r003v",
+      "sourceKey": "Omen_of_Sinistral_Annulment",
+      "retired": false
+    },
+    {
+      "id": "r003w",
+      "sourceKey": "Omen_of_Sinistral_Coronation",
+      "retired": false
+    },
+    {
+      "id": "r003x",
+      "sourceKey": "Omen_of_Sinistral_Crystallisation",
+      "retired": false
+    },
+    {
+      "id": "r003y",
+      "sourceKey": "Omen_of_Sinistral_Erasure",
+      "retired": false
+    },
+    {
+      "id": "r003z",
+      "sourceKey": "Omen_of_Sinistral_Exaltation",
+      "retired": false
+    },
+    {
+      "id": "r0040",
+      "sourceKey": "Omen_of_Sinistral_Necromancy",
+      "retired": false
+    },
+    {
+      "id": "r0041",
+      "sourceKey": "Omen_of_Whittling",
+      "retired": false
+    },
+    {
+      "id": "r0042",
+      "sourceKey": "Omen_of_the_Blackblooded",
+      "retired": false
+    },
+    {
+      "id": "r0043",
+      "sourceKey": "Omen_of_the_Blessed",
+      "retired": false
+    },
+    {
+      "id": "r0044",
+      "sourceKey": "Omen_of_the_Hunt",
+      "retired": false
+    },
+    {
+      "id": "r0045",
+      "sourceKey": "Omen_of_the_Liege",
+      "retired": false
+    },
+    {
+      "id": "r0046",
+      "sourceKey": "Omen_of_the_Sovereign",
+      "retired": false
+    },
+    {
+      "id": "r0047",
+      "sourceKey": "Orb_of_Alchemy",
+      "retired": false
+    },
+    {
+      "id": "r0048",
+      "sourceKey": "Orb_of_Annulment",
+      "retired": false
+    },
+    {
+      "id": "r0049",
+      "sourceKey": "Orb_of_Augmentation",
+      "retired": false
+    },
+    {
+      "id": "r004a",
+      "sourceKey": "Orb_of_Chance",
+      "retired": false
+    },
+    {
+      "id": "r004b",
+      "sourceKey": "Orb_of_Extraction",
+      "retired": false
+    },
+    {
+      "id": "r004c",
+      "sourceKey": "Orb_of_Transmutation",
+      "retired": false
+    },
+    {
+      "id": "r004d",
+      "sourceKey": "Perfect_Chaos_Orb",
+      "retired": false
+    },
+    {
+      "id": "r004e",
+      "sourceKey": "Perfect_Essence_of_Abrasion",
+      "retired": false
+    },
+    {
+      "id": "r004f",
+      "sourceKey": "Perfect_Essence_of_Alacrity",
+      "retired": false
+    },
+    {
+      "id": "r004g",
+      "sourceKey": "Perfect_Essence_of_Battle",
+      "retired": false
+    },
+    {
+      "id": "r004h",
+      "sourceKey": "Perfect_Essence_of_Command",
+      "retired": false
+    },
+    {
+      "id": "r004i",
+      "sourceKey": "Perfect_Essence_of_Electricity",
+      "retired": false
+    },
+    {
+      "id": "r004j",
+      "sourceKey": "Perfect_Essence_of_Enhancement",
+      "retired": false
+    },
+    {
+      "id": "r004k",
+      "sourceKey": "Perfect_Essence_of_Flames",
+      "retired": false
+    },
+    {
+      "id": "r004l",
+      "sourceKey": "Perfect_Essence_of_Grounding",
+      "retired": false
+    },
+    {
+      "id": "r004m",
+      "sourceKey": "Perfect_Essence_of_Haste",
+      "retired": false
+    },
+    {
+      "id": "r004n",
+      "sourceKey": "Perfect_Essence_of_Ice",
+      "retired": false
+    },
+    {
+      "id": "r004o",
+      "sourceKey": "Perfect_Essence_of_Insulation",
+      "retired": false
+    },
+    {
+      "id": "r004p",
+      "sourceKey": "Perfect_Essence_of_Opulence",
+      "retired": false
+    },
+    {
+      "id": "r004q",
+      "sourceKey": "Perfect_Essence_of_Ruin",
+      "retired": false
+    },
+    {
+      "id": "r004r",
+      "sourceKey": "Perfect_Essence_of_Seeking",
+      "retired": false
+    },
+    {
+      "id": "r004s",
+      "sourceKey": "Perfect_Essence_of_Sorcery",
+      "retired": false
+    },
+    {
+      "id": "r004t",
+      "sourceKey": "Perfect_Essence_of_Thawing",
+      "retired": false
+    },
+    {
+      "id": "r004u",
+      "sourceKey": "Perfect_Essence_of_the_Body",
+      "retired": false
+    },
+    {
+      "id": "r004v",
+      "sourceKey": "Perfect_Essence_of_the_Infinite",
+      "retired": false
+    },
+    {
+      "id": "r004w",
+      "sourceKey": "Perfect_Essence_of_the_Mind",
+      "retired": false
+    },
+    {
+      "id": "r004x",
+      "sourceKey": "Perfect_Exalted_Orb",
+      "retired": false
+    },
+    {
+      "id": "r004y",
+      "sourceKey": "Perfect_Orb_of_Augmentation",
+      "retired": false
+    },
+    {
+      "id": "r004z",
+      "sourceKey": "Perfect_Orb_of_Transmutation",
+      "retired": false
+    },
+    {
+      "id": "r0050",
+      "sourceKey": "Perfect_Regal_Orb",
+      "retired": false
+    },
+    {
+      "id": "r0051",
+      "sourceKey": "Potent_Liquid_Contempt",
+      "retired": false
+    },
+    {
+      "id": "r0052",
+      "sourceKey": "Potent_Liquid_Ferocity",
+      "retired": false
+    },
+    {
+      "id": "r0053",
+      "sourceKey": "Potent_Liquid_Melancholy",
+      "retired": false
+    },
+    {
+      "id": "r0054",
+      "sourceKey": "Prismatic_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r0055",
+      "sourceKey": "Protective_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r0056",
+      "sourceKey": "Reaver_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r0057",
+      "sourceKey": "Refined_Adaptive_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r0058",
+      "sourceKey": "Refined_Carapace_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r0059",
+      "sourceKey": "Refined_Chayulas_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005a",
+      "sourceKey": "Refined_Eshs_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005b",
+      "sourceKey": "Refined_Flesh_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005c",
+      "sourceKey": "Refined_Necrotic_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005d",
+      "sourceKey": "Refined_Neural_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005e",
+      "sourceKey": "Refined_Reaver_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005f",
+      "sourceKey": "Refined_Sibilant_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005g",
+      "sourceKey": "Refined_Skittering_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005h",
+      "sourceKey": "Refined_Tuls_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005i",
+      "sourceKey": "Refined_Uul-Netols_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005j",
+      "sourceKey": "Refined_Xophs_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005k",
+      "sourceKey": "Regal_Orb",
+      "retired": false
+    },
+    {
+      "id": "r005l",
+      "sourceKey": "Runic_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r005m",
+      "sourceKey": "Scroll_of_Wisdom",
+      "retired": false
+    },
+    {
+      "id": "r005n",
+      "sourceKey": "Sibilant_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005o",
+      "sourceKey": "Skittering_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005p",
+      "sourceKey": "Sovereign_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r005q",
+      "sourceKey": "Swift_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r005r",
+      "sourceKey": "The_Runebinders_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r005s",
+      "sourceKey": "The_Runefathers_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r005t",
+      "sourceKey": "Transcendent_Alloy",
+      "retired": false
+    },
+    {
+      "id": "r005u",
+      "sourceKey": "Tuls_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005v",
+      "sourceKey": "Uul-Netols_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r005w",
+      "sourceKey": "Vaal_Arcanists_Infuser",
+      "retired": false
+    },
+    {
+      "id": "r005x",
+      "sourceKey": "Vaal_Armourers_Infuser",
+      "retired": false
+    },
+    {
+      "id": "r005y",
+      "sourceKey": "Vaal_Blacksmiths_Infuser",
+      "retired": false
+    },
+    {
+      "id": "r005z",
+      "sourceKey": "Vaal_Catalysing_Infuser",
+      "retired": false
+    },
+    {
+      "id": "r0060",
+      "sourceKey": "Vaal_Cultivation_Orb",
+      "retired": false
+    },
+    {
+      "id": "r0061",
+      "sourceKey": "Vaal_Orb",
+      "retired": false
+    },
+    {
+      "id": "r0062",
+      "sourceKey": "Xophs_Catalyst",
+      "retired": false
+    },
+    {
+      "id": "r0063",
+      "sourceKey": "Yaomacs_Orb_of_Sacrifice",
+      "retired": false
+    },
+    {
+      "id": "r0064",
+      "sourceKey": "Yuguls_Orb_of_Sacrifice",
+      "retired": false
+    }
+  ]
+}

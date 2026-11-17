@@ -7,7 +7,7 @@ import sys
 import re
 
 ROOT = Path(__file__).resolve().parents[2]
-EVIDENCE = ROOT / 'docs/evidence/0.5.5/augment-expansion-20261105'
+EVIDENCE = ROOT / 'docs/legacy/evidence/0.5.5/augment-expansion-20261105'
 LOCALES = {'en': 'us', 'ko': 'kr', 'zh-CN': 'cn', 'zh-TW': 'tw', 'ja': 'jp', 'es': 'sp'}
 sys.path.insert(0, str(ROOT / 'scripts'))
 from augment_source import cards

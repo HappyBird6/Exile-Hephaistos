@@ -37,7 +37,7 @@ test("one tool collection reads localized pages and option details from differen
 });
 
 test("copying indexed tool inputs keeps physical feature paths and leaves the original index unchanged", () => {
-  const sourceIndex = path.resolve("docs/evidence/0.5.5/file-index.json");
+  const sourceIndex = path.resolve("docs/legacy/evidence/0.5.5/file-index.json");
   const original = fs.readFileSync(sourceIndex);
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "evidence-inputs-"));
   try {
@@ -53,7 +53,7 @@ test("copying indexed tool inputs keeps physical feature paths and leaves the or
     );
     assert(
       fs.existsSync(
-        path.join(root, "docs/evidence/0.5.5/tooling/catalog-import"),
+        path.join(root, "docs/legacy/evidence/0.5.5/tooling/catalog-import"),
       ),
     );
     assert.equal(
@@ -75,7 +75,7 @@ test("removing a logical collection cannot recursively delete a shared feature d
 });
 
 test("every indexed input exists below the version root with a date-free feature path", () => {
-  const root = path.resolve("docs/evidence/0.5.5");
+  const root = path.resolve("docs/legacy/evidence/0.5.5");
   const index = JSON.parse(
     fs.readFileSync(path.join(root, "file-index.json"), "utf8"),
   );
@@ -101,7 +101,7 @@ test("every indexed input exists below the version root with a date-free feature
 });
 
 test("new validation output goes to its feature and never edits the source index", () => {
-  const original = fs.readFileSync("docs/evidence/0.5.5/file-index.json");
+  const original = fs.readFileSync("docs/legacy/evidence/0.5.5/file-index.json");
   const root = fs.mkdtempSync(path.join(os.tmpdir(), "evidence-check-"));
   const output = root + "/evidence:general/workbench-history-validation.json";
   try {
@@ -115,7 +115,7 @@ test("new validation output goes to its feature and never edits the source index
     });
     assert(evidence.existsSync(output));
     assert.deepEqual(
-      fs.readFileSync("docs/evidence/0.5.5/file-index.json"),
+      fs.readFileSync("docs/legacy/evidence/0.5.5/file-index.json"),
       original,
     );
   } finally {

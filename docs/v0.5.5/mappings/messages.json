@@ -1,0 +1,2452 @@
+{
+  "schemaVersion": 1,
+  "domain": "messages",
+  "prefix": "u",
+  "entries": [
+    {
+      "id": "u0001",
+      "sourceKey": "base.armour",
+      "retired": false
+    },
+    {
+      "id": "u0002",
+      "sourceKey": "base.charms",
+      "retired": false
+    },
+    {
+      "id": "u0003",
+      "sourceKey": "base.energy_shield",
+      "retired": false
+    },
+    {
+      "id": "u0004",
+      "sourceKey": "base.evasion",
+      "retired": false
+    },
+    {
+      "id": "u0005",
+      "sourceKey": "base.flask",
+      "retired": false
+    },
+    {
+      "id": "u0006",
+      "sourceKey": "base.legacy",
+      "retired": false
+    },
+    {
+      "id": "u0007",
+      "sourceKey": "base.mana_drain",
+      "retired": false
+    },
+    {
+      "id": "u0008",
+      "sourceKey": "base.movement_speed",
+      "retired": false
+    },
+    {
+      "id": "u0009",
+      "sourceKey": "base.skeletal_warrior",
+      "retired": false
+    },
+    {
+      "id": "u000a",
+      "sourceKey": "base.sockets",
+      "retired": false
+    },
+    {
+      "id": "u000b",
+      "sourceKey": "base.sockets_unknown",
+      "retired": false
+    },
+    {
+      "id": "u000c",
+      "sourceKey": "base.spirit",
+      "retired": false
+    },
+    {
+      "id": "u000d",
+      "sourceKey": "base.unidentified_rune",
+      "retired": false
+    },
+    {
+      "id": "u000e",
+      "sourceKey": "base.weapon_property",
+      "retired": false
+    },
+    {
+      "id": "u000f",
+      "sourceKey": "class.amulet",
+      "retired": false
+    },
+    {
+      "id": "u000g",
+      "sourceKey": "class.belts",
+      "retired": false
+    },
+    {
+      "id": "u000h",
+      "sourceKey": "class.body",
+      "retired": false
+    },
+    {
+      "id": "u000i",
+      "sourceKey": "class.bows",
+      "retired": false
+    },
+    {
+      "id": "u000j",
+      "sourceKey": "class.gloves",
+      "retired": false
+    },
+    {
+      "id": "u000k",
+      "sourceKey": "class.helmets",
+      "retired": false
+    },
+    {
+      "id": "u000l",
+      "sourceKey": "class.jewels",
+      "retired": false
+    },
+    {
+      "id": "u000m",
+      "sourceKey": "class.rings",
+      "retired": false
+    },
+    {
+      "id": "u000n",
+      "sourceKey": "class.sceptres",
+      "retired": false
+    },
+    {
+      "id": "u000o",
+      "sourceKey": "class.wands",
+      "retired": false
+    },
+    {
+      "id": "u000p",
+      "sourceKey": "craft.applied",
+      "retired": false
+    },
+    {
+      "id": "u000q",
+      "sourceKey": "craft.blocked",
+      "retired": false
+    },
+    {
+      "id": "u000r",
+      "sourceKey": "craft.consumed",
+      "retired": false
+    },
+    {
+      "id": "u000s",
+      "sourceKey": "craft.uniform",
+      "retired": false
+    },
+    {
+      "id": "u000t",
+      "sourceKey": "crafts",
+      "retired": false
+    },
+    {
+      "id": "u000u",
+      "sourceKey": "crafts.few",
+      "retired": false
+    },
+    {
+      "id": "u000v",
+      "sourceKey": "crafts.many",
+      "retired": false
+    },
+    {
+      "id": "u000w",
+      "sourceKey": "crafts.one",
+      "retired": false
+    },
+    {
+      "id": "u000x",
+      "sourceKey": "crafts.other",
+      "retired": false
+    },
+    {
+      "id": "u000y",
+      "sourceKey": "error.apply_retry",
+      "retired": false
+    },
+    {
+      "id": "u000z",
+      "sourceKey": "error.catalog_mismatch",
+      "retired": false
+    },
+    {
+      "id": "u0010",
+      "sourceKey": "error.crafting_load",
+      "retired": false
+    },
+    {
+      "id": "u0011",
+      "sourceKey": "error.crafting_unsupported",
+      "retired": false
+    },
+    {
+      "id": "u0012",
+      "sourceKey": "error.load",
+      "retired": false
+    },
+    {
+      "id": "u0013",
+      "sourceKey": "error.mapping",
+      "retired": false
+    },
+    {
+      "id": "u0014",
+      "sourceKey": "error.mapping_verify",
+      "retired": false
+    },
+    {
+      "id": "u0015",
+      "sourceKey": "error.subject.applied",
+      "retired": false
+    },
+    {
+      "id": "u0016",
+      "sourceKey": "error.subject.assessment",
+      "retired": false
+    },
+    {
+      "id": "u0017",
+      "sourceKey": "error.subject.both",
+      "retired": false
+    },
+    {
+      "id": "u0018",
+      "sourceKey": "error.subject.catalyst",
+      "retired": false
+    },
+    {
+      "id": "u0019",
+      "sourceKey": "error.subject.coupled",
+      "retired": false
+    },
+    {
+      "id": "u001a",
+      "sourceKey": "error.subject.crafting",
+      "retired": false
+    },
+    {
+      "id": "u001b",
+      "sourceKey": "error.subject.families",
+      "retired": false
+    },
+    {
+      "id": "u001c",
+      "sourceKey": "error.subject.family_data",
+      "retired": false
+    },
+    {
+      "id": "u001d",
+      "sourceKey": "error.subject.fractured",
+      "retired": false
+    },
+    {
+      "id": "u001e",
+      "sourceKey": "error.subject.guaranteed",
+      "retired": false
+    },
+    {
+      "id": "u001f",
+      "sourceKey": "error.subject.legacy",
+      "retired": false
+    },
+    {
+      "id": "u001g",
+      "sourceKey": "error.subject.numeric",
+      "retired": false
+    },
+    {
+      "id": "u001h",
+      "sourceKey": "error.subject.recommendation",
+      "retired": false
+    },
+    {
+      "id": "u001i",
+      "sourceKey": "error.subject.replacement",
+      "retired": false
+    },
+    {
+      "id": "u001j",
+      "sourceKey": "error.subject.sockets",
+      "retired": false
+    },
+    {
+      "id": "u001k",
+      "sourceKey": "error.subject.tags",
+      "retired": false
+    },
+    {
+      "id": "u001l",
+      "sourceKey": "error.subject.whittling",
+      "retired": false
+    },
+    {
+      "id": "u001m",
+      "sourceKey": "error.support_failed",
+      "retired": false
+    },
+    {
+      "id": "u001n",
+      "sourceKey": "error.support_rejected",
+      "retired": false
+    },
+    {
+      "id": "u001o",
+      "sourceKey": "error.support_validate",
+      "retired": false
+    },
+    {
+      "id": "u001p",
+      "sourceKey": "error.unsupported_properties",
+      "retired": false
+    },
+    {
+      "id": "u001q",
+      "sourceKey": "error.verify",
+      "retired": false
+    },
+    {
+      "id": "u001r",
+      "sourceKey": "error.verify_inputs",
+      "retired": false
+    },
+    {
+      "id": "u001s",
+      "sourceKey": "error.verify_item",
+      "retired": false
+    },
+    {
+      "id": "u001t",
+      "sourceKey": "explorer.preview",
+      "retired": false
+    },
+    {
+      "id": "u001u",
+      "sourceKey": "explorer.return_step",
+      "retired": false
+    },
+    {
+      "id": "u001v",
+      "sourceKey": "film.original_paste",
+      "retired": false
+    },
+    {
+      "id": "u001w",
+      "sourceKey": "film.session",
+      "retired": false
+    },
+    {
+      "id": "u001x",
+      "sourceKey": "film.step",
+      "retired": false
+    },
+    {
+      "id": "u001y",
+      "sourceKey": "input.apply",
+      "retired": false
+    },
+    {
+      "id": "u001z",
+      "sourceKey": "input.applying",
+      "retired": false
+    },
+    {
+      "id": "u0020",
+      "sourceKey": "input.connection",
+      "retired": false
+    },
+    {
+      "id": "u0021",
+      "sourceKey": "input.empty",
+      "retired": false
+    },
+    {
+      "id": "u0022",
+      "sourceKey": "input.invalid",
+      "retired": false
+    },
+    {
+      "id": "u0023",
+      "sourceKey": "input.malformed",
+      "retired": false
+    },
+    {
+      "id": "u0024",
+      "sourceKey": "input.placeholder",
+      "retired": false
+    },
+    {
+      "id": "u0025",
+      "sourceKey": "input.review",
+      "retired": false
+    },
+    {
+      "id": "u0026",
+      "sourceKey": "input.too_large",
+      "retired": false
+    },
+    {
+      "id": "u0027",
+      "sourceKey": "language",
+      "retired": false
+    },
+    {
+      "id": "u0028",
+      "sourceKey": "legacy.suffix",
+      "retired": false
+    },
+    {
+      "id": "u0029",
+      "sourceKey": "material.empty",
+      "retired": false
+    },
+    {
+      "id": "u002a",
+      "sourceKey": "material.favorite",
+      "retired": false
+    },
+    {
+      "id": "u002b",
+      "sourceKey": "material.filter_by_item_type",
+      "retired": false
+    },
+    {
+      "id": "u002c",
+      "sourceKey": "material.picked",
+      "retired": false
+    },
+    {
+      "id": "u002d",
+      "sourceKey": "material.registered",
+      "retired": false
+    },
+    {
+      "id": "u002e",
+      "sourceKey": "material.search",
+      "retired": false
+    },
+    {
+      "id": "u002f",
+      "sourceKey": "material.selected",
+      "retired": false
+    },
+    {
+      "id": "u002g",
+      "sourceKey": "notice.addition_omen_scope",
+      "retired": false
+    },
+    {
+      "id": "u002h",
+      "sourceKey": "notice.apply_error",
+      "retired": false
+    },
+    {
+      "id": "u002i",
+      "sourceKey": "notice.augment_effect",
+      "retired": false
+    },
+    {
+      "id": "u002j",
+      "sourceKey": "notice.belt_scope",
+      "retired": false
+    },
+    {
+      "id": "u002k",
+      "sourceKey": "notice.body_scope",
+      "retired": false
+    },
+    {
+      "id": "u002l",
+      "sourceKey": "notice.bow_scope",
+      "retired": false
+    },
+    {
+      "id": "u002m",
+      "sourceKey": "notice.candidate_count",
+      "retired": false
+    },
+    {
+      "id": "u002n",
+      "sourceKey": "notice.candidate_logic",
+      "retired": false
+    },
+    {
+      "id": "u002o",
+      "sourceKey": "notice.catalyst_no_match",
+      "retired": false
+    },
+    {
+      "id": "u002p",
+      "sourceKey": "notice.catalyst_policy",
+      "retired": false
+    },
+    {
+      "id": "u002q",
+      "sourceKey": "notice.conditional_probability",
+      "retired": false
+    },
+    {
+      "id": "u002r",
+      "sourceKey": "notice.empty_budget",
+      "retired": false
+    },
+    {
+      "id": "u002s",
+      "sourceKey": "notice.existing_quality",
+      "retired": false
+    },
+    {
+      "id": "u002t",
+      "sourceKey": "notice.explore_three",
+      "retired": false
+    },
+    {
+      "id": "u002u",
+      "sourceKey": "notice.family_examples",
+      "retired": false
+    },
+    {
+      "id": "u002v",
+      "sourceKey": "notice.first_twenty",
+      "retired": false
+    },
+    {
+      "id": "u002w",
+      "sourceKey": "notice.fixed_sequence",
+      "retired": false
+    },
+    {
+      "id": "u002x",
+      "sourceKey": "notice.glove_alloy_area",
+      "retired": false
+    },
+    {
+      "id": "u002y",
+      "sourceKey": "notice.glove_alloy_penetration",
+      "retired": false
+    },
+    {
+      "id": "u002z",
+      "sourceKey": "notice.glove_alloy_ward",
+      "retired": false
+    },
+    {
+      "id": "u0030",
+      "sourceKey": "notice.glove_recoup",
+      "retired": false
+    },
+    {
+      "id": "u0031",
+      "sourceKey": "notice.glove_scope",
+      "retired": false
+    },
+    {
+      "id": "u0032",
+      "sourceKey": "notice.goal_met",
+      "retired": false
+    },
+    {
+      "id": "u0033",
+      "sourceKey": "notice.helmet_scope",
+      "retired": false
+    },
+    {
+      "id": "u0034",
+      "sourceKey": "notice.history_load",
+      "retired": false
+    },
+    {
+      "id": "u0035",
+      "sourceKey": "notice.history_save",
+      "retired": false
+    },
+    {
+      "id": "u0036",
+      "sourceKey": "notice.import_blocked",
+      "retired": false
+    },
+    {
+      "id": "u0037",
+      "sourceKey": "notice.import_ready",
+      "retired": false
+    },
+    {
+      "id": "u0038",
+      "sourceKey": "notice.legacy_five",
+      "retired": false
+    },
+    {
+      "id": "u0039",
+      "sourceKey": "notice.legacy_homogenising",
+      "retired": false
+    },
+    {
+      "id": "u003a",
+      "sourceKey": "notice.load_base",
+      "retired": false
+    },
+    {
+      "id": "u003b",
+      "sourceKey": "notice.manual_rolls",
+      "retired": false
+    },
+    {
+      "id": "u003c",
+      "sourceKey": "notice.mapping_blocked",
+      "retired": false
+    },
+    {
+      "id": "u003d",
+      "sourceKey": "notice.mapping_verified",
+      "retired": false
+    },
+    {
+      "id": "u003e",
+      "sourceKey": "notice.mark",
+      "retired": false
+    },
+    {
+      "id": "u003f",
+      "sourceKey": "notice.maximum_quality",
+      "retired": false
+    },
+    {
+      "id": "u003g",
+      "sourceKey": "notice.no_calculation",
+      "retired": false
+    },
+    {
+      "id": "u003h",
+      "sourceKey": "notice.no_rule",
+      "retired": false
+    },
+    {
+      "id": "u003i",
+      "sourceKey": "notice.no_success",
+      "retired": false
+    },
+    {
+      "id": "u003j",
+      "sourceKey": "notice.no_uniform_fallback",
+      "retired": false
+    },
+    {
+      "id": "u003k",
+      "sourceKey": "notice.observed_item",
+      "retired": false
+    },
+    {
+      "id": "u003l",
+      "sourceKey": "notice.omen_favorite",
+      "retired": false
+    },
+    {
+      "id": "u003m",
+      "sourceKey": "notice.omen_rule",
+      "retired": false
+    },
+    {
+      "id": "u003n",
+      "sourceKey": "notice.parsed_draft",
+      "retired": false
+    },
+    {
+      "id": "u003o",
+      "sourceKey": "notice.pasted_display",
+      "retired": false
+    },
+    {
+      "id": "u003p",
+      "sourceKey": "notice.pasted_explorer",
+      "retired": false
+    },
+    {
+      "id": "u003q",
+      "sourceKey": "notice.predicted_ranges",
+      "retired": false
+    },
+    {
+      "id": "u003r",
+      "sourceKey": "notice.quality_cap_change",
+      "retired": false
+    },
+    {
+      "id": "u003s",
+      "sourceKey": "notice.recovery_reset",
+      "retired": false
+    },
+    {
+      "id": "u003t",
+      "sourceKey": "notice.recovery_scope",
+      "retired": false
+    },
+    {
+      "id": "u003u",
+      "sourceKey": "notice.resolve_augments",
+      "retired": false
+    },
+    {
+      "id": "u003v",
+      "sourceKey": "notice.resolve_base",
+      "retired": false
+    },
+    {
+      "id": "u003w",
+      "sourceKey": "notice.ring_scope",
+      "retired": false
+    },
+    {
+      "id": "u003x",
+      "sourceKey": "notice.sapphire_scope",
+      "retired": false
+    },
+    {
+      "id": "u003y",
+      "sourceKey": "notice.saved_catalog",
+      "retired": false
+    },
+    {
+      "id": "u003z",
+      "sourceKey": "notice.saved_evidence",
+      "retired": false
+    },
+    {
+      "id": "u0040",
+      "sourceKey": "notice.saved_session",
+      "retired": false
+    },
+    {
+      "id": "u0041",
+      "sourceKey": "notice.sceptre_scope",
+      "retired": false
+    },
+    {
+      "id": "u0042",
+      "sourceKey": "notice.sceptre_skill_scope",
+      "retired": false
+    },
+    {
+      "id": "u0043",
+      "sourceKey": "notice.select_currency",
+      "retired": false
+    },
+    {
+      "id": "u0044",
+      "sourceKey": "notice.selection_cleared",
+      "retired": false
+    },
+    {
+      "id": "u0045",
+      "sourceKey": "notice.session_catalog",
+      "retired": false
+    },
+    {
+      "id": "u0046",
+      "sourceKey": "notice.stop_goal",
+      "retired": false
+    },
+    {
+      "id": "u0047",
+      "sourceKey": "notice.support_base",
+      "retired": false
+    },
+    {
+      "id": "u0048",
+      "sourceKey": "notice.support_root",
+      "retired": false
+    },
+    {
+      "id": "u0049",
+      "sourceKey": "notice.time_lost_scope",
+      "retired": false
+    },
+    {
+      "id": "u004a",
+      "sourceKey": "notice.try_fewer",
+      "retired": false
+    },
+    {
+      "id": "u004b",
+      "sourceKey": "notice.use_abyss",
+      "retired": false
+    },
+    {
+      "id": "u004c",
+      "sourceKey": "notice.wait_catalog",
+      "retired": false
+    },
+    {
+      "id": "u004d",
+      "sourceKey": "notice.wand_scope",
+      "retired": false
+    },
+    {
+      "id": "u004e",
+      "sourceKey": "omen.activate",
+      "retired": false
+    },
+    {
+      "id": "u004f",
+      "sourceKey": "omen.candidate_title",
+      "retired": false
+    },
+    {
+      "id": "u004g",
+      "sourceKey": "omen.composition_model",
+      "retired": false
+    },
+    {
+      "id": "u004h",
+      "sourceKey": "omen.conflict",
+      "retired": false
+    },
+    {
+      "id": "u004i",
+      "sourceKey": "omen.deactivate",
+      "retired": false
+    },
+    {
+      "id": "u004j",
+      "sourceKey": "omen.draw_order_model",
+      "retired": false
+    },
+    {
+      "id": "u004k",
+      "sourceKey": "omen.opposite_sides",
+      "retired": false
+    },
+    {
+      "id": "u004l",
+      "sourceKey": "omen.preview",
+      "retired": false
+    },
+    {
+      "id": "u004m",
+      "sourceKey": "omen.preview_unavailable",
+      "retired": false
+    },
+    {
+      "id": "u004n",
+      "sourceKey": "parser.catalog_required",
+      "retired": false
+    },
+    {
+      "id": "u004o",
+      "sourceKey": "parser.duplicate_level",
+      "retired": false
+    },
+    {
+      "id": "u004p",
+      "sourceKey": "parser.invalid_level",
+      "retired": false
+    },
+    {
+      "id": "u004q",
+      "sourceKey": "parser.line",
+      "retired": false
+    },
+    {
+      "id": "u004r",
+      "sourceKey": "parser.missing_class",
+      "retired": false
+    },
+    {
+      "id": "u004s",
+      "sourceKey": "parser.missing_level",
+      "retired": false
+    },
+    {
+      "id": "u004t",
+      "sourceKey": "parser.modifier_source",
+      "retired": false
+    },
+    {
+      "id": "u004u",
+      "sourceKey": "parser.preserved_lines",
+      "retired": false
+    },
+    {
+      "id": "u004v",
+      "sourceKey": "parser.raw_flags",
+      "retired": false
+    },
+    {
+      "id": "u004w",
+      "sourceKey": "parser.raw_properties",
+      "retired": false
+    },
+    {
+      "id": "u004x",
+      "sourceKey": "parser.raw_requirements",
+      "retired": false
+    },
+    {
+      "id": "u004y",
+      "sourceKey": "parser.unresolved",
+      "retired": false
+    },
+    {
+      "id": "u004z",
+      "sourceKey": "parser.unresolved_base",
+      "retired": false
+    },
+    {
+      "id": "u0050",
+      "sourceKey": "parser.unsupported_rarity",
+      "retired": false
+    },
+    {
+      "id": "u0051",
+      "sourceKey": "paths.active",
+      "retired": false
+    },
+    {
+      "id": "u0052",
+      "sourceKey": "paths.add",
+      "retired": false
+    },
+    {
+      "id": "u0053",
+      "sourceKey": "paths.calculate",
+      "retired": false
+    },
+    {
+      "id": "u0054",
+      "sourceKey": "paths.calculateRecovery",
+      "retired": false
+    },
+    {
+      "id": "u0055",
+      "sourceKey": "paths.captureCheckpoint",
+      "retired": false
+    },
+    {
+      "id": "u0056",
+      "sourceKey": "paths.captureFailure",
+      "retired": false
+    },
+    {
+      "id": "u0057",
+      "sourceKey": "paths.checkpoint",
+      "retired": false
+    },
+    {
+      "id": "u0058",
+      "sourceKey": "paths.clear",
+      "retired": false
+    },
+    {
+      "id": "u0059",
+      "sourceKey": "paths.close",
+      "retired": false
+    },
+    {
+      "id": "u005a",
+      "sourceKey": "paths.dead",
+      "retired": false
+    },
+    {
+      "id": "u005b",
+      "sourceKey": "paths.evidence",
+      "retired": false
+    },
+    {
+      "id": "u005c",
+      "sourceKey": "paths.evidenceNotice",
+      "retired": false
+    },
+    {
+      "id": "u005d",
+      "sourceKey": "paths.exact",
+      "retired": false
+    },
+    {
+      "id": "u005e",
+      "sourceKey": "paths.exactTarget",
+      "retired": false
+    },
+    {
+      "id": "u005f",
+      "sourceKey": "paths.failure",
+      "retired": false
+    },
+    {
+      "id": "u005g",
+      "sourceKey": "paths.fraction",
+      "retired": false
+    },
+    {
+      "id": "u005h",
+      "sourceKey": "paths.level",
+      "retired": false
+    },
+    {
+      "id": "u005i",
+      "sourceKey": "paths.lower",
+      "retired": false
+    },
+    {
+      "id": "u005j",
+      "sourceKey": "paths.main",
+      "retired": false
+    },
+    {
+      "id": "u005k",
+      "sourceKey": "paths.mainPolicy",
+      "retired": false
+    },
+    {
+      "id": "u005l",
+      "sourceKey": "paths.mode",
+      "retired": false
+    },
+    {
+      "id": "u005m",
+      "sourceKey": "paths.model",
+      "retired": false
+    },
+    {
+      "id": "u005n",
+      "sourceKey": "paths.notReady",
+      "retired": false
+    },
+    {
+      "id": "u005o",
+      "sourceKey": "paths.observations",
+      "retired": false
+    },
+    {
+      "id": "u005p",
+      "sourceKey": "paths.pending",
+      "retired": false
+    },
+    {
+      "id": "u005q",
+      "sourceKey": "paths.provenanceError",
+      "retired": false
+    },
+    {
+      "id": "u005r",
+      "sourceKey": "paths.recovery",
+      "retired": false
+    },
+    {
+      "id": "u005s",
+      "sourceKey": "paths.recoveryNotice",
+      "retired": false
+    },
+    {
+      "id": "u005t",
+      "sourceKey": "paths.recoveryPolicy",
+      "retired": false
+    },
+    {
+      "id": "u005u",
+      "sourceKey": "paths.recoveryTarget",
+      "retired": false
+    },
+    {
+      "id": "u005v",
+      "sourceKey": "paths.refresh",
+      "retired": false
+    },
+    {
+      "id": "u005w",
+      "sourceKey": "paths.remove",
+      "retired": false
+    },
+    {
+      "id": "u005x",
+      "sourceKey": "paths.repeat",
+      "retired": false
+    },
+    {
+      "id": "u005y",
+      "sourceKey": "paths.requestError",
+      "retired": false
+    },
+    {
+      "id": "u005z",
+      "sourceKey": "paths.responseError",
+      "retired": false
+    },
+    {
+      "id": "u0060",
+      "sourceKey": "paths.result",
+      "retired": false
+    },
+    {
+      "id": "u0061",
+      "sourceKey": "paths.rounding",
+      "retired": false
+    },
+    {
+      "id": "u0062",
+      "sourceKey": "paths.scope",
+      "retired": false
+    },
+    {
+      "id": "u0063",
+      "sourceKey": "paths.select",
+      "retired": false
+    },
+    {
+      "id": "u0064",
+      "sourceKey": "paths.single",
+      "retired": false
+    },
+    {
+      "id": "u0065",
+      "sourceKey": "paths.stale",
+      "retired": false
+    },
+    {
+      "id": "u0066",
+      "sourceKey": "paths.statusNotice",
+      "retired": false
+    },
+    {
+      "id": "u0067",
+      "sourceKey": "paths.target",
+      "retired": false
+    },
+    {
+      "id": "u0068",
+      "sourceKey": "paths.title",
+      "retired": false
+    },
+    {
+      "id": "u0069",
+      "sourceKey": "paths.truncated",
+      "retired": false
+    },
+    {
+      "id": "u006a",
+      "sourceKey": "paths.unresolved",
+      "retired": false
+    },
+    {
+      "id": "u006b",
+      "sourceKey": "paths.upper",
+      "retired": false
+    },
+    {
+      "id": "u006c",
+      "sourceKey": "probability.conditions",
+      "retired": false
+    },
+    {
+      "id": "u006d",
+      "sourceKey": "probability.disclaimer",
+      "retired": false
+    },
+    {
+      "id": "u006e",
+      "sourceKey": "probability.material",
+      "retired": false
+    },
+    {
+      "id": "u006f",
+      "sourceKey": "probability.removal",
+      "retired": false
+    },
+    {
+      "id": "u006g",
+      "sourceKey": "probability.reroll",
+      "retired": false
+    },
+    {
+      "id": "u006h",
+      "sourceKey": "quality.current",
+      "retired": false
+    },
+    {
+      "id": "u006i",
+      "sourceKey": "quality.display_model",
+      "retired": false
+    },
+    {
+      "id": "u006j",
+      "sourceKey": "quality.equipment",
+      "retired": false
+    },
+    {
+      "id": "u006k",
+      "sourceKey": "quality.maximum",
+      "retired": false
+    },
+    {
+      "id": "u006l",
+      "sourceKey": "quality.original_roll",
+      "retired": false
+    },
+    {
+      "id": "u006m",
+      "sourceKey": "ruleset.inconsistent",
+      "retired": false
+    },
+    {
+      "id": "u006n",
+      "sourceKey": "ruleset.legacy-unverified",
+      "retired": false
+    },
+    {
+      "id": "u006o",
+      "sourceKey": "ruleset.mismatch",
+      "retired": false
+    },
+    {
+      "id": "u006p",
+      "sourceKey": "ruleset.new_start",
+      "retired": false
+    },
+    {
+      "id": "u006q",
+      "sourceKey": "ruleset.reload_catalog",
+      "retired": false
+    },
+    {
+      "id": "u006r",
+      "sourceKey": "ruleset.request_changed",
+      "retired": false
+    },
+    {
+      "id": "u006s",
+      "sourceKey": "ruleset.request_missing",
+      "retired": false
+    },
+    {
+      "id": "u006t",
+      "sourceKey": "ruleset.saved_record",
+      "retired": false
+    },
+    {
+      "id": "u006u",
+      "sourceKey": "server.augment_observations_pending",
+      "retired": false
+    },
+    {
+      "id": "u006v",
+      "sourceKey": "server.catalyst_match_required",
+      "retired": false
+    },
+    {
+      "id": "u006w",
+      "sourceKey": "server.catalyst_original_required",
+      "retired": false
+    },
+    {
+      "id": "u006x",
+      "sourceKey": "server.clipboard_base",
+      "retired": false
+    },
+    {
+      "id": "u006y",
+      "sourceKey": "server.clipboard_catalyst",
+      "retired": false
+    },
+    {
+      "id": "u006z",
+      "sourceKey": "server.clipboard_change_base",
+      "retired": false
+    },
+    {
+      "id": "u0070",
+      "sourceKey": "server.clipboard_class",
+      "retired": false
+    },
+    {
+      "id": "u0071",
+      "sourceKey": "server.clipboard_desecrated",
+      "retired": false
+    },
+    {
+      "id": "u0072",
+      "sourceKey": "server.clipboard_layers",
+      "retired": false
+    },
+    {
+      "id": "u0073",
+      "sourceKey": "server.clipboard_markers",
+      "retired": false
+    },
+    {
+      "id": "u0074",
+      "sourceKey": "server.clipboard_minimum_invalid",
+      "retired": false
+    },
+    {
+      "id": "u0075",
+      "sourceKey": "server.clipboard_minimum_unsupported",
+      "retired": false
+    },
+    {
+      "id": "u0076",
+      "sourceKey": "server.clipboard_modifier_edit",
+      "retired": false
+    },
+    {
+      "id": "u0077",
+      "sourceKey": "server.clipboard_original",
+      "retired": false
+    },
+    {
+      "id": "u0078",
+      "sourceKey": "server.clipboard_pool_invalid",
+      "retired": false
+    },
+    {
+      "id": "u0079",
+      "sourceKey": "server.clipboard_pool_unsupported",
+      "retired": false
+    },
+    {
+      "id": "u007a",
+      "sourceKey": "server.clipboard_property",
+      "retired": false
+    },
+    {
+      "id": "u007b",
+      "sourceKey": "server.clipboard_quality",
+      "retired": false
+    },
+    {
+      "id": "u007c",
+      "sourceKey": "server.clipboard_raw_rolls",
+      "retired": false
+    },
+    {
+      "id": "u007d",
+      "sourceKey": "server.clipboard_skills",
+      "retired": false
+    },
+    {
+      "id": "u007e",
+      "sourceKey": "server.clipboard_sockets",
+      "retired": false
+    },
+    {
+      "id": "u007f",
+      "sourceKey": "server.existing_crafted",
+      "retired": false
+    },
+    {
+      "id": "u007g",
+      "sourceKey": "server.fractured_removal",
+      "retired": false
+    },
+    {
+      "id": "u007h",
+      "sourceKey": "server.gloves_candidate_unit",
+      "retired": false
+    },
+    {
+      "id": "u007i",
+      "sourceKey": "server.gloves_uniform_candidates",
+      "retired": false
+    },
+    {
+      "id": "u007j",
+      "sourceKey": "server.helmets_candidate_unit",
+      "retired": false
+    },
+    {
+      "id": "u007k",
+      "sourceKey": "server.helmets_uniform_candidates",
+      "retired": false
+    },
+    {
+      "id": "u007l",
+      "sourceKey": "server.jewel_scope",
+      "retired": false
+    },
+    {
+      "id": "u007m",
+      "sourceKey": "server.liquid_base",
+      "retired": false
+    },
+    {
+      "id": "u007n",
+      "sourceKey": "server.mapping_base",
+      "retired": false
+    },
+    {
+      "id": "u007o",
+      "sourceKey": "server.mapping_class",
+      "retired": false
+    },
+    {
+      "id": "u007p",
+      "sourceKey": "server.mapping_layer",
+      "retired": false
+    },
+    {
+      "id": "u007q",
+      "sourceKey": "server.mapping_level",
+      "retired": false
+    },
+    {
+      "id": "u007r",
+      "sourceKey": "server.mapping_match",
+      "retired": false
+    },
+    {
+      "id": "u007s",
+      "sourceKey": "server.mapping_property",
+      "retired": false
+    },
+    {
+      "id": "u007t",
+      "sourceKey": "server.mapping_rarity",
+      "retired": false
+    },
+    {
+      "id": "u007u",
+      "sourceKey": "server.mapping_special",
+      "retired": false
+    },
+    {
+      "id": "u007v",
+      "sourceKey": "server.mapping_tier",
+      "retired": false
+    },
+    {
+      "id": "u007w",
+      "sourceKey": "server.mapping_unparsed",
+      "retired": false
+    },
+    {
+      "id": "u007x",
+      "sourceKey": "server.no_candidate",
+      "retired": false
+    },
+    {
+      "id": "u007y",
+      "sourceKey": "server.ordinary_catalyst",
+      "retired": false
+    },
+    {
+      "id": "u007z",
+      "sourceKey": "server.rare_removable",
+      "retired": false
+    },
+    {
+      "id": "u0080",
+      "sourceKey": "server.rarity",
+      "retired": false
+    },
+    {
+      "id": "u0081",
+      "sourceKey": "server.refined_catalyst",
+      "retired": false
+    },
+    {
+      "id": "u0082",
+      "sourceKey": "server.socket_observation_only",
+      "retired": false
+    },
+    {
+      "id": "u0083",
+      "sourceKey": "stash.Alloy",
+      "retired": false
+    },
+    {
+      "id": "u0084",
+      "sourceKey": "stash.Catalysts",
+      "retired": false
+    },
+    {
+      "id": "u0085",
+      "sourceKey": "stash.Currency",
+      "retired": false
+    },
+    {
+      "id": "u0086",
+      "sourceKey": "stash.Essence",
+      "retired": false
+    },
+    {
+      "id": "u0087",
+      "sourceKey": "stash.Liquid_Emotions",
+      "retired": false
+    },
+    {
+      "id": "u0088",
+      "sourceKey": "stash.Omen",
+      "retired": false
+    },
+    {
+      "id": "u0089",
+      "sourceKey": "support.add_family",
+      "retired": false
+    },
+    {
+      "id": "u008a",
+      "sourceKey": "support.candidate",
+      "retired": false
+    },
+    {
+      "id": "u008b",
+      "sourceKey": "support.minimum_tier",
+      "retired": false
+    },
+    {
+      "id": "u008c",
+      "sourceKey": "support.remove_family",
+      "retired": false
+    },
+    {
+      "id": "u008d",
+      "sourceKey": "support.remove_manual",
+      "retired": false
+    },
+    {
+      "id": "u008e",
+      "sourceKey": "support.required",
+      "retired": false
+    },
+    {
+      "id": "u008f",
+      "sourceKey": "translation.coverage",
+      "retired": false
+    },
+    {
+      "id": "u008g",
+      "sourceKey": "translation.english",
+      "retired": false
+    },
+    {
+      "id": "u008h",
+      "sourceKey": "translation.own",
+      "retired": false
+    },
+    {
+      "id": "u008i",
+      "sourceKey": "translation.source_text",
+      "retired": false
+    },
+    {
+      "id": "u008j",
+      "sourceKey": "ui.10_seconds",
+      "retired": false
+    },
+    {
+      "id": "u008k",
+      "sourceKey": "ui.1_starting_item",
+      "retired": false
+    },
+    {
+      "id": "u008l",
+      "sourceKey": "ui.2_one_goal",
+      "retired": false
+    },
+    {
+      "id": "u008m",
+      "sourceKey": "ui.2_seconds",
+      "retired": false
+    },
+    {
+      "id": "u008n",
+      "sourceKey": "ui.5_seconds",
+      "retired": false
+    },
+    {
+      "id": "u008o",
+      "sourceKey": "ui.add_manual_modifier",
+      "retired": false
+    },
+    {
+      "id": "u008p",
+      "sourceKey": "ui.addition_omens",
+      "retired": false
+    },
+    {
+      "id": "u008q",
+      "sourceKey": "ui.admin",
+      "retired": false
+    },
+    {
+      "id": "u008r",
+      "sourceKey": "ui.all_required_conditions",
+      "retired": false
+    },
+    {
+      "id": "u008s",
+      "sourceKey": "ui.all_required_families",
+      "retired": false
+    },
+    {
+      "id": "u008t",
+      "sourceKey": "ui.analyze_item",
+      "retired": false
+    },
+    {
+      "id": "u008u",
+      "sourceKey": "ui.analyzing_item",
+      "retired": false
+    },
+    {
+      "id": "u008v",
+      "sourceKey": "ui.and",
+      "retired": false
+    },
+    {
+      "id": "u008w",
+      "sourceKey": "ui.any_effect_in_this_family_counts",
+      "retired": false
+    },
+    {
+      "id": "u008x",
+      "sourceKey": "ui.applied",
+      "retired": false
+    },
+    {
+      "id": "u008y",
+      "sourceKey": "ui.base",
+      "retired": false
+    },
+    {
+      "id": "u008z",
+      "sourceKey": "ui.calculating",
+      "retired": false
+    },
+    {
+      "id": "u0090",
+      "sourceKey": "ui.calculating_outcomes",
+      "retired": false
+    },
+    {
+      "id": "u0091",
+      "sourceKey": "ui.calculation_details_and_sources",
+      "retired": false
+    },
+    {
+      "id": "u0092",
+      "sourceKey": "ui.calculation_time_budget",
+      "retired": false
+    },
+    {
+      "id": "u0093",
+      "sourceKey": "ui.cancel_exploration",
+      "retired": false
+    },
+    {
+      "id": "u0094",
+      "sourceKey": "ui.cancel_preview",
+      "retired": false
+    },
+    {
+      "id": "u0095",
+      "sourceKey": "ui.cancel_this_request",
+      "retired": false
+    },
+    {
+      "id": "u0096",
+      "sourceKey": "ui.candidate_families",
+      "retired": false
+    },
+    {
+      "id": "u0097",
+      "sourceKey": "ui.candidate_n",
+      "retired": false
+    },
+    {
+      "id": "u0098",
+      "sourceKey": "ui.candidate_uniform",
+      "retired": false
+    },
+    {
+      "id": "u0099",
+      "sourceKey": "ui.candidates_colon",
+      "retired": false
+    },
+    {
+      "id": "u009a",
+      "sourceKey": "ui.catalog_load_error",
+      "retired": false
+    },
+    {
+      "id": "u009b",
+      "sourceKey": "ui.check_starting_state_and_goal",
+      "retired": false
+    },
+    {
+      "id": "u009c",
+      "sourceKey": "ui.choose_a_currency_then_a_possible_outcome_to_explore_its_future",
+      "retired": false
+    },
+    {
+      "id": "u009d",
+      "sourceKey": "ui.choose_sequence",
+      "retired": false
+    },
+    {
+      "id": "u009e",
+      "sourceKey": "ui.chosen_sequence_stop_as_soon_as_the_goal_is_met",
+      "retired": false
+    },
+    {
+      "id": "u009f",
+      "sourceKey": "ui.close_item_input",
+      "retired": false
+    },
+    {
+      "id": "u009g",
+      "sourceKey": "ui.compare_currency_sequences",
+      "retired": false
+    },
+    {
+      "id": "u009h",
+      "sourceKey": "ui.compared",
+      "retired": false
+    },
+    {
+      "id": "u009i",
+      "sourceKey": "ui.computed_pools",
+      "retired": false
+    },
+    {
+      "id": "u009j",
+      "sourceKey": "ui.conditional_probability",
+      "retired": false
+    },
+    {
+      "id": "u009k",
+      "sourceKey": "ui.consumed_omens",
+      "retired": false
+    },
+    {
+      "id": "u009l",
+      "sourceKey": "ui.continuing_probability",
+      "retired": false
+    },
+    {
+      "id": "u009m",
+      "sourceKey": "ui.craft_support",
+      "retired": false
+    },
+    {
+      "id": "u009n",
+      "sourceKey": "ui.crafting_notes",
+      "retired": false
+    },
+    {
+      "id": "u009o",
+      "sourceKey": "ui.crafting_probability_explorer",
+      "retired": false
+    },
+    {
+      "id": "u009p",
+      "sourceKey": "ui.crafting_session",
+      "retired": false
+    },
+    {
+      "id": "u009q",
+      "sourceKey": "ui.crafting_workbench",
+      "retired": false
+    },
+    {
+      "id": "u009r",
+      "sourceKey": "ui.crafting_workspace",
+      "retired": false
+    },
+    {
+      "id": "u009s",
+      "sourceKey": "ui.currency_images_poe2db",
+      "retired": false
+    },
+    {
+      "id": "u009t",
+      "sourceKey": "ui.currency_stash",
+      "retired": false
+    },
+    {
+      "id": "u009u",
+      "sourceKey": "ui.current_item",
+      "retired": false
+    },
+    {
+      "id": "u009v",
+      "sourceKey": "ui.current_quality",
+      "retired": false
+    },
+    {
+      "id": "u009w",
+      "sourceKey": "ui.current_state",
+      "retired": false
+    },
+    {
+      "id": "u009x",
+      "sourceKey": "ui.data_colon",
+      "retired": false
+    },
+    {
+      "id": "u009y",
+      "sourceKey": "ui.database_hits",
+      "retired": false
+    },
+    {
+      "id": "u009z",
+      "sourceKey": "ui.distinct_candidate_families",
+      "retired": false
+    },
+    {
+      "id": "u00a0",
+      "sourceKey": "ui.edges_in",
+      "retired": false
+    },
+    {
+      "id": "u00a1",
+      "sourceKey": "ui.edit_item",
+      "retired": false
+    },
+    {
+      "id": "u00a2",
+      "sourceKey": "ui.eligible_sequences",
+      "retired": false
+    },
+    {
+      "id": "u00a3",
+      "sourceKey": "ui.enable_solar_crafting",
+      "retired": false
+    },
+    {
+      "id": "u00a4",
+      "sourceKey": "ui.english",
+      "retired": false
+    },
+    {
+      "id": "u00a5",
+      "sourceKey": "ui.enter_recovered_state_as_a_new_root",
+      "retired": false
+    },
+    {
+      "id": "u00a6",
+      "sourceKey": "ui.equipment_base",
+      "retired": false
+    },
+    {
+      "id": "u00a7",
+      "sourceKey": "ui.exile_hephaistos_home",
+      "retired": false
+    },
+    {
+      "id": "u00a8",
+      "sourceKey": "ui.existing_catalyst_quality",
+      "retired": false
+    },
+    {
+      "id": "u00a9",
+      "sourceKey": "ui.expanded",
+      "retired": false
+    },
+    {
+      "id": "u00aa",
+      "sourceKey": "ui.explicit_modifiers",
+      "retired": false
+    },
+    {
+      "id": "u00ab",
+      "sourceKey": "ui.explore_a_currency_sequence",
+      "retired": false
+    },
+    {
+      "id": "u00ac",
+      "sourceKey": "ui.explore_sequence",
+      "retired": false
+    },
+    {
+      "id": "u00ad",
+      "sourceKey": "ui.explore_this_state",
+      "retired": false
+    },
+    {
+      "id": "u00ae",
+      "sourceKey": "ui.exploring",
+      "retired": false
+    },
+    {
+      "id": "u00af",
+      "sourceKey": "ui.family_source_example",
+      "retired": false
+    },
+    {
+      "id": "u00ag",
+      "sourceKey": "ui.first_hit_step",
+      "retired": false
+    },
+    {
+      "id": "u00ah",
+      "sourceKey": "ui.fractured",
+      "retired": false
+    },
+    {
+      "id": "u00ai",
+      "sourceKey": "ui.groups_remaining",
+      "retired": false
+    },
+    {
+      "id": "u00aj",
+      "sourceKey": "ui.image_unavailable",
+      "retired": false
+    },
+    {
+      "id": "u00ak",
+      "sourceKey": "ui.input_source",
+      "retired": false
+    },
+    {
+      "id": "u00al",
+      "sourceKey": "ui.item",
+      "retired": false
+    },
+    {
+      "id": "u00am",
+      "sourceKey": "ui.item_card",
+      "retired": false
+    },
+    {
+      "id": "u00an",
+      "sourceKey": "ui.item_input_method",
+      "retired": false
+    },
+    {
+      "id": "u00ao",
+      "sourceKey": "ui.item_level",
+      "retired": false
+    },
+    {
+      "id": "u00ap",
+      "sourceKey": "ui.item_level_colon",
+      "retired": false
+    },
+    {
+      "id": "u00aq",
+      "sourceKey": "ui.item_level_fragment",
+      "retired": false
+    },
+    {
+      "id": "u00ar",
+      "sourceKey": "ui.item_level_must_be_an_integer_from_1_to_100",
+      "retired": false
+    },
+    {
+      "id": "u00as",
+      "sourceKey": "ui.item_text",
+      "retired": false
+    },
+    {
+      "id": "u00at",
+      "sourceKey": "ui.item_text_copied_from_the_game",
+      "retired": false
+    },
+    {
+      "id": "u00au",
+      "sourceKey": "ui.last_craft_and_roll_assumptions",
+      "retired": false
+    },
+    {
+      "id": "u00av",
+      "sourceKey": "ui.ledger",
+      "retired": false
+    },
+    {
+      "id": "u00aw",
+      "sourceKey": "ui.line",
+      "retired": false
+    },
+    {
+      "id": "u00ax",
+      "sourceKey": "ui.loading_available_currencies",
+      "retired": false
+    },
+    {
+      "id": "u00ay",
+      "sourceKey": "ui.loading_crafting_catalog",
+      "retired": false
+    },
+    {
+      "id": "u00az",
+      "sourceKey": "ui.loading_modifier_data",
+      "retired": false
+    },
+    {
+      "id": "u00b0",
+      "sourceKey": "ui.loading_support_catalog",
+      "retired": false
+    },
+    {
+      "id": "u00b1",
+      "sourceKey": "ui.magic",
+      "retired": false
+    },
+    {
+      "id": "u00b2",
+      "sourceKey": "ui.main_navigation",
+      "retired": false
+    },
+    {
+      "id": "u00b3",
+      "sourceKey": "ui.manual_modifier_tiers",
+      "retired": false
+    },
+    {
+      "id": "u00b4",
+      "sourceKey": "ui.manual_rarity",
+      "retired": false
+    },
+    {
+      "id": "u00b5",
+      "sourceKey": "ui.material_stash_tabs",
+      "retired": false
+    },
+    {
+      "id": "u00b6",
+      "sourceKey": "ui.memory_hits",
+      "retired": false
+    },
+    {
+      "id": "u00b7",
+      "sourceKey": "ui.more_outcomes",
+      "retired": false
+    },
+    {
+      "id": "u00b8",
+      "sourceKey": "ui.needed",
+      "retired": false
+    },
+    {
+      "id": "u00b9",
+      "sourceKey": "ui.new_craft",
+      "retired": false
+    },
+    {
+      "id": "u00ba",
+      "sourceKey": "ui.next_crafting_step",
+      "retired": false
+    },
+    {
+      "id": "u00bb",
+      "sourceKey": "ui.next_possible_states",
+      "retired": false
+    },
+    {
+      "id": "u00bc",
+      "sourceKey": "ui.no_admin_tools_are_available_yet",
+      "retired": false
+    },
+    {
+      "id": "u00bd",
+      "sourceKey": "ui.no_materials_found",
+      "retired": false
+    },
+    {
+      "id": "u00be",
+      "sourceKey": "ui.no_typed_quality_supplied",
+      "retired": false
+    },
+    {
+      "id": "u00bf",
+      "sourceKey": "ui.normal",
+      "retired": false
+    },
+    {
+      "id": "u00bg",
+      "sourceKey": "ui.of",
+      "retired": false
+    },
+    {
+      "id": "u00bh",
+      "sourceKey": "ui.official_0_3_availability",
+      "retired": false
+    },
+    {
+      "id": "u00bi",
+      "sourceKey": "ui.official_homogenising_source",
+      "retired": false
+    },
+    {
+      "id": "u00bj",
+      "sourceKey": "ui.official_legacy_availability",
+      "retired": false
+    },
+    {
+      "id": "u00bk",
+      "sourceKey": "ui.parsing_details_and_source_text",
+      "retired": false
+    },
+    {
+      "id": "u00bl",
+      "sourceKey": "ui.paste_solar_amulet_text_copied_from_the_game",
+      "retired": false
+    },
+    {
+      "id": "u00bm",
+      "sourceKey": "ui.path_of_exile_2_crafting_workbench",
+      "retired": false
+    },
+    {
+      "id": "u00bn",
+      "sourceKey": "ui.path_probability",
+      "retired": false
+    },
+    {
+      "id": "u00bo",
+      "sourceKey": "ui.place_base",
+      "retired": false
+    },
+    {
+      "id": "u00bp",
+      "sourceKey": "ui.poe2db_modifier_table",
+      "retired": false
+    },
+    {
+      "id": "u00bq",
+      "sourceKey": "ui.poe2db_modifier_weights",
+      "retired": false
+    },
+    {
+      "id": "u00br",
+      "sourceKey": "ui.previous_crafting_step",
+      "retired": false
+    },
+    {
+      "id": "u00bs",
+      "sourceKey": "ui.previous_state",
+      "retired": false
+    },
+    {
+      "id": "u00bt",
+      "sourceKey": "ui.published_solar_weights",
+      "retired": false
+    },
+    {
+      "id": "u00bu",
+      "sourceKey": "ui.quality_source",
+      "retired": false
+    },
+    {
+      "id": "u00bv",
+      "sourceKey": "ui.rare",
+      "retired": false
+    },
+    {
+      "id": "u00bw",
+      "sourceKey": "ui.rarity",
+      "retired": false
+    },
+    {
+      "id": "u00bx",
+      "sourceKey": "ui.reached_the_end",
+      "retired": false
+    },
+    {
+      "id": "u00by",
+      "sourceKey": "ui.recovery_starts_a_new_calculation",
+      "retired": false
+    },
+    {
+      "id": "u00bz",
+      "sourceKey": "ui.remove",
+      "retired": false
+    },
+    {
+      "id": "u00c0",
+      "sourceKey": "ui.required_colon",
+      "retired": false
+    },
+    {
+      "id": "u00c1",
+      "sourceKey": "ui.retry",
+      "retired": false
+    },
+    {
+      "id": "u00c2",
+      "sourceKey": "ui.retry_catalog",
+      "retired": false
+    },
+    {
+      "id": "u00c3",
+      "sourceKey": "ui.review_needed",
+      "retired": false
+    },
+    {
+      "id": "u00c4",
+      "sourceKey": "ui.rule_block",
+      "retired": false
+    },
+    {
+      "id": "u00c5",
+      "sourceKey": "ui.sapphire_cast_speed",
+      "retired": false
+    },
+    {
+      "id": "u00c6",
+      "sourceKey": "ui.sapphire_craft_evidence",
+      "retired": false
+    },
+    {
+      "id": "u00c7",
+      "sourceKey": "ui.sapphire_existing_suffix",
+      "retired": false
+    },
+    {
+      "id": "u00c8",
+      "sourceKey": "ui.search",
+      "retired": false
+    },
+    {
+      "id": "u00c9",
+      "sourceKey": "ui.select_a_distinct_family",
+      "retired": false
+    },
+    {
+      "id": "u00ca",
+      "sourceKey": "ui.select_a_modifier_tier",
+      "retired": false
+    },
+    {
+      "id": "u00cb",
+      "sourceKey": "ui.select_base",
+      "retired": false
+    },
+    {
+      "id": "u00cc",
+      "sourceKey": "ui.selected_crafting_path",
+      "retired": false
+    },
+    {
+      "id": "u00cd",
+      "sourceKey": "ui.selected_outcome",
+      "retired": false
+    },
+    {
+      "id": "u00ce",
+      "sourceKey": "ui.server_solar_base",
+      "retired": false
+    },
+    {
+      "id": "u00cf",
+      "sourceKey": "ui.shared_material_favorites",
+      "retired": false
+    },
+    {
+      "id": "u00cg",
+      "sourceKey": "ui.shared_states",
+      "retired": false
+    },
+    {
+      "id": "u00ch",
+      "sourceKey": "ui.show_legacy_omens",
+      "retired": false
+    },
+    {
+      "id": "u00ci",
+      "sourceKey": "ui.show_tooltips",
+      "retired": false
+    },
+    {
+      "id": "u00cj",
+      "sourceKey": "ui.solar_level",
+      "retired": false
+    },
+    {
+      "id": "u00ck",
+      "sourceKey": "ui.source",
+      "retired": false
+    },
+    {
+      "id": "u00cl",
+      "sourceKey": "ui.special_essences",
+      "retired": false
+    },
+    {
+      "id": "u00cm",
+      "sourceKey": "ui.start_new_solar_amulet",
+      "retired": false
+    },
+    {
+      "id": "u00cn",
+      "sourceKey": "ui.starting_item",
+      "retired": false
+    },
+    {
+      "id": "u00co",
+      "sourceKey": "ui.starting_item_level",
+      "retired": false
+    },
+    {
+      "id": "u00cp",
+      "sourceKey": "ui.states_and",
+      "retired": false
+    },
+    {
+      "id": "u00cq",
+      "sourceKey": "ui.step",
+      "retired": false
+    },
+    {
+      "id": "u00cr",
+      "sourceKey": "ui.stop_here",
+      "retired": false
+    },
+    {
+      "id": "u00cs",
+      "sourceKey": "ui.stopped_by_unavailable_currency",
+      "retired": false
+    },
+    {
+      "id": "u00ct",
+      "sourceKey": "ui.success",
+      "retired": false
+    },
+    {
+      "id": "u00cu",
+      "sourceKey": "ui.support_catalog_load_error",
+      "retired": false
+    },
+    {
+      "id": "u00cv",
+      "sourceKey": "ui.support_input_source",
+      "retired": false
+    },
+    {
+      "id": "u00cw",
+      "sourceKey": "ui.support_item_level",
+      "retired": false
+    },
+    {
+      "id": "u00cx",
+      "sourceKey": "ui.support_item_text",
+      "retired": false
+    },
+    {
+      "id": "u00cy",
+      "sourceKey": "ui.text_language",
+      "retired": false
+    },
+    {
+      "id": "u00cz",
+      "sourceKey": "ui.the_crafting_bench",
+      "retired": false
+    },
+    {
+      "id": "u00d0",
+      "sourceKey": "ui.tier_combinations",
+      "retired": false
+    },
+    {
+      "id": "u00d1",
+      "sourceKey": "ui.tier_or_better",
+      "retired": false
+    },
+    {
+      "id": "u00d2",
+      "sourceKey": "ui.total_probability",
+      "retired": false
+    },
+    {
+      "id": "u00d3",
+      "sourceKey": "ui.transitions",
+      "retired": false
+    },
+    {
+      "id": "u00d4",
+      "sourceKey": "ui.unexplored",
+      "retired": false
+    },
+    {
+      "id": "u00d5",
+      "sourceKey": "ui.unknown",
+      "retired": false
+    },
+    {
+      "id": "u00d6",
+      "sourceKey": "ui.unresolved_status",
+      "retired": false
+    },
+    {
+      "id": "u00d7",
+      "sourceKey": "ui.updating_item",
+      "retired": false
+    },
+    {
+      "id": "u00d8",
+      "sourceKey": "ui.use_selected_currency_on_the_central_item",
+      "retired": false
+    },
+    {
+      "id": "u00d9",
+      "sourceKey": "ui.validate_goal",
+      "retired": false
+    },
+    {
+      "id": "u00da",
+      "sourceKey": "ui.validate_support_text",
+      "retired": false
+    },
+    {
+      "id": "u00db",
+      "sourceKey": "ui.validating",
+      "retired": false
+    },
+    {
+      "id": "u00dc",
+      "sourceKey": "ui.validating_goal",
+      "retired": false
+    },
+    {
+      "id": "u00dd",
+      "sourceKey": "ui.verified_failure",
+      "retired": false
+    },
+    {
+      "id": "u00de",
+      "sourceKey": "ui.verified_item_text",
+      "retired": false
+    },
+    {
+      "id": "u00df",
+      "sourceKey": "ui.view_full_original_text",
+      "retired": false
+    },
+    {
+      "id": "u00dg",
+      "sourceKey": "ui.weights_calculation",
+      "retired": false
+    },
+    {
+      "id": "u00dh",
+      "sourceKey": "ui.you_are_here",
+      "retired": false
+    },
+    {
+      "id": "u00di",
+      "sourceKey": "ui.your_personal_crafting_workbench",
+      "retired": false
+    },
+    {
+      "id": "u00dj",
+      "sourceKey": "workspace.explorer",
+      "retired": false
+    },
+    {
+      "id": "u00dk",
+      "sourceKey": "workspace.support",
+      "retired": false
+    },
+    {
+      "id": "u00dl",
+      "sourceKey": "workspace.workbench",
+      "retired": false
+    }
+  ]
+}

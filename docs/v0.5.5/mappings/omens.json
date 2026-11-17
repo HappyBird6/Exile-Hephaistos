@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "domain": "omens",
+  "prefix": "o",
+  "entries": [
+    {
+      "id": "o0001",
+      "sourceKey": "BLESSED",
+      "retired": false
+    },
+    {
+      "id": "o0002",
+      "sourceKey": "DEXTRAL_ALCHEMY",
+      "retired": false
+    },
+    {
+      "id": "o0003",
+      "sourceKey": "DEXTRAL_ANNULMENT",
+      "retired": false
+    },
+    {
+      "id": "o0004",
+      "sourceKey": "DEXTRAL_CORONATION",
+      "retired": false
+    },
+    {
+      "id": "o0005",
+      "sourceKey": "DEXTRAL_CRYSTALLISATION",
+      "retired": false
+    },
+    {
+      "id": "o0006",
+      "sourceKey": "DEXTRAL_ERASURE",
+      "retired": false
+    },
+    {
+      "id": "o0007",
+      "sourceKey": "DEXTRAL_EXALTATION",
+      "retired": false
+    },
+    {
+      "id": "o0008",
+      "sourceKey": "GREATER_ANNULMENT",
+      "retired": false
+    },
+    {
+      "id": "o0009",
+      "sourceKey": "GREATER_EXALTATION",
+      "retired": false
+    },
+    {
+      "id": "o000a",
+      "sourceKey": "HOMOGENISING_CORONATION",
+      "retired": false
+    },
+    {
+      "id": "o000b",
+      "sourceKey": "HOMOGENISING_EXALTATION",
+      "retired": false
+    },
+    {
+      "id": "o000c",
+      "sourceKey": "LIGHT",
+      "retired": false
+    },
+    {
+      "id": "o000d",
+      "sourceKey": "SANCTIFICATION",
+      "retired": false
+    },
+    {
+      "id": "o000e",
+      "sourceKey": "SINISTRAL_ALCHEMY",
+      "retired": false
+    },
+    {
+      "id": "o000f",
+      "sourceKey": "SINISTRAL_ANNULMENT",
+      "retired": false
+    },
+    {
+      "id": "o000g",
+      "sourceKey": "SINISTRAL_CORONATION",
+      "retired": false
+    },
+    {
+      "id": "o000h",
+      "sourceKey": "SINISTRAL_CRYSTALLISATION",
+      "retired": false
+    },
+    {
+      "id": "o000i",
+      "sourceKey": "SINISTRAL_ERASURE",
+      "retired": false
+    },
+    {
+      "id": "o000j",
+      "sourceKey": "SINISTRAL_EXALTATION",
+      "retired": false
+    },
+    {
+      "id": "o000k",
+      "sourceKey": "WHITTLING",
+      "retired": false
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+[
+  {
+    "row": {
+      "type": "essence",
+      "Level": "25",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [],
+      "fossil_no": [],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/d011e3d9a0e3b5c3285f7b71711e11681341e1ca48d7d055709acfb9f328b31c\" href=\"Adaptive_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/ChippedVerisium.webp\" alt=\"ChippedVerisium\" height=\"16\" />Adaptive Alloy</a>",
+      "Code": "AlloyAttackSpeedIfMissingWardRecently1",
+      "ModFamilyList": [
+        "IncreasedAttackSpeed"
+      ],
+      "str": "<span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed while missing <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 20,
+      "IsPerfect": "0",
+      "IsAlloy": true,
+      "Removes": true
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
+    "retrievedAt": "2026-10-03T06:33:05.431Z",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(10<span class=\"ndash\">—</span>15)</span>% increased <a data-keyword=\"Attack\" href=\"Attacks\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/af1756bd72029e762b08553b43e11351a3437177ef893c936fea7972fc4d8714\">Attack</a> Speed while missing <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a></span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>IncreasedAttackSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>25 (Effective: 20)\n<tr><th>Gold Price<td>329\n<tr><th>Stats<td><li>attack speed +% while missing ward <span class=\"badge bg-primary\">10 <span class=\"ndash\">—</span> 15</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+    "parsed": {
+      "text": "(10—15)% increased Attack Speed while missing Runic Ward   \nNameof the Stars\nFamilyIncreasedAttackSpeed\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level25 (Effective: 20)\nGold Price329\nStatsattack speed +% while missing ward 10 — 15 Global\nSpawn Tagsdefault: 0",
+      "stats": [
+        {
+          "caption": "attack speed +% while missing ward",
+          "bounds": "10 — 15",
+          "locality": "Global"
+        }
+      ]
+    }
+  },
+  {
+    "row": {
+      "type": "essence",
+      "Level": "45",
+      "DropChance": 0,
+      "ModGenerationTypeID": "2",
+      "mod_no": [
+        "<span class=\"badge bg-primary craftingcaster\" data-tag=\"caster\">Caster</span>",
+        "<span class=\"badge bg-primary craftingspeed\" data-tag=\"speed\">Speed</span>"
+      ],
+      "fossil_no": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/8d8cd4923e44549c98bcafe1ca44d99fc35e9405981e443aba606cf6668462f3\" href=\"Swift_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/PureVerisium.webp\" alt=\"PureVerisium\" height=\"16\" />Swift Alloy</a>",
+      "Code": "AlloyCastSpeedGloves1",
+      "ModFamilyList": [
+        "IncreasedCastSpeed",
+        "IncreasedAttackSpeed"
+      ],
+      "str": "<span class='mod-value'>(9<span class=\"ndash\">—</span>12)</span>% increased Cast Speed",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 36,
+      "IsPerfect": "0",
+      "IsAlloy": true,
+      "Removes": true
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
+    "retrievedAt": "2026-10-03T06:33:06.364Z",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(9<span class=\"ndash\">—</span>12)</span>% increased Cast Speed</span></h5>   <span data-tabname=\"of the Stars\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>of the Stars\n<tr><th>Family<td>IncreasedCastSpeed, IncreasedAttackSpeed\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Suffix (2)\n<tr><th>Req. level<td>45 (Effective: 36)\n<tr><th>Gold Price<td>446\n<tr><th>Stats<td><li>base cast speed +% <span class=\"badge bg-primary\">9 <span class=\"ndash\">—</span> 12</span> <span class=\"badge bg-secondary\">Global</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> \n<tr><th>Craft Tags<td><span class='badge bg-primary'><i>caster_speed</i></span> <span class='badge bg-primary'>Caster</span> <span class='badge bg-primary'>Speed</span> \n<tr><td>Fists of Stone<td><span class='mod-value'>(10<span class=\"ndash\">—</span>30)</span>% chance to gain a [Charges|Power Charge] when you [Stun]</table>  </div></div>",
+    "parsed": {
+      "text": "(9—12)% increased Cast Speed   \nNameof the Stars\nFamilyIncreasedCastSpeed, IncreasedAttackSpeed\nDomainsItem (1)\nGenerationTypeSuffix (2)\nReq. level45 (Effective: 36)\nGold Price446\nStatsbase cast speed +% 9 — 12 Global\nSpawn Tagsdefault: 0 \nCraft Tagscaster_speed Caster Speed \nFists of Stone(10—30)% chance to gain a [Charges|Power Charge] when you [Stun]",
+      "stats": [
+        {
+          "caption": "base cast speed +%",
+          "bounds": "9 — 12",
+          "locality": "Global"
+        }
+      ]
+    }
+  },
+  {
+    "row": {
+      "type": "essence",
+      "Level": "25",
+      "DropChance": 0,
+      "ModGenerationTypeID": "1",
+      "mod_no": [],
+      "fossil_no": [],
+      "Name": "<a class=\"item_currency StackableCurrency\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_BaseItemTypes_hover/b06df68982ed6b8d8c6b7e00df1f1b877dac987f99dc54d95df6a464020d3451\" href=\"Sovereign_Alloy\"><img loading=\"lazy\" src=\"https://cdn.poe2db.tw/image/Art/2DItems/Currency/Expedition2/Alloy1.webp\" alt=\"Alloy1\" height=\"16\" />Sovereign Alloy</a>",
+      "Code": "AlloyLocalWardIncreasePercent1",
+      "ModFamilyList": [
+        "LocalRunicWardPercent"
+      ],
+      "str": "<span class='mod-value'>(24<span class=\"ndash\">—</span>30)</span>% increased <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a>",
+      "adds_no": [],
+      "spawn_no": [
+        "default"
+      ],
+      "reqlvl": 20,
+      "IsPerfect": "0",
+      "IsAlloy": true,
+      "Removes": true
+    },
+    "url": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
+    "retrievedAt": "2026-10-03T06:33:09.397Z",
+    "status": 200,
+    "html": "<div class=''><div   class=\"card mb-2 \">\n   <h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(24<span class=\"ndash\">—</span>30)</span>% increased <a data-keyword=\"Ward\" href=\"Runic_Ward\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1547e196969812ca08cdcd4c7cbb6befaf15e8caa83eb77c59704c6452b4eb82\">Runic Ward</a></span></h5>   <span data-tabname=\"Verisium\"></span><table class='table table-hover table-striped mb-0'>\n<tr><th>Name<td>Verisium\n<tr><th>Family<td>LocalRunicWardPercent\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Prefix (1)\n<tr><th>Req. level<td>25 (Effective: 20)\n<tr><th>Gold Price<td>329\n<tr><th>Stats<td><li>local ward +% <span class=\"badge bg-primary\">24 <span class=\"ndash\">—</span> 30</span> <span class=\"badge bg-secondary\">Local</span></li>\n<tr><th>Spawn Tags<td><span class='badge bg-primary'>default: 0</span> </table>  </div></div>",
+    "parsed": {
+      "text": "(24—30)% increased Runic Ward   \nNameVerisium\nFamilyLocalRunicWardPercent\nDomainsItem (1)\nGenerationTypePrefix (1)\nReq. level25 (Effective: 20)\nGold Price329\nStatslocal ward +% 24 — 30 Local\nSpawn Tagsdefault: 0",
+      "stats": [
+        {
+          "caption": "local ward +%",
+          "bounds": "24 — 30",
+          "locality": "Local"
+        }
+      ]
+    }
+  }
+]

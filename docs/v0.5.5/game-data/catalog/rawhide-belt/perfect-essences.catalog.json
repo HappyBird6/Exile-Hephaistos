@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "snapshotId": "belt-perfect-20261003-46792dfd05dc",
+    "retrievedAt": "2026-10-03T17:00:41.474Z",
+    "sourceUrl": "https://poe2db.tw/us/Belts",
+    "rawSha256": "46792dfd05dcb1e6fd8b4fd9be9af5258345a5aac9bfe1cc6b2ff5878c851358"
+  },
+  "modifiers": [
+    {
+      "id": "rawhide-belt:suffix:essence-fire-damage-recouped-as-life",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireDamageTakenRecoupedAsLife"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "text": "(26—30)% of Fire Damage taken Recouped as Life",
+      "stats": [
+        {
+          "id": "fire_damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceFireRecoupLife1"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "explicitPoolProvenance": {
+    "template": "slipstrike",
+    "pool": "slipstrike-vest",
+    "snapshotId": "poe2db-slipstrike-vest-uniform-20261004-f18e5d2e9215c035",
+    "rawSha256": "fea5190019bafe3eb5f37775c382104a9d44196263ce31aad9c9042e348ead35",
+    "detailsSha256": "829d0fba4b648fc08a1855a7d8296131572aa5ef25418c9843505769c7a95c65",
+    "note": "Existing reviewed class/archetype explicit pool; no new game weights inferred."
+  },
+  "sourceBase": {
+    "url": "https://poe2db.tw/us/Mail_Coat",
+    "retrievedAt": "2026-11-02T07:57:01.425Z",
+    "sha256": "c04306e1a0a690d8fd792d037b601493c643454b6559cdfbad8f02b994b08e5e",
+    "variants": [
+      {
+        "name": "Mail Coat",
+        "card": "Mail Coat\n        \n    \n    \n        \n            Body ArmoursEvasion Rating: 451Base Movement Speed: -0.03Requires:  Level 68, 121 Dex(20—30)% reduced Slowing Potency of Debuffs on You",
+        "requirements": "Requires:  Level 68, 121 Dex",
+        "fields": {
+          "DropLevel": "68",
+          "BaseType": "Mail Coat",
+          "Class": "Body Armours",
+          "Flags": "CanHaveInfluence, CanBeCorrupted, CanBeDoubleCorrupted, CanHaveIncubators, CanHaveAspects, CanHaveVeiledMods, CanScourge",
+          "Type": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+          "Tags": "dex_armour, body_armour, armour",
+          "Icon": "Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex01",
+          "Base.base_level": "1",
+          "Base.tag": "default, armour, body_armour",
+          "Mods.stat_description_list": "Data/StatDescriptions/stat_descriptions.csd",
+          "Mods.mod_stat_description_list": "Data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+          "Mods.enable_rarity": "normal, magic, rare, unique",
+          "Mods.inventory_type": "BodyArmour",
+          "Quality.max_quality": "20",
+          "Sockets.socket_info": "1:5:100, 1:5:100 2:5:100"
+        }
+      }
+    ],
+    "proofs": [
+      {
+        "text": "(20—30)% reduced Slowing Potency of Debuffs on You",
+        "family": "SlowPotency",
+        "tags": [],
+        "stats": [
+          {
+            "id": "base_slow_potency_+%",
+            "min": -30,
+            "max": -20,
+            "locality": "Global"
+          }
+        ],
+        "html": "<h5 class=\"card-header\"><span class='item_magic'><span class='mod-value'>(20<span class=\"ndash\">—</span>30)</span>% reduced <a data-keyword=\"Slow\" href=\"Slow\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/1400abb651c285b0d26391b194c25a97f42e0add64e747ec64606dd85a60aef6\">Slowing</a> Potency of <a data-keyword=\"Debuff\" href=\"Debuffs\" class=\"KeywordPopups\" data-hover=\"https://cdn.poe2db.tw/cache2/us/Poe_Data_KeywordPopups_hover/ca9a93058e0715631a4ba0105eadf5e237b590f0c14080cf7fac0724ee35e3cb\">Debuffs</a> on You</span></h5>   <table class='table table-hover table-striped mb-0'>\n<tr><th>Family<td>SlowPotency\n<tr><th>Domains<td>Item (1)\n<tr><th>GenerationType<td>Unique (3)\n<tr><th>Req. level<td>1\n<tr><th>Stats<td><li>base slow potency +% <span class=\"badge bg-primary\">-30 <span class=\"ndash\">—</span> -20</span> <span class=\"badge bg-secondary\">Global</span></li></table>"
+      }
+    ],
+    "image": "https://cdn.poe2db.tw/image/Art/2DItems/Armours/BodyArmours/Basetypes/BodyDex01.webp"
+  },
+  "variantIndex": 0
+}

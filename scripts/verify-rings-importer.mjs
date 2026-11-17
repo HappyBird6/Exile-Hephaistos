@@ -11,7 +11,7 @@ const checks=[]
 for(const p of files){assert.deepEqual(JSON.parse(fs.readFileSync(root+'/'+p)),before[p],p+' deterministic import');checks.push(p)}
 const manifest=before[files[0]],display=before[files[4]],priorDisplay=JSON.parse(fs.readFileSync('/qa/baseline-modifierTemplates.json'))
 const clean=s=>s.replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]*>/g,'').replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').trim()
-const sourceRows=JSON.parse(fs.readFileSync(root+'/docs/evidence/0.5.5/i18n/sources/en/rings-rings.en.json')).data.normal
+const sourceRows=JSON.parse(fs.readFileSync(root+'/docs/legacy/evidence/0.5.5/i18n/sources/en/rings-rings.en.json')).data.normal
 const legacy=JSON.parse(fs.readFileSync(root+'/backend/src/main/resources/catalog/iron-ring/catalog.json'))
 for(const locale of ['en','ko','ja','zh-CN','zh-TW','es']){
  const rows=JSON.parse(fs.readFileSync(root+'/evidence:rings-source/Rings.'+locale+'.json')).data.normal

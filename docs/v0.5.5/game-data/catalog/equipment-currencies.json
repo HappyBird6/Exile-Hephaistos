@@ -1,0 +1,3712 @@
+{
+  "definitions": [
+    {
+      "id": "equipment:suffix:alloy-presence-area-of-effect1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PresenceRadius"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "(35—50)% increased Presence Area of Effect",
+      "stats": [
+        {
+          "id": "presence_area_+%",
+          "min": 35,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "aura"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyPresenceAreaOfEffect1"
+    },
+    {
+      "id": "equipment:suffix:alloy-reduced-slow-potency1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SlowPotency"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(15—30)% reduced Slowing Potency of Debuffs on You",
+      "stats": [
+        {
+          "id": "base_slow_potency_+%",
+          "min": -30,
+          "max": -15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyReducedSlowPotency1"
+    },
+    {
+      "id": "stocky-mitts:prefix:alloy-local-runic-ward",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LocalRunicWardPercent"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "(24—30)% increased Runic Ward",
+      "stats": [
+        {
+          "id": "local_ward_+%",
+          "min": 24,
+          "max": 30
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1"
+    },
+    {
+      "id": "equipment:prefix:alloy-mana-cost-efficiency1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ManaCostEfficiency"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "(18—29)% increased Mana Cost Efficiency",
+      "stats": [
+        {
+          "id": "base_mana_cost_efficiency_+%",
+          "min": 18,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyManaCostEfficiency1"
+    },
+    {
+      "id": "equipment:suffix:alloy-archon-duration1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArchonDuration"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(35—42)% increased Archon Buff duration",
+      "stats": [
+        {
+          "id": "archon_duration_+%",
+          "min": 35,
+          "max": 42
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyArchonDuration1"
+    },
+    {
+      "id": "equipment:suffix:alloy-spell-area-of-effect1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SpellAreaOfEffect"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "Spell Skills have (10—15)% increased Area of Effect",
+      "stats": [
+        {
+          "id": "spell_area_of_effect_+%",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "caster"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloySpellAreaOfEffect1"
+    },
+    {
+      "id": "stocky-mitts:suffix:essence-socketed-augment-effect",
+      "name": "of the Essence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SoulCore"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "60% increased effect of Socketed Augment Items",
+      "stats": [
+        {
+          "id": "local_socketed_items_effect_+%",
+          "min": 60,
+          "max": 60
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1"
+    },
+    {
+      "id": "stocky-mitts:suffix:alloy-attack-speed-missing-ward",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "(10—15)% increased Attack Speed while missing Runic Ward",
+      "stats": [
+        {
+          "id": "attack_speed_+%_while_missing_ward",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1"
+    },
+    {
+      "id": "stocky-mitts:suffix:alloy-remnant-pickup-range",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "RemnantPickupRadius"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "Remnants can be collected from (35—50)% further away",
+      "stats": [
+        {
+          "id": "remnant_pickup_range_+%",
+          "min": 35,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1"
+    },
+    {
+      "id": "stocky-mitts:suffix:alloy-cast-speed",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed",
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(9—12)% increased Cast Speed",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1"
+    },
+    {
+      "id": "stocky-mitts:suffix:alloy-damaging-ailment-duration",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamagingAilmentDuration"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(20—25)% increased Duration of Damaging Ailments on Enemies",
+      "stats": [
+        {
+          "id": "damaging_ailment_duration_+%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1"
+    },
+    {
+      "id": "stocky-mitts:prefix:alloy-elemental-penetration",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "ElementalPenetration"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "Damage Penetrates (9—15)% Elemental Resistances",
+      "stats": [
+        {
+          "id": "reduce_enemy_elemental_resistance_%",
+          "min": 9,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyElementalPenetration1"
+    },
+    {
+      "id": "stocky-mitts:suffix:alloy-attack-area-of-effect",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedAttackAreaOfEffect"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(10—15)% increased Area of Effect for Attacks",
+      "stats": [
+        {
+          "id": "attack_area_of_effect_+%",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1"
+    },
+    {
+      "id": "equipment:suffix:alloy-temporary-minion-skill-limit1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "TemporaryMinionLimit"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "Temporary Minion Skills have +(1—2) to Limit of Minions summoned",
+      "stats": [
+        {
+          "id": "temporary_minion_limit_+",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "minion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyTemporaryMinionSkillLimit1"
+    },
+    {
+      "id": "equipment:suffix:alloy-skill-effect-duration1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SkillEffectDuration"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(15—19)% increased Skill Effect Duration",
+      "stats": [
+        {
+          "id": "skill_effect_duration_+%",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloySkillEffectDuration1"
+    },
+    {
+      "id": "equipment:suffix:alloy-spirit-on-boots1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "+(10—15) to Spirit",
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloySpiritOnBoots1"
+    },
+    {
+      "id": "equipment:suffix:alloy-maximum-runic-ward-weapon1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BaseRunicWard"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "+(51—74) to maximum Runic Ward",
+      "stats": [
+        {
+          "id": "base_maximum_ward",
+          "min": 51,
+          "max": 74
+        }
+      ],
+      "tags": [
+        "runic_ward"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardWeapon1"
+    },
+    {
+      "id": "equipment:suffix:alloy-ailment-magnitude1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AilmentEffect"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(20—30)% increased Magnitude of Ailments you inflict",
+      "stats": [
+        {
+          "id": "ailment_effect_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "damage",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAilmentMagnitude1"
+    },
+    {
+      "id": "equipment:suffix:alloy-effect-of-socketed-augments1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SoulCore"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "(20—30)% increased effect of Socketed Augment Items",
+      "stats": [
+        {
+          "id": "local_socketed_items_effect_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyEffectOfSocketedAugments1"
+    },
+    {
+      "id": "equipment:prefix:alloy-accuracy-attack-speed-hybrid1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "+(327—427) to Accuracy Rating\n(5—8)% increased Attack Speed",
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 327,
+          "max": 427
+        },
+        {
+          "id": "local_attack_speed_+%",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAccuracyAttackSpeedHybrid1"
+    },
+    {
+      "id": "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength",
+        "Dexterity",
+        "Intelligence"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "(15—20)% increased Physical Damage\n+(7—10) to all Attributes",
+      "stats": [
+        {
+          "id": "base_all_attributes",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_physical_damage_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttributeIncreasedLocalPhysicalDamageHybrid1"
+    },
+    {
+      "id": "equipment:suffix:alloy-mark-effect",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CurseEffectiveness"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "(40—50)% increased Effect of your Mark Skills",
+      "stats": [
+        {
+          "id": "mark_effect_+%",
+          "min": 40,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMarkEffect"
+    },
+    {
+      "id": "equipment:prefix:alloy-maximum-runic-ward1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseRunicWard"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 0,
+      "tier": 1,
+      "text": "+(37—49) to maximum Runic Ward",
+      "stats": [
+        {
+          "id": "base_maximum_ward",
+          "min": 37,
+          "max": 49
+        }
+      ],
+      "tags": [
+        "runic_ward"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWard1"
+    },
+    {
+      "id": "equipment:suffix:alloy-attack-speed-ring1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed",
+        "IncreasedAttackSpeed"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(7—9)% increased Attack Speed",
+      "stats": [
+        {
+          "id": "attack_speed_+%",
+          "min": 7,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "attack",
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackSpeedRing1"
+    },
+    {
+      "id": "equipment:prefix:alloy-effect-of-resistance-mods1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnchantmentHeistArmour"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "(20—30)% increased Explicit Resistance Modifier magnitudes",
+      "stats": [
+        {
+          "id": "heist_enchantment_resistance_mod_effect_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyEffectOfResistanceMods1"
+    },
+    {
+      "id": "amulet:prefix:alloy-maximum-runic-ward",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "RunicWardPercent"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 0,
+      "tier": 1,
+      "text": "(6—10)% increased maximum Runic Ward",
+      "stats": [
+        {
+          "id": "maximum_ward_+%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "runic_ward"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1"
+    },
+    {
+      "id": "equipment:prefix:alloy-puppet-master-chance1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MinionGainPuppetMasterOnCommand"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "(30—50)% Surpassing Chance to gain a Puppet Master stack whenever you use a Command Skill",
+      "stats": [
+        {
+          "id": "surpassing_chance_%_to_gain_1_puppeteer_stack_on_using_command_skill",
+          "min": 30,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "minion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyPuppetMasterChance1"
+    },
+    {
+      "id": "equipment:suffix:alloy-minion-damaging-ailment-magnitude1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MinionDamagingAilments"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "Minions have (40—49)% increased Magnitude of Damaging Ailments",
+      "stats": [
+        {
+          "id": "minion_base_damaging_ailment_effect_+%",
+          "min": 40,
+          "max": 49
+        }
+      ],
+      "tags": [
+        "minion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMinionDamagingAilmentMagnitude1"
+    },
+    {
+      "id": "equipment:suffix:alloy-maximum-elemental-infusions1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ElementalInfusion"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1 to maximum number of Elemental Infusions",
+      "stats": [
+        {
+          "id": "additional_maximum_infusion_stacks",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumElementalInfusions1"
+    },
+    {
+      "id": "equipment:suffix:alloy-puppeteer-stacks1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MaximumPuppeteerStacks"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "+(4—5) maximum stacks of Puppet Master",
+      "stats": [
+        {
+          "id": "max_puppet_master_stacks_+",
+          "min": 4,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "minion"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyPuppeteerStacks1"
+    },
+    {
+      "id": "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (21—26)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire_while_missing_ward",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyDamageAsExtraFireWhileMissingRunicWard1"
+    },
+    {
+      "id": "equipment:suffix:alloy-exposure-effect1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ExposureEffect"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(40—50)% increased Exposure Effect",
+      "stats": [
+        {
+          "id": "exposure_effect_+%",
+          "min": 40,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "cold",
+        "lightning"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyExposureEffect1"
+    },
+    {
+      "id": "equipment:prefix:alloy-spell-level-mana-hybrid1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "+(142—188) to maximum Mana\n+1 to Level of all Spell Skills",
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 142,
+          "max": 188
+        },
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloySpellLevelManaHybrid1"
+    },
+    {
+      "id": "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "(26—31)% increased Cast Speed\nGain (7—11)% of Elemental Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 26,
+          "max": 31
+        },
+        {
+          "id": "non_skill_base_elemental_damage_%_to_gain_as_cold",
+          "min": 7,
+          "max": 11
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedDamageAsExtraColdHybridOneHand1"
+    },
+    {
+      "id": "equipment:suffix:alloy-elemental-skill-limit1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ElementalSkillLimit"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "+1 to Limit for Elemental Skills",
+      "stats": [
+        {
+          "id": "elemental_skill_limit_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyElementalSkillLimit1"
+    },
+    {
+      "id": "equipment:prefix:alloy-runic-ward-recharge-rate1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "WardRegenerationRate"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 0,
+      "tier": 1,
+      "text": "(15—20)% increased Runic Ward Regeneration Rate",
+      "stats": [
+        {
+          "id": "ward_regeneration_rate_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "runic_ward"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRunicWardRechargeRate1"
+    },
+    {
+      "id": "equipment:prefix:alloy-recover-runic-ward-on-charm-use1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "RecoverRunicWardOnCharmUse"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "Recover (32—45) Runic Ward when a Charm is used",
+      "stats": [
+        {
+          "id": "recover_X_ward_on_charm_use",
+          "min": 32,
+          "max": 45
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRecoverRunicWardOnCharmUse1"
+    },
+    {
+      "id": "equipment:suffix:alloy-flask-charges-per-second1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FlaskChargeGeneration"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "Flasks gain (0.75—1) charges per Second",
+      "stats": [
+        {
+          "id": "generate_x_charges_for_any_flask_per_minute",
+          "min": 45,
+          "max": 60
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyFlaskChargesPerSecond1"
+    },
+    {
+      "id": "equipment:suffix:alloy-ballista-limit1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AdditionalBallistaTotem"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "+2 to maximum number of Summoned Ballista Totems",
+      "stats": [
+        {
+          "id": "additional_ballista_totems_allowed",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyBallistaLimit1"
+    },
+    {
+      "id": "equipment:suffix:alloy-runic-ward-on-block1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "GainFlatLifeOnBlock"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 0,
+      "tier": 1,
+      "text": "Recover (10—15) Runic Ward when you Block",
+      "stats": [
+        {
+          "id": "recover_X_ward_on_block",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRunicWardOnBlock1"
+    },
+    {
+      "id": "equipment:suffix:alloy-totem-placement-speed1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "SummonTotemCastSpeed"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(30—49)% increased Totem Placement speed",
+      "stats": [
+        {
+          "id": "summon_totem_cast_speed_+%",
+          "min": 30,
+          "max": 49
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyTotemPlacementSpeed1"
+    },
+    {
+      "id": "equipment:suffix:alloy-chance-to-chain1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Chain"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 0,
+      "tier": 1,
+      "text": "(25—35)% chance to Chain an additional time",
+      "stats": [
+        {
+          "id": "local_additional_attack_chain_chance_%",
+          "min": 25,
+          "max": 35
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyChanceToChain1"
+    },
+    {
+      "id": "equipment:suffix:alloy-retain-glory1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "GloryChanceToNotConsume"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "(60—75)% chance for Skills to retain 40% of Glory on use",
+      "stats": [
+        {
+          "id": "chance_to_retain_40%_of_glory_on_use_%",
+          "min": 60,
+          "max": 75
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRetainGlory1"
+    },
+    {
+      "id": "equipment:suffix:alloy-bell-limit1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "BellHitLimit"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "Tempest Bells are destroyed after an additional (4—5) Hits",
+      "stats": [
+        {
+          "id": "bell_hit_limit",
+          "min": 4,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyBellLimit1"
+    },
+    {
+      "id": "equipment:suffix:alloy-melee-strike-range1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "MeleeWeaponAndUnarmedRange"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "+(8—10) to Weapon Range",
+      "stats": [
+        {
+          "id": "local_weapon_range_+",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMeleeStrikeRange1"
+    },
+    {
+      "id": "equipment:prefix:alloy-damage-as-extra-fire-two-hand-while-missing-runic-ward1",
+      "name": "Verisium",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "FireDamage"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 0,
+      "tier": 1,
+      "text": "Gain (42—52)% of Damage as Extra Fire Damage while you are missing Runic Ward",
+      "stats": [
+        {
+          "id": "non_skill_base_all_damage_%_to_gain_as_fire_while_missing_ward",
+          "min": 42,
+          "max": 52
+        }
+      ],
+      "tags": [
+        "elemental_damage",
+        "damage",
+        "elemental",
+        "fire"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyDamageAsExtraFireTwoHandWhileMissingRunicWard1"
+    },
+    {
+      "id": "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "(39—47)% increased Cast Speed\nGain (11—16)% of Elemental Damage as Extra Cold Damage",
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 39,
+          "max": 47
+        },
+        {
+          "id": "non_skill_base_elemental_damage_%_to_gain_as_cold",
+          "min": 11,
+          "max": 16
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedDamageAsExtraColdHybrid1"
+    },
+    {
+      "id": "equipment:suffix:alloy-natures-archon1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChanceToGainNaturesArchon"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "(25—50)% chance to gain Nature's Archon when your Plants Overgrow",
+      "stats": [
+        {
+          "id": "chance_%_to_gain_archon_of_nature_on_overgrowing_plant",
+          "min": 25,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyNaturesArchon1"
+    },
+    {
+      "id": "equipment:suffix:alloy-lightning-damage-ignites1",
+      "name": "of the Stars",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningDamageCanIgnite"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 0,
+      "tier": 1,
+      "text": "Lightning Damage from Hits also Contributes to Flammability and Ignite Magnitudes",
+      "stats": [
+        {
+          "id": "lightning_damage_can_ignite",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLightningDamageIgnites1"
+    }
+  ],
+  "targets": {
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-remnant-pickup-range"
+      ],
+      "SWIFT_ALLOY": [
+        "stocky-mitts:suffix:alloy-cast-speed"
+      ],
+      "CYCLONIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+      ],
+      "PRISMATIC_ALLOY": [
+        "stocky-mitts:prefix:alloy-elemental-penetration"
+      ],
+      "MYSTIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-area-of-effect"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-remnant-pickup-range"
+      ],
+      "SWIFT_ALLOY": [
+        "stocky-mitts:suffix:alloy-cast-speed"
+      ],
+      "CYCLONIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+      ],
+      "PRISMATIC_ALLOY": [
+        "stocky-mitts:prefix:alloy-elemental-penetration"
+      ],
+      "MYSTIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-area-of-effect"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-remnant-pickup-range"
+      ],
+      "SWIFT_ALLOY": [
+        "stocky-mitts:suffix:alloy-cast-speed"
+      ],
+      "CYCLONIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+      ],
+      "PRISMATIC_ALLOY": [
+        "stocky-mitts:prefix:alloy-elemental-penetration"
+      ],
+      "MYSTIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-area-of-effect"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-remnant-pickup-range"
+      ],
+      "SWIFT_ALLOY": [
+        "stocky-mitts:suffix:alloy-cast-speed"
+      ],
+      "CYCLONIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+      ],
+      "PRISMATIC_ALLOY": [
+        "stocky-mitts:prefix:alloy-elemental-penetration"
+      ],
+      "MYSTIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-area-of-effect"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-remnant-pickup-range"
+      ],
+      "SWIFT_ALLOY": [
+        "stocky-mitts:suffix:alloy-cast-speed"
+      ],
+      "CYCLONIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+      ],
+      "PRISMATIC_ALLOY": [
+        "stocky-mitts:prefix:alloy-elemental-penetration"
+      ],
+      "MYSTIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-area-of-effect"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-remnant-pickup-range"
+      ],
+      "SWIFT_ALLOY": [
+        "stocky-mitts:suffix:alloy-cast-speed"
+      ],
+      "CYCLONIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+      ],
+      "PRISMATIC_ALLOY": [
+        "stocky-mitts:prefix:alloy-elemental-penetration"
+      ],
+      "MYSTIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-area-of-effect"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsStr6Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsDex6Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsInt6Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-temporary-minion-skill-limit1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-skill-effect-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spirit-on-boots1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-mark-effect"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-mark-effect"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-mark-effect"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-mark-effect"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-mark-effect"
+      ]
+    },
+    "Metadata/Items/Rings/FourRingB4": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRingB2": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRingB3": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing8": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing6": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing9": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing3": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing13a": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet8": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet3": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet7": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet6": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet2": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet1": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet11": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt2": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt3": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt4": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt5": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt6": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt7": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt8": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt9": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt10": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt11": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBeltB2": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBeltB3": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBeltB4": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-ballista-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-ballista-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-ballista-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-ballista-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-ballista-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-ballista-limit1"
+      ]
+    },
+    "Metadata/Items/Armours/Shields/FourShieldStr10Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-runic-ward-on-block1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-totem-placement-speed1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-runic-ward-on-block1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-totem-placement-speed1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-runic-ward-on-block1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-totem-placement-speed1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Shields/FourShieldDex9Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-runic-ward-on-block1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-totem-placement-speed1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Focii/FourFocus10Endgame": {
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-totem-placement-speed1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver11": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver10": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver9": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver8": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver7": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver6": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver5": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver4": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver3": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver2": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Quivers/FourQuiver1": {
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-chance-to-chain1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-retain-glory1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-retain-glory1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace10Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-retain-glory1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace8Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-retain-glory1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-retain-glory1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-retain-glory1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-bell-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-bell-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-bell-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-melee-strike-range1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-melee-strike-range1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-melee-strike-range1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-two-hand-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-natures-archon1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-two-hand-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-natures-archon1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-two-hand-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-natures-archon1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-two-hand-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-natures-archon1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-two-hand-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-natures-archon1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-two-hand-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-natures-archon1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-lightning-damage-ignites1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-lightning-damage-ignites1"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEFATHERS_ALLOY": [
+        "equipment:suffix:alloy-lightning-damage-ignites1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet4": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet5": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet10": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletDelirium1": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletDelirium2": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletB1c": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletB1b": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletB1a": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletLake1": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletLake3": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletLake2": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletB2": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmuletLake4": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing2": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing4": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing5": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing7": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing10": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing11": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr15": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyDex14": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Rings/FourRingB1": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRingB5": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRingLake1": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRingLake2": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRingLake3": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Rings/FourRingLake4": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Amulets/FourAmulet9": {
+      "RUNIC_ALLOY": [
+        "amulet:prefix:alloy-maximum-runic-ward"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Armours/Gloves/FourGlovesStr1": {
+      "ESSENCE_HORROR": [
+        "stocky-mitts:suffix:essence-socketed-augment-effect"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "stocky-mitts:suffix:alloy-remnant-pickup-range"
+      ],
+      "SWIFT_ALLOY": [
+        "stocky-mitts:suffix:alloy-cast-speed"
+      ],
+      "CYCLONIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-damaging-ailment-duration"
+      ],
+      "PRISMATIC_ALLOY": [
+        "stocky-mitts:prefix:alloy-elemental-penetration"
+      ],
+      "MYSTIC_ALLOY": [
+        "stocky-mitts:suffix:alloy-attack-area-of-effect"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1": {
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-mark-effect"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr1": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1": {
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Belts/FourBelt1": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetStr1": {
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing1": {
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
+      ]
+    }
+  }
+}

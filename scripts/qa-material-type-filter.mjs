@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import { chromium } from '../.toolchains/socket-inside-qa/node_modules/playwright/index.mjs'
 
 const origin = process.env.SOCKET_INSIDE_UI ?? 'http://127.0.0.1:19411'
-const output = 'docs/verification/socket-inside-20261105'
+const output = 'docs/legacy/verification/socket-inside-20261105'
 fs.mkdirSync(output, { recursive: true })
 const checks = []
 const check = (label, value) => { assert(value, label); checks.push(label) }

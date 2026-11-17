@@ -14,10 +14,10 @@ Git 전용 채팅은 연결된 Git 통합 절차도 따른다. 사용자 명시 
 - `/admin`: 서버에 ADMIN_PASSWORD가 설정된 경우에만 활성화되는 비밀번호 보호 운영 대시보드.
 - PostgreSQL·Redis 및 기존 JPA·jOOQ·Flyway 기반은 다음 작업을 위해 유지한다.
 - 주석만 있는 제작 관련 준비 파일은 사용자가 다음 작업에서 사용할 것이므로 유지한다.
-- 검토된 카탈로그의 ItemState·검증기·Workbench와 최대 6옵션 자동 탐색 API·UI를 제공한다. [현행 개요](docs/current/overview.md)를 참고한다. 표시용 파싱과 Workbench catalog 매핑은 별도 검증 경로다.
+- 검토된 카탈로그의 ItemState·검증기·Workbench와 최대 6옵션 자동 탐색 API·UI를 제공한다. [README](README.md)를 참고한다. 표시용 파싱과 Workbench catalog 매핑은 별도 검증 경로다.
 
 요청 없이 미래 기능·추상화·외부 연동·의존성·CI를 추가하지 않는다. 새 기능은 실제 요청 시 명세와 필요한 구현을 함께 작성한다.
-상세 기준은 [기술 명세](docs/current/overview.md), [아이템 파싱](docs/current/text-parsing.md), [지원 범위](docs/current/support.md)를 따른다.
+게임 규칙은 [버전별 규칙](docs/v0.5.5/game-rule/), 실행·데이터 갱신과 현행 지원 요약은 [README](README.md)를 따른다. 과거 세부 명세는 docs/legacy에서 조회한다.
 
 ## 데이터와 동작
 
@@ -55,6 +55,18 @@ Docker 서비스는 localhost에만 노출한다. 관리자 API는 비밀번호 
 상태 필드나 JSON 직렬화 정책 변경 시 실제 Spring 직렬화 결과를 단일·반복 제작의 공통 읽기 경로에 재입력하는 계약 검사를 수행한다. 카오스 반복은 일반/훼손 양쪽, 상태 필드 생략·명시·잘못된 타입, 최대 1,000회 실행, 처리 후 상태 보존을 포함한다. 규칙/지원 범위/표시 정책 변경은 관련 버전·해시·현재 안내 문구도 함께 검토한다.
 
 
-## 가변 정책의 원본
+## 문서와 데이터의 단일 관리 기준
 
-API 횟수·본문·패턴 제한과 지원 언어는 `backend/src/main/resources/contracts/`, 게임 데이터는 backend catalog/crafting JSON, 운영 값은 `backend-settings.yaml`에서 관리한다. frontend mirror·Nginx 반복 본문 제한·지원 범위 요약은 원본에서 생성하고 직접 수정하지 않는다. 원본을 바꾼 뒤 `node scripts/sync-public-contracts.mjs --write` 및 관련 mirror/seal 갱신 후 `--check`로 drift를 확인한다. 절차는 [데이터 유지보수](docs/catalog-data-maintenance.md)의 마지막 절을 따른다. 새 정책은 의미가 같은 값의 소비처를 연결하며 서로 다른 도메인의 우연히 같은 숫자를 하나로 묶지 않는다. 과거 fixture/evidence는 현재 정책으로 덮어쓰지 않는다.
+- 게임 JSON·번역의 편집 원본은 `docs/v0.5.5/game-data/`, `i18n/`이다. 게임 규칙은 `game-rule/`의 MD에 기록한다. backend/frontend의 대응 JSON은 manifest에 명시한 호환용 복사본이며 직접 편집하지 않는다. 새로운 데이터 파일은 manifest.resources에 등록한다.
+- 이번 단계는 문서 정리·ID 발급이다. 런타임 매핑 로드, API·저장 형식의 짧은 ID 사용은 후속 코드 경량화 범위다. 기존 게임 값·배열 순서·원문·seal·기록을 문서 정리 때문에 변경하지 않는다.
+- `mappings/`의 ID는 종류별 접두사와 base36 일련번호다. 발급 후 재할당·재사용하지 않는다. 제거는 retired tombstone으로 유지하며 기존 매핑을 삭제한 뒤 재생성하지 않는다. 다음 데이터 버전도 이전 매핑을 승계한다. 문자열이 같다는 이유로 다른 종류를 합치지 않는다. 게임 이름·설명은 i18n에서 유지한다.
+- `node scripts/versioned-game-data.mjs --write`가 ID 추가·retirement·manifest와 runtime 복사본을 갱신한다. `--check`는 읽기 전용이다. 복사본을 수정해 drift를 숨기지 않는다. ruleset 봉인·frontend mirror·공개 계약 갱신 순서는 README의 명령을 따른다.
+- 일반 관리 안내는 README, 에이전트 규칙은 AGENTS.md에 통합한다. 새 작업 계획·완료 보고·인계·별도 유지보수 문서를 만들지 않는다. 게임 변경은 관련 JSON·규칙 MD만 갱신하고 중복 목록·개수·매핑 digest는 자동 생성한다.
+- 기존 문서·HTML·검증·라이선스는 `docs/legacy/`에 보관한다. 사용자 재평가와 삭제 지시 전에는 제거하지 않는다. 과거 자료는 수집 당시 증거이며 현재 규칙의 원본으로 재생성하거나 덮어쓰지 않는다. 봉인된 JSON의 옛 `docs/...` 출처는 현재 `docs/legacy/...`에서 조회한다.
+- API 제한·지원 언어의 정책 원본은 `backend/src/main/resources/contracts/`, 운영 값은 `backend-settings.yaml`이다. frontend mirror·Nginx 제한·README 현행 요약은 생성 결과다. 게임 알고리즘을 범용 JSON 실행기로 바꾸지 않는다.
+- 등록은 구현의 증거가 아니다. 신규 화폐·징조 trigger 및 상태 필드는 strict loader, 단일/반복 제작, 일반/훼손, 저장·표시·확률의 영향을 검증한다. 과거 호환 digest·snapshot을 임의로 현재 값으로 덮어쓰지 않는다.
+
+## Git 통합
+
+작업 브랜치에서 자기 변경만 검증·commit한다. master 최종 통합은 사용자가 지정한 Git 채팅이 전달받은 브랜치·범위를 순차 처리한다. 별도 인계 파일은 만들지 않고 채팅에 기준 SHA·완료 commit·검증·남은 문제를 보고한다. master 반영은 로컬 merge, merge·push는 확인된 원격으로의 일반 push까지다. 이번 문서 정리 지시는 master merge·push·배포 지시가 아니다.
+통합 전 최신 대상 SHA·작업 트리·의존성·diff·검증 결과를 확인하고, 대상 변경 시 결합 영향을 다시 검증한다. 필수 검사 불가·차단 결함은 숨기지 않는다. 강제 push·다른 작업 폐기·기존 DB/volume 삭제는 하지 않는다. 상세 과거 절차는 docs/legacy/solo-workflow/GIT_INTEGRATION.md에 보관한다.
