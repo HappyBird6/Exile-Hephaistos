@@ -492,7 +492,33 @@ public final class AutomaticCraftingKernel {
     return expand(state, tiers, execution, outcomeBudget, tierGroupingSafe, true);
   }
 
+  private long primitiveNanos, primitiveCalls, primitiveOutcomes;
+
+  public record Metrics(long nanos, long calls, long outcomes) {}
+
+  public Metrics metrics() {
+    return new Metrics(primitiveNanos, primitiveCalls, primitiveOutcomes);
+  }
+
   private Result expand(
+      ItemState state,
+      Map<String, TierCell> retainedTiers,
+      AutomaticCraftingAction execution,
+      long outcomeBudget,
+      boolean deferred,
+      boolean lineage) {
+    long started = System.nanoTime();
+    try {
+      var result = generate(state, retainedTiers, execution, outcomeBudget, deferred, lineage);
+      primitiveOutcomes += result.outcomes().size();
+      return result;
+    } finally {
+      primitiveCalls++;
+      primitiveNanos += System.nanoTime() - started;
+    }
+  }
+
+  private Result generate(
       ItemState state,
       Map<String, TierCell> retainedTiers,
       AutomaticCraftingAction execution,

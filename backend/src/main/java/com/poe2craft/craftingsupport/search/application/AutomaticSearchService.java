@@ -182,6 +182,7 @@ public final class AutomaticSearchService implements AutoCloseable {
     Runtime runtime;
     AutomaticMethodGraph graph;
     long revision = 1, generation = 1, expires;
+    long responseNanos, responses;
     Map<String, Control> commands = new LinkedHashMap<>();
   }
 
@@ -357,6 +358,7 @@ public final class AutomaticSearchService implements AutoCloseable {
     } catch (IllegalArgumentException e) {
       throw new Rejected(409, "RECALCULATION_REQUIRED");
     }
+    evaluate(job);
     return job;
   }
 
@@ -453,6 +455,7 @@ public final class AutomaticSearchService implements AutoCloseable {
             5000,
             input.abstractQuality40(),
             input.abstractQuality());
+    evaluate(job);
     try {
       save(job);
     } catch (AutomaticJobRepository.BudgetExceeded error) {
@@ -606,6 +609,7 @@ public final class AutomaticSearchService implements AutoCloseable {
         }
         default -> throw new IllegalStateException();
       }
+      if (!command.operation().equals("CANCEL")) evaluate(job);
       job.revision++;
       job.commands.put(command.commandId(), command);
       if (job.commands.size() > 256) job.commands.remove(job.commands.keySet().iterator().next());
@@ -779,7 +783,29 @@ public final class AutomaticSearchService implements AutoCloseable {
     return load(owner, id).graph.abyssStrategies(nodeId);
   }
 
+  public record Diagnostics(
+      AutomaticMethodGraph.Metrics graph, long responseNanos, long responses) {}
+
+  public synchronized Diagnostics diagnostics(String owner, String id) {
+    var job = load(owner, id);
+    return new Diagnostics(job.graph.metrics(), job.responseNanos, job.responses);
+  }
+
   private View view(Job job) {
+    long started = System.nanoTime();
+    try {
+      return render(job);
+    } finally {
+      job.responseNanos += System.nanoTime() - started;
+      job.responses++;
+    }
+  }
+
+  private void evaluate(Job job) {
+    job.graph.refineStrategy(job.graph.strategy(100), 16);
+  }
+
+  private View render(Job job) {
     var nodes = job.graph.nodes();
     var methodViews = job.graph.methods();
     var probabilities = new HashMap<CertifiedInterval, CertifiedMethodProtocol.Bounds>();
@@ -791,7 +817,6 @@ public final class AutomaticSearchService implements AutoCloseable {
     var recommendations = new ArrayList<Recommendation>();
     for (int cycles : List.of(100)) {
       var strategy = job.graph.strategy(cycles);
-      for (int i = 0; i < 16; i++) strategy.refine();
       for (var node : nodes) {
         var scores = new LinkedHashMap<String, CertifiedInterval>();
         if (node.directFinished())

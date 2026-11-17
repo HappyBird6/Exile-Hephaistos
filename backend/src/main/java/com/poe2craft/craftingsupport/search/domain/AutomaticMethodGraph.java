@@ -280,6 +280,48 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   private long primitiveOutcomeBudget;
   private long operations, revision;
   private long proofRows, proofNanos;
+  private final Map<Integer, Evaluation> evaluations = new HashMap<>();
+
+  private record Evaluation(long revision, CertifiedOutcomeStrategy<Integer> strategy) {}
+
+  private AutomaticCraftingKernel.Metrics primitiveStart;
+  private long refinementIterations;
+  private long expansionNanos, evaluationNanos, evaluationBuilds, refinementNanos;
+
+  public record Metrics(
+      AutomaticCraftingKernel.Metrics primitive,
+      long expansionNanos,
+      long proofNanos,
+      long evaluationNanos,
+      long evaluationBuilds,
+      long refinementNanos,
+      long refinementIterations,
+      long states,
+      long methods,
+      long transitions) {}
+
+  public Metrics metrics() {
+    var primitive = kernel.metrics();
+    return new Metrics(
+        new AutomaticCraftingKernel.Metrics(
+            primitive.nanos() - primitiveStart.nanos(),
+            primitive.calls() - primitiveStart.calls(),
+            primitive.outcomes() - primitiveStart.outcomes()),
+        expansionNanos,
+        proofNanos,
+        evaluationNanos,
+        evaluationBuilds,
+        refinementNanos,
+        refinementIterations,
+        nodes.size(),
+        methods.size(),
+        methods.values().stream()
+            .flatMap(m -> m.points.values().stream())
+            .mapToLong(
+                p -> p.active().size() + p.exits().values().stream().mapToLong(Map::size).sum())
+            .sum());
+  }
+
   private boolean limited;
   private boolean discoveryLimited;
 
@@ -429,6 +471,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     if (stateLimit < 1 || methodLimit < 1 || retainedLimit < 1 || primitiveOutcomeBudget < 1)
       throw new IllegalArgumentException("Positive server resource budgets required");
     this.kernel = kernel;
+    this.primitiveStart = kernel.metrics();
     this.evaluate = evaluate;
     this.precision = precision;
     this.stateLimit = stateLimit;
@@ -640,6 +683,18 @@ public final class AutomaticMethodGraph implements AutoCloseable {
 
   /** One discovery cursor advance plus one method transport slice; expensive methods yield. */
   public void step() {
+    long started = System.nanoTime();
+    long before = operations;
+    try {
+      advance();
+    } finally {
+      expansionNanos += System.nanoTime() - started;
+      // Provisional laws change inside execution slices as well as at published boundaries.
+      if (before != operations) revision++;
+    }
+  }
+
+  private void advance() {
     if (limited || finished()) return;
     if (discoveryLimited && ready.isEmpty()) {
       limited = true;
@@ -868,6 +923,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       throw new IllegalArgumentException("Resource budgets cannot shrink on resume");
     if (primitiveOutcomes < primitiveOutcomeBudget)
       throw new IllegalArgumentException("Primitive budget cannot shrink on resume");
+    revision++;
     primitiveOutcomeBudget = primitiveOutcomes;
     this.methods.values().stream()
         .filter(m -> m.owner == null)
@@ -1225,6 +1281,27 @@ public final class AutomaticMethodGraph implements AutoCloseable {
    * Alternatives remain separate choices; only mutually exclusive exits of one method are summed.
    */
   public CertifiedOutcomeStrategy<Integer> strategy(int cycles) {
+    var cached = evaluations.get(cycles);
+    if (cached != null && cached.revision() == revision) return cached.strategy();
+    long started = System.nanoTime();
+    try {
+      var strategy = buildStrategy(cycles);
+      evaluations.put(cycles, new Evaluation(revision, strategy));
+      return strategy;
+    } finally {
+      evaluationNanos += System.nanoTime() - started;
+      evaluationBuilds++;
+    }
+  }
+
+  public void refineStrategy(CertifiedOutcomeStrategy<Integer> strategy, int iterations) {
+    long started = System.nanoTime();
+    for (int i = 0; i < iterations; i++) strategy.refine();
+    refinementNanos += System.nanoTime() - started;
+    refinementIterations += iterations;
+  }
+
+  private CertifiedOutcomeStrategy<Integer> buildStrategy(int cycles) {
     if (!List.of(100, 300, 500).contains(cycles))
       throw new IllegalArgumentException("Unsupported observation");
     int bits = precision.fractionalBits();
