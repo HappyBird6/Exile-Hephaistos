@@ -1,0 +1,52 @@
+[
+  {
+    "task": "test",
+    "class": "com.poe2craft.configuration.BackendSettingsTest",
+    "name": "oldJobDirectoryPropertyStillResolvesAndNewSettingCanOverrideIt()",
+    "status": "passed",
+    "seconds": 3.175,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.configuration.BackendSettingsTest",
+    "name": "nonPositiveDurationsPreventStartup()",
+    "status": "passed",
+    "seconds": 0.237,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.configuration.BackendSettingsTest",
+    "name": "zeroCapacityAndBudgetPreventStartup()",
+    "status": "passed",
+    "seconds": 0.691,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.configuration.BackendSettingsTest",
+    "name": "springAndDirectConstructionUseTheSameShippedDefaults()",
+    "status": "passed",
+    "seconds": 0.262,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.configuration.BackendSettingsTest",
+    "name": "overridesBindToTypedFeatureSettings()",
+    "status": "passed",
+    "seconds": 0.16,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  }
+]

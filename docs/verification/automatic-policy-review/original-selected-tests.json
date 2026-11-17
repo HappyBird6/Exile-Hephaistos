@@ -1,0 +1,222 @@
+[
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.BaseRegistryParityTest",
+    "name": "allExistingInitialsActionsAndSeededTracesRemainExact()",
+    "status": "failed",
+    "seconds": 10.473,
+    "errorType": "org.opentest4j.AssertionFailedError",
+    "message": "org.opentest4j.AssertionFailedError: acrid: pre-refactor behavior changed ==> expected: <{\"actions-1\":\"f4449da2facff0428bc3d15a9069616e5cd1effc33dd2b998840fceaf80f5e3b\",\"actions-20\":\"f4449da2facff0428bc3d15a9069616e5cd1effc33dd2b998840fceaf80f5e3b\",\"actions-82\":\"1c0b3e67067361fd12fa9b3effb48151ebe7cc51358956402a177b34469ad9ea\",\"initial-1\":\"a4266dfebde243b295a309cf71adb8853b39a030575732c8235e0189eda7c490\",\"initial-20\":\"74d33aea2faa1a228cfad4003ae882214c845bb1788c976a61e552d824308e98\",\"initial-82\":\"33957f3d78c27eed96e225a1362ff4392395e5660cfc7c3e77dc7bf3b9311cf5\",\"seeded-1\":\"9d1156603a40a816fbe768c94ee87a311113d598b6216d4b81b85b57a201c303\",\"seeded-20\":\"7f8974afa536923bb6835fe2ddfa267ee5306fa62610b2108c2af90bc9dd51ef\",\"seeded-82\":\"5fad7937c11eed9a6fc8a1e5b0338dcbf3878f3cea00003c4d0278e1ea3ba321\"}> but was: <{\"actions-1\":\"66aa88d4ddacdfa03c9df2d46aa54a8f1a695764d41e3e5abd3782e554c8c893\",\"actions-20\":\"66aa88d4ddacdfa03c9df2d46aa54a8f1a695764d41e3e5abd3782e554c8c893\",\"actions-82\":\"b545bb17b54d91d3bec024b71370f7cb71f309fd82eddc07c192e7efa05596a3\",\"initial-1\":\"14a17fa562904486f458274b9e8bc16c2183f91d6fb1951bd2b30c48e2e76907\",\"initial-20\":\"3a3623b26d59f0a88d33c47646c47f67da15e2da407fe74b69bd6e7b4b941ba6\",\"initial-82\":\"61141e5248b97b71a58ee2fb52c139811eed838e2375403b11a395eeba6ca259\",\"seeded-1\":\"0beb633e4c41d86eb978c3b05b2b55ff8015daa8b64e5e684577c901415d4bc8\",\"seeded-20\":\"371bdb2e805f876b11df36ce52cd680a6128d68a75adf0ccd76012ec1c367b4f\",\"seeded-82\":\"52ef47e0292a3adbdd8cd1ff486cf2327a61cf9bab8bbb37bf6132fb9b5d903f\"}>",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.BaseRegistryParityTest.allExistingInitialsActionsAndSeededTracesRemainExact",
+        "BaseRegistryParityTest.java:110"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.CatalogLoadOrderTest",
+    "name": "extensionAndCompatibilityOrderRemainHistoricalWithoutSortingArrays()",
+    "status": "failed",
+    "seconds": 8.632,
+    "errorType": "org.opentest4j.AssertionFailedError",
+    "message": "org.opentest4j.AssertionFailedError: expected: <Metadata[snapshotId=stocky-special-dccae2f3af261af24a1ff568f74f78e7561c8355aeed00f66e63c913e26cb075, retrievedAt=2026-10-03T06:33:09.397Z, sourceUrl=https://poe2db.tw/us/Gloves_str, weightPolicy=POE2DB_AS_PUBLISHED, rawSha256=19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3, detailsSha256=10c2aafe1b5fcc22cf92ddab47f146b419c6fb6b6bc77da1b7f50822571b96cf, prefixCount=86, suffixCount=108, prefixWeight=63700, suffixWeight=84500]> but was: <Metadata[snapshotId=stocky-special-dccae2f3af261af24a1ff568f74f78e7561c8355aeed00f66e63c913e26cb075, retrievedAt=2026-10-03T06:33:09.397Z, sourceUrl=https://poe2db.tw/us/Gloves_str, weightPolicy=POE2DB_AS_PUBLISHED, rawSha256=19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3, detailsSha256=10c2aafe1b5fcc22cf92ddab47f146b419c6fb6b6bc77da1b7f50822571b96cf, prefixCount=104, suffixCount=141, prefixWeight=63700, suffixWeight=84500]>",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.CatalogLoadOrderTest.extensionAndCompatibilityOrderRemainHistoricalWithoutSortingArrays",
+        "CatalogLoadOrderTest.java:61"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.EmptyRareApiRegressionTest",
+    "name": "completedApiRetainsPreparationRetryProbabilityAndOnlyConcreteGoalTargets()",
+    "status": "failed",
+    "seconds": 28.088,
+    "errorType": "org.opentest4j.AssertionFailedError",
+    "message": "org.opentest4j.AssertionFailedError: \nexpected: \"COMPLETE\"\n but was: \"PARTIAL\"",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.EmptyRareApiRegressionTest.completedApiRetainsPreparationRetryProbabilityAndOnlyConcreteGoalTargets",
+        "EmptyRareApiRegressionTest.java:58"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.GoalDirectedPlannerScenariosTest",
+    "name": "fracturedWhittlingRemainsUnverifiedRatherThanRenormalized()",
+    "status": "failed",
+    "seconds": 2.406,
+    "errorType": "org.opentest4j.AssertionFailedError",
+    "message": "org.opentest4j.AssertionFailedError: \nexpected: UNSUPPORTED\n but was: UNAVAILABLE",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.GoalDirectedPlannerScenariosTest.fracturedWhittlingRemainsUnverifiedRatherThanRenormalized",
+        "GoalDirectedPlannerScenariosTest.java:682"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "name": "corruptedVersionReferencesAndMassAreRejectedWithoutChangingFiles()",
+    "status": "passed",
+    "seconds": 16.365,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "name": "actualV10V3QualityAndChaosObservationsRemainUnchangedAndReadOnly()",
+    "status": "failed",
+    "seconds": 4.194,
+    "errorType": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected",
+    "message": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.actualV10V3QualityAndChaosObservationsRemainUnchangedAndReadOnly",
+        "LegacyAutomaticResultReaderTest.java:279"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "name": "newV9StillGetsCancelsResumesAndCompletesNormally()",
+    "status": "failed",
+    "seconds": 1.663,
+    "errorType": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected",
+    "message": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.newV9StillGetsCancelsResumesAndCompletesNormally",
+        "LegacyAutomaticResultReaderTest.java:350"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "name": "inProgressV8IsReadOnlyPartialAndNeverPretendsToCompleteOrResume()",
+    "status": "failed",
+    "seconds": 0.619,
+    "errorType": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected",
+    "message": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.inProgressV8IsReadOnlyPartialAndNeverPretendsToCompleteOrResume",
+        "LegacyAutomaticResultReaderTest.java:221"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "name": "previousSixAffixCatalogAndV12CursorRemainReadableWithoutMutation()",
+    "status": "failed",
+    "seconds": 3.861,
+    "errorType": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected",
+    "message": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.previousSixAffixCatalogAndV12CursorRemainReadableWithoutMutation",
+        "LegacyAutomaticResultReaderTest.java:87"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "name": "previousAmuletV5CatalogAndV13CursorRemainReadableWithoutMutation()",
+    "status": "failed",
+    "seconds": 3.548,
+    "errorType": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected",
+    "message": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.previousAmuletV5CatalogAndV13CursorRemainReadableWithoutMutation",
+        "LegacyAutomaticResultReaderTest.java:137"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "name": "readsActualV8CompletedResultAndOriginalRequestWithoutChangingAnyBytes()",
+    "status": "failed",
+    "seconds": 0.325,
+    "errorType": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected",
+    "message": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.readsActualV8CompletedResultAndOriginalRequestWithoutChangingAnyBytes",
+        "LegacyAutomaticResultReaderTest.java:179"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "name": "historicalV9ObservationsRemainReadOnlyAcrossThePolicyChange()",
+    "status": "failed",
+    "seconds": 0.465,
+    "errorType": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected",
+    "message": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.historicalV9ObservationsRemainReadOnlyAcrossThePolicyChange",
+        "LegacyAutomaticResultReaderTest.java:248"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.TerminalContinuationApiTest",
+    "name": "cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency()",
+    "status": "failed",
+    "seconds": 30.227,
+    "errorType": "java.util.concurrent.TimeoutException",
+    "message": "java.util.concurrent.TimeoutException: cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency() timed out after 30 seconds",
+    "locations": [
+      [
+        "com.poe2craft.bootstrap.TerminalContinuationApiTest.cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency",
+        "TerminalContinuationApiTest.java:79"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.AutomaticSearchServiceTest",
+    "name": "currentGraphWithOldManualModelIsImmutableReadOnly()",
+    "status": "failed",
+    "seconds": 4.326,
+    "errorType": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected",
+    "message": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "locations": [
+      [
+        "com.poe2craft.craftingsupport.search.application.AutomaticSearchServiceTest.currentGraphWithOldManualModelIsImmutableReadOnly",
+        "AutomaticSearchServiceTest.java:179"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.AutomaticSearchServiceTest",
+    "name": "previousPlusOneManualPolicyRemainsAnImmutableObservation()",
+    "status": "failed",
+    "seconds": 0.453,
+    "errorType": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected",
+    "message": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "locations": [
+      [
+        "com.poe2craft.craftingsupport.search.application.AutomaticSearchServiceTest.previousPlusOneManualPolicyRemainsAnImmutableObservation",
+        "AutomaticSearchServiceTest.java:133"
+      ]
+    ]
+  }
+]

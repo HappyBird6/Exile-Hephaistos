@@ -1,0 +1,1437 @@
+[
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.BaseRegistryParityTest",
+    "test": "allExistingInitialsActionsAndSeededTracesRemainExact()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.BaseRegistryParityTest.allExistingInitialsActionsAndSeededTracesRemainExact",
+        "BaseRegistryParityTest.java:110"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: acrid: pre-refactor behavior changed ==> expected: <{\"actions-1\":\"f4449da2facff0428bc3d15a9069616e5cd1effc33dd2b998840fceaf80f5e3b\",\"actions-20\":\"f4449da2facff0428bc3d15a9069616e5cd1effc33dd2b998840fceaf80f5e3b\",\"actions-82\":\"1c0b3e67067361fd12fa9b3effb48151ebe7cc51358956402a177b34469ad9ea\",\"initial-1\":\"a4266dfebde243b295a309cf71adb8853b39a030575732c8235e0189eda7c490\",\"initial-20\":\"74d33aea2faa1a228cfad4003ae882214c845bb1788c976a61e552d824308e98\",\"initial-82\":\"33957f3d78c27eed96e225a1362ff4392395e5660cfc7c3e77dc7bf3b9311cf5\",\"seeded-1\":\"9d1156603a40a816fbe768c94ee87a311113d598b6216d4b81b85b57a201c303\",\"seeded-20\":\"7f8974afa536923bb6835fe2ddfa267ee5306fa62610b2108c2af90bc9dd51ef\",\"seeded-82\":\"5fad7937c11eed9a6fc8a1e5b0338dcbf3878f3cea00003c4d0278e1ea3ba321\"}> but was: <{\"actions-1\":\"66aa88d4ddacdfa03c9df2d46aa54a8f1a695764d41e3e5abd3782e554c8c893\",\"actions-20\":\"66aa88d4ddacdfa03c9df2d46aa54a8f1a695764d41e3e5abd3782e554c8c893\",\"actions-82\":\"b545bb17b54d91d3bec024b71370f7cb71f309fd82eddc07c192e7efa05596a3\",\"initial-1\":\"14a17fa562904486f458274b9e8bc16c2183f91d6fb1951bd2b30c48e2e76907\",\"initial-20\":\"3a3623b26d59f0a88d33c47646c47f67da15e2da407fe74b69bd6e7b4b941ba6\",\"initial-82\":\"61141e5248b97b71a58ee2fb52c139811eed838e2375403b11a395eeba6ca259\",\"seeded-1\":\"0beb633e4c41d86eb978c3b05b2b55ff8015daa8b64e5e684577c901415d4bc8\",\"seeded-20\":\"371bdb2e805f876b11df36ce52cd680a6128d68a75adf0ccd76012ec1c367b4f\",\"seeded-82\":\"52ef47e0292a3adbdd8cd1ff486cf2327a61cf9bab8bbb37bf6132fb9b5d903f\"}>",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: acrid: pre-refactor behavior changed ==> expected: <{\"actions-1\":\"f4449da2facff0428bc3d15a9069616e5cd1effc33dd2b998840fceaf80f5e3b\",\"actions-20\":\"f4449da2facff0428bc3d15a9069616e5cd1effc33dd2b998840fceaf80f5e3b\",\"actions-82\":\"1c0b3e67067361fd12fa9b3effb48151ebe7cc51358956402a177b34469ad9ea\",\"initial-1\":\"a4266dfebde243b295a309cf71adb8853b39a030575732c8235e0189eda7c490\",\"initial-20\":\"74d33aea2faa1a228cfad4003ae882214c845bb1788c976a61e552d824308e98\",\"initial-82\":\"33957f3d78c27eed96e225a1362ff4392395e5660cfc7c3e77dc7bf3b9311cf5\",\"seeded-1\":\"9d1156603a40a816fbe768c94ee87a311113d598b6216d4b81b85b57a201c303\",\"seeded-20\":\"7f8974afa536923bb6835fe2ddfa267ee5306fa62610b2108c2af90bc9dd51ef\",\"seeded-82\":\"5fad7937c11eed9a6fc8a1e5b0338dcbf3878f3cea00003c4d0278e1ea3ba321\"}> but was: <{\"actions-1\":\"66aa88d4ddacdfa03c9df2d46aa54a8f1a695764d41e3e5abd3782e554c8c893\",\"actions-20\":\"66aa88d4ddacdfa03c9df2d46aa54a8f1a695764d41e3e5abd3782e554c8c893\",\"actions-82\":\"b545bb17b54d91d3bec024b71370f7cb71f309fd82eddc07c192e7efa05596a3\",\"initial-1\":\"14a17fa562904486f458274b9e8bc16c2183f91d6fb1951bd2b30c48e2e76907\",\"initial-20\":\"3a3623b26d59f0a88d33c47646c47f67da15e2da407fe74b69bd6e7b4b941ba6\",\"initial-82\":\"61141e5248b97b71a58ee2fb52c139811eed838e2375403b11a395eeba6ca259\",\"seeded-1\":\"0beb633e4c41d86eb978c3b05b2b55ff8015daa8b64e5e684577c901415d4bc8\",\"seeded-20\":\"371bdb2e805f876b11df36ce52cd680a6128d68a75adf0ccd76012ec1c367b4f\",\"seeded-82\":\"52ef47e0292a3adbdd8cd1ff486cf2327a61cf9bab8bbb37bf6132fb9b5d903f\"}>",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "org.opentest4j.AssertionFailedError: acrid: pre-refactor behavior changed ==> expected: <{\"actions-1\":\"f4449da2facff0428bc3d15a9069616e5cd1effc33dd2b998840fceaf80f5e3b\",\"actions-20\":\"f4449da2facff0428bc3d15a9069616e5cd1effc33dd2b998840fceaf80f5e3b\",\"actions-82\":\"1c0b3e67067361fd12fa9b3effb48151ebe7cc51358956402a177b34469ad9ea\",\"initial-1\":\"a4266dfebde243b295a309cf71adb8853b39a030575732c8235e0189eda7c490\",\"initial-20\":\"74d33aea2faa1a228cfad4003ae882214c845bb1788c976a61e552d824308e98\",\"initial-82\":\"33957f3d78c27eed96e225a1362ff4392395e5660cfc7c3e77dc7bf3b9311cf5\",\"seeded-1\":\"9d1156603a40a816fbe768c94ee87a311113d598b6216d4b81b85b57a201c303\",\"seeded-20\":\"7f8974afa536923bb6835fe2ddfa267ee5306fa62610b2108c2af90bc9dd51ef\",\"seeded-82\":\"5fad7937c11eed9a6fc8a1e5b0338dcbf3878f3cea00003c4d0278e1ea3ba321\"}> but was: <{\"actions-1\":\"66aa88d4ddacdfa03c9df2d46aa54a8f1a695764d41e3e5abd3782e554c8c893\",\"actions-20\":\"66aa88d4ddacdfa03c9df2d46aa54a8f1a695764d41e3e5abd3782e554c8c893\",\"actions-82\":\"b545bb17b54d91d3bec024b71370f7cb71f309fd82eddc07c192e7efa05596a3\",\"initial-1\":\"14a17fa562904486f458274b9e8bc16c2183f91d6fb1951bd2b30c48e2e76907\",\"initial-20\":\"3a3623b26d59f0a88d33c47646c47f67da15e2da407fe74b69bd6e7b4b941ba6\",\"initial-82\":\"61141e5248b97b71a58ee2fb52c139811eed838e2375403b11a395eeba6ca259\",\"seeded-1\":\"0beb633e4c41d86eb978c3b05b2b55ff8015daa8b64e5e684577c901415d4bc8\",\"seeded-20\":\"371bdb2e805f876b11df36ce52cd680a6128d68a75adf0ccd76012ec1c367b4f\",\"seeded-82\":\"52ef47e0292a3adbdd8cd1ff486cf2327a61cf9bab8bbb37bf6132fb9b5d903f\"}>"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.CatalogLoadOrderTest",
+    "test": "extensionAndCompatibilityOrderRemainHistoricalWithoutSortingArrays()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.CatalogLoadOrderTest.extensionAndCompatibilityOrderRemainHistoricalWithoutSortingArrays",
+        "CatalogLoadOrderTest.java:61"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: expected: <Metadata[snapshotId=stocky-special-dccae2f3af261af24a1ff568f74f78e7561c8355aeed00f66e63c913e26cb075, retrievedAt=2026-10-03T06:33:09.397Z, sourceUrl=https://poe2db.tw/us/Gloves_str, weightPolicy=POE2DB_AS_PUBLISHED, rawSha256=19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3, detailsSha256=10c2aafe1b5fcc22cf92ddab47f146b419c6fb6b6bc77da1b7f50822571b96cf, prefixCount=86, suffixCount=108, prefixWeight=63700, suffixWeight=84500]> but was: <Metadata[snapshotId=stocky-special-dccae2f3af261af24a1ff568f74f78e7561c8355aeed00f66e63c913e26cb075, retrievedAt=2026-10-03T06:33:09.397Z, sourceUrl=https://poe2db.tw/us/Gloves_str, weightPolicy=POE2DB_AS_PUBLISHED, rawSha256=19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3, detailsSha256=10c2aafe1b5fcc22cf92ddab47f146b419c6fb6b6bc77da1b7f50822571b96cf, prefixCount=104, suffixCount=141, prefixWeight=63700, suffixWeight=84500]>",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: expected: <Metadata[snapshotId=stocky-special-dccae2f3af261af24a1ff568f74f78e7561c8355aeed00f66e63c913e26cb075, retrievedAt=2026-10-03T06:33:09.397Z, sourceUrl=https://poe2db.tw/us/Gloves_str, weightPolicy=POE2DB_AS_PUBLISHED, rawSha256=19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3, detailsSha256=10c2aafe1b5fcc22cf92ddab47f146b419c6fb6b6bc77da1b7f50822571b96cf, prefixCount=86, suffixCount=108, prefixWeight=63700, suffixWeight=84500]> but was: <Metadata[snapshotId=stocky-special-dccae2f3af261af24a1ff568f74f78e7561c8355aeed00f66e63c913e26cb075, retrievedAt=2026-10-03T06:33:09.397Z, sourceUrl=https://poe2db.tw/us/Gloves_str, weightPolicy=POE2DB_AS_PUBLISHED, rawSha256=19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3, detailsSha256=10c2aafe1b5fcc22cf92ddab47f146b419c6fb6b6bc77da1b7f50822571b96cf, prefixCount=104, suffixCount=141, prefixWeight=63700, suffixWeight=84500]>",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "org.opentest4j.AssertionFailedError: expected: <Metadata[snapshotId=stocky-special-dccae2f3af261af24a1ff568f74f78e7561c8355aeed00f66e63c913e26cb075, retrievedAt=2026-10-03T06:33:09.397Z, sourceUrl=https://poe2db.tw/us/Gloves_str, weightPolicy=POE2DB_AS_PUBLISHED, rawSha256=19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3, detailsSha256=10c2aafe1b5fcc22cf92ddab47f146b419c6fb6b6bc77da1b7f50822571b96cf, prefixCount=86, suffixCount=108, prefixWeight=63700, suffixWeight=84500]> but was: <Metadata[snapshotId=stocky-special-dccae2f3af261af24a1ff568f74f78e7561c8355aeed00f66e63c913e26cb075, retrievedAt=2026-10-03T06:33:09.397Z, sourceUrl=https://poe2db.tw/us/Gloves_str, weightPolicy=POE2DB_AS_PUBLISHED, rawSha256=19efde46860a31f344f55758c8484c6a2a3c188de36393423e8d011d406ba7d3, detailsSha256=10c2aafe1b5fcc22cf92ddab47f146b419c6fb6b6bc77da1b7f50822571b96cf, prefixCount=104, suffixCount=141, prefixWeight=63700, suffixWeight=84500]>"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.EmptyRareApiRegressionTest",
+    "test": "completedApiRetainsPreparationRetryProbabilityAndOnlyConcreteGoalTargets()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.EmptyRareApiRegressionTest.completedApiRetainsPreparationRetryProbabilityAndOnlyConcreteGoalTargets",
+        "EmptyRareApiRegressionTest.java:58"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nexpected: \"COMPLETE\"\n but was: \"PARTIAL\"",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nexpected: \"COMPLETE\"\n but was: \"PARTIAL\"",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "org.opentest4j.AssertionFailedError: \nexpected: \"COMPLETE\"\n but was: \"PARTIAL\""
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.GoalDirectedPlannerScenariosTest",
+    "test": "fracturedWhittlingRemainsUnverifiedRatherThanRenormalized()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.GoalDirectedPlannerScenariosTest.fracturedWhittlingRemainsUnverifiedRatherThanRenormalized",
+        "GoalDirectedPlannerScenariosTest.java:682"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nexpected: UNSUPPORTED\n but was: UNAVAILABLE",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nexpected: UNSUPPORTED\n but was: UNAVAILABLE",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "org.opentest4j.AssertionFailedError: \nexpected: UNSUPPORTED\n but was: UNAVAILABLE"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.IndependentPlannerReviewTest",
+    "test": "fracturedWhittlingRemainsUnverifiedRatherThanRenormalized()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.GoalDirectedPlannerScenariosTest.fracturedWhittlingRemainsUnverifiedRatherThanRenormalized",
+        "GoalDirectedPlannerScenariosTest.java:682"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nexpected: UNSUPPORTED\n but was: UNAVAILABLE",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nexpected: UNSUPPORTED\n but was: UNAVAILABLE",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "test": "actualV10V3QualityAndChaosObservationsRemainUnchangedAndReadOnly()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.actualV10V3QualityAndChaosObservationsRemainUnchangedAndReadOnly",
+        "LegacyAutomaticResultReaderTest.java:279"
+      ]
+    ],
+    "currentMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "baselineStatus": "failed",
+    "baselineMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "test": "newV9StillGetsCancelsResumesAndCompletesNormally()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.newV9StillGetsCancelsResumesAndCompletesNormally",
+        "LegacyAutomaticResultReaderTest.java:350"
+      ]
+    ],
+    "currentMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH",
+    "baselineStatus": "failed",
+    "baselineMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "test": "inProgressV8IsReadOnlyPartialAndNeverPretendsToCompleteOrResume()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.inProgressV8IsReadOnlyPartialAndNeverPretendsToCompleteOrResume",
+        "LegacyAutomaticResultReaderTest.java:221"
+      ]
+    ],
+    "currentMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "baselineStatus": "failed",
+    "baselineMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "test": "previousSixAffixCatalogAndV12CursorRemainReadableWithoutMutation()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.previousSixAffixCatalogAndV12CursorRemainReadableWithoutMutation",
+        "LegacyAutomaticResultReaderTest.java:87"
+      ]
+    ],
+    "currentMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH",
+    "baselineStatus": "failed",
+    "baselineMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "test": "previousAmuletV5CatalogAndV13CursorRemainReadableWithoutMutation()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.previousAmuletV5CatalogAndV13CursorRemainReadableWithoutMutation",
+        "LegacyAutomaticResultReaderTest.java:137"
+      ]
+    ],
+    "currentMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH",
+    "baselineStatus": "failed",
+    "baselineMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RULESET_IDENTITY_MISMATCH"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "test": "readsActualV8CompletedResultAndOriginalRequestWithoutChangingAnyBytes()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.readsActualV8CompletedResultAndOriginalRequestWithoutChangingAnyBytes",
+        "LegacyAutomaticResultReaderTest.java:179"
+      ]
+    ],
+    "currentMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "baselineStatus": "failed",
+    "baselineMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest",
+    "test": "historicalV9ObservationsRemainReadOnlyAcrossThePolicyChange()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.LegacyAutomaticResultReaderTest.historicalV9ObservationsRemainReadOnlyAcrossThePolicyChange",
+        "LegacyAutomaticResultReaderTest.java:248"
+      ]
+    ],
+    "currentMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "baselineStatus": "failed",
+    "baselineMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "solar",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [solar:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [solar:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "absent-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [absent-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [absent-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "amber",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [amber:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [amber:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "azure",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [azure:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [azure:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "bloodstone",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [bloodstone:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [bloodstone:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "corona-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [corona-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [corona-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "crimson",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [crimson:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [crimson:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "distorted-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [distorted-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [distorted-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "dusk-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [dusk-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [dusk-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "gloam-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [gloam-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [gloam-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "gold-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [gold-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [gold-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "jade-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [jade-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [jade-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "lament-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [lament-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [lament-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "lapis-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [lapis-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [lapis-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "lunar",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [lunar:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [lunar:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "pearlescent",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [pearlescent:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [pearlescent:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "penumbra-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [penumbra-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [penumbra-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "portent-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [portent-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [portent-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "stellar",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [stellar:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [stellar:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "tenebrous-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [tenebrous-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [tenebrous-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedAmuletGoalTest",
+    "test": "twisted-amulet",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [],
+    "currentMessage": "org.opentest4j.AssertionFailedError: [twisted-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: [twisted-amulet:hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%] \nexpected: SUPPORTED\n but was: UNSUPPORTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest",
+    "test": "[1] key=slipstrike",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest.completeSourcePoolsCraftingClassGatesAndLowItemLevel",
+        "ReviewedBodyHelmetBundleTest.java:71"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest",
+    "test": "[2] key=death-mail",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest.completeSourcePoolsCraftingClassGatesAndLowItemLevel",
+        "ReviewedBodyHelmetBundleTest.java:71"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest",
+    "test": "[3] key=sleek",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest.completeSourcePoolsCraftingClassGatesAndLowItemLevel",
+        "ReviewedBodyHelmetBundleTest.java:71"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest",
+    "test": "[4] key=vile",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest.completeSourcePoolsCraftingClassGatesAndLowItemLevel",
+        "ReviewedBodyHelmetBundleTest.java:71"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest",
+    "test": "[5] key=wolfskin",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest.completeSourcePoolsCraftingClassGatesAndLowItemLevel",
+        "ReviewedBodyHelmetBundleTest.java:71"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest",
+    "test": "[6] key=ancestral",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest.completeSourcePoolsCraftingClassGatesAndLowItemLevel",
+        "ReviewedBodyHelmetBundleTest.java:71"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest",
+    "test": "[7] key=cryptic",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedBodyHelmetBundleTest.completeSourcePoolsCraftingClassGatesAndLowItemLevel",
+        "ReviewedBodyHelmetBundleTest.java:71"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[1] key=massive",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.fullPoolPublishedWeightCraftingAndLegacyIsolation",
+        "ReviewedGlovesWorkbenchTest.java:75"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[2] key=sirenscale",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.fullPoolPublishedWeightCraftingAndLegacyIsolation",
+        "ReviewedGlovesWorkbenchTest.java:75"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[3] key=adherent",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.fullPoolPublishedWeightCraftingAndLegacyIsolation",
+        "ReviewedGlovesWorkbenchTest.java:75"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[4] key=polished",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.fullPoolPublishedWeightCraftingAndLegacyIsolation",
+        "ReviewedGlovesWorkbenchTest.java:75"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[5] key=blacksteel-gloves",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.fullPoolPublishedWeightCraftingAndLegacyIsolation",
+        "ReviewedGlovesWorkbenchTest.java:75"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[6] key=war-wraps",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.fullPoolPublishedWeightCraftingAndLegacyIsolation",
+        "ReviewedGlovesWorkbenchTest.java:75"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[1] key=massive",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.sourceEssencesClassRefusalFracturesAndLowLevel",
+        "ReviewedGlovesWorkbenchTest.java:157"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[2] key=sirenscale",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.sourceEssencesClassRefusalFracturesAndLowLevel",
+        "ReviewedGlovesWorkbenchTest.java:157"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[3] key=adherent",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.sourceEssencesClassRefusalFracturesAndLowLevel",
+        "ReviewedGlovesWorkbenchTest.java:157"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[4] key=polished",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.sourceEssencesClassRefusalFracturesAndLowLevel",
+        "ReviewedGlovesWorkbenchTest.java:157"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[5] key=blacksteel-gloves",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.sourceEssencesClassRefusalFracturesAndLowLevel",
+        "ReviewedGlovesWorkbenchTest.java:157"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest",
+    "test": "[6] key=war-wraps",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedGlovesWorkbenchTest.sourceEssencesClassRefusalFracturesAndLowLevel",
+        "ReviewedGlovesWorkbenchTest.java:157"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedHelmetsWorkbenchTest",
+    "test": "[1] key=freebooter",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedHelmetsWorkbenchTest.completePoolsSharedEvasionCraftingAndClassSpecificEssences",
+        "ReviewedHelmetsWorkbenchTest.java:69"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedHelmetsWorkbenchTest",
+    "test": "[2] key=gladiatorial",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedHelmetsWorkbenchTest.completePoolsSharedEvasionCraftingAndClassSpecificEssences",
+        "ReviewedHelmetsWorkbenchTest.java:69"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.ReviewedHelmetsWorkbenchTest",
+    "test": "[3] key=grinning",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.ReviewedHelmetsWorkbenchTest.completePoolsSharedEvasionCraftingAndClassSpecificEssences",
+        "ReviewedHelmetsWorkbenchTest.java:69"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.StrictExaltedScenarioTest",
+    "test": "onlyFirstMutableSlotOrWitnessedSideDummyIsAllowed()",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.GoalDirectedPlannerScenariosTest.evaluation",
+        "GoalDirectedPlannerScenariosTest.java:102"
+      ],
+      [
+        "com.poe2craft.bootstrap.StrictExaltedScenarioTest.onlyFirstMutableSlotOrWitnessedSideDummyIsAllowed",
+        "StrictExaltedScenarioTest.java:169"
+      ]
+    ],
+    "currentMessage": "java.util.concurrent.TimeoutException: onlyFirstMutableSlotOrWitnessedSideDummyIsAllowed() timed out after 90 seconds",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.util.concurrent.TimeoutException: onlyFirstMutableSlotOrWitnessedSideDummyIsAllowed() timed out after 90 seconds",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.TerminalBranchingScenariosTest",
+    "test": "fourGoalsKeepPartialEssenceStatesWithoutInventingFinishingExalt()",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.TerminalBranchingScenariosTest.fourGoalsKeepPartialEssenceStatesWithoutInventingFinishingExalt",
+        "TerminalBranchingScenariosTest.java:43"
+      ]
+    ],
+    "currentMessage": "java.util.concurrent.TimeoutException: fourGoalsKeepPartialEssenceStatesWithoutInventingFinishingExalt() timed out after 30 seconds",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.util.concurrent.TimeoutException: fourGoalsKeepPartialEssenceStatesWithoutInventingFinishingExalt() timed out after 30 seconds",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.TerminalContinuationApiTest",
+    "test": "cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency()",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.TerminalContinuationApiTest.cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency",
+        "TerminalContinuationApiTest.java:79"
+      ]
+    ],
+    "currentMessage": "java.util.concurrent.TimeoutException: cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency() timed out after 30 seconds",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.util.concurrent.TimeoutException: cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency() timed out after 30 seconds",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "java.util.concurrent.TimeoutException: cancelsResumesAndReloadsSharedConcreteOutcomesWithMeasuredRequestLatency() timed out after 30 seconds"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.TopBaseWorkbenchTest",
+    "test": "[1] key=soldier",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.TopBaseWorkbenchTest.ordinaryCraftingDispatchQualityAndCrossBaseSafety",
+        "TopBaseWorkbenchTest.java:57"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.TopBaseWorkbenchTest",
+    "test": "[2] key=imperial",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.TopBaseWorkbenchTest.ordinaryCraftingDispatchQualityAndCrossBaseSafety",
+        "TopBaseWorkbenchTest.java:57"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.TopBaseWorkbenchTest",
+    "test": "[1] key=soldier",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.TopBaseWorkbenchTest.exactPerfectPathsOmenAndClassRestrictions",
+        "TopBaseWorkbenchTest.java:80"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.bootstrap.TopBaseWorkbenchTest",
+    "test": "[2] key=imperial",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.bootstrap.TopBaseWorkbenchTest.exactPerfectPathsOmenAndClassRestrictions",
+        "TopBaseWorkbenchTest.java:80"
+      ]
+    ],
+    "currentMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.IllegalArgumentException: Unsupported concrete item state",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.configuration.BackendSettingsTest",
+    "test": "springAndDirectConstructionUseTheSameShippedDefaults()",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "org.springframework.boot.test.util.TestPropertyValues.applyToSystemProperties",
+        "TestPropertyValues.java:188"
+      ],
+      [
+        "org.springframework.boot.test.util.TestPropertyValues.applyToSystemProperties",
+        "TestPropertyValues.java:173"
+      ],
+      [
+        "com.poe2craft.configuration.BackendSettingsTest.springAndDirectConstructionUseTheSameShippedDefaults",
+        "BackendSettingsTest.java:34"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nexpected: BackendSettings[pathSearch=PathSearch[maxJobs=16, maxRevisions=8, pageEdges=48, maxCommands=64, runBudget=50000, ttl=PT15M], methodSearch=MethodSearch[maxJobs=8, maxRevisions=4, pageSize=12, maxCommands=64, runBudget=12000, certifiedRunBudget=1000000, kernelOutcomeLimit=100000, timeSlice=PT0.02S, ttl=PT20M], certifiedSearch=CertifiedSearch[maxJobs=2, ttl=PT20M], automaticSearch=AutomaticSearch[maxActive=16, ttl=PT24H, timeSlice=PT0.3S], cache=Cache[transitionEntries=256, transitionOutcomes=25000, additionEntries=2048], storage=Storage[methodJobDirectory=./data/method-jobs], workbench=Workbench[repeatConcurrency=1, repeatTimeBudget=PT10S, repeatReceiptTtl=PT10M, requestConcurrency=16, referenceCatalogEntries=64, referenceStateEntries=128, supportEnabled=true], prices=Prices[sourceUrl=https://poe.ninja, proxyUrl=, userAgent=Exile-Hephaistos/0.5.5 (+https://github.com/HappyBird6/Exile-Hephaistos), cacheKey=hephaistos:{currency-prices}:v1, refreshInterval=PT30M, checkInterval=PT1M, minimumRefreshInterval=PT5M, refreshLease=PT1M, connectTimeout=PT3S, requestTimeout=PT8S, initialDelay=PT5S, categories=[Currency, Essences, Ritual, Breach, Delirium, Abyss, Runes, SoulCores, Idols]], requestProtection=RequestProtection[requestsPerSecond=120, burst=240, maxInFlight=32, maxBodyBytes=262144], adminLogs=AdminLogs[previousDays=7, queueCapacity=10000, batchSize=500, flushMillis=2000, archiveMillis=60000, archiveWorkMillis=5000, archiveDirectory=data/operations-logs, timeZone=Asia/Seoul, pageSize=40, archiveDays=30, archiveMaxBytes=1073741824",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nexpected: BackendSettings[pathSearch=PathSearch[maxJobs=16, maxRevisions=8, pageEdges=48, maxCommands=64, runBudget=50000, ttl=PT15M], methodSearch=MethodSearch[maxJobs=8, maxRevisions=4, pageSize=12, maxCommands=64, runBudget=12000, certifiedRunBudget=1000000, kernelOutcomeLimit=100000, timeSlice=PT0.02S, ttl=PT20M], certifiedSearch=CertifiedSearch[maxJobs=2, ttl=PT20M], automaticSearch=AutomaticSearch[maxActive=16, ttl=PT24H, timeSlice=PT0.3S], cache=Cache[transitionEntries=256, transitionOutcomes=25000, additionEntries=2048], storage=Storage[methodJobDirectory=./data/method-jobs], workbench=Workbench[repeatConcurrency=1, repeatTimeBudget=PT10S, repeatReceiptTtl=PT10M, requestConcurrency=16, referenceCatalogEntries=64, referenceStateEntries=128, supportEnabled=true], prices=Prices[sourceUrl=https://poe.ninja, proxyUrl=, userAgent=Exile-Hephaistos/0.5.5 (+https://github.com/HappyBird6/Exile-Hephaistos), cacheKey=hephaistos:{currency-prices}:v1, refreshInterval=PT30M, checkInterval=PT1M, minimumRefreshInterval=PT5M, refreshLease=PT1M, connectTimeout=PT3S, requestTimeout=PT8S, initialDelay=PT5S, categories=[Currency, Essences, Ritual, Breach, Delirium, Abyss, Runes, SoulCores, Idols]], requestProtection=RequestProtection[requestsPerSecond=120, burst=240, maxInFlight=32, maxBodyBytes=262144], adminLogs=AdminLogs[previousDays=7, queueCapacity=10000, batchSize=500, flushMillis=2000, archiveMillis=60000, archiveWorkMillis=5000, archiveDirectory=data/operations-logs, timeZone=Asia/Seoul, pageSize=40, archiveDays=30, archiveMaxBytes=1073741824",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.goal.application.GoalFilterServiceTest",
+    "test": "checkedInProductionExampleMatchesCurrentCatalogAndActualItemEvaluation()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.goal.application.GoalFilterServiceTest.checkedInProductionExampleMatchesCurrentCatalogAndActualItemEvaluation",
+        "GoalFilterServiceTest.java:159"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nexpected: {}\n but was: {\"amulet:prefix:adept-s\"=ModifierDefinition[id=amulet:prefix:adept-s, name=Adept's, layer=EXPLICIT, affixType=PREFIX, familyIds=[SpellDamage], requiredItemLevel=16, weight=1000, tier=5, text=(8—12)% increased Spell Damage, stats=[StatRange[id=spell_damage_+%, min=8, max=12]], tags=[caster_damage, damage, caster], sourceUrl=https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6443062ca0d6a21a37b0bbe2b2488e887943433cb18e0376104c11ca718225c7], \"amulet:prefix:alloy-maximum-runic-ward\"=ModifierDefinition[id=amulet:prefix:alloy-maximum-runic-ward, name=Verisium, layer=EXPLICIT, affixType=PREFIX, familyIds=[RunicWardPercent], requiredItemLevel=13, weight=0, tier=1, text=(6—10)% increased maximum Runic Ward, stats=[StatRange[id=maximum_ward_+%, min=6, max=10]], tags=[runic_ward], sourceUrl=https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1], \"amulet:prefix:apprentice-s\"=ModifierDefinition[id=amulet:prefix:apprentice-s, name=Apprentice's, layer=EXPLICIT, affixType=PREFIX, familyIds=[SpellDamage], requiredItemLevel=1, weight=1000, tier=6, text=(3—7)% increased Spell Damage, stats=[StatRange[id=spell_damage_+%, min=3, max=7]], tags=[caster_damage, damage, caster], sourceUrl=https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6272c0dcbe7baeb92238481921e5630bd20373f16d4cd9f167230de9f5438401], \"amulet:prefix:aqua\"=ModifierDefinition[id=amulet:prefix:aqua, name=Aqua, layer=EXPLICIT, affixType=PREFIX, familyIds=[IncreasedMana], requiredItemLevel=38, weight=1000, tier=8, text=+(65—79) to maximum Mana, stats=[S",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nexpected: {}\n but was: {\"amulet:prefix:adept-s\"=ModifierDefinition[id=amulet:prefix:adept-s, name=Adept's, layer=EXPLICIT, affixType=PREFIX, familyIds=[SpellDamage], requiredItemLevel=16, weight=1000, tier=5, text=(8—12)% increased Spell Damage, stats=[StatRange[id=spell_damage_+%, min=8, max=12]], tags=[caster, caster_damage, damage], sourceUrl=https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6443062ca0d6a21a37b0bbe2b2488e887943433cb18e0376104c11ca718225c7], \"amulet:prefix:alloy-maximum-runic-ward\"=ModifierDefinition[id=amulet:prefix:alloy-maximum-runic-ward, name=Verisium, layer=EXPLICIT, affixType=PREFIX, familyIds=[RunicWardPercent], requiredItemLevel=13, weight=0, tier=1, text=(6—10)% increased maximum Runic Ward, stats=[StatRange[id=maximum_ward_+%, min=6, max=10]], tags=[runic_ward], sourceUrl=https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardPercent1], \"amulet:prefix:apprentice-s\"=ModifierDefinition[id=amulet:prefix:apprentice-s, name=Apprentice's, layer=EXPLICIT, affixType=PREFIX, familyIds=[SpellDamage], requiredItemLevel=1, weight=1000, tier=6, text=(3—7)% increased Spell Damage, stats=[StatRange[id=spell_damage_+%, min=3, max=7]], tags=[caster, caster_damage, damage], sourceUrl=https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/6272c0dcbe7baeb92238481921e5630bd20373f16d4cd9f167230de9f5438401], \"amulet:prefix:aqua\"=ModifierDefinition[id=amulet:prefix:aqua, name=Aqua, layer=EXPLICIT, affixType=PREFIX, familyIds=[IncreasedMana], requiredItemLevel=38, weight=1000, tier=8, text=+(65—79) to maximum Mana, stats=[S",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.path.api.LegacyGraphControllerTest",
+    "test": "initialAndTransitionsUseTheBundledCatalog()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.path.api.LegacyGraphControllerTest.initialAndTransitionsUseTheBundledCatalog",
+        "LegacyGraphControllerTest.java:59"
+      ]
+    ],
+    "currentMessage": "java.lang.AssertionError: JSON path \"$.metadata.prefixCount\" expected:<85> but was:<86>",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.AssertionError: JSON path \"$.metadata.prefixCount\" expected:<85> but was:<86>",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.AutomaticSearchServiceTest",
+    "test": "currentGraphWithOldManualModelIsImmutableReadOnly()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.AutomaticSearchServiceTest.currentGraphWithOldManualModelIsImmutableReadOnly",
+        "AutomaticSearchServiceTest.java:179"
+      ]
+    ],
+    "currentMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "baselineStatus": "failed",
+    "baselineMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.AutomaticSearchServiceTest",
+    "test": "previousPlusOneManualPolicyRemainsAnImmutableObservation()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.AutomaticSearchServiceTest.previousPlusOneManualPolicyRemainsAnImmutableObservation",
+        "AutomaticSearchServiceTest.java:133"
+      ]
+    ],
+    "currentMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "baselineStatus": "failed",
+    "baselineMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "com.poe2craft.craftingsupport.search.application.PathSearchProtocol$Rejected: RECALCULATION_REQUIRED"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.CertifiedJobRestartTest",
+    "test": "continuedRunnerMatchesUninterruptedExitMassAndCurrencyUses()",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.CertifiedJobRestartTest.continuation",
+        "CertifiedJobRestartTest.java:127"
+      ],
+      [
+        "com.poe2craft.craftingsupport.search.application.CertifiedJobRestartTest.continuedRunnerMatchesUninterruptedExitMassAndCurrencyUses",
+        "CertifiedJobRestartTest.java:174"
+      ]
+    ],
+    "currentMessage": "java.util.concurrent.TimeoutException: continuedRunnerMatchesUninterruptedExitMassAndCurrencyUses() timed out after 30 seconds",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.util.concurrent.TimeoutException: continuedRunnerMatchesUninterruptedExitMassAndCurrencyUses() timed out after 30 seconds",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.CertifiedMethodSearchEngineTest",
+    "test": "completeSmallMapContainsEveryExactLawAndPreservesMethodDepthAndAlternatives(Path)",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.CertifiedMethodSearchEngineTest.verifyStrategyJob",
+        "CertifiedMethodSearchEngineTest.java:287"
+      ],
+      [
+        "com.poe2craft.craftingsupport.search.application.CertifiedMethodSearchEngineTest.completeSmallMapContainsEveryExactLawAndPreservesMethodDepthAndAlternatives",
+        "CertifiedMethodSearchEngineTest.java:275"
+      ]
+    ],
+    "currentMessage": "java.util.concurrent.TimeoutException: completeSmallMapContainsEveryExactLawAndPreservesMethodDepthAndAlternatives(java.nio.file.Path) timed out after 30 seconds",
+    "baselineStatus": "passed",
+    "baselineMessage": null,
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.DeferredCalculationTest",
+    "test": "jointFamilyCellsMatchEveryCompletedMethodAndConcreteConditionalLaw()",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.DeferredCalculationTest.verify",
+        "DeferredCalculationTest.java:200"
+      ],
+      [
+        "com.poe2craft.craftingsupport.search.application.DeferredCalculationTest.verify",
+        "DeferredCalculationTest.java:59"
+      ],
+      [
+        "com.poe2craft.craftingsupport.search.application.DeferredCalculationTest.verify",
+        "DeferredCalculationTest.java:44"
+      ]
+    ],
+    "currentMessage": "java.util.concurrent.TimeoutException: jointFamilyCellsMatchEveryCompletedMethodAndConcreteConditionalLaw() timed out after 30 seconds",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.util.concurrent.TimeoutException: jointFamilyCellsMatchEveryCompletedMethodAndConcreteConditionalLaw() timed out after 30 seconds",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.DeferredCalculationTest",
+    "test": "internalOrbitMixturesMatchEveryConcreteMethodAndRestoreOriginalGraphCells()",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.DeferredCalculationTest.verify",
+        "DeferredCalculationTest.java:201"
+      ],
+      [
+        "com.poe2craft.craftingsupport.search.application.DeferredCalculationTest.verify",
+        "DeferredCalculationTest.java:59"
+      ],
+      [
+        "com.poe2craft.craftingsupport.search.application.DeferredCalculationTest.internalOrbitMixturesMatchEveryConcreteMethodAndRestoreOriginalGraphCells",
+        "DeferredCalculationTest.java:55"
+      ]
+    ],
+    "currentMessage": "java.util.concurrent.TimeoutException: internalOrbitMixturesMatchEveryConcreteMethodAndRestoreOriginalGraphCells() timed out after 30 seconds",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.util.concurrent.TimeoutException: internalOrbitMixturesMatchEveryConcreteMethodAndRestoreOriginalGraphCells() timed out after 30 seconds",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.DeferredProductionTest",
+    "test": "realSolarCellsRestoreTheFullWeightedLawAndSplitGoalThresholds()",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.DeferredProductionTest.eager",
+        "DeferredProductionTest.java:516"
+      ],
+      [
+        "com.poe2craft.craftingsupport.search.application.DeferredProductionTest.realSolarCellsRestoreTheFullWeightedLawAndSplitGoalThresholds",
+        "DeferredProductionTest.java:242"
+      ]
+    ],
+    "currentMessage": "java.util.concurrent.TimeoutException: realSolarCellsRestoreTheFullWeightedLawAndSplitGoalThresholds() timed out after 30 seconds",
+    "baselineStatus": "passed",
+    "baselineMessage": null,
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.HistoricalWorkbenchModelTest",
+    "test": "acceptsOnlyTheKnownManualAdditionForReadOnlyObservations()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.HistoricalWorkbenchModelTest.acceptsOnlyTheKnownManualAdditionForReadOnlyObservations",
+        "HistoricalWorkbenchModelTest.java:46"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.HistoricalWorkbenchModelTest",
+    "test": "previousPlusOnePolicyRemainsStrictlyReadOnlyWithAllDefinitionsUnchanged()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.HistoricalWorkbenchModelTest.previousPlusOnePolicyRemainsStrictlyReadOnlyWithAllDefinitionsUnchanged",
+        "HistoricalWorkbenchModelTest.java:105"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.JointAttributeLawTest",
+    "test": "correlatedWeightedCheckpointIsOneRealStateAndNextTransitionRetainsItsJointSource()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.JointAttributeLawTest.correlatedWeightedCheckpointIsOneRealStateAndNextTransitionRetainsItsJointSource",
+        "JointAttributeLawTest.java:109"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.PathSearchContractTest",
+    "test": "sharedWireFixturesRoundTripAndExactOracleAreConsumed()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.PathSearchContractTest.sharedWireFixturesRoundTripAndExactOracleAreConsumed",
+        "PathSearchContractTest.java:41"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nexpected: {\"version\":1,\"clientRequestId\":\"synthetic:create-1\",\"start\":{\"item\":{\"snapshotId\":\"synthetic:snapshot-v1\",\"baseItemId\":\"synthetic:base\",\"itemLevel\":82,\"rarity\":\"RARE\",\"implicits\":[],\"explicits\":[{\"modifierId\":\"synthetic:stat\",\"values\":{\"synthetic:value\":0},\"fractured\":false}],\"conditions\":[],\"augmentSockets\":null,\"catalystQuality\":null},\"provenance\":{\"rulesetIdentity\":\"synthetic:ruleset-v1\",\"catalogDigest\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"modelVersion\":\"synthetic:binary-roll-v1\",\"ruleVersion\":\"synthetic:rules-v1\",\"ledgerVersion\":\"synthetic:ledger-v1\",\"weightPolicy\":\"SYNTHETIC\",\"sourceUrl\":\"urn:synthetic:binary\",\"retrievedAt\":\"2026-10-10T00:00:00Z\",\"rawSha256\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"detailsSha256\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\"}},\"goal\":{\"version\":1,\"catalogVersion\":\"synthetic:goals-v1\",\"general\":{\"baseItemId\":\"synthetic:base\",\"itemLevel\":{\"min\":1,\"max\":100},\"rarities\":[\"RARE\"]},\"groups\":[{\"id\":\"g1\",\"type\":\"AND\",\"disabled\":false,\"range\":null,\"entries\":[{\"id\":\"e1\",\"statId\":\"synthetic:explicit:value\",\"unit\":\"flat\",\"range\":{\"min\":1,\"max\":null},\"weight\":null,\"disabled\":false}]}]},\"activeOmens\":[],\"observations\":[\"100\",\"300\",\"500\"]}\n but was: {\"version\":1,\"clientRequestId\":\"synthetic:create-1\",\"start\":{\"item\":{\"snapshotId\":\"synthetic:snapshot-v1\",\"baseItemId\":\"synthetic:base\",\"itemLevel\":82,\"rarity\":\"RARE\",\"implicits\":[],\"explicits\":[{\"modifierId\":\"synthetic:stat\",\"values\":{\"synthetic:value\":0},\"fractured\":false,\"craft",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nexpected: {\"version\":1,\"clientRequestId\":\"synthetic:create-1\",\"start\":{\"item\":{\"snapshotId\":\"synthetic:snapshot-v1\",\"baseItemId\":\"synthetic:base\",\"itemLevel\":82,\"rarity\":\"RARE\",\"implicits\":[],\"explicits\":[{\"modifierId\":\"synthetic:stat\",\"values\":{\"synthetic:value\":0},\"fractured\":false}],\"conditions\":[],\"augmentSockets\":null,\"catalystQuality\":null},\"provenance\":{\"rulesetIdentity\":\"synthetic:ruleset-v1\",\"catalogDigest\":\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\"modelVersion\":\"synthetic:binary-roll-v1\",\"ruleVersion\":\"synthetic:rules-v1\",\"ledgerVersion\":\"synthetic:ledger-v1\",\"weightPolicy\":\"SYNTHETIC\",\"sourceUrl\":\"urn:synthetic:binary\",\"retrievedAt\":\"2026-10-10T00:00:00Z\",\"rawSha256\":\"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb\",\"detailsSha256\":\"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc\"}},\"goal\":{\"version\":1,\"catalogVersion\":\"synthetic:goals-v1\",\"general\":{\"baseItemId\":\"synthetic:base\",\"itemLevel\":{\"min\":1,\"max\":100},\"rarities\":[\"RARE\"]},\"groups\":[{\"id\":\"g1\",\"type\":\"AND\",\"disabled\":false,\"range\":null,\"entries\":[{\"id\":\"e1\",\"statId\":\"synthetic:explicit:value\",\"unit\":\"flat\",\"range\":{\"min\":1,\"max\":null},\"weight\":null,\"disabled\":false}]}]},\"activeOmens\":[],\"observations\":[\"100\",\"300\",\"500\"]}\n but was: {\"version\":1,\"clientRequestId\":\"synthetic:create-1\",\"start\":{\"item\":{\"snapshotId\":\"synthetic:snapshot-v1\",\"baseItemId\":\"synthetic:base\",\"itemLevel\":82,\"rarity\":\"RARE\",\"implicits\":[],\"explicits\":[{\"modifierId\":\"synthetic:stat\",\"values\":{\"synthetic:value\":0},\"fractured\":false,\"craft",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.PathSearchHttpTest",
+    "test": "strictInputRulesetAndDeletedReferencesKeepOriginalInput()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.PathSearchHttpTest.strictInputRulesetAndDeletedReferencesKeepOriginalInput",
+        "PathSearchHttpTest.java:44"
+      ]
+    ],
+    "currentMessage": "java.lang.AssertionError: JSON path \"$.code\" expected:<INVALID_ITEM> but was:<INVALID_REQUEST>",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.AssertionError: JSON path \"$.code\" expected:<INVALID_ITEM> but was:<INVALID_REQUEST>",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.application.PathSearchServiceTest",
+    "test": "solarOracleAndRealContinuationMatchWithoutLosingPhaseOrMass()",
+    "category": "environment_or_time_limit",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.application.PathSearchServiceTest.finish",
+        "PathSearchServiceTest.java:138"
+      ],
+      [
+        "com.poe2craft.craftingsupport.search.application.PathSearchServiceTest.solarOracleAndRealContinuationMatchWithoutLosingPhaseOrMass",
+        "PathSearchServiceTest.java:188"
+      ]
+    ],
+    "currentMessage": "java.util.concurrent.TimeoutException: solarOracleAndRealContinuationMatchWithoutLosingPhaseOrMass() timed out after 30 seconds",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.util.concurrent.TimeoutException: solarOracleAndRealContinuationMatchWithoutLosingPhaseOrMass() timed out after 30 seconds",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.domain.TerminalAdditionClassesTest",
+    "test": "restoresBudgetPauseThenEnlargesWithoutChangingAnyOutcome()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.domain.TerminalAdditionClassesTest.restoresBudgetPauseThenEnlargesWithoutChangingAnyOutcome",
+        "TerminalAdditionClassesTest.java:266"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.craftingsupport.search.domain.TerminalAdditionClassesTest",
+    "test": "restoresRunningRepresentativeAndAliasesWithoutDuplicatingExecution()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.search.domain.TerminalAdditionClassesTest.restoresRunningRepresentativeAndAliasesWithoutDuplicatingExecution",
+        "TerminalAdditionClassesTest.java:225"
+      ]
+    ],
+    "currentMessage": "java.lang.AssertionError: [checkpoint must contain an unfinished method on one node with several conditional inputs] \nExpecting actual not to be null",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.AssertionError: [checkpoint must contain an unfinished method on one node with several conditional inputs] \nExpecting actual not to be null",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticEquipmentTierLawTest",
+    "test": "ringTiersWithDifferentCreationEligibilityShareOneAttributeAndOneFutureState()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticEquipmentTierLawTest.ringTiersWithDifferentCreationEligibilityShareOneAttributeAndOneFutureState",
+        "AutomaticEquipmentTierLawTest.java:180"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticPreparationRulesTest",
+    "test": "chaosPreparationUsesExactlyOnePlainExaltOrRegalWithoutAssumingEqualProbabilities()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticPreparationRulesTest.chaosPreparationUsesExactlyOnePlainExaltOrRegalWithoutAssumingEqualProbabilities",
+        "AutomaticPreparationRulesTest.java:67"
+      ]
+    ],
+    "currentMessage": "java.lang.AssertionError: \nExpected size: 1 but was: 0 in:\n[]",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.AssertionError: \nExpected size: 1 but was: 0 in:\n[]",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "java.lang.AssertionError: \nExpected size: 1 but was: 0 in:\n[]"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticQualityWorkTest",
+    "test": "removingCapBeforeWorkIsUnresolvedButAfterWorkPreservesTheCheckpoint()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticQualityWorkTest.removingCapBeforeWorkIsUnresolvedButAfterWorkPreservesTheCheckpoint",
+        "AutomaticQualityWorkTest.java:103"
+      ]
+    ],
+    "currentMessage": "java.lang.AssertionError: \nExpecting Set12:\n  [\"Crafted modifier limit reached.\"]\nto contain:\n  [\"QUALITY_CAP_REMOVAL_BEFORE_40\"]\nbut could not find the following element(s):\n  [\"QUALITY_CAP_REMOVAL_BEFORE_40\"]\n",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.AssertionError: \nExpecting Set12:\n  [\"Crafted modifier limit reached.\"]\nto contain:\n  [\"QUALITY_CAP_REMOVAL_BEFORE_40\"]\nbut could not find the following element(s):\n  [\"QUALITY_CAP_REMOVAL_BEFORE_40\"]\n",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "test": "changingChaosFailuresUseTheirOwnLawFor100Attempts()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest.changingChaosFailuresUseTheirOwnLawFor100Attempts",
+        "AutomaticRefinementsTest.java:183"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "test": "routeStrategyUsesTheSameFinite100ChaosProbabilityWithoutAnUnlimitedRetryLoop()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest.routeStrategyUsesTheSameFinite100ChaosProbabilityWithoutAnUnlimitedRetryLoop",
+        "AutomaticRefinementsTest.java:122"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be false but was true",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be false but was true",
+    "original11c145aeStatus": "failed",
+    "original11c145aeMessage": "org.opentest4j.AssertionFailedError: \nExpecting value to be false but was true"
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticTierRenewalTest",
+    "test": "oneHundredFirstHitLawMatchesIndependentChangingStateMarkovOracle()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticTierRenewalTest.oneHundredFirstHitLawMatchesIndependentChangingStateMarkovOracle",
+        "AutomaticTierRenewalTest.java:113"
+      ]
+    ],
+    "currentMessage": "org.opentest4j.AssertionFailedError: \nexpected: COMPLETE\n but was: POLICY_REJECTED",
+    "baselineStatus": "failed",
+    "baselineMessage": "org.opentest4j.AssertionFailedError: \nexpected: COMPLETE\n but was: POLICY_REJECTED",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "integrationTest",
+    "class": "com.poe2craft.InfrastructureIntegrationTest",
+    "test": "emptyDatabaseMigratesAndRestartDoesNotReapplyMigration()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.InfrastructureIntegrationTest.emptyDatabaseMigratesAndRestartDoesNotReapplyMigration",
+        "InfrastructureIntegrationTest.java:104"
+      ]
+    ],
+    "currentMessage": "java.lang.AssertionError: \nExpected size: 4 but was: 11 in:\n[org.flywaydb.core.internal.info.MigrationInfoImpl@a1abf92b,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@dd8f3e56,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@c1e1cd1d,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@927501e,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@38e3fb4f,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@595c3c73,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@4c98d807,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@3631094b,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@7e1037ba,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@39d16221,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@9eedba5e]",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.AssertionError: \nExpected size: 4 but was: 11 in:\n[org.flywaydb.core.internal.info.MigrationInfoImpl@165056f8,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@293f63c1,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@a60b5d4,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@50e12455,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@886ebecd,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@d2a0fd42,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@d1964d71,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@b7460170,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@b4ed510,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@c2fdd1d7,\n    org.flywaydb.core.internal.info.MigrationInfoImpl@ef215456]",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  },
+  {
+    "task": "integrationTest",
+    "class": "com.poe2craft.craftingsupport.goal.api.GoalFilterIntegrationTest",
+    "test": "automaticRoutesPreserveGoalAndQualityContextAcrossCancelAndRecalculation()",
+    "category": "reproduced_at_c740b66f",
+    "methodLocation": [
+      [
+        "com.poe2craft.craftingsupport.goal.api.GoalFilterIntegrationTest.automaticRoutesPreserveGoalAndQualityContextAcrossCancelAndRecalculation",
+        "GoalFilterIntegrationTest.java:142"
+      ]
+    ],
+    "currentMessage": "java.lang.AssertionError: Status expected:<404> but was:<409>",
+    "baselineStatus": "failed",
+    "baselineMessage": "java.lang.AssertionError: Status expected:<404> but was:<409>",
+    "original11c145aeStatus": "not_rerun_in_this_round",
+    "original11c145aeMessage": null
+  }
+]

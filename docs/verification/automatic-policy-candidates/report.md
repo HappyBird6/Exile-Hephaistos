@@ -1,5 +1,7 @@
 # 제작지원 정책 후보 구현·검증 기록
 
+이 문서는 `c740b66f`까지의 최초 작업 기록이다. 이후 발견된 네 가지 문제의 수정, 전체 실패 분류와 새 성능 측정은 [후속 검토 보고서](../automatic-policy-review/report.md)를 따른다.
+
 ## 기준과 실제 실행 경로
 
 작업 시작 시 로컬 `work` 브랜치 HEAD는 `673510c7`, 작업 트리는 깨끗했다. 루트 AGENTS.md를 확인하고 원격 master를 fetch했다. `codex/automatic-policy-candidates` 전용 브랜치를 만든 뒤 원격 `11c145ae69cb005774f7fc1f08bb8d3584f5317a`로 fast-forward했다. 검토 기준 `2846ca4b`로 되돌리지 않았다.

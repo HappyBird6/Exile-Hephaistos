@@ -1,0 +1,10 @@
+[
+  {
+    "test": "twoLimitedCursorsDoNotBlockSmallMethodAndResumeWithoutDoubleCharging()",
+    "failure": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false"
+  },
+  {
+    "test": "partialAndCompleteUnpublishedBoundsEncloseFinalRarePolicyEvenWithKnownSuccessor()",
+    "failure": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false"
+  }
+]

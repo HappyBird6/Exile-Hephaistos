@@ -1,0 +1,10 @@
+// Diagnostic execution bounds, applied only by an explicit -I flag; assertions remain unchanged.
+allprojects {
+  tasks.withType(Test).configureEach {
+    forkEvery = 1
+    maxParallelForks = 2
+    systemProperty 'junit.jupiter.execution.timeout.default', '30 s'
+    systemProperty 'junit.jupiter.execution.timeout.thread.mode.default', 'SEPARATE_THREAD'
+    testLogging { events 'failed', 'skipped' }
+  }
+}

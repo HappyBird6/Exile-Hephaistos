@@ -1,0 +1,350 @@
+[
+  {
+    "stage": "full",
+    "commit": "before a0b0aff8 test-isolation fix",
+    "counts": {
+      "numTotalTests": 3513,
+      "numPassedTests": 3493,
+      "numFailedTests": 20,
+      "numPendingTests": 0
+    },
+    "observed": [
+      {
+        "file": "src/features/admin/OperationsLogs.test.tsx",
+        "test": "switches the selected current day at Korean midnight",
+        "status": "failed",
+        "message": "Error: Test timed out in 5000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n    at task (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2700:43)\n    at Object.<anonymous> (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2717:16)\n    at"
+      },
+      {
+        "file": "src/features/crafting/CraftSupport.test.tsx",
+        "test": "shows the starting workflow without developer policy, recovery or family comparison panels",
+        "status": "failed",
+        "message": "Error: Test timed out in 5000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n    at task (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2700:43)\n    at Object.<anonymous> (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2717:16)\n    at"
+      },
+      {
+        "file": "src/features/crafting/manualReveal.test.ts",
+        "test": "renders every manual roll at min/middle/max including fractional source units without changing stored values",
+        "status": "failed",
+        "message": "Error: Test timed out in 5000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n    at task (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2700:43)\n    at Object.<anonymous> (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2717:16)\n    at"
+      },
+      {
+        "file": "src/features/crafting/workbenchApplication.test.tsx",
+        "test": "applies to the chosen base in Workbench and preserves it after a rejected craft",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"spinbutton\" and name \"Item level\""
+      },
+      {
+        "file": "src/features/crafting/base-picker/JewelPlacement.test.tsx",
+        "test": "places a new NORMAL Sapphire with no suffix while preserving an old Magic film",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"dialog\""
+      },
+      {
+        "file": "src/features/crafting/base-picker/JewelPlacement.test.tsx",
+        "test": "places a new MAGIC Sapphire with no suffix while preserving an old Magic film",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"dialog\""
+      },
+      {
+        "file": "src/features/crafting/base-picker/JewelPlacement.test.tsx",
+        "test": "places a new RARE Sapphire with no suffix while preserving an old Magic film",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"dialog\""
+      },
+      {
+        "file": "src/features/crafting/feedback-tooltip/FeedbackTooltip.test.tsx",
+        "test": "preserves workspace inputs and keyboard focus without routing descriptions into a hidden manual panel",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"dialog\" and name \"Select base\""
+      },
+      {
+        "file": "src/features/crafting/goal-filter/CraftStart.test.tsx",
+        "test": "preserves settings after an unsupported search input without locking the start button",
+        "status": "failed",
+        "message": "Error: expect(element).toBeEnabled()"
+      },
+      {
+        "file": "src/features/crafting/goal-filter/statPresentation.test.ts",
+        "test": "finds every source description and affix name in all six languages: Stocky Mitts",
+        "status": "failed",
+        "message": "Error: Test timed out in 5000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n    at task (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2700:43)\n    at Object.<anonymous> (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2717:16)\n    at"
+      },
+      {
+        "file": "src/features/crafting/method-search/AutomaticMethodSearch.test.tsx",
+        "test": "keeps the old session and offers retry after network cancellation failure",
+        "status": "failed",
+        "message": "AssertionError: expected { request: 'synthetic:create-1', …(2) } to be null\n    at /workspace/Exile-Hephaistos/frontend/src/features/crafting/method-search/AutomaticMethodSearch.test.tsx:1157:7\n    at async file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2801:20"
+      },
+      {
+        "file": "src/features/crafting/method-search/AutomaticMethodSearch.test.tsx",
+        "test": "keeps the old session and offers retry after 500 cancellation failure",
+        "status": "failed",
+        "message": "AssertionError: expected { request: 'synthetic:create-1', …(2) } to be null\n    at /workspace/Exile-Hephaistos/frontend/src/features/crafting/method-search/AutomaticMethodSearch.test.tsx:1157:7\n    at async file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2801:20"
+      },
+      {
+        "file": "src/features/crafting/method-search/AutomaticMethodSearch.test.tsx",
+        "test": "keeps the old session and offers retry after conflicts cancellation failure",
+        "status": "failed",
+        "message": "AssertionError: expected { request: 'synthetic:create-1', …(2) } to be null\n    at /workspace/Exile-Hephaistos/frontend/src/features/crafting/method-search/AutomaticMethodSearch.test.tsx:1157:7\n    at async file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2801:20"
+      },
+      {
+        "file": "src/features/crafting/method-search/AutomaticMethodSearch.test.tsx",
+        "test": "uses the explicit enabled default only when creating a new flow",
+        "status": "failed",
+        "message": "AssertionError: expected \"create\" to be called with arguments: [ Array(5) ]"
+      },
+      {
+        "file": "src/features/crafting/stash/StashBaseSelection.test.tsx",
+        "test": "shows all before explicit selection and filters the selected/restored base without erasing favorites",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"dialog\" and name \"Select base\""
+      },
+      {
+        "file": "src/features/crafting/stash/WorkbenchLayout.test.tsx",
+        "test": "retains the size-containment and internal overflow contract across real large catalogs, filtering and tab changes",
+        "status": "failed",
+        "message": "Error: Test timed out in 5000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n    at task (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2700:43)\n    at Object.<anonymous> (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2717:16)\n    at"
+      },
+      {
+        "file": "src/features/crafting/stash/WorkbenchLayout.test.tsx",
+        "test": "shares stash scroll styling with the actual base, History and Favorites scroll surfaces",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"dialog\""
+      },
+      {
+        "file": "src/features/crafting/stash/WorkbenchLayout.test.tsx",
+        "test": "positions the remaining base menu from the work area and restores focus to its opener",
+        "status": "failed",
+        "message": "Error: Test timed out in 5000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n    at task (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2700:43)\n    at Object.<anonymous> (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2717:16)\n    at"
+      },
+      {
+        "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatBatchPage.test.tsx",
+        "test": "locks mutations synchronously, retains the selected tooltip and animates only during the request",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"spinbutton\" and name \"Item level\""
+      },
+      {
+        "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatBatchPage.test.tsx",
+        "test": "locks the saved-session editor and rejects forced submit while a batch is pending",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"button\" and name `/^Rename:/`"
+      }
+    ]
+  },
+  {
+    "stage": "isolated",
+    "commit": "a0b0aff8",
+    "counts": {
+      "numTotalTests": 164,
+      "numPassedTests": 15,
+      "numFailedTests": 5,
+      "numPendingTests": 144
+    },
+    "observed": [
+      {
+        "file": "src/features/admin/OperationsLogs.test.tsx",
+        "test": "switches the selected current day at Korean midnight",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/CraftSupport.test.tsx",
+        "test": "shows the starting workflow without developer policy, recovery or family comparison panels",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/manualReveal.test.ts",
+        "test": "renders every manual roll at min/middle/max including fractional source units without changing stored values",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/workbenchApplication.test.tsx",
+        "test": "applies to the chosen base in Workbench and preserves it after a rejected craft",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/base-picker/JewelPlacement.test.tsx",
+        "test": "places a new NORMAL Sapphire with no suffix while preserving an old Magic film",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/base-picker/JewelPlacement.test.tsx",
+        "test": "places a new MAGIC Sapphire with no suffix while preserving an old Magic film",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/base-picker/JewelPlacement.test.tsx",
+        "test": "places a new RARE Sapphire with no suffix while preserving an old Magic film",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/feedback-tooltip/FeedbackTooltip.test.tsx",
+        "test": "preserves workspace inputs and keyboard focus without routing descriptions into a hidden manual panel",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"dialog\" and name \"Select base\""
+      },
+      {
+        "file": "src/features/crafting/goal-filter/CraftStart.test.tsx",
+        "test": "preserves settings after an unsupported search input without locking the start button",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/goal-filter/statPresentation.test.ts",
+        "test": "finds every source description and affix name in all six languages: Stocky Mitts",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/method-search/AutomaticMethodSearch.test.tsx",
+        "test": "keeps the old session and offers retry after network cancellation failure",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/method-search/AutomaticMethodSearch.test.tsx",
+        "test": "keeps the old session and offers retry after 500 cancellation failure",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/method-search/AutomaticMethodSearch.test.tsx",
+        "test": "keeps the old session and offers retry after conflicts cancellation failure",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/method-search/AutomaticMethodSearch.test.tsx",
+        "test": "uses the explicit enabled default only when creating a new flow",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/stash/StashBaseSelection.test.tsx",
+        "test": "shows all before explicit selection and filters the selected/restored base without erasing favorites",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"dialog\" and name \"Select base\""
+      },
+      {
+        "file": "src/features/crafting/stash/WorkbenchLayout.test.tsx",
+        "test": "retains the size-containment and internal overflow contract across real large catalogs, filtering and tab changes",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/stash/WorkbenchLayout.test.tsx",
+        "test": "shares stash scroll styling with the actual base, History and Favorites scroll surfaces",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/stash/WorkbenchLayout.test.tsx",
+        "test": "positions the remaining base menu from the work area and restores focus to its opener",
+        "status": "failed",
+        "message": "Error: Test timed out in 5000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n    at task (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2700:43)\n    at Object.<anonymous> (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2717:16)\n    at"
+      },
+      {
+        "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatBatchPage.test.tsx",
+        "test": "locks mutations synchronously, retains the selected tooltip and animates only during the request",
+        "status": "failed",
+        "message": "Error: Test timed out in 5000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n    at task (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2700:43)\n    at Object.<anonymous> (file:///workspace/Exile-Hephaistos/frontend/node_modules/vitest/dist/chunks/run.CjdgFZiW.js:2717:16)\n    at"
+      },
+      {
+        "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatBatchPage.test.tsx",
+        "test": "locks the saved-session editor and rejects forced submit while a batch is pending",
+        "status": "failed",
+        "message": "Error: Unable to find role=\"button\" and name `/^Rename:/`"
+      }
+    ]
+  },
+  {
+    "stage": "baseline",
+    "commit": "c740b66f",
+    "counts": {
+      "numTotalTests": 87,
+      "numPassedTests": 5,
+      "numFailedTests": 0,
+      "numPendingTests": 82
+    },
+    "observed": [
+      {
+        "file": "src/features/crafting/feedback-tooltip/FeedbackTooltip.test.tsx",
+        "test": "preserves workspace inputs and keyboard focus without routing descriptions into a hidden manual panel",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/stash/StashBaseSelection.test.tsx",
+        "test": "shows all before explicit selection and filters the selected/restored base without erasing favorites",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/stash/WorkbenchLayout.test.tsx",
+        "test": "positions the remaining base menu from the work area and restores focus to its opener",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatBatchPage.test.tsx",
+        "test": "locks mutations synchronously, retains the selected tooltip and animates only during the request",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatBatchPage.test.tsx",
+        "test": "locks the saved-session editor and rejects forced submit while a batch is pending",
+        "status": "passed",
+        "message": null
+      }
+    ]
+  },
+  {
+    "stage": "final-retry",
+    "commit": "a0b0aff8",
+    "counts": {
+      "numTotalTests": 87,
+      "numPassedTests": 5,
+      "numFailedTests": 0,
+      "numPendingTests": 82
+    },
+    "observed": [
+      {
+        "file": "src/features/crafting/feedback-tooltip/FeedbackTooltip.test.tsx",
+        "test": "preserves workspace inputs and keyboard focus without routing descriptions into a hidden manual panel",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/stash/StashBaseSelection.test.tsx",
+        "test": "shows all before explicit selection and filters the selected/restored base without erasing favorites",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/stash/WorkbenchLayout.test.tsx",
+        "test": "positions the remaining base menu from the work area and restores focus to its opener",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatBatchPage.test.tsx",
+        "test": "locks mutations synchronously, retains the selected tooltip and animates only during the request",
+        "status": "passed",
+        "message": null
+      },
+      {
+        "file": "src/features/crafting/chaos-repeat/integration/ChaosRepeatBatchPage.test.tsx",
+        "test": "locks the saved-session editor and rejects forced submit while a batch is pending",
+        "status": "passed",
+        "message": null
+      }
+    ]
+  }
+]

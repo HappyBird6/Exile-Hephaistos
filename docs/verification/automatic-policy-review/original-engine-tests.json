@@ -1,0 +1,162 @@
+[
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticEquipmentTierLawTest",
+    "name": "ringTiersWithDifferentCreationEligibilityShareOneAttributeAndOneFutureState()",
+    "status": "failed",
+    "seconds": 3.241,
+    "errorType": "org.opentest4j.AssertionFailedError",
+    "message": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "locations": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticEquipmentTierLawTest.ringTiersWithDifferentCreationEligibilityShareOneAttributeAndOneFutureState",
+        "AutomaticEquipmentTierLawTest.java:180"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticPreparationRulesTest",
+    "name": "certainCompletedRegalGoalDoesNotPayForAnOmenWithDifferentUnconstrainedJunk()",
+    "status": "passed",
+    "seconds": 0.078,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticPreparationRulesTest",
+    "name": "normalAmuletHasAnExactTransmutationThenRegalPathToRare()",
+    "status": "passed",
+    "seconds": 0.119,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticPreparationRulesTest",
+    "name": "chaosPreparationUsesExactlyOnePlainExaltOrRegalWithoutAssumingEqualProbabilities()",
+    "status": "failed",
+    "seconds": 0.075,
+    "errorType": "java.lang.AssertionError",
+    "message": "java.lang.AssertionError: \nExpected size: 1 but was: 0 in:\n[]",
+    "locations": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticPreparationRulesTest.chaosPreparationUsesExactlyOnePlainExaltOrRegalWithoutAssumingEqualProbabilities",
+        "AutomaticPreparationRulesTest.java:67"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticPreparationRulesTest",
+    "name": "goalRegalUsesTheHelpfulSuffixOmen()",
+    "status": "passed",
+    "seconds": 0.052,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticPreparationRulesTest",
+    "name": "identicalRegalLawKeepsOnlyPlainRegal()",
+    "status": "passed",
+    "seconds": 0.005,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "name": "changingChaosFailuresUseTheirOwnLawFor100Attempts()",
+    "status": "failed",
+    "seconds": 0.139,
+    "errorType": "org.opentest4j.AssertionFailedError",
+    "message": "org.opentest4j.AssertionFailedError: \nExpecting value to be true but was false",
+    "locations": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest.changingChaosFailuresUseTheirOwnLawFor100Attempts",
+        "AutomaticRefinementsTest.java:183"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "name": "incomparablePrefixAndSuffixGoalsKeepBothOmenRoutesAndOrdinaryLaw()",
+    "status": "passed",
+    "seconds": 0.017,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "name": "currentPolicyDefersThreeOmensWithoutRemovingManualDefinitions()",
+    "status": "passed",
+    "seconds": 0.027,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "name": "routeStrategyUsesTheSameFinite100ChaosProbabilityWithoutAnUnlimitedRetryLoop()",
+    "status": "failed",
+    "seconds": 0.541,
+    "errorType": "org.opentest4j.AssertionFailedError",
+    "message": "org.opentest4j.AssertionFailedError: \nExpecting value to be false but was true",
+    "locations": [
+      [
+        "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest.routeStrategyUsesTheSameFinite100ChaosProbabilityWithoutAnUnlimitedRetryLoop",
+        "AutomaticRefinementsTest.java:122"
+      ]
+    ]
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "name": "chaosFirstHitWithin100IncludesEveryFailureAndRestores()",
+    "status": "passed",
+    "seconds": 0.319,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "name": "firstPlainExaltKeepsExactLuckyGoalProbability()",
+    "status": "passed",
+    "seconds": 0.016,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "name": "fullSuffixSlotsKeepPlainExaltAndDoNotDropTarget()",
+    "status": "passed",
+    "seconds": 0.016,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  },
+  {
+    "task": "test",
+    "class": "com.poe2craft.shared.crafting.domain.AutomaticRefinementsTest",
+    "name": "fullPrefixSlotsKeepPlainExaltAndDoNotDropSuffixTarget()",
+    "status": "passed",
+    "seconds": 0.026,
+    "errorType": null,
+    "message": null,
+    "locations": []
+  }
+]
