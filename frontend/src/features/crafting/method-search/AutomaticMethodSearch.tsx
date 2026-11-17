@@ -3,6 +3,7 @@ import { policyCandidateMessages } from './policyCandidateMessages'
 import {
   isRareOutcomePolicy,
   defaultRareOutcomePolicy,
+  disabledRareOutcomePolicy,
   type RareOutcomePolicy,
 } from './policyCandidates'
 import { noPlan, planningNotes } from './planningNotes'
@@ -372,6 +373,12 @@ function Run({
             route: saved?.route ?? [],
           }),
         )
+        if (job)
+          changeFlow((old) => ({
+            ...old,
+            rareOutcomePolicy:
+              next.rareOutcomePolicy ?? disabledRareOutcomePolicy,
+          }))
         accept(next)
       } catch (error) {
         if (

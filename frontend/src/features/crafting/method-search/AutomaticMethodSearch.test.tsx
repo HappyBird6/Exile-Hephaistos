@@ -1229,3 +1229,102 @@ it('uses the explicit enabled default only when creating a new flow', async () =
     ),
   )
 })
+
+it('persists the restored server policy when only a run pointer survives', async () => {
+  setLocale('en')
+  const request = requestFixture()
+  const { disabledRareOutcomePolicy, defaultRareOutcomePolicy } =
+    await import('./policyCandidates')
+  saveSupport('session-policy-preference', defaultRareOutcomePolicy)
+  saveSupport('run', {
+    request: request.clientRequestId,
+    job: id,
+    selected: 0,
+    cycles: 100,
+    route: [],
+  })
+  const { initialFixture } =
+    await import('../../../shared/test/craftingFixtures')
+  const craftingApi = await import('../craftingApi')
+  vi.spyOn(craftingApi, 'loadInitial').mockResolvedValue({
+    ...initialFixture,
+    rulesetIdentity: request.start.provenance.rulesetIdentity,
+  })
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(
+      async (_url, init) =>
+        new Response(JSON.stringify(JSON.parse(String(init?.body)).state), {
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+          },
+        }),
+    ),
+  )
+  const restored = initial()
+  restored.nodes[0]!.item = {
+    ...request.start.item,
+    rarity: 'RARE',
+    explicits: [{ modifierId: 'p', values: { life: 15 }, fractured: false }],
+    desecrated: [{ id: 'observed', side: 'PREFIX', modifierId: 'p' }],
+  }
+  vi.spyOn(automaticApi, 'get').mockResolvedValue({
+    ...restored,
+    status: 'PARTIAL',
+    rareOutcomePolicy: disabledRareOutcomePolicy,
+  })
+  vi.spyOn(automaticApi, 'create').mockResolvedValue({
+    ...initial(),
+    status: 'PARTIAL',
+    rareOutcomePolicy: disabledRareOutcomePolicy,
+  })
+  render(
+    <AutomaticMethodSearch
+      request={request}
+      inputGeneration={1}
+      presentItem={present}
+      onRecalculate={() => {}}
+    />,
+  )
+  await waitFor(() =>
+    expect(
+      readSupport(
+        'crafting-flow:' + request.clientRequestId,
+        (value): value is { rareOutcomePolicy: unknown } => !!value,
+      )?.rareOutcomePolicy,
+    ).toEqual(disabledRareOutcomePolicy),
+  )
+  expect(automaticApi.create).not.toHaveBeenCalled()
+  fireEvent.click(
+    await screen.findByRole('button', {
+      name: 'Continue crafting search from this item',
+    }),
+  )
+  await waitFor(() =>
+    expect(automaticApi.create).toHaveBeenCalledWith(
+      expect.objectContaining({
+        start: expect.objectContaining({
+          item: expect.objectContaining({
+            explicits: [
+              { modifierId: 'p', values: { life: 15 }, fractured: false },
+            ],
+          }),
+        }),
+      }),
+      expect.anything(),
+      false,
+      0,
+      disabledRareOutcomePolicy,
+    ),
+  )
+  expect(
+    vi.mocked(automaticApi.create).mock.calls[0]![0].clientRequestId,
+  ).not.toBe(request.clientRequestId)
+  expect(
+    readSupport(
+      'session-policy-preference',
+      (value): value is unknown => !!value,
+    ),
+  ).toEqual(defaultRareOutcomePolicy)
+})
