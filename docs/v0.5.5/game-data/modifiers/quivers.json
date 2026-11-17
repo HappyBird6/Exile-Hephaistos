@@ -1,934 +1,899 @@
 {
-  "definitions": {
-    "blunt-quiver:implicit:base": {
-      "id": "blunt-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "StunDamageIncrease"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "hit_damage_stun_multiplier_+%",
-          "min": 25,
-          "max": 40
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0469"
-    },
-    "broadhead-quiver:implicit:base": {
-      "id": "broadhead-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "attack_maximum_added_physical_damage",
-          "min": 3,
-          "max": 3
-        },
-        {
-          "id": "attack_minimum_added_physical_damage",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src0471"
-    },
-    "fire-quiver:implicit:base": {
-      "id": "fire-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "attack_maximum_added_fire_damage",
-          "min": 5,
-          "max": 5
-        },
-        {
-          "id": "attack_minimum_added_fire_damage",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src0877"
-    },
-    "penetrating-quiver:implicit:base": {
-      "id": "penetrating-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "ChanceToPierce"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_chance_to_pierce_%",
-          "min": 100,
-          "max": 100
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1138"
-    },
-    "primed-quiver:implicit:base": {
-      "id": "primed-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "IncreasedAttackSpeed"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "attack_speed_+%",
-          "min": 7,
-          "max": 10
-        }
-      ],
-      "tags": [
-        "attack",
-        "speed"
-      ],
-      "sourceRef": "src1163"
-    },
-    "quiver:prefix:acute:DamageWithBows1": {
-      "id": "quiver:prefix:acute:DamageWithBows1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "DamageWithWeaponTypeSkill"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "damage_+%_with_bow_skills",
-          "min": 11,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1165"
-    },
-    "quiver:prefix:brisk:ProjectileSpeed2": {
-      "id": "quiver:prefix:brisk:ProjectileSpeed2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileSpeed"
-      ],
-      "requiredItemLevel": 27,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "base_projectile_speed_+%",
-          "min": 18,
-          "max": 25
-        }
-      ],
-      "tags": [
-        "speed"
-      ],
-      "sourceRef": "src1166"
-    },
-    "quiver:prefix:darting:ProjectileSpeed1": {
-      "id": "quiver:prefix:darting:ProjectileSpeed1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileSpeed"
-      ],
-      "requiredItemLevel": 14,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "base_projectile_speed_+%",
-          "min": 10,
-          "max": 17
-        }
-      ],
-      "tags": [
-        "speed"
-      ],
-      "sourceRef": "src1167"
-    },
-    "quiver:prefix:impaling:DamageWithBows6": {
-      "id": "quiver:prefix:impaling:DamageWithBows6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "DamageWithWeaponTypeSkill"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 500,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "damage_+%_with_bow_skills",
-          "min": 51,
-          "max": 59
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1168"
-    },
-    "quiver:prefix:incisive:DamageWithBows4": {
-      "id": "quiver:prefix:incisive:DamageWithBows4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "DamageWithWeaponTypeSkill"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "damage_+%_with_bow_skills",
-          "min": 37,
-          "max": 42
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1169"
-    },
-    "quiver:prefix:lacerating:DamageWithBows5": {
-      "id": "quiver:prefix:lacerating:DamageWithBows5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "DamageWithWeaponTypeSkill"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "damage_+%_with_bow_skills",
-          "min": 43,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1170"
-    },
-    "quiver:prefix:nimble:ProjectileSpeed5": {
-      "id": "quiver:prefix:nimble:ProjectileSpeed5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileSpeed"
-      ],
-      "requiredItemLevel": 82,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_projectile_speed_+%",
-          "min": 42,
-          "max": 46
-        }
-      ],
-      "tags": [
-        "speed"
-      ],
-      "sourceRef": "src1171"
-    },
-    "quiver:prefix:perforating:DamageWithBows3": {
-      "id": "quiver:prefix:perforating:DamageWithBows3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "DamageWithWeaponTypeSkill"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "damage_+%_with_bow_skills",
-          "min": 31,
-          "max": 36
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1172"
-    },
-    "quiver:prefix:quick:ProjectileSpeed3": {
-      "id": "quiver:prefix:quick:ProjectileSpeed3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileSpeed"
-      ],
-      "requiredItemLevel": 41,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "base_projectile_speed_+%",
-          "min": 26,
-          "max": 33
-        }
-      ],
-      "tags": [
-        "speed"
-      ],
-      "sourceRef": "src1173"
-    },
-    "quiver:prefix:rapid:ProjectileSpeed4": {
-      "id": "quiver:prefix:rapid:ProjectileSpeed4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileSpeed"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "base_projectile_speed_+%",
-          "min": 34,
-          "max": 41
-        }
-      ],
-      "tags": [
-        "speed"
-      ],
-      "sourceRef": "src1174"
-    },
-    "quiver:prefix:trenchant:DamageWithBows2": {
-      "id": "quiver:prefix:trenchant:DamageWithBows2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "DamageWithWeaponTypeSkill"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "damage_+%_with_bow_skills",
-          "min": 21,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1175"
-    },
-    "quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
-      "id": "quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 21,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "attack_critical_strike_multiplier_+",
-          "min": 15,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "damage",
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1176"
-    },
-    "quiver:suffix:of-calamity:AttackCriticalStrikeChance4": {
-      "id": "quiver:suffix:of-calamity:AttackCriticalStrikeChance4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 44,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "attack_critical_strike_chance_+%",
-          "min": 25,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1177"
-    },
-    "quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6": {
-      "id": "quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 74,
-      "weight": 125,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "attack_critical_strike_multiplier_+",
-          "min": 35,
-          "max": 39
-        }
-      ],
-      "tags": [
-        "damage",
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1178"
-    },
-    "quiver:suffix:of-disaster:AttackCriticalStrikeChance3": {
-      "id": "quiver:suffix:of-disaster:AttackCriticalStrikeChance3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 30,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "attack_critical_strike_chance_+%",
-          "min": 20,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1179"
-    },
-    "quiver:suffix:of-drilling:ArrowPierceChance2": {
-      "id": "quiver:suffix:of-drilling:ArrowPierceChance2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChanceToPierce"
-      ],
-      "requiredItemLevel": 26,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "base_chance_to_pierce_%",
-          "min": 15,
-          "max": 17
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1180"
-    },
-    "quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5": {
-      "id": "quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 59,
-      "weight": 250,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "attack_critical_strike_multiplier_+",
-          "min": 30,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "damage",
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1181"
-    },
-    "quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4": {
-      "id": "quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "attack_critical_strike_multiplier_+",
-          "min": 25,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "damage",
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1182"
-    },
-    "quiver:suffix:of-havoc:AttackCriticalStrikeChance2": {
-      "id": "quiver:suffix:of-havoc:AttackCriticalStrikeChance2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 20,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "attack_critical_strike_chance_+%",
-          "min": 15,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1183"
-    },
-    "quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1": {
-      "id": "quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "attack_critical_strike_multiplier_+",
-          "min": 10,
-          "max": 14
-        }
-      ],
-      "tags": [
-        "damage",
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1184"
-    },
-    "quiver:suffix:of-menace:AttackCriticalStrikeChance1": {
-      "id": "quiver:suffix:of-menace:AttackCriticalStrikeChance1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "attack_critical_strike_chance_+%",
-          "min": 10,
-          "max": 14
-        }
-      ],
-      "tags": [
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1185"
-    },
-    "quiver:suffix:of-penetrating:ArrowPierceChance5": {
-      "id": "quiver:suffix:of-penetrating:ArrowPierceChance5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChanceToPierce"
-      ],
-      "requiredItemLevel": 77,
-      "weight": 500,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_chance_to_pierce_%",
-          "min": 24,
-          "max": 26
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1186"
-    },
-    "quiver:suffix:of-piercing:ArrowPierceChance1": {
-      "id": "quiver:suffix:of-piercing:ArrowPierceChance1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChanceToPierce"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "base_chance_to_pierce_%",
-          "min": 12,
-          "max": 14
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1187"
-    },
-    "quiver:suffix:of-puncturing:ArrowPierceChance3": {
-      "id": "quiver:suffix:of-puncturing:ArrowPierceChance3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChanceToPierce"
-      ],
-      "requiredItemLevel": 44,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "base_chance_to_pierce_%",
-          "min": 18,
-          "max": 20
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1188"
-    },
-    "quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3": {
-      "id": "quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 31,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "attack_critical_strike_multiplier_+",
-          "min": 20,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "damage",
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1189"
-    },
-    "quiver:suffix:of-ruin:AttackCriticalStrikeChance5": {
-      "id": "quiver:suffix:of-ruin:AttackCriticalStrikeChance5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 58,
-      "weight": 250,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "attack_critical_strike_chance_+%",
-          "min": 30,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1190"
-    },
-    "quiver:suffix:of-skewering:ArrowPierceChance4": {
-      "id": "quiver:suffix:of-skewering:ArrowPierceChance4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChanceToPierce"
-      ],
-      "requiredItemLevel": 61,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "base_chance_to_pierce_%",
-          "min": 21,
-          "max": 23
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1191"
-    },
-    "quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2": {
-      "id": "quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalArrows"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 1,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
-          "min": 41,
-          "max": 60
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src1192"
-    },
-    "quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1": {
-      "id": "quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalArrows"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 1,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
-          "min": 25,
-          "max": 40
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src1193"
-    },
-    "quiver:suffix:of-unmaking:AttackCriticalStrikeChance6": {
-      "id": "quiver:suffix:of-unmaking:AttackCriticalStrikeChance6",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 72,
-      "weight": 125,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "attack_critical_strike_chance_+%",
-          "min": 35,
-          "max": 38
-        }
-      ],
-      "tags": [
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1194"
-    },
-    "sacral-quiver:implicit:base": {
-      "id": "sacral-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "LifeGainPerTarget"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_life_gain_per_target",
-          "min": 2,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "life",
-        "attack"
-      ],
-      "sourceRef": "src1469"
-    },
-    "serrated-quiver:implicit:base": {
-      "id": "serrated-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "ChanceToBleed"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "bleed_on_hit_with_attacks_%",
-          "min": 20,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "physical",
-        "attack",
-        "ailment"
-      ],
-      "sourceRef": "src1479"
-    },
-    "toxic-quiver:implicit:base": {
-      "id": "toxic-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "ChanceToPoisonWithAttacks"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "chance_to_poison_on_hit_with_attacks_%",
-          "min": 20,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "chaos",
-        "attack",
-        "ailment"
-      ],
-      "sourceRef": "src1893"
-    },
-    "two-point-quiver:implicit:base": {
-      "id": "two-point-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "IncreasedAccuracyPercent"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "accuracy_rating_+%",
-          "min": 20,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src1899"
-    },
-    "visceral-quiver:implicit:base": {
-      "id": "visceral-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "attack_critical_strike_chance_+%",
-          "min": 20,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1915"
-    },
-    "volant-quiver:implicit:base": {
-      "id": "volant-quiver:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "ArrowSpeed"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_arrow_speed_+%",
-          "min": 20,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "attack",
-        "speed"
-      ],
-      "sourceRef": "src1917"
+  "schemaVersion": 1,
+  "implicit": {
+    "definitions": {
+      "blunt-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "StunDamageIncrease"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "hit_damage_stun_multiplier_+%",
+            "min": 25,
+            "max": 40
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src0469"
+      },
+      "broadhead-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "PhysicalDamage"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "attack_maximum_added_physical_damage",
+            "min": 3,
+            "max": 3
+          },
+          {
+            "id": "attack_minimum_added_physical_damage",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "sourceRef": "src0471"
+      },
+      "fire-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "attack_maximum_added_fire_damage",
+            "min": 5,
+            "max": 5
+          },
+          {
+            "id": "attack_minimum_added_fire_damage",
+            "min": 3,
+            "max": 3
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "sourceRef": "src0877"
+      },
+      "penetrating-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "ChanceToPierce"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 100,
+            "max": 100
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src1138"
+      },
+      "primed-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "IncreasedAttackSpeed"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "attack_speed_+%",
+            "min": 7,
+            "max": 10
+          }
+        ],
+        "tags": [
+          "attack",
+          "speed"
+        ],
+        "sourceRef": "src1163"
+      },
+      "sacral-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "LifeGainPerTarget"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_life_gain_per_target",
+            "min": 2,
+            "max": 3
+          }
+        ],
+        "tags": [
+          "life",
+          "attack"
+        ],
+        "sourceRef": "src1469"
+      },
+      "serrated-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "ChanceToBleed"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "bleed_on_hit_with_attacks_%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "physical",
+          "attack",
+          "ailment"
+        ],
+        "sourceRef": "src1479"
+      },
+      "toxic-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "ChanceToPoisonWithAttacks"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "chance_to_poison_on_hit_with_attacks_%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "chaos",
+          "attack",
+          "ailment"
+        ],
+        "sourceRef": "src1893"
+      },
+      "two-point-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "IncreasedAccuracyPercent"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "accuracy_rating_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "attack"
+        ],
+        "sourceRef": "src1899"
+      },
+      "visceral-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "attack_critical_strike_chance_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1915"
+      },
+      "volant-quiver:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "ArrowSpeed"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_arrow_speed_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "attack",
+          "speed"
+        ],
+        "sourceRef": "src1917"
+      }
     }
   },
-  "variants": {}
+  "normal": {
+    "definitions": {
+      "quiver:prefix:acute:DamageWithBows1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "damage_+%_with_bow_skills",
+            "min": 11,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "damage"
+        ],
+        "sourceRef": "src1165"
+      },
+      "quiver:prefix:brisk:ProjectileSpeed2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileSpeed"
+        ],
+        "requiredItemLevel": 27,
+        "weight": 1000,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "base_projectile_speed_+%",
+            "min": 18,
+            "max": 25
+          }
+        ],
+        "tags": [
+          "speed"
+        ],
+        "sourceRef": "src1166"
+      },
+      "quiver:prefix:darting:ProjectileSpeed1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileSpeed"
+        ],
+        "requiredItemLevel": 14,
+        "weight": 1000,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "base_projectile_speed_+%",
+            "min": 10,
+            "max": 17
+          }
+        ],
+        "tags": [
+          "speed"
+        ],
+        "sourceRef": "src1167"
+      },
+      "quiver:prefix:impaling:DamageWithBows6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 500,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "damage_+%_with_bow_skills",
+            "min": 51,
+            "max": 59
+          }
+        ],
+        "tags": [
+          "damage"
+        ],
+        "sourceRef": "src1168"
+      },
+      "quiver:prefix:incisive:DamageWithBows4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "damage_+%_with_bow_skills",
+            "min": 37,
+            "max": 42
+          }
+        ],
+        "tags": [
+          "damage"
+        ],
+        "sourceRef": "src1169"
+      },
+      "quiver:prefix:lacerating:DamageWithBows5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 500,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "damage_+%_with_bow_skills",
+            "min": 43,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "damage"
+        ],
+        "sourceRef": "src1170"
+      },
+      "quiver:prefix:nimble:ProjectileSpeed5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileSpeed"
+        ],
+        "requiredItemLevel": 82,
+        "weight": 1000,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "base_projectile_speed_+%",
+            "min": 42,
+            "max": 46
+          }
+        ],
+        "tags": [
+          "speed"
+        ],
+        "sourceRef": "src1171"
+      },
+      "quiver:prefix:perforating:DamageWithBows3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "damage_+%_with_bow_skills",
+            "min": 31,
+            "max": 36
+          }
+        ],
+        "tags": [
+          "damage"
+        ],
+        "sourceRef": "src1172"
+      },
+      "quiver:prefix:quick:ProjectileSpeed3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileSpeed"
+        ],
+        "requiredItemLevel": 41,
+        "weight": 1000,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "base_projectile_speed_+%",
+            "min": 26,
+            "max": 33
+          }
+        ],
+        "tags": [
+          "speed"
+        ],
+        "sourceRef": "src1173"
+      },
+      "quiver:prefix:rapid:ProjectileSpeed4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileSpeed"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 1000,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "base_projectile_speed_+%",
+            "min": 34,
+            "max": 41
+          }
+        ],
+        "tags": [
+          "speed"
+        ],
+        "sourceRef": "src1174"
+      },
+      "quiver:prefix:trenchant:DamageWithBows2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "DamageWithWeaponTypeSkill"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "damage_+%_with_bow_skills",
+            "min": 21,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "damage"
+        ],
+        "sourceRef": "src1175"
+      },
+      "quiver:suffix:of-anger:AttackCriticalStrikeMultiplier2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 21,
+        "weight": 1000,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "attack_critical_strike_multiplier_+",
+            "min": 15,
+            "max": 19
+          }
+        ],
+        "tags": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1176"
+      },
+      "quiver:suffix:of-calamity:AttackCriticalStrikeChance4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 44,
+        "weight": 500,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "attack_critical_strike_chance_+%",
+            "min": 25,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1177"
+      },
+      "quiver:suffix:of-destruction:AttackCriticalStrikeMultiplier6": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 74,
+        "weight": 125,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "attack_critical_strike_multiplier_+",
+            "min": 35,
+            "max": 39
+          }
+        ],
+        "tags": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1178"
+      },
+      "quiver:suffix:of-disaster:AttackCriticalStrikeChance3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 30,
+        "weight": 1000,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "attack_critical_strike_chance_+%",
+            "min": 20,
+            "max": 24
+          }
+        ],
+        "tags": [
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1179"
+      },
+      "quiver:suffix:of-drilling:ArrowPierceChance2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChanceToPierce"
+        ],
+        "requiredItemLevel": 26,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 15,
+            "max": 17
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src1180"
+      },
+      "quiver:suffix:of-ferocity:AttackCriticalStrikeMultiplier5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 59,
+        "weight": 250,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "attack_critical_strike_multiplier_+",
+            "min": 30,
+            "max": 34
+          }
+        ],
+        "tags": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1181"
+      },
+      "quiver:suffix:of-fury:AttackCriticalStrikeMultiplier4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 500,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "attack_critical_strike_multiplier_+",
+            "min": 25,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1182"
+      },
+      "quiver:suffix:of-havoc:AttackCriticalStrikeChance2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 20,
+        "weight": 1000,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "attack_critical_strike_chance_+%",
+            "min": 15,
+            "max": 19
+          }
+        ],
+        "tags": [
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1183"
+      },
+      "quiver:suffix:of-ire:AttackCriticalStrikeMultiplier1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 8,
+        "weight": 1000,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "attack_critical_strike_multiplier_+",
+            "min": 10,
+            "max": 14
+          }
+        ],
+        "tags": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1184"
+      },
+      "quiver:suffix:of-menace:AttackCriticalStrikeChance1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 5,
+        "weight": 1000,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "attack_critical_strike_chance_+%",
+            "min": 10,
+            "max": 14
+          }
+        ],
+        "tags": [
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1185"
+      },
+      "quiver:suffix:of-penetrating:ArrowPierceChance5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChanceToPierce"
+        ],
+        "requiredItemLevel": 77,
+        "weight": 500,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 24,
+            "max": 26
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src1186"
+      },
+      "quiver:suffix:of-piercing:ArrowPierceChance1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChanceToPierce"
+        ],
+        "requiredItemLevel": 11,
+        "weight": 500,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 12,
+            "max": 14
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src1187"
+      },
+      "quiver:suffix:of-puncturing:ArrowPierceChance3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChanceToPierce"
+        ],
+        "requiredItemLevel": 44,
+        "weight": 500,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 18,
+            "max": 20
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src1188"
+      },
+      "quiver:suffix:of-rage:AttackCriticalStrikeMultiplier3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 31,
+        "weight": 1000,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "attack_critical_strike_multiplier_+",
+            "min": 20,
+            "max": 24
+          }
+        ],
+        "tags": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1189"
+      },
+      "quiver:suffix:of-ruin:AttackCriticalStrikeChance5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 58,
+        "weight": 250,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "attack_critical_strike_chance_+%",
+            "min": 30,
+            "max": 34
+          }
+        ],
+        "tags": [
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1190"
+      },
+      "quiver:suffix:of-skewering:ArrowPierceChance4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChanceToPierce"
+        ],
+        "requiredItemLevel": 61,
+        "weight": 500,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 21,
+            "max": 23
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src1191"
+      },
+      "quiver:suffix:of-splintering:AdditionalArrowChanceQuiver2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AdditionalArrows"
+        ],
+        "requiredItemLevel": 80,
+        "weight": 1,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+            "min": 41,
+            "max": 60
+          }
+        ],
+        "tags": [
+          "attack"
+        ],
+        "sourceRef": "src1192"
+      },
+      "quiver:suffix:of-surplus:AdditionalArrowChanceQuiver1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AdditionalArrows"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 1,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+            "min": 25,
+            "max": 40
+          }
+        ],
+        "tags": [
+          "attack"
+        ],
+        "sourceRef": "src1193"
+      },
+      "quiver:suffix:of-unmaking:AttackCriticalStrikeChance6": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 72,
+        "weight": 125,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "attack_critical_strike_chance_+%",
+            "min": 35,
+            "max": 38
+          }
+        ],
+        "tags": [
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1194"
+      }
+    }
+  }
 }

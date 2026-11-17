@@ -1,71 +1,70 @@
 {
-  "definitions": {
-    "akoyan-club:implicit:base": {
-      "id": "akoyan-club:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "AlwaysHits"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_always_hit",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src0022"
-    },
-    "fortified-hammer:implicit:base": {
-      "id": "fortified-hammer:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "DazeBuildup"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_weapon_daze_chance_%",
-          "min": 40,
-          "max": 40
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0882"
-    },
-    "strife-pick:implicit:base": {
-      "id": "strife-pick:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_critical_strike_multiplier_+",
-          "min": 5,
-          "max": 10
-        }
-      ],
-      "tags": [
-        "damage",
-        "attack",
-        "critical"
-      ],
-      "sourceRef": "src1682"
+  "schemaVersion": 1,
+  "implicit": {
+    "definitions": {
+      "akoyan-club:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "AlwaysHits"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_always_hit",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [
+          "attack"
+        ],
+        "sourceRef": "src0022"
+      },
+      "fortified-hammer:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "DazeBuildup"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_weapon_daze_chance_%",
+            "min": 40,
+            "max": 40
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src0882"
+      },
+      "strife-pick:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_critical_strike_multiplier_+",
+            "min": 5,
+            "max": 10
+          }
+        ],
+        "tags": [
+          "damage",
+          "attack",
+          "critical"
+        ],
+        "sourceRef": "src1682"
+      }
     }
-  },
-  "variants": {}
+  }
 }

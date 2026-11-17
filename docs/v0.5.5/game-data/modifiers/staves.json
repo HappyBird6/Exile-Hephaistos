@@ -1,3166 +1,3039 @@
 {
-  "definitions": {
-    "staves:prefix:adept-s:SpellDamageOnTwoHandWeapon2": {
-      "id": "staves:prefix:adept-s:SpellDamageOnTwoHandWeapon2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 69,
-          "max": 88
-        }
-      ],
-      "tags": [
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1528"
-    },
-    "staves:prefix:agonising:PhysicalDamagePrefixOnTwoHandWeapon6": {
-      "id": "staves:prefix:agonising:PhysicalDamagePrefixOnTwoHandWeapon6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 200,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 149,
-          "max": 188
-        }
-      ],
-      "tags": [
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src1529"
-    },
-    "staves:prefix:alpine:ColdDamagePrefixOnTwoHandWeapon3": {
-      "id": "staves:prefix:alpine:ColdDamagePrefixOnTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 89,
-          "max": 108
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1530"
-    },
-    "staves:prefix:apprentice-s:SpellDamageOnTwoHandWeapon1": {
-      "id": "staves:prefix:apprentice-s:SpellDamageOnTwoHandWeapon1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 50,
-          "max": 68
-        }
-      ],
-      "tags": [
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1531"
-    },
-    "staves:prefix:aqua:IncreasedManaTwoHandWeapon6": {
-      "id": "staves:prefix:aqua:IncreasedManaTwoHandWeapon6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 38,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 129,
-          "max": 158
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1532"
-    },
-    "staves:prefix:archmage-s:SpellDamageAndManaOnTwoHandWeapon6": {
-      "id": "staves:prefix:archmage-s:SpellDamageAndManaOnTwoHandWeapon6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 63,
-      "weight": 200,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 79,
-          "max": 88
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 75,
-          "max": 82
-        }
-      ],
-      "tags": [
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1533"
-    },
-    "staves:prefix:arctic:ColdDamagePrefixOnTwoHandWeapon6": {
-      "id": "staves:prefix:arctic:ColdDamagePrefixOnTwoHandWeapon6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 200,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 149,
-          "max": 188
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1534"
-    },
-    "staves:prefix:ardent:SpellDamageGainedAsFireTwoHand2": {
-      "id": "staves:prefix:ardent:SpellDamageGainedAsFireTwoHand2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 31,
-          "max": 36
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1535"
-    },
-    "staves:prefix:azure:IncreasedManaTwoHandWeapon3_": {
-      "id": "staves:prefix:azure:IncreasedManaTwoHandWeapon3_",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 1000,
-      "tier": 9,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 49,
-          "max": 68
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1536"
-    },
-    "staves:prefix:beryl:IncreasedManaTwoHandWeapon1": {
-      "id": "staves:prefix:beryl:IncreasedManaTwoHandWeapon1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 11,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 20,
-          "max": 28
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1537"
-    },
-    "staves:prefix:biting:ColdDamagePrefixOnTwoHandWeapon2": {
-      "id": "staves:prefix:biting:ColdDamagePrefixOnTwoHandWeapon2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 500,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 69,
-          "max": 88
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1538"
-    },
-    "staves:prefix:bitter:ColdDamagePrefixOnTwoHandWeapon1": {
-      "id": "staves:prefix:bitter:ColdDamagePrefixOnTwoHandWeapon1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 500,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 50,
-          "max": 68
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1539"
-    },
-    "staves:prefix:blistering:FireDamagePrefixOnTwoHandWeapon3": {
-      "id": "staves:prefix:blistering:FireDamagePrefixOnTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 89,
-          "max": 108
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1540"
-    },
-    "staves:prefix:blue:IncreasedManaTwoHandWeapon11": {
-      "id": "staves:prefix:blue:IncreasedManaTwoHandWeapon11",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 299,
-          "max": 328
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1541"
-    },
-    "staves:prefix:bolting:LightningDamagePrefixOnTwoHandWeapon3": {
-      "id": "staves:prefix:bolting:LightningDamagePrefixOnTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 89,
-          "max": 108
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1542"
-    },
-    "staves:prefix:caster-s:SpellDamageAndManaOnTwoHandWeapon1": {
-      "id": "staves:prefix:caster-s:SpellDamageAndManaOnTwoHandWeapon1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 30,
-          "max": 38
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 34,
-          "max": 40
-        }
-      ],
-      "tags": [
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1543"
-    },
-    "staves:prefix:cauterising:FireDamagePrefixOnTwoHandWeapon4": {
-      "id": "staves:prefix:cauterising:FireDamagePrefixOnTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 400,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 109,
-          "max": 128
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1544"
-    },
-    "staves:prefix:cerulean:IncreasedManaTwoHandWeapon5": {
-      "id": "staves:prefix:cerulean:IncreasedManaTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 109,
-          "max": 128
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1545"
-    },
-    "staves:prefix:chalybeous:IncreasedManaTwoHandWeapon9": {
-      "id": "staves:prefix:chalybeous:IncreasedManaTwoHandWeapon9",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 209,
-          "max": 248
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1546"
-    },
-    "staves:prefix:charged:LightningDamagePrefixOnTwoHandWeapon1": {
-      "id": "staves:prefix:charged:LightningDamagePrefixOnTwoHandWeapon1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 500,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 50,
-          "max": 68
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1547"
-    },
-    "staves:prefix:clouded:ChaosDamagePrefixOnTwoHandWeapon3": {
-      "id": "staves:prefix:clouded:ChaosDamagePrefixOnTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 89,
-          "max": 108
-        }
-      ],
-      "tags": [
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src1548"
-    },
-    "staves:prefix:cobalt:IncreasedManaTwoHandWeapon2_": {
-      "id": "staves:prefix:cobalt:IncreasedManaTwoHandWeapon2_",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 6,
-      "weight": 1000,
-      "tier": 10,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 29,
-          "max": 48
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1549"
-    },
-    "staves:prefix:conjuror-s:SpellDamageAndManaOnTwoHandWeapon2": {
-      "id": "staves:prefix:conjuror-s:SpellDamageAndManaOnTwoHandWeapon2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 39,
-          "max": 48
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 41,
-          "max": 48
-        }
-      ],
-      "tags": [
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1550"
-    },
-    "staves:prefix:coursing:LightningDamagePrefixOnTwoHandWeapon4": {
-      "id": "staves:prefix:coursing:LightningDamagePrefixOnTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 400,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 109,
-          "max": 128
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1551"
-    },
-    "staves:prefix:cryomancer-s:ColdDamagePrefixOnTwoHandWeapon8": {
-      "id": "staves:prefix:cryomancer-s:ColdDamagePrefixOnTwoHandWeapon8",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 209,
-          "max": 238
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1552"
-    },
-    "staves:prefix:crystalline:ColdDamagePrefixOnTwoHandWeapon7": {
-      "id": "staves:prefix:crystalline:ColdDamagePrefixOnTwoHandWeapon7",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 189,
-          "max": 208
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1553"
-    },
-    "staves:prefix:darkened:ChaosDamagePrefixOnTwoHandWeapon4": {
-      "id": "staves:prefix:darkened:ChaosDamagePrefixOnTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 400,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 109,
-          "max": 128
-        }
-      ],
-      "tags": [
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src1554"
-    },
-    "staves:prefix:deadly:SpellDamageGainedAsLightningTwoHand1": {
-      "id": "staves:prefix:deadly:SpellDamageGainedAsLightningTwoHand1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 26,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1555"
-    },
-    "staves:prefix:destructive:SpellDamageGainedAsColdTwoHand3": {
-      "id": "staves:prefix:destructive:SpellDamageGainedAsColdTwoHand3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 37,
-          "max": 42
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1556"
-    },
-    "staves:prefix:electrifying:SpellDamageGainedAsLightningTwoHand5": {
-      "id": "staves:prefix:electrifying:SpellDamageGainedAsLightningTwoHand5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 49,
-          "max": 54
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1557"
-    },
-    "staves:prefix:electromancer-s:LightningDamagePrefixOnTwoHandWeapon8": {
-      "id": "staves:prefix:electromancer-s:LightningDamagePrefixOnTwoHandWeapon8",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 209,
-          "max": 238
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1558"
-    },
-    "staves:prefix:fanatic-s:SpellDamageGainedAsFireTwoHand3": {
-      "id": "staves:prefix:fanatic-s:SpellDamageGainedAsFireTwoHand3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 37,
-          "max": 42
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1559"
-    },
-    "staves:prefix:fatal:SpellDamageGainedAsLightningTwoHand3": {
-      "id": "staves:prefix:fatal:SpellDamageGainedAsLightningTwoHand3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 37,
-          "max": 42
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1560"
-    },
-    "staves:prefix:fervent:SpellDamageGainedAsFireTwoHand1": {
-      "id": "staves:prefix:fervent:SpellDamageGainedAsFireTwoHand1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 26,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1561"
-    },
-    "staves:prefix:flamebound:SpellDamageGainedAsFireTwoHand6": {
-      "id": "staves:prefix:flamebound:SpellDamageGainedAsFireTwoHand6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 500,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 55,
-          "max": 60
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1562"
-    },
-    "staves:prefix:frostbound:SpellDamageGainedAsColdTwoHand6": {
-      "id": "staves:prefix:frostbound:SpellDamageGainedAsColdTwoHand6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 500,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 55,
-          "max": 60
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1563"
-    },
-    "staves:prefix:gentian:IncreasedManaTwoHandWeapon8_": {
-      "id": "staves:prefix:gentian:IncreasedManaTwoHandWeapon8_",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 54,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 179,
-          "max": 208
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1564"
-    },
-    "staves:prefix:glyphic:SpellDamageOnTwoHandWeapon7": {
-      "id": "staves:prefix:glyphic:SpellDamageOnTwoHandWeapon7",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 189,
-          "max": 208
-        }
-      ],
-      "tags": [
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1565"
-    },
-    "staves:prefix:hailing:ColdDamagePrefixOnTwoHandWeapon5_": {
-      "id": "staves:prefix:hailing:ColdDamagePrefixOnTwoHandWeapon5_",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 300,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 129,
-          "max": 148
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1566"
-    },
-    "staves:prefix:hissing:LightningDamagePrefixOnTwoHandWeapon2": {
-      "id": "staves:prefix:hissing:LightningDamagePrefixOnTwoHandWeapon2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 500,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 69,
-          "max": 88
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1567"
-    },
-    "staves:prefix:impure:ChaosDamagePrefixOnTwoHandWeapon1": {
-      "id": "staves:prefix:impure:ChaosDamagePrefixOnTwoHandWeapon1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 500,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 50,
-          "max": 68
-        }
-      ],
-      "tags": [
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src1568"
-    },
-    "staves:prefix:incanter-s:SpellDamageOnTwoHandWeapon6": {
-      "id": "staves:prefix:incanter-s:SpellDamageOnTwoHandWeapon6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 200,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 149,
-          "max": 188
-        }
-      ],
-      "tags": [
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1569"
-    },
-    "staves:prefix:infernal:SpellDamageGainedAsFireTwoHand5": {
-      "id": "staves:prefix:infernal:SpellDamageGainedAsFireTwoHand5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 49,
-          "max": 54
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1570"
-    },
-    "staves:prefix:ionising:LightningDamagePrefixOnTwoHandWeapon7": {
-      "id": "staves:prefix:ionising:LightningDamagePrefixOnTwoHandWeapon7",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 189,
-          "max": 208
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1571"
-    },
-    "staves:prefix:lethal:SpellDamageGainedAsLightningTwoHand2": {
-      "id": "staves:prefix:lethal:SpellDamageGainedAsLightningTwoHand2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 31,
-          "max": 36
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1572"
-    },
-    "staves:prefix:lich-s:SpellDamageAndManaOnTwoHandWeapon7": {
-      "id": "staves:prefix:lich-s:SpellDamageAndManaOnTwoHandWeapon7",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 79,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 89,
-          "max": 98
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 83,
-          "max": 90
-        }
-      ],
-      "tags": [
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1573"
-    },
-    "staves:prefix:mage-s:SpellDamageAndManaOnTwoHandWeapon5": {
-      "id": "staves:prefix:mage-s:SpellDamageAndManaOnTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 48,
-      "weight": 400,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 69,
-          "max": 78
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 67,
-          "max": 74
-        }
-      ],
-      "tags": [
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1574"
-    },
-    "staves:prefix:magmatic:FireDamagePrefixOnTwoHandWeapon6": {
-      "id": "staves:prefix:magmatic:FireDamagePrefixOnTwoHandWeapon6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 200,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 149,
-          "max": 188
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1575"
-    },
-    "staves:prefix:malevolent:ChaosDamagePrefixOnTwoHandWeapon8": {
-      "id": "staves:prefix:malevolent:ChaosDamagePrefixOnTwoHandWeapon8",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 209,
-          "max": 238
-        }
-      ],
-      "tags": [
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src1576"
-    },
-    "staves:prefix:malicious:SpellDamageGainedAsColdTwoHand4": {
-      "id": "staves:prefix:malicious:SpellDamageGainedAsColdTwoHand4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 43,
-          "max": 48
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1577"
-    },
-    "staves:prefix:malignant:ChaosDamagePrefixOnTwoHandWeapon5": {
-      "id": "staves:prefix:malignant:ChaosDamagePrefixOnTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 300,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 129,
-          "max": 148
-        }
-      ],
-      "tags": [
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src1578"
-    },
-    "staves:prefix:malignant:SpellDamageGainedAsColdTwoHand1": {
-      "id": "staves:prefix:malignant:SpellDamageGainedAsColdTwoHand1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 26,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1579"
-    },
-    "staves:prefix:mazarine:IncreasedManaTwoHandWeapon10": {
-      "id": "staves:prefix:mazarine:IncreasedManaTwoHandWeapon10",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 249,
-          "max": 298
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1580"
-    },
-    "staves:prefix:occultist-s:SpellDamageOnTwoHandWeapon5": {
-      "id": "staves:prefix:occultist-s:SpellDamageOnTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 400,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 129,
-          "max": 148
-        }
-      ],
-      "tags": [
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1581"
-    },
-    "staves:prefix:opalescent:IncreasedManaTwoHandWeapon7": {
-      "id": "staves:prefix:opalescent:IncreasedManaTwoHandWeapon7",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 159,
-          "max": 178
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1582"
-    },
-    "staves:prefix:oppressor-s:PhysicalDamagePrefixOnTwoHandWeapon7": {
-      "id": "staves:prefix:oppressor-s:PhysicalDamagePrefixOnTwoHandWeapon7",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 189,
-          "max": 208
-        }
-      ],
-      "tags": [
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src1583"
-    },
-    "staves:prefix:pernicious:SpellDamageGainedAsColdTwoHand2": {
-      "id": "staves:prefix:pernicious:SpellDamageGainedAsColdTwoHand2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 31,
-          "max": 36
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1584"
-    },
-    "staves:prefix:pitiless:PhysicalDamagePrefixOnTwoHandWeapon5": {
-      "id": "staves:prefix:pitiless:PhysicalDamagePrefixOnTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 300,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 129,
-          "max": 148
-        }
-      ],
-      "tags": [
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src1585"
-    },
-    "staves:prefix:professor-s:SpellDamageOnTwoHandWeapon4": {
-      "id": "staves:prefix:professor-s:SpellDamageOnTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 600,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 109,
-          "max": 128
-        }
-      ],
-      "tags": [
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1586"
-    },
-    "staves:prefix:punishing:PhysicalDamagePrefixOnTwoHandWeapon1": {
-      "id": "staves:prefix:punishing:PhysicalDamagePrefixOnTwoHandWeapon1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 500,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 50,
-          "max": 68
-        }
-      ],
-      "tags": [
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src1587"
-    },
-    "staves:prefix:pyromancer-s:FireDamagePrefixOnTwoHandWeapon8_": {
-      "id": "staves:prefix:pyromancer-s:FireDamagePrefixOnTwoHandWeapon8_",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 209,
-          "max": 238
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1588"
-    },
-    "staves:prefix:runic:SpellDamageOnTwoHandWeapon8": {
-      "id": "staves:prefix:runic:SpellDamageOnTwoHandWeapon8",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 209,
-          "max": 238
-        }
-      ],
-      "tags": [
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1589"
-    },
-    "staves:prefix:ruthless:SpellDamageGainedAsColdTwoHand5": {
-      "id": "staves:prefix:ruthless:SpellDamageGainedAsColdTwoHand5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 49,
-          "max": 54
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1590"
-    },
-    "staves:prefix:sadistic:PhysicalDamagePrefixOnTwoHandWeapon4": {
-      "id": "staves:prefix:sadistic:PhysicalDamagePrefixOnTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 400,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 109,
-          "max": 128
-        }
-      ],
-      "tags": [
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src1591"
-    },
-    "staves:prefix:sapphire:IncreasedManaTwoHandWeapon4": {
-      "id": "staves:prefix:sapphire:IncreasedManaTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 25,
-      "weight": 1000,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 69,
-          "max": 108
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1592"
-    },
-    "staves:prefix:scholar-s:SpellDamageOnTwoHandWeapon3": {
-      "id": "staves:prefix:scholar-s:SpellDamageOnTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 89,
-          "max": 108
-        }
-      ],
-      "tags": [
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1593"
-    },
-    "staves:prefix:searing:FireDamagePrefixOnTwoHandWeapon1": {
-      "id": "staves:prefix:searing:FireDamagePrefixOnTwoHandWeapon1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 500,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 50,
-          "max": 68
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1594"
-    },
-    "staves:prefix:sizzling:FireDamagePrefixOnTwoHandWeapon2___": {
-      "id": "staves:prefix:sizzling:FireDamagePrefixOnTwoHandWeapon2___",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 500,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 69,
-          "max": 88
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1595"
-    },
-    "staves:prefix:smiting:LightningDamagePrefixOnTwoHandWeapon6": {
-      "id": "staves:prefix:smiting:LightningDamagePrefixOnTwoHandWeapon6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 200,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 149,
-          "max": 188
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1596"
-    },
-    "staves:prefix:smoldering:FireDamagePrefixOnTwoHandWeapon5": {
-      "id": "staves:prefix:smoldering:FireDamagePrefixOnTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 300,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 129,
-          "max": 148
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1597"
-    },
-    "staves:prefix:snowy:ColdDamagePrefixOnTwoHandWeapon4_": {
-      "id": "staves:prefix:snowy:ColdDamagePrefixOnTwoHandWeapon4_",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 400,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 109,
-          "max": 128
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src1598"
-    },
-    "staves:prefix:stormbound:SpellDamageGainedAsLightningTwoHand6": {
-      "id": "staves:prefix:stormbound:SpellDamageGainedAsLightningTwoHand6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 500,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 55,
-          "max": 60
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1599"
-    },
-    "staves:prefix:striking:LightningDamagePrefixOnTwoHandWeapon5": {
-      "id": "staves:prefix:striking:LightningDamagePrefixOnTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 300,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 129,
-          "max": 148
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1600"
-    },
-    "staves:prefix:tainted:ChaosDamagePrefixOnTwoHandWeapon2": {
-      "id": "staves:prefix:tainted:ChaosDamagePrefixOnTwoHandWeapon2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 500,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 69,
-          "max": 88
-        }
-      ],
-      "tags": [
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src1601"
-    },
-    "staves:prefix:torturer-s:PhysicalDamagePrefixOnTwoHandWeapon8": {
-      "id": "staves:prefix:torturer-s:PhysicalDamagePrefixOnTwoHandWeapon8",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 209,
-          "max": 238
-        }
-      ],
-      "tags": [
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src1602"
-    },
-    "staves:prefix:twisted:ChaosDamagePrefixOnTwoHandWeapon7": {
-      "id": "staves:prefix:twisted:ChaosDamagePrefixOnTwoHandWeapon7",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 189,
-          "max": 208
-        }
-      ],
-      "tags": [
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src1603"
-    },
-    "staves:prefix:unforgiving:PhysicalDamagePrefixOnTwoHandWeapon2": {
-      "id": "staves:prefix:unforgiving:PhysicalDamagePrefixOnTwoHandWeapon2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 500,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 69,
-          "max": 88
-        }
-      ],
-      "tags": [
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src1604"
-    },
-    "staves:prefix:vengeful:PhysicalDamagePrefixOnTwoHandWeapon3": {
-      "id": "staves:prefix:vengeful:PhysicalDamagePrefixOnTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 89,
-          "max": 108
-        }
-      ],
-      "tags": [
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src1605"
-    },
-    "staves:prefix:vile:ChaosDamagePrefixOnTwoHandWeapon6": {
-      "id": "staves:prefix:vile:ChaosDamagePrefixOnTwoHandWeapon6",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 200,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 149,
-          "max": 188
-        }
-      ],
-      "tags": [
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src1606"
-    },
-    "staves:prefix:volcanic:FireDamagePrefixOnTwoHandWeapon7": {
-      "id": "staves:prefix:volcanic:FireDamagePrefixOnTwoHandWeapon7",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 189,
-          "max": 208
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1607"
-    },
-    "staves:prefix:vorpal:SpellDamageGainedAsLightningTwoHand4": {
-      "id": "staves:prefix:vorpal:SpellDamageGainedAsLightningTwoHand4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 43,
-          "max": 48
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src1608"
-    },
-    "staves:prefix:warlock-s:SpellDamageAndManaOnTwoHandWeapon4": {
-      "id": "staves:prefix:warlock-s:SpellDamageAndManaOnTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 38,
-      "weight": 600,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 59,
-          "max": 68
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 57,
-          "max": 66
-        }
-      ],
-      "tags": [
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1609"
-    },
-    "staves:prefix:wizard-s:SpellDamageAndManaOnTwoHandWeapon3": {
-      "id": "staves:prefix:wizard-s:SpellDamageAndManaOnTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 23,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 49,
-          "max": 58
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 49,
-          "max": 56
-        }
-      ],
-      "tags": [
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src1610"
-    },
-    "staves:prefix:zealot-s:SpellDamageGainedAsFireTwoHand4": {
-      "id": "staves:prefix:zealot-s:SpellDamageGainedAsFireTwoHand4",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 43,
-          "max": 48
-        }
-      ],
-      "tags": [
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src1611"
-    },
-    "staves:suffix:essence:EssenceManaCostReduction2H": {
-      "id": "staves:suffix:essence:EssenceManaCostReduction2H",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaCostEfficiency"
-      ],
-      "requiredItemLevel": 72,
-      "weight": 0,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_mana_cost_efficiency_+%",
-          "min": 28,
-          "max": 32
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1612"
-    },
-    "staves:suffix:essence:EssenceSpellSkillLevel2H1": {
-      "id": "staves:suffix:essence:EssenceSpellSkillLevel2H1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 72,
-      "weight": 0,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 5,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1613"
-    },
-    "staves:suffix:of-anger:SpellCriticalStrikeMultiplierTwoHand2": {
-      "id": "staves:suffix:of-anger:SpellCriticalStrikeMultiplierTwoHand2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 21,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "base_spell_critical_strike_multiplier_+",
-          "min": 23,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1614"
-    },
-    "staves:suffix:of-armageddon:GlobalChaosSpellGemsLevelTwoHandWeapon5": {
-      "id": "staves:suffix:of-armageddon:GlobalChaosSpellGemsLevelTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "chaos_spell_skill_gem_level_+",
-          "min": 7,
-          "max": 7
-        }
-      ],
-      "tags": [
-        "chaos",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1615"
-    },
-    "staves:suffix:of-bliss:ManaRegenerationTwoHand4": {
-      "id": "staves:suffix:of-bliss:ManaRegenerationTwoHand4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 42,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 60,
-          "max": 74
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1616"
-    },
-    "staves:suffix:of-calamity:SpellCriticalStrikeChanceTwoHand4": {
-      "id": "staves:suffix:of-calamity:SpellCriticalStrikeChanceTwoHand4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SpellCriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 41,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "spell_critical_strike_chance_+%",
-          "min": 70,
-          "max": 79
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1617"
-    },
-    "staves:suffix:of-desolation:GlobalPhysicalSpellGemsLevelTwoHandWeapon4": {
-      "id": "staves:suffix:of-desolation:GlobalPhysicalSpellGemsLevelTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "physical_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 6
-        }
-      ],
-      "tags": [
-        "physical",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1618"
-    },
-    "staves:suffix:of-destruction:SpellCriticalStrikeMultiplierTwoHand6": {
-      "id": "staves:suffix:of-destruction:SpellCriticalStrikeMultiplierTwoHand6",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 73,
-      "weight": 125,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_spell_critical_strike_multiplier_+",
-          "min": 53,
-          "max": 59
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1619"
-    },
-    "staves:suffix:of-disaster:SpellCriticalStrikeChanceTwoHand3": {
-      "id": "staves:suffix:of-disaster:SpellCriticalStrikeChanceTwoHand3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SpellCriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 28,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "spell_critical_strike_chance_+%",
-          "min": 60,
-          "max": 69
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1620"
-    },
-    "staves:suffix:of-elation:ManaRegenerationTwoHand3": {
-      "id": "staves:suffix:of-elation:ManaRegenerationTwoHand3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 29,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 45,
-          "max": 59
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1621"
-    },
-    "staves:suffix:of-electricity:GlobalLightningSpellGemsLevelTwoHandWeapon3": {
-      "id": "staves:suffix:of-electricity:GlobalLightningSpellGemsLevelTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "lightning_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "elemental",
-        "lightning",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1622"
-    },
-    "staves:suffix:of-euphoria:ManaRegenerationTwoHand5": {
-      "id": "staves:suffix:of-euphoria:ManaRegenerationTwoHand5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 75,
-          "max": 89
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1623"
-    },
-    "staves:suffix:of-excitement:ManaRegenerationTwoHand1": {
-      "id": "staves:suffix:of-excitement:ManaRegenerationTwoHand1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 15,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1624"
-    },
-    "staves:suffix:of-expertise:IncreasedCastSpeedTwoHand3": {
-      "id": "staves:suffix:of-expertise:IncreasedCastSpeedTwoHand3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 30,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "base_cast_speed_+%",
-          "min": 26,
-          "max": 31
-        }
-      ],
-      "tags": [
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1625"
-    },
-    "staves:suffix:of-ferocity:SpellCriticalStrikeMultiplierTwoHand5": {
-      "id": "staves:suffix:of-ferocity:SpellCriticalStrikeMultiplierTwoHand5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 59,
-      "weight": 250,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "base_spell_critical_strike_multiplier_+",
-          "min": 45,
-          "max": 51
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1626"
-    },
-    "staves:suffix:of-finesse:IncreasedCastSpeedTwoHand7": {
-      "id": "staves:suffix:of-finesse:IncreasedCastSpeedTwoHand7",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 250,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_cast_speed_+%",
-          "min": 50,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1627"
-    },
-    "staves:suffix:of-flames:GlobalFireSpellGemsLevelTwoHandWeapon3": {
-      "id": "staves:suffix:of-flames:GlobalFireSpellGemsLevelTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "fire_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "elemental",
-        "fire",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1628"
-    },
-    "staves:suffix:of-frostbite:GlobalColdSpellGemsLevelTwoHandWeapon5": {
-      "id": "staves:suffix:of-frostbite:GlobalColdSpellGemsLevelTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "cold_spell_skill_gem_level_+",
-          "min": 7,
-          "max": 7
-        }
-      ],
-      "tags": [
-        "elemental",
-        "cold",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1629"
-    },
-    "staves:suffix:of-fury:SpellCriticalStrikeMultiplierTwoHand4": {
-      "id": "staves:suffix:of-fury:SpellCriticalStrikeMultiplierTwoHand4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 44,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "base_spell_critical_strike_multiplier_+",
-          "min": 38,
-          "max": 44
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1630"
-    },
-    "staves:suffix:of-grief:GlobalPhysicalSpellGemsLevelTwoHandWeapon5": {
-      "id": "staves:suffix:of-grief:GlobalPhysicalSpellGemsLevelTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "physical_spell_skill_gem_level_+",
-          "min": 7,
-          "max": 7
-        }
-      ],
-      "tags": [
-        "physical",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1631"
-    },
-    "staves:suffix:of-havoc:GlobalChaosSpellGemsLevelTwoHandWeapon4": {
-      "id": "staves:suffix:of-havoc:GlobalChaosSpellGemsLevelTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "chaos_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 6
-        }
-      ],
-      "tags": [
-        "chaos",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1632"
-    },
-    "staves:suffix:of-havoc:SpellCriticalStrikeChanceTwoHand2": {
-      "id": "staves:suffix:of-havoc:SpellCriticalStrikeChanceTwoHand2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SpellCriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 21,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "spell_critical_strike_chance_+%",
-          "min": 50,
-          "max": 59
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1633"
-    },
-    "staves:suffix:of-ice:GlobalColdSpellGemsLevelTwoHandWeapon3": {
-      "id": "staves:suffix:of-ice:GlobalColdSpellGemsLevelTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "cold_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "elemental",
-        "cold",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1634"
-    },
-    "staves:suffix:of-immolation:GlobalFireSpellGemsLevelTwoHandWeapon4": {
-      "id": "staves:suffix:of-immolation:GlobalFireSpellGemsLevelTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "fire_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 6
-        }
-      ],
-      "tags": [
-        "elemental",
-        "fire",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1635"
-    },
-    "staves:suffix:of-inferno:GlobalFireSpellGemsLevelTwoHandWeapon5": {
-      "id": "staves:suffix:of-inferno:GlobalFireSpellGemsLevelTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "fire_spell_skill_gem_level_+",
-          "min": 7,
-          "max": 7
-        }
-      ],
-      "tags": [
-        "elemental",
-        "fire",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1636"
-    },
-    "staves:suffix:of-ire:SpellCriticalStrikeMultiplierTwoHand1": {
-      "id": "staves:suffix:of-ire:SpellCriticalStrikeMultiplierTwoHand1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "base_spell_critical_strike_multiplier_+",
-          "min": 15,
-          "max": 21
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1637"
-    },
-    "staves:suffix:of-joy:ManaRegenerationTwoHand2": {
-      "id": "staves:suffix:of-joy:ManaRegenerationTwoHand2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 18,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 30,
-          "max": 44
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1638"
-    },
-    "staves:suffix:of-kindling:LightRadiusAndManaRegeneration2": {
-      "id": "staves:suffix:of-kindling:LightRadiusAndManaRegeneration2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndManaRegeneration"
-      ],
-      "requiredItemLevel": 15,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 10,
-          "max": 10
-        },
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 13,
-          "max": 17
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src0379"
-    },
-    "staves:suffix:of-legerdemain:IncreasedCastSpeedTwoHand5": {
-      "id": "staves:suffix:of-legerdemain:IncreasedCastSpeedTwoHand5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "base_cast_speed_+%",
-          "min": 38,
-          "max": 43
-        }
-      ],
-      "tags": [
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1639"
-    },
-    "staves:suffix:of-menace:SpellCriticalStrikeChanceTwoHand1": {
-      "id": "staves:suffix:of-menace:SpellCriticalStrikeChanceTwoHand1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SpellCriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "spell_critical_strike_chance_+%",
-          "min": 40,
-          "max": 49
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1640"
-    },
-    "staves:suffix:of-nimbleness:IncreasedCastSpeedTwoHand2": {
-      "id": "staves:suffix:of-nimbleness:IncreasedCastSpeedTwoHand2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 15,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "base_cast_speed_+%",
-          "min": 20,
-          "max": 25
-        }
-      ],
-      "tags": [
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1641"
-    },
-    "staves:suffix:of-nirvana:ManaRegenerationTwoHand6": {
-      "id": "staves:suffix:of-nirvana:ManaRegenerationTwoHand6",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 79,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 90,
-          "max": 104
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src1642"
-    },
-    "staves:suffix:of-prestidigitation:IncreasedCastSpeedTwoHand6": {
-      "id": "staves:suffix:of-prestidigitation:IncreasedCastSpeedTwoHand6",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "base_cast_speed_+%",
-          "min": 44,
-          "max": 49
-        }
-      ],
-      "tags": [
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1643"
-    },
-    "staves:suffix:of-rage:SpellCriticalStrikeMultiplierTwoHand3": {
-      "id": "staves:suffix:of-rage:SpellCriticalStrikeMultiplierTwoHand3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 30,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "base_spell_critical_strike_multiplier_+",
-          "min": 30,
-          "max": 36
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1644"
-    },
-    "staves:suffix:of-rime:GlobalColdSpellGemsLevelTwoHandWeapon4": {
-      "id": "staves:suffix:of-rime:GlobalColdSpellGemsLevelTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "cold_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 6
-        }
-      ],
-      "tags": [
-        "elemental",
-        "cold",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1645"
-    },
-    "staves:suffix:of-ruin:GlobalChaosSpellGemsLevelTwoHandWeapon3": {
-      "id": "staves:suffix:of-ruin:GlobalChaosSpellGemsLevelTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "chaos_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "chaos",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1646"
-    },
-    "staves:suffix:of-ruin:SpellCriticalStrikeChanceTwoHand5": {
-      "id": "staves:suffix:of-ruin:SpellCriticalStrikeChanceTwoHand5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SpellCriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 59,
-      "weight": 250,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "spell_critical_strike_chance_+%",
-          "min": 80,
-          "max": 89
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1647"
-    },
-    "staves:suffix:of-sortilege:IncreasedCastSpeedTwoHand4": {
-      "id": "staves:suffix:of-sortilege:IncreasedCastSpeedTwoHand4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "base_cast_speed_+%",
-          "min": 32,
-          "max": 37
-        }
-      ],
-      "tags": [
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1648"
-    },
-    "staves:suffix:of-talent:IncreasedCastSpeedTwoHand1_": {
-      "id": "staves:suffix:of-talent:IncreasedCastSpeedTwoHand1_",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "base_cast_speed_+%",
-          "min": 14,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1649"
-    },
-    "staves:suffix:of-the-enchanter:GlobalSpellGemsLevelTwoHandWeapon2": {
-      "id": "staves:suffix:of-the-enchanter:GlobalSpellGemsLevelTwoHandWeapon2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 25,
-      "weight": 150,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1650"
-    },
-    "staves:suffix:of-the-evoker:GlobalSpellGemsLevelTwoHandWeapon3": {
-      "id": "staves:suffix:of-the-evoker:GlobalSpellGemsLevelTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 100,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 4,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1651"
-    },
-    "staves:suffix:of-the-hearth:LightRadiusAndManaRegeneration3": {
-      "id": "staves:suffix:of-the-hearth:LightRadiusAndManaRegeneration3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndManaRegeneration"
-      ],
-      "requiredItemLevel": 30,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 15,
-          "max": 15
-        },
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 18,
-          "max": 22
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src0407"
-    },
-    "staves:suffix:of-the-mage:GlobalSpellGemsLevelTwoHandWeapon1": {
-      "id": "staves:suffix:of-the-mage:GlobalSpellGemsLevelTwoHandWeapon1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 200,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 2,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1652"
-    },
-    "staves:suffix:of-the-sorcerer:GlobalSpellGemsLevelTwoHandWeapon4": {
-      "id": "staves:suffix:of-the-sorcerer:GlobalSpellGemsLevelTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 50,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 5,
-          "max": 6
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1653"
-    },
-    "staves:suffix:of-thunder:GlobalLightningSpellGemsLevelTwoHandWeapon5": {
-      "id": "staves:suffix:of-thunder:GlobalLightningSpellGemsLevelTwoHandWeapon5",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "lightning_spell_skill_gem_level_+",
-          "min": 7,
-          "max": 7
-        }
-      ],
-      "tags": [
-        "elemental",
-        "lightning",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1654"
-    },
-    "staves:suffix:of-torment:GlobalPhysicalSpellGemsLevelTwoHandWeapon3": {
-      "id": "staves:suffix:of-torment:GlobalPhysicalSpellGemsLevelTwoHandWeapon3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "physical_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "physical",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1655"
-    },
-    "staves:suffix:of-unmaking:SpellCriticalStrikeChanceTwoHand6": {
-      "id": "staves:suffix:of-unmaking:SpellCriticalStrikeChanceTwoHand6",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SpellCriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 76,
-      "weight": 125,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_critical_strike_chance_+%",
-          "min": 90,
-          "max": 109
-        }
-      ],
-      "tags": [
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src1656"
-    },
-    "staves:suffix:of-voltage:GlobalLightningSpellGemsLevelTwoHandWeapon4": {
-      "id": "staves:suffix:of-voltage:GlobalLightningSpellGemsLevelTwoHandWeapon4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "lightning_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 6
-        }
-      ],
-      "tags": [
-        "elemental",
-        "lightning",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src1657"
-    },
-    "staves:suffix:of-warmth:LightRadiusAndManaRegeneration1": {
-      "id": "staves:suffix:of-warmth:LightRadiusAndManaRegeneration1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndManaRegeneration"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 5,
-          "max": 5
-        },
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 8,
-          "max": 12
-        }
-      ],
-      "tags": [
-        "mana"
-      ],
-      "sourceRef": "src0434"
+  "schemaVersion": 1,
+  "normal": {
+    "definitions": {
+      "staves:prefix:adept-s:SpellDamageOnTwoHandWeapon2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "requiredItemLevel": 8,
+        "weight": 1000,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 69,
+            "max": 88
+          }
+        ],
+        "tags": [
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1528"
+      },
+      "staves:prefix:agonising:PhysicalDamagePrefixOnTwoHandWeapon6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 200,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "spell_physical_damage_+%",
+            "min": 149,
+            "max": 188
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical"
+        ],
+        "sourceRef": "src1529"
+      },
+      "staves:prefix:alpine:ColdDamagePrefixOnTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "cold_damage_+%",
+            "min": 89,
+            "max": 108
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1530"
+      },
+      "staves:prefix:apprentice-s:SpellDamageOnTwoHandWeapon1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 1000,
+        "tier": 8,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 50,
+            "max": 68
+          }
+        ],
+        "tags": [
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1531"
+      },
+      "staves:prefix:aqua:IncreasedManaTwoHandWeapon6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 38,
+        "weight": 1000,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 129,
+            "max": 158
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1532"
+      },
+      "staves:prefix:archmage-s:SpellDamageAndManaOnTwoHandWeapon6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "SpellDamageAndMana"
+        ],
+        "requiredItemLevel": 63,
+        "weight": 200,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 79,
+            "max": 88
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 75,
+            "max": 82
+          }
+        ],
+        "tags": [
+          "mana",
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1533"
+      },
+      "staves:prefix:arctic:ColdDamagePrefixOnTwoHandWeapon6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 200,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "cold_damage_+%",
+            "min": 149,
+            "max": 188
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1534"
+      },
+      "staves:prefix:ardent:SpellDamageGainedAsFireTwoHand2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+            "min": 31,
+            "max": 36
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1535"
+      },
+      "staves:prefix:azure:IncreasedManaTwoHandWeapon3_": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 1000,
+        "tier": 9,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 49,
+            "max": 68
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1536"
+      },
+      "staves:prefix:beryl:IncreasedManaTwoHandWeapon1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 1000,
+        "tier": 11,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 20,
+            "max": 28
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1537"
+      },
+      "staves:prefix:biting:ColdDamagePrefixOnTwoHandWeapon2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 8,
+        "weight": 500,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "cold_damage_+%",
+            "min": 69,
+            "max": 88
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1538"
+      },
+      "staves:prefix:bitter:ColdDamagePrefixOnTwoHandWeapon1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 2,
+        "weight": 500,
+        "tier": 8,
+        "stats": [
+          {
+            "id": "cold_damage_+%",
+            "min": 50,
+            "max": 68
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1539"
+      },
+      "staves:prefix:blistering:FireDamagePrefixOnTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "fire_damage_+%",
+            "min": 89,
+            "max": 108
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1540"
+      },
+      "staves:prefix:blue:IncreasedManaTwoHandWeapon11": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 70,
+        "weight": 1000,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 299,
+            "max": 328
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1541"
+      },
+      "staves:prefix:bolting:LightningDamagePrefixOnTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "lightning_damage_+%",
+            "min": 89,
+            "max": 108
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1542"
+      },
+      "staves:prefix:caster-s:SpellDamageAndManaOnTwoHandWeapon1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "SpellDamageAndMana"
+        ],
+        "requiredItemLevel": 2,
+        "weight": 1000,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 30,
+            "max": 38
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 34,
+            "max": 40
+          }
+        ],
+        "tags": [
+          "mana",
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1543"
+      },
+      "staves:prefix:cauterising:FireDamagePrefixOnTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 400,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "fire_damage_+%",
+            "min": 109,
+            "max": 128
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1544"
+      },
+      "staves:prefix:cerulean:IncreasedManaTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 1000,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 109,
+            "max": 128
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1545"
+      },
+      "staves:prefix:chalybeous:IncreasedManaTwoHandWeapon9": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 1000,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 209,
+            "max": 248
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1546"
+      },
+      "staves:prefix:charged:LightningDamagePrefixOnTwoHandWeapon1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 2,
+        "weight": 500,
+        "tier": 8,
+        "stats": [
+          {
+            "id": "lightning_damage_+%",
+            "min": 50,
+            "max": 68
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1547"
+      },
+      "staves:prefix:clouded:ChaosDamagePrefixOnTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "chaos_damage_+%",
+            "min": 89,
+            "max": 108
+          }
+        ],
+        "tags": [
+          "damage",
+          "chaos"
+        ],
+        "sourceRef": "src1548"
+      },
+      "staves:prefix:cobalt:IncreasedManaTwoHandWeapon2_": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 6,
+        "weight": 1000,
+        "tier": 10,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 29,
+            "max": 48
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1549"
+      },
+      "staves:prefix:conjuror-s:SpellDamageAndManaOnTwoHandWeapon2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "SpellDamageAndMana"
+        ],
+        "requiredItemLevel": 11,
+        "weight": 1000,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 39,
+            "max": 48
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 41,
+            "max": 48
+          }
+        ],
+        "tags": [
+          "mana",
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1550"
+      },
+      "staves:prefix:coursing:LightningDamagePrefixOnTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 400,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "lightning_damage_+%",
+            "min": 109,
+            "max": 128
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1551"
+      },
+      "staves:prefix:cryomancer-s:ColdDamagePrefixOnTwoHandWeapon8": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 50,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "cold_damage_+%",
+            "min": 209,
+            "max": 238
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1552"
+      },
+      "staves:prefix:crystalline:ColdDamagePrefixOnTwoHandWeapon7": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 70,
+        "weight": 100,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "cold_damage_+%",
+            "min": 189,
+            "max": 208
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1553"
+      },
+      "staves:prefix:darkened:ChaosDamagePrefixOnTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 400,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "chaos_damage_+%",
+            "min": 109,
+            "max": 128
+          }
+        ],
+        "tags": [
+          "damage",
+          "chaos"
+        ],
+        "sourceRef": "src1554"
+      },
+      "staves:prefix:deadly:SpellDamageGainedAsLightningTwoHand1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LightningDamage"
+        ],
+        "requiredItemLevel": 5,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+            "min": 26,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1555"
+      },
+      "staves:prefix:destructive:SpellDamageGainedAsColdTwoHand3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ColdDamage"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+            "min": 37,
+            "max": 42
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1556"
+      },
+      "staves:prefix:electrifying:SpellDamageGainedAsLightningTwoHand5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LightningDamage"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 500,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+            "min": 49,
+            "max": 54
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1557"
+      },
+      "staves:prefix:electromancer-s:LightningDamagePrefixOnTwoHandWeapon8": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 50,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "lightning_damage_+%",
+            "min": 209,
+            "max": 238
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1558"
+      },
+      "staves:prefix:fanatic-s:SpellDamageGainedAsFireTwoHand3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+            "min": 37,
+            "max": 42
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1559"
+      },
+      "staves:prefix:fatal:SpellDamageGainedAsLightningTwoHand3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LightningDamage"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+            "min": 37,
+            "max": 42
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1560"
+      },
+      "staves:prefix:fervent:SpellDamageGainedAsFireTwoHand1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "requiredItemLevel": 5,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+            "min": 26,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1561"
+      },
+      "staves:prefix:flamebound:SpellDamageGainedAsFireTwoHand6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "requiredItemLevel": 80,
+        "weight": 500,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+            "min": 55,
+            "max": 60
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1562"
+      },
+      "staves:prefix:frostbound:SpellDamageGainedAsColdTwoHand6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ColdDamage"
+        ],
+        "requiredItemLevel": 80,
+        "weight": 500,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+            "min": 55,
+            "max": 60
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1563"
+      },
+      "staves:prefix:gentian:IncreasedManaTwoHandWeapon8_": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 54,
+        "weight": 1000,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 179,
+            "max": 208
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1564"
+      },
+      "staves:prefix:glyphic:SpellDamageOnTwoHandWeapon7": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "requiredItemLevel": 70,
+        "weight": 100,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 189,
+            "max": 208
+          }
+        ],
+        "tags": [
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1565"
+      },
+      "staves:prefix:hailing:ColdDamagePrefixOnTwoHandWeapon5_": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 300,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "cold_damage_+%",
+            "min": 129,
+            "max": 148
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1566"
+      },
+      "staves:prefix:hissing:LightningDamagePrefixOnTwoHandWeapon2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 8,
+        "weight": 500,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "lightning_damage_+%",
+            "min": 69,
+            "max": 88
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1567"
+      },
+      "staves:prefix:impure:ChaosDamagePrefixOnTwoHandWeapon1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 2,
+        "weight": 500,
+        "tier": 8,
+        "stats": [
+          {
+            "id": "chaos_damage_+%",
+            "min": 50,
+            "max": 68
+          }
+        ],
+        "tags": [
+          "damage",
+          "chaos"
+        ],
+        "sourceRef": "src1568"
+      },
+      "staves:prefix:incanter-s:SpellDamageOnTwoHandWeapon6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 200,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 149,
+            "max": 188
+          }
+        ],
+        "tags": [
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1569"
+      },
+      "staves:prefix:infernal:SpellDamageGainedAsFireTwoHand5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 500,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+            "min": 49,
+            "max": 54
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1570"
+      },
+      "staves:prefix:ionising:LightningDamagePrefixOnTwoHandWeapon7": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 70,
+        "weight": 100,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "lightning_damage_+%",
+            "min": 189,
+            "max": 208
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1571"
+      },
+      "staves:prefix:lethal:SpellDamageGainedAsLightningTwoHand2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LightningDamage"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+            "min": 31,
+            "max": 36
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1572"
+      },
+      "staves:prefix:lich-s:SpellDamageAndManaOnTwoHandWeapon7": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "SpellDamageAndMana"
+        ],
+        "requiredItemLevel": 79,
+        "weight": 100,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 89,
+            "max": 98
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 83,
+            "max": 90
+          }
+        ],
+        "tags": [
+          "mana",
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1573"
+      },
+      "staves:prefix:mage-s:SpellDamageAndManaOnTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "SpellDamageAndMana"
+        ],
+        "requiredItemLevel": 48,
+        "weight": 400,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 69,
+            "max": 78
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 67,
+            "max": 74
+          }
+        ],
+        "tags": [
+          "mana",
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1574"
+      },
+      "staves:prefix:magmatic:FireDamagePrefixOnTwoHandWeapon6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 200,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "fire_damage_+%",
+            "min": 149,
+            "max": 188
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1575"
+      },
+      "staves:prefix:malevolent:ChaosDamagePrefixOnTwoHandWeapon8": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 50,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "chaos_damage_+%",
+            "min": 209,
+            "max": 238
+          }
+        ],
+        "tags": [
+          "damage",
+          "chaos"
+        ],
+        "sourceRef": "src1576"
+      },
+      "staves:prefix:malicious:SpellDamageGainedAsColdTwoHand4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ColdDamage"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+            "min": 43,
+            "max": 48
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1577"
+      },
+      "staves:prefix:malignant:ChaosDamagePrefixOnTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 300,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "chaos_damage_+%",
+            "min": 129,
+            "max": 148
+          }
+        ],
+        "tags": [
+          "damage",
+          "chaos"
+        ],
+        "sourceRef": "src1578"
+      },
+      "staves:prefix:malignant:SpellDamageGainedAsColdTwoHand1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ColdDamage"
+        ],
+        "requiredItemLevel": 5,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+            "min": 26,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1579"
+      },
+      "staves:prefix:mazarine:IncreasedManaTwoHandWeapon10": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 1000,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 249,
+            "max": 298
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1580"
+      },
+      "staves:prefix:occultist-s:SpellDamageOnTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 400,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 129,
+            "max": 148
+          }
+        ],
+        "tags": [
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1581"
+      },
+      "staves:prefix:opalescent:IncreasedManaTwoHandWeapon7": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 1000,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 159,
+            "max": 178
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1582"
+      },
+      "staves:prefix:oppressor-s:PhysicalDamagePrefixOnTwoHandWeapon7": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 70,
+        "weight": 100,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "spell_physical_damage_+%",
+            "min": 189,
+            "max": 208
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical"
+        ],
+        "sourceRef": "src1583"
+      },
+      "staves:prefix:pernicious:SpellDamageGainedAsColdTwoHand2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ColdDamage"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+            "min": 31,
+            "max": 36
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1584"
+      },
+      "staves:prefix:pitiless:PhysicalDamagePrefixOnTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 300,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "spell_physical_damage_+%",
+            "min": 129,
+            "max": 148
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical"
+        ],
+        "sourceRef": "src1585"
+      },
+      "staves:prefix:professor-s:SpellDamageOnTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 600,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 109,
+            "max": 128
+          }
+        ],
+        "tags": [
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1586"
+      },
+      "staves:prefix:punishing:PhysicalDamagePrefixOnTwoHandWeapon1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 2,
+        "weight": 500,
+        "tier": 8,
+        "stats": [
+          {
+            "id": "spell_physical_damage_+%",
+            "min": 50,
+            "max": 68
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical"
+        ],
+        "sourceRef": "src1587"
+      },
+      "staves:prefix:pyromancer-s:FireDamagePrefixOnTwoHandWeapon8_": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 50,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "fire_damage_+%",
+            "min": 209,
+            "max": 238
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1588"
+      },
+      "staves:prefix:runic:SpellDamageOnTwoHandWeapon8": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "requiredItemLevel": 80,
+        "weight": 50,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 209,
+            "max": 238
+          }
+        ],
+        "tags": [
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1589"
+      },
+      "staves:prefix:ruthless:SpellDamageGainedAsColdTwoHand5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ColdDamage"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 500,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+            "min": 49,
+            "max": 54
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1590"
+      },
+      "staves:prefix:sadistic:PhysicalDamagePrefixOnTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 400,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "spell_physical_damage_+%",
+            "min": 109,
+            "max": 128
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical"
+        ],
+        "sourceRef": "src1591"
+      },
+      "staves:prefix:sapphire:IncreasedManaTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "requiredItemLevel": 25,
+        "weight": 1000,
+        "tier": 8,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 69,
+            "max": 108
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1592"
+      },
+      "staves:prefix:scholar-s:SpellDamageOnTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 1000,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 89,
+            "max": 108
+          }
+        ],
+        "tags": [
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1593"
+      },
+      "staves:prefix:searing:FireDamagePrefixOnTwoHandWeapon1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 2,
+        "weight": 500,
+        "tier": 8,
+        "stats": [
+          {
+            "id": "fire_damage_+%",
+            "min": 50,
+            "max": 68
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1594"
+      },
+      "staves:prefix:sizzling:FireDamagePrefixOnTwoHandWeapon2___": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 8,
+        "weight": 500,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "fire_damage_+%",
+            "min": 69,
+            "max": 88
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1595"
+      },
+      "staves:prefix:smiting:LightningDamagePrefixOnTwoHandWeapon6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 200,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "lightning_damage_+%",
+            "min": 149,
+            "max": 188
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1596"
+      },
+      "staves:prefix:smoldering:FireDamagePrefixOnTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 300,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "fire_damage_+%",
+            "min": 129,
+            "max": 148
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1597"
+      },
+      "staves:prefix:snowy:ColdDamagePrefixOnTwoHandWeapon4_": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 33,
+        "weight": 400,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "cold_damage_+%",
+            "min": 109,
+            "max": 128
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src1598"
+      },
+      "staves:prefix:stormbound:SpellDamageGainedAsLightningTwoHand6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LightningDamage"
+        ],
+        "requiredItemLevel": 80,
+        "weight": 500,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+            "min": 55,
+            "max": 60
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1599"
+      },
+      "staves:prefix:striking:LightningDamagePrefixOnTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 300,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "lightning_damage_+%",
+            "min": 129,
+            "max": 148
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1600"
+      },
+      "staves:prefix:tainted:ChaosDamagePrefixOnTwoHandWeapon2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 8,
+        "weight": 500,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "chaos_damage_+%",
+            "min": 69,
+            "max": 88
+          }
+        ],
+        "tags": [
+          "damage",
+          "chaos"
+        ],
+        "sourceRef": "src1601"
+      },
+      "staves:prefix:torturer-s:PhysicalDamagePrefixOnTwoHandWeapon8": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 50,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "spell_physical_damage_+%",
+            "min": 209,
+            "max": 238
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical"
+        ],
+        "sourceRef": "src1602"
+      },
+      "staves:prefix:twisted:ChaosDamagePrefixOnTwoHandWeapon7": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 70,
+        "weight": 100,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "chaos_damage_+%",
+            "min": 189,
+            "max": 208
+          }
+        ],
+        "tags": [
+          "damage",
+          "chaos"
+        ],
+        "sourceRef": "src1603"
+      },
+      "staves:prefix:unforgiving:PhysicalDamagePrefixOnTwoHandWeapon2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 8,
+        "weight": 500,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "spell_physical_damage_+%",
+            "min": 69,
+            "max": 88
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical"
+        ],
+        "sourceRef": "src1604"
+      },
+      "staves:prefix:vengeful:PhysicalDamagePrefixOnTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 16,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "spell_physical_damage_+%",
+            "min": 89,
+            "max": 108
+          }
+        ],
+        "tags": [
+          "damage",
+          "physical"
+        ],
+        "sourceRef": "src1605"
+      },
+      "staves:prefix:vile:ChaosDamagePrefixOnTwoHandWeapon6": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 200,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "chaos_damage_+%",
+            "min": 149,
+            "max": 188
+          }
+        ],
+        "tags": [
+          "damage",
+          "chaos"
+        ],
+        "sourceRef": "src1606"
+      },
+      "staves:prefix:volcanic:FireDamagePrefixOnTwoHandWeapon7": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "requiredItemLevel": 70,
+        "weight": 100,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "fire_damage_+%",
+            "min": 189,
+            "max": 208
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1607"
+      },
+      "staves:prefix:vorpal:SpellDamageGainedAsLightningTwoHand4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LightningDamage"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
+            "min": 43,
+            "max": 48
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "sourceRef": "src1608"
+      },
+      "staves:prefix:warlock-s:SpellDamageAndManaOnTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "SpellDamageAndMana"
+        ],
+        "requiredItemLevel": 38,
+        "weight": 600,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 59,
+            "max": 68
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 57,
+            "max": 66
+          }
+        ],
+        "tags": [
+          "mana",
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1609"
+      },
+      "staves:prefix:wizard-s:SpellDamageAndManaOnTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "SpellDamageAndMana"
+        ],
+        "requiredItemLevel": 23,
+        "weight": 1000,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "spell_damage_+%",
+            "min": 49,
+            "max": 58
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 49,
+            "max": 56
+          }
+        ],
+        "tags": [
+          "mana",
+          "damage",
+          "caster"
+        ],
+        "sourceRef": "src1610"
+      },
+      "staves:prefix:zealot-s:SpellDamageGainedAsFireTwoHand4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "requiredItemLevel": 46,
+        "weight": 500,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_fire",
+            "min": 43,
+            "max": 48
+          }
+        ],
+        "tags": [
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "sourceRef": "src1611"
+      },
+      "staves:suffix:of-anger:SpellCriticalStrikeMultiplierTwoHand2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 21,
+        "weight": 1000,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "base_spell_critical_strike_multiplier_+",
+            "min": 23,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1614"
+      },
+      "staves:suffix:of-armageddon:GlobalChaosSpellGemsLevelTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 100,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "chaos_spell_skill_gem_level_+",
+            "min": 7,
+            "max": 7
+          }
+        ],
+        "tags": [
+          "chaos",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1615"
+      },
+      "staves:suffix:of-bliss:ManaRegenerationTwoHand4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaRegeneration"
+        ],
+        "requiredItemLevel": 42,
+        "weight": 1000,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 60,
+            "max": 74
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1616"
+      },
+      "staves:suffix:of-calamity:SpellCriticalStrikeChanceTwoHand4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SpellCriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 41,
+        "weight": 500,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "spell_critical_strike_chance_+%",
+            "min": 70,
+            "max": 79
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1617"
+      },
+      "staves:suffix:of-desolation:GlobalPhysicalSpellGemsLevelTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 250,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "physical_spell_skill_gem_level_+",
+            "min": 5,
+            "max": 6
+          }
+        ],
+        "tags": [
+          "physical",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1618"
+      },
+      "staves:suffix:of-destruction:SpellCriticalStrikeMultiplierTwoHand6": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 73,
+        "weight": 125,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "base_spell_critical_strike_multiplier_+",
+            "min": 53,
+            "max": 59
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1619"
+      },
+      "staves:suffix:of-disaster:SpellCriticalStrikeChanceTwoHand3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SpellCriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 28,
+        "weight": 1000,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "spell_critical_strike_chance_+%",
+            "min": 60,
+            "max": 69
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1620"
+      },
+      "staves:suffix:of-elation:ManaRegenerationTwoHand3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaRegeneration"
+        ],
+        "requiredItemLevel": 29,
+        "weight": 1000,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 45,
+            "max": 59
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1621"
+      },
+      "staves:suffix:of-electricity:GlobalLightningSpellGemsLevelTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 36,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "lightning_spell_skill_gem_level_+",
+            "min": 3,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "elemental",
+          "lightning",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1622"
+      },
+      "staves:suffix:of-euphoria:ManaRegenerationTwoHand5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaRegeneration"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 1000,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 75,
+            "max": 89
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1623"
+      },
+      "staves:suffix:of-excitement:ManaRegenerationTwoHand1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaRegeneration"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 1000,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 15,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1624"
+      },
+      "staves:suffix:of-expertise:IncreasedCastSpeedTwoHand3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedCastSpeed"
+        ],
+        "requiredItemLevel": 30,
+        "weight": 1000,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "base_cast_speed_+%",
+            "min": 26,
+            "max": 31
+          }
+        ],
+        "tags": [
+          "caster",
+          "speed"
+        ],
+        "sourceRef": "src1625"
+      },
+      "staves:suffix:of-ferocity:SpellCriticalStrikeMultiplierTwoHand5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 59,
+        "weight": 250,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "base_spell_critical_strike_multiplier_+",
+            "min": 45,
+            "max": 51
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1626"
+      },
+      "staves:suffix:of-finesse:IncreasedCastSpeedTwoHand7": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedCastSpeed"
+        ],
+        "requiredItemLevel": 80,
+        "weight": 250,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "base_cast_speed_+%",
+            "min": 50,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "caster",
+          "speed"
+        ],
+        "sourceRef": "src1627"
+      },
+      "staves:suffix:of-flames:GlobalFireSpellGemsLevelTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 36,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "fire_spell_skill_gem_level_+",
+            "min": 3,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "elemental",
+          "fire",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1628"
+      },
+      "staves:suffix:of-frostbite:GlobalColdSpellGemsLevelTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 100,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "cold_spell_skill_gem_level_+",
+            "min": 7,
+            "max": 7
+          }
+        ],
+        "tags": [
+          "elemental",
+          "cold",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1629"
+      },
+      "staves:suffix:of-fury:SpellCriticalStrikeMultiplierTwoHand4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 44,
+        "weight": 500,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "base_spell_critical_strike_multiplier_+",
+            "min": 38,
+            "max": 44
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1630"
+      },
+      "staves:suffix:of-grief:GlobalPhysicalSpellGemsLevelTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 100,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "physical_spell_skill_gem_level_+",
+            "min": 7,
+            "max": 7
+          }
+        ],
+        "tags": [
+          "physical",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1631"
+      },
+      "staves:suffix:of-havoc:GlobalChaosSpellGemsLevelTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 250,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "chaos_spell_skill_gem_level_+",
+            "min": 5,
+            "max": 6
+          }
+        ],
+        "tags": [
+          "chaos",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1632"
+      },
+      "staves:suffix:of-havoc:SpellCriticalStrikeChanceTwoHand2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SpellCriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 21,
+        "weight": 1000,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "spell_critical_strike_chance_+%",
+            "min": 50,
+            "max": 59
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1633"
+      },
+      "staves:suffix:of-ice:GlobalColdSpellGemsLevelTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 36,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "cold_spell_skill_gem_level_+",
+            "min": 3,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "elemental",
+          "cold",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1634"
+      },
+      "staves:suffix:of-immolation:GlobalFireSpellGemsLevelTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 250,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "fire_spell_skill_gem_level_+",
+            "min": 5,
+            "max": 6
+          }
+        ],
+        "tags": [
+          "elemental",
+          "fire",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1635"
+      },
+      "staves:suffix:of-inferno:GlobalFireSpellGemsLevelTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 100,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "fire_spell_skill_gem_level_+",
+            "min": 7,
+            "max": 7
+          }
+        ],
+        "tags": [
+          "elemental",
+          "fire",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1636"
+      },
+      "staves:suffix:of-ire:SpellCriticalStrikeMultiplierTwoHand1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 8,
+        "weight": 1000,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "base_spell_critical_strike_multiplier_+",
+            "min": 15,
+            "max": 21
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1637"
+      },
+      "staves:suffix:of-joy:ManaRegenerationTwoHand2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaRegeneration"
+        ],
+        "requiredItemLevel": 18,
+        "weight": 1000,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 30,
+            "max": 44
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1638"
+      },
+      "staves:suffix:of-kindling:LightRadiusAndManaRegeneration2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LightRadiusAndManaRegeneration"
+        ],
+        "requiredItemLevel": 15,
+        "weight": 1000,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "light_radius_+%",
+            "min": 10,
+            "max": 10
+          },
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 13,
+            "max": 17
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src0379"
+      },
+      "staves:suffix:of-legerdemain:IncreasedCastSpeedTwoHand5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedCastSpeed"
+        ],
+        "requiredItemLevel": 60,
+        "weight": 1000,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "base_cast_speed_+%",
+            "min": 38,
+            "max": 43
+          }
+        ],
+        "tags": [
+          "caster",
+          "speed"
+        ],
+        "sourceRef": "src1639"
+      },
+      "staves:suffix:of-menace:SpellCriticalStrikeChanceTwoHand1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SpellCriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 11,
+        "weight": 1000,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "spell_critical_strike_chance_+%",
+            "min": 40,
+            "max": 49
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1640"
+      },
+      "staves:suffix:of-nimbleness:IncreasedCastSpeedTwoHand2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedCastSpeed"
+        ],
+        "requiredItemLevel": 15,
+        "weight": 1000,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "base_cast_speed_+%",
+            "min": 20,
+            "max": 25
+          }
+        ],
+        "tags": [
+          "caster",
+          "speed"
+        ],
+        "sourceRef": "src1641"
+      },
+      "staves:suffix:of-nirvana:ManaRegenerationTwoHand6": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaRegeneration"
+        ],
+        "requiredItemLevel": 79,
+        "weight": 1000,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 90,
+            "max": 104
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1642"
+      },
+      "staves:suffix:of-prestidigitation:IncreasedCastSpeedTwoHand6": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedCastSpeed"
+        ],
+        "requiredItemLevel": 70,
+        "weight": 500,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "base_cast_speed_+%",
+            "min": 44,
+            "max": 49
+          }
+        ],
+        "tags": [
+          "caster",
+          "speed"
+        ],
+        "sourceRef": "src1643"
+      },
+      "staves:suffix:of-rage:SpellCriticalStrikeMultiplierTwoHand3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 30,
+        "weight": 1000,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "base_spell_critical_strike_multiplier_+",
+            "min": 30,
+            "max": 36
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1644"
+      },
+      "staves:suffix:of-rime:GlobalColdSpellGemsLevelTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 250,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "cold_spell_skill_gem_level_+",
+            "min": 5,
+            "max": 6
+          }
+        ],
+        "tags": [
+          "elemental",
+          "cold",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1645"
+      },
+      "staves:suffix:of-ruin:GlobalChaosSpellGemsLevelTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 36,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "chaos_spell_skill_gem_level_+",
+            "min": 3,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "chaos",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1646"
+      },
+      "staves:suffix:of-ruin:SpellCriticalStrikeChanceTwoHand5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SpellCriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 59,
+        "weight": 250,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "spell_critical_strike_chance_+%",
+            "min": 80,
+            "max": 89
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1647"
+      },
+      "staves:suffix:of-sortilege:IncreasedCastSpeedTwoHand4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedCastSpeed"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 1000,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "base_cast_speed_+%",
+            "min": 32,
+            "max": 37
+          }
+        ],
+        "tags": [
+          "caster",
+          "speed"
+        ],
+        "sourceRef": "src1648"
+      },
+      "staves:suffix:of-talent:IncreasedCastSpeedTwoHand1_": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedCastSpeed"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 1000,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "base_cast_speed_+%",
+            "min": 14,
+            "max": 19
+          }
+        ],
+        "tags": [
+          "caster",
+          "speed"
+        ],
+        "sourceRef": "src1649"
+      },
+      "staves:suffix:of-the-enchanter:GlobalSpellGemsLevelTwoHandWeapon2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 25,
+        "weight": 150,
+        "tier": 5,
+        "stats": [
+          {
+            "id": "spell_skill_gem_level_+",
+            "min": 3,
+            "max": 3
+          }
+        ],
+        "tags": [
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1650"
+      },
+      "staves:suffix:of-the-evoker:GlobalSpellGemsLevelTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 100,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "spell_skill_gem_level_+",
+            "min": 4,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1651"
+      },
+      "staves:suffix:of-the-hearth:LightRadiusAndManaRegeneration3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LightRadiusAndManaRegeneration"
+        ],
+        "requiredItemLevel": 30,
+        "weight": 1000,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "light_radius_+%",
+            "min": 15,
+            "max": 15
+          },
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 18,
+            "max": 22
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src0407"
+      },
+      "staves:suffix:of-the-mage:GlobalSpellGemsLevelTwoHandWeapon1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 5,
+        "weight": 200,
+        "tier": 7,
+        "stats": [
+          {
+            "id": "spell_skill_gem_level_+",
+            "min": 2,
+            "max": 2
+          }
+        ],
+        "tags": [
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1652"
+      },
+      "staves:suffix:of-the-sorcerer:GlobalSpellGemsLevelTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 78,
+        "weight": 50,
+        "tier": 2,
+        "stats": [
+          {
+            "id": "spell_skill_gem_level_+",
+            "min": 5,
+            "max": 6
+          }
+        ],
+        "tags": [
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1653"
+      },
+      "staves:suffix:of-thunder:GlobalLightningSpellGemsLevelTwoHandWeapon5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 100,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "lightning_spell_skill_gem_level_+",
+            "min": 7,
+            "max": 7
+          }
+        ],
+        "tags": [
+          "elemental",
+          "lightning",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1654"
+      },
+      "staves:suffix:of-torment:GlobalPhysicalSpellGemsLevelTwoHandWeapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 36,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "physical_spell_skill_gem_level_+",
+            "min": 3,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "physical",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1655"
+      },
+      "staves:suffix:of-unmaking:SpellCriticalStrikeChanceTwoHand6": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SpellCriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 76,
+        "weight": 125,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "spell_critical_strike_chance_+%",
+            "min": 90,
+            "max": 109
+          }
+        ],
+        "tags": [
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src1656"
+      },
+      "staves:suffix:of-voltage:GlobalLightningSpellGemsLevelTwoHandWeapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 250,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "lightning_spell_skill_gem_level_+",
+            "min": 5,
+            "max": 6
+          }
+        ],
+        "tags": [
+          "elemental",
+          "lightning",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1657"
+      },
+      "staves:suffix:of-warmth:LightRadiusAndManaRegeneration1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LightRadiusAndManaRegeneration"
+        ],
+        "requiredItemLevel": 8,
+        "weight": 1000,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "light_radius_+%",
+            "min": 5,
+            "max": 5
+          },
+          {
+            "id": "mana_regeneration_rate_+%",
+            "min": 8,
+            "max": 12
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src0434"
+      }
     }
   },
-  "variants": {}
+  "essence": {
+    "definitions": {
+      "staves:suffix:essence:EssenceManaCostReduction2H": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaCostEfficiency"
+        ],
+        "requiredItemLevel": 72,
+        "weight": 0,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "base_mana_cost_efficiency_+%",
+            "min": 28,
+            "max": 32
+          }
+        ],
+        "tags": [
+          "mana"
+        ],
+        "sourceRef": "src1612"
+      },
+      "staves:suffix:essence:EssenceSpellSkillLevel2H1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 72,
+        "weight": 0,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "spell_skill_gem_level_+",
+            "min": 5,
+            "max": 5
+          }
+        ],
+        "tags": [
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src1613"
+      }
+    }
+  }
 }

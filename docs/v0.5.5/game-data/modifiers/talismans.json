@@ -1,25 +1,26 @@
 {
-  "definitions": {
-    "maji-talisman:implicit:base": {
-      "id": "maji-talisman:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "WeaponImplicit"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "maximum_rage",
-          "min": 7,
-          "max": 10
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1081"
+  "schemaVersion": 1,
+  "implicit": {
+    "definitions": {
+      "maji-talisman:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "WeaponImplicit"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "maximum_rage",
+            "min": 7,
+            "max": 10
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src1081"
+      }
     }
-  },
-  "variants": {}
+  }
 }

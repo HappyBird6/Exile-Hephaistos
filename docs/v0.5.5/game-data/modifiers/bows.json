@@ -1,1145 +1,776 @@
 {
-  "definitions": {
-    "crude-bow:prefix:champion-s": {
-      "id": "crude-bow:prefix:champion-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
-      ],
-      "requiredItemLevel": 54,
-      "weight": 600,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "local_accuracy_rating",
-          "min": 98,
-          "max": 123
-        },
-        {
-          "id": "local_physical_damage_+%",
-          "min": 45,
-          "max": 54
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src0484"
-    },
-    "crude-bow:prefix:conqueror-s": {
-      "id": "crude-bow:prefix:conqueror-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 400,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "local_accuracy_rating",
-          "min": 124,
-          "max": 149
-        },
-        {
-          "id": "local_physical_damage_+%",
-          "min": 55,
-          "max": 64
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src0486"
-    },
-    "crude-bow:prefix:dictator-s": {
-      "id": "crude-bow:prefix:dictator-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "local_accuracy_rating",
-          "min": 175,
-          "max": 200
-        },
-        {
-          "id": "local_physical_damage_+%",
-          "min": 75,
-          "max": 79
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src0491"
-    },
-    "crude-bow:prefix:emperor-s": {
-      "id": "crude-bow:prefix:emperor-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 200,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "local_accuracy_rating",
-          "min": 150,
-          "max": 174
-        },
-        {
-          "id": "local_physical_damage_+%",
-          "min": 65,
-          "max": 74
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src0494"
-    },
-    "crude-bow:prefix:journeyman-s": {
-      "id": "crude-bow:prefix:journeyman-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
-      ],
-      "requiredItemLevel": 14,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "local_accuracy_rating",
-          "min": 21,
-          "max": 46
-        },
-        {
-          "id": "local_physical_damage_+%",
-          "min": 20,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src0516"
-    },
-    "crude-bow:prefix:mercenary-s": {
-      "id": "crude-bow:prefix:mercenary-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
-      ],
-      "requiredItemLevel": 38,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "local_accuracy_rating",
-          "min": 73,
-          "max": 97
-        },
-        {
-          "id": "local_physical_damage_+%",
-          "min": 35,
-          "max": 44
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src0517"
-    },
-    "crude-bow:prefix:reaver-s": {
-      "id": "crude-bow:prefix:reaver-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
-      ],
-      "requiredItemLevel": 23,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "local_accuracy_rating",
-          "min": 47,
-          "max": 72
-        },
-        {
-          "id": "local_physical_damage_+%",
-          "min": 25,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src0522"
-    },
-    "crude-bow:prefix:squire-s": {
-      "id": "crude-bow:prefix:squire-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "local_accuracy_rating",
-          "min": 16,
-          "max": 20
-        },
-        {
-          "id": "local_physical_damage_+%",
-          "min": 15,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src0529"
-    },
-    "crude-bow:suffix:of-absorption": {
-      "id": "crude-bow:suffix:of-absorption",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 750,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "base_mana_gained_on_enemy_death",
-          "min": 2,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0335"
-    },
-    "crude-bow:suffix:of-assimilation": {
-      "id": "crude-bow:suffix:of-assimilation",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 750,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_mana_gained_on_enemy_death",
-          "min": 36,
-          "max": 45
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0340"
-    },
-    "crude-bow:suffix:of-conquest": {
-      "id": "crude-bow:suffix:of-conquest",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 750,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "base_life_gained_on_enemy_death",
-          "min": 19,
-          "max": 28
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src0348"
-    },
-    "crude-bow:suffix:of-consumption": {
-      "id": "crude-bow:suffix:of-consumption",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 750,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "base_mana_gained_on_enemy_death",
-          "min": 15,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0349"
-    },
-    "crude-bow:suffix:of-devouring": {
-      "id": "crude-bow:suffix:of-devouring",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 67,
-      "weight": 750,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "base_mana_gained_on_enemy_death",
-          "min": 28,
-          "max": 35
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0352"
-    },
-    "crude-bow:suffix:of-enveloping": {
-      "id": "crude-bow:suffix:of-enveloping",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 34,
-      "weight": 750,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "base_mana_gained_on_enemy_death",
-          "min": 10,
-          "max": 14
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0357"
-    },
-    "crude-bow:suffix:of-glory": {
-      "id": "crude-bow:suffix:of-glory",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 66,
-      "weight": 750,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "base_life_gained_on_enemy_death",
-          "min": 54,
-          "max": 68
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src0367"
-    },
-    "crude-bow:suffix:of-infusion": {
-      "id": "crude-bow:suffix:of-infusion",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 23,
-      "weight": 750,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "base_mana_gained_on_enemy_death",
-          "min": 6,
-          "max": 9
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0376"
-    },
-    "crude-bow:suffix:of-legend": {
-      "id": "crude-bow:suffix:of-legend",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 77,
-      "weight": 750,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_life_gained_on_enemy_death",
-          "min": 69,
-          "max": 84
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src0380"
-    },
-    "crude-bow:suffix:of-light": {
-      "id": "crude-bow:suffix:of-light",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndAccuracy"
-      ],
-      "requiredItemLevel": 15,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 10,
-          "max": 10
-        },
-        {
-          "id": "local_accuracy_rating",
-          "min": 21,
-          "max": 40
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src0535"
-    },
-    "crude-bow:suffix:of-many": {
-      "id": "crude-bow:suffix:of-many",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalArrows"
-      ],
-      "requiredItemLevel": 82,
-      "weight": 125,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
-          "min": 175,
-          "max": 200
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src0622"
-    },
-    "crude-bow:suffix:of-osmosis": {
-      "id": "crude-bow:suffix:of-osmosis",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 12,
-      "weight": 750,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "base_mana_gained_on_enemy_death",
-          "min": 4,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0385"
-    },
-    "crude-bow:suffix:of-radiance": {
-      "id": "crude-bow:suffix:of-radiance",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndAccuracy"
-      ],
-      "requiredItemLevel": 30,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 15,
-          "max": 15
-        },
-        {
-          "id": "local_accuracy_rating",
-          "min": 41,
-          "max": 60
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src0536"
-    },
-    "crude-bow:suffix:of-shards": {
-      "id": "crude-bow:suffix:of-shards",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalArrows"
-      ],
-      "requiredItemLevel": 66,
-      "weight": 200,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
-          "min": 125,
-          "max": 150
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src0632"
-    },
-    "crude-bow:suffix:of-shining": {
-      "id": "crude-bow:suffix:of-shining",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndAccuracy"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 5,
-          "max": 5
-        },
-        {
-          "id": "local_accuracy_rating",
-          "min": 10,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src0538"
-    },
-    "crude-bow:suffix:of-siphoning": {
-      "id": "crude-bow:suffix:of-siphoning",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 56,
-      "weight": 750,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "base_mana_gained_on_enemy_death",
-          "min": 21,
-          "max": 27
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0393"
-    },
-    "crude-bow:suffix:of-splintering": {
-      "id": "crude-bow:suffix:of-splintering",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalArrows"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 300,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
-          "min": 75,
-          "max": 100
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src0634"
-    },
-    "crude-bow:suffix:of-success": {
-      "id": "crude-bow:suffix:of-success",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 750,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "base_life_gained_on_enemy_death",
-          "min": 4,
-          "max": 6
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src0399"
-    },
-    "crude-bow:suffix:of-surplus": {
-      "id": "crude-bow:suffix:of-surplus",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalArrows"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 400,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
-          "min": 25,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src0635"
-    },
-    "crude-bow:suffix:of-the-apt": {
-      "id": "crude-bow:suffix:of-the-apt",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 32,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -20,
-          "max": -20
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0402"
-    },
-    "crude-bow:suffix:of-the-falcon": {
-      "id": "crude-bow:suffix:of-the-falcon",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Dexterity"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "additional_dexterity",
-          "min": 17,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0639"
-    },
-    "crude-bow:suffix:of-the-fox": {
-      "id": "crude-bow:suffix:of-the-fox",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Dexterity"
-      ],
-      "requiredItemLevel": 22,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "additional_dexterity",
-          "min": 13,
-          "max": 16
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0641"
-    },
-    "crude-bow:suffix:of-the-jaguar": {
-      "id": "crude-bow:suffix:of-the-jaguar",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Dexterity"
-      ],
-      "requiredItemLevel": 66,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "additional_dexterity",
-          "min": 28,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0642"
-    },
-    "crude-bow:suffix:of-the-leopard": {
-      "id": "crude-bow:suffix:of-the-leopard",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Dexterity"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "additional_dexterity",
-          "min": 25,
-          "max": 27
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0644"
-    },
-    "crude-bow:suffix:of-the-lynx": {
-      "id": "crude-bow:suffix:of-the-lynx",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Dexterity"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "additional_dexterity",
-          "min": 9,
-          "max": 12
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0646"
-    },
-    "crude-bow:suffix:of-the-mongoose": {
-      "id": "crude-bow:suffix:of-the-mongoose",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Dexterity"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "additional_dexterity",
-          "min": 5,
-          "max": 8
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0648"
-    },
-    "crude-bow:suffix:of-the-panther": {
-      "id": "crude-bow:suffix:of-the-panther",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Dexterity"
-      ],
-      "requiredItemLevel": 44,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "additional_dexterity",
-          "min": 21,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0649"
-    },
-    "crude-bow:suffix:of-the-phantom": {
-      "id": "crude-bow:suffix:of-the-phantom",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Dexterity"
-      ],
-      "requiredItemLevel": 74,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "additional_dexterity",
-          "min": 31,
-          "max": 33
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0651"
-    },
-    "crude-bow:suffix:of-the-proficient": {
-      "id": "crude-bow:suffix:of-the-proficient",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -35,
-          "max": -35
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0412"
-    },
-    "crude-bow:suffix:of-the-skilled": {
-      "id": "crude-bow:suffix:of-the-skilled",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 52,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -30,
-          "max": -30
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0416"
-    },
-    "crude-bow:suffix:of-the-talented": {
-      "id": "crude-bow:suffix:of-the-talented",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 40,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -25,
-          "max": -25
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0419"
-    },
-    "crude-bow:suffix:of-the-worthy": {
-      "id": "crude-bow:suffix:of-the-worthy",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 24,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -15,
-          "max": -15
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0423"
-    },
-    "crude-bow:suffix:of-triumph": {
-      "id": "crude-bow:suffix:of-triumph",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 22,
-      "weight": 750,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "base_life_gained_on_enemy_death",
-          "min": 10,
-          "max": 18
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src0426"
-    },
-    "crude-bow:suffix:of-valour": {
-      "id": "crude-bow:suffix:of-valour",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 750,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "base_life_gained_on_enemy_death",
-          "min": 41,
-          "max": 53
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src0429"
-    },
-    "crude-bow:suffix:of-vanquishing": {
-      "id": "crude-bow:suffix:of-vanquishing",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 44,
-      "weight": 750,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "base_life_gained_on_enemy_death",
-          "min": 29,
-          "max": 40
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src0430"
-    },
-    "crude-bow:suffix:of-victory": {
-      "id": "crude-bow:suffix:of-victory",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeGainedFromEnemyDeath"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 750,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "base_life_gained_on_enemy_death",
-          "min": 7,
-          "max": 9
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src0431"
-    },
-    "fanatic-bow:implicit:weaponimplicitdamagetype": {
-      "id": "fanatic-bow:implicit:weaponimplicitdamagetype",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "WeaponImplicitDamageType"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
-          "min": 64,
-          "max": 64
-        },
-        {
-          "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
-          "min": 28,
-          "max": 28
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0873"
-    },
-    "gemini-bow:implicit:additionalarrows": {
-      "id": "gemini-bow:implicit:additionalarrows",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "AdditionalArrows"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
-          "min": 50,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "attack"
-      ],
-      "sourceRef": "src0890"
-    },
-    "guardian-bow:implicit:chain": {
-      "id": "guardian-bow:implicit:chain",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "Chain"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_additional_attack_chain_chance_%",
-          "min": 25,
-          "max": 35
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0911"
-    },
-    "obliterator-bow:implicit:projectilerange": {
-      "id": "obliterator-bow:implicit:projectilerange",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "ProjectileRange"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "projectile_attack_range_+%",
-          "min": -50,
-          "max": -50
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1083"
+  "schemaVersion": 1,
+  "implicit": {
+    "definitions": {
+      "fanatic-bow:implicit:weaponimplicitdamagetype": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "WeaponImplicitDamageType"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_weapon_implicit_hidden_added_maximum_chaos_damage",
+            "min": 64,
+            "max": 64
+          },
+          {
+            "id": "local_weapon_implicit_hidden_added_minimum_chaos_damage",
+            "min": 28,
+            "max": 28
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src0873"
+      },
+      "gemini-bow:implicit:additionalarrows": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "AdditionalArrows"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks",
+            "min": 50,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "attack"
+        ],
+        "sourceRef": "src0890"
+      },
+      "guardian-bow:implicit:chain": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "Chain"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_additional_attack_chain_chance_%",
+            "min": 25,
+            "max": 35
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src0911"
+      },
+      "obliterator-bow:implicit:projectilerange": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "ProjectileRange"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "projectile_attack_range_+%",
+            "min": -50,
+            "max": -50
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src1083"
+      }
     }
   },
-  "variants": {}
+  "normal": {
+    "groups": {
+      "crude-bow:prefix:LocalIncreasedPhysicalDamagePercentAndAccuracyRating": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LocalIncreasedPhysicalDamagePercentAndAccuracyRating"
+        ],
+        "tags": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "statIds": [
+          "local_accuracy_rating",
+          "local_physical_damage_+%"
+        ],
+        "tiers": {
+          "crude-bow:prefix:squire-s": {
+            "tier": 8,
+            "requiredItemLevel": 8,
+            "weight": 1000,
+            "ranges": [
+              [
+                16,
+                20
+              ],
+              [
+                15,
+                19
+              ]
+            ],
+            "sourceRef": "src0529"
+          },
+          "crude-bow:prefix:journeyman-s": {
+            "tier": 7,
+            "requiredItemLevel": 14,
+            "weight": 1000,
+            "ranges": [
+              [
+                21,
+                46
+              ],
+              [
+                20,
+                24
+              ]
+            ],
+            "sourceRef": "src0516"
+          },
+          "crude-bow:prefix:reaver-s": {
+            "tier": 6,
+            "requiredItemLevel": 23,
+            "weight": 1000,
+            "ranges": [
+              [
+                47,
+                72
+              ],
+              [
+                25,
+                34
+              ]
+            ],
+            "sourceRef": "src0522"
+          },
+          "crude-bow:prefix:mercenary-s": {
+            "tier": 5,
+            "requiredItemLevel": 38,
+            "weight": 1000,
+            "ranges": [
+              [
+                73,
+                97
+              ],
+              [
+                35,
+                44
+              ]
+            ],
+            "sourceRef": "src0517"
+          },
+          "crude-bow:prefix:champion-s": {
+            "tier": 4,
+            "requiredItemLevel": 54,
+            "weight": 600,
+            "ranges": [
+              [
+                98,
+                123
+              ],
+              [
+                45,
+                54
+              ]
+            ],
+            "sourceRef": "src0484"
+          },
+          "crude-bow:prefix:conqueror-s": {
+            "tier": 3,
+            "requiredItemLevel": 65,
+            "weight": 400,
+            "ranges": [
+              [
+                124,
+                149
+              ],
+              [
+                55,
+                64
+              ]
+            ],
+            "sourceRef": "src0486"
+          },
+          "crude-bow:prefix:emperor-s": {
+            "tier": 2,
+            "requiredItemLevel": 70,
+            "weight": 200,
+            "ranges": [
+              [
+                150,
+                174
+              ],
+              [
+                65,
+                74
+              ]
+            ],
+            "sourceRef": "src0494"
+          },
+          "crude-bow:prefix:dictator-s": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 100,
+            "ranges": [
+              [
+                175,
+                200
+              ],
+              [
+                75,
+                79
+              ]
+            ],
+            "sourceRef": "src0491"
+          }
+        }
+      },
+      "crude-bow:suffix:ManaGainedFromEnemyDeath": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaGainedFromEnemyDeath"
+        ],
+        "tags": [
+          "resource",
+          "mana"
+        ],
+        "statIds": [
+          "base_mana_gained_on_enemy_death"
+        ],
+        "tiers": {
+          "crude-bow:suffix:of-absorption": {
+            "tier": 8,
+            "requiredItemLevel": 1,
+            "weight": 750,
+            "ranges": [
+              [
+                2,
+                3
+              ]
+            ],
+            "sourceRef": "src0335"
+          },
+          "crude-bow:suffix:of-osmosis": {
+            "tier": 7,
+            "requiredItemLevel": 12,
+            "weight": 750,
+            "ranges": [
+              [
+                4,
+                5
+              ]
+            ],
+            "sourceRef": "src0385"
+          },
+          "crude-bow:suffix:of-infusion": {
+            "tier": 6,
+            "requiredItemLevel": 23,
+            "weight": 750,
+            "ranges": [
+              [
+                6,
+                9
+              ]
+            ],
+            "sourceRef": "src0376"
+          },
+          "crude-bow:suffix:of-enveloping": {
+            "tier": 5,
+            "requiredItemLevel": 34,
+            "weight": 750,
+            "ranges": [
+              [
+                10,
+                14
+              ]
+            ],
+            "sourceRef": "src0357"
+          },
+          "crude-bow:suffix:of-consumption": {
+            "tier": 4,
+            "requiredItemLevel": 45,
+            "weight": 750,
+            "ranges": [
+              [
+                15,
+                20
+              ]
+            ],
+            "sourceRef": "src0349"
+          },
+          "crude-bow:suffix:of-siphoning": {
+            "tier": 3,
+            "requiredItemLevel": 56,
+            "weight": 750,
+            "ranges": [
+              [
+                21,
+                27
+              ]
+            ],
+            "sourceRef": "src0393"
+          },
+          "crude-bow:suffix:of-devouring": {
+            "tier": 2,
+            "requiredItemLevel": 67,
+            "weight": 750,
+            "ranges": [
+              [
+                28,
+                35
+              ]
+            ],
+            "sourceRef": "src0352"
+          },
+          "crude-bow:suffix:of-assimilation": {
+            "tier": 1,
+            "requiredItemLevel": 78,
+            "weight": 750,
+            "ranges": [
+              [
+                36,
+                45
+              ]
+            ],
+            "sourceRef": "src0340"
+          }
+        }
+      },
+      "crude-bow:suffix:LifeGainedFromEnemyDeath": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LifeGainedFromEnemyDeath"
+        ],
+        "tags": [
+          "resource",
+          "life"
+        ],
+        "statIds": [
+          "base_life_gained_on_enemy_death"
+        ],
+        "tiers": {
+          "crude-bow:suffix:of-success": {
+            "tier": 8,
+            "requiredItemLevel": 1,
+            "weight": 750,
+            "ranges": [
+              [
+                4,
+                6
+              ]
+            ],
+            "sourceRef": "src0399"
+          },
+          "crude-bow:suffix:of-victory": {
+            "tier": 7,
+            "requiredItemLevel": 11,
+            "weight": 750,
+            "ranges": [
+              [
+                7,
+                9
+              ]
+            ],
+            "sourceRef": "src0431"
+          },
+          "crude-bow:suffix:of-triumph": {
+            "tier": 6,
+            "requiredItemLevel": 22,
+            "weight": 750,
+            "ranges": [
+              [
+                10,
+                18
+              ]
+            ],
+            "sourceRef": "src0426"
+          },
+          "crude-bow:suffix:of-conquest": {
+            "tier": 5,
+            "requiredItemLevel": 33,
+            "weight": 750,
+            "ranges": [
+              [
+                19,
+                28
+              ]
+            ],
+            "sourceRef": "src0348"
+          },
+          "crude-bow:suffix:of-vanquishing": {
+            "tier": 4,
+            "requiredItemLevel": 44,
+            "weight": 750,
+            "ranges": [
+              [
+                29,
+                40
+              ]
+            ],
+            "sourceRef": "src0430"
+          },
+          "crude-bow:suffix:of-valour": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 750,
+            "ranges": [
+              [
+                41,
+                53
+              ]
+            ],
+            "sourceRef": "src0429"
+          },
+          "crude-bow:suffix:of-glory": {
+            "tier": 2,
+            "requiredItemLevel": 66,
+            "weight": 750,
+            "ranges": [
+              [
+                54,
+                68
+              ]
+            ],
+            "sourceRef": "src0367"
+          },
+          "crude-bow:suffix:of-legend": {
+            "tier": 1,
+            "requiredItemLevel": 77,
+            "weight": 750,
+            "ranges": [
+              [
+                69,
+                84
+              ]
+            ],
+            "sourceRef": "src0380"
+          }
+        }
+      },
+      "crude-bow:suffix:LightRadiusAndAccuracy": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LightRadiusAndAccuracy"
+        ],
+        "tags": [
+          "attack"
+        ],
+        "statIds": [
+          "light_radius_+%",
+          "local_accuracy_rating"
+        ],
+        "tiers": {
+          "crude-bow:suffix:of-shining": {
+            "tier": 3,
+            "requiredItemLevel": 8,
+            "weight": 1000,
+            "ranges": [
+              [
+                5,
+                5
+              ],
+              [
+                10,
+                20
+              ]
+            ],
+            "sourceRef": "src0538"
+          },
+          "crude-bow:suffix:of-light": {
+            "tier": 2,
+            "requiredItemLevel": 15,
+            "weight": 1000,
+            "ranges": [
+              [
+                10,
+                10
+              ],
+              [
+                21,
+                40
+              ]
+            ],
+            "sourceRef": "src0535"
+          },
+          "crude-bow:suffix:of-radiance": {
+            "tier": 1,
+            "requiredItemLevel": 30,
+            "weight": 1000,
+            "ranges": [
+              [
+                15,
+                15
+              ],
+              [
+                41,
+                60
+              ]
+            ],
+            "sourceRef": "src0536"
+          }
+        }
+      },
+      "crude-bow:suffix:AdditionalArrows": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AdditionalArrows"
+        ],
+        "tags": [
+          "attack"
+        ],
+        "statIds": [
+          "chance_to_fire_1_additional_projectile_%_with_rollover_with_bow_attacks"
+        ],
+        "tiers": {
+          "crude-bow:suffix:of-surplus": {
+            "tier": 4,
+            "requiredItemLevel": 46,
+            "weight": 400,
+            "ranges": [
+              [
+                25,
+                50
+              ]
+            ],
+            "sourceRef": "src0635"
+          },
+          "crude-bow:suffix:of-splintering": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 300,
+            "ranges": [
+              [
+                75,
+                100
+              ]
+            ],
+            "sourceRef": "src0634"
+          },
+          "crude-bow:suffix:of-shards": {
+            "tier": 2,
+            "requiredItemLevel": 66,
+            "weight": 200,
+            "ranges": [
+              [
+                125,
+                150
+              ]
+            ],
+            "sourceRef": "src0632"
+          },
+          "crude-bow:suffix:of-many": {
+            "tier": 1,
+            "requiredItemLevel": 82,
+            "weight": 125,
+            "ranges": [
+              [
+                175,
+                200
+              ]
+            ],
+            "sourceRef": "src0622"
+          }
+        }
+      },
+      "crude-bow:suffix:LocalAttributeRequirements": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LocalAttributeRequirements"
+        ],
+        "tags": [],
+        "statIds": [
+          "local_attribute_requirements_+%"
+        ],
+        "tiers": {
+          "crude-bow:suffix:of-the-worthy": {
+            "tier": 5,
+            "requiredItemLevel": 24,
+            "weight": 1000,
+            "ranges": [
+              [
+                -15,
+                -15
+              ]
+            ],
+            "sourceRef": "src0423"
+          },
+          "crude-bow:suffix:of-the-apt": {
+            "tier": 4,
+            "requiredItemLevel": 32,
+            "weight": 1000,
+            "ranges": [
+              [
+                -20,
+                -20
+              ]
+            ],
+            "sourceRef": "src0402"
+          },
+          "crude-bow:suffix:of-the-talented": {
+            "tier": 3,
+            "requiredItemLevel": 40,
+            "weight": 1000,
+            "ranges": [
+              [
+                -25,
+                -25
+              ]
+            ],
+            "sourceRef": "src0419"
+          },
+          "crude-bow:suffix:of-the-skilled": {
+            "tier": 2,
+            "requiredItemLevel": 52,
+            "weight": 1000,
+            "ranges": [
+              [
+                -30,
+                -30
+              ]
+            ],
+            "sourceRef": "src0416"
+          },
+          "crude-bow:suffix:of-the-proficient": {
+            "tier": 1,
+            "requiredItemLevel": 60,
+            "weight": 1000,
+            "ranges": [
+              [
+                -35,
+                -35
+              ]
+            ],
+            "sourceRef": "src0412"
+          }
+        }
+      },
+      "crude-bow:suffix:Dexterity": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "Dexterity"
+        ],
+        "tags": [
+          "attribute"
+        ],
+        "statIds": [
+          "additional_dexterity"
+        ],
+        "tiers": {
+          "crude-bow:suffix:of-the-mongoose": {
+            "tier": 8,
+            "requiredItemLevel": 1,
+            "weight": 1000,
+            "ranges": [
+              [
+                5,
+                8
+              ]
+            ],
+            "sourceRef": "src0648"
+          },
+          "crude-bow:suffix:of-the-lynx": {
+            "tier": 7,
+            "requiredItemLevel": 11,
+            "weight": 1000,
+            "ranges": [
+              [
+                9,
+                12
+              ]
+            ],
+            "sourceRef": "src0646"
+          },
+          "crude-bow:suffix:of-the-fox": {
+            "tier": 6,
+            "requiredItemLevel": 22,
+            "weight": 1000,
+            "ranges": [
+              [
+                13,
+                16
+              ]
+            ],
+            "sourceRef": "src0641"
+          },
+          "crude-bow:suffix:of-the-falcon": {
+            "tier": 5,
+            "requiredItemLevel": 33,
+            "weight": 1000,
+            "ranges": [
+              [
+                17,
+                20
+              ]
+            ],
+            "sourceRef": "src0639"
+          },
+          "crude-bow:suffix:of-the-panther": {
+            "tier": 4,
+            "requiredItemLevel": 44,
+            "weight": 1000,
+            "ranges": [
+              [
+                21,
+                24
+              ]
+            ],
+            "sourceRef": "src0649"
+          },
+          "crude-bow:suffix:of-the-leopard": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 1000,
+            "ranges": [
+              [
+                25,
+                27
+              ]
+            ],
+            "sourceRef": "src0644"
+          },
+          "crude-bow:suffix:of-the-jaguar": {
+            "tier": 2,
+            "requiredItemLevel": 66,
+            "weight": 1000,
+            "ranges": [
+              [
+                28,
+                30
+              ]
+            ],
+            "sourceRef": "src0642"
+          },
+          "crude-bow:suffix:of-the-phantom": {
+            "tier": 1,
+            "requiredItemLevel": 74,
+            "weight": 1000,
+            "ranges": [
+              [
+                31,
+                33
+              ]
+            ],
+            "sourceRef": "src0651"
+          }
+        }
+      }
+    }
+  }
 }

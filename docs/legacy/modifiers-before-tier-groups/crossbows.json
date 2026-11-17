@@ -1,0 +1,209 @@
+{
+  "definitions": {
+    "crossbow:suffix:of-bursting:AdditionalAmmo2": {
+      "id": "crossbow:suffix:of-bursting:AdditionalAmmo2",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AdditionalAmmo"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 125,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_number_of_crossbow_bolts",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0534"
+    },
+    "crossbow:suffix:of-shelling:AdditionalAmmo1": {
+      "id": "crossbow:suffix:of-shelling:AdditionalAmmo1",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AdditionalAmmo"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 250,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_number_of_crossbow_bolts",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0537"
+    },
+    "crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2": {
+      "id": "crossbow:suffix:of-the-fletcher:GlobalProjectileSkillGemLevelTwoHandWeapon2",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 750,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0539"
+    },
+    "crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4": {
+      "id": "crossbow:suffix:of-the-marksman:GlobalProjectileSkillGemLevelTwoHandWeapon4",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 250,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0540"
+    },
+    "crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3": {
+      "id": "crossbow:suffix:of-the-sharpshooter:GlobalProjectileSkillGemLevelTwoHandWeapon3",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0541"
+    },
+    "crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5": {
+      "id": "crossbow:suffix:of-the-sniper:GlobalProjectileSkillGemLevelTwoHandWeapon5",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 100,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0542"
+    },
+    "elegant-crossbow:implicit:base": {
+      "id": "elegant-crossbow:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ChanceToPierce"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_chance_to_pierce_%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0854"
+    },
+    "flexed-crossbow:implicit:base": {
+      "id": "flexed-crossbow:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ProjectileSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "projectile_speed_+%_with_crossbow_skills",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0878"
+    },
+    "gemini-crossbow:implicit:base": {
+      "id": "gemini-crossbow:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "AdditionalAmmo"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_number_of_crossbow_bolts",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0891"
+    },
+    "siege-crossbow:implicit:base": {
+      "id": "siege-crossbow:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "AdditionalProjectiles"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "grenade_skill_number_of_additional_projectiles",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1481"
+    }
+  },
+  "variants": {}
+}

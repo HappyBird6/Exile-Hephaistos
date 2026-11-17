@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { isDeepStrictEqual } from 'node:util'
 import { catalogResolver, dataFiles, jsonBytes } from './catalog-data.mjs'
+import { expandModifierData } from './modifier-data.mjs'
 
 const own = (value, key) => Object.hasOwn(value, key)
 const ordered = (value, keys) =>
@@ -95,7 +96,7 @@ export function gameDataOutputs(directory) {
   const text = raw('i18n/catalog/modifiers.en.json')
   const registry = { definitions: {}, variants: {} }
   for (const file of dataFiles(path.join(directory, 'game-data/modifiers'))) {
-    const data = hydrate(document(file))
+    const data = hydrate(expandModifierData(document(file)))
     for (const [id, definition] of Object.entries(data.definitions)) {
       assert(
         !own(registry.definitions, id),

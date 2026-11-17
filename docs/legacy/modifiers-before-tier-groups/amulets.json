@@ -1,0 +1,4521 @@
+{
+  "definitions": {
+    "absent-amulet:implicit:base": {
+      "id": "absent-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0001"
+    },
+    "amber:implicit:strength": {
+      "id": "amber:implicit:strength",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0024"
+    },
+    "amulet:prefix:adept-s": {
+      "id": "amulet:prefix:adept-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 8,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceRef": "src0026"
+    },
+    "amulet:prefix:apprentice-s": {
+      "id": "amulet:prefix:apprentice-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 3,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceRef": "src0028"
+    },
+    "amulet:prefix:aqua": {
+      "id": "amulet:prefix:aqua",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 65,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0029"
+    },
+    "amulet:prefix:athlete-s": {
+      "id": "amulet:prefix:athlete-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 120,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0030"
+    },
+    "amulet:prefix:azure": {
+      "id": "amulet:prefix:azure",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 11,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 25,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0031"
+    },
+    "amulet:prefix:beryl": {
+      "id": "amulet:prefix:beryl",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 13,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0033"
+    },
+    "amulet:prefix:blazing": {
+      "id": "amulet:prefix:blazing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 52,
+          "max": 61
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0034"
+    },
+    "amulet:prefix:blue": {
+      "id": "amulet:prefix:blue",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 150,
+          "max": 164
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0035"
+    },
+    "amulet:prefix:buttressed": {
+      "id": "amulet:prefix:buttressed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src0036"
+    },
+    "amulet:prefix:cerulean": {
+      "id": "amulet:prefix:cerulean",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 55,
+          "max": 64
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0037"
+    },
+    "amulet:prefix:chalybeous": {
+      "id": "amulet:prefix:chalybeous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 105,
+          "max": 124
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0038"
+    },
+    "amulet:prefix:cobalt": {
+      "id": "amulet:prefix:cobalt",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 12,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 15,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0039"
+    },
+    "amulet:prefix:cognizant": {
+      "id": "amulet:prefix:cognizant",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 300,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0040"
+    },
+    "amulet:prefix:confident": {
+      "id": "amulet:prefix:confident",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 300,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 7,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0042"
+    },
+    "amulet:prefix:consistent": {
+      "id": "amulet:prefix:consistent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 124,
+          "max": 167
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0043"
+    },
+    "amulet:prefix:dauntless": {
+      "id": "amulet:prefix:dauntless",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0045"
+    },
+    "amulet:prefix:dazzling": {
+      "id": "amulet:prefix:dazzling",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 62,
+          "max": 70
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0046"
+    },
+    "amulet:prefix:deliberate": {
+      "id": "amulet:prefix:deliberate",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 85,
+          "max": 123
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0047"
+    },
+    "amulet:prefix:essence-abyssal-mark": {
+      "id": "amulet:prefix:essence-abyssal-mark",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0048"
+    },
+    "amulet:prefix:essence-global-defences": {
+      "id": "amulet:prefix:essence-global-defences",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "AllDefences"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "global_armour_evasion_energy_shield_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "defences"
+      ],
+      "sourceRef": "src0049"
+    },
+    "amulet:prefix:fearless": {
+      "id": "amulet:prefix:fearless",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0051"
+    },
+    "amulet:prefix:focused": {
+      "id": "amulet:prefix:focused",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 800,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 61,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0052"
+    },
+    "amulet:prefix:gentian": {
+      "id": "amulet:prefix:gentian",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 90,
+          "max": 104
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0053"
+    },
+    "amulet:prefix:ghost-s": {
+      "id": "amulet:prefix:ghost-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0054"
+    },
+    "amulet:prefix:girded": {
+      "id": "amulet:prefix:girded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src0055"
+    },
+    "amulet:prefix:glimmering": {
+      "id": "amulet:prefix:glimmering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0056"
+    },
+    "amulet:prefix:glittering": {
+      "id": "amulet:prefix:glittering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0057"
+    },
+    "amulet:prefix:glowing": {
+      "id": "amulet:prefix:glowing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 25,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0058"
+    },
+    "amulet:prefix:hale": {
+      "id": "amulet:prefix:hale",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0059"
+    },
+    "amulet:prefix:healthy": {
+      "id": "amulet:prefix:healthy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0060"
+    },
+    "amulet:prefix:hopeful": {
+      "id": "amulet:prefix:hopeful",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 300,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 3,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0062"
+    },
+    "amulet:prefix:hunter-s": {
+      "id": "amulet:prefix:hunter-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 237,
+          "max": 346
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0063"
+    },
+    "amulet:prefix:impregnable": {
+      "id": "amulet:prefix:impregnable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 45,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src0064"
+    },
+    "amulet:prefix:incandescent": {
+      "id": "amulet:prefix:incandescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0065"
+    },
+    "amulet:prefix:incanter-s": {
+      "id": "amulet:prefix:incanter-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 27,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceRef": "src0066"
+    },
+    "amulet:prefix:indomitable": {
+      "id": "amulet:prefix:indomitable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 39,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0067"
+    },
+    "amulet:prefix:layered": {
+      "id": "amulet:prefix:layered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src0069"
+    },
+    "amulet:prefix:lobstered": {
+      "id": "amulet:prefix:lobstered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src0070"
+    },
+    "amulet:prefix:mirage-s": {
+      "id": "amulet:prefix:mirage-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 77,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 45,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0074"
+    },
+    "amulet:prefix:mnemonic": {
+      "id": "amulet:prefix:mnemonic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 300,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 7,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0075"
+    },
+    "amulet:prefix:nightmare-s": {
+      "id": "amulet:prefix:nightmare-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 39,
+          "max": 44
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0076"
+    },
+    "amulet:prefix:occultist-s": {
+      "id": "amulet:prefix:occultist-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 23,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceRef": "src0077"
+    },
+    "amulet:prefix:opalescent": {
+      "id": "amulet:prefix:opalescent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 80,
+          "max": 89
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0078"
+    },
+    "amulet:prefix:optimistic": {
+      "id": "amulet:prefix:optimistic",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 300,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0079"
+    },
+    "amulet:prefix:perceptive": {
+      "id": "amulet:prefix:perceptive",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumManaIncreasePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 300,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "maximum_mana_+%",
+          "min": 5,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0080"
+    },
+    "amulet:prefix:phantasm-s": {
+      "id": "amulet:prefix:phantasm-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0081"
+    },
+    "amulet:prefix:precise": {
+      "id": "amulet:prefix:precise",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 11,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0082"
+    },
+    "amulet:prefix:professor-s": {
+      "id": "amulet:prefix:professor-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 18,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceRef": "src0083"
+    },
+    "amulet:prefix:protective": {
+      "id": "amulet:prefix:protective",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0084"
+    },
+    "amulet:prefix:pulsing": {
+      "id": "amulet:prefix:pulsing",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 42,
+          "max": 51
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0085"
+    },
+    "amulet:prefix:radiating": {
+      "id": "amulet:prefix:radiating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 34,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0086"
+    },
+    "amulet:prefix:ranger-s": {
+      "id": "amulet:prefix:ranger-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 67,
+      "weight": 400,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 347,
+          "max": 450
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0087"
+    },
+    "amulet:prefix:reinforced": {
+      "id": "amulet:prefix:reinforced",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src0088"
+    },
+    "amulet:prefix:reliable": {
+      "id": "amulet:prefix:reliable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 800,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 33,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0089"
+    },
+    "amulet:prefix:resolute": {
+      "id": "amulet:prefix:resolute",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0090"
+    },
+    "amulet:prefix:robust": {
+      "id": "amulet:prefix:robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0091"
+    },
+    "amulet:prefix:rotund": {
+      "id": "amulet:prefix:rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0092"
+    },
+    "amulet:prefix:sanguine": {
+      "id": "amulet:prefix:sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0093"
+    },
+    "amulet:prefix:scholar-s": {
+      "id": "amulet:prefix:scholar-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "SpellDamage"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "spell_damage_+%",
+          "min": 13,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "caster_damage",
+        "damage",
+        "caster"
+      ],
+      "sourceRef": "src0094"
+    },
+    "amulet:prefix:scintillating": {
+      "id": "amulet:prefix:scintillating",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 70,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 71,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0095"
+    },
+    "amulet:prefix:shade-s": {
+      "id": "amulet:prefix:shade-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0096"
+    },
+    "amulet:prefix:shining": {
+      "id": "amulet:prefix:shining",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 8,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0097"
+    },
+    "amulet:prefix:spectre-s": {
+      "id": "amulet:prefix:spectre-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0098"
+    },
+    "amulet:prefix:stalwart": {
+      "id": "amulet:prefix:stalwart",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 40,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0099"
+    },
+    "amulet:prefix:steady": {
+      "id": "amulet:prefix:steady",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedAccuracy"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "accuracy_rating",
+          "min": 168,
+          "max": 236
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0100"
+    },
+    "amulet:prefix:stout": {
+      "id": "amulet:prefix:stout",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0101"
+    },
+    "amulet:prefix:strong-willed": {
+      "id": "amulet:prefix:strong-willed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0102"
+    },
+    "amulet:prefix:teal": {
+      "id": "amulet:prefix:teal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 35,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0103"
+    },
+    "amulet:prefix:thickened": {
+      "id": "amulet:prefix:thickened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedPhysicalDamageReductionRatingPercent"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src0104"
+    },
+    "amulet:prefix:ultramarine": {
+      "id": "amulet:prefix:ultramarine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 180,
+          "max": 189
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0105"
+    },
+    "amulet:prefix:unassailable": {
+      "id": "amulet:prefix:unassailable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EnergyShieldPercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "maximum_energy_shield_+%",
+          "min": 45,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src0106"
+    },
+    "amulet:prefix:virile": {
+      "id": "amulet:prefix:virile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0107"
+    },
+    "amulet:prefix:wraith-s": {
+      "id": "amulet:prefix:wraith-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EvasionRatingPercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "evasion_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0109"
+    },
+    "amulet:prefix:zaffre": {
+      "id": "amulet:prefix:zaffre",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedMana"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_mana",
+          "min": 165,
+          "max": 179
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0110"
+    },
+    "amulet:suffix:essence-abyssal-mark": {
+      "id": "amulet:suffix:essence-abyssal-mark",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0111"
+    },
+    "amulet:suffix:essence-hysteria-life-recoup": {
+      "id": "amulet:suffix:essence-hysteria-life-recoup",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0112"
+    },
+    "amulet:suffix:essence-percent-dexterity": {
+      "id": "amulet:suffix:essence-percent-dexterity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentageDexterity"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "dexterity_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0113"
+    },
+    "amulet:suffix:essence-percent-intelligence": {
+      "id": "amulet:suffix:essence-percent-intelligence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentageIntelligence"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "intelligence_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0114"
+    },
+    "amulet:suffix:essence-percent-strength": {
+      "id": "amulet:suffix:essence-percent-strength",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentageStrength"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "strength_+%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0115"
+    },
+    "amulet:suffix:of-anger": {
+      "id": "amulet:suffix:of-anger",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0116"
+    },
+    "amulet:suffix:of-archaeology": {
+      "id": "amulet:suffix:of-archaeology",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 15,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src0117"
+    },
+    "amulet:suffix:of-bameth": {
+      "id": "amulet:suffix:of-bameth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 250,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src0118"
+    },
+    "amulet:suffix:of-bandaging": {
+      "id": "amulet:suffix:of-bandaging",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0119"
+    },
+    "amulet:suffix:of-banishment": {
+      "id": "amulet:suffix:of-banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 250,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src0120"
+    },
+    "amulet:suffix:of-battle": {
+      "id": "amulet:suffix:of-battle",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 100,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0121"
+    },
+    "amulet:suffix:of-bliss": {
+      "id": "amulet:suffix:of-bliss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 42,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 40,
+          "max": 49
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0122"
+    },
+    "amulet:suffix:of-combat": {
+      "id": "amulet:suffix:of-combat",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0124"
+    },
+    "amulet:suffix:of-destruction": {
+      "id": "amulet:suffix:of-destruction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 125,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 35,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0126"
+    },
+    "amulet:suffix:of-dueling": {
+      "id": "amulet:suffix:of-dueling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 250,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0128"
+    },
+    "amulet:suffix:of-elation": {
+      "id": "amulet:suffix:of-elation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 29,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0129"
+    },
+    "amulet:suffix:of-ephij": {
+      "id": "amulet:suffix:of-ephij",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src0130"
+    },
+    "amulet:suffix:of-euphoria": {
+      "id": "amulet:suffix:of-euphoria",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 50,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0131"
+    },
+    "amulet:suffix:of-eviction": {
+      "id": "amulet:suffix:of-eviction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 250,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src0132"
+    },
+    "amulet:suffix:of-excitement": {
+      "id": "amulet:suffix:of-excitement",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0133"
+    },
+    "amulet:suffix:of-exile": {
+      "id": "amulet:suffix:of-exile",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 250,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src0134"
+    },
+    "amulet:suffix:of-expertise": {
+      "id": "amulet:suffix:of-expertise",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src0135"
+    },
+    "amulet:suffix:of-expulsion": {
+      "id": "amulet:suffix:of-expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 250,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src0136"
+    },
+    "amulet:suffix:of-ferocity": {
+      "id": "amulet:suffix:of-ferocity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 59,
+      "weight": 250,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 30,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0137"
+    },
+    "amulet:suffix:of-fleshbinding": {
+      "id": "amulet:suffix:of-fleshbinding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0138"
+    },
+    "amulet:suffix:of-fury": {
+      "id": "amulet:suffix:of-fury",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0139"
+    },
+    "amulet:suffix:of-haast": {
+      "id": "amulet:suffix:of-haast",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src0140"
+    },
+    "amulet:suffix:of-ire": {
+      "id": "amulet:suffix:of-ire",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0143"
+    },
+    "amulet:suffix:of-joy": {
+      "id": "amulet:suffix:of-joy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0144"
+    },
+    "amulet:suffix:of-legerdemain": {
+      "id": "amulet:suffix:of-legerdemain",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src0145"
+    },
+    "amulet:suffix:of-magma": {
+      "id": "amulet:suffix:of-magma",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src0146"
+    },
+    "amulet:suffix:of-mending": {
+      "id": "amulet:suffix:of-mending",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 10,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0148"
+    },
+    "amulet:suffix:of-nimbleness": {
+      "id": "amulet:suffix:of-nimbleness",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 18,
+      "weight": 1,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src0149"
+    },
+    "amulet:suffix:of-nirvana": {
+      "id": "amulet:suffix:of-nirvana",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0150"
+    },
+    "amulet:suffix:of-plunder": {
+      "id": "amulet:suffix:of-plunder",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 3,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src0151"
+    },
+    "amulet:suffix:of-prestidigitation": {
+      "id": "amulet:suffix:of-prestidigitation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 25,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src0152"
+    },
+    "amulet:suffix:of-rage": {
+      "id": "amulet:suffix:of-rage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 31,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0153"
+    },
+    "amulet:suffix:of-raiding": {
+      "id": "amulet:suffix:of-raiding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 11,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src0154"
+    },
+    "amulet:suffix:of-reprieve": {
+      "id": "amulet:suffix:of-reprieve",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 31,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 10,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceRef": "src0156"
+    },
+    "amulet:suffix:of-serenity": {
+      "id": "amulet:suffix:of-serenity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 69,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceRef": "src0159"
+    },
+    "amulet:suffix:of-solace": {
+      "id": "amulet:suffix:of-solace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 13,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceRef": "src0160"
+    },
+    "amulet:suffix:of-sortilege": {
+      "id": "amulet:suffix:of-sortilege",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 51,
+      "weight": 1,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src0161"
+    },
+    "amulet:suffix:of-stitching": {
+      "id": "amulet:suffix:of-stitching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0162"
+    },
+    "amulet:suffix:of-suturing": {
+      "id": "amulet:suffix:of-suturing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 19,
+          "max": 21
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0112"
+    },
+    "amulet:suffix:of-talent": {
+      "id": "amulet:suffix:of-talent",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreasedCastSpeed"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_cast_speed_+%",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "caster_speed",
+        "caster",
+        "speed"
+      ],
+      "sourceRef": "src0163"
+    },
+    "amulet:suffix:of-the-bear": {
+      "id": "amulet:suffix:of-the-bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0166"
+    },
+    "amulet:suffix:of-the-brute": {
+      "id": "amulet:suffix:of-the-brute",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0167"
+    },
+    "amulet:suffix:of-the-cloud": {
+      "id": "amulet:suffix:of-the-cloud",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src0168"
+    },
+    "amulet:suffix:of-the-clouds": {
+      "id": "amulet:suffix:of-the-clouds",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 800,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 2,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0169"
+    },
+    "amulet:suffix:of-the-comet": {
+      "id": "amulet:suffix:of-the-comet",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 11,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0170"
+    },
+    "amulet:suffix:of-the-drake": {
+      "id": "amulet:suffix:of-the-drake",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src0173"
+    },
+    "amulet:suffix:of-the-falcon": {
+      "id": "amulet:suffix:of-the-falcon",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0175"
+    },
+    "amulet:suffix:of-the-fletcher": {
+      "id": "amulet:suffix:of-the-fletcher",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 250,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0177"
+    },
+    "amulet:suffix:of-the-fox": {
+      "id": "amulet:suffix:of-the-fox",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0178"
+    },
+    "amulet:suffix:of-the-furnace": {
+      "id": "amulet:suffix:of-the-furnace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src0179"
+    },
+    "amulet:suffix:of-the-galaxy": {
+      "id": "amulet:suffix:of-the-galaxy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 17,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0180"
+    },
+    "amulet:suffix:of-the-goliath": {
+      "id": "amulet:suffix:of-the-goliath",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0181"
+    },
+    "amulet:suffix:of-the-gorilla": {
+      "id": "amulet:suffix:of-the-gorilla",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0182"
+    },
+    "amulet:suffix:of-the-heavens": {
+      "id": "amulet:suffix:of-the-heavens",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 14,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0183"
+    },
+    "amulet:suffix:of-the-ice": {
+      "id": "amulet:suffix:of-the-ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src0185"
+    },
+    "amulet:suffix:of-the-infinite": {
+      "id": "amulet:suffix:of-the-infinite",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 23,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0186"
+    },
+    "amulet:suffix:of-the-jaguar": {
+      "id": "amulet:suffix:of-the-jaguar",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0187"
+    },
+    "amulet:suffix:of-the-kiln": {
+      "id": "amulet:suffix:of-the-kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src0189"
+    },
+    "amulet:suffix:of-the-leopard": {
+      "id": "amulet:suffix:of-the-leopard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0190"
+    },
+    "amulet:suffix:of-the-leviathan": {
+      "id": "amulet:suffix:of-the-leviathan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0191"
+    },
+    "amulet:suffix:of-the-lightning": {
+      "id": "amulet:suffix:of-the-lightning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src0192"
+    },
+    "amulet:suffix:of-the-lion": {
+      "id": "amulet:suffix:of-the-lion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0193"
+    },
+    "amulet:suffix:of-the-lost": {
+      "id": "amulet:suffix:of-the-lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 250,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src0195"
+    },
+    "amulet:suffix:of-the-lynx": {
+      "id": "amulet:suffix:of-the-lynx",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0196"
+    },
+    "amulet:suffix:of-the-maelstrom": {
+      "id": "amulet:suffix:of-the-maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src0197"
+    },
+    "amulet:suffix:of-the-meteor": {
+      "id": "amulet:suffix:of-the-meteor",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 800,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0199"
+    },
+    "amulet:suffix:of-the-mongoose": {
+      "id": "amulet:suffix:of-the-mongoose",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0200"
+    },
+    "amulet:suffix:of-the-multiverse": {
+      "id": "amulet:suffix:of-the-multiverse",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 21,
+          "max": 22
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0201"
+    },
+    "amulet:suffix:of-the-narwhal": {
+      "id": "amulet:suffix:of-the-narwhal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src0202"
+    },
+    "amulet:suffix:of-the-overseer": {
+      "id": "amulet:suffix:of-the-overseer",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 100,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "minion_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "minion",
+        "gem"
+      ],
+      "sourceRef": "src0204"
+    },
+    "amulet:suffix:of-the-panther": {
+      "id": "amulet:suffix:of-the-panther",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0205"
+    },
+    "amulet:suffix:of-the-penguin": {
+      "id": "amulet:suffix:of-the-penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src0206"
+    },
+    "amulet:suffix:of-the-phantom": {
+      "id": "amulet:suffix:of-the-phantom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0207"
+    },
+    "amulet:suffix:of-the-polar-bear": {
+      "id": "amulet:suffix:of-the-polar-bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src0209"
+    },
+    "amulet:suffix:of-the-salamander": {
+      "id": "amulet:suffix:of-the-salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src0215"
+    },
+    "amulet:suffix:of-the-seal": {
+      "id": "amulet:suffix:of-the-seal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src0217"
+    },
+    "amulet:suffix:of-the-sharpshooter": {
+      "id": "amulet:suffix:of-the-sharpshooter",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 100,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "projectile_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0218"
+    },
+    "amulet:suffix:of-the-sky": {
+      "id": "amulet:suffix:of-the-sky",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 800,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0219"
+    },
+    "amulet:suffix:of-the-sorcerer": {
+      "id": "amulet:suffix:of-the-sorcerer",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 100,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "spell_skill_gem_level_+",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "caster",
+        "gem"
+      ],
+      "sourceRef": "src0220"
+    },
+    "amulet:suffix:of-the-squall": {
+      "id": "amulet:suffix:of-the-squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src0222"
+    },
+    "amulet:suffix:of-the-storm": {
+      "id": "amulet:suffix:of-the-storm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src0224"
+    },
+    "amulet:suffix:of-the-tempest": {
+      "id": "amulet:suffix:of-the-tempest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src0227"
+    },
+    "amulet:suffix:of-the-thunderhead": {
+      "id": "amulet:suffix:of-the-thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src0228"
+    },
+    "amulet:suffix:of-the-titan": {
+      "id": "amulet:suffix:of-the-titan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0229"
+    },
+    "amulet:suffix:of-the-universe": {
+      "id": "amulet:suffix:of-the-universe",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 19,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0231"
+    },
+    "amulet:suffix:of-the-volcano": {
+      "id": "amulet:suffix:of-the-volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src0233"
+    },
+    "amulet:suffix:of-the-walrus": {
+      "id": "amulet:suffix:of-the-walrus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src0234"
+    },
+    "amulet:suffix:of-the-whelpling": {
+      "id": "amulet:suffix:of-the-whelpling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src0235"
+    },
+    "amulet:suffix:of-the-wrestler": {
+      "id": "amulet:suffix:of-the-wrestler",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src0236"
+    },
+    "amulet:suffix:of-the-yeti": {
+      "id": "amulet:suffix:of-the-yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src0237"
+    },
+    "amulet:suffix:of-tranquility": {
+      "id": "amulet:suffix:of-tranquility",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 57,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 16,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceRef": "src0238"
+    },
+    "amulet:suffix:of-tzteosh": {
+      "id": "amulet:suffix:of-tzteosh",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src0239"
+    },
+    "amulet:suffix:of-unmaking": {
+      "id": "amulet:suffix:of-unmaking",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeChanceIncrease"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 125,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "critical_strike_chance_+%",
+          "min": 35,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "critical"
+      ],
+      "sourceRef": "src0240"
+    },
+    "amulet:suffix:of-zen": {
+      "id": "amulet:suffix:of-zen",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "PercentDamageGoesToMana"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_mana_%",
+          "min": 22,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceRef": "src0242"
+    },
+    "azure:implicit:manaregeneration": {
+      "id": "azure:implicit:manaregeneration",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0437"
+    },
+    "bloodstone:implicit:increasedlife": {
+      "id": "bloodstone:implicit:increasedlife",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0468"
+    },
+    "corona-amulet:implicit:base": {
+      "id": "corona-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "LocalItemBenefitSocketableAsIf"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_item_benefit_socketable_as_if_helmet",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0473"
+    },
+    "crimson:implicit:liferegeneration": {
+      "id": "crimson:implicit:liferegeneration",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 120,
+          "max": 240
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0475"
+    },
+    "distorted-amulet:implicit:base": {
+      "id": "distorted-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 0,
+          "max": 0
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0844"
+    },
+    "dusk-amulet:implicit:base": {
+      "id": "dusk-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 1,
+          "max": 1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0852"
+    },
+    "gloam-amulet:implicit:base": {
+      "id": "gloam-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0899"
+    },
+    "gold-amulet:implicit:base": {
+      "id": "gold-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ItemFoundRarityIncrease"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_item_found_rarity_+%",
+          "min": 12,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "drop"
+      ],
+      "sourceRef": "src0901"
+    },
+    "jade-amulet:implicit:base": {
+      "id": "jade-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1071"
+    },
+    "lament-amulet:implicit:base": {
+      "id": "lament-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1073"
+    },
+    "lapis-amulet:implicit:base": {
+      "id": "lapis-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "Intelligence"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "additional_intelligence",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1074"
+    },
+    "lunar:implicit:increasedenergyshield": {
+      "id": "lunar:implicit:increasedenergyshield",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedEnergyShield"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_maximum_energy_shield",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "defences",
+        "energyshield"
+      ],
+      "sourceRef": "src1078"
+    },
+    "pearlescent:implicit:allresistances": {
+      "id": "pearlescent:implicit:allresistances",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "AllResistances"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_resist_all_elements_%",
+          "min": 7,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1137"
+    },
+    "penumbra-amulet:implicit:base": {
+      "id": "penumbra-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 2,
+          "max": 2
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -2,
+          "max": -2
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1139"
+    },
+    "portent-amulet:implicit:base": {
+      "id": "portent-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": 0,
+          "max": 0
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": -1,
+          "max": -1
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1162"
+    },
+    "solar-amulet:implicit:spirit": {
+      "id": "solar-amulet:implicit:spirit",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1527"
+    },
+    "stellar:implicit:allattributes": {
+      "id": "stellar:implicit:allattributes",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "AllAttributes"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "additional_all_attributes",
+          "min": 5,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1658"
+    },
+    "tenebrous-amulet:implicit:base": {
+      "id": "tenebrous-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -2,
+          "max": -2
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1712"
+    },
+    "twisted-amulet:implicit:base": {
+      "id": "twisted-amulet:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaxPrefixMaxSuffix"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "local_maximum_prefixes_allowed_+",
+          "min": -1,
+          "max": -1
+        },
+        {
+          "id": "local_maximum_suffixes_allowed_+",
+          "min": 0,
+          "max": 0
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1894"
+    }
+  },
+  "variants": {}
+}

@@ -1,1606 +1,1180 @@
 {
-  "definitions": {
-    "attuned-wand:prefix:archmage-s": {
-      "id": "attuned-wand:prefix:archmage-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 200,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 40,
-          "max": 44
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 38,
-          "max": 41
+  "schemaVersion": 1,
+  "normal": {
+    "groups": {
+      "attuned-wand:prefix:SpellDamageAndMana": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "SpellDamageAndMana"
+        ],
+        "tags": [
+          "caster_damage",
+          "resource",
+          "mana",
+          "damage",
+          "caster"
+        ],
+        "statIds": [
+          "spell_damage_+%",
+          "base_maximum_mana"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:caster-s": {
+            "tier": 7,
+            "requiredItemLevel": 2,
+            "weight": 1000,
+            "ranges": [
+              [
+                15,
+                19
+              ],
+              [
+                17,
+                20
+              ]
+            ],
+            "sourceRef": "src0264"
+          },
+          "attuned-wand:prefix:conjuror-s": {
+            "tier": 6,
+            "requiredItemLevel": 11,
+            "weight": 1000,
+            "ranges": [
+              [
+                20,
+                24
+              ],
+              [
+                21,
+                24
+              ]
+            ],
+            "sourceRef": "src0271"
+          },
+          "attuned-wand:prefix:wizard-s": {
+            "tier": 5,
+            "requiredItemLevel": 23,
+            "weight": 1000,
+            "ranges": [
+              [
+                25,
+                29
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "sourceRef": "src0331"
+          },
+          "attuned-wand:prefix:warlock-s": {
+            "tier": 4,
+            "requiredItemLevel": 38,
+            "weight": 600,
+            "ranges": [
+              [
+                30,
+                34
+              ],
+              [
+                29,
+                33
+              ]
+            ],
+            "sourceRef": "src0330"
+          },
+          "attuned-wand:prefix:mage-s": {
+            "tier": 3,
+            "requiredItemLevel": 46,
+            "weight": 400,
+            "ranges": [
+              [
+                35,
+                39
+              ],
+              [
+                34,
+                37
+              ]
+            ],
+            "sourceRef": "src0295"
+          },
+          "attuned-wand:prefix:archmage-s": {
+            "tier": 2,
+            "requiredItemLevel": 60,
+            "weight": 200,
+            "ranges": [
+              [
+                40,
+                44
+              ],
+              [
+                38,
+                41
+              ]
+            ],
+            "sourceRef": "src0254"
+          },
+          "attuned-wand:prefix:lich-s": {
+            "tier": 1,
+            "requiredItemLevel": 80,
+            "weight": 100,
+            "ranges": [
+              [
+                45,
+                49
+              ],
+              [
+                42,
+                45
+              ]
+            ],
+            "sourceRef": "src0294"
+          }
         }
-      ],
-      "tags": [
-        "caster_damage",
-        "resource",
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src0254"
+      },
+      "attuned-wand:prefix:FireDamage": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "statIds": [
+          "non_skill_base_all_damage_%_to_gain_as_fire"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:fervent": {
+            "tier": 6,
+            "requiredItemLevel": 5,
+            "weight": 500,
+            "ranges": [
+              [
+                13,
+                15
+              ]
+            ],
+            "sourceRef": "src0282"
+          },
+          "attuned-wand:prefix:ardent": {
+            "tier": 5,
+            "requiredItemLevel": 16,
+            "weight": 500,
+            "ranges": [
+              [
+                16,
+                18
+              ]
+            ],
+            "sourceRef": "src0256"
+          },
+          "attuned-wand:prefix:fanatic-s": {
+            "tier": 4,
+            "requiredItemLevel": 33,
+            "weight": 500,
+            "ranges": [
+              [
+                19,
+                21
+              ]
+            ],
+            "sourceRef": "src0280"
+          },
+          "attuned-wand:prefix:zealot-s": {
+            "tier": 3,
+            "requiredItemLevel": 46,
+            "weight": 500,
+            "ranges": [
+              [
+                22,
+                24
+              ]
+            ],
+            "sourceRef": "src0332"
+          },
+          "attuned-wand:prefix:infernal": {
+            "tier": 2,
+            "requiredItemLevel": 60,
+            "weight": 500,
+            "ranges": [
+              [
+                25,
+                27
+              ]
+            ],
+            "sourceRef": "src0291"
+          },
+          "attuned-wand:prefix:flamebound": {
+            "tier": 1,
+            "requiredItemLevel": 80,
+            "weight": 500,
+            "ranges": [
+              [
+                28,
+                30
+              ]
+            ],
+            "sourceRef": "src0283"
+          }
+        }
+      },
+      "attuned-wand:prefix:WeaponDamageTypePrefix": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "statIds": [
+          "cold_damage_+%"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:crystalline": {
+            "tier": 2,
+            "requiredItemLevel": 70,
+            "weight": 100,
+            "ranges": [
+              [
+                90,
+                104
+              ]
+            ],
+            "sourceRef": "src0274"
+          },
+          "attuned-wand:prefix:cryomancer-s": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 50,
+            "ranges": [
+              [
+                105,
+                119
+              ]
+            ],
+            "sourceRef": "src0273"
+          }
+        }
+      },
+      "attuned-wand:prefix:LightningDamage": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LightningDamage"
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "statIds": [
+          "non_skill_base_all_damage_%_to_gain_as_lightning"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:deadly": {
+            "tier": 6,
+            "requiredItemLevel": 5,
+            "weight": 500,
+            "ranges": [
+              [
+                13,
+                15
+              ]
+            ],
+            "sourceRef": "src0276"
+          },
+          "attuned-wand:prefix:lethal": {
+            "tier": 5,
+            "requiredItemLevel": 16,
+            "weight": 500,
+            "ranges": [
+              [
+                16,
+                18
+              ]
+            ],
+            "sourceRef": "src0293"
+          },
+          "attuned-wand:prefix:fatal": {
+            "tier": 4,
+            "requiredItemLevel": 33,
+            "weight": 500,
+            "ranges": [
+              [
+                19,
+                21
+              ]
+            ],
+            "sourceRef": "src0281"
+          },
+          "attuned-wand:prefix:vorpal": {
+            "tier": 3,
+            "requiredItemLevel": 46,
+            "weight": 500,
+            "ranges": [
+              [
+                22,
+                24
+              ]
+            ],
+            "sourceRef": "src0329"
+          },
+          "attuned-wand:prefix:electrifying": {
+            "tier": 2,
+            "requiredItemLevel": 60,
+            "weight": 500,
+            "ranges": [
+              [
+                25,
+                27
+              ]
+            ],
+            "sourceRef": "src0278"
+          },
+          "attuned-wand:prefix:stormbound": {
+            "tier": 1,
+            "requiredItemLevel": 80,
+            "weight": 500,
+            "ranges": [
+              [
+                28,
+                30
+              ]
+            ],
+            "sourceRef": "src0319"
+          }
+        }
+      },
+      "attuned-wand:prefix:ColdDamage": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ColdDamage"
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "statIds": [
+          "non_skill_base_all_damage_%_to_gain_as_cold"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:pernicious": {
+            "tier": 5,
+            "requiredItemLevel": 16,
+            "weight": 500,
+            "ranges": [
+              [
+                16,
+                18
+              ]
+            ],
+            "sourceRef": "src0305"
+          },
+          "attuned-wand:prefix:destructive": {
+            "tier": 4,
+            "requiredItemLevel": 33,
+            "weight": 500,
+            "ranges": [
+              [
+                19,
+                21
+              ]
+            ],
+            "sourceRef": "src0277"
+          },
+          "attuned-wand:prefix:malicious": {
+            "tier": 3,
+            "requiredItemLevel": 46,
+            "weight": 500,
+            "ranges": [
+              [
+                22,
+                24
+              ]
+            ],
+            "sourceRef": "src0298"
+          },
+          "attuned-wand:prefix:ruthless": {
+            "tier": 2,
+            "requiredItemLevel": 60,
+            "weight": 500,
+            "ranges": [
+              [
+                25,
+                27
+              ]
+            ],
+            "sourceRef": "src0311"
+          },
+          "attuned-wand:prefix:frostbound": {
+            "tier": 1,
+            "requiredItemLevel": 80,
+            "weight": 500,
+            "ranges": [
+              [
+                28,
+                30
+              ]
+            ],
+            "sourceRef": "src0284"
+          }
+        }
+      },
+      "attuned-wand:prefix:WeaponDamageTypePrefix-2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning"
+        ],
+        "statIds": [
+          "lightning_damage_+%"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:ionising": {
+            "tier": 2,
+            "requiredItemLevel": 70,
+            "weight": 100,
+            "ranges": [
+              [
+                90,
+                104
+              ]
+            ],
+            "sourceRef": "src0292"
+          },
+          "attuned-wand:prefix:electromancer-s": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 50,
+            "ranges": [
+              [
+                105,
+                119
+              ]
+            ],
+            "sourceRef": "src0279"
+          }
+        }
+      },
+      "attuned-wand:prefix:WeaponCasterDamagePrefix": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponCasterDamagePrefix"
+        ],
+        "tags": [
+          "caster_damage",
+          "damage",
+          "caster"
+        ],
+        "statIds": [
+          "spell_damage_+%"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:glyphic": {
+            "tier": 2,
+            "requiredItemLevel": 70,
+            "weight": 100,
+            "ranges": [
+              [
+                90,
+                104
+              ]
+            ],
+            "sourceRef": "src0286"
+          },
+          "attuned-wand:prefix:runic": {
+            "tier": 1,
+            "requiredItemLevel": 80,
+            "weight": 50,
+            "ranges": [
+              [
+                105,
+                119
+              ]
+            ],
+            "sourceRef": "src0310"
+          }
+        }
+      },
+      "attuned-wand:prefix:WeaponDamageTypePrefix-3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "tags": [
+          "chaos_damage",
+          "damage",
+          "chaos"
+        ],
+        "statIds": [
+          "chaos_damage_+%"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:twisted": {
+            "tier": 2,
+            "requiredItemLevel": 70,
+            "weight": 100,
+            "ranges": [
+              [
+                90,
+                104
+              ]
+            ],
+            "sourceRef": "src0324"
+          },
+          "attuned-wand:prefix:malevolent": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 50,
+            "ranges": [
+              [
+                105,
+                119
+              ]
+            ],
+            "sourceRef": "src0297"
+          }
+        }
+      },
+      "attuned-wand:prefix:WeaponDamageTypePrefix-4": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "tags": [
+          "physical_damage",
+          "damage",
+          "physical"
+        ],
+        "statIds": [
+          "spell_physical_damage_+%"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:oppressor-s": {
+            "tier": 2,
+            "requiredItemLevel": 70,
+            "weight": 100,
+            "ranges": [
+              [
+                90,
+                104
+              ]
+            ],
+            "sourceRef": "src0304"
+          },
+          "attuned-wand:prefix:torturer-s": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 50,
+            "ranges": [
+              [
+                105,
+                119
+              ]
+            ],
+            "sourceRef": "src0323"
+          }
+        }
+      },
+      "attuned-wand:prefix:WeaponDamageTypePrefix-5": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WeaponDamageTypePrefix"
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire"
+        ],
+        "statIds": [
+          "fire_damage_+%"
+        ],
+        "tiers": {
+          "attuned-wand:prefix:volcanic": {
+            "tier": 2,
+            "requiredItemLevel": 70,
+            "weight": 100,
+            "ranges": [
+              [
+                90,
+                104
+              ]
+            ],
+            "sourceRef": "src0328"
+          },
+          "attuned-wand:prefix:pyromancer-s": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 50,
+            "ranges": [
+              [
+                105,
+                119
+              ]
+            ],
+            "sourceRef": "src0309"
+          }
+        }
+      },
+      "attuned-wand:suffix:IncreaseSocketedGemLevel": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "tags": [
+          "physical",
+          "caster",
+          "gem"
+        ],
+        "statIds": [
+          "physical_spell_skill_gem_level_+"
+        ],
+        "tiers": {
+          "attuned-wand:suffix:of-torment": {
+            "tier": 4,
+            "requiredItemLevel": 36,
+            "weight": 500,
+            "ranges": [
+              [
+                3,
+                3
+              ]
+            ],
+            "sourceRef": "src0425"
+          },
+          "attuned-wand:suffix:of-desolation": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 250,
+            "ranges": [
+              [
+                4,
+                4
+              ]
+            ],
+            "sourceRef": "src0350"
+          },
+          "attuned-wand:suffix:of-grief": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 100,
+            "ranges": [
+              [
+                5,
+                5
+              ]
+            ],
+            "sourceRef": "src0368"
+          }
+        }
+      },
+      "attuned-wand:suffix:IncreaseSocketedGemLevel-2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "tags": [
+          "elemental",
+          "lightning",
+          "caster",
+          "gem"
+        ],
+        "statIds": [
+          "lightning_spell_skill_gem_level_+"
+        ],
+        "tiers": {
+          "attuned-wand:suffix:of-electricity": {
+            "tier": 4,
+            "requiredItemLevel": 36,
+            "weight": 500,
+            "ranges": [
+              [
+                3,
+                3
+              ]
+            ],
+            "sourceRef": "src0355"
+          },
+          "attuned-wand:suffix:of-voltage": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 250,
+            "ranges": [
+              [
+                4,
+                4
+              ]
+            ],
+            "sourceRef": "src0432"
+          },
+          "attuned-wand:suffix:of-thunder": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 100,
+            "ranges": [
+              [
+                5,
+                5
+              ]
+            ],
+            "sourceRef": "src0424"
+          }
+        }
+      },
+      "attuned-wand:suffix:IncreaseSocketedGemLevel-3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "tags": [
+          "elemental",
+          "fire",
+          "caster",
+          "gem"
+        ],
+        "statIds": [
+          "fire_spell_skill_gem_level_+"
+        ],
+        "tiers": {
+          "attuned-wand:suffix:of-flames": {
+            "tier": 4,
+            "requiredItemLevel": 36,
+            "weight": 500,
+            "ranges": [
+              [
+                3,
+                3
+              ]
+            ],
+            "sourceRef": "src0363"
+          },
+          "attuned-wand:suffix:of-immolation": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 250,
+            "ranges": [
+              [
+                4,
+                4
+              ]
+            ],
+            "sourceRef": "src0373"
+          },
+          "attuned-wand:suffix:of-inferno": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 100,
+            "ranges": [
+              [
+                5,
+                5
+              ]
+            ],
+            "sourceRef": "src0375"
+          }
+        }
+      },
+      "attuned-wand:suffix:IncreaseSocketedGemLevel-4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "tags": [
+          "elemental",
+          "cold",
+          "caster",
+          "gem"
+        ],
+        "statIds": [
+          "cold_spell_skill_gem_level_+"
+        ],
+        "tiers": {
+          "attuned-wand:suffix:of-ice": {
+            "tier": 4,
+            "requiredItemLevel": 36,
+            "weight": 500,
+            "ranges": [
+              [
+                3,
+                3
+              ]
+            ],
+            "sourceRef": "src0371"
+          },
+          "attuned-wand:suffix:of-rime": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 250,
+            "ranges": [
+              [
+                4,
+                4
+              ]
+            ],
+            "sourceRef": "src0388"
+          },
+          "attuned-wand:suffix:of-frostbite": {
+            "tier": 1,
+            "requiredItemLevel": 81,
+            "weight": 100,
+            "ranges": [
+              [
+                5,
+                5
+              ]
+            ],
+            "sourceRef": "src0365"
+          }
+        }
+      },
+      "attuned-wand:suffix:LightRadiusAndManaRegeneration": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LightRadiusAndManaRegeneration"
+        ],
+        "tags": [
+          "resource",
+          "mana"
+        ],
+        "statIds": [
+          "light_radius_+%",
+          "mana_regeneration_rate_+%"
+        ],
+        "tiers": {
+          "attuned-wand:suffix:of-warmth": {
+            "tier": 3,
+            "requiredItemLevel": 8,
+            "weight": 1000,
+            "ranges": [
+              [
+                5,
+                5
+              ],
+              [
+                8,
+                12
+              ]
+            ],
+            "sourceRef": "src0434"
+          },
+          "attuned-wand:suffix:of-kindling": {
+            "tier": 2,
+            "requiredItemLevel": 15,
+            "weight": 1000,
+            "ranges": [
+              [
+                10,
+                10
+              ],
+              [
+                13,
+                17
+              ]
+            ],
+            "sourceRef": "src0379"
+          },
+          "attuned-wand:suffix:of-the-hearth": {
+            "tier": 1,
+            "requiredItemLevel": 30,
+            "weight": 1000,
+            "ranges": [
+              [
+                15,
+                15
+              ],
+              [
+                18,
+                22
+              ]
+            ],
+            "sourceRef": "src0407"
+          }
+        }
+      },
+      "attuned-wand:suffix:IncreaseSocketedGemLevel-5": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "tags": [
+          "caster",
+          "gem"
+        ],
+        "statIds": [
+          "spell_skill_gem_level_+"
+        ],
+        "tiers": {
+          "attuned-wand:suffix:of-the-mage": {
+            "tier": 7,
+            "requiredItemLevel": 5,
+            "weight": 200,
+            "ranges": [
+              [
+                1,
+                1
+              ]
+            ],
+            "sourceRef": "src0409"
+          },
+          "attuned-wand:suffix:of-the-enchanter": {
+            "tier": 5,
+            "requiredItemLevel": 25,
+            "weight": 150,
+            "ranges": [
+              [
+                2,
+                2
+              ]
+            ],
+            "sourceRef": "src0405"
+          },
+          "attuned-wand:suffix:of-the-sorcerer": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 100,
+            "ranges": [
+              [
+                3,
+                3
+              ]
+            ],
+            "sourceRef": "src0417"
+          },
+          "attuned-wand:suffix:of-the-wizard": {
+            "tier": 2,
+            "requiredItemLevel": 78,
+            "weight": 50,
+            "ranges": [
+              [
+                4,
+                4
+              ]
+            ],
+            "sourceRef": "src0422"
+          }
+        }
+      }
     },
-    "attuned-wand:prefix:ardent": {
-      "id": "attuned-wand:prefix:ardent",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 16,
-          "max": 18
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src0256"
-    },
-    "attuned-wand:prefix:caster-s": {
-      "id": "attuned-wand:prefix:caster-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 15,
-          "max": 19
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 17,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "caster_damage",
-        "resource",
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src0264"
-    },
-    "attuned-wand:prefix:conjuror-s": {
-      "id": "attuned-wand:prefix:conjuror-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 20,
-          "max": 24
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 21,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "caster_damage",
-        "resource",
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src0271"
-    },
-    "attuned-wand:prefix:cryomancer-s": {
-      "id": "attuned-wand:prefix:cryomancer-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 105,
-          "max": 119
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src0273"
-    },
-    "attuned-wand:prefix:crystalline": {
-      "id": "attuned-wand:prefix:crystalline",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "cold_damage_+%",
-          "min": 90,
-          "max": 104
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src0274"
-    },
-    "attuned-wand:prefix:deadly": {
-      "id": "attuned-wand:prefix:deadly",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 13,
-          "max": 15
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src0276"
-    },
-    "attuned-wand:prefix:destructive": {
-      "id": "attuned-wand:prefix:destructive",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 19,
-          "max": 21
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src0277"
-    },
-    "attuned-wand:prefix:electrifying": {
-      "id": "attuned-wand:prefix:electrifying",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 25,
-          "max": 27
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src0278"
-    },
-    "attuned-wand:prefix:electromancer-s": {
-      "id": "attuned-wand:prefix:electromancer-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 105,
-          "max": 119
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src0279"
-    },
-    "attuned-wand:prefix:fanatic-s": {
-      "id": "attuned-wand:prefix:fanatic-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 19,
-          "max": 21
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src0280"
-    },
-    "attuned-wand:prefix:fatal": {
-      "id": "attuned-wand:prefix:fatal",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 19,
-          "max": 21
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src0281"
-    },
-    "attuned-wand:prefix:fervent": {
-      "id": "attuned-wand:prefix:fervent",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 13,
-          "max": 15
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src0282"
-    },
-    "attuned-wand:prefix:flamebound": {
-      "id": "attuned-wand:prefix:flamebound",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 500,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 28,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src0283"
-    },
-    "attuned-wand:prefix:frostbound": {
-      "id": "attuned-wand:prefix:frostbound",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 500,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 28,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src0284"
-    },
-    "attuned-wand:prefix:glyphic": {
-      "id": "attuned-wand:prefix:glyphic",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 90,
-          "max": 104
-        }
-      ],
-      "tags": [
-        "caster_damage",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src0286"
-    },
-    "attuned-wand:prefix:infernal": {
-      "id": "attuned-wand:prefix:infernal",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 25,
-          "max": 27
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src0291"
-    },
-    "attuned-wand:prefix:ionising": {
-      "id": "attuned-wand:prefix:ionising",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "lightning_damage_+%",
-          "min": 90,
-          "max": 104
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src0292"
-    },
-    "attuned-wand:prefix:lethal": {
-      "id": "attuned-wand:prefix:lethal",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 16,
-          "max": 18
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src0293"
-    },
-    "attuned-wand:prefix:lich-s": {
-      "id": "attuned-wand:prefix:lich-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 45,
-          "max": 49
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 42,
-          "max": 45
-        }
-      ],
-      "tags": [
-        "caster_damage",
-        "resource",
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src0294"
-    },
-    "attuned-wand:prefix:mage-s": {
-      "id": "attuned-wand:prefix:mage-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 400,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 35,
-          "max": 39
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 34,
-          "max": 37
-        }
-      ],
-      "tags": [
-        "caster_damage",
-        "resource",
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src0295"
-    },
-    "attuned-wand:prefix:malevolent": {
-      "id": "attuned-wand:prefix:malevolent",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 105,
-          "max": 119
-        }
-      ],
-      "tags": [
-        "chaos_damage",
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src0297"
-    },
-    "attuned-wand:prefix:malicious": {
-      "id": "attuned-wand:prefix:malicious",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 22,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src0298"
-    },
-    "attuned-wand:prefix:malignant:spelldamagegainedascold1": {
-      "id": "attuned-wand:prefix:malignant:spelldamagegainedascold1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 13,
-          "max": 15
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src0300"
-    },
-    "attuned-wand:prefix:oppressor-s": {
-      "id": "attuned-wand:prefix:oppressor-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 90,
-          "max": 104
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src0304"
-    },
-    "attuned-wand:prefix:pernicious": {
-      "id": "attuned-wand:prefix:pernicious",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 16,
-          "max": 18
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src0305"
-    },
-    "attuned-wand:prefix:pyromancer-s": {
-      "id": "attuned-wand:prefix:pyromancer-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 105,
-          "max": 119
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src0309"
-    },
-    "attuned-wand:prefix:runic": {
-      "id": "attuned-wand:prefix:runic",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponCasterDamagePrefix"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 105,
-          "max": 119
-        }
-      ],
-      "tags": [
-        "caster_damage",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src0310"
-    },
-    "attuned-wand:prefix:ruthless": {
-      "id": "attuned-wand:prefix:ruthless",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-          "min": 25,
-          "max": 27
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold"
-      ],
-      "sourceRef": "src0311"
-    },
-    "attuned-wand:prefix:stormbound": {
-      "id": "attuned-wand:prefix:stormbound",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 500,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 28,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src0319"
-    },
-    "attuned-wand:prefix:torturer-s": {
-      "id": "attuned-wand:prefix:torturer-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_physical_damage_+%",
-          "min": 105,
-          "max": 119
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical"
-      ],
-      "sourceRef": "src0323"
-    },
-    "attuned-wand:prefix:twisted": {
-      "id": "attuned-wand:prefix:twisted",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "chaos_damage_+%",
-          "min": 90,
-          "max": 104
-        }
-      ],
-      "tags": [
-        "chaos_damage",
-        "damage",
-        "chaos"
-      ],
-      "sourceRef": "src0324"
-    },
-    "attuned-wand:prefix:volcanic": {
-      "id": "attuned-wand:prefix:volcanic",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WeaponDamageTypePrefix"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "fire_damage_+%",
-          "min": 90,
-          "max": 104
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src0328"
-    },
-    "attuned-wand:prefix:vorpal": {
-      "id": "attuned-wand:prefix:vorpal",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-          "min": 22,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning"
-      ],
-      "sourceRef": "src0329"
-    },
-    "attuned-wand:prefix:warlock-s": {
-      "id": "attuned-wand:prefix:warlock-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 38,
-      "weight": 600,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 30,
-          "max": 34
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 29,
-          "max": 33
-        }
-      ],
-      "tags": [
-        "caster_damage",
-        "resource",
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src0330"
-    },
-    "attuned-wand:prefix:wizard-s": {
-      "id": "attuned-wand:prefix:wizard-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpellDamageAndMana"
-      ],
-      "requiredItemLevel": 23,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "spell_damage_+%",
-          "min": 25,
-          "max": 29
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 25,
-          "max": 28
-        }
-      ],
-      "tags": [
-        "caster_damage",
-        "resource",
-        "mana",
-        "damage",
-        "caster"
-      ],
-      "sourceRef": "src0331"
-    },
-    "attuned-wand:prefix:zealot-s": {
-      "id": "attuned-wand:prefix:zealot-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-          "min": 22,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire"
-      ],
-      "sourceRef": "src0332"
-    },
-    "attuned-wand:suffix:essence-spell-skill-level": {
-      "id": "attuned-wand:suffix:essence-spell-skill-level",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 72,
-      "weight": 0,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0334"
-    },
-    "attuned-wand:suffix:of-armageddon": {
-      "id": "attuned-wand:suffix:of-armageddon",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "chaos_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "chaos",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0339"
-    },
-    "attuned-wand:suffix:of-desolation": {
-      "id": "attuned-wand:suffix:of-desolation",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "physical_spell_skill_gem_level_+",
-          "min": 4,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "physical",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0350"
-    },
-    "attuned-wand:suffix:of-destruction": {
-      "id": "attuned-wand:suffix:of-destruction",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 73,
-      "weight": 125,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_spell_critical_strike_multiplier_+",
-          "min": 35,
-          "max": 39
-        }
-      ],
-      "tags": [
-        "caster_critical",
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src0351"
-    },
-    "attuned-wand:suffix:of-electricity": {
-      "id": "attuned-wand:suffix:of-electricity",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "lightning_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "elemental",
-        "lightning",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0355"
-    },
-    "attuned-wand:suffix:of-finesse": {
-      "id": "attuned-wand:suffix:of-finesse",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 250,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_cast_speed_+%",
-          "min": 33,
-          "max": 35
-        }
-      ],
-      "tags": [
-        "caster_speed",
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src0362"
-    },
-    "attuned-wand:suffix:of-flames": {
-      "id": "attuned-wand:suffix:of-flames",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "fire_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "elemental",
-        "fire",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0363"
-    },
-    "attuned-wand:suffix:of-frostbite": {
-      "id": "attuned-wand:suffix:of-frostbite",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "cold_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "elemental",
-        "cold",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0365"
-    },
-    "attuned-wand:suffix:of-grief": {
-      "id": "attuned-wand:suffix:of-grief",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "physical_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "physical",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0368"
-    },
-    "attuned-wand:suffix:of-havoc:globalchaosspellgemslevelweapon4": {
-      "id": "attuned-wand:suffix:of-havoc:globalchaosspellgemslevelweapon4",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "chaos_spell_skill_gem_level_+",
-          "min": 4,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "chaos",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0369"
-    },
-    "attuned-wand:suffix:of-ice": {
-      "id": "attuned-wand:suffix:of-ice",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "cold_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "elemental",
-        "cold",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0371"
-    },
-    "attuned-wand:suffix:of-immolation": {
-      "id": "attuned-wand:suffix:of-immolation",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "fire_spell_skill_gem_level_+",
-          "min": 4,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "elemental",
-        "fire",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0373"
-    },
-    "attuned-wand:suffix:of-inferno": {
-      "id": "attuned-wand:suffix:of-inferno",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "fire_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "elemental",
-        "fire",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0375"
-    },
-    "attuned-wand:suffix:of-kindling": {
-      "id": "attuned-wand:suffix:of-kindling",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndManaRegeneration"
-      ],
-      "requiredItemLevel": 15,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 10,
-          "max": 10
-        },
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 13,
-          "max": 17
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0379"
-    },
-    "attuned-wand:suffix:of-rime": {
-      "id": "attuned-wand:suffix:of-rime",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "cold_spell_skill_gem_level_+",
-          "min": 4,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "elemental",
-        "cold",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0388"
-    },
-    "attuned-wand:suffix:of-ruin:globalchaosspellgemslevelweapon3": {
-      "id": "attuned-wand:suffix:of-ruin:globalchaosspellgemslevelweapon3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "chaos_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "chaos",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0389"
-    },
-    "attuned-wand:suffix:of-the-enchanter": {
-      "id": "attuned-wand:suffix:of-the-enchanter",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 25,
-      "weight": 150,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 2,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0405"
-    },
-    "attuned-wand:suffix:of-the-hearth": {
-      "id": "attuned-wand:suffix:of-the-hearth",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndManaRegeneration"
-      ],
-      "requiredItemLevel": 30,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 15,
-          "max": 15
-        },
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 18,
-          "max": 22
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0407"
-    },
-    "attuned-wand:suffix:of-the-mage": {
-      "id": "attuned-wand:suffix:of-the-mage",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 200,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0409"
-    },
-    "attuned-wand:suffix:of-the-sorcerer": {
-      "id": "attuned-wand:suffix:of-the-sorcerer",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 100,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0417"
-    },
-    "attuned-wand:suffix:of-the-wizard": {
-      "id": "attuned-wand:suffix:of-the-wizard",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 50,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "spell_skill_gem_level_+",
-          "min": 4,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0422"
-    },
-    "attuned-wand:suffix:of-thunder": {
-      "id": "attuned-wand:suffix:of-thunder",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 81,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "lightning_spell_skill_gem_level_+",
-          "min": 5,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "elemental",
-        "lightning",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0424"
-    },
-    "attuned-wand:suffix:of-torment": {
-      "id": "attuned-wand:suffix:of-torment",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "physical_spell_skill_gem_level_+",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "physical",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0425"
-    },
-    "attuned-wand:suffix:of-unmaking": {
-      "id": "attuned-wand:suffix:of-unmaking",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SpellCriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 76,
-      "weight": 125,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "spell_critical_strike_chance_+%",
-          "min": 60,
-          "max": 73
-        }
-      ],
-      "tags": [
-        "caster_critical",
-        "caster",
-        "critical"
-      ],
-      "sourceRef": "src0428"
-    },
-    "attuned-wand:suffix:of-voltage": {
-      "id": "attuned-wand:suffix:of-voltage",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "lightning_spell_skill_gem_level_+",
-          "min": 4,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "elemental",
-        "lightning",
-        "caster",
-        "gem"
-      ],
-      "sourceRef": "src0432"
-    },
-    "attuned-wand:suffix:of-warmth": {
-      "id": "attuned-wand:suffix:of-warmth",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndManaRegeneration"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 5,
-          "max": 5
-        },
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 8,
-          "max": 12
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0434"
+    "definitions": {
+      "attuned-wand:prefix:malignant:spelldamagegainedascold1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ColdDamage"
+        ],
+        "requiredItemLevel": 5,
+        "weight": 500,
+        "tier": 6,
+        "stats": [
+          {
+            "id": "non_skill_base_all_damage_%_to_gain_as_cold",
+            "min": 13,
+            "max": 15
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold"
+        ],
+        "sourceRef": "src0300"
+      },
+      "attuned-wand:suffix:of-armageddon": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 81,
+        "weight": 100,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "chaos_spell_skill_gem_level_+",
+            "min": 5,
+            "max": 5
+          }
+        ],
+        "tags": [
+          "chaos",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src0339"
+      },
+      "attuned-wand:suffix:of-destruction": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "requiredItemLevel": 73,
+        "weight": 125,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "base_spell_critical_strike_multiplier_+",
+            "min": 35,
+            "max": 39
+          }
+        ],
+        "tags": [
+          "caster_critical",
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src0351"
+      },
+      "attuned-wand:suffix:of-finesse": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedCastSpeed"
+        ],
+        "requiredItemLevel": 80,
+        "weight": 250,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "base_cast_speed_+%",
+            "min": 33,
+            "max": 35
+          }
+        ],
+        "tags": [
+          "caster_speed",
+          "caster",
+          "speed"
+        ],
+        "sourceRef": "src0362"
+      },
+      "attuned-wand:suffix:of-havoc:globalchaosspellgemslevelweapon4": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 250,
+        "tier": 3,
+        "stats": [
+          {
+            "id": "chaos_spell_skill_gem_level_+",
+            "min": 4,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "chaos",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src0369"
+      },
+      "attuned-wand:suffix:of-ruin:globalchaosspellgemslevelweapon3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 36,
+        "weight": 500,
+        "tier": 4,
+        "stats": [
+          {
+            "id": "chaos_spell_skill_gem_level_+",
+            "min": 3,
+            "max": 3
+          }
+        ],
+        "tags": [
+          "chaos",
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src0389"
+      },
+      "attuned-wand:suffix:of-unmaking": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SpellCriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 76,
+        "weight": 125,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "spell_critical_strike_chance_+%",
+            "min": 60,
+            "max": 73
+          }
+        ],
+        "tags": [
+          "caster_critical",
+          "caster",
+          "critical"
+        ],
+        "sourceRef": "src0428"
+      }
     }
   },
-  "variants": {}
+  "essence": {
+    "definitions": {
+      "attuned-wand:suffix:essence-spell-skill-level": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 72,
+        "weight": 0,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "spell_skill_gem_level_+",
+            "min": 3,
+            "max": 3
+          }
+        ],
+        "tags": [
+          "caster",
+          "gem"
+        ],
+        "sourceRef": "src0334"
+      }
+    }
+  }
 }

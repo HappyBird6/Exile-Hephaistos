@@ -170,13 +170,32 @@ node scripts/versioned-game-data.mjs --check
 
 번역 수집은 `collect-i18n-terms.mjs` / `collect-i18n-modifiers.mjs`의 `--output-dir`로 저장소 밖 검토 결과를 만들고 검토한 값만 i18n 원본에 반영합니다. legacy의 증거 숫자·결정을 현재 정책으로 덮어쓰지 않습니다.
 
-공통 옵션 수정은 `game-data/modifiers/<종류>.json`의 `definitions`에서 합니다. 장비·증강물·공개 옵션·추가 화폐 옵션이 이 정의를 함께 참조합니다. 표시 이름·문장은 `i18n/catalog/modifiers.en.json`에서 수정합니다. `variants`에는 같은 원래 ID에 남아 있던 가중치·티어·태그·이름·출처 차이만 저장합니다. `id@번호`는 편집 원본의 참조 키이며 API ID나 `mappings/`의 짧은 ID가 아닙니다. 실행 파일을 만들 때 원래 modifier ID로 복원합니다.
+공통 옵션 수정은 `game-data/modifiers/<종류>.json`에서 합니다. 파일 안에서 `implicit`(고정), `normal`(일반), `essence`(에센스 전용), `desecrated`(훼손 공개), `augment`(증강물), `alloy`(합금), `liquid`(감정액)를 구분합니다. 해당 데이터가 없는 분류는 생략합니다. 장비·증강물·공개 옵션·추가 화폐 옵션이 이 정의를 함께 참조합니다. 표시 이름·문장은 `i18n/catalog/modifiers.en.json`에서 수정합니다. 각 분류의 `variants`에는 같은 원래 ID에 남아 있던 가중치·티어·태그·이름·출처 차이만 저장합니다. variant는 원래 정의와 같은 분류에 둡니다. `id@번호`는 편집 원본의 참조 키이며 API ID나 `mappings/`의 짧은 ID가 아닙니다. 실행 파일을 만들 때 원래 modifier ID로 복원합니다.
+
+각 분류 안의 `groups`는 티어별 공통 정보를 한 번만 기록하고, `definitions`는 단일·미확정 옵션을 보관합니다. 예를 들어 목걸이 `normal.groups["amulet:prefix:SpellDamage"]`에서 접두 여부·family·태그·`statIds`를 공통 관리합니다. `tiers`는 기존 modifier ID를 키로 사용하고 각 행에 `tier`, `requiredItemLevel`, `weight`, `ranges`, `sourceRef`를 기록합니다. 그룹 이름은 편집용 이름이며 게임 ID나 새 매핑 ID가 아닙니다.
+
+`statIds: ["spell_damage_+%"]`와 `ranges: [[3, 7]]`은 주문 피해 3~7%를 뜻합니다. 복합 옵션의 ranges도 statIds와 같은 개수·순서를 유지합니다. 다른 family·태그·능력치 구성이나 획득 종류를 하나의 그룹으로 섞지 않습니다. 티어 번호는 그룹 내부 순위이며 전역 ID가 아닙니다. 티어 미확정인 훼손 옵션에 새 티어를 추정하지 않습니다. 기존 단일 옵션은 `definitions`의 ID 키 아래에 기존 필드를 유지하며 id를 값에 반복하지 않습니다.
+
+에센스가 일반 옵션을 지정해서 붙이는 경우, 그 정의는 `normal`에 두고 `crafting/essences/targets.json`에서 같은 ID를 참조합니다. 에센스 전용 옵션만 `essence`에 둡니다. 표시 문구·ID 매핑·베이스별 풀은 기존 ID를 계속 참조하며, 생성기가 티어 묶음을 기존 실행 형식으로 펼칩니다. 분류나 그룹 이름으로 화폐의 실제 자격·확률을 새로 추론하지 않습니다. 정리 전 modifier 원본은 `docs/legacy/modifiers-before-tier-groups/`에 보관합니다.
 
 장비 종류별 `modifier-pools.json`은 공통 옵션 목록입니다. 각 베이스의 `modifierPool`이 이 목록을 참조하고, 고정 옵션은 `implicitModifiers`로 위치와 ID만 지정합니다. 추가 제작 옵션 파일도 `modifierRefs`만 보관합니다. 옵션 개수와 가중치 합계는 자동 계산합니다. `*-snapshot` 목록은 기존 수집 시점·능력치 계열·지원 범위 차이를 보존한 것이며, 베이스마다 별도 게임 규칙이 있다는 뜻은 아닙니다. 차이를 합칠 때는 출처를 확인하고 게임 동작 변경으로 검토합니다. 기존 `snapshotId`와 출처 해시는 이력이며 실제 옵션/지원 범위를 바꾸면 해당 snapshot·ruleset 버전도 검토합니다.
 
 `modifiers/`와 `modifier-pools.json`은 편집용 원본으로만 유지합니다. 서버의 펼친 JSON은 자동 생성 결과이며, 공통 테이블 직접 로딩과 짧은 ID 송수신 전환은 후속 코드 경량화에서 진행합니다. 검증 기록을 legacy로 분리하고 생성 방식을 변경한 ruleset은 v14이고, 기존 아이템 snapshot과 호환 ID는 유지합니다. 과거 ruleset으로 저장한 탐색 작업은 기존 버전 검증을 그대로 적용하며 자동 재지정하지 않습니다.
 
 베이스의 이름·요구치 표시 문구는 `i18n/catalog/bases.json`, 정체성·등록 순서·능력치는 각 `base.json`에서 관리합니다. 전체 목록 `top-bases.json`을 별도로 편집하지 않습니다. `catalog/classes.json`은 장비 분류, `crafting/policies/base-support.json`은 앱 지원 여부, `catalog-compatibility.json`은 기존 snapshot·규칙 버전 연결입니다. 등록 `order`와 옵션 배열 순서는 기존 표시·동작 순서를 보존합니다.
+
+`crafting` 하위 폴더의 역할은 다음과 같습니다. 옵션 수치 자체는 modifiers, 표시 이름·설명은 i18n에서 관리합니다.
+
+| 폴더 | 편집 내용 |
+|---|---|
+| `essences` / `alloys` / `liquids` | 재료별 대상 베이스와 결과 옵션 ID 연결 |
+| `augments` | 증강물 정체성·분류와 소켓·추가 풀·배율 규칙 |
+| `reveal` | 훼손 공개 후보·대상 베이스·수동 선택 정책 |
+| `materials` | 재료 출처·표시 메타데이터·적용 장비 분류 |
+| `policies` | 앱 지원 범위와 기존 snapshot·규칙 버전 연결 |
+| `goalfilter` | 목표 판정 정의·베이스 목록·과거 결과 읽기 자료 |
+
+루트의 `registry-v2.json`은 현행 재료 등록·지원 정보, `workbench-definitions-v1.json`은 화폐 행동·징조 정의, `automatic-currency-policy-v1.json`은 자동 제작 정책, `supported-base-sets-v1.json`은 지원 베이스 집합입니다. `ruleset-v1.json`은 실행 버전과 파일 해시를 기록합니다. registry-v1과 readonly 파일은 과거 자료입니다.
 
 `crafting/essences`, `alloys`, `liquids`의 targets는 `groups`(행동 → 옵션 참조 목록)와 `bases`(베이스 → 그룹) 형식입니다. 완전히 같은 목록만 공유하며 그룹 이름은 게임 규칙이나 확률을 뜻하지 않습니다. `augments/items.json`은 정체성·분류, `rules.json`은 실행 규칙이고 이름·효과 문구·템플릿은 `i18n/augments/`에 있습니다. 재료 이름·툴팁은 `i18n/materials/en.json`, 출처·표시 메타데이터는 `crafting/materials/items.json`, 대상 분류는 `target-classes.json`에서 수정합니다. 툴팁 번역을 바꿔도 재료 적용 대상은 바뀌지 않습니다.
 

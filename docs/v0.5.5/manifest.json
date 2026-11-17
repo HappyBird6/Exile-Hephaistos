@@ -1784,95 +1784,95 @@
     },
     {
       "path": "game-data/modifiers/amulets.json",
-      "sha256": "4490b7610418a7a8731b162e4227e35a2d993b8c5ff35153e86c0b90a140d36d"
+      "sha256": "2b4a991e4eccbb6a816b1344df49576698f86aa00f2aff1626248fc613ff1fa0"
     },
     {
       "path": "game-data/modifiers/augment.json",
-      "sha256": "aa11004aa056738bf7b9dff71a7c3f04ba6bf1b2064e842f427415cadb26cdc2"
+      "sha256": "0ec7183f733072bfa44455ed8eaa0822770b62df7c0d7f431da8d11351a65134"
     },
     {
       "path": "game-data/modifiers/belts.json",
-      "sha256": "dddfd5b0ddde4e7bf554d819fe4617321d6932f4bfa25e17e581081727da534b"
+      "sha256": "dce15974bdb835f14b0997c74b7bf1e91d73d28c2c34a853b869b27bfcba5a4f"
     },
     {
       "path": "game-data/modifiers/body-armours.json",
-      "sha256": "4e4f142cba6fc6697ce86aa737e4ae8a524692a3a7bf2a59355c9527df197897"
+      "sha256": "35ee88878655b4ffa7ea54bdd5faa27e42b79c59ffa66b80a10a41788e5e3c7d"
     },
     {
       "path": "game-data/modifiers/boots.json",
-      "sha256": "a803452ea1c5daf273bd7640ffde76c3471ffef49a5dfc4b766959ae7372137a"
+      "sha256": "569b4e7c9460448bc86cf95d746501a558cf7453ee6e3c3169c07f537c1f8f1d"
     },
     {
       "path": "game-data/modifiers/bows.json",
-      "sha256": "ee37a1a64b193c14482a82fec298cfafe8860d918fc78333d1a1eb7bfa2027d5"
+      "sha256": "559681f05fa850902d892a507c60582769c8097570ef42346f49eda88cd87f64"
     },
     {
       "path": "game-data/modifiers/crossbows.json",
-      "sha256": "086741d769ecf59c044103b8c79b56c3cc3c7ec2fbd9e637e7fe2b2ac38d493b"
+      "sha256": "b79f40828172cb1a43302a3cb6815283a272ede8552370f8f9cdefcadf68e311"
     },
     {
       "path": "game-data/modifiers/gloves.json",
-      "sha256": "b69c0ab751e3d6aa22e5bd7213dcebe7f47cfbfb72f8ee3d859a5af393eb98ff"
+      "sha256": "ca9129f483dbfad5cd53414ebae4a47d18a38cebc7f1d8ffb1b11272980c7b90"
     },
     {
       "path": "game-data/modifiers/helmets.json",
-      "sha256": "0d3b02c3eaaca5a73631acb063a2cc675ace3ffffdfed4494710fd7c927f6956"
+      "sha256": "ec99680dd89d9e1c14f9eae36d885d69eb153985dff6ed2ff1cb7b4b9718f985"
     },
     {
       "path": "game-data/modifiers/jewels.json",
-      "sha256": "fb6a3de237e7007b41da393f7d2c3ca5af38a1e463cb3aafc04862955c205535"
+      "sha256": "9834d753ee7ec84faeab846eb181488d8695e8ef1b9bd0fc74e0cf362c2a7bc0"
     },
     {
       "path": "game-data/modifiers/one-hand-maces.json",
-      "sha256": "5b703f7e56596085612445454d7a8c6b93de762e44116422a3dd6087a7e7d7e9"
+      "sha256": "ff50ff23d88b4ab0c0db2db2a7c070da25885530c8c432ae06fb5a3f1b6b0b4e"
     },
     {
       "path": "game-data/modifiers/quarterstaves.json",
-      "sha256": "0ad43efcb5d6c78249f097d8cfae59640ed19035275ae8e20a8890ab7e9435ca"
+      "sha256": "6383e9f82c55386c75538c502c0273052fab243a1917c2a9cb2712e6d451847d"
     },
     {
       "path": "game-data/modifiers/quivers.json",
-      "sha256": "93130b78c9485fafb49167163c2a9db528aa3636ce47c810a2198ab0351d249a"
+      "sha256": "78bf7977a5bc4c917225e519b0bfe21f6f4d54579db556b4ab041f691a971853"
     },
     {
       "path": "game-data/modifiers/reveal.json",
-      "sha256": "6e080a2d3ca9cfdbd3338404a07b45967abbf6437c2bc54ef581d4b2acff7647"
+      "sha256": "cf563a36b486e900eb67e03020124840e481c31fd9a6a1bf9c8f182ce271f735"
     },
     {
       "path": "game-data/modifiers/rings.json",
-      "sha256": "a0af0f9ae8e77e661f29305c420a8cd15425ce5189ed694f69cdb574b5f750d8"
+      "sha256": "b896a3507b16e6f4e02aea838e33d46370aba5bcdf34598055d68c0d0387aca6"
     },
     {
       "path": "game-data/modifiers/sceptres.json",
-      "sha256": "6dc1ae689c21ed57000ba825d7ad4f85a73801d150af1985aeb80801717a390a"
+      "sha256": "a8973bce8dfb93deaeb9b7d4bb5d906f2ad7b3c55962c7cda2979e6956d87fa4"
     },
     {
       "path": "game-data/modifiers/shared.json",
-      "sha256": "ff78fb3e7cb22f31ecbd834ae6d3d11b3b5bc1d424173819bcbc9871f8f73d76"
+      "sha256": "9c48ea959af5cb4511f23ebdfe49e1b4371cbfd36fe59d6d71d4b8f23ebf4121"
     },
     {
       "path": "game-data/modifiers/shields.json",
-      "sha256": "1d152eec6ff528f669d6753573e4b8ab79f12d82b04034d51c93abaf04d2e0e0"
+      "sha256": "d6dd0c3115ec18037406f17b73fc792f457cd599d46dd20e4734cd7cbc811d8e"
     },
     {
       "path": "game-data/modifiers/spears.json",
-      "sha256": "33122f89d4b3f474fccc3b3e2b8910756e98bf6e66faf0a207be33b43cf73a29"
+      "sha256": "96b5d9c1450116233f24b342c89dec1d4db8cf72192343ee4b41d25fd4e700e5"
     },
     {
       "path": "game-data/modifiers/staves.json",
-      "sha256": "838c7ce1e96155777b08e8a4a526e26b3a6dec892981d43aaa3aa91e07a858f1"
+      "sha256": "85adcd43fa8285dad1c6c292ec53eefec874f6567aafc2d363041a7f3688fc4a"
     },
     {
       "path": "game-data/modifiers/talismans.json",
-      "sha256": "1d4474456a14e37b33240d9ccc3fc21c4ca45270d6ec8266e7f5b40961459c6d"
+      "sha256": "a36862e5bfcfac196c1381e10840732d1fb527b754394f2748983e230187e17f"
     },
     {
       "path": "game-data/modifiers/two-hand-maces.json",
-      "sha256": "e013db2e2c8f1568731db8d5c1680e278a2107dc1db9ce464b56214087c38823"
+      "sha256": "73433feb17875709ab6806518b076da293f1f69eee9b2ebd1ee753002d4be9a3"
     },
     {
       "path": "game-data/modifiers/wands.json",
-      "sha256": "3e014a8c72a8442c9a09fd57d72ec71b662183fd28a75075368b446b0c67b5c4"
+      "sha256": "05f7e527f293e2805c6e3957ded6bae43e62bd8050b1df56b02b3368d2ed26a2"
     },
     {
       "path": "game-data/sources.json",

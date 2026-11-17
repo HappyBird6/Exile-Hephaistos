@@ -1,77 +1,76 @@
 {
-  "definitions": {
-    "akoyan-spear:implicit:base": {
-      "id": "akoyan-spear:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "DisplaySpearThrow"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_display_grants_spear_throw_skill",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0023"
-    },
-    "flying-spear:implicit:base": {
-      "id": "flying-spear:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "DisplaySpearThrow",
-        "ProjectileSpeed"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_display_grants_spear_throw_skill",
-          "min": 1,
-          "max": 1
-        },
-        {
-          "id": "local_projectile_speed_+%",
-          "min": 25,
-          "max": 35
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0880"
-    },
-    "grand-spear:implicit:base": {
-      "id": "grand-spear:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "DisplaySpearThrow",
-        "MeleeWeaponAndUnarmedRange"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_display_grants_spear_throw_skill",
-          "min": 1,
-          "max": 1
-        },
-        {
-          "id": "local_+%_weapon_range",
-          "min": 25,
-          "max": 25
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0903"
+  "schemaVersion": 1,
+  "implicit": {
+    "definitions": {
+      "akoyan-spear:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "DisplaySpearThrow"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_display_grants_spear_throw_skill",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src0023"
+      },
+      "flying-spear:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "DisplaySpearThrow",
+          "ProjectileSpeed"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_display_grants_spear_throw_skill",
+            "min": 1,
+            "max": 1
+          },
+          {
+            "id": "local_projectile_speed_+%",
+            "min": 25,
+            "max": 35
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src0880"
+      },
+      "grand-spear:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "DisplaySpearThrow",
+          "MeleeWeaponAndUnarmedRange"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_display_grants_spear_throw_skill",
+            "min": 1,
+            "max": 1
+          },
+          {
+            "id": "local_+%_weapon_range",
+            "min": 25,
+            "max": 25
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src0903"
+      }
     }
-  },
-  "variants": {}
+  }
 }

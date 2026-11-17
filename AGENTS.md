@@ -72,6 +72,7 @@ Docker 서비스는 localhost에만 노출한다. 관리자 API는 비밀번호 
 - 경량화는 데이터 크기뿐 아니라 사람이 이해하고 수정하는 비용을 줄이는 작업이다. 기능 변경 시 찾아갈 파일·중간 계층·중복 원본을 줄이고 역할이 분명한 이름과 폴더를 사용한다. 단순한 작업에 범용 실행기·플러그인 구조·추상화를 추가하지 않는다.
 - 현재 사용되는 공통 API schema·FE/BE 검증 사례는 `docs/contracts/`에 둔다. 게임 버전 데이터와 섞지 않는다. 설명용 README는 legacy에 보관하고 새 관리 설명은 루트 README에 통합한다. backend resources의 contracts는 실제 로드되는 정책 파일이며 별도다. 사용하지 않는 schema와 과거 버전에 고정된 fixture는 legacy/contracts에 보존한다. 현행 source fixture의 해시 갱신은 목표·옵션·확률 oracle 검증 후 수행한다.
 
+- modifier 원본은 획득 종류별 implicit/normal/essence/desecrated/augment/alloy/liquid로 구분한다. 같은 분류·family·태그·stat 구성이 같은 티어만 groups로 묶고 단일·미확정 옵션은 definitions에 둔다. tiers의 키는 기존 modifier ID이며 그룹 이름·티어 번호를 ID로 대체하지 않는다. 복합 ranges의 길이·순서는 statIds와 일치해야 한다. 에센스가 일반 옵션을 부여하면 normal 정의를 참조하고 복제하지 않는다. variants는 원래 정의와 같은 분류에 둔다. 원본 구조만 바뀌고 생성 bytes가 같으면 ruleset·과거 snapshot 버전을 불필요하게 올리지 않는다.
 - 생성 데이터 구조: 베이스 인덱스·주얼·공개 옵션·표시 JSON은 공통 원본에서 생성한다. display 별도 원본을 복원하지 않는다. 증강물·에센스·합금·감정액은 crafting 하위에서 관리하고 이름·툴팁·옵션 문장은 i18n에 둔다. 재료 적용 대상은 명시적 target-classes에서 읽으며 번역 문자열을 파싱하지 않는다.
 - 출처 URL은 sources.json의 sourceRef로 연결한다. 기존 참조를 재사용하지 않는다. 분류 사실·앱 지원 정책·과거 호환 ID를 분리하고 확률 미확정은 null로 표현한다. 동일 목록만 공유하며 등록 order·옵션 순서·문맥별 variants를 보존한다. proof/review는 legacy/raw-data에서 테스트만 읽으며 배포하지 않는다.
 

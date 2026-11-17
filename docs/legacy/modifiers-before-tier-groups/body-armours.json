@@ -1,0 +1,4641 @@
+{
+  "definitions": {
+    "abyssal-cuirass:implicit:base": {
+      "id": "abyssal-cuirass:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "LifeRegenerationRatePercentage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "life_regeneration_rate_per_minute_%",
+          "min": 90,
+          "max": 150
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0002"
+    },
+    "austere-garb:implicit:base": {
+      "id": "austere-garb:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "SelfStatusAilmentDuration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "self_elemental_status_duration_-%",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental",
+        "ailment"
+      ],
+      "sourceRef": "src0436"
+    },
+    "conjurer-mantle:implicit:base": {
+      "id": "conjurer-mantle:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 20,
+          "max": 30
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0472"
+    },
+    "corsair-coat:implicit:base": {
+      "id": "corsair-coat:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MovementVelocity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceRef": "src0474"
+    },
+    "dastard-armour:implicit:base": {
+      "id": "dastard-armour:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 80
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0669"
+    },
+    "death-mail:prefix:centurion-s": {
+      "id": "death-mail:prefix:centurion-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_base_evasion_rating",
+          "min": 40,
+          "max": 50
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 39,
+          "max": 42
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 42,
+          "max": 52
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "evasion"
+      ],
+      "sourceRef": "src0671"
+    },
+    "death-mail:prefix:fighter-s": {
+      "id": "death-mail:prefix:fighter-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_base_evasion_rating",
+          "min": 4,
+          "max": 14
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 14,
+          "max": 20
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "evasion"
+      ],
+      "sourceRef": "src0672"
+    },
+    "death-mail:prefix:knight-s": {
+      "id": "death-mail:prefix:knight-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "local_base_evasion_rating",
+          "min": 30,
+          "max": 39
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 33,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "evasion"
+      ],
+      "sourceRef": "src0673"
+    },
+    "death-mail:prefix:swordsman-s": {
+      "id": "death-mail:prefix:swordsman-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "local_base_evasion_rating",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 6,
+          "max": 13
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "evasion"
+      ],
+      "sourceRef": "src0675"
+    },
+    "death-mail:prefix:versatile": {
+      "id": "death-mail:prefix:versatile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_base_evasion_rating",
+          "min": 142,
+          "max": 161
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 150,
+          "max": 170
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "evasion"
+      ],
+      "sourceRef": "src0676"
+    },
+    "death-mail:prefix:veteran-s": {
+      "id": "death-mail:prefix:veteran-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "local_base_evasion_rating",
+          "min": 15,
+          "max": 21
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 17,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "evasion"
+      ],
+      "sourceRef": "src0677"
+    },
+    "death-mail:prefix:warrior-s": {
+      "id": "death-mail:prefix:warrior-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "local_base_evasion_rating",
+          "min": 22,
+          "max": 29
+        },
+        {
+          "id": "local_armour_and_evasion_+%",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 24,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "evasion"
+      ],
+      "sourceRef": "src0679"
+    },
+    "death-mantle:implicit:base": {
+      "id": "death-mantle:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MaximumResistances"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "additional_maximum_all_elemental_resistances_%",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "fire_resistance",
+        "lightning_resistance",
+        "elemental",
+        "fire",
+        "cold",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src0680"
+    },
+    "falconers-jacket:implicit:base": {
+      "id": "falconers-jacket:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "MovementVelocity"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_movement_velocity_+%",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "speed"
+      ],
+      "sourceRef": "src0872"
+    },
+    "feathered-raiment:implicit:base": {
+      "id": "feathered-raiment:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "DamageRemovedFromManaBeforeLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_damage_removed_from_mana_before_life_%",
+          "min": 5,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "mana"
+      ],
+      "sourceRef": "src0875"
+    },
+    "flowing-raiment:implicit:base": {
+      "id": "flowing-raiment:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ManaRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "mana_regeneration_rate_+%",
+          "min": 40,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0879"
+    },
+    "mail-coat:implicit:base": {
+      "id": "mail-coat:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "SlowPotency"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_slow_potency_+%",
+          "min": -30,
+          "max": -20
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1080"
+    },
+    "rambler-jacket:implicit:base": {
+      "id": "rambler-jacket:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 7,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1195"
+    },
+    "rusted-cuirass:prefix:abalone-s": {
+      "id": "rusted-cuirass:prefix:abalone-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 6,
+          "max": 13
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 5,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1382"
+    },
+    "rusted-cuirass:prefix:athlete-s": {
+      "id": "rusted-cuirass:prefix:athlete-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 120,
+          "max": 149
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1309"
+    },
+    "rusted-cuirass:prefix:baronness": {
+      "id": "rusted-cuirass:prefix:baronness",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 500,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 34,
+          "max": 37
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1384"
+    },
+    "rusted-cuirass:prefix:buttressed": {
+      "id": "rusted-cuirass:prefix:buttressed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 56,
+          "max": 67
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1385"
+    },
+    "rusted-cuirass:prefix:carapaced": {
+      "id": "rusted-cuirass:prefix:carapaced",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 128,
+          "max": 159
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1386"
+    },
+    "rusted-cuirass:prefix:countess": {
+      "id": "rusted-cuirass:prefix:countess",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 400,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 47,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1387"
+    },
+    "rusted-cuirass:prefix:crocodile-s": {
+      "id": "rusted-cuirass:prefix:crocodile-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 42,
+          "max": 49
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1388"
+    },
+    "rusted-cuirass:prefix:duchess": {
+      "id": "rusted-cuirass:prefix:duchess",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 300,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 51,
+          "max": 53
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1389"
+    },
+    "rusted-cuirass:prefix:encased": {
+      "id": "rusted-cuirass:prefix:encased",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 160,
+          "max": 190
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1390"
+    },
+    "rusted-cuirass:prefix:essence-maximum-life-percent": {
+      "id": "rusted-cuirass:prefix:essence-maximum-life-percent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "MaximumLifeIncreasePercent"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "maximum_life_+%",
+          "min": 8,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1392"
+    },
+    "rusted-cuirass:prefix:essence-physical-taken-as-chaos": {
+      "id": "rusted-cuirass:prefix:essence-physical-taken-as-chaos",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "PhysicalDamageTakenAsChaos"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "physical_damage_taken_%_as_chaos",
+          "min": 10,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "physical",
+        "chaos"
+      ],
+      "sourceRef": "src1393"
+    },
+    "rusted-cuirass:prefix:fecund": {
+      "id": "rusted-cuirass:prefix:fecund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 150,
+          "max": 174
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1317"
+    },
+    "rusted-cuirass:prefix:fortified": {
+      "id": "rusted-cuirass:prefix:fortified",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 78,
+          "max": 98
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1394"
+    },
+    "rusted-cuirass:prefix:girded": {
+      "id": "rusted-cuirass:prefix:girded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 80,
+          "max": 91
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1395"
+    },
+    "rusted-cuirass:prefix:hale": {
+      "id": "rusted-cuirass:prefix:hale",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 13,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 10,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0960"
+    },
+    "rusted-cuirass:prefix:hardened": {
+      "id": "rusted-cuirass:prefix:hardened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 42
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 76,
+          "max": 95
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1396"
+    },
+    "rusted-cuirass:prefix:healthy": {
+      "id": "rusted-cuirass:prefix:healthy",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 6,
+      "weight": 1000,
+      "tier": 12,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0961"
+    },
+    "rusted-cuirass:prefix:impervious": {
+      "id": "rusted-cuirass:prefix:impervious",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 278,
+          "max": 310
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1398"
+    },
+    "rusted-cuirass:prefix:impregnable": {
+      "id": "rusted-cuirass:prefix:impregnable",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 92,
+          "max": 100
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1399"
+    },
+    "rusted-cuirass:prefix:lacquered": {
+      "id": "rusted-cuirass:prefix:lacquered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 11,
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 16,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1400"
+    },
+    "rusted-cuirass:prefix:lady-s": {
+      "id": "rusted-cuirass:prefix:lady-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 30,
+          "max": 33
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1401"
+    },
+    "rusted-cuirass:prefix:layered": {
+      "id": "rusted-cuirass:prefix:layered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1402"
+    },
+    "rusted-cuirass:prefix:lobster-s": {
+      "id": "rusted-cuirass:prefix:lobster-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 11,
+          "max": 19
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1403"
+    },
+    "rusted-cuirass:prefix:lobstered": {
+      "id": "rusted-cuirass:prefix:lobstered",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 43,
+          "max": 55
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1404"
+    },
+    "rusted-cuirass:prefix:marchioness": {
+      "id": "rusted-cuirass:prefix:marchioness",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 43,
+          "max": 46
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1405"
+    },
+    "rusted-cuirass:prefix:nautilus": {
+      "id": "rusted-cuirass:prefix:nautilus",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 26,
+          "max": 32
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1406"
+    },
+    "rusted-cuirass:prefix:octopus": {
+      "id": "rusted-cuirass:prefix:octopus",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 33,
+          "max": 41
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1407"
+    },
+    "rusted-cuirass:prefix:oyster-s": {
+      "id": "rusted-cuirass:prefix:oyster-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1408"
+    },
+    "rusted-cuirass:prefix:pangolin-s": {
+      "id": "rusted-cuirass:prefix:pangolin-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 42,
+          "max": 57
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1409"
+    },
+    "rusted-cuirass:prefix:plated": {
+      "id": "rusted-cuirass:prefix:plated",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 99,
+          "max": 127
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1410"
+    },
+    "rusted-cuirass:prefix:prime": {
+      "id": "rusted-cuirass:prefix:prime",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 80,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 200,
+          "max": 214
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1411"
+    },
+    "rusted-cuirass:prefix:princess": {
+      "id": "rusted-cuirass:prefix:princess",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 200,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 54,
+          "max": 56
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1412"
+    },
+    "rusted-cuirass:prefix:queen-s": {
+      "id": "rusted-cuirass:prefix:queen-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 100,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 57,
+          "max": 61
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1413"
+    },
+    "rusted-cuirass:prefix:rapturous": {
+      "id": "rusted-cuirass:prefix:rapturous",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 190,
+          "max": 199
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1414"
+    },
+    "rusted-cuirass:prefix:reinforced": {
+      "id": "rusted-cuirass:prefix:reinforced",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 2,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 15,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1415"
+    },
+    "rusted-cuirass:prefix:ribbed": {
+      "id": "rusted-cuirass:prefix:ribbed",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 57,
+          "max": 77
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1416"
+    },
+    "rusted-cuirass:prefix:robust": {
+      "id": "rusted-cuirass:prefix:robust",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 70,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0981"
+    },
+    "rusted-cuirass:prefix:rotund": {
+      "id": "rusted-cuirass:prefix:rotund",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 85,
+          "max": 99
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0982"
+    },
+    "rusted-cuirass:prefix:sanguine": {
+      "id": "rusted-cuirass:prefix:sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 11,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0983"
+    },
+    "rusted-cuirass:prefix:shelled": {
+      "id": "rusted-cuirass:prefix:shelled",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 58,
+          "max": 75
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1417"
+    },
+    "rusted-cuirass:prefix:snail-s": {
+      "id": "rusted-cuirass:prefix:snail-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 14,
+          "max": 20
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 10,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1418"
+    },
+    "rusted-cuirass:prefix:stalwart": {
+      "id": "rusted-cuirass:prefix:stalwart",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 40,
+          "max": 59
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0994"
+    },
+    "rusted-cuirass:prefix:stout": {
+      "id": "rusted-cuirass:prefix:stout",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 60,
+          "max": 69
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0996"
+    },
+    "rusted-cuirass:prefix:studded": {
+      "id": "rusted-cuirass:prefix:studded",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 28,
+          "max": 56
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1419"
+    },
+    "rusted-cuirass:prefix:thickened": {
+      "id": "rusted-cuirass:prefix:thickened",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 68,
+          "max": 79
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1420"
+    },
+    "rusted-cuirass:prefix:tortoise-s": {
+      "id": "rusted-cuirass:prefix:tortoise-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 30,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour"
+      ],
+      "sourceRef": "src1421"
+    },
+    "rusted-cuirass:prefix:urchin-s": {
+      "id": "rusted-cuirass:prefix:urchin-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 25
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1423"
+    },
+    "rusted-cuirass:prefix:virile": {
+      "id": "rusted-cuirass:prefix:virile",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 100,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1002"
+    },
+    "rusted-cuirass:prefix:viscountess": {
+      "id": "rusted-cuirass:prefix:viscountess",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseSpirit"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 500,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_spirit_from_equipment",
+          "min": 38,
+          "max": 42
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1425"
+    },
+    "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage": {
+      "id": "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedCriticalStrikeDamageTaken"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 40,
+          "max": 50
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1426"
+    },
+    "rusted-cuirass:suffix:of-allaying": {
+      "id": "rusted-cuirass:suffix:of-allaying",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -50,
+          "max": -46
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceRef": "src1427"
+    },
+    "rusted-cuirass:suffix:of-alleviation": {
+      "id": "rusted-cuirass:suffix:of-alleviation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -45,
+          "max": -41
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceRef": "src1428"
+    },
+    "rusted-cuirass:suffix:of-assuaging": {
+      "id": "rusted-cuirass:suffix:of-assuaging",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 64,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -55,
+          "max": -51
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceRef": "src1429"
+    },
+    "rusted-cuirass:suffix:of-bameth": {
+      "id": "rusted-cuirass:suffix:of-bameth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 250,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 24,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1006"
+    },
+    "rusted-cuirass:suffix:of-banishment": {
+      "id": "rusted-cuirass:suffix:of-banishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 250,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1007"
+    },
+    "rusted-cuirass:suffix:of-convalescence": {
+      "id": "rusted-cuirass:suffix:of-convalescence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 47,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 786,
+          "max": 1080
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1008"
+    },
+    "rusted-cuirass:suffix:of-covering": {
+      "id": "rusted-cuirass:suffix:of-covering",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 14,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceRef": "src1430"
+    },
+    "rusted-cuirass:suffix:of-damping": {
+      "id": "rusted-cuirass:suffix:of-damping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceRef": "src1431"
+    },
+    "rusted-cuirass:suffix:of-dousing": {
+      "id": "rusted-cuirass:suffix:of-dousing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 56,
+          "max": 60
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceRef": "src1432"
+    },
+    "rusted-cuirass:suffix:of-ephij": {
+      "id": "rusted-cuirass:suffix:of-ephij",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1009"
+    },
+    "rusted-cuirass:suffix:of-eviction": {
+      "id": "rusted-cuirass:suffix:of-eviction",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 250,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 12,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1010"
+    },
+    "rusted-cuirass:suffix:of-exile": {
+      "id": "rusted-cuirass:suffix:of-exile",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 250,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 20,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1011"
+    },
+    "rusted-cuirass:suffix:of-expulsion": {
+      "id": "rusted-cuirass:suffix:of-expulsion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 250,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 16,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1013"
+    },
+    "rusted-cuirass:suffix:of-furring": {
+      "id": "rusted-cuirass:suffix:of-furring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 38,
+          "max": 43
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceRef": "src1433"
+    },
+    "rusted-cuirass:suffix:of-haast": {
+      "id": "rusted-cuirass:suffix:of-haast",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1014"
+    },
+    "rusted-cuirass:suffix:of-immortality": {
+      "id": "rusted-cuirass:suffix:of-immortality",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1746,
+          "max": 1980
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1434"
+    },
+    "rusted-cuirass:suffix:of-lining": {
+      "id": "rusted-cuirass:suffix:of-lining",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 26,
+          "max": 31
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceRef": "src1435"
+    },
+    "rusted-cuirass:suffix:of-magma": {
+      "id": "rusted-cuirass:suffix:of-magma",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1016"
+    },
+    "rusted-cuirass:suffix:of-padding": {
+      "id": "rusted-cuirass:suffix:of-padding",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 32,
+          "max": 37
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceRef": "src1436"
+    },
+    "rusted-cuirass:suffix:of-quashing": {
+      "id": "rusted-cuirass:suffix:of-quashing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceRef": "src1437"
+    },
+    "rusted-cuirass:suffix:of-quelling": {
+      "id": "rusted-cuirass:suffix:of-quelling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 46,
+          "max": 50
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceRef": "src1438"
+    },
+    "rusted-cuirass:suffix:of-quenching": {
+      "id": "rusted-cuirass:suffix:of-quenching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 64,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_self_ignite_duration_-%",
+          "min": 51,
+          "max": 55
+        }
+      ],
+      "tags": [
+        "elemental",
+        "fire",
+        "ailment"
+      ],
+      "sourceRef": "src1439"
+    },
+    "rusted-cuirass:suffix:of-recuperation": {
+      "id": "rusted-cuirass:suffix:of-recuperation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1086,
+          "max": 1380
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1361"
+    },
+    "rusted-cuirass:suffix:of-resurgence": {
+      "id": "rusted-cuirass:suffix:of-resurgence",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 68,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1386,
+          "max": 1740
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1368"
+    },
+    "rusted-cuirass:suffix:of-sealing": {
+      "id": "rusted-cuirass:suffix:of-sealing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -40,
+          "max": -36
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceRef": "src1440"
+    },
+    "rusted-cuirass:suffix:of-sheathing": {
+      "id": "rusted-cuirass:suffix:of-sheathing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceRef": "src1441"
+    },
+    "rusted-cuirass:suffix:of-staunching": {
+      "id": "rusted-cuirass:suffix:of-staunching",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "self_bleed_duration_+%",
+          "min": -60,
+          "max": -56
+        }
+      ],
+      "tags": [
+        "bleed",
+        "physical",
+        "ailment"
+      ],
+      "sourceRef": "src1442"
+    },
+    "rusted-cuirass:suffix:of-the-antidote": {
+      "id": "rusted-cuirass:suffix:of-the-antidote",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 76,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -60,
+          "max": -56
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceRef": "src1443"
+    },
+    "rusted-cuirass:suffix:of-the-antitoxin": {
+      "id": "rusted-cuirass:suffix:of-the-antitoxin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -40,
+          "max": -36
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceRef": "src1444"
+    },
+    "rusted-cuirass:suffix:of-the-apt": {
+      "id": "rusted-cuirass:suffix:of-the-apt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 32,
+      "weight": 900,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -20,
+          "max": -20
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0402"
+    },
+    "rusted-cuirass:suffix:of-the-bear": {
+      "id": "rusted-cuirass:suffix:of-the-bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 13,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1023"
+    },
+    "rusted-cuirass:suffix:of-the-brute": {
+      "id": "rusted-cuirass:suffix:of-the-brute",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 5,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1024"
+    },
+    "rusted-cuirass:suffix:of-the-cloud": {
+      "id": "rusted-cuirass:suffix:of-the-cloud",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1025"
+    },
+    "rusted-cuirass:suffix:of-the-cure": {
+      "id": "rusted-cuirass:suffix:of-the-cure",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -50,
+          "max": -46
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceRef": "src1445"
+    },
+    "rusted-cuirass:suffix:of-the-drake": {
+      "id": "rusted-cuirass:suffix:of-the-drake",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1029"
+    },
+    "rusted-cuirass:suffix:of-the-flatworm": {
+      "id": "rusted-cuirass:suffix:of-the-flatworm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 9,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 186,
+          "max": 240
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1030"
+    },
+    "rusted-cuirass:suffix:of-the-furnace": {
+      "id": "rusted-cuirass:suffix:of-the-furnace",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1031"
+    },
+    "rusted-cuirass:suffix:of-the-goliath": {
+      "id": "rusted-cuirass:suffix:of-the-goliath",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 25,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1032"
+    },
+    "rusted-cuirass:suffix:of-the-gorilla": {
+      "id": "rusted-cuirass:suffix:of-the-gorilla",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 21,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1033"
+    },
+    "rusted-cuirass:suffix:of-the-hydra": {
+      "id": "rusted-cuirass:suffix:of-the-hydra",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 366,
+          "max": 540
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1034"
+    },
+    "rusted-cuirass:suffix:of-the-ice": {
+      "id": "rusted-cuirass:suffix:of-the-ice",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1035"
+    },
+    "rusted-cuirass:suffix:of-the-kiln": {
+      "id": "rusted-cuirass:suffix:of-the-kiln",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1037"
+    },
+    "rusted-cuirass:suffix:of-the-leviathan": {
+      "id": "rusted-cuirass:suffix:of-the-leviathan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 28,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1038"
+    },
+    "rusted-cuirass:suffix:of-the-lightning": {
+      "id": "rusted-cuirass:suffix:of-the-lightning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 71,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 36,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1039"
+    },
+    "rusted-cuirass:suffix:of-the-lion": {
+      "id": "rusted-cuirass:suffix:of-the-lion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 17,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1040"
+    },
+    "rusted-cuirass:suffix:of-the-lizard": {
+      "id": "rusted-cuirass:suffix:of-the-lizard",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 1000,
+      "tier": 10,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 126,
+          "max": 180
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1041"
+    },
+    "rusted-cuirass:suffix:of-the-lost": {
+      "id": "rusted-cuirass:suffix:of-the-lost",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ChaosResistance"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 250,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_chaos_damage_resistance_%",
+          "min": 4,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "chaos_resistance",
+        "chaos",
+        "resistance"
+      ],
+      "sourceRef": "src1043"
+    },
+    "rusted-cuirass:suffix:of-the-maelstrom": {
+      "id": "rusted-cuirass:suffix:of-the-maelstrom",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1044"
+    },
+    "rusted-cuirass:suffix:of-the-narwhal": {
+      "id": "rusted-cuirass:suffix:of-the-narwhal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 26,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1046"
+    },
+    "rusted-cuirass:suffix:of-the-newt": {
+      "id": "rusted-cuirass:suffix:of-the-newt",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 11,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 60,
+          "max": 120
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1047"
+    },
+    "rusted-cuirass:suffix:of-the-panacea": {
+      "id": "rusted-cuirass:suffix:of-the-panacea",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 64,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -55,
+          "max": -51
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceRef": "src1446"
+    },
+    "rusted-cuirass:suffix:of-the-penguin": {
+      "id": "rusted-cuirass:suffix:of-the-penguin",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 14,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1049"
+    },
+    "rusted-cuirass:suffix:of-the-phoenix": {
+      "id": "rusted-cuirass:suffix:of-the-phoenix",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 1986,
+          "max": 2160
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1447"
+    },
+    "rusted-cuirass:suffix:of-the-polar-bear": {
+      "id": "rusted-cuirass:suffix:of-the-polar-bear",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1050"
+    },
+    "rusted-cuirass:suffix:of-the-proficient": {
+      "id": "rusted-cuirass:suffix:of-the-proficient",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 900,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -35,
+          "max": -35
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0412"
+    },
+    "rusted-cuirass:suffix:of-the-remedy": {
+      "id": "rusted-cuirass:suffix:of-the-remedy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedAilmentDuration"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "self_poison_duration_+%",
+          "min": -45,
+          "max": -41
+        }
+      ],
+      "tags": [
+        "poison",
+        "chaos",
+        "ailment"
+      ],
+      "sourceRef": "src1448"
+    },
+    "rusted-cuirass:suffix:of-the-salamander": {
+      "id": "rusted-cuirass:suffix:of-the-salamander",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1054"
+    },
+    "rusted-cuirass:suffix:of-the-seal": {
+      "id": "rusted-cuirass:suffix:of-the-seal",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1055"
+    },
+    "rusted-cuirass:suffix:of-the-skilled": {
+      "id": "rusted-cuirass:suffix:of-the-skilled",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 52,
+      "weight": 900,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -30,
+          "max": -30
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0416"
+    },
+    "rusted-cuirass:suffix:of-the-squall": {
+      "id": "rusted-cuirass:suffix:of-the-squall",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 13,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 11,
+          "max": 15
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1057"
+    },
+    "rusted-cuirass:suffix:of-the-starfish": {
+      "id": "rusted-cuirass:suffix:of-the-starfish",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 17,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 246,
+          "max": 360
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1058"
+    },
+    "rusted-cuirass:suffix:of-the-storm": {
+      "id": "rusted-cuirass:suffix:of-the-storm",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 25,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 16,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1059"
+    },
+    "rusted-cuirass:suffix:of-the-talented": {
+      "id": "rusted-cuirass:suffix:of-the-talented",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 900,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -25,
+          "max": -25
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0419"
+    },
+    "rusted-cuirass:suffix:of-the-tempest": {
+      "id": "rusted-cuirass:suffix:of-the-tempest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 49,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1060"
+    },
+    "rusted-cuirass:suffix:of-the-thunderhead": {
+      "id": "rusted-cuirass:suffix:of-the-thunderhead",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 37,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1061"
+    },
+    "rusted-cuirass:suffix:of-the-titan": {
+      "id": "rusted-cuirass:suffix:of-the-titan",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 74,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 31,
+          "max": 33
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1062"
+    },
+    "rusted-cuirass:suffix:of-the-troll": {
+      "id": "rusted-cuirass:suffix:of-the-troll",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeRegeneration"
+      ],
+      "requiredItemLevel": 35,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_life_regeneration_rate_per_minute",
+          "min": 546,
+          "max": 780
+        }
+      ],
+      "tags": [
+        "flat_life_regen",
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1063"
+    },
+    "rusted-cuirass:suffix:of-the-volcano": {
+      "id": "rusted-cuirass:suffix:of-the-volcano",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 31,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1064"
+    },
+    "rusted-cuirass:suffix:of-the-walrus": {
+      "id": "rusted-cuirass:suffix:of-the-walrus",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 50,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 26,
+          "max": 30
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1065"
+    },
+    "rusted-cuirass:suffix:of-the-whelpling": {
+      "id": "rusted-cuirass:suffix:of-the-whelpling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 6,
+          "max": 10
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1066"
+    },
+    "rusted-cuirass:suffix:of-the-worthy": {
+      "id": "rusted-cuirass:suffix:of-the-worthy",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LocalAttributeRequirements"
+      ],
+      "requiredItemLevel": 24,
+      "weight": 900,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_attribute_requirements_+%",
+          "min": -15,
+          "max": -15
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src0423"
+    },
+    "rusted-cuirass:suffix:of-the-wrestler": {
+      "id": "rusted-cuirass:suffix:of-the-wrestler",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Strength"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "additional_strength",
+          "min": 9,
+          "max": 12
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1067"
+    },
+    "rusted-cuirass:suffix:of-the-yeti": {
+      "id": "rusted-cuirass:suffix:of-the-yeti",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 21,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1068"
+    },
+    "rusted-cuirass:suffix:of-tzteosh": {
+      "id": "rusted-cuirass:suffix:of-tzteosh",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 82,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 41,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1069"
+    },
+    "sacramental-robe:implicit:base": {
+      "id": "sacramental-robe:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "EnergyShieldRegeneration"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "energy_shield_recharge_rate_+%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "defences",
+        "energyshield"
+      ],
+      "sourceRef": "src1470"
+    },
+    "seastorm-mantle:implicit:base": {
+      "id": "seastorm-mantle:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "DamageTakenGainedAsLife"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "damage_taken_goes_to_life_over_4_seconds_%",
+          "min": 8,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src1472"
+    },
+    "shrouded-mail-cold:implicit:base": {
+      "id": "shrouded-mail-cold:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ColdResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_cold_damage_resistance_%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "cold_resistance",
+        "elemental_resistance",
+        "elemental",
+        "cold",
+        "resistance"
+      ],
+      "sourceRef": "src1480"
+    },
+    "shrouded-mail-fire:implicit:base": {
+      "id": "shrouded-mail-fire:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "FireResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_fire_damage_resistance_%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "fire_resistance",
+        "elemental",
+        "fire",
+        "resistance"
+      ],
+      "sourceRef": "src1480"
+    },
+    "shrouded-mail-lightning:implicit:base": {
+      "id": "shrouded-mail-lightning:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "LightningResistance"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_lightning_damage_resistance_%",
+          "min": 20,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "elemental_resistance",
+        "lightning_resistance",
+        "elemental",
+        "lightning",
+        "resistance"
+      ],
+      "sourceRef": "src1480"
+    },
+    "sleek-jacket:prefix:apparition-s": {
+      "id": "sleek-jacket:prefix:apparition-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 37,
+          "max": 42
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 120,
+          "max": 141
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1504"
+    },
+    "sleek-jacket:prefix:banshee-s": {
+      "id": "sleek-jacket:prefix:banshee-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 43,
+          "max": 48
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 142,
+          "max": 161
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1505"
+    },
+    "sleek-jacket:prefix:chaser-s": {
+      "id": "sleek-jacket:prefix:chaser-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 7,
+          "max": 8
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 15,
+          "max": 21
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1506"
+    },
+    "sleek-jacket:prefix:eidolon-s": {
+      "id": "sleek-jacket:prefix:eidolon-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 30,
+          "max": 36
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 95,
+          "max": 119
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1507"
+    },
+    "sleek-jacket:prefix:incorporeal": {
+      "id": "sleek-jacket:prefix:incorporeal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 101,
+          "max": 110
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1508"
+    },
+    "sleek-jacket:prefix:phantom-s": {
+      "id": "sleek-jacket:prefix:phantom-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 9,
+          "max": 10
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 22,
+          "max": 29
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1509"
+    },
+    "sleek-jacket:prefix:pursuer-s": {
+      "id": "sleek-jacket:prefix:pursuer-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1510"
+    },
+    "sleek-jacket:prefix:rogue-s": {
+      "id": "sleek-jacket:prefix:rogue-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 11,
+          "max": 12
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 30,
+          "max": 39
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1511"
+    },
+    "sleek-jacket:prefix:stalker-s": {
+      "id": "sleek-jacket:prefix:stalker-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 13,
+          "max": 15
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 40,
+          "max": 50
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1512"
+    },
+    "sleek-jacket:prefix:tracker-s": {
+      "id": "sleek-jacket:prefix:tracker-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 4,
+          "max": 14
+        },
+        {
+          "id": "local_evasion_and_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion",
+        "energy_shield"
+      ],
+      "sourceRef": "src1513"
+    },
+    "slipstrike-vest:prefix:antelope-s": {
+      "id": "slipstrike-vest:prefix:antelope-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 39,
+          "max": 42
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 71,
+          "max": 90
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src1517"
+    },
+    "slipstrike-vest:prefix:buck-s": {
+      "id": "slipstrike-vest:prefix:buck-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 14,
+          "max": 20
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 7,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src1518"
+    },
+    "slipstrike-vest:prefix:caribou-s": {
+      "id": "slipstrike-vest:prefix:caribou-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 54,
+          "max": 70
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src1519"
+    },
+    "slipstrike-vest:prefix:deer-s": {
+      "id": "slipstrike-vest:prefix:deer-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 39,
+          "max": 53
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src1520"
+    },
+    "slipstrike-vest:prefix:fugitive": {
+      "id": "slipstrike-vest:prefix:fugitive",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_base_evasion_rating",
+          "min": 262,
+          "max": 300
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src1521"
+    },
+    "slipstrike-vest:prefix:impala-s": {
+      "id": "slipstrike-vest:prefix:impala-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 6,
+          "max": 13
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src1523"
+    },
+    "slipstrike-vest:prefix:moose-s": {
+      "id": "slipstrike-vest:prefix:moose-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "local_evasion_rating_+%",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "id": "local_base_evasion_rating",
+          "min": 27,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src1525"
+    },
+    "thane-mail:implicit:base": {
+      "id": "thane-mail:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ReducedCriticalStrikeDamageTaken"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src1714"
+    },
+    "utzaal-cuirass:implicit:base": {
+      "id": "utzaal-cuirass:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "IncreasedStunThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "stun_threshold_+%",
+          "min": 30,
+          "max": 40
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1903"
+    },
+    "vile-robe:prefix:archon-s": {
+      "id": "vile-robe:prefix:archon-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 21,
+          "max": 25
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src1904"
+    },
+    "vile-robe:prefix:cardinal-s": {
+      "id": "vile-robe:prefix:cardinal-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 8,
+          "max": 13
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src1905"
+    },
+    "vile-robe:prefix:deacon-s": {
+      "id": "vile-robe:prefix:deacon-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 4,
+          "max": 7
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src1907"
+    },
+    "vile-robe:prefix:divine": {
+      "id": "vile-robe:prefix:divine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 26,
+          "max": 30
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src1908"
+    },
+    "vile-robe:prefix:high-priest-s": {
+      "id": "vile-robe:prefix:high-priest-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 17,
+          "max": 20
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src1909"
+    },
+    "vile-robe:prefix:priest-s": {
+      "id": "vile-robe:prefix:priest-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 14,
+          "max": 16
+        },
+        {
+          "id": "local_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src1911"
+    },
+    "vile-robe:prefix:resplendent": {
+      "id": "vile-robe:prefix:resplendent",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 79,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 91,
+          "max": 96
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src1912"
+    },
+    "vile-robe:prefix:unfaltering": {
+      "id": "vile-robe:prefix:unfaltering",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "DefencesPercent"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_energy_shield_+%",
+          "min": 101,
+          "max": 110
+        }
+      ],
+      "tags": [
+        "defences",
+        "energy_shield"
+      ],
+      "sourceRef": "src1914"
+    },
+    "warlord-cuirass:implicit:base": {
+      "id": "warlord-cuirass:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "ArmourAppliesToElementalDamage"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "armour_%_applies_to_fire_cold_lightning_damage",
+          "min": 15,
+          "max": 25
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "elemental"
+      ],
+      "sourceRef": "src1935"
+    },
+    "wolfskin-mantle:prefix:crusader-s": {
+      "id": "wolfskin-mantle:prefix:crusader-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 9,
+          "max": 10
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 27,
+          "max": 32
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 24,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1939"
+    },
+    "wolfskin-mantle:prefix:faithful": {
+      "id": "wolfskin-mantle:prefix:faithful",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 6,
+          "max": 13
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 3,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1940"
+    },
+    "wolfskin-mantle:prefix:godly": {
+      "id": "wolfskin-mantle:prefix:godly",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 75,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 43,
+          "max": 48
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 150,
+          "max": 170
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1941"
+    },
+    "wolfskin-mantle:prefix:grand": {
+      "id": "wolfskin-mantle:prefix:grand",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 13,
+          "max": 15
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 39,
+          "max": 42
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 42,
+          "max": 52
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1942"
+    },
+    "wolfskin-mantle:prefix:inquisitor-s": {
+      "id": "wolfskin-mantle:prefix:inquisitor-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 7,
+          "max": 8
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 21,
+          "max": 26
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 17,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1943"
+    },
+    "wolfskin-mantle:prefix:noble-s": {
+      "id": "wolfskin-mantle:prefix:noble-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 14,
+          "max": 20
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 6,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1945"
+    },
+    "wolfskin-mantle:prefix:paladin-s": {
+      "id": "wolfskin-mantle:prefix:paladin-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndDefencePercent"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 11,
+          "max": 12
+        },
+        {
+          "id": "local_armour_and_energy_shield_+%",
+          "min": 33,
+          "max": 38
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 33,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "defences",
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1946"
+    },
+    "wyrmscale-coat:implicit:base": {
+      "id": "wyrmscale-coat:implicit:base",
+      "layer": "IMPLICIT",
+      "affixType": "NONE",
+      "familyIds": [
+        "AilmentThreshold"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 0,
+      "stats": [
+        {
+          "id": "ailment_threshold_+%",
+          "min": 30,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "ailment"
+      ],
+      "sourceRef": "src1948"
+    }
+  },
+  "variants": {}
+}

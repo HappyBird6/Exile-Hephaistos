@@ -1,0 +1,342 @@
+{
+  "definitions": {
+    "offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_": {
+      "id": "offhand:prefix:anointed:LocalBaseArmourAndEnergyShield2_",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 9,
+          "max": 15
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 17,
+          "max": 46
+        }
+      ],
+      "tags": [
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1085"
+    },
+    "offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1": {
+      "id": "offhand:prefix:blessed:LocalBaseArmourAndEnergyShield1",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 1000,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 5,
+          "max": 8
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 9,
+          "max": 16
+        }
+      ],
+      "tags": [
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1086"
+    },
+    "offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4": {
+      "id": "offhand:prefix:hallowed:LocalBaseArmourAndEnergyShield4",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 22,
+          "max": 25
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 72,
+          "max": 85
+        }
+      ],
+      "tags": [
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1087"
+    },
+    "offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3": {
+      "id": "offhand:prefix:sanctified:LocalBaseArmourAndEnergyShield3",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefences"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "local_energy_shield",
+          "min": 16,
+          "max": 21
+        },
+        {
+          "id": "local_base_physical_damage_reduction_rating",
+          "min": 47,
+          "max": 71
+        }
+      ],
+      "tags": [
+        "armour",
+        "energy_shield"
+      ],
+      "sourceRef": "src1088"
+    },
+    "offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__": {
+      "id": "offhand:suffix:of-deadening:ReducedExtraDamageFromCrits2__",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedExtraDamageFromCrits"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 28,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src1092"
+    },
+    "offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___": {
+      "id": "offhand:suffix:of-dulling:ReducedExtraDamageFromCrits1___",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedExtraDamageFromCrits"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 21,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src1093"
+    },
+    "offhand:suffix:of-interference:ReducedExtraDamageFromCrits3": {
+      "id": "offhand:suffix:of-interference:ReducedExtraDamageFromCrits3",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedExtraDamageFromCrits"
+      ],
+      "requiredItemLevel": 58,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 35,
+          "max": 41
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src1097"
+    },
+    "offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__": {
+      "id": "offhand:suffix:of-obstruction:ReducedExtraDamageFromCrits4__",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedExtraDamageFromCrits"
+      ],
+      "requiredItemLevel": 69,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 42,
+          "max": 47
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src1098"
+    },
+    "offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5": {
+      "id": "offhand:suffix:of-the-bastion:ReducedExtraDamageFromCrits5",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedExtraDamageFromCrits"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_self_critical_strike_multiplier_-%",
+          "min": 48,
+          "max": 54
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src1101"
+    },
+    "offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_": {
+      "id": "offhand:suffix:of-the-conservator:AdditionalPhysicalDamageReduction5_",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedPhysicalDamageTaken"
+      ],
+      "requiredItemLevel": 77,
+      "weight": 800,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 8,
+          "max": 8
+        }
+      ],
+      "tags": [
+        "physical"
+      ],
+      "sourceRef": "src1103"
+    },
+    "offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2": {
+      "id": "offhand:suffix:of-the-custodian:AdditionalPhysicalDamageReduction2",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedPhysicalDamageTaken"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 800,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "physical"
+      ],
+      "sourceRef": "src1104"
+    },
+    "offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4": {
+      "id": "offhand:suffix:of-the-protector:AdditionalPhysicalDamageReduction4",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedPhysicalDamageTaken"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 800,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 7,
+          "max": 7
+        }
+      ],
+      "tags": [
+        "physical"
+      ],
+      "sourceRef": "src1110"
+    },
+    "offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3": {
+      "id": "offhand:suffix:of-the-sentry:AdditionalPhysicalDamageReduction3",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedPhysicalDamageTaken"
+      ],
+      "requiredItemLevel": 53,
+      "weight": 800,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 6,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "physical"
+      ],
+      "sourceRef": "src1111"
+    },
+    "offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1": {
+      "id": "offhand:suffix:of-the-watchman:AdditionalPhysicalDamageReduction1",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ReducedPhysicalDamageTaken"
+      ],
+      "requiredItemLevel": 32,
+      "weight": 800,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_additional_physical_damage_reduction_%",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "physical"
+      ],
+      "sourceRef": "src1114"
+    }
+  },
+  "variants": {}
+}

@@ -1,50 +1,50 @@
 {
-  "definitions": {
-    "aegis-quarterstaff:implicit:base": {
-      "id": "aegis-quarterstaff:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "AdditionalBlock"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "additional_block_%",
-          "min": 12,
-          "max": 18
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0021"
-    },
-    "bolting-quarterstaff:implicit:base": {
-      "id": "bolting-quarterstaff:implicit:base",
-      "layer": "IMPLICIT",
-      "affixType": "NONE",
-      "familyIds": [
-        "WeaponImplicitDamageType"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
-          "min": 100,
-          "max": 100
-        },
-        {
-          "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0470"
+  "schemaVersion": 1,
+  "implicit": {
+    "definitions": {
+      "aegis-quarterstaff:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "AdditionalBlock"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "additional_block_%",
+            "min": 12,
+            "max": 18
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src0021"
+      },
+      "bolting-quarterstaff:implicit:base": {
+        "layer": "IMPLICIT",
+        "affixType": "NONE",
+        "familyIds": [
+          "WeaponImplicitDamageType"
+        ],
+        "requiredItemLevel": 1,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_weapon_implicit_hidden_added_maximum_lightning_damage",
+            "min": 100,
+            "max": 100
+          },
+          {
+            "id": "local_weapon_implicit_hidden_added_minimum_lightning_damage",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src0470"
+      }
     }
-  },
-  "variants": {}
+  }
 }

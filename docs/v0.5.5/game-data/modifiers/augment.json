@@ -1,3211 +1,3085 @@
 {
-  "definitions": {
-    "augment:soul:SoulInfluenceIncreasedLifePercent": {
-      "id": "augment:soul:SoulInfluenceIncreasedLifePercent",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MaximumLifeIncreasePercent"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "maximum_life_+%",
-          "min": 1,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1989"
-    },
-    "augment:soul:SoulInfluenceIncreasedManaPercent": {
-      "id": "augment:soul:SoulInfluenceIncreasedManaPercent",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MaximumManaIncreasePercent"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "maximum_mana_+%",
-          "min": 1,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1990"
-    },
-    "augment:soul:SoulInfluenceIncreasedSpiritPercent": {
-      "id": "augment:soul:SoulInfluenceIncreasedSpiritPercent",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MaximumSpiritIncreasePercent"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "spirit_+%",
-          "min": 1,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1991"
-    },
-    "augment:soul:SoulInfluenceReducedAilmentDurationAgainstYou": {
-      "id": "augment:soul:SoulInfluenceReducedAilmentDurationAgainstYou",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ReducedAilmentDuration"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_all_ailment_duration_on_self_+%",
-          "min": -50,
-          "max": -5
-        }
-      ],
-      "tags": [
-        "bleed",
-        "poison",
-        "physical",
-        "elemental",
-        "fire",
-        "cold",
-        "lightning",
-        "chaos",
-        "ailment",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1992"
-    },
-    "augment:soul:SoulInfluenceReducedCriticalDamageAgainstYou": {
-      "id": "augment:soul:SoulInfluenceReducedCriticalDamageAgainstYou",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ReducedCriticalStrikeDamageTaken"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_self_critical_strike_multiplier_-%",
-          "min": 10,
-          "max": 99
-        }
-      ],
-      "tags": [
-        "damage",
-        "critical",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1993"
-    },
-    "augment:soul:SoulInfluenceFireAndChaosResistance": {
-      "id": "augment:soul:SoulInfluenceFireAndChaosResistance",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "FireAndChaosDamageResistance"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "fire_and_chaos_damage_resistance_%",
-          "min": 3,
-          "max": 31
-        }
-      ],
-      "tags": [
-        "chaos_resistance",
-        "elemental_resistance",
-        "fire_resistance",
-        "elemental",
-        "fire",
-        "chaos",
-        "resistance",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1994"
-    },
-    "augment:soul:SoulInfluenceColdAndChaosResistance": {
-      "id": "augment:soul:SoulInfluenceColdAndChaosResistance",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ColdAndChaosDamageResistance"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "cold_and_chaos_damage_resistance_%",
-          "min": 3,
-          "max": 31
-        }
-      ],
-      "tags": [
-        "chaos_resistance",
-        "cold_resistance",
-        "elemental_resistance",
-        "elemental",
-        "cold",
-        "chaos",
-        "resistance",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1995"
-    },
-    "augment:soul:SoulInfluenceLightningAndChaosResistance": {
-      "id": "augment:soul:SoulInfluenceLightningAndChaosResistance",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightningAndChaosDamageResistance"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "lightning_and_chaos_damage_resistance_%",
-          "min": 3,
-          "max": 31
-        }
-      ],
-      "tags": [
-        "chaos_resistance",
-        "elemental_resistance",
-        "lightning_resistance",
-        "elemental",
-        "lightning",
-        "chaos",
-        "resistance",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1996"
-    },
-    "augment:soul:SoulInfluenceIncreasedLifeAndMana": {
-      "id": "augment:soul:SoulInfluenceIncreasedLifeAndMana",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_maximum_life",
-          "min": 19,
-          "max": 189
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 19,
-          "max": 189
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "mana",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1997"
-    },
-    "augment:soul:SoulInfluenceSpiritDefencesHybridArmourEvasion": {
-      "id": "augment:soul:SoulInfluenceSpiritDefencesHybridArmourEvasion",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_spirit_from_equipment",
-          "min": 1,
-          "max": 24
-        },
-        {
-          "id": "local_armour_and_evasion_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "armour",
-        "evasion",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1998"
-    },
-    "augment:soul:SoulInfluenceSpiritDefencesHybridArmourEnergyShield": {
-      "id": "augment:soul:SoulInfluenceSpiritDefencesHybridArmourEnergyShield",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_spirit_from_equipment",
-          "min": 1,
-          "max": 24
-        },
-        {
-          "id": "local_armour_and_energy_shield_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "armour",
-        "energy_shield",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src1999"
-    },
-    "augment:soul:SoulInfluenceSpiritDefencesHybridEvasionEnergyShield": {
-      "id": "augment:soul:SoulInfluenceSpiritDefencesHybridEvasionEnergyShield",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_spirit_from_equipment",
-          "min": 1,
-          "max": 24
-        },
-        {
-          "id": "local_evasion_and_energy_shield_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "evasion",
-        "energy_shield",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2000"
-    },
-    "augment:soul:SoulInfluenceSpiritDefencesHybridArmour": {
-      "id": "augment:soul:SoulInfluenceSpiritDefencesHybridArmour",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_spirit_from_equipment",
-          "min": 1,
-          "max": 24
-        },
-        {
-          "id": "local_physical_damage_reduction_rating_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "armour",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2001"
-    },
-    "augment:soul:SoulInfluenceSpiritDefencesHybridEvasion": {
-      "id": "augment:soul:SoulInfluenceSpiritDefencesHybridEvasion",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_evasion_rating_+%",
-          "min": 6,
-          "max": 52
-        },
-        {
-          "id": "base_spirit_from_equipment",
-          "min": 1,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "defences",
-        "evasion",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2002"
-    },
-    "augment:soul:SoulInfluenceSpiritDefencesHybridEnergyShield": {
-      "id": "augment:soul:SoulInfluenceSpiritDefencesHybridEnergyShield",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_energy_shield_+%",
-          "min": 6,
-          "max": 52
-        },
-        {
-          "id": "base_spirit_from_equipment",
-          "min": 1,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "defences",
-        "energy_shield",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2003"
-    },
-    "augment:soul:SoulInfluenceManaDefencesHybridArmourEvasion": {
-      "id": "augment:soul:SoulInfluenceManaDefencesHybridArmourEvasion",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 7,
-          "max": 57
-        },
-        {
-          "id": "local_armour_and_evasion_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "resource",
-        "mana",
-        "armour",
-        "evasion",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2004"
-    },
-    "augment:soul:SoulInfluenceManaDefencesHybridArmourEnergyShield": {
-      "id": "augment:soul:SoulInfluenceManaDefencesHybridArmourEnergyShield",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 7,
-          "max": 57
-        },
-        {
-          "id": "local_armour_and_energy_shield_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "resource",
-        "mana",
-        "armour",
-        "energy_shield",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2005"
-    },
-    "augment:soul:SoulInfluenceManaDefencesHybridEvasionEnergyShield": {
-      "id": "augment:soul:SoulInfluenceManaDefencesHybridEvasionEnergyShield",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 7,
-          "max": 57
-        },
-        {
-          "id": "local_evasion_and_energy_shield_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "resource",
-        "mana",
-        "evasion",
-        "energy_shield",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2006"
-    },
-    "augment:soul:SoulInfluenceManaDefencesHybridArmour": {
-      "id": "augment:soul:SoulInfluenceManaDefencesHybridArmour",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 7,
-          "max": 57
-        },
-        {
-          "id": "local_physical_damage_reduction_rating_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "resource",
-        "mana",
-        "armour",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2007"
-    },
-    "augment:soul:SoulInfluenceManaDefencesHybridEvasion": {
-      "id": "augment:soul:SoulInfluenceManaDefencesHybridEvasion",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 7,
-          "max": 57
-        },
-        {
-          "id": "local_evasion_rating_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "resource",
-        "mana",
-        "evasion",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2008"
-    },
-    "augment:soul:SoulInfluenceManaDefencesHybridEnergyShield": {
-      "id": "augment:soul:SoulInfluenceManaDefencesHybridEnergyShield",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BaseLocalDefencesAndLife"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 7,
-          "max": 57
-        },
-        {
-          "id": "local_energy_shield_+%",
-          "min": 6,
-          "max": 52
-        }
-      ],
-      "tags": [
-        "defences",
-        "resource",
-        "mana",
-        "energy_shield",
-        "augment_pool",
-        "soul_pool"
-      ],
-      "sourceRef": "src2009"
-    },
-    "augment:berserking:BerserkInfluenceMaximumRage1": {
-      "id": "augment:berserking:BerserkInfluenceMaximumRage1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MaximumRage"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "maximum_rage",
-          "min": 4,
-          "max": 7
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2010"
-    },
-    "augment:berserking:BerserkInfluenceMaximumRage2": {
-      "id": "augment:berserking:BerserkInfluenceMaximumRage2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MaximumRage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "maximum_rage",
-          "min": 8,
-          "max": 12
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2011"
-    },
-    "augment:berserking:BerserkInfluenceDamageWithWarcries1": {
-      "id": "augment:berserking:BerserkInfluenceDamageWithWarcries1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WarcryDamage"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_damage_+%",
-          "min": 20,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "damage",
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2012"
-    },
-    "augment:berserking:BerserkInfluenceDamageWithWarcries2": {
-      "id": "augment:berserking:BerserkInfluenceDamageWithWarcries2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WarcryDamage"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_damage_+%",
-          "min": 35,
-          "max": 49
-        }
-      ],
-      "tags": [
-        "damage",
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2013"
-    },
-    "augment:berserking:BerserkInfluenceDamageWithWarcries3": {
-      "id": "augment:berserking:BerserkInfluenceDamageWithWarcries3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WarcryDamage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_damage_+%",
-          "min": 50,
-          "max": 75
-        }
-      ],
-      "tags": [
-        "damage",
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2014"
-    },
-    "augment:berserking:BerserkInfluencePowerWithWarcries1": {
-      "id": "augment:berserking:BerserkInfluencePowerWithWarcries1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WarcryPower"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_monster_power_+%",
-          "min": 20,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2015"
-    },
-    "augment:berserking:BerserkInfluencePowerWithWarcries2": {
-      "id": "augment:berserking:BerserkInfluencePowerWithWarcries2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "WarcryPower"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_monster_power_+%",
-          "min": 35,
-          "max": 55
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2016"
-    },
-    "augment:berserking:BerserkInfluenceArmourBreakMagnitude1": {
-      "id": "augment:berserking:BerserkInfluenceArmourBreakMagnitude1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ArmourBreakEffect"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "broken_armour_and_sundered_armour_debuff_effect_+%",
-          "min": 15,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "physical",
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2017"
-    },
-    "augment:berserking:BerserkInfluenceArmourBreakMagnitude2": {
-      "id": "augment:berserking:BerserkInfluenceArmourBreakMagnitude2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ArmourBreakEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "broken_armour_and_sundered_armour_debuff_effect_+%",
-          "min": 25,
-          "max": 39
-        }
-      ],
-      "tags": [
-        "physical",
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2018"
-    },
-    "augment:berserking:BerserkInfluenceArmourBreakMagnitude3": {
-      "id": "augment:berserking:BerserkInfluenceArmourBreakMagnitude3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ArmourBreakEffect"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "broken_armour_and_sundered_armour_debuff_effect_+%",
-          "min": 40,
-          "max": 60
-        }
-      ],
-      "tags": [
-        "physical",
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2019"
-    },
-    "augment:berserking:BerserkInfluenceGloryGeneration1": {
-      "id": "augment:berserking:BerserkInfluenceGloryGeneration1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "GloryGeneration"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "glory_generation_+%",
-          "min": 20,
-          "max": 49
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2020"
-    },
-    "augment:berserking:BerserkInfluenceGloryGeneration2": {
-      "id": "augment:berserking:BerserkInfluenceGloryGeneration2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "GloryGeneration"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "glory_generation_+%",
-          "min": 50,
-          "max": 85
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2021"
-    },
-    "augment:berserking:BerserkInfluenceRageCostEfficiency1": {
-      "id": "augment:berserking:BerserkInfluenceRageCostEfficiency1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "RageCost"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_rage_cost_efficiency_+%",
-          "min": 20,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2022"
-    },
-    "augment:berserking:BerserkInfluenceRageCostEfficiency2": {
-      "id": "augment:berserking:BerserkInfluenceRageCostEfficiency2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "RageCost"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_rage_cost_efficiency_+%",
-          "min": 35,
-          "max": 60
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2023"
-    },
-    "augment:berserking:BerserkInfluenceRageLossDelay1": {
-      "id": "augment:berserking:BerserkInfluenceRageLossDelay1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "RageLossDelay"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "rage_loss_delay_ms_+",
-          "min": 1000,
-          "max": 2000
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2024"
-    },
-    "augment:berserking:BerserkInfluenceRageLossDelay2": {
-      "id": "augment:berserking:BerserkInfluenceRageLossDelay2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "RageLossDelay"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "rage_loss_delay_ms_+",
-          "min": 3000,
-          "max": 5000
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2025"
-    },
-    "augment:berserking:BerserkInfluenceRageWhenHit1": {
-      "id": "augment:berserking:BerserkInfluenceRageWhenHit1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "GainRage"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "gain_x_rage_when_hit",
-          "min": 4,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2026"
-    },
-    "augment:berserking:BerserkInfluenceRageWhenHit2": {
-      "id": "augment:berserking:BerserkInfluenceRageWhenHit2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "GainRage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "gain_x_rage_when_hit",
-          "min": 6,
-          "max": 10
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2027"
-    },
-    "augment:berserking:BerserkInfluenceWarcrySpeed1": {
-      "id": "augment:berserking:BerserkInfluenceWarcrySpeed1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "WarcrySpeed"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_speed_+%",
-          "min": 23,
-          "max": 36
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2028"
-    },
-    "augment:berserking:BerserkInfluenceWarcrySpeed2": {
-      "id": "augment:berserking:BerserkInfluenceWarcrySpeed2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "WarcrySpeed"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_speed_+%",
-          "min": 37,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2029"
-    },
-    "augment:berserking:BerserkInfluenceWarcryCooldown1": {
-      "id": "augment:berserking:BerserkInfluenceWarcryCooldown1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "WarcryCooldownSpeed"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_cooldown_speed_+%",
-          "min": 23,
-          "max": 36
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2030"
-    },
-    "augment:berserking:BerserkInfluenceWarcryCooldown2": {
-      "id": "augment:berserking:BerserkInfluenceWarcryCooldown2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "WarcryCooldownSpeed"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_cooldown_speed_+%",
-          "min": 37,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2031"
-    },
-    "augment:berserking:BerserkInfluenceWarcryArea1": {
-      "id": "augment:berserking:BerserkInfluenceWarcryArea1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AreaOfEffect"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_skill_area_of_effect_+%",
-          "min": 15,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2032"
-    },
-    "augment:berserking:BerserkInfluenceWarcryArea2": {
-      "id": "augment:berserking:BerserkInfluenceWarcryArea2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AreaOfEffect"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "warcry_skill_area_of_effect_+%",
-          "min": 30,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2033"
-    },
-    "augment:berserking:BerserkInfluenceWarcryLifeRecovery1": {
-      "id": "augment:berserking:BerserkInfluenceWarcryLifeRecovery1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "WarcryLifeRecovery"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "restore_life_on_warcry_%",
-          "min": 2,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2034"
-    },
-    "augment:berserking:BerserkInfluenceWarcryLifeRecovery2": {
-      "id": "augment:berserking:BerserkInfluenceWarcryLifeRecovery2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "WarcryLifeRecovery"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "restore_life_on_warcry_%",
-          "min": 4,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2035"
-    },
-    "augment:berserking:BerserkInfluenceArmourBreakDuration1": {
-      "id": "augment:berserking:BerserkInfluenceArmourBreakDuration1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ArmourBreakDuration"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "armour_break_and_sundered_armour_duration_+%",
-          "min": 50,
-          "max": 99
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2036"
-    },
-    "augment:berserking:BerserkInfluenceArmourBreakDuration2": {
-      "id": "augment:berserking:BerserkInfluenceArmourBreakDuration2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ArmourBreakDuration"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "armour_break_and_sundered_armour_duration_+%",
-          "min": 100,
-          "max": 150
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2037"
-    },
-    "augment:berserking:BerserkInfluenceAdditionalCombo1": {
-      "id": "augment:berserking:BerserkInfluenceAdditionalCombo1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalComboChance"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "additional_combo_gain_chance_%",
-          "min": 20,
-          "max": 39
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2038"
-    },
-    "augment:berserking:BerserkInfluenceAdditionalCombo2": {
-      "id": "augment:berserking:BerserkInfluenceAdditionalCombo2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalComboChance"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "additional_combo_gain_chance_%",
-          "min": 40,
-          "max": 60
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "berserking_pool"
-      ],
-      "sourceRef": "src2039"
-    },
-    "augment:marksman:MarksmanInfluenceProjectileDamage1": {
-      "id": "augment:marksman:MarksmanInfluenceProjectileDamage1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileDamage"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "projectile_damage_+%",
-          "min": 11,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "damage",
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2040"
-    },
-    "augment:marksman:MarksmanInfluenceProjectileDamage2": {
-      "id": "augment:marksman:MarksmanInfluenceProjectileDamage2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileDamage"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "projectile_damage_+%",
-          "min": 21,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "damage",
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2041"
-    },
-    "augment:marksman:MarksmanInfluenceProjectileDamage3": {
-      "id": "augment:marksman:MarksmanInfluenceProjectileDamage3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileDamage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "projectile_damage_+%",
-          "min": 31,
-          "max": 40
-        }
-      ],
-      "tags": [
-        "damage",
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2042"
-    },
-    "augment:marksman:MarksmanInfluenceMarkEffect1": {
-      "id": "augment:marksman:MarksmanInfluenceMarkEffect1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "CurseEffectiveness"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "mark_effect_+%",
-          "min": 15,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2043"
-    },
-    "augment:marksman:MarksmanInfluenceMarkEffect2": {
-      "id": "augment:marksman:MarksmanInfluenceMarkEffect2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "CurseEffectiveness"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "mark_effect_+%",
-          "min": 25,
-          "max": 39
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2044"
-    },
-    "augment:marksman:MarksmanInfluenceProjectileSpeed1": {
-      "id": "augment:marksman:MarksmanInfluenceProjectileSpeed1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileSpeed"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_projectile_speed_+%",
-          "min": 11,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2045"
-    },
-    "augment:marksman:MarksmanInfluenceProjectileSpeed2": {
-      "id": "augment:marksman:MarksmanInfluenceProjectileSpeed2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileSpeed"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_projectile_speed_+%",
-          "min": 21,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2046"
-    },
-    "augment:marksman:MarksmanInfluenceProjectileSpeed3": {
-      "id": "augment:marksman:MarksmanInfluenceProjectileSpeed3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ProjectileSpeed"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_projectile_speed_+%",
-          "min": 31,
-          "max": 40
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2047"
-    },
-    "augment:marksman:MarksmanInfluenceCriticalHitChance1": {
-      "id": "augment:marksman:MarksmanInfluenceCriticalHitChance1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "critical_strike_chance_+%",
-          "min": 16,
-          "max": 21
-        }
-      ],
-      "tags": [
-        "critical",
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2048"
-    },
-    "augment:marksman:MarksmanInfluenceCriticalHitChance2": {
-      "id": "augment:marksman:MarksmanInfluenceCriticalHitChance2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "critical_strike_chance_+%",
-          "min": 22,
-          "max": 27
-        }
-      ],
-      "tags": [
-        "critical",
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2049"
-    },
-    "augment:marksman:MarksmanInfluenceCriticalHitChance3": {
-      "id": "augment:marksman:MarksmanInfluenceCriticalHitChance3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "critical_strike_chance_+%",
-          "min": 28,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "critical",
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2050"
-    },
-    "augment:marksman:MarksmanInfluenceChanceToPierce1": {
-      "id": "augment:marksman:MarksmanInfluenceChanceToPierce1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChanceToPierce"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_chance_to_pierce_%",
-          "min": 25,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2051"
-    },
-    "augment:marksman:MarksmanInfluenceChanceToPierce2": {
-      "id": "augment:marksman:MarksmanInfluenceChanceToPierce2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChanceToPierce"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_chance_to_pierce_%",
-          "min": 51,
-          "max": 100
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2052"
-    },
-    "augment:marksman:MarksmanInfluenceSurpassingChanceAdditionalProjectiles1": {
-      "id": "augment:marksman:MarksmanInfluenceSurpassingChanceAdditionalProjectiles1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalProjectileChance"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover",
-          "min": 23,
-          "max": 36
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2053"
-    },
-    "augment:marksman:MarksmanInfluenceSurpassingChanceAdditionalProjectiles2": {
-      "id": "augment:marksman:MarksmanInfluenceSurpassingChanceAdditionalProjectiles2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalProjectileChance"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover",
-          "min": 37,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2054"
-    },
-    "augment:marksman:MarksmanInfluenceSurpassingChanceAdditionalProjectiles3": {
-      "id": "augment:marksman:MarksmanInfluenceSurpassingChanceAdditionalProjectiles3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AdditionalProjectileChance"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "chance_to_fire_1_additional_projectile_%_with_rollover",
-          "min": 51,
-          "max": 66
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2055"
-    },
-    "augment:marksman:MarksmanInfluenceChainToChainOffTerrain1": {
-      "id": "augment:marksman:MarksmanInfluenceChainToChainOffTerrain1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChainFromTerrain"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "projectile_chance_to_chain_1_extra_time_from_terrain_%",
-          "min": 10,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2056"
-    },
-    "augment:marksman:MarksmanInfluenceChainToChainOffTerrain2": {
-      "id": "augment:marksman:MarksmanInfluenceChainToChainOffTerrain2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChainFromTerrain"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "projectile_chance_to_chain_1_extra_time_from_terrain_%",
-          "min": 20,
-          "max": 32
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2057"
-    },
-    "augment:marksman:MarksmanInfluenceChanceForAdditionalProjectileWhenForking1": {
-      "id": "augment:marksman:MarksmanInfluenceChanceForAdditionalProjectileWhenForking1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ForkingProjectiles"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "chance_to_fork_extra_projectile_%",
-          "min": 25,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2058"
-    },
-    "augment:marksman:MarksmanInfluenceChanceForAdditionalProjectileWhenForking2": {
-      "id": "augment:marksman:MarksmanInfluenceChanceForAdditionalProjectileWhenForking2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ForkingProjectiles"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "chance_to_fork_extra_projectile_%",
-          "min": 51,
-          "max": 100
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2059"
-    },
-    "augment:marksman:MarksmanInfluenceIncreasedMarkDuration1": {
-      "id": "augment:marksman:MarksmanInfluenceIncreasedMarkDuration1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MarkDuration"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "mark_skill_duration_+%",
-          "min": 50,
-          "max": 74
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2060"
-    },
-    "augment:marksman:MarksmanInfluenceIncreasedMarkDuration2": {
-      "id": "augment:marksman:MarksmanInfluenceIncreasedMarkDuration2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MarkDuration"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "mark_skill_duration_+%",
-          "min": 75,
-          "max": 100
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2061"
-    },
-    "augment:marksman:MarksmanInfluenceMarkSkillUseSpeed1": {
-      "id": "augment:marksman:MarksmanInfluenceMarkSkillUseSpeed1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MarkUseSpeed"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "mark_use_speed_+%",
-          "min": 13,
-          "max": 23
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2062"
-    },
-    "augment:marksman:MarksmanInfluenceMarkSkillUseSpeed2": {
-      "id": "augment:marksman:MarksmanInfluenceMarkSkillUseSpeed2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MarkUseSpeed"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "mark_use_speed_+%",
-          "min": 24,
-          "max": 39
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2063"
-    },
-    "augment:marksman:MarksmanInfluenceMarkSkillLevels1": {
-      "id": "augment:marksman:MarksmanInfluenceMarkSkillLevels1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "mark_skill_gem_level_+",
-          "min": 1,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2064"
-    },
-    "augment:marksman:MarksmanInfluenceMarkSkillLevels2": {
-      "id": "augment:marksman:MarksmanInfluenceMarkSkillLevels2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "mark_skill_gem_level_+",
-          "min": 3,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2065"
-    },
-    "augment:marksman:MarksmanInfluenceProjectileSkills1": {
-      "id": "augment:marksman:MarksmanInfluenceProjectileSkills1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "projectile_skill_gem_level_+",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2066"
-    },
-    "augment:marksman:MarksmanInfluenceProjectileSkills2": {
-      "id": "augment:marksman:MarksmanInfluenceProjectileSkills2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "projectile_skill_gem_level_+",
-          "min": 2,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "marksman_pool"
-      ],
-      "sourceRef": "src2067"
-    },
-    "augment:decay:DecayInfluenceIgniteMagnitude1": {
-      "id": "augment:decay:DecayInfluenceIgniteMagnitude1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IgniteEffect"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_ignite_effect_+%",
-          "min": 20,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2068"
-    },
-    "augment:decay:DecayInfluenceIgniteMagnitude2": {
-      "id": "augment:decay:DecayInfluenceIgniteMagnitude2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IgniteEffect"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_ignite_effect_+%",
-          "min": 35,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2069"
-    },
-    "augment:decay:DecayInfluenceBleedMagnitude1": {
-      "id": "augment:decay:DecayInfluenceBleedMagnitude1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BleedingDamage"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_bleeding_effect_+%",
-          "min": 20,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "bleed",
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack",
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2070"
-    },
-    "augment:decay:DecayInfluenceBleedMagnitude2": {
-      "id": "augment:decay:DecayInfluenceBleedMagnitude2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "BleedingDamage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_bleeding_effect_+%",
-          "min": 30,
-          "max": 42
-        }
-      ],
-      "tags": [
-        "bleed",
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack",
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2071"
-    },
-    "augment:decay:DecayInfluencePoisonMagnitude1": {
-      "id": "augment:decay:DecayInfluencePoisonMagnitude1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PoisonEffect"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_poison_effect_+%",
-          "min": 20,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "damage",
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2072"
-    },
-    "augment:decay:DecayInfluencePoisonMagnitude2": {
-      "id": "augment:decay:DecayInfluencePoisonMagnitude2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PoisonEffect"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_poison_effect_+%",
-          "min": 30,
-          "max": 42
-        }
-      ],
-      "tags": [
-        "damage",
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2073"
-    },
-    "augment:decay:DecayInfluenceAilmentMagnitude1": {
-      "id": "augment:decay:DecayInfluenceAilmentMagnitude1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AilmentEffect"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "ailment_effect_+%",
-          "min": 20,
-          "max": 25
-        }
-      ],
-      "tags": [
-        "damage",
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2074"
-    },
-    "augment:decay:DecayInfluenceAilmentMagnitude2": {
-      "id": "augment:decay:DecayInfluenceAilmentMagnitude2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AilmentEffect"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "ailment_effect_+%",
-          "min": 26,
-          "max": 32
-        }
-      ],
-      "tags": [
-        "damage",
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2075"
-    },
-    "augment:decay:DecayInfluenceFasterDamagingAilments1": {
-      "id": "augment:decay:DecayInfluenceFasterDamagingAilments1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FasterAilmentDamage"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "damaging_ailments_deal_damage_+%_faster",
-          "min": 8,
-          "max": 13
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2076"
-    },
-    "augment:decay:DecayInfluenceFasterDamagingAilments2": {
-      "id": "augment:decay:DecayInfluenceFasterDamagingAilments2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FasterAilmentDamage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "damaging_ailments_deal_damage_+%_faster",
-          "min": 14,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2077"
-    },
-    "augment:decay:DecayInfluenceAilmentDuration1": {
-      "id": "augment:decay:DecayInfluenceAilmentDuration1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "DamagingAilmentDuration"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "damaging_ailment_duration_+%",
-          "min": 10,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2078"
-    },
-    "augment:decay:DecayInfluenceAilmentDuration2": {
-      "id": "augment:decay:DecayInfluenceAilmentDuration2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "DamagingAilmentDuration"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "damaging_ailment_duration_+%",
-          "min": 20,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "ailment",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2079"
-    },
-    "augment:decay:DecayInfluenceFasterLeech1": {
-      "id": "augment:decay:DecayInfluenceFasterLeech1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeLeech"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_life_leech_rate_+%",
-          "min": 15,
-          "max": 25
-        },
-        {
-          "id": "base_life_leech_from_physical_attack_damage_permyriad",
-          "min": 800,
-          "max": 1200
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2080"
-    },
-    "augment:decay:DecayInfluenceSlowerLeech1": {
-      "id": "augment:decay:DecayInfluenceSlowerLeech1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeLeech"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_life_leech_rate_+%",
-          "min": -25,
-          "max": -15
-        },
-        {
-          "id": "base_life_leech_from_physical_attack_damage_permyriad",
-          "min": 800,
-          "max": 1200
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2081"
-    },
-    "augment:decay:DecayInfluenceLeechAmount1": {
-      "id": "augment:decay:DecayInfluenceLeechAmount1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeLeechAmount"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_life_leech_amount_+%",
-          "min": 30,
-          "max": 40
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2082"
-    },
-    "augment:decay:DecayInfluenceWitherMagnitude1": {
-      "id": "augment:decay:DecayInfluenceWitherMagnitude1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "WitheredEffect"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "withered_magnitude_+%",
-          "min": 15,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "chaos",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2083"
-    },
-    "augment:decay:DecayInfluenceWitherMagnitude2": {
-      "id": "augment:decay:DecayInfluenceWitherMagnitude2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "WitheredEffect"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "withered_magnitude_+%",
-          "min": 25,
-          "max": 35
-        }
-      ],
-      "tags": [
-        "chaos",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2084"
-    },
-    "augment:decay:DecayInfluenceCurseMagnitude1": {
-      "id": "augment:decay:DecayInfluenceCurseMagnitude1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CurseEffectiveness"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "curse_effect_+%",
-          "min": 15,
-          "max": 21
-        }
-      ],
-      "tags": [
-        "caster",
-        "curse",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2085"
-    },
-    "augment:decay:DecayInfluenceCurseMagnitude2": {
-      "id": "augment:decay:DecayInfluenceCurseMagnitude2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CurseEffectiveness"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "curse_effect_+%",
-          "min": 22,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "caster",
-        "curse",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2086"
-    },
-    "augment:decay:DecayInfluenceExposureEffect1": {
-      "id": "augment:decay:DecayInfluenceExposureEffect1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ExposureEffect"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "exposure_effect_+%",
-          "min": 20,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "elemental",
-        "fire",
-        "cold",
-        "lightning",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2087"
-    },
-    "augment:decay:DecayInfluenceExposureEffect2": {
-      "id": "augment:decay:DecayInfluenceExposureEffect2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ExposureEffect"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "exposure_effect_+%",
-          "min": 35,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "elemental",
-        "fire",
-        "cold",
-        "lightning",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2088"
-    },
-    "augment:decay:DecayInfluenceIncreasedCurseDuration1": {
-      "id": "augment:decay:DecayInfluenceIncreasedCurseDuration1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "BaseCurseDuration"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_curse_duration_+%",
-          "min": 50,
-          "max": 99
-        }
-      ],
-      "tags": [
-        "caster",
-        "curse",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2089"
-    },
-    "augment:decay:DecayInfluenceFasterCurseActivation1": {
-      "id": "augment:decay:DecayInfluenceFasterCurseActivation1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CurseDelay"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "curse_delay_+%",
-          "min": -30,
-          "max": -20
-        }
-      ],
-      "tags": [
-        "caster",
-        "curse",
-        "augment_pool",
-        "decay_pool"
-      ],
-      "sourceRef": "src2090"
-    },
-    "augment:chronomancy:TimeInfluenceIncreasedDuration1": {
-      "id": "augment:chronomancy:TimeInfluenceIncreasedDuration1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SkillEffectDuration"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "skill_effect_duration_+%",
-          "min": 15,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2091"
-    },
-    "augment:chronomancy:TimeInfluenceIncreasedDuration2": {
-      "id": "augment:chronomancy:TimeInfluenceIncreasedDuration2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SkillEffectDuration"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "skill_effect_duration_+%",
-          "min": 20,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2092"
-    },
-    "augment:chronomancy:TimeInfluenceIncreasedDuration3": {
-      "id": "augment:chronomancy:TimeInfluenceIncreasedDuration3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "SkillEffectDuration"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "skill_effect_duration_+%",
-          "min": 30,
-          "max": 40
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2093"
-    },
-    "augment:chronomancy:TimeInfluenceCooldownRecovery1": {
-      "id": "augment:chronomancy:TimeInfluenceCooldownRecovery1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CooldownRecovery"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_cooldown_speed_+%",
-          "min": 12,
-          "max": 17
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2094"
-    },
-    "augment:chronomancy:TimeInfluenceCooldownRecovery2": {
-      "id": "augment:chronomancy:TimeInfluenceCooldownRecovery2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CooldownRecovery"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_cooldown_speed_+%",
-          "min": 18,
-          "max": 23
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2095"
-    },
-    "augment:chronomancy:TimeInfluenceCooldownRecovery3": {
-      "id": "augment:chronomancy:TimeInfluenceCooldownRecovery3",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CooldownRecovery"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_cooldown_speed_+%",
-          "min": 24,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2096"
-    },
-    "augment:chronomancy:TimeInfluenceMovementSpeed1": {
-      "id": "augment:chronomancy:TimeInfluenceMovementSpeed1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MovementVelocity"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_slow_potency_+%",
-          "min": -15,
-          "max": -10
-        },
-        {
-          "id": "base_movement_velocity_+%",
-          "min": 24,
-          "max": 26
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2097"
-    },
-    "augment:chronomancy:TimeInfluenceMovementSpeed2": {
-      "id": "augment:chronomancy:TimeInfluenceMovementSpeed2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MovementVelocity"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_slow_potency_+%",
-          "min": -20,
-          "max": -16
-        },
-        {
-          "id": "base_movement_velocity_+%",
-          "min": 27,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2098"
-    },
-    "augment:chronomancy:TimeInfluenceMovementSpeed3": {
-      "id": "augment:chronomancy:TimeInfluenceMovementSpeed3",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MovementVelocity"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "base_slow_potency_+%",
-          "min": -25,
-          "max": -21
-        },
-        {
-          "id": "base_movement_velocity_+%",
-          "min": 30,
-          "max": 32
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2099"
-    },
-    "augment:chronomancy:TimeInfluenceSprintSpeed1": {
-      "id": "augment:chronomancy:TimeInfluenceSprintSpeed1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MovementVelocityWhileSprinting"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "sprint_movement_speed_+%",
-          "min": 10,
-          "max": 14
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2100"
-    },
-    "augment:chronomancy:TimeInfluenceSprintSpeed2": {
-      "id": "augment:chronomancy:TimeInfluenceSprintSpeed2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "MovementVelocityWhileSprinting"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "sprint_movement_speed_+%",
-          "min": 17,
-          "max": 23
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2101"
-    },
-    "augment:chronomancy:TimeInfluenceDodgeRoll1": {
-      "id": "augment:chronomancy:TimeInfluenceDodgeRoll1",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "DodgeRoll"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "dodge_roll_base_travel_distance",
-          "min": 3,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2102"
-    },
-    "augment:chronomancy:TimeInfluenceDodgeRoll2": {
-      "id": "augment:chronomancy:TimeInfluenceDodgeRoll2",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "DodgeRoll"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "dodge_roll_base_travel_distance",
-          "min": 4,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2103"
-    },
-    "augment:chronomancy:TimeInfluenceCharges1": {
-      "id": "augment:chronomancy:TimeInfluenceCharges1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChargeChanceToNotConsume"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "charge_skip_consume_chance_%",
-          "min": 7,
-          "max": 10
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2104"
-    },
-    "augment:chronomancy:TimeInfluenceCharges2": {
-      "id": "augment:chronomancy:TimeInfluenceCharges2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChargeChanceToNotConsume"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "charge_skip_consume_chance_%",
-          "min": 11,
-          "max": 15
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2105"
-    },
-    "augment:chronomancy:TimeInfluenceDebuffExpiry1": {
-      "id": "augment:chronomancy:TimeInfluenceDebuffExpiry1",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "DebuffTime"
-      ],
-      "requiredItemLevel": 45,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "debuff_time_passed_+%",
-          "min": 50,
-          "max": 69
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2106"
-    },
-    "augment:chronomancy:TimeInfluenceDebuffExpiry2": {
-      "id": "augment:chronomancy:TimeInfluenceDebuffExpiry2",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "DebuffTime"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "debuff_time_passed_+%",
-          "min": 70,
-          "max": 89
-        }
-      ],
-      "tags": [
-        "augment_pool",
-        "chronomancy_pool"
-      ],
-      "sourceRef": "src2107"
-    },
-    "augment:destruction:DestructionInfluencePhysicalModifierEffect": {
-      "id": "augment:destruction:DestructionInfluencePhysicalModifierEffect",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "PhysicalModifierEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "heist_enchantment_physical_mod_effect_+%",
-          "min": 10,
-          "max": 15
-        }
-      ],
-      "tags": [
-        "physical",
-        "augment_pool",
-        "destruction_pool"
-      ],
-      "sourceRef": "src2108"
-    },
-    "augment:destruction:DestructionInfluenceFireModifierEffect": {
-      "id": "augment:destruction:DestructionInfluenceFireModifierEffect",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ElementalModifierEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "heist_enchantment_fire_mod_effect_+%",
-          "min": 15,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "elemental",
-        "fire",
-        "augment_pool",
-        "destruction_pool"
-      ],
-      "sourceRef": "src2109"
-    },
-    "augment:destruction:DestructionInfluenceLightningModifierEffect": {
-      "id": "augment:destruction:DestructionInfluenceLightningModifierEffect",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ElementalModifierEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "heist_enchantment_lightning_mod_effect_+%",
-          "min": 15,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "elemental",
-        "lightning",
-        "augment_pool",
-        "destruction_pool"
-      ],
-      "sourceRef": "src2110"
-    },
-    "augment:destruction:DestructionInfluenceColdModifierEffect": {
-      "id": "augment:destruction:DestructionInfluenceColdModifierEffect",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ElementalModifierEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "heist_enchantment_cold_mod_effect_+%",
-          "min": 15,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "elemental",
-        "cold",
-        "augment_pool",
-        "destruction_pool"
-      ],
-      "sourceRef": "src2111"
-    },
-    "augment:destruction:DestructionInfluenceElementalModifierEffect": {
-      "id": "augment:destruction:DestructionInfluenceElementalModifierEffect",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ElementalModifierEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "local_explicit_elemental_damage_mod_effect_+%",
-          "min": 15,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "elemental",
-        "augment_pool",
-        "destruction_pool"
-      ],
-      "sourceRef": "src2112"
-    },
-    "augment:destruction:DestructionInfluenceChaosModifierEffect": {
-      "id": "augment:destruction:DestructionInfluenceChaosModifierEffect",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ChaosModifierEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "heist_enchantment_chaos_mod_effect_+%",
-          "min": 15,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "chaos",
-        "augment_pool",
-        "destruction_pool"
-      ],
-      "sourceRef": "src2113"
-    },
-    "augment:destruction:DestructionInfluenceManaModifierEffect": {
-      "id": "augment:destruction:DestructionInfluenceManaModifierEffect",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaModifierEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "heist_enchantment_mana_mod_effect_+%",
-          "min": 25,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana",
-        "augment_pool",
-        "destruction_pool"
-      ],
-      "sourceRef": "src2114"
-    },
-    "augment:destruction:DestructionInfluenceSpeedModifierEffect": {
-      "id": "augment:destruction:DestructionInfluenceSpeedModifierEffect",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "SpeedModifierEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "heist_enchantment_speed_mod_effect_+%",
-          "min": 25,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "speed",
-        "augment_pool",
-        "destruction_pool"
-      ],
-      "sourceRef": "src2115"
-    },
-    "augment:destruction:DestructionInfluenceCriticalModifierEffect": {
-      "id": "augment:destruction:DestructionInfluenceCriticalModifierEffect",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "CriticalModifierEffect"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 0,
-      "tier": 0,
-      "stats": [
-        {
-          "id": "heist_enchantment_critical_mod_effect_+%",
-          "min": 20,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "critical",
-        "augment_pool",
-        "destruction_pool"
-      ],
-      "sourceRef": "src2116"
+  "schemaVersion": 1,
+  "augment": {
+    "definitions": {
+      "augment:berserking:BerserkInfluenceAdditionalCombo1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AdditionalComboChance"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "additional_combo_gain_chance_%",
+            "min": 20,
+            "max": 39
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2038"
+      },
+      "augment:berserking:BerserkInfluenceAdditionalCombo2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AdditionalComboChance"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "additional_combo_gain_chance_%",
+            "min": 40,
+            "max": 60
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2039"
+      },
+      "augment:berserking:BerserkInfluenceArmourBreakDuration1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ArmourBreakDuration"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "armour_break_and_sundered_armour_duration_+%",
+            "min": 50,
+            "max": 99
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2036"
+      },
+      "augment:berserking:BerserkInfluenceArmourBreakDuration2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ArmourBreakDuration"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "armour_break_and_sundered_armour_duration_+%",
+            "min": 100,
+            "max": 150
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2037"
+      },
+      "augment:berserking:BerserkInfluenceArmourBreakMagnitude1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ArmourBreakEffect"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "broken_armour_and_sundered_armour_debuff_effect_+%",
+            "min": 15,
+            "max": 24
+          }
+        ],
+        "tags": [
+          "physical",
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2017"
+      },
+      "augment:berserking:BerserkInfluenceArmourBreakMagnitude2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ArmourBreakEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "broken_armour_and_sundered_armour_debuff_effect_+%",
+            "min": 25,
+            "max": 39
+          }
+        ],
+        "tags": [
+          "physical",
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2018"
+      },
+      "augment:berserking:BerserkInfluenceArmourBreakMagnitude3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ArmourBreakEffect"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "broken_armour_and_sundered_armour_debuff_effect_+%",
+            "min": 40,
+            "max": 60
+          }
+        ],
+        "tags": [
+          "physical",
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2019"
+      },
+      "augment:berserking:BerserkInfluenceDamageWithWarcries1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WarcryDamage"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_damage_+%",
+            "min": 20,
+            "max": 34
+          }
+        ],
+        "tags": [
+          "damage",
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2012"
+      },
+      "augment:berserking:BerserkInfluenceDamageWithWarcries2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WarcryDamage"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_damage_+%",
+            "min": 35,
+            "max": 49
+          }
+        ],
+        "tags": [
+          "damage",
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2013"
+      },
+      "augment:berserking:BerserkInfluenceDamageWithWarcries3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WarcryDamage"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_damage_+%",
+            "min": 50,
+            "max": 75
+          }
+        ],
+        "tags": [
+          "damage",
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2014"
+      },
+      "augment:berserking:BerserkInfluenceGloryGeneration1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "GloryGeneration"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "glory_generation_+%",
+            "min": 20,
+            "max": 49
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2020"
+      },
+      "augment:berserking:BerserkInfluenceGloryGeneration2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "GloryGeneration"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "glory_generation_+%",
+            "min": 50,
+            "max": 85
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2021"
+      },
+      "augment:berserking:BerserkInfluenceMaximumRage1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MaximumRage"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "maximum_rage",
+            "min": 4,
+            "max": 7
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2010"
+      },
+      "augment:berserking:BerserkInfluenceMaximumRage2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MaximumRage"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "maximum_rage",
+            "min": 8,
+            "max": 12
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2011"
+      },
+      "augment:berserking:BerserkInfluencePowerWithWarcries1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WarcryPower"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_monster_power_+%",
+            "min": 20,
+            "max": 34
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2015"
+      },
+      "augment:berserking:BerserkInfluencePowerWithWarcries2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "WarcryPower"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_monster_power_+%",
+            "min": 35,
+            "max": 55
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2016"
+      },
+      "augment:berserking:BerserkInfluenceRageCostEfficiency1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "RageCost"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_rage_cost_efficiency_+%",
+            "min": 20,
+            "max": 34
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2022"
+      },
+      "augment:berserking:BerserkInfluenceRageCostEfficiency2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "RageCost"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_rage_cost_efficiency_+%",
+            "min": 35,
+            "max": 60
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2023"
+      },
+      "augment:berserking:BerserkInfluenceRageLossDelay1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "RageLossDelay"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "rage_loss_delay_ms_+",
+            "min": 1000,
+            "max": 2000
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2024"
+      },
+      "augment:berserking:BerserkInfluenceRageLossDelay2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "RageLossDelay"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "rage_loss_delay_ms_+",
+            "min": 3000,
+            "max": 5000
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2025"
+      },
+      "augment:berserking:BerserkInfluenceRageWhenHit1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "GainRage"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "gain_x_rage_when_hit",
+            "min": 4,
+            "max": 5
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2026"
+      },
+      "augment:berserking:BerserkInfluenceRageWhenHit2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "GainRage"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "gain_x_rage_when_hit",
+            "min": 6,
+            "max": 10
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2027"
+      },
+      "augment:berserking:BerserkInfluenceWarcryArea1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AreaOfEffect"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_skill_area_of_effect_+%",
+            "min": 15,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2032"
+      },
+      "augment:berserking:BerserkInfluenceWarcryArea2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AreaOfEffect"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_skill_area_of_effect_+%",
+            "min": 30,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2033"
+      },
+      "augment:berserking:BerserkInfluenceWarcryCooldown1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "WarcryCooldownSpeed"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_cooldown_speed_+%",
+            "min": 23,
+            "max": 36
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2030"
+      },
+      "augment:berserking:BerserkInfluenceWarcryCooldown2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "WarcryCooldownSpeed"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_cooldown_speed_+%",
+            "min": 37,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2031"
+      },
+      "augment:berserking:BerserkInfluenceWarcryLifeRecovery1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "WarcryLifeRecovery"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "restore_life_on_warcry_%",
+            "min": 2,
+            "max": 3
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2034"
+      },
+      "augment:berserking:BerserkInfluenceWarcryLifeRecovery2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "WarcryLifeRecovery"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "restore_life_on_warcry_%",
+            "min": 4,
+            "max": 5
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2035"
+      },
+      "augment:berserking:BerserkInfluenceWarcrySpeed1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "WarcrySpeed"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_speed_+%",
+            "min": 23,
+            "max": 36
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2028"
+      },
+      "augment:berserking:BerserkInfluenceWarcrySpeed2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "WarcrySpeed"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "warcry_speed_+%",
+            "min": 37,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "berserking_pool"
+        ],
+        "sourceRef": "src2029"
+      },
+      "augment:chronomancy:TimeInfluenceCharges1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChargeChanceToNotConsume"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "charge_skip_consume_chance_%",
+            "min": 7,
+            "max": 10
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2104"
+      },
+      "augment:chronomancy:TimeInfluenceCharges2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChargeChanceToNotConsume"
+        ],
+        "requiredItemLevel": 78,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "charge_skip_consume_chance_%",
+            "min": 11,
+            "max": 15
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2105"
+      },
+      "augment:chronomancy:TimeInfluenceCooldownRecovery1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CooldownRecovery"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_cooldown_speed_+%",
+            "min": 12,
+            "max": 17
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2094"
+      },
+      "augment:chronomancy:TimeInfluenceCooldownRecovery2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CooldownRecovery"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_cooldown_speed_+%",
+            "min": 18,
+            "max": 23
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2095"
+      },
+      "augment:chronomancy:TimeInfluenceCooldownRecovery3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CooldownRecovery"
+        ],
+        "requiredItemLevel": 78,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_cooldown_speed_+%",
+            "min": 24,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2096"
+      },
+      "augment:chronomancy:TimeInfluenceDebuffExpiry1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "DebuffTime"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "debuff_time_passed_+%",
+            "min": 50,
+            "max": 69
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2106"
+      },
+      "augment:chronomancy:TimeInfluenceDebuffExpiry2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "DebuffTime"
+        ],
+        "requiredItemLevel": 78,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "debuff_time_passed_+%",
+            "min": 70,
+            "max": 89
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2107"
+      },
+      "augment:chronomancy:TimeInfluenceDodgeRoll1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "DodgeRoll"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "dodge_roll_base_travel_distance",
+            "min": 3,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2102"
+      },
+      "augment:chronomancy:TimeInfluenceDodgeRoll2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "DodgeRoll"
+        ],
+        "requiredItemLevel": 78,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "dodge_roll_base_travel_distance",
+            "min": 4,
+            "max": 5
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2103"
+      },
+      "augment:chronomancy:TimeInfluenceIncreasedDuration1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SkillEffectDuration"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "skill_effect_duration_+%",
+            "min": 15,
+            "max": 19
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2091"
+      },
+      "augment:chronomancy:TimeInfluenceIncreasedDuration2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SkillEffectDuration"
+        ],
+        "requiredItemLevel": 55,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "skill_effect_duration_+%",
+            "min": 20,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2092"
+      },
+      "augment:chronomancy:TimeInfluenceIncreasedDuration3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "SkillEffectDuration"
+        ],
+        "requiredItemLevel": 78,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "skill_effect_duration_+%",
+            "min": 30,
+            "max": 40
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2093"
+      },
+      "augment:chronomancy:TimeInfluenceMovementSpeed1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MovementVelocity"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_slow_potency_+%",
+            "min": -15,
+            "max": -10
+          },
+          {
+            "id": "base_movement_velocity_+%",
+            "min": 24,
+            "max": 26
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2097"
+      },
+      "augment:chronomancy:TimeInfluenceMovementSpeed2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MovementVelocity"
+        ],
+        "requiredItemLevel": 70,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_slow_potency_+%",
+            "min": -20,
+            "max": -16
+          },
+          {
+            "id": "base_movement_velocity_+%",
+            "min": 27,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2098"
+      },
+      "augment:chronomancy:TimeInfluenceMovementSpeed3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MovementVelocity"
+        ],
+        "requiredItemLevel": 78,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_slow_potency_+%",
+            "min": -25,
+            "max": -21
+          },
+          {
+            "id": "base_movement_velocity_+%",
+            "min": 30,
+            "max": 32
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2099"
+      },
+      "augment:chronomancy:TimeInfluenceSprintSpeed1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MovementVelocityWhileSprinting"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "sprint_movement_speed_+%",
+            "min": 10,
+            "max": 14
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2100"
+      },
+      "augment:chronomancy:TimeInfluenceSprintSpeed2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MovementVelocityWhileSprinting"
+        ],
+        "requiredItemLevel": 78,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "sprint_movement_speed_+%",
+            "min": 17,
+            "max": 23
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "chronomancy_pool"
+        ],
+        "sourceRef": "src2101"
+      },
+      "augment:decay:DecayInfluenceAilmentDuration1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "DamagingAilmentDuration"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "damaging_ailment_duration_+%",
+            "min": 10,
+            "max": 19
+          }
+        ],
+        "tags": [
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2078"
+      },
+      "augment:decay:DecayInfluenceAilmentDuration2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "DamagingAilmentDuration"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "damaging_ailment_duration_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2079"
+      },
+      "augment:decay:DecayInfluenceAilmentMagnitude1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "AilmentEffect"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "ailment_effect_+%",
+            "min": 20,
+            "max": 25
+          }
+        ],
+        "tags": [
+          "damage",
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2074"
+      },
+      "augment:decay:DecayInfluenceAilmentMagnitude2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "AilmentEffect"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "ailment_effect_+%",
+            "min": 26,
+            "max": 32
+          }
+        ],
+        "tags": [
+          "damage",
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2075"
+      },
+      "augment:decay:DecayInfluenceBleedMagnitude1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BleedingDamage"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_bleeding_effect_+%",
+            "min": 20,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "bleed",
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack",
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2070"
+      },
+      "augment:decay:DecayInfluenceBleedMagnitude2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BleedingDamage"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_bleeding_effect_+%",
+            "min": 30,
+            "max": 42
+          }
+        ],
+        "tags": [
+          "bleed",
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack",
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2071"
+      },
+      "augment:decay:DecayInfluenceCurseMagnitude1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CurseEffectiveness"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "curse_effect_+%",
+            "min": 15,
+            "max": 21
+          }
+        ],
+        "tags": [
+          "caster",
+          "curse",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2085"
+      },
+      "augment:decay:DecayInfluenceCurseMagnitude2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CurseEffectiveness"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "curse_effect_+%",
+            "min": 22,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "caster",
+          "curse",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2086"
+      },
+      "augment:decay:DecayInfluenceExposureEffect1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ExposureEffect"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "exposure_effect_+%",
+            "min": 20,
+            "max": 34
+          }
+        ],
+        "tags": [
+          "elemental",
+          "fire",
+          "cold",
+          "lightning",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2087"
+      },
+      "augment:decay:DecayInfluenceExposureEffect2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ExposureEffect"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "exposure_effect_+%",
+            "min": 35,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "elemental",
+          "fire",
+          "cold",
+          "lightning",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2088"
+      },
+      "augment:decay:DecayInfluenceFasterCurseActivation1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CurseDelay"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "curse_delay_+%",
+            "min": -30,
+            "max": -20
+          }
+        ],
+        "tags": [
+          "caster",
+          "curse",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2090"
+      },
+      "augment:decay:DecayInfluenceFasterDamagingAilments1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FasterAilmentDamage"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "damaging_ailments_deal_damage_+%_faster",
+            "min": 8,
+            "max": 13
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2076"
+      },
+      "augment:decay:DecayInfluenceFasterDamagingAilments2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FasterAilmentDamage"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "damaging_ailments_deal_damage_+%_faster",
+            "min": 14,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2077"
+      },
+      "augment:decay:DecayInfluenceFasterLeech1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LifeLeech"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_life_leech_rate_+%",
+            "min": 15,
+            "max": 25
+          },
+          {
+            "id": "base_life_leech_from_physical_attack_damage_permyriad",
+            "min": 800,
+            "max": 1200
+          }
+        ],
+        "tags": [
+          "resource",
+          "life",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2080"
+      },
+      "augment:decay:DecayInfluenceIgniteMagnitude1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IgniteEffect"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_ignite_effect_+%",
+            "min": 20,
+            "max": 34
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2068"
+      },
+      "augment:decay:DecayInfluenceIgniteMagnitude2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IgniteEffect"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_ignite_effect_+%",
+            "min": 35,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2069"
+      },
+      "augment:decay:DecayInfluenceIncreasedCurseDuration1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "BaseCurseDuration"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_curse_duration_+%",
+            "min": 50,
+            "max": 99
+          }
+        ],
+        "tags": [
+          "caster",
+          "curse",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2089"
+      },
+      "augment:decay:DecayInfluenceLeechAmount1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LifeLeechAmount"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_life_leech_amount_+%",
+            "min": 30,
+            "max": 40
+          }
+        ],
+        "tags": [
+          "resource",
+          "life",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2082"
+      },
+      "augment:decay:DecayInfluencePoisonMagnitude1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "PoisonEffect"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_poison_effect_+%",
+            "min": 20,
+            "max": 29
+          }
+        ],
+        "tags": [
+          "damage",
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2072"
+      },
+      "augment:decay:DecayInfluencePoisonMagnitude2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "PoisonEffect"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_poison_effect_+%",
+            "min": 30,
+            "max": 42
+          }
+        ],
+        "tags": [
+          "damage",
+          "ailment",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2073"
+      },
+      "augment:decay:DecayInfluenceSlowerLeech1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LifeLeech"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_life_leech_rate_+%",
+            "min": -25,
+            "max": -15
+          },
+          {
+            "id": "base_life_leech_from_physical_attack_damage_permyriad",
+            "min": 800,
+            "max": 1200
+          }
+        ],
+        "tags": [
+          "resource",
+          "life",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2081"
+      },
+      "augment:decay:DecayInfluenceWitherMagnitude1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "WitheredEffect"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "withered_magnitude_+%",
+            "min": 15,
+            "max": 24
+          }
+        ],
+        "tags": [
+          "chaos",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2083"
+      },
+      "augment:decay:DecayInfluenceWitherMagnitude2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "WitheredEffect"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "withered_magnitude_+%",
+            "min": 25,
+            "max": 35
+          }
+        ],
+        "tags": [
+          "chaos",
+          "augment_pool",
+          "decay_pool"
+        ],
+        "sourceRef": "src2084"
+      },
+      "augment:destruction:DestructionInfluenceChaosModifierEffect": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChaosModifierEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "heist_enchantment_chaos_mod_effect_+%",
+            "min": 15,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "chaos",
+          "augment_pool",
+          "destruction_pool"
+        ],
+        "sourceRef": "src2113"
+      },
+      "augment:destruction:DestructionInfluenceColdModifierEffect": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ElementalModifierEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "heist_enchantment_cold_mod_effect_+%",
+            "min": 15,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "elemental",
+          "cold",
+          "augment_pool",
+          "destruction_pool"
+        ],
+        "sourceRef": "src2111"
+      },
+      "augment:destruction:DestructionInfluenceCriticalModifierEffect": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "CriticalModifierEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "heist_enchantment_critical_mod_effect_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "critical",
+          "augment_pool",
+          "destruction_pool"
+        ],
+        "sourceRef": "src2116"
+      },
+      "augment:destruction:DestructionInfluenceElementalModifierEffect": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ElementalModifierEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_explicit_elemental_damage_mod_effect_+%",
+            "min": 15,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "elemental",
+          "augment_pool",
+          "destruction_pool"
+        ],
+        "sourceRef": "src2112"
+      },
+      "augment:destruction:DestructionInfluenceFireModifierEffect": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ElementalModifierEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "heist_enchantment_fire_mod_effect_+%",
+            "min": 15,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "elemental",
+          "fire",
+          "augment_pool",
+          "destruction_pool"
+        ],
+        "sourceRef": "src2109"
+      },
+      "augment:destruction:DestructionInfluenceLightningModifierEffect": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ElementalModifierEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "heist_enchantment_lightning_mod_effect_+%",
+            "min": 15,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "elemental",
+          "lightning",
+          "augment_pool",
+          "destruction_pool"
+        ],
+        "sourceRef": "src2110"
+      },
+      "augment:destruction:DestructionInfluenceManaModifierEffect": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaModifierEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "heist_enchantment_mana_mod_effect_+%",
+            "min": 25,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "resource",
+          "mana",
+          "augment_pool",
+          "destruction_pool"
+        ],
+        "sourceRef": "src2114"
+      },
+      "augment:destruction:DestructionInfluencePhysicalModifierEffect": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "PhysicalModifierEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "heist_enchantment_physical_mod_effect_+%",
+            "min": 10,
+            "max": 15
+          }
+        ],
+        "tags": [
+          "physical",
+          "augment_pool",
+          "destruction_pool"
+        ],
+        "sourceRef": "src2108"
+      },
+      "augment:destruction:DestructionInfluenceSpeedModifierEffect": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "SpeedModifierEffect"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "heist_enchantment_speed_mod_effect_+%",
+            "min": 25,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "destruction_pool"
+        ],
+        "sourceRef": "src2115"
+      },
+      "augment:marksman:MarksmanInfluenceChainToChainOffTerrain1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChainFromTerrain"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "projectile_chance_to_chain_1_extra_time_from_terrain_%",
+            "min": 10,
+            "max": 19
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2056"
+      },
+      "augment:marksman:MarksmanInfluenceChainToChainOffTerrain2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChainFromTerrain"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "projectile_chance_to_chain_1_extra_time_from_terrain_%",
+            "min": 20,
+            "max": 32
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2057"
+      },
+      "augment:marksman:MarksmanInfluenceChanceForAdditionalProjectileWhenForking1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ForkingProjectiles"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "chance_to_fork_extra_projectile_%",
+            "min": 25,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2058"
+      },
+      "augment:marksman:MarksmanInfluenceChanceForAdditionalProjectileWhenForking2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ForkingProjectiles"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "chance_to_fork_extra_projectile_%",
+            "min": 51,
+            "max": 100
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2059"
+      },
+      "augment:marksman:MarksmanInfluenceChanceToPierce1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChanceToPierce"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 25,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2051"
+      },
+      "augment:marksman:MarksmanInfluenceChanceToPierce2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ChanceToPierce"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_chance_to_pierce_%",
+            "min": 51,
+            "max": 100
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2052"
+      },
+      "augment:marksman:MarksmanInfluenceCriticalHitChance1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "critical_strike_chance_+%",
+            "min": 16,
+            "max": 21
+          }
+        ],
+        "tags": [
+          "critical",
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2048"
+      },
+      "augment:marksman:MarksmanInfluenceCriticalHitChance2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "critical_strike_chance_+%",
+            "min": 22,
+            "max": 27
+          }
+        ],
+        "tags": [
+          "critical",
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2049"
+      },
+      "augment:marksman:MarksmanInfluenceCriticalHitChance3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "critical_strike_chance_+%",
+            "min": 28,
+            "max": 34
+          }
+        ],
+        "tags": [
+          "critical",
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2050"
+      },
+      "augment:marksman:MarksmanInfluenceIncreasedMarkDuration1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "MarkDuration"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "mark_skill_duration_+%",
+            "min": 50,
+            "max": 74
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2060"
+      },
+      "augment:marksman:MarksmanInfluenceIncreasedMarkDuration2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "MarkDuration"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "mark_skill_duration_+%",
+            "min": 75,
+            "max": 100
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2061"
+      },
+      "augment:marksman:MarksmanInfluenceMarkEffect1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "CurseEffectiveness"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "mark_effect_+%",
+            "min": 15,
+            "max": 24
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2043"
+      },
+      "augment:marksman:MarksmanInfluenceMarkEffect2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "CurseEffectiveness"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "mark_effect_+%",
+            "min": 25,
+            "max": 39
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2044"
+      },
+      "augment:marksman:MarksmanInfluenceMarkSkillLevels1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "mark_skill_gem_level_+",
+            "min": 1,
+            "max": 2
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2064"
+      },
+      "augment:marksman:MarksmanInfluenceMarkSkillLevels2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "mark_skill_gem_level_+",
+            "min": 3,
+            "max": 4
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2065"
+      },
+      "augment:marksman:MarksmanInfluenceMarkSkillUseSpeed1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "MarkUseSpeed"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "mark_use_speed_+%",
+            "min": 13,
+            "max": 23
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2062"
+      },
+      "augment:marksman:MarksmanInfluenceMarkSkillUseSpeed2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "MarkUseSpeed"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "mark_use_speed_+%",
+            "min": 24,
+            "max": 39
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2063"
+      },
+      "augment:marksman:MarksmanInfluenceProjectileDamage1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileDamage"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "projectile_damage_+%",
+            "min": 11,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "damage",
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2040"
+      },
+      "augment:marksman:MarksmanInfluenceProjectileDamage2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileDamage"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "projectile_damage_+%",
+            "min": 21,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "damage",
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2041"
+      },
+      "augment:marksman:MarksmanInfluenceProjectileDamage3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileDamage"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "projectile_damage_+%",
+            "min": 31,
+            "max": 40
+          }
+        ],
+        "tags": [
+          "damage",
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2042"
+      },
+      "augment:marksman:MarksmanInfluenceProjectileSkills1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "projectile_skill_gem_level_+",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2066"
+      },
+      "augment:marksman:MarksmanInfluenceProjectileSkills2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "projectile_skill_gem_level_+",
+            "min": 2,
+            "max": 2
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2067"
+      },
+      "augment:marksman:MarksmanInfluenceProjectileSpeed1": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileSpeed"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_projectile_speed_+%",
+            "min": 11,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2045"
+      },
+      "augment:marksman:MarksmanInfluenceProjectileSpeed2": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileSpeed"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_projectile_speed_+%",
+            "min": 21,
+            "max": 30
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2046"
+      },
+      "augment:marksman:MarksmanInfluenceProjectileSpeed3": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ProjectileSpeed"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_projectile_speed_+%",
+            "min": 31,
+            "max": 40
+          }
+        ],
+        "tags": [
+          "speed",
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2047"
+      },
+      "augment:marksman:MarksmanInfluenceSurpassingChanceAdditionalProjectiles1": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AdditionalProjectileChance"
+        ],
+        "requiredItemLevel": 45,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "chance_to_fire_1_additional_projectile_%_with_rollover",
+            "min": 23,
+            "max": 36
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2053"
+      },
+      "augment:marksman:MarksmanInfluenceSurpassingChanceAdditionalProjectiles2": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AdditionalProjectileChance"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "chance_to_fire_1_additional_projectile_%_with_rollover",
+            "min": 37,
+            "max": 50
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2054"
+      },
+      "augment:marksman:MarksmanInfluenceSurpassingChanceAdditionalProjectiles3": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AdditionalProjectileChance"
+        ],
+        "requiredItemLevel": 75,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "chance_to_fire_1_additional_projectile_%_with_rollover",
+            "min": 51,
+            "max": 66
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "marksman_pool"
+        ],
+        "sourceRef": "src2055"
+      },
+      "augment:soul:SoulInfluenceColdAndChaosResistance": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ColdAndChaosDamageResistance"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "cold_and_chaos_damage_resistance_%",
+            "min": 3,
+            "max": 31
+          }
+        ],
+        "tags": [
+          "chaos_resistance",
+          "cold_resistance",
+          "elemental_resistance",
+          "elemental",
+          "cold",
+          "chaos",
+          "resistance",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1995"
+      },
+      "augment:soul:SoulInfluenceFireAndChaosResistance": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "FireAndChaosDamageResistance"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "fire_and_chaos_damage_resistance_%",
+            "min": 3,
+            "max": 31
+          }
+        ],
+        "tags": [
+          "chaos_resistance",
+          "elemental_resistance",
+          "fire_resistance",
+          "elemental",
+          "fire",
+          "chaos",
+          "resistance",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1994"
+      },
+      "augment:soul:SoulInfluenceIncreasedLifeAndMana": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_maximum_life",
+            "min": 19,
+            "max": 189
+          },
+          {
+            "id": "base_maximum_mana",
+            "min": 19,
+            "max": 189
+          }
+        ],
+        "tags": [
+          "resource",
+          "life",
+          "mana",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1997"
+      },
+      "augment:soul:SoulInfluenceIncreasedLifePercent": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MaximumLifeIncreasePercent"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "maximum_life_+%",
+            "min": 1,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "resource",
+          "life",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1989"
+      },
+      "augment:soul:SoulInfluenceIncreasedManaPercent": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MaximumManaIncreasePercent"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "maximum_mana_+%",
+            "min": 1,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "resource",
+          "mana",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1990"
+      },
+      "augment:soul:SoulInfluenceIncreasedSpiritPercent": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "MaximumSpiritIncreasePercent"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "spirit_+%",
+            "min": 1,
+            "max": 20
+          }
+        ],
+        "tags": [
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1991"
+      },
+      "augment:soul:SoulInfluenceLightningAndChaosResistance": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LightningAndChaosDamageResistance"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "lightning_and_chaos_damage_resistance_%",
+            "min": 3,
+            "max": 31
+          }
+        ],
+        "tags": [
+          "chaos_resistance",
+          "elemental_resistance",
+          "lightning_resistance",
+          "elemental",
+          "lightning",
+          "chaos",
+          "resistance",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1996"
+      },
+      "augment:soul:SoulInfluenceManaDefencesHybridArmour": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 7,
+            "max": 57
+          },
+          {
+            "id": "local_physical_damage_reduction_rating_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "resource",
+          "mana",
+          "armour",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2007"
+      },
+      "augment:soul:SoulInfluenceManaDefencesHybridArmourEnergyShield": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 7,
+            "max": 57
+          },
+          {
+            "id": "local_armour_and_energy_shield_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "resource",
+          "mana",
+          "armour",
+          "energy_shield",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2005"
+      },
+      "augment:soul:SoulInfluenceManaDefencesHybridArmourEvasion": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 7,
+            "max": 57
+          },
+          {
+            "id": "local_armour_and_evasion_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "resource",
+          "mana",
+          "armour",
+          "evasion",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2004"
+      },
+      "augment:soul:SoulInfluenceManaDefencesHybridEnergyShield": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 7,
+            "max": 57
+          },
+          {
+            "id": "local_energy_shield_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "resource",
+          "mana",
+          "energy_shield",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2009"
+      },
+      "augment:soul:SoulInfluenceManaDefencesHybridEvasion": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 7,
+            "max": 57
+          },
+          {
+            "id": "local_evasion_rating_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "resource",
+          "mana",
+          "evasion",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2008"
+      },
+      "augment:soul:SoulInfluenceManaDefencesHybridEvasionEnergyShield": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_maximum_mana",
+            "min": 7,
+            "max": 57
+          },
+          {
+            "id": "local_evasion_and_energy_shield_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "resource",
+          "mana",
+          "evasion",
+          "energy_shield",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2006"
+      },
+      "augment:soul:SoulInfluenceReducedAilmentDurationAgainstYou": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ReducedAilmentDuration"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_all_ailment_duration_on_self_+%",
+            "min": -50,
+            "max": -5
+          }
+        ],
+        "tags": [
+          "bleed",
+          "poison",
+          "physical",
+          "elemental",
+          "fire",
+          "cold",
+          "lightning",
+          "chaos",
+          "ailment",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1992"
+      },
+      "augment:soul:SoulInfluenceReducedCriticalDamageAgainstYou": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ReducedCriticalStrikeDamageTaken"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_self_critical_strike_multiplier_-%",
+            "min": 10,
+            "max": 99
+          }
+        ],
+        "tags": [
+          "damage",
+          "critical",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1993"
+      },
+      "augment:soul:SoulInfluenceSpiritDefencesHybridArmour": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_spirit_from_equipment",
+            "min": 1,
+            "max": 24
+          },
+          {
+            "id": "local_physical_damage_reduction_rating_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "armour",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2001"
+      },
+      "augment:soul:SoulInfluenceSpiritDefencesHybridArmourEnergyShield": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_spirit_from_equipment",
+            "min": 1,
+            "max": 24
+          },
+          {
+            "id": "local_armour_and_energy_shield_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "armour",
+          "energy_shield",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1999"
+      },
+      "augment:soul:SoulInfluenceSpiritDefencesHybridArmourEvasion": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_spirit_from_equipment",
+            "min": 1,
+            "max": 24
+          },
+          {
+            "id": "local_armour_and_evasion_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "armour",
+          "evasion",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src1998"
+      },
+      "augment:soul:SoulInfluenceSpiritDefencesHybridEnergyShield": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_energy_shield_+%",
+            "min": 6,
+            "max": 52
+          },
+          {
+            "id": "base_spirit_from_equipment",
+            "min": 1,
+            "max": 24
+          }
+        ],
+        "tags": [
+          "defences",
+          "energy_shield",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2003"
+      },
+      "augment:soul:SoulInfluenceSpiritDefencesHybridEvasion": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "local_evasion_rating_+%",
+            "min": 6,
+            "max": 52
+          },
+          {
+            "id": "base_spirit_from_equipment",
+            "min": 1,
+            "max": 24
+          }
+        ],
+        "tags": [
+          "defences",
+          "evasion",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2002"
+      },
+      "augment:soul:SoulInfluenceSpiritDefencesHybridEvasionEnergyShield": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "BaseLocalDefencesAndLife"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 0,
+        "stats": [
+          {
+            "id": "base_spirit_from_equipment",
+            "min": 1,
+            "max": 24
+          },
+          {
+            "id": "local_evasion_and_energy_shield_+%",
+            "min": 6,
+            "max": 52
+          }
+        ],
+        "tags": [
+          "defences",
+          "evasion",
+          "energy_shield",
+          "augment_pool",
+          "soul_pool"
+        ],
+        "sourceRef": "src2000"
+      }
     }
-  },
-  "variants": {}
+  }
 }

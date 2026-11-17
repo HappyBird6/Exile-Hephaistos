@@ -127,7 +127,7 @@ test('one CLI command updates seals, stable IDs, both mirrors and public policy'
     'README.md', 'backend/src/main/resources/contracts',
     'docs/contracts/workbench-definitions-v1.schema.json', 'docs/contracts/goal-definitions-v1.schema.json',
     'scripts/versioned-game-data.mjs', 'scripts/update-ruleset-manifest.mjs', 'scripts/catalog-data.mjs',
-    'scripts/game-data-outputs.mjs', 'scripts/sync-workbench-data.mjs',
+    'scripts/game-data-outputs.mjs', 'scripts/modifier-data.mjs', 'scripts/sync-workbench-data.mjs',
     'scripts/sync-public-contracts.mjs', 'scripts/public-contracts.mjs',
   ]) {
     fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true })
@@ -166,13 +166,13 @@ test('shared reveal definitions drive both consumers and missing references fail
   const { root, load, write } = fixture(t)
   const source = `${versionRoot}/game-data/modifiers/reveal.json`
   const registry = load(source)
-  const id = Object.keys(registry.definitions)[0]
-  registry.definitions[id].stats[0].max = 42
+  const id = Object.keys(registry.desecrated.definitions)[0]
+  registry.desecrated.definitions[id].stats[0].max = 42
   write(source, registry)
   const outputs = gameDataOutputs(path.join(root, versionRoot))
   assert.equal(outputs.get('backend/src/main/resources/catalog/manual-reveal.json').value.definitions.find(d => d.id === id).stats[0].max, 42)
   assert.equal(outputs.get('frontend/src/features/crafting/manualRevealDefinitions.json').value.definitions[id].stats[0].max, 42)
-  delete registry.definitions[id]
+  delete registry.desecrated.definitions[id]
   write(source, registry)
   assert.throws(() => gameDataOutputs(path.join(root, versionRoot)), /Unknown modifier reference/)
 })

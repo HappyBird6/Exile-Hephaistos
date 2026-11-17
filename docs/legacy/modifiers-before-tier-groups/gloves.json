@@ -1,0 +1,1190 @@
+{
+  "definitions": {
+    "stocky-mitts:prefix:crocodile-s": {
+      "id": "stocky-mitts:prefix:crocodile-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 42,
+          "max": 49
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 39,
+          "max": 42
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1388"
+    },
+    "stocky-mitts:prefix:lobster-s": {
+      "id": "stocky-mitts:prefix:lobster-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 11,
+          "max": 19
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 14,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1403"
+    },
+    "stocky-mitts:prefix:nautilus": {
+      "id": "stocky-mitts:prefix:nautilus",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 46,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 26,
+          "max": 32
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 27,
+          "max": 32
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1406"
+    },
+    "stocky-mitts:prefix:octopus": {
+      "id": "stocky-mitts:prefix:octopus",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 60,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 33,
+          "max": 41
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 33,
+          "max": 38
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1407"
+    },
+    "stocky-mitts:prefix:oyster-s": {
+      "id": "stocky-mitts:prefix:oyster-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 7,
+          "max": 10
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 6,
+          "max": 13
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1408"
+    },
+    "stocky-mitts:prefix:urchin-s": {
+      "id": "stocky-mitts:prefix:urchin-s",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "BaseLocalDefencesAndLife"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 20,
+          "max": 25
+        },
+        {
+          "id": "local_physical_damage_reduction_rating_+%",
+          "min": 21,
+          "max": 26
+        }
+      ],
+      "tags": [
+        "defences",
+        "resource",
+        "life",
+        "armour"
+      ],
+      "sourceRef": "src1423"
+    },
+    "stocky-mitts:suffix:essence-gold-quantity": {
+      "id": "stocky-mitts:suffix:essence-gold-quantity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceGoldDropped"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "max": 15,
+          "min": 10,
+          "id": "gold_+%_from_enemies"
+        }
+      ],
+      "tags": [],
+      "sourceRef": "src1666"
+    },
+    "stocky-mitts:suffix:essence-lightning-recoup": {
+      "id": "stocky-mitts:suffix:essence-lightning-recoup",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LightningDamageTakenRecoupedAsLife"
+      ],
+      "requiredItemLevel": 72,
+      "weight": 0,
+      "tier": 1,
+      "stats": [
+        {
+          "max": 30,
+          "min": 26,
+          "id": "lightning_damage_taken_goes_to_life_over_4_seconds_%"
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "elemental",
+        "lightning"
+      ],
+      "sourceRef": "src1667"
+    },
+    "stocky-mitts:suffix:of-absorption": {
+      "id": "stocky-mitts:suffix:of-absorption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 2,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0335"
+    },
+    "stocky-mitts:suffix:of-anger": {
+      "id": "stocky-mitts:suffix:of-anger",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 15,
+          "max": 19
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0116"
+    },
+    "stocky-mitts:suffix:of-assimilation": {
+      "id": "stocky-mitts:suffix:of-assimilation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 78,
+      "weight": 750,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 36,
+          "max": 45
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0340"
+    },
+    "stocky-mitts:suffix:of-combat": {
+      "id": "stocky-mitts:suffix:of-combat",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 5,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0124"
+    },
+    "stocky-mitts:suffix:of-conquest": {
+      "id": "stocky-mitts:suffix:of-conquest",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 33,
+      "weight": 750,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 19,
+          "max": 28
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0348"
+    },
+    "stocky-mitts:suffix:of-consumption": {
+      "id": "stocky-mitts:suffix:of-consumption",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 750,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 15,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0349"
+    },
+    "stocky-mitts:suffix:of-devouring": {
+      "id": "stocky-mitts:suffix:of-devouring",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 67,
+      "weight": 750,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 28,
+          "max": 35
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0352"
+    },
+    "stocky-mitts:suffix:of-dueling": {
+      "id": "stocky-mitts:suffix:of-dueling",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "IncreaseSocketedGemLevel"
+      ],
+      "requiredItemLevel": 41,
+      "weight": 250,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "melee_skill_gem_level_+",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "attack"
+      ],
+      "sourceRef": "src0128"
+    },
+    "stocky-mitts:suffix:of-enveloping": {
+      "id": "stocky-mitts:suffix:of-enveloping",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 34,
+      "weight": 750,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0357"
+    },
+    "stocky-mitts:suffix:of-ferocity": {
+      "id": "stocky-mitts:suffix:of-ferocity",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 59,
+      "weight": 250,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 30,
+          "max": 34
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0137"
+    },
+    "stocky-mitts:suffix:of-fury": {
+      "id": "stocky-mitts:suffix:of-fury",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 45,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 25,
+          "max": 29
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0139"
+    },
+    "stocky-mitts:suffix:of-glory": {
+      "id": "stocky-mitts:suffix:of-glory",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 750,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 54,
+          "max": 68
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0367"
+    },
+    "stocky-mitts:suffix:of-infusion": {
+      "id": "stocky-mitts:suffix:of-infusion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 23,
+      "weight": 750,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 6,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0376"
+    },
+    "stocky-mitts:suffix:of-ire": {
+      "id": "stocky-mitts:suffix:of-ire",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 10,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0143"
+    },
+    "stocky-mitts:suffix:of-legend": {
+      "id": "stocky-mitts:suffix:of-legend",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 77,
+      "weight": 750,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 69,
+          "max": 84
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0380"
+    },
+    "stocky-mitts:suffix:of-nourishment": {
+      "id": "stocky-mitts:suffix:of-nourishment",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainPerTarget"
+      ],
+      "requiredItemLevel": 40,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_life_gain_per_target",
+          "min": 5,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "attack"
+      ],
+      "sourceRef": "src1671"
+    },
+    "stocky-mitts:suffix:of-osmosis": {
+      "id": "stocky-mitts:suffix:of-osmosis",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 12,
+      "weight": 750,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 4,
+          "max": 5
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0385"
+    },
+    "stocky-mitts:suffix:of-rage": {
+      "id": "stocky-mitts:suffix:of-rage",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "CriticalStrikeMultiplier"
+      ],
+      "requiredItemLevel": 31,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_critical_strike_multiplier_+",
+          "min": 20,
+          "max": 24
+        }
+      ],
+      "tags": [
+        "damage",
+        "critical"
+      ],
+      "sourceRef": "src0153"
+    },
+    "stocky-mitts:suffix:of-regrowth": {
+      "id": "stocky-mitts:suffix:of-regrowth",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainPerTarget"
+      ],
+      "requiredItemLevel": 30,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_life_gain_per_target",
+          "min": 4,
+          "max": 4
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "attack"
+      ],
+      "sourceRef": "src1672"
+    },
+    "stocky-mitts:suffix:of-rejuvenation": {
+      "id": "stocky-mitts:suffix:of-rejuvenation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainPerTarget"
+      ],
+      "requiredItemLevel": 8,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_life_gain_per_target",
+          "min": 2,
+          "max": 2
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "attack"
+      ],
+      "sourceRef": "src1673"
+    },
+    "stocky-mitts:suffix:of-restoration": {
+      "id": "stocky-mitts:suffix:of-restoration",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainPerTarget"
+      ],
+      "requiredItemLevel": 20,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_life_gain_per_target",
+          "min": 3,
+          "max": 3
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "attack"
+      ],
+      "sourceRef": "src1675"
+    },
+    "stocky-mitts:suffix:of-siphoning": {
+      "id": "stocky-mitts:suffix:of-siphoning",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 56,
+      "weight": 750,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_mana_gained_on_enemy_death",
+          "min": 21,
+          "max": 27
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana"
+      ],
+      "sourceRef": "src0393"
+    },
+    "stocky-mitts:suffix:of-success": {
+      "id": "stocky-mitts:suffix:of-success",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 750,
+      "tier": 8,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 4,
+          "max": 6
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0399"
+    },
+    "stocky-mitts:suffix:of-the-arid": {
+      "id": "stocky-mitts:suffix:of-the-arid",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaLeech"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+          "min": 600,
+          "max": 690
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1022"
+    },
+    "stocky-mitts:suffix:of-the-desperate": {
+      "id": "stocky-mitts:suffix:of-the-desperate",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaLeech"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+          "min": 800,
+          "max": 890
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1677"
+    },
+    "stocky-mitts:suffix:of-the-drought": {
+      "id": "stocky-mitts:suffix:of-the-drought",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaLeech"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+          "min": 700,
+          "max": 790
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1678"
+    },
+    "stocky-mitts:suffix:of-the-lamprey": {
+      "id": "stocky-mitts:suffix:of-the-lamprey",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 54,
+      "weight": 1000,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_life_leech_from_physical_attack_damage_permyriad",
+          "min": 800,
+          "max": 890
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1679"
+    },
+    "stocky-mitts:suffix:of-the-locust": {
+      "id": "stocky-mitts:suffix:of-the-locust",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_life_leech_from_physical_attack_damage_permyriad",
+          "min": 600,
+          "max": 690
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1042"
+    },
+    "stocky-mitts:suffix:of-the-parched": {
+      "id": "stocky-mitts:suffix:of-the-parched",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "ManaLeech"
+      ],
+      "requiredItemLevel": 21,
+      "weight": 1000,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_mana_leech_from_physical_attack_damage_permyriad",
+          "min": 500,
+          "max": 590
+        }
+      ],
+      "tags": [
+        "resource",
+        "mana",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1048"
+    },
+    "stocky-mitts:suffix:of-the-remora": {
+      "id": "stocky-mitts:suffix:of-the-remora",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 38,
+      "weight": 1000,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_life_leech_from_physical_attack_damage_permyriad",
+          "min": 700,
+          "max": 790
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1053"
+    },
+    "stocky-mitts:suffix:of-the-vampire": {
+      "id": "stocky-mitts:suffix:of-the-vampire",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeLeech"
+      ],
+      "requiredItemLevel": 65,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_life_leech_from_physical_attack_damage_permyriad",
+          "min": 900,
+          "max": 990
+        }
+      ],
+      "tags": [
+        "resource",
+        "life",
+        "physical",
+        "attack"
+      ],
+      "sourceRef": "src1680"
+    },
+    "stocky-mitts:suffix:of-the-wind": {
+      "id": "stocky-mitts:suffix:of-the-wind",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "Dexterity"
+      ],
+      "requiredItemLevel": 81,
+      "weight": 1000,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "additional_dexterity",
+          "min": 34,
+          "max": 36
+        }
+      ],
+      "tags": [
+        "attribute"
+      ],
+      "sourceRef": "src1681"
+    },
+    "stocky-mitts:suffix:of-triumph": {
+      "id": "stocky-mitts:suffix:of-triumph",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 22,
+      "weight": 750,
+      "tier": 6,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 10,
+          "max": 18
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0426"
+    },
+    "stocky-mitts:suffix:of-valour": {
+      "id": "stocky-mitts:suffix:of-valour",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 55,
+      "weight": 750,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 41,
+          "max": 53
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0429"
+    },
+    "stocky-mitts:suffix:of-vanquishing": {
+      "id": "stocky-mitts:suffix:of-vanquishing",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 44,
+      "weight": 750,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 29,
+          "max": 40
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0430"
+    },
+    "stocky-mitts:suffix:of-victory": {
+      "id": "stocky-mitts:suffix:of-victory",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "LifeGainedFromEnemyDeath"
+      ],
+      "requiredItemLevel": 11,
+      "weight": 750,
+      "tier": 7,
+      "stats": [
+        {
+          "id": "base_life_gained_on_enemy_death",
+          "min": 7,
+          "max": 9
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceRef": "src0431"
+    },
+    "war-wraps:suffix:of-bending": {
+      "id": "war-wraps:suffix:of-bending",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 500,
+      "tier": 4,
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 12,
+          "max": 14
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0457"
+    },
+    "war-wraps:suffix:of-curvation": {
+      "id": "war-wraps:suffix:of-curvation",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 36,
+      "weight": 500,
+      "tier": 3,
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 15,
+          "max": 17
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0458"
+    },
+    "war-wraps:suffix:of-deflecting": {
+      "id": "war-wraps:suffix:of-deflecting",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 500,
+      "tier": 5,
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 8,
+          "max": 11
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0459"
+    },
+    "war-wraps:suffix:of-diversion": {
+      "id": "war-wraps:suffix:of-diversion",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 48,
+      "weight": 500,
+      "tier": 2,
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 18,
+          "max": 20
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0460"
+    },
+    "war-wraps:suffix:of-flexure": {
+      "id": "war-wraps:suffix:of-flexure",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EvasionAppliesToDeflection"
+      ],
+      "requiredItemLevel": 66,
+      "weight": 500,
+      "tier": 1,
+      "stats": [
+        {
+          "id": "base_deflection_rating_%_of_evasion_rating",
+          "min": 21,
+          "max": 23
+        }
+      ],
+      "tags": [
+        "defences",
+        "evasion"
+      ],
+      "sourceRef": "src0461"
+    }
+  },
+  "variants": {}
+}

@@ -1,3762 +1,2378 @@
 {
-  "definitions": {
-    "rattling-sceptre:prefix:advisor-s": {
-      "id": "rattling-sceptre:prefix:advisor-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritAndMana"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 10,
-          "max": 14
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 17,
-          "max": 20
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1196"
-    },
-    "rattling-sceptre:prefix:agitative": {
-      "id": "rattling-sceptre:prefix:agitative",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AllDamage"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "allies_in_presence_damage_+%",
-          "min": 35,
-          "max": 44
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1197"
-    },
-    "rattling-sceptre:prefix:annealed": {
-      "id": "rattling-sceptre:prefix:annealed",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 54,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_physical_damage",
-          "min": 12,
-          "max": 17
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_physical_damage",
-          "min": 6,
-          "max": 10
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src1198"
-    },
-    "rattling-sceptre:prefix:aqua": {
-      "id": "rattling-sceptre:prefix:aqua",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 38,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 65,
-          "max": 79
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0253"
-    },
-    "rattling-sceptre:prefix:arcing": {
-      "id": "rattling-sceptre:prefix:arcing",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 54,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
-          "min": 33,
-          "max": 40
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
-          "min": 1,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning",
-        "attack"
-      ],
-      "sourceRef": "src1199"
-    },
-    "rattling-sceptre:prefix:azure": {
-      "id": "rattling-sceptre:prefix:azure",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 1000,
-      "tier": 9,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 25,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0257"
-    },
-    "rattling-sceptre:prefix:baron-s": {
-      "id": "rattling-sceptre:prefix:baron-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritPercent"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 27,
-          "max": 32
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1200"
-    },
-    "rattling-sceptre:prefix:beryl": {
-      "id": "rattling-sceptre:prefix:beryl",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 11,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 10,
-          "max": 14
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0258"
-    },
-    "rattling-sceptre:prefix:blasting": {
-      "id": "rattling-sceptre:prefix:blasting",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 300,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_fire_damage",
-          "min": 31,
-          "max": 38
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_fire_damage",
-          "min": 20,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src1201"
-    },
-    "rattling-sceptre:prefix:blue": {
-      "id": "rattling-sceptre:prefix:blue",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 150,
-          "max": 164
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0262"
-    },
-    "rattling-sceptre:prefix:burning": {
-      "id": "rattling-sceptre:prefix:burning",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_fire_damage",
-          "min": 14,
-          "max": 17
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_fire_damage",
-          "min": 9,
-          "max": 11
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src1202"
-    },
-    "rattling-sceptre:prefix:burnished": {
-      "id": "rattling-sceptre:prefix:burnished",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 500,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_physical_damage",
-          "min": 4,
-          "max": 6
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_physical_damage",
-          "min": 2,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src1203"
-    },
-    "rattling-sceptre:prefix:buzzing": {
-      "id": "rattling-sceptre:prefix:buzzing",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 500,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
-          "min": 10,
-          "max": 15
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning",
-        "attack"
-      ],
-      "sourceRef": "src1204"
-    },
-    "rattling-sceptre:prefix:cerulean": {
-      "id": "rattling-sceptre:prefix:cerulean",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 55,
-          "max": 64
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0266"
-    },
-    "rattling-sceptre:prefix:chalybeous": {
-      "id": "rattling-sceptre:prefix:chalybeous",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 105,
-          "max": 124
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0267"
-    },
-    "rattling-sceptre:prefix:chancellor-s": {
-      "id": "rattling-sceptre:prefix:chancellor-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritAndMana"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 35,
-          "max": 38
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 42,
-          "max": 45
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1205"
-    },
-    "rattling-sceptre:prefix:chilled": {
-      "id": "rattling-sceptre:prefix:chilled",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 500,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_cold_damage",
-          "min": 5,
-          "max": 8
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_cold_damage",
-          "min": 3,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold",
-        "attack"
-      ],
-      "sourceRef": "src1206"
-    },
-    "rattling-sceptre:prefix:cobalt": {
-      "id": "rattling-sceptre:prefix:cobalt",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 6,
-      "weight": 1000,
-      "tier": 10,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 15,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0270"
-    },
-    "rattling-sceptre:prefix:coercive": {
-      "id": "rattling-sceptre:prefix:coercive",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AllDamage"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "allies_in_presence_damage_+%",
-          "min": 25,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1207"
-    },
-    "rattling-sceptre:prefix:counselor-s": {
-      "id": "rattling-sceptre:prefix:counselor-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritAndMana"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 15,
-          "max": 18
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 21,
-          "max": 24
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1208"
-    },
-    "rattling-sceptre:prefix:count-s": {
-      "id": "rattling-sceptre:prefix:count-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritPercent"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 400,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 45,
-          "max": 50
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1209"
-    },
-    "rattling-sceptre:prefix:crackling": {
-      "id": "rattling-sceptre:prefix:crackling",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
-          "min": 23,
-          "max": 27
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning",
-        "attack"
-      ],
-      "sourceRef": "src1210"
-    },
-    "rattling-sceptre:prefix:cremating": {
-      "id": "rattling-sceptre:prefix:cremating",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 200,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_fire_damage",
-          "min": 39,
-          "max": 45
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_fire_damage",
-          "min": 25,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src1211"
-    },
-    "rattling-sceptre:prefix:diplomat-s": {
-      "id": "rattling-sceptre:prefix:diplomat-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritAndMana"
-      ],
-      "requiredItemLevel": 58,
-      "weight": 200,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 31,
-          "max": 34
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 38,
-          "max": 41
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1212"
-    },
-    "rattling-sceptre:prefix:discharging": {
-      "id": "rattling-sceptre:prefix:discharging",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 300,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
-          "min": 48,
-          "max": 59
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
-          "min": 1,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning",
-        "attack"
-      ],
-      "sourceRef": "src1213"
-    },
-    "rattling-sceptre:prefix:duke-s": {
-      "id": "rattling-sceptre:prefix:duke-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritPercent"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 200,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 51,
-          "max": 55
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1214"
-    },
-    "rattling-sceptre:prefix:electrocuting": {
-      "id": "rattling-sceptre:prefix:electrocuting",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 200,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
-          "min": 60,
-          "max": 71
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
-          "min": 1,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning",
-        "attack"
-      ],
-      "sourceRef": "src1215"
-    },
-    "rattling-sceptre:prefix:emissary-s": {
-      "id": "rattling-sceptre:prefix:emissary-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritAndMana"
-      ],
-      "requiredItemLevel": 26,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 19,
-          "max": 22
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 25,
-          "max": 28
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1216"
-    },
-    "rattling-sceptre:prefix:empowering": {
-      "id": "rattling-sceptre:prefix:empowering",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AllDamage"
-      ],
-      "requiredItemLevel": 82,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_damage_+%",
-          "min": 105,
-          "max": 119
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1217"
-    },
-    "rattling-sceptre:prefix:entombing": {
-      "id": "rattling-sceptre:prefix:entombing",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 200,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_cold_damage",
-          "min": 32,
-          "max": 37
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_cold_damage",
-          "min": 21,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold",
-        "attack"
-      ],
-      "sourceRef": "src1218"
-    },
-    "rattling-sceptre:prefix:envoy-s": {
-      "id": "rattling-sceptre:prefix:envoy-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritAndMana"
-      ],
-      "requiredItemLevel": 48,
-      "weight": 400,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 27,
-          "max": 30
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 34,
-          "max": 37
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1219"
-    },
-    "rattling-sceptre:prefix:flaming": {
-      "id": "rattling-sceptre:prefix:flaming",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_fire_damage",
-          "min": 18,
-          "max": 20
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_fire_damage",
-          "min": 12,
-          "max": 13
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src1220"
-    },
-    "rattling-sceptre:prefix:flaring": {
-      "id": "rattling-sceptre:prefix:flaring",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 200,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_physical_damage",
-          "min": 22,
-          "max": 32
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_physical_damage",
-          "min": 12,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src1221"
-    },
-    "rattling-sceptre:prefix:freezing": {
-      "id": "rattling-sceptre:prefix:freezing",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_cold_damage",
-          "min": 15,
-          "max": 17
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_cold_damage",
-          "min": 9,
-          "max": 10
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold",
-        "attack"
-      ],
-      "sourceRef": "src1222"
-    },
-    "rattling-sceptre:prefix:frigid": {
-      "id": "rattling-sceptre:prefix:frigid",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_cold_damage",
-          "min": 12,
-          "max": 14
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_cold_damage",
-          "min": 7,
-          "max": 8
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold",
-        "attack"
-      ],
-      "sourceRef": "src1223"
-    },
-    "rattling-sceptre:prefix:frosted": {
-      "id": "rattling-sceptre:prefix:frosted",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 500,
-      "tier": 9,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_cold_damage",
-          "min": 3,
-          "max": 4
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_cold_damage",
-          "min": 1,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold",
-        "attack"
-      ],
-      "sourceRef": "src1224"
-    },
-    "rattling-sceptre:prefix:frozen": {
-      "id": "rattling-sceptre:prefix:frozen",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 54,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_cold_damage",
-          "min": 18,
-          "max": 21
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_cold_damage",
-          "min": 11,
-          "max": 13
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold",
-        "attack"
-      ],
-      "sourceRef": "src1225"
-    },
-    "rattling-sceptre:prefix:gentian": {
-      "id": "rattling-sceptre:prefix:gentian",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 54,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 90,
-          "max": 104
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0285"
-    },
-    "rattling-sceptre:prefix:glaciated": {
-      "id": "rattling-sceptre:prefix:glaciated",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 400,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_cold_damage",
-          "min": 22,
-          "max": 24
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_cold_damage",
-          "min": 14,
-          "max": 15
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold",
-        "attack"
-      ],
-      "sourceRef": "src1226"
-    },
-    "rattling-sceptre:prefix:gleaming": {
-      "id": "rattling-sceptre:prefix:gleaming",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_physical_damage",
-          "min": 9,
-          "max": 13
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_physical_damage",
-          "min": 5,
-          "max": 7
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src1227"
-    },
-    "rattling-sceptre:prefix:glinting": {
-      "id": "rattling-sceptre:prefix:glinting",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 500,
-      "tier": 9,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_physical_damage",
-          "min": 3,
-          "max": 4
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_physical_damage",
-          "min": 1,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src1228"
-    },
-    "rattling-sceptre:prefix:heated": {
-      "id": "rattling-sceptre:prefix:heated",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 500,
-      "tier": 9,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_fire_damage",
-          "min": 3,
-          "max": 4
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_fire_damage",
-          "min": 1,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src1229"
-    },
-    "rattling-sceptre:prefix:honed": {
-      "id": "rattling-sceptre:prefix:honed",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 500,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_physical_damage",
-          "min": 8,
-          "max": 11
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_physical_damage",
-          "min": 4,
-          "max": 6
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src1230"
-    },
-    "rattling-sceptre:prefix:humming": {
-      "id": "rattling-sceptre:prefix:humming",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 500,
-      "tier": 9,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
-          "min": 5,
-          "max": 7
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning",
-        "attack"
-      ],
-      "sourceRef": "src1231"
-    },
-    "rattling-sceptre:prefix:icy": {
-      "id": "rattling-sceptre:prefix:icy",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_cold_damage",
-          "min": 9,
-          "max": 11
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_cold_damage",
-          "min": 5,
-          "max": 6
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold",
-        "attack"
-      ],
-      "sourceRef": "src1232"
-    },
-    "rattling-sceptre:prefix:incinerating": {
-      "id": "rattling-sceptre:prefix:incinerating",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 400,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_fire_damage",
-          "min": 27,
-          "max": 30
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_fire_damage",
-          "min": 17,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src1233"
-    },
-    "rattling-sceptre:prefix:inspirational": {
-      "id": "rattling-sceptre:prefix:inspirational",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AllDamage"
-      ],
-      "requiredItemLevel": 70,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_damage_+%",
-          "min": 90,
-          "max": 104
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1234"
-    },
-    "rattling-sceptre:prefix:instigative": {
-      "id": "rattling-sceptre:prefix:instigative",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AllDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "allies_in_presence_damage_+%",
-          "min": 45,
-          "max": 54
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1235"
-    },
-    "rattling-sceptre:prefix:king-s": {
-      "id": "rattling-sceptre:prefix:king-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritPercent"
-      ],
-      "requiredItemLevel": 82,
-      "weight": 50,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 61,
-          "max": 65
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1236"
-    },
-    "rattling-sceptre:prefix:lord-s": {
-      "id": "rattling-sceptre:prefix:lord-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritPercent"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 20,
-          "max": 26
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1237"
-    },
-    "rattling-sceptre:prefix:marquess": {
-      "id": "rattling-sceptre:prefix:marquess",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritPercent"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 600,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 39,
-          "max": 44
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1238"
-    },
-    "rattling-sceptre:prefix:mazarine": {
-      "id": "rattling-sceptre:prefix:mazarine",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 125,
-          "max": 149
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0301"
-    },
-    "rattling-sceptre:prefix:minister-s": {
-      "id": "rattling-sceptre:prefix:minister-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritAndMana"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 600,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 23,
-          "max": 26
-        },
-        {
-          "id": "base_maximum_mana",
-          "min": 29,
-          "max": 33
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1239"
-    },
-    "rattling-sceptre:prefix:motivating": {
-      "id": "rattling-sceptre:prefix:motivating",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AllDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 200,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_damage_+%",
-          "min": 75,
-          "max": 89
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1240"
-    },
-    "rattling-sceptre:prefix:opalescent": {
-      "id": "rattling-sceptre:prefix:opalescent",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 80,
-          "max": 89
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0303"
-    },
-    "rattling-sceptre:prefix:persuasive": {
-      "id": "rattling-sceptre:prefix:persuasive",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AllDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 400,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_damage_+%",
-          "min": 65,
-          "max": 74
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1241"
-    },
-    "rattling-sceptre:prefix:polar": {
-      "id": "rattling-sceptre:prefix:polar",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "ColdDamage"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 300,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_cold_damage",
-          "min": 25,
-          "max": 31
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_cold_damage",
-          "min": 16,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "cold",
-        "attack"
-      ],
-      "sourceRef": "src1242"
-    },
-    "rattling-sceptre:prefix:polished": {
-      "id": "rattling-sceptre:prefix:polished",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_physical_damage",
-          "min": 5,
-          "max": 8
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_physical_damage",
-          "min": 2,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src1243"
-    },
-    "rattling-sceptre:prefix:prince-s": {
-      "id": "rattling-sceptre:prefix:prince-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritPercent"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 100,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 56,
-          "max": 60
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1244"
-    },
-    "rattling-sceptre:prefix:provocative": {
-      "id": "rattling-sceptre:prefix:provocative",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "AllDamage"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 600,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "allies_in_presence_damage_+%",
-          "min": 55,
-          "max": 64
-        }
-      ],
-      "tags": [
-        "damage"
-      ],
-      "sourceRef": "src1245"
-    },
-    "rattling-sceptre:prefix:razor-sharp": {
-      "id": "rattling-sceptre:prefix:razor-sharp",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 400,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_physical_damage",
-          "min": 14,
-          "max": 20
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_physical_damage",
-          "min": 7,
-          "max": 11
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src1246"
-    },
-    "rattling-sceptre:prefix:scorching": {
-      "id": "rattling-sceptre:prefix:scorching",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 54,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_fire_damage",
-          "min": 21,
-          "max": 26
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_fire_damage",
-          "min": 14,
-          "max": 16
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src1247"
-    },
-    "rattling-sceptre:prefix:shocking": {
-      "id": "rattling-sceptre:prefix:shocking",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 400,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
-          "min": 41,
-          "max": 47
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
-          "min": 1,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning",
-        "attack"
-      ],
-      "sourceRef": "src1248"
-    },
-    "rattling-sceptre:prefix:smoking": {
-      "id": "rattling-sceptre:prefix:smoking",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_fire_damage",
-          "min": 10,
-          "max": 13
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_fire_damage",
-          "min": 6,
-          "max": 8
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src1249"
-    },
-    "rattling-sceptre:prefix:smouldering": {
-      "id": "rattling-sceptre:prefix:smouldering",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "FireDamage"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 500,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_fire_damage",
-          "min": 6,
-          "max": 9
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_fire_damage",
-          "min": 3,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "fire",
-        "attack"
-      ],
-      "sourceRef": "src1250"
-    },
-    "rattling-sceptre:prefix:snapping": {
-      "id": "rattling-sceptre:prefix:snapping",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 500,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
-          "min": 16,
-          "max": 22
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning",
-        "attack"
-      ],
-      "sourceRef": "src1251"
-    },
-    "rattling-sceptre:prefix:sparking": {
-      "id": "rattling-sceptre:prefix:sparking",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LightningDamage"
-      ],
-      "requiredItemLevel": 46,
-      "weight": 500,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_lightning_damage",
-          "min": 28,
-          "max": 32
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_lightning_damage",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "elemental_damage",
-        "damage",
-        "elemental",
-        "lightning",
-        "attack"
-      ],
-      "sourceRef": "src1252"
-    },
-    "rattling-sceptre:prefix:teal": {
-      "id": "rattling-sceptre:prefix:teal",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "IncreasedMana"
-      ],
-      "requiredItemLevel": 25,
-      "weight": 1000,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "base_maximum_mana",
-          "min": 35,
-          "max": 54
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0322"
-    },
-    "rattling-sceptre:prefix:tempered": {
-      "id": "rattling-sceptre:prefix:tempered",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "PhysicalDamage"
-      ],
-      "requiredItemLevel": 65,
-      "weight": 300,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_maximum_added_physical_damage",
-          "min": 18,
-          "max": 26
-        },
-        {
-          "id": "allies_in_presence_attack_minimum_added_physical_damage",
-          "min": 10,
-          "max": 15
-        }
-      ],
-      "tags": [
-        "physical_damage",
-        "damage",
-        "physical",
-        "attack"
-      ],
-      "sourceRef": "src1253"
-    },
-    "rattling-sceptre:prefix:viscount-s": {
-      "id": "rattling-sceptre:prefix:viscount-s",
-      "layer": "EXPLICIT",
-      "affixType": "PREFIX",
-      "familyIds": [
-        "LocalIncreasedSpiritPercent"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "local_spirit_+%",
-          "min": 33,
-          "max": 38
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1254"
-    },
-    "rattling-sceptre:suffix:essence-aura-magnitude": {
-      "id": "rattling-sceptre:suffix:essence-aura-magnitude",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AuraEffect"
-      ],
-      "requiredItemLevel": 72,
-      "weight": 0,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "aura_effect_+%",
-          "min": 15,
-          "max": 20
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src1255"
-    },
-    "rattling-sceptre:suffix:of-acclimatisation": {
-      "id": "rattling-sceptre:suffix:of-acclimatisation",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AllResistances"
-      ],
-      "requiredItemLevel": 26,
-      "weight": 800,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "allies_in_presence_resist_all_elements_%",
-          "min": 6,
-          "max": 8
-        }
-      ],
-      "tags": [
-        "cold_resistance",
-        "elemental_resistance",
-        "fire_resistance",
-        "lightning_resistance",
-        "elemental",
-        "fire",
-        "cold",
-        "lightning",
-        "resistance"
-      ],
-      "sourceRef": "src1256"
-    },
-    "rattling-sceptre:suffix:of-adaptation": {
-      "id": "rattling-sceptre:suffix:of-adaptation",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AllResistances"
-      ],
-      "requiredItemLevel": 40,
-      "weight": 800,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_resist_all_elements_%",
-          "min": 9,
-          "max": 11
-        }
-      ],
-      "tags": [
-        "cold_resistance",
-        "elemental_resistance",
-        "fire_resistance",
-        "lightning_resistance",
-        "elemental",
-        "fire",
-        "cold",
-        "lightning",
-        "resistance"
-      ],
-      "sourceRef": "src1257"
-    },
-    "rattling-sceptre:suffix:of-adjustment": {
-      "id": "rattling-sceptre:suffix:of-adjustment",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AllResistances"
-      ],
-      "requiredItemLevel": 12,
-      "weight": 800,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "allies_in_presence_resist_all_elements_%",
-          "min": 3,
-          "max": 5
-        }
-      ],
-      "tags": [
-        "cold_resistance",
-        "elemental_resistance",
-        "fire_resistance",
-        "lightning_resistance",
-        "elemental",
-        "fire",
-        "cold",
-        "lightning",
-        "resistance"
-      ],
-      "sourceRef": "src1258"
-    },
-    "rattling-sceptre:suffix:of-anger": {
-      "id": "rattling-sceptre:suffix:of-anger",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 21,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_multiplier_+",
-          "min": 15,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "damage",
-        "critical"
-      ],
-      "sourceRef": "src1259"
-    },
-    "rattling-sceptre:suffix:of-bliss": {
-      "id": "rattling-sceptre:suffix:of-bliss",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 42,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 40,
-          "max": 49
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0342"
-    },
-    "rattling-sceptre:suffix:of-calamity": {
-      "id": "rattling-sceptre:suffix:of-calamity",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 41,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_chance_+%",
-          "min": 25,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "critical"
-      ],
-      "sourceRef": "src1260"
-    },
-    "rattling-sceptre:suffix:of-convalescence": {
-      "id": "rattling-sceptre:suffix:of-convalescence",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 47,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 786,
-          "max": 1080
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1261"
-    },
-    "rattling-sceptre:suffix:of-destruction": {
-      "id": "rattling-sceptre:suffix:of-destruction",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 73,
-      "weight": 125,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_multiplier_+",
-          "min": 35,
-          "max": 39
-        }
-      ],
-      "tags": [
-        "damage",
-        "critical"
-      ],
-      "sourceRef": "src1262"
-    },
-    "rattling-sceptre:suffix:of-direction": {
-      "id": "rattling-sceptre:suffix:of-direction",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "PresenceRadius"
-      ],
-      "requiredItemLevel": 23,
-      "weight": 500,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "presence_area_+%",
-          "min": 36,
-          "max": 45
-        }
-      ],
-      "tags": [
-        "aura"
-      ],
-      "sourceRef": "src1263"
-    },
-    "rattling-sceptre:suffix:of-disaster": {
-      "id": "rattling-sceptre:suffix:of-disaster",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 28,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_chance_+%",
-          "min": 20,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "critical"
-      ],
-      "sourceRef": "src1264"
-    },
-    "rattling-sceptre:suffix:of-ease": {
-      "id": "rattling-sceptre:suffix:of-ease",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedAttackSpeed"
-      ],
-      "requiredItemLevel": 20,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_speed_+%",
-          "min": 8,
-          "max": 10
-        }
-      ],
-      "tags": [
-        "attack",
-        "speed"
-      ],
-      "sourceRef": "src1265"
-    },
-    "rattling-sceptre:suffix:of-elation": {
-      "id": "rattling-sceptre:suffix:of-elation",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 29,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 30,
-          "max": 39
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0354"
-    },
-    "rattling-sceptre:suffix:of-euphoria": {
-      "id": "rattling-sceptre:suffix:of-euphoria",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 50,
-          "max": 59
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0358"
-    },
-    "rattling-sceptre:suffix:of-evolution": {
-      "id": "rattling-sceptre:suffix:of-evolution",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AllResistances"
-      ],
-      "requiredItemLevel": 54,
-      "weight": 800,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_resist_all_elements_%",
-          "min": 12,
-          "max": 14
-        }
-      ],
-      "tags": [
-        "cold_resistance",
-        "elemental_resistance",
-        "fire_resistance",
-        "lightning_resistance",
-        "elemental",
-        "fire",
-        "cold",
-        "lightning",
-        "resistance"
-      ],
-      "sourceRef": "src1266"
-    },
-    "rattling-sceptre:suffix:of-excitement": {
-      "id": "rattling-sceptre:suffix:of-excitement",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 10,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0359"
-    },
-    "rattling-sceptre:suffix:of-expertise": {
-      "id": "rattling-sceptre:suffix:of-expertise",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 36,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_cast_speed_+%",
-          "min": 13,
-          "max": 16
-        }
-      ],
-      "tags": [
-        "caster_speed",
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1267"
-    },
-    "rattling-sceptre:suffix:of-ferocity": {
-      "id": "rattling-sceptre:suffix:of-ferocity",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 59,
-      "weight": 250,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_multiplier_+",
-          "min": 30,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "damage",
-        "critical"
-      ],
-      "sourceRef": "src1268"
-    },
-    "rattling-sceptre:suffix:of-fury": {
-      "id": "rattling-sceptre:suffix:of-fury",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 44,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_multiplier_+",
-          "min": 25,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "damage",
-        "critical"
-      ],
-      "sourceRef": "src1269"
-    },
-    "rattling-sceptre:suffix:of-guidance": {
-      "id": "rattling-sceptre:suffix:of-guidance",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "PresenceRadius"
-      ],
-      "requiredItemLevel": 56,
-      "weight": 500,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "presence_area_+%",
-          "min": 56,
-          "max": 65
-        }
-      ],
-      "tags": [
-        "aura"
-      ],
-      "sourceRef": "src1270"
-    },
-    "rattling-sceptre:suffix:of-havoc": {
-      "id": "rattling-sceptre:suffix:of-havoc",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 21,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_chance_+%",
-          "min": 15,
-          "max": 19
-        }
-      ],
-      "tags": [
-        "critical"
-      ],
-      "sourceRef": "src1271"
-    },
-    "rattling-sceptre:suffix:of-immortality": {
-      "id": "rattling-sceptre:suffix:of-immortality",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 75,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 1746,
-          "max": 1980
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1272"
-    },
-    "rattling-sceptre:suffix:of-influence": {
-      "id": "rattling-sceptre:suffix:of-influence",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "PresenceRadius"
-      ],
-      "requiredItemLevel": 72,
-      "weight": 500,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "presence_area_+%",
-          "min": 66,
-          "max": 80
-        }
-      ],
-      "tags": [
-        "aura"
-      ],
-      "sourceRef": "src1273"
-    },
-    "rattling-sceptre:suffix:of-ire": {
-      "id": "rattling-sceptre:suffix:of-ire",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_multiplier_+",
-          "min": 10,
-          "max": 14
-        }
-      ],
-      "tags": [
-        "damage",
-        "critical"
-      ],
-      "sourceRef": "src1274"
-    },
-    "rattling-sceptre:suffix:of-joy": {
-      "id": "rattling-sceptre:suffix:of-joy",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 18,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 20,
-          "max": 29
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0378"
-    },
-    "rattling-sceptre:suffix:of-kindling": {
-      "id": "rattling-sceptre:suffix:of-kindling",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndManaRegeneration"
-      ],
-      "requiredItemLevel": 15,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 10,
-          "max": 10
-        },
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 13,
-          "max": 17
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0379"
-    },
-    "rattling-sceptre:suffix:of-mastery": {
-      "id": "rattling-sceptre:suffix:of-mastery",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedAttackSpeed"
-      ],
-      "requiredItemLevel": 35,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_speed_+%",
-          "min": 11,
-          "max": 13
-        }
-      ],
-      "tags": [
-        "attack",
-        "speed"
-      ],
-      "sourceRef": "src1275"
-    },
-    "rattling-sceptre:suffix:of-menace": {
-      "id": "rattling-sceptre:suffix:of-menace",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_chance_+%",
-          "min": 10,
-          "max": 14
-        }
-      ],
-      "tags": [
-        "critical"
-      ],
-      "sourceRef": "src1276"
-    },
-    "rattling-sceptre:suffix:of-metamorphosis": {
-      "id": "rattling-sceptre:suffix:of-metamorphosis",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AllResistances"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 800,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_resist_all_elements_%",
-          "min": 17,
-          "max": 18
-        }
-      ],
-      "tags": [
-        "cold_resistance",
-        "elemental_resistance",
-        "fire_resistance",
-        "lightning_resistance",
-        "elemental",
-        "fire",
-        "cold",
-        "lightning",
-        "resistance"
-      ],
-      "sourceRef": "src1277"
-    },
-    "rattling-sceptre:suffix:of-nimbleness": {
-      "id": "rattling-sceptre:suffix:of-nimbleness",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 21,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_cast_speed_+%",
-          "min": 9,
-          "max": 12
-        }
-      ],
-      "tags": [
-        "caster_speed",
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1278"
-    },
-    "rattling-sceptre:suffix:of-nirvana": {
-      "id": "rattling-sceptre:suffix:of-nirvana",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "ManaRegeneration"
-      ],
-      "requiredItemLevel": 79,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 60,
-          "max": 69
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0384"
-    },
-    "rattling-sceptre:suffix:of-outreach": {
-      "id": "rattling-sceptre:suffix:of-outreach",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "PresenceRadius"
-      ],
-      "requiredItemLevel": 40,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "presence_area_+%",
-          "min": 46,
-          "max": 55
-        }
-      ],
-      "tags": [
-        "aura"
-      ],
-      "sourceRef": "src1279"
-    },
-    "rattling-sceptre:suffix:of-progression": {
-      "id": "rattling-sceptre:suffix:of-progression",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "AllResistances"
-      ],
-      "requiredItemLevel": 68,
-      "weight": 800,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_resist_all_elements_%",
-          "min": 15,
-          "max": 16
-        }
-      ],
-      "tags": [
-        "cold_resistance",
-        "elemental_resistance",
-        "fire_resistance",
-        "lightning_resistance",
-        "elemental",
-        "fire",
-        "cold",
-        "lightning",
-        "resistance"
-      ],
-      "sourceRef": "src1280"
-    },
-    "rattling-sceptre:suffix:of-rage": {
-      "id": "rattling-sceptre:suffix:of-rage",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeMultiplier"
-      ],
-      "requiredItemLevel": 30,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_multiplier_+",
-          "min": 20,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "damage",
-        "critical"
-      ],
-      "sourceRef": "src1281"
-    },
-    "rattling-sceptre:suffix:of-recuperation": {
-      "id": "rattling-sceptre:suffix:of-recuperation",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 58,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 1086,
-          "max": 1380
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1282"
-    },
-    "rattling-sceptre:suffix:of-renown": {
-      "id": "rattling-sceptre:suffix:of-renown",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedAttackSpeed"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_speed_+%",
-          "min": 14,
-          "max": 16
-        }
-      ],
-      "tags": [
-        "attack",
-        "speed"
-      ],
-      "sourceRef": "src1283"
-    },
-    "rattling-sceptre:suffix:of-resurgence": {
-      "id": "rattling-sceptre:suffix:of-resurgence",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 68,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 1386,
-          "max": 1740
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1284"
-    },
-    "rattling-sceptre:suffix:of-ruin": {
-      "id": "rattling-sceptre:suffix:of-ruin",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 59,
-      "weight": 250,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_chance_+%",
-          "min": 30,
-          "max": 34
-        }
-      ],
-      "tags": [
-        "critical"
-      ],
-      "sourceRef": "src1285"
-    },
-    "rattling-sceptre:suffix:of-skill": {
-      "id": "rattling-sceptre:suffix:of-skill",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedAttackSpeed"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_attack_speed_+%",
-          "min": 5,
-          "max": 7
-        }
-      ],
-      "tags": [
-        "attack",
-        "speed"
-      ],
-      "sourceRef": "src1286"
-    },
-    "rattling-sceptre:suffix:of-sortilege": {
-      "id": "rattling-sceptre:suffix:of-sortilege",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 56,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_cast_speed_+%",
-          "min": 17,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "caster_speed",
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1287"
-    },
-    "rattling-sceptre:suffix:of-talent": {
-      "id": "rattling-sceptre:suffix:of-talent",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreasedCastSpeed"
-      ],
-      "requiredItemLevel": 6,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "allies_in_presence_cast_speed_+%",
-          "min": 5,
-          "max": 8
-        }
-      ],
-      "tags": [
-        "caster_speed",
-        "caster",
-        "speed"
-      ],
-      "sourceRef": "src1288"
-    },
-    "rattling-sceptre:suffix:of-the-administrator": {
-      "id": "rattling-sceptre:suffix:of-the-administrator",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MinionLife"
-      ],
-      "requiredItemLevel": 64,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "minion_maximum_life_+%",
-          "min": 41,
-          "max": 45
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "minion"
-      ],
-      "sourceRef": "src1289"
-    },
-    "rattling-sceptre:suffix:of-the-apt": {
-      "id": "rattling-sceptre:suffix:of-the-apt",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 32,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -20,
-          "max": -20
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0402"
-    },
-    "rattling-sceptre:suffix:of-the-augur": {
-      "id": "rattling-sceptre:suffix:of-the-augur",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Intelligence"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 750,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "additional_intelligence",
-          "min": 17,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0404"
-    },
-    "rattling-sceptre:suffix:of-the-bear": {
-      "id": "rattling-sceptre:suffix:of-the-bear",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Strength"
-      ],
-      "requiredItemLevel": 22,
-      "weight": 250,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "additional_strength",
-          "min": 13,
-          "max": 16
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src1023"
-    },
-    "rattling-sceptre:suffix:of-the-brute": {
-      "id": "rattling-sceptre:suffix:of-the-brute",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Strength"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 250,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "additional_strength",
-          "min": 5,
-          "max": 8
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src1024"
-    },
-    "rattling-sceptre:suffix:of-the-despot": {
-      "id": "rattling-sceptre:suffix:of-the-despot",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 25,
-      "weight": 500,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "minion_skill_gem_level_+",
-          "min": 2,
-          "max": 2
-        }
-      ],
-      "tags": [
-        "minion",
-        "gem"
-      ],
-      "sourceRef": "src1290"
-    },
-    "rattling-sceptre:suffix:of-the-director": {
-      "id": "rattling-sceptre:suffix:of-the-director",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MinionLife"
-      ],
-      "requiredItemLevel": 32,
-      "weight": 1000,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "minion_maximum_life_+%",
-          "min": 31,
-          "max": 35
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "minion"
-      ],
-      "sourceRef": "src1291"
-    },
-    "rattling-sceptre:suffix:of-the-flatworm": {
-      "id": "rattling-sceptre:suffix:of-the-flatworm",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 1000,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 186,
-          "max": 240
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1292"
-    },
-    "rattling-sceptre:suffix:of-the-goliath": {
-      "id": "rattling-sceptre:suffix:of-the-goliath",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Strength"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "additional_strength",
-          "min": 25,
-          "max": 27
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src1032"
-    },
-    "rattling-sceptre:suffix:of-the-gorilla": {
-      "id": "rattling-sceptre:suffix:of-the-gorilla",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Strength"
-      ],
-      "requiredItemLevel": 44,
-      "weight": 250,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "additional_strength",
-          "min": 21,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src1033"
-    },
-    "rattling-sceptre:suffix:of-the-headmaster": {
-      "id": "rattling-sceptre:suffix:of-the-headmaster",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MinionLife"
-      ],
-      "requiredItemLevel": 48,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "minion_maximum_life_+%",
-          "min": 36,
-          "max": 40
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "minion"
-      ],
-      "sourceRef": "src1293"
-    },
-    "rattling-sceptre:suffix:of-the-hearth": {
-      "id": "rattling-sceptre:suffix:of-the-hearth",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndManaRegeneration"
-      ],
-      "requiredItemLevel": 30,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 15,
-          "max": 15
-        },
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 18,
-          "max": 22
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0407"
-    },
-    "rattling-sceptre:suffix:of-the-hydra": {
-      "id": "rattling-sceptre:suffix:of-the-hydra",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 26,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 366,
-          "max": 540
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1294"
-    },
-    "rattling-sceptre:suffix:of-the-leviathan": {
-      "id": "rattling-sceptre:suffix:of-the-leviathan",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Strength"
-      ],
-      "requiredItemLevel": 66,
-      "weight": 250,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "additional_strength",
-          "min": 28,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src1038"
-    },
-    "rattling-sceptre:suffix:of-the-lion": {
-      "id": "rattling-sceptre:suffix:of-the-lion",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Strength"
-      ],
-      "requiredItemLevel": 33,
-      "weight": 250,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "additional_strength",
-          "min": 17,
-          "max": 20
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src1040"
-    },
-    "rattling-sceptre:suffix:of-the-lizard": {
-      "id": "rattling-sceptre:suffix:of-the-lizard",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 5,
-      "weight": 1000,
-      "tier": 9,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 126,
-          "max": 180
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1295"
-    },
-    "rattling-sceptre:suffix:of-the-mentor": {
-      "id": "rattling-sceptre:suffix:of-the-mentor",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MinionLife"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 1000,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "minion_maximum_life_+%",
-          "min": 21,
-          "max": 25
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "minion"
-      ],
-      "sourceRef": "src1296"
-    },
-    "rattling-sceptre:suffix:of-the-newt": {
-      "id": "rattling-sceptre:suffix:of-the-newt",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 1000,
-      "tier": 10,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 60,
-          "max": 120
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1297"
-    },
-    "rattling-sceptre:suffix:of-the-overseer": {
-      "id": "rattling-sceptre:suffix:of-the-overseer",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 250,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "minion_skill_gem_level_+",
-          "min": 3,
-          "max": 3
-        }
-      ],
-      "tags": [
-        "minion",
-        "gem"
-      ],
-      "sourceRef": "src1298"
-    },
-    "rattling-sceptre:suffix:of-the-philosopher": {
-      "id": "rattling-sceptre:suffix:of-the-philosopher",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Intelligence"
-      ],
-      "requiredItemLevel": 44,
-      "weight": 750,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "additional_intelligence",
-          "min": 21,
-          "max": 24
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0410"
-    },
-    "rattling-sceptre:suffix:of-the-prodigy": {
-      "id": "rattling-sceptre:suffix:of-the-prodigy",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Intelligence"
-      ],
-      "requiredItemLevel": 22,
-      "weight": 750,
-      "tier": 6,
-      "stats": [
-        {
-          "id": "additional_intelligence",
-          "min": 13,
-          "max": 16
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0411"
-    },
-    "rattling-sceptre:suffix:of-the-proficient": {
-      "id": "rattling-sceptre:suffix:of-the-proficient",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 60,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -35,
-          "max": -35
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0412"
-    },
-    "rattling-sceptre:suffix:of-the-pupil": {
-      "id": "rattling-sceptre:suffix:of-the-pupil",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Intelligence"
-      ],
-      "requiredItemLevel": 1,
-      "weight": 750,
-      "tier": 8,
-      "stats": [
-        {
-          "id": "additional_intelligence",
-          "min": 5,
-          "max": 8
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0413"
-    },
-    "rattling-sceptre:suffix:of-the-rector": {
-      "id": "rattling-sceptre:suffix:of-the-rector",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MinionLife"
-      ],
-      "requiredItemLevel": 80,
-      "weight": 1000,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "minion_maximum_life_+%",
-          "min": 46,
-          "max": 50
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "minion"
-      ],
-      "sourceRef": "src1299"
-    },
-    "rattling-sceptre:suffix:of-the-sage": {
-      "id": "rattling-sceptre:suffix:of-the-sage",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Intelligence"
-      ],
-      "requiredItemLevel": 55,
-      "weight": 750,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "additional_intelligence",
-          "min": 25,
-          "max": 27
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0414"
-    },
-    "rattling-sceptre:suffix:of-the-savant": {
-      "id": "rattling-sceptre:suffix:of-the-savant",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Intelligence"
-      ],
-      "requiredItemLevel": 66,
-      "weight": 750,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "additional_intelligence",
-          "min": 28,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0415"
-    },
-    "rattling-sceptre:suffix:of-the-skilled": {
-      "id": "rattling-sceptre:suffix:of-the-skilled",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 52,
-      "weight": 1000,
-      "tier": 2,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -30,
-          "max": -30
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0416"
-    },
-    "rattling-sceptre:suffix:of-the-slavedriver": {
-      "id": "rattling-sceptre:suffix:of-the-slavedriver",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 78,
-      "weight": 100,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "minion_skill_gem_level_+",
-          "min": 4,
-          "max": 4
-        }
-      ],
-      "tags": [
-        "minion",
-        "gem"
-      ],
-      "sourceRef": "src1300"
-    },
-    "rattling-sceptre:suffix:of-the-starfish": {
-      "id": "rattling-sceptre:suffix:of-the-starfish",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 17,
-      "weight": 1000,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 246,
-          "max": 360
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1301"
-    },
-    "rattling-sceptre:suffix:of-the-student": {
-      "id": "rattling-sceptre:suffix:of-the-student",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Intelligence"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 750,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "additional_intelligence",
-          "min": 9,
-          "max": 12
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0418"
-    },
-    "rattling-sceptre:suffix:of-the-talented": {
-      "id": "rattling-sceptre:suffix:of-the-talented",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 40,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -25,
-          "max": -25
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0419"
-    },
-    "rattling-sceptre:suffix:of-the-taskmaster": {
-      "id": "rattling-sceptre:suffix:of-the-taskmaster",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "IncreaseSocketedGemLevel"
-      ],
-      "requiredItemLevel": 2,
-      "weight": 750,
-      "tier": 4,
-      "stats": [
-        {
-          "id": "minion_skill_gem_level_+",
-          "min": 1,
-          "max": 1
-        }
-      ],
-      "tags": [
-        "minion",
-        "gem"
-      ],
-      "sourceRef": "src1302"
-    },
-    "rattling-sceptre:suffix:of-the-titan": {
-      "id": "rattling-sceptre:suffix:of-the-titan",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Strength"
-      ],
-      "requiredItemLevel": 74,
-      "weight": 250,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "additional_strength",
-          "min": 31,
-          "max": 33
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src1062"
-    },
-    "rattling-sceptre:suffix:of-the-troll": {
-      "id": "rattling-sceptre:suffix:of-the-troll",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LifeRegeneration"
-      ],
-      "requiredItemLevel": 35,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "allies_in_presence_life_regeneration_rate_per_minute",
-          "min": 546,
-          "max": 780
-        }
-      ],
-      "tags": [
-        "resource",
-        "life"
-      ],
-      "sourceRef": "src1303"
-    },
-    "rattling-sceptre:suffix:of-the-tutor": {
-      "id": "rattling-sceptre:suffix:of-the-tutor",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "MinionLife"
-      ],
-      "requiredItemLevel": 16,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "minion_maximum_life_+%",
-          "min": 26,
-          "max": 30
-        }
-      ],
-      "tags": [
-        "resource",
-        "life",
-        "minion"
-      ],
-      "sourceRef": "src1304"
-    },
-    "rattling-sceptre:suffix:of-the-virtuoso": {
-      "id": "rattling-sceptre:suffix:of-the-virtuoso",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Intelligence"
-      ],
-      "requiredItemLevel": 74,
-      "weight": 750,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "additional_intelligence",
-          "min": 31,
-          "max": 33
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src0421"
-    },
-    "rattling-sceptre:suffix:of-the-worthy": {
-      "id": "rattling-sceptre:suffix:of-the-worthy",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LocalAttributeRequirements"
-      ],
-      "requiredItemLevel": 24,
-      "weight": 1000,
-      "tier": 5,
-      "stats": [
-        {
-          "id": "local_attribute_requirements_+%",
-          "min": -15,
-          "max": -15
-        }
-      ],
-      "tags": [],
-      "sourceRef": "src0423"
-    },
-    "rattling-sceptre:suffix:of-the-wrestler": {
-      "id": "rattling-sceptre:suffix:of-the-wrestler",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "Strength"
-      ],
-      "requiredItemLevel": 11,
-      "weight": 250,
-      "tier": 7,
-      "stats": [
-        {
-          "id": "additional_strength",
-          "min": 9,
-          "max": 12
-        }
-      ],
-      "tags": [
-        "attribute"
-      ],
-      "sourceRef": "src1067"
-    },
-    "rattling-sceptre:suffix:of-unmaking": {
-      "id": "rattling-sceptre:suffix:of-unmaking",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "CriticalStrikeChanceIncrease"
-      ],
-      "requiredItemLevel": 76,
-      "weight": 125,
-      "tier": 1,
-      "stats": [
-        {
-          "id": "allies_in_presence_critical_strike_chance_+%",
-          "min": 35,
-          "max": 38
-        }
-      ],
-      "tags": [
-        "critical"
-      ],
-      "sourceRef": "src1305"
-    },
-    "rattling-sceptre:suffix:of-warmth": {
-      "id": "rattling-sceptre:suffix:of-warmth",
-      "layer": "EXPLICIT",
-      "affixType": "SUFFIX",
-      "familyIds": [
-        "LightRadiusAndManaRegeneration"
-      ],
-      "requiredItemLevel": 8,
-      "weight": 1000,
-      "tier": 3,
-      "stats": [
-        {
-          "id": "light_radius_+%",
-          "min": 5,
-          "max": 5
-        },
-        {
-          "id": "mana_regeneration_rate_+%",
-          "min": 8,
-          "max": 12
-        }
-      ],
-      "tags": [
-        "resource",
-        "mana"
-      ],
-      "sourceRef": "src0434"
+  "schemaVersion": 1,
+  "normal": {
+    "groups": {
+      "rattling-sceptre:prefix:LocalIncreasedSpiritAndMana": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LocalIncreasedSpiritAndMana"
+        ],
+        "tags": [],
+        "statIds": [
+          "local_spirit_+%",
+          "base_maximum_mana"
+        ],
+        "tiers": {
+          "rattling-sceptre:prefix:advisor-s": {
+            "tier": 7,
+            "requiredItemLevel": 2,
+            "weight": 1000,
+            "ranges": [
+              [
+                10,
+                14
+              ],
+              [
+                17,
+                20
+              ]
+            ],
+            "sourceRef": "src1196"
+          },
+          "rattling-sceptre:prefix:counselor-s": {
+            "tier": 6,
+            "requiredItemLevel": 11,
+            "weight": 1000,
+            "ranges": [
+              [
+                15,
+                18
+              ],
+              [
+                21,
+                24
+              ]
+            ],
+            "sourceRef": "src1208"
+          },
+          "rattling-sceptre:prefix:emissary-s": {
+            "tier": 5,
+            "requiredItemLevel": 26,
+            "weight": 1000,
+            "ranges": [
+              [
+                19,
+                22
+              ],
+              [
+                25,
+                28
+              ]
+            ],
+            "sourceRef": "src1216"
+          },
+          "rattling-sceptre:prefix:minister-s": {
+            "tier": 4,
+            "requiredItemLevel": 36,
+            "weight": 600,
+            "ranges": [
+              [
+                23,
+                26
+              ],
+              [
+                29,
+                33
+              ]
+            ],
+            "sourceRef": "src1239"
+          },
+          "rattling-sceptre:prefix:envoy-s": {
+            "tier": 3,
+            "requiredItemLevel": 48,
+            "weight": 400,
+            "ranges": [
+              [
+                27,
+                30
+              ],
+              [
+                34,
+                37
+              ]
+            ],
+            "sourceRef": "src1219"
+          },
+          "rattling-sceptre:prefix:diplomat-s": {
+            "tier": 2,
+            "requiredItemLevel": 58,
+            "weight": 200,
+            "ranges": [
+              [
+                31,
+                34
+              ],
+              [
+                38,
+                41
+              ]
+            ],
+            "sourceRef": "src1212"
+          },
+          "rattling-sceptre:prefix:chancellor-s": {
+            "tier": 1,
+            "requiredItemLevel": 70,
+            "weight": 100,
+            "ranges": [
+              [
+                35,
+                38
+              ],
+              [
+                42,
+                45
+              ]
+            ],
+            "sourceRef": "src1205"
+          }
+        }
+      },
+      "rattling-sceptre:prefix:AllDamage": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "AllDamage"
+        ],
+        "tags": [
+          "damage"
+        ],
+        "statIds": [
+          "allies_in_presence_damage_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:prefix:coercive": {
+            "tier": 8,
+            "requiredItemLevel": 1,
+            "weight": 1000,
+            "ranges": [
+              [
+                25,
+                34
+              ]
+            ],
+            "sourceRef": "src1207"
+          },
+          "rattling-sceptre:prefix:agitative": {
+            "tier": 7,
+            "requiredItemLevel": 8,
+            "weight": 1000,
+            "ranges": [
+              [
+                35,
+                44
+              ]
+            ],
+            "sourceRef": "src1197"
+          },
+          "rattling-sceptre:prefix:instigative": {
+            "tier": 6,
+            "requiredItemLevel": 16,
+            "weight": 1000,
+            "ranges": [
+              [
+                45,
+                54
+              ]
+            ],
+            "sourceRef": "src1235"
+          },
+          "rattling-sceptre:prefix:provocative": {
+            "tier": 5,
+            "requiredItemLevel": 33,
+            "weight": 600,
+            "ranges": [
+              [
+                55,
+                64
+              ]
+            ],
+            "sourceRef": "src1245"
+          },
+          "rattling-sceptre:prefix:persuasive": {
+            "tier": 4,
+            "requiredItemLevel": 46,
+            "weight": 400,
+            "ranges": [
+              [
+                65,
+                74
+              ]
+            ],
+            "sourceRef": "src1241"
+          },
+          "rattling-sceptre:prefix:motivating": {
+            "tier": 3,
+            "requiredItemLevel": 60,
+            "weight": 200,
+            "ranges": [
+              [
+                75,
+                89
+              ]
+            ],
+            "sourceRef": "src1240"
+          },
+          "rattling-sceptre:prefix:inspirational": {
+            "tier": 2,
+            "requiredItemLevel": 70,
+            "weight": 100,
+            "ranges": [
+              [
+                90,
+                104
+              ]
+            ],
+            "sourceRef": "src1234"
+          },
+          "rattling-sceptre:prefix:empowering": {
+            "tier": 1,
+            "requiredItemLevel": 82,
+            "weight": 50,
+            "ranges": [
+              [
+                105,
+                119
+              ]
+            ],
+            "sourceRef": "src1217"
+          }
+        }
+      },
+      "rattling-sceptre:prefix:PhysicalDamage": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "PhysicalDamage"
+        ],
+        "tags": [
+          "physical_damage",
+          "damage",
+          "physical",
+          "attack"
+        ],
+        "statIds": [
+          "allies_in_presence_attack_maximum_added_physical_damage",
+          "allies_in_presence_attack_minimum_added_physical_damage"
+        ],
+        "tiers": {
+          "rattling-sceptre:prefix:glinting": {
+            "tier": 9,
+            "requiredItemLevel": 1,
+            "weight": 500,
+            "ranges": [
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "sourceRef": "src1228"
+          },
+          "rattling-sceptre:prefix:burnished": {
+            "tier": 8,
+            "requiredItemLevel": 8,
+            "weight": 500,
+            "ranges": [
+              [
+                4,
+                6
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "sourceRef": "src1203"
+          },
+          "rattling-sceptre:prefix:polished": {
+            "tier": 7,
+            "requiredItemLevel": 16,
+            "weight": 500,
+            "ranges": [
+              [
+                5,
+                8
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "sourceRef": "src1243"
+          },
+          "rattling-sceptre:prefix:honed": {
+            "tier": 6,
+            "requiredItemLevel": 33,
+            "weight": 500,
+            "ranges": [
+              [
+                8,
+                11
+              ],
+              [
+                4,
+                6
+              ]
+            ],
+            "sourceRef": "src1230"
+          },
+          "rattling-sceptre:prefix:gleaming": {
+            "tier": 5,
+            "requiredItemLevel": 46,
+            "weight": 500,
+            "ranges": [
+              [
+                9,
+                13
+              ],
+              [
+                5,
+                7
+              ]
+            ],
+            "sourceRef": "src1227"
+          },
+          "rattling-sceptre:prefix:annealed": {
+            "tier": 4,
+            "requiredItemLevel": 54,
+            "weight": 500,
+            "ranges": [
+              [
+                12,
+                17
+              ],
+              [
+                6,
+                10
+              ]
+            ],
+            "sourceRef": "src1198"
+          },
+          "rattling-sceptre:prefix:razor-sharp": {
+            "tier": 3,
+            "requiredItemLevel": 60,
+            "weight": 400,
+            "ranges": [
+              [
+                14,
+                20
+              ],
+              [
+                7,
+                11
+              ]
+            ],
+            "sourceRef": "src1246"
+          },
+          "rattling-sceptre:prefix:tempered": {
+            "tier": 2,
+            "requiredItemLevel": 65,
+            "weight": 300,
+            "ranges": [
+              [
+                18,
+                26
+              ],
+              [
+                10,
+                15
+              ]
+            ],
+            "sourceRef": "src1253"
+          },
+          "rattling-sceptre:prefix:flaring": {
+            "tier": 1,
+            "requiredItemLevel": 75,
+            "weight": 200,
+            "ranges": [
+              [
+                22,
+                32
+              ],
+              [
+                12,
+                19
+              ]
+            ],
+            "sourceRef": "src1221"
+          }
+        }
+      },
+      "rattling-sceptre:prefix:IncreasedMana": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "IncreasedMana"
+        ],
+        "tags": [
+          "resource",
+          "mana"
+        ],
+        "statIds": [
+          "base_maximum_mana"
+        ],
+        "tiers": {
+          "rattling-sceptre:prefix:beryl": {
+            "tier": 11,
+            "requiredItemLevel": 1,
+            "weight": 1000,
+            "ranges": [
+              [
+                10,
+                14
+              ]
+            ],
+            "sourceRef": "src0258"
+          },
+          "rattling-sceptre:prefix:cobalt": {
+            "tier": 10,
+            "requiredItemLevel": 6,
+            "weight": 1000,
+            "ranges": [
+              [
+                15,
+                24
+              ]
+            ],
+            "sourceRef": "src0270"
+          },
+          "rattling-sceptre:prefix:azure": {
+            "tier": 9,
+            "requiredItemLevel": 16,
+            "weight": 1000,
+            "ranges": [
+              [
+                25,
+                34
+              ]
+            ],
+            "sourceRef": "src0257"
+          },
+          "rattling-sceptre:prefix:teal": {
+            "tier": 8,
+            "requiredItemLevel": 25,
+            "weight": 1000,
+            "ranges": [
+              [
+                35,
+                54
+              ]
+            ],
+            "sourceRef": "src0322"
+          },
+          "rattling-sceptre:prefix:cerulean": {
+            "tier": 7,
+            "requiredItemLevel": 33,
+            "weight": 1000,
+            "ranges": [
+              [
+                55,
+                64
+              ]
+            ],
+            "sourceRef": "src0266"
+          },
+          "rattling-sceptre:prefix:aqua": {
+            "tier": 6,
+            "requiredItemLevel": 38,
+            "weight": 1000,
+            "ranges": [
+              [
+                65,
+                79
+              ]
+            ],
+            "sourceRef": "src0253"
+          },
+          "rattling-sceptre:prefix:opalescent": {
+            "tier": 5,
+            "requiredItemLevel": 46,
+            "weight": 1000,
+            "ranges": [
+              [
+                80,
+                89
+              ]
+            ],
+            "sourceRef": "src0303"
+          },
+          "rattling-sceptre:prefix:gentian": {
+            "tier": 4,
+            "requiredItemLevel": 54,
+            "weight": 1000,
+            "ranges": [
+              [
+                90,
+                104
+              ]
+            ],
+            "sourceRef": "src0285"
+          },
+          "rattling-sceptre:prefix:chalybeous": {
+            "tier": 3,
+            "requiredItemLevel": 60,
+            "weight": 1000,
+            "ranges": [
+              [
+                105,
+                124
+              ]
+            ],
+            "sourceRef": "src0267"
+          },
+          "rattling-sceptre:prefix:mazarine": {
+            "tier": 2,
+            "requiredItemLevel": 65,
+            "weight": 1000,
+            "ranges": [
+              [
+                125,
+                149
+              ]
+            ],
+            "sourceRef": "src0301"
+          },
+          "rattling-sceptre:prefix:blue": {
+            "tier": 1,
+            "requiredItemLevel": 70,
+            "weight": 1000,
+            "ranges": [
+              [
+                150,
+                164
+              ]
+            ],
+            "sourceRef": "src0262"
+          }
+        }
+      },
+      "rattling-sceptre:prefix:LightningDamage": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LightningDamage"
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "lightning",
+          "attack"
+        ],
+        "statIds": [
+          "allies_in_presence_attack_maximum_added_lightning_damage",
+          "allies_in_presence_attack_minimum_added_lightning_damage"
+        ],
+        "tiers": {
+          "rattling-sceptre:prefix:humming": {
+            "tier": 9,
+            "requiredItemLevel": 1,
+            "weight": 500,
+            "ranges": [
+              [
+                5,
+                7
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "sourceRef": "src1231"
+          },
+          "rattling-sceptre:prefix:buzzing": {
+            "tier": 8,
+            "requiredItemLevel": 8,
+            "weight": 500,
+            "ranges": [
+              [
+                10,
+                15
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "sourceRef": "src1204"
+          },
+          "rattling-sceptre:prefix:snapping": {
+            "tier": 7,
+            "requiredItemLevel": 16,
+            "weight": 500,
+            "ranges": [
+              [
+                16,
+                22
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "sourceRef": "src1251"
+          },
+          "rattling-sceptre:prefix:crackling": {
+            "tier": 6,
+            "requiredItemLevel": 33,
+            "weight": 500,
+            "ranges": [
+              [
+                23,
+                27
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "sourceRef": "src1210"
+          },
+          "rattling-sceptre:prefix:sparking": {
+            "tier": 5,
+            "requiredItemLevel": 46,
+            "weight": 500,
+            "ranges": [
+              [
+                28,
+                32
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "sourceRef": "src1252"
+          },
+          "rattling-sceptre:prefix:arcing": {
+            "tier": 4,
+            "requiredItemLevel": 54,
+            "weight": 500,
+            "ranges": [
+              [
+                33,
+                40
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "sourceRef": "src1199"
+          },
+          "rattling-sceptre:prefix:shocking": {
+            "tier": 3,
+            "requiredItemLevel": 60,
+            "weight": 400,
+            "ranges": [
+              [
+                41,
+                47
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "sourceRef": "src1248"
+          },
+          "rattling-sceptre:prefix:discharging": {
+            "tier": 2,
+            "requiredItemLevel": 65,
+            "weight": 300,
+            "ranges": [
+              [
+                48,
+                59
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "sourceRef": "src1213"
+          },
+          "rattling-sceptre:prefix:electrocuting": {
+            "tier": 1,
+            "requiredItemLevel": 75,
+            "weight": 200,
+            "ranges": [
+              [
+                60,
+                71
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            "sourceRef": "src1215"
+          }
+        }
+      },
+      "rattling-sceptre:prefix:LocalIncreasedSpiritPercent": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "LocalIncreasedSpiritPercent"
+        ],
+        "tags": [],
+        "statIds": [
+          "local_spirit_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:prefix:lord-s": {
+            "tier": 8,
+            "requiredItemLevel": 1,
+            "weight": 1000,
+            "ranges": [
+              [
+                20,
+                26
+              ]
+            ],
+            "sourceRef": "src1237"
+          },
+          "rattling-sceptre:prefix:baron-s": {
+            "tier": 7,
+            "requiredItemLevel": 8,
+            "weight": 1000,
+            "ranges": [
+              [
+                27,
+                32
+              ]
+            ],
+            "sourceRef": "src1200"
+          },
+          "rattling-sceptre:prefix:viscount-s": {
+            "tier": 6,
+            "requiredItemLevel": 16,
+            "weight": 1000,
+            "ranges": [
+              [
+                33,
+                38
+              ]
+            ],
+            "sourceRef": "src1254"
+          },
+          "rattling-sceptre:prefix:marquess": {
+            "tier": 5,
+            "requiredItemLevel": 33,
+            "weight": 600,
+            "ranges": [
+              [
+                39,
+                44
+              ]
+            ],
+            "sourceRef": "src1238"
+          },
+          "rattling-sceptre:prefix:count-s": {
+            "tier": 4,
+            "requiredItemLevel": 46,
+            "weight": 400,
+            "ranges": [
+              [
+                45,
+                50
+              ]
+            ],
+            "sourceRef": "src1209"
+          },
+          "rattling-sceptre:prefix:duke-s": {
+            "tier": 3,
+            "requiredItemLevel": 60,
+            "weight": 200,
+            "ranges": [
+              [
+                51,
+                55
+              ]
+            ],
+            "sourceRef": "src1214"
+          },
+          "rattling-sceptre:prefix:prince-s": {
+            "tier": 2,
+            "requiredItemLevel": 75,
+            "weight": 100,
+            "ranges": [
+              [
+                56,
+                60
+              ]
+            ],
+            "sourceRef": "src1244"
+          },
+          "rattling-sceptre:prefix:king-s": {
+            "tier": 1,
+            "requiredItemLevel": 82,
+            "weight": 50,
+            "ranges": [
+              [
+                61,
+                65
+              ]
+            ],
+            "sourceRef": "src1236"
+          }
+        }
+      },
+      "rattling-sceptre:prefix:FireDamage": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "FireDamage"
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "fire",
+          "attack"
+        ],
+        "statIds": [
+          "allies_in_presence_attack_maximum_added_fire_damage",
+          "allies_in_presence_attack_minimum_added_fire_damage"
+        ],
+        "tiers": {
+          "rattling-sceptre:prefix:heated": {
+            "tier": 9,
+            "requiredItemLevel": 1,
+            "weight": 500,
+            "ranges": [
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "sourceRef": "src1229"
+          },
+          "rattling-sceptre:prefix:smouldering": {
+            "tier": 8,
+            "requiredItemLevel": 8,
+            "weight": 500,
+            "ranges": [
+              [
+                6,
+                9
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "sourceRef": "src1250"
+          },
+          "rattling-sceptre:prefix:smoking": {
+            "tier": 7,
+            "requiredItemLevel": 16,
+            "weight": 500,
+            "ranges": [
+              [
+                10,
+                13
+              ],
+              [
+                6,
+                8
+              ]
+            ],
+            "sourceRef": "src1249"
+          },
+          "rattling-sceptre:prefix:burning": {
+            "tier": 6,
+            "requiredItemLevel": 33,
+            "weight": 500,
+            "ranges": [
+              [
+                14,
+                17
+              ],
+              [
+                9,
+                11
+              ]
+            ],
+            "sourceRef": "src1202"
+          },
+          "rattling-sceptre:prefix:flaming": {
+            "tier": 5,
+            "requiredItemLevel": 46,
+            "weight": 500,
+            "ranges": [
+              [
+                18,
+                20
+              ],
+              [
+                12,
+                13
+              ]
+            ],
+            "sourceRef": "src1220"
+          },
+          "rattling-sceptre:prefix:scorching": {
+            "tier": 4,
+            "requiredItemLevel": 54,
+            "weight": 500,
+            "ranges": [
+              [
+                21,
+                26
+              ],
+              [
+                14,
+                16
+              ]
+            ],
+            "sourceRef": "src1247"
+          },
+          "rattling-sceptre:prefix:incinerating": {
+            "tier": 3,
+            "requiredItemLevel": 60,
+            "weight": 400,
+            "ranges": [
+              [
+                27,
+                30
+              ],
+              [
+                17,
+                19
+              ]
+            ],
+            "sourceRef": "src1233"
+          },
+          "rattling-sceptre:prefix:blasting": {
+            "tier": 2,
+            "requiredItemLevel": 65,
+            "weight": 300,
+            "ranges": [
+              [
+                31,
+                38
+              ],
+              [
+                20,
+                24
+              ]
+            ],
+            "sourceRef": "src1201"
+          },
+          "rattling-sceptre:prefix:cremating": {
+            "tier": 1,
+            "requiredItemLevel": 75,
+            "weight": 200,
+            "ranges": [
+              [
+                39,
+                45
+              ],
+              [
+                25,
+                29
+              ]
+            ],
+            "sourceRef": "src1211"
+          }
+        }
+      },
+      "rattling-sceptre:prefix:ColdDamage": {
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "ColdDamage"
+        ],
+        "tags": [
+          "elemental_damage",
+          "damage",
+          "elemental",
+          "cold",
+          "attack"
+        ],
+        "statIds": [
+          "allies_in_presence_attack_maximum_added_cold_damage",
+          "allies_in_presence_attack_minimum_added_cold_damage"
+        ],
+        "tiers": {
+          "rattling-sceptre:prefix:frosted": {
+            "tier": 9,
+            "requiredItemLevel": 1,
+            "weight": 500,
+            "ranges": [
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "sourceRef": "src1224"
+          },
+          "rattling-sceptre:prefix:chilled": {
+            "tier": 8,
+            "requiredItemLevel": 8,
+            "weight": 500,
+            "ranges": [
+              [
+                5,
+                8
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            "sourceRef": "src1206"
+          },
+          "rattling-sceptre:prefix:icy": {
+            "tier": 7,
+            "requiredItemLevel": 16,
+            "weight": 500,
+            "ranges": [
+              [
+                9,
+                11
+              ],
+              [
+                5,
+                6
+              ]
+            ],
+            "sourceRef": "src1232"
+          },
+          "rattling-sceptre:prefix:frigid": {
+            "tier": 6,
+            "requiredItemLevel": 33,
+            "weight": 500,
+            "ranges": [
+              [
+                12,
+                14
+              ],
+              [
+                7,
+                8
+              ]
+            ],
+            "sourceRef": "src1223"
+          },
+          "rattling-sceptre:prefix:freezing": {
+            "tier": 5,
+            "requiredItemLevel": 46,
+            "weight": 500,
+            "ranges": [
+              [
+                15,
+                17
+              ],
+              [
+                9,
+                10
+              ]
+            ],
+            "sourceRef": "src1222"
+          },
+          "rattling-sceptre:prefix:frozen": {
+            "tier": 4,
+            "requiredItemLevel": 54,
+            "weight": 500,
+            "ranges": [
+              [
+                18,
+                21
+              ],
+              [
+                11,
+                13
+              ]
+            ],
+            "sourceRef": "src1225"
+          },
+          "rattling-sceptre:prefix:glaciated": {
+            "tier": 3,
+            "requiredItemLevel": 60,
+            "weight": 400,
+            "ranges": [
+              [
+                22,
+                24
+              ],
+              [
+                14,
+                15
+              ]
+            ],
+            "sourceRef": "src1226"
+          },
+          "rattling-sceptre:prefix:polar": {
+            "tier": 2,
+            "requiredItemLevel": 65,
+            "weight": 300,
+            "ranges": [
+              [
+                25,
+                31
+              ],
+              [
+                16,
+                20
+              ]
+            ],
+            "sourceRef": "src1242"
+          },
+          "rattling-sceptre:prefix:entombing": {
+            "tier": 1,
+            "requiredItemLevel": 75,
+            "weight": 200,
+            "ranges": [
+              [
+                32,
+                37
+              ],
+              [
+                21,
+                24
+              ]
+            ],
+            "sourceRef": "src1218"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:AllResistances": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AllResistances"
+        ],
+        "tags": [
+          "cold_resistance",
+          "elemental_resistance",
+          "fire_resistance",
+          "lightning_resistance",
+          "elemental",
+          "fire",
+          "cold",
+          "lightning",
+          "resistance"
+        ],
+        "statIds": [
+          "allies_in_presence_resist_all_elements_%"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-adjustment": {
+            "tier": 6,
+            "requiredItemLevel": 12,
+            "weight": 800,
+            "ranges": [
+              [
+                3,
+                5
+              ]
+            ],
+            "sourceRef": "src1258"
+          },
+          "rattling-sceptre:suffix:of-acclimatisation": {
+            "tier": 5,
+            "requiredItemLevel": 26,
+            "weight": 800,
+            "ranges": [
+              [
+                6,
+                8
+              ]
+            ],
+            "sourceRef": "src1256"
+          },
+          "rattling-sceptre:suffix:of-adaptation": {
+            "tier": 4,
+            "requiredItemLevel": 40,
+            "weight": 800,
+            "ranges": [
+              [
+                9,
+                11
+              ]
+            ],
+            "sourceRef": "src1257"
+          },
+          "rattling-sceptre:suffix:of-evolution": {
+            "tier": 3,
+            "requiredItemLevel": 54,
+            "weight": 800,
+            "ranges": [
+              [
+                12,
+                14
+              ]
+            ],
+            "sourceRef": "src1266"
+          },
+          "rattling-sceptre:suffix:of-progression": {
+            "tier": 2,
+            "requiredItemLevel": 68,
+            "weight": 800,
+            "ranges": [
+              [
+                15,
+                16
+              ]
+            ],
+            "sourceRef": "src1280"
+          },
+          "rattling-sceptre:suffix:of-metamorphosis": {
+            "tier": 1,
+            "requiredItemLevel": 80,
+            "weight": 800,
+            "ranges": [
+              [
+                17,
+                18
+              ]
+            ],
+            "sourceRef": "src1277"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:CriticalStrikeMultiplier": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeMultiplier"
+        ],
+        "tags": [
+          "damage",
+          "critical"
+        ],
+        "statIds": [
+          "allies_in_presence_critical_strike_multiplier_+"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-ire": {
+            "tier": 6,
+            "requiredItemLevel": 8,
+            "weight": 1000,
+            "ranges": [
+              [
+                10,
+                14
+              ]
+            ],
+            "sourceRef": "src1274"
+          },
+          "rattling-sceptre:suffix:of-anger": {
+            "tier": 5,
+            "requiredItemLevel": 21,
+            "weight": 1000,
+            "ranges": [
+              [
+                15,
+                19
+              ]
+            ],
+            "sourceRef": "src1259"
+          },
+          "rattling-sceptre:suffix:of-rage": {
+            "tier": 4,
+            "requiredItemLevel": 30,
+            "weight": 1000,
+            "ranges": [
+              [
+                20,
+                24
+              ]
+            ],
+            "sourceRef": "src1281"
+          },
+          "rattling-sceptre:suffix:of-fury": {
+            "tier": 3,
+            "requiredItemLevel": 44,
+            "weight": 500,
+            "ranges": [
+              [
+                25,
+                29
+              ]
+            ],
+            "sourceRef": "src1269"
+          },
+          "rattling-sceptre:suffix:of-ferocity": {
+            "tier": 2,
+            "requiredItemLevel": 59,
+            "weight": 250,
+            "ranges": [
+              [
+                30,
+                34
+              ]
+            ],
+            "sourceRef": "src1268"
+          },
+          "rattling-sceptre:suffix:of-destruction": {
+            "tier": 1,
+            "requiredItemLevel": 73,
+            "weight": 125,
+            "ranges": [
+              [
+                35,
+                39
+              ]
+            ],
+            "sourceRef": "src1262"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:ManaRegeneration": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "ManaRegeneration"
+        ],
+        "tags": [
+          "resource",
+          "mana"
+        ],
+        "statIds": [
+          "mana_regeneration_rate_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-excitement": {
+            "tier": 6,
+            "requiredItemLevel": 1,
+            "weight": 1000,
+            "ranges": [
+              [
+                10,
+                19
+              ]
+            ],
+            "sourceRef": "src0359"
+          },
+          "rattling-sceptre:suffix:of-joy": {
+            "tier": 5,
+            "requiredItemLevel": 18,
+            "weight": 1000,
+            "ranges": [
+              [
+                20,
+                29
+              ]
+            ],
+            "sourceRef": "src0378"
+          },
+          "rattling-sceptre:suffix:of-elation": {
+            "tier": 4,
+            "requiredItemLevel": 29,
+            "weight": 1000,
+            "ranges": [
+              [
+                30,
+                39
+              ]
+            ],
+            "sourceRef": "src0354"
+          },
+          "rattling-sceptre:suffix:of-bliss": {
+            "tier": 3,
+            "requiredItemLevel": 42,
+            "weight": 1000,
+            "ranges": [
+              [
+                40,
+                49
+              ]
+            ],
+            "sourceRef": "src0342"
+          },
+          "rattling-sceptre:suffix:of-euphoria": {
+            "tier": 2,
+            "requiredItemLevel": 55,
+            "weight": 1000,
+            "ranges": [
+              [
+                50,
+                59
+              ]
+            ],
+            "sourceRef": "src0358"
+          },
+          "rattling-sceptre:suffix:of-nirvana": {
+            "tier": 1,
+            "requiredItemLevel": 79,
+            "weight": 1000,
+            "ranges": [
+              [
+                60,
+                69
+              ]
+            ],
+            "sourceRef": "src0384"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:CriticalStrikeChanceIncrease": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "CriticalStrikeChanceIncrease"
+        ],
+        "tags": [
+          "critical"
+        ],
+        "statIds": [
+          "allies_in_presence_critical_strike_chance_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-menace": {
+            "tier": 6,
+            "requiredItemLevel": 11,
+            "weight": 1000,
+            "ranges": [
+              [
+                10,
+                14
+              ]
+            ],
+            "sourceRef": "src1276"
+          },
+          "rattling-sceptre:suffix:of-havoc": {
+            "tier": 5,
+            "requiredItemLevel": 21,
+            "weight": 1000,
+            "ranges": [
+              [
+                15,
+                19
+              ]
+            ],
+            "sourceRef": "src1271"
+          },
+          "rattling-sceptre:suffix:of-disaster": {
+            "tier": 4,
+            "requiredItemLevel": 28,
+            "weight": 1000,
+            "ranges": [
+              [
+                20,
+                24
+              ]
+            ],
+            "sourceRef": "src1264"
+          },
+          "rattling-sceptre:suffix:of-calamity": {
+            "tier": 3,
+            "requiredItemLevel": 41,
+            "weight": 500,
+            "ranges": [
+              [
+                25,
+                29
+              ]
+            ],
+            "sourceRef": "src1260"
+          },
+          "rattling-sceptre:suffix:of-ruin": {
+            "tier": 2,
+            "requiredItemLevel": 59,
+            "weight": 250,
+            "ranges": [
+              [
+                30,
+                34
+              ]
+            ],
+            "sourceRef": "src1285"
+          },
+          "rattling-sceptre:suffix:of-unmaking": {
+            "tier": 1,
+            "requiredItemLevel": 76,
+            "weight": 125,
+            "ranges": [
+              [
+                35,
+                38
+              ]
+            ],
+            "sourceRef": "src1305"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:LifeRegeneration": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LifeRegeneration"
+        ],
+        "tags": [
+          "resource",
+          "life"
+        ],
+        "statIds": [
+          "allies_in_presence_life_regeneration_rate_per_minute"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-the-newt": {
+            "tier": 10,
+            "requiredItemLevel": 1,
+            "weight": 1000,
+            "ranges": [
+              [
+                60,
+                120
+              ]
+            ],
+            "sourceRef": "src1297"
+          },
+          "rattling-sceptre:suffix:of-the-lizard": {
+            "tier": 9,
+            "requiredItemLevel": 5,
+            "weight": 1000,
+            "ranges": [
+              [
+                126,
+                180
+              ]
+            ],
+            "sourceRef": "src1295"
+          },
+          "rattling-sceptre:suffix:of-the-flatworm": {
+            "tier": 8,
+            "requiredItemLevel": 11,
+            "weight": 1000,
+            "ranges": [
+              [
+                186,
+                240
+              ]
+            ],
+            "sourceRef": "src1292"
+          },
+          "rattling-sceptre:suffix:of-the-starfish": {
+            "tier": 7,
+            "requiredItemLevel": 17,
+            "weight": 1000,
+            "ranges": [
+              [
+                246,
+                360
+              ]
+            ],
+            "sourceRef": "src1301"
+          },
+          "rattling-sceptre:suffix:of-the-hydra": {
+            "tier": 6,
+            "requiredItemLevel": 26,
+            "weight": 1000,
+            "ranges": [
+              [
+                366,
+                540
+              ]
+            ],
+            "sourceRef": "src1294"
+          },
+          "rattling-sceptre:suffix:of-the-troll": {
+            "tier": 5,
+            "requiredItemLevel": 35,
+            "weight": 1000,
+            "ranges": [
+              [
+                546,
+                780
+              ]
+            ],
+            "sourceRef": "src1303"
+          },
+          "rattling-sceptre:suffix:of-convalescence": {
+            "tier": 4,
+            "requiredItemLevel": 47,
+            "weight": 1000,
+            "ranges": [
+              [
+                786,
+                1080
+              ]
+            ],
+            "sourceRef": "src1261"
+          },
+          "rattling-sceptre:suffix:of-recuperation": {
+            "tier": 3,
+            "requiredItemLevel": 58,
+            "weight": 1000,
+            "ranges": [
+              [
+                1086,
+                1380
+              ]
+            ],
+            "sourceRef": "src1282"
+          },
+          "rattling-sceptre:suffix:of-resurgence": {
+            "tier": 2,
+            "requiredItemLevel": 68,
+            "weight": 1000,
+            "ranges": [
+              [
+                1386,
+                1740
+              ]
+            ],
+            "sourceRef": "src1284"
+          },
+          "rattling-sceptre:suffix:of-immortality": {
+            "tier": 1,
+            "requiredItemLevel": 75,
+            "weight": 1000,
+            "ranges": [
+              [
+                1746,
+                1980
+              ]
+            ],
+            "sourceRef": "src1272"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:PresenceRadius": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "PresenceRadius"
+        ],
+        "tags": [
+          "aura"
+        ],
+        "statIds": [
+          "presence_area_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-direction": {
+            "tier": 4,
+            "requiredItemLevel": 23,
+            "weight": 500,
+            "ranges": [
+              [
+                36,
+                45
+              ]
+            ],
+            "sourceRef": "src1263"
+          },
+          "rattling-sceptre:suffix:of-outreach": {
+            "tier": 3,
+            "requiredItemLevel": 40,
+            "weight": 500,
+            "ranges": [
+              [
+                46,
+                55
+              ]
+            ],
+            "sourceRef": "src1279"
+          },
+          "rattling-sceptre:suffix:of-guidance": {
+            "tier": 2,
+            "requiredItemLevel": 56,
+            "weight": 500,
+            "ranges": [
+              [
+                56,
+                65
+              ]
+            ],
+            "sourceRef": "src1270"
+          },
+          "rattling-sceptre:suffix:of-influence": {
+            "tier": 1,
+            "requiredItemLevel": 72,
+            "weight": 500,
+            "ranges": [
+              [
+                66,
+                80
+              ]
+            ],
+            "sourceRef": "src1273"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:IncreasedAttackSpeed": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedAttackSpeed"
+        ],
+        "tags": [
+          "attack",
+          "speed"
+        ],
+        "statIds": [
+          "allies_in_presence_attack_speed_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-skill": {
+            "tier": 4,
+            "requiredItemLevel": 5,
+            "weight": 1000,
+            "ranges": [
+              [
+                5,
+                7
+              ]
+            ],
+            "sourceRef": "src1286"
+          },
+          "rattling-sceptre:suffix:of-ease": {
+            "tier": 3,
+            "requiredItemLevel": 20,
+            "weight": 1000,
+            "ranges": [
+              [
+                8,
+                10
+              ]
+            ],
+            "sourceRef": "src1265"
+          },
+          "rattling-sceptre:suffix:of-mastery": {
+            "tier": 2,
+            "requiredItemLevel": 35,
+            "weight": 1000,
+            "ranges": [
+              [
+                11,
+                13
+              ]
+            ],
+            "sourceRef": "src1275"
+          },
+          "rattling-sceptre:suffix:of-renown": {
+            "tier": 1,
+            "requiredItemLevel": 55,
+            "weight": 1000,
+            "ranges": [
+              [
+                14,
+                16
+              ]
+            ],
+            "sourceRef": "src1283"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:IncreasedCastSpeed": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreasedCastSpeed"
+        ],
+        "tags": [
+          "caster_speed",
+          "caster",
+          "speed"
+        ],
+        "statIds": [
+          "allies_in_presence_cast_speed_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-talent": {
+            "tier": 4,
+            "requiredItemLevel": 6,
+            "weight": 1000,
+            "ranges": [
+              [
+                5,
+                8
+              ]
+            ],
+            "sourceRef": "src1288"
+          },
+          "rattling-sceptre:suffix:of-nimbleness": {
+            "tier": 3,
+            "requiredItemLevel": 21,
+            "weight": 1000,
+            "ranges": [
+              [
+                9,
+                12
+              ]
+            ],
+            "sourceRef": "src1278"
+          },
+          "rattling-sceptre:suffix:of-expertise": {
+            "tier": 2,
+            "requiredItemLevel": 36,
+            "weight": 1000,
+            "ranges": [
+              [
+                13,
+                16
+              ]
+            ],
+            "sourceRef": "src1267"
+          },
+          "rattling-sceptre:suffix:of-sortilege": {
+            "tier": 1,
+            "requiredItemLevel": 56,
+            "weight": 1000,
+            "ranges": [
+              [
+                17,
+                20
+              ]
+            ],
+            "sourceRef": "src1287"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:LightRadiusAndManaRegeneration": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LightRadiusAndManaRegeneration"
+        ],
+        "tags": [
+          "resource",
+          "mana"
+        ],
+        "statIds": [
+          "light_radius_+%",
+          "mana_regeneration_rate_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-warmth": {
+            "tier": 3,
+            "requiredItemLevel": 8,
+            "weight": 1000,
+            "ranges": [
+              [
+                5,
+                5
+              ],
+              [
+                8,
+                12
+              ]
+            ],
+            "sourceRef": "src0434"
+          },
+          "rattling-sceptre:suffix:of-kindling": {
+            "tier": 2,
+            "requiredItemLevel": 15,
+            "weight": 1000,
+            "ranges": [
+              [
+                10,
+                10
+              ],
+              [
+                13,
+                17
+              ]
+            ],
+            "sourceRef": "src0379"
+          },
+          "rattling-sceptre:suffix:of-the-hearth": {
+            "tier": 1,
+            "requiredItemLevel": 30,
+            "weight": 1000,
+            "ranges": [
+              [
+                15,
+                15
+              ],
+              [
+                18,
+                22
+              ]
+            ],
+            "sourceRef": "src0407"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:MinionLife": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "MinionLife"
+        ],
+        "tags": [
+          "resource",
+          "life",
+          "minion"
+        ],
+        "statIds": [
+          "minion_maximum_life_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-the-mentor": {
+            "tier": 6,
+            "requiredItemLevel": 2,
+            "weight": 1000,
+            "ranges": [
+              [
+                21,
+                25
+              ]
+            ],
+            "sourceRef": "src1296"
+          },
+          "rattling-sceptre:suffix:of-the-tutor": {
+            "tier": 5,
+            "requiredItemLevel": 16,
+            "weight": 1000,
+            "ranges": [
+              [
+                26,
+                30
+              ]
+            ],
+            "sourceRef": "src1304"
+          },
+          "rattling-sceptre:suffix:of-the-director": {
+            "tier": 4,
+            "requiredItemLevel": 32,
+            "weight": 1000,
+            "ranges": [
+              [
+                31,
+                35
+              ]
+            ],
+            "sourceRef": "src1291"
+          },
+          "rattling-sceptre:suffix:of-the-headmaster": {
+            "tier": 3,
+            "requiredItemLevel": 48,
+            "weight": 1000,
+            "ranges": [
+              [
+                36,
+                40
+              ]
+            ],
+            "sourceRef": "src1293"
+          },
+          "rattling-sceptre:suffix:of-the-administrator": {
+            "tier": 2,
+            "requiredItemLevel": 64,
+            "weight": 1000,
+            "ranges": [
+              [
+                41,
+                45
+              ]
+            ],
+            "sourceRef": "src1289"
+          },
+          "rattling-sceptre:suffix:of-the-rector": {
+            "tier": 1,
+            "requiredItemLevel": 80,
+            "weight": 1000,
+            "ranges": [
+              [
+                46,
+                50
+              ]
+            ],
+            "sourceRef": "src1299"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:LocalAttributeRequirements": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "LocalAttributeRequirements"
+        ],
+        "tags": [],
+        "statIds": [
+          "local_attribute_requirements_+%"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-the-worthy": {
+            "tier": 5,
+            "requiredItemLevel": 24,
+            "weight": 1000,
+            "ranges": [
+              [
+                -15,
+                -15
+              ]
+            ],
+            "sourceRef": "src0423"
+          },
+          "rattling-sceptre:suffix:of-the-apt": {
+            "tier": 4,
+            "requiredItemLevel": 32,
+            "weight": 1000,
+            "ranges": [
+              [
+                -20,
+                -20
+              ]
+            ],
+            "sourceRef": "src0402"
+          },
+          "rattling-sceptre:suffix:of-the-talented": {
+            "tier": 3,
+            "requiredItemLevel": 40,
+            "weight": 1000,
+            "ranges": [
+              [
+                -25,
+                -25
+              ]
+            ],
+            "sourceRef": "src0419"
+          },
+          "rattling-sceptre:suffix:of-the-skilled": {
+            "tier": 2,
+            "requiredItemLevel": 52,
+            "weight": 1000,
+            "ranges": [
+              [
+                -30,
+                -30
+              ]
+            ],
+            "sourceRef": "src0416"
+          },
+          "rattling-sceptre:suffix:of-the-proficient": {
+            "tier": 1,
+            "requiredItemLevel": 60,
+            "weight": 1000,
+            "ranges": [
+              [
+                -35,
+                -35
+              ]
+            ],
+            "sourceRef": "src0412"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:Intelligence": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "Intelligence"
+        ],
+        "tags": [
+          "attribute"
+        ],
+        "statIds": [
+          "additional_intelligence"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-the-pupil": {
+            "tier": 8,
+            "requiredItemLevel": 1,
+            "weight": 750,
+            "ranges": [
+              [
+                5,
+                8
+              ]
+            ],
+            "sourceRef": "src0413"
+          },
+          "rattling-sceptre:suffix:of-the-student": {
+            "tier": 7,
+            "requiredItemLevel": 11,
+            "weight": 750,
+            "ranges": [
+              [
+                9,
+                12
+              ]
+            ],
+            "sourceRef": "src0418"
+          },
+          "rattling-sceptre:suffix:of-the-prodigy": {
+            "tier": 6,
+            "requiredItemLevel": 22,
+            "weight": 750,
+            "ranges": [
+              [
+                13,
+                16
+              ]
+            ],
+            "sourceRef": "src0411"
+          },
+          "rattling-sceptre:suffix:of-the-augur": {
+            "tier": 5,
+            "requiredItemLevel": 33,
+            "weight": 750,
+            "ranges": [
+              [
+                17,
+                20
+              ]
+            ],
+            "sourceRef": "src0404"
+          },
+          "rattling-sceptre:suffix:of-the-philosopher": {
+            "tier": 4,
+            "requiredItemLevel": 44,
+            "weight": 750,
+            "ranges": [
+              [
+                21,
+                24
+              ]
+            ],
+            "sourceRef": "src0410"
+          },
+          "rattling-sceptre:suffix:of-the-sage": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 750,
+            "ranges": [
+              [
+                25,
+                27
+              ]
+            ],
+            "sourceRef": "src0414"
+          },
+          "rattling-sceptre:suffix:of-the-savant": {
+            "tier": 2,
+            "requiredItemLevel": 66,
+            "weight": 750,
+            "ranges": [
+              [
+                28,
+                30
+              ]
+            ],
+            "sourceRef": "src0415"
+          },
+          "rattling-sceptre:suffix:of-the-virtuoso": {
+            "tier": 1,
+            "requiredItemLevel": 74,
+            "weight": 750,
+            "ranges": [
+              [
+                31,
+                33
+              ]
+            ],
+            "sourceRef": "src0421"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:Strength": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "Strength"
+        ],
+        "tags": [
+          "attribute"
+        ],
+        "statIds": [
+          "additional_strength"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-the-brute": {
+            "tier": 8,
+            "requiredItemLevel": 1,
+            "weight": 250,
+            "ranges": [
+              [
+                5,
+                8
+              ]
+            ],
+            "sourceRef": "src1024"
+          },
+          "rattling-sceptre:suffix:of-the-wrestler": {
+            "tier": 7,
+            "requiredItemLevel": 11,
+            "weight": 250,
+            "ranges": [
+              [
+                9,
+                12
+              ]
+            ],
+            "sourceRef": "src1067"
+          },
+          "rattling-sceptre:suffix:of-the-bear": {
+            "tier": 6,
+            "requiredItemLevel": 22,
+            "weight": 250,
+            "ranges": [
+              [
+                13,
+                16
+              ]
+            ],
+            "sourceRef": "src1023"
+          },
+          "rattling-sceptre:suffix:of-the-lion": {
+            "tier": 5,
+            "requiredItemLevel": 33,
+            "weight": 250,
+            "ranges": [
+              [
+                17,
+                20
+              ]
+            ],
+            "sourceRef": "src1040"
+          },
+          "rattling-sceptre:suffix:of-the-gorilla": {
+            "tier": 4,
+            "requiredItemLevel": 44,
+            "weight": 250,
+            "ranges": [
+              [
+                21,
+                24
+              ]
+            ],
+            "sourceRef": "src1033"
+          },
+          "rattling-sceptre:suffix:of-the-goliath": {
+            "tier": 3,
+            "requiredItemLevel": 55,
+            "weight": 250,
+            "ranges": [
+              [
+                25,
+                27
+              ]
+            ],
+            "sourceRef": "src1032"
+          },
+          "rattling-sceptre:suffix:of-the-leviathan": {
+            "tier": 2,
+            "requiredItemLevel": 66,
+            "weight": 250,
+            "ranges": [
+              [
+                28,
+                30
+              ]
+            ],
+            "sourceRef": "src1038"
+          },
+          "rattling-sceptre:suffix:of-the-titan": {
+            "tier": 1,
+            "requiredItemLevel": 74,
+            "weight": 250,
+            "ranges": [
+              [
+                31,
+                33
+              ]
+            ],
+            "sourceRef": "src1062"
+          }
+        }
+      },
+      "rattling-sceptre:suffix:IncreaseSocketedGemLevel": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "IncreaseSocketedGemLevel"
+        ],
+        "tags": [
+          "minion",
+          "gem"
+        ],
+        "statIds": [
+          "minion_skill_gem_level_+"
+        ],
+        "tiers": {
+          "rattling-sceptre:suffix:of-the-taskmaster": {
+            "tier": 4,
+            "requiredItemLevel": 2,
+            "weight": 750,
+            "ranges": [
+              [
+                1,
+                1
+              ]
+            ],
+            "sourceRef": "src1302"
+          },
+          "rattling-sceptre:suffix:of-the-despot": {
+            "tier": 3,
+            "requiredItemLevel": 25,
+            "weight": 500,
+            "ranges": [
+              [
+                2,
+                2
+              ]
+            ],
+            "sourceRef": "src1290"
+          },
+          "rattling-sceptre:suffix:of-the-overseer": {
+            "tier": 2,
+            "requiredItemLevel": 55,
+            "weight": 250,
+            "ranges": [
+              [
+                3,
+                3
+              ]
+            ],
+            "sourceRef": "src1298"
+          },
+          "rattling-sceptre:suffix:of-the-slavedriver": {
+            "tier": 1,
+            "requiredItemLevel": 78,
+            "weight": 100,
+            "ranges": [
+              [
+                4,
+                4
+              ]
+            ],
+            "sourceRef": "src1300"
+          }
+        }
+      }
     }
   },
-  "variants": {}
+  "essence": {
+    "definitions": {
+      "rattling-sceptre:suffix:essence-aura-magnitude": {
+        "layer": "EXPLICIT",
+        "affixType": "SUFFIX",
+        "familyIds": [
+          "AuraEffect"
+        ],
+        "requiredItemLevel": 72,
+        "weight": 0,
+        "tier": 1,
+        "stats": [
+          {
+            "id": "aura_effect_+%",
+            "min": 15,
+            "max": 20
+          }
+        ],
+        "tags": [],
+        "sourceRef": "src1255"
+      }
+    }
+  }
 }
