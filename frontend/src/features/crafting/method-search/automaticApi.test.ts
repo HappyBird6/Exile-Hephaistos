@@ -105,3 +105,90 @@ it('accepts concrete aliases above the old state count only with consistent boun
     }),
   ).rejects.toThrow('Invalid resource accounting')
 })
+
+it.each(['network', '500', 'conflicts'])(
+  'reports %s cancellation failure instead of confirming a session end',
+  async (failure) => {
+    const ready = { ...view(0), status: 'READY', complete: false, reason: '' }
+    let revision = 1
+    const fetcher = vi.fn(async (_url: unknown, options?: RequestInit) => {
+      if (options?.method === 'POST') {
+        if (failure === 'network') throw new TypeError('Network unavailable')
+        return new Response('{}', { status: failure === '500' ? 500 : 409 })
+      }
+      return new Response(JSON.stringify({ ...ready, revision: revision++ }), {
+        headers: {
+          'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+        },
+      })
+    })
+    vi.stubGlobal('fetch', fetcher)
+    const { cancelAutomatic } = await import('./automaticApi')
+    const result = await cancelAutomatic(
+      id,
+      request.start.provenance.rulesetIdentity,
+    )
+    expect(result.kind).toBe('FAILED')
+    expect(
+      fetcher.mock.calls.filter(([, init]) => init?.method === 'POST'),
+    ).toHaveLength(failure === 'conflicts' ? 2 : 1)
+  },
+)
+
+it.each(['COMPLETE', 'PARTIAL', 'CANCELLED'])(
+  'recognizes an already %s job without cancelling it again',
+  async (status) => {
+    const fetcher = vi.fn(
+      async () =>
+        new Response(JSON.stringify({ ...view(1), status }), {
+          headers: {
+            'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+          },
+        }),
+    )
+    vi.stubGlobal('fetch', fetcher)
+    const { cancelAutomatic } = await import('./automaticApi')
+    expect(
+      (await cancelAutomatic(id, request.start.provenance.rulesetIdentity))
+        .kind,
+    ).toBe(status === 'CANCELLED' ? 'CANCELLED' : 'ENDED')
+    expect(fetcher).toHaveBeenCalledOnce()
+  },
+)
+
+it('keeps omitted API policy disabled while accepting an explicit new-session policy', async () => {
+  const { defaultRareOutcomePolicy, disabledRareOutcomePolicy } =
+    await import('./policyCandidates')
+  const fetcher = vi.fn(
+    async () =>
+      new Response(JSON.stringify(view(1)), {
+        headers: {
+          'X-Crafting-Ruleset': request.start.provenance.rulesetIdentity,
+        },
+      }),
+  )
+  vi.stubGlobal('fetch', fetcher)
+  await automaticApi.create({
+    ...request,
+    clientRequestId: crypto.randomUUID(),
+  })
+  expect(
+    JSON.parse(
+      (fetcher.mock.calls as unknown as [string, RequestInit][])[0]![1]
+        .body as string,
+    ).rareOutcomePolicy,
+  ).toEqual(disabledRareOutcomePolicy)
+  await automaticApi.create(
+    { ...request, clientRequestId: crypto.randomUUID() },
+    undefined,
+    false,
+    0,
+    defaultRareOutcomePolicy,
+  )
+  expect(
+    JSON.parse(
+      (fetcher.mock.calls as unknown as [string, RequestInit][])[1]![1]
+        .body as string,
+    ).rareOutcomePolicy,
+  ).toEqual(defaultRareOutcomePolicy)
+})

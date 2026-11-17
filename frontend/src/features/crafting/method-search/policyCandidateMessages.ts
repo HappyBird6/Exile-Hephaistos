@@ -1,5 +1,7 @@
 export const policyCandidateMessages = {
   en: {
+    cancelFailure:
+      'Could not confirm cancellation. The previous calculation may still be running. Retry the session change.',
     title: 'Current crafting policy candidates',
     scope:
       'Each candidate includes what to do after each result. Probabilities apply to this session under the supported crafting rules and selected policies. Further calculation may change these candidates.',
@@ -22,6 +24,8 @@ export const policyCandidateMessages = {
       'The new calculation starts from your confirmed item. Probabilities from the previous session are not carried over.',
   },
   ko: {
+    cancelFailure:
+      '취소 완료를 확인하지 못했습니다. 이전 계산이 실행 중일 수 있습니다. 세션 전환을 다시 시도하세요.',
     title: '현재 제작 정책 후보',
     scope:
       '각 후보에는 결과별 다음 행동이 포함됩니다. 확률은 지원하는 제작 규칙과 선택한 정책 안에서 현재 세션에 적용됩니다. 추가 계산으로 후보가 바뀔 수 있습니다.',
@@ -44,6 +48,7 @@ export const policyCandidateMessages = {
       '확인한 아이템에서 새로 계산합니다. 이전 세션의 확률은 이어 붙이지 않습니다.',
   },
   'zh-CN': {
+    cancelFailure: '无法确认取消。之前的计算可能仍在运行。请重试会话切换。',
     title: '当前制作策略候选',
     scope:
       '每个候选包含各结果的后续操作。概率仅适用于支持的规则和所选策略下的本次会话。继续计算可能改变候选。',
@@ -65,6 +70,7 @@ export const policyCandidateMessages = {
     separate: '新计算从确认的物品开始，不延续此前会话的概率。',
   },
   'zh-TW': {
+    cancelFailure: '無法確認取消。先前的計算可能仍在執行。請重試工作階段切換。',
     title: '目前製作策略候選',
     scope:
       '每個候選包含各結果的後續操作。機率僅適用於支援的規則和所選策略下的本次工作階段。繼續計算可能改變候選。',
@@ -86,6 +92,8 @@ export const policyCandidateMessages = {
     separate: '新計算從確認的物品開始，不延續先前工作階段的機率。',
   },
   ja: {
+    cancelFailure:
+      'キャンセルを確認できませんでした。前の計算が続いている可能性があります。セッションの切り替えを再試行してください。',
     title: '現在の製作方針候補',
     scope:
       '各候補は結果ごとの次の操作を含みます。確率は対応ルールと選択した方針での今回のセッションに適用されます。追加計算で候補は変わる場合があります。',
@@ -108,6 +116,8 @@ export const policyCandidateMessages = {
       '確認したアイテムから新しく計算します。前のセッションの確率は引き継ぎません。',
   },
   es: {
+    cancelFailure:
+      'No se pudo confirmar la cancelación. El cálculo anterior puede seguir activo. Reintenta el cambio de sesión.',
     title: 'Políticas de fabricación actuales',
     scope:
       'Cada candidata incluye la acción tras cada resultado. Las probabilidades se aplican a esta sesión con las reglas compatibles y las políticas elegidas. Más cálculo puede cambiar las candidatas.',
@@ -130,6 +140,8 @@ export const policyCandidateMessages = {
       'El nuevo cálculo comienza desde el objeto confirmado, sin acumular probabilidades de la sesión anterior.',
   },
   ru: {
+    cancelFailure:
+      'Не удалось подтвердить отмену. Предыдущий расчёт может продолжаться. Повторите смену сессии.',
     title: 'Текущие варианты стратегии изготовления',
     scope:
       'Каждый вариант включает действия после каждого результата. Вероятности относятся к текущему сеансу в рамках поддерживаемых правил и выбранной стратегии. Дальнейший расчёт может изменить варианты.',
@@ -152,6 +164,8 @@ export const policyCandidateMessages = {
       'Новый расчёт начинается с подтверждённого предмета. Вероятности предыдущего сеанса не переносятся.',
   },
   th: {
+    cancelFailure:
+      'ไม่สามารถยืนยันการยกเลิกได้ การคำนวณก่อนหน้าอาจยังทำงานอยู่ โปรดลองเปลี่ยนเซสชันอีกครั้ง',
     title: 'นโยบายการคราฟต์ที่พบในขณะนี้',
     scope:
       'แต่ละตัวเลือกมีขั้นตอนถัดไปสำหรับแต่ละผลลัพธ์ ความน่าจะเป็นใช้กับเซสชันนี้ภายใต้กฎที่รองรับและนโยบายที่เลือก การคำนวณเพิ่มเติมอาจเปลี่ยนตัวเลือกได้',

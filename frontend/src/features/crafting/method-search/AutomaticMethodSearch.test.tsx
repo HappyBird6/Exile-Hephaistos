@@ -1025,3 +1025,141 @@ it('does not reopen an old editor when its session cancellation finishes after a
   expect(edit).not.toHaveBeenCalled()
   expect(screen.queryByText(/Guidance ends here/)).not.toBeInTheDocument()
 })
+
+it.each([false, true])(
+  'restores a legacy flow with rare endings disabled (saved job: %s)',
+  async (hasJob) => {
+    setLocale('en')
+    const request = requestFixture()
+    const { disabledRareOutcomePolicy, defaultRareOutcomePolicy } =
+      await import('./policyCandidates')
+    saveSupport('session-policy-preference', defaultRareOutcomePolicy)
+    saveSupport('crafting-flow:' + request.clientRequestId, {
+      origin: request.clientRequestId,
+      request,
+      prefix: [],
+      anchor: null,
+      carry: null,
+      branch: null,
+    })
+    if (hasJob)
+      saveSupport('run', {
+        request: request.clientRequestId,
+        job: id,
+        selected: 0,
+        cycles: 100,
+        route: [],
+      })
+    const old = {
+      ...initial(),
+      status: 'PARTIAL' as const,
+      rareOutcomePolicy: disabledRareOutcomePolicy,
+    }
+    vi.spyOn(automaticApi, 'create').mockResolvedValue(old)
+    vi.spyOn(automaticApi, 'get').mockResolvedValue(old)
+    render(
+      <AutomaticMethodSearch
+        request={request}
+        inputGeneration={1}
+        presentItem={present}
+        onRecalculate={() => {}}
+      />,
+    )
+    const toggle = await screen.findByRole('checkbox', {
+      name: 'Rare-result endings',
+      hidden: true,
+    })
+    expect(toggle).not.toBeChecked()
+    if (hasJob) {
+      expect(automaticApi.create).not.toHaveBeenCalled()
+      expect(automaticApi.get).toHaveBeenCalledWith(
+        id,
+        request.start.provenance.rulesetIdentity,
+        expect.anything(),
+      )
+    } else
+      expect(automaticApi.create).toHaveBeenCalledWith(
+        request,
+        expect.anything(),
+        false,
+        0,
+        disabledRareOutcomePolicy,
+      )
+  },
+)
+
+it.each(['network', '500', 'conflicts'])(
+  'keeps the old session and offers retry after %s cancellation failure',
+  async (failure) => {
+    setLocale('en')
+    const request = requestFixture()
+    const one = { numerator: '1', denominator: '1' }
+    const bounds = {
+      lower: one,
+      upper: one,
+      arithmeticWidth: { numerator: '0', denominator: '1' },
+      exact: true,
+      confirmedPercent: '100.00',
+    }
+    const ready: AutomaticView = {
+      ...initial(),
+      methods: [
+        {
+          id: 'ending',
+          source: 0,
+          initial: [],
+          cycle: [{ currency: 'EXALTED', omens: [], purpose: 'ORDINARY' }],
+          reasons: [],
+          finished: true,
+          points: [
+            {
+              cycles: 100,
+              complete: true,
+              outcomes: [{ target: null, kind: 'REBASE', probability: bounds }],
+              initialUses: {},
+              cycleUses: {},
+            },
+          ],
+        },
+      ],
+    }
+    vi.spyOn(automaticApi, 'create').mockResolvedValue(ready)
+    vi.spyOn(automaticApi, 'get').mockResolvedValue(ready)
+    const control = vi
+      .spyOn(automaticApi, 'control')
+      .mockRejectedValue(
+        failure === 'network'
+          ? new TypeError('offline')
+          : new AutomaticError(failure === '500' ? 500 : 409),
+      )
+    const edit = vi.fn()
+    render(
+      <AutomaticMethodSearch
+        request={request}
+        inputGeneration={1}
+        presentItem={present}
+        onRecalculate={edit}
+      />,
+    )
+    const button = await screen.findByRole('button', {
+      name: 'End session and enter new start',
+    })
+    fireEvent.click(button)
+    expect(
+      await screen.findByText(/Could not confirm cancellation/),
+    ).toBeVisible()
+    expect(edit).not.toHaveBeenCalled()
+    expect(
+      control.mock.calls.filter(([, operation]) => operation === 'CANCEL'),
+    ).toHaveLength(failure === 'conflicts' ? 2 : 1)
+    await waitFor(() => expect(button).toBeEnabled())
+    control.mockResolvedValue({
+      ...ready,
+      status: 'CANCELLED',
+      revision: 3,
+      generation: 2,
+    })
+    fireEvent.click(button)
+    await waitFor(() => expect(edit).toHaveBeenCalledOnce())
+  },
+)

@@ -1,4 +1,8 @@
-import { isRareOutcomePolicy, type RareOutcomePolicy } from './policyCandidates'
+import {
+  disabledRareOutcomePolicy,
+  isRareOutcomePolicy,
+  type RareOutcomePolicy,
+} from './policyCandidates'
 import type { AbyssState } from '../AbyssPanel'
 import { baseAffixCapacity } from '../baseRegistry'
 import type { ConcreteItem, WorkbenchAction } from '../workbenchApi'
@@ -36,6 +40,16 @@ export type CraftingFlow = {
   anchor: ConcreteItem | null
   carry: AbyssState | null
   branch: FlowBranch | null
+}
+export function restoreFlowPolicy(
+  flow: CraftingFlow | null,
+): CraftingFlow | null {
+  return flow
+    ? {
+        ...flow,
+        rareOutcomePolicy: flow.rareOutcomePolicy ?? disabledRareOutcomePolicy,
+      }
+    : null
 }
 export const flowMessages: Record<
   Locale,

@@ -13,6 +13,12 @@ export const defaultRareOutcomePolicy: RareOutcomePolicy = {
   groupPartsPerMillion: 10000,
   maximumMethodPartsPerMillion: 50000,
 }
+export const disabledRareOutcomePolicy: RareOutcomePolicy = {
+  version: 'rare-conditional-groups-v1',
+  enabled: false,
+  groupPartsPerMillion: 0,
+  maximumMethodPartsPerMillion: 0,
+}
 export type PolicyCandidate = {
   id: string
   cycles: number

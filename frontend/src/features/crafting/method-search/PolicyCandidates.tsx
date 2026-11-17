@@ -13,12 +13,14 @@ import { policyCandidateMessages } from './policyCandidateMessages'
 export function PolicyCandidates({
   view,
   onRestart,
+  endingFailed,
   onPolicy,
   onInspect,
 }: {
   view: AutomaticView
-  onRestart?: (() => void) | undefined
-  onPolicy?: ((policy: RareOutcomePolicy) => void) | undefined
+  endingFailed?: boolean
+  onRestart?: (() => Promise<void>) | undefined
+  onPolicy?: ((policy: RareOutcomePolicy) => Promise<void>) | undefined
   onInspect: (node: number) => void
 }) {
   const { locale, name } = useI18n()
@@ -39,6 +41,7 @@ export function PolicyCandidates({
     <section className="policy-candidates" aria-label={copy.title}>
       <h3>{copy.title}</h3>
       <p>{copy.scope}</p>
+      {endingFailed && <p role="alert">{copy.cancelFailure}</p>}
       <div className="policy-candidate-grid">
         {(view.candidates ?? []).map((candidate, index) => (
           <article key={candidate.id}>
@@ -132,9 +135,13 @@ export function PolicyCandidates({
           {onRestart && (
             <button
               disabled={busy}
-              onClick={() => {
+              onClick={async () => {
                 setBusy(true)
-                onRestart()
+                try {
+                  await onRestart()
+                } finally {
+                  setBusy(false)
+                }
               }}
             >
               {copy.restart}
@@ -179,9 +186,13 @@ export function PolicyCandidates({
           ))}
           <button
             disabled={busy}
-            onClick={() => {
+            onClick={async () => {
               setBusy(true)
-              onPolicy(settings)
+              try {
+                await onPolicy(settings)
+              } finally {
+                setBusy(false)
+              }
             }}
           >
             {copy.apply}

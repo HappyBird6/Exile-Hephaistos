@@ -14,6 +14,7 @@ import {
   flowMessages,
   flowExportMessages,
   validFlow,
+  restoreFlowPolicy,
   type CraftingFlow,
   type FlowTransition,
 } from './craftingFlow'
@@ -99,13 +100,15 @@ function Workflow(props: Props) {
       change: (fn: (f: CraftingFlow) => CraftingFlow) => void
     }>((set) => ({
       saveError: false,
-      value: (props.snapshot
-        ? null
-        : readSupport(
-            'crafting-flow:' + props.request.clientRequestId,
-            (v): v is CraftingFlow =>
-              validFlow(v, props.request.clientRequestId),
-          )) ?? {
+      value: restoreFlowPolicy(
+        props.snapshot
+          ? null
+          : readSupport(
+              'crafting-flow:' + props.request.clientRequestId,
+              (v): v is CraftingFlow =>
+                validFlow(v, props.request.clientRequestId),
+            ),
+      ) ?? {
         rareOutcomePolicy:
           readSupport('session-policy-preference', isRareOutcomePolicy) ??
           defaultRareOutcomePolicy,
@@ -236,32 +239,42 @@ function Run({
     if (event.operation !== 'restore') setManualSelected(id)
   }
   const mounted = useRef(false)
+  const [endingFailed, setEndingFailed] = useState(false)
   const endSession = async (policy?: RareOutcomePolicy) => {
     const previous = current.current
-    saveSupport(
-      'session-policy-preference',
-      policy ??
-        previous?.rareOutcomePolicy ??
-        flow.rareOutcomePolicy ??
-        defaultRareOutcomePolicy,
-    )
     alive.current = false
     const endingTurn = ++token.current
     for (const controller of controllers.current) controller.abort()
     setRunEnabled(false)
-    if (previous) {
+    setEndingFailed(false)
+    if (
+      previous &&
+      !['COMPLETE', 'PARTIAL', 'CANCELLED'].includes(previous.status)
+    ) {
+      const result = await cancelAutomatic(
+        previous.id,
+        request.start.provenance.rulesetIdentity,
+      )
+      if (!mounted.current || token.current !== endingTurn) return
+      if (result.kind === 'FAILED') {
+        alive.current = true
+        setEndingFailed(true)
+        return
+      }
+      current.current = result.view
+      setView(result.view)
+    }
+    if (!mounted.current || token.current !== endingTurn) return
+    saveSupport(
+      'session-policy-preference',
+      policy ?? previous?.rareOutcomePolicy ?? flow.rareOutcomePolicy,
+    )
+    if (previous)
       saveSupport('session-end:' + request.clientRequestId, {
         request: request.clientRequestId,
         job: previous.id,
         kind: policy ? 'RECONFIGURED' : 'REBASE',
       })
-      if (!['COMPLETE', 'PARTIAL'].includes(previous.status))
-        await cancelAutomatic(
-          previous.id,
-          request.start.provenance.rulesetIdentity,
-        )
-    }
-    if (!mounted.current || token.current !== endingTurn) return
     if (policy)
       changeFlow((old) => ({
         ...old,
@@ -495,7 +508,7 @@ function Run({
     )
       .then((next) => {
         if (!alive.current) return
-        if (next) accept(next)
+        if (next.kind !== 'FAILED') accept(next.view)
         else setFailed(true)
       })
       .finally(() => {
@@ -675,19 +688,20 @@ function Run({
         <PolicyCandidates
           key={view.id}
           view={view}
+          endingFailed={endingFailed}
           onInspect={setSelected}
           onRestart={
             snapshot
               ? undefined
               : () => {
-                  void endSession()
+                  return endSession()
                 }
           }
           onPolicy={
             snapshot
               ? undefined
               : (policy) => {
-                  void endSession(policy)
+                  return endSession(policy)
                 }
           }
         />

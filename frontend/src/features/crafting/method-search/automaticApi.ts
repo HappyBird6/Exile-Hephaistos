@@ -1,6 +1,6 @@
 import {
   validatePolicies,
-  defaultRareOutcomePolicy,
+  disabledRareOutcomePolicy,
   type PolicyCandidate,
   type RareOutcomePolicy,
 } from './policyCandidates'
@@ -298,7 +298,7 @@ export const automaticApi = {
     signal?: AbortSignal,
     abstractQuality40 = false,
     abstractQuality = abstractQuality40 ? 40 : 0,
-    rareOutcomePolicy: RareOutcomePolicy = defaultRareOutcomePolicy,
+    rareOutcomePolicy: RareOutcomePolicy = disabledRareOutcomePolicy,
   ) => {
     if (signal?.aborted)
       return Promise.reject(new DOMException('Aborted', 'AbortError'))
@@ -371,17 +371,37 @@ export function acceptsAutomatic(
       next.generation >= current.generation)
   )
 }
-export async function cancelAutomatic(id: string, identity: string) {
-  for (let i = 0; i < 2; i++)
+export type AutomaticCancellation =
+  | { kind: 'CANCELLED' | 'ENDED'; view: AutomaticView }
+  | { kind: 'FAILED'; error: unknown }
+
+export async function cancelAutomatic(
+  id: string,
+  identity: string,
+): Promise<AutomaticCancellation> {
+  let failure: unknown
+  for (let i = 0; i < 2; i++) {
     try {
       const current = await automaticApi.get(id, identity)
+      if (current.status === 'CANCELLED')
+        return { kind: 'CANCELLED', view: current }
       if (
-        current.status === 'CANCELLED' ||
+        ['COMPLETE', 'PARTIAL'].includes(current.status) ||
         current.reason === 'LEGACY_READ_ONLY'
       )
-        return current
-      return await automaticApi.control(current, 'CANCEL', identity)
+        return { kind: 'ENDED', view: current }
+      const next = await automaticApi.control(current, 'CANCEL', identity)
+      if (next.status === 'CANCELLED') return { kind: 'CANCELLED', view: next }
+      if (['COMPLETE', 'PARTIAL'].includes(next.status))
+        return { kind: 'ENDED', view: next }
+      return {
+        kind: 'FAILED',
+        error: new Error('Cancellation was not confirmed'),
+      }
     } catch (error) {
-      if (!(error instanceof AutomaticError) || error.status !== 409) return
+      failure = error
+      if (!(error instanceof AutomaticError) || error.status !== 409) break
     }
+  }
+  return { kind: 'FAILED', error: failure }
 }
