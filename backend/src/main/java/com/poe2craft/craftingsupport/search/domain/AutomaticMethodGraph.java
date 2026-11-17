@@ -277,6 +277,47 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         !method.template.boundedChaos());
   }
 
+  private boolean completeObservation(Method method, int horizon) {
+    return method.execution.atBoundary()
+        && (method.execution.absorbed() || method.execution.cycles() == horizon);
+  }
+
+  /** A known checkpoint may still become REBASE when its whole conditional law is known. */
+  private CertifiedMethodRunner.Observation<AutomaticMethodExecution.State, AutomaticCraftingAction>
+      evaluationPoint(Method method, int horizon) {
+    var owner = method.owner == null ? method : method.owner;
+    var point = owner.points.get(horizon);
+    if (point != null) return transport(method, point);
+    point = owner.execution.provisional(horizon);
+    if (completeObservation(owner, horizon)) return transport(method, sessionPoint(owner, point));
+    if (rareOutcomePolicy.enabled()) {
+      var exits =
+          new EnumMap<Exit, Map<AutomaticMethodExecution.State, CertifiedInterval>>(Exit.class);
+      for (var kind : Exit.values())
+        exits.put(kind, new LinkedHashMap<>(point.exits().getOrDefault(kind, Map.of())));
+      var active = new LinkedHashMap<>(point.active());
+      var laws = new ArrayList<Map<AutomaticMethodExecution.State, CertifiedInterval>>();
+      laws.add(exits.get(Exit.CHECKPOINT));
+      if (!owner.template.boundedChaos()) laws.add(active);
+      for (var law : laws)
+        for (var entry : new ArrayList<>(law.entrySet())) {
+          var state = entry.getKey();
+          boolean goal =
+              progress(state.item(), state.abstractQuality()).goal() == Status.MATCH
+                  && (!AutomaticCraftingKernel.hasQualityCap(state.item())
+                      || kernel.workedQuality(state.item(), state.abstractQuality()) >= 40);
+          law.remove(state);
+          exits
+              .get(goal ? Exit.GOAL : Exit.UNRESOLVED)
+              .merge(state, entry.getValue(), CertifiedInterval::add);
+        }
+      point =
+          new CertifiedMethodRunner.Observation<>(
+              point.cycles(), exits, active, point.initialUses(), point.cycleUses(), point.mass());
+    }
+    return transport(method, point);
+  }
+
   private final AutomaticCraftingKernel kernel;
   private final Function<ItemState, Progress> evaluate;
   private final CertifiedInterval.Precision precision;
@@ -765,11 +806,25 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                 .orElse(null);
     if (source != null) discover(source);
     if (limited || ready.isEmpty()) return;
-    // Keep periodic FIFO turns to prevent starvation while favoring influential uncertainty.
+    // A parked primitive retains its cursor, but consumes no runnable-flight slot.
+    long flights =
+        ready.stream()
+            .filter(m -> !m.execution.resourceLimited() && m.execution.hasPrimitiveInFlight())
+            .count();
+    var runnable =
+        ready.stream()
+            .filter(m -> !m.execution.resourceLimited())
+            .filter(m -> m.execution.hasPrimitiveInFlight() || flights < 2)
+            .toList();
+    if (runnable.isEmpty()) {
+      if (source == null) limited = true;
+      return;
+    }
+    // Keep periodic FIFO turns among runnable methods, never spin on a parked cursor.
     var method =
         operations % 4 == 0
-            ? ready.getFirst()
-            : ready.stream()
+            ? runnable.getFirst()
+            : runnable.stream()
                 .max(
                     Comparator.<Method>comparingDouble(
                         m ->
@@ -778,17 +833,6 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                                 / (1 + Math.sqrt(m.execution.retainedStates()))))
                 .orElseThrow();
     ready.remove(method);
-    if (method.execution.resourceLimited()) {
-      ready.addLast(method);
-      if (source == null && ready.stream().allMatch(m -> m.execution.resourceLimited()))
-        limited = true;
-      return;
-    }
-    if (!method.execution.hasPrimitiveInFlight()
-        && ready.stream().filter(m -> m.execution.hasPrimitiveInFlight()).count() >= 2) {
-      ready.addLast(method);
-      return;
-    }
     if (method.execution.atBoundary()) {
       if (method.execution.absorbed()) {
         for (int horizon : List.of(1, 100, 300, 500))
@@ -945,7 +989,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     var points = new LinkedHashMap<>(method.points);
     for (int horizon : List.of(1, 100))
       if (!points.containsKey(horizon) && horizon >= method.execution.cycles())
-        points.put(horizon, method.execution.provisional(horizon));
+        points.put(horizon, evaluationPoint(method, horizon));
     return Map.copyOf(points);
   }
 
@@ -1384,13 +1428,10 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               || source.progress.goal() == Status.UNKNOWN
               || source.progress.goal() == Status.UNSUPPORTED;
       for (var method : source.outgoing) {
-        var point = (method.owner == null ? method : method.owner).points.get(cycles);
-        boolean complete = point != null;
-        if (point != null) point = transport(method, point);
-        else {
-          open = true;
-          point = transport(method, method.execution.provisional(cycles));
-        }
+        var owner = method.owner == null ? method : method.owner;
+        boolean complete = owner.points.containsKey(cycles) || completeObservation(owner, cycles);
+        if (!complete) open = true;
+        var point = evaluationPoint(method, cycles);
         var outcomes = new LinkedHashMap<Integer, CertifiedInterval>();
         for (var mass : encode(point).outcomes()) {
           int target;
