@@ -381,6 +381,69 @@ class AutomaticSearchServiceTest {
   }
 
   @Test
+  void omittedSavedModifierFlagDefaultsToFalseButExplicitInvalidFlagsAreRejected()
+      throws Exception {
+    var repository = new Repository();
+    var mapper = new ObjectMapper();
+    String id;
+    try (var first = service(repository)) {
+      id = first.create("owner", request("flag-default")).id();
+    }
+    var tree = mapper.readTree(repository.documents.get(id));
+    var modifier =
+        (com.fasterxml.jackson.databind.node.ObjectNode)
+            tree.path("request").path("start").path("item").path("implicits").path(0);
+    modifier.remove("crafted");
+    repository.documents.put(id, mapper.writeValueAsBytes(tree));
+    try (var restored = service(repository)) {
+      assertThat(restored.get("owner", id).id()).isEqualTo(id);
+      assertThat(restored.create("owner", request("flag-default")).id()).isEqualTo(id);
+      for (var invalid : List.of(mapper.nullNode(), mapper.getNodeFactory().textNode("false"))) {
+        modifier.set("crafted", invalid);
+        repository.documents.put(id, mapper.writeValueAsBytes(tree));
+        assertThatThrownBy(() -> restored.get("owner", id))
+            .isInstanceOfSatisfying(
+                PathSearchProtocol.Rejected.class,
+                e -> assertThat(e.code()).isEqualTo("RECALCULATION_REQUIRED"));
+      }
+    }
+  }
+
+  @Test
+  void unreadableArchiveDoesNotBlockNewCreationOrResumeAndIsNeverDeleted() throws Exception {
+    var repository = new Repository();
+    String broken = UUID.randomUUID().toString();
+    byte[] archive =
+        "{\"version\":\"historical\",\"request\":{}}"
+            .getBytes(java.nio.charset.StandardCharsets.UTF_8);
+    repository.documents.put(broken, archive);
+    try (var service = service(repository)) {
+      var created = service.create("owner", request("new-after-unreadable"));
+      assertThat(created.status()).isEqualTo("READY");
+      assertThat(service.create("owner", request("new-after-unreadable")).id())
+          .isEqualTo(created.id());
+      var cancelled =
+          service.control(
+              "owner",
+              created.id(),
+              new AutomaticSearchService.Control(
+                  "cancel", created.revision(), created.generation(), "CANCEL"));
+      var resumed =
+          service.control(
+              "owner",
+              created.id(),
+              new AutomaticSearchService.Control(
+                  "resume", cancelled.revision(), cancelled.generation(), "RESUME"));
+      assertThat(resumed.status()).isEqualTo("READY");
+      assertThatThrownBy(() -> service.get("owner", broken))
+          .isInstanceOfSatisfying(
+              PathSearchProtocol.Rejected.class,
+              e -> assertThat(e.code()).isEqualTo("RECALCULATION_REQUIRED"));
+      assertThat(repository.documents.get(broken)).containsExactly(archive);
+    }
+  }
+
+  @Test
   void capacityRejectsWithoutDeletingJobsAndAllowsIdempotentRead() {
     var repository = new Repository();
     try (var service = service(repository)) {

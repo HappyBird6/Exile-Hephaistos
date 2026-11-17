@@ -354,6 +354,8 @@ public final class AutomaticSearchService implements AutoCloseable {
   private StoredHeader header(String id) {
     try {
       var tree = json.readTree(repository.read(id));
+      if (tree == null) throw new java.io.IOException("Empty saved document");
+      tree = com.poe2craft.shared.item.ItemStateWireDefaults.normalized(tree);
       qualityDefaults(tree);
       if (tree == null
           || !id.equals(tree.path("id").asText())
@@ -373,14 +375,27 @@ public final class AutomaticSearchService implements AutoCloseable {
           tree.path("graph").has("rareOutcomePolicy")
               ? tree.path("graph").get("rareOutcomePolicy")
               : json.valueToTree(RareOutcomePolicy.disabled()));
-    } catch (java.io.IOException e) {
+    } catch (java.io.IOException | IllegalArgumentException e) {
       throw new Rejected(409, "RECALCULATION_REQUIRED");
+    }
+  }
+
+  // An unreadable archive is not an executable job. Keep it for explicit recovery,
+  // but do not let its compatibility error block unrelated creation or admission.
+  private StoredHeader admissionHeader(String id) {
+    try {
+      return header(id);
+    } catch (Rejected error) {
+      if (error.status() == 409 && error.code().equals("RECALCULATION_REQUIRED")) return null;
+      throw error;
     }
   }
 
   private Disk read(String id) {
     try {
       var tree = json.readTree(repository.read(id));
+      if (tree == null) throw new java.io.IOException("Empty saved document");
+      tree = com.poe2craft.shared.item.ItemStateWireDefaults.normalized(tree);
       qualityDefaults(tree);
       // Historical identities predate the stage flag. Decode only for read-only viewing;
       // never persist this compatibility default or resume under the new graph contract.
@@ -398,7 +413,7 @@ public final class AutomaticSearchService implements AutoCloseable {
           || saved.status() == null
           || !id.equals(saved.id())) throw new java.io.IOException("Invalid saved document");
       return saved;
-    } catch (java.io.IOException e) {
+    } catch (java.io.IOException | IllegalArgumentException e) {
       throw new Rejected(409, "RECALCULATION_REQUIRED");
     }
   }
@@ -493,7 +508,8 @@ public final class AutomaticSearchService implements AutoCloseable {
         || request.clientRequestId().isBlank()
         || request.clientRequestId().length() > 256) throw new Rejected(422, "INVALID_REQUEST");
     for (var id : repository.ids()) {
-      var saved = header(id);
+      var saved = admissionHeader(id);
+      if (saved == null) continue;
       if (saved.expires() < clock.millis()) {
         // Expiry releases admission and working memory, never the user's stored result.
         // Existing byte/document ceilings still reject new work when storage is full.
@@ -549,7 +565,8 @@ public final class AutomaticSearchService implements AutoCloseable {
   private void requireActiveSlot() {
     long active =
         repository.ids().stream()
-            .map(this::header)
+            .map(this::admissionHeader)
+            .filter(java.util.Objects::nonNull)
             .filter(d -> d.expires() >= clock.millis() && d.status().equals("READY"))
             .count();
     if (active >= settings.maxActive()) throw new Rejected(429, "JOB_CAPACITY");
