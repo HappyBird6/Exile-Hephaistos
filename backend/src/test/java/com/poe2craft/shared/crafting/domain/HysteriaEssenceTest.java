@@ -112,13 +112,6 @@ class HysteriaEssenceTest {
             rare(82, ""),
             rare(67, "", "amulet:prefix:hale"),
             rare(82, target, target),
-            rare(
-                82,
-                "",
-                "amulet:prefix:hale",
-                "amulet:suffix:of-the-brute",
-                "amulet:suffix:of-the-penguin",
-                "amulet:suffix:of-the-salamander"),
             rare(82, "", "amulet:prefix:hale", target))) {
       var result = simulator.apply(before, action, Set.of(), new Random(1));
       assertThat(result.applied()).isFalse();
@@ -136,5 +129,21 @@ class HysteriaEssenceTest {
     assertThat(result.events().getFirst().modifierId()).isEqualTo(target);
     assertThat(result.events().getFirst().selectionProbability()).isEqualTo(1);
     assertThat(result.events().getLast().modifierId()).isEqualTo(target);
+  }
+
+  @Test
+  void fullSuffixAutomaticallyRestrictsRemovalToSuffixes() {
+    var full =
+        rare(
+            82,
+            "",
+            "amulet:prefix:hale",
+            "amulet:suffix:of-the-brute",
+            "amulet:suffix:of-the-penguin",
+            "amulet:suffix:of-the-salamander");
+    var result = simulator.apply(full, action, Set.of(), new Random(1));
+    assertThat(result.applied()).as(result.reason()).isTrue();
+    assertThat(catalog.find(result.events().getFirst().modifierId()).orElseThrow().affixType())
+        .isEqualTo(ModifierDefinition.AffixType.SUFFIX);
   }
 }

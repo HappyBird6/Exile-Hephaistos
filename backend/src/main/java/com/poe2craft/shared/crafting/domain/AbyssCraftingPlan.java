@@ -14,7 +14,17 @@ public record AbyssCraftingPlan(boolean available, String reason, List<Branch> b
       double removalProbability,
       AbyssCraftingState remaining,
       List<ModifierDefinition> candidates,
-      boolean uniformSelection) {
+      boolean uniformSelection,
+      long probabilityDenominator) {
+    public Branch(
+        String removedSlotId,
+        double removalProbability,
+        AbyssCraftingState remaining,
+        List<ModifierDefinition> candidates,
+        boolean uniformSelection) {
+      this(removedSlotId, removalProbability, remaining, candidates, uniformSelection, 0);
+    }
+
     public Branch {
       candidates = List.copyOf(candidates);
     }

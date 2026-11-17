@@ -73,7 +73,7 @@ export const visibleAugmentText = (text: string) =>
     )
     .trim()
 
-/** Source weights are gated by the installed pool Augment; retained modifiers themselves stay intact. */
+/** Temporary simulator weights are gated by the installed pool Augment; retained modifiers themselves stay intact. */
 export function effectiveDefinitions(
   state: ConcreteItem,
   definitions: Record<string, Definition>,
@@ -88,8 +88,9 @@ export function effectiveDefinitions(
   )
   const weights: Record<string, number> = {}
   for (const [pool, modifiers] of Object.entries(available))
-    for (const [id, weight] of Object.entries(modifiers))
-      weights[id] = all || active.has(pool) ? weight : 0
+    for (const id of Object.keys(modifiers))
+      weights[id] =
+        all || active.has(pool) ? rules.poolWeightPolicy.weightPerTier : 0
   return Object.fromEntries(
     Object.entries(definitions).map(([id, definition]) => [
       id,

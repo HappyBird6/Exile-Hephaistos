@@ -110,7 +110,7 @@ class BreachEssenceTest {
   }
 
   @Test
-  void blocksWrongRarityLockedOverlapAndIncompletePrefixBranchesWithoutDrawing() {
+  void blocksWrongRarityLockedOverlapWithoutDrawing() {
     var full =
         fixture.rare(
             82,
@@ -134,8 +134,7 @@ class BreachEssenceTest {
             magic,
             fixture.rare(82, ""),
             fixture.rare(82, target, target),
-            fixture.rare(82, "", target, "amulet:suffix:of-the-brute"),
-            full)) {
+            fixture.rare(82, "", target, "amulet:suffix:of-the-brute"))) {
       var result =
           simulator.apply(
               before,
@@ -153,6 +152,15 @@ class BreachEssenceTest {
       assertThat(result.assumptions()).isEmpty();
       assertThat(result.consumedOmens()).isEmpty();
     }
+    var automaticSide = simulator.apply(full, action, Set.of(), new Random(1));
+    assertThat(automaticSide.applied()).isTrue();
+    assertThat(
+            fixture
+                .catalog
+                .find(automaticSide.events().getFirst().modifierId())
+                .orElseThrow()
+                .affixType())
+        .isEqualTo(ModifierDefinition.AffixType.PREFIX);
     assertThat(
             simulator
                 .apply(

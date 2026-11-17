@@ -36,8 +36,35 @@ class ModifierMagnitudesTest {
   }
 
   @Test
-  void allNineRulesSelectTheirSourceTagsAndFreezeProviderStrength() {
-    assertThat(AugmentCraftingRules.magnitudeRules()).hasSize(9);
+  void sovereignAlloyAmplifiesAllExplicitResistancesButNeverImplicitsOrStoredRolls() {
+    var provider =
+        new ModifierInstance(
+            "equipment:prefix:alloy-effect-of-resistance-mods1",
+            Map.of("heist_enchantment_resistance_mod_effect_+%", 30L));
+    for (var stat :
+        List.of(
+            "base_fire_damage_resistance_%",
+            "base_cold_damage_resistance_%",
+            "base_lightning_damage_resistance_%",
+            "base_chaos_damage_resistance_%",
+            "base_resist_all_elements_%")) {
+      var resistance = new ModifierInstance("test:" + stat, Map.of(stat, 30L));
+      var item = state(List.of(provider, resistance));
+      var target = definition(stat, Set.of("resistance"));
+      assertThat(ModifierMagnitudes.value(item, target, resistance, stat, false))
+          .isEqualByComparingTo("39");
+      assertThat(ModifierMagnitudes.value(item, target, resistance, stat, true))
+          .isEqualByComparingTo("30");
+      assertThat(resistance.values().get(stat)).isEqualTo(30L);
+      assertThat(
+              ModifierMagnitudes.value(state(List.of(resistance)), target, resistance, stat, false))
+          .isEqualByComparingTo("30");
+    }
+  }
+
+  @Test
+  void allRulesSelectTheirSourceTagsAndFreezeProviderStrength() {
+    assertThat(AugmentCraftingRules.magnitudeRules()).hasSize(10);
     for (var rule : AugmentCraftingRules.magnitudeRules()) {
       var provider = new ModifierInstance("test:provider", Map.of(rule.stat(), 20L));
       var target = definition("target", Set.copyOf(rule.tags()));

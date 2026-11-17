@@ -1,6 +1,7 @@
 import { expect, it } from 'vitest'
 import rules from './augmentCrafting.json'
 import { modifierMagnitudeValues } from './modifierMagnitudes'
+import { catalystProjection } from './catalystQuality'
 import { derivedWeapons } from './derived-defences/derivedWeapons'
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
@@ -25,7 +26,7 @@ const definition = (tags: string[], stat = 'value'): Definition => ({
   familyIds: [stat],
   stats: [{ id: stat, min: 0, max: 1000 }],
 })
-it('applies all nine tag rules without changing original rolls or feeding amplified providers back', () => {
+it('applies all declared tag rules without changing original rolls or feeding amplified providers back', () => {
   for (const rule of rules.magnitudeRules) {
     const item = {
       ...base,
@@ -148,5 +149,43 @@ it('never magnifies a fractured provider through a historical Sanctification fac
     expect(
       modifierMagnitudeValues(item, definition(['physical']), { value: 100 }),
     ).toEqual({ value: fractured ? 120 : 124 })
+  }
+})
+
+it('projects Sovereign Alloy resistance magnitudes, preserving implicit and raw values', () => {
+  const provider = {
+    modifierId: 'alloy',
+    values: { 'heist_enchantment_resistance_mod_effect_+%': 30 },
+  }
+  for (const stat of [
+    'base_fire_damage_resistance_%',
+    'base_cold_damage_resistance_%',
+    'base_lightning_damage_resistance_%',
+    'base_chaos_damage_resistance_%',
+    'base_resist_all_elements_%',
+  ]) {
+    const values = { [stat]: 30 }
+    const resistance = definition(['resistance'], stat)
+    const item = {
+      ...base,
+      explicits: [provider, { modifierId: stat, values }],
+    }
+    expect(catalystProjection(resistance, values, null, item).values).toEqual({
+      [stat]: 39,
+    })
+    expect(modifierMagnitudeValues(item, resistance, values)).toEqual({
+      [stat]: 39,
+    })
+    expect(
+      modifierMagnitudeValues(item, resistance, values, 'implicits'),
+    ).toEqual(values)
+    expect(
+      modifierMagnitudeValues(
+        { ...item, explicits: item.explicits.slice(1) },
+        resistance,
+        values,
+      ),
+    ).toEqual(values)
+    expect(values).toEqual({ [stat]: 30 })
   }
 })

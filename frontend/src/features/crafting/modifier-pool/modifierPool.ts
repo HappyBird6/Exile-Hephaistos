@@ -23,7 +23,15 @@ export function modifierPoolSections(
   reference: PoolReference,
 ): ModifierPoolSide[] {
   return (['ordinary', 'desecrated', 'essence'] as const).flatMap((kind) => {
-    const entries = reference.entries.filter((e) => e.kind === kind)
+    const entries = reference.entries.filter((e) => {
+      const definition = initial.modifiers[e.modifierId]
+      return (
+        e.kind === kind &&
+        definition &&
+        (!definition.tags?.includes('augment_pool') ||
+          (definition.weight ?? 0) > 0)
+      )
+    })
     const eligibility = Object.fromEntries(
       entries.map((e) => [e.modifierId, e]),
     )

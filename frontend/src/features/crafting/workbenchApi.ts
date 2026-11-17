@@ -798,10 +798,26 @@ export async function applyCurrency(
         : matching[0]?.id === 'Omen_of_Dextral_Crystallisation'
           ? 'SUFFIX'
           : null
+    const selectedTarget = definitions[v.events[1]?.modifierId ?? '']
+    const targetSide = selectedTarget?.affixType
+    const capacity = baseAffixCapacity(
+      state.baseItemId,
+      'RARE',
+      state.installedAugments,
+    )
+    const targetFull =
+      !action.endsWith('_ALLOY') &&
+      !action.includes('LIQUID_') &&
+      (targetSide === 'PREFIX' || targetSide === 'SUFFIX') &&
+      state.explicits.filter(
+        (m) => definitions[m.modifierId]?.affixType === targetSide,
+      ).length >=
+        (targetSide === 'PREFIX' ? capacity.prefixes : capacity.suffixes)
     const candidates = state.explicits.filter(
       (m) =>
         !m.fractured &&
         (!side || definitions[m.modifierId]?.affixType === side) &&
+        (!targetFull || definitions[m.modifierId]?.affixType === targetSide) &&
         (!action.includes('LIQUID_') ||
           replacementTargets.some((id) => {
             const target = definitions[id]

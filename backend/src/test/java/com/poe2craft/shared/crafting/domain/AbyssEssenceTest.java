@@ -74,7 +74,7 @@ class AbyssEssenceTest {
   }
 
   @Test
-  void fullAffixAndSurvivingSharedFamilyBlockRatherThanPruneOutcomesOrRemovalBranches() {
+  void fullAffixSelectsTargetFirstWhileSurvivingSharedFamilyStillBlocks() {
     var full =
         fixture.rare(
             82,
@@ -85,7 +85,7 @@ class AbyssEssenceTest {
             "amulet:suffix:of-the-brute");
     var overlap = fixture.rare(82, "", targets.getFirst(), "amulet:suffix:of-the-brute");
     var locked = fixture.rare(82, targets.getFirst(), targets.getFirst());
-    for (var before : List.of(full, overlap, locked, fixture.root)) {
+    for (var before : List.of(overlap, locked, fixture.root)) {
       var result =
           simulator.apply(
               before,
@@ -100,6 +100,19 @@ class AbyssEssenceTest {
       assertThat(result.applied()).isFalse();
       assertThat(result.state()).isEqualTo(before);
       assertThat(result.events()).isEmpty();
+    }
+    for (int seed = 0; seed < 100; seed++) {
+      var result = simulator.apply(full, action, Set.of(), new Random(seed));
+      assertThat(result.applied()).isTrue();
+      if (fixture.catalog.find(result.events().getLast().modifierId()).orElseThrow().affixType()
+          == ModifierDefinition.AffixType.PREFIX)
+        assertThat(
+                fixture
+                    .catalog
+                    .find(result.events().getFirst().modifierId())
+                    .orElseThrow()
+                    .affixType())
+            .isEqualTo(ModifierDefinition.AffixType.PREFIX);
     }
     assertThat(
             simulator

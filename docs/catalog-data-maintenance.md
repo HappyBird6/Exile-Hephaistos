@@ -115,3 +115,9 @@ node scripts/update-ruleset-manifest.mjs --check
 `frontend`의 test/build 준비 단계도 위 drift 검사를 실행한다. 생성 파일의 값을 직접 수정해 검사를 통과시키지 않는다. Java formatter enum처럼 알고리즘 분기에 필요한 코드는 유지하고 원본 목록과의 계약 검사로 누락을 막는다. 계산식을 범용 JSON 실행기로 바꾸지 않는다.
 
 번역 수집은 `node scripts/collect-i18n-terms.mjs --output-dir /tmp/hephaistos-terms` 또는 `collect-i18n-modifiers.mjs`의 동일 인수로 저장소 밖 검토용 결과를 만든다. 수집 결과를 runtime 번역 파일에 자동 덮어쓰지 않는다. 근거·누락·기존 번역 보존을 검토한 항목만 반영하고 번역 coverage와 seal을 검증한다. `expand-augment-catalog.py` / `prepare-socket-catalog.py`는 현재 카탈로그의 읽기 전용 감사이며 과거 수집 결정으로 재생성하지 않는다. 과거 evidence의 숫자·결정은 수집 당시 근거로 보존한다.
+
+## 증강물 임시 가중치와 에센스 교체
+
+- `catalog/augment-crafting.json`의 `poolWeightPolicy.weightPerTier`가 전용 옵션의 임시 활성 가중치다(현재 사용자 지정 500). `pools`는 출처의 적용 관계를 보존한다. 미장착 정의는 0이며 서버 추첨과 브라우저 표시는 동일 정책을 사용한다. 게임의 공개 확률로 취급하지 않는다. `magnitudeRules`에는 군왕의 합금 저항 증폭도 포함하며 고정 옵션은 공통 계산에서 제외한다.
+- `EssenceReplacementRules`가 일반 상태와 숨겨진 훼손 슬롯의 교체 규칙을 공유한다. 결과 옵션을 균등 선택하고, 그쪽 슬롯이 가득 찼으면 같은 쪽의 비분열·징조 조건을 만족하는 옵션에서 제거한다. 다른 계열 충돌을 임의 재추첨으로 숨기지 않는다. 합금·액체 감정의 별도 선택 규칙은 유지한다.
+- 결과별 제거 후보 수가 다르면 경로 확률도 다르다. 작업대 실행, 프런트 결과 검증, 제작지원의 정확한 분수 확률을 함께 검사한다. 동적 목록의 비활성 증강물 숨김은 표시 단계에서 수행해 정적 목록·서버 인덱스 차이 응답의 기준을 유지한다.

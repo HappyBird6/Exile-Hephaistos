@@ -359,7 +359,10 @@ public final class AutomaticCraftingKernel {
         AutomaticCraftingPlan.Status.READY,
         "",
         p.branches().stream()
-            .map(b -> new AutomaticCraftingPlan.Branch(b.remaining().storedItem(), b.candidates()))
+            .map(
+                b ->
+                    new AutomaticCraftingPlan.Branch(
+                        b.remaining().storedItem(), b.candidates(), b.probabilityDenominator()))
             .toList(),
         p.branches().stream().allMatch(AbyssCraftingPlan.Branch::uniformSelection),
         "");
@@ -760,22 +763,30 @@ public final class AutomaticCraftingKernel {
                 source.sourceUrl(),
                 "Lowest required modifier level after any affix-side restriction. Fractured combinations remain unsupported. Side+Whittling order is a declared composition, not independently established game odds."));
       }
+      boolean targetFirst = plan.branches().stream().anyMatch(b -> b.probabilityDenominator() > 0);
       if (plan.branches().size() > 1)
         assumptions.add(
             new WorkbenchSimulator.Assumption(
-                "uniform-removal-v1",
-                "eligible explicit instance",
+                targetFirst ? "target-first-replacement-v1" : "uniform-removal-v1",
+                targetFirst
+                    ? "outcome and conditional removal branch"
+                    : "eligible explicit instance",
                 plan.branches().size(),
                 List.of(),
                 null,
                 null,
                 plan.sourceUrl(),
-                "Uniform over every eligible removal, after the consumed omen restriction; no published removal weights."));
-      var branchMass = Fraction.of(1, plan.branches().size());
+                "Uniform outcome selection followed by uniform eligible removal for essence replacements; other operations use uniform eligible removal. No published removal weights."));
       iterator =
           flatten(
               plan.branches().iterator(),
               branch -> {
+                var branchMass =
+                    Fraction.of(
+                        1,
+                        branch.probabilityDenominator() > 0
+                            ? branch.probabilityDenominator()
+                            : plan.branches().size());
                 var emittedCells = new HashSet<TierCell>();
                 var posterior =
                     deferred

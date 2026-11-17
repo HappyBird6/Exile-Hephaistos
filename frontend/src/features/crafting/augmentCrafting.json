@@ -4816,6 +4816,18 @@
       "tags": ["critical"],
       "description": "(20—30)% increased Explicit Critical Modifier magnitudes",
       "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
+    },
+    {
+      "stat": "heist_enchantment_resistance_mod_effect_+%",
+      "tags": ["resistance"],
+      "description": "Sovereign Alloy: increased Explicit Resistance Modifier magnitudes; implicit modifiers excluded.",
+      "consumers": ["modifierMagnitudes.ts", "ModifierMagnitudes.java"]
     }
-  ]
+  ],
+  "poolWeightPolicy": {
+    "id": "user-approved-augment-weight-v1",
+    "weightPerTier": 500,
+    "description": "Temporary simulator weight for each activated Augment modifier tier; not a published game probability. Pool mappings retain source activation data.",
+    "consumers": ["AugmentCraftingRules.java", "augmentRules.ts"]
+  }
 }

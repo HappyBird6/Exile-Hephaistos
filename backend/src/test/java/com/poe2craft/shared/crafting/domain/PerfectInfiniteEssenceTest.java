@@ -104,14 +104,7 @@ class PerfectInfiniteEssenceTest {
             fixture.rare(71, "", "amulet:prefix:hale"),
             fixture.rare(82, "amulet:prefix:hale", "amulet:prefix:hale"),
             fixture.rare(82, "", "amulet:prefix:hale", targets.getFirst()),
-            fixture.rare(82, targets.getFirst(), targets.getFirst()),
-            fixture.rare(
-                82,
-                "",
-                "amulet:prefix:hale",
-                "amulet:suffix:of-the-brute",
-                "amulet:suffix:of-the-penguin",
-                "amulet:suffix:of-the-salamander"))) {
+            fixture.rare(82, targets.getFirst(), targets.getFirst()))) {
       var result =
           simulator.apply(
               before,
@@ -209,5 +202,22 @@ class PerfectInfiniteEssenceTest {
         }
       }
     }
+  }
+
+  @Test
+  void fullSuffixAutomaticallyRestrictsRemovalToSuffixes() {
+    var full =
+        fixture.rare(
+            82,
+            "",
+            "amulet:prefix:hale",
+            "amulet:suffix:of-the-brute",
+            "amulet:suffix:of-the-penguin",
+            "amulet:suffix:of-the-salamander");
+    var result = simulator.apply(full, action, Set.of(), new Random(1));
+    assertThat(result.applied()).as(result.reason()).isTrue();
+    assertThat(
+            fixture.catalog.find(result.events().getFirst().modifierId()).orElseThrow().affixType())
+        .isEqualTo(ModifierDefinition.AffixType.SUFFIX);
   }
 }

@@ -111,14 +111,7 @@ class StockyPerfectGloveEssenceTest {
               f.rare(71, "", "stocky-mitts:prefix:sanguine"),
               f.rare(57, "", "stocky-mitts:prefix:sanguine"),
               f.rare(82, target, target),
-              f.rare(82, "", target, "stocky-mitts:prefix:sanguine"),
-              f.rare(
-                  82,
-                  "",
-                  "stocky-mitts:prefix:sanguine",
-                  "stocky-mitts:suffix:of-the-brute",
-                  "stocky-mitts:suffix:of-the-penguin",
-                  "stocky-mitts:suffix:of-the-salamander"))) {
+              f.rare(82, "", target, "stocky-mitts:prefix:sanguine"))) {
         var r = f.simulator.apply(before, action, Set.of(), new Random());
         assertThat(r.applied()).isFalse();
         assertThat(r.state()).isEqualTo(before);
@@ -284,6 +277,24 @@ class StockyPerfectGloveEssenceTest {
     for (var action : actions) {
       assertThat(simulator.apply(root, action, Set.of(), new Random()).applied()).isFalse();
       assertThat(simulator.actions(root, Set.of())).noneMatch(a -> a.action() == action);
+    }
+  }
+
+  @Test
+  void fullSuffixAutomaticallyRestrictsRemovalToSuffixes() {
+    for (var action : actions) {
+      var full =
+          f.rare(
+              82,
+              "",
+              "stocky-mitts:prefix:sanguine",
+              "stocky-mitts:suffix:of-the-brute",
+              "stocky-mitts:suffix:of-the-penguin",
+              "stocky-mitts:suffix:of-the-salamander");
+      var result = f.simulator.apply(full, action, Set.of(), new Random(1));
+      assertThat(result.applied()).as(result.reason()).isTrue();
+      assertThat(f.catalog.find(result.events().getFirst().modifierId()).orElseThrow().affixType())
+          .isEqualTo(ModifierDefinition.AffixType.SUFFIX);
     }
   }
 }

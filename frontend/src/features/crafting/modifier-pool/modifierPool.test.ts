@@ -94,3 +94,45 @@ it('normalizes eligible prefixes and suffixes separately and handles empty pools
     ).toBe(1)
   expect(poolProbability(0, 0)).toBe(0)
 })
+
+it('hides unequipped augment pools without hiding active but blocked tiers or changing membership caches', () => {
+  const definitions = [
+    definition('marksman', { tags: ['augment_pool'], weight: 500 }),
+    definition('blocked-marksman', { tags: ['augment_pool'], weight: 500 }),
+    definition('decay', {
+      tags: ['augment_pool'],
+      weight: 0,
+      familyIds: ['decay'],
+    }),
+  ]
+  const initial = {
+    ...initialFixture,
+    modifiers: Object.fromEntries(definitions.map((d) => [d.id, d])),
+  }
+  const entries: PoolEntry[] = definitions.map((d) => ({
+    modifierId: d.id,
+    kind: 'ordinary',
+    eligible: d.id === 'marksman',
+    reasons: d.id === 'marksman' ? [] : ['STATE_RESTRICTION'],
+    actions: [],
+  }))
+  const reference = structuredClone(entries)
+  const dynamic = modifierPoolSections(initial, { entries })[0]!
+  expect(
+    dynamic.groups.flatMap((g) => g.tiers.map((t) => t.id)).sort(),
+  ).toEqual(['blocked-marksman', 'marksman'])
+  expect(dynamic.totalWeight).toBe(500)
+  expect(entries).toEqual(reference)
+  const all = {
+    ...initial,
+    modifiers: {
+      ...initial.modifiers,
+      decay: { ...initial.modifiers.decay!, weight: 500 },
+    },
+  }
+  expect(
+    modifierPoolSections(all, { entries })[0]!.groups.flatMap((g) =>
+      g.tiers.map((t) => t.id),
+    ),
+  ).toContain('decay')
+})

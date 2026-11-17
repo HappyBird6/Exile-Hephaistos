@@ -125,6 +125,69 @@ describe.each([
       )
     })
 
+    it('accepts full-side conditional removal with an installed augment and rejects opposite-side removal', async () => {
+      const extraDefinitions = Object.fromEntries(
+        ['p2', 'p3', 's2', 's3'].map((id) => [
+          id,
+          {
+            ...definitions[id.startsWith('p') ? 'p' : 's']!,
+            id,
+            familyIds: [id],
+          },
+        ]),
+      )
+      const full: ConcreteItem = {
+        ...before,
+        augmentSockets: 2,
+        installedAugments: [{ slotIndex: 0, augmentId: 'Katlas_Gloom' }],
+        explicits: [
+          ...before.explicits,
+          ...['p2', 'p3', 's2', 's3'].map((id) => ({
+            modifierId: id,
+            values: id.startsWith('p') ? { life: 17 } : { strength: 6 },
+          })),
+        ],
+      }
+      const response: AppliedItem = {
+        ...result,
+        state: {
+          ...full,
+          explicits: [
+            ...full.explicits.filter((m) => m.modifierId !== 's'),
+            { modifierId: target, values: { [stat]: min } },
+          ],
+        },
+        events: [
+          { ...result.events[0]!, selectionProbability: 1 / 3 },
+          result.events[1]!,
+        ],
+        assumptions: [
+          { ...result.assumptions[0]!, n: 3, candidates: ['s', 's2', 's3'] },
+          result.assumptions[1]!,
+        ],
+      }
+      const execute = () =>
+        applyCurrency(
+          full,
+          action,
+          { ...definitions, ...extraDefinitions },
+          new AbortController().signal,
+          [],
+          'fixture-ruleset',
+        )
+      vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(response)))
+      expect((await execute()).state.explicits).toHaveLength(6)
+      const wrong = {
+        ...response,
+        events: [
+          { ...response.events[0]!, modifierId: 'p2' },
+          response.events[1]!,
+        ],
+      }
+      vi.stubGlobal('fetch', () => Promise.resolve(jsonResponse(wrong)))
+      await expect(execute()).rejects.toThrow()
+    })
+
     it('rejects missing/altered/duplicated numeric evidence, unsupported numeric bounds and lost unverified label', async () => {
       const model = result.assumptions[1]!
       for (const assumptions of [

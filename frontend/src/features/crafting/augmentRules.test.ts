@@ -91,7 +91,7 @@ it('binds Serle and grants one extra suffix, while Grit enables quality up to 40
     ),
   ).toBe('maximum')
 })
-it('activates source weights through equipped Runes and retains static weights', () => {
+it('activates declared simulator weights through equipped Runes and retains static weights', () => {
   const state = item('Boots', ['Uhtreds_Sidereus'])
   const definitions = Object.fromEntries(
     rules.modifiers.map((d) => [d.id, d as Definition]),
@@ -107,7 +107,7 @@ it('activates source weights through equipped Runes and retains static weights',
     true,
   )
   const applicable = Object.keys(active).filter(
-    (id) => active[id]!.weight === 1,
+    (id) => active[id]!.weight === 500,
   )
   expect(applicable.length).toBeGreaterThan(0)
   expect(
@@ -115,7 +115,7 @@ it('activates source weights through equipped Runes and retains static weights',
   ).toBe(true)
   expect(
     applicable.every(
-      (id) => inactive[id]!.weight === 0 && all[id]!.weight === 1,
+      (id) => inactive[id]!.weight === 0 && all[id]!.weight === 500,
     ),
   ).toBe(true)
 })

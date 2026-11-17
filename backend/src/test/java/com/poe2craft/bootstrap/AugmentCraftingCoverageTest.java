@@ -49,7 +49,7 @@ class AugmentCraftingCoverageTest {
   }
 
   @Test
-  void sixSourcePoolsActivateOnlyWhileEquippedAndUsePublishedWeights() {
+  void sixSourcePoolsActivateOnlyWhileEquippedAndUseDeclaredSimulatorWeights() {
     var service = service();
     var ids =
         List.of(
@@ -71,7 +71,7 @@ class AugmentCraftingCoverageTest {
         assertThat(sourced)
             .as(catalog.base().name() + ":" + id)
             .isNotEmpty()
-            .allSatisfy(d -> assertThat(d.weight()).isEqualTo(1));
+            .allSatisfy(d -> assertThat(d.weight()).isEqualTo(500));
         assertThat(service.simulator(original).pool(original, WorkbenchCurrency.EXALTED, null))
             .noneMatch(d -> d.tags().contains("augment_pool"));
         assertThat(pool)

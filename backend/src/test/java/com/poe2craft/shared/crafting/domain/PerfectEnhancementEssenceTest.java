@@ -90,7 +90,7 @@ class PerfectEnhancementEssenceTest {
   }
 
   @Test
-  void blocksWrongRarityLevelLockedOverlapAndIncompletePrefixBranchesWithoutDrawing() {
+  void blocksWrongRarityLevelLockedOverlapWithoutDrawing() {
     var full =
         fixture.rare(
             82,
@@ -115,8 +115,7 @@ class PerfectEnhancementEssenceTest {
             fixture.rare(82, ""),
             fixture.rare(71, "", "amulet:suffix:of-the-brute"),
             fixture.rare(82, target, target),
-            fixture.rare(82, "", target, "amulet:suffix:of-the-brute"),
-            full)) {
+            fixture.rare(82, "", target, "amulet:suffix:of-the-brute"))) {
       var result =
           simulator.apply(
               before,
@@ -134,6 +133,15 @@ class PerfectEnhancementEssenceTest {
       assertThat(result.assumptions()).isEmpty();
       assertThat(result.consumedOmens()).isEmpty();
     }
+    var automaticSide = simulator.apply(full, action, Set.of(), new Random(1));
+    assertThat(automaticSide.applied()).isTrue();
+    assertThat(
+            fixture
+                .catalog
+                .find(automaticSide.events().getFirst().modifierId())
+                .orElseThrow()
+                .affixType())
+        .isEqualTo(ModifierDefinition.AffixType.PREFIX);
     assertThat(
             simulator
                 .apply(

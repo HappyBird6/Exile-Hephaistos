@@ -20,6 +20,9 @@ public final class AugmentCraftingRules {
       String marker,
       String pool) {}
 
+  public record PoolWeightPolicy(
+      String id, int weightPerTier, String description, List<String> consumers) {}
+
   public record Document(
       int schemaVersion,
       Set<String> socketBound,
@@ -27,7 +30,8 @@ public final class AugmentCraftingRules {
       List<ModifierDefinition> modifiers,
       Map<String, Map<String, Map<String, Integer>>> pools,
       Map<String, Effect> effects,
-      List<ModifierMagnitudes.Rule> magnitudeRules) {}
+      List<ModifierMagnitudes.Rule> magnitudeRules,
+      PoolWeightPolicy poolWeightPolicy) {}
 
   private static final Effect NONE = new Effect(0, 0, 0, 0, false, null, null);
   private static final Document DATA = load();
@@ -35,7 +39,9 @@ public final class AugmentCraftingRules {
   private static Document load() {
     try (var input = SealedResources.open("/catalog/augment-crafting.json")) {
       var result = new ObjectMapper().readValue(input, Document.class);
-      if (result.schemaVersion() != 1
+      if (result.poolWeightPolicy() == null
+          || result.poolWeightPolicy().weightPerTier() <= 0
+          || result.schemaVersion() != 1
           || result.modifiers().stream()
               .anyMatch(d -> d.weight() != 0 || !d.tags().contains("augment_pool")))
         throw new IllegalArgumentException("Invalid Augment crafting registry");
@@ -43,6 +49,10 @@ public final class AugmentCraftingRules {
     } catch (java.io.IOException e) {
       throw new ExceptionInInitializerError(e);
     }
+  }
+
+  public static PoolWeightPolicy poolWeightPolicy() {
+    return DATA.poolWeightPolicy();
   }
 
   public static List<ModifierMagnitudes.Rule> magnitudeRules() {
@@ -98,7 +108,7 @@ public final class AugmentCraftingRules {
 
   /**
    * Permanent source definitions are installed with zero weight; equipment activates their source
-   * spawn weights.
+   * temporary simulator weights.
    */
   public static ItemCatalog enrich(ItemCatalog catalog) {
     var ids = new HashSet<String>();
@@ -121,7 +131,11 @@ public final class AugmentCraftingRules {
     if (catalog.augmentContextApplied() || !affectsSampling(state)) return catalog;
     var selected = new HashMap<String, Integer>();
     var pools = DATA.pools().getOrDefault(catalog.base().id(), Map.of());
-    for (var pool : pools(state)) selected.putAll(pools.getOrDefault(pool, Map.of()));
+    for (var pool : pools(state))
+      pools
+          .getOrDefault(pool, Map.of())
+          .keySet()
+          .forEach(id -> selected.put(id, poolWeightPolicy().weightPerTier()));
     var definitions =
         catalog.modifiers().values().stream()
             .map(

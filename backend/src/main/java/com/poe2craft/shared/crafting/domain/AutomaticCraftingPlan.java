@@ -17,7 +17,12 @@ public record AutomaticCraftingPlan(
     UNSUPPORTED
   }
 
-  public record Branch(ItemState remaining, List<ModifierDefinition> candidates) {
+  public record Branch(
+      ItemState remaining, List<ModifierDefinition> candidates, long probabilityDenominator) {
+    public Branch(ItemState remaining, List<ModifierDefinition> candidates) {
+      this(remaining, candidates, 0);
+    }
+
     public Branch {
       candidates = List.copyOf(candidates);
     }

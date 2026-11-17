@@ -23,7 +23,7 @@ import java.util.random.RandomGenerator;
 
 /** Samples concrete elementary events; unchanged instances retain their actual values. */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v22";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v23";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v14";
   private final ItemCatalog catalog;
   private final Map<String, WorkbenchSimulator> socketSamplers =
@@ -235,7 +235,8 @@ public final class WorkbenchSimulator {
         + "-"
         + QualityCurrencyRules.VERSION
         + "-"
-        + QualityInfuserRules.VERSION;
+        + QualityInfuserRules.VERSION
+        + "-essence-full-side-v1-augment-weight-v1-resistance-magnitude-v1";
   }
 
   private String baseRuleVersion() {
@@ -504,6 +505,12 @@ public final class WorkbenchSimulator {
           replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
       if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
         return blocked(action, "Essence below the catalog modifier item level is unsupported.");
+      if (targetFirstEssence(action)) {
+        var plan = essenceReplacementPlan(AbyssCraftingState.from(state, catalog), action, omen);
+        return plan.available()
+            ? new Availability(action, true, "")
+            : blocked(action, plan.reason());
+      }
       var candidates = replacementRemovalCandidates(state, action, omen);
       if (candidates.isEmpty()) return blocked(action, "No non-Fractured explicit can be removed.");
       for (var removed : candidates) {
@@ -676,6 +683,19 @@ public final class WorkbenchSimulator {
             .noneMatch(d -> !Collections.disjoint(d.familyIds(), target.familyIds()));
   }
 
+  private boolean targetFirstEssence(WorkbenchCurrency action) {
+    return !action.isAlloy() && !action.isLiquid() && !replacementTargets(action).isEmpty();
+  }
+
+  private EssenceReplacementRules.Plan essenceReplacementPlan(
+      AbyssCraftingState state, WorkbenchCurrency action, WorkbenchOmen omen) {
+    var targets =
+        replacementTargets(action).stream().map(id -> catalog.find(id).orElse(null)).toList();
+    if (targets.stream().anyMatch(Objects::isNull))
+      return new EssenceReplacementRules.Plan(List.of(), "UNREVIEWED_REPLACEMENT");
+    return EssenceReplacementRules.plan(state, catalog, targets, omen);
+  }
+
   private List<ModifierInstance> replacementRemovalCandidates(
       ItemState state, WorkbenchCurrency action, WorkbenchOmen omen) {
     var candidates = removalCandidates(state, omen);
@@ -808,6 +828,23 @@ public final class WorkbenchSimulator {
         || action == WorkbenchCurrency.ESSENCE_ABYSS
         || action.isLiquid()) return AbyssCraftingPlan.blocked("ABYSS_OPERATION_UNSUPPORTED");
     var branches = new ArrayList<AbyssCraftingPlan.Branch>();
+    if (replacement && targetFirstEssence(action)) {
+      var plan = essenceReplacementPlan(state, action, omen);
+      if (!plan.available()) return AbyssCraftingPlan.blocked(plan.reason());
+      for (var outcome : plan.outcomes())
+        for (var removed : outcome.removals()) {
+          long denominator = (long) plan.outcomes().size() * outcome.removals().size();
+          branches.add(
+              new AbyssCraftingPlan.Branch(
+                  removed.id(),
+                  1.0 / denominator,
+                  state.remove(removed.id(), null, catalog),
+                  List.of(outcome.target()),
+                  true,
+                  denominator));
+        }
+      return new AbyssCraftingPlan(true, "", branches);
+    }
     if (addition) {
       var candidates = new AbyssProbabilityComparison(catalog).pool(state, action, omen);
       if (candidates.isEmpty()) return AbyssCraftingPlan.blocked("NO_ELIGIBLE_ADDITION");
@@ -865,7 +902,19 @@ public final class WorkbenchSimulator {
       String forcedModifierId) {
     var plan = abyssPlan(state, action, omens);
     if (!plan.available()) throw new IllegalArgumentException("Abyss currency unavailable");
-    var branch = plan.branches().get(random.nextInt(plan.branches().size()));
+    var branch = plan.branches().getLast();
+    if (plan.branches().stream().allMatch(b -> b.probabilityDenominator() == 0)) {
+      branch = plan.branches().get(random.nextInt(plan.branches().size()));
+    } else {
+      double drawBranch = random.nextDouble();
+      for (var candidate : plan.branches()) {
+        drawBranch -= candidate.removalProbability();
+        if (drawBranch < 0) {
+          branch = candidate;
+          break;
+        }
+      }
+    }
     if (branch.candidates().isEmpty()) return branch.remaining();
     ModifierDefinition chosen;
     if (branch.uniformSelection()) {
@@ -975,6 +1024,16 @@ public final class WorkbenchSimulator {
         var remaining = copy(state, state.rarity(), state.implicits(), rest);
         branches.add(new AutomaticCraftingPlan.Branch(remaining, pool(remaining, action, null)));
       }
+    } else if (replacement && targetFirstEssence(action)) {
+      var slots = AbyssCraftingState.from(state, catalog);
+      var plan = essenceReplacementPlan(slots, action, omen);
+      for (var outcome : plan.outcomes())
+        for (var removed : outcome.removals())
+          branches.add(
+              new AutomaticCraftingPlan.Branch(
+                  slots.remove(removed.id(), null, catalog).knownItem(),
+                  List.of(outcome.target()),
+                  (long) plan.outcomes().size() * outcome.removals().size()));
     } else if (replacement) {
       var targets =
           replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
@@ -1364,7 +1423,23 @@ public final class WorkbenchSimulator {
             ? ItemState.Rarity.RARE
             : upgrade(state, action);
     if (!replacementTargets(action).isEmpty()) {
-      var candidates = replacementRemovalCandidates(state, action, omen);
+      var targetPlan =
+          targetFirstEssence(action)
+              ? essenceReplacementPlan(AbyssCraftingState.from(state, catalog), action, omen)
+              : null;
+      var outcome =
+          targetPlan == null
+              ? null
+              : targetPlan
+                  .outcomes()
+                  .get(
+                      targetPlan.outcomes().size() == 1
+                          ? 0
+                          : random.nextInt(targetPlan.outcomes().size()));
+      var candidates =
+          outcome == null
+              ? replacementRemovalCandidates(state, action, omen)
+              : outcome.removals().stream().map(AbyssCraftingState.Slot::modifier).toList();
       var removed = candidates.get(random.nextInt(candidates.size()));
       explicits.remove(removed);
       events.add(new Event("REMOVE", removed.modifierId(), Map.of(), 1.0 / candidates.size()));
@@ -1379,7 +1454,7 @@ public final class WorkbenchSimulator {
               omen == null ? action.replacementSource() : "https://poe2db.tw/us/" + omen.id(),
               action.isLiquid()
                   ? "USER-APPROVED SIMULATOR MODEL: uniform among removals that leave a legal Crafted side and family. Failed branches are excluded before sampling; actual game retry/failure and removal weights are unknown. Crafted capacity follows the equipped Augments."
-                  : "Uniform among non-Fractured explicit instances; every removal branch must accept every sourced modifier outcome. No published removal weights."));
+                  : "Uniform among non-Fractured eligible instances conditional on the selected outcome. A full target side requires removal from that side. No published removal weights."));
       var afterRemoval = copy(state, state.rarity(), state.implicits(), explicits);
       var targets =
           replacementTargets(action).stream()
@@ -1389,9 +1464,11 @@ public final class WorkbenchSimulator {
                           || canAddFixed(afterRemoval, catalog.find(id).orElseThrow()))
               .toList();
       var definition =
-          catalog
-              .find(targets.get(targets.size() == 1 ? 0 : random.nextInt(targets.size())))
-              .orElseThrow();
+          outcome != null
+              ? outcome.target()
+              : catalog
+                  .find(targets.get(targets.size() == 1 ? 0 : random.nextInt(targets.size())))
+                  .orElseThrow();
       if (targets.size() > 1 || action.isLiquid())
         assumptions.add(
             new Assumption(
@@ -1653,6 +1730,21 @@ public final class WorkbenchSimulator {
 
   private void recordSelectionAssumptions(
       List<ModifierDefinition> candidates, List<Assumption> assumptions) {
+    var temporary = candidates.stream().filter(d -> d.tags().contains("augment_pool")).toList();
+    if (!temporary.isEmpty()) {
+      var policy = AugmentCraftingRules.poolWeightPolicy();
+      assumptions.add(
+          new Assumption(
+              policy.id(),
+              "eligible Augment modifier tier",
+              temporary.size(),
+              temporary.stream().map(ModifierDefinition::id).toList(),
+              (long) policy.weightPerTier(),
+              (long) policy.weightPerTier(),
+              catalog.metadata().sourceUrl(),
+              policy.description()));
+      return;
+    }
     if (catalog.metadata().weightPolicy().equals("POE2DB_AS_PUBLISHED")) {
       if (ReviewedBoots.supports(catalog.base().id())
           || ReviewedBodies.supports(catalog.base().id())
