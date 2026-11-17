@@ -1,0 +1,54 @@
+{
+  "plain": {
+    "state": {
+      "baseItemId": "Metadata/Items/Armours/Gloves/FourGlovesStr1",
+      "explicits": [
+        {
+          "modifierId": "stocky-mitts:prefix:sanguine",
+          "values": {
+            "base_maximum_life": 20
+          },
+          "crafted": true
+        }
+      ],
+      "sanctification": {
+        "policy": "fixture",
+        "implicits": {},
+        "explicits": {
+          "stocky-mitts:prefix:sanguine": {
+            "base_maximum_life": 100
+          }
+        }
+      }
+    },
+    "action": "LESSER_ESSENCE_BODY",
+    "text": "Metadata/Items/Armours/Gloves/FourGlovesStr1",
+    "unknown": "stocky-mitts:prefix:sanguine"
+  },
+  "compact": {
+    "state": {
+      "baseItemId": "b006m",
+      "explicits": [
+        {
+          "modifierId": "m025f",
+          "values": {
+            "s0028": 20
+          },
+          "crafted": true
+        }
+      ],
+      "sanctification": {
+        "policy": "fixture",
+        "implicits": {},
+        "explicits": {
+          "m025f": {
+            "s0028": 100
+          }
+        }
+      }
+    },
+    "action": "c002p",
+    "text": "Metadata/Items/Armours/Gloves/FourGlovesStr1",
+    "unknown": "stocky-mitts:prefix:sanguine"
+  }
+}

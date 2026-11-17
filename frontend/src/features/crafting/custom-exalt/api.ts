@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../../shared/gameIdTransport'
 import { poolHeaders, acceptPoolUpdate } from '../modifier-pool/poolSnapshots'
 import { currencyOmens } from '../crafting-state/activeOmens'
 import type { Initial } from '../craftingApi'

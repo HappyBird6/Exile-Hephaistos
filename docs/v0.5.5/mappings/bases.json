@@ -897,6 +897,901 @@
       "id": "b004z",
       "sourceKey": "wyrmscale-coat",
       "retired": false
+    },
+    {
+      "id": "b0050",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet1",
+      "retired": false
+    },
+    {
+      "id": "b0051",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet10",
+      "retired": false
+    },
+    {
+      "id": "b0052",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet11",
+      "retired": false
+    },
+    {
+      "id": "b0053",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet2",
+      "retired": false
+    },
+    {
+      "id": "b0054",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet3",
+      "retired": false
+    },
+    {
+      "id": "b0055",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet4",
+      "retired": false
+    },
+    {
+      "id": "b0056",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet5",
+      "retired": false
+    },
+    {
+      "id": "b0057",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet6",
+      "retired": false
+    },
+    {
+      "id": "b0058",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet7",
+      "retired": false
+    },
+    {
+      "id": "b0059",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet8",
+      "retired": false
+    },
+    {
+      "id": "b005a",
+      "sourceKey": "Metadata/Items/Amulets/FourAmulet9",
+      "retired": false
+    },
+    {
+      "id": "b005b",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletB1a",
+      "retired": false
+    },
+    {
+      "id": "b005c",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletB1b",
+      "retired": false
+    },
+    {
+      "id": "b005d",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletB1c",
+      "retired": false
+    },
+    {
+      "id": "b005e",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletB2",
+      "retired": false
+    },
+    {
+      "id": "b005f",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletDelirium1",
+      "retired": false
+    },
+    {
+      "id": "b005g",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletDelirium2",
+      "retired": false
+    },
+    {
+      "id": "b005h",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletLake1",
+      "retired": false
+    },
+    {
+      "id": "b005i",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletLake2",
+      "retired": false
+    },
+    {
+      "id": "b005j",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletLake3",
+      "retired": false
+    },
+    {
+      "id": "b005k",
+      "sourceKey": "Metadata/Items/Amulets/FourAmuletLake4",
+      "retired": false
+    },
+    {
+      "id": "b005l",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005m",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex14",
+      "retired": false
+    },
+    {
+      "id": "b005n",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005o",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyDex8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005p",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt2Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005q",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt4Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005r",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005s",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyDexInt8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005t",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005u",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt3Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005v",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005w",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyInt8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005x",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr1",
+      "retired": false
+    },
+    {
+      "id": "b005y",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b005z",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr15",
+      "retired": false
+    },
+    {
+      "id": "b0060",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame",
+      "retired": false
+    },
+    {
+      "id": "b0061",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b0062",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex2Endgame",
+      "retired": false
+    },
+    {
+      "id": "b0063",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4aEndgame",
+      "retired": false
+    },
+    {
+      "id": "b0064",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4bEndgame",
+      "retired": false
+    },
+    {
+      "id": "b0065",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex4cEndgame",
+      "retired": false
+    },
+    {
+      "id": "b0066",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b0067",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrDex8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b0068",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt2Endgame",
+      "retired": false
+    },
+    {
+      "id": "b0069",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt4Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006a",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006b",
+      "sourceKey": "Metadata/Items/Armours/BodyArmours/FourBodyStrInt8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006c",
+      "sourceKey": "Metadata/Items/Armours/Boots/FourBootsDex6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006d",
+      "sourceKey": "Metadata/Items/Armours/Boots/FourBootsDexInt4Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006e",
+      "sourceKey": "Metadata/Items/Armours/Boots/FourBootsInt6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006f",
+      "sourceKey": "Metadata/Items/Armours/Boots/FourBootsStr6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006g",
+      "sourceKey": "Metadata/Items/Armours/Boots/FourBootsStrDex4Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006h",
+      "sourceKey": "Metadata/Items/Armours/Boots/FourBootsStrInt1Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006i",
+      "sourceKey": "Metadata/Items/Armours/Focii/FourFocus10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006j",
+      "sourceKey": "Metadata/Items/Armours/Gloves/FourGlovesDex6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006k",
+      "sourceKey": "Metadata/Items/Armours/Gloves/FourGlovesDexInt1Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006l",
+      "sourceKey": "Metadata/Items/Armours/Gloves/FourGlovesInt6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006m",
+      "sourceKey": "Metadata/Items/Armours/Gloves/FourGlovesStr1",
+      "retired": false
+    },
+    {
+      "id": "b006n",
+      "sourceKey": "Metadata/Items/Armours/Gloves/FourGlovesStr6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006o",
+      "sourceKey": "Metadata/Items/Armours/Gloves/FourGlovesStrDex4Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006p",
+      "sourceKey": "Metadata/Items/Armours/Gloves/FourGlovesStrInt4Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006q",
+      "sourceKey": "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006r",
+      "sourceKey": "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006s",
+      "sourceKey": "Metadata/Items/Armours/Helmets/FourHelmetInt8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006t",
+      "sourceKey": "Metadata/Items/Armours/Helmets/FourHelmetStr1",
+      "retired": false
+    },
+    {
+      "id": "b006u",
+      "sourceKey": "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006v",
+      "sourceKey": "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006w",
+      "sourceKey": "Metadata/Items/Armours/Helmets/FourHelmetStrInt6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006x",
+      "sourceKey": "Metadata/Items/Armours/Shields/FourShieldDex9Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006y",
+      "sourceKey": "Metadata/Items/Armours/Shields/FourShieldStr10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b006z",
+      "sourceKey": "Metadata/Items/Armours/Shields/FourShieldStrDex10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b0070",
+      "sourceKey": "Metadata/Items/Armours/Shields/FourShieldStrInt7Endgame",
+      "retired": false
+    },
+    {
+      "id": "b0071",
+      "sourceKey": "Metadata/Items/Belts/FourBelt1",
+      "retired": false
+    },
+    {
+      "id": "b0072",
+      "sourceKey": "Metadata/Items/Belts/FourBelt10",
+      "retired": false
+    },
+    {
+      "id": "b0073",
+      "sourceKey": "Metadata/Items/Belts/FourBelt11",
+      "retired": false
+    },
+    {
+      "id": "b0074",
+      "sourceKey": "Metadata/Items/Belts/FourBelt2",
+      "retired": false
+    },
+    {
+      "id": "b0075",
+      "sourceKey": "Metadata/Items/Belts/FourBelt3",
+      "retired": false
+    },
+    {
+      "id": "b0076",
+      "sourceKey": "Metadata/Items/Belts/FourBelt4",
+      "retired": false
+    },
+    {
+      "id": "b0077",
+      "sourceKey": "Metadata/Items/Belts/FourBelt5",
+      "retired": false
+    },
+    {
+      "id": "b0078",
+      "sourceKey": "Metadata/Items/Belts/FourBelt6",
+      "retired": false
+    },
+    {
+      "id": "b0079",
+      "sourceKey": "Metadata/Items/Belts/FourBelt7",
+      "retired": false
+    },
+    {
+      "id": "b007a",
+      "sourceKey": "Metadata/Items/Belts/FourBelt8",
+      "retired": false
+    },
+    {
+      "id": "b007b",
+      "sourceKey": "Metadata/Items/Belts/FourBelt9",
+      "retired": false
+    },
+    {
+      "id": "b007c",
+      "sourceKey": "Metadata/Items/Belts/FourBeltB2",
+      "retired": false
+    },
+    {
+      "id": "b007d",
+      "sourceKey": "Metadata/Items/Belts/FourBeltB3",
+      "retired": false
+    },
+    {
+      "id": "b007e",
+      "sourceKey": "Metadata/Items/Belts/FourBeltB4",
+      "retired": false
+    },
+    {
+      "id": "b007f",
+      "sourceKey": "Metadata/Items/Jewels/JewelDex",
+      "retired": false
+    },
+    {
+      "id": "b007g",
+      "sourceKey": "Metadata/Items/Jewels/JewelDiamond",
+      "retired": false
+    },
+    {
+      "id": "b007h",
+      "sourceKey": "Metadata/Items/Jewels/JewelInt",
+      "retired": false
+    },
+    {
+      "id": "b007i",
+      "sourceKey": "Metadata/Items/Jewels/JewelRadiusDex",
+      "retired": false
+    },
+    {
+      "id": "b007j",
+      "sourceKey": "Metadata/Items/Jewels/JewelRadiusDiamond",
+      "retired": false
+    },
+    {
+      "id": "b007k",
+      "sourceKey": "Metadata/Items/Jewels/JewelRadiusInt",
+      "retired": false
+    },
+    {
+      "id": "b007l",
+      "sourceKey": "Metadata/Items/Jewels/JewelRadiusStr",
+      "retired": false
+    },
+    {
+      "id": "b007m",
+      "sourceKey": "Metadata/Items/Jewels/JewelStr",
+      "retired": false
+    },
+    {
+      "id": "b007n",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver1",
+      "retired": false
+    },
+    {
+      "id": "b007o",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver10",
+      "retired": false
+    },
+    {
+      "id": "b007p",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver11",
+      "retired": false
+    },
+    {
+      "id": "b007q",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver2",
+      "retired": false
+    },
+    {
+      "id": "b007r",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver3",
+      "retired": false
+    },
+    {
+      "id": "b007s",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver4",
+      "retired": false
+    },
+    {
+      "id": "b007t",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver5",
+      "retired": false
+    },
+    {
+      "id": "b007u",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver6",
+      "retired": false
+    },
+    {
+      "id": "b007v",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver7",
+      "retired": false
+    },
+    {
+      "id": "b007w",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver8",
+      "retired": false
+    },
+    {
+      "id": "b007x",
+      "sourceKey": "Metadata/Items/Quivers/FourQuiver9",
+      "retired": false
+    },
+    {
+      "id": "b007y",
+      "sourceKey": "Metadata/Items/Rings/FourRing1",
+      "retired": false
+    },
+    {
+      "id": "b007z",
+      "sourceKey": "Metadata/Items/Rings/FourRing10",
+      "retired": false
+    },
+    {
+      "id": "b0080",
+      "sourceKey": "Metadata/Items/Rings/FourRing11",
+      "retired": false
+    },
+    {
+      "id": "b0081",
+      "sourceKey": "Metadata/Items/Rings/FourRing13a",
+      "retired": false
+    },
+    {
+      "id": "b0082",
+      "sourceKey": "Metadata/Items/Rings/FourRing2",
+      "retired": false
+    },
+    {
+      "id": "b0083",
+      "sourceKey": "Metadata/Items/Rings/FourRing3",
+      "retired": false
+    },
+    {
+      "id": "b0084",
+      "sourceKey": "Metadata/Items/Rings/FourRing4",
+      "retired": false
+    },
+    {
+      "id": "b0085",
+      "sourceKey": "Metadata/Items/Rings/FourRing5",
+      "retired": false
+    },
+    {
+      "id": "b0086",
+      "sourceKey": "Metadata/Items/Rings/FourRing6",
+      "retired": false
+    },
+    {
+      "id": "b0087",
+      "sourceKey": "Metadata/Items/Rings/FourRing7",
+      "retired": false
+    },
+    {
+      "id": "b0088",
+      "sourceKey": "Metadata/Items/Rings/FourRing8",
+      "retired": false
+    },
+    {
+      "id": "b0089",
+      "sourceKey": "Metadata/Items/Rings/FourRing9",
+      "retired": false
+    },
+    {
+      "id": "b008a",
+      "sourceKey": "Metadata/Items/Rings/FourRingB1",
+      "retired": false
+    },
+    {
+      "id": "b008b",
+      "sourceKey": "Metadata/Items/Rings/FourRingB2",
+      "retired": false
+    },
+    {
+      "id": "b008c",
+      "sourceKey": "Metadata/Items/Rings/FourRingB3",
+      "retired": false
+    },
+    {
+      "id": "b008d",
+      "sourceKey": "Metadata/Items/Rings/FourRingB4",
+      "retired": false
+    },
+    {
+      "id": "b008e",
+      "sourceKey": "Metadata/Items/Rings/FourRingB5",
+      "retired": false
+    },
+    {
+      "id": "b008f",
+      "sourceKey": "Metadata/Items/Rings/FourRingLake1",
+      "retired": false
+    },
+    {
+      "id": "b008g",
+      "sourceKey": "Metadata/Items/Rings/FourRingLake2",
+      "retired": false
+    },
+    {
+      "id": "b008h",
+      "sourceKey": "Metadata/Items/Rings/FourRingLake3",
+      "retired": false
+    },
+    {
+      "id": "b008i",
+      "sourceKey": "Metadata/Items/Rings/FourRingLake4",
+      "retired": false
+    },
+    {
+      "id": "b008j",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b008k",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace5Endgame",
+      "retired": false
+    },
+    {
+      "id": "b008l",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/FourOneHandMace8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b008m",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b008n",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear5Endgame",
+      "retired": false
+    },
+    {
+      "id": "b008o",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/OneHandSpears/FourSpear8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b008p",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1",
+      "retired": false
+    },
+    {
+      "id": "b008q",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10",
+      "retired": false
+    },
+    {
+      "id": "b008r",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13",
+      "retired": false
+    },
+    {
+      "id": "b008s",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2",
+      "retired": false
+    },
+    {
+      "id": "b008t",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4",
+      "retired": false
+    },
+    {
+      "id": "b008u",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a",
+      "retired": false
+    },
+    {
+      "id": "b008v",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b",
+      "retired": false
+    },
+    {
+      "id": "b008w",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c",
+      "retired": false
+    },
+    {
+      "id": "b008x",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8",
+      "retired": false
+    },
+    {
+      "id": "b008y",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11",
+      "retired": false
+    },
+    {
+      "id": "b008z",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12",
+      "retired": false
+    },
+    {
+      "id": "b0090",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13",
+      "retired": false
+    },
+    {
+      "id": "b0091",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2",
+      "retired": false
+    },
+    {
+      "id": "b0092",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3",
+      "retired": false
+    },
+    {
+      "id": "b0093",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4",
+      "retired": false
+    },
+    {
+      "id": "b0094",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5",
+      "retired": false
+    },
+    {
+      "id": "b0095",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6",
+      "retired": false
+    },
+    {
+      "id": "b0096",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7",
+      "retired": false
+    },
+    {
+      "id": "b0097",
+      "sourceKey": "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8",
+      "retired": false
+    },
+    {
+      "id": "b0098",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1",
+      "retired": false
+    },
+    {
+      "id": "b0099",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow3Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009a",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow6Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009b",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow7Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009c",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009d",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow9Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009e",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009f",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow2Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009g",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow4Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009h",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow5Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009i",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow7Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009j",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Crossbows/FourCrossbow8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009k",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009l",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff4Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009m",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009n",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff12",
+      "retired": false
+    },
+    {
+      "id": "b009o",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13",
+      "retired": false
+    },
+    {
+      "id": "b009p",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff14",
+      "retired": false
+    },
+    {
+      "id": "b009q",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique1",
+      "retired": false
+    },
+    {
+      "id": "b009r",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique3",
+      "retired": false
+    },
+    {
+      "id": "b009s",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaffUnique4",
+      "retired": false
+    },
+    {
+      "id": "b009t",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009u",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman5Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009v",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/Talismans/Talisman7Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009w",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace10Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009x",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace5Endgame",
+      "retired": false
+    },
+    {
+      "id": "b009y",
+      "sourceKey": "Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/FourTwoHandMace8Endgame",
+      "retired": false
     }
   ]
 }

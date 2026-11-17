@@ -8,6 +8,7 @@ import com.poe2craft.configuration.BackendSettings;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.ruleset.api.RulesetBoundary;
+import com.poe2craft.workbench.application.WorkbenchStateReader;
 import com.poe2craft.workbench.repeat.ChaosDisplayResources;
 import com.poe2craft.workbench.repeat.ChaosRepeatProtocol.*;
 import com.poe2craft.workbench.repeat.ChaosRepeatService;
@@ -26,7 +27,50 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * A separate batch transport; existing single-apply validation and response advice stay unchanged.
+ * 원문 바이트에 묶인 중복 실행 방지 계약으로 카오스 반복 요청을 처리한다.
+ *
+ * <p>기존 계약: A separate batch transport; existing single-apply validation and response advice stay
+ * unchanged.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code MAX_BODY_BYTES}: 바이트수 ({@code int}).
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code states}: 상태목록 ({@code WorkbenchStateReader}).
+ *   <li>{@code service}: 요청 처리를 위임하는 서비스 ({@code ChaosRepeatService}).
+ *   <li>{@code requests}: 요청목록 ({@code com.poe2craft.workbench.repeat.RepeatRequestStore}).
+ *   <li>{@code random}: 호출 순서대로 소비하는 난수 공급자 ({@code SecureRandom}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code ChaosRepeatController(workbench, mapper)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       workbench}(작업대), {@code mapper}(변환기).
+ *   <li>{@code ChaosRepeatController(workbench, mapper, settings, requests)}: 기본 정책을 보충해 공통 생성자로
+ *       위임한다. 입력: {@code workbench}(작업대), {@code mapper}(변환기), {@code settings}(운영설정), {@code
+ *       requests}(요청목록).
+ *   <li>{@code ChaosRepeatController(workbench, mapper, supplied)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       workbench}(작업대), {@code mapper}(변환기), {@code supplied}(supplied).
+ *   <li>{@code repeat(request)}: 반복 처리에서 {@code request.getInputStream}, {@code
+ *       UTF_8.newDecoder}을(를) 사용한다. 입력: {@code request}(요청). 반환: {@code ResponseEntity<?>}. 사용하는
+ *       예외: {@code RepeatRejected}.
+ *   <li>{@code cancel(id)}: 작업 취소를 반영하고 이후 실행을 막는다. 입력: {@code id}(식별자). 반환: {@code
+ *       ResponseEntity<Void>}.
+ *   <li>{@code input(body, digest)}: 입력 처리에서 {@code body.get}, {@code requestId.length}을(를) 사용한다.
+ *       입력: {@code body}(본문), {@code digest}(다이제스트). 반환: {@code Input}.
+ *   <li>{@code fields(node, allowed)}: 필드목록 처리에서 {@code node.isObject}, {@code
+ *       RepeatRejected.input}을(를) 사용한다. 입력: {@code node}(노드), {@code allowed}(허용된).
+ *   <li>{@code text(node)}: 텍스트 처리에서 {@code node.isTextual}, {@code RepeatRejected.input}을(를) 사용한다.
+ *       입력: {@code node}(노드). 반환: {@code String}.
+ *   <li>{@code sha256(bytes)}: SHA·256 처리에서 {@code HexFormat.of}, {@code
+ *       MessageDigest.getInstance}을(를) 사용한다. 입력: {@code bytes}(바이트수). 반환: {@code String}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ *   <li>{@code problem(status, code, detail)}: 오류상세 처리에서 {@code ProblemDetail.forStatusAndDetail},
+ *       {@code HttpStatusCode.valueOf}을(를) 사용한다. 입력: {@code status}(상태), {@code code}(코드), {@code
+ *       detail}(상세). 반환: {@code ProblemDetail}.
+ * </ul>
  */
 @RestController
 public final class ChaosRepeatController {

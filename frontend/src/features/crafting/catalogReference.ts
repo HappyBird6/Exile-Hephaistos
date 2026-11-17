@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../shared/gameIdTransport'
 import { reportBrowserEvent } from '../../shared/telemetry/browserTelemetry'
 import { verifyRulesetResponse } from './rulesetIdentity'
 import { performanceSettings } from '../../shared/performance'

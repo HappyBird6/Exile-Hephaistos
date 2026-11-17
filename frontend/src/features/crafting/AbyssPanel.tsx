@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../shared/gameIdTransport'
 import { storedAbyssItem } from './workbenchHistory'
 import { poolHeaders, acceptPoolUpdate } from './modifier-pool/poolSnapshots'
 import { validAbyssResponse } from './abyssResponse'

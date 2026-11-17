@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../shared/gameIdTransport'
 import type { Initial } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
 import type { AbyssState } from './AbyssPanel'

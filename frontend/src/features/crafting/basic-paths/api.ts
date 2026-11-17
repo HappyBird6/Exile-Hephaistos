@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../../shared/gameIdTransport'
 import type { ConcreteItem } from '../workbenchApi'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 

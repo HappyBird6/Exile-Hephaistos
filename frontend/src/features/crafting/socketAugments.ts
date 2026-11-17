@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../shared/gameIdTransport'
 import { poolHeaders, acceptPoolUpdate } from './modifier-pool/poolSnapshots'
 import { sameItemState } from './crafting-state/itemIdentity'
 import type { Definition } from './craftingApi'

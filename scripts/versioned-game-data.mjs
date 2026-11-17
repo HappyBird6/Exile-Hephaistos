@@ -1,3 +1,4 @@
+import { idTransport } from './id-transport.mjs'
 import assert from 'node:assert/strict'
 import { dataFiles as files } from './catalog-data.mjs'
 import { gameDataOutputs } from './game-data-outputs.mjs'
@@ -58,6 +59,9 @@ export function collect(resources) {
     if (Array.isArray(value)) { value.forEach(walk); return }
     if (!value || typeof value !== 'object') return
     if (value.affixType && Array.isArray(value.stats)) add('modifiers', value.id)
+    // API states use metadata identities, while base selectors use aliases. Allocate both without reusing IDs.
+    if (Number.isInteger(value.rarePrefixes) && Number.isInteger(value.rareSuffixes)) add('bases', value.id)
+    add('bases', value.baseItemId)
     for (const stat of value.stats ?? []) {
       if (stat && typeof stat === 'object') add('stats', stat.id ?? stat.sourceStatId)
     }
@@ -139,6 +143,9 @@ export function synchronize(root, write = false) {
   assert.deepEqual(files(path.join(directory, 'mappings')).map(file => path.relative(directory, file).replaceAll('\\', '/')).sort(), mappings.filter(row => fs.existsSync(path.join(directory, row.path))).map(row => row.path).sort(), 'Unexpected mapping file')
   for (const [file, { bytes }] of generated) emit(path.join(root, file), bytes)
   for (const [file, contents] of outputs) emit(file, contents)
+  const transport = json(idTransport(outputs.map(([, contents]) => JSON.parse(contents))))
+  emit(path.join(root, 'backend/src/main/resources/contracts/game-ids-v1.json'), transport)
+  emit(path.join(root, 'frontend/src/shared/contracts/gameIds.json'), transport)
   const { rules, resources: previousResources, generated: previousGenerated, ...metadata } = manifest
   emit(target, json({ ...metadata, schemaVersion: 2, resources: entries, generated: [...generated].map(([runtimePath, { bytes }]) => ({ runtimePath, sha256: digest(bytes) })).sort((a, b) => a.runtimePath.localeCompare(b.runtimePath, 'en')), mappings }))
   console.log(`Versioned data verified: ${entries.length} resources, ${mappings.reduce((n, row) => n + row.count, 0)} IDs`)

@@ -10,3 +10,6 @@ src/features/crafting/manualRevealDefinitions.json
 src/features/crafting/materialTooltips.json
 src/features/crafting/materialTargetClasses.json
 src/features/crafting/base-picker/baseImageSources.json
+
+# Transport dictionary is generated from immutable published ID mappings.
+src/shared/contracts/gameIds.json

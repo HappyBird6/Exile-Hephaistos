@@ -7,8 +7,8 @@
     {
       "path": "mappings/bases.json",
       "domain": "bases",
-      "count": 179,
-      "sha256": "23a5a8811a7b0e4cc1cb21fd300e2c2ed70487dff274954e40aef5ea5aec6c99"
+      "count": 358,
+      "sha256": "a46b28c9d9dec5be69364befa7033bbf530bf46be26d686332c09cba0657f8c4"
     },
     {
       "path": "mappings/modifiers.json",

@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../../shared/gameIdTransport'
 import { localizedModifierText } from '../localizedModifiers'
 import {
   flowMessages,

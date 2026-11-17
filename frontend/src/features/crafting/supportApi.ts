@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../shared/gameIdTransport'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import type { Bucket } from './craftingApi'
 import { baseWorkbenchAction } from './workbenchApi'

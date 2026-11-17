@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../../shared/gameIdTransport'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import type { MessageKey } from '../../../shared/i18n/i18n'
 import { clipboardBase } from '../baseRegistry'

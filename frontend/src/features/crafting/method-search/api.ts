@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../../shared/gameIdTransport'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import type { CreateRequest, Fraction } from '../path-tree/types'
 import type { Graph, Snapshot } from './types'

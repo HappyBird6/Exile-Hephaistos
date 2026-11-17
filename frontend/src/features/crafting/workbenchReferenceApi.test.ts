@@ -42,8 +42,7 @@ it('uses server eligibility and sends the current identity and exact item', asyn
     state: root,
     dynamic: true,
   })
-  expect(options.headers).toHaveProperty(
-    'X-Crafting-Ruleset',
+  expect(new Headers(options.headers).get('X-Crafting-Ruleset')).toBe(
     initialFixture.rulesetIdentity,
   )
 })
@@ -261,10 +260,11 @@ it('receives a pool delta with a verified craft, reuses it without a second requ
     identity,
   )
   expect(result).not.toHaveProperty('modifierPool')
-  expect(fetch.mock.calls[0]![1]?.headers).toHaveProperty(
-    'X-Modifier-Pool-Revision',
-    revision,
-  )
+  expect(
+    new Headers(fetch.mock.calls[0]![1]?.headers).get(
+      'X-Modifier-Pool-Revision',
+    ),
+  ).toBe(revision)
   const pool = await loadModifierPools(
     initialFixture,
     result.state,

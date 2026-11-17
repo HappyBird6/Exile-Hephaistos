@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../../shared/gameIdTransport'
 import { qualityWorkGoal } from './qualityWorkGoal'
 import { goalSources } from '../method-search/graphDisplay'
 import { resetMessages } from './resetMessages'

@@ -8,25 +8,53 @@ import java.util.UUID;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 행동 경로 탐색 작업의 생성·조회·계속·취소 API를 제공한다.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code service}: 요청 처리를 위임하는 서비스 ({@code PathSearchService}).
+ *   <li>{@code reader}: 읽기변환기 ({@code
+ *       com.poe2craft.craftingsupport.search.application.SearchInputReader}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code PathSearchController(service, json)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code service}(서비스),
+ *       {@code json}(JSON).
+ *   <li>{@code create(body, request, response)}: 새 작업 또는 값을 생성한다. 입력: {@code body}(본문), {@code
+ *       request}(요청), {@code response}(응답). 반환: {@code ResponseEntity<Snapshot>}.
+ *   <li>{@code get(id, request, response)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code id}(식별자), {@code
+ *       request}(요청), {@code response}(응답). 반환: {@code Snapshot}.
+ *   <li>{@code graph(id, revision, cursor, request, response)}: 그래프 처리에서 {@code service.graph}을(를)
+ *       사용한다. 입력: {@code id}(식별자), {@code revision}(리비전), {@code cursor}(진행커서), {@code
+ *       request}(요청), {@code response}(응답). 반환: {@code GraphPage}.
+ *   <li>{@code cancel(id, body, request, response)}: 작업 취소를 반영하고 이후 실행을 막는다. 입력: {@code id}(식별자),
+ *       {@code body}(본문), {@code request}(요청), {@code response}(응답). 반환: {@code Snapshot}. 사용하는 예외:
+ *       {@code Rejected}.
+ *   <li>{@code resume(id, body, request, response)}: 보존한 진행 상태에서 계산을 이어간다. 입력: {@code id}(식별자),
+ *       {@code body}(본문), {@code request}(요청), {@code response}(응답). 반환: {@code
+ *       ResponseEntity<Snapshot>}. 사용하는 예외: {@code Rejected}.
+ *   <li>{@code recover(id, body, request, response)}: recover 처리에서 {@code ResponseEntity.accepted},
+ *       {@code service.recover}을(를) 사용한다. 입력: {@code id}(식별자), {@code body}(본문), {@code
+ *       request}(요청), {@code response}(응답). 반환: {@code ResponseEntity<Snapshot>}.
+ *   <li>{@code read(payload, type)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code payload}(저장내용), {@code
+ *       type}(타입). 반환: {@code T}.
+ *   <li>{@code owner(request, response)}: 요청 또는 작업의 소유자를 판정한다. 입력: {@code request}(요청), {@code
+ *       response}(응답). 반환: {@code String}.
+ * </ul>
+ */
 @RestController
 @RequestMapping("/api/v1/crafting/path-searches")
 public final class PathSearchController {
   private final PathSearchService service;
-  private final ObjectMapper json;
+  private final com.poe2craft.craftingsupport.search.application.SearchInputReader reader;
 
   public PathSearchController(PathSearchService service, ObjectMapper json) {
     this.service = service;
-    this.json =
-        json.copy()
-            .disable(MapperFeature.ALLOW_COERCION_OF_SCALARS)
-            .enable(
-                DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,
-                DeserializationFeature.FAIL_ON_NUMBERS_FOR_ENUMS,
-                DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES,
-                DeserializationFeature.FAIL_ON_TRAILING_TOKENS,
-                DeserializationFeature.FAIL_ON_NULL_FOR_PRIMITIVES)
-            .enable(com.fasterxml.jackson.core.JsonParser.Feature.STRICT_DUPLICATE_DETECTION)
-            .disable(DeserializationFeature.ACCEPT_FLOAT_AS_INT);
+    this.reader = new com.poe2craft.craftingsupport.search.application.SearchInputReader(json);
   }
 
   @PostMapping({"", "/"})
@@ -85,56 +113,7 @@ public final class PathSearchController {
   }
 
   private <T> T read(String payload, Class<T> type) {
-    try {
-      if (payload == null || payload.length() > 65536) throw new Rejected(422, "INVALID_REQUEST");
-      var body = json.readTree(payload);
-      if (body == null || !body.isObject()) throw new Rejected(422, "INVALID_REQUEST");
-      if (body.has("observations")) {
-        if (!body.get("observations").isArray()) throw new Rejected(422, "INVALID_OBSERVATIONS");
-        for (var n : body.get("observations"))
-          if (!n.isTextual()) throw new Rejected(422, "INVALID_OBSERVATIONS");
-      }
-      if (body.has("start")) safeIntegers(body.path("start").path("item"));
-      if (body.has("expectedRevision")) safeIntegers(body.get("expectedRevision"));
-      if (body.has("parentRevision")) safeIntegers(body.get("parentRevision"));
-      var general = body.path("goal").path("general");
-      if (general instanceof com.fasterxml.jackson.databind.node.ObjectNode object
-          && !object.has("quality")) object.putNull("quality");
-      for (var item :
-          java.util.List.of(
-              body.path("start").path("item"), body.path("request").path("start").path("item")))
-        if (item instanceof com.fasterxml.jackson.databind.node.ObjectNode object) {
-          if (!object.has("desecrated")) object.putArray("desecrated");
-          if (object.hasNonNull("installedAugments")
-              && (!object.path("installedAugments").isArray()
-                  || !object.path("installedAugments").isEmpty()))
-            throw new IllegalArgumentException("Installed Augments require the manual workbench");
-          if (!object.has("installedAugments")) object.putArray("installedAugments");
-          // Ordinary quality belongs to the manual workbench until automatic copies retain it.
-          if (object.hasNonNull("equipmentQuality"))
-            throw new IllegalArgumentException("Equipment quality requires the manual workbench");
-          if (!object.has("equipmentQuality")) object.putNull("equipmentQuality");
-          if (object.hasNonNull("observations"))
-            throw new IllegalArgumentException(
-                "Clipboard observations require the manual workbench");
-          if (!object.has("observations")) object.putNull("observations");
-          if (object.hasNonNull("sanctification"))
-            throw new IllegalArgumentException("Sanctification requires the manual workbench");
-          if (!object.has("sanctification")) object.putNull("sanctification");
-        }
-      return json.treeToValue(body, type);
-    } catch (Rejected e) {
-      throw e;
-    } catch (java.io.IOException | IllegalArgumentException e) {
-      throw new Rejected(422, "INVALID_REQUEST");
-    }
-  }
-
-  private static void safeIntegers(JsonNode node) {
-    if (node.isIntegralNumber()
-        && (node.bigIntegerValue().abs().compareTo(java.math.BigInteger.valueOf(9007199254740991L))
-            > 0)) throw new Rejected(422, "UNSAFE_INTEGER");
-    if (node.isContainerNode()) node.forEach(PathSearchController::safeIntegers);
+    return reader.read(payload, type);
   }
 
   /** Anonymous browser scope, not authentication. Does not create an application HTTP session. */

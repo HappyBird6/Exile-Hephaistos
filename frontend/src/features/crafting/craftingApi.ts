@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../shared/gameIdTransport'
 import { loadBaseData } from './catalogData'
 import { loadModifierDefinitions } from '../../shared/i18n/localeData'
 import { loadCatalogReference } from './catalogReference'

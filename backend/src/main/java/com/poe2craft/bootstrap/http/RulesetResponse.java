@@ -13,7 +13,33 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-/** Initial roots and craft results carry the same identity as their transport envelope. */
+/**
+ * 제작 응답에 서버의 규칙 식별자를 추가해 클라이언트 호환성을 확인하게 한다.
+ *
+ * <p>기존 계약: Initial roots and craft results carry the same identity as their transport envelope.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
+ *   <li>{@code references}: 참조목록 ({@code
+ *       org.springframework.beans.factory.ObjectProvider<com.poe2craft.shared.crafting.infrastructure.CatalogReferences>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code RulesetResponse(json, references)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code json}(JSON),
+ *       {@code references}(참조목록).
+ *   <li>{@code supports(method, converter)}: 호출 대상의 지원 여부를 판정한다. 입력: {@code method}(제작방법), {@code
+ *       converter}(변환기). 반환: {@code boolean}.
+ *   <li>{@code beforeBodyWrite(body, method, type, converter, request, response)}: 응답 본문과 헤더에 전송
+ *       계약을 적용한다. 입력: {@code body}(본문), {@code method}(제작방법), {@code type}(타입), {@code
+ *       converter}(변환기), {@code request}(요청), {@code response}(응답). 반환: {@code Object}. 사용하는 예외:
+ *       {@code IllegalStateException}.
+ * </ul>
+ */
+@org.springframework.core.annotation.Order(0)
 @RestControllerAdvice(
     assignableTypes = {CraftingCatalogController.class, WorkbenchController.class})
 public final class RulesetResponse implements ResponseBodyAdvice<Object> {

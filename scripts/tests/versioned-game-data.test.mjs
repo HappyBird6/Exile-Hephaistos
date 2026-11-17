@@ -126,7 +126,7 @@ test('one CLI command updates seals, stable IDs, both mirrors and public policy'
   for (const file of [
     'README.md', 'backend/src/main/resources/contracts',
     'docs/contracts/workbench-definitions-v1.schema.json', 'docs/contracts/goal-definitions-v1.schema.json',
-    'scripts/versioned-game-data.mjs', 'scripts/update-ruleset-manifest.mjs', 'scripts/catalog-data.mjs',
+    'scripts/versioned-game-data.mjs', 'scripts/id-transport.mjs', 'scripts/update-ruleset-manifest.mjs', 'scripts/catalog-data.mjs',
     'scripts/game-data-outputs.mjs', 'scripts/modifier-data.mjs', 'scripts/sync-workbench-data.mjs',
     'scripts/sync-public-contracts.mjs', 'scripts/public-contracts.mjs',
   ]) {
@@ -155,6 +155,9 @@ test('one CLI command updates seals, stable IDs, both mirrors and public policy'
   const newIds = load(`${versionRoot}/mappings/modifiers.json`).entries
   assert.deepEqual(newIds.slice(0, oldIds.length), oldIds)
   assert.equal(newIds.at(-1).sourceKey, 'workflow:test')
+  const transport = load('backend/src/main/resources/contracts/game-ids-v1.json')
+  assert.equal(transport.domains.modifiers[newIds.at(-1).id], 'workflow:test')
+  assert.deepEqual(read('backend/src/main/resources/contracts/game-ids-v1.json'), read('frontend/src/shared/contracts/gameIds.json'))
   assert.match(read('README.md').toString(), /기본 700/)
   assert.match(read('frontend/src/shared/contracts/public.ts').toString(), /"defaultUses":700/)
   const manifest = read(`${versionRoot}/manifest.json`)

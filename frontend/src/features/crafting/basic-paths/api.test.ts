@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { percent, loadProvenance } from './api'
+import { gameIdHeader, gameIdIdentity } from '../../../shared/gameIdTransport'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 
 describe('exact probability display', () => {
@@ -14,12 +15,20 @@ describe('exact probability display', () => {
       ).resolves.toEqual(provenance)
       expect(fetch).toHaveBeenLastCalledWith(
         '/api/v2/crafting/method-searches/provenance?baseItemId=Metadata%2FItems%2FJewels%2FJewelInt',
-        { signal, cache: 'no-store' },
+        {
+          signal,
+          cache: 'no-store',
+          headers: new Headers({ [gameIdHeader]: gameIdIdentity }),
+        },
       )
       await loadProvenance(signal)
       expect(fetch).toHaveBeenLastCalledWith(
         '/api/v1/crafting/basic-paths/provenance',
-        { signal, cache: 'no-store' },
+        {
+          signal,
+          cache: 'no-store',
+          headers: new Headers({ [gameIdHeader]: gameIdIdentity }),
+        },
       )
     } finally {
       vi.unstubAllGlobals()

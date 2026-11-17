@@ -1,3 +1,4 @@
+import { craftingFetch as fetch } from '../../../shared/gameIdTransport'
 import { queryOptions } from '@tanstack/react-query'
 import { loadInitial } from '../craftingApi'
 import type { WorkbenchBaseKey } from '../baseRegistry'

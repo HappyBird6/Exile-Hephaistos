@@ -13,7 +13,44 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
-/** Immutable versioned inventory, not proof that pending entries are executable rules. */
+/**
+ * 제작 재료 등록 목록을 한 번 검증하고 호출자에게 안전한 JSON 사본을 준다.
+ *
+ * <p>기존 계약: Immutable versioned inventory, not proof that pending entries are executable rules.
+ *
+ * <p>필드·상수:
+ *
+ * <ul>
+ *   <li>{@code ENTRY_FIELDS}: 필드목록 ({@code Set<String>}).
+ * </ul>
+ *
+ * <p>생성자·메서드:
+ *
+ * <ul>
+ *   <li>{@code CraftingRegistryLoader()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
+ *   <li>{@code load()}: 검증된 자료를 로딩한다. 반환: {@code JsonNode}.
+ *   <li>{@code loadBundle()}: 번들 자원을 읽고 검증한 결과를 구성한다. 반환: {@code JsonNode}. 사용하는 예외: {@code
+ *       IllegalStateException}.
+ *   <li>{@code read(stream, scopes)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code stream}(스트림), {@code
+ *       scopes}(scopes). 반환: {@code JsonNode}. 사용하는 예외: {@code IllegalArgumentException}, {@code
+ *       IOException}.
+ *   <li>{@code validateBases(members)}: 베이스목록을(를) 검증한다. 입력: {@code members}(구성원목록). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code count(source, field)}: 개수 처리에서 {@code source.path}, {@code
+ *       value.isIntegralNumber}을(를) 사용한다. 입력: {@code source}(출처), {@code field}(필드). 반환: {@code
+ *       int}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code text(source, field)}: 텍스트 처리에서 {@code source.get}, {@code value.isTextual}을(를) 사용한다.
+ *       입력: {@code source}(출처), {@code field}(필드). 반환: {@code String}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ * </ul>
+ *
+ * <p>중첩 타입:
+ *
+ * <ul>
+ *   <li>{@code Loaded}: 최초 접근 시 검증한 번들 값을 JVM 클래스 초기화로 한 번만 공개한다.
+ *   <li>{@code BaseSets}: {@code CraftingRegistryLoader}에서 사용하는 베이스·Sets의 불변 값이다.
+ * </ul>
+ */
 public final class CraftingRegistryLoader {
   private static final Set<String> ENTRY_FIELDS =
       Set.of(
@@ -59,7 +96,24 @@ public final class CraftingRegistryLoader {
 
   private CraftingRegistryLoader() {}
 
+  /**
+   * 최초 접근 시 검증한 번들 값을 JVM 클래스 초기화로 한 번만 공개한다.
+   *
+   * <p>필드·상수:
+   *
+   * <ul>
+   *   <li>{@code VALUE}: 한 번 검증한 공유 값 ({@code JsonNode}).
+   * </ul>
+   */
+  private static final class Loaded {
+    private static final JsonNode VALUE = loadBundle();
+  }
+
   public static JsonNode load() {
+    return Loaded.VALUE.deepCopy();
+  }
+
+  private static JsonNode loadBundle() {
     WorkbenchDefinitionsLoader.initialize();
     try (var stream = SealedResources.open("/crafting/registry-v2.json");
         var scopes = SealedResources.open("/crafting/supported-base-sets-v1.json")) {
@@ -79,6 +133,16 @@ public final class CraftingRegistryLoader {
     }
   }
 
+  /**
+   * {@code CraftingRegistryLoader}에서 사용하는 베이스·Sets의 불변 값이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code schemaVersion}: 스키마·버전 ({@code int}).
+   *   <li>{@code sets}: sets ({@code Map<String, List<String>>}).
+   * </ul>
+   */
   public record BaseSets(int schemaVersion, Map<String, List<String>> sets) {}
 
   /** Expands explicit reviewed sets into the unchanged public JSON contract. */

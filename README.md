@@ -105,7 +105,7 @@ docs/
   legacy/                 # 재평가 전 보관; 별도 삭제 승인 없이 제거하지 않음
 ```
 
-**현재 단계:** v0.5.5가 게임 JSON·번역의 편집 원본이고 기존 backend/frontend 경로는 호환용 생성 결과입니다. 짧은 ID는 발급되어 있지만 API·저장 형식은 기존 식별자를 계속 사용합니다. 백엔드는 불변 카탈로그·옵션 정의를 공유하고 제작 정책을 JSON에서 읽습니다. 짧은 ID 송수신 전환은 프런트와 함께 별도로 적용합니다. 이름·설명은 i18n, 출처 URL은 sources.json에서 관리하며 기존 실행 결과에는 다시 합칩니다. `0.5.5`는 저장소의 버전 구분이며 검증된 GGG 패치 번호를 뜻하지 않습니다.
+v0.5.5가 게임 JSON·번역의 편집 원본이고 backend/frontend 경로는 호환용 생성 결과입니다. 백엔드는 검증된 불변 카탈로그·옵션 정의를 공유하고 제작 정책을 JSON에서 읽습니다. 제작 API는 같은 ID 사전을 확인한 클라이언트와 짧은 ID를 주고받으며, 내부 계산과 저장 형식은 기존 식별자를 유지합니다. 이름·설명은 i18n, 출처 URL은 sources.json에서 관리하며 기존 실행 결과에는 다시 합칩니다. `0.5.5`는 저장소의 버전 구분이며 검증된 GGG 패치 번호를 뜻하지 않습니다.
 
 [화폐](docs/v0.5.5/game-rule/currency.md), [상태·저장](docs/v0.5.5/game-rule/item-state.md), [증강물](docs/v0.5.5/game-rule/sockets-and-augments.md), [확률·목표](docs/v0.5.5/game-rule/probability-and-goals.md), [번역](docs/v0.5.5/game-rule/i18n-and-display.md), [사용자 정책](docs/v0.5.5/game-rule/user-policy.md)을 변경 대상에 맞게 수정합니다. 과거 세부 명세는 legacy에 남지만 중복 유지보수하지 않습니다. 기존 runtime JSON에 적힌 `docs/...` 출처 경로는 수집 당시 기록이며 현재 실제 파일은 `docs/legacy/...`에 있습니다. 봉인된 출처 문자열을 이동 경로에 맞춰 다시 직렬화하지 않습니다.
 
@@ -115,7 +115,7 @@ docs/
 
 | 접두사 | 대상 | 기존 식별 기준 |
 |---|---|---|
-| b | 베이스 | top-bases / base-policies.legacy의 key |
+| b | 베이스 | 선택용 key와 실제 게임 Metadata ID를 각각 발급 |
 | m / s | 옵션 / stat | modifier ID / source stat ID |
 | r / c / o | 재료 / 화폐 실행 / 징조 실행 | registry entry ID / currency ID / omen key |
 | a | 증강물 | augments의 ID |
@@ -123,7 +123,9 @@ docs/
 | k | 장비 분류 | itemClass |
 | n / x / u | 게임 번역 항목 / 옵션 템플릿 / UI 문구 | 번역 객체의 key |
 
-각 매핑은 `domain`, `prefix`, `entries[{id, sourceKey, retired}]` 형식입니다. `manifest.mappings`가 파일 목록과 digest를 제공합니다. 향후 로더는 각 종류에서 `id → sourceKey`, `sourceKey → id` 인덱스를 만들 수 있습니다. 베이스 key와 게임 Metadata ID, 화폐 action과 표시용 재료 ID는 별개이며 원본 JSON의 명시적 연결을 사용합니다. 이름 유사성으로 자동 병합하지 않습니다. 역사 자료·테스트 fixture·파일 경로·provenance 버전은 새 게임 ID의 대상이 아닙니다.
+각 매핑은 `domain`, `prefix`, `entries[{id, sourceKey, retired}]` 형식입니다. `manifest.mappings`가 파일 목록과 digest를 제공합니다. 서버는 생성된 `contracts/game-ids-v1.json`을 시작 시 검증하고 종류별 양방향 색인을 공유합니다. 프런트의 `shared/contracts/gameIds.json`도 같은 명령으로 생성하며 직접 편집하지 않습니다. 베이스 key와 게임 Metadata ID, 화폐 action과 표시용 재료 ID는 별개이며 원본 JSON의 명시적 연결을 사용합니다. 이름 유사성으로 자동 병합하지 않습니다. 역사 자료·테스트 fixture·파일 경로·provenance 버전은 새 게임 ID의 대상이 아닙니다.
+
+제작 API의 짧은 ID 전송은 `X-Crafting-Ids`에 같은 사전 식별자를 보낼 때 사용합니다. 클라이언트는 서버 확인 후 요청 본문도 변환하며 `X-Crafting-Ids-Body: compact`로 표시합니다. 서버는 입력에서 원래 ID로 복원하고 응답의 식별자 필드·키만 줄입니다. 자유 텍스트·미등록 값·기존 저장 문서는 보존합니다. 원문 바이트에 중복 실행 방지 서명이 묶이는 카오스 반복 API는 이 변환에서 제외합니다. 구형 클라이언트는 헤더 없이 기존 형식을 사용합니다.
 
 ### 어디를 수정하면 되는가
 
@@ -180,7 +182,7 @@ node scripts/versioned-game-data.mjs --check
 
 장비 종류별 `modifier-pools.json`은 공통 옵션 목록입니다. 각 베이스의 `modifierPool`이 이 목록을 참조하고, 고정 옵션은 `implicitModifiers`로 위치와 ID만 지정합니다. 추가 제작 옵션 파일도 `modifierRefs`만 보관합니다. 옵션 개수와 가중치 합계는 자동 계산합니다. `*-snapshot` 목록은 기존 수집 시점·능력치 계열·지원 범위 차이를 보존한 것이며, 베이스마다 별도 게임 규칙이 있다는 뜻은 아닙니다. 차이를 합칠 때는 출처를 확인하고 게임 동작 변경으로 검토합니다. 기존 `snapshotId`와 출처 해시는 이력이며 실제 옵션/지원 범위를 바꾸면 해당 snapshot·ruleset 버전도 검토합니다.
 
-`modifiers/`와 `modifier-pools.json`은 편집용 원본으로만 유지합니다. 서버의 펼친 JSON은 자동 생성 결과이며, 공통 테이블 직접 로딩과 짧은 ID 송수신 전환은 후속 코드 경량화에서 진행합니다. 현재 ruleset은 v15입니다. 기존 아이템 snapshot은 보존하지만, 재료 실행 정책과 기본 제작 한도가 포함된 호환성 해시는 `item-rules-v2`로 구분합니다. 이전 호환 ID를 현재 ID로 덮어쓰지 않습니다. 과거 ruleset으로 저장한 탐색 작업은 기존 버전 검증을 그대로 적용하며 자동 재지정하지 않습니다.
+`modifiers/`와 `modifier-pools.json`은 편집용 원본으로만 유지합니다. 서버의 펼친 JSON은 자동 생성 결과이며, 서버는 검증된 카탈로그 객체와 동일한 옵션 정의를 재사용합니다. 현재 ruleset은 v15입니다. 기존 아이템 snapshot은 보존하지만, 재료 실행 정책과 기본 제작 한도가 포함된 호환성 해시는 `item-rules-v2`로 구분합니다. 이전 호환 ID를 현재 ID로 덮어쓰지 않습니다. 과거 ruleset으로 저장한 탐색 작업은 기존 버전 검증을 그대로 적용하며 자동 재지정하지 않습니다.
 
 베이스의 이름·요구치 표시 문구는 `i18n/catalog/bases.json`, 정체성·등록 순서·능력치는 각 `base.json`에서 관리합니다. 전체 목록 `top-bases.json`을 별도로 편집하지 않습니다. `catalog/classes.json`은 장비 분류, `crafting/policies/base-support.json`은 앱 지원 여부, `catalog-compatibility.json`은 기존 snapshot·규칙 버전 연결입니다. 등록 `order`와 옵션 배열 순서는 기존 표시·동작 순서를 보존합니다.
 

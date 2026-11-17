@@ -24,42 +24,174 @@ import java.util.random.RandomGenerator;
 /**
  * 검증된 카탈로그에서 한 번의 제작 결과와 자동 탐색용 분기를 계산한다. 변경하지 않은 옵션의 실제 수치는 보존한다.
  *
- * <p>필드: RULE_VERSION은 실행 규칙, LEDGER_VERSION은 미공개 확률 가정의 버전이다. catalog는 수동 공개 옵션까지 포함한 불변 정의,
- * additionRules는 공통 추가 알고리즘, qualityCapChangePolicy는 품질 한도 감소 정책이다. coupledModifierIds는 함께 굴리는 복합
- * 수치 옵션이다. essenceTargetOverrides/replacementTargetOverrides는 JSON의 베이스별 추가/교체 후보다.
- * automaticJointRolls는 이 카탈로그의 옵션 ID별 복합 수치 분포 캐시다. socketSamplers는 증강물의 접미 한도·활성 풀 조합별 실행기를 최근 사용
- * 순서로 보관하며 MAX_SOCKET_SAMPLERS(32)를 넘으면 가장 오래된 계산 결과를 버린다. 이 map 접근은 자체 잠금으로 보호한다.
- * cachedCompatibilityId는 불변 규칙의 호환 해시를 지연 계산하여 volatile로 공개한다. 사용자 상태를 캐시에 넣지 않는다.
+ * <p>사용자 아이템은 불변 값으로 받고 난수는 전달된 공급자만 소비한다. materials·rolls·abyss는 각각 재료 후보, 수치 분포, 훼손 실행을 담당한다.
+ * socketSamplers는 자체 잠금 아래 MAX_SOCKET_SAMPLERS까지 보유하며 사용자 상태는 저장하지 않는다. engine 인자는 기존 생성자 호환을 위한
+ * null 검사용이다. 잘못된 입력은 예외, 유효하지만 불가능한 행동은 결과 사유로 구별한다.
  *
- * <p>생성자 오버로드는 coupled/추가 후보/교체 후보/품질 정책의 기본값을 보충한다. 최종 생성자는 옵션 존재·명시 layer·중복·일반 추가 weight·복합 수치
- * 구조를 검사하고 방어 복사한다. engine 인자는 기존 호출 계약의 null 검사용이며 보관하지 않는다. forCatalog는 같은 정책으로 다른 확장 카탈로그의 실행기를
- * 만들고 forItem은 증강물 문맥의 캐시 실행기를 반환한다. catalog()는 정의를 반환한다.
+ * <p>필드·상수:
  *
- * <p>대상/정체성: craftsModifier는 제작 옵션 부여 여부, essenceTargets/replacementTargets는 베이스 후보를 기본 후보보다 우선하여
- * 조회한다. 감정액은 해당 출처의 crafted 옵션을 선택한다. referenceEssenceTargets는 이 베이스의 참조용 후보, baseMaterialActions는
- * 상태를 제외한 재료 지원 목록이다. compatibilityId는 ItemRulesetIdentity 해시,
- * baseRuleVersion/ruleVersion/ledgerVersion은 지원 범위별 버전, automaticIdentity는 자동 제작에 필요한 정책 묶음을 반환한다.
+ * <ul>
+ *   <li>{@code RULE_VERSION}: 버전; 초기값 {@code "solar-workbench-abyss-essence-v23"} ({@code String}).
+ *   <li>{@code LEDGER_VERSION}: 버전; 초기값 {@code "solar-uniform-assumptions-v14"} ({@code String}).
+ *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
+ *   <li>{@code MAX_SOCKET_SAMPLERS}: SAMPLERS; 초기값 {@code 32} ({@code int}).
+ *   <li>{@code socketSamplers}: 최근 사용 순서로 보관하는 증강물 문맥별 실행기 캐시 ({@code Map<String,
+ *       WorkbenchSimulator>}).
+ *   <li>{@code qualityCapChangePolicy}: 품질 상한 변화 시 기존 품질 처리 정책 ({@code QualityCapChangePolicy}).
+ *   <li>{@code additionRules}: 표본 실행과 정확 계산이 공유하는 옵션 추가 규칙 ({@code AdditionRules}).
+ *   <li>{@code materials}: 시작 시 해결한 재료별 추가·교체 후보 ({@code WorkbenchMaterials}).
+ *   <li>{@code rolls}: 수치 굴림과 유한 결합 분포 계산기 ({@code WorkbenchRolls}).
+ *   <li>{@code abyss}: 훼손 슬롯을 보존하는 제작 실행기 ({@code AbyssWorkbench}).
+ *   <li>{@code validator}: 상태·입력 검증기 ({@code ItemStateValidator}).
+ *   <li>{@code cachedCompatibilityId}: 지연 계산해 공유하는 규칙 호환 해시 ({@code String}).
+ * </ul>
  *
- * <p>판정: actions는 행동별 Availability, availability는 상태·징조·슬롯·후보·희귀도별 거부 사유를 계산한다. validate는 카탈로그와 소켓
- * 상태, parseOmens는 징조 ID, matching/triggeredOmens는 해당 화폐에서 소비할 징조를 검사한다. blocked는 실패 값, alchemySide는
- * 연금의 접두/접미 징조, completeLegacyAlchemy는 모든 연금 분기에 필요한 슬롯이 채워지는지 재귀 검사한다. canAddFixed는 고정 옵션의 슬롯/가족
- * 충돌, targetFirstEssence는 후보 우선 교체 여부, essenceReplacementPlan은 그 교체 분기,
- * replacementRemovalCandidates는 교체 대상, pool은 추가 후보를 구한다. removalCandidates 오버로드는 징조·분열·제거 한도를 반영한다.
- * upgrade/basicRarityAllows는 일반 화폐의 상태 전이다.
+ * <p>생성자·메서드:
  *
- * <p>실행: apply의 공개 오버로드는 기본/작업대 화폐를 받고 내부 apply가 검증·선택·수치 굴림·징조 소비를 Result로 묶는다. applyCustomExalt는
- * 선택 후보를 제한한 고귀 제작이다. exaltChoices는 후보 확률, exaltAdditionCount는 추가 개수, exaltPool은 징조를 반영한 후보 풀이다.
- * abyssPlan은 미공개 슬롯이 있는 아이템의 계획이며 applyAbyss 오버로드와 Abyss 상태의 applyCustomExalt가 슬롯 정체성을 보존해 적용한다.
- * automaticPlan은 자동 제작 분기·확률·거부 사유, finishBasicCurrency는 자동 기본 화폐 결과를 정리한다.
+ * <ul>
+ *   <li>{@code WorkbenchSimulator(catalog, engine)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code
+ *       catalog}(카탈로그), {@code engine}(계산엔진).
+ *   <li>{@code WorkbenchSimulator(catalog, engine, coupledModifierIds)}: 기본 정책을 보충해 공통 생성자로 위임한다.
+ *       입력: {@code catalog}(카탈로그), {@code engine}(계산엔진), {@code coupledModifierIds}(결합·옵션·식별자목록).
+ *   <li>{@code WorkbenchSimulator(catalog, engine, coupledModifierIds, essenceTargetOverrides)}: 기본
+ *       정책을 보충해 공통 생성자로 위임한다. 입력: {@code catalog}(카탈로그), {@code engine}(계산엔진), {@code
+ *       coupledModifierIds}(결합·옵션·식별자목록), {@code essenceTargetOverrides}(에센스·대상·대체설정).
+ *   <li>{@code WorkbenchSimulator(catalog, engine, coupledModifierIds, essenceTargetOverrides,
+ *       replacementTargetOverrides)}: 기본 정책을 보충해 공통 생성자로 위임한다. 입력: {@code catalog}(카탈로그), {@code
+ *       engine}(계산엔진), {@code coupledModifierIds}(결합·옵션·식별자목록), {@code
+ *       essenceTargetOverrides}(에센스·대상·대체설정), {@code replacementTargetOverrides}(교체·대상·대체설정).
+ *   <li>{@code WorkbenchSimulator(catalog, engine, coupledModifierIds, essenceTargetOverrides,
+ *       replacementTargetOverrides, qualityCapChangePolicy)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
+ *       catalog}(카탈로그), {@code engine}(계산엔진), {@code coupledModifierIds}(결합·옵션·식별자목록), {@code
+ *       essenceTargetOverrides}(에센스·대상·대체설정), {@code replacementTargetOverrides}(교체·대상·대체설정),
+ *       {@code qualityCapChangePolicy}(품질·상한·Change·정책).
+ *   <li>{@code forCatalog(enriched)}: 대상·카탈로그의 입력에 따른 분기·결과를 처리한다. 입력: {@code enriched}(enriched).
+ *       반환: {@code WorkbenchSimulator}.
+ *   <li>{@code catalog()}: {@code catalog} 값을 조회한다. 반환: {@code ItemCatalog}.
+ *   <li>{@code forItem(state)}: 대상·아이템 처리에서 {@code catalog.augmentContextApplied}, {@code
+ *       AugmentCraftingRules.affectsSampling}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code
+ *       WorkbenchSimulator}.
+ *   <li>{@code craftsModifier(action)}: crafts·옵션 처리에서 {@code materials.essenceTargets}, {@code
+ *       materials.replacementTargets}을(를) 사용한다. 입력: {@code action}(행동). 반환: {@code boolean}.
+ *   <li>{@code referenceEssenceTargets()}: 참조·에센스·대상목록 값을 조회·구성한다. 반환: {@code Map<String,
+ *       List<String>>}.
+ *   <li>{@code compatibilityId()}: 호환성·식별자 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code ruleVersion()}: 규칙·버전 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code baseRuleVersion()}: 베이스·규칙·버전 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code ledgerVersion()}: 규칙장부·버전 값을 조회·구성한다. 반환: {@code String}.
+ *   <li>{@code apply(state, action, random)}: 주어진 행동 또는 변경을 적용한 결과를 구한다. 입력: {@code state}(상태),
+ *       {@code action}(행동), {@code random}(난수생성기). 반환: {@code Result}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code baseMaterialActions()}: 베이스·제작재료·행동목록 값을 조회·구성한다. 반환: {@code
+ *       List<WorkbenchCurrency>}.
+ *   <li>{@code actions(state, activeOmens)}: 현재 상태에서 가능한 행동과 불가 이유를 조회한다. 입력: {@code state}(상태),
+ *       {@code activeOmens}(활성·징조목록). 반환: {@code List<Availability>}.
+ *   <li>{@code validate(state)}: 입력의 구조·값·지원 조건을 검증한다. 입력: {@code state}(상태). 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code triggeredOmens(action, activeOmens)}: triggered·징조목록 처리에서 {@code
+ *       WorkbenchOmens.matching}, {@code WorkbenchOmens.parseOmens}을(를) 사용한다. 입력: {@code
+ *       action}(행동), {@code activeOmens}(활성·징조목록). 반환: {@code Set<String>}.
+ *   <li>{@code availability(state, action, omens)}: 화폐의 현재 실행 가능 여부와 이유를 판정한다. 입력: {@code
+ *       state}(상태), {@code action}(행동), {@code omens}(징조목록). 반환: {@code Availability}.
+ *   <li>{@code blocked(action, reason)}: 차단의 입력에 따른 분기·결과를 처리한다. 입력: {@code action}(행동), {@code
+ *       reason}(이유). 반환: {@code Availability}.
+ *   <li>{@code alchemySide(state, omen)}: 연금·접두접미 처리에서 {@code omen.affix}, {@code catalog.base}을(를)
+ *       사용한다. 입력: {@code state}(상태), {@code omen}(징조). 반환: {@code WorkbenchOmen}.
+ *   <li>{@code completeLegacyAlchemy(state, omen, memo)}: 완료·구버전·연금 처리에서 {@code state.explicits},
+ *       {@code catalog.find}을(를) 사용한다. 입력: {@code state}(상태), {@code omen}(징조), {@code memo}(memo).
+ *       반환: {@code boolean}.
+ *   <li>{@code canAddFixed(state, target)}: Add·고정을(를) 가능 여부를 판정한다. 입력: {@code state}(상태), {@code
+ *       target}(대상). 반환: {@code boolean}.
+ *   <li>{@code replacementRemovalCandidates(state, action, omen)}: 교체·제거·후보목록 처리에서 {@code
+ *       action.isLiquid}, {@code materials.replacementTargets}을(를) 사용한다. 입력: {@code state}(상태),
+ *       {@code action}(행동), {@code omen}(징조). 반환: {@code List<ModifierInstance>}.
+ *   <li>{@code pool(state, currency, omen)}: 후보풀 처리에서 {@code additionRules.pool}, {@code
+ *       StateBucket.forModifierEligibility}을(를) 사용한다. 입력: {@code state}(상태), {@code currency}(화폐),
+ *       {@code omen}(징조). 반환: {@code List<ModifierDefinition>}.
+ *   <li>{@code removalCandidates(state, omen)}: 제거·후보목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code state}(상태),
+ *       {@code omen}(징조). 반환: {@code List<ModifierInstance>}.
+ *   <li>{@code removalCandidates(state, omens)}: 제거·후보목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       state}(상태), {@code omens}(징조목록). 반환: {@code List<ModifierInstance>}.
+ *   <li>{@code removalCandidates(state, action, omens)}: 제거·후보목록 처리에서 {@code state.explicits},
+ *       {@code m.fractured}을(를) 사용한다. 입력: {@code state}(상태), {@code action}(행동), {@code
+ *       omens}(징조목록). 반환: {@code List<ModifierInstance>}.
+ *   <li>{@code upgrade(state, currency)}: upgrade 처리에서 {@code currency.baseAction}, {@code
+ *       state.rarity}을(를) 사용한다. 입력: {@code state}(상태), {@code currency}(화폐). 반환: {@code
+ *       ItemState.Rarity}.
+ *   <li>{@code basicRarityAllows(rarity, kind)}: 기본·희귀도·Allows의 입력에 따른 분기·결과를 처리한다. 입력: {@code
+ *       rarity}(희귀도), {@code kind}(종류). 반환: {@code boolean}.
+ *   <li>{@code automaticIdentity()}: 자동·정체성 값을 조회·구성한다. 반환: {@code AutomaticIdentity}.
+ *   <li>{@code automaticPlan(state, execution)}: 자동·계획 처리에서 {@code execution.currency}, {@code
+ *       execution.omens}을(를) 사용한다. 입력: {@code state}(상태), {@code execution}(실행). 반환: {@code
+ *       AutomaticCraftingPlan}.
+ *   <li>{@code basicCurrencyPlan(state, action)}: 기본·화폐·계획 처리에서 {@code ACTIONS.contains}, {@code
+ *       available.available}을(를) 사용한다. 입력: {@code state}(상태), {@code action}(행동). 반환: {@code
+ *       BasicCurrencyPlan}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code finishBasicCurrency(remaining, explicits)}: 완료·기본·화폐 처리에서 {@code
+ *       qualityCapChangePolicy.afterAcceptedOperation}, {@code remaining.rarity}을(를) 사용한다. 입력:
+ *       {@code remaining}(남은), {@code explicits}(명시옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code basicSelectionAssumptions(candidates)}: 기본·선택·계산가정 처리에서 {@code
+ *       rolls.recordSelectionAssumptions}을(를) 사용한다. 입력: {@code candidates}(후보목록). 반환: {@code
+ *       List<Assumption>}.
+ *   <li>{@code basicRemovalAssumption(candidates, action)}: 기본·제거·Assumption 처리에서 {@code
+ *       candidates.size}, {@code candidates.stream}을(를) 사용한다. 입력: {@code candidates}(후보목록), {@code
+ *       action}(행동). 반환: {@code Assumption}.
+ *   <li>{@code apply(state, action, activeOmens, random)}: 주어진 행동 또는 변경을 적용한 결과를 구한다. 입력: {@code
+ *       state}(상태), {@code action}(행동), {@code activeOmens}(활성·징조목록), {@code random}(난수생성기). 반환:
+ *       {@code Result}.
+ *   <li>{@code applyCustomExalt(state, action, activeOmens, random, modifierId)}: 사용자가 고른 옵션을 공통
+ *       엑잘티드 규칙으로 부여한다. 입력: {@code state}(상태), {@code action}(행동), {@code activeOmens}(활성·징조목록),
+ *       {@code random}(난수생성기), {@code modifierId}(옵션·식별자). 반환: {@code Result}. 사용하는 예외: {@code
+ *       IllegalArgumentException}.
+ *   <li>{@code exaltChoices(state, action, ids)}: 엑잘티드·선택목록 처리에서 {@code action.baseAction}, {@code
+ *       WorkbenchOmens.parseOmens}을(를) 사용한다. 입력: {@code state}(상태), {@code action}(행동), {@code
+ *       ids}(식별자목록). 반환: {@code List<ExaltChoice>}. 사용하는 예외: {@code IllegalArgumentException}.
+ *   <li>{@code exaltAdditionCount(state, matched)}: 엑잘티드·추가·개수 처리에서 {@code
+ *       WorkbenchOmen.verifiedDoubleAddition}, {@code matched.stream}을(를) 사용한다. 입력: {@code
+ *       state}(상태), {@code matched}(일치한). 반환: {@code int}.
+ *   <li>{@code exaltPool(original, state, action, omens, matched)}: 엑잘티드·후보풀 처리에서 {@code
+ *       omens.isEmpty}, {@code WorkbenchOmen.verifiedDoubleAddition}을(를) 사용한다. 입력: {@code
+ *       original}(원본), {@code state}(상태), {@code action}(행동), {@code omens}(징조목록), {@code
+ *       matched}(일치한). 반환: {@code List<ModifierDefinition>}.
+ *   <li>{@code apply(state, action, activeOmens, random, forcedModifierId)}: 주어진 행동 또는 변경을 적용한 결과를
+ *       구한다. 입력: {@code state}(상태), {@code action}(행동), {@code activeOmens}(활성·징조목록), {@code
+ *       random}(난수생성기), {@code forcedModifierId}(forced·옵션·식별자). 반환: {@code Result}. 사용하는 예외:
+ *       {@code IllegalArgumentException}.
+ *   <li>{@code lowersCapBelowQuality(state, removed)}: lowers·상한·Below·품질 처리에서 {@code
+ *       removed.values}, {@code state.explicits}을(를) 사용한다. 입력: {@code state}(상태), {@code
+ *       removed}(제거된). 반환: {@code boolean}.
+ *   <li>{@code copy(s, rarity, implicits, explicits)}: 보존할 값의 사본을 만든다. 입력: {@code s}(s), {@code
+ *       rarity}(희귀도), {@code implicits}(암시옵션목록), {@code explicits}(명시옵션목록). 반환: {@code ItemState}.
+ *   <li>{@code automaticJointRolls(definition)}: 복합 수치의 유한 결합 분포를 구하고 번들 정의만 캐시한다. 입력: {@code
+ *       definition}(정의). 반환: {@code Optional<List<CoupledStatRollModel.Cell>>}.
+ *   <li>{@code singleStatRollAssumption(definition)}: 독립 단일 수치 굴림의 가정 정보를 구성한다. 입력: {@code
+ *       definition}(정의). 반환: {@code Assumption}.
+ *   <li>{@code abyssPlan(state, action, omens)}: 훼손 아이템의 다음 화폐 실행 가능성과 분기를 구한다. 입력: {@code
+ *       state}(상태), {@code action}(행동), {@code omens}(징조목록). 반환: {@code AbyssCraftingPlan}.
+ *   <li>{@code applyAbyss(state, action, omens, random)}: 훼손 슬롯을 보존하며 화폐를 실행한다. 입력: {@code
+ *       state}(상태), {@code action}(행동), {@code omens}(징조목록), {@code random}(난수생성기). 반환: {@code
+ *       AbyssCraftingState}.
+ *   <li>{@code applyCustomExalt(state, action, omens, random, modifierId)}: 사용자가 고른 옵션을 공통 엑잘티드
+ *       규칙으로 부여한다. 입력: {@code state}(상태), {@code action}(행동), {@code omens}(징조목록), {@code
+ *       random}(난수생성기), {@code modifierId}(옵션·식별자). 반환: {@code AbyssCraftingState}.
+ * </ul>
  *
- * <p>수치/기록: automaticJointRolls 메서드는 복합 수치 분포, roll은 실제 옵션 인스턴스를 생성한다. recordSelectionAssumptions와
- * singleStatRollAssumption은 추정 분포의 근거를 기록한다. lowersCapBelowQuality는 제거 후 품질 상한 위반, copy는 희귀도·옵션만
- * 바꾸고 나머지 상태를 보존한다. 각 실행의 candidates/targets는 해당 요청 후보, explicits/events/assumptions는 결과 누적용 지역
- * 목록이다. 입력 ItemState는 불변이며 난수는 전달받은 random만 소비한다. 잘못된 상태·ID는 IllegalArgumentException, 유효하지만 불가능한
- * 행동은 Availability/Plan/Result의 사유로 구별한다.
+ * <p>중첩 타입:
  *
- * <p>중첩 결과 타입: AutomaticIdentity(정책 묶음), ExaltChoice(고귀 후보), Availability(가능 여부), Event(실제 선택),
- * Assumption(분포 가정), Result(완료 상태·버전·징조·품질)다.
+ * <ul>
+ *   <li>{@code AutomaticIdentity}: ruleVersion/ledgerVersion은 실행·가정 버전, definitions는 정의 묶음,
+ *       fixedTargets/replacementTargets는 베이스별 추가/교체 후보, qualityPolicy는 품질 한도 감소 정책이다.
+ *   <li>{@code ExaltChoice}: modifierId는 선택 가능한 고귀 옵션, probability는 현재 후보 풀에서의 선택 확률이다.
+ *   <li>{@code Availability}: action은 요청 화폐, available은 가능 여부, reason은 불가능한 경우의 설명이다.
+ *   <li>{@code Event}: kind는 사건 종류, modifierId는 선택 옵션, values는 실제 굴린 수치, selectionProbability는 선택
+ *       확률이다. 생성자는 values를 방어 복사하여 실행 뒤의 변경을 차단한다.
+ *   <li>{@code Assumption}: id는 가정 식별자, candidateUnit/n/candidates는 후보 단위·개수·식별자, min/max는 수치 범위,
+ *       sourceUrl/reason은 근거, ratioTick은 복합 수치의 비율 눈금이다. 8인자 생성자는 ratioTick=null을 사용하고 기본 생성자는
+ *       candidates를 방어 복사한다.
+ *   <li>{@code Result}: ruleVersion/ledgerVersion/snapshotId는 재현 기준, state는 결과 상태, action은 화폐,
+ *       applied/reason은 실행 여부·거부 사유, events/assumptions는 실제 사건·추정 근거, consumedOmens/remainingOmens는
+ *       징조 처리 결과, qualityLimit는 적용 후 품질 한도다. 생성자는 사건·가정·징조 목록을 방어 복사한다.
+ * </ul>
  */
 public final class WorkbenchSimulator {
   public static final String RULE_VERSION = "solar-workbench-abyss-essence-v23";
@@ -70,11 +202,10 @@ public final class WorkbenchSimulator {
       new LinkedHashMap<>(16, 0.75f, true);
   private final QualityCapChangePolicy qualityCapChangePolicy;
   private final AdditionRules additionRules;
-  private final Set<String> coupledModifierIds;
-  private final Map<String, List<CoupledStatRollModel.Cell>> automaticJointRolls =
-      new java.util.concurrent.ConcurrentHashMap<>();
-  private final Map<WorkbenchCurrency, List<String>> essenceTargetOverrides;
-  private final Map<WorkbenchCurrency, List<String>> replacementTargetOverrides;
+  private final WorkbenchMaterials materials;
+  private final WorkbenchRolls rolls;
+  private final AbyssWorkbench abyss;
+  private final ItemStateValidator validator;
 
   public WorkbenchSimulator(ItemCatalog catalog, CraftingEngine engine) {
     this(catalog, engine, Set.of());
@@ -118,70 +249,14 @@ public final class WorkbenchSimulator {
       QualityCapChangePolicy qualityCapChangePolicy) {
     this.catalog = ManualRevealCatalog.enrich(Objects.requireNonNull(catalog));
     this.qualityCapChangePolicy = Objects.requireNonNull(qualityCapChangePolicy);
-    var replacements = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
-    replacementTargetOverrides.forEach(
-        (action, ids) -> {
-          if (action.materialPolicy().mode() != WorkbenchDefinitions.MaterialMode.REPLACE
-              || ids.isEmpty()
-              || new HashSet<>(ids).size() != ids.size())
-            throw new IllegalArgumentException(
-                "Replacement override requires a complete distinct target set");
-          for (var id : ids) {
-            var definition =
-                catalog
-                    .find(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Unknown replacement target"));
-            if (definition.layer() != ModifierDefinition.Layer.EXPLICIT)
-              throw new IllegalArgumentException("Replacement target must be explicit");
-          }
-          replacements.put(action, List.copyOf(ids));
-        });
-    EquipmentCurrencyCatalog.targets(catalog.base().id())
-        .forEach(
-            (action, ids) -> {
-              if (ids.stream().allMatch(id -> this.catalog.find(id).isPresent()))
-                replacements.put(WorkbenchCurrency.valueOf(action), ids);
-            });
-    this.replacementTargetOverrides = Map.copyOf(replacements);
-    var reviewed = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
-    essenceTargetOverrides.forEach(
-        (action, ids) -> {
-          if (action.materialPolicy().mode() != WorkbenchDefinitions.MaterialMode.ADD
-              || ids.isEmpty()
-              || new HashSet<>(ids).size() != ids.size())
-            throw new IllegalArgumentException(
-                "Only source-proven fixed basic essence overrides are supported");
-          for (var id : ids) {
-            var definition =
-                catalog
-                    .find(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Unknown essence target"));
-            if (definition.layer() != ModifierDefinition.Layer.EXPLICIT || definition.weight() <= 0)
-              throw new IllegalArgumentException(
-                  "Basic essence target requires a verified ordinary explicit");
-          }
-          reviewed.put(action, List.copyOf(ids));
-        });
-    this.essenceTargetOverrides = Map.copyOf(reviewed);
-    var coupled = new HashSet<>(coupledModifierIds);
-    this.catalog.modifiers().values().stream()
-        .filter(
-            d ->
-                (d.id().startsWith("equipment:") || d.tags().contains("augment_pool"))
-                    && d.stats().size() > 1)
-        .map(ModifierDefinition::id)
-        .forEach(coupled::add);
-    this.coupledModifierIds = Set.copyOf(coupled);
-    for (var id : this.coupledModifierIds) {
-      var definition =
-          this.catalog
-              .find(id)
-              .orElseThrow(() -> new IllegalArgumentException("Unknown coupled modifier"));
-      if (definition.stats().size() < 2)
-        throw new IllegalArgumentException("Coupled opt-in requires multiple source stats");
-    }
+    materials =
+        new WorkbenchMaterials(
+            catalog, this.catalog, essenceTargetOverrides, replacementTargetOverrides);
+    rolls = new WorkbenchRolls(this.catalog, coupledModifierIds);
+    abyss = new AbyssWorkbench(this.catalog, materials, rolls);
     Objects.requireNonNull(engine);
     additionRules = new AdditionRules(this.catalog);
+    validator = new ItemStateValidator(this.catalog);
   }
 
   /** Preserve configured roll, target and quality-cap policies when adding reviewed outcomes. */
@@ -189,9 +264,9 @@ public final class WorkbenchSimulator {
     return new WorkbenchSimulator(
         enriched,
         new CraftingEngine(enriched),
-        coupledModifierIds,
-        essenceTargetOverrides,
-        replacementTargetOverrides,
+        rolls.coupledModifierIds,
+        materials.essenceTargetOverrides,
+        materials.replacementTargetOverrides,
         qualityCapChangePolicy);
   }
 
@@ -218,21 +293,8 @@ public final class WorkbenchSimulator {
   }
 
   private boolean craftsModifier(WorkbenchCurrency action) {
-    return !essenceTargets(action).isEmpty() || !replacementTargets(action).isEmpty();
-  }
-
-  private List<String> essenceTargets(WorkbenchCurrency action) {
-    return essenceTargetOverrides.getOrDefault(action, action.essenceModifierIds());
-  }
-
-  private List<String> replacementTargets(WorkbenchCurrency action) {
-    if (action.isLiquid())
-      return catalog.modifiers().values().stream()
-          .filter(
-              d -> d.tags().contains("crafted") && d.sourceUrl().equals(action.replacementSource()))
-          .map(ModifierDefinition::id)
-          .toList();
-    return replacementTargetOverrides.getOrDefault(action, action.replacementModifiers());
+    return !materials.essenceTargets(action).isEmpty()
+        || !materials.replacementTargets(action).isEmpty();
   }
 
   /** The same resolved targets used by manual execution, limited to this catalog. */
@@ -243,7 +305,8 @@ public final class WorkbenchSimulator {
       if (!supported.contains(action) || !action.name().contains("ESSENCE")) continue;
       var targets =
           java.util.stream.Stream.concat(
-                  essenceTargets(action).stream(), replacementTargets(action).stream())
+                  materials.essenceTargets(action).stream(),
+                  materials.replacementTargets(action).stream())
               .filter(id -> catalog.find(id).isPresent())
               .distinct()
               .sorted()
@@ -261,7 +324,7 @@ public final class WorkbenchSimulator {
     if (value != null) return value;
     synchronized (this) {
       if (cachedCompatibilityId == null)
-        cachedCompatibilityId = ItemRulesetIdentity.of(catalog, this, coupledModifierIds);
+        cachedCompatibilityId = ItemRulesetIdentity.of(catalog, this, rolls.coupledModifierIds);
       return cachedCompatibilityId;
     }
   }
@@ -305,7 +368,7 @@ public final class WorkbenchSimulator {
         || ReviewedWands.supports(catalog.base().id()))) return "wand-workbench-essence-v1";
     if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
       return "bow-workbench-perfect-essence-v2";
-    return coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-artificer-v26";
+    return rolls.coupledModifierIds.isEmpty() ? RULE_VERSION : "stocky-workbench-artificer-v26";
   }
 
   public String ledgerVersion() {
@@ -335,7 +398,7 @@ public final class WorkbenchSimulator {
       return "wand-unverified-numeric-assumptions-v1";
     if (catalog.base().id().equals(BowEssenceTargets.BASE_ID))
       return "bow-unverified-numeric-assumptions-v1";
-    return coupledModifierIds.isEmpty()
+    return rolls.coupledModifierIds.isEmpty()
         ? LEDGER_VERSION
         : "stocky-unverified-numeric-assumptions-v11";
   }
@@ -357,13 +420,15 @@ public final class WorkbenchSimulator {
                     : BaseRegistry.ordinaryCatalyst(base);
               }
               if (action.isLiquid()) {
-                return BasicJewel.supportedCrafting(base) && !replacementTargets(action).isEmpty();
+                return BasicJewel.supportedCrafting(base)
+                    && !materials.replacementTargets(action).isEmpty();
               }
               if (BasicJewel.supportedCrafting(base)
                   || (!action.name().contains("ESSENCE_") && !action.isAlloy())) return false;
               var targets =
                   java.util.stream.Stream.concat(
-                          essenceTargets(action).stream(), replacementTargets(action).stream())
+                          materials.essenceTargets(action).stream(),
+                          materials.replacementTargets(action).stream())
                       .toList();
               return !targets.isEmpty()
                   && targets.stream().allMatch(id -> catalog.find(id).isPresent());
@@ -373,7 +438,7 @@ public final class WorkbenchSimulator {
 
   public List<Availability> actions(ItemState state, Set<String> activeOmens) {
     validate(state);
-    var omens = parseOmens(activeOmens);
+    var omens = WorkbenchOmens.parseOmens(activeOmens);
     return Arrays.stream(WorkbenchCurrency.values())
         .filter(a -> !a.isLiquid() || BasicJewel.supportedCrafting(state.baseItemId()))
         .filter(
@@ -386,7 +451,8 @@ public final class WorkbenchSimulator {
                 (a != WorkbenchCurrency.ARTIFICER
                         || BaseRegistry.socketExecutionMaximum(state.baseItemId()) != null)
                     && java.util.stream.Stream.concat(
-                            essenceTargets(a).stream(), replacementTargets(a).stream())
+                            materials.essenceTargets(a).stream(),
+                            materials.replacementTargets(a).stream())
                         .allMatch(id -> catalog.find(id).isPresent()))
         .map(a -> availability(state, a, omens))
         .toList();
@@ -395,35 +461,15 @@ public final class WorkbenchSimulator {
   private void validate(ItemState state) {
     if (state == null
         || !AugmentSocketRules.supportedState(state)
-        || !new ItemStateValidator(catalog).validate(state).isEmpty())
+        || !validator.validate(state).isEmpty())
       throw new IllegalArgumentException("Unsupported concrete item state");
-  }
-
-  private List<WorkbenchOmen> parseOmens(Set<String> ids) {
-    if (ids == null) return List.of();
-    if (ids.size() > WorkbenchOmen.values().length)
-      throw new IllegalArgumentException("Too many active omens");
-    return ids.stream().sorted().map(WorkbenchOmen::fromId).toList();
   }
 
   /** The operation's omen set is shared by ordinary and user-selected execution. */
   public Set<String> triggeredOmens(WorkbenchCurrency action, Set<String> activeOmens) {
-    return matching(action, parseOmens(activeOmens)).stream()
+    return WorkbenchOmens.matching(action, WorkbenchOmens.parseOmens(activeOmens)).stream()
         .map(WorkbenchOmen::id)
         .collect(java.util.stream.Collectors.toCollection(TreeSet::new));
-  }
-
-  private List<WorkbenchOmen> matching(WorkbenchCurrency action, List<WorkbenchOmen> omens) {
-    return omens.stream()
-        .filter(
-            o ->
-                o.trigger() == action
-                    || (o.trigger() == WorkbenchCurrency.ESSENCE_HYSTERIA
-                        && !action.isLiquid()
-                        && !action.replacementEssenceModifiers().isEmpty())
-                    || (action.baseAction() != null
-                        && o.trigger().baseAction() == action.baseAction()))
-        .toList();
   }
 
   private Availability availability(
@@ -470,14 +516,14 @@ public final class WorkbenchSimulator {
       return blocked(
           action,
           "This operation remains outside the reviewed Jewel basic currency and Liquid scope.");
-    if (action.isLiquid() && replacementTargets(action).isEmpty())
+    if (action.isLiquid() && materials.replacementTargets(action).isEmpty())
       return blocked(action, "No sourced Liquid outcome for this Jewel category and base.");
     if (qualityCapChangePolicy == QualityCapChangePolicy.REJECT_OVERCAP
         && state.catalystQuality() != null
         && (action.baseAction() == CraftingAction.ANNULMENT
             || action.baseAction() == CraftingAction.CHAOS
-            || !replacementTargets(action).isEmpty())
-        && removalCandidates(state, action, matching(action, omens)).stream()
+            || !materials.replacementTargets(action).isEmpty())
+        && removalCandidates(state, action, WorkbenchOmens.matching(action, omens)).stream()
             .anyMatch(m -> lowersCapBelowQuality(state, m)))
       return blocked(
           action,
@@ -493,10 +539,11 @@ public final class WorkbenchSimulator {
       return reason.isEmpty() ? new Availability(action, true, "") : blocked(action, reason);
     }
     if (java.util.stream.Stream.concat(
-            essenceTargets(action).stream(), replacementTargets(action).stream())
+            materials.essenceTargets(action).stream(),
+            materials.replacementTargets(action).stream())
         .anyMatch(id -> catalog.find(id).isEmpty()))
       return blocked(action, "This material's results are not verified for this base.");
-    var matches = matching(action, omens);
+    var matches = WorkbenchOmens.matching(action, omens);
     if (WorkbenchOmen.verifiedDoubleAddition(matches)) {
       if (state.itemLevel() < action.minimumModifierLevel())
         return blocked(action, "Item level is below the currency's minimum modifier level.");
@@ -542,16 +589,19 @@ public final class WorkbenchSimulator {
     if (state.itemLevel() < action.minimumModifierLevel())
       return blocked(action, "Item level is below the currency's minimum modifier level.");
     var omen = matches.isEmpty() ? null : matches.getFirst();
-    if (!replacementTargets(action).isEmpty()) {
+    if (!materials.replacementTargets(action).isEmpty()) {
       if (!action.materialPolicy().allows(state))
         return blocked(
             action, "This material does not support the item rarity configured in its rule.");
       var targets =
-          replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
+          materials.replacementTargets(action).stream()
+              .map(id -> catalog.find(id).orElseThrow())
+              .toList();
       if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
         return blocked(action, "Essence below the catalog modifier item level is unsupported.");
-      if (targetFirstEssence(action)) {
-        var plan = essenceReplacementPlan(AbyssCraftingState.from(state, catalog), action, omen);
+      if (materials.targetFirstEssence(action)) {
+        var plan =
+            materials.essenceReplacementPlan(AbyssCraftingState.from(state, catalog), action, omen);
         return plan.available()
             ? new Availability(action, true, "")
             : blocked(action, plan.reason());
@@ -570,12 +620,14 @@ public final class WorkbenchSimulator {
       }
       return new Availability(action, true, "");
     }
-    if (!essenceTargets(action).isEmpty()) {
+    if (!materials.essenceTargets(action).isEmpty()) {
       if (!action.materialPolicy().allows(state))
         return blocked(
             action, "This essence does not support the item rarity configured in its rule.");
       var targets =
-          essenceTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
+          materials.essenceTargets(action).stream()
+              .map(id -> catalog.find(id).orElseThrow())
+              .toList();
       if (targets.stream().anyMatch(target -> state.itemLevel() < target.requiredItemLevel()))
         return blocked(
             action,
@@ -729,25 +781,14 @@ public final class WorkbenchSimulator {
             .noneMatch(d -> !Collections.disjoint(d.familyIds(), target.familyIds()));
   }
 
-  private boolean targetFirstEssence(WorkbenchCurrency action) {
-    return !action.isAlloy() && !action.isLiquid() && !replacementTargets(action).isEmpty();
-  }
-
-  private EssenceReplacementRules.Plan essenceReplacementPlan(
-      AbyssCraftingState state, WorkbenchCurrency action, WorkbenchOmen omen) {
-    var targets =
-        replacementTargets(action).stream().map(id -> catalog.find(id).orElse(null)).toList();
-    if (targets.stream().anyMatch(Objects::isNull))
-      return new EssenceReplacementRules.Plan(List.of(), "UNREVIEWED_REPLACEMENT");
-    return EssenceReplacementRules.plan(state, catalog, targets, omen);
-  }
-
   private List<ModifierInstance> replacementRemovalCandidates(
       ItemState state, WorkbenchCurrency action, WorkbenchOmen omen) {
     var candidates = removalCandidates(state, omen);
     if (!action.isLiquid()) return candidates;
     var targets =
-        replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
+        materials.replacementTargets(action).stream()
+            .map(id -> catalog.find(id).orElseThrow())
+            .toList();
     return candidates.stream()
         .filter(
             removed -> {
@@ -819,9 +860,7 @@ public final class WorkbenchSimulator {
         : currency.baseAction() == CraftingAction.REGAL ? ItemState.Rarity.RARE : state.rarity();
   }
 
-  /**
-   * Reuses Workbench applicability and pool rules; only the fixed no-omen basic scope is exposed.
-   */
+  /** 징조 없는 기본 화폐의 희귀도 전제만 판정한다. 후보·슬롯 등 다른 조건은 계획 단계에서 검사한다. */
   static boolean basicRarityAllows(ItemState.Rarity rarity, CraftingAction kind) {
     return switch (kind) {
       case TRANSMUTATION -> rarity == ItemState.Rarity.NORMAL;
@@ -834,6 +873,17 @@ public final class WorkbenchSimulator {
   /**
    * ruleVersion/ledgerVersion은 실행·가정 버전, definitions는 정의 묶음, fixedTargets/replacementTargets는 베이스별
    * 추가/교체 후보, qualityPolicy는 품질 한도 감소 정책이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code ruleVersion}: 규칙·버전 ({@code String}).
+   *   <li>{@code ledgerVersion}: 규칙장부·버전 ({@code String}).
+   *   <li>{@code definitions}: 정의목록 ({@code WorkbenchDefinitions.Document}).
+   *   <li>{@code fixedTargets}: 고정·대상목록 ({@code Map<WorkbenchCurrency, List<String>>}).
+   *   <li>{@code replacementTargets}: 교체·대상목록 ({@code Map<WorkbenchCurrency, List<String>>}).
+   *   <li>{@code qualityPolicy}: 품질·정책 ({@code QualityCapChangePolicy}).
+   * </ul>
    */
   public record AutomaticIdentity(
       String ruleVersion,
@@ -843,169 +893,14 @@ public final class WorkbenchSimulator {
       Map<WorkbenchCurrency, List<String>> replacementTargets,
       QualityCapChangePolicy qualityPolicy) {}
 
-  /** Manual Abyss scenarios preserve slots without inventing reveal probabilities. */
-  public AbyssCraftingPlan abyssPlan(
-      AbyssCraftingState state, WorkbenchCurrency action, Set<String> activeOmens) {
-    if (!state.item().conditions().isEmpty()) return AbyssCraftingPlan.blocked("ITEM_CONDITION");
-    state.validate(catalog);
-    validate(state.knownItem());
-    if (state.offer() != null) return AbyssCraftingPlan.blocked("RESOLVE_OFFER_BEFORE_CURRENCY");
-    if (action == null || state.item().rarity() != ItemState.Rarity.RARE)
-      return AbyssCraftingPlan.blocked("RARITY_NOT_APPLICABLE");
-    var omens = parseOmens(activeOmens);
-    var matches = matching(action, omens);
-    if (matches.size() > 1
-        || matches.size() != omens.size()
-        || matches.contains(WorkbenchOmen.GREATER_EXALTATION))
-      return AbyssCraftingPlan.blocked("ABYSS_OMEN_COMBINATION_UNSUPPORTED");
-    if (matches.contains(WorkbenchOmen.WHITTLING))
-      return AbyssCraftingPlan.blocked("UNREVEALED_MODIFIER_LEVEL_UNKNOWN");
-    if (state.item().itemLevel() < action.minimumModifierLevel()
-        || (action.minimumModifierLevel() > 0
-            && matches.stream().anyMatch(o -> !o.supportsTieredCurrency())))
-      return AbyssCraftingPlan.blocked("ITEM_LEVEL_OR_OMEN_UNSUPPORTED");
-    var omen = matches.isEmpty() ? null : matches.getFirst();
-    boolean addition = action.baseAction() == CraftingAction.EXALTED;
-    boolean annulment = action == WorkbenchCurrency.ANNULMENT;
-    boolean replacement = !replacementTargets(action).isEmpty();
-    if (replacement
-        && state.knownItem().explicits().stream()
-                .filter(m -> AugmentCraftingRules.crafted(m, catalog))
-                .count()
-            >= AugmentCraftingRules.craftedLimit(state.item()))
-      return AbyssCraftingPlan.blocked("CRAFTED_LIMIT");
-    if ((!addition && !annulment && !replacement)
-        || action == WorkbenchCurrency.ESSENCE_ABYSS
-        || action.isLiquid()) return AbyssCraftingPlan.blocked("ABYSS_OPERATION_UNSUPPORTED");
-    var branches = new ArrayList<AbyssCraftingPlan.Branch>();
-    if (replacement && targetFirstEssence(action)) {
-      var plan = essenceReplacementPlan(state, action, omen);
-      if (!plan.available()) return AbyssCraftingPlan.blocked(plan.reason());
-      for (var outcome : plan.outcomes())
-        for (var removed : outcome.removals()) {
-          long denominator = (long) plan.outcomes().size() * outcome.removals().size();
-          branches.add(
-              new AbyssCraftingPlan.Branch(
-                  removed.id(),
-                  1.0 / denominator,
-                  state.remove(removed.id(), null, catalog),
-                  List.of(outcome.target()),
-                  true,
-                  denominator));
-        }
-      return new AbyssCraftingPlan(true, "", branches);
-    }
-    if (addition) {
-      var candidates = new AbyssProbabilityComparison(catalog).pool(state, action, omen);
-      if (candidates.isEmpty()) return AbyssCraftingPlan.blocked("NO_ELIGIBLE_ADDITION");
-      branches.add(new AbyssCraftingPlan.Branch(null, 1, state, candidates, false));
-    } else {
-      var removals = state.removalCandidates(omen == null ? null : omen.affix());
-      if (removals.isEmpty()) return AbyssCraftingPlan.blocked("NO_ELIGIBLE_REMOVAL");
-      for (var removed : removals) {
-        var remaining = state.remove(removed.id(), omen == null ? null : omen.affix(), catalog);
-        var targets = new ArrayList<ModifierDefinition>();
-        for (var id : annulment ? List.<String>of() : replacementTargets(action)) {
-          var target = catalog.find(id).orElse(null);
-          if (target == null) return AbyssCraftingPlan.blocked("UNREVIEWED_REPLACEMENT");
-          var values = new HashMap<String, Long>();
-          target.stats().forEach(stat -> values.put(stat.id(), stat.min()));
-          try {
-            remaining.append(removed.id(), new ModifierInstance(id, values), catalog);
-          } catch (IllegalArgumentException invalid) {
-            return AbyssCraftingPlan.blocked("REPLACEMENT_BRANCH_CONFLICT");
-          }
-          targets.add(target);
-        }
-        branches.add(
-            new AbyssCraftingPlan.Branch(
-                removed.id(), 1.0 / removals.size(), remaining, targets, true));
-      }
-    }
-    return new AbyssCraftingPlan(true, "", branches);
-  }
-
-  public AbyssCraftingState applyAbyss(
-      AbyssCraftingState state,
-      WorkbenchCurrency action,
-      Set<String> omens,
-      RandomGenerator random) {
-    return applyAbyss(state, action, omens, random, null);
-  }
-
-  public AbyssCraftingState applyCustomExalt(
-      AbyssCraftingState state,
-      WorkbenchCurrency action,
-      Set<String> omens,
-      RandomGenerator random,
-      String modifierId) {
-    if (action == null || action.baseAction() != CraftingAction.EXALTED || modifierId == null)
-      throw new IllegalArgumentException("Custom Exalted modifier required");
-    return applyAbyss(state, action, omens, random, modifierId);
-  }
-
-  private AbyssCraftingState applyAbyss(
-      AbyssCraftingState state,
-      WorkbenchCurrency action,
-      Set<String> omens,
-      RandomGenerator random,
-      String forcedModifierId) {
-    var plan = abyssPlan(state, action, omens);
-    if (!plan.available()) throw new IllegalArgumentException("Abyss currency unavailable");
-    var branch = plan.branches().getLast();
-    if (plan.branches().stream().allMatch(b -> b.probabilityDenominator() == 0)) {
-      branch = plan.branches().get(random.nextInt(plan.branches().size()));
-    } else {
-      double drawBranch = random.nextDouble();
-      for (var candidate : plan.branches()) {
-        drawBranch -= candidate.removalProbability();
-        if (drawBranch < 0) {
-          branch = candidate;
-          break;
-        }
-      }
-    }
-    if (branch.candidates().isEmpty()) return branch.remaining();
-    ModifierDefinition chosen;
-    if (branch.uniformSelection()) {
-      chosen = branch.candidates().get(random.nextInt(branch.candidates().size()));
-    } else {
-      long draw =
-          random.nextLong(branch.candidates().stream().mapToLong(ModifierDefinition::weight).sum());
-      chosen = branch.candidates().getLast();
-      for (var candidate : branch.candidates()) {
-        draw -= candidate.weight();
-        if (draw < 0) {
-          chosen = candidate;
-          break;
-        }
-      }
-    }
-    if (forcedModifierId != null)
-      chosen =
-          branch.candidates().stream()
-              .filter(d -> d.id().equals(forcedModifierId))
-              .findFirst()
-              .orElseThrow(() -> new IllegalArgumentException("Ineligible custom modifier"));
-    var instance = roll(chosen, random, new ArrayList<>());
-    if (!replacementTargets(action).isEmpty()) instance = instance.asCrafted();
-    String id = branch.removedSlotId();
-    if (id == null) {
-      int index = 0;
-      var occupied = state.slots().stream().map(AbyssCraftingState.Slot::id).toList();
-      while (occupied.contains("added-" + index)) index++;
-      id = "added-" + index;
-    }
-    return branch.remaining().append(id, instance, catalog);
-  }
-
+  /** 자동 탐색의 호환성 검사용으로 현재 규칙·후보·품질 정책의 불변 묶음을 제공한다. */
   public AutomaticIdentity automaticIdentity() {
     return new AutomaticIdentity(
         ruleVersion(),
         ledgerVersion(),
         WorkbenchDefinitions.active().document(),
-        essenceTargetOverrides,
-        replacementTargetOverrides,
+        materials.essenceTargetOverrides,
+        materials.replacementTargetOverrides,
         qualityCapChangePolicy);
   }
 
@@ -1031,12 +926,12 @@ public final class WorkbenchSimulator {
         action == WorkbenchCurrency.REGAL
             || action == WorkbenchCurrency.EXALTED
             || action == WorkbenchCurrency.CHAOS;
-    boolean replacement = !replacementTargets(action).isEmpty();
-    boolean essence = !essenceTargets(action).isEmpty();
+    boolean replacement = !materials.replacementTargets(action).isEmpty();
+    boolean essence = !materials.essenceTargets(action).isEmpty();
     if (action == WorkbenchCurrency.ESSENCE_ABYSS
         || (!basic && !replacement && !essence)
         || action.isLiquid()
-        || matching(action, omens).size() != omens.size())
+        || WorkbenchOmens.matching(action, omens).size() != omens.size())
       return new AutomaticCraftingPlan(
           AutomaticCraftingPlan.Status.UNSUPPORTED,
           "AUTOMATIC_OPERATION_NOT_IMPLEMENTED",
@@ -1074,9 +969,9 @@ public final class WorkbenchSimulator {
         var remaining = copy(state, state.rarity(), state.implicits(), rest);
         branches.add(new AutomaticCraftingPlan.Branch(remaining, pool(remaining, action, null)));
       }
-    } else if (replacement && targetFirstEssence(action)) {
+    } else if (replacement && materials.targetFirstEssence(action)) {
       var slots = AbyssCraftingState.from(state, catalog);
-      var plan = essenceReplacementPlan(slots, action, omen);
+      var plan = materials.essenceReplacementPlan(slots, action, omen);
       for (var outcome : plan.outcomes())
         for (var removed : outcome.removals())
           branches.add(
@@ -1086,7 +981,9 @@ public final class WorkbenchSimulator {
                   (long) plan.outcomes().size() * outcome.removals().size()));
     } else if (replacement) {
       var targets =
-          replacementTargets(action).stream().map(id -> catalog.find(id).orElseThrow()).toList();
+          materials.replacementTargets(action).stream()
+              .map(id -> catalog.find(id).orElseThrow())
+              .toList();
       for (var removed : replacementRemovalCandidates(state, action, omen)) {
         var rest = new ArrayList<>(state.explicits());
         rest.remove(removed);
@@ -1107,7 +1004,7 @@ public final class WorkbenchSimulator {
           new AutomaticCraftingPlan.Branch(
               upgraded,
               essence
-                  ? essenceTargets(action).stream()
+                  ? materials.essenceTargets(action).stream()
                       .map(id -> catalog.find(id).orElseThrow())
                       .toList()
                   : pool(upgraded, action, omen)));
@@ -1164,7 +1061,7 @@ public final class WorkbenchSimulator {
 
   List<Assumption> basicSelectionAssumptions(List<ModifierDefinition> candidates) {
     var assumptions = new ArrayList<Assumption>();
-    recordSelectionAssumptions(candidates, assumptions);
+    rolls.recordSelectionAssumptions(candidates, assumptions);
     return List.copyOf(assumptions);
   }
 
@@ -1200,7 +1097,16 @@ public final class WorkbenchSimulator {
     return apply(state, action, activeOmens, random, modifierId);
   }
 
-  /** modifierId는 선택 가능한 고귀 옵션, probability는 현재 후보 풀에서의 선택 확률이다. */
+  /**
+   * modifierId는 선택 가능한 고귀 옵션, probability는 현재 후보 풀에서의 선택 확률이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   *   <li>{@code probability}: 확률 ({@code double}).
+   * </ul>
+   */
   public record ExaltChoice(String modifierId, double probability) {}
 
   /** Natural chance to see the selected tier in the operation, including a verified second draw. */
@@ -1209,9 +1115,9 @@ public final class WorkbenchSimulator {
     validate(state);
     if (action == null || action.baseAction() != CraftingAction.EXALTED)
       throw new IllegalArgumentException("Exalted currency required");
-    var omens = parseOmens(ids);
+    var omens = WorkbenchOmens.parseOmens(ids);
     if (!availability(state, action, omens).available()) return List.of();
-    var matched = matching(action, omens);
+    var matched = WorkbenchOmens.matching(action, omens);
     var first = exaltPool(state, state, action, omens, matched);
     double total = first.stream().mapToLong(ModifierDefinition::weight).sum();
     var chances = new LinkedHashMap<String, Double>();
@@ -1294,7 +1200,7 @@ public final class WorkbenchSimulator {
     validate(state);
     if (action == null || random == null)
       throw new IllegalArgumentException("Action and random required");
-    var omens = parseOmens(activeOmens);
+    var omens = WorkbenchOmens.parseOmens(activeOmens);
     var available = availability(state, action, omens);
     var allIds = omens.stream().map(WorkbenchOmen::id).toList();
     if (!available.available())
@@ -1427,7 +1333,7 @@ public final class WorkbenchSimulator {
           allIds,
           QualityLimitRules.describe(next, catalog));
     }
-    var matched = matching(action, omens);
+    var matched = WorkbenchOmens.matching(action, omens);
     if (action == WorkbenchCurrency.ARTIFICER) {
       var next =
           new ItemState(
@@ -1477,10 +1383,11 @@ public final class WorkbenchSimulator {
             : craftsModifier(action)
                 ? action.materialPolicy().result(state)
                 : upgrade(state, action);
-    if (!replacementTargets(action).isEmpty()) {
+    if (!materials.replacementTargets(action).isEmpty()) {
       var targetPlan =
-          targetFirstEssence(action)
-              ? essenceReplacementPlan(AbyssCraftingState.from(state, catalog), action, omen)
+          materials.targetFirstEssence(action)
+              ? materials.essenceReplacementPlan(
+                  AbyssCraftingState.from(state, catalog), action, omen)
               : null;
       var outcome =
           targetPlan == null
@@ -1512,7 +1419,7 @@ public final class WorkbenchSimulator {
                   : "Uniform among non-Fractured eligible instances conditional on the selected outcome. A full target side requires removal from that side. No published removal weights."));
       var afterRemoval = copy(state, state.rarity(), state.implicits(), explicits);
       var targets =
-          replacementTargets(action).stream()
+          materials.replacementTargets(action).stream()
               .filter(
                   id ->
                       !action.isLiquid()
@@ -1537,11 +1444,11 @@ public final class WorkbenchSimulator {
                 action.isLiquid()
                     ? "USER-APPROVED SIMULATOR MODEL: 1/N among valid sourced Liquid outcomes after this removal and side/family eligibility. Actual outcome weights are unavailable."
                     : "Uniform among the sourced modifier outcomes; no published essence choice weights. Zero ordinary spawn weight is not an essence selection weight."));
-      var rolled = roll(definition, random, assumptions).asCrafted();
+      var rolled = rolls.roll(definition, random, assumptions).asCrafted();
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / targets.size()));
-    } else if (!essenceTargets(action).isEmpty()) {
-      var candidates = essenceTargets(action);
+    } else if (!materials.essenceTargets(action).isEmpty()) {
+      var candidates = materials.essenceTargets(action);
       var definition =
           catalog
               .find(candidates.get(candidates.size() == 1 ? 0 : random.nextInt(candidates.size())))
@@ -1559,7 +1466,7 @@ public final class WorkbenchSimulator {
                     ? catalog.metadata().sourceUrl()
                     : action.essenceChoiceSource(),
                 "Uniform among the sourced modifier outcomes; no published essence choice weights. Ordinary affix pool weights are not asserted to be essence choice weights."));
-      var rolled = roll(definition, random, assumptions).asCrafted();
+      var rolled = rolls.roll(definition, random, assumptions).asCrafted();
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / candidates.size()));
     } else if (action == WorkbenchCurrency.FRACTURING) {
@@ -1600,7 +1507,7 @@ public final class WorkbenchSimulator {
             pool(intermediate, action, omen == null ? null : alchemySide(intermediate, omen));
         if (candidates.isEmpty())
           throw new IllegalArgumentException("Alchemy needs a complete four-modifier pool");
-        recordSelectionAssumptions(candidates, assumptions);
+        rolls.recordSelectionAssumptions(candidates, assumptions);
         long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
         long draw = random.nextLong(total);
         var chosen = candidates.getLast();
@@ -1611,7 +1518,7 @@ public final class WorkbenchSimulator {
             break;
           }
         }
-        var rolled = roll(chosen, random, assumptions);
+        var rolled = rolls.roll(chosen, random, assumptions);
         explicits.add(rolled);
         events.add(
             new Event("ADD", chosen.id(), rolled.values(), (double) chosen.weight() / total));
@@ -1622,7 +1529,7 @@ public final class WorkbenchSimulator {
           var current = implicits.get(i);
           var d = catalog.find(current.modifierId()).orElseThrow();
           if (d.stats().stream().anyMatch(s -> s.max() > s.min())) {
-            var roll = roll(d, random, assumptions);
+            var roll = rolls.roll(d, random, assumptions);
             implicits.set(i, roll);
             events.add(new Event("REROLL_IMPLICIT", d.id(), roll.values(), 1));
           }
@@ -1633,7 +1540,7 @@ public final class WorkbenchSimulator {
           if (current.fractured()) continue;
           var d = catalog.find(current.modifierId()).orElseThrow();
           if (d.stats().stream().anyMatch(s -> s.max() > s.min())) {
-            var roll = roll(d, random, assumptions);
+            var roll = rolls.roll(d, random, assumptions);
             explicits.set(i, current.crafted() ? roll.asCrafted() : roll);
             events.add(new Event("REROLL_EXPLICIT", d.id(), roll.values(), 1));
           }
@@ -1694,7 +1601,7 @@ public final class WorkbenchSimulator {
                               intermediate,
                               action,
                               action.baseAction() == CraftingAction.CHAOS ? null : omen);
-          recordSelectionAssumptions(candidates, assumptions);
+          rolls.recordSelectionAssumptions(candidates, assumptions);
           long total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
           long draw = random.nextLong(total);
           var chosen = candidates.getLast();
@@ -1711,7 +1618,7 @@ public final class WorkbenchSimulator {
                     .filter(d -> d.id().equals(forcedModifierId))
                     .findFirst()
                     .orElseThrow(() -> new IllegalArgumentException("Ineligible custom modifier"));
-          var rolled = roll(chosen, random, assumptions);
+          var rolled = rolls.roll(chosen, random, assumptions);
           explicits.add(rolled);
           events.add(
               new Event("ADD", chosen.id(), rolled.values(), (double) chosen.weight() / total));
@@ -1785,141 +1692,7 @@ public final class WorkbenchSimulator {
         QualityLimitRules.describe(result, catalog));
   }
 
-  private void recordSelectionAssumptions(
-      List<ModifierDefinition> candidates, List<Assumption> assumptions) {
-    var temporary = candidates.stream().filter(d -> d.tags().contains("augment_pool")).toList();
-    if (!temporary.isEmpty()) {
-      var policy = AugmentCraftingRules.poolWeightPolicy();
-      assumptions.add(
-          new Assumption(
-              policy.id(),
-              "eligible Augment modifier tier",
-              temporary.size(),
-              temporary.stream().map(ModifierDefinition::id).toList(),
-              (long) policy.weightPerTier(),
-              (long) policy.weightPerTier(),
-              catalog.metadata().sourceUrl(),
-              policy.description()));
-      return;
-    }
-    if (catalog.metadata().weightPolicy().equals("POE2DB_AS_PUBLISHED")) {
-      if (ReviewedBoots.supports(catalog.base().id())
-          || ReviewedBodies.supports(catalog.base().id())
-          || ReviewedHelmets.supports(catalog.base().id())
-          || ReviewedGloves.supports(catalog.base().id()))
-        assumptions.add(
-            new Assumption(
-                "poe2db-published-candidates-v1",
-                "eligible ordinary modifier",
-                candidates.size(),
-                candidates.stream().map(ModifierDefinition::id).sorted().toList(),
-                null,
-                null,
-                catalog.metadata().sourceUrl(),
-                "Selection uses PoE2DB published weights after family, side and level restrictions."));
-      return;
-    }
-    if (ReviewedBoots.supports(catalog.base().id()))
-      assumptions.add(
-          new Assumption(
-              "boots-uniform-candidates-v1",
-              "eligible per-base Boots ordinary modifier",
-              candidates.size(),
-              candidates.stream().map(ModifierDefinition::id).sorted().toList(),
-              null,
-              null,
-              catalog.metadata().sourceUrl(),
-              "USER-APPROVED SIMULATOR MODEL: equal 1/N after family, side and level restrictions. Actual game spawn weights and numeric roll probabilities remain unverified."));
-    if (ReviewedBodies.supports(catalog.base().id()))
-      assumptions.add(
-          new Assumption(
-              "body-uniform-candidates-v1",
-              "eligible per-base Body ordinary modifier",
-              candidates.size(),
-              candidates.stream().map(ModifierDefinition::id).sorted().toList(),
-              null,
-              null,
-              catalog.metadata().sourceUrl(),
-              "USER-APPROVED SIMULATOR MODEL: equal 1/N after family, side and level restrictions. Actual game spawn weights and numeric roll probabilities remain unverified."));
-    if (ReviewedHelmets.supports(catalog.base().id()))
-      assumptions.add(
-          new Assumption(
-              "helmets-uniform-candidates-v1",
-              "eligible per-base Helmet ordinary modifier",
-              candidates.size(),
-              candidates.stream().map(ModifierDefinition::id).sorted().toList(),
-              null,
-              null,
-              catalog.metadata().sourceUrl(),
-              "USER-APPROVED SIMULATOR MODEL: equal 1/N among eligible Helmet modifiers after family, side and level restrictions. Actual game spawn weights are unavailable; published DropChance is not a verified game weight."));
-    if (BasicJewel.supportedCrafting(catalog.base().id())
-        || ReviewedGloves.supports(catalog.base().id()))
-      assumptions.add(
-          new Assumption(
-              ReviewedGloves.supports(catalog.base().id())
-                  ? "gloves-uniform-candidates-v1"
-                  : "sapphire-uniform-candidates-v1",
-              ReviewedGloves.supports(catalog.base().id())
-                  ? "eligible per-base Gloves ordinary modifier"
-                  : "eligible per-base Jewel ordinary modifier",
-              candidates.size(),
-              candidates.stream().map(ModifierDefinition::id).toList(),
-              null,
-              null,
-              catalog.metadata().sourceUrl(),
-              ReviewedGloves.supports(catalog.base().id())
-                  ? "USER-APPROVED SIMULATOR MODEL: equal 1/N among eligible Gloves modifiers after family, side and level restrictions. Actual game spawn weights are unavailable; published DropChance is not a verified game weight."
-                  : "USER-APPROVED SIMULATOR MODEL: equal 1/N among the eligible normal-section candidates after family, side and level restrictions. Actual game spawn weights are unavailable; DropChance=1 is not a verified weight."));
-  }
-
-  /** Only existing opt-ins use the conjecture; fully fixed tuples need no stochastic model. */
-  public Optional<List<CoupledStatRollModel.Cell>> automaticJointRolls(
-      ModifierDefinition definition) {
-    if (definition.stats().size() < 2
-        || (!coupledModifierIds.contains(definition.id())
-            && definition.stats().stream().anyMatch(s -> s.min() != s.max())))
-      return Optional.empty();
-    return Optional.of(
-        automaticJointRolls.computeIfAbsent(
-            definition.id(), ignored -> CoupledStatRollModel.cells(definition)));
-  }
-
-  private ModifierInstance roll(
-      ModifierDefinition definition, RandomGenerator random, List<Assumption> assumptions) {
-    if (coupledModifierIds.contains(definition.id()))
-      return CoupledStatRollModel.roll(definition, random, assumptions);
-    if (definition.stats().size() != 1)
-      throw new IllegalArgumentException("Joint stat roll domain needs verification");
-    var range = definition.stats().getFirst();
-    long n = Math.addExact(Math.subtractExact(range.max(), range.min()), 1);
-    long value = Math.addExact(range.min(), random.nextLong(n));
-    var assumption = singleStatRollAssumption(definition);
-    if (assumption != null) assumptions.add(assumption);
-    return new ModifierInstance(definition.id(), Map.of(range.id(), value));
-  }
-
-  public Assumption singleStatRollAssumption(ModifierDefinition definition) {
-    if (definition.stats().size() != 1)
-      throw new IllegalArgumentException("Joint stat roll domain needs verification");
-    var range = definition.stats().getFirst();
-    long n = Math.addExact(Math.subtractExact(range.max(), range.min()), 1);
-    return n > 1
-        ? new Assumption(
-            coupledModifierIds.isEmpty()
-                ? "uniform-integer-roll-v1"
-                : "assumed-source-integer-roll-v1",
-            range.id(),
-            n,
-            List.of(),
-            range.min(),
-            range.max(),
-            definition.sourceUrl(),
-            coupledModifierIds.isEmpty()
-                ? "Each integer in this single-stat source range is a modeled candidate; no published roll weights."
-                : "UNVERIFIED numeric model: equally sampled source-unit integers between verified bounds. Interior increments, display conversion and game distribution remain unverified; this is not an established game outcome domain.")
-        : null;
-  }
-
+  /** 품질 상한을 주던 옵션을 제거하면 현재 기폭제 품질이 새 상한을 넘는지 검사한다. */
   private boolean lowersCapBelowQuality(ItemState state, ModifierInstance removed) {
     if (!removed.values().containsKey(QualityLimitRules.STAT_ID)) return false;
     var remaining = state.explicits().stream().filter(m -> !m.equals(removed)).toList();
@@ -1963,12 +1736,39 @@ public final class WorkbenchSimulator {
         .withQualityInfused(s.qualityInfused());
   }
 
-  /** action은 요청 화폐, available은 가능 여부, reason은 불가능한 경우의 설명이다. */
+  /**
+   * action은 요청 화폐, available은 가능 여부, reason은 불가능한 경우의 설명이다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code available}: 사용가능 ({@code boolean}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   * </ul>
+   */
   public record Availability(WorkbenchCurrency action, boolean available, String reason) {}
 
   /**
    * kind는 사건 종류, modifierId는 선택 옵션, values는 실제 굴린 수치, selectionProbability는 선택 확률이다. 생성자는 values를
    * 방어 복사하여 실행 뒤의 변경을 차단한다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code kind}: 종류 ({@code String}).
+   *   <li>{@code modifierId}: 실제 부여된 옵션 정의 식별자 ({@code String}).
+   *   <li>{@code values}: 출처 단위로 보존하는 수치 값 ({@code Map<String, Long>}).
+   *   <li>{@code selectionProbability}: 선택·확률 ({@code double}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Event(kind, modifierId, values, selectionProbability)}: 전달받은 값으로 구성원을 초기화한다. 입력:
+   *       {@code kind}(종류), {@code modifierId}(옵션·식별자), {@code values}(값목록), {@code
+   *       selectionProbability}(선택·확률).
+   * </ul>
    */
   public record Event(
       String kind, String modifierId, Map<String, Long> values, double selectionProbability) {
@@ -1980,6 +1780,33 @@ public final class WorkbenchSimulator {
   /**
    * id는 가정 식별자, candidateUnit/n/candidates는 후보 단위·개수·식별자, min/max는 수치 범위, sourceUrl/reason은 근거,
    * ratioTick은 복합 수치의 비율 눈금이다. 8인자 생성자는 ratioTick=null을 사용하고 기본 생성자는 candidates를 방어 복사한다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code id}: 이 값의 식별자 ({@code String}).
+   *   <li>{@code candidateUnit}: 후보·단위 ({@code String}).
+   *   <li>{@code n}: n ({@code long}).
+   *   <li>{@code candidates}: 후보목록 ({@code List<String>}).
+   *   <li>{@code min}: 허용·표시 범위의 하한 ({@code Long}).
+   *   <li>{@code max}: 허용·표시 범위의 상한 ({@code Long}).
+   *   <li>{@code sourceUrl}: 검토에 사용한 원자료 URL ({@code String}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code ratioTick}: 비율·Tick ({@code Integer}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Assumption(id, candidateUnit, n, candidates, min, max, sourceUrl, reason)}: 기본 정책을
+   *       보충해 공통 생성자로 위임한다. 입력: {@code id}(식별자), {@code candidateUnit}(후보·단위), {@code n}(n), {@code
+   *       candidates}(후보목록), {@code min}(최소값), {@code max}(최대값), {@code sourceUrl}(출처·출처주소), {@code
+   *       reason}(이유).
+   *   <li>{@code Assumption(id, candidateUnit, n, candidates, min, max, sourceUrl, reason,
+   *       ratioTick)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code id}(식별자), {@code candidateUnit}(후보·단위),
+   *       {@code n}(n), {@code candidates}(후보목록), {@code min}(최소값), {@code max}(최대값), {@code
+   *       sourceUrl}(출처·출처주소), {@code reason}(이유), {@code ratioTick}(비율·Tick).
+   * </ul>
    */
   public record Assumption(
       String id,
@@ -2012,6 +1839,34 @@ public final class WorkbenchSimulator {
    * ruleVersion/ledgerVersion/snapshotId는 재현 기준, state는 결과 상태, action은 화폐, applied/reason은 실행 여부·거부
    * 사유, events/assumptions는 실제 사건·추정 근거, consumedOmens/remainingOmens는 징조 처리 결과, qualityLimit는 적용 후
    * 품질 한도다. 생성자는 사건·가정·징조 목록을 방어 복사한다.
+   *
+   * <p>필드·상수·record 구성요소:
+   *
+   * <ul>
+   *   <li>{@code ruleVersion}: 규칙·버전 ({@code String}).
+   *   <li>{@code ledgerVersion}: 규칙장부·버전 ({@code String}).
+   *   <li>{@code snapshotId}: 카탈로그 스냅샷 식별자 ({@code String}).
+   *   <li>{@code state}: 현재 아이템 또는 계산 상태 ({@code ItemState}).
+   *   <li>{@code action}: 실행할 화폐·제작 행동 ({@code WorkbenchCurrency}).
+   *   <li>{@code applied}: 요청한 변경의 실제 적용 여부 ({@code boolean}).
+   *   <li>{@code reason}: 거절·중단·미지원 이유 ({@code String}).
+   *   <li>{@code events}: 실제로 선택·적용한 변경 기록 ({@code List<Event>}).
+   *   <li>{@code assumptions}: 확률·수치 계산에 사용한 명시적 가정 ({@code List<Assumption>}).
+   *   <li>{@code consumedOmens}: 이번 실행으로 소비된 징조 ID 목록 ({@code List<String>}).
+   *   <li>{@code remainingOmens}: 실행 뒤 남은 징조 ID 목록 ({@code List<String>}).
+   *   <li>{@code qualityLimit}: 품질·한도 ({@code QualityLimitRules.Limit}).
+   * </ul>
+   *
+   * <p>생성자·메서드:
+   *
+   * <ul>
+   *   <li>{@code Result(ruleVersion, ledgerVersion, snapshotId, state, action, applied, reason,
+   *       events, assumptions, consumedOmens, remainingOmens, qualityLimit)}: 전달받은 값으로 구성원을 초기화한다.
+   *       입력: {@code ruleVersion}(규칙·버전), {@code ledgerVersion}(규칙장부·버전), {@code
+   *       snapshotId}(스냅샷·식별자), {@code state}(상태), {@code action}(행동), {@code applied}(적용여부),
+   *       {@code reason}(이유), {@code events}(이벤트목록), {@code assumptions}(계산가정), {@code
+   *       consumedOmens}(소비된·징조목록), {@code remainingOmens}(남은·징조목록), {@code qualityLimit}(품질·한도).
+   * </ul>
    */
   public record Result(
       String ruleVersion,
@@ -2032,5 +1887,36 @@ public final class WorkbenchSimulator {
       consumedOmens = List.copyOf(consumedOmens);
       remainingOmens = List.copyOf(remainingOmens);
     }
+  }
+
+  public Optional<List<CoupledStatRollModel.Cell>> automaticJointRolls(
+      ModifierDefinition definition) {
+    return rolls.automaticJointRolls(definition);
+  }
+
+  public Assumption singleStatRollAssumption(ModifierDefinition definition) {
+    return rolls.singleStatRollAssumption(definition);
+  }
+
+  public AbyssCraftingPlan abyssPlan(
+      AbyssCraftingState state, WorkbenchCurrency action, Set<String> omens) {
+    return abyss.abyssPlan(state, action, omens);
+  }
+
+  public AbyssCraftingState applyAbyss(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
+      RandomGenerator random) {
+    return abyss.applyAbyss(state, action, omens, random);
+  }
+
+  public AbyssCraftingState applyCustomExalt(
+      AbyssCraftingState state,
+      WorkbenchCurrency action,
+      Set<String> omens,
+      RandomGenerator random,
+      String modifierId) {
+    return abyss.applyCustomExalt(state, action, omens, random, modifierId);
   }
 }
