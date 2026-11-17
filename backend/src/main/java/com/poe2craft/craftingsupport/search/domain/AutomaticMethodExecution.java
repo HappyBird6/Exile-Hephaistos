@@ -130,6 +130,16 @@ public final class AutomaticMethodExecution implements AutoCloseable {
 
   private static final class PrimitiveBudgetReached extends RuntimeException {}
 
+  private static final class PrimitiveYield extends RuntimeException {
+    PrimitiveYield() {
+      super(null, null, false, false);
+    }
+  }
+
+  private AutomaticCraftingKernel.PrimitiveCursor primitiveCursor;
+  private State primitiveState;
+  private AutomaticCraftingAction primitiveAction;
+
   private final PreparationSuccess preparationSuccess;
   private final Set<WorkbenchSimulator.Assumption> assumptions = new LinkedHashSet<>();
   private final Set<String> unresolvedReasons = new LinkedHashSet<>();
@@ -327,7 +337,21 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                       classify.apply(b.remaining(), state.abstractQuality()).orElse(null)
                           == Exit.LOSS)) return new Kernel<>(List.of(), Fraction.ZERO, true);
     }
-    var law = kernel.expandDeferred(state.item(), state.tiers(), action, primitiveOutcomeBudget);
+    if (primitiveCursor == null
+        || !state.equals(primitiveState)
+        || !action.equals(primitiveAction)) {
+      primitiveCursor =
+          kernel.deferredCursor(state.item(), state.tiers(), action, primitiveOutcomeBudget);
+      primitiveState = state;
+      primitiveAction = action;
+    }
+    primitiveCursor.advance(64);
+    if (primitiveCursor.limited()) throw new PrimitiveBudgetReached();
+    if (!primitiveCursor.finished()) throw new PrimitiveYield();
+    var law = primitiveCursor.result();
+    primitiveCursor = null;
+    primitiveState = null;
+    primitiveAction = null;
     // The runner has not removed this pending state or charged material yet.
     if (law.reason().equals("OUTCOME_BUDGET")) throw new PrimitiveBudgetReached();
     assumptions.addAll(law.assumptions());
@@ -653,14 +677,15 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   }
 
   public long retainedStates() {
-    return runner.retainedStates()
+    return (primitiveCursor == null ? 0 : primitiveCursor.retainedStates())
+        + runner.retainedStates()
         + runner.retention().flightOutcomes()
         + preparedRepresentatives.size()
         + (preparedTransition == null ? 0 : preparedTransition.outcomes().size());
   }
 
   public boolean hasPrimitiveInFlight() {
-    return runner.retention().flightOutcomes() > 0;
+    return primitiveCursor != null || runner.retention().flightOutcomes() > 0;
   }
 
   public void beginCycle() {
@@ -671,6 +696,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     if (primitiveLimited) return;
     try {
       runner.step(outcomes);
+    } catch (PrimitiveYield ex) {
+      // Keep the runner pending; no material has been charged yet.
     } catch (PrimitiveBudgetReached ex) {
       primitiveLimited = true;
     }
@@ -683,6 +710,11 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   public void increasePrimitiveBudget(long budget) {
     if (budget < primitiveOutcomeBudget)
       throw new IllegalArgumentException("Resource budget cannot shrink");
+    if (budget > primitiveOutcomeBudget) {
+      primitiveCursor = null;
+      primitiveState = null;
+      primitiveAction = null;
+    }
     primitiveOutcomeBudget = budget;
     primitiveLimited = false;
   }
@@ -775,6 +807,9 @@ public final class AutomaticMethodExecution implements AutoCloseable {
 
   @Override
   public void close() {
+    primitiveCursor = null;
+    primitiveState = null;
+    primitiveAction = null;
     runner.closeWorkingMaps();
   }
 }

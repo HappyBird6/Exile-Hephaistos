@@ -507,18 +507,33 @@ public final class AutomaticCraftingKernel {
       long outcomeBudget,
       boolean deferred,
       boolean lineage) {
-    long started = System.nanoTime();
+    var cursor = cursor(state, retainedTiers, execution, outcomeBudget, deferred, lineage);
+    while (!cursor.finished() && !cursor.limited()) cursor.advance(256);
+    return cursor.result();
+  }
+
+  public PrimitiveCursor deferredCursor(
+      ItemState state, Map<String, TierCell> tiers, AutomaticCraftingAction action, long budget) {
+    return cursor(state, tiers, action, budget, tierGroupingSafe, true);
+  }
+
+  private PrimitiveCursor cursor(
+      ItemState state,
+      Map<String, TierCell> tiers,
+      AutomaticCraftingAction action,
+      long budget,
+      boolean deferred,
+      boolean lineage) {
+    long start = System.nanoTime();
     try {
-      var result = generate(state, retainedTiers, execution, outcomeBudget, deferred, lineage);
-      primitiveOutcomes += result.outcomes().size();
-      return result;
+      return prepareCursor(state, tiers, action, budget, deferred, lineage);
     } finally {
       primitiveCalls++;
-      primitiveNanos += System.nanoTime() - started;
+      primitiveNanos += System.nanoTime() - start;
     }
   }
 
-  private Result generate(
+  private PrimitiveCursor prepareCursor(
       ItemState state,
       Map<String, TierCell> retainedTiers,
       AutomaticCraftingAction execution,
@@ -527,34 +542,37 @@ public final class AutomaticCraftingKernel {
       boolean lineage) {
     if (outcomeBudget < 1) throw new IllegalArgumentException("Positive outcome budget required");
     if (!strictExaltedAllowed(state, execution))
-      return blocked(Status.POLICY_REJECTED, "EXALTED_REQUIRES_FIRST_AFFIX_OR_PLANNED_REMOVAL");
+      return new PrimitiveCursor(
+          blocked(Status.POLICY_REJECTED, "EXALTED_REQUIRES_FIRST_AFFIX_OR_PLANNED_REMOVAL"));
     if (execution.operation() != null) {
       if (!desecrationActions(state).contains(execution))
-        return blocked(Status.UNAVAILABLE, "DESECRATION_UNAVAILABLE");
+        return new PrimitiveCursor(blocked(Status.UNAVAILABLE, "DESECRATION_UNAVAILABLE"));
       var target =
           AbyssCraftingState.from(state, catalog)
               .addUnrevealed("desecrated-" + execution.side().name(), execution.side(), catalog)
               .storedItem();
-      return new Result(
-          Status.COMPLETE,
-          "",
-          List.of(new Outcome(target, Fraction.ONE, retainedTiers)),
-          Fraction.ZERO,
-          Fraction.ZERO,
-          List.of());
+      return new PrimitiveCursor(
+          new Result(
+              Status.COMPLETE,
+              "",
+              List.of(new Outcome(target, Fraction.ONE, retainedTiers)),
+              Fraction.ZERO,
+              Fraction.ZERO,
+              List.of()));
     }
     if (execution.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT) {
       if (execution.currency() != WorkbenchCurrency.ESSENCE_BREACH
           || !execution.omens().isEmpty()
           || !baseQualitySupported(state))
-        return blocked(Status.UNAVAILABLE, "BASE_QUALITY_NOT_VERIFIED");
-      return new Result(
-          Status.COMPLETE,
-          "",
-          List.of(new Outcome(state, Fraction.ONE, retainedTiers)),
-          Fraction.ZERO,
-          Fraction.ZERO,
-          List.of());
+        return new PrimitiveCursor(blocked(Status.UNAVAILABLE, "BASE_QUALITY_NOT_VERIFIED"));
+      return new PrimitiveCursor(
+          new Result(
+              Status.COMPLETE,
+              "",
+              List.of(new Outcome(state, Fraction.ONE, retainedTiers)),
+              Fraction.ZERO,
+              Fraction.ZERO,
+              List.of()));
     }
     var context =
         new AutomaticCurrencyPolicy.Context(family, execution.purpose(), execution.currency());
@@ -566,50 +584,54 @@ public final class AutomaticCraftingKernel {
                 o ->
                     policy.evaluate("OMEN:" + o.name(), context)
                         != AutomaticCurrencyPolicy.Verdict.PERMITTED))
-      return blocked(Status.POLICY_REJECTED, "AUTOMATIC_POLICY_REJECTED");
+      return new PrimitiveCursor(blocked(Status.POLICY_REJECTED, "AUTOMATIC_POLICY_REJECTED"));
     if (!policy.withinExplorationBoundary(state.explicitSlotCount()))
-      return new Result(
-          Status.PARTIAL,
-          "EXPLICIT_MODIFIER_BOUNDARY",
-          List.of(),
-          Fraction.ONE,
-          Fraction.ZERO,
-          List.of());
+      return new PrimitiveCursor(
+          new Result(
+              Status.PARTIAL,
+              "EXPLICIT_MODIFIER_BOUNDARY",
+              List.of(),
+              Fraction.ONE,
+              Fraction.ZERO,
+              List.of()));
     if (execution.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT) {
       if (execution.currency() != WorkbenchCurrency.ESSENCE_BREACH || !execution.omens().isEmpty())
-        return blocked(Status.POLICY_REJECTED, "INVALID_QUALITY_WORK");
+        return new PrimitiveCursor(blocked(Status.POLICY_REJECTED, "INVALID_QUALITY_WORK"));
       if (!hasQualityCap(state))
-        return blocked(Status.UNAVAILABLE, "QUALITY_40_REQUIRES_MAXIMUM_QUALITY_MODIFIER");
+        return new PrimitiveCursor(
+            blocked(Status.UNAVAILABLE, "QUALITY_40_REQUIRES_MAXIMUM_QUALITY_MODIFIER"));
       var limit = QualityLimitRules.describe(state, catalog);
       if (limit == null || limit.maximumQuality() < 40)
-        return blocked(Status.UNSUPPORTED, "QUALITY_40_CAP_NOT_VERIFIED");
-      return new Result(
-          Status.COMPLETE,
-          "",
-          List.of(new Outcome(state, Fraction.ONE, retainedTiers)),
-          Fraction.ZERO,
-          Fraction.ZERO,
-          List.of(
-              new WorkbenchSimulator.Assumption(
-                  "abstract-quality-work-v1",
-                  "quality checkpoint",
-                  1,
-                  List.of(),
-                  null,
-                  null,
-                  "https://poe2db.tw/us/Essence_of_the_Breach",
-                  "User-approved abstract work to 40 quality; catalyst type, count and numeric scaling are not inferred.")));
+        return new PrimitiveCursor(blocked(Status.UNSUPPORTED, "QUALITY_40_CAP_NOT_VERIFIED"));
+      return new PrimitiveCursor(
+          new Result(
+              Status.COMPLETE,
+              "",
+              List.of(new Outcome(state, Fraction.ONE, retainedTiers)),
+              Fraction.ZERO,
+              Fraction.ZERO,
+              List.of(
+                  new WorkbenchSimulator.Assumption(
+                      "abstract-quality-work-v1",
+                      "quality checkpoint",
+                      1,
+                      List.of(),
+                      null,
+                      null,
+                      "https://poe2db.tw/us/Essence_of_the_Breach",
+                      "User-approved abstract work to 40 quality; catalyst type, count and numeric scaling are not inferred."))));
     }
     var plan =
         state.desecrated().isEmpty()
             ? simulator.automaticPlan(state, execution)
             : slotPlan(state, execution);
     if (plan.status() != AutomaticCraftingPlan.Status.READY)
-      return blocked(
-          plan.status() == AutomaticCraftingPlan.Status.UNAVAILABLE
-              ? Status.UNAVAILABLE
-              : Status.UNSUPPORTED,
-          plan.reason());
+      return new PrimitiveCursor(
+          blocked(
+              plan.status() == AutomaticCraftingPlan.Status.UNAVAILABLE
+                  ? Status.UNAVAILABLE
+                  : Status.UNSUPPORTED,
+              plan.reason()));
     if (!state.desecrated().isEmpty() && execution.currency() == WorkbenchCurrency.ANNULMENT) {
       var mass = Fraction.of(1, plan.branches().size());
       var outcomes =
@@ -625,7 +647,8 @@ public final class AutomaticCraftingKernel {
                     return new Outcome(branch.remaining(), mass, kept);
                   })
               .toList();
-      return new Result(Status.COMPLETE, "", outcomes, Fraction.ZERO, Fraction.ZERO, List.of());
+      return new PrimitiveCursor(
+          new Result(Status.COMPLETE, "", outcomes, Fraction.ZERO, Fraction.ZERO, List.of()));
     }
     boolean uniform =
         plan.uniformCandidates()
@@ -634,11 +657,13 @@ public final class AutomaticCraftingKernel {
                     "USER_APPROVED_UNIFORM_CANDIDATES_NOT_GAME_WEIGHTS")
                 .contains(catalog.metadata().weightPolicy());
     if (!uniform && !catalog.metadata().weightPolicy().equals("POE2DB_AS_PUBLISHED"))
-      return blocked(Status.UNSUPPORTED, "SELECTION_WEIGHT_MODEL_NOT_IMPLEMENTED");
+      return new PrimitiveCursor(
+          blocked(Status.UNSUPPORTED, "SELECTION_WEIGHT_MODEL_NOT_IMPLEMENTED"));
     // Unsupported rolls retain their selection mass in the same eligible denominator.
     String unsupportedRoll = "";
     for (var branch : plan.branches()) {
-      if (branch.candidates().isEmpty()) return blocked(Status.UNSUPPORTED, "EMPTY_CANDIDATE_LAW");
+      if (branch.candidates().isEmpty())
+        return new PrimitiveCursor(blocked(Status.UNSUPPORTED, "EMPTY_CANDIDATE_LAW"));
       for (var candidate : branch.candidates()) {
         if (candidate.stats().size() != 1) {
           if (simulator.automaticJointRolls(candidate).isEmpty())
@@ -653,187 +678,318 @@ public final class AutomaticCraftingKernel {
             > 0) unsupportedRoll = "ROLL_DOMAIN_NOT_IMPLEMENTED";
       }
     }
-    if (plan.branches().isEmpty()) return blocked(Status.UNAVAILABLE, "NO_REMOVAL_CANDIDATE");
-    var outcomes = new LinkedHashMap<TierState, Fraction>();
-    var assumptions = new LinkedHashSet<WorkbenchSimulator.Assumption>();
-    if (execution.omens().contains(WorkbenchOmen.WHITTLING)) {
-      var source =
-          policy.document().entries().stream()
-              .filter(e -> e.id().equals("OMEN:WHITTLING"))
-              .findFirst()
-              .orElseThrow();
-      assumptions.add(
-          new WorkbenchSimulator.Assumption(
-              "declared-whittling-priority-v1",
-              "eligible lowest modifier-level removal",
-              plan.branches().size(),
-              List.of(),
-              null,
-              null,
-              source.sourceUrl(),
-              "Lowest required modifier level after any affix-side restriction. Fractured combinations remain unsupported. Side+Whittling order is a declared composition, not independently established game odds."));
-    }
-    var boundary = Fraction.ZERO;
-    var emitted = Fraction.ZERO;
-    long count = 0;
-    var branchMass = Fraction.of(1, plan.branches().size());
-    if (plan.branches().size() > 1)
-      assumptions.add(
-          new WorkbenchSimulator.Assumption(
-              "uniform-removal-v1",
-              "eligible explicit instance",
-              plan.branches().size(),
-              List.of(),
-              null,
-              null,
-              plan.sourceUrl(),
-              "Uniform over every eligible removal, after the consumed omen restriction; no published removal weights."));
+    if (plan.branches().isEmpty())
+      return new PrimitiveCursor(blocked(Status.UNAVAILABLE, "NO_REMOVAL_CANDIDATE"));
     for (var branch : plan.branches()) {
-      var emittedCells = new HashSet<TierCell>();
-      var posterior =
-          deferred
-              ? new AutomaticTierPartition(partition)
-                  .members(branch.candidates(), uniform, outcomeBudget)
-              : Map.<TierPartition.BandKey, TierPartition.Member>of();
-      var candidateIds =
-          branch.candidates().stream()
-              .map(ModifierDefinition::id)
-              .collect(java.util.stream.Collectors.toSet());
-      var retainedIds =
-          branch.remaining().explicits().stream()
-              .map(ModifierInstance::modifierId)
-              .collect(java.util.stream.Collectors.toSet());
-      var keptTiers = new HashMap<>(retainedTiers);
-      keptTiers.keySet().retainAll(retainedIds);
       long total = 0;
       for (var candidate : branch.candidates())
         total = Math.addExact(total, uniform ? 1 : candidate.weight());
-      if (total <= 0) return blocked(Status.UNSUPPORTED, "INVALID_SELECTION_WEIGHT");
-      if (uniform)
+      if (total <= 0)
+        return new PrimitiveCursor(blocked(Status.UNSUPPORTED, "INVALID_SELECTION_WEIGHT"));
+    }
+    return new PrimitiveCursor(
+        plan, retainedTiers, execution, outcomeBudget, deferred, lineage, uniform, unsupportedRoll);
+  }
+
+  private record Generated(TierState state, Fraction mass) {}
+
+  // Stream.flatMap().iterator() may buffer a whole inner stream on hasNext().
+  // This explicit concatenation keeps at most one result group in look-ahead.
+  private static <A, B> Iterator<B> flatten(
+      Iterator<A> source, java.util.function.Function<A, Iterator<B>> expand) {
+    return new Iterator<>() {
+      Iterator<B> current = Collections.emptyIterator();
+
+      public boolean hasNext() {
+        while (!current.hasNext() && source.hasNext()) current = expand.apply(source.next());
+        return current.hasNext();
+      }
+
+      public B next() {
+        if (!hasNext()) throw new NoSuchElementException();
+        return current.next();
+      }
+    };
+  }
+
+  /** A suspended primitive retains its exact remaining mass; the runner charges it only once. */
+  public final class PrimitiveCursor {
+    private final Map<TierState, Fraction> outcomes = new LinkedHashMap<>();
+    private final Set<WorkbenchSimulator.Assumption> assumptions = new LinkedHashSet<>();
+    private Fraction boundary = Fraction.ZERO, emitted = Fraction.ZERO;
+    private final long budget;
+    private long count, generatedCount;
+    private final Iterator<Generated> iterator;
+    private final String unsupportedRoll;
+    private Result completed;
+    private boolean limited;
+
+    private PrimitiveCursor(Result result) {
+      completed = result;
+      iterator = Collections.emptyIterator();
+      budget = 0;
+      unsupportedRoll = "";
+      primitiveOutcomes += result.outcomes().size();
+    }
+
+    private PrimitiveCursor(
+        AutomaticCraftingPlan plan,
+        Map<String, TierCell> retainedTiers,
+        AutomaticCraftingAction execution,
+        long budget,
+        boolean deferred,
+        boolean lineage,
+        boolean uniform,
+        String unsupportedRoll) {
+      this.budget = budget;
+      this.unsupportedRoll = unsupportedRoll;
+      if (execution.omens().contains(WorkbenchOmen.WHITTLING)) {
+        var source =
+            policy.document().entries().stream()
+                .filter(e -> e.id().equals("OMEN:WHITTLING"))
+                .findFirst()
+                .orElseThrow();
         assumptions.add(
             new WorkbenchSimulator.Assumption(
-                "uniform-individual-candidate-v1",
-                "eligible individual modifier tier",
-                branch.candidates().size(),
-                branch.candidates().stream().map(ModifierDefinition::id).toList(),
+                "declared-whittling-priority-v1",
+                "eligible lowest modifier-level removal",
+                plan.branches().size(),
+                List.of(),
+                null,
+                null,
+                source.sourceUrl(),
+                "Lowest required modifier level after any affix-side restriction. Fractured combinations remain unsupported. Side+Whittling order is a declared composition, not independently established game odds."));
+      }
+      if (plan.branches().size() > 1)
+        assumptions.add(
+            new WorkbenchSimulator.Assumption(
+                "uniform-removal-v1",
+                "eligible explicit instance",
+                plan.branches().size(),
+                List.of(),
                 null,
                 null,
                 plan.sourceUrl(),
-                plan.uniformCandidates()
-                    ? "Fixed sourced outcomes use 1/n: ordinary spawn weight is not a fixed-material selection weight."
-                    : "Catalog explicitly declares uniform eligible modifier-tier candidates; game weights are unavailable."));
-      for (var candidate : branch.candidates()) {
-        var selection = branchMass.multiply(Fraction.of(uniform ? 1 : candidate.weight(), total));
-        if (candidate.stats().size() != 1) {
-          var law = simulator.automaticJointRolls(candidate);
-          if (law.isEmpty()) continue;
-          if (candidate.stats().stream().anyMatch(s -> s.min() != s.max()))
-            assumptions.add(CoupledStatRollModel.assumption(candidate, null));
-          if (!policy.withinExplorationBoundary(branch.remaining().explicits().size() + 1)) {
-            boundary = boundary.add(selection);
-            emitted = emitted.add(selection);
-            continue;
+                "Uniform over every eligible removal, after the consumed omen restriction; no published removal weights."));
+      var branchMass = Fraction.of(1, plan.branches().size());
+      iterator =
+          flatten(
+              plan.branches().iterator(),
+              branch -> {
+                var emittedCells = new HashSet<TierCell>();
+                var posterior =
+                    deferred
+                        ? new AutomaticTierPartition(partition)
+                            .members(branch.candidates(), uniform, budget)
+                        : Map.<TierPartition.BandKey, TierPartition.Member>of();
+                var candidateIds =
+                    branch.candidates().stream()
+                        .map(ModifierDefinition::id)
+                        .collect(java.util.stream.Collectors.toSet());
+                var retainedIds =
+                    branch.remaining().explicits().stream()
+                        .map(ModifierInstance::modifierId)
+                        .collect(java.util.stream.Collectors.toSet());
+                var keptTiers = new HashMap<>(retainedTiers);
+                keptTiers.keySet().retainAll(retainedIds);
+                long sum = 0;
+                for (var candidate : branch.candidates())
+                  sum = Math.addExact(sum, uniform ? 1 : candidate.weight());
+                final long total = sum;
+                if (total <= 0) throw new IllegalArgumentException("Invalid selection weight");
+                if (uniform)
+                  assumptions.add(
+                      new WorkbenchSimulator.Assumption(
+                          "uniform-individual-candidate-v1",
+                          "eligible individual modifier tier",
+                          branch.candidates().size(),
+                          branch.candidates().stream().map(ModifierDefinition::id).toList(),
+                          null,
+                          null,
+                          plan.sourceUrl(),
+                          plan.uniformCandidates()
+                              ? "Fixed sourced outcomes use 1/n: ordinary spawn weight is not a fixed-material selection weight."
+                              : "Catalog explicitly declares uniform eligible modifier-tier candidates; game weights are unavailable."));
+                return flatten(
+                    branch.candidates().iterator(),
+                    candidate -> {
+                      var selection =
+                          branchMass.multiply(Fraction.of(uniform ? 1 : candidate.weight(), total));
+                      if (candidate.stats().size() != 1) {
+                        var law = simulator.automaticJointRolls(candidate);
+                        if (law.isEmpty()) return Collections.<Generated>emptyIterator();
+                        if (candidate.stats().stream().anyMatch(r -> r.min() != r.max()))
+                          assumptions.add(CoupledStatRollModel.assumption(candidate, null));
+                        if (!policy.withinExplorationBoundary(
+                            branch.remaining().explicits().size() + 1)) {
+                          boundary = boundary.add(selection);
+                          emitted = emitted.add(selection);
+                          return Collections.<Generated>emptyIterator();
+                        }
+                        return law.get().stream()
+                            .map(
+                                cell -> {
+                                  var explicits = new ArrayList<>(branch.remaining().explicits());
+                                  explicits.add(cell.modifier());
+                                  var tiers = new HashMap<>(keptTiers);
+                                  tiers.remove(candidate.id());
+                                  return generated(
+                                      new TierState(
+                                          simulator.finishBasicCurrency(
+                                              branch.remaining(), explicits),
+                                          tiers,
+                                          lineage ? Set.copyOf(retainedIds) : Set.of(),
+                                          lineage),
+                                      selection.multiply(
+                                          Fraction.of(
+                                              cell.ticks(), CoupledStatRollModel.RESOLUTION + 1)));
+                                })
+                            .iterator();
+                      }
+                      var range = candidate.stats().getFirst();
+                      var size =
+                          BigInteger.valueOf(range.max())
+                              .subtract(BigInteger.valueOf(range.min()))
+                              .add(BigInteger.ONE);
+                      if (size.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0)
+                        return Collections.<Generated>emptyIterator();
+                      var roll = simulator.singleStatRollAssumption(candidate);
+                      if (roll != null) assumptions.add(roll);
+                      if (!policy.withinExplorationBoundary(
+                          branch.remaining().explicits().size() + 1)) {
+                        boundary = boundary.add(selection);
+                        emitted = emitted.add(selection);
+                        return Collections.<Generated>emptyIterator();
+                      }
+                      var mass = selection.multiply(new Fraction(BigInteger.ONE, size));
+                      var bands =
+                          new Iterator<Generated>() {
+                            long value = range.min();
+                            boolean done;
+
+                            public boolean hasNext() {
+                              return !done;
+                            }
+
+                            public Generated next() {
+                              if (done) throw new NoSuchElementException();
+                              long start = value, end = partition.end(candidate, start);
+                              done = end == range.max();
+                              if (!done) value = end + 1;
+                              var explicits = new ArrayList<>(branch.remaining().explicits());
+                              explicits.add(
+                                  new ModifierInstance(candidate.id(), Map.of(range.id(), start)));
+                              var tiers = new HashMap<>(keptTiers);
+                              tiers.remove(candidate.id());
+                              var cellMass =
+                                  mass.multiply(
+                                      new Fraction(
+                                          BigInteger.valueOf(end)
+                                              .subtract(BigInteger.valueOf(start))
+                                              .add(BigInteger.ONE),
+                                          BigInteger.ONE));
+                              var member =
+                                  deferred
+                                      ? posterior.get(
+                                          new TierPartition.BandKey(candidate.id(), start, end))
+                                      : null;
+                              if (member != null
+                                  && member.cell().variants().stream()
+                                      .allMatch(v -> candidateIds.contains(v.modifierId()))) {
+                                if (!emittedCells.add(member.cell())) return null;
+                                var representative = member.cell().representative(false);
+                                explicits.removeLast();
+                                explicits.add(representative);
+                                tiers.put(representative.modifierId(), member.cell());
+                                cellMass =
+                                    cellMass.multiply(
+                                        new Fraction(
+                                            member
+                                                .cellWeight()
+                                                .numerator()
+                                                .multiply(member.intervalWeight().denominator()),
+                                            member
+                                                .cellWeight()
+                                                .denominator()
+                                                .multiply(member.intervalWeight().numerator())));
+                              }
+                              return generated(
+                                  new TierState(
+                                      simulator.finishBasicCurrency(branch.remaining(), explicits),
+                                      tiers,
+                                      lineage ? Set.copyOf(retainedIds) : Set.of(),
+                                      lineage),
+                                  cellMass);
+                            }
+                          };
+                      return java.util.stream.StreamSupport.stream(
+                              Spliterators.spliteratorUnknownSize(bands, Spliterator.ORDERED),
+                              false)
+                          .filter(Objects::nonNull)
+                          .iterator();
+                    });
+              });
+    }
+
+    private Generated generated(TierState state, Fraction mass) {
+      generatedCount++;
+      primitiveOutcomes++;
+      return new Generated(state, mass);
+    }
+
+    public void advance(int allowance) {
+      if (allowance < 1) throw new IllegalArgumentException("Positive batch required");
+      if (completed != null || limited) return;
+      long start = System.nanoTime();
+      try {
+        for (int i = 0; i < allowance; i++) {
+          if (!iterator.hasNext()) {
+            completed =
+                AutomaticCraftingKernel.result(
+                    outcomes,
+                    boundary,
+                    emitted,
+                    assumptions,
+                    !unsupportedRoll.isEmpty()
+                        ? unsupportedRoll
+                        : boundary.equals(Fraction.ZERO) ? "" : "EXPLICIT_MODIFIER_BOUNDARY");
+            return;
           }
-          for (var cell : law.get()) {
-            if (count >= outcomeBudget)
-              return result(outcomes, boundary, emitted, assumptions, "OUTCOME_BUDGET");
-            var explicits = new ArrayList<>(branch.remaining().explicits());
-            explicits.add(cell.modifier());
-            var item = simulator.finishBasicCurrency(branch.remaining(), explicits);
-            var tierLaws = new HashMap<>(keptTiers);
-            tierLaws.remove(candidate.id());
-            var mass =
-                selection.multiply(Fraction.of(cell.ticks(), CoupledStatRollModel.RESOLUTION + 1));
-            outcomes.merge(
-                new TierState(
-                    item, tierLaws, lineage ? Set.copyOf(retainedIds) : Set.of(), lineage),
-                mass,
-                Fraction::add);
-            emitted = emitted.add(mass);
-            count++;
+          if (count >= budget) {
+            limited = true;
+            return;
           }
-          continue;
-        }
-        var range = candidate.stats().getFirst();
-        var size =
-            BigInteger.valueOf(range.max())
-                .subtract(BigInteger.valueOf(range.min()))
-                .add(BigInteger.ONE);
-        if (size.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0) continue;
-        var roll = simulator.singleStatRollAssumption(candidate);
-        if (roll != null) assumptions.add(roll);
-        if (!policy.withinExplorationBoundary(branch.remaining().explicits().size() + 1)) {
-          boundary = boundary.add(selection);
-          emitted = emitted.add(selection);
-          continue;
-        }
-        var mass = selection.multiply(new Fraction(BigInteger.ONE, size));
-        for (long value = range.min(); ; ) {
-          if (count >= outcomeBudget)
-            return result(outcomes, boundary, emitted, assumptions, "OUTCOME_BUDGET");
-          var explicits = new ArrayList<>(branch.remaining().explicits());
-          explicits.add(new ModifierInstance(candidate.id(), Map.of(range.id(), value)));
-          var item = simulator.finishBasicCurrency(branch.remaining(), explicits);
-          long end = partition.end(candidate, value);
-          var cellMass =
-              mass.multiply(
-                  new Fraction(
-                      BigInteger.valueOf(end)
-                          .subtract(BigInteger.valueOf(value))
-                          .add(BigInteger.ONE),
-                      BigInteger.ONE));
-          var tierLaws = new HashMap<>(keptTiers);
-          tierLaws.remove(candidate.id()); // Removed and re-added means a fresh random draw.
-          var member =
-              deferred
-                  ? Optional.ofNullable(
-                      posterior.get(new TierPartition.BandKey(candidate.id(), value, end)))
-                  : Optional.<TierPartition.Member>empty();
-          if (member.isPresent()
-              && member.get().cell().variants().stream()
-                  .allMatch(v -> candidateIds.contains(v.modifierId()))) {
-            var tier = member.get();
-            { // The posterior was built with this branch's actual selection model.
-              if (!emittedCells.add(tier.cell())) {
-                if (end == range.max()) break;
-                value = end + 1;
-                continue;
-              }
-              var representative = tier.cell().representative(false);
-              explicits.removeLast();
-              explicits.add(representative);
-              item = simulator.finishBasicCurrency(branch.remaining(), explicits);
-              tierLaws.put(representative.modifierId(), tier.cell());
-              cellMass =
-                  cellMass.multiply(
-                      new Fraction(
-                          tier.cellWeight()
-                              .numerator()
-                              .multiply(tier.intervalWeight().denominator()),
-                          tier.cellWeight()
-                              .denominator()
-                              .multiply(tier.intervalWeight().numerator())));
-            }
-          }
-          outcomes.merge(
-              new TierState(item, tierLaws, lineage ? Set.copyOf(retainedIds) : Set.of(), lineage),
-              cellMass,
-              Fraction::add);
-          emitted = emitted.add(cellMass);
+          var next = iterator.next();
+          outcomes.merge(next.state(), next.mass(), Fraction::add);
+          emitted = emitted.add(next.mass());
           count++;
-          if (end == range.max()) break;
-          value = end + 1;
         }
+      } finally {
+        primitiveNanos += System.nanoTime() - start;
       }
     }
-    return result(
-        outcomes,
-        boundary,
-        emitted,
-        assumptions,
-        !unsupportedRoll.isEmpty()
-            ? unsupportedRoll
-            : boundary.equals(Fraction.ZERO) ? "" : "EXPLICIT_MODIFIER_BOUNDARY");
+
+    public boolean finished() {
+      return completed != null;
+    }
+
+    public boolean limited() {
+      return limited;
+    }
+
+    public long retainedStates() {
+      return outcomes.size() + Math.max(0, generatedCount - count);
+    }
+
+    public Result result() {
+      if (completed != null) return completed;
+      return AutomaticCraftingKernel.result(
+          outcomes,
+          boundary,
+          emitted,
+          assumptions,
+          limited ? "OUTCOME_BUDGET" : "ENUMERATION_PENDING");
+    }
   }
 
   private static Result result(
