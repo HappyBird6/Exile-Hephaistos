@@ -1,6 +1,6 @@
 # Goal filter v1 fixtures
 
-공통 규칙은 [계약 문서](../../docs/legacy/support-goal-filter-v1.md)에 있다. `fixtures.json`의 값과 stat/modifier/base ID는 모두 합성 데이터이며 production catalog나 게임의 수치 확률을 증명하지 않는다.
+공통 규칙은 [계약 문서](../../support-goal-filter-v1.md)에 있다. `fixtures.json`의 값과 stat/modifier/base ID는 모두 합성 데이터이며 production catalog나 게임의 수치 확률을 증명하지 않는다.
 
 `python contracts/support-goal-filter-v1/verify_fixtures.py`로 JSON, 판정 24건, validation 9건 및 API 예제의 질량 보존을 확인한다. 이 독립 oracle은 앱 구현 테스트가 아니다. FE/BE 담당은 같은 fixture를 자신의 구현 테스트에서 읽어 비교한다.
 

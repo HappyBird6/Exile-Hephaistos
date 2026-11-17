@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import assert from 'node:assert/strict'
+import { isDeepStrictEqual } from 'node:util'
 import { fileURLToPath } from 'node:url'
 export const mirrors = [
  ['top-bases.json','topBases.json'], ['top-base-essences.json','topBaseEssences.json'],
@@ -22,7 +23,14 @@ export function synchronize(root, write = false, selected = mirrors) {
  for(const [source, destination] of selected) {
   const value=browserData(source, JSON.parse(fs.readFileSync(path.join(root,'backend/src/main/resources/catalog',source))))
   const target=path.join(root,'frontend/src/features/crafting',destination)
-  if(write) fs.writeFileSync(target,JSON.stringify(value,null,2)+'\n')
+  if(write) {
+   let unchanged=false
+   if(fs.existsSync(target)) {
+    try { unchanged=isDeepStrictEqual(JSON.parse(fs.readFileSync(target)),value) }
+    catch(error) { if(!(error instanceof SyntaxError)) throw error }
+   }
+   if(!unchanged) fs.writeFileSync(target,JSON.stringify(value,null,2)+'\n')
+  }
   else assert.deepStrictEqual(JSON.parse(fs.readFileSync(target)),value,`Workbench data differs: ${destination}; review canonical changes, then run node scripts/sync-workbench-data.mjs --write`)
  }
 }

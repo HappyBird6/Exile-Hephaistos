@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import fixture from '../../../../../contracts/support-goal-filter-v1/fixtures.json'
+import fixture from '../../../../../docs/contracts/support-goal-filter-v1/fixtures.json'
 import {
   createGoalFilterEditor,
   emptyGoal,

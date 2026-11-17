@@ -39,7 +39,7 @@ emit(
   "infra/docker/chaos-repeat-limits.conf",
   `# Generated from contracts/chaos-repeat.json; do not edit.\nclient_max_body_size ${clean.maximumBodyBytes};\n`,
 );
-const schema = readJSON("contracts/workbench-definitions-v1.schema.json");
+const schema = readJSON("docs/contracts/workbench-definitions-v1.schema.json");
 const defs = readJSON(
   "backend/src/main/resources/crafting/workbench-definitions-v1.json",
 );
@@ -52,7 +52,7 @@ for (const [key, id] of [
   property.items.properties[id].enum = defs[key].map((row) => row[id]);
 }
 emit(
-  "contracts/workbench-definitions-v1.schema.json",
+  "docs/contracts/workbench-definitions-v1.schema.json",
   JSON.stringify(schema, null, 2) + "\n",
 );
 console.log("Public contracts verified");
@@ -90,7 +90,7 @@ emit(
       "\n<!-- generated:public-contracts:end -->",
   ),
 );
-const goalSchema = readJSON("contracts/goal-definitions-v1.schema.json");
+const goalSchema = readJSON("docs/contracts/goal-definitions-v1.schema.json");
 const goal = readJSON(
   "backend/src/main/resources/crafting/goalfilter/definitions-v1.json",
 );

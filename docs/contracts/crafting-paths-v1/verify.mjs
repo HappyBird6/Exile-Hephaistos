@@ -5,11 +5,11 @@ import { createRequire } from "node:module";
 
 // Use the existing frontend dependency tree; no install, server, DB or build is performed.
 const require = createRequire(
-  new URL("../../frontend/package.json", import.meta.url),
+  new URL("../../../frontend/package.json", import.meta.url),
 );
 const Ajv = require("ajv");
 const here = new URL("./", import.meta.url);
-const resources = new URL("../../backend/src/main/resources/", here);
+const resources = new URL("../../../backend/src/main/resources/", here);
 const read = (base, name) =>
   JSON.parse(readFileSync(new URL(name, base), "utf8"));
 const schema = read(here, "schema.json");

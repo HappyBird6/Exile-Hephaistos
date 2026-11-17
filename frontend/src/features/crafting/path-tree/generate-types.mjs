@@ -1,10 +1,10 @@
 // Run from repository root. The frozen shared schema is the only wire-shape source.
 import { readFileSync, writeFileSync, copyFileSync } from 'node:fs'
 const schema = JSON.parse(
-  readFileSync('contracts/crafting-paths-v1/schema.json', 'utf8'),
+  readFileSync('docs/contracts/crafting-paths-v1/schema.json', 'utf8'),
 )
 copyFileSync(
-  'contracts/crafting-paths-v1/schema.json',
+  'docs/contracts/crafting-paths-v1/schema.json',
   'frontend/src/features/crafting/path-tree/schema.generated.json',
 )
 const name = (s) => s[0].toUpperCase() + s.slice(1)
@@ -24,7 +24,7 @@ function type(s) {
 }
 writeFileSync(
   'frontend/src/features/crafting/path-tree/types.ts',
-  '// Generated from contracts/crafting-paths-v1/schema.json. Do not edit wire types by hand.\n' +
+  '// Generated from docs/contracts/crafting-paths-v1/schema.json. Do not edit wire types by hand.\n' +
     Object.entries(schema.definitions)
       .map(([k, v]) => `export type ${name(k)} = ${type(v)}\n`)
       .join(''),

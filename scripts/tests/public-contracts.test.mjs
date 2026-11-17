@@ -18,8 +18,8 @@ test("one policy change propagates to adapter, proxy, schema and documentation; 
       "backend/src/main/resources/catalog/top-bases.json",
       "backend/src/main/resources/catalog/base-policies.json",
       "backend/src/main/resources/catalog/augments.json",
-      "contracts/workbench-definitions-v1.schema.json",
-      "contracts/goal-definitions-v1.schema.json",
+      "docs/contracts/workbench-definitions-v1.schema.json",
+      "docs/contracts/goal-definitions-v1.schema.json",
       "README.md",
       "frontend/src/shared/contracts/public.ts",
       "infra/docker/chaos-repeat-limits.conf",
@@ -57,7 +57,7 @@ test("one policy change propagates to adapter, proxy, schema and documentation; 
     assert.equal(run("--check").status, 0);
     const schema = JSON.parse(
       fs.readFileSync(
-        path.join(temporary, "contracts/workbench-definitions-v1.schema.json"),
+        path.join(temporary, "docs/contracts/workbench-definitions-v1.schema.json"),
       ),
     );
     assert.equal(

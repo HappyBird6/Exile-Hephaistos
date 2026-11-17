@@ -14,7 +14,8 @@ class SharedMethodContractTest {
   void sharedDiamondMatchesIndependentExhaustivePolicyOracle() throws Exception {
     var data =
         new ObjectMapper()
-            .readTree(Path.of("../contracts/crafting-methods-v2/synthetic-diamond.json").toFile());
+            .readTree(
+                Path.of("../docs/contracts/crafting-methods-v2/synthetic-diamond.json").toFile());
     var graph = new LinkedHashMap<String, OutcomeStrategy.State<String>>();
     for (var bucket : data.path("graph").path("buckets")) {
       var choices = new ArrayList<OutcomeStrategy.Choice<String>>();

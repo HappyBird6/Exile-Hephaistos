@@ -31,7 +31,7 @@ class PathSearchHttpTest {
       var endpoint = "/api/v1/crafting/path-searches";
       var source =
           json.readTree(
-              java.nio.file.Path.of("../contracts/crafting-paths-v1/solar-source-fixture.json")
+              java.nio.file.Path.of("../docs/contracts/crafting-paths-v1/solar-source-fixture.json")
                   .toFile());
       var originalSnapshot = body.deepCopy();
       ((ObjectNode) originalSnapshot.path("start")).set("item", source.get("startItem"));

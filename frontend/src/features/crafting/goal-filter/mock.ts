@@ -1,4 +1,4 @@
-import fixture from '../../../../../contracts/support-goal-filter-v1/fixtures.json'
+import fixture from '../../../../../docs/contracts/support-goal-filter-v1/fixtures.json'
 import { groupTypes, weighted } from './types'
 import type { Catalog, GoalFilterAdapter, Issue } from './types'
 export const fixtureContext = fixture.apiExamples.validateRequest.context

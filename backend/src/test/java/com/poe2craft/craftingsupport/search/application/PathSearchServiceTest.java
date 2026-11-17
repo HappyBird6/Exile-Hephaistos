@@ -53,7 +53,8 @@ class PathSearchServiceTest {
       var goalTemplate =
           (ObjectNode)
               json.readTree(
-                      Path.of("../contracts/crafting-paths-v1/solar-source-fixture.json").toFile())
+                      Path.of("../docs/contracts/crafting-paths-v1/solar-source-fixture.json")
+                          .toFile())
                   .get("goalTemplate")
                   .deepCopy();
       goalTemplate.put("catalogVersion", index.version());
@@ -92,7 +93,8 @@ class PathSearchServiceTest {
 
   Create request(PathSearchService service) throws Exception {
     var fixture =
-        json.readTree(Path.of("../contracts/crafting-paths-v1/solar-source-fixture.json").toFile());
+        json.readTree(
+            Path.of("../docs/contracts/crafting-paths-v1/solar-source-fixture.json").toFile());
     var item = json.treeToValue(fixture.get("startItem"), ItemState.class);
     assertThat(fixture.get("rulesetIdentity").asText()).isEqualTo(identity);
     // The source fixture pins the ordinary snapshot; loadDefault adds reviewed special sources.

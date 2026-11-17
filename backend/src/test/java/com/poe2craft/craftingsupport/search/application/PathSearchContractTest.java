@@ -16,7 +16,8 @@ class PathSearchContractTest {
   void sharedWireFixturesRoundTripAndExactOracleAreConsumed() throws Exception {
     var json = new ObjectMapper().enable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
     var fixture =
-        json.readTree(Path.of("../contracts/crafting-paths-v1/synthetic-fixtures.json").toFile());
+        json.readTree(
+            Path.of("../docs/contracts/crafting-paths-v1/synthetic-fixtures.json").toFile());
     var types =
         Map.of(
             "createRequest",

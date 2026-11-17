@@ -247,7 +247,7 @@ it('accepts real Solar HTTP results, cancellation/resumption, pages, renewal and
   })
   const source = JSON.parse(
     readFileSync(
-      '../contracts/crafting-paths-v1/solar-source-fixture.json',
+      '../docs/contracts/crafting-paths-v1/solar-source-fixture.json',
       'utf8',
     ),
   )

@@ -4,7 +4,7 @@ COPY frontend/package*.json frontend/.npmrc ./
 RUN npm ci
 FROM dependencies AS verify
 COPY frontend/ ./
-COPY contracts/ /contracts/
+COPY docs/contracts/ /docs/contracts/
 COPY scripts/ /scripts/
 COPY backend/src/main/ /backend/src/main/
 COPY docs/legacy/evidence/ /docs/legacy/evidence/

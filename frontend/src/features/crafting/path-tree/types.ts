@@ -1,4 +1,4 @@
-// Generated from contracts/crafting-paths-v1/schema.json. Do not edit wire types by hand.
+// Generated from docs/contracts/crafting-paths-v1/schema.json. Do not edit wire types by hand.
 export type Fraction = { numerator: string; denominator: string }
 export type Range = { min: number | null; max: number | null }
 export type Modifier = {

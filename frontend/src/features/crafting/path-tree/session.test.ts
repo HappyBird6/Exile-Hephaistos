@@ -11,7 +11,7 @@ import {
   requestFixture,
 } from './fixtures.test-support'
 import type { GraphPage, JobSnapshot } from './types'
-import solarSource from '../../../../../contracts/crafting-paths-v1/solar-source-fixture.json'
+import solarSource from '../../../../../docs/contracts/crafting-paths-v1/solar-source-fixture.json'
 import { createPathSearchRequest } from './request'
 import type { Item } from './types'
 function deferred<T>() {

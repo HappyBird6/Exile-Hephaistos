@@ -1,6 +1,6 @@
 # 제작 경로 검색 계약 v1
 
-기준 코드: `15f02631df176aa191e95d1f19bb62110be7796e`. 이 문서는 FE/BE 병렬 구현을 위한 **미구현 API 계약**이다. 기존 endpoint의 동작 변경이나 새 엔진의 실행 검증을 뜻하지 않는다. 공유 파일은 [contracts/crafting-paths-v1](../../contracts/crafting-paths-v1/README.md)에 있다. JSON Schema의 명명된 `definitions`가 endpoint별 wire shape이며, 아래 의미 검증도 필수다.
+기준 코드: `15f02631df176aa191e95d1f19bb62110be7796e`. 이 문서는 FE/BE 병렬 구현을 위한 **미구현 API 계약**이다. 기존 endpoint의 동작 변경이나 새 엔진의 실행 검증을 뜻하지 않는다. 공유 파일은 [contracts/crafting-paths-v1](contracts/crafting-paths-v1/README.md)에 있다. JSON Schema의 명명된 `definitions`가 endpoint별 wire shape이며, 아래 의미 검증도 필수다.
 
 ## 첫 수직 슬라이스
 

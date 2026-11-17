@@ -57,16 +57,21 @@ Docker 서비스는 localhost에만 노출한다. 관리자 API는 비밀번호 
 
 ## 문서와 데이터의 단일 관리 기준
 
-- 게임 JSON·번역의 편집 원본은 `docs/v0.5.5/game-data/`, `i18n/`이다. 게임 규칙은 `game-rule/`의 MD에 기록한다. backend/frontend의 대응 JSON은 manifest에 명시한 호환용 복사본이며 직접 편집하지 않는다. 새로운 데이터 파일은 manifest.resources에 등록한다.
+- 게임 JSON·번역의 편집 원본은 `docs/v0.5.5/game-data/`, `i18n/`이다. 게임 규칙은 `game-rule/`의 MD에 기록한다. backend/frontend의 대응 JSON은 manifest에 명시한 호환용 복사본이며 직접 편집하지 않는다. 새 데이터 파일은 해당 원본 폴더에 추가한다. manifest의 파일 목록과 실행 경로는 폴더 규칙으로 자동 생성하며 직접 편집하지 않는다.
 - 이번 단계는 문서 정리·ID 발급이다. 런타임 매핑 로드, API·저장 형식의 짧은 ID 사용은 후속 코드 경량화 범위다. 기존 게임 값·배열 순서·원문·seal·기록을 문서 정리 때문에 변경하지 않는다.
 - `mappings/`의 ID는 종류별 접두사와 base36 일련번호다. 발급 후 재할당·재사용하지 않는다. 제거는 retired tombstone으로 유지하며 기존 매핑을 삭제한 뒤 재생성하지 않는다. 다음 데이터 버전도 이전 매핑을 승계한다. 문자열이 같다는 이유로 다른 종류를 합치지 않는다. 게임 이름·설명은 i18n에서 유지한다.
-- `node scripts/versioned-game-data.mjs --write`가 ID 추가·retirement·manifest와 runtime 복사본을 갱신한다. `--check`는 읽기 전용이다. 복사본을 수정해 drift를 숨기지 않는다. ruleset 봉인·frontend mirror·공개 계약 갱신 순서는 README의 명령을 따른다.
+- `node scripts/versioned-game-data.mjs --write` 한 명령으로 ruleset digest·ID·manifest·runtime/browser 복사본·공개 계약·README 요약을 순서대로 갱신한다. engine/ledger/ruleset 의미 버전은 먼저 검토한다. `--check`는 읽기 전용이다. MD 문구 변경에는 생성이나 해시 갱신이 필요 없다. 복사본을 수정해 drift를 숨기지 않는다.
 - 일반 관리 안내는 README, 에이전트 규칙은 AGENTS.md에 통합한다. 새 작업 계획·완료 보고·인계·별도 유지보수 문서를 만들지 않는다. 게임 변경은 관련 JSON·규칙 MD만 갱신하고 중복 목록·개수·매핑 digest는 자동 생성한다.
 - 기존 문서·HTML·검증·라이선스는 `docs/legacy/`에 보관한다. 사용자 재평가와 삭제 지시 전에는 제거하지 않는다. 과거 자료는 수집 당시 증거이며 현재 규칙의 원본으로 재생성하거나 덮어쓰지 않는다. 봉인된 JSON의 옛 `docs/...` 출처는 현재 `docs/legacy/...`에서 조회한다.
 - API 제한·지원 언어의 정책 원본은 `backend/src/main/resources/contracts/`, 운영 값은 `backend-settings.yaml`이다. frontend mirror·Nginx 제한·README 현행 요약은 생성 결과다. 게임 알고리즘을 범용 JSON 실행기로 바꾸지 않는다.
 - 등록은 구현의 증거가 아니다. 신규 화폐·징조 trigger 및 상태 필드는 strict loader, 단일/반복 제작, 일반/훼손, 저장·표시·확률의 영향을 검증한다. 과거 호환 digest·snapshot을 임의로 현재 값으로 덮어쓰지 않는다.
 
+## 직접 수정하기 쉬운 구조
+
+- 경량화는 데이터 크기뿐 아니라 사람이 이해하고 수정하는 비용을 줄이는 작업이다. 기능 변경 시 찾아갈 파일·중간 계층·중복 원본을 줄이고 역할이 분명한 이름과 폴더를 사용한다. 단순한 작업에 범용 실행기·플러그인 구조·추상화를 추가하지 않는다.
+- 공통 API schema·FE/BE 검증 사례는 `docs/contracts/`에 둔다. 게임 버전 데이터와 섞지 않는다. 설명용 README는 legacy에 보관하고 새 관리 설명은 루트 README에 통합한다. backend resources의 contracts는 실제 로드되는 정책 파일이며 별도다.
+
 ## Git 통합
 
-작업 브랜치에서 자기 변경만 검증·commit한다. master 최종 통합은 사용자가 지정한 Git 채팅이 전달받은 브랜치·범위를 순차 처리한다. 별도 인계 파일은 만들지 않고 채팅에 기준 SHA·완료 commit·검증·남은 문제를 보고한다. master 반영은 로컬 merge, merge·push는 확인된 원격으로의 일반 push까지다. 이번 문서 정리 지시는 master merge·push·배포 지시가 아니다.
+작업 브랜치에서 자기 변경만 검증·commit하고, 작업 완료 시 항상 해당 브랜치를 원격에 일반 push한다. 실패한 검증은 결과와 원인을 숨기지 않고 보고한다. master 최종 통합은 사용자가 지정한 Git 채팅이 전달받은 브랜치·범위를 순차 처리한다. 별도 인계 파일은 만들지 않고 채팅에 기준 SHA·완료 commit·검증·남은 문제를 보고한다. master 반영은 로컬 merge, merge·push는 확인된 원격으로의 일반 push까지다. 작업 브랜치 push는 기본 작업 범위이며 master 병합·master push·배포는 별도 지시를 따른다.
 통합 전 최신 대상 SHA·작업 트리·의존성·diff·검증 결과를 확인하고, 대상 변경 시 결합 영향을 다시 검증한다. 필수 검사 불가·차단 결함은 숨기지 않는다. 강제 push·다른 작업 폐기·기존 DB/volume 삭제는 하지 않는다. 상세 과거 절차는 docs/legacy/solo-workflow/GIT_INTEGRATION.md에 보관한다.

@@ -4,7 +4,7 @@ COPY frontend/package*.json frontend/.npmrc ./
 RUN npm ci
 COPY frontend/ ./
 COPY scripts/ /workspace/scripts/
-COPY contracts/ /workspace/contracts/
+COPY docs/contracts/ /workspace/docs/contracts/
 # Prebuild verifies both sealed resources and the backend translation loader's source contract.
 COPY backend/src/main/ /workspace/backend/src/main/
 COPY docs/legacy/evidence/ /workspace/docs/legacy/evidence/

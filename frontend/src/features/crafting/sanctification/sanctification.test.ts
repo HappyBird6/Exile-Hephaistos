@@ -1,4 +1,4 @@
-import projectionCases from '../../../../../contracts/sanctification/projection-cases.json'
+import projectionCases from '../../../../../docs/contracts/sanctification/projection-cases.json'
 import { describe, expect, it } from 'vitest'
 import type { ConcreteItem } from '../workbenchApi'
 import type { Definition } from '../craftingApi'

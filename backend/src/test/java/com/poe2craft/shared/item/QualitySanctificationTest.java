@@ -25,7 +25,7 @@ class QualitySanctificationTest {
     var cases =
         new ObjectMapper()
             .readTree(
-                java.nio.file.Path.of("../contracts/sanctification/projection-cases.json")
+                java.nio.file.Path.of("../docs/contracts/sanctification/projection-cases.json")
                     .toFile());
     for (var test : cases) {
       var modifier =

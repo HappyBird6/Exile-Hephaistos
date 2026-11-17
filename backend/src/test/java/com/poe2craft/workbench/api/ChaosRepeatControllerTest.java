@@ -285,9 +285,9 @@ class ChaosRepeatControllerTest {
 
   @Test
   void sharedOriginalUtf8FixtureHasIdenticalJavaDigest() throws Exception {
-    var bytes = Files.readAllBytes(Path.of("../contracts/chaos-repeat/request-body.json"));
+    var bytes = Files.readAllBytes(Path.of("../docs/contracts/chaos-repeat/request-body.json"));
     var expected =
-        Files.readString(Path.of("../contracts/chaos-repeat/request-body.sha256")).trim();
+        Files.readString(Path.of("../docs/contracts/chaos-repeat/request-body.sha256")).trim();
     assertThat(ChaosRepeatController.sha256(bytes)).isEqualTo(expected);
     assertThat(JSON.readTree(bytes).path("pattern").asText()).contains("生命", "España", "가-힣");
     var source = JSON.readTree(bytes);

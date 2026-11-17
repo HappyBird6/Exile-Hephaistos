@@ -19,6 +19,12 @@ test('checks every mirror without repairing drift or deleting source data', () =
   fs.writeFileSync(target,'{}')
   assert.throws(()=>synchronize(root),/equipmentCurrencies/)
   assert.equal(fs.readFileSync(target,'utf8'),'{}')
+  const unchanged=path.join(root,'frontend/src/features/crafting/topBases.json')
+  const bytes=fs.readFileSync(unchanged)
+  synchronize(root,true);synchronize(root)
+  assert.deepEqual(fs.readFileSync(unchanged),bytes,'Unchanged mirrors retain their formatting and bytes')
+  fs.writeFileSync(target,'{broken generated JSON')
+  assert.throws(()=>synchronize(root),SyntaxError)
   synchronize(root,true);synchronize(root)
  }finally{fs.rmSync(root,{recursive:true,force:true})}
 })

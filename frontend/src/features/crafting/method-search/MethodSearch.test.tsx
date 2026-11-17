@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
-import fixture from '../../../../../contracts/crafting-methods-v2/certified-diamond.json'
+import fixture from '../../../../../docs/contracts/crafting-methods-v2/certified-diamond.json'
 import { MethodSearch } from './MethodSearch'
 import { normalizeView } from './certifiedApi'
 import type { MapView } from './certifiedApi'

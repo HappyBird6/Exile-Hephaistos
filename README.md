@@ -86,6 +86,7 @@ GitHub Actions는 사용하지 않습니다. `.gitattributes`는 Windows/Linux �
 
 ```text
 docs/
+  contracts/              # 버전 공통 API·형식 schema와 FE/BE 공유 검증 사례
   v0.5.5/
     i18n/                 # UI·게임 번역 JSON
     game-data/
@@ -94,7 +95,7 @@ docs/
       display/            # 프런트 전용 게임 표시 데이터 JSON
     game-rule/            # 화폐·아이템·증강물·확률·표시·사용자 정책 MD
     mappings/             # 종류별 짧은 ID ↔ 기존 식별자 JSON
-    manifest.json         # 파일·실행 복사본·SHA-256·매핑 목록
+    manifest.json         # 자동 생성 파일 목록·실행 경로·SHA-256·매핑 목록
   legacy/                 # 재평가 전 보관; 별도 삭제 승인 없이 제거하지 않음
 ```
 
@@ -118,31 +119,64 @@ docs/
 
 각 매핑은 `domain`, `prefix`, `entries[{id, sourceKey, retired}]` 형식입니다. `manifest.mappings`가 파일 목록과 digest를 제공합니다. 향후 로더는 각 종류에서 `id → sourceKey`, `sourceKey → id` 인덱스를 만들 수 있습니다. 베이스 key와 게임 Metadata ID, 화폐 action과 표시용 재료 ID는 별개이며 원본 JSON의 명시적 연결을 사용합니다. 이름 유사성으로 자동 병합하지 않습니다. 역사 자료·테스트 fixture·파일 경로·provenance 버전은 새 게임 ID의 대상이 아닙니다.
 
+### 어디를 수정하면 되는가
+
+| 수정할 내용 | 사람이 편집할 파일 |
+|---|---|
+| 베이스·옵션·가중치·화폐·징조·증강물 | `docs/v0.5.5/game-data/catalog/`, `crafting/`의 해당 JSON |
+| 게임 이름·툴팁·옵션 표시·UI 문구 | `docs/v0.5.5/i18n/`의 해당 JSON |
+| 프런트 전용 게임 표시 데이터 | `docs/v0.5.5/game-data/display/`의 해당 JSON |
+| 게임 규칙 설명 | `docs/v0.5.5/game-rule/`의 해당 MD |
+| API 형식·공유 검증 사례 | `docs/contracts/`의 해당 schema·fixture |
+| API 제한·지원 언어 정책 | `backend/src/main/resources/contracts/` |
+| 서버 운영 값 | `backend/src/main/resources/backend-settings.yaml` |
+
+경량화의 우선 목표는 직접 이해하고 수정하기 쉬운 구조입니다. 수정 지점·중간 계층·중복 관리를 줄입니다. 데이터 전송 크기와 코드 줄 수만으로 판단하지 않습니다.
+
 ### 갱신과 검증
 
-1. `docs/v0.5.5`의 해당 JSON 또는 규칙 MD를 수정합니다. 게임 수치·weight·단위·출처를 추측하지 않고 기존 배열 순서를 유지합니다. 수집 raw JSON도 출처 검증에 필요하므로 보존합니다. 새 실행 파일은 `manifest.resources`에 원본 경로와 runtimePath를 함께 등록합니다.
-2. 아래 명령으로 ID와 기존 경로의 복사본을 갱신합니다. `--check`는 읽기 전용이며 누락·중복 ID·파일 누락·복사본 불일치를 거부합니다. 이미 발급한 매핑 파일을 지우고 재생성하지 않습니다.
+JSON을 수정한 뒤 저장소 루트에서 **한 명령**으로 갱신합니다. engine/ledger/ruleset의 의미가 바뀌면 버전과 호환 정책을 먼저 검토합니다.
 
 ```sh
 node scripts/versioned-game-data.mjs --write
-node scripts/sync-workbench-data.mjs --write
-node scripts/sync-public-contracts.mjs --write
 ```
 
-게임 데이터의 의미가 바뀌면 engine/ledger/ruleset 버전을 먼저 검토하고 `node scripts/update-ruleset-manifest.mjs`로 **원본의** ruleset digest를 갱신한 뒤 `node scripts/versioned-game-data.mjs --write`를 다시 실행합니다. 이 봉인은 게임 사실이나 과거 저장 호환성을 인증하지 않습니다. 번역 템플릿 변경 시 Java `ModifierTextResources.TEMPLATE_SHA256`도 검토·갱신합니다.
+이 명령은 ruleset digest → ID·실행 복사본·manifest → 브라우저 복사본 → 공개 계약·README 요약 순으로 갱신합니다. 순서를 외우거나 내부 스크립트를 각각 실행할 필요가 없습니다. `--check`는 같은 정합성을 검사하고 파일을 수정하지 않습니다. 프런트 test/build에서도 자동 실행합니다.
 
 ```sh
 node scripts/versioned-game-data.mjs --check
-node scripts/sync-workbench-data.mjs --check
-node scripts/sync-public-contracts.mjs --check
-node scripts/update-ruleset-manifest.mjs --check
-node scripts/check-display-coverage.mjs
-node --test scripts/tests/versioned-game-data.test.mjs
 ```
 
-새 메커니즘은 위 정합성 검사 외에 단일·반복·일반/훼손 제작, 저장 복원, 확률·표시의 직접 영향을 검증합니다. 과거 snapshot의 compatibility digest를 새 데이터에 맞춰 덮어쓰지 않습니다. 공개 API 제한·지원 언어 정책은 `backend/src/main/resources/contracts/`, 운영 값은 `backend-settings.yaml`이 원본입니다. UI 복사본·schema·Nginx 제한·아래 요약은 생성 결과입니다.
+**규칙 MD만 수정하면 생성 명령이 필요 없습니다.** 문서 문구를 실행 데이터의 해시에 포함하지 않습니다. 새 JSON은 해당 폴더에 추가하면 자동으로 파일 목록과 실행 경로를 생성합니다. `manifest.json`의 파일 목록·해시·경로는 직접 편집하지 않습니다.
 
-번역 수집은 `collect-i18n-terms.mjs` / `collect-i18n-modifiers.mjs`의 `--output-dir`로 저장소 밖 검토 결과를 만들고 검토한 값만 i18n 원본에 반영합니다. legacy의 증거 숫자·결정을 현재 정책으로 덮어쓰지 않습니다. 기존 도구의 증거 경로는 legacy를 사용하며, 과거 프로브는 당시 실행 환경의 재현 자료입니다.
+| 원본 폴더 | 자동 생성되는 실행 위치 |
+|---|---|
+| `game-data/catalog/`, `game-data/crafting/` | backend resources의 같은 하위 경로 |
+| `game-data/display/` | `frontend/src/features/crafting/`의 같은 하위 경로 |
+| `i18n/` | `frontend/src/shared/i18n/`의 같은 하위 경로 |
+
+기존 실행 경로의 복사본은 서버·프런트 코드의 호환을 위해 유지합니다. 직접 편집하면 검사에서 불일치를 알립니다. 원본 파일을 제거할 때는 기존 실행 복사본도 검토해 함께 보관해야 하며 도구가 자동 삭제하지 않습니다. 발급한 ID 매핑을 지우고 재생성하지 않습니다.
+
+게임 수치·weight·단위·출처를 추측하지 않고 원본 bytes와 배열 순서를 유지합니다. 수집 raw JSON도 출처 검증에 필요하므로 보존합니다. 번역 템플릿을 변경하면 Java `ModifierTextResources.TEMPLATE_SHA256`을 함께 검토·갱신하고 `node scripts/check-display-coverage.mjs`로 검증합니다. 새 메커니즘은 단일·반복·일반/훼손 제작, 저장 복원, 확률·표시의 직접 영향을 검사합니다. 과거 compatibility digest를 현재 값으로 덮어쓰지 않습니다.
+
+번역 수집은 `collect-i18n-terms.mjs` / `collect-i18n-modifiers.mjs`의 `--output-dir`로 저장소 밖 검토 결과를 만들고 검토한 값만 i18n 원본에 반영합니다. legacy의 증거 숫자·결정을 현재 정책으로 덮어쓰지 않습니다.
+
+### 공유 계약
+
+기존 루트 `contracts/`는 [docs/contracts](docs/contracts/)로 이동했습니다. API 버전·양쪽 구현 검증 자료이므로 게임 버전 폴더와 구분합니다. Java·TypeScript import, 생성 도구와 Docker 빌드는 새 경로를 사용합니다. 서버가 직접 읽는 `backend/src/main/resources/contracts/`와 생성된 `frontend/src/shared/contracts/`는 기존 실행 위치를 유지합니다.
+
+- `*.schema.json`: 데이터 형식을 정의합니다. `workbench-definitions-v1.schema.json`의 화폐·징조 목록과 개수는 원본 JSON에서 자동 갱신합니다. 경로 검색 타입은 `frontend/src/features/crafting/path-tree/generate-types.mjs`로 생성합니다.
+- `crafting-paths-v1/`, `crafting-methods-v2/`, `support-goal-filter-v1/`: API 형식·확률 질량·그래프·목표 판정의 공유 사례입니다. 합성 fixture는 실제 게임 확률이나 전체 기능 지원의 증거가 아닙니다. 확률의 하한·상한·미해결 질량, revision과 cursor 경계를 유지합니다.
+- `chaos-repeat/`: 요청의 UTF-8 bytes와 SHA-256을 양쪽에서 대조합니다. 반복 응답의 최종 상태·횟수·마지막 witness·부분 실패를 구분하고 네트워크 실패 시 자동 재시도하거나 완료 횟수를 추측하지 않습니다.
+- `sanctification/`: Java와 브라우저가 같은 축성 표시 계산을 하는지 검증합니다.
+
+계약 설명의 기존 README는 [legacy/contracts](docs/legacy/contracts/)에 보관했습니다. 새로운 관리 안내는 이 README에 통합합니다. 검증 스크립트는 다음 위치에서 실행할 수 있습니다.
+
+```sh
+node docs/contracts/crafting-paths-v1/verify.mjs
+node docs/contracts/chaos-repeat/check-body-hash.mjs
+python docs/contracts/support-goal-filter-v1/verify_fixtures.py
+```
 
 ## 현행 데이터 요약
 

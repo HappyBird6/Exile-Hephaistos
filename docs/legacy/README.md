@@ -32,9 +32,9 @@
 | 영역 | 문서 |
 |---|---|
 | 기본 화폐 전이·명시적 정책 | [단일 전이](basic-currency-transitions.md), [first-hit·복구](basic-currency-first-hit.md), [실험 UI](basic-currency-first-hit-ui.md) |
-| 기존 family Support·목표 AST | [Support 전이](support-transition-design.md), [목표 필터 v1](support-goal-filter-v1.md), [공유 fixture](../../contracts/support-goal-filter-v1/README.md) |
-| 경로 검색 v1 | [API 계약](crafting-path-search-v1.md), [공유 schema·fixture](../../contracts/crafting-paths-v1/README.md) |
-| 기존 method·certified 계산 | [bucket v2](crafting-bucket-method-v2.md), [화면 계약](crafting-certified-map-ui.md), [공유 v2 계약](../../contracts/crafting-methods-v2/README.md) |
+| 기존 family Support·목표 AST | [Support 전이](support-transition-design.md), [목표 필터 v1](support-goal-filter-v1.md), [공유 fixture](contracts/support-goal-filter-v1/README.md) |
+| 경로 검색 v1 | [API 계약](crafting-path-search-v1.md), [공유 schema·fixture](contracts/crafting-paths-v1/README.md) |
+| 기존 method·certified 계산 | [bucket v2](crafting-bucket-method-v2.md), [화면 계약](crafting-certified-map-ui.md), [공유 v2 계약](contracts/crafting-methods-v2/README.md) |
 | 저장·조건부 확률·전략 | [로컬 저장](crafting-local-method-store.md), [lazy laws](crafting-lazy-laws.md), [전략 job](crafting-strategy-job.md) |
 
 현행 자동 탐색과 별도로 유지하는 계약이다. 도입 시점의 측정·설명은 현재 전체 기능의 완료 선언으로 사용하지 않는다.

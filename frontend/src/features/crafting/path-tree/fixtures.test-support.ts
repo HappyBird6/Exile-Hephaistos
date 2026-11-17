@@ -1,5 +1,5 @@
 // Test-only shared contract reader. Never imported by the production entry point.
-import fixtures from '../../../../../contracts/crafting-paths-v1/synthetic-fixtures.json'
+import fixtures from '../../../../../docs/contracts/crafting-paths-v1/synthetic-fixtures.json'
 import type { CreateRequest, GraphPage, JobSnapshot } from './types'
 export function fixture<T>(id: string): T {
   const found = fixtures.examples.find((x) => x.id === id)

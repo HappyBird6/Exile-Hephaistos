@@ -1,5 +1,5 @@
 import { afterEach, expect, it, vi } from 'vitest'
-import fixture from '../../../../../contracts/crafting-methods-v2/certified-diamond.json'
+import fixture from '../../../../../docs/contracts/crafting-methods-v2/certified-diamond.json'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import { acceptSnapshot } from './api'
 import {

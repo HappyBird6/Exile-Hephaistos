@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import crypto from 'node:crypto'
+import { execFileSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 
 export const versionRoot = 'docs/v0.5.5'
@@ -13,10 +14,24 @@ export const domains = {
 const digest = bytes => crypto.createHash('sha256').update(bytes).digest('hex')
 const json = value => JSON.stringify(value, null, 2) + '\n'
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'))
-const files = directory => fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
+const files = directory => !fs.existsSync(directory) ? [] : fs.readdirSync(directory, { withFileTypes: true }).flatMap(entry => {
   const file = path.join(directory, entry.name)
   return entry.isDirectory() ? files(file) : [file]
 }).sort()
+
+// Directory names determine the destination; manifest.resources is generated output.
+export function runtimePathFor(source) {
+  assert(source.endsWith('.json') && !source.includes('\\') && source.split('/').every(part => part && part !== '.' && part !== '..'), `Invalid data path: ${source}`)
+  for (const [from, to] of [
+    ['game-data/catalog/', 'backend/src/main/resources/catalog/'],
+    ['game-data/crafting/', 'backend/src/main/resources/crafting/'],
+    ['game-data/display/', 'frontend/src/features/crafting/'],
+    ['i18n/', 'frontend/src/shared/i18n/'],
+  ]) {
+    if (source.startsWith(from)) return to + source.slice(from.length)
+  }
+  throw new Error(`Unknown data directory: ${source}`)
+}
 
 // Append-only allocation: removed keys keep their ID and become retired tombstones.
 export function allocate(previous, keys, domain) {
@@ -103,23 +118,25 @@ export function synchronize(root, write = false) {
   assert.equal(manifest.schemaVersion, 1)
   assert.equal(manifest.dataVersion, '0.5.5')
   const emit = (file, contents) => {
-    if (write) { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, contents) }
-    else assert(fs.existsSync(file) && fs.readFileSync(file).equals(Buffer.from(contents)), `Data drift: ${path.relative(root, file)}; review source and run node scripts/versioned-game-data.mjs --write`)
+    const unchanged = fs.existsSync(file) && fs.readFileSync(file).equals(Buffer.from(contents))
+    if (write) {
+      if (!unchanged) { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, contents) }
+    } else assert(unchanged, `Data drift: ${path.relative(root, file)}; review source and run node scripts/versioned-game-data.mjs --write`)
   }
-  const resources = new Map(), paths = new Set(), runtimePaths = new Set()
-  const sourceFiles = files(directory).filter(file => /\/(game-data|i18n)\//.test(file)).map(file => path.relative(directory, file).replaceAll('\\', '/'))
-  const entries = manifest.resources.map(entry => {
-    assert(/^(game-data|i18n)\/.+\.json$/.test(entry.path) && !entry.path.split('/').includes('..'))
-    assert(/^(backend\/src\/main\/resources\/(catalog|crafting)\/|frontend\/src\/)/.test(entry.runtimePath) && entry.runtimePath.endsWith('.json') && !entry.runtimePath.split('/').includes('..'))
-    assert(!paths.has(entry.path) && !runtimePaths.has(entry.runtimePath), 'Duplicate resource or mirror path')
-    paths.add(entry.path); runtimePaths.add(entry.runtimePath)
-    const bytes = fs.readFileSync(path.join(directory, entry.path))
-    resources.set(entry.path, JSON.parse(bytes))
-    return { path: entry.path, runtimePath: entry.runtimePath, sha256: digest(bytes) }
+  const resources = new Map(), runtimePaths = new Set()
+  const sourceFiles = ['game-data', 'i18n'].flatMap(folder => files(path.join(directory, folder))).map(file => path.relative(directory, file).replaceAll('\\', '/')).sort()
+  const entries = sourceFiles.map(source => {
+    const runtimePath = runtimePathFor(source)
+    assert(!runtimePaths.has(runtimePath), `Duplicate runtime path: ${runtimePath}`)
+    runtimePaths.add(runtimePath)
+    const bytes = fs.readFileSync(path.join(directory, source))
+    resources.set(source, JSON.parse(bytes))
+    return { path: source, runtimePath, sha256: digest(bytes) }
   })
-  assert.deepEqual([...paths].sort(), sourceFiles.sort(), 'Every canonical JSON must have an explicit runtime destination in manifest.resources')
   const runtimeGameFiles = ['catalog', 'crafting'].flatMap(folder => files(path.join(root, 'backend/src/main/resources', folder))).filter(file => file.endsWith('.json')).map(file => path.relative(root, file).replaceAll('\\', '/'))
-  assert.deepEqual([...runtimePaths].filter(file => file.startsWith('backend/')).sort(), runtimeGameFiles.sort(), 'Backend game resource inventory differs')
+  const previousMirrors = (manifest.resources ?? []).map(entry => runtimePathFor(entry.path)).filter(file => fs.existsSync(path.join(root, file)))
+  const orphaned = [...runtimeGameFiles, ...previousMirrors].filter(file => !runtimePaths.has(file))
+  assert.deepEqual([...new Set(orphaned)], [], 'Source data was removed or a runtime file has no canonical source; review and archive it explicitly')
   const keys = collect(resources), mappings = []
   // Validate every mapping before writing any runtime mirrors.
   const outputs = []
@@ -134,15 +151,23 @@ export function synchronize(root, write = false) {
   assert.deepEqual(files(path.join(directory, 'mappings')).map(file => path.relative(directory, file).replaceAll('\\', '/')).sort(), mappings.filter(row => fs.existsSync(path.join(directory, row.path))).map(row => row.path).sort(), 'Unexpected mapping file')
   for (const entry of entries) emit(path.join(root, entry.runtimePath), fs.readFileSync(path.join(directory, entry.path)))
   for (const [file, contents] of outputs) emit(file, contents)
-  const rules = files(path.join(directory, 'game-rule')).map(file => {
-    assert(file.endsWith('.md'), 'Game rules must be Markdown')
-    return { path: path.relative(directory, file).replaceAll('\\', '/'), sha256: digest(fs.readFileSync(file)) }
-  })
-  emit(target, json({ ...manifest, resources: entries, mappings, rules }))
-  console.log(`Versioned data verified: ${entries.length} resources, ${mappings.reduce((n, row) => n + row.count, 0)} IDs, ${rules.length} rules`)
+  const { rules, ...metadata } = manifest // Prose is not an execution resource or checksum input.
+  emit(target, json({ ...metadata, resources: entries, mappings }))
+  console.log(`Versioned data verified: ${entries.length} resources, ${mappings.reduce((n, row) => n + row.count, 0)} IDs`)
+}
+
+export function synchronizeAll(root, write = false) {
+  const flag = write ? '--write' : '--check'
+  const run = script => execFileSync(process.execPath, [path.join(root, 'scripts', script), flag], { cwd: root, stdio: 'inherit' })
+  // Seal the canonical data first, then copy its exact bytes once to the runtime paths.
+  // --check never updates seals, mirrors or generated documentation.
+  run('update-ruleset-manifest.mjs')
+  synchronize(root, write)
+  run('sync-workbench-data.mjs')
+  run('sync-public-contracts.mjs')
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   assert(process.argv.length === 3 && ['--write', '--check'].includes(process.argv[2]), 'Use --check or --write')
-  synchronize(fileURLToPath(new URL('..', import.meta.url)), process.argv[2] === '--write')
+  synchronizeAll(fileURLToPath(new URL('..', import.meta.url)), process.argv[2] === '--write')
 }

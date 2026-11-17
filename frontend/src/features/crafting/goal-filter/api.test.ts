@@ -5,7 +5,7 @@ import {
   readGoalFilterResponse,
 } from './api'
 import { fixtureContext, mockGoalFilterAdapter } from './mock'
-import fixture from '../../../../../contracts/support-goal-filter-v1/fixtures.json'
+import fixture from '../../../../../docs/contracts/support-goal-filter-v1/fixtures.json'
 import type { GoalFilter } from './types'
 afterEach(() => vi.unstubAllGlobals())
 describe('goal filter HTTP adapter', () => {

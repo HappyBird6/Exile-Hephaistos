@@ -755,21 +755,6 @@
       "sha256": "4c034cc805dd8d77ba75d1602c524262510335b8972dead08d39e9775302f313"
     },
     {
-      "path": "game-data/catalog/emerald/base.raw.json",
-      "runtimePath": "backend/src/main/resources/catalog/emerald/base.raw.json",
-      "sha256": "77cd7d0cb0b206affb3852e137dcc78942c5796a687505eec3cc8b323868a672"
-    },
-    {
-      "path": "game-data/catalog/emerald/catalog.json",
-      "runtimePath": "backend/src/main/resources/catalog/emerald/catalog.json",
-      "sha256": "0588611fbd1ab5cd1c2b36755a9242d3b42bc3d95521a9b09c5b633c20421b71"
-    },
-    {
-      "path": "game-data/catalog/emerald/details.raw.json",
-      "runtimePath": "backend/src/main/resources/catalog/emerald/details.raw.json",
-      "sha256": "e8f1ea2addc16b2e3e93295a6080f9046207ee06b46bc972dd5af4d415b9b95f"
-    },
-    {
       "path": "game-data/catalog/emerald-ring/base.raw.json",
       "runtimePath": "backend/src/main/resources/catalog/emerald-ring/base.raw.json",
       "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
@@ -783,6 +768,21 @@
       "path": "game-data/catalog/emerald-ring/details.raw.json",
       "runtimePath": "backend/src/main/resources/catalog/emerald-ring/details.raw.json",
       "sha256": "397e319d25963f93fd05099bfec84ff634a29bd7f2c39a6cfd5aaa6c1d760473"
+    },
+    {
+      "path": "game-data/catalog/emerald/base.raw.json",
+      "runtimePath": "backend/src/main/resources/catalog/emerald/base.raw.json",
+      "sha256": "77cd7d0cb0b206affb3852e137dcc78942c5796a687505eec3cc8b323868a672"
+    },
+    {
+      "path": "game-data/catalog/emerald/catalog.json",
+      "runtimePath": "backend/src/main/resources/catalog/emerald/catalog.json",
+      "sha256": "0588611fbd1ab5cd1c2b36755a9242d3b42bc3d95521a9b09c5b633c20421b71"
+    },
+    {
+      "path": "game-data/catalog/emerald/details.raw.json",
+      "runtimePath": "backend/src/main/resources/catalog/emerald/details.raw.json",
+      "sha256": "e8f1ea2addc16b2e3e93295a6080f9046207ee06b46bc972dd5af4d415b9b95f"
     },
     {
       "path": "game-data/catalog/engraved-crossbow/base.raw.json",
@@ -1875,21 +1875,6 @@
       "sha256": "ed57ab3ea4f40d1639120806dbf4b30a05722b54b68a5e3b19d148ff4350b204"
     },
     {
-      "path": "game-data/catalog/ruby/base.raw.json",
-      "runtimePath": "backend/src/main/resources/catalog/ruby/base.raw.json",
-      "sha256": "c6eff1a9f30a4e44f39daa731a9d53a30e87b55c778f3ea28f1a1f587c600b7e"
-    },
-    {
-      "path": "game-data/catalog/ruby/catalog.json",
-      "runtimePath": "backend/src/main/resources/catalog/ruby/catalog.json",
-      "sha256": "1aa9b9e64a13e93f4c7340c6812f6fa11bf6541eb0037a5917c66b94e314a21a"
-    },
-    {
-      "path": "game-data/catalog/ruby/details.raw.json",
-      "runtimePath": "backend/src/main/resources/catalog/ruby/details.raw.json",
-      "sha256": "3d2ba8ca8ee2e676ea8f7c4c7e29171cd8fdbe2ee41a1e76b28329be8dc7c2ee"
-    },
-    {
       "path": "game-data/catalog/ruby-ring-ring/base.raw.json",
       "runtimePath": "backend/src/main/resources/catalog/ruby-ring-ring/base.raw.json",
       "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
@@ -1903,6 +1888,21 @@
       "path": "game-data/catalog/ruby-ring-ring/details.raw.json",
       "runtimePath": "backend/src/main/resources/catalog/ruby-ring-ring/details.raw.json",
       "sha256": "9013be9ea6e6335a822ea7faf4bac172d69f5dd44dd0e69cf986755a58b5739e"
+    },
+    {
+      "path": "game-data/catalog/ruby/base.raw.json",
+      "runtimePath": "backend/src/main/resources/catalog/ruby/base.raw.json",
+      "sha256": "c6eff1a9f30a4e44f39daa731a9d53a30e87b55c778f3ea28f1a1f587c600b7e"
+    },
+    {
+      "path": "game-data/catalog/ruby/catalog.json",
+      "runtimePath": "backend/src/main/resources/catalog/ruby/catalog.json",
+      "sha256": "1aa9b9e64a13e93f4c7340c6812f6fa11bf6541eb0037a5917c66b94e314a21a"
+    },
+    {
+      "path": "game-data/catalog/ruby/details.raw.json",
+      "runtimePath": "backend/src/main/resources/catalog/ruby/details.raw.json",
+      "sha256": "3d2ba8ca8ee2e676ea8f7c4c7e29171cd8fdbe2ee41a1e76b28329be8dc7c2ee"
     },
     {
       "path": "game-data/catalog/ruination-maul/base.raw.json",
@@ -2035,21 +2035,6 @@
       "sha256": "ed57ab3ea4f40d1639120806dbf4b30a05722b54b68a5e3b19d148ff4350b204"
     },
     {
-      "path": "game-data/catalog/sapphire/base.raw.json",
-      "runtimePath": "backend/src/main/resources/catalog/sapphire/base.raw.json",
-      "sha256": "6df2eea3976b76695af45c9b010df76ea447972bc50e4e671029bf6f905ea454"
-    },
-    {
-      "path": "game-data/catalog/sapphire/catalog.json",
-      "runtimePath": "backend/src/main/resources/catalog/sapphire/catalog.json",
-      "sha256": "dafe95e7d1dd5dc22e5f61fe1d75967c6a6d2f0932d2755fc950dc1855f5d80f"
-    },
-    {
-      "path": "game-data/catalog/sapphire/details.raw.json",
-      "runtimePath": "backend/src/main/resources/catalog/sapphire/details.raw.json",
-      "sha256": "409590a1d44d9382b7b45e4461ca7c8750f4e7caf34e0299c3bc2d6ecb00e26c"
-    },
-    {
       "path": "game-data/catalog/sapphire-ring/base.raw.json",
       "runtimePath": "backend/src/main/resources/catalog/sapphire-ring/base.raw.json",
       "sha256": "504b72aa3d45ba8bc8793c17b1c4059a215a9ea50e63fdc5b1ffee08e65079f0"
@@ -2063,6 +2048,21 @@
       "path": "game-data/catalog/sapphire-ring/details.raw.json",
       "runtimePath": "backend/src/main/resources/catalog/sapphire-ring/details.raw.json",
       "sha256": "c26f3690c2411681d26c65237e3261997645b65e4cd29c834ebbaf039c0ef445"
+    },
+    {
+      "path": "game-data/catalog/sapphire/base.raw.json",
+      "runtimePath": "backend/src/main/resources/catalog/sapphire/base.raw.json",
+      "sha256": "6df2eea3976b76695af45c9b010df76ea447972bc50e4e671029bf6f905ea454"
+    },
+    {
+      "path": "game-data/catalog/sapphire/catalog.json",
+      "runtimePath": "backend/src/main/resources/catalog/sapphire/catalog.json",
+      "sha256": "dafe95e7d1dd5dc22e5f61fe1d75967c6a6d2f0932d2755fc950dc1855f5d80f"
+    },
+    {
+      "path": "game-data/catalog/sapphire/details.raw.json",
+      "runtimePath": "backend/src/main/resources/catalog/sapphire/details.raw.json",
+      "sha256": "409590a1d44d9382b7b45e4461ca7c8750f4e7caf34e0299c3bc2d6ecb00e26c"
     },
     {
       "path": "game-data/catalog/seastorm-mantle/base.raw.json",
@@ -3060,36 +3060,6 @@
       "sha256": "036029ad49f7ee9d596c24e3f5093d72c93affccc41c6c550170e66c68c84af0"
     },
     {
-      "path": "i18n/augmentDisplay.json",
-      "runtimePath": "frontend/src/shared/i18n/augmentDisplay.json",
-      "sha256": "dde01b1d3af6b605e44dc56c0de4d6ce78a69b787577932474579f84a18cc8c0"
-    },
-    {
-      "path": "i18n/baseDisplay.json",
-      "runtimePath": "frontend/src/shared/i18n/baseDisplay.json",
-      "sha256": "7656240d68bcd830fdee07adae5f6baeea8437336240d43cba6ec607415be3d0"
-    },
-    {
-      "path": "i18n/gameTerms.json",
-      "runtimePath": "frontend/src/shared/i18n/gameTerms.json",
-      "sha256": "9b8ab612adaa17ddeb5bc34fdebb7f064dc7c6dc2ac7335c9f1d4b2160e4f23d"
-    },
-    {
-      "path": "i18n/itemClassNames.json",
-      "runtimePath": "frontend/src/shared/i18n/itemClassNames.json",
-      "sha256": "304505b360aa541da1dd2f37bc5c116fb07ce76e6bdbf0bbc77900c1a59dc2b8"
-    },
-    {
-      "path": "i18n/messages.json",
-      "runtimePath": "frontend/src/shared/i18n/messages.json",
-      "sha256": "69cebaa199a8303da5d1cecec494c211ebbc78f9e765e7dfe6e7bd3b53beffef"
-    },
-    {
-      "path": "i18n/modifierTemplates.json",
-      "runtimePath": "frontend/src/shared/i18n/modifierTemplates.json",
-      "sha256": "99b10ffb548f337b0693339ac5523d3c23aa6d1036e4ad47d7b1f6cd9dcb6593"
-    },
-    {
       "path": "game-data/display/base-picker/baseImageSources.json",
       "runtimePath": "frontend/src/features/crafting/base-picker/baseImageSources.json",
       "sha256": "fa29fa42c35623703e8afb7c522111bb97b8f1815e224a0dae7fb77f6b3c9927"
@@ -3118,6 +3088,36 @@
       "path": "game-data/display/sapphireDefinitions.json",
       "runtimePath": "frontend/src/features/crafting/sapphireDefinitions.json",
       "sha256": "29f0fad046333f840ccd1139f42ec2cfc0707468815a1575a5cdce1645f7bee3"
+    },
+    {
+      "path": "i18n/augmentDisplay.json",
+      "runtimePath": "frontend/src/shared/i18n/augmentDisplay.json",
+      "sha256": "dde01b1d3af6b605e44dc56c0de4d6ce78a69b787577932474579f84a18cc8c0"
+    },
+    {
+      "path": "i18n/baseDisplay.json",
+      "runtimePath": "frontend/src/shared/i18n/baseDisplay.json",
+      "sha256": "7656240d68bcd830fdee07adae5f6baeea8437336240d43cba6ec607415be3d0"
+    },
+    {
+      "path": "i18n/gameTerms.json",
+      "runtimePath": "frontend/src/shared/i18n/gameTerms.json",
+      "sha256": "9b8ab612adaa17ddeb5bc34fdebb7f064dc7c6dc2ac7335c9f1d4b2160e4f23d"
+    },
+    {
+      "path": "i18n/itemClassNames.json",
+      "runtimePath": "frontend/src/shared/i18n/itemClassNames.json",
+      "sha256": "304505b360aa541da1dd2f37bc5c116fb07ce76e6bdbf0bbc77900c1a59dc2b8"
+    },
+    {
+      "path": "i18n/messages.json",
+      "runtimePath": "frontend/src/shared/i18n/messages.json",
+      "sha256": "69cebaa199a8303da5d1cecec494c211ebbc78f9e765e7dfe6e7bd3b53beffef"
+    },
+    {
+      "path": "i18n/modifierTemplates.json",
+      "runtimePath": "frontend/src/shared/i18n/modifierTemplates.json",
+      "sha256": "99b10ffb548f337b0693339ac5523d3c23aa6d1036e4ad47d7b1f6cd9dcb6593"
     }
   ],
   "mappings": [
@@ -3204,32 +3204,6 @@
       "domain": "messages",
       "count": 489,
       "sha256": "b28dbe73812cc131f94e0b17e85fd035d5e4a519e40ef2a055e538f427ce9d95"
-    }
-  ],
-  "rules": [
-    {
-      "path": "game-rule/currency.md",
-      "sha256": "25326d17b61a15dcb35a8a1cbb127fdafbe10451a643d5402ddb2e85d6ccea7f"
-    },
-    {
-      "path": "game-rule/i18n-and-display.md",
-      "sha256": "f05bf8c0704eb535fd79daf12d5d728b3666ff66226f12dd88bd5735292e4779"
-    },
-    {
-      "path": "game-rule/item-state.md",
-      "sha256": "25a99df04298b53b76c6555ab479453b6ed87b79a80d043dd65a07bd47935148"
-    },
-    {
-      "path": "game-rule/probability-and-goals.md",
-      "sha256": "c1537071d065f06a45dba028941dbf21cac708f99822279b73330c7d405533a4"
-    },
-    {
-      "path": "game-rule/sockets-and-augments.md",
-      "sha256": "5582a7ce4792ec470bca4c3d74972e4ac7c23f0603752796083c86c440272890"
-    },
-    {
-      "path": "game-rule/user-policy.md",
-      "sha256": "8af54b95064881597ff19f8cc9af43bbcac1bcaca312fac39bc9d782b0f474e8"
     }
   ]
 }

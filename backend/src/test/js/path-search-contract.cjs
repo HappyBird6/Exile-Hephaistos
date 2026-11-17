@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const Ajv = require('ajv');
 const root = path.resolve(__dirname, '../../..');
 const read = p => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
-const schema = read('../contracts/crafting-paths-v1/schema.json');
+const schema = read('../docs/contracts/crafting-paths-v1/schema.json');
 const ajv = new Ajv({allErrors: true, schemaId: 'auto'});
 ajv.addSchema(schema);
 let count = 0;

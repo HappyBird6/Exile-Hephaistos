@@ -15,7 +15,8 @@ class GoalFixtureTest {
   private final ObjectMapper json = new ObjectMapper();
 
   private JsonNode fixture() throws Exception {
-    return json.readTree(Path.of("../contracts/support-goal-filter-v1/fixtures.json").toFile());
+    return json.readTree(
+        Path.of("../docs/contracts/support-goal-filter-v1/fixtures.json").toFile());
   }
 
   @Test

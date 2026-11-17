@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import sharedSchema from '../../../../../contracts/crafting-paths-v1/schema.json'
+import sharedSchema from '../../../../../docs/contracts/crafting-paths-v1/schema.json'
 import generatedSchema from './schema.generated.json'
 import {
   fixtures,

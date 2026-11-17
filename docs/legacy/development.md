@@ -166,7 +166,7 @@ SANCTIFIED 표시에서만 `preciseModifierProjection`으로 원본 정수 × ca
 
 ## 반복 Chaos
 
-전용 [HTTP 계약](../../contracts/chaos-repeat/README.md), [클라이언트 검증](../../frontend/src/features/crafting/chaos-repeat/api/README.md), [표시 golden](../../frontend/src/features/crafting/chaos-repeat/display/README.md)을 따른다. 기존 [Film 반복 기록](../../frontend/src/features/crafting/chaos-repeat/README.md)은 저장 계약이며 초기 문서의 UI/API 미연결 문구를 현재 전체 기능 미구현으로 읽지 않는다.
+전용 [HTTP 계약](contracts/chaos-repeat/README.md), [클라이언트 검증](../../frontend/src/features/crafting/chaos-repeat/api/README.md), [표시 golden](../../frontend/src/features/crafting/chaos-repeat/display/README.md)을 따른다. 기존 [Film 반복 기록](../../frontend/src/features/crafting/chaos-repeat/README.md)은 저장 계약이며 초기 문서의 UI/API 미연결 문구를 현재 전체 기능 미구현으로 읽지 않는다.
 
 UI의 1000회 버튼은 모드 토글이며 사용 동작 자체가 아니다. 기존 stash/favorite 선택과 중앙 아이템 사용이 batch를 시작한다. 현재 UI는 최대 1000을 명시하고 최소 한 번 적용 후 매치 시 조기 종료한다. 다른 화폐는 단일 경로를 유지한다. 별도 횟수 편집기를 추가하지 않는다. 요청 중 수정은 잠그고 기존 버튼의 계산 상태와 공통 피드백을 사용한다.
 

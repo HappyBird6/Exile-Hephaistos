@@ -18,10 +18,11 @@ class CertifiedMapProtocolTest {
     var json = new ObjectMapper();
     var view =
         json.readValue(
-            Path.of("../contracts/crafting-methods-v2/certified-diamond.json").toFile(),
+            Path.of("../docs/contracts/crafting-methods-v2/certified-diamond.json").toFile(),
             CertifiedMapProtocol.View.class);
     var exact =
-        json.readTree(Path.of("../contracts/crafting-methods-v2/synthetic-diamond.json").toFile());
+        json.readTree(
+            Path.of("../docs/contracts/crafting-methods-v2/synthetic-diamond.json").toFile());
     assertThat(view.search().version()).isEqualTo(CertifiedMapProtocol.VERSION);
     assertThat(view.graph().revision()).isEqualTo(view.search().revision());
     assertThat(view.graph().methods()).hasSize(6);

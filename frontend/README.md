@@ -30,6 +30,6 @@ npm run build
 
 Vite는 `http://localhost:5173`에서 실행하고 `/api`를 `localhost:8080`으로 proxy한다. Docker에서는 nginx가 정적 파일과 API proxy를 제공한다. `VITE_*`는 브라우저 공개 설정이므로 비밀값을 넣지 않는다.
 
-현재 데이터·규칙·지원 요약과 갱신 방법은 [루트 README](../README.md#문서와-데이터-관리)를 따른다. [보관 문서](../docs/legacy/)에는 이전 그래프·파싱·자동 계산·저장 계약의 근거가 있다. 공유 API fixture와 contract는 저장소의 `contracts/`를 따른다.
+현재 데이터·규칙·지원 요약과 갱신 방법은 [루트 README](../README.md#문서와-데이터-관리)를 따른다. [보관 문서](../docs/legacy/)에는 이전 그래프·파싱·자동 계산·저장 계약의 근거가 있다. 공유 API fixture와 contract는 저장소의 `docs/contracts/`를 따른다.
 
 기능별 공통 화면 연결과 상태·기록 보존 계약은 [기능 연결과 유지보수](../docs/legacy/development.md)에 모았다. 모듈 안의 과거 INTEGRATION/VERIFICATION 안내를 다시 적용하지 않는다.
