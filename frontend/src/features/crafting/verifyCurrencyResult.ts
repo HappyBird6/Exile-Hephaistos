@@ -1,9 +1,7 @@
 import { isQualityInfuser, infuserTransitionMatches } from './qualityInfuser'
 import { isCraftedModifier } from './augmentRules'
 import { equivalent } from './sanctification/equivalence'
-import {
-  sanctificationTransitionMatches,
-} from './sanctification/sanctification'
+import { sanctificationTransitionMatches } from './sanctification/sanctification'
 import {
   isEquipmentQualityAction,
   qualityTransitionMatches,
@@ -116,7 +114,8 @@ export function verifyCurrencyResult(
   const baseAction = baseWorkbenchAction(action)
   const reviewedKey = topBaseKey(state.baseItemId)
   const context = currencyMaterial(state, action)
-  const { material, catalogMaterials, rule, targets, replacementTargets } = context
+  const { material, catalogMaterials, rule, targets, replacementTargets } =
+    context
   const validValues = (values: Record<string, number>) =>
     values &&
     typeof values === 'object' &&

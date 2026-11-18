@@ -15,7 +15,14 @@ export function currencyMaterial(state: ConcreteItem, action: WorkbenchAction) {
   const targets = rule?.ids ?? []
   const essenceCandidates = material?.mode === 'ADD' ? targets : []
   const replacementTargets = material?.mode === 'REPLACE' ? targets : []
-  return { material, catalogMaterials, rule, targets, essenceCandidates, replacementTargets }
+  return {
+    material,
+    catalogMaterials,
+    rule,
+    targets,
+    essenceCandidates,
+    replacementTargets,
+  }
 }
 
 export function verifyMaterialTransition(
@@ -26,7 +33,8 @@ export function verifyMaterialTransition(
   context: ReturnType<typeof currencyMaterial>,
 ) {
   const next = v.state
-  const { material, catalogMaterials, essenceCandidates, replacementTargets } = context
+  const { material, catalogMaterials, essenceCandidates, replacementTargets } =
+    context
   if (v.applied && replacementTargets.length > 0) {
     const matching = workbenchOmens.filter(
       (o) =>

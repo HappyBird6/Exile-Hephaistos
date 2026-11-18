@@ -179,7 +179,10 @@ export async function craftingFetch(
   return decodedResponse(response, sharedSnapshot)
 }
 
-function decodedResponse(response: Response, sharedSnapshot: boolean): Response {
+function decodedResponse(
+  response: Response,
+  sharedSnapshot: boolean,
+): Response {
   async function read() {
     const value: unknown = await response.json()
     if (sharedSnapshot) {

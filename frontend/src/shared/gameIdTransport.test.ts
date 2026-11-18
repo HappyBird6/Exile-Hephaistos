@@ -43,15 +43,13 @@ describe('identifier transport', () => {
     expect(init.headers.get('X-Crafting-Ids-Body')).toBe('compact')
   })
   it('uses plain bodies with a server that does not acknowledge this wire revision', async () => {
-    const fetch = vi
-      .fn()
-      .mockImplementation(() =>
-        Promise.resolve(
-          new Response(JSON.stringify(fixture.plain), {
-            headers: { 'X-Crafting-Ruleset': 'old-server' },
-          }),
-        ),
-      )
+    const fetch = vi.fn().mockImplementation(() =>
+      Promise.resolve(
+        new Response(JSON.stringify(fixture.plain), {
+          headers: { 'X-Crafting-Ruleset': 'old-server' },
+        }),
+      ),
+    )
     vi.stubGlobal('fetch', fetch)
     const response = await craftingFetch('/api/v1/crafting/workbench/initial')
     expect(await response.json()).toEqual(fixture.plain)
@@ -68,9 +66,13 @@ describe('identifier transport', () => {
   })
   it('restores the negotiated snapshot for json, text and cloned responses', async () => {
     const body = { state: { snapshotId: 's' } }
-    const fetch = vi.fn(() => Promise.resolve(new Response(JSON.stringify(body), {
-      headers: { [gameIdHeader]: gameIdIdentity + '.s' },
-    })))
+    const fetch = vi.fn(() =>
+      Promise.resolve(
+        new Response(JSON.stringify(body), {
+          headers: { [gameIdHeader]: gameIdIdentity + '.s' },
+        }),
+      ),
+    )
     vi.stubGlobal('fetch', fetch)
     const result = await craftingFetch('/api/v1/crafting/workbench/apply')
     const expected = { ...body, snapshotId: 's' }

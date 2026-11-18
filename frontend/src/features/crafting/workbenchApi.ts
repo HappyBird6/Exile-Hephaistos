@@ -8,9 +8,7 @@ import type { ItemObservations } from './itemObservations'
 import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import { translate } from '../../shared/i18n/i18n'
 import { supportsConcreteStateShape } from './workbenchStateShape'
-import {
-  modifierTemplates as displayBindings,
-} from '../../shared/i18n/localeData'
+import { modifierTemplates as displayBindings } from '../../shared/i18n/localeData'
 import type { CatalystQuality } from './catalystQuality'
 import type { QualityLimit } from './qualityLimit'
 import type { Bucket, Definition, Initial } from './craftingApi'
