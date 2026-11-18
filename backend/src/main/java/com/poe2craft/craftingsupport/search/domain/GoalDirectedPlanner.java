@@ -48,6 +48,7 @@ import java.util.function.Function;
  *       {@code c.initial}을(를) 사용한다. 입력: {@code source}(출처), {@code choices}(선택목록), {@code
  *       currency}(화폐).
  *   <li>{@code blockedRefill(source)}: 일반 추가로 목표에 접근할 수 없을 때 소멸 후 사용할 엑잘을 반환한다.
+ *   <li>{@code lastResortExalted(source)}: 기존 목표를 보존하며 새 목표에 접근하는 기본 엑잘 경로를 구한다.
  *   <li>{@code choices(source)}: 선택목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code source}(출처). 반환: {@code
  *       List<Choice>}.
  *   <li>{@code choices(source, initialStage)}: 선택목록 처리에서 {@code evaluate.apply}, {@code
@@ -256,6 +257,23 @@ public final class GoalDirectedPlanner {
         : refill;
   }
 
+  Optional<Choice> lastResortExalted(ItemState source) {
+    if (source.rarity() != ItemState.Rarity.RARE
+        || inventory.stream()
+            .noneMatch(a -> a.currency() == WorkbenchCurrency.EXALTED && a.omens().isEmpty()))
+      return Optional.empty();
+    var action =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.EXALTED,
+            Set.of(),
+            AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED);
+    var plan = kernel.plan(source, action);
+    if (plan.status() != AutomaticCraftingPlan.Status.READY
+        || kernel.representatives(plan).stream().noneMatch(t -> advances(source, t)))
+      return Optional.empty();
+    return Optional.of(new Choice(List.of(), List.of(action)));
+  }
+
   public List<Choice> choices(ItemState source) {
     return choices(source, true);
   }
@@ -433,6 +451,8 @@ public final class GoalDirectedPlanner {
       prerequisites.stream()
           .filter(a -> a.purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE)
           .forEach(a -> result.add(new Choice(List.of(), List.of(a))));
+    // 수동 드러내기만 남은 상태도 자동 획득 대안이 없는 상태에 포함한다.
+    if (result.isEmpty()) lastResortExalted(source).ifPresent(result::add);
     kernel.desecrationActions(source).forEach(a -> result.add(new Choice(List.of(), List.of(a))));
     preferAddition(source, result, WorkbenchCurrency.EXALTED);
     preferAddition(source, result, WorkbenchCurrency.REGAL);

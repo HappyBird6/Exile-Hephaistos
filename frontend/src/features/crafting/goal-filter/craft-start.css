@@ -363,13 +363,6 @@
 .craft-start .craft-start-rolls label {
   overflow-wrap: anywhere;
 }
-.craft-start .craft-start-tree {
-  min-height: 540px;
-  padding: 32px 16px;
-  background-color: #0c0e0f;
-  background-image: radial-gradient(#292d2e 1px, transparent 1px);
-  background-size: 20px 20px;
-}
 .craft-start .craft-start-root {
   display: flex;
   flex-direction: column;

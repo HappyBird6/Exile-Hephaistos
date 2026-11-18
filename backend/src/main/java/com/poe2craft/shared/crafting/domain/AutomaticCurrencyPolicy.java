@@ -11,7 +11,7 @@ import java.util.*;
  * <p>필드·상수:
  *
  * <ul>
- *   <li>{@code VERSION}: 버전; 초기값 {@code "approved-187-2026-11-18-session-crafting-v9"} ({@code
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "approved-187-2026-11-18-exalted-fallback-v10"} ({@code
  *       String}).
  *   <li>{@code MAXIMUM_EXPLORED_EXPLICITS}: 명시옵션목록; 초기값 {@code 6} ({@code int}).
  *   <li>{@code MANUAL_CURRENCY_POLICY_IDS}: 식별자목록 ({@code Map<String, String>}).
@@ -47,7 +47,7 @@ import java.util.*;
  * </ul>
  */
 public final class AutomaticCurrencyPolicy {
-  public static final String VERSION = "approved-187-2026-11-18-session-crafting-v9";
+  public static final String VERSION = "approved-187-2026-11-18-exalted-fallback-v10";
   public static final int MAXIMUM_EXPLORED_EXPLICITS = 6;
   // The frozen 187-entry policy already excludes these as supplementary resources.
   // Their new manual enum names must not expand the approved automatic search inventory.
@@ -146,6 +146,7 @@ public final class AutomaticCurrencyPolicy {
    *   <li>{@code TARGET_PREPARATION}: 준비 구분값.
    *   <li>{@code TEMPORARY_AFFIX_FOR_REMOVAL}: 제거 구분값.
    *   <li>{@code QUALITY_CHECKPOINT}: 체크포인트 구분값.
+   *   <li>{@code LAST_RESORT_EXALTED}: 다른 획득 경로가 없을 때 목표 옵션 추가를 시도한다.
    *   <li>{@code REFILL_AFTER_ANNULMENT}: 소멸로 확보한 자리에 목표 옵션을 추가한다.
    *   <li>{@code QUALITY_BASE_CHECKPOINT}: 체크포인트 구분값.
    * </ul>
@@ -158,7 +159,8 @@ public final class AutomaticCurrencyPolicy {
     TEMPORARY_AFFIX_FOR_REMOVAL,
     QUALITY_CHECKPOINT,
     QUALITY_BASE_CHECKPOINT,
-    REFILL_AFTER_ANNULMENT
+    REFILL_AFTER_ANNULMENT,
+    LAST_RESORT_EXALTED
   }
 
   /**
@@ -351,7 +353,8 @@ public final class AutomaticCurrencyPolicy {
           case TEMPORARY_REMOVAL ->
               temporary
                   || context.purpose() == Purpose.GOAL_ACQUISITION
-                  || (context.purpose() == Purpose.REFILL_AFTER_ANNULMENT
+                  || ((context.purpose() == Purpose.REFILL_AFTER_ANNULMENT
+                          || context.purpose() == Purpose.LAST_RESORT_EXALTED)
                       && context.currency() == WorkbenchCurrency.EXALTED);
           case TEMPORARY_REGAL_PREFIX, TEMPORARY_REGAL_SUFFIX ->
               (temporary || context.purpose() == Purpose.GOAL_ACQUISITION)

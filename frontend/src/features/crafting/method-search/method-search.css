@@ -724,57 +724,11 @@
   margin-block: 0.5rem;
 }
 
-.support-controls,
-.session-plans > header,
-.session-plan-overview > header {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-}
 .support-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   padding-block: 0.75rem;
-}
-.session-plans > header,
-.session-plan-overview > header {
-  justify-content: space-between;
-}
-.session-plan-layout {
-  display: grid;
-  grid-template-columns: minmax(15rem, 2fr) minmax(0, 3fr);
-  gap: 1rem;
-  align-items: start;
-}
-.session-plan-layout > ol {
-  display: grid;
-  gap: 0.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.session-plan-overview {
-  width: min(60rem, 94vw);
-  max-height: 88vh;
-  overflow: auto;
-  background: #202022;
-  color: inherit;
-  border: 1px solid #78653f;
-  padding: 1.2rem;
-}
-.session-plan-overview::backdrop {
-  background: rgb(0 0 0 / 0.65);
-}
-.plan-currency-history {
-  padding-inline-start: 1.6rem;
-}
-.session-plan-steps {
-  min-width: 0;
-}
-.session-plan-steps > ol > li {
-  margin-block: 1rem;
-}
-.session-plan-steps label {
-  display: grid;
-  gap: 0.4rem;
 }
 .session-plan-steps select {
   max-width: 100%;
@@ -783,9 +737,4 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-}
-@media (max-width: 720px) {
-  .session-plan-layout {
-    grid-template-columns: 1fr;
-  }
 }

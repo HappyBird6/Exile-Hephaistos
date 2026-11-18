@@ -84,8 +84,8 @@ import org.junit.jupiter.api.*;
  *   <li>{@code chaosKernelRejectsMultipleExplicitAffixes()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code magicLifeToRareLifeChaosHasDirectCertainEssence()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
  *       비교한다.
- *   <li>{@code thirdColdGoalKeepsPartialEssenceRoutesWithoutFinishingExalted()}: 이름에 명시한 시나리오의 실제
- *       결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code thirdColdGoalCompletesEssenceRoutesWithFinishingExalted()}: 이름에 명시한 시나리오의 실제 결과·보존
+ *       상태를 기대값과 비교한다.
  *   <li>{@code emptyMagicPreparesRareBeforeChaosAndFracturedAffixIsNotAFreeRetry()}: 이름에 명시한 시나리오의
  *       실제 결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code emptyRareMinionGoalKeepsPreparedChaosAndCompletes()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
@@ -303,13 +303,13 @@ class GoalDirectedPlannerScenariosTest {
   }
 
   @Test
-  void thirdColdGoalKeepsPartialEssenceRoutesWithoutFinishingExalted() {
+  void thirdColdGoalCompletesEssenceRoutesWithFinishingExalted() {
     var root = item(ItemState.Rarity.MAGIC, 82, List.of(life()));
     var goal = goal(root, Map.of(LIFE, 1L, CHAOS, 1L, COLD, 1L));
     try (var graph = graph(root, goal)) {
       exhaust(graph);
       assertThat(graph.nodes()).anyMatch(n -> n.item().explicits().size() == 2);
-      assertThat(graph.nodes()).noneMatch(n -> n.progress().goal() == GoalFilter.Status.MATCH);
+      assertThat(graph.nodes()).anyMatch(n -> n.progress().goal() == GoalFilter.Status.MATCH);
       assertThat(
               graph.methods().stream()
                   .filter(m -> m.source() == 0)
@@ -318,10 +318,12 @@ class GoalDirectedPlannerScenariosTest {
           .contains(
               WorkbenchCurrency.GREATER_ESSENCE_RUIN, WorkbenchCurrency.GREATER_ESSENCE_THAWING);
       assertThat(graph.methods())
-          .noneMatch(
+          .anyMatch(
               m ->
-                  m.template().initial().isEmpty()
-                      && m.template().cycle().getFirst().currency() == WorkbenchCurrency.EXALTED);
+                  m.source() != 0
+                      && m.template().initial().isEmpty()
+                      && m.template().cycle().getFirst().purpose()
+                          == AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED);
       if (graph.resourceLimited()) assertThat(graph.complete()).isFalse();
     }
   }

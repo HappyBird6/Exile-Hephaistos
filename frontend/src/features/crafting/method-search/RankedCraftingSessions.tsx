@@ -1,3 +1,14 @@
+import { AppLink } from '../../../shared/navigation/AppLink'
+import { HistoryWorkspaceLayout } from '../session-library/HistoryWorkspaceLayout'
+import { SessionDetail } from '../session-detail/SessionDetail'
+import {
+  SessionOverviewLayout,
+  SessionFlowSurface,
+} from '../session-history/SessionOverviewLayout'
+import { NotationResources } from '../session-notation/SessionNotation'
+import { historyResources } from '../session-history/resources'
+import { currencyId } from '../session-notation/extractSessionNotation'
+import { planOmenId } from './usePlanAction'
 import { SessionFlowGrid } from '../session-history/SessionFlow'
 import '../session-history/history.css'
 import { SessionListCard } from '../session-library/SessionListCard'
@@ -118,10 +129,11 @@ export function RankedCraftingSessions(props: Props) {
     source: number
     key: string
   } | null>(null)
-  const [selected, setSelected] = useState('')
-  const dialog = useRef<HTMLDialogElement>(null)
-  const [overview, setOverview] = useState(false)
-  const session = sessionLibraryMessages[locale]
+  const [selected, setSelected] = useState(() => {
+    const params = new URLSearchParams(location.search)
+    return params.get('job') === props.view.id ? (params.get('plan') ?? '') : ''
+  })
+  const preview = useRef<HTMLElement>(null)
   const baseName = name(
     props.start.baseItemId,
     props.view.nodes[0]
@@ -151,7 +163,12 @@ export function RankedCraftingSessions(props: Props) {
     plans[0]
   const route = useMemo(
     () =>
-      chosen && !edited && !props.route.length
+      chosen &&
+      !edited &&
+      (!props.route.length ||
+        props.route.some(
+          (edge) => chosen.decisions.get(edge.source) !== edge.method,
+        ))
         ? previewRoute(props.view, chosen)
         : props.route,
     [chosen, edited, props.route, props.view],
@@ -168,88 +185,104 @@ export function RankedCraftingSessions(props: Props) {
   }
   if (!chosen) return null
   return (
-    <section className="session-plans">
-      <header>
-        <h3>{copy[0]}</h3>
-        <span>{copy[1]}</span>
-      </header>
-      <div className="session-plan-layout">
-        <ol aria-label={copy[0]}>
-          {plans.map((plan, index) => {
-            const title = [...plan.root.initial, ...plan.root.cycle]
-              .map(props.action)
-              .join(' → ')
-            const probability = plan.success
-              ? probabilityText(plan.success.lower, plan.success)
-              : policy.unresolved
-            return (
-              <li key={plan.id}>
-                <SessionListCard
-                  title={title}
-                  baseId={props.start.baseItemId}
-                  baseName={baseName}
-                  selected={chosen.id === plan.id}
-                  selectLabel={`${index + 1}. ${baseName} · ${title} · ${probability}`}
-                  onSelect={() => choose(plan)}
-                  metadata={
-                    <small>
-                      {baseName} · {policy.success} {probability}
-                    </small>
-                  }
-                  actions={
-                    <button
-                      className="wb-session-card__overview"
-                      onClick={() => {
-                        if (chosen.id !== plan.id) choose(plan)
-                        setOverview(true)
-                        dialog.current?.showModal()
+    <section className="session-plans" ref={preview}>
+      <HistoryWorkspaceLayout
+        heading={
+          <>
+            <h2>{copy[0]}</h2>
+            <span>{copy[1]}</span>
+          </>
+        }
+        list={
+          <div className="wb-history-list wb-scrollbar">
+            <div
+              className="wb-session-library"
+              role="list"
+              aria-label={copy[0]}
+            >
+              {plans.map((plan, index) => {
+                const title = [...plan.root.initial, ...plan.root.cycle]
+                  .map(props.action)
+                  .join(' → ')
+                const probability = plan.success
+                  ? probabilityText(plan.success.lower, plan.success)
+                  : policy.unresolved
+                return (
+                  <div role="listitem" key={plan.id}>
+                    <SessionListCard
+                      title={title}
+                      baseId={props.start.baseItemId}
+                      baseName={baseName}
+                      selected={chosen.id === plan.id}
+                      selectLabel={`${index + 1}. ${baseName} · ${title} · ${probability}`}
+                      onSelect={() => {
+                        choose(plan)
+                        if (window.innerWidth <= 760)
+                          preview.current
+                            ?.querySelector('.wb-history-preview')
+                            ?.scrollIntoView?.({ block: 'nearest' })
                       }}
-                    >
-                      {historyMessages[locale].title}
-                    </button>
-                  }
-                />
-              </li>
-            )
-          })}
-        </ol>
-        {!overview && (
+                      metadata={
+                        <small>
+                          {baseName} · {policy.success} {probability}
+                        </small>
+                      }
+                      actions={
+                        <AppLink
+                          className="wb-session-card__overview"
+                          href={overviewHref(
+                            props,
+                            plan,
+                            chosen.id === plan.id
+                              ? route
+                              : previewRoute(props.view, plan),
+                            chosen.id === plan.id ? terminal : null,
+                          )}
+                        >
+                          <svg viewBox="0 0 20 20" aria-hidden="true">
+                            <rect x="2.5" y="3" width="15" height="14" rx="2" />
+                            <path d="M6 7h8M6 10h8M6 13h5" />
+                          </svg>
+                          {historyMessages[locale].title}
+                        </AppLink>
+                      }
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        }
+        preview={
           <SessionSteps key={chosen.id} {...detailProps} plan={chosen} />
-        )}
-        <dialog
-          ref={dialog}
-          className="session-plan-overview"
-          aria-label={historyMessages[locale].title}
-          onClose={() => setOverview(false)}
-        >
-          {overview && (
-            <>
-              <header>
-                <h2>{historyMessages[locale].title}</h2>
-                <button
-                  type="button"
-                  autoFocus
-                  onClick={() => dialog.current?.close()}
-                >
-                  {session.close}
-                </button>
-              </header>
-              <SessionSteps
-                key={chosen.id}
-                {...detailProps}
-                overview
-                allowStart={false}
-                plan={chosen}
-              />
-            </>
-          )}
-        </dialog>
-      </div>
+        }
+      />
     </section>
   )
 }
 
-function SessionSteps({
+function overviewHref(
+  props: Pick<Props, 'identity' | 'view'>,
+  plan: Plan,
+  route: Selection[],
+  terminal: { source: number; key: string } | null,
+) {
+  const query = new URLSearchParams({
+    plan: plan.id,
+    rules: props.identity,
+    cycles: String(plan.cycles),
+    path: JSON.stringify(route.map((e) => [e.kind, e.target])),
+  })
+  if (terminal) query.set('terminal', JSON.stringify(terminal))
+  return (
+    '/crafting-plans/' +
+    encodeURIComponent(props.view.id) +
+    '/overview?' +
+    query
+  )
+}
+
+export function SessionSteps({
   view,
   plan,
   action,
@@ -268,7 +301,7 @@ function SessionSteps({
   terminal: { source: number; key: string } | null
   setTerminal: (value: { source: number; key: string } | null) => void
 }) {
-  const { locale } = useI18n(),
+  const { locale, name } = useI18n(),
     guide = guideMessages[locale],
     copy = labels[locale],
     policy = policyCandidateMessages[locale]
@@ -285,12 +318,32 @@ function SessionSteps({
   )
   const root = nodes.get(0)
   if (!root) return null
+  const notation = []
   const frames = [],
     path: Selection[] = [],
     visited = new Set<number>(),
     instructions: string[] = []
   let method: AutomaticArrow | undefined = plan.root
-  const flow = [{ card: <ItemCard item={card(root)} />, label: guide.start }]
+  function itemCard(node: AutomaticNode) {
+    const presentation = card(node)
+    return (
+      <ItemCard
+        baseItemId={node.item.baseItemId}
+        item={{
+          ...presentation,
+          name: name(node.item.baseItemId, presentation.name),
+          base: null,
+        }}
+      />
+    )
+  }
+  const flow: {
+    card: React.ReactNode
+    label: string
+    resources?: React.ReactNode
+  }[] = [{ card: itemCard(root), label: guide.start }]
+  let removalRisk = false
+  let incomplete = false
   let manualReveal = false
   let finalNode: AutomaticNode | undefined
   while (method && frames.length < 64 && !visited.has(method.source)) {
@@ -335,11 +388,57 @@ function SessionSteps({
     instructions.push(...current.initial.map(action))
     if (current.cycle.length)
       instructions.push(current.cycle.map(action).join(' → ') + ' · ' + repeat)
+    const groupIcons = []
+    for (const craft of [...current.initial, ...current.cycle]) {
+      const isCurrency =
+        craft.purpose !== 'QUALITY_CHECKPOINT' &&
+        craft.purpose !== 'QUALITY_BASE_CHECKPOINT'
+      const id =
+        isCurrency && craft.currency ? currencyId(craft.currency) : undefined
+      const label = action(craft)
+      const stepNumber = notation.length + 1
+      const icons = id && (
+        <NotationResources
+          resources={historyResources}
+          step={{
+            number: stepNumber,
+            frameIndex: stepNumber,
+            currencyId: id,
+            consumedOmenIds: craft.omens.map(planOmenId),
+            omensKnown: true,
+            uses: 1,
+            repeated: false,
+          }}
+        />
+      )
+      const limit =
+        isRepeatable(current) && current.cycle.includes(craft)
+          ? ' · ' + repeat
+          : ''
+      notation.push(
+        <li
+          key={stepNumber}
+          className="wb-session-notation__step"
+          aria-label={label + limit}
+          title={label + limit}
+        >
+          {icons ?? label}
+          {limit}
+        </li>,
+      )
+      groupIcons.push(
+        <span key={stepNumber} title={label}>
+          {icons ?? label}
+        </span>,
+      )
+    }
+    removalRisk ||= removesModifier(current)
+    incomplete ||= !point?.complete
     frames.push(
       <li key={current.id}>
         <h4>{actions.join(' → ')}</h4>
         <span>{repeat}</span>
-        {removesModifier(current) && <p>{guide.risk}</p>}
+
         {outcomes.length > 0 && (
           <label>
             {copy[3]}
@@ -379,13 +478,12 @@ function SessionSteps({
             </select>
           </label>
         )}
-        {!point?.complete && <p role="status">{policy.unresolved}</p>}
-        {result && <ItemCard item={card(result)} />}
       </li>,
     )
     if (result && outcome) {
       flow.push({
-        card: <ItemCard item={card(result)} />,
+        card: itemCard(result),
+        resources: <div className="session-flow-resources">{groupIcons}</div>,
         label:
           actions.join(' → ') +
           ' · ' +
@@ -413,62 +511,102 @@ function SessionSteps({
     })
     method = methods.get(plan.decisions.get(result.id) ?? '')
   }
+  const title = [...plan.root.initial, ...plan.root.cycle]
+    .map(action)
+    .join(' → ')
+  const chance =
+    policy.success +
+    ' ' +
+    (plan.success
+      ? probabilityText(plan.success.lower, plan.success)
+      : policy.unresolved)
+  if (overview)
+    return (
+      <SessionOverviewLayout
+        title={title}
+        backHref={
+          '/?' +
+          new URLSearchParams({
+            workbench: 'support',
+            job: view.id,
+            plan: plan.id,
+          })
+        }
+        backLabel={copy[0]}
+        summary={<span className="history-session-summary">{chance}</span>}
+      >
+        <SessionFlowSurface>
+          <SessionFlowGrid frames={flow} summary={<strong>{chance}</strong>} />
+        </SessionFlowSurface>
+      </SessionOverviewLayout>
+    )
   return (
-    <article className="session-plan-steps">
-      <h3>{sessionLibraryMessages[locale].finalState}</h3>
-      {finalNode && <p>{copy[6]}</p>}
-      {manualReveal && <p>{policy.end}</p>}
-      {finalNode ? (
-        <ItemCard item={card(finalNode)} />
-      ) : (
-        <p>{policy.unresolved}</p>
-      )}
-      <h4>{copy[5]}</h4>
-      <ol className="plan-currency-history">
-        {instructions.map((step, index) => (
-          <li key={index}>{step}</li>
-        ))}
-      </ol>
-      {plan.candidate && <CandidateSummary candidate={plan.candidate} />}
-      {overview ? (
-        <SessionFlowGrid
-          frames={flow}
-          summary={
-            <strong>
-              {policy.success}{' '}
-              {plan.success
-                ? probabilityText(plan.success.lower, plan.success)
-                : policy.unresolved}
-            </strong>
-          }
-        />
-      ) : (
-        <>
-          <h4>{guide.start}</h4>
-          <ItemCard item={card(root)} />
-          <h4>{guide.route}</h4>
-          <ol>{frames}</ol>
-        </>
-      )}
-      {allowStart && open && (
-        <button
-          disabled={opening}
-          onClick={async () => {
-            setOpening(true)
-            setError(false)
-            try {
-              setError(!(await open(start, identity, instructions)))
-            } catch {
-              setError(true)
-            } finally {
-              setOpening(false)
-            }
-          }}
-        >
-          {copy[2]}
-        </button>
-      )}
-      {error && <p role="alert">{copy[4]}</p>}
-    </article>
+    <section
+      className="wb-history-preview session-plan-steps"
+      aria-label={sessionLibraryMessages[locale].finalState}
+    >
+      <div className="wb-history-preview__heading">
+        <div className="wb-history-title">
+          <h3>{title}</h3>
+        </div>
+      </div>
+      <SessionDetail
+        cursor={0}
+        itemClassName="wb-history-preview__item"
+        item={finalNode ? itemCard(finalNode) : <p>{policy.unresolved}</p>}
+        projectedRecord={
+          <>
+            <p>{chance}</p>
+            {removalRisk && <p>{guide.risk}</p>}
+            {incomplete && <p role="status">{policy.unresolved}</p>}
+            {manualReveal && <p>{policy.end}</p>}
+            <section className="wb-session-notation" aria-label={copy[5]}>
+              <div className="wb-session-notation__heading">
+                <h3>{copy[5]}</h3>
+              </div>
+              <ol className="wb-session-notation__steps wb-scrollbar">
+                {notation}
+              </ol>
+            </section>
+            <details>
+              <summary>{guide.details}</summary>
+              {finalNode && <p>{copy[6]}</p>}
+              {plan.candidate && (
+                <CandidateSummary candidate={plan.candidate} />
+              )}
+              <ol>{frames}</ol>
+            </details>
+          </>
+        }
+        actions={
+          <div className="wb-history-preview__actions">
+            {allowStart && open && (
+              <button
+                disabled={opening}
+                onClick={async () => {
+                  setOpening(true)
+                  setError(false)
+                  try {
+                    setError(!(await open(start, identity, instructions)))
+                  } catch {
+                    setError(true)
+                  } finally {
+                    setOpening(false)
+                  }
+                }}
+              >
+                {copy[2]}
+              </button>
+            )}
+            <AppLink
+              href={overviewHref({ identity, view }, plan, route, terminal)}
+            >
+              {historyMessages[locale].title} <span aria-hidden="true">↗</span>
+            </AppLink>
+            {error && <p role="alert">{copy[4]}</p>}
+          </div>
+        }
+      />
+    </section>
   )
 }

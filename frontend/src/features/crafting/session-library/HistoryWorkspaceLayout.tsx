@@ -8,14 +8,17 @@ export function HistoryWorkspaceLayout({
   list,
   preview,
 }: {
-  navigation: ReactNode
+  navigation?: ReactNode
   heading: ReactNode
   beforeColumns?: ReactNode
   list: ReactNode
   preview?: ReactNode
 }) {
   return (
-    <div className="wb-history-workspace">
+    <div
+      className="wb-history-workspace"
+      style={navigation ? undefined : { gridTemplateColumns: 'minmax(0,1fr)' }}
+    >
       {navigation}
       <div className="wb-history-content">
         <header className="wb-history-heading">{heading}</header>

@@ -218,50 +218,50 @@ export const strictExaltedMessages: Record<
 > = {
   en: {
     policy:
-      'Exalted can add the first mutable affix for Chaos, prepare a removable affix, or refill a slot freed by Annulment to pursue a blocked goal.',
+      'Exalted can add the first mutable affix for Chaos, prepare a removable affix, or refill a slot freed by Annulment to pursue a blocked goal. If no other supported craft advances the goal, a plain Exalted Orb can add a remaining target affix.',
     blocked:
       'No permitted follow-up was found for this state. Exalted dummy paths require a free affix slot and a legal successor that can remove the new modifier; budget-limited searches remain unresolved.',
   },
   ko: {
     policy:
-      '엑잘티드 오브는 카오스용 첫 변경 가능 옵션 추가, 후속 제거용 더미 추가, 소멸의 오브로 비운 자리에 목표 옵션 추가를 시도할 때 사용합니다.',
+      '엑잘티드 오브는 카오스용 첫 변경 가능 옵션 추가, 후속 제거용 더미 추가, 소멸의 오브로 비운 자리에 목표 옵션 추가를 시도할 때 사용합니다. 다른 제작으로 목표에 가까워질 수 없으면 기본 엑잘로 남은 목표 옵션을 노립니다.',
     blocked:
       '이 상태에서 허용된 후속 작업을 찾지 못했습니다. 엑잘 더미 경로는 빈 속성 슬롯과 새 속성을 제거할 수 있는 적법한 후속 작업이 필요합니다. 예산 제한으로 중단된 탐색은 미확인입니다.',
   },
   'zh-CN': {
     policy:
-      '崇高石可为混沌石添加首个可变词缀、准备待移除的词缀，或在无效石腾出的位置追求目标词缀。',
+      '崇高石可为混沌石添加首个可变词缀、准备待移除的词缀，或在无效石腾出的位置追求目标词缀。 若其他制作都无法推进目标，可用普通崇高石尝试添加剩余目标词缀。',
     blocked:
       '此状态未找到允许的后续操作。占位路径需要空词缀槽及可移除新词缀的合法后续操作；预算受限的搜索仍未确定。',
   },
   'zh-TW': {
     policy:
-      '崇高石可為混沌石新增首個可變詞綴、準備待移除的詞綴，或在無效石騰出的位置追求目標詞綴。',
+      '崇高石可為混沌石新增首個可變詞綴、準備待移除的詞綴，或在無效石騰出的位置追求目標詞綴。 若其他製作皆無法推進目標，可用普通崇高石嘗試新增剩餘目標詞綴。',
     blocked:
       '此狀態未找到允許的後續操作。佔位路徑需要空詞綴槽及可移除新詞綴的合法後續操作；預算受限的搜尋仍未確定。',
   },
   ja: {
     policy:
-      'エグザルテッドはカオス用の最初の変更可能MOD、除去用の仮MODの追加、または無効化で空いた枠への目標MODの追加に使用します。',
+      'エグザルテッドはカオス用の最初の変更可能MOD、除去用の仮MODの追加、または無効化で空いた枠への目標MODの追加に使用します。 他の製作で目標に近づけない場合は、通常のエグザルテッドで残りの目標MODを狙います。',
     blocked:
       'この状態で許可された後続操作は見つかりません。ダミー経路には空き枠と新しいMODを除去できる後続操作が必要です。予算制限による探索終了は未確定です。',
   },
   es: {
     policy:
-      'Exaltado puede añadir el primer afijo mutable para Caos, preparar un afijo que se eliminará o intentar conseguir el objetivo en un hueco liberado por Anulación.',
+      'Exaltado puede añadir el primer afijo mutable para Caos, preparar un afijo que se eliminará o intentar conseguir el objetivo en un hueco liberado por Anulación. Si ningún otro método permite avanzar, puede usarse un Exaltado básico para intentar añadir el afijo restante.',
     blocked:
       'No se encontró un paso posterior permitido. El relleno necesita un espacio libre y un paso legal que pueda eliminar el modificador nuevo; una búsqueda limitada por presupuesto sigue sin resolverse.',
   },
 
   ru: {
     policy:
-      'Сфера возвышения добавляет первый изменяемый модификатор для Хаоса, временный модификатор для удаления или целевой модификатор в слот после отмены.',
+      'Сфера возвышения добавляет первый изменяемый модификатор для Хаоса, временный модификатор для удаления или целевой модификатор в слот после отмены. Если другие способы не приближают к цели, можно попытаться добавить нужный модификатор обычной сферой возвышения.',
     blocked:
       'Для этого состояния не обнаружено разрешенных последующих действий. Пустые пути возвышения требуют свободного слота для аффикса и законного преемника, который может удалить новый модификатор; поиски с ограниченным бюджетом остаются нерешенными.',
   },
   th: {
     policy:
-      'ใช้ Exalted เพื่อเพิ่มม็อดแรกสำหรับ Chaos เพิ่มม็อดชั่วคราวสำหรับลบ หรือสุ่มม็อดเป้าหมายในช่องที่เปิดด้วย Annulment',
+      'ใช้ Exalted เพื่อเพิ่มม็อดแรกสำหรับ Chaos เพิ่มม็อดชั่วคราวสำหรับลบ หรือสุ่มม็อดเป้าหมายในช่องที่เปิดด้วย Annulment หากวิธีอื่นไม่ช่วยให้เข้าใกล้เป้าหมาย สามารถใช้ Exalted ปกติเพื่อสุ่มม็อดเป้าหมายที่เหลือได้',
     blocked:
       'ไม่พบการติดตามผลที่ได้รับอนุญาตสำหรับรัฐนี้ เส้นทางจำลองที่สูงส่งจำเป็นต้องมีช่องติดตั้งอิสระและผู้สืบทอดทางกฎหมายที่สามารถลบม็อดใหม่ได้ การค้นหาที่จำกัดงบประมาณยังคงไม่ได้รับการแก้ไข',
   },

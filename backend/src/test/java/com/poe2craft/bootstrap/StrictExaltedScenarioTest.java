@@ -49,8 +49,8 @@ import org.junit.jupiter.api.*;
  *       상태를 기대값과 비교한다.
  *   <li>{@code onlyFirstMutableSlotOrWitnessedSideDummyIsAllowed()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
  *       기대값과 비교한다.
- *   <li>{@code intermediateEssenceStateSurvivesWithoutFinishingExalted()}: 이름에 명시한 시나리오의 실제 결과·보존
- *       상태를 기대값과 비교한다.
+ *   <li>{@code intermediateEssenceStateContinuesWithFinishingExalted()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
  * </ul>
  */
 @Timeout(90)
@@ -217,7 +217,7 @@ class StrictExaltedScenarioTest {
   }
 
   @Test
-  void intermediateEssenceStateSurvivesWithoutFinishingExalted() {
+  void intermediateEssenceStateContinuesWithFinishingExalted() {
     var root =
         root()
             .withDesecrated(
@@ -241,9 +241,12 @@ class StrictExaltedScenarioTest {
                       && n.item().explicits().stream()
                           .noneMatch(m -> m.values().containsKey(CHAOS)));
       assertThat(graph.methods())
-          .noneMatch(
+          .anyMatch(
               m ->
-                  m.template().initial().isEmpty()
+                  m.source() != 0
+                      && m.template().initial().isEmpty()
+                      && m.template().cycle().getFirst().purpose()
+                          == AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED
                       && m.template().cycle().getFirst().currency() == WorkbenchCurrency.EXALTED);
     }
   }

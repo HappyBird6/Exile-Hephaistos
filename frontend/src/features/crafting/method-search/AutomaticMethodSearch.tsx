@@ -1,3 +1,4 @@
+import { usePlanAction } from './usePlanAction'
 import { PolicyCandidates } from './PolicyCandidates'
 import { policyCandidateMessages } from './policyCandidateMessages'
 import {
@@ -63,7 +64,7 @@ import {
   acceptsAutomatic,
   cancelAutomatic,
 } from './automaticApi'
-import type { AutomaticAction, AutomaticView } from './automaticApi'
+import type { AutomaticView } from './automaticApi'
 import './method-search.css'
 
 type Props = PathTreeProps & {
@@ -176,7 +177,7 @@ function Run({
   active = true,
   baseKey = 'solar',
 }: Props & FlowProps) {
-  const { locale, name } = useI18n(),
+  const { locale } = useI18n(),
     copy = methodSearchMessages[locale],
     common = pathTreeMessages[locale],
     policy = policyMessages[locale],
@@ -491,39 +492,7 @@ function Run({
   }
   const selectedNode =
     view?.nodes.find((n) => n.id === selected) ?? view?.nodes[0]
-  const action = (a: AutomaticAction) =>
-    a.operation === 'DESECRATE'
-      ? {
-          en: 'Desecrate',
-          ko: '훼손',
-          'zh-CN': '亵渎',
-          'zh-TW': '褻瀆',
-          ja: '冒涜',
-          es: 'Profanar',
-
-          ru: 'Осквернить',
-          th: 'ดูหมิ่นศาสนา',
-        }[locale] + (a.side === 'PREFIX' ? ' · P' : ' · S')
-      : a.purpose === 'QUALITY_BASE_CHECKPOINT'
-        ? qualityGoalMessages[locale].work20
-        : a.purpose === 'QUALITY_CHECKPOINT'
-          ? quality.work
-          : `${localizedAction(a.currency as WorkbenchAction)}${a.comparison ? ` · ${((100 * a.comparison.baseline.targetWeight) / a.comparison.baseline.totalWeight).toFixed(2)}%(~${((100 * a.comparison.afterBlocking.targetWeight) / a.comparison.afterBlocking.totalWeight).toFixed(2)}%)` : ''}${
-              a.omens.length
-                ? ` + ${a.omens
-                    .map((o) =>
-                      name(
-                        `Omen_of_${o
-                          .toLowerCase()
-                          .split('_')
-                          .map((p) => p[0]!.toUpperCase() + p.slice(1))
-                          .join('_')}`,
-                        o.replaceAll('_', ' '),
-                      ),
-                    )
-                    .join(' + ')}`
-                : ''
-            }`
+  const action = usePlanAction()
   const guide = guideMessages[locale]
   const recommendations = view?.recommendations.find(
     (r) => r.node === selectedNode?.id && r.cycles === cycles,
@@ -621,69 +590,70 @@ function Run({
     </>
   )
   return (
-    <section className="method-map" aria-label={common.title}>
-      {view?.reason === 'NO_PLAN_IN_SUPPORTED_SCOPE' && (
-        <p role="status">{noPlan[locale]}</p>
-      )}
-      {view?.status === 'PAUSED' && view.canResume === false && (
-        <p role="status">{planningNotes[locale][4]}</p>
-      )}
-      {storageFailed && (
-        <p role="status">{workspaceMessages[locale].storage}</p>
-      )}
-      {expired && <p role="alert">{workspaceMessages[locale].expired}</p>}
-      {failed && <p role="alert">{common.error}</p>}
-      {invalidItem && <p role="alert">{invalidItemMessages[locale]}</p>}
-      {scopeUnsupported && <p role="alert">{scopeMessages[locale]}</p>}
-      {capacity && (
-        <p role="alert">
-          {capacity.code === 'JOB_CAPACITY'
-            ? capacityMessages[locale].full
-            : capacity.code === 'JOB_STORAGE_CAPACITY'
-              ? capacityMessages[locale].storage
-              : capacityMessages[locale].limited}
-          {capacity.retryAt !== null && (
-            <>
-              {' '}
-              {capacityMessages[locale].after}:{' '}
-              {new Date(capacity.retryAt).toLocaleString(locale)}
-            </>
-          )}
-        </p>
-      )}
-      {view?.reason === 'LEGACY_READ_ONLY' && (
-        <p role="status">{legacyResultMessages[locale]}</p>
-      )}
-      {view?.reason === 'LEGACY_READ_ONLY' && (
-        <button onClick={onRecalculate}>{common.recalculate}</button>
-      )}
-      <NumericRollNotice models={view?.rollModels} />
-      {!view && toolbar}
+    <section aria-label={common.title}>
+      <div className="method-map">
+        {view?.reason === 'NO_PLAN_IN_SUPPORTED_SCOPE' && (
+          <p role="status">{noPlan[locale]}</p>
+        )}
+        {view?.status === 'PAUSED' && view.canResume === false && (
+          <p role="status">{planningNotes[locale][4]}</p>
+        )}
+        {storageFailed && (
+          <p role="status">{workspaceMessages[locale].storage}</p>
+        )}
+        {expired && <p role="alert">{workspaceMessages[locale].expired}</p>}
+        {failed && <p role="alert">{common.error}</p>}
+        {invalidItem && <p role="alert">{invalidItemMessages[locale]}</p>}
+        {scopeUnsupported && <p role="alert">{scopeMessages[locale]}</p>}
+        {capacity && (
+          <p role="alert">
+            {capacity.code === 'JOB_CAPACITY'
+              ? capacityMessages[locale].full
+              : capacity.code === 'JOB_STORAGE_CAPACITY'
+                ? capacityMessages[locale].storage
+                : capacityMessages[locale].limited}
+            {capacity.retryAt !== null && (
+              <>
+                {' '}
+                {capacityMessages[locale].after}:{' '}
+                {new Date(capacity.retryAt).toLocaleString(locale)}
+              </>
+            )}
+          </p>
+        )}
+        {view?.reason === 'LEGACY_READ_ONLY' && (
+          <p role="status">{legacyResultMessages[locale]}</p>
+        )}
+        {view?.reason === 'LEGACY_READ_ONLY' && (
+          <button onClick={onRecalculate}>{common.recalculate}</button>
+        )}
+        <NumericRollNotice models={view?.rollModels} />
+        {toolbar}
+      </div>
       {view && (
         <>
-          <div className="automatic-workspace">
-            {toolbar}
-            <RankedCraftingSessions
-              route={route}
-              start={request.start.item}
-              view={view}
-              cycles={cycles}
-              action={action}
-              identity={request.start.provenance.rulesetIdentity}
-              allowStart={
-                view.reason !== 'LEGACY_READ_ONLY' &&
-                !flow.branch &&
-                !flow.prefix.length
-              }
-              card={(node) =>
-                presentAutomaticItem(node, locale, presentItem, view.nodes)
-              }
-              onRoute={(next) => {
-                setManualSelected(null)
-                setRoute(next)
-                setSelected(next.at(-1)?.target ?? 0)
-              }}
-            />
+          <RankedCraftingSessions
+            route={route}
+            start={request.start.item}
+            view={view}
+            cycles={cycles}
+            action={action}
+            identity={request.start.provenance.rulesetIdentity}
+            allowStart={
+              view.reason !== 'LEGACY_READ_ONLY' &&
+              !flow.branch &&
+              !flow.prefix.length
+            }
+            card={(node) =>
+              presentAutomaticItem(node, locale, presentItem, view.nodes)
+            }
+            onRoute={(next) => {
+              setManualSelected(null)
+              setRoute(next)
+              setSelected(next.at(-1)?.target ?? 0)
+            }}
+          />
+          <div className="method-map automatic-workspace">
             <details>
               <summary>{guide.details}</summary>
               <div className="graph-selection-content">

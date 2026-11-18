@@ -864,7 +864,9 @@ public final class AutomaticSearchService implements AutoCloseable {
         || ((AutomaticMethodGraph.VERSION.equals(saved.graph().version())
                 || "goal-directed-milestone-graph-v17-strict-exalted"
                     .equals(saved.graph().version()))
-            && ("approved-187-2026-10-30-strict-exalted-v8"
+            && ("approved-187-2026-11-18-session-crafting-v9"
+                    .equals(saved.graph().identity().policyVersion())
+                || "approved-187-2026-10-30-strict-exalted-v8"
                     .equals(saved.graph().identity().policyVersion())
                 || "approved-187-2026-10-21-rarity-v4"
                     .equals(saved.graph().identity().policyVersion())

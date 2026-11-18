@@ -634,440 +634,465 @@ export function CraftStart({
     </button>
   )
   return (
-    <section className="craft-start" aria-label={copy.setup}>
-      {toolbar && createPortal(reloadControl, toolbar)}
-      {storageFailed && (
-        <p role="status">{workspaceMessages[locale].storage}</p>
-      )}
-      <section className="craft-start-target">
-        <button
-          className="craft-start-disclosure"
-          aria-expanded={settingsExpanded}
-          aria-controls="craft-start-settings"
-          ref={editButton}
-          onClick={() => {
-            setSettingsExpanded(!settingsExpanded)
-            saveSupport('settings-expanded', !settingsExpanded)
-          }}
-        >
-          <span>
-            {settingsExpanded ? '▾' : '▸'} {copy.setup}
-          </span>
-          <span>{settingsExpanded ? copy.hide : copy.edit}</span>
-        </button>
-        <div id="craft-start-settings" hidden={!settingsExpanded}>
-          {draft.item && !currentRules && !initial.isFetching && (
-            <p role="alert">{t('ruleset.request_changed')}</p>
-          )}
-          {reloadFailed && <p role="alert">{copy.loadError}</p>}
-          {reloadingCatalog && <p role="status">{copy.loading}</p>}
-          {inventory.isError && (
-            <p role="alert">
-              {copy.loadError}{' '}
-              <button onClick={() => void inventory.refetch()}>
-                {copy.retry}
-              </button>
-            </p>
-          )}
-          {initial.isError && !inventory.isError && (
-            <p role="alert">
-              {copy.loadError}{' '}
-              <button onClick={() => void initial.refetch()}>
-                {copy.retry}
-              </button>
-            </p>
-          )}
-          {(inventory.isLoading || initial.isLoading) && (
-            <p role="status">{copy.loading}</p>
-          )}
-          {provenance.isError && (
-            <p role="alert">
-              {pathTreeMessages[locale].error}{' '}
-              <button onClick={() => void provenance.refetch()}>
-                {copy.retry}
-              </button>
-            </p>
-          )}
-          {((provenance.data && !currentProvenance && !provenance.isFetching) ||
-            (draft.searchGoal?.catalogVersion &&
-              draft.searchGoal.catalogVersion !==
-                draft.searchGoal.goal.catalogVersion)) && (
-            <p role="status">{pathTreeMessages[locale].changed}</p>
-          )}
-          <div className="craft-start-workspace">
-            <section className="craft-start-editor" aria-label={copy.editor}>
-              <header className="support-section-heading">
-                <h3>{supportLayoutMessages[locale].start}</h3>{' '}
-                <button
-                  disabled={!selected}
-                  aria-label={resetMessages[locale].start}
-                  title={resetMessages[locale].startHelp}
-                  onClick={resetStart}
-                >
-                  {supportLayoutMessages[locale].reset}
+    <>
+      <section className="craft-start" aria-label={copy.setup}>
+        {toolbar && createPortal(reloadControl, toolbar)}
+        {storageFailed && (
+          <p role="status">{workspaceMessages[locale].storage}</p>
+        )}
+        <section className="craft-start-target">
+          <button
+            className="craft-start-disclosure"
+            aria-expanded={settingsExpanded}
+            aria-controls="craft-start-settings"
+            ref={editButton}
+            onClick={() => {
+              setSettingsExpanded(!settingsExpanded)
+              saveSupport('settings-expanded', !settingsExpanded)
+            }}
+          >
+            <span>
+              {settingsExpanded ? '▾' : '▸'} {copy.setup}
+            </span>
+            <span>{settingsExpanded ? copy.hide : copy.edit}</span>
+          </button>
+          <div id="craft-start-settings" hidden={!settingsExpanded}>
+            {draft.item && !currentRules && !initial.isFetching && (
+              <p role="alert">{t('ruleset.request_changed')}</p>
+            )}
+            {reloadFailed && <p role="alert">{copy.loadError}</p>}
+            {reloadingCatalog && <p role="status">{copy.loading}</p>}
+            {inventory.isError && (
+              <p role="alert">
+                {copy.loadError}{' '}
+                <button onClick={() => void inventory.refetch()}>
+                  {copy.retry}
                 </button>
-              </header>
-              {!toolbar && reloadControl}
-              <div className="craft-start-base-selects">
-                <label>
-                  {copy.type}
-                  <select
-                    aria-label={copy.typeLabel}
-                    value={selectedBase?.[1] ?? ''}
-                    onChange={(e) => {
-                      const base = inventory.data?.bases.find(
-                        (base) => base[1] === e.target.value,
-                      )
-                      if (base) selectBase(base[0])
-                    }}
+              </p>
+            )}
+            {initial.isError && !inventory.isError && (
+              <p role="alert">
+                {copy.loadError}{' '}
+                <button onClick={() => void initial.refetch()}>
+                  {copy.retry}
+                </button>
+              </p>
+            )}
+            {(inventory.isLoading || initial.isLoading) && (
+              <p role="status">{copy.loading}</p>
+            )}
+            {provenance.isError && (
+              <p role="alert">
+                {pathTreeMessages[locale].error}{' '}
+                <button onClick={() => void provenance.refetch()}>
+                  {copy.retry}
+                </button>
+              </p>
+            )}
+            {((provenance.data &&
+              !currentProvenance &&
+              !provenance.isFetching) ||
+              (draft.searchGoal?.catalogVersion &&
+                draft.searchGoal.catalogVersion !==
+                  draft.searchGoal.goal.catalogVersion)) && (
+              <p role="status">{pathTreeMessages[locale].changed}</p>
+            )}
+            <div className="craft-start-workspace">
+              <section className="craft-start-editor" aria-label={copy.editor}>
+                <header className="support-section-heading">
+                  <h3>{supportLayoutMessages[locale].start}</h3>{' '}
+                  <button
+                    disabled={!selected}
+                    aria-label={resetMessages[locale].start}
+                    title={resetMessages[locale].startHelp}
+                    onClick={resetStart}
                   >
-                    {!selectedBase && (
-                      <option value="">{copy.selectType}</option>
-                    )}
-                    {[
-                      ...new Set(inventory.data?.bases.map((base) => base[1])),
-                    ].map((type) => (
-                      <option key={type} value={type}>
-                        {uiText(type === 'Amulets' ? 'Amulet' : type, locale)}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label>
-                  {copy.base}
-                  <select
-                    aria-label={copy.baseLabel}
-                    value={draft.base}
-                    onChange={(e) => selectBase(e.target.value)}
-                  >
-                    {!selectedBase && (
-                      <option value="">{copy.unverified}</option>
-                    )}
-                    {inventory.data?.bases
-                      ?.filter(
-                        (base) => !selectedBase || base[1] === selectedBase[1],
-                      )
-                      .map((base) => (
-                        <option key={base[0]} value={base[0]}>
-                          {name(baseSlugs[base[0]], base[2])}
+                    {supportLayoutMessages[locale].reset}
+                  </button>
+                </header>
+                {!toolbar && reloadControl}
+                <div className="craft-start-base-selects">
+                  <label>
+                    {copy.type}
+                    <select
+                      aria-label={copy.typeLabel}
+                      value={selectedBase?.[1] ?? ''}
+                      onChange={(e) => {
+                        const base = inventory.data?.bases.find(
+                          (base) => base[1] === e.target.value,
+                        )
+                        if (base) selectBase(base[0])
+                      }}
+                    >
+                      {!selectedBase && (
+                        <option value="">{copy.selectType}</option>
+                      )}
+                      {[
+                        ...new Set(
+                          inventory.data?.bases.map((base) => base[1]),
+                        ),
+                      ].map((type) => (
+                        <option key={type} value={type}>
+                          {uiText(type === 'Amulets' ? 'Amulet' : type, locale)}
                         </option>
                       ))}
-                  </select>
-                </label>
-              </div>
-              <div className="craft-start-level-rarity">
-                <label>
-                  {setup.rarity}
-                  <select
-                    value={draft.item?.rarity ?? ''}
-                    disabled={!currentRules || !selected || !draft.item}
-                    onChange={(event) => {
-                      if (!selected || !draft.item || !currentRules) return
-                      const rarity = event.target.value
-                      if (
-                        rarity !== 'NORMAL' &&
-                        rarity !== 'MAGIC' &&
-                        rarity !== 'RARE'
-                      )
-                        return
-                      const item: ConcreteItem = { ...draft.item, rarity }
-                      if (startItemIssues(selected.initial, item).length) return
-                      cancel()
-                      update({
-                        item,
-                        issue: '',
-                        text: startText(
-                          selected.base,
-                          item,
-                          selected.initial.modifiers,
-                        ),
-                        card: startCard(
-                          selected.base,
-                          item,
-                          selected.initial.modifiers,
-                        ),
-                      })
-                    }}
-                  >
-                    {!draft.item && <option value="">{copy.unverified}</option>}
-                    {(['NORMAL', 'MAGIC', 'RARE'] as const).map((rarity) => (
-                      <option
-                        key={rarity}
-                        value={rarity}
-                        disabled={
-                          !!selected &&
-                          !!draft.item &&
-                          startItemIssues(selected.initial, {
-                            ...draft.item,
-                            rarity,
-                          }).length > 0
-                        }
-                      >
-                        {rarity === 'NORMAL'
-                          ? setup.normal
-                          : rarity === 'MAGIC'
-                            ? setup.magic
-                            : setup.rare}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label>
-                  {levels.label}
-                  <input
-                    type="number"
-                    min={1}
-                    max={100}
-                    value={draft.item?.itemLevel ?? ''}
-                    disabled={!draft.item || !currentRules}
-                    onChange={(event) => {
-                      if (!draft.item) return
-                      const value = Number(event.target.value)
-                      if (
-                        !Number.isInteger(value) ||
-                        value < 1 ||
-                        value > 100
-                      ) {
+                    </select>
+                  </label>
+                  <label>
+                    {copy.base}
+                    <select
+                      aria-label={copy.baseLabel}
+                      value={draft.base}
+                      onChange={(e) => selectBase(e.target.value)}
+                    >
+                      {!selectedBase && (
+                        <option value="">{copy.unverified}</option>
+                      )}
+                      {inventory.data?.bases
+                        ?.filter(
+                          (base) =>
+                            !selectedBase || base[1] === selectedBase[1],
+                        )
+                        .map((base) => (
+                          <option key={base[0]} value={base[0]}>
+                            {name(baseSlugs[base[0]], base[2])}
+                          </option>
+                        ))}
+                    </select>
+                  </label>
+                </div>
+                <div className="craft-start-level-rarity">
+                  <label>
+                    {setup.rarity}
+                    <select
+                      value={draft.item?.rarity ?? ''}
+                      disabled={!currentRules || !selected || !draft.item}
+                      onChange={(event) => {
+                        if (!selected || !draft.item || !currentRules) return
+                        const rarity = event.target.value
+                        if (
+                          rarity !== 'NORMAL' &&
+                          rarity !== 'MAGIC' &&
+                          rarity !== 'RARE'
+                        )
+                          return
+                        const item: ConcreteItem = { ...draft.item, rarity }
+                        if (startItemIssues(selected.initial, item).length)
+                          return
+                        cancel()
                         update({
-                          issue: 'Item level must be an integer from 1 to 100.',
+                          item,
+                          issue: '',
+                          text: startText(
+                            selected.base,
+                            item,
+                            selected.initial.modifiers,
+                          ),
+                          card: startCard(
+                            selected.base,
+                            item,
+                            selected.initial.modifiers,
+                          ),
                         })
-                        return
-                      }
-                      update({ levelEdited: true })
-                      saveItem({ ...draft.item, itemLevel: value })
-                    }}
-                  />
-                </label>
-              </div>
-              {levelConflict && <p role="alert">{levels.conflict}</p>}
-              <dialog
-                ref={dialog}
-                aria-label={copy.import}
-                onKeyDown={(event) => {
-                  if (event.key === 'Escape') event.stopPropagation()
-                }}
-                onCancel={(event) => {
-                  event.preventDefault()
-                  closeImport()
-                }}
-              >
-                <label>
-                  {copy.text}
-                  <textarea
-                    aria-label={copy.textLabel}
-                    spellCheck={false}
-                    value={draft.text}
-                    onChange={(e) => editText(e.target.value)}
-                    onPaste={(e) => {
-                      const text = e.clipboardData.getData('text')
-                      if (text) {
-                        e.preventDefault()
-                        editText(text)
-                        void checkText(text)
-                      }
-                    }}
-                  />
-                </label>
-                <div className="craft-start-actions">
-                  <button
-                    disabled={checking || !draft.text.trim() || !inventory.data}
-                    onClick={() => void checkText(draft.text)}
-                  >
-                    {checking ? copy.checking : copy.check}
-                  </button>
-                  <button onClick={closeImport}>{copy.close}</button>
+                      }}
+                    >
+                      {!draft.item && (
+                        <option value="">{copy.unverified}</option>
+                      )}
+                      {(['NORMAL', 'MAGIC', 'RARE'] as const).map((rarity) => (
+                        <option
+                          key={rarity}
+                          value={rarity}
+                          disabled={
+                            !!selected &&
+                            !!draft.item &&
+                            startItemIssues(selected.initial, {
+                              ...draft.item,
+                              rarity,
+                            }).length > 0
+                          }
+                        >
+                          {rarity === 'NORMAL'
+                            ? setup.normal
+                            : rarity === 'MAGIC'
+                              ? setup.magic
+                              : setup.rare}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                  <label>
+                    {levels.label}
+                    <input
+                      type="number"
+                      min={1}
+                      max={100}
+                      value={draft.item?.itemLevel ?? ''}
+                      disabled={!draft.item || !currentRules}
+                      onChange={(event) => {
+                        if (!draft.item) return
+                        const value = Number(event.target.value)
+                        if (
+                          !Number.isInteger(value) ||
+                          value < 1 ||
+                          value > 100
+                        ) {
+                          update({
+                            issue:
+                              'Item level must be an integer from 1 to 100.',
+                          })
+                          return
+                        }
+                        update({ levelEdited: true })
+                        saveItem({ ...draft.item, itemLevel: value })
+                      }}
+                    />
+                  </label>
                 </div>
-                {draft.issue && (
-                  <p role="alert">{startInputIssue(draft.issue, locale)}</p>
-                )}
-              </dialog>
-              {draft.issue && !importOpen && (
-                <p role="alert">{startInputIssue(draft.issue, locale)}</p>
-              )}
-              {!!stateIssues.length && <p role="alert">{levels.invalid}</p>}
-              <div className="craft-start-modifiers" ref={modifierRegion}>
-                <StartModifierPicker
-                  key={draft.base + ':' + draft.rulesetIdentity}
-                  definitions={levelConflict ? [] : availableModifiers}
-                  disabled={!currentRules || !draft.item}
-                  placeholder={
-                    selected && draft.item
-                      ? '+ ' +
-                        copy.add +
-                        ' · ' +
-                        pickerCopy.prefix +
-                        ' ≤' +
-                        startCapacity(selected.initial, draft.item, 'PREFIX') +
-                        ' / ' +
-                        pickerCopy.suffix +
-                        ' ≤' +
-                        startCapacity(selected.initial, draft.item, 'SUFFIX')
-                      : '+ ' + copy.add
-                  }
-                  onAdd={addModifier}
-                />
-                <div className="craft-start-modifier-rows">
-                  {currentRules &&
-                    selected &&
-                    draft.item?.explicits.map((m, index) => {
-                      const definition =
-                        selected.initial.modifiers[m.modifierId]
-                      if (!definition) return null
-                      const without = {
-                        ...draft.item!,
-                        explicits: draft.item!.explicits.filter(
-                          (_, i) => i !== index,
-                        ),
-                      }
-                      const group = groupStartModifiers(
-                        Object.values(selected.initial.modifiers),
-                      ).find((g) => g.tiers.some((d) => d.id === m.modifierId))
-                      const eligible = new Set(
-                        eligibleStartModifiers(selected.initial, without).map(
-                          (d) => d.id,
-                        ),
-                      )
-                      return (
-                        <ModifierRow
-                          key={index}
-                          definition={definition}
-                          modifier={m}
-                          canFracture={
-                            !startItemIssues(selected.initial, {
-                              ...draft.item!,
-                              explicits: draft.item!.explicits.map((old, i) =>
-                                i === index ? { ...old, fractured: true } : old,
-                              ),
-                            }).length
-                          }
-                          tiers={
-                            group?.tiers.filter(
-                              (d) =>
-                                eligible.has(d.id) || d.id === m.modifierId,
-                            ) ?? [definition]
-                          }
-                          eligible={eligible}
-                          index={index}
-                          onChange={(row) =>
-                            saveItem({
-                              ...draft.item!,
-                              explicits: draft.item!.explicits.map((old, i) =>
-                                i === index ? row : old,
-                              ),
-                            })
-                          }
-                          onIssue={(issue) => update({ issue })}
-                          onRemove={() => {
-                            saveItem(without)
-                            modifierRegion.current
-                              ?.querySelector<HTMLInputElement>(
-                                'input[role="combobox"]',
-                              )
-                              ?.focus()
-                          }}
-                        />
-                      )
-                    })}
-                </div>
-              </div>
-              <button
-                className="craft-start-primary"
-                ref={startButton}
-                disabled={
-                  reloadingCatalog ||
-                  !draft.item ||
-                  !currentRules ||
-                  !draft.card ||
-                  checking ||
-                  Boolean(draft.issue) ||
-                  Boolean(stateIssues.length) ||
-                  !draft.searchGoal?.ready ||
-                  !currentProvenance ||
-                  levelConflict
-                }
-                onClick={() => {
-                  let searchRequest: CreateRequest
-                  try {
-                    searchRequest = createPathSearchRequest(
-                      draft.item!,
-                      draft.searchGoal!.goal,
-                      provenance.data!,
-                      activeOmens,
-                    )
-                  } catch {
-                    update({ searchIssue: true })
-                    return
-                  }
-                  update({
-                    started: true,
-                    searchRequest,
-                    editing: false,
-                    root: draft.card,
-                    rootItem: structuredClone(draft.item),
-                    rootDefinitions: structuredClone(
-                      selected?.initial.modifiers ?? null,
-                    ),
-                  })
-                  setRun((value) => value + 1)
-                }}
-              >
-                {copy.start}
-              </button>
-              {draft.searchIssue && (
-                <p role="alert">{pathTreeMessages[locale].unsupported}</p>
-              )}
-            </section>
-            <section className="craft-start-preview" aria-label={copy.preview}>
-              <header className="support-section-heading">
-                <h3>{supportLayoutMessages[locale].start}</h3>{' '}
-                <button
-                  ref={importButton}
-                  onClick={() => {
-                    setImportOpen(true)
-                    dialog.current?.showModal()
+                {levelConflict && <p role="alert">{levels.conflict}</p>}
+                <dialog
+                  ref={dialog}
+                  aria-label={copy.import}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Escape') event.stopPropagation()
+                  }}
+                  onCancel={(event) => {
+                    event.preventDefault()
+                    closeImport()
                   }}
                 >
-                  {copy.import}
-                </button>
-              </header>
-              {draft.card ? (
-                <div ref={preview}>
-                  <ItemCard
-                    item={displayCard(
-                      draft.card,
-                      draft.item,
-                      selected?.initial.modifiers,
-                    )}
-                    {...(draft.item
-                      ? { baseItemId: draft.item.baseItemId }
-                      : {})}
+                  <label>
+                    {copy.text}
+                    <textarea
+                      aria-label={copy.textLabel}
+                      spellCheck={false}
+                      value={draft.text}
+                      onChange={(e) => editText(e.target.value)}
+                      onPaste={(e) => {
+                        const text = e.clipboardData.getData('text')
+                        if (text) {
+                          e.preventDefault()
+                          editText(text)
+                          void checkText(text)
+                        }
+                      }}
+                    />
+                  </label>
+                  <div className="craft-start-actions">
+                    <button
+                      disabled={
+                        checking || !draft.text.trim() || !inventory.data
+                      }
+                      onClick={() => void checkText(draft.text)}
+                    >
+                      {checking ? copy.checking : copy.check}
+                    </button>
+                    <button onClick={closeImport}>{copy.close}</button>
+                  </div>
+                  {draft.issue && (
+                    <p role="alert">{startInputIssue(draft.issue, locale)}</p>
+                  )}
+                </dialog>
+                {draft.issue && !importOpen && (
+                  <p role="alert">{startInputIssue(draft.issue, locale)}</p>
+                )}
+                {!!stateIssues.length && <p role="alert">{levels.invalid}</p>}
+                <div className="craft-start-modifiers" ref={modifierRegion}>
+                  <StartModifierPicker
+                    key={draft.base + ':' + draft.rulesetIdentity}
+                    definitions={levelConflict ? [] : availableModifiers}
+                    disabled={!currentRules || !draft.item}
+                    placeholder={
+                      selected && draft.item
+                        ? '+ ' +
+                          copy.add +
+                          ' · ' +
+                          pickerCopy.prefix +
+                          ' ≤' +
+                          startCapacity(
+                            selected.initial,
+                            draft.item,
+                            'PREFIX',
+                          ) +
+                          ' / ' +
+                          pickerCopy.suffix +
+                          ' ≤' +
+                          startCapacity(selected.initial, draft.item, 'SUFFIX')
+                        : '+ ' + copy.add
+                    }
+                    onAdd={addModifier}
                   />
+                  <div className="craft-start-modifier-rows">
+                    {currentRules &&
+                      selected &&
+                      draft.item?.explicits.map((m, index) => {
+                        const definition =
+                          selected.initial.modifiers[m.modifierId]
+                        if (!definition) return null
+                        const without = {
+                          ...draft.item!,
+                          explicits: draft.item!.explicits.filter(
+                            (_, i) => i !== index,
+                          ),
+                        }
+                        const group = groupStartModifiers(
+                          Object.values(selected.initial.modifiers),
+                        ).find((g) =>
+                          g.tiers.some((d) => d.id === m.modifierId),
+                        )
+                        const eligible = new Set(
+                          eligibleStartModifiers(selected.initial, without).map(
+                            (d) => d.id,
+                          ),
+                        )
+                        return (
+                          <ModifierRow
+                            key={index}
+                            definition={definition}
+                            modifier={m}
+                            canFracture={
+                              !startItemIssues(selected.initial, {
+                                ...draft.item!,
+                                explicits: draft.item!.explicits.map(
+                                  (old, i) =>
+                                    i === index
+                                      ? { ...old, fractured: true }
+                                      : old,
+                                ),
+                              }).length
+                            }
+                            tiers={
+                              group?.tiers.filter(
+                                (d) =>
+                                  eligible.has(d.id) || d.id === m.modifierId,
+                              ) ?? [definition]
+                            }
+                            eligible={eligible}
+                            index={index}
+                            onChange={(row) =>
+                              saveItem({
+                                ...draft.item!,
+                                explicits: draft.item!.explicits.map(
+                                  (old, i) => (i === index ? row : old),
+                                ),
+                              })
+                            }
+                            onIssue={(issue) => update({ issue })}
+                            onRemove={() => {
+                              saveItem(without)
+                              modifierRegion.current
+                                ?.querySelector<HTMLInputElement>(
+                                  'input[role="combobox"]',
+                                )
+                                ?.focus()
+                            }}
+                          />
+                        )
+                      })}
+                  </div>
                 </div>
-              ) : (
-                <p>{copy.previewEmpty}</p>
-              )}
-            </section>
-            <section className="craft-start-stats" aria-label={copy.target}>
-              {context && (
-                <ConnectedGoalFilter
-                  allowQualityWork={
-                    !!selected &&
-                    ['Amulets', 'Rings', 'Belts'].includes(selected.base[1])
+                <button
+                  className="craft-start-primary"
+                  ref={startButton}
+                  disabled={
+                    reloadingCatalog ||
+                    !draft.item ||
+                    !currentRules ||
+                    !draft.card ||
+                    checking ||
+                    Boolean(draft.issue) ||
+                    Boolean(stateIssues.length) ||
+                    !draft.searchGoal?.ready ||
+                    !currentProvenance ||
+                    levelConflict
                   }
-                  onResetGoal={invalidateCalculation}
-                  onSearchGoalChange={onSearchGoalChange}
-                  rulesetIdentity={draft.rulesetIdentity ?? undefined}
-                  item={currentRules ? draft.item : null}
-                  context={context}
-                  language={locale}
-                  activeOmens={activeOmens}
-                  maxMillis={maxMillis}
-                  compact
-                />
-              )}
-            </section>
+                  onClick={() => {
+                    let searchRequest: CreateRequest
+                    try {
+                      searchRequest = createPathSearchRequest(
+                        draft.item!,
+                        draft.searchGoal!.goal,
+                        provenance.data!,
+                        activeOmens,
+                      )
+                    } catch {
+                      update({ searchIssue: true })
+                      return
+                    }
+                    update({
+                      started: true,
+                      searchRequest,
+                      editing: false,
+                      root: draft.card,
+                      rootItem: structuredClone(draft.item),
+                      rootDefinitions: structuredClone(
+                        selected?.initial.modifiers ?? null,
+                      ),
+                    })
+                    setRun((value) => value + 1)
+                  }}
+                >
+                  {copy.start}
+                </button>
+                {draft.searchIssue && (
+                  <p role="alert">{pathTreeMessages[locale].unsupported}</p>
+                )}
+              </section>
+              <section
+                className="craft-start-preview"
+                aria-label={copy.preview}
+              >
+                <header className="support-section-heading">
+                  <h3>{supportLayoutMessages[locale].start}</h3>{' '}
+                  <button
+                    ref={importButton}
+                    onClick={() => {
+                      setImportOpen(true)
+                      dialog.current?.showModal()
+                    }}
+                  >
+                    {copy.import}
+                  </button>
+                </header>
+                {draft.card ? (
+                  <div ref={preview}>
+                    <ItemCard
+                      item={displayCard(
+                        draft.card,
+                        draft.item,
+                        selected?.initial.modifiers,
+                      )}
+                      {...(draft.item
+                        ? { baseItemId: draft.item.baseItemId }
+                        : {})}
+                    />
+                  </div>
+                ) : (
+                  <p>{copy.previewEmpty}</p>
+                )}
+              </section>
+              <section className="craft-start-stats" aria-label={copy.target}>
+                {context && (
+                  <ConnectedGoalFilter
+                    allowQualityWork={
+                      !!selected &&
+                      ['Amulets', 'Rings', 'Belts'].includes(selected.base[1])
+                    }
+                    onResetGoal={invalidateCalculation}
+                    onSearchGoalChange={onSearchGoalChange}
+                    rulesetIdentity={draft.rulesetIdentity ?? undefined}
+                    item={currentRules ? draft.item : null}
+                    context={context}
+                    language={locale}
+                    activeOmens={activeOmens}
+                    maxMillis={maxMillis}
+                    compact
+                  />
+                )}
+              </section>
+            </div>
           </div>
-        </div>
+        </section>
       </section>
       {!reloadingCatalog &&
         currentRules &&
@@ -1076,12 +1101,7 @@ export function CraftStart({
         draft.root &&
         draft.searchRequest &&
         draft.rootDefinitions && (
-          <section
-            className="craft-start-tree"
-            ref={tree}
-            tabIndex={-1}
-            aria-label={copy.tree}
-          >
+          <section ref={tree} tabIndex={-1} aria-label={copy.tree}>
             <MethodSearch
               active={active}
               request={draft.searchRequest}
@@ -1129,6 +1149,6 @@ export function CraftStart({
             />
           </section>
         )}
-    </section>
+    </>
   )
 }

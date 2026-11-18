@@ -124,6 +124,7 @@ import java.util.function.Function;
  *       retainRarity}(retain·희귀도). 반환: {@code Optional<Exit>}.
  *   <li>{@code step()}: 계산 또는 실행을 한 단계 진행한다.
  *   <li>{@code advance()}: 허용된 계산량만큼 작업을 진행한다.
+ *   <li>{@code tryLastResortAfterDeadEnds()}: 기존 경로가 최종 목표에 도달하지 못하면 엑잘 후속 탐색을 예약한다.
  *   <li>{@code discover(source)}: discover 처리에서 {@code choices.size}, {@code choices.get}을(를) 사용한다.
  *       입력: {@code source}(출처).
  *   <li>{@code add(source, initial, cycle)}: 값 또는 항목을 더한다. 입력: {@code source}(출처), {@code
@@ -688,6 +689,11 @@ public final class AutomaticMethodGraph implements AutoCloseable {
           Method method,
           CertifiedMethodRunner.Observation<AutomaticMethodExecution.State, AutomaticCraftingAction>
               point) {
+    // 마지막 엑잘 경로는 낮은 확률로 얻은 중간 목표도 다음 옵션까지 이어서 안내한다.
+    if (method.template.cycle().stream()
+        .anyMatch(
+            action -> action.purpose() == AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED))
+      return point;
     return rareOutcomePolicy.apply(
         point,
         this::rareGroup,
@@ -1191,7 +1197,11 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               primitiveOutcomeBudget,
               count -> proofRows += count);
       proofNanos += System.nanoTime() - proofStarted;
-      if (keyProof.isPresent()) {
+      // 성공 경로가 하나도 없는 경우에는 나중에 엑잘을 재검토하므로 종단 상태로 병합하지 않는다.
+      if (keyProof.isPresent()
+          && keyProof.get().laws().stream()
+              .flatMap(law -> law.outcomes().stream())
+              .anyMatch(row -> row.exit() == Exit.GOAL)) {
         node.terminalKey = keyProof.get();
         node.representative = terminalClasses.get(node.terminalKey);
         if (node.representative != null) node.terminalKey = node.representative.terminalKey;
@@ -1326,6 +1336,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     long before = operations;
     try {
       advance();
+      if (operations != before) tryLastResortAfterDeadEnds();
     } finally {
       expansionNanos += System.nanoTime() - started;
       // Provisional laws change inside execution slices as well as at published boundaries.
@@ -1408,6 +1419,28 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     if (!method.execution.atBoundary()) method.execution.step(64);
     ready.addLast(method);
     if (retainedStates() > retainedLimit) limited = true;
+  }
+
+  private void tryLastResortAfterDeadEnds() {
+    if (!finished() || hasGoal()) return;
+    // 다른 화폐가 중간 목표에는 도달했지만 그 후속 경로가 모두 막힌 경우도 확인한다.
+    for (var source : orderedNodes) {
+      if (source.outgoing.isEmpty()
+          || source.outgoing.stream()
+              .anyMatch(
+                  m ->
+                      m.template.cycle().getFirst().purpose()
+                          == AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED)) continue;
+      var planner =
+          new GoalDirectedPlanner(
+              kernel, item -> progress(item, source.abstractQuality), candidates);
+      var fallback = planner.lastResortExalted(source.item);
+      if (fallback.isPresent()) {
+        add(source, fallback.get().initial(), fallback.get().cycle());
+        if (discoveryLimited) limited = true;
+        return;
+      }
+    }
   }
 
   private void discover(Node source) {
@@ -1592,6 +1625,7 @@ public final class AutomaticMethodGraph implements AutoCloseable {
     for (var method : this.methods.values())
       for (var point : method.points.entrySet()) publish(method, point.getKey(), point.getValue());
     if (retainedStates() > retainedLimit) limited = true;
+    tryLastResortAfterDeadEnds();
   }
 
   public boolean resourceLimited() {

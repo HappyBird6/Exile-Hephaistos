@@ -14,6 +14,9 @@ export function probabilityText(value: Fraction, bounds?: Bounds) {
   if (!bounds) return percent(value)
   const lower = fixed(bounds.lower, 10000n, true),
     upper = fixed(bounds.upper, 10000n, true)
+  if (upper === '0.00' && BigInt(bounds.upper.numerator) > 0n) {
+    return BigInt(bounds.lower.numerator) > 0n ? '<0.01%' : '0.00% – <0.01%'
+  }
   return lower === upper ? `${lower}%` : `${lower}% – ${upper}%`
 }
 export function quantityText(value: Fraction, bounds?: Bounds) {

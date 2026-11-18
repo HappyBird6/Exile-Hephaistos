@@ -76,6 +76,10 @@ it('keeps unresolved upper mass even when its lower bound is zero', () => {
   expect(
     probabilityText(normalized.unresolved, normalized.unresolvedBounds),
   ).toBe('0.00% – 10.00%')
+  const tiny = interval(1, 1, 1000000)
+  expect(probabilityText(tiny.lower, tiny)).toBe('<0.01%')
+  const uncertain = interval(0, 1, 1000000)
+  expect(probabilityText(uncertain.lower, uncertain)).toBe('0.00% – <0.01%')
   const malformed = interval(1, 2, 10)
   malformed.arithmeticWidth = { numerator: '0', denominator: '1' }
   expect(() => validateBounds(malformed)).toThrow('INVALID_BOUNDS')

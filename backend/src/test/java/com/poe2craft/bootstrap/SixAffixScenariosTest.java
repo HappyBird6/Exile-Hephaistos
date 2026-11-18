@@ -51,8 +51,8 @@ import org.junit.jupiter.api.io.TempDir;
  *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
  *   <li>{@code priorFourAffixPolicyAndGoalCatalogRemainReadOnlyWithoutChangingSavedBytes()}: 이름에
  *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
- *   <li>{@code fiveAndSixGoalsFromFourAffixesKeepPartialWorkWithoutFinishingExalt()}: 이름에 명시한 시나리오의
- *       실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code fiveAndSixGoalsFromFourAffixesReachTheTargetWithFallbackExalts()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code sixGoalCancellationResumeAndReloadPreserveResults()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
  *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
  *   <li>{@code sixGoalsFromMagicLifeStayBoundedAndOrDoesNotRequireEveryEntry()}: 이름에 명시한 시나리오의 실제
@@ -320,7 +320,7 @@ class SixAffixScenariosTest {
   }
 
   @Test
-  void fiveAndSixGoalsFromFourAffixesKeepPartialWorkWithoutFinishingExalt() {
+  void fiveAndSixGoalsFromFourAffixesReachTheTargetWithFallbackExalts() {
     for (int count : List.of(5, 6)) {
       var item = root(4);
       var requirements = new LinkedHashMap<String, Long>();
@@ -340,7 +340,15 @@ class SixAffixScenariosTest {
                 + graph.resources()
                 + "|ms="
                 + (System.nanoTime() - started) / 1000000);
-        assertThat(graph.hasGoal()).isFalse();
+        assertThat(graph.hasGoal()).isTrue();
+        assertThat(graph.methods())
+            .anyMatch(
+                m ->
+                    m.template().cycle().stream()
+                        .anyMatch(
+                            a ->
+                                a.purpose()
+                                    == AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED));
         assertThat(graph.nodes().size()).isGreaterThan(1);
         assertThat(graph.nodes()).allMatch(n -> n.item().explicits().size() <= 6);
         assertThat(graph.nodes())
@@ -397,7 +405,7 @@ class SixAffixScenariosTest {
         maxMillis = Math.max(maxMillis, (System.nanoTime() - started) / 1000000);
       }
       assertThat(view.nodes().size()).isGreaterThan(1);
-      assertThat(view.nodes()).noneMatch(n -> n.progress().goal() == GoalFilter.Status.MATCH);
+      assertThat(view.nodes()).anyMatch(n -> n.progress().goal() == GoalFilter.Status.MATCH);
       assertThat(view.nodes()).allMatch(n -> n.item().explicitSlotCount() <= 6);
       result = view;
       System.out.println(

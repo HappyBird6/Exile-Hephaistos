@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "approved-187-2026-11-18-session-crafting-v9",
+  "policyVersion": "approved-187-2026-11-18-exalted-fallback-v10",
   "sourceRef": "src2795",
   "sourceModifiedAt": "2026-10-15T08:05:34.858Z",
   "maximumExploredExplicits": 6,
@@ -102,7 +102,7 @@
       "sourceRef": "src2805",
       "effectKo": "희귀 아이템에 무작위 속성 1개를 추가한다.",
       "decision": "CONDITIONAL",
-      "restrictionKo": "최초 변경 가능한 속성 0개에서 카오스를 준비하는 첫 추가 또는 적법한 제거·추가 후속 작업용 더미 추가만 허용. 더미는 접두/접미 징조별로 표시하며 마무리 유효옵 채우기는 금지. 소멸 후 빈 자리에 목표 옵션을 추가하는 경로도 허용한다.",
+      "restrictionKo": "기본 엑잘은 카오스 준비용 첫 변경 가능 옵션 추가, 제거·추가 후속 작업용 더미, 소멸 후 재추가에 사용한다. 더미는 접두·접미 징조별로 표시한다. 다른 자동 제작으로 목표에 접근할 수 없으면 빈 슬롯에서 남은 목표 옵션 추가를 시도한다.",
       "condition": "TEMPORARY_REMOVAL"
     },
     {

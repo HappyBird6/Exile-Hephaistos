@@ -684,7 +684,8 @@ public final class AutomaticCraftingKernel {
 
   private boolean strictExaltedAllowed(ItemState item, AutomaticCraftingAction action) {
     if (action.currency() != WorkbenchCurrency.EXALTED) return true;
-    if (action.purpose() == AutomaticCurrencyPolicy.Purpose.REFILL_AFTER_ANNULMENT)
+    if (action.purpose() == AutomaticCurrencyPolicy.Purpose.REFILL_AFTER_ANNULMENT
+        || action.purpose() == AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED)
       return action.omens().isEmpty();
     if (action.purpose() == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION)
       return mutableAffixCount(item) == 0 && action.omens().isEmpty();

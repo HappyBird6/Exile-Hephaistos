@@ -47,6 +47,8 @@ import org.junit.jupiter.api.Test;
  *       결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code rejectsRemovalIncludingLowestModifierLevelAndPreservesQualityIdentity()}: 이름에 명시한
  *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code deadEndReopensTheStartingItemForAnExaltedFinish()}: 중간 결과에서 막힌 탐색이 엑잘로 최종 목표를 찾는지
+ *       확인한다.
  *   <li>{@code fullGraphSharesExecutionAndCheckpointRestoresConcreteOutcomeLaws()}: 이름에 명시한 시나리오의
  *       실제 결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code both()}: both 값을 조회·구성한다. 반환: {@code Function<ItemState,
@@ -148,6 +150,44 @@ class TerminalAdditionClassesTest {
         TerminalAdditionClasses.prove(
             source(1), true, progress, choices, kernel, item -> Optional.of(Exit.GOAL), 100);
     assertThat(falseQuality).isPresent().isNotEqualTo(trueQuality);
+  }
+
+  @Test
+  void deadEndReopensTheStartingItemForAnExaltedFinish() {
+    var root = tiny.item(ItemState.Rarity.RARE, List.of());
+    var planner =
+        new GoalDirectedPlanner(kernel, both(), AutomaticCraftingAction.candidates(policy));
+    assertThat(planner.choices(root))
+        .isNotEmpty()
+        .noneMatch(
+            c ->
+                c.cycle().getFirst().purpose()
+                    == AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED);
+
+    try (var graph =
+        new AutomaticMethodGraph(
+            root,
+            policy,
+            kernel,
+            both(),
+            CertifiedInterval.Precision.standard(),
+            64,
+            256,
+            50000,
+            1000)) {
+      // 기존 방법의 모든 중간 결과를 재시작 대상으로 보내, 최종 상태에 닿지 못하는 경로를 재현한다.
+      graph.configureRareOutcomes(
+          new RareOutcomePolicy(RareOutcomePolicy.VERSION, true, 1000000, 1000000));
+      finish(graph);
+      assertThat(graph.finished()).isTrue();
+      assertThat(graph.methods())
+          .anyMatch(
+              m ->
+                  m.source() == 0
+                      && m.template().cycle().getFirst().purpose()
+                          == AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED);
+      assertThat(graph.hasGoal()).isTrue();
+    }
   }
 
   @Test

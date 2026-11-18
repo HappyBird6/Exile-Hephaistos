@@ -23,6 +23,11 @@ import { AccountBootstrap } from '../features/account/AccountBootstrap'
 const AdminPage = lazy(() =>
   import('../features/admin/AdminPage').then((m) => ({ default: m.AdminPage })),
 )
+const PlanOverviewPage = lazy(() =>
+  import('../features/crafting/method-search/PlanOverviewPage').then((m) => ({
+    default: m.PlanOverviewPage,
+  })),
+)
 const SessionOverviewPage = lazy(() =>
   import('../features/crafting/session-history/SessionOverviewPage').then(
     (m) => ({ default: m.SessionOverviewPage }),
@@ -68,6 +73,16 @@ function AppContent() {
       </Suspense>
     )
   }
+
+  const plan = location.pathname.match(
+    /^\/crafting-plans\/([a-zA-Z0-9-]+)\/overview$/,
+  )
+  if (plan)
+    return (
+      <Suspense fallback={<p role="status">…</p>}>
+        <PlanOverviewPage id={plan[1]!} />
+      </Suspense>
+    )
 
   if (location.pathname === '/community')
     return (

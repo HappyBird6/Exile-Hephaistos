@@ -83,7 +83,9 @@ it('hides redundant target rarity and blocks resume at the maximum resource limi
   expect(document.querySelector('.automatic-inspector')).toBeNull()
   expect(document.querySelector('.search-resource-details')).toBeNull()
   expect(
-    document.querySelector('.automatic-workspace .calculation-status'),
+    screen
+      .getByText('Paused — calculation budget reached')
+      .closest('[role="status"]'),
   ).not.toBeNull()
   expect(screen.getByText(/Maximum resource limit reached/)).toBeInTheDocument()
   expectJobAndCatalogCalls(fetcher.mock.calls, 1)

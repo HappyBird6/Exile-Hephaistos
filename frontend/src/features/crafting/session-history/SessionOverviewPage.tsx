@@ -1,5 +1,8 @@
 import type { Film } from '../workbenchHistory'
-import { AppLink } from '../../../shared/navigation/AppLink'
+import {
+  SessionOverviewLayout,
+  SessionFlowSurface,
+} from './SessionOverviewLayout'
 import { accountScope } from '../../account/auth'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { CurrencyPriceContext } from '../currency-prices/context'
@@ -30,7 +33,7 @@ export function SessionOverviewPage({
     backLabel: string
   }
 }) {
-  const { locale, t } = useI18n()
+  const { locale } = useI18n()
   const market = useCurrencyPrices()
   const text = historyMessages[locale]
   const catalogsLoading = useIsFetching({ queryKey: ['crafting', 'initial'] })
@@ -83,89 +86,60 @@ export function SessionOverviewPage({
   }
   return (
     <CurrencyPriceContext.Provider value={market}>
-      <main className="craft-page craft-page--framed history-page">
-        <header className="craft-header">
-          <a
-            className="craft-brand"
-            href="/"
-            aria-label={t('ui.exile_hephaistos_home')}
+      <SessionOverviewLayout
+        title={title}
+        backHref={source?.backHref ?? `/?${returnQuery}`}
+        backLabel={source?.backLabel ?? text.home}
+        actions={
+          <button
+            disabled={
+              busy ||
+              !film ||
+              data.isFetching ||
+              catalogsLoading > 0 ||
+              market.pending
+            }
+            onClick={() =>
+              void action(async () => {
+                flushSync(() => setSnapshotOpen(true))
+                try {
+                  if (!snapshotRoot.current) throw Error('snapshot-root')
+                  const blobs = await snapshotPages(snapshotRoot.current)
+                  blobs.forEach((blob, i) =>
+                    saveBlob(
+                      blob,
+                      blobs.length === 1
+                        ? 'session.png'
+                        : `session-${i + 1}.png`,
+                    ),
+                  )
+                } finally {
+                  setSnapshotOpen(false)
+                }
+              })
+            }
           >
-            <span className="brand-mark" aria-hidden="true">
-              H
-            </span>
-            <span>
-              EXILE <b>HEPHAISTOS</b>
-              <small>{t('ui.path_of_exile_2_crafting_workbench')}</small>
-            </span>
-          </a>
-          <div className="history-title-group">
-            <span className="history-page-label">{text.title}</span>
-            <h1 className="history-title" title={title}>
-              {title}
-            </h1>
-          </div>
-          <div className="history-actions">
-            <button
-              disabled={
-                busy ||
-                !film ||
-                data.isFetching ||
-                catalogsLoading > 0 ||
-                market.pending
-              }
-              onClick={() =>
-                void action(async () => {
-                  flushSync(() => setSnapshotOpen(true))
-                  try {
-                    if (!snapshotRoot.current) throw Error('snapshot-root')
-                    const blobs = await snapshotPages(snapshotRoot.current)
-                    blobs.forEach((blob, i) =>
-                      saveBlob(
-                        blob,
-                        blobs.length === 1
-                          ? 'session.png'
-                          : `session-${i + 1}.png`,
-                      ),
-                    )
-                  } finally {
-                    setSnapshotOpen(false)
-                  }
-                })
-              }
-            >
-              {text.snapshot}
-            </button>
-          </div>
-        </header>
-        <div className="history-toolbar">
-          <AppLink
-            className="history-back"
-            href={source?.backHref ?? `/?${returnQuery}`}
-          >
-            <span aria-hidden="true">←</span> {source?.backLabel ?? text.home}
-          </AppLink>
-          {film && (
+            {text.snapshot}
+          </button>
+        }
+        summary={
+          film && (
             <div className="history-session-summary">
               <CraftingCostLine film={film} cursor={film.frames.length - 1} />
               <span className="history-state-count">
                 {film.frames.length} {text.count}
               </span>
             </div>
-          )}
-        </div>
+          )
+        }
+      >
         {error && <p role="alert">{text.error}</p>}
         {!source && data.isError && <p role="alert">{text.error}</p>}
         {!film && !data.isFetching && <p>{text.missing}</p>}
         {film && (
-          <div className="session-flow">
-            <img
-              className="session-flow-background"
-              src="/assets/currency/stash-background.webp"
-              alt=""
-              aria-hidden="true"
-            />
+          <SessionFlowSurface>
             <SessionFlow film={film} resources={historyResources} />
-          </div>
+          </SessionFlowSurface>
         )}
         {film && snapshotOpen && (
           <div className="history-snapshot-stage" aria-hidden="true">
@@ -183,7 +157,7 @@ export function SessionOverviewPage({
             </div>
           </div>
         )}
-      </main>
+      </SessionOverviewLayout>
     </CurrencyPriceContext.Provider>
   )
 }

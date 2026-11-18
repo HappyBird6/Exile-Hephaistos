@@ -32,7 +32,7 @@ const currencyIds = new Map<string, string>(
 const omenIds = new Set<string>(workbenchOmens.map((omen) => omen.id))
 const nonCurrencyActions = new Set(['IMPORT', 'BASE_SELECTION'])
 
-function currencyId(action: string): string | undefined {
+export function currencyId(action: string): string | undefined {
   return isBone(action) ? action : currencyIds.get(action)
 }
 
