@@ -24,8 +24,10 @@ import '../compact-viewport/mobileWorkbench.css'
 export function SessionOverviewPage({
   id,
   source,
+  summary,
 }: {
   id: string
+  summary?: string
   source?: {
     film: Film
     title: string
@@ -126,6 +128,7 @@ export function SessionOverviewPage({
           film && (
             <div className="history-session-summary">
               <CraftingCostLine film={film} cursor={film.frames.length - 1} />
+              {summary && <span>{summary}</span>}
               <span className="history-state-count">
                 {film.frames.length} {text.count}
               </span>

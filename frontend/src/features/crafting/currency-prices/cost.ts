@@ -34,9 +34,11 @@ export function craftingCost(
     : undefined
   const notation = extractSessionNotation(visible, cursor)
   let hasCosts = false
+  let unknownRepeatCount = false
   for (const step of notation.steps) {
     if (step.frameIndex > cursor || step.kind === 'reveal') continue
     hasCosts = true
+    unknownRepeatCount ||= step.maxUses !== undefined
     const consumed = [
       [step.currencyId, step.uses] as const,
       ...step.consumedOmenIds.map((id) => [id, 1] as const),
@@ -55,6 +57,7 @@ export function craftingCost(
     exalted,
     unknown: [...unknown],
     incomplete:
+      unknownRepeatCount ||
       unknown.size > 0 ||
       notation.omittedFrames > 0 ||
       notation.incompleteOmens,

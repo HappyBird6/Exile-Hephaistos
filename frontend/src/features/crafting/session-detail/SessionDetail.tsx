@@ -20,7 +20,6 @@ export function SessionDetail({
   onNewCraft,
   actions,
   costControls,
-  projectedRecord,
   showOverview = true,
   layout = 'stack',
   artwork,
@@ -37,7 +36,6 @@ export function SessionDetail({
   onNewCraft?: () => void
   actions?: ReactNode
   costControls?: ReactNode
-  projectedRecord?: ReactNode
   showOverview?: boolean
   layout?: 'stack' | 'columns'
   artwork?: ReactNode
@@ -87,7 +85,7 @@ export function SessionDetail({
         (film && frame ? <HistoryCard film={film} frame={frame} /> : null)}
     </div>
   )
-  const record = projectedRecord ?? (
+  const record = (
     <>
       <CraftingCostLine film={film ?? undefined} cursor={index}>
         {costControls}

@@ -16,7 +16,7 @@ import type { PolicyCandidate } from './policyCandidates'
 import type { Selection } from './supportStorage'
 import type { Bounds } from './types'
 
-it('ranks equal-looking percentages by exact mass and opens the chosen branch from the original item', () => {
+it('ranks equal-looking percentages by exact mass and opens the completed film with the selected currency history', () => {
   setLocale('en')
   const start = requestFixture().start.item
   const bound = (numerator: string): Bounds => {
@@ -38,14 +38,14 @@ it('ranks equal-looking percentages by exact mass and opens the chosen branch fr
   ): AutomaticArrow => ({
     id,
     source,
-    executionMode: 'SINGLE_PASS',
+    executionMode: currency === 'CHAOS' ? 'REPEATABLE' : 'SINGLE_PASS',
     initial: [],
     cycle: [{ currency, omens: [], purpose: 'GOAL_ACQUISITION' }],
     finished: true,
     reasons: [],
     points: [
       {
-        cycles: 1,
+        cycles: currency === 'CHAOS' ? 100 : 1,
         complete: true,
         initialUses: {},
         cycleUses: {},
@@ -135,16 +135,30 @@ it('ranks equal-looking percentages by exact mass and opens the chosen branch fr
     .getAllByRole('button')
     .filter((b) => b.hasAttribute('aria-pressed'))
   expect(buttons).toHaveLength(2)
-  expect(buttons[0]).toHaveAccessibleName(/REGAL.*50.00%/)
+  expect(buttons[0]).toHaveAccessibleName(/REGAL.*CHAOS ×1–100.*50.00%/)
   expect(buttons[1]).toHaveAccessibleName(/EXALTED.*50.00%/)
   expect(screen.getAllByRole('combobox')).toHaveLength(2)
   fireEvent.click(buttons[0]!)
   expect(screen.getAllByRole('combobox')).toHaveLength(2)
   fireEvent.click(screen.getByRole('button', { name: 'Start in workbench' }))
-  expect(open).toHaveBeenCalledWith(start, 'rules', [
-    'REGAL · 1 attempt',
-    'CHAOS · 1 attempt',
-  ])
+  expect(open).toHaveBeenCalledWith(
+    expect.objectContaining({
+      rulesetIdentity: 'rules',
+      frames: [
+        expect.objectContaining({ state: start }),
+        expect.objectContaining({
+          state: node(1).item,
+          projectedCurrencies: [{ currencyId: 'Regal_Orb', omenIds: [] }],
+        }),
+        expect.objectContaining({
+          state: node(2).item,
+          projectedCurrencies: [
+            { currencyId: 'Chaos_Orb', omenIds: [], maxUses: 100 },
+          ],
+        }),
+      ],
+    }),
+  )
   fireEvent.click(buttons[1]!)
   expect(screen.getAllByRole('combobox')).toHaveLength(1)
   expect(buttons[1]).toHaveAttribute('aria-pressed', 'true')

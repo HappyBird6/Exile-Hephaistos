@@ -595,9 +595,11 @@ function Run({
         {view?.reason === 'NO_PLAN_IN_SUPPORTED_SCOPE' && (
           <p role="status">{noPlan[locale]}</p>
         )}
-        {view?.status === 'PAUSED' && view.canResume === false && (
-          <p role="status">{planningNotes[locale][4]}</p>
-        )}
+        {view?.status === 'PAUSED' &&
+          view.canResume === false &&
+          !view.nodes.some((node) => node.progress.goal === 'MATCH') && (
+            <p role="status">{planningNotes[locale][4]}</p>
+          )}
         {storageFailed && (
           <p role="status">{workspaceMessages[locale].storage}</p>
         )}

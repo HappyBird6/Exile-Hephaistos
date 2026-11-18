@@ -149,7 +149,7 @@ export function SessionNotation({
             )
             return (
               <li
-                key={step.frameIndex}
+                key={step.number}
                 className="wb-session-notation__step"
                 data-frame-index={step.frameIndex}
                 aria-label={label}
@@ -248,6 +248,9 @@ export function NotationResources({
           >
             {chanceText(step.customExalt.probability, locale)}
           </span>
+        )}
+        {step.maxUses && (
+          <span className="wb-session-notation__uses">×1–{step.maxUses}</span>
         )}
         {step.repeated && (
           <span className="wb-session-notation__uses">{uses}</span>

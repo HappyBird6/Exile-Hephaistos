@@ -175,7 +175,7 @@ import {
   workbenchOmens,
   compatibleOmenPair,
 } from './workbenchApi'
-import type { AppliedItem, ConcreteItem, MappingResult } from './workbenchApi'
+import type { AppliedItem, MappingResult } from './workbenchApi'
 import {
   currentFilm,
   currentFrame,
@@ -792,7 +792,7 @@ function ReadyCraftingPage({
   async function newCraftFromFrame(
     sourceFilm: Pick<Film, 'compatibilityId'>,
     frame: Frame,
-    plan?: string[],
+    plannedFilm?: Film,
   ) {
     if (mutationLocked() || filmState.blockedSaving) return false
     const base = baseKeyForItem(frame.state.baseItemId)
@@ -816,11 +816,11 @@ function ReadyCraftingPage({
           loadInitial(frame.state.itemLevel, signal, base, true),
         staleTime: 60_000,
       })
-      if (plan && frame.rulesetIdentity !== catalog.rulesetIdentity)
+      if (plannedFilm && frame.rulesetIdentity !== catalog.rulesetIdentity)
         return false
       // The search encodes untouched equipment quality as absent. Restore the catalog's initial zero.
       const startingFrame =
-        plan &&
+        plannedFilm &&
         frame.state.equipmentQuality == null &&
         catalog.equipmentQuality === 0
           ? { ...frame, state: { ...frame.state, equipmentQuality: 0 } }
@@ -841,10 +841,29 @@ function ReadyCraftingPage({
         return false
       placementPending.current = false
       if (applyingRequest.current === controller) applyingRequest.current = null
-      if (plan?.length) {
+      if (plannedFilm) {
         const session = currentFilm(next)!
-        session.plannedSteps = plan
-        session.title = Array.from(plan.join(' → ')).slice(0, 64).join('')
+        const final = session.frames[0]!
+        session.frames = plannedFilm.frames.map((f) => ({
+          ...f,
+          state:
+            catalog.equipmentQuality === 0 && f.state.equipmentQuality == null
+              ? { ...f.state, equipmentQuality: 0 }
+              : f.state,
+        }))
+        if (
+          !session.frames.every((f) => verifiedHistoryState(f.state, catalog))
+        )
+          return false
+        session.frames[session.frames.length - 1] = {
+          ...session.frames.at(-1)!,
+          state: final.state,
+          ...(final.abyss ? { abyss: final.abyss } : {}),
+        }
+        session.title = Array.from(plannedFilm.title ?? '')
+          .slice(0, 64)
+          .join('')
+        next.cursor = session.frames.length - 1
       }
       if (await commitLibraryHistory(next)) {
         setView('workbench')
@@ -2174,13 +2193,6 @@ function ReadyCraftingPage({
         }
       />
 
-      {view === 'workbench' && film?.plannedSteps && (
-        <ol className="workbench-method-guide">
-          {film.plannedSteps.map((step, index) => (
-            <li key={index}>{step}</li>
-          ))}
-        </ol>
-      )}
       {view === 'workbench' && (
         <nav
           className="mobile-workbench-jumps"
@@ -3147,17 +3159,7 @@ function ReadyCraftingPage({
         {(supportVisited || view === 'support') && (
           <Suspense fallback={<span role="status">…</span>}>
             <OpenCraftingSession.Provider
-              value={(item, identity, steps) =>
-                newCraftFromFrame(
-                  {},
-                  {
-                    state: item as ConcreteItem,
-                    action: null,
-                    rulesetIdentity: identity,
-                  },
-                  steps,
-                )
-              }
+              value={(film) => newCraftFromFrame({}, film.frames.at(-1)!, film)}
             >
               <CraftSupport active={view === 'support'} />
             </OpenCraftingSession.Provider>

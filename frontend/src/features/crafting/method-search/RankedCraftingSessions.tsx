@@ -1,22 +1,17 @@
 import { AppLink } from '../../../shared/navigation/AppLink'
 import { HistoryWorkspaceLayout } from '../session-library/HistoryWorkspaceLayout'
 import { SessionDetail } from '../session-detail/SessionDetail'
-import {
-  SessionOverviewLayout,
-  SessionFlowSurface,
-} from '../session-history/SessionOverviewLayout'
-import { NotationResources } from '../session-notation/SessionNotation'
+import { SessionOverviewPage } from '../session-history/SessionOverviewPage'
+import type { Film, Frame } from '../workbenchHistory'
+import type { ConcreteItem } from '../workbenchApi'
 import { historyResources } from '../session-history/resources'
-import { currencyId } from '../session-notation/extractSessionNotation'
-import { planOmenId } from './usePlanAction'
-import { SessionFlowGrid } from '../session-history/SessionFlow'
+import { projectedFrame } from './projectedFrame'
 import '../session-history/history.css'
 import { SessionListCard } from '../session-library/SessionListCard'
 import { sessionLibraryMessages } from '../session-library/sessionLibraryMessages'
 import { historyMessages } from '../session-history/messages'
 import { useContext, useMemo, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
-import { ItemCard } from '../ItemCard'
 import type { ItemCardData } from '../itemCardData'
 import { OpenCraftingSession } from './openCraftingSession'
 import type { Item } from '../path-tree/types'
@@ -42,7 +37,6 @@ const labels = {
     '작업대에서 시작',
     '결과 선택',
     '제작 세션을 열 수 없습니다.',
-    '예상 화폐 사용 이력',
     '선택한 경로에서 나올 수 있는 최종 아이템 예시입니다. 성공 확률은 이 방법으로 목표에 도달하는 모든 결과를 합산합니다.',
   ],
   en: [
@@ -51,7 +45,6 @@ const labels = {
     'Start in workbench',
     'Choose outcome',
     'Could not open the crafting session.',
-    'Planned currency history',
     'One possible final item on the selected route. The success chance includes every result that meets the goal.',
   ],
   'zh-CN': [
@@ -60,7 +53,6 @@ const labels = {
     '在工作台开始',
     '选择结果',
     '无法打开制作会话。',
-    '预计通货使用记录',
     '展示所选路线的一种最终物品。成功率包含所有达成目标的结果。',
   ],
   'zh-TW': [
@@ -69,7 +61,6 @@ const labels = {
     '在工作臺開始',
     '選擇結果',
     '無法開啟製作工作階段。',
-    '預計通貨使用紀錄',
     '顯示所選路線的一種最終物品。成功率包含所有達成目標的結果。',
   ],
   ja: [
@@ -78,7 +69,6 @@ const labels = {
     '作業台で開始',
     '結果を選択',
     '製作セッションを開けません。',
-    '通貨の使用予定',
     '選択した経路の最終アイテムの一例です。成功率は目標を達成するすべての結果を含みます。',
   ],
   es: [
@@ -87,7 +77,6 @@ const labels = {
     'Empezar en el banco',
     'Elegir resultado',
     'No se pudo abrir la sesión.',
-    'Historial previsto de divisas',
     'Un objeto final posible en la ruta elegida. La probabilidad incluye todos los resultados que cumplen el objetivo.',
   ],
   ru: [
@@ -96,7 +85,6 @@ const labels = {
     'Начать на верстаке',
     'Выберите результат',
     'Не удалось открыть сессию.',
-    'План расхода валюты',
     'Пример итогового предмета на выбранном пути. Шанс успеха учитывает все исходы, достигающие цели.',
   ],
   th: [
@@ -105,7 +93,6 @@ const labels = {
     'เริ่มที่โต๊ะคราฟต์',
     'เลือกผลลัพธ์',
     'เปิดเซสชันไม่ได้',
-    'ประวัติการใช้สกุลเงินตามแผน',
     'ตัวอย่างไอเทมสุดท้ายในเส้นทางที่เลือก โอกาสสำเร็จรวมทุกผลลัพธ์ที่บรรลุเป้าหมาย',
   ],
 } as const
@@ -145,11 +132,22 @@ export function RankedCraftingSessions(props: Props) {
     setTerminal(null)
     setEdited(false)
     setSelected(plan.id)
-    props.onRoute(previewRoute(props.view, plan))
+    props.onRoute(examples.get(plan.id) ?? [])
   }
-  const plans = useMemo(
-    () => rankedPlans(props.view, props.cycles),
-    [props.view, props.cycles],
+  const routes = useMemo(() => {
+    const ranked = rankedPlans(props.view, props.cycles)
+    const examples = new Map(
+      ranked.map((plan) => [plan.id, previewRoute(props.view, plan)]),
+    )
+    const complete = ranked.filter(
+      (plan) => examples.get(plan.id)?.at(-1)?.kind === 'GOAL',
+    )
+    return { examples, plans: complete.length ? complete : ranked }
+  }, [props.view, props.cycles])
+  const { plans, examples } = routes
+  const methods = useMemo(
+    () => new Map(props.view.methods.map((method) => [method.id, method])),
+    [props.view.methods],
   )
   const chosen =
     plans.find((p) => p.id === selected) ??
@@ -161,18 +159,17 @@ export function RankedCraftingSessions(props: Props) {
         ),
     ) ??
     plans[0]
-  const route = useMemo(
-    () =>
-      chosen &&
-      !edited &&
-      (!props.route.length ||
-        props.route.some(
-          (edge) => chosen.decisions.get(edge.source) !== edge.method,
-        ))
-        ? previewRoute(props.view, chosen)
-        : props.route,
-    [chosen, edited, props.route, props.view],
-  )
+  const route =
+    chosen &&
+    !edited &&
+    (!props.route.length ||
+      (examples.get(chosen.id)?.at(-1)?.kind === 'GOAL' &&
+        props.route.at(-1)?.kind !== 'GOAL') ||
+      props.route.some(
+        (edge) => chosen.decisions.get(edge.source) !== edge.method,
+      ))
+      ? (examples.get(chosen.id) ?? [])
+      : props.route
   const detailProps = {
     ...props,
     terminal,
@@ -201,9 +198,8 @@ export function RankedCraftingSessions(props: Props) {
               aria-label={copy[0]}
             >
               {plans.map((plan, index) => {
-                const title = [...plan.root.initial, ...plan.root.cycle]
-                  .map(props.action)
-                  .join(' → ')
+                const example = examples.get(plan.id) ?? []
+                const title = routeTitle(example, plan, methods, props.action)
                 const probability = plan.success
                   ? probabilityText(plan.success.lower, plan.success)
                   : policy.unresolved
@@ -233,9 +229,7 @@ export function RankedCraftingSessions(props: Props) {
                           href={overviewHref(
                             props,
                             plan,
-                            chosen.id === plan.id
-                              ? route
-                              : previewRoute(props.view, plan),
+                            chosen.id === plan.id ? route : example,
                             chosen.id === plan.id ? terminal : null,
                           )}
                         >
@@ -259,6 +253,27 @@ export function RankedCraftingSessions(props: Props) {
       />
     </section>
   )
+}
+
+function routeTitle(
+  route: Selection[],
+  plan: Plan,
+  methods: Map<string, AutomaticArrow>,
+  action: Props['action'],
+) {
+  const steps = route.length
+    ? route
+        .map((edge) => methods.get(edge.method))
+        .filter((m): m is AutomaticArrow => !!m)
+    : [plan.root]
+  return steps
+    .flatMap((m) => [
+      ...m.initial.map(action),
+      ...m.cycle.map(
+        (a) => action(a) + (isRepeatable(m) ? ` ×1–${plan.cycles}` : ''),
+      ),
+    ])
+    .join(' → ')
 }
 
 function overviewHref(
@@ -286,22 +301,20 @@ export function SessionSteps({
   view,
   plan,
   action,
-  card,
   onRoute,
   identity,
   allowStart,
-  start,
   route,
   terminal,
   setTerminal,
   overview = false,
-}: Props & {
+}: Omit<Props, 'start' | 'card'> & {
   plan: Plan
   overview?: boolean
   terminal: { source: number; key: string } | null
   setTerminal: (value: { source: number; key: string } | null) => void
 }) {
-  const { locale, name } = useI18n(),
+  const { locale } = useI18n(),
     guide = guideMessages[locale],
     copy = labels[locale],
     policy = policyCandidateMessages[locale]
@@ -318,30 +331,18 @@ export function SessionSteps({
   )
   const root = nodes.get(0)
   if (!root) return null
-  const notation = []
   const frames = [],
     path: Selection[] = [],
-    visited = new Set<number>(),
-    instructions: string[] = []
+    visited = new Set<number>()
+  const states: Frame[] = [
+    {
+      state: root.item as ConcreteItem,
+      action: null,
+      rulesetIdentity: identity,
+    },
+  ]
   let method: AutomaticArrow | undefined = plan.root
-  function itemCard(node: AutomaticNode) {
-    const presentation = card(node)
-    return (
-      <ItemCard
-        baseItemId={node.item.baseItemId}
-        item={{
-          ...presentation,
-          name: name(node.item.baseItemId, presentation.name),
-          base: null,
-        }}
-      />
-    )
-  }
-  const flow: {
-    card: React.ReactNode
-    label: string
-    resources?: React.ReactNode
-  }[] = [{ card: itemCard(root), label: guide.start }]
+  let completed = root.progress.goal === 'MATCH'
   let removalRisk = false
   let incomplete = false
   let manualReveal = false
@@ -385,53 +386,6 @@ export function SessionSteps({
     const repeat = isRepeatable(current)
       ? guide.within.replace('{n}', String(plan.cycles))
       : guide.once
-    instructions.push(...current.initial.map(action))
-    if (current.cycle.length)
-      instructions.push(current.cycle.map(action).join(' → ') + ' · ' + repeat)
-    const groupIcons = []
-    for (const craft of [...current.initial, ...current.cycle]) {
-      const isCurrency =
-        craft.purpose !== 'QUALITY_CHECKPOINT' &&
-        craft.purpose !== 'QUALITY_BASE_CHECKPOINT'
-      const id =
-        isCurrency && craft.currency ? currencyId(craft.currency) : undefined
-      const label = action(craft)
-      const stepNumber = notation.length + 1
-      const icons = id && (
-        <NotationResources
-          resources={historyResources}
-          step={{
-            number: stepNumber,
-            frameIndex: stepNumber,
-            currencyId: id,
-            consumedOmenIds: craft.omens.map(planOmenId),
-            omensKnown: true,
-            uses: 1,
-            repeated: false,
-          }}
-        />
-      )
-      const limit =
-        isRepeatable(current) && current.cycle.includes(craft)
-          ? ' · ' + repeat
-          : ''
-      notation.push(
-        <li
-          key={stepNumber}
-          className="wb-session-notation__step"
-          aria-label={label + limit}
-          title={label + limit}
-        >
-          {icons ?? label}
-          {limit}
-        </li>,
-      )
-      groupIcons.push(
-        <span key={stepNumber} title={label}>
-          {icons ?? label}
-        </span>,
-      )
-    }
     removalRisk ||= removesModifier(current)
     incomplete ||= !point?.complete
     frames.push(
@@ -481,16 +435,20 @@ export function SessionSteps({
       </li>,
     )
     if (result && outcome) {
-      flow.push({
-        card: itemCard(result),
-        resources: <div className="session-flow-resources">{groupIcons}</div>,
-        label:
-          actions.join(' → ') +
-          ' · ' +
-          repeat +
-          ' · ' +
-          probabilityText(outcome.probability.lower, outcome.probability),
-      })
+      const frame = projectedFrame(
+        states.at(-1)!.state,
+        current,
+        outcome,
+        result,
+        plan.cycles,
+        identity,
+      )
+      if (!frame) {
+        incomplete = true
+        break
+      }
+      states.push(frame)
+      completed = outcome.kind === 'GOAL'
       manualReveal =
         outcome.kind === 'CHECKPOINT' &&
         result.discoveryFinished &&
@@ -511,34 +469,38 @@ export function SessionSteps({
     })
     method = methods.get(plan.decisions.get(result.id) ?? '')
   }
-  const title = [...plan.root.initial, ...plan.root.cycle]
-    .map(action)
-    .join(' → ')
+  const title = routeTitle(route, plan, methods, action)
   const chance =
     policy.success +
     ' ' +
     (plan.success
       ? probabilityText(plan.success.lower, plan.success)
       : policy.unresolved)
+  const film: Film = {
+    id: view.id,
+    title,
+    createdAt: new Date().toISOString(),
+    rulesetIdentity: identity,
+    frames: states,
+  }
   if (overview)
     return (
-      <SessionOverviewLayout
-        title={title}
-        backHref={
-          '/?' +
-          new URLSearchParams({
-            workbench: 'support',
-            job: view.id,
-            plan: plan.id,
-          })
-        }
-        backLabel={copy[0]}
-        summary={<span className="history-session-summary">{chance}</span>}
-      >
-        <SessionFlowSurface>
-          <SessionFlowGrid frames={flow} summary={<strong>{chance}</strong>} />
-        </SessionFlowSurface>
-      </SessionOverviewLayout>
+      <SessionOverviewPage
+        id={view.id}
+        source={{
+          film,
+          title,
+          backHref:
+            '/?' +
+            new URLSearchParams({
+              workbench: 'support',
+              job: view.id,
+              plan: plan.id,
+            }),
+          backLabel: copy[0],
+        }}
+        summary={chance}
+      />
     )
   return (
     <section
@@ -551,43 +513,21 @@ export function SessionSteps({
         </div>
       </div>
       <SessionDetail
-        cursor={0}
+        film={film}
+        cursor={states.length - 1}
+        resources={historyResources}
+        overviewHref={overviewHref({ identity, view }, plan, route, terminal)}
         itemClassName="wb-history-preview__item"
-        item={finalNode ? itemCard(finalNode) : <p>{policy.unresolved}</p>}
-        projectedRecord={
-          <>
-            <p>{chance}</p>
-            {removalRisk && <p>{guide.risk}</p>}
-            {incomplete && <p role="status">{policy.unresolved}</p>}
-            {manualReveal && <p>{policy.end}</p>}
-            <section className="wb-session-notation" aria-label={copy[5]}>
-              <div className="wb-session-notation__heading">
-                <h3>{copy[5]}</h3>
-              </div>
-              <ol className="wb-session-notation__steps wb-scrollbar">
-                {notation}
-              </ol>
-            </section>
-            <details>
-              <summary>{guide.details}</summary>
-              {finalNode && <p>{copy[6]}</p>}
-              {plan.candidate && (
-                <CandidateSummary candidate={plan.candidate} />
-              )}
-              <ol>{frames}</ol>
-            </details>
-          </>
-        }
         actions={
           <div className="wb-history-preview__actions">
             {allowStart && open && (
               <button
-                disabled={opening}
+                disabled={opening || !completed}
                 onClick={async () => {
                   setOpening(true)
                   setError(false)
                   try {
-                    setError(!(await open(start, identity, instructions)))
+                    setError(!(await open(film)))
                   } catch {
                     setError(true)
                   } finally {
@@ -598,15 +538,20 @@ export function SessionSteps({
                 {copy[2]}
               </button>
             )}
-            <AppLink
-              href={overviewHref({ identity, view }, plan, route, terminal)}
-            >
-              {historyMessages[locale].title} <span aria-hidden="true">↗</span>
-            </AppLink>
             {error && <p role="alert">{copy[4]}</p>}
           </div>
         }
       />
+      <p>{chance}</p>
+      {removalRisk && <p>{guide.risk}</p>}
+      {incomplete && <p role="status">{policy.unresolved}</p>}
+      {manualReveal && <p>{policy.end}</p>}
+      <details>
+        <summary>{guide.details}</summary>
+        {finalNode && <p>{copy[5]}</p>}
+        {plan.candidate && <CandidateSummary candidate={plan.candidate} />}
+        <ol>{frames}</ol>
+      </details>
     </section>
   )
 }

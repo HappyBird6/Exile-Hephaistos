@@ -2,10 +2,15 @@ import { revealAction } from '../abyss-workbench/revealAction'
 import { augments } from '../socketAugments'
 import { isBone } from '../desecrationCurrency'
 import { workbenchCurrencyActions, workbenchOmens } from '../workbenchApi'
-import type { Film, Frame } from '../workbenchHistory'
+import {
+  validProjectedCurrencies,
+  type Film,
+  type Frame,
+} from '../workbenchHistory'
 import { validChaosRepeatFrame } from '../chaos-repeat/chaosRepeatReceipt'
 
 export type NotationStep = {
+  maxUses?: number
   customExalt?: { modifierId: string; probability: number }
   kind?: 'reveal'
 
@@ -107,6 +112,24 @@ export function extractSessionNotation(
     const frame = film.frames[frameIndex]!
     if (!validChaosRepeatFrame(frame)) {
       result.omittedFrames++
+      continue
+    }
+    if (
+      frame.action === 'SESSION_PLAN' &&
+      validProjectedCurrencies(frame.projectedCurrencies)
+    ) {
+      for (const craft of frame.projectedCurrencies) {
+        result.steps.push({
+          number: result.steps.length + 1,
+          frameIndex,
+          currencyId: craft.currencyId,
+          consumedOmenIds: craft.omenIds,
+          omensKnown: true,
+          uses: 1,
+          repeated: false,
+          ...(craft.maxUses ? { maxUses: craft.maxUses } : {}),
+        })
+      }
       continue
     }
     const reveal = completedReveal(frame, film.frames[frameIndex - 1])

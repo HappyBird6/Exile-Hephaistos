@@ -260,5 +260,5 @@ python docs/contracts/support-goal-filter-v1/verify_fixtures.py
 | 카오스 반복 | 기본 1000, 범위 1–1000 |
 | 반복 요청 본문 | 65536 UTF-8 bytes |
 | 패턴 | 길이 512, 깊이 16, 문법 노드 512, 프로그램 4096 |
-| 제작지원 정책 | approved-187-2026-11-18-exalted-fallback-v10 |
+| 제작지원 정책 | approved-187-2026-11-18-first-chaos-v11 |
 <!-- generated:public-contracts:end -->

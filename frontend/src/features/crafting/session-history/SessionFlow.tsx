@@ -1,3 +1,5 @@
+import { qualityWorkMessages } from '../method-search/qualityWorkMessages'
+import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
 import type { ReactNode } from 'react'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { sessionTitle } from '../session-library/sessionTitle'
@@ -36,21 +38,45 @@ export function SessionFlow({
   } catch {
     /* Preserve every state even when its receipt cannot be read. */
   }
+  const byFrame = new Map<number, typeof steps>()
+  for (const step of steps) {
+    const group = byFrame.get(step.frameIndex)
+    if (group) group.push(step)
+    else byFrame.set(step.frameIndex, [step])
+  }
   const frames = film.frames.map((frame, index) => {
-    const step = steps.find((s) => s.frameIndex === index)
-    const currency =
-      step?.kind === 'reveal'
-        ? `${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
-        : step
-          ? name(
+    const group = byFrame.get(index) ?? []
+    const labels = group.map((step) => {
+      const currency =
+        step.kind === 'reveal'
+          ? `${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
+          : name(
               step.currencyId,
               resources.find((r) => r.id === step.currencyId)?.name ??
                 step.currencyId,
             )
-          : text.observation
-    const label = step
-      ? `${currency}${step.repeated ? ` × ${step.uses}` : ''}`
-      : text.observation
+      return (
+        currency +
+        (step.maxUses
+          ? ` ×1–${step.maxUses}`
+          : step.repeated
+            ? ` × ${step.uses}`
+            : '')
+      )
+    })
+    if (
+      frame.projectedWork === 'DESECRATE_PREFIX' ||
+      frame.projectedWork === 'DESECRATE_SUFFIX'
+    )
+      labels.push(
+        abyssWorkbenchMessages[locale].desecration +
+          (frame.projectedWork === 'DESECRATE_PREFIX' ? ' · P' : ' · S'),
+      )
+    if (frame.projectedWork === 'QUALITY_20')
+      labels.push(qualityGoalMessages[locale].work20)
+    if (frame.projectedWork === 'QUALITY_40')
+      labels.push(qualityWorkMessages[locale].work)
+    const label = labels.join(' → ') || text.observation
     return {
       label,
       card: <HistoryCard film={film} frame={frame} />,
@@ -58,14 +84,19 @@ export function SessionFlow({
         <div
           className="session-flow-resources"
           title={
-            step?.consumedOmenIds
+            group
+              .flatMap((step) => step.consumedOmenIds)
               .map((id) =>
                 name(id, resources.find((r) => r.id === id)?.name ?? id),
               )
               .join(' + ') || undefined
           }
         >
-          {step && <NotationResources step={step} resources={resources} />}
+          {group.map((step) => (
+            <span key={step.number}>
+              <NotationResources step={step} resources={resources} />
+            </span>
+          ))}
         </div>
       ),
     }

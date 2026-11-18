@@ -26,7 +26,11 @@ export function calculationState(
   if (failed) return 'error'
   if (!view) return 'preparing'
   if (view.status === 'CANCELLED') return 'stopped'
-  if (view.status === 'PAUSED') return 'paused'
+  if (view.status === 'PAUSED')
+    return view.canResume === false &&
+      view.nodes.some((n) => n.progress.goal === 'MATCH')
+      ? 'partial'
+      : 'paused'
   if (view.status === 'COMPLETE' && view.complete) return 'complete'
   if (view.status === 'PARTIAL' || view.status === 'COMPLETE') return 'partial'
   if (!enabled) return 'restored'

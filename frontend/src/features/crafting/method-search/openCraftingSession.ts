@@ -1,6 +1,5 @@
 import { createContext } from 'react'
-import type { Item } from '../path-tree/types'
+import type { Film } from '../workbenchHistory'
 export const OpenCraftingSession = createContext<
-  | ((item: Item, identity: string, steps: string[]) => Promise<boolean>)
-  | undefined
+  ((film: Film) => Promise<boolean>) | undefined
 >(undefined)

@@ -1301,9 +1301,13 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   private static boolean rarityCheckpoint(AutomaticMethodExecution.Template template) {
-    return template.initial().isEmpty()
-        && template.cycle().size() == 1
-        && template.cycle().getFirst().purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE;
+    if (template.cycle().size() != 1) return false;
+    if (template.initial().isEmpty())
+      return template.cycle().getFirst().purpose()
+          == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE;
+    return template.initial().size() == 1
+        && template.initial().getFirst().currency() == WorkbenchCurrency.TRANSMUTATION
+        && template.cycle().getFirst().currency() == WorkbenchCurrency.ANNULMENT;
   }
 
   private Optional<Exit> classify(Node source, ItemState item, int quality) {

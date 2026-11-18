@@ -125,6 +125,8 @@ export function validateJointGraph(
         for (const c of o.conditional) {
           if (
             !object(c) ||
+            (c.preparationOnly !== undefined &&
+              typeof c.preparationOnly !== 'boolean') ||
             !Array.isArray(c.local) ||
             c.local.length > 6 ||
             !Array.isArray(c.retainedFromSource) ||

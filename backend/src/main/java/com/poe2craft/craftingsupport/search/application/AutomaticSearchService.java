@@ -221,6 +221,7 @@ public final class AutomaticSearchService implements AutoCloseable {
    *   <li>{@code rolls}: 수치 굴림과 유한 결합 분포 계산기 ({@code Map<String,
    *       AutomaticCraftingKernel.RollBand>}).
    *   <li>{@code retainedFromSource}: 보유·원본·출처 ({@code Set<String>}).
+   *   <li>{@code preparationOnly}: 준비 작업에서 이미 목표 상태로 종료되어 후속 화폐를 사용하지 않았는지 표시한다.
    *   <li>{@code probability}: 확률 ({@code CertifiedMethodProtocol.Bounds}).
    * </ul>
    */
@@ -229,6 +230,9 @@ public final class AutomaticSearchService implements AutoCloseable {
       Map<String, AutomaticMethodGraph.TierLaw> tiers,
       Map<String, AutomaticCraftingKernel.RollBand> rolls,
       Set<String> retainedFromSource,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT)
+          boolean preparationOnly,
       CertifiedMethodProtocol.Bounds probability) {}
 
   /**
@@ -864,7 +868,9 @@ public final class AutomaticSearchService implements AutoCloseable {
         || ((AutomaticMethodGraph.VERSION.equals(saved.graph().version())
                 || "goal-directed-milestone-graph-v17-strict-exalted"
                     .equals(saved.graph().version()))
-            && ("approved-187-2026-11-18-session-crafting-v9"
+            && ("approved-187-2026-11-18-exalted-fallback-v10"
+                    .equals(saved.graph().identity().policyVersion())
+                || "approved-187-2026-11-18-session-crafting-v9"
                     .equals(saved.graph().identity().policyVersion())
                 || "approved-187-2026-10-30-strict-exalted-v8"
                     .equals(saved.graph().identity().policyVersion())

@@ -1,19 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
 import { useI18n } from '../../../shared/i18n/i18n'
-import { baseClass, baseKeyForItem } from '../baseRegistry'
-import { loadInitial } from '../craftingApi'
-import { createItemPresentation } from '../path-tree/presentation'
 import { historyMessages } from '../session-history/messages'
 import { SessionOverviewLayout } from '../session-history/SessionOverviewLayout'
 import { automaticApi } from './automaticApi'
-import { presentAutomaticItem } from './automaticTierLaws'
 import { rankedPlans } from './rankedPlans'
 import { SessionSteps } from './RankedCraftingSessions'
 import type { Selection } from './supportStorage'
 import { usePlanAction } from './usePlanAction'
 
 export function PlanOverviewPage({ id }: { id: string }) {
-  const { locale, name } = useI18n()
+  const { locale } = useI18n()
   const action = usePlanAction()
   const params = new URLSearchParams(location.search)
   const identity = params.get('rules') ?? ''
@@ -21,25 +17,13 @@ export function PlanOverviewPage({ id }: { id: string }) {
   const query = useQuery({
     queryKey: ['plan-overview', id, identity],
     retry: false,
-    queryFn: async ({ signal }) => {
-      const view = await automaticApi.get(id, identity, signal)
-      const item = view.nodes[0]?.item
-      const key = item && baseKeyForItem(item.baseItemId)
-      if (!item || !key) throw Error('missing-base')
-      return {
-        view,
-        item,
-        key,
-        initial: await loadInitial(item.itemLevel, signal, key),
-      }
-    },
+    queryFn: ({ signal }) => automaticApi.get(id, identity, signal),
   })
-  const result = query.data
+  const view = query.data
   const cycles = Number(params.get('cycles')) || 100
   const plan =
-    result &&
-    rankedPlans(result.view, cycles).find((p) => p.id === params.get('plan'))
-  if (!result || !plan)
+    view && rankedPlans(view, cycles).find((p) => p.id === params.get('plan'))
+  if (!view || !plan)
     return (
       <SessionOverviewLayout
         title={text.title}
@@ -49,11 +33,6 @@ export function PlanOverviewPage({ id }: { id: string }) {
         <p role="status">{query.isPending ? '…' : text.missing}</p>
       </SessionOverviewLayout>
     )
-  const { view, item, key, initial } = result
-  const present = createItemPresentation(
-    { name: name(item.baseItemId, key), itemClass: baseClass(key) },
-    initial.modifiers,
-  )
   const route: Selection[] = []
   let terminal: { source: number; key: string } | null = null
   try {
@@ -81,7 +60,6 @@ export function PlanOverviewPage({ id }: { id: string }) {
       plan={plan}
       action={action}
       view={view}
-      start={item}
       identity={identity}
       allowStart={false}
       cycles={cycles}
@@ -89,7 +67,6 @@ export function PlanOverviewPage({ id }: { id: string }) {
       terminal={terminal}
       setTerminal={() => {}}
       onRoute={() => {}}
-      card={(n) => presentAutomaticItem(n, locale, present, view.nodes)}
     />
   )
 }

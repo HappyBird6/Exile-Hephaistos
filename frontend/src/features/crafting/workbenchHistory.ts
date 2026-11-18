@@ -39,7 +39,39 @@ export type CraftEvidence = Pick<
   | 'qualityLimit'
   | 'rulesetIdentity'
 >
+/** 계산된 한 체크포인트에 도달하기까지 사용하는 재료. 반복 횟수는 첫 성공까지의 상한이다. */
+export type PlannedCurrency = {
+  currencyId: string
+  omenIds: string[]
+  maxUses?: number
+}
+export function validProjectedCurrencies(
+  value: unknown,
+): value is PlannedCurrency[] {
+  return (
+    Array.isArray(value) &&
+    value.length <= 16 &&
+    value.every(
+      (step) =>
+        step &&
+        typeof step.currencyId === 'string' &&
+        step.currencyId.length <= 160 &&
+        Array.isArray(step.omenIds) &&
+        step.omenIds.length <= 8 &&
+        step.omenIds.every(
+          (id: unknown) => typeof id === 'string' && id.length <= 160,
+        ) &&
+        (step.maxUses === undefined ||
+          (Number.isInteger(step.maxUses) &&
+            step.maxUses >= 1 &&
+            step.maxUses <= 1000)),
+    )
+  )
+}
 export type Frame = {
+  projectedWork?:
+    'DESECRATE_PREFIX' | 'DESECRATE_SUFFIX' | 'QUALITY_20' | 'QUALITY_40'
+  projectedCurrencies?: PlannedCurrency[]
   rulesetIdentity?: string
   state: ConcreteItem
   action: string | null
@@ -102,7 +134,15 @@ export function filmRulesetStatus(
     )
       return 'inconsistent'
     identities.push(frame.rulesetIdentity)
-    if (index > 0 || frame.evidence)
+    if (index > 0 && frame.projectedCurrencies !== undefined) {
+      if (
+        !validProjectedCurrencies(frame.projectedCurrencies) ||
+        frame.action !== 'SESSION_PLAN' ||
+        frame.evidence ||
+        frame.manual
+      )
+        return 'inconsistent'
+    } else if (index > 0 || frame.evidence)
       identities.push(
         frame.manual?.action === frame.action
           ? frame.manual.rulesetIdentity
@@ -281,6 +321,10 @@ export function validStoredFilm(film: Film): boolean {
         typeof frame.state === 'object' &&
         frame.state !== null &&
         (frame.action === null || typeof frame.action === 'string') &&
+        (frame.projectedCurrencies === undefined ||
+          (index > 0 &&
+            frame.action === 'SESSION_PLAN' &&
+            validProjectedCurrencies(frame.projectedCurrencies))) &&
         validRepeatFrame(frame) &&
         (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
     ),
@@ -355,6 +399,10 @@ export class LocalFilmRepository implements FilmRepository {
       !films.films.every((film) =>
         film.frames.every(
           (frame, index) =>
+            (frame.projectedCurrencies === undefined ||
+              (index > 0 &&
+                frame.action === 'SESSION_PLAN' &&
+                validProjectedCurrencies(frame.projectedCurrencies))) &&
             validRepeatFrame(frame) &&
             (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
         ),

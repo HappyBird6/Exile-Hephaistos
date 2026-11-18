@@ -142,6 +142,7 @@ final class AutomaticResultProjection {
                         Map.copyOf(fresh),
                         Map.copyOf(rolls),
                         state.retainedFromRoot(),
+                        state.temporaryPreparation() && !method.template().initial().isEmpty(),
                         probability.apply(mass.probability())));
           }
         }
