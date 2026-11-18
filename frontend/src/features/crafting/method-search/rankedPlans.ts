@@ -68,34 +68,44 @@ export function rankedPlans(view: AutomaticView, cycles: number) {
 /** A selectable example from this policy's observations. Its branch odds do not rank the policy. */
 export function previewRoute(view: AutomaticView, plan: Plan) {
   const methods = new Map(view.methods.map((method) => [method.id, method]))
-  const visited = new Set<number>(),
-    route: Selection[] = []
-  let method: AutomaticArrow | undefined = plan.root
-  while (method && route.length < 64 && !visited.has(method.source)) {
-    visited.add(method.source)
-    const outcomes = methodPoint(method, plan.cycles)?.outcomes ?? []
-    const priority = (kind: string) =>
-      kind === 'GOAL' ? 2 : kind === 'CHECKPOINT' ? 1 : 0
-    let best: (typeof outcomes)[number] | undefined
-    for (const o of outcomes) {
-      if (o.target === null || visited.has(o.target)) continue
+  const visited = new Set([plan.root.source])
+  const queue: { method: AutomaticArrow; route: Selection[] }[] = [
+    { method: plan.root, route: [] },
+  ]
+  let fallback: Selection[] = []
+  for (let i = 0; i < queue.length; i++) {
+    const { method, route } = queue[i]!
+    if (route.length >= 64) continue
+    const outcomes = [
+      ...(methodPoint(method, plan.cycles)?.outcomes ?? []),
+    ].sort((a, b) => Number(compare(b.probability.lower, a.probability.lower)))
+    for (const outcome of outcomes) {
       if (
-        !best ||
-        priority(o.kind) > priority(best.kind) ||
-        (priority(o.kind) === priority(best.kind) &&
-          compare(o.probability.lower, best.probability.lower) > 0n)
+        outcome.target === null ||
+        BigInt(outcome.probability.upper.numerator) === 0n
       )
-        best = o
+        continue
+      const path = [
+        ...route,
+        {
+          source: method.source,
+          method: method.id,
+          target: outcome.target,
+          kind: outcome.kind,
+        },
+      ]
+      if (outcome.kind === 'GOAL') return path
+      if (path.length > fallback.length) fallback = path
+      const next = methods.get(plan.decisions.get(outcome.target) ?? '')
+      if (
+        outcome.kind === 'CHECKPOINT' &&
+        next &&
+        !visited.has(outcome.target)
+      ) {
+        visited.add(outcome.target)
+        queue.push({ method: next, route: path })
+      }
     }
-    if (!best || best.target === null) break
-    route.push({
-      source: method.source,
-      method: method.id,
-      kind: best.kind,
-      target: best.target,
-    })
-    if (best.kind !== 'CHECKPOINT') break
-    method = methods.get(plan.decisions.get(best.target) ?? '')
   }
-  return route
+  return fallback
 }

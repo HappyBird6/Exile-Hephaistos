@@ -1,7 +1,6 @@
 import { createPortal } from 'react-dom'
 import { SupportToolbarContext } from '../supportToolbar'
 import { supportLayoutMessages } from '../supportLayoutMessages'
-import { scenarioGoalLabels } from '../method-search/scenarioPresentation'
 import { resetMessages } from './resetMessages'
 import { restoredStart } from './savedStart'
 import { readSupport, saveSupport } from '../method-search/supportStorage'
@@ -1086,13 +1085,7 @@ export function CraftStart({
             <MethodSearch
               active={active}
               request={draft.searchRequest}
-              scenarioBaseKey={draft.base}
-              graphDefinitions={draft.rootDefinitions}
-              targetSources={draft.searchGoal?.sourceStatIds}
-              goalLabels={scenarioGoalLabels(
-                draft.rootDefinitions,
-                draft.searchRequest.goal,
-              )}
+              baseKey={draft.base}
               inputGeneration={run}
               abstractQuality40={draft.abstractQuality40}
               abstractQuality={draft.abstractQuality}

@@ -57,7 +57,8 @@ import java.util.*;
 public final class AutomaticPolicyCandidates {
   public static final String VERSION = "conditional-session-policies-v1";
   public static final int FAILURE = -1, GOAL = -2, REBASE = -3, UNRESOLVED = -4;
-  private static final int MAX_ALTERNATIVES = 32, EVALUATION_STEPS = 128;
+  public static final int MAX_ALTERNATIVES = 32;
+  private static final int EVALUATION_STEPS = 128;
 
   /**
    * {@code AutomaticPolicyCandidates}에서 사용하는 행동의 불변 값이다.
@@ -180,8 +181,8 @@ public final class AutomaticPolicyCandidates {
   }
 
   public List<Candidate> top(int count) {
-    if (count < 1 || count > 10)
-      throw new IllegalArgumentException("Candidate count must be 1..10");
+    if (count < 1 || count > MAX_ALTERNATIVES)
+      throw new IllegalArgumentException("Candidate count outside evaluation budget");
     if (states.get(0).goal() || states.get(0).actions().isEmpty()) return List.of();
     var baseline = new TreeMap<Integer, String>();
     for (var entry : new TreeMap<>(states).entrySet()) {

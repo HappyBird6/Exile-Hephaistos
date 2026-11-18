@@ -131,13 +131,13 @@ it('ranks equal-looking percentages by exact mass and opens the chosen branch fr
     )
   }
   render(<Screen />, { wrapper: AppProviders })
-  const buttons = within(
-    screen.getByRole('list', { name: 'Crafting methods' }),
-  ).getAllByRole('button')
-  expect(buttons.map((b) => b.textContent)).toEqual([
-    '1REGAL50.00%',
-    '2EXALTED50.00%',
-  ])
+  const buttons = within(screen.getByRole('list', { name: 'Crafting methods' }))
+    .getAllByRole('button')
+    .filter((b) => b.hasAttribute('aria-pressed'))
+  expect(buttons).toHaveLength(2)
+  expect(buttons[0]).toHaveAccessibleName(/REGAL.*50.00%/)
+  expect(buttons[1]).toHaveAccessibleName(/EXALTED.*50.00%/)
+  expect(screen.getAllByRole('combobox')).toHaveLength(2)
   fireEvent.click(buttons[0]!)
   expect(screen.getAllByRole('combobox')).toHaveLength(2)
   fireEvent.click(screen.getByRole('button', { name: 'Start in workbench' }))

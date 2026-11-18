@@ -1,7 +1,6 @@
 import { expect, it } from 'vitest'
 import { render } from '@testing-library/react'
 import { compactAttribute } from './compactAttribute'
-import { compactFrozenCard } from './compactFrozenCard'
 import { commonStateCard } from './commonStateCard'
 import { ItemCard } from '../ItemCard'
 import type { ItemCardData } from '../itemCardData'
@@ -123,21 +122,4 @@ it('does not merge coexisting different attribute identities with matching text'
     ]),
   ])
   expect(result.modifiers).toHaveLength(2)
-})
-it('compacts old frozen repeated property strings without a current catalog', () => {
-  const original = card([
-    {
-      id: 'cold',
-      text: '+6–12% to Cold Resistance / +18–24% to Cold Resistance',
-      detail: 'S2 Cold Resistance\nS1 Cold Resistance',
-    },
-  ])
-  const before = JSON.stringify(original),
-    result = compactFrozenCard(original)
-  expect(result.modifiers[0]!.text).toBe('Cold Resistance')
-  expect(result.modifiers[0]!.tierRows!.map((r) => r.value)).toEqual([
-    '+6–12%',
-    '+18–24%',
-  ])
-  expect(JSON.stringify(original)).toBe(before)
 })

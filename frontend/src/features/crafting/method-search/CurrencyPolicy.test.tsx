@@ -43,7 +43,7 @@ it.each(locales)(
     ).not.toBeInTheDocument()
     expect(
       policy.entries.filter((e) => ['USE', 'CONDITIONAL'].includes(e.decision)),
-    ).toHaveLength(49)
+    ).toHaveLength(53)
     expect(within(dialog).getByText(chaosFirstAffixHints[locale])).toBeVisible()
     expect(policy.entries.map((e) => e.number)).toEqual(
       Array.from({ length: 187 }, (_, i) => i + 1),

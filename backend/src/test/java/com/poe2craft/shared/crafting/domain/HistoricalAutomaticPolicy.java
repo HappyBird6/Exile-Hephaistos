@@ -20,8 +20,17 @@ public final class HistoricalAutomaticPolicy {
   private HistoricalAutomaticPolicy() {}
 
   public static AutomaticCurrencyPolicy beforeDeferrals() {
+    return withHistoricalChaos(
+        Set.of("OMEN:SINISTRAL_ERASURE", "OMEN:DEXTRAL_ERASURE", "OMEN:WHITTLING"));
+  }
+
+  /** 두 옵션 카오스의 과거 수치 분포를 보존하면서 현행 티어 묶음을 검증한다. */
+  public static AutomaticCurrencyPolicy beforeFirstAffixRestriction() {
+    return withHistoricalChaos(Set.of());
+  }
+
+  private static AutomaticCurrencyPolicy withHistoricalChaos(Set<String> deferred) {
     var current = AutomaticCurrencyPolicyLoader.load().document();
-    var deferred = Set.of("OMEN:SINISTRAL_ERASURE", "OMEN:DEXTRAL_ERASURE", "OMEN:WHITTLING");
     var entries =
         current.entries().stream()
             .map(

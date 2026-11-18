@@ -911,6 +911,37 @@ public final class WorkbenchSimulator {
     validate(state);
     var action = execution.currency();
     var omens = List.copyOf(execution.omens());
+    if (action == WorkbenchCurrency.ANNULMENT) {
+      var availability = availability(state, action, omens);
+      if (!availability.available() || !WorkbenchOmens.matching(action, omens).containsAll(omens))
+        return new AutomaticCraftingPlan(
+            AutomaticCraftingPlan.Status.UNAVAILABLE, availability.reason(), List.of(), false, "");
+      var eligible = removalCandidates(state, action, omens);
+      boolean two = omens.contains(WorkbenchOmen.GREATER_ANNULMENT);
+      var branches = new ArrayList<AutomaticCraftingPlan.Branch>();
+      // 균등 비복원 추출이므로 순서가 다른 동일 조합은 한 번만 계산한다.
+      for (int i = 0; i < eligible.size(); i++) {
+        var remaining = new ArrayList<>(state.explicits());
+        remaining.remove(eligible.get(i));
+        if (!two) {
+          branches.add(
+              new AutomaticCraftingPlan.Branch(finishBasicCurrency(state, remaining), List.of()));
+          continue;
+        }
+        for (int j = i + 1; j < eligible.size(); j++) {
+          var pair = new ArrayList<>(remaining);
+          pair.remove(eligible.get(j));
+          branches.add(
+              new AutomaticCraftingPlan.Branch(finishBasicCurrency(state, pair), List.of()));
+        }
+      }
+      return new AutomaticCraftingPlan(
+          AutomaticCraftingPlan.Status.READY,
+          "",
+          branches,
+          false,
+          "https://poe2db.tw/us/Orb_of_Annulment");
+    }
     if (action == WorkbenchCurrency.TRANSMUTATION && omens.isEmpty()) {
       var plan = basicCurrencyPlan(state, action);
       return new AutomaticCraftingPlan(

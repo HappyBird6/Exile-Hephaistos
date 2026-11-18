@@ -193,6 +193,7 @@ class AutomaticEquipmentTierLawTest {
               .filter(
                   n ->
                       n.item().explicits().size() == 1
+                          && n.item().desecrated().isEmpty()
                           && n.item().explicits().getFirst().values().containsKey("a"))
               .toList();
       assertThat(inputs).hasSize(1);

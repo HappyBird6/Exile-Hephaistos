@@ -21,7 +21,7 @@ import java.util.*;
  * <p>필드·상수:
  *
  * <ul>
- *   <li>{@code VERSION}: 버전; 초기값 {@code "goal-reviewed-scalar-shared-pool-partition-v6"} ({@code
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "goal-reviewed-positive-sum-partition-v7"} ({@code
  *       String}).
  *   <li>{@code exact}: 정확값 ({@code boolean}).
  *   <li>{@code initial}: 초기값 ({@code ItemState}).
@@ -85,7 +85,7 @@ import java.util.*;
  * </ul>
  */
 public final class RollPartition {
-  public static final String VERSION = "goal-reviewed-scalar-shared-pool-partition-v6";
+  public static final String VERSION = "goal-reviewed-positive-sum-partition-v7";
   private final boolean exact;
   private final ItemState initial;
   private final Set<String> relevant, intervalSafe;
@@ -202,6 +202,7 @@ public final class RollPartition {
     }
     var safe = new HashSet<String>();
     var cuts = new HashMap<String, NavigableSet<BigInteger>>();
+    var exactSums = new HashSet<String>();
     boolean simple =
         goal.groups().stream()
             .filter(g -> !g.disabled())
@@ -233,8 +234,7 @@ public final class RollPartition {
               if (producers.isEmpty()) continue;
               var common = new HashSet<>(producers.getFirst().familyIds());
               producers.forEach(d -> common.retainAll(d.familyIds()));
-              if (common.isEmpty())
-                continue; // Several coexisting contributors can cross a threshold jointly.
+              if (common.isEmpty()) exactSums.add(m.sourceStatId());
               safe.add(m.sourceStatId());
               var boundaries = cuts.computeIfAbsent(m.sourceStatId(), ignored -> new TreeSet<>());
               if (entry.range() != null && entry.range().min() != null)
@@ -242,6 +242,30 @@ public final class RollPartition {
               if (entry.range() != null && entry.range().max() != null)
                 boundaries.add(raw(entry.range().max(), m, RoundingMode.FLOOR).add(BigInteger.ONE));
             }
+    // 함께 붙을 수 있는 양수 속성은 마지막 목표 경계까지 개별 값을 보존한다.
+    // 그 이상에서는 다른 양수 속성을 더하거나 빼도 남아 있는 속성 하나만으로 경계를 넘는다.
+    for (var stat : exactSums) {
+      var boundaries = cuts.get(stat);
+      var ranges =
+          catalog.modifiers().values().stream()
+              .flatMap(d -> d.stats().stream())
+              .filter(r -> r.id().equals(stat))
+              .toList();
+      if (ranges.stream().anyMatch(r -> r.min() < 0)
+          || root.explicits().stream().anyMatch(m -> m.values().getOrDefault(stat, 0L) < 0)
+          || root.implicits().stream().anyMatch(m -> m.values().getOrDefault(stat, 0L) < 0)) {
+        safe.remove(stat);
+        continue;
+      }
+      if (boundaries.isEmpty()) continue;
+      var last = boundaries.last();
+      if (last.compareTo(BigInteger.valueOf(2048)) > 0) {
+        safe.remove(stat);
+        continue;
+      }
+      for (long value = 0; BigInteger.valueOf(value).compareTo(last) < 0; value++)
+        boundaries.add(BigInteger.valueOf(value));
+    }
     // A known point must remain disjoint in probability space. Its artificial
     // boundaries do not change the goal or any later transition, however.
     var automaticCuts = new HashMap<String, NavigableSet<BigInteger>>();

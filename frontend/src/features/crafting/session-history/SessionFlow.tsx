@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { sessionTitle } from '../session-library/sessionTitle'
 import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
@@ -29,6 +30,69 @@ export function SessionFlow({
 }) {
   const { locale, name } = useI18n()
   const text = historyMessages[locale]
+  let steps: ReturnType<typeof extractSessionNotation>['steps'] = []
+  try {
+    steps = extractSessionNotation(film, film.frames.length - 1).steps
+  } catch {
+    /* Preserve every state even when its receipt cannot be read. */
+  }
+  const frames = film.frames.map((frame, index) => {
+    const step = steps.find((s) => s.frameIndex === index)
+    const currency =
+      step?.kind === 'reveal'
+        ? `${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
+        : step
+          ? name(
+              step.currencyId,
+              resources.find((r) => r.id === step.currencyId)?.name ??
+                step.currencyId,
+            )
+          : text.observation
+    const label = step
+      ? `${currency}${step.repeated ? ` × ${step.uses}` : ''}`
+      : text.observation
+    return {
+      label,
+      card: <HistoryCard film={film} frame={frame} />,
+      resources: (
+        <div
+          className="session-flow-resources"
+          title={
+            step?.consumedOmenIds
+              .map((id) =>
+                name(id, resources.find((r) => r.id === id)?.name ?? id),
+              )
+              .join(' + ') || undefined
+          }
+        >
+          {step && <NotationResources step={step} resources={resources} />}
+        </div>
+      ),
+    }
+  })
+  return (
+    <SessionFlowGrid
+      frames={frames}
+      columnCount={columnCount}
+      summary={
+        <>
+          <strong>{sessionTitle(film, locale)}</strong>
+          <CraftingCostLine film={film} cursor={film.frames.length - 1} />
+        </>
+      }
+    />
+  )
+}
+
+export function SessionFlowGrid({
+  frames,
+  summary,
+  columnCount,
+}: {
+  frames: { card: ReactNode; label: string; resources?: ReactNode }[]
+  summary: ReactNode
+  columnCount?: 1 | 2 | 4 | undefined
+}) {
   const grid = useRef<HTMLOListElement>(null)
   const [width, setWidth] = useState(window.innerWidth)
   useLayoutEffect(() => {
@@ -47,12 +111,6 @@ export function SessionFlow({
     }
   }, [])
   const columns = columnCount ?? (width <= 600 ? 1 : width <= 1100 ? 2 : 4)
-  let steps: ReturnType<typeof extractSessionNotation>['steps'] = []
-  try {
-    steps = extractSessionNotation(film, film.frames.length - 1).steps
-  } catch {
-    /* Preserve every state even when its receipt cannot be read. */
-  }
   return (
     <ol
       ref={grid}
@@ -64,37 +122,20 @@ export function SessionFlow({
       }}
     >
       <li
-        className={`session-flow-summary${columns === 1 ? ' session-flow-summary--one-column' : ''}${film.frames.length <= columns ? ' session-flow-summary--single-row' : ''}`}
+        className={`session-flow-summary${columns === 1 ? ' session-flow-summary--one-column' : ''}${frames.length <= columns ? ' session-flow-summary--single-row' : ''}`}
         aria-hidden="true"
         style={{
           gridRow: 2,
           gridColumn: 1,
         }}
       >
-        <div className="session-flow-summary__content">
-          <strong>{sessionTitle(film, locale)}</strong>
-          <CraftingCostLine film={film} cursor={film.frames.length - 1} />
-        </div>
+        <div className="session-flow-summary__content">{summary}</div>
       </li>
-      {film.frames.map((frame, index) => {
+      {frames.map((frame, index) => {
         const position = flowPosition(index, columns)
         const previous = index ? flowPosition(index - 1, columns) : position
         const down = previous.row !== position.row
         const reverse = position.column < previous.column
-        const step = steps.find((s) => s.frameIndex === index)
-        const currency =
-          step?.kind === 'reveal'
-            ? `${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
-            : step
-              ? name(
-                  step.currencyId,
-                  resources.find((r) => r.id === step.currencyId)?.name ??
-                    step.currencyId,
-                )
-              : text.observation
-        const label = step
-          ? `${currency}${step.repeated ? ` × ${step.uses}` : ''}`
-          : text.observation
         return (
           <Fragment key={index}>
             {index > 0 && (
@@ -103,7 +144,7 @@ export function SessionFlow({
                 data-flow-edge
                 data-from={index - 1}
                 data-to={index}
-                aria-label={label}
+                aria-label={frame.label}
                 style={{
                   gridRow: down ? position.row - 1 : position.row,
                   gridColumn: down
@@ -111,23 +152,7 @@ export function SessionFlow({
                     : Math.min(previous.column, position.column) + 1,
                 }}
               >
-                <div
-                  className="session-flow-resources"
-                  title={
-                    step?.consumedOmenIds
-                      .map((id) =>
-                        name(
-                          id,
-                          resources.find((r) => r.id === id)?.name ?? id,
-                        ),
-                      )
-                      .join(' + ') || undefined
-                  }
-                >
-                  {step && (
-                    <NotationResources step={step} resources={resources} />
-                  )}
-                </div>
+                {frame.resources}
                 <svg
                   className="session-flow-arrow"
                   aria-hidden="true"
@@ -144,7 +169,7 @@ export function SessionFlow({
                     }
                   />
                 </svg>
-                <span className="session-flow-label">{label}</span>
+                <span className="session-flow-label">{frame.label}</span>
               </li>
             )}
             <li
@@ -154,7 +179,7 @@ export function SessionFlow({
               data-flow-row={position.row}
               style={{ gridRow: position.row, gridColumn: position.column }}
             >
-              <HistoryCard film={film} frame={frame} />
+              {frame.card}
             </li>
           </Fragment>
         )

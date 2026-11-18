@@ -149,6 +149,7 @@ public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactor
                   GoalDefinitionsLoader.loadHistoricalV5())) {
             for (var identity :
                 java.util.Arrays.asList(
+                    request.start().provenance().rulesetIdentity(),
                     (String) null,
                     "reviewed-equipment-20261028-v5-a830beabb0506da58c864d19bcf428a72c3ecdb8f9fa42fe1e491e1e7c0b02b1",
                     "reviewed-equipment-20261028-v4-81ceaf5378ae88a6b874c0b8c04d729d35bd0f87a40c7b59a93ae16df03a6736",

@@ -47,6 +47,7 @@ import java.util.function.Function;
  *   <li>{@code preferAddition(source, choices, currency)}: prefer·추가 처리에서 {@code choices.stream},
  *       {@code c.initial}을(를) 사용한다. 입력: {@code source}(출처), {@code choices}(선택목록), {@code
  *       currency}(화폐).
+ *   <li>{@code blockedRefill(source)}: 일반 추가로 목표에 접근할 수 없을 때 소멸 후 사용할 엑잘을 반환한다.
  *   <li>{@code choices(source)}: 선택목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code source}(출처). 반환: {@code
  *       List<Choice>}.
  *   <li>{@code choices(source, initialStage)}: 선택목록 처리에서 {@code evaluate.apply}, {@code
@@ -234,6 +235,27 @@ public final class GoalDirectedPlanner {
     choices.addAll(ordered);
   }
 
+  /** 기본 엑잘로 접근할 수 없는 목표에서만 소멸 후 재추가를 검토한다. */
+  private AutomaticCraftingAction blockedRefill(ItemState source) {
+    if (source.rarity() != ItemState.Rarity.RARE
+        || !source.desecrated().isEmpty()
+        || source.explicitSlotCount() == 0
+        || inventory.stream().noneMatch(a -> a.currency() == WorkbenchCurrency.ANNULMENT)
+        || inventory.stream()
+            .noneMatch(a -> a.currency() == WorkbenchCurrency.EXALTED && a.omens().isEmpty()))
+      return null;
+    var refill =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.EXALTED,
+            Set.of(),
+            AutomaticCurrencyPolicy.Purpose.REFILL_AFTER_ANNULMENT);
+    var direct = kernel.plan(source, refill);
+    return direct.status() == AutomaticCraftingPlan.Status.READY
+            && kernel.representatives(direct).stream().anyMatch(t -> advances(source, t))
+        ? null
+        : refill;
+  }
+
   public List<Choice> choices(ItemState source) {
     return choices(source, true);
   }
@@ -290,6 +312,7 @@ public final class GoalDirectedPlanner {
                         Set.of(),
                         AutomaticCurrencyPolicy.Purpose.QUALITY_BASE_CHECKPOINT))));
     }
+    var refill = blockedRefill(source);
     var prerequisites = new ArrayList<AutomaticCraftingAction>();
     for (var action : inventory) {
       if (!allowChaos && action.currency() == WorkbenchCurrency.CHAOS) continue;
@@ -302,6 +325,21 @@ public final class GoalDirectedPlanner {
         if (AutomaticCraftingKernel.hasQualityCap(source)
             && (kernel.qualityGoal() == 0 || progress.entries().getLast() != Status.MATCH))
           result.add(new Choice(List.of(), List.of(action)));
+        continue;
+      }
+      if (action.currency() == WorkbenchCurrency.ANNULMENT) {
+        if (refill != null) {
+          var removal = kernel.plan(source, action);
+          if (removal.status() == AutomaticCraftingPlan.Status.READY
+              && removal.branches().stream()
+                  .map(AutomaticCraftingPlan.Branch::remaining)
+                  .filter(after -> preserves(progress, after))
+                  .anyMatch(
+                      after ->
+                          kernel.representatives(kernel.plan(after, refill)).stream()
+                              .anyMatch(t -> advances(source, t))))
+            result.add(new Choice(List.of(action), List.of(refill)));
+        }
         continue;
       }
       var plan = kernel.plan(source, action);

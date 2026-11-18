@@ -25,8 +25,8 @@ import org.junit.jupiter.api.Test;
  *       결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code manualQualityEnumsUseAlreadyExcludedSupplementaryEntries()}: 이름에 명시한 시나리오의 실제 결과·보존
  *       상태를 기대값과 비교한다.
- *   <li>{@code transmutationIsOnlyEnabledForAmuletRarityUpgradesAndAlchemyStaysExcluded()}: 이름에 명시한
- *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code transmutationEnablesEquipmentRarityUpgradesAndAlchemyStaysExcluded()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code temporaryAdditionsRequirePurposeAndMatchingOmenCurrency()}: 이름에 명시한 시나리오의 실제 결과·보존
  *       상태를 기대값과 비교한다.
  *   <li>{@code restrictionsUseAllApprovedPartsAndRejectUnreviewedParts()}: 이름에 명시한 시나리오의 실제 결과·보존
@@ -62,12 +62,12 @@ class AutomaticCurrencyPolicyTest {
                 Decision.USE,
                 33L,
                 Decision.CONDITIONAL,
-                16L,
+                20L,
                 Decision.EXCLUDED,
-                109L,
+                105L,
                 Decision.DEFERRED,
                 29L));
-    assertThat(policy.candidates()).hasSize(49);
+    assertThat(policy.candidates()).hasSize(53);
     assertThat(policy.candidates())
         .extracting(Entry::id)
         .contains(
@@ -135,7 +135,7 @@ class AutomaticCurrencyPolicyTest {
   }
 
   @Test
-  void transmutationIsOnlyEnabledForAmuletRarityUpgradesAndAlchemyStaysExcluded() {
+  void transmutationEnablesEquipmentRarityUpgradesAndAlchemyStaysExcluded() {
     assertThat(
             policy.evaluate(
                 "TRANSMUTATION",
@@ -150,7 +150,7 @@ class AutomaticCurrencyPolicyTest {
             policy.evaluate(
                 "TRANSMUTATION",
                 new Context("rings", Purpose.RARITY_UPGRADE, WorkbenchCurrency.TRANSMUTATION)))
-        .isEqualTo(Verdict.CONDITION_NOT_MET);
+        .isEqualTo(Verdict.PERMITTED);
     for (var id : List.of("ALCHEMY", "GREATER_TRANSMUTATION", "PERFECT_TRANSMUTATION"))
       assertThat(policy.evaluate(id, new Context("amulets", Purpose.RARITY_UPGRADE, null)))
           .isEqualTo(Verdict.EXCLUDED);
@@ -173,7 +173,7 @@ class AutomaticCurrencyPolicyTest {
     assertThat(policy.evaluate("OMEN:DEXTRAL_EXALTATION", regal))
         .isEqualTo(Verdict.CONDITION_NOT_MET);
     assertThat(policy.evaluate("OMEN:DEXTRAL_EXALTATION", exalt)).isEqualTo(Verdict.PERMITTED);
-    assertThat(policy.evaluate("ANNULMENT", exalt)).isEqualTo(Verdict.EXCLUDED);
+    assertThat(policy.evaluate("ANNULMENT", exalt)).isEqualTo(Verdict.CONDITION_NOT_MET);
     assertThat(policy.evaluate("OMEN:HOMOGENISING_EXALTATION", exalt)).isEqualTo(Verdict.EXCLUDED);
   }
 

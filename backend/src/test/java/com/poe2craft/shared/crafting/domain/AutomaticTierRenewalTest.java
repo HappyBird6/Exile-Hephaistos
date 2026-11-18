@@ -9,7 +9,6 @@ import com.poe2craft.craftingsupport.search.domain.AutomaticMethodExecution;
 import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
 import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner.Exit;
 import com.poe2craft.craftingsupport.search.domain.RollPartition;
-import com.poe2craft.craftingsupport.search.infrastructure.AutomaticCurrencyPolicyLoader;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
@@ -96,7 +95,7 @@ class AutomaticTierRenewalTest {
                 new GoalFilter.Range(null, null),
                 List.of(ItemState.Rarity.RARE)),
             List.of(new GoalFilter.Group("g", GoalFilter.Type.AND, false, null, entries)));
-    var policy = AutomaticCurrencyPolicyLoader.load();
+    var policy = HistoricalAutomaticPolicy.beforeFirstAffixRestriction();
     var scalar =
         new AutomaticCraftingKernel(
             policy,

@@ -1,4 +1,9 @@
-import { useContext, useMemo, useState } from 'react'
+import { SessionFlowGrid } from '../session-history/SessionFlow'
+import '../session-history/history.css'
+import { SessionListCard } from '../session-library/SessionListCard'
+import { sessionLibraryMessages } from '../session-library/sessionLibraryMessages'
+import { historyMessages } from '../session-history/messages'
+import { useContext, useMemo, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { ItemCard } from '../ItemCard'
 import type { ItemCardData } from '../itemCardData'
@@ -26,6 +31,8 @@ const labels = {
     '작업대에서 시작',
     '결과 선택',
     '제작 세션을 열 수 없습니다.',
+    '예상 화폐 사용 이력',
+    '선택한 경로에서 나올 수 있는 최종 아이템 예시입니다. 성공 확률은 이 방법으로 목표에 도달하는 모든 결과를 합산합니다.',
   ],
   en: [
     'Crafting methods',
@@ -33,6 +40,8 @@ const labels = {
     'Start in workbench',
     'Choose outcome',
     'Could not open the crafting session.',
+    'Planned currency history',
+    'One possible final item on the selected route. The success chance includes every result that meets the goal.',
   ],
   'zh-CN': [
     '制作方法',
@@ -40,6 +49,8 @@ const labels = {
     '在工作台开始',
     '选择结果',
     '无法打开制作会话。',
+    '预计通货使用记录',
+    '展示所选路线的一种最终物品。成功率包含所有达成目标的结果。',
   ],
   'zh-TW': [
     '製作方法',
@@ -47,6 +58,8 @@ const labels = {
     '在工作臺開始',
     '選擇結果',
     '無法開啟製作工作階段。',
+    '預計通貨使用紀錄',
+    '顯示所選路線的一種最終物品。成功率包含所有達成目標的結果。',
   ],
   ja: [
     '製作方法',
@@ -54,6 +67,8 @@ const labels = {
     '作業台で開始',
     '結果を選択',
     '製作セッションを開けません。',
+    '通貨の使用予定',
+    '選択した経路の最終アイテムの一例です。成功率は目標を達成するすべての結果を含みます。',
   ],
   es: [
     'Métodos de fabricación',
@@ -61,6 +76,8 @@ const labels = {
     'Empezar en el banco',
     'Elegir resultado',
     'No se pudo abrir la sesión.',
+    'Historial previsto de divisas',
+    'Un objeto final posible en la ruta elegida. La probabilidad incluye todos los resultados que cumplen el objetivo.',
   ],
   ru: [
     'Способы создания',
@@ -68,6 +85,8 @@ const labels = {
     'Начать на верстаке',
     'Выберите результат',
     'Не удалось открыть сессию.',
+    'План расхода валюты',
+    'Пример итогового предмета на выбранном пути. Шанс успеха учитывает все исходы, достигающие цели.',
   ],
   th: [
     'วิธีคราฟต์',
@@ -75,6 +94,8 @@ const labels = {
     'เริ่มที่โต๊ะคราฟต์',
     'เลือกผลลัพธ์',
     'เปิดเซสชันไม่ได้',
+    'ประวัติการใช้สกุลเงินตามแผน',
+    'ตัวอย่างไอเทมสุดท้ายในเส้นทางที่เลือก โอกาสสำเร็จรวมทุกผลลัพธ์ที่บรรลุเป้าหมาย',
   ],
 } as const
 
@@ -90,10 +111,30 @@ type Props = {
   onRoute: (route: Selection[]) => void
 }
 export function RankedCraftingSessions(props: Props) {
-  const { locale } = useI18n(),
+  const { locale, name } = useI18n(),
     copy = labels[locale],
     policy = policyCandidateMessages[locale]
+  const [terminal, setTerminal] = useState<{
+    source: number
+    key: string
+  } | null>(null)
   const [selected, setSelected] = useState('')
+  const dialog = useRef<HTMLDialogElement>(null)
+  const [overview, setOverview] = useState(false)
+  const session = sessionLibraryMessages[locale]
+  const baseName = name(
+    props.start.baseItemId,
+    props.view.nodes[0]
+      ? props.card(props.view.nodes[0]).name
+      : props.start.baseItemId,
+  )
+  const [edited, setEdited] = useState(false)
+  const choose = (plan: Plan) => {
+    setTerminal(null)
+    setEdited(false)
+    setSelected(plan.id)
+    props.onRoute(previewRoute(props.view, plan))
+  }
   const plans = useMemo(
     () => rankedPlans(props.view, props.cycles),
     [props.view, props.cycles],
@@ -108,6 +149,23 @@ export function RankedCraftingSessions(props: Props) {
         ),
     ) ??
     plans[0]
+  const route = useMemo(
+    () =>
+      chosen && !edited && !props.route.length
+        ? previewRoute(props.view, chosen)
+        : props.route,
+    [chosen, edited, props.route, props.view],
+  )
+  const detailProps = {
+    ...props,
+    terminal,
+    setTerminal,
+    route,
+    onRoute: (value: Selection[]) => {
+      setEdited(true)
+      props.onRoute(value)
+    },
+  }
   if (!chosen) return null
   return (
     <section className="session-plans">
@@ -117,31 +175,75 @@ export function RankedCraftingSessions(props: Props) {
       </header>
       <div className="session-plan-layout">
         <ol aria-label={copy[0]}>
-          {plans.map((p, i) => (
-            <li key={p.id}>
-              <button
-                aria-pressed={chosen.id === p.id}
-                onClick={() => {
-                  setSelected(p.id)
-                  props.onRoute(previewRoute(props.view, p))
-                }}
-              >
-                <span>{i + 1}</span>
-                <strong>
-                  {[...p.root.initial, ...p.root.cycle]
-                    .map(props.action)
-                    .join(' → ')}
-                </strong>
-                <span>
-                  {p.success
-                    ? probabilityText(p.success.lower, p.success)
-                    : policy.unresolved}
-                </span>
-              </button>
-            </li>
-          ))}
+          {plans.map((plan, index) => {
+            const title = [...plan.root.initial, ...plan.root.cycle]
+              .map(props.action)
+              .join(' → ')
+            const probability = plan.success
+              ? probabilityText(plan.success.lower, plan.success)
+              : policy.unresolved
+            return (
+              <li key={plan.id}>
+                <SessionListCard
+                  title={title}
+                  baseId={props.start.baseItemId}
+                  baseName={baseName}
+                  selected={chosen.id === plan.id}
+                  selectLabel={`${index + 1}. ${baseName} · ${title} · ${probability}`}
+                  onSelect={() => choose(plan)}
+                  metadata={
+                    <small>
+                      {baseName} · {policy.success} {probability}
+                    </small>
+                  }
+                  actions={
+                    <button
+                      className="wb-session-card__overview"
+                      onClick={() => {
+                        if (chosen.id !== plan.id) choose(plan)
+                        setOverview(true)
+                        dialog.current?.showModal()
+                      }}
+                    >
+                      {historyMessages[locale].title}
+                    </button>
+                  }
+                />
+              </li>
+            )
+          })}
         </ol>
-        <SessionSteps key={chosen.id} {...props} plan={chosen} />
+        {!overview && (
+          <SessionSteps key={chosen.id} {...detailProps} plan={chosen} />
+        )}
+        <dialog
+          ref={dialog}
+          className="session-plan-overview"
+          aria-label={historyMessages[locale].title}
+          onClose={() => setOverview(false)}
+        >
+          {overview && (
+            <>
+              <header>
+                <h2>{historyMessages[locale].title}</h2>
+                <button
+                  type="button"
+                  autoFocus
+                  onClick={() => dialog.current?.close()}
+                >
+                  {session.close}
+                </button>
+              </header>
+              <SessionSteps
+                key={chosen.id}
+                {...detailProps}
+                overview
+                allowStart={false}
+                plan={chosen}
+              />
+            </>
+          )}
+        </dialog>
       </div>
     </section>
   )
@@ -157,15 +259,19 @@ function SessionSteps({
   allowStart,
   start,
   route,
-}: Props & { plan: Plan }) {
+  terminal,
+  setTerminal,
+  overview = false,
+}: Props & {
+  plan: Plan
+  overview?: boolean
+  terminal: { source: number; key: string } | null
+  setTerminal: (value: { source: number; key: string } | null) => void
+}) {
   const { locale } = useI18n(),
     guide = guideMessages[locale],
     copy = labels[locale],
     policy = policyCandidateMessages[locale]
-  const [terminal, setTerminal] = useState<{
-    source: number
-    key: string
-  } | null>(null)
   const [opening, setOpening] = useState(false),
     [error, setError] = useState(false)
   const open = useContext(OpenCraftingSession)
@@ -184,6 +290,9 @@ function SessionSteps({
     visited = new Set<number>(),
     instructions: string[] = []
   let method: AutomaticArrow | undefined = plan.root
+  const flow = [{ card: <ItemCard item={card(root)} />, label: guide.start }]
+  let manualReveal = false
+  let finalNode: AutomaticNode | undefined
   while (method && frames.length < 64 && !visited.has(method.source)) {
     const current = method,
       index = frames.length
@@ -274,6 +383,27 @@ function SessionSteps({
         {result && <ItemCard item={card(result)} />}
       </li>,
     )
+    if (result && outcome) {
+      flow.push({
+        card: <ItemCard item={card(result)} />,
+        label:
+          actions.join(' → ') +
+          ' · ' +
+          repeat +
+          ' · ' +
+          probabilityText(outcome.probability.lower, outcome.probability),
+      })
+      manualReveal =
+        outcome.kind === 'CHECKPOINT' &&
+        result.discoveryFinished &&
+        !plan.decisions.has(result.id) &&
+        !!result.item.desecrated?.some((slot) => slot.modifierId == null)
+      if (
+        manualReveal ||
+        ['GOAL', 'LOSS', 'DEAD', 'REBASE'].includes(outcome.kind)
+      )
+        finalNode = result
+    }
     if (!outcome || !result || outcome.kind !== 'CHECKPOINT') break
     path.push({
       source: current.source,
@@ -285,11 +415,41 @@ function SessionSteps({
   }
   return (
     <article className="session-plan-steps">
-      <h3>{guide.route}</h3>
+      <h3>{sessionLibraryMessages[locale].finalState}</h3>
+      {finalNode && <p>{copy[6]}</p>}
+      {manualReveal && <p>{policy.end}</p>}
+      {finalNode ? (
+        <ItemCard item={card(finalNode)} />
+      ) : (
+        <p>{policy.unresolved}</p>
+      )}
+      <h4>{copy[5]}</h4>
+      <ol className="plan-currency-history">
+        {instructions.map((step, index) => (
+          <li key={index}>{step}</li>
+        ))}
+      </ol>
       {plan.candidate && <CandidateSummary candidate={plan.candidate} />}
-      <h4>{guide.start}</h4>
-      <ItemCard item={card(root)} />
-      <ol>{frames}</ol>
+      {overview ? (
+        <SessionFlowGrid
+          frames={flow}
+          summary={
+            <strong>
+              {policy.success}{' '}
+              {plan.success
+                ? probabilityText(plan.success.lower, plan.success)
+                : policy.unresolved}
+            </strong>
+          }
+        />
+      ) : (
+        <>
+          <h4>{guide.start}</h4>
+          <ItemCard item={card(root)} />
+          <h4>{guide.route}</h4>
+          <ol>{frames}</ol>
+        </>
+      )}
       {allowStart && open && (
         <button
           disabled={opening}

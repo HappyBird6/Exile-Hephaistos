@@ -356,35 +356,6 @@
   outline: 2px solid #63d1bb;
 }
 
-.scenario-import,
-.scenario-export {
-  padding: 0.8rem;
-  border: 1px solid #526675;
-  border-radius: 0.5rem;
-  margin-block: 0.8rem;
-}
-.scenario-import textarea,
-.scenario-export textarea {
-  width: 100%;
-  min-width: 0;
-  box-sizing: border-box;
-  overflow-wrap: anywhere;
-}
-.scenario-import pre {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  max-height: 20rem;
-  overflow: auto;
-}
-.scenario-import button,
-.scenario-export button {
-  margin: 0.3rem;
-}
-.scenario-preview {
-  border-left: 3px solid #63d1bb;
-  padding: 1rem;
-}
-
 .operation-alternatives button {
   display: block;
   width: 100%;
@@ -404,41 +375,7 @@
   max-width: 100%;
   margin-inline: 0;
 }
-#panel-support .scenario-import {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 12px 0;
-  margin: 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-}
-.scenario-code-entry {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  align-items: end;
-}
-.scenario-code-entry > label {
-  flex: 1 1 26rem;
-  min-width: 0;
-}
-#panel-support .scenario-code-entry textarea {
-  display: block;
-  width: 100%;
-  min-height: 48px;
-  height: 48px;
-  resize: vertical;
-  padding: 0.65rem;
-  background: #101512;
-  color: #dfcfad;
-  border: 1px solid #494737;
-  border-radius: 5px;
-  font:
-    14px ui-monospace,
-    monospace;
-}
-.scenario-code-entry > button,
+
 #crafting-policy {
   min-height: 44px;
   padding: 10px 14px;
@@ -448,27 +385,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.scenario-policy-control {
-  margin-left: auto;
-  flex: 0 1 auto;
-}
-.scenario-code-status,
-.scenario-code-help,
-.scenario-preview {
-  flex-basis: 100%;
-  min-width: 0;
-}
-.scenario-code-help {
-  color: #a7ac9e;
-  font-size: 0.9rem;
-}
+
 @media (max-width: 600px) {
-  .scenario-code-entry > label {
-    flex-basis: 100%;
-  }
-  .scenario-policy-control {
-    margin-left: auto;
-  }
   #panel-support .craft-start {
     margin-inline: 0;
   }
@@ -750,40 +668,7 @@
   position: static;
   width: auto;
 }
-.scenario-code-entry {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-}
-.scenario-code-entry > label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1 1 240px;
-}
-.scenario-code-entry textarea {
-  min-height: 2.2rem;
-  height: 2.2rem;
-  width: 100%;
-  resize: vertical;
-}
-.scenario-code-entry button {
-  white-space: nowrap;
-}
-.scenario-code-status {
-  font-size: 0.78rem;
-}
 
-.scenario-policy-control {
-  margin-left: 0;
-}
-#panel-support .scenario-code-entry textarea {
-  min-height: 34px;
-  height: 34px;
-  padding: 0.4rem;
-}
-.scenario-code-entry > button,
 .support-catalog-slot button,
 #crafting-policy {
   min-height: 34px;
@@ -804,13 +689,6 @@
 }
 .graph-zoom-controls .calculation-status {
   white-space: nowrap;
-}
-
-.scenario-code-entry > label {
-  white-space: nowrap;
-}
-.scenario-code-entry > label textarea {
-  min-width: 0;
 }
 
 .policy-candidates {
@@ -846,39 +724,47 @@
   margin-block: 0.5rem;
 }
 
+.support-controls,
 .session-plans > header,
-.session-plan-layout > ol button {
+.session-plan-overview > header {
   display: flex;
-  align-items: center;
   gap: 0.75rem;
+  align-items: center;
 }
-.session-plans > header {
+.support-controls {
+  padding-block: 0.75rem;
+}
+.session-plans > header,
+.session-plan-overview > header {
   justify-content: space-between;
 }
 .session-plan-layout {
   display: grid;
-  grid-template-columns: minmax(14rem, 2fr) minmax(0, 3fr);
+  grid-template-columns: minmax(15rem, 2fr) minmax(0, 3fr);
   gap: 1rem;
   align-items: start;
 }
 .session-plan-layout > ol {
+  display: grid;
+  gap: 0.5rem;
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
-.session-plan-layout > ol button {
-  width: 100%;
-  text-align: start;
-  padding: 0.8rem;
-  margin-bottom: 0.4rem;
+.session-plan-overview {
+  width: min(60rem, 94vw);
+  max-height: 88vh;
+  overflow: auto;
+  background: #202022;
+  color: inherit;
+  border: 1px solid #78653f;
+  padding: 1.2rem;
 }
-.session-plan-layout > ol button strong {
-  flex: 1;
-  overflow-wrap: anywhere;
+.session-plan-overview::backdrop {
+  background: rgb(0 0 0 / 0.65);
 }
-.session-plan-layout > ol button[aria-pressed='true'] {
-  outline: 2px solid currentColor;
-  outline-offset: -2px;
+.plan-currency-history {
+  padding-inline-start: 1.6rem;
 }
 .session-plan-steps {
   min-width: 0;

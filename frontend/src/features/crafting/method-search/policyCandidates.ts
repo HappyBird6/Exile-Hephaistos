@@ -70,7 +70,7 @@ export function validatePolicies(
       if (!Number.isSafeInteger(value) || value < 0 || value > 1000000) fail()
   }
   if (view.candidates === undefined) return
-  if (!Array.isArray(view.candidates) || view.candidates.length > 10) fail()
+  if (!Array.isArray(view.candidates) || view.candidates.length > 32) fail()
   const ids = new Set<string>()
   for (const c of view.candidates) {
     if (

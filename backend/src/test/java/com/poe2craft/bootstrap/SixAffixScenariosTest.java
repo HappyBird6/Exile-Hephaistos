@@ -13,10 +13,19 @@ import com.poe2craft.craftingsupport.search.api.PathSearchErrors;
 import com.poe2craft.craftingsupport.search.application.AutomaticSearchService;
 import com.poe2craft.craftingsupport.search.application.MethodSearchProtocol;
 import com.poe2craft.craftingsupport.search.application.MethodSearchService;
+import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
+import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner;
+import com.poe2craft.craftingsupport.search.domain.GoalDirectedPlanner;
+import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
+import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
 import com.poe2craft.shared.crafting.domain.BasicCurrencyState;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
+import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.probability.Fraction;
 import java.nio.file.Path;
 import java.util.*;
 import org.junit.jupiter.api.*;
@@ -79,6 +88,102 @@ class SixAffixScenariosTest {
                 })
             .toList();
     return f.item(ItemState.Rarity.RARE, 82, modifiers);
+  }
+
+  /** 3접두·3접미에서 분열 접두를 남기고, 양쪽 제한 및 2회 제거 분포와 신규 목표를 채울 경로를 검증한다. */
+  @Test
+  void annulmentAndOmensRemoveOnlyEligibleAffixesAndOfferARefill() {
+    var mods = new ArrayList<>(root(6).explicits());
+    var locked = mods.getFirst();
+    mods.set(0, new ModifierInstance(locked.modifierId(), locked.values(), true));
+    var item = f.item(ItemState.Rarity.RARE, 82, mods);
+    var goal = f.goal(item, Map.of("base_lightning_damage_resistance_%", 1L));
+    var kernel = f.kernel(item, goal);
+    for (var omens :
+        List.of(
+            Set.<WorkbenchOmen>of(),
+            Set.of(WorkbenchOmen.SINISTRAL_ANNULMENT),
+            Set.of(WorkbenchOmen.DEXTRAL_ANNULMENT),
+            Set.of(WorkbenchOmen.GREATER_ANNULMENT),
+            Set.of(WorkbenchOmen.DEXTRAL_ANNULMENT, WorkbenchOmen.GREATER_ANNULMENT))) {
+      var action =
+          new AutomaticCraftingAction(
+              WorkbenchCurrency.ANNULMENT, omens, AutomaticCurrencyPolicy.Purpose.ORDINARY);
+      var law = kernel.expand(item, action, 5000);
+      int eligible =
+          omens.contains(WorkbenchOmen.SINISTRAL_ANNULMENT)
+              ? 2
+              : omens.contains(WorkbenchOmen.DEXTRAL_ANNULMENT) ? 3 : 5;
+      boolean doubleRemoval = omens.contains(WorkbenchOmen.GREATER_ANNULMENT);
+      int combinations = doubleRemoval ? eligible * (eligible - 1) / 2 : eligible;
+      assertThat(law.outcomes()).hasSize(combinations);
+      for (var o : law.outcomes()) {
+        assertThat(o.probability().denominator().intValueExact()).isEqualTo(combinations);
+        assertThat(o.probability().numerator().intValueExact()).isEqualTo(1);
+        assertThat(o.item().explicits()).hasSize(doubleRemoval ? 4 : 5).contains(mods.getFirst());
+        var removed = mods.stream().filter(m -> !o.item().explicits().contains(m)).toList();
+        if (omens.contains(WorkbenchOmen.DEXTRAL_ANNULMENT)
+            || omens.contains(WorkbenchOmen.SINISTRAL_ANNULMENT))
+          assertThat(removed)
+              .allMatch(
+                  m ->
+                      catalog.find(m.modifierId()).orElseThrow().affixType()
+                          == (omens.contains(WorkbenchOmen.DEXTRAL_ANNULMENT)
+                              ? ModifierDefinition.AffixType.SUFFIX
+                              : ModifierDefinition.AffixType.PREFIX));
+      }
+    }
+    var choices =
+        new GoalDirectedPlanner(
+                kernel, f.evaluation(item, goal), AutomaticCraftingAction.candidates(policy))
+            .choices(item);
+    var pair =
+        choices.stream()
+            .filter(
+                c ->
+                    !c.initial().isEmpty()
+                        && c.initial().getFirst().currency() == WorkbenchCurrency.ANNULMENT
+                        && c.initial()
+                            .getFirst()
+                            .omens()
+                            .equals(Set.of(WorkbenchOmen.DEXTRAL_ANNULMENT))
+                        && c.cycle().getFirst().currency() == WorkbenchCurrency.EXALTED)
+            .findFirst()
+            .orElseThrow();
+    var evaluate = f.evaluation(item, goal);
+    var total = Fraction.ZERO;
+    var success = Fraction.ZERO;
+    for (var removal : kernel.expand(item, pair.initial().getFirst(), 5000).outcomes()) {
+      for (var addition :
+          kernel
+              .expandDeferred(removal.item(), Map.of(), pair.cycle().getFirst(), 5000)
+              .outcomes()) {
+        assertThat(addition.item().explicits()).hasSize(6).contains(mods.getFirst());
+        var probability = removal.probability().multiply(addition.probability());
+        total = total.add(probability);
+        if (evaluate.apply(addition.item()).goal() == GoalFilter.Status.MATCH)
+          success = success.add(probability);
+      }
+    }
+    assertThat(total).isEqualTo(Fraction.ONE);
+    assertThat(success).isNotEqualTo(Fraction.ZERO).isNotEqualTo(Fraction.ONE);
+    try (var graph = f.graph(item, goal)) {
+      f.exhaust(graph);
+      assertThat(graph.complete()).isTrue();
+      var method =
+          graph.methods().stream()
+              .filter(
+                  m ->
+                      m.source() == 0
+                          && m.template().initial().equals(pair.initial())
+                          && m.template().cycle().equals(pair.cycle()))
+              .findFirst()
+              .orElseThrow();
+      var goalMass =
+          method.points().get(1).exits().get(ExactMethodRunner.Exit.GOAL).values().stream()
+              .reduce(CertifiedInterval.zero(64), CertifiedInterval::add);
+      assertThat(goalMass.contains(success)).isTrue();
+    }
   }
 
   @Test

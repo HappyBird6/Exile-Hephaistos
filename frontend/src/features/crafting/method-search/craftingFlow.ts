@@ -423,15 +423,3 @@ export function candidateState(state: AbyssState, index: number): AbyssState {
     ),
   }
 }
-
-export const flowExportMessages: Record<Locale, string> = {
-  en: 'The scenario code contains the current automatic search segment. Desecration steps are restored in this browser only.',
-  ko: '시나리오 코드는 현재 일반 탐색 구간을 담습니다. 훼손 진행 단계는 이 브라우저에서 복원됩니다.',
-  'zh-CN': '方案代码仅包含当前自动搜索阶段。亵渎步骤仅在此浏览器中恢复。',
-  'zh-TW': '方案代碼僅包含目前自動搜尋階段。褻瀆步驟僅在此瀏覽器中恢復。',
-  ja: 'シナリオコードには現在の自動探索区間が含まれます。冒涜の手順はこのブラウザーでのみ復元されます。',
-  es: 'El código incluye el tramo actual de búsqueda automática. Los pasos de profanación se restauran solo en este navegador.',
-
-  ru: 'Код сценария содержит текущий сегмент автоматического поиска. Ступени осквернения восстанавливаются только в этом браузере.',
-  th: 'รหัสสถานการณ์ประกอบด้วยเซ็กเมนต์การค้นหาอัตโนมัติในปัจจุบัน ขั้นตอนการทำลายความลับจะถูกกู้คืนในเบราว์เซอร์นี้เท่านั้น',
-}

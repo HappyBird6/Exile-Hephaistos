@@ -1557,7 +1557,6 @@ public final class AutomaticMethodGraph implements AutoCloseable {
 
   public boolean complete() {
     return finished()
-        && !hasPendingObservation()
         && orderedNodes.stream()
             .allMatch(
                 n -> n.progress.goal() != Status.UNKNOWN && n.progress.goal() != Status.UNSUPPORTED)
@@ -2006,7 +2005,6 @@ public final class AutomaticMethodGraph implements AutoCloseable {
       var choices = new ArrayList<AutomaticPolicyCandidates.Action>();
       boolean open =
           !source.discovered
-              || !source.item.desecrated().isEmpty()
               || source.progress.goal() == Status.UNKNOWN
               || source.progress.goal() == Status.UNSUPPORTED;
       for (var method : source.outgoing) {
@@ -2029,7 +2027,14 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                 nodes.get(
                     new Identity(
                         state.item(), state.quality40(), state.abstractQuality(), state.tiers()));
-            target = node == null ? AutomaticPolicyCandidates.UNRESOLVED : node.id;
+            if (node == null) target = AutomaticPolicyCandidates.UNRESOLVED;
+            else if (node.discovered
+                && node.outgoing.isEmpty()
+                && node.progress.goal() == Status.NO_MATCH
+                && node.item.desecrated().stream().anyMatch(slot -> slot.modifierId() == null))
+              // 수동 드러내기는 이 자동 세션의 종료점이다. 관측 후 새 세션으로 이어간다.
+              target = AutomaticPolicyCandidates.REBASE;
+            else target = node.id;
           }
           outcomes.merge(target, mass.probability(), CertifiedInterval::add);
         }

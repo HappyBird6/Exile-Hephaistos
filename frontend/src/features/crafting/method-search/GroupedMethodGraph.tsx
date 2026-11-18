@@ -11,7 +11,6 @@ import {
 import { GraphCandidates } from './GraphCandidates'
 import { junkCard, tierCandidates, type JunkClassifier } from './graphDisplay'
 import { downstream } from './downstream'
-import { compactFrozenCard } from './compactFrozenCard'
 import { arrivalProbabilities } from './arrivalProbabilities'
 import { attemptLabel } from './attemptLabel'
 import { useLayoutEffect, useRef, useState } from 'react'
@@ -21,7 +20,6 @@ import type {
   AutomaticView,
 } from './automaticApi'
 import type { Selection } from './supportStorage'
-import type { Scenario } from './scenarioCode'
 import type { PathTreeProps } from '../path-tree/PathTree'
 import { methodPoint } from './methodObservation'
 import {
@@ -53,7 +51,6 @@ export function GroupedMethodGraph({
   select: onSelect,
   action,
   presentItem,
-  frozenCards,
   junk,
   flow,
   selectedFlow,
@@ -72,7 +69,6 @@ export function GroupedMethodGraph({
   action: (a: AutomaticAction) => string
   presentItem: PathTreeProps['presentItem']
   junk?: JunkClassifier | undefined
-  frozenCards?: Scenario['cards'] | undefined
   flow?: CraftingFlow
   selectedFlow?: string | null
   selectFlow?: (id: string) => void
@@ -114,14 +110,7 @@ export function GroupedMethodGraph({
   }, [])
   const [hovered, setHovered] = useState<string | null>(null)
   const [focused, setFocused] = useState<string | null>(null)
-  const classifyJunk: JunkClassifier | undefined =
-    junk ??
-    (frozenCards
-      ? (node, id) =>
-          frozenCards[String(node.id)]?.[locale]?.modifiers.find(
-            (line) => line.id === id,
-          )?.junkSide
-      : undefined)
+  const classifyJunk = junk
   const projection = stateProjection(view, cycles, classifyJunk)
   const highlighted = downstream(
     panning ? null : (hovered ?? focused),
@@ -139,9 +128,7 @@ export function GroupedMethodGraph({
     const card =
       id === 0 && flow?.carry
         ? abyssCard(flow.carry, presentItem, locale)
-        : frozenCards?.[String(id)]?.[locale]
-          ? compactFrozenCard(frozenCards[String(id)]![locale])
-          : presentAutomaticItem(n, locale, presentItem, view.nodes)
+        : presentAutomaticItem(n, locale, presentItem, view.nodes)
     renderedCards.set(id, card)
     return card
   }

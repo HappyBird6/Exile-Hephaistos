@@ -3,6 +3,7 @@ package com.poe2craft.craftingsupport.search.application;
 import com.poe2craft.craftingsupport.search.application.AutomaticSearchService.*;
 import com.poe2craft.craftingsupport.search.domain.AutomaticMethodExecution;
 import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
+import com.poe2craft.craftingsupport.search.domain.AutomaticPolicyCandidates;
 import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
 import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner.Exit;
 import com.poe2craft.craftingsupport.search.domain.TierCell;
@@ -183,7 +184,7 @@ final class AutomaticResultProjection {
   static List<PolicyCandidate> evaluate(AutomaticMethodGraph graph) {
     graph.refineStrategy(graph.strategy(100), 16);
     graph.updatePriorities();
-    return graph.policyCandidates(3).stream()
+    return graph.policyCandidates(AutomaticPolicyCandidates.MAX_ALTERNATIVES).stream()
         .map(
             c -> {
               var uses = new LinkedHashMap<String, ExpectedUse>();

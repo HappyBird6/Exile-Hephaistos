@@ -6,6 +6,8 @@ PoE2 아이템 텍스트 파싱, 검토된 카탈로그 기반 Workbench와 최�
 
 백엔드 코드 위치·API 담당 기능·설정 변경 방법은 [백엔드 안내](backend/README.md)를 확인하세요.
 
+제작지원에서 베이스와 목표 옵션을 선택하면 계산한 제작 세션이 성공 확률순으로 표시됩니다. 각 세션에서 최종 아이템 예시, 경로별 화폐 사용 순서와 세션 오버뷰를 볼 수 있습니다. ‘작업대에서 시작’을 누르면 같은 시작 아이템과 선택한 경로로 직접 제작할 수 있습니다.
+
 ## Docker 실행
 
 Docker Desktop의 Linux container 모드를 켜고 Windows PowerShell 5.1에서 실행합니다.
@@ -258,5 +260,5 @@ python docs/contracts/support-goal-filter-v1/verify_fixtures.py
 | 카오스 반복 | 기본 1000, 범위 1–1000 |
 | 반복 요청 본문 | 65536 UTF-8 bytes |
 | 패턴 | 길이 512, 깊이 16, 문법 노드 512, 프로그램 4096 |
-| 제작지원 정책 | approved-187-2026-10-30-strict-exalted-v8 |
+| 제작지원 정책 | approved-187-2026-11-18-session-crafting-v9 |
 <!-- generated:public-contracts:end -->

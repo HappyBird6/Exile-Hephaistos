@@ -124,6 +124,16 @@ public record AutomaticCraftingAction(
                   currency, omens, AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION));
         }
       }
+      if (currency == WorkbenchCurrency.ANNULMENT) {
+        for (var omens :
+            List.of(
+                Set.of(WorkbenchOmen.SINISTRAL_ANNULMENT),
+                Set.of(WorkbenchOmen.DEXTRAL_ANNULMENT),
+                Set.of(WorkbenchOmen.GREATER_ANNULMENT),
+                Set.of(WorkbenchOmen.GREATER_ANNULMENT, WorkbenchOmen.SINISTRAL_ANNULMENT),
+                Set.of(WorkbenchOmen.GREATER_ANNULMENT, WorkbenchOmen.DEXTRAL_ANNULMENT)))
+          result.add(new AutomaticCraftingAction(currency, omens, purpose));
+      }
       if (currency == WorkbenchCurrency.ESSENCE_BREACH)
         result.add(
             new AutomaticCraftingAction(

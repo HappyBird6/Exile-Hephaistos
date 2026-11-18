@@ -611,8 +611,9 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                 stationaryRetry ? root : preparedRepresentative(outcome.item()),
                 action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
                     || action.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION
-                    || (action.purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE
-                        && template.initial().contains(action)),
+                    || (template.initial().contains(action)
+                        && (action.purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE
+                            || action.currency() == WorkbenchCurrency.ANNULMENT)),
                 state.quality40()
                     || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT,
                 action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT
@@ -631,6 +632,24 @@ public final class AutomaticMethodExecution implements AutoCloseable {
             var representative = terminalRepresentatives.putIfAbsent(terminal, next);
             if (representative != null) next = representative;
           }
+        }
+        // 일반 장비에서 제왕까지 마친 성공 상태는 후속 전이가 없다. 같은 목표 구간의
+        // 결합 수치만 대표값으로 묶으며 각 실제 결과의 확률은 그대로 더한다.
+        if (action.currency() == WorkbenchCurrency.REGAL
+            && root.rarity() == ItemState.Rarity.NORMAL
+            && root.explicits().isEmpty()
+            && classifyState(next).orElse(null) == Exit.GOAL) {
+          var example = kernel.terminalRollExample(next.item());
+          if (example != next.item()
+              && classify.apply(example, next.abstractQuality()).orElse(null) == Exit.GOAL)
+            next =
+                new State(
+                    example,
+                    next.temporaryPreparation(),
+                    next.quality40(),
+                    next.abstractQuality(),
+                    next.tiers(),
+                    next.retainedFromRoot());
         }
         outcomes.merge(next, outcome.probability(), Fraction::add);
       }

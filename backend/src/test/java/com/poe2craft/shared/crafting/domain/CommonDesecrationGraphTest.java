@@ -28,7 +28,6 @@ import org.junit.jupiter.api.Test;
  *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
  *   <li>{@code commonSixSlotStateSupportsObservedReplacementAndExactProtectedRemoval()}: 이름에 명시한
  *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
- *   <li>{@code removalTestPolicy()}: 제거·검증·정책 값을 조회·구성한다. 반환: {@code AutomaticCurrencyPolicy}.
  * </ul>
  */
 class CommonDesecrationGraphTest {
@@ -91,11 +90,10 @@ class CommonDesecrationGraphTest {
           graph.nodes().stream().filter(n -> !n.item().desecrated().isEmpty()).toList();
       assertThat(preparedNodes).isNotEmpty();
       assertThat(graph.hasPendingObservation()).isTrue();
-      assertThat(graph.complete()).isFalse();
+      assertThat(graph.complete()).isTrue();
       var strategy = graph.strategy(100);
       for (int i = 0; i < 32; i++) strategy.refine();
-      assertThat(strategy.result(preparedNodes.getFirst().id()).status())
-          .isNotEqualTo("PROVEN_ZERO");
+      assertThat(strategy.result(preparedNodes.getFirst().id()).status()).isEqualTo("PROVEN_ZERO");
       assertThat(graph.methods())
           .noneMatch(
               m ->
@@ -110,7 +108,7 @@ class CommonDesecrationGraphTest {
     var f = new BasicCurrencyFixture();
     var locked = new ModifierInstance("a", Map.of("a", 1L), true);
     var root = f.item(ItemState.Rarity.RARE, List.of(locked));
-    var policy = removalTestPolicy();
+    var policy = AutomaticCurrencyPolicyLoader.load();
     var kernel =
         new AutomaticCraftingKernel(
             policy,
@@ -189,7 +187,7 @@ class CommonDesecrationGraphTest {
                 new ModifierInstance("m6", Map.of("m6", 1L))));
     var kernel =
         new AutomaticCraftingKernel(
-            removalTestPolicy(),
+            AutomaticCurrencyPolicyLoader.load(),
             catalog,
             new WorkbenchSimulator(catalog, new CraftingEngine(catalog)),
             "amulets");
@@ -241,40 +239,5 @@ class CommonDesecrationGraphTest {
         .hasSize(5)
         .allMatch(o -> o.item().explicits().contains(locked));
     assertThat(afterSelection.outcomes()).anyMatch(o -> o.item().desecrated().isEmpty());
-  }
-
-  private static AutomaticCurrencyPolicy removalTestPolicy() {
-    var source = AutomaticCurrencyPolicyLoader.load().document();
-    assertThat(
-            source.entries().stream()
-                .filter(e -> e.id().equals("ANNULMENT"))
-                .findFirst()
-                .orElseThrow()
-                .decision())
-        .isEqualTo(AutomaticCurrencyPolicy.Decision.EXCLUDED);
-    var entries =
-        source.entries().stream()
-            .map(
-                e ->
-                    e.id().equals("ANNULMENT")
-                        ? new AutomaticCurrencyPolicy.Entry(
-                            e.number(),
-                            e.id(),
-                            e.nameKo(),
-                            e.sourceUrl(),
-                            e.effectKo(),
-                            AutomaticCurrencyPolicy.Decision.USE,
-                            "Isolated numeric removal test only",
-                            AutomaticCurrencyPolicy.Condition.NONE)
-                        : e)
-            .toList();
-    return new AutomaticCurrencyPolicy(
-        new AutomaticCurrencyPolicy.Document(
-            source.schemaVersion(),
-            source.policyVersion(),
-            source.sourceUrl(),
-            source.sourceModifiedAt(),
-            source.maximumExploredExplicits(),
-            entries));
   }
 }

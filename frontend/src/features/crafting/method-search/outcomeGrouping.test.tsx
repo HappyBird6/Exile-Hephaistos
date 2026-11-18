@@ -367,7 +367,7 @@ it('keeps removal risk and incomplete calculation visible without opening outcom
     />,
   )
   const plans = await screen.findByRole('list', { name: 'Crafting methods' })
-  fireEvent.click(within(plans).getByRole('button'))
+  fireEvent.click(within(plans).getByRole('button', { pressed: true }))
   const steps = within(
     document.querySelector<HTMLElement>('.session-plan-steps')!,
   )
@@ -434,12 +434,18 @@ it('keeps each alternative selectable alongside the active session', async () =>
   )
   await screen.findByRole('heading', { name: 'Selected item' })
   const list = screen.getByRole('list', { name: 'Crafting methods' })
-  const methods = within(list).getAllByRole('button')
+  const methods = within(list)
+    .getAllByRole('button')
+    .filter((b) => b.hasAttribute('aria-pressed'))
   expect(methods).toHaveLength(2)
   for (const method of methods) {
     fireEvent.click(method)
     expect(method).toHaveAttribute('aria-pressed', 'true')
-    expect(within(list).getAllByRole('button')).toHaveLength(2)
+    expect(
+      within(list)
+        .getAllByRole('button')
+        .filter((b) => b.hasAttribute('aria-pressed')),
+    ).toHaveLength(2)
   }
 })
 

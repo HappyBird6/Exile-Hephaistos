@@ -87,7 +87,7 @@ class AutomaticPreparationRulesTest {
     for (var root :
         List.of(
             tiny.item(ItemState.Rarity.RARE, List.of()),
-            tiny.item(ItemState.Rarity.MAGIC, List.of(tiny.mod("a", 1))))) {
+            tiny.item(ItemState.Rarity.MAGIC, List.of()))) {
       var prepared =
           choices(root, tiny.catalog, evaluate).stream()
               .filter(

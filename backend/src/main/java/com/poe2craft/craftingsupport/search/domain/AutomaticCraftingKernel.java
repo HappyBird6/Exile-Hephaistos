@@ -39,6 +39,7 @@ import java.util.*;
  *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code WorkbenchSimulator}).
  *   <li>{@code family}: 옵션계열 ({@code String}).
  *   <li>{@code identity}: 정체성 ({@code Identity}).
+ *   <li>{@code terminalRolls}: 목표 판정 구간이 같은 복합 옵션의 실제 굴림 예시를 옵션 ID별로 보관한다.
  *   <li>{@code partition}: 분할 ({@code RollPartition}).
  *   <li>{@code qualityGoal}: 품질·목표 ({@code int}).
  *   <li>{@code tierGroupingSafe}: 티어·Grouping·안전범위 ({@code boolean}).
@@ -78,6 +79,7 @@ import java.util.*;
  *   <li>{@code automaticAbyss(item, evaluate, inventory)}: 자동·훼손 처리에서 {@code action.currency}을(를)
  *       사용한다. 입력: {@code item}(아이템), {@code evaluate}(평가), {@code inventory}(등록자료). 반환: {@code
  *       List<AutomaticAbyssSearch.Route>}.
+ *   <li>{@code terminalRollExample(item)}: 종료된 제작의 아이템을 같은 목표 구간의 실제 굴림으로 표현한다.
  *   <li>{@code rollBands(item)}: 수치굴림·Bands 처리에서 {@code item.explicits}, {@code
  *       catalog.modifiers}을(를) 사용한다. 입력: {@code item}(아이템). 반환: {@code Map<String, RollBand>}.
  *   <li>{@code initialChaosOnly()}: 초기값·카오스·제한 값을 조회·구성한다. 반환: {@code boolean}.
@@ -325,6 +327,9 @@ public final class AutomaticCraftingKernel {
   private final WorkbenchSimulator simulator;
   private final String family;
   private final Identity identity;
+  // 작업의 목표 경계별로 복합 옵션의 실제 표시용 굴림을 재사용한다.
+  private final Map<String, Map<ModifierInstance, ModifierInstance>> terminalRolls =
+      new HashMap<>();
   private final RollPartition partition;
   private int qualityGoal;
   private final boolean tierGroupingSafe;
@@ -395,6 +400,48 @@ public final class AutomaticCraftingKernel {
         new TreeSet<>(definition.familyIds()),
         new TreeSet<>(modifier.values().keySet()),
         modifier.fractured());
+  }
+
+  /** 종료된 제작의 복합 옵션은 목표 경계가 같은 실제 결합 굴림 하나로 표시한다. */
+  ItemState terminalRollExample(ItemState item) {
+    var explicits = new ArrayList<ModifierInstance>();
+    for (var modifier : item.explicits()) {
+      if (modifier.values().size() < 2 || modifier.fractured()) {
+        explicits.add(modifier);
+        continue;
+      }
+      var representative =
+          terminalRolls
+              .computeIfAbsent(
+                  modifier.modifierId(),
+                  id -> {
+                    var examples = new HashMap<Map<String, Object>, ModifierInstance>();
+                    var result = new HashMap<ModifierInstance, ModifierInstance>();
+                    simulator
+                        .automaticJointRolls(catalog.modifiers().get(id))
+                        .ifPresent(
+                            cells -> {
+                              for (var cell : cells) {
+                                var regions = new TreeMap<String, Object>();
+                                cell.modifier()
+                                    .values()
+                                    .forEach(
+                                        (stat, value) ->
+                                            regions.put(
+                                                stat, partition.automaticRegion(stat, value)));
+                                result.put(
+                                    cell.modifier(),
+                                    examples.computeIfAbsent(regions, ignored -> cell.modifier()));
+                              }
+                            });
+                    return result;
+                  })
+              .getOrDefault(modifier, modifier);
+      explicits.add(representative);
+    }
+    return explicits.equals(item.explicits())
+        ? item
+        : simulator.finishBasicCurrency(item, explicits);
   }
 
   public Object behaviorKey(ItemState item) {
@@ -637,6 +684,8 @@ public final class AutomaticCraftingKernel {
 
   private boolean strictExaltedAllowed(ItemState item, AutomaticCraftingAction action) {
     if (action.currency() != WorkbenchCurrency.EXALTED) return true;
+    if (action.purpose() == AutomaticCurrencyPolicy.Purpose.REFILL_AFTER_ANNULMENT)
+      return action.omens().isEmpty();
     if (action.purpose() == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION)
       return mutableAffixCount(item) == 0 && action.omens().isEmpty();
     return action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
@@ -913,7 +962,7 @@ public final class AutomaticCraftingKernel {
                   ? Status.UNAVAILABLE
                   : Status.UNSUPPORTED,
               plan.reason()));
-    if (!state.desecrated().isEmpty() && execution.currency() == WorkbenchCurrency.ANNULMENT) {
+    if (execution.currency() == WorkbenchCurrency.ANNULMENT) {
       var mass = Fraction.of(1, plan.branches().size());
       var outcomes =
           plan.branches().stream()

@@ -11,7 +11,7 @@ import java.util.*;
  * <p>필드·상수:
  *
  * <ul>
- *   <li>{@code VERSION}: 버전; 초기값 {@code "approved-187-2026-10-30-strict-exalted-v8"} ({@code
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "approved-187-2026-11-18-session-crafting-v9"} ({@code
  *       String}).
  *   <li>{@code MAXIMUM_EXPLORED_EXPLICITS}: 명시옵션목록; 초기값 {@code 6} ({@code int}).
  *   <li>{@code MANUAL_CURRENCY_POLICY_IDS}: 식별자목록 ({@code Map<String, String>}).
@@ -47,7 +47,7 @@ import java.util.*;
  * </ul>
  */
 public final class AutomaticCurrencyPolicy {
-  public static final String VERSION = "approved-187-2026-10-30-strict-exalted-v8";
+  public static final String VERSION = "approved-187-2026-11-18-session-crafting-v9";
   public static final int MAXIMUM_EXPLORED_EXPLICITS = 6;
   // The frozen 187-entry policy already excludes these as supplementary resources.
   // Their new manual enum names must not expand the approved automatic search inventory.
@@ -114,6 +114,7 @@ public final class AutomaticCurrencyPolicy {
    * </ul>
    */
   public enum Condition {
+    ANNULMENT,
     NONE,
     GOAL_ACQUISITION,
     FIRST_AFFIX_ACQUISITION,
@@ -145,6 +146,7 @@ public final class AutomaticCurrencyPolicy {
    *   <li>{@code TARGET_PREPARATION}: 준비 구분값.
    *   <li>{@code TEMPORARY_AFFIX_FOR_REMOVAL}: 제거 구분값.
    *   <li>{@code QUALITY_CHECKPOINT}: 체크포인트 구분값.
+   *   <li>{@code REFILL_AFTER_ANNULMENT}: 소멸로 확보한 자리에 목표 옵션을 추가한다.
    *   <li>{@code QUALITY_BASE_CHECKPOINT}: 체크포인트 구분값.
    * </ul>
    */
@@ -155,7 +157,8 @@ public final class AutomaticCurrencyPolicy {
     TARGET_PREPARATION,
     TEMPORARY_AFFIX_FOR_REMOVAL,
     QUALITY_CHECKPOINT,
-    QUALITY_BASE_CHECKPOINT
+    QUALITY_BASE_CHECKPOINT,
+    REFILL_AFTER_ANNULMENT
   }
 
   /**
@@ -337,15 +340,19 @@ public final class AutomaticCurrencyPolicy {
     boolean permitted =
         switch (entry.condition()) {
           case NONE, BREACH_QUALITY -> true;
+          case ANNULMENT -> context.currency() == WorkbenchCurrency.ANNULMENT;
           case RARITY_UPGRADE ->
               context.purpose() == Purpose.RARITY_UPGRADE
-                  && context.currency() == WorkbenchCurrency.TRANSMUTATION
-                  && context.family().equals("amulets");
+                  && context.currency() == WorkbenchCurrency.TRANSMUTATION;
           case FIRST_AFFIX_ACQUISITION -> context.purpose() == Purpose.GOAL_ACQUISITION;
           case GOAL_ACQUISITION ->
               context.purpose() == Purpose.GOAL_ACQUISITION
                   || context.purpose() == Purpose.TARGET_PREPARATION;
-          case TEMPORARY_REMOVAL -> temporary || context.purpose() == Purpose.GOAL_ACQUISITION;
+          case TEMPORARY_REMOVAL ->
+              temporary
+                  || context.purpose() == Purpose.GOAL_ACQUISITION
+                  || (context.purpose() == Purpose.REFILL_AFTER_ANNULMENT
+                      && context.currency() == WorkbenchCurrency.EXALTED);
           case TEMPORARY_REGAL_PREFIX, TEMPORARY_REGAL_SUFFIX ->
               (temporary || context.purpose() == Purpose.GOAL_ACQUISITION)
                   && context.currency() == WorkbenchCurrency.REGAL;

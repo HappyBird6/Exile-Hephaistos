@@ -13,21 +13,15 @@ import {
   abyssCard,
   materializeAbyss,
   flowMessages,
-  flowExportMessages,
   validFlow,
   restoreFlowPolicy,
   type CraftingFlow,
   type FlowTransition,
 } from './craftingFlow'
 import type { AbyssState } from '../AbyssPanel'
-import { junkClassifier } from './graphDisplay'
-import type { Definition } from '../craftingApi'
 import { CommonSlotObservation } from './CommonSlotObservation'
-import { compactFrozenCard } from './compactFrozenCard'
 import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
 import { NumericRollNotice } from './NumericRollNotice'
-import { ScenarioExport } from './ScenarioCodePanel'
-import type { Scenario } from './scenarioCode'
 import { OperationCards } from './OperationCards'
 import { retryMessages } from './retryMessages'
 import { capacityMessages } from './capacityMessages'
@@ -73,11 +67,7 @@ import type { AutomaticAction, AutomaticView } from './automaticApi'
 import './method-search.css'
 
 type Props = PathTreeProps & {
-  graphDefinitions?: Record<string, Definition> | undefined
-  targetSources?: string[] | undefined
-  snapshot?: Scenario | undefined
-  scenarioBaseKey?: string | undefined
-  goalLabels?: Scenario['goalLabels']
+  baseKey?: string | undefined
 }
 export function AutomaticMethodSearch(props: Props) {
   return (
@@ -102,13 +92,10 @@ function Workflow(props: Props) {
     }>((set) => ({
       saveError: false,
       value: restoreFlowPolicy(
-        props.snapshot
-          ? null
-          : readSupport(
-              'crafting-flow:' + props.request.clientRequestId,
-              (v): v is CraftingFlow =>
-                validFlow(v, props.request.clientRequestId),
-            ),
+        readSupport(
+          'crafting-flow:' + props.request.clientRequestId,
+          (v): v is CraftingFlow => validFlow(v, props.request.clientRequestId),
+        ),
       ) ?? {
         rareOutcomePolicy:
           readSupport('session-policy-preference', isRareOutcomePolicy) ??
@@ -125,12 +112,10 @@ function Workflow(props: Props) {
           const value = fn(s.value)
           return {
             value,
-            saveError:
-              !props.snapshot &&
-              !saveSupport(
-                'crafting-flow:' + props.request.clientRequestId,
-                value,
-              ),
+            saveError: !saveSupport(
+              'crafting-flow:' + props.request.clientRequestId,
+              value,
+            ),
           }
         }),
     })),
@@ -182,8 +167,6 @@ function Run({
   flow,
   changeFlow,
   continueFlow,
-  graphDefinitions,
-  targetSources,
   request,
   presentItem,
   onEditState,
@@ -191,9 +174,7 @@ function Run({
   abstractQuality40 = false,
   abstractQuality = abstractQuality40 ? 40 : 0,
   active = true,
-  snapshot,
-  scenarioBaseKey = 'solar',
-  goalLabels,
+  baseKey = 'solar',
 }: Props & FlowProps) {
   const { locale, name } = useI18n(),
     copy = methodSearchMessages[locale],
@@ -201,14 +182,6 @@ function Run({
     policy = policyMessages[locale],
     quality = qualityWorkMessages[locale]
   const [saved] = useState(() => {
-    if (snapshot)
-      return {
-        request: request.clientRequestId,
-        job: snapshot.result.id,
-        selected: snapshot.selected,
-        cycles: snapshot.cycles,
-        route: snapshot.route,
-      }
     const stored = readSupport('run', validRun)
     return stored?.request === request.clientRequestId ? stored : null
   })
@@ -300,14 +273,12 @@ function Run({
   const [controlPhase, setControlPhase] = useState<'STOP' | 'RESUME' | null>(
     null,
   )
-  const [runEnabled, setRunEnabled] = useState(!snapshot && !saved)
+  const cycles = 100
+  const [runEnabled, setRunEnabled] = useState(!saved)
   const [route, setRoute] = useState<Selection[]>(saved?.route ?? [])
-  const [view, setView] = useState<AutomaticView | null>(
-      snapshot?.result ?? null,
-    ),
+  const [view, setView] = useState<AutomaticView | null>(null),
     [failed, setFailed] = useState(false),
     [busy, setBusy] = useState(false),
-    [cycles, setCycles] = useState(snapshot?.cycles ?? 100),
     [selected, setSelected] = useState(saved?.selected ?? 0)
   const current = useRef<AutomaticView | null>(null),
     alive = useRef(false),
@@ -320,7 +291,6 @@ function Run({
     }
   }
   useEffect(() => {
-    if (snapshot) return
     alive.current = true
     mounted.current = true
     const turn = ++token.current
@@ -560,7 +530,7 @@ function Run({
   )
   const jobId = view?.id
   useEffect(() => {
-    if (!jobId || snapshot) return
+    if (!jobId) return
     const persist = () =>
       setStorageFailed(
         !saveSupport('run', {
@@ -577,7 +547,7 @@ function Run({
       clearTimeout(timer)
       window.removeEventListener('pagehide', persist)
     }
-  }, [jobId, request.clientRequestId, selected, cycles, route, snapshot])
+  }, [jobId, request.clientRequestId, selected, cycles, route])
   const selectNode = (id: number) => {
     setSelected(id)
     setRoute((previous) => {
@@ -605,7 +575,7 @@ function Run({
           )}
         />
       )}
-      {!snapshot && view?.reason !== 'LEGACY_READ_ONLY' && (
+      {view?.reason !== 'LEGACY_READ_ONLY' && (
         <div className="method-map__controls">
           <button
             onClick={stop}
@@ -684,7 +654,7 @@ function Run({
       {view?.reason === 'LEGACY_READ_ONLY' && (
         <p role="status">{legacyResultMessages[locale]}</p>
       )}
-      {!snapshot && view?.reason === 'LEGACY_READ_ONLY' && (
+      {view?.reason === 'LEGACY_READ_ONLY' && (
         <button onClick={onRecalculate}>{common.recalculate}</button>
       )}
       <NumericRollNotice models={view?.rollModels} />
@@ -701,15 +671,12 @@ function Run({
               action={action}
               identity={request.start.provenance.rulesetIdentity}
               allowStart={
-                !snapshot &&
                 view.reason !== 'LEGACY_READ_ONLY' &&
                 !flow.branch &&
                 !flow.prefix.length
               }
               card={(node) =>
-                snapshot?.cards[String(node.id)]?.[locale]
-                  ? compactFrozenCard(snapshot.cards[String(node.id)]![locale])
-                  : presentAutomaticItem(node, locale, presentItem, view.nodes)
+                presentAutomaticItem(node, locale, presentItem, view.nodes)
               }
               onRoute={(next) => {
                 setManualSelected(null)
@@ -745,11 +712,8 @@ function Run({
                 {selectedNode && (
                   <div className="method-map__states">
                     <article>
-                      {!snapshot && (
-                        <p>{strictExaltedMessages[locale].policy}</p>
-                      )}
-                      {!snapshot &&
-                        selectedNode.discoveryFinished &&
+                      <p>{strictExaltedMessages[locale].policy}</p>
+                      {selectedNode.discoveryFinished &&
                         selectedNode.progress.goal !== 'MATCH' &&
                         !view.methods.some(
                           (m) => m.source === selectedNode.id,
@@ -778,18 +742,12 @@ function Run({
                         item={
                           manualStep
                             ? abyssCard(manualStep.state, presentItem, locale)
-                            : snapshot?.cards[String(selectedNode.id)]?.[locale]
-                              ? compactFrozenCard(
-                                  snapshot.cards[String(selectedNode.id)]![
-                                    locale
-                                  ],
-                                )
-                              : presentAutomaticItem(
-                                  selectedNode,
-                                  locale,
-                                  presentItem,
-                                  view.nodes,
-                                )
+                            : presentAutomaticItem(
+                                selectedNode,
+                                locale,
+                                presentItem,
+                                view.nodes,
+                              )
                         }
                       />
                       {onEditState &&
@@ -861,13 +819,12 @@ function Run({
                 {(flow.branch || flow.prefix.length > 0) && (
                   <p>{flowMessages[locale].conditional}</p>
                 )}
-                {!snapshot &&
-                  selectedNode &&
+                {selectedNode &&
                   !!selectedNode.item.desecrated?.length &&
                   !automaticItemIsDistribution(selectedNode) && (
                     <CommonSlotObservation
                       item={selectedNode.item}
-                      base={scenarioBaseKey}
+                      base={baseKey}
                       identity={request.start.provenance.rulesetIdentity}
                       onTransition={(state, event) => {
                         if (flow.branch?.sourceNode === selectedNode.id) {
@@ -996,19 +953,11 @@ function Run({
                                 <select
                                   aria-label={copy.cycles}
                                   value={cycles}
-                                  onChange={(event) =>
-                                    setCycles(
-                                      snapshot
-                                        ? Number(event.target.value)
-                                        : 100,
-                                    )
-                                  }
+                                  disabled
                                 >
-                                  {(snapshot ? [100, 300, 500] : [100]).map(
-                                    (n) => (
-                                      <option key={n}>{n}</option>
-                                    ),
-                                  )}
+                                  {[100].map((n) => (
+                                    <option key={n}>{n}</option>
+                                  ))}
                                 </select>
                               </label>
                             )}
@@ -1133,43 +1082,8 @@ function Run({
           view={view}
           endingFailed={endingFailed}
           onInspect={setSelected}
-          onRestart={
-            snapshot
-              ? undefined
-              : () => {
-                  return endSession()
-                }
-          }
-          onPolicy={
-            snapshot
-              ? undefined
-              : (policy) => {
-                  return endSession(policy)
-                }
-          }
-        />
-      )}
-      {(flow.branch || flow.prefix.length > 0) && (
-        <p>{flowExportMessages[locale]}</p>
-      )}
-      {view && (
-        <ScenarioExport
-          request={request}
-          view={view}
-          selected={selectedNode?.id ?? 0}
-          cycles={cycles}
-          route={validRoute(view, route, cycles) ? route : []}
-          presentItem={presentItem}
-          abstractQuality40={abstractQuality40}
-          abstractQuality={abstractQuality}
-          baseKey={scenarioBaseKey}
-          frozen={snapshot}
-          goalLabels={goalLabels}
-          junk={
-            graphDefinitions
-              ? junkClassifier(targetSources, graphDefinitions)
-              : undefined
-          }
+          onRestart={() => endSession()}
+          onPolicy={(policy) => endSession(policy)}
         />
       )}
     </section>

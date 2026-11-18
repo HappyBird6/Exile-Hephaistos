@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "approved-187-2026-10-30-strict-exalted-v8",
+  "policyVersion": "approved-187-2026-11-18-session-crafting-v9",
   "sourceUrl": "https://drive.google.com/file/d/1T-V7AxH9BT6qMxFDfsWcpb9u9_o-LSYT/view",
   "sourceModifiedAt": "2026-10-15T08:05:34.858Z",
   "maximumExploredExplicits": 6,
@@ -12,7 +12,7 @@
       "sourceUrl": "https://poe2db.tw/kr/Orb_of_Transmutation",
       "effectKo": "일반 → 마법. 무작위 속성 1개를 부여한다.",
       "decision": "CONDITIONAL",
-      "restrictionKo": "목걸이의 등급 상승(일반 → 마법) 목적만 허용. 연금술의 오브 제외는 유지.",
+      "restrictionKo": "작업대에서 등급 상승이 가능한 일반 베이스를 마법으로 변경한다.",
       "condition": "RARITY_UPGRADE"
     },
     {
@@ -102,7 +102,7 @@
       "sourceUrl": "https://poe2db.tw/kr/Exalted_Orb",
       "effectKo": "희귀 아이템에 무작위 속성 1개를 추가한다.",
       "decision": "CONDITIONAL",
-      "restrictionKo": "최초 변경 가능한 속성 0개에서 카오스를 준비하는 첫 추가 또는 적법한 제거·추가 후속 작업용 더미 추가만 허용. 더미는 접두/접미 징조별로 표시하며 마무리 유효옵 채우기는 금지.",
+      "restrictionKo": "최초 변경 가능한 속성 0개에서 카오스를 준비하는 첫 추가 또는 적법한 제거·추가 후속 작업용 더미 추가만 허용. 더미는 접두/접미 징조별로 표시하며 마무리 유효옵 채우기는 금지. 소멸 후 빈 자리에 목표 옵션을 추가하는 경로도 허용한다.",
       "condition": "TEMPORARY_REMOVAL"
     },
     {
@@ -131,9 +131,9 @@
       "nameKo": "소멸의 오브",
       "sourceUrl": "https://poe2db.tw/kr/Orb_of_Annulment",
       "effectKo": "아이템의 무작위 속성 1개를 제거한다.",
-      "decision": "EXCLUDED",
-      "restrictionKo": "자동 탐색 제외. 수동 사용 후 트리 해당 지점의 아이템 상태를 수정하고 변경 상태에서 이후를 재탐색.",
-      "condition": "NONE"
+      "decision": "CONDITIONAL",
+      "restrictionKo": "작업대의 제거 가능 옵션과 징조 조건을 적용한다. 희귀 장비의 막힌 자리를 비우고 목표 옵션을 추가하는 경로를 탐색한다.",
+      "condition": "ANNULMENT"
     },
     {
       "number": 14,
@@ -1651,9 +1651,9 @@
       "nameKo": "상위 소멸의 징조",
       "sourceUrl": "https://poe2db.tw/kr/Omen_of_Greater_Annulment",
       "effectKo": "소멸 1회로 제거하는 속성이 2개가 됨.",
-      "decision": "EXCLUDED",
-      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
-      "condition": "NONE"
+      "decision": "CONDITIONAL",
+      "restrictionKo": "작업대의 제거 가능 옵션과 징조 조건을 적용한다. 희귀 장비의 막힌 자리를 비우고 목표 옵션을 추가하는 경로를 탐색한다.",
+      "condition": "ANNULMENT"
     },
     {
       "number": 166,
@@ -1731,9 +1731,9 @@
       "nameKo": "좌측 소멸의 징조",
       "sourceUrl": "https://poe2db.tw/kr/Omen_of_Sinistral_Annulment",
       "effectKo": "소멸의 제거 대상을 접두어로 제한.",
-      "decision": "EXCLUDED",
-      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
-      "condition": "NONE"
+      "decision": "CONDITIONAL",
+      "restrictionKo": "작업대의 제거 가능 옵션과 징조 조건을 적용한다. 희귀 장비의 막힌 자리를 비우고 목표 옵션을 추가하는 경로를 탐색한다.",
+      "condition": "ANNULMENT"
     },
     {
       "number": 174,
@@ -1741,9 +1741,9 @@
       "nameKo": "우측 소멸의 징조",
       "sourceUrl": "https://poe2db.tw/kr/Omen_of_Dextral_Annulment",
       "effectKo": "소멸의 제거 대상을 접미어로 제한.",
-      "decision": "EXCLUDED",
-      "restrictionKo": "자동 탐색 제외. 수동 시뮬레이터 사용은 유지하되 미구현 여부는 별도 표시.",
-      "condition": "NONE"
+      "decision": "CONDITIONAL",
+      "restrictionKo": "작업대의 제거 가능 옵션과 징조 조건을 적용한다. 희귀 장비의 막힌 자리를 비우고 목표 옵션을 추가하는 경로를 탐색한다.",
+      "condition": "ANNULMENT"
     },
     {
       "number": 175,
