@@ -143,7 +143,15 @@ public final class GameIdTransport extends RequestBodyAdviceAdapter
         || !(MediaType.APPLICATION_JSON.isCompatibleWith(type)
             || type.getSubtype().endsWith("+json"))) return body;
     var encoded = codec.encode(json.valueToTree(body));
-    response.getHeaders().set(GameIdMappings.HEADER, mappings.identity());
+    String representation = mappings.identity();
+    if (request.getURI().getPath().equals("/api/v1/crafting/workbench/apply")
+        && encoded instanceof com.fasterxml.jackson.databind.node.ObjectNode result
+        && result.path("snapshotId").isTextual()
+        && result.path("snapshotId").equals(result.path("state").path("snapshotId"))) {
+      result.remove("snapshotId");
+      representation += ".s";
+    }
+    response.getHeaders().set(GameIdMappings.HEADER, representation);
     response.getHeaders().remove(HttpHeaders.CONTENT_LENGTH);
     if (StringHttpMessageConverter.class.isAssignableFrom(converter)) {
       try {

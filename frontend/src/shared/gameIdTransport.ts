@@ -9,7 +9,7 @@ const forward = Object.fromEntries(
     ),
   ]),
 )
-export const gameIdIdentity = bundle.identity + '-fields2'
+export const gameIdIdentity = bundle.identity + '-fields3'
 export const gameIdHeader = 'X-Crafting-Ids'
 const bodyHeader = 'X-Crafting-Ids-Body'
 let negotiatedRuleset: string | null = null
@@ -170,21 +170,36 @@ export async function craftingFetch(
       )
     return response
   }
-  if (identity !== gameIdIdentity)
+  const sharedSnapshot =
+    path === '/api/v1/crafting/workbench/apply' &&
+    identity === gameIdIdentity + '.s'
+  if (identity !== gameIdIdentity && !sharedSnapshot)
     throw new Error('Identifier mappings differ; reload the crafting catalog')
   negotiatedRuleset = response.headers.get('X-Crafting-Ruleset')
-  return decodedResponse(response)
+  return decodedResponse(response, sharedSnapshot)
 }
 
-function decodedResponse(response: Response): Response {
+function decodedResponse(response: Response, sharedSnapshot: boolean): Response {
+  async function read() {
+    const value: unknown = await response.json()
+    if (sharedSnapshot) {
+      if (
+        !object(value) ||
+        Object.hasOwn(value, 'snapshotId') ||
+        !object(value.state) ||
+        typeof value.state.snapshotId !== 'string'
+      )
+        throw new Error('Invalid snapshot reference')
+      value.snapshotId = value.state.snapshotId
+    }
+    return transformGameIds(value, false)
+  }
   return new Proxy(response, {
     get(target, key) {
-      if (key === 'json')
-        return async () => transformGameIds(await target.json(), false)
-      if (key === 'text')
-        return async () =>
-          JSON.stringify(transformGameIds(await target.json(), false))
-      if (key === 'clone') return () => decodedResponse(target.clone())
+      if (key === 'json') return read
+      if (key === 'text') return async () => JSON.stringify(await read())
+      if (key === 'clone')
+        return () => decodedResponse(target.clone(), sharedSnapshot)
       const value = Reflect.get(target, key, target)
       return typeof value === 'function' ? value.bind(target) : value
     },

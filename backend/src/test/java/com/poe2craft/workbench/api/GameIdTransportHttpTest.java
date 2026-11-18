@@ -92,8 +92,11 @@ class GameIdTransportHttpTest {
             .andExpect(status().isOk())
             .andReturn()
             .getResponse();
-    assertThat(codec.decode(json.readTree(result.getContentAsString())).path("applied").asBoolean())
-        .isTrue();
+    var applied = codec.decode(json.readTree(result.getContentAsString()));
+    assertThat(result.getHeader(GameIdMappings.HEADER)).isEqualTo(ids.identity() + ".s");
+    assertThat(applied.has("snapshotId")).isFalse();
+    assertThat(applied.path("state").path("snapshotId")).isEqualTo(state.path("snapshotId"));
+    assertThat(applied.path("applied").asBoolean()).isTrue();
   }
 
   @Test

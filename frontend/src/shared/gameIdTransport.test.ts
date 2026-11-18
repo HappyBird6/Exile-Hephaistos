@@ -66,6 +66,17 @@ describe('identifier transport', () => {
       false,
     )
   })
+  it('restores the negotiated snapshot for json, text and cloned responses', async () => {
+    const body = { state: { snapshotId: 's' } }
+    const fetch = vi.fn(() => Promise.resolve(new Response(JSON.stringify(body), {
+      headers: { [gameIdHeader]: gameIdIdentity + '.s' },
+    })))
+    vi.stubGlobal('fetch', fetch)
+    const result = await craftingFetch('/api/v1/crafting/workbench/apply')
+    const expected = { ...body, snapshotId: 's' }
+    expect(JSON.parse(await result.clone().text())).toEqual(expected)
+    expect(await result.json()).toEqual(expected)
+  })
   it('keeps signed repeat bodies byte-for-byte unchanged', async () => {
     const fetch = vi.fn().mockResolvedValue(new Response('{}'))
     vi.stubGlobal('fetch', fetch)
