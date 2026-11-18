@@ -187,16 +187,16 @@ it('hides repetition N for a single Exalted, exposes individual outcomes and con
     />,
   )
   await screen.findByRole('heading', { name: 'Selected item' })
-  const group = document.querySelector('.graph-arrival-labels button')!
   expect(
     screen.queryByRole('combobox', { name: 'Method repetitions' }),
   ).not.toBeInTheDocument()
-  fireEvent.click(group)
-  const details = screen.getByRole('region', {
-    name: 'Candidates and probabilities',
-  })
-  expect(within(details).getAllByText(/25.00%/).length).toBeGreaterThan(0)
-  fireEvent.click(within(details).getByRole('button', { name: 'Result 1' }))
+  const choice = screen.getByRole('combobox', { name: 'Choose outcome' })
+  expect(
+    within(choice)
+      .getAllByRole('option')
+      .filter((o) => o.textContent?.includes('25.00%')),
+  ).toHaveLength(2)
+  fireEvent.change(choice, { target: { value: JSON.stringify(['GOAL', 1]) } })
   expect(await screen.findByLabelText('Other results')).toHaveValue('1')
   expect(
     screen.getByRole('region', { name: 'Crafting steps' }),
@@ -366,15 +366,13 @@ it('keeps removal risk and incomplete calculation visible without opening outcom
       onRecalculate={vi.fn()}
     />,
   )
-  await screen.findByText('An existing modifier may be removed.')
-  fireEvent.click(
-    screen.getAllByRole('button', { name: 'Select this item state' })[0]!,
+  const plans = await screen.findByRole('list', { name: 'Crafting methods' })
+  fireEvent.click(within(plans).getByRole('button'))
+  const steps = within(
+    document.querySelector<HTMLElement>('.session-plan-steps')!,
   )
-  expect(screen.getByText('An existing modifier may be removed.')).toBeVisible()
-  expect(
-    document.querySelector('.method-map__methods [role="status"]'),
-  ).toBeVisible()
-  expect(document.querySelector('.craft-outcomes')).not.toHaveAttribute('open')
+  expect(steps.getByText('An existing modifier may be removed.')).toBeVisible()
+  expect(steps.getByRole('status')).toHaveTextContent('Not yet determined')
 })
 
 it('labels preparation once and N only for the Chaos follower', async () => {
@@ -417,7 +415,7 @@ it('labels preparation once and N only for the Chaos follower', async () => {
   ).toHaveLength(1)
 })
 
-it('paints every graph arrow before every action label so later routes cannot obscure text', async () => {
+it('keeps each alternative selectable alongside the active session', async () => {
   const view = fixture()
   const alternative = structuredClone(view.methods[0]!)
   alternative.id = 'chaos-alternative'
@@ -435,17 +433,13 @@ it('paints every graph arrow before every action label so later routes cannot ob
     />,
   )
   await screen.findByRole('heading', { name: 'Selected item' })
-  const graph = document.querySelector('.method-map__overview svg')!
-  const arrows = [...graph.querySelectorAll('path[role="button"]')]
-  const labels = [...graph.querySelectorAll('.graph-action-label')]
-  expect(arrows.length).toBeGreaterThan(1)
-  expect(labels.length).toBeGreaterThan(1)
-  for (const arrow of arrows) {
-    for (const label of labels) {
-      expect(
-        arrow.compareDocumentPosition(label) & Node.DOCUMENT_POSITION_FOLLOWING,
-      ).not.toBe(0)
-    }
+  const list = screen.getByRole('list', { name: 'Crafting methods' })
+  const methods = within(list).getAllByRole('button')
+  expect(methods).toHaveLength(2)
+  for (const method of methods) {
+    fireEvent.click(method)
+    expect(method).toHaveAttribute('aria-pressed', 'true')
+    expect(within(list).getAllByRole('button')).toHaveLength(2)
   }
 })
 

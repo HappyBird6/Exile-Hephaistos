@@ -36,7 +36,18 @@ class HistoricalWorkbenchModelTest {
 
   static WorkbenchSimulator.AutomaticIdentity model() {
     var catalog = ItemCatalogLoader.loadDefault();
-    return new WorkbenchSimulator(catalog, new CraftingEngine(catalog)).automaticIdentity();
+    var model = new WorkbenchSimulator(catalog, new CraftingEngine(catalog)).automaticIdentity();
+    // 이 테스트가 다루는 마지막 품질 정책 판본 이후 추가된 제작 규칙과 분리한다.
+    var version =
+        "test-workbench-sanctification-independent-stat-percent-v1-"
+            + "user-selected-equipment-quality-maximum-v2";
+    return new WorkbenchSimulator.AutomaticIdentity(
+        version,
+        model.ledgerVersion(),
+        model.definitions(),
+        model.fixedTargets(),
+        model.replacementTargets(),
+        model.qualityPolicy());
   }
 
   WorkbenchSimulator.AutomaticIdentity old() {

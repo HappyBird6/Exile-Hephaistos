@@ -1,4 +1,8 @@
-import { LocalFilmRepository, historyStorageLimit } from '../workbenchHistory'
+import {
+  LocalFilmRepository,
+  historyStorageLimit,
+  validPlannedSteps,
+} from '../workbenchHistory'
 import type { Film, Films } from '../workbenchHistory'
 
 export const transferLimit = 2_000_000
@@ -39,6 +43,7 @@ export function decodeDocument(raw: string): SessionDocument {
     !d.film ||
     typeof d.film.id !== 'string' ||
     !d.film.id ||
+    !validPlannedSteps(d.film.plannedSteps) ||
     d.film.id.length > 256 ||
     (d.film.title !== undefined && typeof d.film.title !== 'string') ||
     (d.film.rulesetIdentity !== undefined &&

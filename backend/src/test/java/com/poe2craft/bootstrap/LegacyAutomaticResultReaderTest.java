@@ -13,6 +13,7 @@ import com.poe2craft.craftingsupport.search.application.MethodSearchProtocol;
 import com.poe2craft.craftingsupport.search.application.MethodSearchService;
 import com.poe2craft.craftingsupport.search.application.PathSearchProtocol;
 import com.poe2craft.craftingsupport.search.infrastructure.LocalAutomaticJobRepository;
+import com.poe2craft.shared.crafting.domain.BasicCurrencyState;
 import com.poe2craft.shared.item.ItemState;
 import java.nio.file.*;
 import java.util.*;
@@ -91,6 +92,34 @@ class LegacyAutomaticResultReaderTest {
     return service;
   }
 
+  /** 현재 작업을 생성할 때만 현재 카탈로그의 출처를 사용한다. 보관된 원본 문서는 그대로 검증한다. */
+  BasicCurrencyState currentStart(ItemState item) {
+    try (var service =
+        new MethodSearchService(
+            GoalDirectedPlannerScenariosTest.workbench.reviewedCatalogs(),
+            GoalDirectedPlannerScenariosTest.goals,
+            "legacy-read-fixture",
+            json)) {
+      var catalog =
+          GoalDirectedPlannerScenariosTest.workbench.reviewedCatalogs().stream()
+              .filter(c -> c.base().id().equals(item.baseItemId()))
+              .findFirst()
+              .orElseThrow();
+      var currentItem =
+          new ItemState(
+              catalog.metadata().snapshotId(),
+              item.baseItemId(),
+              item.itemLevel(),
+              item.rarity(),
+              item.implicits(),
+              item.explicits(),
+              item.conditions());
+      assertThat(new com.poe2craft.shared.item.ItemStateValidator(catalog).validate(currentItem))
+          .isEmpty();
+      return new BasicCurrencyState(currentItem, service.provenance(item.baseItemId()));
+    }
+  }
+
   ObjectNode fixture(String name) throws Exception {
     try (var stream = getClass().getResourceAsStream("/legacy-v8/" + name + ".json")) {
       var node = (ObjectNode) json.readTree(Objects.requireNonNull(stream));
@@ -119,6 +148,7 @@ class LegacyAutomaticResultReaderTest {
     var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     ((ObjectNode) requestNode.path("goal"))
         .put("catalogVersion", goals.catalog(context).catalogVersion());
+    requestNode.set("start", json.valueToTree(currentStart(item)));
     requestNode.put("clientRequestId", "previous-six-affix");
     String id;
     try (var service = open(true)) {
@@ -169,6 +199,7 @@ class LegacyAutomaticResultReaderTest {
     var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     ((ObjectNode) requestNode.path("goal"))
         .put("catalogVersion", goals.catalog(context).catalogVersion());
+    requestNode.set("start", json.valueToTree(currentStart(item)));
     requestNode.put("clientRequestId", "previous-six-affix");
     String id;
     try (var service = open(true)) {
@@ -373,7 +404,7 @@ class LegacyAutomaticResultReaderTest {
         new MethodSearchProtocol.Create(
             old.version(),
             "new-v9",
-            old.start(),
+            currentStart(old.start().item()),
             new GoalFilter(
                 old.goal().version(),
                 GoalDirectedPlannerScenariosTest.goals

@@ -845,3 +845,61 @@
   align-items: center;
   margin-block: 0.5rem;
 }
+
+.session-plans > header,
+.session-plan-layout > ol button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.session-plans > header {
+  justify-content: space-between;
+}
+.session-plan-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 2fr) minmax(0, 3fr);
+  gap: 1rem;
+  align-items: start;
+}
+.session-plan-layout > ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.session-plan-layout > ol button {
+  width: 100%;
+  text-align: start;
+  padding: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+.session-plan-layout > ol button strong {
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.session-plan-layout > ol button[aria-pressed='true'] {
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+}
+.session-plan-steps {
+  min-width: 0;
+}
+.session-plan-steps > ol > li {
+  margin-block: 1rem;
+}
+.session-plan-steps label {
+  display: grid;
+  gap: 0.4rem;
+}
+.session-plan-steps select {
+  max-width: 100%;
+}
+.workbench-method-guide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+@media (max-width: 720px) {
+  .session-plan-layout {
+    grid-template-columns: 1fr;
+  }
+}

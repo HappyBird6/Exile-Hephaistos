@@ -83,13 +83,13 @@ it('hides redundant target rarity and blocks resume at the maximum resource limi
   expect(document.querySelector('.automatic-inspector')).toBeNull()
   expect(document.querySelector('.search-resource-details')).toBeNull()
   expect(
-    document.querySelector('.graph-zoom-controls .calculation-status'),
+    document.querySelector('.automatic-workspace .calculation-status'),
   ).not.toBeNull()
   expect(screen.getByText(/Maximum resource limit reached/)).toBeInTheDocument()
   expectJobAndCatalogCalls(fetcher.mock.calls, 1)
 })
 
-it('keeps an unresolved target connection visible as a dashed edge', async () => {
+it('keeps unresolved outcome bounds visible in the selected crafting session', async () => {
   setLocale('en')
   const request = requestFixture()
   const server = { ...initial(), status: 'PARTIAL' as const }
@@ -129,7 +129,7 @@ it('keeps an unresolved target connection visible as a dashed edge', async () =>
         }),
     ),
   )
-  const mounted = render(
+  render(
     <AutomaticMethodSearch
       request={request}
       inputGeneration={1}
@@ -138,11 +138,14 @@ it('keeps an unresolved target connection visible as a dashed edge', async () =>
     />,
   )
   expect(await screen.findByLabelText('Other results')).toHaveValue('0')
-  await waitFor(() =>
-    expect(
-      mounted.container.querySelector('path.automatic-edge'),
-    ).toHaveAttribute('stroke-dasharray', '5 4'),
-  )
+  const outcome = await screen.findByRole('combobox', {
+    name: 'Choose outcome',
+  })
+  expect(outcome).toHaveTextContent('Not yet determined 1 · 0.00% – 100.00%')
+  fireEvent.change(outcome, {
+    target: { value: JSON.stringify(['UNRESOLVED', 1]) },
+  })
+  expect(screen.getByLabelText('Other results')).toHaveValue('1')
 })
 it('restores the same job and selection after remount without creating or advancing another job', async () => {
   const request = requestFixture()

@@ -68,7 +68,9 @@ final class SavedAutomaticResultReader {
             || "goal-directed-milestone-graph-v10-quality-goal".equals(graph.version());
     if (!graph.identity().catalogDigest().equals(runtime.kernel().identity().catalogDigest())
         || !HistoricalWorkbenchModel.matchesReadOnly(
-            graph.identity().model(), runtime.kernel().identity().model())
+            graph.identity().model(),
+            runtime.kernel().identity().model(),
+            graph.identity().catalogDigest())
         || !LegacyAutomaticResultReader.sameGoal(graph.objective(), runtime.objective()))
       throw new PathSearchProtocol.Rejected(409, "RECALCULATION_REQUIRED");
     if (!AutomaticSearchService.VERSION.equals(disk.version())

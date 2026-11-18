@@ -137,6 +137,18 @@ public final class SealedResources {
     }
   }
 
+  /** 과거 결과 전용 자료는 당시 해시로 검증하여 현재 게임 규칙 판본과 독립적으로 읽는다. */
+  public static InputStream openArchive(String name, String digest) throws IOException {
+    if (!name.startsWith("search-history/") || name.contains(".."))
+      throw new IllegalArgumentException("Invalid archive path");
+    try (var stream = SealedResources.class.getResourceAsStream("/" + name)) {
+      if (stream == null) throw new IOException("Missing historical resource");
+      byte[] bytes = stream.readAllBytes();
+      verify(name, bytes, Map.of(name, digest));
+      return new ByteArrayInputStream(bytes);
+    }
+  }
+
   public static InputStream open(String absolutePath) throws IOException {
     String key = absolutePath.startsWith("/") ? absolutePath.substring(1) : absolutePath;
     if (!Bundle.FILES.containsKey(key))

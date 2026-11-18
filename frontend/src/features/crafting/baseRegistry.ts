@@ -89,13 +89,17 @@ export function baseRarityAllowed(id: string, rarity: string): boolean {
   return basePolicy(id)?.rareOnly !== true || rarity === 'RARE'
 }
 
+export function baseIdForKey(key: string) {
+  return topEntries[key]?.id ?? legacyEntries[key]?.id
+}
+
 export function baseStartingRarity(key: string): 'NORMAL' | 'MAGIC' | 'RARE' {
-  const id = topEntries[key]?.id ?? legacyEntries[key]?.id
+  const id = baseIdForKey(key)
   return id && basePolicy(id)?.rareOnly ? 'RARE' : 'NORMAL'
 }
 
 export function newBaseSelectionAllowed(key: string): boolean {
-  const id = topEntries[key]?.id ?? legacyEntries[key]?.id
+  const id = baseIdForKey(key)
   return !!id && basePolicy(id)?.newSelection !== false
 }
 

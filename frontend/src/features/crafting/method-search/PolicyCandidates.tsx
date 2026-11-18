@@ -1,9 +1,10 @@
+import { CandidateSummary } from './CandidateSummary'
 import { useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { localizedAction } from '../localizedCrafting'
 import type { WorkbenchAction } from '../workbenchApi'
 import type { AutomaticAction, AutomaticView } from './automaticApi'
-import { probabilityText, quantityText } from './probabilityPresentation'
+import { probabilityText } from './probabilityPresentation'
 import {
   disabledRareOutcomePolicy,
   type RareOutcomePolicy,
@@ -14,10 +15,12 @@ export function PolicyCandidates({
   view,
   onRestart,
   endingFailed,
+  settingsOnly = false,
   onPolicy,
   onInspect,
 }: {
   view: AutomaticView
+  settingsOnly?: boolean
   endingFailed?: boolean
   onRestart?: (() => Promise<void>) | undefined
   onPolicy?: ((policy: RareOutcomePolicy) => Promise<void>) | undefined
@@ -39,95 +42,67 @@ export function PolicyCandidates({
   )
   return (
     <section className="policy-candidates" aria-label={copy.title}>
-      <h3>{copy.title}</h3>
-      <p>{copy.scope}</p>
+      {!settingsOnly && (
+        <>
+          <h3>{copy.title}</h3>
+          <p>{copy.scope}</p>
+        </>
+      )}
       {endingFailed && <p role="alert">{copy.cancelFailure}</p>}
-      <div className="policy-candidate-grid">
-        {(view.candidates ?? []).map((candidate, index) => (
-          <article key={candidate.id}>
-            <h4>{index + 1}</h4>
-            <dl>
-              {(['success', 'rebase', 'failure', 'unresolved'] as const).map(
-                (key) => (
-                  <div key={key}>
-                    <dt>{copy[key]}</dt>
-                    <dd>
-                      {probabilityText(candidate[key].lower, candidate[key])}
-                    </dd>
-                  </div>
-                ),
-              )}
-            </dl>
-            {candidate.rankStatus === 'OVERLAPPING' && <p>{copy.overlap}</p>}
-            <details>
-              <summary>{copy.uses}</summary>
-              {candidate.usageStatus === 'LOWER_BOUND_ONLY' && (
-                <p>{copy.lower}</p>
-              )}
-              <ul>
-                {Object.entries(candidate.expectedUses)
-                  .filter(([material]) => !material.startsWith('WORK:'))
-                  .map(([material, amount]) => (
-                    <li key={material}>
-                      {material.startsWith('OMEN:')
-                        ? name(
-                            material.slice(5),
-                            material.slice(5).replaceAll('_', ' '),
-                          )
-                        : localizedAction(material as WorkbenchAction)}
+      {!settingsOnly && (
+        <div className="policy-candidate-grid">
+          {(view.candidates ?? []).map((candidate, index) => (
+            <article key={candidate.id}>
+              <h4>{index + 1}</h4>
+              <CandidateSummary candidate={candidate} />
+              <details>
+                <summary>{copy.decisions}</summary>
+                {candidate.decisions.map((decision) => {
+                  const method = view.methods.find(
+                    (m) => m.id === decision.method,
+                  )!
+                  const point = method.points.find(
+                    (p) => p.cycles === candidate.cycles,
+                  )
+                  return (
+                    <div key={decision.node}>
+                      <button onClick={() => onInspect(decision.node)}>
+                        {copy.state} {decision.node}
+                      </button>
                       :{' '}
-                      {amount.upper
-                        ? `${quantityText(amount.lower)} – ${quantityText(amount.upper)}`
-                        : `≥ ${quantityText(amount.lower)}`}
-                    </li>
-                  ))}
-              </ul>
-            </details>
-            <details>
-              <summary>{copy.decisions}</summary>
-              {candidate.decisions.map((decision) => {
-                const method = view.methods.find(
-                  (m) => m.id === decision.method,
-                )!
-                const point = method.points.find(
-                  (p) => p.cycles === candidate.cycles,
-                )
-                return (
-                  <div key={decision.node}>
-                    <button onClick={() => onInspect(decision.node)}>
-                      {copy.state} {decision.node}
-                    </button>
-                    :{' '}
-                    {[...method.initial, ...method.cycle]
-                      .map(actionName)
-                      .join(' → ')}
-                    <ul>
-                      {point?.outcomes.map((outcome, i) => (
-                        <li key={i}>
-                          {probabilityText(
-                            outcome.probability.lower,
-                            outcome.probability,
-                          )}{' '}
-                          →{' '}
-                          {outcome.kind === 'REBASE'
-                            ? copy.rebase
-                            : outcome.kind === 'GOAL'
-                              ? copy.success
-                              : ['DEAD', 'LOSS', 'RETRY'].includes(outcome.kind)
-                                ? copy.failure
-                                : outcome.target === null
-                                  ? copy.unresolved
-                                  : `${copy.state} ${outcome.target}`}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )
-              })}
-            </details>
-          </article>
-        ))}
-      </div>
+                      {[...method.initial, ...method.cycle]
+                        .map(actionName)
+                        .join(' → ')}
+                      <ul>
+                        {point?.outcomes.map((outcome, i) => (
+                          <li key={i}>
+                            {probabilityText(
+                              outcome.probability.lower,
+                              outcome.probability,
+                            )}{' '}
+                            →{' '}
+                            {outcome.kind === 'REBASE'
+                              ? copy.rebase
+                              : outcome.kind === 'GOAL'
+                                ? copy.success
+                                : ['DEAD', 'LOSS', 'RETRY'].includes(
+                                      outcome.kind,
+                                    )
+                                  ? copy.failure
+                                  : outcome.target === null
+                                    ? copy.unresolved
+                                    : `${copy.state} ${outcome.target}`}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                })}
+              </details>
+            </article>
+          ))}
+        </div>
+      )}
       {ending && (
         <div role="status">
           <p>{copy.end}</p>

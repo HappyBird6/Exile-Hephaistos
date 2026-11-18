@@ -66,7 +66,9 @@ final class LegacyAutomaticResultReader {
     require(
         graph.identity().catalogDigest().equals(runtime.kernel().identity().catalogDigest())
             && HistoricalWorkbenchModel.matchesReadOnly(
-                graph.identity().model(), runtime.kernel().identity().model())
+                graph.identity().model(),
+                runtime.kernel().identity().model(),
+                graph.identity().catalogDigest())
             && sameGoal(graph.objective(), runtime.objective()));
     require(
         disk.revision() > 0

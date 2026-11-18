@@ -12,10 +12,13 @@ import com.poe2craft.craftingsupport.search.application.AutomaticKernelFactory;
 import com.poe2craft.craftingsupport.search.application.AutomaticSearchService;
 import com.poe2craft.craftingsupport.search.application.MethodSearchProtocol;
 import com.poe2craft.craftingsupport.search.application.PathSearchProtocol;
+import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
 import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
 import com.poe2craft.shared.crafting.domain.BasicCurrencyState;
+import com.poe2craft.shared.crafting.domain.CraftingEngine;
+import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 
@@ -28,6 +31,7 @@ import com.poe2craft.shared.item.ItemStateValidator;
  * <p>필드·상수:
  *
  * <ul>
+ *   <li>{@code policy}: 자동 제작에 허용한 화폐와 조건.
  *   <li>{@code workbench}: 작업대 ({@code CraftingOperations}).
  *   <li>{@code goals}: 목표목록 ({@code GoalFilterService}).
  *   <li>{@code legacy}: 구버전 ({@code MethodSearchService}).
@@ -51,6 +55,7 @@ import com.poe2craft.shared.item.ItemStateValidator;
  * </ul>
  */
 public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactory {
+  private final AutomaticCurrencyPolicy policy;
   private final CraftingOperations workbench;
   private final GoalFilterService goals;
   private final MethodSearchService legacy;
@@ -67,6 +72,7 @@ public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactor
       MethodSearchService legacy,
       ObjectMapper json,
       AutomaticCurrencyPolicy policy) {
+    this.policy = policy;
     this.workbench = workbench;
     this.goals = goals;
     this.legacy = legacy;
@@ -95,31 +101,6 @@ public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactor
           goalService.validate(
               new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel()),
               request.goal());
-          var affixGoal =
-              new GoalFilter(
-                  request.goal().version(),
-                  request.goal().catalogVersion(),
-                  new GoalFilter.General(
-                      general.baseItemId(), general.itemLevel(), general.rarities()),
-                  request.goal().groups());
-          java.util.function.Function<ItemState, GoalEvaluator.Evaluation> evaluate =
-              request.goal().groups().stream().anyMatch(g -> !g.disabled())
-                  ? goalService.compileEvaluation(item, affixGoal)
-                  : state ->
-                      new GoalEvaluator.Evaluation(
-                          1,
-                          affixGoal.catalogVersion(),
-                          affixGoal.general().rarities().contains(state.rarity())
-                                  && affixGoal
-                                      .general()
-                                      .itemLevel()
-                                      .contains(java.math.BigDecimal.valueOf(state.itemLevel()))
-                              ? GoalFilter.Status.MATCH
-                              : GoalFilter.Status.NO_MATCH,
-                          GoalFilter.Status.MATCH,
-                          java.util.List.of(),
-                          java.util.List.of());
-
           try {
             return new AutomaticSearchService.Runtime(
                 new AutomaticKernelFactory(workbench)
@@ -128,15 +109,7 @@ public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactor
                         goalService.rollPartition(item, request.goal()),
                         json.writeValueAsString(request.goal()))
                     .withQualityGoal(general.quality() == null ? 0 : general.quality()),
-                state -> {
-                  var result = evaluate.apply(state);
-                  return new AutomaticMethodGraph.Progress(
-                      result.status(),
-                      result.groups().stream()
-                          .flatMap(g -> g.entries().stream())
-                          .map(e -> e.status())
-                          .toList());
-                },
+                progress(goalService, item, request.goal()),
                 json.writeValueAsString(request.goal()),
                 goalService.minimumExplicitModifiers(item, request.goal()));
           } catch (java.io.IOException e) {
@@ -155,6 +128,8 @@ public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactor
       MethodSearchProtocol.Create request) {
 
     var item = request.start().item();
+    if (ArchivedSearchCatalog.supports(item.snapshotId(), request.goal().catalogVersion()))
+      return archivedRuntime(request);
     var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     var goal = request.goal();
     var goalService = goals;
@@ -217,5 +192,84 @@ public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactor
     } catch (java.io.IOException error) {
       throw new IllegalArgumentException("Cannot read historical objective", error);
     }
+  }
+
+  /** 당시 정의에서 옵션과 굴림 구간을 읽는다. 실행·재개에는 사용하지 않으며 표시용 목표만 로컬 인덱스의 판본에 연결한다. */
+  private AutomaticSearchService.Runtime archivedRuntime(MethodSearchProtocol.Create request) {
+    var goal = request.goal();
+    var item = request.start().item();
+    var catalog = ArchivedSearchCatalog.catalog();
+    try {
+      var key = goal.catalogVersion();
+      var service = historicalGoals.get(key);
+      if (service == null) {
+        var definitions =
+            GoalDefinitionsLoader.read(
+                new java.io.ByteArrayInputStream(
+                    json.writeValueAsBytes(ArchivedSearchCatalog.goalDefinitions(key))));
+        service =
+            new GoalFilterService(new GoalCatalogIndex(java.util.List.of(catalog), definitions));
+        if (historicalGoals.size() >= 4)
+          historicalGoals.remove(historicalGoals.keySet().iterator().next());
+        historicalGoals.put(key, service);
+      }
+      var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
+      var local =
+          new GoalFilter(
+              goal.version(),
+              service.catalog(context).catalogVersion(),
+              goal.general(),
+              goal.groups());
+      var kernel =
+          new AutomaticCraftingKernel(
+                  policy,
+                  catalog,
+                  new WorkbenchSimulator(catalog, new CraftingEngine(catalog)),
+                  "amulets")
+              .withRollPartition(service.rollPartition(item, local), json.writeValueAsString(goal))
+              .withQualityGoal(goal.general().quality() == null ? 0 : goal.general().quality());
+      return new AutomaticSearchService.Runtime(
+          kernel, progress(service, item, local), json.writeValueAsString(goal));
+    } catch (java.io.IOException invalid) {
+      throw new IllegalArgumentException("Cannot read historical objective", invalid);
+    }
+  }
+
+  /** 일반 목표와 옵션 목표를 당시 아이템 수준과 희귀도에 맞춰 평가한다. */
+  private static java.util.function.Function<ItemState, AutomaticMethodGraph.Progress> progress(
+      GoalFilterService goalService, ItemState item, GoalFilter goal) {
+    var general = goal.general();
+    var affixGoal =
+        new GoalFilter(
+            goal.version(),
+            goal.catalogVersion(),
+            new GoalFilter.General(general.baseItemId(), general.itemLevel(), general.rarities()),
+            goal.groups());
+    java.util.function.Function<ItemState, GoalEvaluator.Evaluation> evaluate =
+        affixGoal.groups().stream().anyMatch(g -> !g.disabled())
+            ? goalService.compileEvaluation(item, affixGoal)
+            : state ->
+                new GoalEvaluator.Evaluation(
+                    1,
+                    affixGoal.catalogVersion(),
+                    affixGoal.general().rarities().contains(state.rarity())
+                            && affixGoal
+                                .general()
+                                .itemLevel()
+                                .contains(java.math.BigDecimal.valueOf(state.itemLevel()))
+                        ? GoalFilter.Status.MATCH
+                        : GoalFilter.Status.NO_MATCH,
+                    GoalFilter.Status.MATCH,
+                    java.util.List.of(),
+                    java.util.List.of());
+    return state -> {
+      var result = evaluate.apply(state);
+      return new AutomaticMethodGraph.Progress(
+          result.status(),
+          result.groups().stream()
+              .flatMap(group -> group.entries().stream())
+              .map(entry -> entry.status())
+              .toList());
+    };
   }
 }

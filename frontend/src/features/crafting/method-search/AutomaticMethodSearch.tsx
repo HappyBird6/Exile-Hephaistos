@@ -36,7 +36,7 @@ import { legacyResultMessages } from './legacyResultMessages'
 import { sumBounds } from './outcomeGrouping'
 import { guideMessages } from './guideMessages'
 import { removesModifier } from './methodRisk'
-import { GroupedMethodGraph } from './GroupedMethodGraph'
+import { RankedCraftingSessions } from './RankedCraftingSessions'
 import { isRepeatable, methodPoint } from './methodObservation'
 import { outcomeMessages } from './outcomeMessages'
 import { CalculationStatus, CalculationControlLabel } from './CalculationStatus'
@@ -688,9 +688,448 @@ function Run({
         <button onClick={onRecalculate}>{common.recalculate}</button>
       )}
       <NumericRollNotice models={view?.rollModels} />
+      {!view && toolbar}
+      {view && (
+        <>
+          <div className="automatic-workspace">
+            {toolbar}
+            <RankedCraftingSessions
+              route={route}
+              start={request.start.item}
+              view={view}
+              cycles={cycles}
+              action={action}
+              identity={request.start.provenance.rulesetIdentity}
+              allowStart={
+                !snapshot &&
+                view.reason !== 'LEGACY_READ_ONLY' &&
+                !flow.branch &&
+                !flow.prefix.length
+              }
+              card={(node) =>
+                snapshot?.cards[String(node.id)]?.[locale]
+                  ? compactFrozenCard(snapshot.cards[String(node.id)]![locale])
+                  : presentAutomaticItem(node, locale, presentItem, view.nodes)
+              }
+              onRoute={(next) => {
+                setManualSelected(null)
+                setRoute(next)
+                setSelected(next.at(-1)?.target ?? 0)
+              }}
+            />
+            <details>
+              <summary>{guide.details}</summary>
+              <div className="graph-selection-content">
+                <h3>{guide.selected}</h3>
+                <details className="item-switcher">
+                  <summary>{guide.otherItems}</summary>
+                  <label>
+                    <span className="goal-filter-sr-only">
+                      {guide.otherItems}
+                    </span>
+                    <select
+                      aria-label={guide.otherItems}
+                      value={selectedNode?.id ?? 0}
+                      onChange={(e) => selectNode(Number(e.target.value))}
+                    >
+                      {view.nodes.map((n, index) => (
+                        <option key={n.id} value={n.id}>
+                          {n.id === 0
+                            ? guide.start
+                            : guide.result + ' ' + index}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+                </details>
+                {selectedNode && (
+                  <div className="method-map__states">
+                    <article>
+                      {!snapshot && (
+                        <p>{strictExaltedMessages[locale].policy}</p>
+                      )}
+                      {!snapshot &&
+                        selectedNode.discoveryFinished &&
+                        selectedNode.progress.goal !== 'MATCH' &&
+                        !view.methods.some(
+                          (m) => m.source === selectedNode.id,
+                        ) && (
+                          <p role="status">
+                            {strictExaltedMessages[locale].blocked}
+                          </p>
+                        )}
+                      {selectedNode.quality40 && <p>{quality.completed}</p>}
+                      {!selectedNode.quality40 &&
+                        (selectedNode.abstractQuality ?? 0) >= 20 && (
+                          <p>{qualityGoalMessages[locale].work20} ✓</p>
+                        )}
+                      <p>
+                        {manualStep
+                          ? common.unknown
+                          : selectedNode.progress.goal === 'MATCH'
+                            ? common.hit
+                            : selectedNode.progress.goal === 'NO_MATCH'
+                              ? common.noMatch
+                              : selectedNode.progress.goal === 'UNSUPPORTED'
+                                ? common.unsupported
+                                : common.unknown}
+                      </p>
+                      <ItemCard
+                        item={
+                          manualStep
+                            ? abyssCard(manualStep.state, presentItem, locale)
+                            : snapshot?.cards[String(selectedNode.id)]?.[locale]
+                              ? compactFrozenCard(
+                                  snapshot.cards[String(selectedNode.id)]![
+                                    locale
+                                  ],
+                                )
+                              : presentAutomaticItem(
+                                  selectedNode,
+                                  locale,
+                                  presentItem,
+                                  view.nodes,
+                                )
+                        }
+                      />
+                      {onEditState &&
+                        automaticItemIsDistribution(selectedNode) && (
+                          <p>{distributionEditMessages[locale]}</p>
+                        )}
+                      {onEditState &&
+                        !selectedNode.item.desecrated?.length &&
+                        !manualStep &&
+                        !flow.carry &&
+                        !automaticItemIsDistribution(selectedNode) && (
+                          <>
+                            <button
+                              onClick={() => {
+                                stop()
+                                onEditState(
+                                  structuredClone(selectedNode.item),
+                                  {
+                                    abstractQuality40: selectedNode.quality40,
+                                    abstractQuality:
+                                      selectedNode.abstractQuality ??
+                                      (selectedNode.quality40 ? 40 : 0),
+                                  },
+                                )
+                              }}
+                            >
+                              {guide.edit}
+                            </button>
+                          </>
+                        )}
+                    </article>
+                  </div>
+                )}
+                <CandidateRoute
+                  view={view}
+                  selected={selectedNode?.id ?? 0}
+                  cycles={cycles}
+                  route={route}
+                  choose={chooseEdge}
+                  clear={() => setRoute([])}
+                  action={action}
+                />
+                {view.methods.some(
+                  (m) =>
+                    m.source === selectedNode?.id &&
+                    m.cycle.some((a) => a.comparison),
+                ) && (
+                  <p>
+                    {
+                      {
+                        en: 'p%(~N%): next modifier selection before / after selecting the highest-weight non-target blocker. This is not a reveal probability or the full goal chance.',
+                        ko: 'p%(~N%): 다음 속성 선택의 기준 확률 / 최고 가중치 비목표 차단 옵션 선택 후 확률입니다. 드러내기 추첨 확률이나 전체 목표 성공률이 아닙니다.',
+                        'zh-CN':
+                          'p%(~N%)：下一条属性的基准概率 / 选择最高权重非目标阻挡属性后的概率。不是揭示抽取概率或完整目标成功率。',
+                        'zh-TW':
+                          'p%(~N%)：下一條屬性的基準機率 / 選擇最高權重非目標阻擋屬性後的機率。不是揭示抽取機率或完整目標成功率。',
+                        ja: 'p%(~N%)：次の特性選択の基準確率 / 最大重みの非目標ブロッカー選択後の確率。公開候補の抽選確率や目標全体の成功率ではありません。',
+                        es: 'p%(~N%): probabilidad base del siguiente modificador / tras elegir el bloqueador no objetivo de mayor peso. No es la probabilidad de revelado ni del objetivo completo.',
+
+                        ru: 'p%(~N%): следующий выбор модификатора до/после выбора нецелевого блокирующего с наибольшим весом. Это не вероятность раскрытия или полная вероятность гола.',
+                        th: 'p%(~N%): การเลือกม็อดถัดไปก่อน/หลังการเลือกตัวบล็อกที่ไม่ใช่เป้าหมายที่มีน้ำหนักสูงสุด นี่ไม่ใช่การเปิดเผยความน่าจะเป็นหรือโอกาสทำประตูทั้งหมด',
+                      }[locale]
+                    }
+                  </p>
+                )}
+                {view.methods.some((m) => m.source === selectedNode?.id) && (
+                  <h3>{guide.next}</h3>
+                )}
+                {(flow.branch || flow.prefix.length > 0) && (
+                  <p>{flowMessages[locale].conditional}</p>
+                )}
+                {!snapshot &&
+                  selectedNode &&
+                  !!selectedNode.item.desecrated?.length &&
+                  !automaticItemIsDistribution(selectedNode) && (
+                    <CommonSlotObservation
+                      item={selectedNode.item}
+                      base={scenarioBaseKey}
+                      identity={request.start.provenance.rulesetIdentity}
+                      onTransition={(state, event) => {
+                        if (flow.branch?.sourceNode === selectedNode.id) {
+                          transition(state, event)
+                          return
+                        }
+                        changeFlow((old) => ({
+                          ...old,
+                          anchor:
+                            old.anchor ?? (selectedNode.item as ConcreteItem),
+                          branch: {
+                            sourceNode: selectedNode.id,
+                            source: selectedNode.item as ConcreteItem,
+                            prepared: state,
+                            action: 'EXALTED',
+                            omens: [],
+                            steps: [
+                              {
+                                id: crypto.randomUUID(),
+                                state,
+                                transition: event,
+                              },
+                            ],
+                          },
+                        }))
+                      }}
+                      onContinue={(state, item) => {
+                        stop()
+                        continueFlow(state, item)
+                      }}
+                    />
+                  )}
+                <div className="method-map__methods">
+                  <OperationCards
+                    recommendations={view.recommendations}
+                    methods={view.methods.filter(
+                      (m) => !manualStep && m.source === selectedNode?.id,
+                    )}
+                    cycles={cycles}
+                    action={action}
+                    render={(m, methodIndex) => {
+                      const point = methodPoint(m, cycles)
+                      const local = recommendations?.local.includes(m.id),
+                        final =
+                          view.complete &&
+                          recommendations?.strategyMethods.includes(m.id)
+                      return (
+                        <details
+                          className="craft-choice"
+                          key={m.id}
+                          open={methodIndex === 0}
+                        >
+                          <summary>
+                            <strong>
+                              {m.initial
+                                .concat(m.cycle)
+                                .map(action)
+                                .join(' → ')}
+                            </strong>
+                            <span>
+                              {isRepeatable(m)
+                                ? (m.initial.length
+                                    ? m.initial.map(action).join(' → ') +
+                                      ' · ' +
+                                      m.cycle.map(action).join(' → ') +
+                                      ': '
+                                    : '') +
+                                  guide.within.replace('{n}', String(cycles))
+                                : m.executionMode === 'PENDING'
+                                  ? outcomeMessages[locale].pending
+                                  : ''}
+                            </span>
+                            {point && (
+                              <span className="craft-chance">
+                                {(() => {
+                                  const goal = point.outcomes.filter(
+                                    (o) => o.kind === 'GOAL',
+                                  )
+                                  const next = goal.length
+                                    ? goal
+                                    : point.outcomes.filter(
+                                        (o) => o.kind === 'CHECKPOINT',
+                                      )
+                                  if (!next.length) return common.unknown
+                                  const mass = sumBounds(
+                                    next.map((o) => o.probability),
+                                  )
+                                  return (
+                                    (goal.length
+                                      ? common.hit
+                                      : copy.checkpoint) +
+                                    ': ' +
+                                    probabilityText(mass.lower, mass)
+                                  )
+                                })()}
+                              </span>
+                            )}
+                          </summary>
+                          <article
+                            className={
+                              final || local ? 'method-map__recommended' : ''
+                            }
+                          >
+                            {local && <strong>{copy.local}</strong>}
+                            {final && <strong>{copy.final}</strong>}
+                            {m.reasons.includes(
+                              'QUALITY_CAP_REMOVAL_BEFORE_40',
+                            ) && <p>{policy[18]}</p>}
+
+                            {m.initial.length > 0 && (
+                              <p>
+                                {guide.prepared}:{' '}
+                                {m.initial.map(action).join(' → ')}
+                              </p>
+                            )}
+
+                            {removesModifier(m) && (
+                              <p className="craft-risk">
+                                {guide.risk}{' '}
+                                <a href="#crafting-policy">{guide.scope}</a>
+                              </p>
+                            )}
+                            {isRepeatable(m) && (
+                              <label>
+                                {copy.cycles}
+                                <select
+                                  aria-label={copy.cycles}
+                                  value={cycles}
+                                  onChange={(event) =>
+                                    setCycles(
+                                      snapshot
+                                        ? Number(event.target.value)
+                                        : 100,
+                                    )
+                                  }
+                                >
+                                  {(snapshot ? [100, 300, 500] : [100]).map(
+                                    (n) => (
+                                      <option key={n}>{n}</option>
+                                    ),
+                                  )}
+                                </select>
+                              </label>
+                            )}
+                            {!point ? (
+                              <p>{common.calculating}</p>
+                            ) : (
+                              <>
+                                {!point.complete && (
+                                  <p role="status">{common.calculating}</p>
+                                )}
+                                <details className="craft-outcomes">
+                                  <summary>{guide.details}</summary>
+                                  <ul>
+                                    {point.outcomes.map((o, i) => (
+                                      <li key={i}>
+                                        {o.target === null ? (
+                                          o.kind === 'REBASE' ? (
+                                            policyCandidateMessages[locale]
+                                              .rebase
+                                          ) : o.kind === 'RETRY' ? (
+                                            guide.result
+                                          ) : (
+                                            common.unknown
+                                          )
+                                        ) : (
+                                          <button
+                                            onClick={() =>
+                                              chooseEdge({
+                                                method: m.id,
+                                                source: m.source,
+                                                target: o.target!,
+                                                kind: o.kind,
+                                              })
+                                            }
+                                          >
+                                            {guide.result} {i + 1}
+                                          </button>
+                                        )}{' '}
+                                        —{' '}
+                                        {o.kind === 'REBASE'
+                                          ? policyCandidateMessages[locale].end
+                                          : o.kind === 'RETRY'
+                                            ? retryMessages[locale].replace(
+                                                'N',
+                                                String(cycles),
+                                              )
+                                            : o.kind === 'GOAL'
+                                              ? common.hit
+                                              : o.kind === 'LOSS'
+                                                ? copy.loss
+                                                : o.kind === 'UNRESOLVED'
+                                                  ? common.unknown
+                                                  : o.kind === 'DEAD'
+                                                    ? common.unavailable
+                                                    : copy.checkpoint}
+                                        :{' '}
+                                        {!point.complete &&
+                                        o.kind !== 'UNRESOLVED'
+                                          ? '≥ '
+                                          : ''}
+                                        {probabilityText(
+                                          o.probability.lower,
+                                          o.probability,
+                                        )}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </details>
+                                <details>
+                                  <summary>{copy.uses}</summary>
+                                  {[point.initialUses, point.cycleUses].map(
+                                    (uses, i) => (
+                                      <p key={i}>
+                                        {i === 0
+                                          ? copy.initial
+                                          : isRepeatable(m)
+                                            ? copy.cycles
+                                            : outcomeMessages[locale].single}
+                                        :{' '}
+                                        {Object.entries(uses)
+                                          .filter(
+                                            ([material]) =>
+                                              !material.startsWith('WORK:'),
+                                          )
+                                          .map(
+                                            ([material, b]) =>
+                                              `${material.startsWith('OMEN:') ? material.slice(5).replaceAll('_', ' ') : localizedAction(material as WorkbenchAction)} ${quantityText(b.lower, b)}`,
+                                          )
+                                          .join(', ') || '0'}
+                                      </p>
+                                    ),
+                                  )}
+                                </details>
+                                {[point.initialUses, point.cycleUses].map(
+                                  (uses, i) => {
+                                    const value = uses['WORK:QUALITY_40']
+                                    return value ? (
+                                      <p key={i}>
+                                        {quality.work}:{' '}
+                                        {quantityText(value.lower, value)}
+                                      </p>
+                                    ) : null
+                                  },
+                                )}
+                              </>
+                            )}
+                          </article>
+                        </details>
+                      )
+                    }}
+                  />
+                </div>
+              </div>
+            </details>
+          </div>
+        </>
+      )}
       {view && view.reason !== 'LEGACY_READ_ONLY' && (
         <PolicyCandidates
           key={view.id}
+          settingsOnly
           view={view}
           endingFailed={endingFailed}
           onInspect={setSelected}
@@ -710,7 +1149,6 @@ function Run({
           }
         />
       )}
-      {!view && toolbar}
       {(flow.branch || flow.prefix.length > 0) && (
         <p>{flowExportMessages[locale]}</p>
       )}
@@ -733,443 +1171,6 @@ function Run({
               : undefined
           }
         />
-      )}
-      {view && (
-        <>
-          <div className="automatic-workspace">
-            <GroupedMethodGraph
-              toolbar={toolbar}
-              detailContent={
-                <div className="graph-selection-content">
-                  <h3>{guide.selected}</h3>
-                  <details className="item-switcher">
-                    <summary>{guide.otherItems}</summary>
-                    <label>
-                      <span className="goal-filter-sr-only">
-                        {guide.otherItems}
-                      </span>
-                      <select
-                        aria-label={guide.otherItems}
-                        value={selectedNode?.id ?? 0}
-                        onChange={(e) => selectNode(Number(e.target.value))}
-                      >
-                        {view.nodes.map((n, index) => (
-                          <option key={n.id} value={n.id}>
-                            {n.id === 0
-                              ? guide.start
-                              : guide.result + ' ' + index}
-                          </option>
-                        ))}
-                      </select>
-                    </label>
-                  </details>
-                  {selectedNode && (
-                    <div className="method-map__states">
-                      <article>
-                        {!snapshot && (
-                          <p>{strictExaltedMessages[locale].policy}</p>
-                        )}
-                        {!snapshot &&
-                          selectedNode.discoveryFinished &&
-                          selectedNode.progress.goal !== 'MATCH' &&
-                          !view.methods.some(
-                            (m) => m.source === selectedNode.id,
-                          ) && (
-                            <p role="status">
-                              {strictExaltedMessages[locale].blocked}
-                            </p>
-                          )}
-                        {selectedNode.quality40 && <p>{quality.completed}</p>}
-                        {!selectedNode.quality40 &&
-                          (selectedNode.abstractQuality ?? 0) >= 20 && (
-                            <p>{qualityGoalMessages[locale].work20} ✓</p>
-                          )}
-                        <p>
-                          {manualStep
-                            ? common.unknown
-                            : selectedNode.progress.goal === 'MATCH'
-                              ? common.hit
-                              : selectedNode.progress.goal === 'NO_MATCH'
-                                ? common.noMatch
-                                : selectedNode.progress.goal === 'UNSUPPORTED'
-                                  ? common.unsupported
-                                  : common.unknown}
-                        </p>
-                        <ItemCard
-                          item={
-                            manualStep
-                              ? abyssCard(manualStep.state, presentItem, locale)
-                              : snapshot?.cards[String(selectedNode.id)]?.[
-                                    locale
-                                  ]
-                                ? compactFrozenCard(
-                                    snapshot.cards[String(selectedNode.id)]![
-                                      locale
-                                    ],
-                                  )
-                                : presentAutomaticItem(
-                                    selectedNode,
-                                    locale,
-                                    presentItem,
-                                    view.nodes,
-                                  )
-                          }
-                        />
-                        {onEditState &&
-                          automaticItemIsDistribution(selectedNode) && (
-                            <p>{distributionEditMessages[locale]}</p>
-                          )}
-                        {onEditState &&
-                          !selectedNode.item.desecrated?.length &&
-                          !manualStep &&
-                          !flow.carry &&
-                          !automaticItemIsDistribution(selectedNode) && (
-                            <>
-                              <button
-                                onClick={() => {
-                                  stop()
-                                  onEditState(
-                                    structuredClone(selectedNode.item),
-                                    {
-                                      abstractQuality40: selectedNode.quality40,
-                                      abstractQuality:
-                                        selectedNode.abstractQuality ??
-                                        (selectedNode.quality40 ? 40 : 0),
-                                    },
-                                  )
-                                }}
-                              >
-                                {guide.edit}
-                              </button>
-                            </>
-                          )}
-                      </article>
-                    </div>
-                  )}
-                  <CandidateRoute
-                    view={view}
-                    selected={selectedNode?.id ?? 0}
-                    cycles={cycles}
-                    route={route}
-                    choose={chooseEdge}
-                    clear={() => setRoute([])}
-                    action={action}
-                  />
-                  {view.methods.some(
-                    (m) =>
-                      m.source === selectedNode?.id &&
-                      m.cycle.some((a) => a.comparison),
-                  ) && (
-                    <p>
-                      {
-                        {
-                          en: 'p%(~N%): next modifier selection before / after selecting the highest-weight non-target blocker. This is not a reveal probability or the full goal chance.',
-                          ko: 'p%(~N%): 다음 속성 선택의 기준 확률 / 최고 가중치 비목표 차단 옵션 선택 후 확률입니다. 드러내기 추첨 확률이나 전체 목표 성공률이 아닙니다.',
-                          'zh-CN':
-                            'p%(~N%)：下一条属性的基准概率 / 选择最高权重非目标阻挡属性后的概率。不是揭示抽取概率或完整目标成功率。',
-                          'zh-TW':
-                            'p%(~N%)：下一條屬性的基準機率 / 選擇最高權重非目標阻擋屬性後的機率。不是揭示抽取機率或完整目標成功率。',
-                          ja: 'p%(~N%)：次の特性選択の基準確率 / 最大重みの非目標ブロッカー選択後の確率。公開候補の抽選確率や目標全体の成功率ではありません。',
-                          es: 'p%(~N%): probabilidad base del siguiente modificador / tras elegir el bloqueador no objetivo de mayor peso. No es la probabilidad de revelado ni del objetivo completo.',
-
-                          ru: 'p%(~N%): следующий выбор модификатора до/после выбора нецелевого блокирующего с наибольшим весом. Это не вероятность раскрытия или полная вероятность гола.',
-                          th: 'p%(~N%): การเลือกม็อดถัดไปก่อน/หลังการเลือกตัวบล็อกที่ไม่ใช่เป้าหมายที่มีน้ำหนักสูงสุด นี่ไม่ใช่การเปิดเผยความน่าจะเป็นหรือโอกาสทำประตูทั้งหมด',
-                        }[locale]
-                      }
-                    </p>
-                  )}
-                  {view.methods.some((m) => m.source === selectedNode?.id) && (
-                    <h3>{guide.next}</h3>
-                  )}
-                  {(flow.branch || flow.prefix.length > 0) && (
-                    <p>{flowMessages[locale].conditional}</p>
-                  )}
-                  {!snapshot &&
-                    selectedNode &&
-                    !!selectedNode.item.desecrated?.length &&
-                    !automaticItemIsDistribution(selectedNode) && (
-                      <CommonSlotObservation
-                        item={selectedNode.item}
-                        base={scenarioBaseKey}
-                        identity={request.start.provenance.rulesetIdentity}
-                        onTransition={(state, event) => {
-                          if (flow.branch?.sourceNode === selectedNode.id) {
-                            transition(state, event)
-                            return
-                          }
-                          changeFlow((old) => ({
-                            ...old,
-                            anchor:
-                              old.anchor ?? (selectedNode.item as ConcreteItem),
-                            branch: {
-                              sourceNode: selectedNode.id,
-                              source: selectedNode.item as ConcreteItem,
-                              prepared: state,
-                              action: 'EXALTED',
-                              omens: [],
-                              steps: [
-                                {
-                                  id: crypto.randomUUID(),
-                                  state,
-                                  transition: event,
-                                },
-                              ],
-                            },
-                          }))
-                        }}
-                        onContinue={(state, item) => {
-                          stop()
-                          continueFlow(state, item)
-                        }}
-                      />
-                    )}
-                  <div className="method-map__methods">
-                    <OperationCards
-                      recommendations={view.recommendations}
-                      methods={view.methods.filter(
-                        (m) => !manualStep && m.source === selectedNode?.id,
-                      )}
-                      cycles={cycles}
-                      action={action}
-                      render={(m, methodIndex) => {
-                        const point = methodPoint(m, cycles)
-                        const local = recommendations?.local.includes(m.id),
-                          final =
-                            view.complete &&
-                            recommendations?.strategyMethods.includes(m.id)
-                        return (
-                          <details
-                            className="craft-choice"
-                            key={m.id}
-                            open={methodIndex === 0}
-                          >
-                            <summary>
-                              <strong>
-                                {m.initial
-                                  .concat(m.cycle)
-                                  .map(action)
-                                  .join(' → ')}
-                              </strong>
-                              <span>
-                                {isRepeatable(m)
-                                  ? (m.initial.length
-                                      ? m.initial.map(action).join(' → ') +
-                                        ' · ' +
-                                        m.cycle.map(action).join(' → ') +
-                                        ': '
-                                      : '') +
-                                    guide.within.replace('{n}', String(cycles))
-                                  : m.executionMode === 'PENDING'
-                                    ? outcomeMessages[locale].pending
-                                    : ''}
-                              </span>
-                              {point && (
-                                <span className="craft-chance">
-                                  {(() => {
-                                    const goal = point.outcomes.filter(
-                                      (o) => o.kind === 'GOAL',
-                                    )
-                                    const next = goal.length
-                                      ? goal
-                                      : point.outcomes.filter(
-                                          (o) => o.kind === 'CHECKPOINT',
-                                        )
-                                    if (!next.length) return common.unknown
-                                    const mass = sumBounds(
-                                      next.map((o) => o.probability),
-                                    )
-                                    return (
-                                      (goal.length
-                                        ? common.hit
-                                        : copy.checkpoint) +
-                                      ': ' +
-                                      probabilityText(mass.lower, mass)
-                                    )
-                                  })()}
-                                </span>
-                              )}
-                            </summary>
-                            <article
-                              className={
-                                final || local ? 'method-map__recommended' : ''
-                              }
-                            >
-                              {local && <strong>{copy.local}</strong>}
-                              {final && <strong>{copy.final}</strong>}
-                              {m.reasons.includes(
-                                'QUALITY_CAP_REMOVAL_BEFORE_40',
-                              ) && <p>{policy[18]}</p>}
-
-                              {m.initial.length > 0 && (
-                                <p>
-                                  {guide.prepared}:{' '}
-                                  {m.initial.map(action).join(' → ')}
-                                </p>
-                              )}
-
-                              {removesModifier(m) && (
-                                <p className="craft-risk">
-                                  {guide.risk}{' '}
-                                  <a href="#crafting-policy">{guide.scope}</a>
-                                </p>
-                              )}
-                              {isRepeatable(m) && (
-                                <label>
-                                  {copy.cycles}
-                                  <select
-                                    aria-label={copy.cycles}
-                                    value={cycles}
-                                    onChange={(event) =>
-                                      setCycles(
-                                        snapshot
-                                          ? Number(event.target.value)
-                                          : 100,
-                                      )
-                                    }
-                                  >
-                                    {(snapshot ? [100, 300, 500] : [100]).map(
-                                      (n) => (
-                                        <option key={n}>{n}</option>
-                                      ),
-                                    )}
-                                  </select>
-                                </label>
-                              )}
-                              {!point ? (
-                                <p>{common.calculating}</p>
-                              ) : (
-                                <>
-                                  {!point.complete && (
-                                    <p role="status">{common.calculating}</p>
-                                  )}
-                                  <details className="craft-outcomes">
-                                    <summary>{guide.details}</summary>
-                                    <ul>
-                                      {point.outcomes.map((o, i) => (
-                                        <li key={i}>
-                                          {o.target === null ? (
-                                            o.kind === 'REBASE' ? (
-                                              policyCandidateMessages[locale]
-                                                .rebase
-                                            ) : o.kind === 'RETRY' ? (
-                                              guide.result
-                                            ) : (
-                                              common.unknown
-                                            )
-                                          ) : (
-                                            <button
-                                              onClick={() =>
-                                                chooseEdge({
-                                                  method: m.id,
-                                                  source: m.source,
-                                                  target: o.target!,
-                                                  kind: o.kind,
-                                                })
-                                              }
-                                            >
-                                              {guide.result} {i + 1}
-                                            </button>
-                                          )}{' '}
-                                          —{' '}
-                                          {o.kind === 'REBASE'
-                                            ? policyCandidateMessages[locale]
-                                                .end
-                                            : o.kind === 'RETRY'
-                                              ? retryMessages[locale].replace(
-                                                  'N',
-                                                  String(cycles),
-                                                )
-                                              : o.kind === 'GOAL'
-                                                ? common.hit
-                                                : o.kind === 'LOSS'
-                                                  ? copy.loss
-                                                  : o.kind === 'UNRESOLVED'
-                                                    ? common.unknown
-                                                    : o.kind === 'DEAD'
-                                                      ? common.unavailable
-                                                      : copy.checkpoint}
-                                          :{' '}
-                                          {!point.complete &&
-                                          o.kind !== 'UNRESOLVED'
-                                            ? '≥ '
-                                            : ''}
-                                          {probabilityText(
-                                            o.probability.lower,
-                                            o.probability,
-                                          )}
-                                        </li>
-                                      ))}
-                                    </ul>
-                                  </details>
-                                  <details>
-                                    <summary>{copy.uses}</summary>
-                                    {[point.initialUses, point.cycleUses].map(
-                                      (uses, i) => (
-                                        <p key={i}>
-                                          {i === 0
-                                            ? copy.initial
-                                            : isRepeatable(m)
-                                              ? copy.cycles
-                                              : outcomeMessages[locale].single}
-                                          :{' '}
-                                          {Object.entries(uses)
-                                            .filter(
-                                              ([material]) =>
-                                                !material.startsWith('WORK:'),
-                                            )
-                                            .map(
-                                              ([material, b]) =>
-                                                `${material.startsWith('OMEN:') ? material.slice(5).replaceAll('_', ' ') : localizedAction(material as WorkbenchAction)} ${quantityText(b.lower, b)}`,
-                                            )
-                                            .join(', ') || '0'}
-                                        </p>
-                                      ),
-                                    )}
-                                  </details>
-                                  {[point.initialUses, point.cycleUses].map(
-                                    (uses, i) => {
-                                      const value = uses['WORK:QUALITY_40']
-                                      return value ? (
-                                        <p key={i}>
-                                          {quality.work}:{' '}
-                                          {quantityText(value.lower, value)}
-                                        </p>
-                                      ) : null
-                                    },
-                                  )}
-                                </>
-                              )}
-                            </article>
-                          </details>
-                        )
-                      }}
-                    />
-                  </div>
-                </div>
-              }
-              view={view}
-              cycles={cycles}
-              selected={selectedNode?.id ?? 0}
-              route={route}
-              choose={chooseEdge}
-              select={(id) => {
-                setManualSelected(null)
-                selectNode(id)
-              }}
-              flow={flow}
-              selectedFlow={manualSelected}
-              selectFlow={setManualSelected}
-              action={action}
-              presentItem={presentItem}
-              frozenCards={snapshot?.cards}
-              junk={
-                graphDefinitions
-                  ? junkClassifier(targetSources, graphDefinitions)
-                  : undefined
-              }
-            />
-          </div>
-        </>
       )}
     </section>
   )

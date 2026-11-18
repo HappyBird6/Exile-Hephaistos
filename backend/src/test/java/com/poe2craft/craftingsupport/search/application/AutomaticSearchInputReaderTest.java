@@ -71,6 +71,7 @@ class AutomaticSearchInputReaderTest {
     var original = input();
     var body = (ObjectNode) json.valueToTree(original);
     var item = (ObjectNode) body.path("request").path("start").path("item");
+    item.put("equipmentQuality", 0);
     item.remove("qualityInfused");
     item.path("implicits").forEach(m -> ((ObjectNode) m).remove(List.of("crafted", "fractured")));
     assertThat(reader.read(json.writeValueAsString(body), AutomaticSearchService.Input.class))

@@ -6,7 +6,7 @@ import { checkSessionCompatibility } from '../workbenchReferenceApi'
 /** Shared checkpoint-to-new-craft boundary; preserves sockets, hidden slots and quality. */
 export async function freshSession(
   history: Films,
-  source: Film,
+  source: Pick<Film, 'compatibilityId'>,
   frame: Frame,
   catalog: Initial,
   id: string,

@@ -1,3 +1,4 @@
+import { OpenCraftingSession } from './method-search/openCraftingSession'
 import { SiteFooter } from '../../shared/site/SiteFooter'
 import { workspacePath } from '../../shared/site/workspaceRoutes'
 import {
@@ -174,7 +175,7 @@ import {
   workbenchOmens,
   compatibleOmenPair,
 } from './workbenchApi'
-import type { AppliedItem, MappingResult } from './workbenchApi'
+import type { AppliedItem, ConcreteItem, MappingResult } from './workbenchApi'
 import {
   currentFilm,
   currentFrame,
@@ -788,10 +789,14 @@ function ReadyCraftingPage({
       if (request === placementRequest.current) placementPending.current = false
     }
   }
-  async function newCraftFromFrame(sourceFilm: Film, frame: Frame) {
-    if (mutationLocked() || filmState.blockedSaving) return
+  async function newCraftFromFrame(
+    sourceFilm: Pick<Film, 'compatibilityId'>,
+    frame: Frame,
+    plan?: string[],
+  ) {
+    if (mutationLocked() || filmState.blockedSaving) return false
     const base = baseKeyForItem(frame.state.baseItemId)
-    if (!base) return
+    if (!base) return false
     const revision = useItemDraft.getState().baseRevision,
       request = ++placementRequest.current
     placementPending.current = true
@@ -811,10 +816,19 @@ function ReadyCraftingPage({
           loadInitial(frame.state.itemLevel, signal, base, true),
         staleTime: 60_000,
       })
+      if (plan && frame.rulesetIdentity !== catalog.rulesetIdentity)
+        return false
+      // The search encodes untouched equipment quality as absent. Restore the catalog's initial zero.
+      const startingFrame =
+        plan &&
+        frame.state.equipmentQuality == null &&
+        catalog.equipmentQuality === 0
+          ? { ...frame, state: { ...frame.state, equipmentQuality: 0 } }
+          : frame
       const next = await freshSession(
         filmState.history,
         sourceFilm,
-        frame,
+        startingFrame,
         catalog,
         filmId(),
         controller.signal,
@@ -824,15 +838,21 @@ function ReadyCraftingPage({
         revision !== useItemDraft.getState().baseRevision ||
         controller.signal.aborted
       )
-        return
+        return false
       placementPending.current = false
       if (applyingRequest.current === controller) applyingRequest.current = null
+      if (plan?.length) {
+        const session = currentFilm(next)!
+        session.plannedSteps = plan
+        session.title = Array.from(plan.join(' → ')).slice(0, 64).join('')
+      }
       if (await commitLibraryHistory(next)) {
         setView('workbench')
         setObservedPreview(null)
         setSelected(null)
         setHeld(null)
         setAnnouncement('')
+        return true
       }
     } catch {
       if (!controller.signal.aborted) setAnnouncement(t('notice.load_base'))
@@ -840,6 +860,7 @@ function ReadyCraftingPage({
       if (request === placementRequest.current) placementPending.current = false
       if (applyingRequest.current === controller) applyingRequest.current = null
     }
+    return false
   }
   async function restoreFilm(
     id: string,
@@ -2153,6 +2174,13 @@ function ReadyCraftingPage({
         }
       />
 
+      {view === 'workbench' && film?.plannedSteps && (
+        <ol className="workbench-method-guide">
+          {film.plannedSteps.map((step, index) => (
+            <li key={index}>{step}</li>
+          ))}
+        </ol>
+      )}
       {view === 'workbench' && (
         <nav
           className="mobile-workbench-jumps"
@@ -3118,7 +3146,21 @@ function ReadyCraftingPage({
       >
         {(supportVisited || view === 'support') && (
           <Suspense fallback={<span role="status">…</span>}>
-            <CraftSupport active={view === 'support'} />
+            <OpenCraftingSession.Provider
+              value={(item, identity, steps) =>
+                newCraftFromFrame(
+                  {},
+                  {
+                    state: item as ConcreteItem,
+                    action: null,
+                    rulesetIdentity: identity,
+                  },
+                  steps,
+                )
+              }
+            >
+              <CraftSupport active={view === 'support'} />
+            </OpenCraftingSession.Provider>
           </Suspense>
         )}
       </div>

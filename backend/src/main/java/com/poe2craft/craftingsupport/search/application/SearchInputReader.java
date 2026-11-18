@@ -100,6 +100,9 @@ public final class SearchInputReader {
                 || !object.path("installedAugments").isEmpty()))
           throw new IllegalArgumentException("Installed Augments require the manual workbench");
         if (!object.has("installedAugments")) object.putArray("installedAugments");
+        var quality = object.path("equipmentQuality");
+        if (automatic && quality.isIntegralNumber() && quality.bigIntegerValue().signum() == 0)
+          object.putNull("equipmentQuality");
         for (var field : List.of("equipmentQuality", "observations", "sanctification")) {
           if (object.hasNonNull(field))
             throw new IllegalArgumentException(

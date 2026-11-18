@@ -51,6 +51,7 @@ export type Frame = {
   chaosRepeatWitness?: ChaosRepeatWitness
 }
 export type Film = {
+  plannedSteps?: string[]
   compatibilityId?: string
   continuationOf?: {
     sessionId: string
@@ -249,11 +250,19 @@ export function undoFilmDeletion(
   }
 }
 
+export function validPlannedSteps(value: unknown) {
+  return (
+    value === undefined ||
+    (Array.isArray(value) &&
+      value.every((step) => typeof step === 'string' && step.length > 0))
+  )
+}
 export function validStoredFilm(film: Film): boolean {
   return Boolean(
     film &&
     typeof film.id === 'string' &&
     typeof film.createdAt === 'string' &&
+    validPlannedSteps(film.plannedSteps) &&
     (film.sourceDocument === undefined ||
       typeof film.sourceDocument === 'string') &&
     (film.compatibilityId === undefined ||

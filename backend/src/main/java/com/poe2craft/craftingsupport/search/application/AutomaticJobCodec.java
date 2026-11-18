@@ -143,6 +143,14 @@ final class AutomaticJobCodec {
           for (var member : row.path("members"))
             if (member instanceof com.fasterxml.jackson.databind.node.ObjectNode object
                 && !object.has("initialStage")) object.put("initialStage", false);
+      if (ArchivedSearchCatalog.supports(
+              tree.at("/request/start/item/snapshotId").asText(),
+              tree.at("/request/goal/catalogVersion").asText())
+          && !AutomaticMethodGraph.VERSION.equals(graph.path("version").asText())) {
+        ArchivedSearchCatalog.decodeModel(graph.path("identity"));
+        for (var row : graph.path("executions"))
+          ArchivedSearchCatalog.decodeModel(row.path("execution").path("identity"));
+      }
       var saved = json.treeToValue(tree, Disk.class);
       if (saved == null
           || saved.graph() == null

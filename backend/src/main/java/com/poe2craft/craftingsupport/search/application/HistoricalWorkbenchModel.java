@@ -61,8 +61,16 @@ final class HistoricalWorkbenchModel {
 
   static boolean matchesReadOnly(
       WorkbenchSimulator.AutomaticIdentity saved, WorkbenchSimulator.AutomaticIdentity current) {
+    return matchesReadOnly(saved, current, "");
+  }
+
+  static boolean matchesReadOnly(
+      WorkbenchSimulator.AutomaticIdentity saved,
+      WorkbenchSimulator.AutomaticIdentity current,
+      String catalogDigest) {
     if (saved == null || current == null) return false;
-    if (saved.equals(current)) return true;
+    if (saved.equals(current) || ArchivedSearchCatalog.matchesModel(saved, catalogDigest))
+      return true;
     // Only a known manual policy changed; the frozen automatic policy excludes both quality
     // currencies. Require every definition, override, ledger and numerical policy to match.
     if (current.ruleVersion().endsWith(CURRENT_MANUAL_SUFFIX)
