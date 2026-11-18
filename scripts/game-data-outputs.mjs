@@ -249,6 +249,7 @@ export function gameDataOutputs(directory) {
   backend('catalog/top-bases.json', top)
   backend('catalog/base-policies.json', policies)
 
+  const poolModifiers = new Map()
   const jewelDefinitions = {}
   for (const file of dataFiles(catalogRoot)) {
     const relative = path.relative(catalogRoot, file).replaceAll('\\', '/')
@@ -279,6 +280,10 @@ export function gameDataOutputs(directory) {
       }
     }
     value = expand(relative, value)
+    const pool = path.basename(path.dirname(file))
+    if (!poolModifiers.has(pool)) poolModifiers.set(pool, new Map())
+    for (const definition of value.modifiers)
+      poolModifiers.get(pool).set(definition.id, definition)
     backend('catalog/' + relative.split('/').slice(1).join('/'), value)
     if (value.base?.id?.includes('/Jewels/')) {
       for (const modifier of value.modifiers.filter(
@@ -506,6 +511,85 @@ export function gameDataOutputs(directory) {
         )
         currency.materialPolicy = materialPolicies.profiles[profile]
       }
+      // Resolve the same base overrides and catalog membership as WorkbenchMaterials.
+      // The browser loads just the selected base's row through catalogDataPlugin.
+      const actions = Object.fromEntries(
+        Object.entries(materialPolicies.actions).filter(
+          ([, profile]) => materialPolicies.profiles[profile].mode !== 'NONE',
+        ),
+      )
+      const rows = [],
+        byBase = {},
+        rowIds = new Map()
+      for (const [id, key] of Object.entries(baseKeys)) {
+        const pool =
+          top[key]?.pool ?? path.basename(path.dirname(bases.get(id).file))
+        const catalog = new Map(poolModifiers.get(pool))
+        const equipment = Object.values(equipmentTargets[id] ?? {}).flat()
+        const augments = Object.values(augmentRules.pools[id] ?? {}).flatMap(
+          Object.keys,
+        )
+        for (const option of [...equipment, ...augments])
+          if (!catalog.has(option)) catalog.set(option, resolve(option))
+        const liquidTargets = new Map()
+        for (const d of catalog.values()) {
+          if (!d.tags.includes('crafted')) continue
+          if (!liquidTargets.has(d.sourceUrl))
+            liquidTargets.set(d.sourceUrl, [])
+          liquidTargets.get(d.sourceUrl).push(d.id)
+        }
+        const targets = {},
+          details = {}
+        const row = {
+          targets,
+          details,
+          coupled: [...catalog.values()].some(
+            (d) =>
+              (own(top, key) || d.layer === 'EXPLICIT') && d.stats.length > 1,
+          ),
+        }
+        for (const currency of value.currencies) {
+          const action = currency.id
+          if (!own(actions, action)) continue
+          const policy = currency.materialPolicy
+          const additional = equipmentTargets[id]?.[action]
+          const ids =
+            policy.kind === 'LIQUID'
+              ? (liquidTargets.get(currency.replacementSource) ?? [])
+              : policy.mode === 'ADD'
+                ? (essenceBindings[id]?.fixed?.[action] ??
+                  currency.essenceModifierIds)
+                : (additional ??
+                  essenceBindings[id]?.replacements?.[action] ??
+                  currency.replacementModifiers)
+          if (!ids.length) continue
+          const options = ids.map((option) => catalog.get(option))
+          if (!options.every(Boolean)) continue
+          targets[action] = {
+            ids,
+            level: Math.max(
+              currency.minimumModifierLevel,
+              ...options.map((d) => d.requiredItemLevel),
+            ),
+          }
+          for (const d of options) {
+            if (additional || d.weight === 0)
+              details[d.id] = { sourceUrl: d.sourceUrl, stats: d.stats }
+          }
+        }
+        const signature = JSON.stringify(row)
+        if (!rowIds.has(signature)) {
+          rowIds.set(signature, rows.length)
+          rows.push(row)
+        }
+        byBase[key] = rowIds.get(signature)
+      }
+      browser('materialVerification.json', {
+        actions,
+        profiles: materialPolicies.profiles,
+        byBase,
+        rows,
+      })
       value.baseTargets = Object.fromEntries(
         Object.entries(essenceBindings)
           .filter(([, row]) => row.fixed || row.replacements)

@@ -180,6 +180,26 @@ test('shared reveal definitions drive both consumers and missing references fail
   assert.throws(() => gameDataOutputs(path.join(root, versionRoot)), /Unknown modifier reference/)
 })
 
+test('one base essence patch drives the server and the browser verification row', t => {
+  const { root, load, write } = fixture(t)
+  const source = `${versionRoot}/game-data/crafting/essences/targets.json`
+  const bindings = load(source)
+  const base = 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
+  const fixed = bindings.groups[bindings.bases[base]].fixed
+  const replacement = fixed.ESSENCE_BODY
+  assert.notDeepEqual(fixed.LESSER_ESSENCE_BODY, replacement)
+  fixed.LESSER_ESSENCE_BODY = replacement
+  write(source, bindings)
+  const outputs = gameDataOutputs(path.join(root, versionRoot))
+  const server = outputs.get('backend/src/main/resources/crafting/workbench-definitions-v1.json').value
+  const browser = outputs.get('frontend/src/features/crafting/materialVerification.json').value
+  const targets = browser.rows[browser.byBase.stocky].targets
+  assert.deepEqual(server.baseTargets[base].fixed.LESSER_ESSENCE_BODY, replacement)
+  assert.deepEqual(targets.LESSER_ESSENCE_BODY.ids, replacement)
+  assert.equal(targets.LESSER_ESSENCE_BODY.level, targets.ESSENCE_BODY.level)
+  assert.notDeepEqual(browser.rows[browser.byBase.solar].targets.LESSER_ESSENCE_BODY.ids, replacement)
+})
+
 test('translated tooltip wording cannot change target eligibility; unknown probability stays explicit', t => {
   const { root, load, write } = fixture(t)
   const texts = `${versionRoot}/i18n/materials/en.json`

@@ -13,6 +13,7 @@ import com.poe2craft.shared.item.ItemObservations;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.SolarTextMapper;
 import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
+import java.util.Set;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -30,8 +31,8 @@ import org.springframework.context.annotation.Configuration;
  *       ItemCatalog}.
  *   <li>{@code craftingEngine(catalog)}: 제작·계산엔진의 입력에 따른 분기·결과를 처리한다. 입력: {@code catalog}(카탈로그).
  *       반환: {@code CraftingEngine}.
- *   <li>{@code workbenchSimulator(catalog, engine)}: 작업대·제작시뮬레이터의 입력에 따른 분기·결과를 처리한다. 입력: {@code
- *       catalog}(카탈로그), {@code engine}(계산엔진). 반환: {@code WorkbenchSimulator}.
+ *   <li>{@code workbenchSimulator(catalog, engine)}: 기본 베이스에도 JSON에 등록한 추가·교체 후보를 적용해 시뮬레이터를 생성한다.
+ *       입력: {@code catalog}(카탈로그), {@code engine}(계산엔진). 반환: {@code WorkbenchSimulator}.
  *   <li>{@code workbenchService(catalog, simulator)}: 작업대·서비스 처리에서 {@code
  *       ItemCatalogLoader.loadStocky}, {@code ItemCatalogLoader.loadBow}을(를) 사용한다. 입력: {@code
  *       catalog}(카탈로그), {@code simulator}(제작시뮬레이터). 반환: {@code CatalogCraftingService}.
@@ -168,7 +169,9 @@ public class CatalogConfiguration {
 
   @Bean
   WorkbenchSimulator workbenchSimulator(ItemCatalog catalog, CraftingEngine engine) {
-    return new WorkbenchSimulator(catalog, engine);
+    var targets = WorkbenchDefinitions.active().targets(catalog.base().id());
+    return new WorkbenchSimulator(
+        catalog, engine, Set.of(), targets.fixed(), targets.replacements());
   }
 
   @Bean

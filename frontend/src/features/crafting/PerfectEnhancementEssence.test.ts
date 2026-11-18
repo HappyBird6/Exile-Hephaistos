@@ -13,7 +13,7 @@ const definitions = {
     ...initialFixture.modifiers.p!,
     id: target,
     familyIds: ['AllDefences'],
-    stats: [{ id: 'global_defences', min: 20, max: 30 }],
+    stats: [{ id: 'global_armour_evasion_energy_shield_+%', min: 20, max: 30 }],
   },
 }
 const before: ConcreteItem = {
@@ -35,7 +35,10 @@ const result: AppliedItem = {
   state: {
     ...before,
     explicits: [
-      { modifierId: target, values: { global_defences: 25 } },
+      {
+        modifierId: target,
+        values: { 'global_armour_evasion_energy_shield_+%': 25 },
+      },
       before.explicits[1]!,
     ],
   },
@@ -44,7 +47,7 @@ const result: AppliedItem = {
     {
       kind: 'ADD',
       modifierId: target,
-      values: { global_defences: 25 },
+      values: { 'global_armour_evasion_energy_shield_+%': 25 },
       selectionProbability: 1,
     },
   ],
@@ -60,6 +63,17 @@ const result: AppliedItem = {
       max: null,
       sourceUrl: 'https://poe2db.tw/us/Omen_of_Sinistral_Crystallisation',
       reason: 'Uniform removal',
+    },
+    {
+      id: 'uniform-integer-roll-v1',
+      candidateUnit: 'global_armour_evasion_energy_shield_+%',
+      n: 11,
+      candidates: [],
+      min: 20,
+      max: 30,
+      sourceUrl:
+        'https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceGlobalDefences1',
+      reason: 'Uniform source integers',
     },
   ],
 }

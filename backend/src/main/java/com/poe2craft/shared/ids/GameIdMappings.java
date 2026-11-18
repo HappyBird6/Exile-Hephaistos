@@ -28,7 +28,7 @@ import org.springframework.core.io.ClassPathResource;
  *   <li>{@code load()}: 검증된 자료를 로딩한다. 반환: {@code GameIdMappings}. 사용하는 예외: {@code
  *       IllegalStateException}.
  *   <li>{@code active()}: 서버가 시작할 때 검증한 공유 매핑을 반환한다. 반환: {@code GameIdMappings}.
- *   <li>{@code identity()}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 반환: {@code String}.
+ *   <li>{@code identity()}: 전송 사전 해시와 변환 필드 버전을 함께 반환한다. 반환: {@code String}.
  *   <li>{@code convert(domain, value, compact)}: 등록된 식별자를 변환하고 모르는 값은 원문 그대로 반환한다. 입력: {@code
  *       domain}(식별자종류), {@code value}(값), {@code compact}(압축여부). 반환: {@code String}.
  * </ul>
@@ -85,9 +85,10 @@ public final class GameIdMappings {
         forwards.put(domain, Map.copyOf(forward));
         backwards.put(domain, Map.copyOf(backward));
       }
-      identity = "game-ids-v1-" + HexFormat.of().formatHex(digest.digest());
-      if (!identity.equals(source.path("identity").asText()))
+      String dictionary = "game-ids-v1-" + HexFormat.of().formatHex(digest.digest());
+      if (!dictionary.equals(source.path("identity").asText()))
         throw new IllegalArgumentException("Identifier mapping digest mismatch");
+      identity = dictionary + "-fields2";
     } catch (java.security.NoSuchAlgorithmException error) {
       throw new IllegalStateException(error);
     }

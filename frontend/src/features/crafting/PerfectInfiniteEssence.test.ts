@@ -18,7 +18,13 @@ const definitions = {
         ...initialFixture.modifiers.s!,
         id,
         familyIds: [`percentage-${i}`],
-        stats: [{ id: 'percent', min: 7, max: 10 }],
+        stats: [
+          {
+            id: ['strength_+%', 'dexterity_+%', 'intelligence_+%'][i]!,
+            min: 7,
+            max: 10,
+          },
+        ],
       },
     ]),
   ),
@@ -42,7 +48,7 @@ const result: AppliedItem = {
   state: {
     ...before,
     explicits: [
-      { modifierId: targets[0]!, values: { percent: 9 } },
+      { modifierId: targets[0]!, values: { 'strength_+%': 9 } },
       before.explicits[0]!,
     ],
   },
@@ -51,7 +57,7 @@ const result: AppliedItem = {
     {
       kind: 'ADD',
       modifierId: targets[0]!,
-      values: { percent: 9 },
+      values: { 'strength_+%': 9 },
       selectionProbability: 1 / 3,
     },
   ],
@@ -77,6 +83,17 @@ const result: AppliedItem = {
       max: null,
       sourceUrl: 'https://poe2db.tw/us/Perfect_Essence_of_the_Infinite',
       reason: 'Uniform choice',
+    },
+    {
+      id: 'uniform-integer-roll-v1',
+      candidateUnit: 'strength_+%',
+      n: 4,
+      candidates: [],
+      min: 7,
+      max: 10,
+      sourceUrl:
+        'https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePercentStrength1',
+      reason: 'Uniform source integers',
     },
   ],
 }

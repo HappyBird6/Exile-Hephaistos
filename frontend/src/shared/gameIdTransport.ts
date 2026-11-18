@@ -9,15 +9,43 @@ const forward = Object.fromEntries(
     ),
   ]),
 )
-export const gameIdIdentity = bundle.identity
+export const gameIdIdentity = bundle.identity + '-fields2'
 export const gameIdHeader = 'X-Crafting-Ids'
 const bodyHeader = 'X-Crafting-Ids-Body'
 let negotiatedRuleset: string | null = null
 
 const object = (value: unknown): value is Record<string, unknown> =>
   value !== null && typeof value === 'object' && !Array.isArray(value)
-function domain(field: string, parent: Record<string, unknown> | null): string {
+const modifierCandidateModels = new Set([
+  'poe2db-published-candidates-v1',
+  'boots-uniform-candidates-v1',
+  'body-uniform-candidates-v1',
+  'helmets-uniform-candidates-v1',
+  'gloves-uniform-candidates-v1',
+  'sapphire-uniform-candidates-v1',
+  'uniform-removal-v1',
+  'user-coupled-ratio-half-up-v1',
+  'uniform-liquid-outcomes-v1',
+  'uniform-essence-choice-v1',
+])
+function domain(
+  field: string,
+  outer: string,
+  parent: Record<string, unknown> | null,
+): string {
   switch (field) {
+    case 'candidates':
+      return outer === 'assumptions' &&
+        typeof parent?.id === 'string' &&
+        modifierCandidateModels.has(parent.id)
+        ? 'modifiers'
+        : ''
+    case 'candidateUnit':
+      return outer === 'assumptions' &&
+        (parent?.id === 'uniform-integer-roll-v1' ||
+          parent?.id === 'assumed-source-integer-roll-v1')
+        ? 'stats'
+        : ''
     case 'baseItemId':
       return 'bases'
     case 'modifierId':
@@ -68,7 +96,8 @@ export function transformGameIds(input: unknown, compact: boolean): unknown {
     outer: string,
     parent: Record<string, unknown> | null,
   ): unknown {
-    if (typeof value === 'string') return convert(domain(field, parent), value)
+    if (typeof value === 'string')
+      return convert(domain(field, outer, parent), value)
     if (Array.isArray(value))
       return value.map((child) => visit(child, field, outer, parent))
     if (!object(value)) return value
@@ -134,6 +163,7 @@ export async function craftingFetch(
   })
   const identity = response.headers.get(gameIdHeader)
   if (identity === null) {
+    negotiatedRuleset = null
     if (compress)
       throw new Error(
         'Identifier transport changed; reload the crafting catalog',

@@ -14,6 +14,26 @@ declare module 'virtual:crafting-data' {
   export const materialNames: Record<string, string>
   export const definitions: unknown
   export const reveal: unknown
-  export const essences: unknown
+  export const materialRows: Record<
+    string,
+    {
+      targets: Record<string, { ids: string[]; level: number }>
+      details: Record<
+        string,
+        { sourceUrl: string; stats: { id: string; min: number; max: number }[] }
+      >
+      coupled: boolean
+    }
+  >
+  export const materialActions: Record<string, string>
+  export const materialProfiles: Record<
+    string,
+    {
+      kind: string
+      mode: string
+      inputRarities: string[]
+      resultRarity: string | null
+    }
+  >
   export function loadBaseData(base: string): Promise<void>
 }

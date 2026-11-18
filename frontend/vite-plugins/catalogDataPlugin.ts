@@ -8,7 +8,7 @@ export function catalogDataPlugin(eager = false): Plugin {
     JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'))
   const definitions = read('basicJewelDefinitions.json'),
     reveal = read('manualRevealDefinitions.json'),
-    essences = read('topBaseEssences.json'),
+    materials = read('materialVerification.json'),
     bases = read('topBases.json'),
     policies = read('basePolicies.json')
   const materialNames = Object.fromEntries(
@@ -34,7 +34,7 @@ export function catalogDataPlugin(eager = false): Plugin {
       definitions: Record<string, unknown>
       bases: Record<string, string[]>
     }
-    essences: Record<string, unknown>
+    materialRows: Record<string, number>
   }
   const groups: Record<string, Group> = {}
   const index: Record<string, string> = {}
@@ -42,10 +42,10 @@ export function catalogDataPlugin(eager = false): Plugin {
     const group = (groups[base.pool] ??= {
       definitions: {},
       reveal: { definitions: {}, bases: {} },
-      essences: {},
+      materialRows: {},
     })
     index[id] = base.pool
-    if (essences[base.key]) group.essences[base.key] = essences[base.key]
+    group.materialRows[id] = materials.byBase[base.key]
     if (reveal.bases[id]) {
       group.reveal.bases[id] = reveal.bases[id]
       for (const key of reveal.bases[id])
@@ -67,7 +67,7 @@ export function catalogDataPlugin(eager = false): Plugin {
         [
           'basicJewelDefinitions.json',
           'manualRevealDefinitions.json',
-          'topBaseEssences.json',
+          'materialVerification.json',
           'topBases.json',
           'basePolicies.json',
           'materialTooltips.json',
@@ -83,22 +83,43 @@ export function catalogDataPlugin(eager = false): Plugin {
     load(id) {
       if (!id.startsWith('\0virtual:crafting-data')) return
       const group = id.slice('\0virtual:crafting-data/'.length)
-      if (id !== '\0virtual:crafting-data')
-        return `export default ${JSON.stringify(groups[group])}`
-      return `export const materialNames=${JSON.stringify(materialNames)};export const definitions=${JSON.stringify(eager ? definitions : {})};export const reveal=${JSON.stringify(eager ? reveal : { definitions: {}, bases: {} })};export const essences=${JSON.stringify(eager ? essences : {})};
+      if (group.startsWith('materials/'))
+        return `export default ${JSON.stringify(materials.rows[Number(group.slice('materials/'.length))])}`
+      if (id !== '\0virtual:crafting-data') {
+        const { materialRows, ...catalog } = groups[group]!
+        const imports = [...new Set(Object.values(materialRows))].map(
+          (row) =>
+            `import row${row} from 'virtual:crafting-data/materials/${row}'`,
+        )
+        const entries = Object.entries(materialRows).map(
+          ([base, row]) => `${JSON.stringify(base)}:row${row}`,
+        )
+        return `${imports.join('\n')}\nexport default {...${JSON.stringify(catalog)},materialRows:{${entries.join(',')}}}`
+      }
+      const eagerRows = eager
+        ? Object.fromEntries(
+            Object.entries(byId).map(([id, base]) => [
+              id,
+              materials.rows[materials.byBase[base.key]],
+            ]),
+          )
+        : {}
+      return `export const materialNames=${JSON.stringify(materialNames)};export const definitions=${JSON.stringify(eager ? definitions : {})};export const reveal=${JSON.stringify(eager ? reveal : { definitions: {}, bases: {} })};export const materialProfiles=${JSON.stringify(materials.profiles)};export const materialActions=${JSON.stringify(materials.actions)};
+export const materialRows=${JSON.stringify(eagerRows)};
+
 const index=${JSON.stringify(index)};const loaders={${Object.keys(groups)
         .map(
           (key) =>
             `${JSON.stringify(key)}:()=>import(${JSON.stringify('virtual:crafting-data/' + key)})`,
         )
         .join(',')}};const pending=new Map();
-export async function loadBaseData(base){const key=index[base];if(!key||${eager})return;if(!pending.has(key))pending.set(key,loaders[key]().then(({default:data})=>{Object.assign(definitions,data.definitions);Object.assign(reveal.definitions,data.reveal.definitions);Object.assign(reveal.bases,data.reveal.bases);Object.assign(essences,data.essences)}).catch(error=>{pending.delete(key);throw error}));await pending.get(key)}`
+export async function loadBaseData(base){const key=index[base];if(!key||${eager})return;if(!pending.has(key))pending.set(key,loaders[key]().then(({default:data})=>{Object.assign(definitions,data.definitions);Object.assign(reveal.definitions,data.reveal.definitions);Object.assign(reveal.bases,data.reveal.bases);Object.assign(materialRows,data.materialRows)}).catch(error=>{pending.delete(key);throw error}));await pending.get(key)}`
     },
     buildStart() {
       for (const file of [
         'basicJewelDefinitions.json',
         'manualRevealDefinitions.json',
-        'topBaseEssences.json',
+        'materialVerification.json',
         'topBases.json',
         'basePolicies.json',
         'materialTooltips.json',

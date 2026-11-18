@@ -13,7 +13,7 @@ const definitions = {
     ...initialFixture.modifiers.p!,
     id: target,
     familyIds: ['LocalMaximumQuality'],
-    stats: [{ id: 'maximum_quality', min: 20, max: 20 }],
+    stats: [{ id: 'local_maximum_quality_+', min: 20, max: 20 }],
   },
 }
 const before: ConcreteItem = {
@@ -35,7 +35,7 @@ const result: AppliedItem = {
   state: {
     ...before,
     explicits: [
-      { modifierId: target, values: { maximum_quality: 20 } },
+      { modifierId: target, values: { 'local_maximum_quality_+': 20 } },
       before.explicits[1]!,
     ],
   },
@@ -44,7 +44,7 @@ const result: AppliedItem = {
     {
       kind: 'ADD',
       modifierId: target,
-      values: { maximum_quality: 20 },
+      values: { 'local_maximum_quality_+': 20 },
       selectionProbability: 1,
     },
   ],

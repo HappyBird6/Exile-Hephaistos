@@ -302,7 +302,8 @@ public final class WorkbenchSimulator {
     var result = new TreeMap<String, List<String>>();
     var supported = Set.copyOf(baseMaterialActions());
     for (var action : WorkbenchCurrency.values()) {
-      if (!supported.contains(action) || !action.name().contains("ESSENCE")) continue;
+      if (!supported.contains(action)
+          || action.materialPolicy().kind() != WorkbenchDefinitions.MaterialKind.ESSENCE) continue;
       var targets =
           java.util.stream.Stream.concat(
                   materials.essenceTargets(action).stream(),
@@ -424,7 +425,8 @@ public final class WorkbenchSimulator {
                     && !materials.replacementTargets(action).isEmpty();
               }
               if (BasicJewel.supportedCrafting(base)
-                  || (!action.name().contains("ESSENCE_") && !action.isAlloy())) return false;
+                  || (action.materialPolicy().kind() != WorkbenchDefinitions.MaterialKind.ESSENCE
+                      && !action.isAlloy())) return false;
               var targets =
                   java.util.stream.Stream.concat(
                           materials.essenceTargets(action).stream(),

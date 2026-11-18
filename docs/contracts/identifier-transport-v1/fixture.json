@@ -23,7 +23,101 @@
     },
     "action": "LESSER_ESSENCE_BODY",
     "text": "Metadata/Items/Armours/Gloves/FourGlovesStr1",
-    "unknown": "stocky-mitts:prefix:sanguine"
+    "unknown": "stocky-mitts:prefix:sanguine",
+    "assumptions": [
+      {
+        "id": "poe2db-published-candidates-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "boots-uniform-candidates-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "body-uniform-candidates-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "helmets-uniform-candidates-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "gloves-uniform-candidates-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "sapphire-uniform-candidates-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "uniform-removal-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "uniform-liquid-outcomes-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "uniform-essence-choice-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "free-text-model",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine"
+        ],
+        "candidateUnit": "base_maximum_life"
+      },
+      {
+        "id": "uniform-integer-roll-v1",
+        "candidateUnit": "base_maximum_life",
+        "candidates": []
+      },
+      {
+        "id": "assumed-source-integer-roll-v1",
+        "candidateUnit": "base_maximum_life",
+        "candidates": []
+      },
+      {
+        "id": "user-coupled-ratio-half-up-v1",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine"
+        ]
+      }
+    ],
+    "other": {
+      "id": "poe2db-published-candidates-v1",
+      "candidates": [
+        "stocky-mitts:prefix:sanguine"
+      ]
+    }
   },
   "compact": {
     "state": {
@@ -49,6 +143,100 @@
     },
     "action": "c002p",
     "text": "Metadata/Items/Armours/Gloves/FourGlovesStr1",
-    "unknown": "stocky-mitts:prefix:sanguine"
+    "unknown": "stocky-mitts:prefix:sanguine",
+    "assumptions": [
+      {
+        "id": "poe2db-published-candidates-v1",
+        "candidates": [
+          "m025f",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "boots-uniform-candidates-v1",
+        "candidates": [
+          "m025f",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "body-uniform-candidates-v1",
+        "candidates": [
+          "m025f",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "helmets-uniform-candidates-v1",
+        "candidates": [
+          "m025f",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "gloves-uniform-candidates-v1",
+        "candidates": [
+          "m025f",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "sapphire-uniform-candidates-v1",
+        "candidates": [
+          "m025f",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "uniform-removal-v1",
+        "candidates": [
+          "m025f",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "uniform-liquid-outcomes-v1",
+        "candidates": [
+          "m025f",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "uniform-essence-choice-v1",
+        "candidates": [
+          "m025f",
+          "unmapped-option"
+        ]
+      },
+      {
+        "id": "free-text-model",
+        "candidates": [
+          "stocky-mitts:prefix:sanguine"
+        ],
+        "candidateUnit": "base_maximum_life"
+      },
+      {
+        "id": "uniform-integer-roll-v1",
+        "candidateUnit": "s0028",
+        "candidates": []
+      },
+      {
+        "id": "assumed-source-integer-roll-v1",
+        "candidateUnit": "s0028",
+        "candidates": []
+      },
+      {
+        "id": "user-coupled-ratio-half-up-v1",
+        "candidates": [
+          "m025f"
+        ]
+      }
+    ],
+    "other": {
+      "id": "poe2db-published-candidates-v1",
+      "candidates": [
+        "stocky-mitts:prefix:sanguine"
+      ]
+    }
   }
 }

@@ -42,6 +42,30 @@ describe('identifier transport', () => {
     expect(JSON.parse(init.body)).toEqual(fixture.compact)
     expect(init.headers.get('X-Crafting-Ids-Body')).toBe('compact')
   })
+  it('uses plain bodies with a server that does not acknowledge this wire revision', async () => {
+    const fetch = vi
+      .fn()
+      .mockImplementation(() =>
+        Promise.resolve(
+          new Response(JSON.stringify(fixture.plain), {
+            headers: { 'X-Crafting-Ruleset': 'old-server' },
+          }),
+        ),
+      )
+    vi.stubGlobal('fetch', fetch)
+    const response = await craftingFetch('/api/v1/crafting/workbench/initial')
+    expect(await response.json()).toEqual(fixture.plain)
+    const body = JSON.stringify(fixture.plain)
+    await craftingFetch('/api/v1/crafting/workbench/apply', {
+      method: 'POST',
+      headers: { 'X-Crafting-Ruleset': 'old-server' },
+      body,
+    })
+    expect(fetch.mock.calls[1]![1].body).toBe(body)
+    expect(fetch.mock.calls[1]![1].headers.has('X-Crafting-Ids-Body')).toBe(
+      false,
+    )
+  })
   it('keeps signed repeat bodies byte-for-byte unchanged', async () => {
     const fetch = vi.fn().mockResolvedValue(new Response('{}'))
     vi.stubGlobal('fetch', fetch)

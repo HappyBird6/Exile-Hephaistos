@@ -3,7 +3,6 @@ import { poolHeaders, acceptPoolUpdate } from './modifier-pool/poolSnapshots'
 import { isQualityInfuser, infuserTransitionMatches } from './qualityInfuser'
 import { currencyOmens } from './crafting-state/activeOmens'
 import { effectiveDefinitions, isCraftedModifier } from './augmentRules'
-import equipmentCurrencies from './equipmentCurrencies.json'
 import { observedSanctified } from './sanctification/sanctification'
 import type { Sanctification } from './sanctification/sanctification'
 import { equivalent } from './sanctification/equivalence'
@@ -17,12 +16,15 @@ import { rulesetHeaders, verifyRulesetResponse } from './rulesetIdentity'
 import { translate } from '../../shared/i18n/i18n'
 import { topBase, topBaseKey } from './topBases'
 import { basePolicy, baseAffixCapacity } from './baseRegistry'
-import { essenceTargets as reviewedEssenceTargets } from './catalogData'
+import { materialActions, materialProfiles } from './catalogData'
+import {
+  materialCatalogFor,
+  materialTargetMatches,
+  materialRollMatches,
+} from './materialRules'
 import { supportsConcreteStateShape } from './workbenchStateShape'
 import { modifierTemplates as displayBindings } from '../../shared/i18n/localeData'
-import liquidTargets from './basicJewelLiquidTargets.json'
 import {
-  workbenchJewelBases,
   isWorkbenchJewel,
   reviewedBasicJewel,
   jewelCapacity,
@@ -55,14 +57,6 @@ import {
   legacyFiveIds,
   compatibleOmenPair,
   baseWorkbenchAction,
-  bowFixedEssenceModifiers,
-  fixedEssenceModifiers,
-  stockyFixedEssenceModifiers,
-  choiceEssenceModifiers,
-  wandFixedEssenceModifiers,
-  sceptreFixedEssenceModifiers,
-  replacementEssenceModifiers,
-  stockyReplacementTargets,
 } from './currencyDefinitions'
 import type { WorkbenchAction } from './currencyDefinitions'
 
@@ -338,66 +332,13 @@ export async function applyCurrency(
     Object.entries(a!).every(
       ([key, value]) => Object.hasOwn(b!, key) && b![key] === value,
     )
-  const fixedTarget =
-    state.baseItemId ===
-    'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
-      ? sceptreFixedEssenceModifiers[action]
-      : state.baseItemId ===
-          'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
-        ? wandFixedEssenceModifiers[action]
-        : state.baseItemId ===
-            'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
-          ? bowFixedEssenceModifiers[action]
-          : state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-            ? (stockyFixedEssenceModifiers[action] ??
-              fixedEssenceModifiers[action])
-            : fixedEssenceModifiers[action]
   const reviewedKey = topBaseKey(state.baseItemId)
-  const reviewedTargets = reviewedKey
-    ? (
-        reviewedEssenceTargets as Record<
-          string,
-          {
-            fixed: Record<string, string[]>
-            replacements: Record<string, string[]>
-          }
-        >
-      )[reviewedKey]
-    : undefined
-  const essenceCandidates = reviewedTargets
-    ? (reviewedTargets.fixed[action] ?? [])
-    : fixedTarget
-      ? [fixedTarget]
-      : (choiceEssenceModifiers[action] ?? [])
-  const baseName = Object.keys(workbenchJewelBases).find(
-    (b) =>
-      (workbenchJewelBases as Record<string, string>)[b] === state.baseItemId,
-  )
-  const equipmentTargets = (
-    equipmentCurrencies.targets as Record<string, Record<string, string[]>>
-  )[state.baseItemId]?.[action]
-  const replacementTargets =
-    equipmentTargets ??
-    (action.includes('LIQUID_')
-      ? baseName
-        ? ((liquidTargets as Record<string, Record<string, string[]>>)[
-            baseName
-          ]?.[action] ?? [])
-        : []
-      : reviewedTargets
-        ? (reviewedTargets.replacements[action] ??
-          ([
-            'PERFECT_ESSENCE_GROUNDING',
-            'PERFECT_ESSENCE_OPULENCE',
-            'ESSENCE_ABYSS',
-          ].includes(action)
-            ? stockyReplacementTargets[action]
-            : []) ??
-          [])
-        : ((state.baseItemId === 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
-            ? (stockyReplacementTargets[action] ??
-              replacementEssenceModifiers[action])
-            : replacementEssenceModifiers[action]) ?? []))
+  const material = materialProfiles[materialActions[action] ?? '']
+  const catalogMaterials = materialCatalogFor(state.baseItemId)
+  const rule = catalogMaterials?.targets[action]
+  const targets = rule?.ids ?? []
+  const essenceCandidates = material?.mode === 'ADD' ? targets : []
+  const replacementTargets = material?.mode === 'REPLACE' ? targets : []
   const sameModifiers = (
     a: ConcreteItem['explicits'],
     b: ConcreteItem['explicits'],
@@ -434,7 +375,7 @@ export async function applyCurrency(
     !verifiedCatalystQuality(next, definitions) ||
     (isWorkbenchJewel(next.baseItemId) && !reviewedBasicJewel(next)) ||
     (v.applied &&
-      action.includes('LIQUID_') &&
+      material?.kind === 'LIQUID' &&
       (!isWorkbenchJewel(state.baseItemId) ||
         state.explicits.some((m) =>
           isCraftedModifier(m, definitions[m.modifierId]),
@@ -467,78 +408,13 @@ export async function applyCurrency(
           maximumQuality(next, definitions) !== null
         : !qualityLimitMatches(v.qualityLimit, next, definitions))) ||
     (v.applied &&
-      [
-        'LESSER_ESSENCE_COMMAND',
-        'ESSENCE_COMMAND',
-        'GREATER_ESSENCE_COMMAND',
-        'PERFECT_ESSENCE_COMMAND',
-      ].includes(action) &&
-      state.baseItemId !==
-        'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1' &&
-      topBase(reviewedKey ?? '')?.family !== 'sceptres') ||
-    (v.applied &&
-      action === 'PERFECT_ESSENCE_INSULATION' &&
-      topBase(reviewedKey ?? '')?.family !== 'belts' &&
-      state.baseItemId !== 'Metadata/Items/Belts/FourBelt1') ||
-    (v.applied &&
-      action === 'PERFECT_ESSENCE_MIND' &&
-      state.baseItemId !== 'Metadata/Items/Rings/FourRing1' &&
-      !['rings', 'amulets'].includes(
-        topBase(reviewedKey ?? '')?.family ?? '',
-      )) ||
-    (v.applied &&
-      action === 'PERFECT_ESSENCE_THAWING' &&
-      state.baseItemId !== 'Metadata/Items/Armours/Helmets/FourHelmetStr1' &&
-      !['helmet', 'helmets'].includes(
-        topBase(reviewedKey ?? '')?.family ?? '',
-      )) ||
-    (v.applied &&
-      [
-        'PERFECT_ESSENCE_BODY',
-        'PERFECT_ESSENCE_RUIN',
-        'PERFECT_ESSENCE_SEEKING',
-      ].includes(action) &&
-      state.baseItemId !== 'Metadata/Items/Armours/BodyArmours/FourBodyStr1' &&
-      topBase(reviewedKey ?? '')?.family !== 'body') ||
-    (v.applied &&
-      [
-        'PERFECT_ESSENCE_MIND',
-        'PERFECT_ESSENCE_THAWING',
-        'PERFECT_ESSENCE_INSULATION',
-        'PERFECT_ESSENCE_COMMAND',
-        'PERFECT_ESSENCE_BODY',
-        'PERFECT_ESSENCE_RUIN',
-        'PERFECT_ESSENCE_SEEKING',
-        'PERFECT_ESSENCE_SORCERY',
-        'PERFECT_ESSENCE_ALACRITY',
-        'PERFECT_ESSENCE_ABRASION',
-        'PERFECT_ESSENCE_FLAMES',
-        'PERFECT_ESSENCE_ICE',
-        'PERFECT_ESSENCE_ELECTRICITY',
-        'PERFECT_ESSENCE_BATTLE',
-        'PERFECT_ESSENCE_HASTE',
-        'PERFECT_ESSENCE_GROUNDING',
-        'PERFECT_ESSENCE_OPULENCE',
-      ].includes(action) &&
-      state.itemLevel < 72) ||
-    (v.applied &&
-      (action.endsWith('_ALLOY') || action === 'ESSENCE_HORROR') &&
-      (!equipmentTargets?.length ||
-        !equipmentTargets.every((id) => {
-          const expected = equipmentCurrencies.definitions.find(
-            (d) => d.id === id,
-          )
-          const actual = definitions[id]
-          return (
-            expected &&
-            actual &&
-            state.itemLevel >= expected.requiredItemLevel &&
-            (actual.sourceUrl == null
-              ? !id.startsWith('equipment:')
-              : actual.sourceUrl === expected.sourceUrl) &&
-            JSON.stringify(actual.stats) === JSON.stringify(expected.stats)
-          )
-        }))) ||
+      material &&
+      (!rule ||
+        state.itemLevel < rule.level ||
+        !material.inputRarities.includes(state.rarity) ||
+        !targets.every((id) =>
+          materialTargetMatches(definitions[id], catalogMaterials?.details[id]),
+        ))) ||
     v.action !== action ||
     typeof v.applied !== 'boolean' ||
     typeof v.reason !== 'string' ||
@@ -718,11 +594,9 @@ export async function applyCurrency(
   const expectedRarity =
     baseAction === 'TRANSMUTATION'
       ? 'MAGIC'
-      : baseAction === 'REGAL' ||
-          action === 'ALCHEMY' ||
-          essenceCandidates.length > 0
+      : baseAction === 'REGAL' || action === 'ALCHEMY'
         ? 'RARE'
-        : state.rarity
+        : (material?.resultRarity ?? state.rarity)
   const expectedCount =
     action === 'ALCHEMY'
       ? 4
@@ -788,8 +662,7 @@ export async function applyCurrency(
   if (v.applied && replacementTargets.length > 0) {
     const matching = workbenchOmens.filter(
       (o) =>
-        !action.endsWith('_ALLOY') &&
-        !action.includes('LIQUID_') &&
+        material?.kind === 'ESSENCE' &&
         o.trigger === 'ESSENCE_HYSTERIA' &&
         activeOmens.includes(o.id),
     )
@@ -807,8 +680,7 @@ export async function applyCurrency(
       state.installedAugments,
     )
     const targetFull =
-      !action.endsWith('_ALLOY') &&
-      !action.includes('LIQUID_') &&
+      material?.kind === 'ESSENCE' &&
       (targetSide === 'PREFIX' || targetSide === 'SUFFIX') &&
       state.explicits.filter(
         (m) => definitions[m.modifierId]?.affixType === targetSide,
@@ -819,7 +691,7 @@ export async function applyCurrency(
         !m.fractured &&
         (!side || definitions[m.modifierId]?.affixType === side) &&
         (!targetFull || definitions[m.modifierId]?.affixType === targetSide) &&
-        (!action.includes('LIQUID_') ||
+        (material?.kind !== 'LIQUID' ||
           replacementTargets.some((id) => {
             const target = definitions[id]
             if (!target) return false
@@ -836,27 +708,28 @@ export async function applyCurrency(
           })),
     )
     const removed = v.events[0]
-    const validTargets = action.includes('LIQUID_')
-      ? replacementTargets.filter((id) => {
-          const target = definitions[id]!
-          const restState = {
-            ...state,
-            explicits: state.explicits.filter(
-              (m) => m.modifierId !== removed?.modifierId,
-            ),
-          }
-          const rest = restState.explicits.map(
-            (m) => definitions[m.modifierId]!,
-          )
-          return (
-            rest.filter((d) => d.affixType === target.affixType).length <
-              jewelCapacity(restState, target.affixType) &&
-            rest.every(
-              (d) => !d.familyIds.some((f) => target.familyIds.includes(f)),
+    const validTargets =
+      material?.kind === 'LIQUID'
+        ? replacementTargets.filter((id) => {
+            const target = definitions[id]!
+            const restState = {
+              ...state,
+              explicits: state.explicits.filter(
+                (m) => m.modifierId !== removed?.modifierId,
+              ),
+            }
+            const rest = restState.explicits.map(
+              (m) => definitions[m.modifierId]!,
             )
-          )
-        })
-      : replacementTargets
+            return (
+              rest.filter((d) => d.affixType === target.affixType).length <
+                jewelCapacity(restState, target.affixType) &&
+              rest.every(
+                (d) => !d.familyIds.some((f) => target.familyIds.includes(f)),
+              )
+            )
+          })
+        : replacementTargets
     const added = v.events[1]
     const old = candidates.find((m) => m.modifierId === removed?.modifierId)
     const target = next.explicits.find(
@@ -866,7 +739,6 @@ export async function applyCurrency(
       (m) => m.modifierId !== old?.modifierId,
     )
     if (
-      state.rarity !== 'RARE' ||
       v.events.length !== 2 ||
       removed?.kind !== 'REMOVE' ||
       !old ||
@@ -890,7 +762,7 @@ export async function applyCurrency(
         !v.assumptions.some(
           (a) =>
             a.id ===
-              (action.includes('LIQUID_')
+              (material?.kind === 'LIQUID'
                 ? 'uniform-liquid-outcomes-v1'
                 : 'uniform-essence-choice-v1') &&
             a.n === validTargets.length &&
@@ -912,142 +784,11 @@ export async function applyCurrency(
       throw new Error(
         'Could not verify the essence replacement. Your item is unchanged. Please retry.',
       )
-    if (equipmentTargets) {
-      const expected = equipmentCurrencies.definitions.find(
-        (d) => d.id === added?.modifierId,
-      )
-      const range = expected?.stats.length === 1 ? expected.stats[0] : undefined
-      if (range) {
-        const models = v.assumptions.filter((a) =>
-          [
-            'uniform-integer-roll-v1',
-            'assumed-source-integer-roll-v1',
-          ].includes(a.id),
-        )
-        if (
-          models.length !== (range.min === range.max ? 0 : 1) ||
-          models.some(
-            (a) =>
-              a.candidateUnit !== range.id ||
-              a.min !== range.min ||
-              a.max !== range.max ||
-              a.n !== range.max - range.min + 1 ||
-              a.candidates.length !== 0 ||
-              a.sourceUrl !== expected!.sourceUrl,
-          )
-        )
-          throw new Error(
-            'Could not verify the equipment modifier roll model. Your item is unchanged. Please retry.',
-          )
-      }
-    }
-    if (
-      [
-        'PERFECT_ESSENCE_MIND',
-        'PERFECT_ESSENCE_THAWING',
-        'PERFECT_ESSENCE_INSULATION',
-        'PERFECT_ESSENCE_COMMAND',
-        'PERFECT_ESSENCE_BODY',
-        'PERFECT_ESSENCE_RUIN',
-        'PERFECT_ESSENCE_SEEKING',
-        'PERFECT_ESSENCE_SORCERY',
-        'PERFECT_ESSENCE_ALACRITY',
-        'PERFECT_ESSENCE_ABRASION',
-        'PERFECT_ESSENCE_FLAMES',
-        'PERFECT_ESSENCE_ICE',
-        'PERFECT_ESSENCE_ELECTRICITY',
-        'PERFECT_ESSENCE_BATTLE',
-        'PERFECT_ESSENCE_HASTE',
-        'PERFECT_ESSENCE_GROUNDING',
-        'PERFECT_ESSENCE_OPULENCE',
-        'EXPANSIVE_ALLOY',
-        'CYCLONIC_ALLOY',
-        'MYSTIC_ALLOY',
-        'ADAPTIVE_ALLOY',
-        'SWIFT_ALLOY',
-        'SOVEREIGN_ALLOY',
-        'PRISMATIC_ALLOY',
-      ].includes(action) &&
-      (!equipmentTargets || added?.modifierId.startsWith('stocky-mitts:'))
-    ) {
-      const range = definitions[added!.modifierId]?.stats?.[0]
-      const expectedSource =
-        'https://poe2db.tw/us/hover?s=Data%5CMods%2F' +
-        (action === 'PERFECT_ESSENCE_MIND'
-          ? 'EssenceIncreasedManaPercent1'
-          : action === 'PERFECT_ESSENCE_THAWING'
-            ? 'EssenceColdRecoupLife1'
-            : action === 'PERFECT_ESSENCE_INSULATION'
-              ? 'EssenceFireRecoupLife1'
-              : action === 'PERFECT_ESSENCE_COMMAND'
-                ? 'EssenceAuraEffect1'
-                : action === 'PERFECT_ESSENCE_BODY'
-                  ? 'EssenceIncreasedLifePercent1'
-                  : action === 'PERFECT_ESSENCE_RUIN'
-                    ? 'EssencePhysicalDamageTakenAsChaos1'
-                    : action === 'PERFECT_ESSENCE_SEEKING'
-                      ? 'EssenceReducedCriticalDamageAgainstYou1'
-                      : action === 'PERFECT_ESSENCE_SORCERY'
-                        ? 'EssenceSpellSkillLevel1H1'
-                        : action === 'PERFECT_ESSENCE_ALACRITY'
-                          ? 'EssenceManaCostReduction'
-                          : action === 'PERFECT_ESSENCE_ABRASION'
-                            ? 'EssenceDamageasExtraPhysical1'
-                            : action === 'PERFECT_ESSENCE_FLAMES'
-                              ? 'EssenceDamageasExtraFire1'
-                              : action === 'PERFECT_ESSENCE_ICE'
-                                ? 'EssenceDamageasExtraCold1'
-                                : action === 'PERFECT_ESSENCE_ELECTRICITY'
-                                  ? 'EssenceDamageasExtraLightning1'
-                                  : action === 'PERFECT_ESSENCE_BATTLE'
-                                    ? 'EssenceAttackSkillLevel1H1'
-                                    : action === 'PERFECT_ESSENCE_HASTE'
-                                      ? 'EssenceOnslaughtonKill1'
-                                      : action === 'PERFECT_ESSENCE_GROUNDING'
-                                        ? 'EssenceLightningRecoupLife1'
-                                        : action === 'PERFECT_ESSENCE_OPULENCE'
-                                          ? 'EssenceGoldDropped1'
-                                          : action === 'ADAPTIVE_ALLOY'
-                                            ? 'AlloyAttackSpeedIfMissingWardRecently1'
-                                            : action === 'SWIFT_ALLOY'
-                                              ? 'AlloyCastSpeedGloves1'
-                                              : action === 'SOVEREIGN_ALLOY'
-                                                ? 'AlloyLocalWardIncreasePercent1'
-                                                : action === 'EXPANSIVE_ALLOY'
-                                                  ? 'AlloyRemnantPickupRange1'
-                                                  : action === 'CYCLONIC_ALLOY'
-                                                    ? 'AlloyDamagingAilmentDuration1'
-                                                    : action === 'MYSTIC_ALLOY'
-                                                      ? 'AlloyAttackAreaOfEffect1'
-                                                      : 'AlloyElementalPenetration1')
-      const models = v.assumptions.filter(
-        (a) => a.id === 'assumed-source-integer-roll-v1',
-      )
-      if (
-        !range ||
-        models.length !== (range.min === range.max ? 0 : 1) ||
-        !models.every(
-          (a) =>
-            a.candidateUnit === range.id &&
-            a.min === range.min &&
-            a.max === range.max &&
-            a.n === range.max - range.min + 1 &&
-            a.candidates.length === 0 &&
-            a.sourceUrl === expectedSource &&
-            a.reason.includes('UNVERIFIED'),
-        )
-      ) {
-        throw new Error(
-          'Could not verify the numeric model. Your item is unchanged. Please retry.',
-        )
-      }
-    }
   }
   if (
     v.applied &&
     essenceCandidates.length > 0 &&
-    (state.rarity !== 'MAGIC' ||
-      v.events.length !== 1 ||
+    (v.events.length !== 1 ||
       v.events[0]?.kind !== 'ADD' ||
       !essenceCandidates.includes(v.events[0]?.modifierId ?? '') ||
       v.events[0]?.selectionProbability !== 1 / essenceCandidates.length ||
@@ -1078,52 +819,13 @@ export async function applyCurrency(
     throw new Error(
       'Could not verify the guaranteed essence modifier. Your item is unchanged. Please retry.',
     )
-  if (v.applied && sceptreFixedEssenceModifiers[action]) {
-    const target = definitions[sceptreFixedEssenceModifiers[action]!]
+  if (v.applied && material && catalogMaterials) {
+    const added = v.events.find((event) => event.kind === 'ADD')!
     if (
-      !target ||
-      state.itemLevel <
-        {
-          LESSER_ESSENCE_COMMAND: 8,
-          ESSENCE_COMMAND: 33,
-          GREATER_ESSENCE_COMMAND: 60,
-        }[
-          action as
-            | 'LESSER_ESSENCE_COMMAND'
-            | 'ESSENCE_COMMAND'
-            | 'GREATER_ESSENCE_COMMAND'
-        ] ||
-      next.rarity !== 'RARE'
-    )
-      throw new Error(
-        'Could not verify the guaranteed essence modifier. Your item is unchanged. Please retry.',
-      )
-    const code = {
-      LESSER_ESSENCE_COMMAND: 'NearbyAlliesAllDamage2',
-      ESSENCE_COMMAND: 'NearbyAlliesAllDamage4',
-      GREATER_ESSENCE_COMMAND: 'NearbyAlliesAllDamage6',
-    }[
-      action as
-        'LESSER_ESSENCE_COMMAND' | 'ESSENCE_COMMAND' | 'GREATER_ESSENCE_COMMAND'
-    ]
-    const range = target.stats?.[0]
-    const models = v.assumptions.filter(
-      (a) => a.id === 'assumed-source-integer-roll-v1',
-    )
-    if (
-      !range ||
-      target.stats?.length !== 1 ||
-      models.length !== 1 ||
-      !models.every(
-        (a) =>
-          a.candidateUnit === range.id &&
-          a.min === range.min &&
-          a.max === range.max &&
-          a.n === range.max - range.min + 1 &&
-          a.candidates.length === 0 &&
-          a.sourceUrl ===
-            'https://poe2db.tw/us/hover?s=Data%5CMods%2F' + code &&
-          a.reason.includes('UNVERIFIED'),
+      !materialRollMatches(
+        definitions[added.modifierId]!,
+        v.assumptions,
+        catalogMaterials,
       )
     )
       throw new Error(

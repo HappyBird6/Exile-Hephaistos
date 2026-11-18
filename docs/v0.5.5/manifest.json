@@ -2829,6 +2829,10 @@
       "sha256": "5606a11e50232c713d0c2df39d3a172c42a885bf8259b29dc06b5feddd3b3af2"
     },
     {
+      "runtimePath": "frontend/src/features/crafting/materialVerification.json",
+      "sha256": "0a1d425150956acec5e3ee0b6db23f73777e14dcd1e257f333c71bef66724780"
+    },
+    {
       "runtimePath": "frontend/src/shared/i18n/augmentDisplay.json",
       "sha256": "dde01b1d3af6b605e44dc56c0de4d6ce78a69b787577932474579f84a18cc8c0"
     },
