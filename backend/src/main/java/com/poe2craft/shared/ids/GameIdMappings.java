@@ -115,4 +115,11 @@ public final class GameIdMappings {
   String convert(String domain, String value, boolean compact) {
     return (compact ? encoded : decoded).getOrDefault(domain, Map.of()).getOrDefault(value, value);
   }
+
+  /** 요청의 ID 사전이 일치하면 카탈로그 ETag에 사전 판본을 포함한다. */
+  public String catalogTag(String original, String ids) {
+    return identity.equals(ids)
+        ? original.substring(0, original.length() - 1) + ":" + ids + "\""
+        : original;
+  }
 }

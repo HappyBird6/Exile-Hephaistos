@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @RestControllerAdvice(assignableTypes = ItemTextController.class)
 public final class ItemTextErrors {
-  @ExceptionHandler(ItemTextController.ItemTextTooLargeException.class)
+  @ExceptionHandler(com.poe2craft.shared.item.text.ItemTextTooLargeException.class)
   public ProblemDetail tooLarge(HttpServletRequest request) {
     return problem(
         HttpStatus.PAYLOAD_TOO_LARGE,

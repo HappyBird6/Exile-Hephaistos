@@ -173,4 +173,19 @@ public final class GraphExplorer {
       double blockedProbability,
       double unexploredProbability,
       boolean complete) {}
+
+  /** 시간 예산을 검사하고 기한 또는 스레드 중단 시 탐색을 멈춘다. */
+  public Result explore(
+      StateBucket state, List<CraftingAction> plan, int maxNodes, int maxEdges, int maxMillis) {
+
+    if (maxMillis < 10 || maxMillis > 1500)
+      throw new IllegalArgumentException("Invalid time limit");
+    long deadline = System.nanoTime() + maxMillis * 1_000_000L;
+    return explore(
+        state,
+        plan,
+        maxNodes,
+        maxEdges,
+        () -> System.nanoTime() >= deadline || Thread.currentThread().isInterrupted());
+  }
 }

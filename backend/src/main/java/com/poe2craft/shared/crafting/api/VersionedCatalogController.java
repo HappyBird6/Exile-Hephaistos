@@ -9,33 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 규칙 버전별 불변 카탈로그를 응답하고 전송 형식별 HTTP 캐시를 구분한다.
- *
- * <p>기존 계약: Immutable presentation reference. The version in the URL must match the running engine.
- *
- * <p>필드·상수:
- *
- * <ul>
- *   <li>{@code crafting}: 제작 ({@code CraftingOperations}).
- *   <li>{@code references}: 참조목록 ({@code
- *       com.poe2craft.shared.crafting.infrastructure.CatalogReferences}).
- * </ul>
- *
- * <p>생성자·메서드:
- *
- * <ul>
- *   <li>{@code VersionedCatalogController(crafting, references)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
- *       crafting}(제작), {@code references}(참조목록).
- *   <li>{@code shared(identity, hash, ids)}: 공유 카탈로그 자료를 조회한다. 입력: {@code identity}(정체성), {@code
- *       hash}(해시), {@code ids}(식별자목록). 반환: {@code ResponseEntity<?>}.
- *   <li>{@code catalog(identity, base, manualReveal, ids)}: 카탈로그 처리에서 {@code
- *       RulesetBoundary.identity}, {@code ResponseEntity.status}을(를) 사용한다. 입력: {@code
- *       identity}(정체성), {@code base}(베이스), {@code manualReveal}(수동·공개), {@code ids}(식별자목록). 반환:
- *       {@code ResponseEntity<?>}.
- *   <li>{@code tag(original, ids)}: 태그 처리에서 {@code GameIdMappings.active}, {@code
- *       original.substring}을(를) 사용한다. 입력: {@code original}(원본), {@code ids}(식별자목록). 반환: {@code
- *       String}.
- * </ul>
+ * 규칙 판본에 대응하는 카탈로그를 HTTP 캐시 헤더와 함께 제공한다. shared는 references에서 해시로 공용 자료를 찾고 catalog는 crafting에서
+ * 베이스와 공개 설정에 해당하는 옵션 목록을 조회한다.
  */
 @RestController
 @RequestMapping("/api/v1/crafting/catalogs")
@@ -63,7 +38,8 @@ public final class VersionedCatalogController {
     return ResponseEntity.ok()
         .cacheControl(CacheControl.maxAge(Duration.ofDays(365)).cachePublic().immutable())
         .varyBy(com.poe2craft.shared.ids.GameIdMappings.HEADER)
-        .eTag(tag("W/\"" + hash + "\"", ids))
+        .eTag(
+            com.poe2craft.shared.ids.GameIdMappings.active().catalogTag("W/\"" + hash + "\"", ids))
         .body(body);
   }
 
@@ -80,13 +56,9 @@ public final class VersionedCatalogController {
     return ResponseEntity.ok()
         .cacheControl(CacheControl.maxAge(Duration.ofDays(365)).cachePublic().immutable())
         .varyBy(com.poe2craft.shared.ids.GameIdMappings.HEADER)
-        .eTag(tag("\"" + identity + ":" + base + ":" + manualReveal + "\"", ids))
+        .eTag(
+            com.poe2craft.shared.ids.GameIdMappings.active()
+                .catalogTag("\"" + identity + ":" + base + ":" + manualReveal + "\"", ids))
         .body(Map.of("rulesetIdentity", identity, "modifiers", initial.modifiers()));
-  }
-
-  private static String tag(String original, String ids) {
-    return com.poe2craft.shared.ids.GameIdMappings.active().identity().equals(ids)
-        ? original.substring(0, original.length() - 1) + ":" + ids + "\""
-        : original;
   }
 }

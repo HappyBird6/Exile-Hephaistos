@@ -10,7 +10,6 @@ import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
-import com.poe2craft.workbench.api.ChaosRepeatController;
 import com.poe2craft.workbench.display.DisplayLocale;
 import com.poe2craft.workbench.display.DisplayNumbers;
 import java.nio.file.Files;
@@ -174,7 +173,7 @@ class ChaosRepeatDisplayIntegrationTest {
       bundled = in.readAllBytes();
     }
     assertThat(bundled).isEqualTo(original);
-    assertThat(ChaosRepeatController.sha256(bundled))
+    assertThat(ChaosRepeatSubmission.sha256(bundled))
         .isEqualTo(ChaosDisplayResources.TEMPLATE_SHA256);
     var state = rare();
     var catalog = WORKBENCH.abyssCatalog(state);

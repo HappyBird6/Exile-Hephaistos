@@ -14,6 +14,7 @@ import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.ruleset.api.RulesetBoundary;
 import com.poe2craft.workbench.repeat.ChaosRepeatPattern;
 import com.poe2craft.workbench.repeat.ChaosRepeatService;
+import com.poe2craft.workbench.repeat.ChaosRepeatSubmission;
 import com.poe2craft.workbench.repeat.RepeatRejected;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -135,7 +136,7 @@ class ChaosRepeatControllerTest {
       byte[] bytes = JSON.writeValueAsBytes(body);
       var result = send(body, 200);
       assertThat(result.path("requestBinding").path("requestSha256").asText())
-          .isEqualTo(ChaosRepeatController.sha256(bytes));
+          .isEqualTo(ChaosRepeatSubmission.sha256(bytes));
       assertThat(result.path("requestBinding").path("requestId").asText()).isEqualTo(ID);
       assertThat(result.path("requestBinding").path("maximumUses").intValue()).isEqualTo(1000);
       assertThat(result.path("requestBinding").path("matcherVersion").asText())
@@ -248,7 +249,7 @@ class ChaosRepeatControllerTest {
   @Test
   void byteLimitUsesActualStreamEvenWithNoContentLengthAndUtf8MustBeValid() throws Exception {
     byte[] valid = JSON.writeValueAsBytes(request(false));
-    byte[] exact = Arrays.copyOf(valid, ChaosRepeatController.MAX_BODY_BYTES);
+    byte[] exact = Arrays.copyOf(valid, ChaosRepeatSubmission.MAX_BODY_BYTES);
     Arrays.fill(exact, valid.length, exact.length, (byte) ' ');
     var request =
         new MockHttpServletRequest() {
@@ -335,11 +336,11 @@ class ChaosRepeatControllerTest {
     var bytes = Files.readAllBytes(Path.of("../docs/contracts/chaos-repeat/request-body.json"));
     var expected =
         Files.readString(Path.of("../docs/contracts/chaos-repeat/request-body.sha256")).trim();
-    assertThat(ChaosRepeatController.sha256(bytes)).isEqualTo(expected);
+    assertThat(ChaosRepeatSubmission.sha256(bytes)).isEqualTo(expected);
     assertThat(JSON.readTree(bytes).path("pattern").asText()).contains("生命", "España", "가-힣");
     var source = JSON.readTree(bytes);
     assertThat(
-            ChaosRepeatController.sha256(
+            ChaosRepeatSubmission.sha256(
                 (new String(bytes, StandardCharsets.UTF_8) + "\n")
                     .getBytes(StandardCharsets.UTF_8)))
         .isNotEqualTo(expected);

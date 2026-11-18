@@ -10,6 +10,8 @@ import com.poe2craft.shared.item.text.*;
  * <p>기존 계약: One parse/mapping operation shared by imports and edits. No mutation of the supplied
  * checkpoint.
  *
+ * <p>map은 텍스트를 카탈로그 옵션과 연결하고 edit은 기존 아이템에 편집 결과를 병합한다.
+ *
  * <p>필드·상수:
  *
  * <ul>
@@ -84,5 +86,18 @@ public final class ItemTextPreparation {
       }
     }
     return new Prepared(parsed, mapped);
+  }
+
+  public SolarTextMapper.Result map(String text) {
+    return mapper.map(parser.parseText(text));
+  }
+
+  public SolarTextMapper.Result edit(String text, ItemState before) {
+    var catalog =
+        crafting.reviewedCatalogs().stream()
+            .filter(c -> c.base().id().equals(before.baseItemId()))
+            .findFirst()
+            .orElseThrow();
+    return ItemTextEditor.merge(before, map(text), catalog);
   }
 }

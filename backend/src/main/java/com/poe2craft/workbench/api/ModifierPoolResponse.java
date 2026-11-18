@@ -75,7 +75,7 @@ public final class ModifierPoolResponse implements ResponseBodyAdvice<Object> {
             ? result.state()
             : body instanceof AbyssCurrencyExecutor.Result result
                 ? result.state().storedItem()
-                : body instanceof WorkbenchController.AugmentResult result
+                : body instanceof com.poe2craft.workbench.application.AugmentResult result
                     ? result.state()
                     : body instanceof com.poe2craft.shared.crafting.domain.AbyssCraftingState result
                         ? result.storedItem()

@@ -9,106 +9,16 @@ import com.poe2craft.craftingsupport.search.application.MethodSearchService;
 import com.poe2craft.craftingsupport.search.application.PathSearchProtocol.Rejected;
 import com.poe2craft.shared.crafting.domain.BasicCurrencyState;
 import jakarta.servlet.http.*;
-import java.util.UUID;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 제작 방법 단위의 탐색과 저장된 계산 결과 조회 API를 제공한다.
- *
- * <p>필드·상수:
- *
- * <ul>
- *   <li>{@code service}: 요청 처리를 위임하는 서비스 ({@code MethodSearchService}).
- *   <li>{@code reader}: 읽기변환기 ({@code
- *       com.poe2craft.craftingsupport.search.application.SearchInputReader}).
- * </ul>
- *
- * <p>생성자·메서드:
- *
- * <ul>
- *   <li>{@code MethodSearchController(service, json)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
- *       service}(서비스), {@code json}(JSON).
- *   <li>{@code create(body, request, response)}: 새 작업 또는 값을 생성한다. 입력: {@code body}(본문), {@code
- *       request}(요청), {@code response}(응답). 반환: {@code ResponseEntity<Snapshot>}.
- *   <li>{@code createIndexed(body, request, response)}: 색인된을(를) 생성한다. 입력: {@code body}(본문), {@code
- *       request}(요청), {@code response}(응답). 반환: {@code
- *       ResponseEntity<IndexedMethodProtocol.Started>}.
- *   <li>{@code createCertified(body, request, response)}: 확률구간을(를) 생성한다. 입력: {@code body}(본문),
- *       {@code request}(요청), {@code response}(응답). 반환: {@code
- *       ResponseEntity<CertifiedMethodProtocol.Started>}.
- *   <li>{@code certified(id, request, response)}: 확률구간 처리에서 {@code service.getCertified}을(를) 사용한다.
- *       입력: {@code id}(식별자), {@code request}(요청), {@code response}(응답). 반환: {@code
- *       CertifiedMethodProtocol.Snapshot}.
- *   <li>{@code certifiedGraph(id, revision, stateOffset, methodOffset, request, response)}:
- *       확률구간·그래프 처리에서 {@code service.certifiedGraph}을(를) 사용한다. 입력: {@code id}(식별자), {@code
- *       revision}(리비전), {@code stateOffset}(상태·시작위치), {@code methodOffset}(제작방법·시작위치), {@code
- *       request}(요청), {@code response}(응답). 반환: {@code CertifiedMethodProtocol.Graph}.
- *   <li>{@code certifiedOutcomes(id, revision, methodId, cycles, offset, request, response)}:
- *       확률구간·결과목록 처리에서 {@code service.certifiedOutcomes}을(를) 사용한다. 입력: {@code id}(식별자), {@code
- *       revision}(리비전), {@code methodId}(제작방법·식별자), {@code cycles}(주기횟수), {@code offset}(시작위치),
- *       {@code request}(요청), {@code response}(응답). 반환: {@code CertifiedMethodProtocol.Outcomes}.
- *   <li>{@code certifiedMap(id, revision, offset, request, response)}: 확률구간·맵 처리에서 {@code
- *       service.certifiedMap}을(를) 사용한다. 입력: {@code id}(식별자), {@code revision}(리비전), {@code
- *       offset}(시작위치), {@code request}(요청), {@code response}(응답). 반환: {@code
- *       CertifiedMapProtocol.Graph}.
- *   <li>{@code certifiedView(id, request, response)}: 확률구간·조회표현 처리에서 {@code
- *       service.certifiedView}을(를) 사용한다. 입력: {@code id}(식별자), {@code request}(요청), {@code
- *       response}(응답). 반환: {@code CertifiedMapProtocol.View}.
- *   <li>{@code certifiedMapOutcomes(id, revision, methodId, cycles, offset, request, response)}:
- *       확률구간·맵·결과목록 처리에서 {@code service.certifiedMapOutcomes}을(를) 사용한다. 입력: {@code id}(식별자), {@code
- *       revision}(리비전), {@code methodId}(제작방법·식별자), {@code cycles}(주기횟수), {@code offset}(시작위치),
- *       {@code request}(요청), {@code response}(응답). 반환: {@code CertifiedMapProtocol.Distribution}.
- *   <li>{@code controlCertified(id, body, request, response)}: 작업제어·확률구간 처리에서 {@code
- *       service.mutateCertified}을(를) 사용한다. 입력: {@code id}(식별자), {@code body}(본문), {@code
- *       request}(요청), {@code response}(응답). 반환: {@code CertifiedMethodProtocol.Snapshot}.
- *   <li>{@code bindCertified(id, body, request, response)}: 연결·확률구간 처리에서 {@code
- *       service.bindCertifiedEntry}을(를) 사용한다. 입력: {@code id}(식별자), {@code body}(본문), {@code
- *       request}(요청), {@code response}(응답). 반환: {@code CertifiedMethodProtocol.Entry}.
- *   <li>{@code certifiedEntry(id, entryId, offset, request, response)}: 확률구간·항목 처리에서 {@code
- *       service.certifiedEntry}을(를) 사용한다. 입력: {@code id}(식별자), {@code entryId}(항목·식별자), {@code
- *       offset}(시작위치), {@code request}(요청), {@code response}(응답). 반환: {@code
- *       CertifiedMethodProtocol.Entry}.
- *   <li>{@code advanceCertified(id, entryId, body, request, response)}: 진행·확률구간 처리에서 {@code
- *       service.advanceCertifiedEntry}을(를) 사용한다. 입력: {@code id}(식별자), {@code entryId}(항목·식별자),
- *       {@code body}(본문), {@code request}(요청), {@code response}(응답). 반환: {@code
- *       CertifiedMethodProtocol.Entry}.
- *   <li>{@code classOutcomes(id, revision, methodId, cycles, cursor, request, response)}: 동치류·결과목록
- *       처리에서 {@code service.indexedOutcomes}을(를) 사용한다. 입력: {@code id}(식별자), {@code revision}(리비전),
- *       {@code methodId}(제작방법·식별자), {@code cycles}(주기횟수), {@code cursor}(진행커서), {@code
- *       request}(요청), {@code response}(응답). 반환: {@code IndexedMethodProtocol.Outcomes}.
- *   <li>{@code bindEntry(id, body, request, response)}: 연결·항목 처리에서 {@code service.bindEntry}을(를)
- *       사용한다. 입력: {@code id}(식별자), {@code body}(본문), {@code request}(요청), {@code response}(응답). 반환:
- *       {@code IndexedMethodProtocol.Entry}.
- *   <li>{@code entry(id, entryId, offset, request, response)}: 항목 처리에서 {@code service.entry}을(를)
- *       사용한다. 입력: {@code id}(식별자), {@code entryId}(항목·식별자), {@code offset}(시작위치), {@code
- *       request}(요청), {@code response}(응답). 반환: {@code IndexedMethodProtocol.Entry}.
- *   <li>{@code advanceEntry(id, entryId, body, request, response)}: 진행·항목 처리에서 {@code
- *       service.advanceEntry}을(를) 사용한다. 입력: {@code id}(식별자), {@code entryId}(항목·식별자), {@code
- *       body}(본문), {@code request}(요청), {@code response}(응답). 반환: {@code
- *       IndexedMethodProtocol.Entry}.
- *   <li>{@code provenance(baseItemId)}: 출처이력 처리에서 {@code service.provenance}을(를) 사용한다. 입력: {@code
- *       baseItemId}(베이스·아이템·식별자). 반환: {@code BasicCurrencyState.Provenance}.
- *   <li>{@code get(id, request, response)}: 키 또는 위치에 해당하는 값을 조회한다. 입력: {@code id}(식별자), {@code
- *       request}(요청), {@code response}(응답). 반환: {@code Snapshot}.
- *   <li>{@code graph(id, revision, cursor, request, response)}: 그래프 처리에서 {@code service.graph}을(를)
- *       사용한다. 입력: {@code id}(식별자), {@code revision}(리비전), {@code cursor}(진행커서), {@code
- *       request}(요청), {@code response}(응답). 반환: {@code Graph}.
- *   <li>{@code distribution(id, revision, methodId, cycles, cursor, request, response)}: 상태 또는 실행의
- *       확률 분포를 조회한다. 입력: {@code id}(식별자), {@code revision}(리비전), {@code methodId}(제작방법·식별자), {@code
- *       cycles}(주기횟수), {@code cursor}(진행커서), {@code request}(요청), {@code response}(응답). 반환: {@code
- *       Distribution}.
- *   <li>{@code cancel(id, body, request, response)}: 작업 취소를 반영하고 이후 실행을 막는다. 입력: {@code id}(식별자),
- *       {@code body}(본문), {@code request}(요청), {@code response}(응답). 반환: {@code Snapshot}. 사용하는 예외:
- *       {@code Rejected}.
- *   <li>{@code resume(id, body, request, response)}: 보존한 진행 상태에서 계산을 이어간다. 입력: {@code id}(식별자),
- *       {@code body}(본문), {@code request}(요청), {@code response}(응답). 반환: {@code
- *       ResponseEntity<Snapshot>}. 사용하는 예외: {@code Rejected}.
- *   <li>{@code read(payload, type)}: 지정한 입력 또는 저장된 값을 읽는다. 입력: {@code payload}(저장내용), {@code
- *       type}(타입). 반환: {@code T}.
- *   <li>{@code owner(request, response)}: 요청 또는 작업의 소유자를 판정한다. 입력: {@code request}(요청), {@code
- *       response}(응답). 반환: {@code String}.
- * </ul>
+ * 제작 방법 탐색의 HTTP 요청을 처리한다. reader는 입력을 읽고 service는 쿠키 소유자의 검색을 실행한다. create, createIndexed,
+ * createCertified는 일반·인덱스·인증 검색을 시작한다. get, graph, distribution, provenance는 상태·그래프·분포·출처를, cancel과
+ * resume은 중지·재개를 처리한다. classOutcomes는 분류별 결과를 조회한다. bindEntry, entry, advanceEntry는 인덱스 항목을
+ * 연결·조회·진행한다. certified, certifiedGraph, certifiedOutcomes, certifiedMap, certifiedView,
+ * certifiedMapOutcomes는 인증 검색의 상태·그래프·결과·지도·보기·지도별 결과를 조회한다. controlCertified는 실행을 제어하며
+ * bindCertified, certifiedEntry, advanceCertified는 인증 항목을 연결·조회·진행한다.
  */
 @RestController
 @RequestMapping("/api/v2/crafting/method-searches")
@@ -125,14 +35,20 @@ public final class MethodSearchController {
   public ResponseEntity<Snapshot> create(
       @RequestBody String body, HttpServletRequest request, HttpServletResponse response) {
     return ResponseEntity.accepted()
-        .body(service.create(owner(request, response), read(body, Create.class)));
+        .body(
+            service.create(
+                SearchClientCookie.METHOD.owner(request, response),
+                reader.read(body, Create.class)));
   }
 
   @PostMapping("/indexed")
   public ResponseEntity<IndexedMethodProtocol.Started> createIndexed(
       @RequestBody String body, HttpServletRequest request, HttpServletResponse response) {
     return ResponseEntity.accepted()
-        .body(service.createIndexed(owner(request, response), read(body, Create.class)));
+        .body(
+            service.createIndexed(
+                SearchClientCookie.METHOD.owner(request, response),
+                reader.read(body, Create.class)));
   }
 
   @PostMapping("/certified")
@@ -141,13 +57,14 @@ public final class MethodSearchController {
     return ResponseEntity.accepted()
         .body(
             service.createCertified(
-                owner(request, response), read(body, CertifiedMethodProtocol.Create.class)));
+                SearchClientCookie.METHOD.owner(request, response),
+                reader.read(body, CertifiedMethodProtocol.Create.class)));
   }
 
   @GetMapping("/certified/{id}")
   public CertifiedMethodProtocol.Snapshot certified(
       @PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
-    return service.getCertified(owner(request, response), id);
+    return service.getCertified(SearchClientCookie.METHOD.owner(request, response), id);
   }
 
   @GetMapping("/certified/{id}/graph")
@@ -159,7 +76,11 @@ public final class MethodSearchController {
       HttpServletRequest request,
       HttpServletResponse response) {
     return service.certifiedGraph(
-        owner(request, response), id, revision, stateOffset, methodOffset);
+        SearchClientCookie.METHOD.owner(request, response),
+        id,
+        revision,
+        stateOffset,
+        methodOffset);
   }
 
   @GetMapping("/certified/{id}/outcomes")
@@ -172,7 +93,7 @@ public final class MethodSearchController {
       HttpServletRequest request,
       HttpServletResponse response) {
     return service.certifiedOutcomes(
-        owner(request, response), id, revision, methodId, cycles, offset);
+        SearchClientCookie.METHOD.owner(request, response), id, revision, methodId, cycles, offset);
   }
 
   @GetMapping("/certified/{id}/map")
@@ -182,13 +103,14 @@ public final class MethodSearchController {
       @RequestParam(defaultValue = "0") int offset,
       HttpServletRequest request,
       HttpServletResponse response) {
-    return service.certifiedMap(owner(request, response), id, revision, offset);
+    return service.certifiedMap(
+        SearchClientCookie.METHOD.owner(request, response), id, revision, offset);
   }
 
   @GetMapping("/certified/{id}/view")
   public CertifiedMapProtocol.View certifiedView(
       @PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
-    return service.certifiedView(owner(request, response), id);
+    return service.certifiedView(SearchClientCookie.METHOD.owner(request, response), id);
   }
 
   @GetMapping("/certified/{id}/map-outcomes")
@@ -201,7 +123,7 @@ public final class MethodSearchController {
       HttpServletRequest request,
       HttpServletResponse response) {
     return service.certifiedMapOutcomes(
-        owner(request, response), id, revision, methodId, cycles, offset);
+        SearchClientCookie.METHOD.owner(request, response), id, revision, methodId, cycles, offset);
   }
 
   @PostMapping("/certified/{id}/control")
@@ -210,7 +132,8 @@ public final class MethodSearchController {
       @RequestBody String body,
       HttpServletRequest request,
       HttpServletResponse response) {
-    return service.mutateCertified(owner(request, response), id, read(body, Mutation.class));
+    return service.mutateCertified(
+        SearchClientCookie.METHOD.owner(request, response), id, reader.read(body, Mutation.class));
   }
 
   @PostMapping("/certified/{id}/entries")
@@ -220,7 +143,9 @@ public final class MethodSearchController {
       HttpServletRequest request,
       HttpServletResponse response) {
     return service.bindCertifiedEntry(
-        owner(request, response), id, read(body, IndexedMethodProtocol.Bind.class));
+        SearchClientCookie.METHOD.owner(request, response),
+        id,
+        reader.read(body, IndexedMethodProtocol.Bind.class));
   }
 
   @GetMapping("/certified/{id}/entries/{entryId}")
@@ -230,7 +155,8 @@ public final class MethodSearchController {
       @RequestParam(defaultValue = "0") int offset,
       HttpServletRequest request,
       HttpServletResponse response) {
-    return service.certifiedEntry(owner(request, response), id, entryId, offset);
+    return service.certifiedEntry(
+        SearchClientCookie.METHOD.owner(request, response), id, entryId, offset);
   }
 
   @PostMapping("/certified/{id}/entries/{entryId}/advance")
@@ -241,7 +167,10 @@ public final class MethodSearchController {
       HttpServletRequest request,
       HttpServletResponse response) {
     return service.advanceCertifiedEntry(
-        owner(request, response), id, entryId, read(body, IndexedMethodProtocol.Advance.class));
+        SearchClientCookie.METHOD.owner(request, response),
+        id,
+        entryId,
+        reader.read(body, IndexedMethodProtocol.Advance.class));
   }
 
   @GetMapping("/{id}/class-outcomes")
@@ -254,7 +183,7 @@ public final class MethodSearchController {
       HttpServletRequest request,
       HttpServletResponse response) {
     return service.indexedOutcomes(
-        owner(request, response), id, revision, methodId, cycles, cursor);
+        SearchClientCookie.METHOD.owner(request, response), id, revision, methodId, cycles, cursor);
   }
 
   @PostMapping("/{id}/entries")
@@ -264,7 +193,9 @@ public final class MethodSearchController {
       HttpServletRequest request,
       HttpServletResponse response) {
     return service.bindEntry(
-        owner(request, response), id, read(body, IndexedMethodProtocol.Bind.class));
+        SearchClientCookie.METHOD.owner(request, response),
+        id,
+        reader.read(body, IndexedMethodProtocol.Bind.class));
   }
 
   @GetMapping("/{id}/entries/{entryId}")
@@ -274,7 +205,7 @@ public final class MethodSearchController {
       @RequestParam(defaultValue = "0") int offset,
       HttpServletRequest request,
       HttpServletResponse response) {
-    return service.entry(owner(request, response), id, entryId, offset);
+    return service.entry(SearchClientCookie.METHOD.owner(request, response), id, entryId, offset);
   }
 
   @PostMapping("/{id}/entries/{entryId}/advance")
@@ -285,7 +216,10 @@ public final class MethodSearchController {
       HttpServletRequest request,
       HttpServletResponse response) {
     return service.advanceEntry(
-        owner(request, response), id, entryId, read(body, IndexedMethodProtocol.Advance.class));
+        SearchClientCookie.METHOD.owner(request, response),
+        id,
+        entryId,
+        reader.read(body, IndexedMethodProtocol.Advance.class));
   }
 
   @GetMapping("/provenance")
@@ -296,7 +230,7 @@ public final class MethodSearchController {
   @GetMapping("/{id}")
   public Snapshot get(
       @PathVariable String id, HttpServletRequest request, HttpServletResponse response) {
-    return service.get(owner(request, response), id);
+    return service.get(SearchClientCookie.METHOD.owner(request, response), id);
   }
 
   @GetMapping("/{id}/graph")
@@ -306,7 +240,7 @@ public final class MethodSearchController {
       @RequestParam(required = false) String cursor,
       HttpServletRequest request,
       HttpServletResponse response) {
-    return service.graph(owner(request, response), id, revision, cursor);
+    return service.graph(SearchClientCookie.METHOD.owner(request, response), id, revision, cursor);
   }
 
   @GetMapping("/{id}/distribution")
@@ -318,7 +252,8 @@ public final class MethodSearchController {
       @RequestParam(required = false) String cursor,
       HttpServletRequest request,
       HttpServletResponse response) {
-    return service.distribution(owner(request, response), id, revision, methodId, cycles, cursor);
+    return service.distribution(
+        SearchClientCookie.METHOD.owner(request, response), id, revision, methodId, cycles, cursor);
   }
 
   @PostMapping("/{id}/cancel")
@@ -327,9 +262,9 @@ public final class MethodSearchController {
       @RequestBody String body,
       HttpServletRequest request,
       HttpServletResponse response) {
-    var command = read(body, Mutation.class);
+    var command = reader.read(body, Mutation.class);
     if (!"CANCEL".equals(command.operation())) throw new Rejected(422, "INVALID_REQUEST");
-    return service.mutate(owner(request, response), id, command);
+    return service.mutate(SearchClientCookie.METHOD.owner(request, response), id, command);
   }
 
   @PostMapping("/{id}/resume")
@@ -338,32 +273,9 @@ public final class MethodSearchController {
       @RequestBody String body,
       HttpServletRequest request,
       HttpServletResponse response) {
-    var command = read(body, Mutation.class);
+    var command = reader.read(body, Mutation.class);
     if (!"RESUME".equals(command.operation())) throw new Rejected(422, "INVALID_REQUEST");
-    return ResponseEntity.accepted().body(service.mutate(owner(request, response), id, command));
-  }
-
-  private <T> T read(String payload, Class<T> type) {
-    return reader.read(payload, type);
-  }
-
-  /** Anonymous browser scope, not authentication. Does not create an application HTTP session. */
-  private static String owner(HttpServletRequest request, HttpServletResponse response) {
-    if (request.getCookies() != null)
-      for (var cookie : request.getCookies())
-        if (cookie.getName().equals("crafting_method_client")
-            && cookie.getValue().matches("[0-9a-f-]{36}")) return cookie.getValue();
-    var id = UUID.randomUUID().toString();
-    response.addHeader(
-        HttpHeaders.SET_COOKIE,
-        ResponseCookie.from("crafting_method_client", id)
-            .httpOnly(true)
-            .sameSite("Strict")
-            .secure(request.isSecure())
-            .path("/api/v2/crafting/method-searches")
-            .maxAge(3600)
-            .build()
-            .toString());
-    return id;
+    return ResponseEntity.accepted()
+        .body(service.mutate(SearchClientCookie.METHOD.owner(request, response), id, command));
   }
 }

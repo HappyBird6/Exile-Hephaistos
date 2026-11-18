@@ -41,7 +41,7 @@ public final class GoalFilterErrors {
     HttpMessageNotReadableException.class,
     MethodArgumentTypeMismatchException.class,
     MissingServletRequestParameterException.class,
-    GoalFilterController.MalformedPayload.class
+    com.poe2craft.craftingsupport.goal.api.MalformedPayload.class
   })
   public ProblemDetail malformed() {
     return problem(

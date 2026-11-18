@@ -7,6 +7,9 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.core.importer.ImportOption;
 import org.junit.jupiter.api.Test;
+import org.springframework.core.annotation.AnnotatedElementUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Architecture 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
@@ -20,6 +23,7 @@ import org.junit.jupiter.api.Test;
  * <p>생성자·메서드:
  *
  * <ul>
+ *   <li>controllersDeclareOnlyEndpoints는 모든 REST 컨트롤러의 중첩 타입과 매핑 없는 메서드를 검사한다.
  *   <li>{@code bundledConsumersCannotBypassRulesetSeals()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code servicesAreIndependentAndCommonCodeCannotDependOnConsumers()}: 이름에 명시한 시나리오의 실제
  *       결과·보존 상태를 기대값과 비교한다.
@@ -124,5 +128,23 @@ class ArchitectureTest {
         .dependOnClassesThat()
         .resideInAnyPackage("..infrastructure..", "..api..")
         .check(CLASSES);
+  }
+
+  @Test
+  void controllersDeclareOnlyEndpoints() {
+    for (var type : CLASSES) {
+      if (!type.isAnnotatedWith(RestController.class)) continue;
+      var controller = type.reflect();
+      org.assertj.core.api.Assertions.assertThat(controller.getDeclaredClasses())
+          .as(controller.getName())
+          .isEmpty();
+      for (var method : controller.getDeclaredMethods()) {
+        if (method.isSynthetic()) continue;
+        org.assertj.core.api.Assertions.assertThat(
+                AnnotatedElementUtils.hasAnnotation(method, RequestMapping.class))
+            .as(method.toString())
+            .isTrue();
+      }
+    }
   }
 }

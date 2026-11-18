@@ -176,7 +176,7 @@ class GoalFilterControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(
                     json.writeValueAsString(
-                        new GoalFilterController.RecommendRequest(
+                        new com.poe2craft.craftingsupport.goal.api.dto.RecommendRequest(
                             item, goal, Set.of(), new GoalFilterService.Limits(100, 100, 100)))))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.probability.status").value("PARTIAL"))

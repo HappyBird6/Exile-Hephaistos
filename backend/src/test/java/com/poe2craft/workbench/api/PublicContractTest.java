@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 
 import com.poe2craft.configuration.PublicContracts;
 import com.poe2craft.workbench.display.DisplayLocale;
+import com.poe2craft.workbench.repeat.ChaosRepeatSubmission;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +30,7 @@ class PublicContractTest {
 
   @Test
   void transportReadsThePublicContractRatherThanItsOwnLimit() {
-    assertThat(ChaosRepeatController.MAX_BODY_BYTES)
+    assertThat(ChaosRepeatSubmission.MAX_BODY_BYTES)
         .isEqualTo(PublicContracts.REPEAT.maximumBodyBytes());
     assertThat(PublicContracts.REPEAT.defaultUses())
         .isBetween(PublicContracts.REPEAT.minimumUses(), PublicContracts.REPEAT.maximumUses());

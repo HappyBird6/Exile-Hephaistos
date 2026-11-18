@@ -6,43 +6,15 @@ import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateWireDefaults;
+import com.poe2craft.shared.item.ModifierInstance;
 import java.util.List;
 import java.util.Set;
 
 /**
- * 일반·훼손 아이템 입력의 필드와 수치 타입을 엄격히 검증하고 상태로 변환한다.
- *
- * <p>기존 계약: Shared strict item-property boundary; legacy callers retain their existing mapper
- * semantics.
- *
- * <p>필드·상수:
- *
- * <ul>
- *   <li>{@code simulator}: 공통 제작 규칙 실행기 ({@code CraftingOperations}).
- *   <li>{@code json}: 이 경계의 JSON 읽기·쓰기 변환기 ({@code ObjectMapper}).
- * </ul>
- *
- * <p>생성자·메서드:
- *
- * <ul>
- *   <li>{@code WorkbenchStateReader(simulator, json)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code
- *       simulator}(제작시뮬레이터), {@code json}(JSON).
- *   <li>{@code concreteState(input)}: 일반 아이템 JSON을 엄격히 검증해 구체 상태로 읽는다. 입력: {@code input}(입력). 반환:
- *       {@code ItemState}.
- *   <li>{@code concreteState(input, allowDesecrated)}: 일반 아이템 JSON을 엄격히 검증해 구체 상태로 읽는다. 입력: {@code
- *       input}(입력), {@code allowDesecrated}(allow·훼손). 반환: {@code ItemState}. 사용하는 예외: {@code
- *       IllegalArgumentException}, {@code UnsupportedItemProperties}.
- *   <li>{@code abyssState(input)}: 미공개 슬롯을 포함한 훼손 JSON을 검증해 상태로 읽는다. 입력: {@code input}(입력). 반환:
- *       {@code AbyssCraftingState}. 사용하는 예외: {@code IllegalArgumentException}.
- *   <li>{@code validateAbyssNumbers(node)}: 훼손·Numbers을(를) 검증한다. 입력: {@code node}(노드). 사용하는 예외:
- *       {@code IllegalArgumentException}.
- * </ul>
- *
- * <p>중첩 타입:
- *
- * <ul>
- *   <li>{@code UnsupportedItemProperties}: 지원하지 않는 속성·타입을 일반 요청 오류와 구별해 HTTP 경계에 전달한다.
- * </ul>
+ * 아이템 JSON을 제작 상태로 읽는다. json은 필드와 수치를 변환하고 simulator는 카탈로그로 아이템을 검증한다. concreteState는 일반 상태와 허용된 훼손
+ * 속성을, abyssState와 optionalAbyssState는 필수·선택 훼손 상태를 읽는다. validateAbyssNumbers는 정수 범위를 검사한다.
+ * abyssCandidates와 revealCandidate는 관측 후보 세 개와 공개 후보 한 개를 읽는다. UnsupportedItemProperties는 지원하지 않는
+ * 속성을 구분하는 예외다.
  */
 public final class WorkbenchStateReader {
   /**
@@ -254,5 +226,34 @@ public final class WorkbenchStateReader {
               });
     }
     if (node.isContainerNode()) node.elements().forEachRemaining(this::validateAbyssNumbers);
+  }
+
+  public List<ModifierInstance> abyssCandidates(JsonNode input) {
+    if (input == null || !input.isArray() || input.size() != 3)
+      throw new IllegalArgumentException("Three observed candidates required");
+    validateAbyssNumbers(input);
+    try {
+      return json.readerFor(
+              new com.fasterxml.jackson.core.type.TypeReference<List<ModifierInstance>>() {})
+          .with(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+          .without(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_FLOAT_AS_INT)
+          .readValue(input.traverse(json));
+    } catch (java.io.IOException invalid) {
+      throw new IllegalArgumentException("Invalid observed candidates");
+    }
+  }
+
+  public ModifierInstance revealCandidate(JsonNode candidate) throws java.io.IOException {
+    if (candidate == null) throw new IllegalArgumentException("Candidate required");
+    validateAbyssNumbers(candidate);
+    return json.readerFor(ModifierInstance.class)
+        .with(com.fasterxml.jackson.databind.DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
+        .without(com.fasterxml.jackson.databind.DeserializationFeature.ACCEPT_FLOAT_AS_INT)
+        .readValue(candidate.traverse(json));
+  }
+
+  /** 선택적 훼손 상태를 읽고 값이 없으면 null을 돌려준다. */
+  public AbyssCraftingState optionalAbyssState(JsonNode input) {
+    return input == null || input.isNull() ? null : abyssState(input);
   }
 }

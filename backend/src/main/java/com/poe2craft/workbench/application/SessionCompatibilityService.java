@@ -1,5 +1,7 @@
 package com.poe2craft.workbench.application;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.item.ItemCatalog;
@@ -98,5 +100,32 @@ public final class SessionCompatibilityService {
 
   public static Compatibility rejected(String reason) {
     return new Compatibility(false, false, null, null, null, List.of(reason));
+  }
+
+  /** 저장 상태의 스냅샷을 현재 카탈로그에 맞춰 재검증하고 이어하기 가능 여부를 반환한다. */
+  public Compatibility check(
+      JsonNode input, JsonNode abyssInput, String previousKey, WorkbenchStateReader reader) {
+
+    if (input == null || !input.isObject()) return rejected("INVALID_STATE");
+    var catalog = catalog(input.path("baseItemId").asText()).orElse(null);
+    if (catalog == null) return rejected("UNSUPPORTED_BASE");
+    var rebased = (ObjectNode) input.deepCopy();
+    rebased.put("snapshotId", catalog.metadata().snapshotId());
+    try {
+      reader.concreteState(input, true);
+      var state = reader.concreteState(rebased, true);
+      AbyssCraftingState abyss = null;
+      if (abyssInput != null && !abyssInput.isNull()) {
+        if (!abyssInput.path("item").path("snapshotId").equals(input.path("snapshotId")))
+          return rejected("INCONSISTENT_ABYSS");
+        var savedAbyss = abyssInput.deepCopy();
+        if (!(savedAbyss.path("item") instanceof ObjectNode item)) return rejected("INVALID_STATE");
+        item.put("snapshotId", catalog.metadata().snapshotId());
+        abyss = reader.abyssState(savedAbyss);
+      }
+      return check(state, abyss, previousKey);
+    } catch (IllegalArgumentException invalid) {
+      return rejected("INVALID_STATE");
+    }
   }
 }
