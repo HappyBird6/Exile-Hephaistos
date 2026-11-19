@@ -414,7 +414,7 @@ class GoalExamplesTest {
             });
   }
 
-  /** 품질 단독 목표는 촉매를 적용할 수 있는 베이스에 한해 구체적인 품질 상태로 판정한다. */
+  /** 품질 단독 목표는 기폭제 종류를 열어 두고, 기본 상한을 넘기려면 실제 확장 옵션을 요구한다. */
   @Test
   void qualityOnlyKeepsMinimumWithoutInventingACatalyst() {
     var catalog = ItemCatalogLoader.loadDefault();
@@ -436,6 +436,27 @@ class GoalExamplesTest {
             card -> {
               assertThat(card.minimumQuality()).isEqualTo(15);
               assertThat(card.item().catalystQuality()).isNull();
+            });
+    var higher =
+        new GoalFilter(
+            1,
+            index.version(),
+            new General(
+                catalog.base().id(),
+                new Range(null, null),
+                List.of(ItemState.Rarity.NORMAL, ItemState.Rarity.RARE),
+                30),
+            List.of());
+    assertThat(service.preview(context(catalog, 82), higher, workbench).cards())
+        .singleElement()
+        .satisfies(
+            card -> {
+              assertThat(card.minimumQuality()).isEqualTo(30);
+              assertThat(card.item().catalystQuality()).isNull();
+              assertThat(card.item().rarity()).isEqualTo(ItemState.Rarity.RARE);
+              assertThat(card.item().explicits())
+                  .extracting(ModifierInstance::modifierId)
+                  .contains(com.poe2craft.shared.crafting.domain.QualityLimitRules.BREACH_ID);
             });
   }
 

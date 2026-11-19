@@ -101,6 +101,8 @@ final class GoalExamples {
             || (quality > 20 && !sources.containsKey(QualityLimitRules.BREACH_ID))))
       return List.of();
     var targets = rolls.targets(null);
+    if (quality != null && quality > 20)
+      targets.putIfAbsent(GoalCatalogIndex.id("EXPLICIT", QualityLimitRules.STAT_ID), Set.of());
     var available =
         catalog.modifiers().values().stream()
             .filter(
@@ -523,9 +525,13 @@ final class GoalExamples {
       List<ModifierInstance> effects) {
     if (index == slots.size()) {
       var complete = capacity.complete(item);
-      return complete != null && evaluate.apply(complete).status() == Status.MATCH
-          ? complete
-          : null;
+      if (complete == null) return null;
+      var quality = goal.general().quality();
+      if (quality != null && quality > 20) {
+        var limit = QualityLimitRules.describe(complete, catalog);
+        if (limit == null || limit.maximumQuality() < quality) return null;
+      }
+      return evaluate.apply(complete).status() == Status.MATCH ? complete : null;
     }
     var rest = GoalExampleBounds.sum(values, remaining.get(index + 1));
     for (var tier : slots.get(index).tiers()) {
