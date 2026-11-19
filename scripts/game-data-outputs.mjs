@@ -149,8 +149,8 @@ export function gameDataOutputs(directory) {
   const bases = new Map(),
     registrations = [],
     legacy = []
-  for (const file of dataFiles(catalogRoot).filter((file) =>
-    file.endsWith('/base.json'),
+  for (const file of dataFiles(catalogRoot).filter(
+    (file) => path.basename(file) === 'base.json',
   )) {
     const { registration, legacy: old, ...identity } = hydrate(document(file))
     assert(!bases.has(identity.id), `Duplicate base: ${identity.id}`)
@@ -255,8 +255,8 @@ export function gameDataOutputs(directory) {
     const relative = path.relative(catalogRoot, file).replaceAll('\\', '/')
     if (
       relative === 'classes.json' ||
-      file.endsWith('/base.json') ||
-      file.endsWith('/modifier-pools.json')
+      relative.endsWith('/base.json') ||
+      relative.endsWith('/modifier-pools.json')
     )
       continue
     assert(

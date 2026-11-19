@@ -1,5 +1,5 @@
 import { usePlanAction } from './usePlanAction'
-import { PolicyCandidates } from './PolicyCandidates'
+import { PolicyCandidates } from './PolicyCandidates.tsx'
 import { policyCandidateMessages } from './policyCandidateMessages'
 import {
   isRareOutcomePolicy,
