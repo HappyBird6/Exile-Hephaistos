@@ -19,7 +19,7 @@ export {
 
 export const boneNames = Object.fromEntries(
   Object.entries(bones).map(([id, rule]) => [id, rule.name]),
-)
+) as Record<keyof typeof bones, string>
 export const isBone = (id: string): id is keyof typeof bones =>
   Object.hasOwn(bones, id)
 export const necromancySide = (

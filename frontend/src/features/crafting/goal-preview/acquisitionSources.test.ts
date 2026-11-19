@@ -36,7 +36,8 @@ it('keeps the English source headings and names in a non-English UI', async () =
     "Perfect Essence / Alloy (The Runebinder's Alloy)",
     "Perfect Essence / Alloy (The Runefather's Alloy)",
     'Liquid Emotions (Liquid Envy)',
-    'Desecrated Modifiers',
+    'Desecrated Modifiers (Ancient Rib)',
+    'Desecrated Modifiers (Preserved Rib)',
     "Kolr's Hunt",
   ])
 })

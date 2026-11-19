@@ -5,7 +5,7 @@ import {
   materialProfiles,
 } from '../catalogData'
 import { workbenchCurrencyActions } from '../currencyDefinitions'
-import { isBone } from '../desecrationCurrency'
+import { boneNames, isBone } from '../desecrationCurrency'
 
 export type AcquisitionSource =
   | { kind: 'IMPLICIT' | 'NORMAL'; id?: null }
@@ -27,7 +27,9 @@ export function acquisitionSourceLabel(source: AcquisitionSource) {
   if (source.kind === 'NORMAL') return source.id == null ? 'base' : undefined
   if (!source.id) return undefined
   if (source.kind === 'DESECRATION')
-    return isBone(source.id) ? 'Desecrated Modifiers' : undefined
+    return isBone(source.id)
+      ? `Desecrated Modifiers (${boneNames[source.id]})`
+      : undefined
   // Each augment that unlocks a roll pool has its own named Modifiers Calc section.
   if (source.kind === 'AUGMENT')
     return augmentRule(source.id).pool ? materialNames[source.id] : undefined

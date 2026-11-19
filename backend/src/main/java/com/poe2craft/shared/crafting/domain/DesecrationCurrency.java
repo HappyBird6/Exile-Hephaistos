@@ -16,13 +16,7 @@ import java.util.random.RandomGenerator;
  * <p>기존 계약: Reveal choices remain manual. Automatic side/removal uses an explicit simulator policy,
  * not published game probabilities; explicit observed inputs remain supported.
  *
- * <p>필드·상수:
- *
- * <ul>
- *   <li>{@code ARMOUR}: 방어구 ({@code Set<String>}).
- *   <li>{@code WEAPONS}: WEAPONS ({@code Set<String>}).
- *   <li>{@code JEWELLERY}: JEWELLERY ({@code Set<String>}).
- * </ul>
+ * <p>POLICY는 버전 JSON의 화폐별 장비군, 레벨 및 공개 풀을 공유한다.
  *
  * <p>생성자·메서드:
  *
