@@ -9,6 +9,9 @@ import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.*;
 import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
+import com.poe2craft.shared.crafting.application.CraftingOperations;
+import com.poe2craft.shared.crafting.domain.CraftingEngine;
+import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.SolarAmulet;
@@ -99,7 +102,7 @@ class GoalFilterControllerTest {
     org.mockito.Mockito.when(failed.catalog(org.mockito.ArgumentMatchers.any()))
         .thenThrow(new IllegalStateException("private SQL and item contents"));
     var isolated =
-        MockMvcBuilders.standaloneSetup(new GoalFilterController(failed, json))
+        MockMvcBuilders.standaloneSetup(new GoalFilterController(failed, json, workbench))
             .setControllerAdvice(new GoalFilterErrors())
             .build();
     isolated
@@ -116,11 +119,59 @@ class GoalFilterControllerTest {
   final ItemCatalog itemCatalog = ItemCatalogLoader.loadDefault();
   final GoalCatalogIndex index =
       new GoalCatalogIndex(List.of(itemCatalog), GoalDefinitionsLoader.load());
+  final CraftingOperations workbench = org.mockito.Mockito.mock(CraftingOperations.class);
   final MockMvc mvc =
-      MockMvcBuilders.standaloneSetup(new GoalFilterController(new GoalFilterService(index), json))
+      MockMvcBuilders.standaloneSetup(
+              new GoalFilterController(new GoalFilterService(index), json, workbench))
           .setControllerAdvice(new GoalFilterErrors())
           .build();
   final String root = "/api/v1/crafting/support/goal-filters";
+
+  /** 실제 카탈로그 목표로 미리보기 HTTP 응답에 카드와 고정 옵션 획득처·정의가 함께 들어가는지 검증한다. */
+  @Test
+  void previewReturnsCardsWithSourcesAndDefinitions() throws Exception {
+    var state = SolarAmulet.initial(itemCatalog);
+    var simulator = new WorkbenchSimulator(itemCatalog, new CraftingEngine(itemCatalog));
+    org.mockito.Mockito.when(workbench.simulatorForBase(state.baseItemId())).thenReturn(simulator);
+    var context = new Context(state.snapshotId(), state.baseItemId(), state.itemLevel());
+    var initialGoal =
+        goal(index.version(), GoalCatalogIndex.id("explicit", "base_cold_damage_resistance_%"));
+    var requestGoal =
+        new GoalFilter(
+            1,
+            index.version(),
+            new General(
+                state.baseItemId(),
+                initialGoal.general().itemLevel(),
+                List.of(ItemState.Rarity.RARE)),
+            initialGoal.groups());
+    var implicit = itemCatalog.base().implicitModifierId();
+    mvc.perform(
+            post(root + "/preview")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json.writeValueAsString(Map.of("context", context, "goal", requestGoal))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.cards[0].item.rarity").value("RARE"))
+        .andExpect(jsonPath("$.cards[0].sources['" + implicit + "'][0].kind").value("IMPLICIT"))
+        .andExpect(jsonPath("$.modifiers['" + implicit + "'].id").value(implicit));
+    var withQuality =
+        new GoalFilter(
+            1,
+            index.version(),
+            new General(
+                state.baseItemId(),
+                requestGoal.general().itemLevel(),
+                List.of(ItemState.Rarity.RARE),
+                40),
+            requestGoal.groups());
+    mvc.perform(
+            post(root + "/preview")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json.writeValueAsString(Map.of("context", context, "goal", withQuality))))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.cards").isEmpty())
+        .andExpect(jsonPath("$.reasonCode").value("QUALITY_PROJECTION_NOT_IMPLEMENTED"));
+  }
 
   GoalFilter goal(String version, String stat) {
     return new GoalFilter(

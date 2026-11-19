@@ -86,7 +86,7 @@ it('shows the starting workflow without developer policy, recovery or family com
       ),
   ).toBe(false)
 })
-it('uses keyboard navigation across workbench, support and history', async () => {
+it('uses keyboard navigation across the workbench, support, test workbench and history', async () => {
   await show()
   const bench = screen.getByRole('tab', { name: 'Crafting Workbench' })
   bench.focus()
@@ -95,6 +95,10 @@ it('uses keyboard navigation across workbench, support and history', async () =>
   fireEvent.keyDown(screen.getByRole('tab', { name: 'Craft Support' }), {
     key: 'ArrowRight',
   })
+  const preview = screen.getByRole('tab', { name: 'Test Workbench' })
+  expect(preview).toHaveFocus()
+  expect(window.location.search).toBe('?workbench=preview')
+  fireEvent.keyDown(preview, { key: 'ArrowRight' })
   expect(screen.getByRole('tab', { name: 'History' })).toHaveFocus()
   fireEvent.keyDown(screen.getByRole('tab', { name: 'History' }), {
     key: 'Home',

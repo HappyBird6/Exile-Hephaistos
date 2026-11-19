@@ -1,17 +1,20 @@
-import { workspacePath, type Workspace } from './workspaceRoutes'
+import {
+  craftingWorkspaceTabs,
+  workspacePath,
+  type Workspace,
+} from './workspaceRoutes'
 import { useEffect } from 'react'
 import { useI18n } from '../i18n/i18n'
 import { navigate } from '../navigation/navigation'
 import { communityText } from '../../features/community/messages'
 import { sessionLibraryMessages } from '../../features/crafting/session-library/sessionLibraryMessages'
 import { CurrencyTicker } from '../../features/crafting/currency-prices/CurrencyPrices'
-const tabs = (['workbench', 'support', 'history', 'community'] as const).filter(
-  (tab) =>
-    tab !== 'support' || import.meta.env.VITE_CRAFT_SUPPORT_ENABLED !== 'false',
-)
+import { previewTabNames } from '../../features/crafting/goal-preview/previewTabNames'
+const tabs = [...craftingWorkspaceTabs, 'community'] as const
 const panels = {
   workbench: 'workbench-panel-simulation',
   support: 'panel-support',
+  preview: 'panel-goal-preview',
   history: 'workbench-panel-history',
   community: 'community-panel',
 }
@@ -72,7 +75,9 @@ export function WorkspaceNavigation({
               ? communityText(locale).board
               : tab === 'history'
                 ? sessionLibraryMessages[locale].history
-                : t(`workspace.${tab}`)}
+                : tab === 'preview'
+                  ? previewTabNames[locale]
+                  : t(`workspace.${tab}`)}
           </button>
         ))}
       </div>

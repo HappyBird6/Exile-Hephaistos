@@ -13,9 +13,12 @@ export function useCatalogRecovery(
   catalog: Catalog | undefined,
   editor: StoreApi<Editor>,
   enabled: boolean,
+  persistContract = true,
 ) {
   const stale = !!catalog && goal.catalogVersion !== catalog.catalogVersion
-  const issues = stale ? compatibilityIssues(goal, catalog) : []
+  const issues = stale
+    ? compatibilityIssues(goal, catalog, persistContract ? undefined : null)
+    : []
   const candidate = catalog
     ? { ...goal, catalogVersion: catalog.catalogVersion }
     : goal
@@ -44,8 +47,8 @@ export function useCatalogRecovery(
     })
   }, [stale, result.data, issues.length, catalog, enabled, editor, original])
   useEffect(() => {
-    if (catalog) rememberContract(goal, catalog)
-  }, [goal, catalog])
+    if (catalog && persistContract) rememberContract(goal, catalog)
+  }, [goal, catalog, persistContract])
   return {
     error: result.error,
     pending: stale && result.isFetching,

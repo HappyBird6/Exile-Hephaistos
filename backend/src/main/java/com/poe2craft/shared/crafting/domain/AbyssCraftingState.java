@@ -357,13 +357,17 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
   }
 
   private boolean revealEligible(Slot slot, ModifierDefinition d) {
+    return d.affixType() == slot.side() && revealPoolEligible(slot.revealPool(), d);
+  }
+
+  /** 공개 후보의 계층·가중치·전용 태그가 풀에 맞는지 판정한다. 슬롯 방향과 점유 상태는 호출자가 검증한다. */
+  static boolean revealPoolEligible(String pool, ModifierDefinition d) {
     if (d.layer() != ModifierDefinition.Layer.EXPLICIT
-        || d.affixType() != slot.side()
         || (d.weight() <= 0 && !d.tags().contains("reveal_only"))) return false;
-    if (d.tags().contains("otherworldly") && !"ALTERED".equals(slot.revealPool())) return false;
-    return slot.revealPool() == null
-        || "ALTERED".equals(slot.revealPool())
-        || d.tags().contains(slot.revealPool().toLowerCase(java.util.Locale.ROOT) + "_mod");
+    if (d.tags().contains("otherworldly") && !"ALTERED".equals(pool)) return false;
+    return pool == null
+        || "ALTERED".equals(pool)
+        || d.tags().contains(pool.toLowerCase(Locale.ROOT) + "_mod");
   }
 
   public AbyssCraftingState selectDirect(

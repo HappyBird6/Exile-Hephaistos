@@ -1,6 +1,9 @@
 import { OpenCraftingSession } from './method-search/openCraftingSession'
 import { SiteFooter } from '../../shared/site/SiteFooter'
-import { workspacePath } from '../../shared/site/workspaceRoutes'
+import {
+  craftingWorkspaceTabs as workspaceTabs,
+  workspacePath,
+} from '../../shared/site/workspaceRoutes'
 import {
   navigate,
   subscribeAppLocation,
@@ -167,6 +170,11 @@ import { lazy, Suspense } from 'react'
 const CraftSupport = lazy(() =>
   import('./CraftSupport').then((m) => ({ default: m.CraftSupport })),
 )
+const GoalPreviewWorkbench = lazy(() =>
+  import('./goal-preview/GoalPreviewWorkbench').then((m) => ({
+    default: m.GoalPreviewWorkbench,
+  })),
+)
 import { loadInitial } from './craftingApi'
 import {
   applyCurrency,
@@ -201,11 +209,6 @@ import './compact-viewport/mobileWorkbench.css'
 function tooltipEvents(id: string) {
   return { 'data-material-tooltip': id }
 }
-
-const workspaceTabs = (['workbench', 'support', 'history'] as const).filter(
-  (tab) =>
-    tab !== 'support' || import.meta.env.VITE_CRAFT_SUPPORT_ENABLED !== 'false',
-)
 
 type Selection = { id: string; name: string; image: string }
 
@@ -405,7 +408,7 @@ function ReadyCraftingPage({
   }
   const [view, setViewState] = useState<(typeof workspaceTabs)[number]>(() => {
     const entry = new URLSearchParams(location.search).get('workbench')
-    if (entry === 'history') return 'history'
+    if (entry === 'history' || entry === 'preview') return entry
     if (entry === 'simulation') return 'workbench'
     if (entry === 'support' && workspaceTabs.includes('support'))
       return 'support'
@@ -421,6 +424,7 @@ function ReadyCraftingPage({
     saveSupport('workspace', view)
   }, [view])
   const [supportVisited, setSupportVisited] = useState(view === 'support')
+  const [previewVisited, setPreviewVisited] = useState(view === 'preview')
   const [historyVisited, setHistoryVisited] = useState(view === 'history')
   useEffect(
     () =>
@@ -428,12 +432,14 @@ function ReadyCraftingPage({
         const entry = new URLSearchParams(location.search).get('workbench')
         const tab = entry === 'simulation' ? 'workbench' : entry
         if (
+          tab === 'preview' ||
           tab === 'history' ||
           tab === 'workbench' ||
           (tab === 'support' && workspaceTabs.includes('support'))
         ) {
           setViewState(tab)
           if (tab === 'support') setSupportVisited(true)
+          if (tab === 'preview') setPreviewVisited(true)
           if (tab === 'history') setHistoryVisited(true)
         }
       }),
@@ -442,6 +448,7 @@ function ReadyCraftingPage({
   function setView(next: (typeof workspaceTabs)[number]) {
     navigate(workspacePath(next), { replace: true, scroll: false })
     if (next === 'support') setSupportVisited(true)
+    if (next === 'preview') setPreviewVisited(true)
     if (next === 'history') setHistoryVisited(true)
     setViewState(next)
   }
@@ -2134,7 +2141,7 @@ function ReadyCraftingPage({
       : null
   const page = (
     <main
-      className={`craft-page${view === 'support' ? ' craft-page--framed' : ' craft-page--workbench'}`}
+      className={`craft-page${view === 'support' || view === 'preview' ? ' craft-page--framed' : ' craft-page--workbench'}`}
       onClickCapture={rememberFeedbackAnchor}
       onContextMenuCapture={rememberFeedbackAnchor}
       onDragStartCapture={rememberFeedbackAnchor}
@@ -3175,6 +3182,19 @@ function ReadyCraftingPage({
             >
               <CraftSupport active={view === 'support'} />
             </OpenCraftingSession.Provider>
+          </Suspense>
+        )}
+      </div>
+      <div
+        id="panel-goal-preview"
+        className="workspace-panel"
+        role="tabpanel"
+        aria-labelledby="workspace-preview"
+        hidden={view !== 'preview'}
+      >
+        {(previewVisited || view === 'preview') && (
+          <Suspense fallback={<span role="status">…</span>}>
+            <GoalPreviewWorkbench active={view === 'preview'} />
           </Suspense>
         )}
       </div>

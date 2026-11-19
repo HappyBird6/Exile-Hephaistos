@@ -1,7 +1,15 @@
 import { currencyButton } from '../shared/test/workbenchQueries'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import {
+  afterEach,
+  beforeAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from 'vitest'
 import { App } from './App'
 import { useItemDraft } from '../features/crafting/draft'
 import { locales, setLocale } from '../shared/i18n/i18n'
@@ -57,6 +65,10 @@ describe('Admin page', async () => {
 })
 
 describe('Crafting workbench', async () => {
+  beforeAll(async () => {
+    // Route behavior is under test; cold transformation of the workbench chunk can take several seconds.
+    await import('../features/crafting/CraftingPage')
+  })
   beforeEach(() => {
     useItemDraft.getState().setBase()
     window.history.replaceState({}, '', '/')
@@ -107,7 +119,7 @@ describe('Crafting workbench', async () => {
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getAllByRole('tab')).toHaveLength(11)
+    expect(screen.getAllByRole('tab')).toHaveLength(12)
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')
@@ -122,13 +134,14 @@ describe('Crafting workbench', async () => {
       screen.queryByRole('heading', { name: 'Current state' }),
     ).not.toBeInTheDocument()
   })
-  it('navigates three top-level workspaces and closes the picker while preserving simulation input', async () => {
+  it('navigates top-level workspaces and closes the picker while preserving simulation input', async () => {
     await show()
     const nav = document.querySelector('.workspace-nav')!
     const tabs = [...nav.querySelectorAll<HTMLButtonElement>('[role="tab"]')]
     expect(tabs.map((tab) => tab.textContent)).toEqual([
       'Crafting Workbench',
       'Craft Support',
+      'Test Workbench',
       'History',
       'Session board',
     ])
@@ -137,13 +150,13 @@ describe('Crafting workbench', async () => {
       fireEvent.click(base)
     })
     await act(async () => {
-      fireEvent.click(tabs[2]!)
+      fireEvent.click(tabs[3]!)
     })
-    tabs[2]!.focus()
-    expect(tabs[2]).toHaveFocus()
+    tabs[3]!.focus()
+    expect(tabs[3]).toHaveFocus()
     expect(screen.queryByRole('dialog')).toBeNull()
     expect(document.getElementById('workbench-panel-history')).toBeVisible()
-    fireEvent.keyDown(tabs[2]!, { key: 'Home' })
+    fireEvent.keyDown(tabs[3]!, { key: 'Home' })
     expect(tabs[0]).toHaveFocus()
     expect(base).toBeVisible()
     fireEvent.keyDown(tabs[0]!, { key: 'ArrowRight' })
@@ -154,6 +167,9 @@ describe('Crafting workbench', async () => {
   })
   it('preserves the item after a use request and clears selection with Escape', async () => {
     await show()
+    await waitFor(() =>
+      expect(screen.getByRole('button', { name: 'Edit item' })).toBeEnabled(),
+    )
     const currency = currencyButton('Orb of Transmutation')
     fireEvent.contextMenu(currency, { clientX: 30, clientY: 40 })
     expect(currency).toHaveAttribute('aria-pressed', 'true')

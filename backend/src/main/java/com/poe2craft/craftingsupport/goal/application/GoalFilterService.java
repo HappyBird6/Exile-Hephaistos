@@ -11,17 +11,23 @@ import com.poe2craft.craftingsupport.goal.domain.ItemStatProjection;
 import com.poe2craft.craftingsupport.goal.domain.NumericAdditionKernel;
 import com.poe2craft.craftingsupport.goal.domain.NumericAdditionSearch;
 import com.poe2craft.craftingsupport.search.domain.RollPartition;
+import com.poe2craft.shared.crafting.application.CraftingOperations;
+import com.poe2craft.shared.crafting.domain.ModifierAcquisition;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
+import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
+import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
- * 아이템 수치 관측과 목표 조건 검증·평가 및 유한 추가 탐색을 조정한다.
+ * 아이템 수치 관측과 목표 조건 검증·평가 및 유한 추가 탐색을 조정한다. 테스트 작업대의 preview는 작업대와 공유하는 베이스의 획득처를 구하고 examples로 목표에
+ * 맞는 상태를 찾는다. Preview는 표시용 정의와 ExampleCard 목록을, 각 ExampleCard는 완성 상태와 옵션별 획득처를 보관한다.
  *
  * <p>기존 계약: Coordinates numeric observations and the explicitly declared finite addition model.
  *
@@ -92,6 +98,58 @@ public final class GoalFilterService {
   public GoalCatalog catalog(Context context) {
     requireContext(context);
     return index.catalog(context);
+  }
+
+  /** 문맥·목표를 기존 규칙으로 검증하고 같은 스냅샷의 획득처와 굴림 모델로 완성 예시를 구성한다. 잘못된 목표는 InvalidGoal로 거절한다. */
+  public List<ItemState> examples(
+      Context context,
+      GoalFilter goal,
+      WorkbenchSimulator simulator,
+      Map<String, List<ModifierAcquisition>> sources) {
+    validate(context, goal);
+    var catalog = index.itemCatalog(context).orElse(null);
+    if (catalog == null
+        || !catalog.metadata().snapshotId().equals(simulator.catalog().metadata().snapshotId())
+        || !catalog.base().id().equals(simulator.catalog().base().id())) return List.of();
+    var known = requiredStats(goal, index.knownStats(context));
+    // 수동 공개를 포함하는 작업대 카탈로그로 상태를 검증한 뒤 기존 목표 판정을 그대로 사용한다.
+    return new GoalExamples(simulator, goal, known, sources, compiledEvaluation(goal, known))
+        .find(context);
+  }
+
+  /** 목표에 일치한 아이템과 그 희귀도에서 각 옵션을 얻을 수 있는 획득처를 반환한다. */
+  public record ExampleCard(ItemState item, Map<String, List<ModifierAcquisition>> sources) {}
+
+  /** cards는 완성 예시, modifiers는 중복을 제거한 표시 정의, reasonCode는 목표 수치 판정을 지원하지 못한 사유다. */
+  public record Preview(
+      List<ExampleCard> cards, Map<String, ModifierDefinition> modifiers, String reasonCode) {}
+
+  /** 요청의 베이스와 레벨로 획득처를 조회하고 예시 카드에 실제로 등장한 옵션만 응답에 포함한다. */
+  public Preview preview(Context context, GoalFilter goal, CraftingOperations workbench) {
+    requireContext(context);
+    var simulator = workbench.simulatorForBase(context.baseItemId());
+    var sources = simulator.modifierSources(context.itemLevel());
+    var definitions = new java.util.TreeMap<String, ModifierDefinition>();
+    var cards = new ArrayList<ExampleCard>();
+    for (var item : examples(context, goal, simulator, sources)) {
+      var used = new java.util.TreeMap<String, List<ModifierAcquisition>>();
+      for (var layer : List.of(item.implicits(), item.explicits())) {
+        for (var modifier : layer) {
+          var id = modifier.modifierId();
+          var available =
+              sources.get(id).stream()
+                  .filter(source -> source.supportsRarity(item.rarity()))
+                  .toList();
+          used.put(id, available);
+          definitions.put(id, simulator.catalog().find(id).orElseThrow());
+        }
+      }
+      cards.add(new ExampleCard(item, Map.copyOf(used)));
+    }
+    return new Preview(
+        List.copyOf(cards),
+        Map.copyOf(definitions),
+        GoalExamples.needsQualityProjection(goal) ? "QUALITY_PROJECTION_NOT_IMPLEMENTED" : null);
   }
 
   public RollPartition rollPartition(ItemState item, GoalFilter goal) {
@@ -212,6 +270,12 @@ public final class GoalFilterService {
       return state -> evaluate(state, goal);
     var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     var known = requiredStats(goal, index.knownStats(context));
+    return compiledEvaluation(goal, known);
+  }
+
+  /** 검증된 아이템의 일반 조건과 목표 수치만 판정하는 요청 범위 함수를 만든다. */
+  private java.util.function.Function<ItemState, GoalEvaluator.Evaluation> compiledEvaluation(
+      GoalFilter goal, Map<String, GoalCatalog.Stat> known) {
     return state ->
         evaluator.evaluate(
             goal,

@@ -297,6 +297,11 @@ public final class WorkbenchSimulator {
         || !materials.replacementTargets(action).isEmpty();
   }
 
+  /** 이 베이스와 아이템 레벨에 맞는 획득처를 옵션 ID별로 반환한다. 아이템이나 시뮬레이터 상태를 변경하지 않는다. */
+  public Map<String, List<ModifierAcquisition>> modifierSources(int itemLevel) {
+    return ModifierAcquisition.forBase(catalog, itemLevel, baseMaterialActions(), materials);
+  }
+
   /** The same resolved targets used by manual execution, limited to this catalog. */
   public Map<String, List<String>> referenceEssenceTargets() {
     var result = new TreeMap<String, List<String>>();

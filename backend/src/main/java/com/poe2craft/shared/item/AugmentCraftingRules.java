@@ -223,6 +223,23 @@ public final class AugmentCraftingRules {
     return Set.copyOf(result);
   }
 
+  /** 해당 베이스에 장착할 수 있는 증강물마다 실제로 활성화되는 옵션 ID를 조회한다. */
+  public static Map<String, Set<String>> poolSources(String baseId) {
+    var basePools = DATA.pools().getOrDefault(baseId, Map.of());
+    if (basePools.isEmpty()) return Map.of();
+    var sources = new TreeMap<String, Set<String>>();
+    DATA.effects()
+        .forEach(
+            (id, effect) -> {
+              if (effect.pool() != null
+                  && basePools.containsKey(effect.pool())
+                  && SocketAugments.selectable(id)
+                  && SocketAugments.supports(baseId, id))
+                sources.put(id, Set.copyOf(basePools.get(effect.pool()).keySet()));
+            });
+    return Collections.unmodifiableMap(sources);
+  }
+
   public static boolean affectsSampling(ItemState state) {
     return suffixBonus(state) > 0 || !pools(state).isEmpty();
   }

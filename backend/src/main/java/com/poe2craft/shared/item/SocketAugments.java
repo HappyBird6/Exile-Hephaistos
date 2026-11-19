@@ -138,10 +138,14 @@ public final class SocketAugments {
     return entry != null && entry.path("effects").path(policy.itemClass()).has("en");
   }
 
+  /** 신규 장착이 허용되는 증강물인지 카탈로그의 선택 상태로 판정한다. */
+  static boolean selectable(String id) {
+    var entry = BY_ID.get(id);
+    return entry != null && entry.path("selectionEnabled").asBoolean(false);
+  }
+
   public static ItemState install(ItemState state, int slot, String id) {
-    var selected = BY_ID.get(id);
-    boolean selectable = selected != null && selected.path("selectionEnabled").asBoolean(false);
-    if (!selectable)
+    if (!selectable(id))
       throw new IllegalArgumentException("Augment is unavailable for new installation");
     if (!state.conditions().isEmpty() || state.observations() != null)
       throw new IllegalArgumentException(

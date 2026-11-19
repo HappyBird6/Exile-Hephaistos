@@ -56,6 +56,9 @@ public interface CraftingOperations extends CraftingCatalogs {
 
   WorkbenchSimulator simulator(ItemState state);
 
+  /** 장착 상태를 가정하지 않고 지정한 베이스의 등록된 시뮬레이터를 조회한다. 미등록 ID는 거절한다. */
+  WorkbenchSimulator simulatorForBase(String baseItemId);
+
   AbyssCraftingPlan abyssPlan(
       AbyssCraftingState state, WorkbenchCurrency action, Set<String> omens);
 

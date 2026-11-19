@@ -8,7 +8,7 @@ import {
 import { recoveryMessages } from './recoveryMessages'
 import { hasImplicitGoal } from '../method-search/supportStorage'
 import { workspaceMessages } from '../method-search/workspaceMessages'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { useStore } from 'zustand'
 import type { StoreApi } from 'zustand/vanilla'
 import { addStat } from './editor'
@@ -102,6 +102,7 @@ export function GoalFilterPanel({
   compact = false,
   headerActions,
   allowQualityWork = true,
+  preview = false,
 }: {
   adapter: GoalFilterAdapter
   context: Context
@@ -119,7 +120,9 @@ export function GoalFilterPanel({
   compact?: boolean
   headerActions?: ReactNode
   allowQualityWork?: boolean
+  preview?: boolean
 }) {
+  const id = useId()
   const t = goalFilterMessages[language]
   const actions = goalFilterActions[language]
   const setup = setupMessages[language]
@@ -174,6 +177,7 @@ export function GoalFilterPanel({
     catalog.data,
     editor,
     validInput,
+    !preview,
   )
   const validation = useGoalFilterValidation(
     adapter,
@@ -230,8 +234,10 @@ export function GoalFilterPanel({
           .includes(search.normalize('NFC').toLocaleLowerCase(language).trim()),
     ) ?? []
   const activeIndex = Math.min(activeStat, Math.max(0, stats.length - 1))
+  const selectable = (stat: (typeof stats)[number]) =>
+    preview ? stat.support.evaluation === 'SUPPORTED' : stat.eligible
   const canAdd = (stat: (typeof stats)[number]) =>
-    (stat.eligible || presentStatIds.has(stat.statId)) &&
+    (selectable(stat) || presentStatIds.has(stat.statId)) &&
     !!targetId &&
     !goal.groups
       .find((g) => g.id === targetId)
@@ -241,7 +247,8 @@ export function GoalFilterPanel({
     if (!stat || !canAdd(stat)) return
     edit((g) => {
       const group = g.groups.find((item) => item.id === targetId)
-      if (group) addStat(group, stat, presentStatIds.has(stat.statId))
+      if (group)
+        addStat(group, stat, preview || presentStatIds.has(stat.statId))
     })
     setSearch('')
     searchRef.current?.focus()
@@ -270,11 +277,13 @@ export function GoalFilterPanel({
         autoComplete="off"
         aria-autocomplete="list"
         aria-activedescendant={
-          searchOpen && stats.length ? `goal-stat-${activeIndex}` : undefined
+          searchOpen && stats.length
+            ? `${id}-goal-stat-${activeIndex}`
+            : undefined
         }
         placeholder={`+ ${craftStartMessages[language].add}`}
         aria-expanded={searchOpen}
-        aria-controls="goal-stat-candidates"
+        aria-controls={`${id}-goal-stat-candidates`}
         value={search}
         onFocus={() => setSearchOpen(true)}
         onClick={() => setSearchOpen(true)}
@@ -355,7 +364,7 @@ export function GoalFilterPanel({
           {catalog.isError && <p role="alert">{t.error}</p>}
           <ul
             ref={candidatesRef}
-            id="goal-stat-candidates"
+            id={`${id}-goal-stat-candidates`}
             className="goal-filter-candidates"
             role="listbox"
             aria-label={t.search}
@@ -371,7 +380,7 @@ export function GoalFilterPanel({
             {(searchOpen ? stats : []).map((stat, index) => (
               <li
                 key={stat.statId}
-                id={`goal-stat-${index}`}
+                id={`${id}-goal-stat-${index}`}
                 role="option"
                 aria-selected={index === activeIndex}
                 aria-disabled={!canAdd(stat)}
@@ -459,14 +468,14 @@ export function GoalFilterPanel({
               <button
                 type="button"
                 aria-expanded={!generalCollapsed}
-                aria-controls="goal-general-filters"
+                aria-controls={`${id}-goal-general-filters`}
                 onClick={() => setGeneralCollapsed((value) => !value)}
               >
                 <span aria-hidden="true">{generalCollapsed ? '▸' : '▾'}</span>{' '}
                 {t.equipment}
               </button>
             </h3>
-            <div id="goal-general-filters" hidden={generalCollapsed}>
+            <div id={`${id}-goal-general-filters`} hidden={generalCollapsed}>
               <label className="goal-filter-general-row">
                 <span>{t.base}</span>
                 <select
@@ -644,7 +653,7 @@ export function GoalFilterPanel({
                           ({unitLabel(entry.unit)})
                         </span>
                       </div>
-                      {catalog.data && (!stat || !stat.eligible) && (
+                      {catalog.data && (!stat || !selectable(stat)) && (
                         <p className="goal-filter-row-warning" role="status">
                           {compact
                             ? actions.unavailable
@@ -785,7 +794,9 @@ export function GoalFilterPanel({
             {recovery.failed && !recovery.issues.length && <p>{t.error}</p>}
           </div>
         )}
-        {!validInput && <p role="alert">{t.invalid}</p>}
+        {!validInput && (!preview || hasCompleteGoal(goal)) && (
+          <p role="alert">{t.invalid}</p>
+        )}
         {catalog.data &&
           catalog.data.catalogVersion !== goal.catalogVersion && (
             <p>{t.stale}</p>
@@ -799,13 +810,15 @@ export function GoalFilterPanel({
                   ? validation.error.issues
                   : []))
               : []),
-          ].map((issue, i) => (
-            <p key={`${issue.path}-${i}`}>
-              {compact
-                ? actions.unavailable
-                : `${issue.code}: ${issue.message} (${issue.path})`}
-            </p>
-          ))}
+          ]
+            .filter((issue) => !preview || issue.code !== 'INELIGIBLE_STAT')
+            .map((issue, i) => (
+              <p key={`${issue.path}-${i}`}>
+                {compact
+                  ? actions.unavailable
+                  : `${issue.code}: ${issue.message} (${issue.path})`}
+              </p>
+            ))}
         {validation.isError &&
           !(compact && validation.error instanceof GoalFilterApiError) && (
             <p>{t.error}</p>

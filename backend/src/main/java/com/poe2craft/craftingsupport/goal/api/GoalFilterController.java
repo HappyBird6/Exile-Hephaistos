@@ -10,11 +10,13 @@ import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
 import com.poe2craft.craftingsupport.goal.domain.GoalEvaluator;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.Context;
 import com.poe2craft.craftingsupport.goal.domain.GoalValidator;
+import com.poe2craft.shared.crafting.application.CraftingOperations;
 import org.springframework.web.bind.annotation.*;
 
 /**
  * reader가 목표 필터 요청을 검증하고 service가 게임 규칙을 적용한다. catalog는 베이스별 목표 후보, validate는 조건 유효성, evaluate는 달성
- * 여부, recommend는 다음 제작 행동을 반환한다.
+ * 여부, recommend는 다음 제작 행동을 반환한다. preview는 workbench의 베이스별 재료 정책을 service에 전달해 목표 완성 예시를 반환한다. 생성자는
+ * 서비스와 작업대, 엄격한 요청 판독에 사용할 JSON 설정을 받는다.
  */
 @RestController
 @RequestMapping("/api/v1/crafting/support/goal-filters")
@@ -22,8 +24,13 @@ public final class GoalFilterController {
   private final GoalFilterService service;
   private final GoalRequestReader reader;
 
-  public GoalFilterController(GoalFilterService service, ObjectMapper json) {
+  /** 베이스별 재료 규칙이 등록된 작업대 조회 서비스. */
+  private final CraftingOperations workbench;
+
+  public GoalFilterController(
+      GoalFilterService service, ObjectMapper json, CraftingOperations workbench) {
     this.service = service;
+    this.workbench = workbench;
     reader = new GoalRequestReader(json);
   }
 
@@ -45,6 +52,13 @@ public final class GoalFilterController {
   public GoalEvaluator.Evaluation evaluate(@RequestBody JsonNode body) {
     var request = reader.decode(body, EvaluateRequest.class);
     return service.evaluate(request.item(), request.goal());
+  }
+
+  /** 목표와 문맥을 엄격히 읽고 확인된 아이템 예시 및 옵션별 획득처를 반환한다. */
+  @PostMapping("/preview")
+  public GoalFilterService.Preview preview(@RequestBody JsonNode body) {
+    var request = reader.decode(body, ValidateRequest.class);
+    return service.preview(request.context(), request.goal(), workbench);
   }
 
   @PostMapping("/recommend")

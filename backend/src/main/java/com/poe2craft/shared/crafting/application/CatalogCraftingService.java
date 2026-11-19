@@ -321,7 +321,13 @@ public final class CatalogCraftingService implements CraftingOperations {
 
   private WorkbenchSimulator baseSimulator(ItemState state) {
     if (state == null) throw new IllegalArgumentException("State required");
-    var entry = byItemId.get(state.baseItemId());
+    return simulatorForBase(state.baseItemId());
+  }
+
+  /** 베이스 ID로 카탈로그와 재료 정책이 결합된 공유 시뮬레이터를 조회한다. 미등록 ID는 거절한다. */
+  @Override
+  public WorkbenchSimulator simulatorForBase(String baseItemId) {
+    var entry = byItemId.get(baseItemId);
     if (entry == null) throw new IllegalArgumentException("Unsupported Workbench base");
     return entry.simulator();
   }
