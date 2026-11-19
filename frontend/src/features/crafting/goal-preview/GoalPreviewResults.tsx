@@ -37,6 +37,7 @@ import './previewResults.css'
 
 type PreviewItem = Item & ConcreteItem
 type Example = {
+  minimumQuality?: number | null
   occupancy?: {
     prefixes: number
     suffixes: number
@@ -196,6 +197,18 @@ function PreviewCard({
         ...card,
         properties: [
           { id: 'rarity', text: rarityLabel(item.rarity, locale) },
+          ...(example.minimumQuality
+            ? [
+                {
+                  id: 'quality-goal',
+                  text:
+                    qualityGoalMessages[locale].label +
+                    ' ≥ ' +
+                    example.minimumQuality +
+                    '%',
+                },
+              ]
+            : []),
           ...(quality
             ? [
                 {

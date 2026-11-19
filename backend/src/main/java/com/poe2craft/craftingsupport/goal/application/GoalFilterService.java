@@ -125,8 +125,20 @@ public final class GoalFilterService {
         || !catalog.base().id().equals(simulator.catalog().base().id())) return List.of();
     var known = requiredStats(goal, index.knownStats(context));
     // 수동 공개를 포함하는 작업대 카탈로그로 상태를 검증한 뒤 기존 목표 판정을 그대로 사용한다.
+    // 종류 미지정 품질은 미리보기 조건에 남긴다. 옵션 증명용 아이템에 특정 기폭제를 부여하지 않는다.
+    var general = goal.general();
+    var optionGoal =
+        new GoalFilter(
+            goal.version(),
+            goal.catalogVersion(),
+            new General(general.baseItemId(), general.itemLevel(), general.rarities()),
+            goal.groups());
     return new GoalExamples(
-            simulator, goal, known, sources, compiledEvaluation(goal, known, simulator.catalog()))
+            simulator,
+            goal,
+            known,
+            sources,
+            compiledEvaluation(optionGoal, known, simulator.catalog()))
         .find(context, fracture);
   }
 
@@ -139,7 +151,8 @@ public final class GoalFilterService {
       List<ItemState> tierVariants,
       Map<String, List<ModifierAcquisition>> sources,
       Map<String, List<String>> optionTiers,
-      List<Occupancy> occupancy) {}
+      List<Occupancy> occupancy,
+      Integer minimumQuality) {}
 
   /** 동일 목표 카드의 잡옵 접두·접미 수와 남은 접두·접미 칸 수다. */
   public record Occupancy(int prefixes, int suffixes, int emptyPrefixes, int emptySuffixes) {}
@@ -187,7 +200,8 @@ public final class GoalFilterService {
               variants,
               Map.copyOf(used),
               group.optionTiers(),
-              group.occupancy()));
+              group.occupancy(),
+              goal.general().quality()));
     }
     var countRanges = new java.util.LinkedHashMap<String, Range>();
     for (var group : goal.groups()) {

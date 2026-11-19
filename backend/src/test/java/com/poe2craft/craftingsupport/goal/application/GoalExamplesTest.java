@@ -404,7 +404,7 @@ class GoalExamplesTest {
 
   /** 품질 단독 목표는 촉매를 적용할 수 있는 베이스에 한해 구체적인 품질 상태로 판정한다. */
   @Test
-  void qualityOnlyUsesConcreteCatalystQuality() {
+  void qualityOnlyKeepsMinimumWithoutInventingACatalyst() {
     var catalog = ItemCatalogLoader.loadDefault();
     var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
     var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
@@ -416,13 +416,14 @@ class GoalExamplesTest {
             new General(
                 catalog.base().id(), new Range(null, null), List.of(ItemState.Rarity.RARE), 15),
             List.of());
-    assertThat(
-            service.examples(context(catalog, 82), goal, simulator, simulator.modifierSources(82)))
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(simulator);
+    assertThat(service.preview(context(catalog, 82), goal, workbench).cards())
         .singleElement()
         .satisfies(
-            item -> {
-              assertThat(item.catalystQuality().amount()).isEqualTo(15);
-              assertThat(service.evaluate(item, goal).status()).isEqualTo(Status.MATCH);
+            card -> {
+              assertThat(card.minimumQuality()).isEqualTo(15);
+              assertThat(card.item().catalystQuality()).isNull();
             });
   }
 

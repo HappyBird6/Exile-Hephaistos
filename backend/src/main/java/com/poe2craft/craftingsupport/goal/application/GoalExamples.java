@@ -131,7 +131,7 @@ final class GoalExamples {
     var cards = new ArrayList<Matches>();
     for (var rarity : goal.general().rarities()) {
       if (rarity == ItemState.Rarity.UNIQUE) continue;
-      var seeds = seeds(context, rarity, quality, targets);
+      var seeds = seeds(context, rarity, targets);
       if (seeds.isEmpty()) continue;
       var grouped = new LinkedHashMap<String, List<Tier>>();
       for (var d : definitions) {
@@ -203,10 +203,7 @@ final class GoalExamples {
 
   /** 설정된 품질·희귀도와 베이스 고정 옵션의 실제 굴림으로 시작 상태를 만든다. */
   private List<Seed> seeds(
-      GoalFilter.Context context,
-      ItemState.Rarity rarity,
-      Integer quality,
-      Map<String, Set<BigDecimal>> targets) {
+      GoalFilter.Context context, ItemState.Rarity rarity, Map<String, Set<BigDecimal>> targets) {
     var definition =
         catalog.base().hasImplicit()
             ? catalog.modifiers().get(catalog.base().implicitModifierId())
@@ -228,9 +225,7 @@ final class GoalExamples {
               fracture == null ? List.of() : List.of(fracture),
               Set.of(),
               null,
-              quality == null || quality == 0
-                  ? null
-                  : new CatalystQuality(CatalystQuality.Type.FLESH, quality));
+              null);
       if (fracture != null && !validator.validateForGeneration(item).isEmpty()) continue;
       seeds.add(
           new Seed(
