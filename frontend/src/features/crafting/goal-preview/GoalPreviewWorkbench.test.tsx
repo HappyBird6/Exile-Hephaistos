@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-import { expect, it, vi } from 'vitest'
+import { beforeEach, expect, it, vi } from 'vitest'
 import {
   fixtureFetch,
   jsonResponse,
@@ -8,6 +8,8 @@ import {
 import type { Context, GoalFilter, Stat } from '../goal-filter/types'
 import { CraftStart } from '../goal-filter/CraftStart'
 import { GoalPreviewWorkbench } from './GoalPreviewWorkbench'
+
+beforeEach(() => localStorage.clear())
 
 vi.mock('./GoalPreviewResults', () => ({
   GoalPreviewResults: ({
@@ -122,6 +124,13 @@ it('previews a reviewed special goal at the chosen level without writing the pro
   expect(await screen.findByTestId('validated-item')).toHaveTextContent(
     'solar:51:90',
   )
+  window.dispatchEvent(new Event('pagehide'))
+  expect(localStorage.getItem('hephaistos.support.v1:preview-goal')).toContain(
+    '90',
+  )
+  expect(
+    localStorage.getItem('hephaistos.support.v1:preview-start'),
+  ).toBeTruthy()
   fireEvent.click(disclosure)
   fireEvent.click(disclosure)
   fireEvent.change(

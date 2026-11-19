@@ -15,8 +15,8 @@ export type SavedStart = {
   levelEdited: boolean
   searchRequest: CreateRequest | null
 }
-export function loadStart() {
-  return readSupport<SavedStart>('start', (raw): raw is SavedStart => {
+export function loadStart(key = 'start') {
+  return readSupport<SavedStart>(key, (raw): raw is SavedStart => {
     try {
       const v = raw as SavedStart
       if (
@@ -61,8 +61,8 @@ export function loadStart() {
     }
   })
 }
-export function restoredStart() {
-  const stored = loadStart()
+export function restoredStart(key = 'start') {
+  const stored = loadStart(key)
   const saved = stored
     ? {
         ...stored,

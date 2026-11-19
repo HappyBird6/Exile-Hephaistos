@@ -254,10 +254,11 @@ function ConnectedEditor({
   onSearchGoalChange?: ((snapshot: SearchGoalSnapshot) => void) | undefined
 }) {
   const { locale } = useI18n()
-  const persistGoal = compact && !preview
+  const persistGoal = compact
+  const goalKey = preview ? 'preview-goal' : 'goal'
   const [editor] = useState(() =>
     createGoalFilterEditor(
-      (persistGoal ? readSupport('goal', validGoal) : null) ??
+      (persistGoal ? readSupport(goalKey, validGoal) : null) ??
         emptyGoal(initialCatalog.context, initialCatalog.catalogVersion),
     ),
   )
@@ -266,14 +267,15 @@ function ConnectedEditor({
   useEffect(() => {
     if (!persistGoal) return
     const persist = () =>
-      setStorageFailed(!saveSupport('goal', editor.getState().goal))
+      setStorageFailed(!saveSupport(goalKey, editor.getState().goal))
     const timer = setTimeout(persist, 250)
     window.addEventListener('pagehide', persist)
     return () => {
       clearTimeout(timer)
       window.removeEventListener('pagehide', persist)
+      if (preview) persist()
     }
-  }, [persistGoal, goal, editor])
+  }, [persistGoal, goal, editor, goalKey, preview])
   useEffect(() => {
     if (
       compact &&
@@ -372,7 +374,7 @@ function ConnectedEditor({
                 revision: state.revision + 1,
                 collapsedByGroupId: {},
               }))
-              if (persistGoal) setStorageFailed(!saveSupport('goal', goal))
+              if (persistGoal) setStorageFailed(!saveSupport(goalKey, goal))
               setResetGeneration((n) => n + 1)
             }}
           >

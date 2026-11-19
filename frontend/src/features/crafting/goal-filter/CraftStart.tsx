@@ -134,25 +134,22 @@ export function CraftStart({
       searchGoal: null,
       searchRequest: null,
       searchIssue: false,
-      ...(previewOnly ? {} : restoredStart()),
+      ...restoredStart(previewOnly ? 'preview-start' : 'start'),
     })),
   )
   const draft = useStore(editor)
   const [settingsExpanded, setSettingsExpanded] = useState(
     () =>
-      previewOnly ||
-      (readSupport(
-        'settings-expanded',
+      readSupport(
+        previewOnly ? 'preview-expanded' : 'settings-expanded',
         (v): v is boolean => typeof v === 'boolean',
-      ) ??
-        true),
+      ) ?? true,
   )
   const [storageFailed, setStorageFailed] = useState(false)
   const persist = useCallback(() => {
-    if (previewOnly) return
     const d = editor.getState()
     setStorageFailed(
-      !saveSupport('start', {
+      !saveSupport(previewOnly ? 'preview-start' : 'start', {
         base: d.base,
         text: d.text,
         item: d.item,
@@ -167,7 +164,6 @@ export function CraftStart({
     )
   }, [editor, previewOnly])
   useEffect(() => {
-    if (previewOnly) return
     let timer: ReturnType<typeof setTimeout>
     const unsubscribe = editor.subscribe(() => {
       clearTimeout(timer)
@@ -180,7 +176,7 @@ export function CraftStart({
       clearTimeout(timer)
       window.removeEventListener('pagehide', flush)
     }
-  }, [editor, persist, previewOnly])
+  }, [editor, persist])
   const update = (value: Partial<Draft>) =>
     editor.setState({
       searchRequest: null,
@@ -688,8 +684,10 @@ export function CraftStart({
             ref={editButton}
             onClick={() => {
               setSettingsExpanded(!settingsExpanded)
-              if (!previewOnly)
-                saveSupport('settings-expanded', !settingsExpanded)
+              saveSupport(
+                previewOnly ? 'preview-expanded' : 'settings-expanded',
+                !settingsExpanded,
+              )
             }}
           >
             <span>
@@ -1136,7 +1134,11 @@ export function CraftStart({
         renderPreview &&
         (!draft.searchGoal || !hasCompleteGoal(draft.searchGoal.goal)
           ? renderPreview(null)
-          : startReady &&
+          : currentRules &&
+            !reloadingCatalog &&
+            !checking &&
+            draft.invalidLevelText === null &&
+            draft.searchGoal.ready &&
             selected &&
             draft.item &&
             previewCatalog &&
