@@ -3,6 +3,7 @@ package com.poe2craft.craftingsupport.goal.api;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.poe2craft.craftingsupport.goal.api.dto.EvaluateRequest;
+import com.poe2craft.craftingsupport.goal.api.dto.PreviewRequest;
 import com.poe2craft.craftingsupport.goal.api.dto.RecommendRequest;
 import com.poe2craft.craftingsupport.goal.api.dto.ValidateRequest;
 import com.poe2craft.craftingsupport.goal.application.GoalFilterService;
@@ -53,13 +54,6 @@ public final class GoalFilterController {
     var request = reader.decode(body, EvaluateRequest.class);
     return service.evaluate(request.item(), request.goal());
   }
-
-  /** 테스트 작업대 입력의 분열 명시 옵션은 선택 사항이며 원래 수치를 유지한다. */
-  private record PreviewRequest(
-      Context context,
-      com.poe2craft.craftingsupport.goal.domain.GoalFilter goal,
-      com.poe2craft.shared.item.ModifierInstance fracture,
-      String selectedTier) {}
 
   /** 목표와 문맥을 엄격히 읽고 확인된 아이템 예시 및 옵션별 획득처를 반환한다. */
   @PostMapping("/preview")
