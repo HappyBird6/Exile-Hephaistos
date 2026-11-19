@@ -48,4 +48,9 @@ it('recognizes saved implicit objectives without changing original rows', () => 
   const before = JSON.stringify(goal)
   expect(hasImplicitGoal(goal)).toBe(true)
   expect(JSON.stringify(goal)).toBe(before)
+  goal.groups[0]!.disabled = true
+  expect(hasImplicitGoal(goal)).toBe(false)
+  goal.groups[0]!.disabled = false
+  goal.groups[0]!.entries[0]!.disabled = true
+  expect(hasImplicitGoal(goal)).toBe(false)
 })

@@ -1,13 +1,10 @@
 import { createStore } from 'zustand/vanilla'
 import type { GoalFilter, Group, GroupType, Stat } from './types'
 import { weighted } from './types'
-import type { GroupPresentation } from './groupPresentation'
 export type Editor = {
   goal: GoalFilter
   collapsedByGroupId: Record<string, boolean>
   revision: number
-  presentedTypes: Record<string, GroupPresentation>
-  chooseGroupType: (id: string, type: GroupPresentation) => void
   edit: (fn: (goal: GoalFilter) => void) => void
   collapse: (id: string) => void
 }
@@ -16,20 +13,6 @@ export function createGoalFilterEditor(initial: GoalFilter) {
     goal: rareGoal(initial),
     collapsedByGroupId: {},
     revision: 0,
-    presentedTypes: {},
-    chooseGroupType: (id, type) =>
-      set((state) => {
-        const goal = structuredClone(state.goal)
-        const group = goal.groups.find((group) => group.id === id)
-        if (!group) return state
-        changeGroupType(group, type === 'OR' ? 'COUNT' : type)
-        if (type === 'OR') group.range = { min: 1, max: null }
-        return {
-          goal,
-          revision: state.revision + 1,
-          presentedTypes: { ...state.presentedTypes, [id]: type },
-        }
-      }),
     edit: (fn) =>
       set((state) => {
         const goal = structuredClone(state.goal)
@@ -55,22 +38,25 @@ export function changeGroupType(group: Group, type: GroupType) {
         ? group.range
         : { min: null, max: null }
       : null
-  group.entries.forEach((entry) => {
-    entry.weight = weighted(type) ? (entry.weight ?? 1) : null
-  })
+  if (!weighted(type)) group.entries.forEach((entry) => (entry.weight = null))
+}
+export function emptyGroup(type: GroupType): Group {
+  return {
+    id: crypto.randomUUID(),
+    type,
+    range: type === 'COUNT' || weighted(type) ? { min: null, max: null } : null,
+    entries: [],
+    disabled: false,
+  }
 }
 export function addStat(group: Group, stat: Stat, present = false) {
-  if (
-    (!stat.eligible && !present) ||
-    group.entries.some((entry) => entry.statId === stat.statId)
-  )
-    return
+  if (!stat.eligible && !present) return
   group.entries.push({
     id: crypto.randomUUID(),
     statId: stat.statId,
     unit: stat.unit,
     range: { min: null, max: null },
-    weight: weighted(group.type) ? 1 : null,
+    weight: null,
     disabled: false,
   })
 }
@@ -86,15 +72,7 @@ export function emptyGoal(
       itemLevel: { min: null, max: null },
       rarities: ['RARE'],
     },
-    groups: [
-      {
-        id: crypto.randomUUID(),
-        type: 'AND',
-        disabled: false,
-        range: null,
-        entries: [],
-      },
-    ],
+    groups: [emptyGroup('AND')],
   }
 }
 

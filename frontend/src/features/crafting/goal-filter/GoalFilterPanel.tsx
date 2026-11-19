@@ -11,9 +11,7 @@ import { workspaceMessages } from '../method-search/workspaceMessages'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { useStore } from 'zustand'
 import type { StoreApi } from 'zustand/vanilla'
-import { addStat } from './editor'
-import { presentedGroupType, orHelp } from './groupPresentation'
-import type { GroupPresentation } from './groupPresentation'
+import { addStat, changeGroupType, emptyGroup } from './editor'
 import { GoalFilterApiError } from './api'
 import type { Editor } from './editor'
 import { goalFilterMessages, goalFilterActions } from './i18n'
@@ -29,6 +27,7 @@ import type {
   Context,
   GoalFilter,
   GoalFilterAdapter,
+  GroupType,
   Range,
   Recommendation,
 } from './types'
@@ -132,20 +131,12 @@ export function GoalFilterPanel({
       : unit === 'flat'
         ? startInputMessages[language].value
         : '?'
-  const {
-    goal,
-    edit,
-    collapse,
-    collapsedByGroupId,
-    presentedTypes,
-    chooseGroupType,
-  } = useStore(editor)
-  const groupPresentation = (group: GoalFilter['groups'][number]) =>
-    presentedGroupType(group, presentedTypes[group.id])
-  const groupHelp = (group: GoalFilter['groups'][number]) =>
-    groupPresentation(group) === 'OR'
-      ? orHelp[language]
-      : t.operations[group.type]
+  const { goal, edit, collapse, collapsedByGroupId } = useStore(editor)
+  const groupOptions = groupTypes.map((type) => (
+    <option key={type} value={type}>
+      {setup.groups[type]}
+    </option>
+  ))
   const catalog = useGoalFilterCatalog(adapter, {
     ...context,
     baseItemId: goal.general.baseItemId,
@@ -166,10 +157,11 @@ export function GoalFilterPanel({
       ? recommendation
       : undefined
   const implicitGoal = hasImplicitGoal(goal)
+  const hasInvalidNumbers = Object.values(invalidFields).some(Boolean)
   const validInput =
     !implicitGoal &&
     hasCompleteGoal(qualityWorkGoal(goal, allowQualityWork)) &&
-    !Object.values(invalidFields).some(Boolean)
+    !hasInvalidNumbers
   const recovery = useCatalogRecovery(
     adapter,
     context,
@@ -209,7 +201,7 @@ export function GoalFilterPanel({
   const [target, setTarget] = useState(goal.groups[0]?.id ?? '')
   const searchRef = useRef<HTMLInputElement>(null)
   const candidatesRef = useRef<HTMLUListElement>(null)
-  const addGroupRef = useRef<HTMLButtonElement>(null)
+  const addGroupRef = useRef<HTMLSelectElement>(null)
   const targetId = goal.groups.some((g) => g.id === target)
     ? target
     : goal.groups[0]?.id
@@ -237,11 +229,7 @@ export function GoalFilterPanel({
   const selectable = (stat: (typeof stats)[number]) =>
     preview ? stat.support.evaluation === 'SUPPORTED' : stat.eligible
   const canAdd = (stat: (typeof stats)[number]) =>
-    (selectable(stat) || presentStatIds.has(stat.statId)) &&
-    !!targetId &&
-    !goal.groups
-      .find((g) => g.id === targetId)
-      ?.entries.some((e) => e.statId === stat.statId)
+    !!targetId && (selectable(stat) || presentStatIds.has(stat.statId))
   function chooseStat(index: number) {
     const stat = stats[index]
     if (!stat || !canAdd(stat)) return
@@ -260,175 +248,172 @@ export function GoalFilterPanel({
         block: 'nearest',
       })
   }, [activeIndex, searchOpen])
-  const searchPanel = (
-    <div
-      className="goal-filter-search"
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget))
-          setSearchOpen(false)
-      }}
-    >
-      <PickerSearchInput
-        label={craftStartMessages[language].add}
-        aria-label={t.search}
-        inputRef={searchRef}
-        type="search"
-        role="combobox"
-        autoComplete="off"
-        aria-autocomplete="list"
-        aria-activedescendant={
-          searchOpen && stats.length
-            ? `${id}-goal-stat-${activeIndex}`
-            : undefined
-        }
-        placeholder={`+ ${craftStartMessages[language].add}`}
-        aria-expanded={searchOpen}
-        aria-controls={`${id}-goal-stat-candidates`}
-        value={search}
-        onFocus={() => setSearchOpen(true)}
-        onClick={() => setSearchOpen(true)}
-        onKeyDown={(event) => {
-          if (event.nativeEvent.isComposing || event.keyCode === 229) return
-          if (event.key === 'Escape') {
-            event.preventDefault()
-            event.stopPropagation()
+  function statPicker(groupId: string) {
+    const active = groupId === targetId
+    const open = active && searchOpen
+    function openPicker() {
+      if (!active) {
+        setTarget(groupId)
+        setSearch('')
+        setActiveStat(0)
+        setCategory('ALL')
+      }
+      setSearchOpen(true)
+    }
+    return (
+      <div
+        className="goal-filter-search"
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget))
             setSearchOpen(false)
-            setSearch('')
+        }}
+      >
+        <PickerSearchInput
+          aria-label={t.search}
+          id={`${id}-search-${groupId}`}
+          inputRef={active ? searchRef : undefined}
+          type="search"
+          role="combobox"
+          autoComplete="off"
+          aria-autocomplete="list"
+          aria-activedescendant={
+            open && stats.length ? `${id}-goal-stat-${activeIndex}` : undefined
           }
-          if (event.key === 'Enter') {
-            event.preventDefault()
-            if (searchOpen) chooseStat(activeIndex)
-            else setSearchOpen(true)
-          }
-          if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-            event.preventDefault()
+          placeholder={`+ ${actions.add}`}
+          aria-expanded={open}
+          aria-controls={open ? `${id}-goal-stat-candidates` : undefined}
+          value={active ? search : ''}
+          onFocus={openPicker}
+          onClick={openPicker}
+          onKeyDown={(event) => {
+            if (event.nativeEvent.isComposing || event.keyCode === 229) return
+            if (event.key === 'Escape') {
+              event.preventDefault()
+              event.stopPropagation()
+              setSearchOpen(false)
+              setSearch('')
+            }
+            if (event.key === 'Enter') {
+              event.preventDefault()
+              if (open) chooseStat(activeIndex)
+              else openPicker()
+            }
+            if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+              event.preventDefault()
+              setSearchOpen(true)
+              setActiveStat(
+                searchOpen
+                  ? (activeIndex +
+                      (event.key === 'ArrowDown' ? 1 : -1) +
+                      stats.length) %
+                      Math.max(1, stats.length)
+                  : event.key === 'ArrowUp'
+                    ? Math.max(0, stats.length - 1)
+                    : 0,
+              )
+            }
+          }}
+          onChange={(e) => {
+            setSearch(e.target.value)
             setSearchOpen(true)
-            setActiveStat(
-              searchOpen
-                ? (activeIndex +
-                    (event.key === 'ArrowDown' ? 1 : -1) +
-                    stats.length) %
-                    Math.max(1, stats.length)
-                : event.key === 'ArrowUp'
-                  ? Math.max(0, stats.length - 1)
-                  : 0,
-            )
-          }
-        }}
-        onChange={(e) => {
-          setSearch(e.target.value)
-          setSearchOpen(true)
-          setActiveStat(0)
-        }}
-      />
-      {searchOpen && (
-        <PickerPopover anchor={searchRef}>
-          <div className="goal-filter-search-options" hidden={!searchOpen}>
-            <label>
-              {t.category}
-              <select
-                value={category}
-                onChange={(e) => {
-                  setCategory(e.target.value)
-                  setActiveStat(0)
-                }}
-              >
-                {['ALL', 'EXPLICIT', 'PSEUDO'].map((kind) => (
-                  <option key={kind} value={kind}>
-                    {kind === 'ALL'
-                      ? t.all
-                      : kind === 'EXPLICIT'
-                        ? setup.explicit
-                        : kind === 'IMPLICIT'
-                          ? setup.implicit
-                          : setup.pseudo}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
-              {t.group}
-              <select
-                value={targetId ?? ''}
-                onChange={(e) => setTarget(e.target.value)}
-              >
-                {goal.groups.map((g, i) => (
-                  <option key={g.id} value={g.id}>
-                    {i + 1}: {groupPresentation(g)}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-          {catalog.isPending && <p role="status">{t.loading}</p>}
-          {catalog.isError && <p role="alert">{t.error}</p>}
-          <ul
-            ref={candidatesRef}
-            id={`${id}-goal-stat-candidates`}
-            className="goal-filter-candidates"
-            role="listbox"
-            aria-label={t.search}
-            hidden={!searchOpen}
-            onKeyDown={(event) => {
-              if (event.key === 'Escape') {
-                searchRef.current?.focus()
-                setSearch('')
-                setSearchOpen(false)
-              }
-            }}
-          >
-            {(searchOpen ? stats : []).map((stat, index) => (
-              <li
-                key={stat.statId}
-                id={`${id}-goal-stat-${index}`}
-                role="option"
-                aria-selected={index === activeIndex}
-                aria-disabled={!canAdd(stat)}
-                onMouseDown={(event) => event.preventDefault()}
-                onClick={() => chooseStat(index)}
-              >
-                <span className="goal-filter-candidate-label">
-                  {stat.label} ({unitLabel(stat.unit)}){' '}
-                  <small>
-                    {stat.kind === 'PSEUDO'
-                      ? setup.pseudo
-                      : stat.kind === 'IMPLICIT'
-                        ? setup.implicit
-                        : setup.explicit}
-                  </small>
-                </span>
-                {!compact && (
-                  <small>
-                    {stat.kind} · {stat.support.evaluation} ·{' '}
-                    {stat.eligibilityReason}
-                  </small>
-                )}
-                {compact && stat.support.evaluation !== 'SUPPORTED' && (
-                  <small>{actions.unavailable}</small>
-                )}
-                {presentStatIds.has(stat.statId) && (
-                  <span>{actions.present}</span>
-                )}
-                <button
-                  type="button"
-                  aria-label={`${t.add} ${stat.label}`}
-                  disabled={!canAdd(stat)}
-                  onMouseDown={(event) => event.preventDefault()}
-                  onClick={(event) => {
-                    event.stopPropagation()
-                    chooseStat(index)
+            setActiveStat(0)
+          }}
+        />
+        {open && (
+          <PickerPopover anchor={searchRef}>
+            <div className="goal-filter-search-options">
+              <label>
+                {t.category}
+                <select
+                  value={category}
+                  onChange={(e) => {
+                    setCategory(e.target.value)
+                    setActiveStat(0)
                   }}
                 >
-                  <span aria-hidden="true">+</span>
-                </button>
-              </li>
-            ))}
-          </ul>
-          {catalog.data && !stats.length && <p>{t.empty}</p>}
-        </PickerPopover>
-      )}
-    </div>
-  )
+                  {['ALL', 'EXPLICIT', 'PSEUDO'].map((kind) => (
+                    <option key={kind} value={kind}>
+                      {kind === 'ALL'
+                        ? t.all
+                        : kind === 'EXPLICIT'
+                          ? setup.explicit
+                          : kind === 'IMPLICIT'
+                            ? setup.implicit
+                            : setup.pseudo}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            {catalog.isPending && <p role="status">{t.loading}</p>}
+            {catalog.isError && <p role="alert">{t.error}</p>}
+            <ul
+              ref={candidatesRef}
+              id={`${id}-goal-stat-candidates`}
+              className="goal-filter-candidates"
+              role="listbox"
+              aria-label={t.search}
+              onKeyDown={(event) => {
+                if (event.key === 'Escape') {
+                  searchRef.current?.focus()
+                  setSearch('')
+                  setSearchOpen(false)
+                }
+              }}
+            >
+              {stats.map((stat, index) => (
+                <li
+                  key={stat.statId}
+                  id={`${id}-goal-stat-${index}`}
+                  role="option"
+                  aria-selected={index === activeIndex}
+                  aria-disabled={!canAdd(stat)}
+                  onMouseDown={(event) => event.preventDefault()}
+                  onClick={() => chooseStat(index)}
+                >
+                  <span className="goal-filter-candidate-label">
+                    {stat.label} ({unitLabel(stat.unit)}){' '}
+                    <small>
+                      {stat.kind === 'PSEUDO'
+                        ? setup.pseudo
+                        : stat.kind === 'IMPLICIT'
+                          ? setup.implicit
+                          : setup.explicit}
+                    </small>
+                  </span>
+                  {!compact && (
+                    <small>
+                      {stat.kind} · {stat.support.evaluation} ·{' '}
+                      {stat.eligibilityReason}
+                    </small>
+                  )}
+                  {compact && stat.support.evaluation !== 'SUPPORTED' && (
+                    <small>{actions.unavailable}</small>
+                  )}
+                  {presentStatIds.has(stat.statId) && (
+                    <span>{actions.present}</span>
+                  )}
+                  <button
+                    type="button"
+                    aria-label={`${t.add} ${stat.label}`}
+                    disabled={!canAdd(stat)}
+                    onMouseDown={(event) => event.preventDefault()}
+                    onClick={(event) => {
+                      event.stopPropagation()
+                      chooseStat(index)
+                    }}
+                  >
+                    <span aria-hidden="true">+</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+            {catalog.data && !stats.length && <p>{t.empty}</p>}
+          </PickerPopover>
+        )}
+      </div>
+    )
+  }
   return (
     <section
       className={`goal-filter${compact ? ' goal-filter-compact' : ''}`}
@@ -528,40 +513,54 @@ export function GoalFilterPanel({
               </legend>
               <div className="goal-filter-group-controls">
                 <label className="goal-filter-group-type">
-                  <span className="goal-filter-group-title" aria-hidden="true">
-                    {actions.stats}
-                  </span>
+                  {index === 0 && group.type === 'AND' && (
+                    <span
+                      className="goal-filter-group-title"
+                      aria-hidden="true"
+                    >
+                      {actions.stats}
+                    </span>
+                  )}
                   <span className="goal-filter-sr-only">
                     {t.group} {index + 1}
                   </span>
                   <select
-                    title={groupHelp(group)}
-                    value={groupPresentation(group)}
+                    title={t.operations[group.type]}
+                    value={group.type}
                     onChange={(e) =>
-                      chooseGroupType(
-                        group.id,
-                        e.target.value as GroupPresentation,
+                      edit((g) =>
+                        changeGroupType(
+                          g.groups[index]!,
+                          e.target.value as GroupType,
+                        ),
                       )
                     }
                   >
-                    {(['AND', 'OR', 'COUNT', 'NOT'] as const).map((type) => (
-                      <option key={type} value={type}>
-                        {type === 'OR' ? 'OR' : setup.groups[type]}
-                      </option>
-                    ))}
-                    <optgroup label={setup.advanced}>
-                      {groupTypes
-                        .filter(
-                          (type) => !['AND', 'COUNT', 'NOT'].includes(type),
-                        )
-                        .map((type) => (
-                          <option key={type} value={type}>
-                            {setup.groups[type]}
-                          </option>
-                        ))}
-                    </optgroup>
+                    {groupOptions}
                   </select>
                 </label>
+                {group.range && (
+                  <fieldset className="goal-filter-group-range">
+                    <legend className="goal-filter-sr-only">
+                      {group.type === 'COUNT' ? t.count : t.score}
+                    </legend>
+                    {(['min', 'max'] as const).map((bound) => (
+                      <NumberField
+                        fieldId={`${group.id}:${bound}`}
+                        invalidLabel={t.invalid}
+                        onValidityChange={onValidityChange}
+                        key={bound}
+                        label={t[bound]}
+                        value={group.range![bound]}
+                        onChange={(n) =>
+                          edit((g) =>
+                            editRange(g.groups[index]!.range!, bound, n),
+                          )
+                        }
+                      />
+                    ))}
+                  </fieldset>
+                )}
                 <label className="goal-filter-toggle" title={t.active}>
                   <input
                     type="checkbox"
@@ -609,29 +608,9 @@ export function GoalFilterPanel({
                 id={`goal-group-${group.id}`}
                 hidden={collapsedByGroupId[group.id]}
               >
-                <p className="goal-filter-group-help">{groupHelp(group)}</p>
-                {group.range && groupPresentation(group) !== 'OR' && (
-                  <fieldset className="goal-filter-group-range">
-                    <legend>
-                      {group.type === 'COUNT' ? t.count : t.score}
-                    </legend>
-                    {(['min', 'max'] as const).map((bound) => (
-                      <NumberField
-                        fieldId={`${group.id}:${bound}`}
-                        invalidLabel={t.invalid}
-                        onValidityChange={onValidityChange}
-                        key={bound}
-                        label={t[bound]}
-                        value={group.range![bound]}
-                        onChange={(n) =>
-                          edit((g) =>
-                            editRange(g.groups[index]!.range!, bound, n),
-                          )
-                        }
-                      />
-                    ))}
-                  </fieldset>
-                )}
+                <p className="goal-filter-group-help">
+                  {t.operations[group.type]}
+                </p>
                 {group.entries.map((entry, row) => {
                   const stat = presentedStats.find(
                     (s) => s.statId === entry.statId,
@@ -660,6 +639,20 @@ export function GoalFilterPanel({
                             : (stat?.eligibilityReason ?? 'UNKNOWN_STAT')}
                         </p>
                       )}
+                      {weighted(group.type) && (
+                        <NumberField
+                          fieldId={`${entry.id}:weight`}
+                          invalidLabel={t.invalid}
+                          onValidityChange={onValidityChange}
+                          label={t.weight}
+                          value={entry.weight}
+                          onChange={(n) =>
+                            edit((g) => {
+                              g.groups[index]!.entries[row]!.weight = n
+                            })
+                          }
+                        />
+                      )}
                       {(['min', 'max'] as const).map((bound) => (
                         <NumberField
                           fieldId={`${entry.id}:${bound}`}
@@ -679,20 +672,6 @@ export function GoalFilterPanel({
                           }
                         />
                       ))}
-                      {weighted(group.type) && (
-                        <NumberField
-                          fieldId={`${entry.id}:weight`}
-                          invalidLabel={t.invalid}
-                          onValidityChange={onValidityChange}
-                          label={t.weight}
-                          value={entry.weight}
-                          onChange={(n) =>
-                            edit((g) => {
-                              g.groups[index]!.entries[row]!.weight = n
-                            })
-                          }
-                        />
-                      )}
                       <label className="goal-filter-toggle" title={t.active}>
                         <input
                           type="checkbox"
@@ -715,7 +694,9 @@ export function GoalFilterPanel({
                           edit((g) => {
                             g.groups[index]!.entries.splice(row, 1)
                           })
-                          searchRef.current?.focus()
+                          document
+                            .getElementById(`${id}-search-${group.id}`)
+                            ?.focus()
                           setSearchOpen(false)
                         }}
                       >
@@ -725,46 +706,34 @@ export function GoalFilterPanel({
                   )
                 })}
               </div>
-              {targetId === group.id ? (
-                <div hidden={collapsedByGroupId[group.id]}>{searchPanel}</div>
-              ) : (
-                <button
-                  type="button"
-                  className="goal-filter-add-stat"
-                  hidden={collapsedByGroupId[group.id]}
-                  onClick={() => {
-                    setTarget(group.id)
-                    setSearch('')
-                    searchRef.current?.focus()
-                    setSearchOpen(true)
-                  }}
-                >
-                  + {actions.add}
-                </button>
-              )}
+              <div hidden={collapsedByGroupId[group.id]}>
+                {statPicker(group.id)}
+              </div>
             </fieldset>
           ))}
           {!goal.groups.length && <p>{t.noGroups}</p>}
-          <button
+          <select
             ref={addGroupRef}
             className="goal-filter-add-group"
-            type="button"
-            onClick={() => {
-              const id = crypto.randomUUID()
+            aria-label={t.addGroup}
+            value=""
+            onChange={(event) => {
+              const group = emptyGroup(event.target.value as GroupType)
               edit((g) => {
-                g.groups.push({
-                  id,
-                  type: 'AND',
-                  disabled: false,
-                  range: null,
-                  entries: [],
-                })
+                g.groups.push(group)
               })
-              setTarget(id)
+              setTarget(group.id)
+              setSearch('')
+              setCategory('ALL')
+              setActiveStat(0)
+              setSearchOpen(false)
             }}
           >
-            + {t.addGroup}
-          </button>
+            <option value="" disabled>
+              + {t.addGroup}
+            </option>
+            {groupOptions}
+          </select>
         </div>
       </div>
       <div aria-live="polite">
@@ -794,9 +763,7 @@ export function GoalFilterPanel({
             {recovery.failed && !recovery.issues.length && <p>{t.error}</p>}
           </div>
         )}
-        {!validInput && (!preview || hasCompleteGoal(goal)) && (
-          <p role="alert">{t.invalid}</p>
-        )}
+        {hasInvalidNumbers && <p role="alert">{t.invalid}</p>}
         {catalog.data &&
           catalog.data.catalogVersion !== goal.catalogVersion && (
             <p>{t.stale}</p>

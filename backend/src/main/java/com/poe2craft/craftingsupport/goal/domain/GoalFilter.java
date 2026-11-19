@@ -2,6 +2,7 @@ package com.poe2craft.craftingsupport.goal.domain;
 
 import com.poe2craft.shared.item.ItemState.Rarity;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 /**
@@ -101,6 +102,33 @@ public record GoalFilter(
       return (min == null || value.compareTo(min) >= 0)
           && (max == null || value.compareTo(max) <= 0);
     }
+
+    /** 개수 필터의 입력은 보존하고 활성 행 개수에서 요구하는 정수 경계를 계산한다. */
+    public Range forCount(int rows) {
+      if ((min == null || (min.signum() >= 0 && min.scale() <= 0))
+          && (max == null || (max.signum() > 0 && max.scale() <= 0))) return this;
+      var rowCount = BigDecimal.valueOf(rows);
+      var lower = roundedCount(min);
+      // 거래소에서 3행 중 1행이 일치할 때 최소 -2는 통과, -1은 탈락한다. 음수 최소는 1개 이상을 요구한다.
+      if (lower != null && lower.signum() < 0)
+        lower = lower.compareTo(rowCount.negate()) <= 0 ? BigDecimal.ONE : rowCount.add(lower);
+      var upper = roundedCount(max);
+      // 최대 0은 제한 없음, -1은 일치 행이 없어야 한다. 3행에서 -2는 최대 1개, -3은 최대 0개다.
+      if (upper != null) {
+        if (upper.signum() == 0) upper = null;
+        else if (upper.equals(BigDecimal.ONE.negate())) upper = BigDecimal.ZERO;
+        else if (upper.signum() < 0)
+          upper = upper.compareTo(rowCount.negate()) <= 0 ? BigDecimal.ZERO : rowCount.add(upper);
+      }
+      return new Range(lower, upper);
+    }
+
+    /** 가능한 개수보다 큰 지수를 거대한 정수로 펼치지 않으면서 검색 경계를 반올림한다. */
+    private static BigDecimal roundedCount(BigDecimal value) {
+      if (value == null || value.scale() <= 0) return value;
+      if (value.abs().compareTo(BigDecimal.valueOf(5, 1)) < 0) return BigDecimal.ZERO;
+      return value.setScale(0, RoundingMode.HALF_UP);
+    }
   }
 
   /**
@@ -116,7 +144,26 @@ public record GoalFilter(
    *   <li>{@code entries}: 항목목록 ({@code List<Entry>}).
    * </ul>
    */
-  public record Group(String id, Type type, Boolean disabled, Range range, List<Entry> entries) {}
+  public record Group(String id, Type type, Boolean disabled, Range range, List<Entry> entries) {
+    /** 활성 행이 있는 그룹만 목표 판정에 참여한다. 빈 편집 그룹과 비활성 행만 있는 그룹은 건너뛴다. */
+    public boolean active() {
+      if (!Boolean.FALSE.equals(disabled) || entries == null) return false;
+      for (var entry : entries)
+        if (entry != null && Boolean.FALSE.equals(entry.disabled())) return true;
+      return false;
+    }
+
+    /** 이 그룹이 행별 가중치로 점수를 계산하는지 반환한다. */
+    public boolean weighted() {
+      return type == Type.WEIGHTED_V1 || type == Type.WEIGHTED_V2;
+    }
+
+    /** 가중합의 빈 칸은 계산할 때만 1로 읽는다. 다른 그룹에는 점수 가중치가 없다. */
+    public BigDecimal scoreWeight(Entry entry) {
+      if (!weighted()) return null;
+      return entry.weight() == null ? BigDecimal.ONE : entry.weight();
+    }
+  }
 
   /**
    * {@code GoalFilter}에서 사용하는 항목의 불변 값이다.
@@ -128,7 +175,7 @@ public record GoalFilter(
    *   <li>{@code statId}: 수치·식별자 ({@code String}).
    *   <li>{@code unit}: 단위 ({@code String}).
    *   <li>{@code range}: 범위 ({@code Range}).
-   *   <li>{@code weight}: 후보 선택에 사용하는 가중치 ({@code BigDecimal}).
+   *   <li>{@code weight}: 입력한 점수 가중치. 빈 칸은 {@code null}로 보존한다.
    *   <li>{@code disabled}: 비활성 ({@code Boolean}).
    * </ul>
    */

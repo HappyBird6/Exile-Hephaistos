@@ -508,9 +508,8 @@ public final class PathSearchService implements AutoCloseable {
     if (request.goal().groups().stream()
         .anyMatch(
             g ->
-                !g.disabled()
-                    && g.type() != GoalFilter.Type.AND
-                    && g.type() != GoalFilter.Type.COUNT)) return "GOAL_GROUP_NOT_SUPPORTED";
+                g.active() && g.type() != GoalFilter.Type.AND && g.type() != GoalFilter.Type.COUNT))
+      return "GOAL_GROUP_NOT_SUPPORTED";
     var evaluated = goals.evaluate(item, request.goal()).status();
     return evaluated == GoalFilter.Status.UNKNOWN || evaluated == GoalFilter.Status.UNSUPPORTED
         ? "GOAL_EVALUATION_NOT_SUPPORTED"

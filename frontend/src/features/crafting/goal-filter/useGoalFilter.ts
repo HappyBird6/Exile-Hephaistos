@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import type { Context, GoalFilter, GoalFilterAdapter } from './types'
+import type { Context, GoalFilter, GoalFilterAdapter, Group } from './types'
 export function useGoalFilterCatalog(
   adapter: GoalFilterAdapter,
   context: Context,
@@ -24,11 +24,12 @@ export function useGoalFilterValidation(
   })
 }
 
-/** An empty editor is an unfinished draft, not a goal for the server to reject. */
+export function hasActiveStatFilters(group: Group) {
+  return !group.disabled && group.entries.some((entry) => !entry.disabled)
+}
+
 export function hasCompleteGoal(goal: GoalFilter) {
-  const active = goal.groups.filter((group) => !group.disabled)
   return (
-    (active.length > 0 || (goal.general.quality ?? 0) > 0) &&
-    active.every((group) => group.entries.some((entry) => !entry.disabled))
+    (goal.general.quality ?? 0) > 0 || goal.groups.some(hasActiveStatFilters)
   )
 }

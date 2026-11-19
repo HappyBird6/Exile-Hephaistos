@@ -21,16 +21,11 @@ import java.util.*;
  *       evaluation}(평가). 반환: {@code Validation}.
  *   <li>{@code identity(value, ids, path, issues)}: 현재 값 또는 규칙의 정체성 식별자를 조회한다. 입력: {@code
  *       value}(값), {@code ids}(식별자목록), {@code path}(경로), {@code issues}(문제목록).
- *   <li>{@code range(range, path, issues)}: 범위 처리에서 {@code issues.add}, {@code Issue.error}을(를)
- *       사용한다. 입력: {@code range}(범위), {@code path}(경로), {@code issues}(문제목록).
+ *   <li>{@code range(range, path, issues, ordered)}: 범위 객체와 경계 순서를 검증한다. 개수의 상대 경계는 각각 판정한다.
  *   <li>{@code integer(value)}: 정수 처리에서 {@code value.stripTrailingZeros}을(를) 사용한다. 입력: {@code
  *       value}(값). 반환: {@code boolean}.
  *   <li>{@code invalidLevel(value)}: 유효하지않은·레벨 처리에서 {@code value.compareTo}, {@code
  *       BigDecimal.valueOf}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code boolean}.
- *   <li>{@code invalidCount(value, max)}: 유효하지않은·개수 처리에서 {@code value.signum}, {@code
- *       value.compareTo}을(를) 사용한다. 입력: {@code value}(값), {@code max}(최대값). 반환: {@code boolean}.
- *   <li>{@code invalidCountMinimum(value)}: 유효하지않은·개수·최소값 처리에서 {@code value.signum}을(를) 사용한다. 입력:
- *       {@code value}(값). 반환: {@code boolean}.
  * </ul>
  *
  * <p>중첩 타입:
@@ -106,7 +101,7 @@ public final class GoalValidator {
                 "INVALID_QUALITY",
                 "/goal/general/quality",
                 "Minimum quality must be an integer from 0 to 40."));
-      range(general.itemLevel(), "/goal/general/itemLevel", issues);
+      range(general.itemLevel(), "/goal/general/itemLevel", issues, true);
       if (general.itemLevel() != null
           && (invalidLevel(general.itemLevel().min()) || invalidLevel(general.itemLevel().max())))
         issues.add(
@@ -129,7 +124,7 @@ public final class GoalValidator {
     else {
       var groupIds = new HashSet<String>();
       var entryIds = new HashSet<String>();
-      int active = 0;
+      boolean hasActiveRow = false;
       for (int i = 0; i < goal.groups().size(); i++) {
         String path = "/goal/groups/" + i;
         var group = goal.groups().get(i);
@@ -142,9 +137,9 @@ public final class GoalValidator {
           issues.add(
               Issue.error("INVALID_STRUCTURE", path, "Group type and disabled flag are required."));
         boolean enabled = Boolean.FALSE.equals(group.disabled());
-        if (enabled) active++;
-        boolean weighted = group.type() == Type.WEIGHTED_V1 || group.type() == Type.WEIGHTED_V2;
-        if (weighted || group.type() == Type.COUNT) range(group.range(), path + "/range", issues);
+        boolean weighted = group.weighted();
+        if (weighted || group.type() == Type.COUNT)
+          range(group.range(), path + "/range", issues, weighted);
         else if (group.range() != null)
           issues.add(
               Issue.error("UNEXPECTED_RANGE", path + "/range", "This group has no group range."));
@@ -152,8 +147,6 @@ public final class GoalValidator {
           issues.add(Issue.error("INVALID_STRUCTURE", path + "/entries", "Entries are required."));
           continue;
         }
-        var statIds = new HashSet<String>();
-        int activeRows = 0;
         for (int j = 0; j < group.entries().size(); j++) {
           var entry = group.entries().get(j);
           String row = path + "/entries/" + j;
@@ -175,18 +168,8 @@ public final class GoalValidator {
             issues.add(
                 Issue.error("INVALID_STRUCTURE", row + "/disabled", "Disabled flag is required."));
           boolean enabledRow = enabled && Boolean.FALSE.equals(entry.disabled());
-          if (Boolean.FALSE.equals(entry.disabled())) activeRows++;
-          if (!statIds.add(entry.statId()))
-            issues.add(
-                Issue.error(
-                    "DUPLICATE_STAT", row + "/statId", "A stat may appear only once per group."));
-          range(entry.range(), row + "/range", issues);
-          if (weighted && entry.weight() == null)
-            issues.add(
-                Issue.error(
-                    "MISSING_WEIGHT",
-                    row + "/weight",
-                    "Weighted entries require a finite weight."));
+          if (enabledRow) hasActiveRow = true;
+          range(entry.range(), row + "/range", issues, true);
           if (!weighted && entry.weight() != null)
             issues.add(
                 Issue.error(
@@ -221,25 +204,13 @@ public final class GoalValidator {
             }
           }
         }
-        if (enabled && activeRows == 0)
-          issues.add(
-              Issue.error(
-                  "EMPTY_GROUP", path + "/entries", "An active group requires an active entry."));
-        if (group.type() == Type.COUNT
-            && group.range() != null
-            && (invalidCountMinimum(group.range().min())
-                || invalidCount(group.range().max(), activeRows)))
-          issues.add(
-              Issue.error(
-                  "INVALID_COUNT_RANGE",
-                  path + "/range",
-                  "Count bounds must be nonnegative integers within the active entry count."));
       }
-      if (active == 0
+      if (!hasActiveRow
           && (goal.general() == null
               || goal.general().quality() == null
               || goal.general().quality() == 0))
-        issues.add(Issue.error("EMPTY_GOAL", "/goal/groups", "At least one group must be active."));
+        issues.add(
+            Issue.error("EMPTY_GOAL", "/goal/groups", "Add a stat filter or a quality goal."));
     }
     if (!catalog.issues().isEmpty()) {
       issues.addAll(catalog.issues());
@@ -280,10 +251,13 @@ public final class GoalValidator {
       issues.add(Issue.error("DUPLICATE_ID", path, "Identity appears more than once."));
   }
 
-  private static void range(Range range, String path, List<Issue> issues) {
+  private static void range(Range range, String path, List<Issue> issues, boolean ordered) {
     if (range == null)
       issues.add(Issue.error("INVALID_RANGE", path, "A range object is required."));
-    else if (range.min() != null && range.max() != null && range.min().compareTo(range.max()) > 0)
+    else if (ordered
+        && range.min() != null
+        && range.max() != null
+        && range.min().compareTo(range.max()) > 0)
       issues.add(Issue.error("INVALID_RANGE", path, "Minimum cannot exceed maximum."));
   }
 
@@ -296,14 +270,5 @@ public final class GoalValidator {
         && (!integer(value)
             || value.compareTo(BigDecimal.ONE) < 0
             || value.compareTo(BigDecimal.valueOf(100)) > 0);
-  }
-
-  private static boolean invalidCount(BigDecimal value, int max) {
-    return value != null
-        && (!integer(value) || value.signum() < 0 || value.compareTo(BigDecimal.valueOf(max)) > 0);
-  }
-
-  private static boolean invalidCountMinimum(BigDecimal value) {
-    return value != null && (!integer(value) || value.signum() < 0);
   }
 }

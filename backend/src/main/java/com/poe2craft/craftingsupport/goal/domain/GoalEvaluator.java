@@ -201,7 +201,7 @@ public final class GoalEvaluator {
       GoalFilter goal, Status general, Map<String, Observation> observations, List<Issue> issues) {
     var results = new ArrayList<GroupResult>();
     for (var group : goal.groups()) {
-      if (!group.disabled()) results.add(group(group, observations));
+      if (group.active()) results.add(group(group, observations));
     }
     var statuses = new ArrayList<Status>();
     statuses.add(general);
@@ -254,10 +254,11 @@ public final class GoalEvaluator {
       if (value.presence() == Presence.PRESENT) present++;
       var ifStatus = value.presence() == Presence.ABSENT ? Status.MATCH : status;
       hard.add(ifStatus);
+      var weight = group.scoreWeight(entry);
       if (value.presence() == Presence.PRESENT
-          && entry.weight() != null
+          && weight != null
           && (group.type() == Type.WEIGHTED_V1 || status == Status.MATCH))
-        score = score.add(value.exact().multiply(entry.weight()));
+        score = score.add(value.exact().multiply(weight));
     }
     var statuses = entries.stream().map(EntryResult::status).toList();
     Status result;
@@ -269,10 +270,11 @@ public final class GoalEvaluator {
       case COUNT -> {
         var low = BigDecimal.valueOf(matched);
         var high = BigDecimal.valueOf(matched + uncertain);
-        if ((group.range().max() != null && low.compareTo(group.range().max()) > 0)
-            || (group.range().min() != null && high.compareTo(group.range().min()) < 0))
-          result = Status.NO_MATCH;
-        else if (group.range().contains(low) && group.range().contains(high)) result = Status.MATCH;
+        var range = group.range().forCount(entries.size());
+        if ((range.min() != null && range.max() != null && range.min().compareTo(range.max()) > 0)
+            || (range.max() != null && low.compareTo(range.max()) > 0)
+            || (range.min() != null && high.compareTo(range.min()) < 0)) result = Status.NO_MATCH;
+        else if (range.contains(low) && range.contains(high)) result = Status.MATCH;
         else result = uncertainty(statuses);
       }
       case WEIGHTED_V1 -> {
@@ -290,13 +292,9 @@ public final class GoalEvaluator {
         group.id(),
         result,
         group.type() == Type.COUNT && uncertain == 0 ? matched : null,
-        (group.type() == Type.WEIGHTED_V1 || group.type() == Type.WEIGHTED_V2) && uncertain == 0
-            ? score.display()
-            : null,
+        group.weighted() && uncertain == 0 ? score.display() : null,
         List.copyOf(entries),
-        (group.type() == Type.WEIGHTED_V1 || group.type() == Type.WEIGHTED_V2) && uncertain == 0
-            ? score.ratio()
-            : null);
+        group.weighted() && uncertain == 0 ? score.ratio() : null);
   }
 
   private static Status row(Entry entry, Observation observation) {

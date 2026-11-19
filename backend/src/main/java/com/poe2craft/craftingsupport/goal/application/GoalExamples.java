@@ -118,7 +118,7 @@ final class GoalExamples {
   static boolean needsQualityProjection(GoalFilter goal) {
     return goal.general().quality() != null
         && goal.general().quality() > 0
-        && goal.groups().stream().anyMatch(group -> !group.disabled());
+        && goal.groups().stream().anyMatch(GoalFilter.Group::active);
   }
 
   /** 고정 옵션은 해당 베이스의 카탈로그에서 구성하고, 관련 목표가 있으면 허용된 수치 변형도 검사한다. */
@@ -233,7 +233,7 @@ final class GoalExamples {
     double score = 0;
     int g = 0;
     for (var group : goal.groups()) {
-      if (group.disabled()) continue;
+      if (!group.active()) continue;
       var result = evaluation.groups().get(g++);
       if (result.status() == Status.MATCH) score += 100;
       if (result.score() != null) score += proximity(result.score(), group.range());

@@ -20,12 +20,14 @@ import {
 import { augmentName } from '../socketAugments'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import { goalFilterMessages } from '../goal-filter/i18n'
-import { orHelp, presentedGroupType } from '../goal-filter/groupPresentation'
+import { setupMessages } from '../goal-filter/setupMessages'
+import { hasActiveStatFilters } from '../goal-filter/useGoalFilter'
 import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
 import { readGoalFilterResponse } from '../goal-filter/api'
 import { presentGoalStat } from '../goal-filter/statPresentation'
 import type { StartBase } from '../goal-filter/startItem'
 import type { Catalog, Context, GoalFilter, Range } from '../goal-filter/types'
+import { weighted } from '../goal-filter/types'
 import { previewResultMessages } from './previewResultMessages'
 import './previewResults.css'
 
@@ -45,6 +47,7 @@ type Example = {
 type Preview = {
   cards: Example[]
   modifiers: Record<string, Definition>
+  resolvedCountRanges?: Record<string, Range>
   reasonCode?: string | null
 }
 type Props = {
@@ -155,20 +158,21 @@ export function GoalPreviewResults({
           ? ` · ${qualityGoalMessages[locale].label} ${goal.general.quality}%`
           : ''}
       </p>
-      {goal.groups
-        .filter((group) => !group.disabled)
-        .map((group) => (
+      {goal.groups.filter(hasActiveStatFilters).map((group) => {
+        const range =
+          group.type === 'COUNT'
+            ? preview.data?.resolvedCountRanges?.[group.id]
+            : group.range
+        return (
           <div key={group.id}>
-            <strong>{presentedGroupType(group)}</strong>
+            <strong>{setupMessages[locale].groups[group.type]}</strong>
             {' · '}
-            {presentedGroupType(group) === 'OR'
-              ? orHelp[locale]
-              : labels.operations[group.type]}
-            {group.range && (
+            {labels.operations[group.type]}
+            {range && (range.min !== null || range.max !== null) && (
               <>
                 {' '}
                 {group.type === 'COUNT' ? labels.count : labels.score}{' '}
-                {bounds(group.range, locale)}
+                {bounds(range, locale)}
               </>
             )}
             <ul>
@@ -186,10 +190,10 @@ export function GoalPreviewResults({
                         : entry.statId}
                       {' · '}
                       {bounds(entry.range, locale, entry.unit)}
-                      {entry.weight !== null && (
+                      {weighted(group.type) && (
                         <>
                           {' '}
-                          · {labels.weight} {entry.weight}
+                          · {labels.weight} {entry.weight ?? 1}
                         </>
                       )}
                     </li>
@@ -197,7 +201,8 @@ export function GoalPreviewResults({
                 })}
             </ul>
           </div>
-        ))}
+        )
+      })}
       <h2>{copy.examples}</h2>
       {preview.isPending && <p role="status">{copy.loading}</p>}
       {preview.isError && (

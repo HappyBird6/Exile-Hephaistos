@@ -184,6 +184,38 @@ class GoalFilterServiceTest {
         .isEqualTo(Status.NO_MATCH);
   }
 
+  /** 원문 min > max인 상대·소수 경계도 수용하고, 일치 행을 센 후 실제 정수 경계로만 판정한다. */
+  @Test
+  void countAcceptsRawFractionalMinimumAndRelativeMaximum() {
+    var statId = GoalCatalogIndex.id("explicit", COLD);
+    var raw = new Range(new BigDecimal("1.1"), BigDecimal.valueOf(-2));
+    var listed =
+        new Group(
+            "count",
+            Type.COUNT,
+            false,
+            raw,
+            List.of(
+                new Entry("present", statId, "percent", new Range(null, null), null, false),
+                new Entry(
+                    "higher",
+                    statId,
+                    "percent",
+                    new Range(BigDecimal.valueOf(999), null),
+                    null,
+                    false),
+                new Entry(
+                    "lower", statId, "percent", new Range(null, BigDecimal.ZERO), null, false)));
+    var schema =
+        goal(index.version(), itemCatalog.base().id(), statId, "percent", new Range(null, null));
+    var goal = new GoalFilter(1, index.version(), schema.general(), List.of(listed));
+    var present = item(List.of(modifier(itemCatalog, COLD, 10)), 82, Set.of());
+    var evaluated = service.evaluate(present, goal);
+    assertThat(evaluated.status()).isEqualTo(Status.MATCH);
+    assertThat(evaluated.groups().getFirst().count()).isEqualTo(1);
+    assertThat(listed.range()).isEqualTo(raw);
+  }
+
   @Test
   void checkedInProductionExampleMatchesCurrentCatalogAndActualItemEvaluation() throws Exception {
     var all =

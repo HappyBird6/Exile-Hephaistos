@@ -20,7 +20,7 @@ public final class ExplicitGoalScope {
   private ExplicitGoalScope() {}
 
   public static int minimumModifiers(GoalFilter goal, GoalCatalog catalog) {
-    var groups = goal.groups().stream().filter(g -> !Boolean.TRUE.equals(g.disabled())).toList();
+    var groups = goal.groups().stream().filter(GoalFilter.Group::active).toList();
     if (groups.size() != 1 || groups.getFirst().type() != GoalFilter.Type.AND) return 0;
     var required = new HashSet<String>();
     for (var entry : groups.getFirst().entries()) {

@@ -1,5 +1,12 @@
 import { describe, expect, it, vi } from 'vitest'
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import fixture from '../../../../../docs/contracts/support-goal-filter-v1/fixtures.json'
 import {
@@ -55,7 +62,7 @@ describe('goal filter contract editor', () => {
     const goal = emptyGoal(fixtureContext, fixture.catalogVersion)
     expect(hasCompleteGoal(goal)).toBe(false)
     goal.general.quality = 20
-    expect(hasCompleteGoal(goal)).toBe(false) // an active group is still unfinished
+    expect(hasCompleteGoal(goal)).toBe(true)
     goal.groups[0]!.disabled = true
     expect(hasCompleteGoal(goal)).toBe(true)
     goal.general.quality = 0
@@ -75,21 +82,20 @@ describe('goal filter contract editor', () => {
     const group = goal.groups[0]!
     addStat(group, catalog.stats[0]!)
     addStat(group, catalog.stats[0]!)
-    expect(group.entries).toHaveLength(1)
+    expect(group.entries).toHaveLength(2)
+    expect(group.entries[0]!.id).not.toBe(group.entries[1]!.id)
     for (const type of groupTypes) {
       changeGroupType(group, type)
       expect(group.entries[0]!.statId).toBe(catalog.stats[0]!.statId)
       expect(group.range === null).toBe(['AND', 'NOT', 'IF'].includes(type))
-      expect(group.entries[0]!.weight).toBe(
-        type.startsWith('WEIGHTED') ? 1 : null,
-      )
+      expect(group.entries[0]!.weight).toBeNull()
     }
     changeGroupType(group, 'WEIGHTED_V1')
     group.entries[0]!.weight = -2
     changeGroupType(group, 'WEIGHTED_V2')
     expect(group.entries[0]!.weight).toBe(-2)
   })
-  it('uses fixture wire shape and rejects reversed ranges, duplicates, empty groups and stale catalog', async () => {
+  it('uses fixture wire shape and rejects reversed ranges, empty goals and stale catalog', async () => {
     const goal = structuredClone(
       fixture.apiExamples.validateRequest.goal,
     ) as GoalFilter
@@ -107,7 +113,7 @@ describe('goal filter contract editor', () => {
     expect(
       (
         await mockGoalFilterAdapter.validate(fixtureContext, goal, signal)
-      ).issues.some((i) => i.code === 'EMPTY_GROUP'),
+      ).issues.some((i) => i.code === 'EMPTY_GOAL'),
     ).toBe(true)
     goal.catalogVersion = 'old'
     expect(
@@ -238,9 +244,10 @@ describe('goal filter async and numeric editing', () => {
     )
     expect(search).toHaveFocus()
     fireEvent.click(screen.getByRole('button', { name: 'Delete Group 1' }))
-    expect(screen.getByRole('button', { name: /Add group/ })).toHaveFocus()
+    const addGroup = screen.getByRole('combobox', { name: 'Add Stat Group' })
+    expect(addGroup).toHaveFocus()
     expect(editor.getState().goal.groups).toHaveLength(0)
-    fireEvent.click(screen.getByRole('button', { name: /Add group/ }))
+    fireEvent.change(addGroup, { target: { value: 'AND' } })
     expect(editor.getState().goal.groups).toHaveLength(1)
     view.unmount()
     client.clear()
@@ -318,14 +325,19 @@ describe('goal filter async and numeric editing', () => {
       </QueryClientProvider>,
     )
     const min = screen.getByLabelText('Min')
+    expect(screen.queryByText('Enter a valid number.')).not.toBeInTheDocument()
     fireEvent.change(min, { target: { value: '-' } })
     expect(min).toHaveValue('-')
     expect(min).toHaveAttribute('aria-invalid', 'true')
+    expect(within(min.closest('label')!).getByRole('alert')).toHaveTextContent(
+      'Enter a valid number.',
+    )
     expect(editor.getState().goal.general.itemLevel.min).toBeNull()
     fireEvent.change(min, { target: { value: '-2' } })
     expect(editor.getState().goal.general.itemLevel.min).toBe(-2)
     fireEvent.change(min, { target: { value: '' } })
     expect(editor.getState().goal.general.itemLevel.min).toBeNull()
+    expect(screen.queryByText('Enter a valid number.')).not.toBeInTheDocument()
     view.unmount()
     client.clear()
   })
@@ -344,8 +356,7 @@ describe('shared fixture validation cases', () => {
       if (mutation.unit) entry.unit = mutation.unit as string
       if (mutation.statId) entry.statId = mutation.statId as string
       if (mutation.version) Object.assign(goal, { version: mutation.version })
-      if (mutation.duplicateEntry)
-        group.entries.push({ ...entry, id: 'duplicate' })
+      if (mutation.duplicateId) group.entries.push({ ...entry })
       if (mutation.disableAllEntries)
         group.entries.forEach((row) => {
           row.disabled = true

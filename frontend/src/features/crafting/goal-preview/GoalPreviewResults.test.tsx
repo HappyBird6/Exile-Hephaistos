@@ -66,7 +66,7 @@ const preview = {
   ],
 }
 
-function renderPreview(response: unknown) {
+function renderPreview(response: unknown, filter = goal) {
   const fetch = vi.fn(() => Promise.resolve(jsonResponse(response)))
   vi.stubGlobal('fetch', fetch)
   render(
@@ -76,7 +76,7 @@ function renderPreview(response: unknown) {
         initial={initialFixture}
         context={context}
         catalog={catalog}
-        goal={goal}
+        goal={filter}
       />
     </QueryClientProvider>,
   )
@@ -108,6 +108,39 @@ it('distinguishes an empty search from a failed response', async () => {
     ),
   ).toBeVisible()
   expect(screen.queryByRole('alert')).toBeNull()
+})
+
+it('summarizes Count and weighted filters with the same names and defaults as the editor', async () => {
+  const row = goal.groups[0]!.entries[0]!
+  renderPreview(
+    { ...preview, resolvedCountRanges: { count: { min: 1, max: null } } },
+    {
+      ...goal,
+      groups: [
+        { ...goal.groups[0]!, entries: [] },
+        {
+          id: 'count',
+          type: 'COUNT',
+          disabled: false,
+          range: { min: -1, max: null },
+          entries: [row],
+        },
+        {
+          id: 'weighted',
+          type: 'WEIGHTED_V2',
+          disabled: false,
+          range: { min: null, max: null },
+          entries: [{ ...row, id: 'weighted-life' }],
+        },
+      ],
+    },
+  )
+  expect(await screen.findByText('Count')).toBeVisible()
+  expect(await screen.findByText(/Row count ≥ 1/)).toBeVisible()
+  expect(screen.getByText('Weighted Sum v2')).toBeVisible()
+  expect(screen.getByText(/Weight 1/)).toBeVisible()
+  expect(screen.queryByText('Or')).toBeNull()
+  expect(screen.queryByText('And')).toBeNull()
 })
 
 it('rejects a card for a different base before showing its modifiers', async () => {

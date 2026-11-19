@@ -18,6 +18,22 @@ final class GoalExampleRolls {
   private final Map<String, GoalCatalog.Stat> stats;
   private final WorkbenchSimulator simulator;
 
+  /** 원천 옵션 하나의 새 굴림이 가중합 행에 주는 영향이다. 기존 기여, 적용 구간, 그 안의 일차식을 보관한다. */
+  private record ScoreTerm(BigDecimal previous, GoalFilter.Range rolls, ScoreLine line) {}
+
+  /** 원천 수치가 같은 행들의 점수식을 합산할 때 쓰는 절편과 기울기다. */
+  private record ScoreLine(BigDecimal intercept, BigDecimal slope) {
+    /** 현재 구간에서 함께 적용되는 행의 일차식을 더한다. */
+    ScoreLine add(ScoreLine other) {
+      return new ScoreLine(intercept.add(other.intercept()), slope.add(other.slope()));
+    }
+
+    /** 행이 유효 구간을 벗어날 때 제거할 기여를 반환한다. */
+    ScoreLine negate() {
+      return new ScoreLine(intercept.negate(), slope.negate());
+    }
+  }
+
   /** 요청의 기존 목표 판정 단위와 해당 베이스 시뮬레이터를 보관한다. */
   GoalExampleRolls(
       GoalFilter goal, Map<String, GoalCatalog.Stat> stats, WorkbenchSimulator simulator) {
@@ -31,13 +47,15 @@ final class GoalExampleRolls {
     var targets = new LinkedHashMap<String, Set<BigDecimal>>();
     int groupIndex = 0;
     for (var group : goal.groups()) {
-      if (group.disabled()) continue;
+      if (!group.active()) continue;
       var result = evaluation == null ? null : evaluation.groups().get(groupIndex);
       groupIndex++;
+      var weightedSources = new LinkedHashMap<String, List<ScoreTerm>>();
       int row = 0;
       for (var entry : group.entries()) {
         if (entry.disabled()) continue;
         var stat = stats.get(entry.statId());
+        var weight = group.scoreWeight(entry);
         var current = result == null ? null : result.entries().get(row).value();
         row++;
         if (stat == null) continue;
@@ -52,18 +70,83 @@ final class GoalExampleRolls {
               BigDecimal.valueOf(
                   sourceStat.sourceDivisor() == null ? 1 : sourceStat.sourceDivisor());
           var values = targets.computeIfAbsent(source.statId(), key -> new LinkedHashSet<>());
-          addBounds(values, entry.range(), current, divisor, source.coefficient());
-          if (entry.weight() != null && entry.weight().signum() != 0)
-            addBounds(
-                values,
-                group.range(),
-                result == null ? null : result.score(),
-                divisor,
-                source.coefficient().multiply(entry.weight()));
+          addBounds(values, entry.range(), current, divisor, source.coefficient(), null);
+          if (weight != null && weight.signum() != 0 && source.coefficient().signum() != 0) {
+            // v1은 존재하는 행 전체를 합하고, v2는 행 범위 안에서만 기여한다.
+            var rowRange = group.type() == GoalFilter.Type.WEIGHTED_V2 ? entry.range() : null;
+            var value = current == null ? BigDecimal.ZERO : current;
+            var intercept = value.multiply(weight);
+            var previous =
+                rowRange == null || rowRange.contains(value) ? intercept : BigDecimal.ZERO;
+            weightedSources
+                .computeIfAbsent(source.statId(), key -> new ArrayList<>())
+                .add(
+                    new ScoreTerm(
+                        previous,
+                        rollWindow(rowRange, value, divisor, source.coefficient()),
+                        new ScoreLine(intercept, source.coefficient().multiply(weight))));
+          }
         }
+      }
+      for (var source : weightedSources.entrySet()) {
+        var stat = stats.get(source.getKey());
+        var divisor = BigDecimal.valueOf(stat.sourceDivisor() == null ? 1 : stat.sourceDivisor());
+        var score = result == null || result.score() == null ? BigDecimal.ZERO : result.score();
+        addScoreBounds(
+            targets.get(source.getKey()), group.range(), score, divisor, source.getValue());
       }
     }
     return targets;
+  }
+
+  /** 관측값에 원천 옵션을 더했을 때 행 범위에 들어가는 정수 굴림 구간을 구한다. 음수 계수면 경계 방향을 뒤집는다. */
+  private static GoalFilter.Range rollWindow(
+      GoalFilter.Range rowRange, BigDecimal current, BigDecimal divisor, BigDecimal coefficient) {
+    if (rowRange == null) return new GoalFilter.Range(null, null);
+    var min = coefficient.signum() > 0 ? rowRange.min() : rowRange.max();
+    var max = coefficient.signum() > 0 ? rowRange.max() : rowRange.min();
+    return new GoalFilter.Range(
+        min == null
+            ? null
+            : min.subtract(current).multiply(divisor).divide(coefficient, 0, RoundingMode.CEILING),
+        max == null
+            ? null
+            : max.subtract(current).multiply(divisor).divide(coefficient, 0, RoundingMode.FLOOR));
+  }
+
+  /** 같은 원천으로 변하는 행의 점수를 구간별로 합한다. 각 구간에서 합산 기울기로 그룹의 점수 경계를 역산한다. */
+  private static void addScoreBounds(
+      Set<BigDecimal> values,
+      GoalFilter.Range goalRange,
+      BigDecimal score,
+      BigDecimal divisor,
+      List<ScoreTerm> terms) {
+    var changes = new TreeMap<BigDecimal, ScoreLine>();
+    var initial = new ScoreLine(BigDecimal.ZERO, BigDecimal.ZERO);
+    for (var term : terms) {
+      score = score.subtract(term.previous());
+      var min = term.rolls().min();
+      var max = term.rolls().max();
+      if (min != null && max != null && min.compareTo(max) > 0) continue;
+      if (min == null) initial = initial.add(term.line());
+      else changes.merge(min, term.line(), ScoreLine::add);
+      if (max != null) changes.merge(max.add(BigDecimal.ONE), term.line().negate(), ScoreLine::add);
+    }
+    var line = new ScoreLine(score.add(initial.intercept()), initial.slope());
+    BigDecimal start = null;
+    for (var change : changes.entrySet()) {
+      var window = new GoalFilter.Range(start, change.getKey().subtract(BigDecimal.ONE));
+      addBounds(values, goalRange, line.intercept(), divisor, line.slope(), window);
+      line = line.add(change.getValue());
+      start = change.getKey();
+    }
+    addBounds(
+        values,
+        goalRange,
+        line.intercept(),
+        divisor,
+        line.slope(),
+        new GoalFilter.Range(start, null));
   }
 
   /** 범위의 각 경계에서 현재 합계를 빼고 단위·가중치를 되돌린다. 근사치는 후보 선정에만 쓰이고 성공 판정은 기존 판정기가 담당한다. */
@@ -72,15 +155,18 @@ final class GoalExampleRolls {
       GoalFilter.Range range,
       BigDecimal current,
       BigDecimal divisor,
-      BigDecimal factor) {
+      BigDecimal factor,
+      GoalFilter.Range validRolls) {
     if (range == null || factor.signum() == 0) return;
     for (var bound : Arrays.asList(range.min(), range.max()))
-      if (bound != null)
-        values.add(
+      if (bound != null) {
+        var roll =
             bound
                 .subtract(current == null ? BigDecimal.ZERO : current)
                 .multiply(divisor)
-                .divide(factor, 12, RoundingMode.HALF_UP));
+                .divide(factor, 12, RoundingMode.HALF_UP);
+        if (validRolls == null || validRolls.contains(roll)) values.add(roll);
+      }
   }
 
   /** 직접 수치 식별자와 목표의 원천 수치가 겹치는 옵션만 조합 후보로 선택한다. */

@@ -1,6 +1,7 @@
 """Contract fixture oracle only; no application, network or probability engine."""
 import json
 import math
+from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
 
 data = json.loads(Path(__file__).with_name("fixtures.json").read_text(encoding="utf-8"))
@@ -47,13 +48,24 @@ for case in data["cases"]:
     elif kind == "COUNT":
         count = sum(m is True for m in matched)
         possible = range(count, count + sum(m is None for m in matched) + 1)
-        checks = [within(n, case["range"]) for n in possible]
+        bounds = {k: None if v is None else int(Decimal(str(v)).to_integral_value(rounding=ROUND_HALF_UP))
+                  for k, v in case["range"].items()}
+        if bounds["min"] is not None and bounds["min"] < 0:
+            bounds["min"] = max(1, len(rows) + bounds["min"])
+        if bounds["max"] == 0:
+            bounds["max"] = None
+        elif bounds["max"] == -1:
+            bounds["max"] = 0
+        elif bounds["max"] is not None and bounds["max"] < 0:
+            bounds["max"] = max(0, len(rows) + bounds["max"])
+        checks = [within(n, bounds) for n in possible]
         result = True if all(checks) else False if not any(checks) else None
     else:
         assert kind in ("WEIGHTED_V1", "WEIGHTED_V2")
         assert len(case["weights"]) == len(rows)
-        score = sum(value * weight for match, (presence, value), weight
-                    in zip(matched, observations, case["weights"]) if match is True)
+        score = sum(value * (1 if weight is None else weight)
+                    for match, (presence, value), weight in zip(matched, observations, case["weights"])
+                    if presence == "PRESENT" and (kind == "WEIGHTED_V1" or match is True))
         if kind == "WEIGHTED_V1" and any(p == "PRESENT" and m is False for m, (p, _) in zip(matched, observations)):
             result = False
         elif None in matched:
@@ -77,20 +89,16 @@ for case in data["validationCases"]:
         code = "UNSUPPORTED_VERSION"
     elif mutation.get("catalogVersion", data["catalogVersion"]) != data["catalogVersion"]:
         code = "CATALOG_VERSION_MISMATCH"
-    elif mutation.get("disableAllGroups"):
+    elif mutation.get("disableAllGroups") or mutation.get("disableAllEntries"):
         code = "EMPTY_GOAL"
-    elif mutation.get("disableAllEntries"):
-        code = "EMPTY_GROUP"
-    elif mutation.get("duplicateEntry"):
-        code = "DUPLICATE_STAT"
+    elif mutation.get("duplicateId"):
+        code = "DUPLICATE_ID"
     elif row["statId"] not in stats:
         code = "UNKNOWN_STAT"
     elif row["unit"] != stats[row["statId"]]["unit"]:
         code = "UNIT_MISMATCH"
     elif row["range"]["min"] > row["range"]["max"]:
         code = "INVALID_RANGE"
-    elif mutation.get("type") == "COUNT" and any(n is not None and (n < 0 or int(n) != n) for n in row["range"].values()):
-        code = "INVALID_COUNT_RANGE"
     else:
         raise AssertionError((case["id"], "No validation error"))
     assert code == case["expectedCode"], (case["id"], code)

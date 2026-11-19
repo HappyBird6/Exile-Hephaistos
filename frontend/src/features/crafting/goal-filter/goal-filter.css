@@ -271,17 +271,18 @@
 }
 .goal-filter-group-controls {
   display: flex;
+  flex-wrap: wrap;
   gap: 2px;
   align-items: center;
   border-bottom: 1px solid #4a4536;
 }
 .goal-filter-group-type {
-  flex: 1;
+  flex: 1 1 120px;
 }
 .goal-filter .goal-filter-group-type select {
   width: auto;
-  max-width: 55%;
-  margin-left: auto;
+  min-width: 0;
+  max-width: 100%;
   color: #e2d5ad;
   background: #101313;
   border: 0;
@@ -289,8 +290,6 @@
 .goal-filter-group-title {
   font-size: 14px;
   font-weight: 500;
-  white-space: nowrap;
-  flex-shrink: 0;
 }
 .goal-filter .goal-filter-search-input input:not(:focus) {
   text-align: center;
@@ -318,18 +317,11 @@
 }
 .goal-filter .goal-filter-group-range {
   display: flex;
-  justify-content: flex-end;
   gap: 2px;
-  position: relative;
   min-width: 0;
   padding: 0;
-  margin: 2px 0;
+  margin: 0;
   border: 0;
-}
-.goal-filter-group-range legend {
-  position: absolute;
-  left: 8px;
-  top: 8px;
 }
 .goal-filter-row {
   display: flex;
@@ -360,18 +352,9 @@
 .goal-filter-disabled .goal-filter-group-type {
   opacity: 0.5;
 }
-.goal-filter .goal-filter-add-stat {
-  width: 100%;
-  margin-top: 2px;
-  color: #b9bcb9;
-}
-.goal-filter-group > [hidden] + .goal-filter-add-stat {
-  display: none;
-}
 .goal-filter .goal-filter-add-group {
   display: block;
-  margin-left: auto;
-  width: 50%;
+  width: 100%;
 }
 .goal-filter .goal-filter-evaluate {
   display: block;
@@ -399,8 +382,6 @@
   }
   .goal-filter .goal-filter-group-type select {
     font-size: 11px;
-    max-width: none;
-    width: 110px;
     padding-inline: 4px;
   }
   .goal-filter-row {
@@ -429,8 +410,5 @@
   }
   .goal-filter-row > .goal-filter-number:first-of-type {
     margin-left: auto;
-  }
-  .goal-filter .goal-filter-add-group {
-    width: 100%;
   }
 }

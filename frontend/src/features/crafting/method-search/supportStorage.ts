@@ -33,8 +33,12 @@ export function validGoal(value: unknown): value is GoalFilter {
   )
 }
 export function hasImplicitGoal(goal: GoalFilter) {
-  return goal.groups.some((g) =>
-    g.entries.some((e) => e.statId.startsWith('hephaistos:v1:implicit:')),
+  return goal.groups.some(
+    (g) =>
+      !g.disabled &&
+      g.entries.some(
+        (e) => !e.disabled && e.statId.startsWith('hephaistos:v1:implicit:'),
+      ),
   )
 }
 const ttl = 24 * 60 * 60 * 1000

@@ -142,11 +142,8 @@ class GoalFixtureTest {
       } else if (mutation.has("range")) row.set("range", mutation.get("range"));
       if (mutation.has("unit")) row.set("unit", mutation.get("unit"));
       if (mutation.has("statId")) row.set("statId", mutation.get("statId"));
-      if (mutation.has("duplicateEntry")) {
-        var copy = row.deepCopy();
-        copy.put("id", "duplicate");
-        ((com.fasterxml.jackson.databind.node.ArrayNode) group.get("entries")).add(copy);
-      }
+      if (mutation.has("duplicateId"))
+        ((com.fasterxml.jackson.databind.node.ArrayNode) group.get("entries")).add(row.deepCopy());
       if (mutation.has("disableAllEntries")) row.put("disabled", true);
       if (mutation.has("disableAllGroups")) group.put("disabled", true);
       var validated =

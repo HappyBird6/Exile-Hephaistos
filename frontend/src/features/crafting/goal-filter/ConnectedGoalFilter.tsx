@@ -353,7 +353,6 @@ function ConnectedEditor({
                 goal,
                 revision: state.revision + 1,
                 collapsedByGroupId: {},
-                presentedTypes: {},
               }))
               if (compact) setStorageFailed(!saveSupport('goal', goal))
               setResetGeneration((n) => n + 1)

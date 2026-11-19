@@ -144,13 +144,21 @@ class GoalFilterControllerTest {
                 state.baseItemId(),
                 initialGoal.general().itemLevel(),
                 List.of(ItemState.Rarity.RARE)),
-            initialGoal.groups());
+            List.of(
+                new Group(
+                    "count",
+                    Type.COUNT,
+                    false,
+                    new Range(new BigDecimal("0.5"), BigDecimal.ZERO),
+                    initialGoal.groups().getFirst().entries())));
     var implicit = itemCatalog.base().implicitModifierId();
     mvc.perform(
             post(root + "/preview")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json.writeValueAsString(Map.of("context", context, "goal", requestGoal))))
         .andExpect(status().isOk())
+        .andExpect(jsonPath("$.resolvedCountRanges.count.min").value(1))
+        .andExpect(jsonPath("$.resolvedCountRanges.count.max").isEmpty())
         .andExpect(jsonPath("$.cards[0].item.rarity").value("RARE"))
         .andExpect(jsonPath("$.cards[0].sources['" + implicit + "'][0].kind").value("IMPLICIT"))
         .andExpect(jsonPath("$.modifiers['" + implicit + "'].id").value(implicit));
@@ -163,12 +171,20 @@ class GoalFilterControllerTest {
                 requestGoal.general().itemLevel(),
                 List.of(ItemState.Rarity.RARE),
                 40),
-            requestGoal.groups());
+            List.of(
+                new Group(
+                    "count",
+                    Type.COUNT,
+                    false,
+                    new Range(new BigDecimal("0.5"), BigDecimal.valueOf(5)),
+                    initialGoal.groups().getFirst().entries())));
     mvc.perform(
             post(root + "/preview")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json.writeValueAsString(Map.of("context", context, "goal", withQuality))))
         .andExpect(status().isOk())
+        .andExpect(jsonPath("$.resolvedCountRanges.count.min").value(1))
+        .andExpect(jsonPath("$.resolvedCountRanges.count.max").value(5))
         .andExpect(jsonPath("$.cards").isEmpty())
         .andExpect(jsonPath("$.reasonCode").value("QUALITY_PROJECTION_NOT_IMPLEMENTED"));
   }

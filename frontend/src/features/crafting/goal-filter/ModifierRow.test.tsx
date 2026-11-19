@@ -3,9 +3,6 @@ import { describe, expect, it, vi } from 'vitest'
 import type { Definition } from '../craftingApi'
 import { ModifierRow } from './ModifierRow'
 import { changeModifierTier } from './modifierGroups'
-import { setupMessages } from './setupMessages'
-import { locales } from '../../../shared/i18n/i18n'
-import { groupTypes } from './types'
 import { readFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 
@@ -93,11 +90,6 @@ describe('compact starting modifier rows', () => {
         definition,
       ).values,
     ).toEqual({ 'min-damage': 3, 'max-damage': 8 })
-  })
-  it.each(locales)('uses exact supported operator tokens in %s', (locale) => {
-    for (const type of groupTypes)
-      expect(setupMessages[locale].groups[type]).toBe(type)
-    expect(Object.keys(setupMessages[locale].groups)).not.toContain('OR')
   })
   it('reserves initial space, permits narrow row wrapping and shares fixed input dimensions (CSS contract, not browser geometry)', () => {
     expect(css).toContain('min-height: 580px')

@@ -55,7 +55,7 @@ class GoalGroupSemanticsTest {
                 .status())
         .isEqualTo(Status.MATCH);
     assertThat(
-            evaluate(Type.COUNT, new Range(BigDecimal.ZERO, BigDecimal.ZERO), observations)
+            evaluate(Type.COUNT, new Range(BigDecimal.ZERO, BigDecimal.ONE.negate()), observations)
                 .status())
         .isEqualTo(Status.NO_MATCH);
     assertThat(
@@ -102,6 +102,18 @@ class GoalGroupSemanticsTest {
                         GoalEvaluator.Observation.unsupported()))
                 .status())
         .isEqualTo(Status.UNSUPPORTED);
+  }
+
+  /** 표시용 경계는 행 개수에서 자르지 않고, 극단적인 지수의 상대·소수 경계도 필요한 정수로만 변환한다. */
+  @Test
+  void resolvesCountBoundsWithoutExpandingLargePowersOfTen() {
+    var tiny = new BigDecimal("1E-1000000");
+    var huge = new BigDecimal("1E+1000000");
+    assertThat(new Range(new BigDecimal("0.5"), BigDecimal.valueOf(5)).forCount(1))
+        .isEqualTo(new Range(BigDecimal.ONE, BigDecimal.valueOf(5)));
+    assertThat(new Range(tiny, huge).forCount(3)).isEqualTo(new Range(BigDecimal.ZERO, huge));
+    assertThat(new Range(huge.negate(), huge.negate()).forCount(3))
+        .isEqualTo(new Range(BigDecimal.ONE, BigDecimal.ZERO));
   }
 
   @Test

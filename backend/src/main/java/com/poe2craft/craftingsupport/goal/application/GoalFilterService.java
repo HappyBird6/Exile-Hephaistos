@@ -120,9 +120,12 @@ public final class GoalFilterService {
   /** 목표에 일치한 아이템과 그 희귀도에서 각 옵션을 얻을 수 있는 획득처를 반환한다. */
   public record ExampleCard(ItemState item, Map<String, List<ModifierAcquisition>> sources) {}
 
-  /** cards는 완성 예시, modifiers는 중복을 제거한 표시 정의, reasonCode는 목표 수치 판정을 지원하지 못한 사유다. */
+  /** cards는 완성 예시, modifiers는 표시 정의, resolvedCountRanges는 판정에 쓰인 그룹별 개수 경계, reasonCode는 미지원 사유다. */
   public record Preview(
-      List<ExampleCard> cards, Map<String, ModifierDefinition> modifiers, String reasonCode) {}
+      List<ExampleCard> cards,
+      Map<String, ModifierDefinition> modifiers,
+      Map<String, Range> resolvedCountRanges,
+      String reasonCode) {}
 
   /** 요청의 베이스와 레벨로 획득처를 조회하고 예시 카드에 실제로 등장한 옵션만 응답에 포함한다. */
   public Preview preview(Context context, GoalFilter goal, CraftingOperations workbench) {
@@ -146,9 +149,17 @@ public final class GoalFilterService {
       }
       cards.add(new ExampleCard(item, Map.copyOf(used)));
     }
+    var countRanges = new java.util.LinkedHashMap<String, Range>();
+    for (var group : goal.groups()) {
+      if (group.type() == Type.COUNT && group.active()) {
+        int rows = (int) group.entries().stream().filter(entry -> !entry.disabled()).count();
+        countRanges.put(group.id(), group.range().forCount(rows));
+      }
+    }
     return new Preview(
         List.copyOf(cards),
         Map.copyOf(definitions),
+        Map.copyOf(countRanges),
         GoalExamples.needsQualityProjection(goal) ? "QUALITY_PROJECTION_NOT_IMPLEMENTED" : null);
   }
 
@@ -208,7 +219,7 @@ public final class GoalFilterService {
       }
     }
     // Quality can change displayed values. Never assume its source values are final display values.
-    if (item.catalystQuality() != null && goal.groups().stream().anyMatch(g -> !g.disabled())) {
+    if (item.catalystQuality() != null && goal.groups().stream().anyMatch(Group::active)) {
       supported = false;
       issues.add(
           Issue.warning(

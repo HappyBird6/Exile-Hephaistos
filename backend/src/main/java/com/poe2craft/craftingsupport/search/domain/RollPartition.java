@@ -205,11 +205,10 @@ public final class RollPartition {
     var exactSums = new HashSet<String>();
     boolean simple =
         goal.groups().stream()
-            .filter(g -> !g.disabled())
+            .filter(GoalFilter.Group::active)
             .allMatch(
                 g ->
-                    g.type() != GoalFilter.Type.WEIGHTED_V1
-                        && g.type() != GoalFilter.Type.WEIGHTED_V2
+                    !g.weighted()
                         && g.entries().stream()
                             .filter(e -> !e.disabled())
                             .allMatch(

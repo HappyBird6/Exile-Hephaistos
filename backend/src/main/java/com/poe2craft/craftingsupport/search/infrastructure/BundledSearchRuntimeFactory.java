@@ -247,7 +247,7 @@ public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactor
             new GoalFilter.General(general.baseItemId(), general.itemLevel(), general.rarities()),
             goal.groups());
     java.util.function.Function<ItemState, GoalEvaluator.Evaluation> evaluate =
-        affixGoal.groups().stream().anyMatch(g -> !g.disabled())
+        affixGoal.groups().stream().anyMatch(GoalFilter.Group::active)
             ? goalService.compileEvaluation(item, affixGoal)
             : state ->
                 new GoalEvaluator.Evaluation(

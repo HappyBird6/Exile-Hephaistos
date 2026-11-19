@@ -12,7 +12,11 @@ import com.poe2craft.shared.item.*;
 import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 /** 현행 장갑과 목걸이 카탈로그에서 목표 범위, 부분 합산, 획득·레벨 자격 및 원래 목표 판정과의 일치를 확인한다. */
 class GoalExamplesTest {
@@ -24,7 +28,28 @@ class GoalExamplesTest {
     var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
     var service = new GoalFilterService(index);
     var life = rangeEntry("explicit", "base_maximum_life", "flat", 90, 90);
-    var goal = goal(index, catalog, List.of(new Group("g", Type.AND, false, null, List.of(life))));
+    var secondLife =
+        new Entry("secondLife", life.statId(), life.unit(), new Range(null, null), null, false);
+    var goal =
+        goal(
+            index,
+            catalog,
+            List.of(
+                new Group("empty", Type.AND, false, null, List.of()),
+                new Group(
+                    "g",
+                    Type.COUNT,
+                    false,
+                    new Range(BigDecimal.valueOf(2), BigDecimal.valueOf(5)),
+                    List.of(life, secondLife)),
+                new Group(
+                    "inactive",
+                    Type.WEIGHTED_V2,
+                    false,
+                    new Range(null, null),
+                    List.of(
+                        new Entry(
+                            "disabled", life.statId(), life.unit(), life.range(), null, true)))));
     var context = context(catalog, 46);
     var sources = new HashMap<>(simulator.modifierSources(46));
     sources.keySet().removeIf(id -> !id.equals("stocky-mitts:prefix:rotund"));
@@ -37,7 +62,15 @@ class GoalExamplesTest {
                   .containsExactly(
                       new ModifierInstance(
                           "stocky-mitts:prefix:rotund", Map.of("base_maximum_life", 90L)));
-              assertThat(service.evaluate(item, goal).status()).isEqualTo(Status.MATCH);
+              var evaluation = service.evaluate(item, goal);
+              assertThat(evaluation.status()).isEqualTo(Status.MATCH);
+              assertThat(evaluation.groups())
+                  .singleElement()
+                  .satisfies(
+                      group -> {
+                        assertThat(group.id()).isEqualTo("g");
+                        assertThat(group.count()).isEqualTo(2);
+                      });
             });
     assertThat(service.examples(context(catalog, 45), goal, simulator, sources)).isEmpty();
     assertThat(service.examples(context, goal, simulator, Map.of())).isEmpty();
@@ -129,32 +162,53 @@ class GoalExamplesTest {
             });
   }
 
-  /** 증강물 전용 풀의 수치는 해당 증강물을 장착한 소켓을 보존하고, 가중합의 수치 경계까지 맞춘다. */
-  @Test
-  void augmentOnlyWeightedGoalKeepsTheRequiredSocketAndExactScore() {
+  /** 증강물의 치명타 수치 19가 필요한 단일·중복 가중합의 점수와 행 범위를 구성한다. */
+  private static Stream<Arguments> criticalStrikeScores() {
+    var any = new Range(null, null);
+    var first = criticalStrike("first", any, null);
+    var second = criticalStrike("second", any, null);
+    return Stream.of(
+        Arguments.of(Type.WEIGHTED_V2, 19, List.of(first)),
+        Arguments.of(Type.WEIGHTED_V2, 38, List.of(criticalStrike("double", any, 2))),
+        Arguments.of(Type.WEIGHTED_V1, 38, List.of(first, second)),
+        Arguments.of(Type.WEIGHTED_V2, 38, List.of(first, second)),
+        Arguments.of(
+            Type.WEIGHTED_V2,
+            76,
+            List.of(
+                criticalStrike("positive", any, 3),
+                criticalStrike("negative", any, -1),
+                criticalStrike("included", new Range(BigDecimal.TEN, null), 2),
+                criticalStrike("excluded", new Range(null, BigDecimal.ONE), 4),
+                criticalStrike("zero", any, 0))));
+  }
+
+  /** 같은 치명타 수치에 독립적인 ID·허용 범위·가중치를 적용한 행을 만든다. */
+  private static Entry criticalStrike(String id, Range range, Integer weight) {
+    return new Entry(
+        id,
+        GoalCatalogIndex.id("explicit", "critical_strike_chance_+%"),
+        "percent",
+        range,
+        weight == null ? null : BigDecimal.valueOf(weight),
+        false);
+  }
+
+  /** 빈 가중치와 명시한 가중치 모두, 증강물을 보존하고 옵션 수치와 가중합의 정확한 경계를 맞춘다. */
+  @ParameterizedTest
+  @MethodSource("criticalStrikeScores")
+  void augmentOnlyWeightedGoalKeepsTheRequiredSocketAndExactScore(
+      Type type, int score, List<Entry> entries) {
     var catalog = EquipmentCurrencyCatalog.enrich(ItemCatalogLoader.loadStocky());
     var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
     var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
     var service = new GoalFilterService(index);
-    var entry =
-        new Entry(
-            "crit",
-            GoalCatalogIndex.id("explicit", "critical_strike_chance_+%"),
-            "percent",
-            new Range(null, null),
-            BigDecimal.valueOf(2),
-            false);
+    var target = BigDecimal.valueOf(score);
     var goal =
         goal(
             index,
             catalog,
-            List.of(
-                new Group(
-                    "score",
-                    Type.WEIGHTED_V2,
-                    false,
-                    new Range(BigDecimal.valueOf(38), BigDecimal.valueOf(38)),
-                    List.of(entry))));
+            List.of(new Group("score", type, false, new Range(target, target), entries)));
     var sources = new HashMap<>(simulator.modifierSources(82));
     sources
         .keySet()

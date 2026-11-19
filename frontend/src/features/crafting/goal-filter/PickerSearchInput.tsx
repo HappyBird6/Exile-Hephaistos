@@ -7,12 +7,12 @@ export function PickerSearchInput({
   inputRef,
   ...props
 }: InputHTMLAttributes<HTMLInputElement> & {
-  label: string
-  inputRef: RefObject<HTMLInputElement | null>
+  label?: string
+  inputRef?: RefObject<HTMLInputElement | null> | undefined
 }) {
   return (
     <label className="craft-picker-label">
-      <span>{label}</span>
+      {label && <span>{label}</span>}
       <input
         type="search"
         {...props}
