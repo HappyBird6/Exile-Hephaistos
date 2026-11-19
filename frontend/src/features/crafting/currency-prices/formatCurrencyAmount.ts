@@ -11,26 +11,29 @@ export function formatCurrencyAmount(
 ) {
   if (value === null || (typeof value === 'number' && !Number.isFinite(value)))
     return '—'
-  const digits = coin === 'Divine_Orb' ? 2 : 0
+  const fraction = typeof value === 'number' ? decimalFraction(value) : value
+  const numerator = BigInt(fraction.numerator)
+  const denominator = BigInt(fraction.denominator)
+  const thousands = numerator > 1000n * denominator
+  const displayDenominator = thousands ? 1000n * denominator : denominator
+  const digits = coin === 'Divine_Orb' ? 2 : Number(thousands)
   const format = new Intl.NumberFormat(locale, {
     maximumFractionDigits: digits,
   })
-  const fraction = typeof value === 'number' ? decimalFraction(value) : value
   const scale = 10n ** BigInt(digits)
-  const denominator = BigInt(fraction.denominator)
   const units =
-    (BigInt(fraction.numerator) * scale + denominator - 1n) / denominator
+    (numerator * scale + displayDenominator - 1n) / displayDenominator
   const whole = units / scale
   const remainder = units % scale
-  if (!remainder) return format.format(whole)
-  return (
-    format.format(whole) +
-    format
+  let amount = format.format(whole)
+  if (remainder) {
+    amount += format
       .formatToParts(Number(remainder) / Number(scale))
       .filter((part) => part.type === 'decimal' || part.type === 'fraction')
       .map((part) => part.value)
       .join('')
-  )
+  }
+  return thousands ? amount + 'k' : amount
 }
 
 export function formatExpectedUses(

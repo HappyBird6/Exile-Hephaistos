@@ -59,7 +59,7 @@ describe('counted Chaos notation', () => {
       const row = screen.getByRole('listitem', { name: label })
       expect(within(row).getByText(count)).toBeInTheDocument()
       const button = within(row).getByRole('button', { name: label })
-      expect(button).toHaveAttribute('data-material-tooltip', 'Chaos_Orb')
+      expect(button).not.toHaveAttribute('data-material-tooltip')
       expect(button).toHaveAttribute('aria-current', 'step')
       button.focus()
       expect(button).toHaveFocus()
@@ -121,7 +121,7 @@ describe('counted Chaos notation', () => {
     },
   )
 
-  it('retains separate omen and Chaos tooltips plus the counted keyboard step target', async () => {
+  it('keeps counted steps focusable without a currency tooltip', async () => {
     const film = await repeatedFilm('GREATER_CHAOS', 500)
     const onNavigate = vi.fn()
     render(
@@ -135,17 +135,11 @@ describe('counted Chaos notation', () => {
         <MaterialTooltip onlyWithin=".wb-session-notation" />
       </>,
     )
-    fireEvent.focusIn(screen.getByRole('img', { name: 'Omen of Whittling' }))
-    expect(screen.getByRole('tooltip')).toHaveTextContent('Omen of Whittling')
-    fireEvent.focusIn(screen.getByRole('img', { name: 'Greater Chaos Orb' }))
-    expect(screen.getByRole('tooltip')).toHaveTextContent('Greater Chaos Orb')
-    fireEvent.keyDown(document, { key: 'Escape' })
-    expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
     const step = screen.getByRole('button', {
       name: 'Step 1 · Greater Chaos Orb · 500 uses',
     })
     fireEvent.focusIn(step)
-    expect(screen.getByRole('tooltip')).toHaveTextContent('Greater Chaos Orb')
+    expect(screen.queryByRole('tooltip')).toBeNull()
     expect(onNavigate).not.toHaveBeenCalled()
   })
 })
@@ -463,7 +457,7 @@ it('offers native keyboard buttons for every frame without nesting focusable ico
   expect(onNavigate).not.toHaveBeenCalled()
 })
 
-it('retains separate omen and currency hover tooltips inside a clickable step', async () => {
+it('navigates once when either icon is clicked without opening a material tooltip', async () => {
   const result = await craft()
   const history = recordCraft(
     start(),
@@ -487,17 +481,17 @@ it('retains separate omen and currency hover tooltips inside a clickable step', 
       <MaterialTooltip onlyWithin=".wb-session-notation" />
     </>,
   )
-  fireEvent.focusIn(
-    screen.getByRole('img', { name: 'Omen of Greater Exaltation' }),
-  )
-  expect(screen.getByRole('tooltip')).toHaveTextContent(
-    'Omen of Greater Exaltation',
-  )
-  expect(onNavigate).not.toHaveBeenCalled()
-  fireEvent.focusIn(screen.getByRole('img', { name: 'Exalted Orb' }))
-  expect(screen.getByRole('tooltip')).toHaveTextContent('Exalted Orb')
-  fireEvent.click(screen.getByRole('button', { name: 'Step 1' }))
-  expect(onNavigate).toHaveBeenCalledWith(1)
+  const button = screen.getByRole('button', { name: 'Step 1' })
+  expect(button.querySelector('[data-material-tooltip]')).toBeNull()
+  for (const name of ['Omen of Greater Exaltation', 'Exalted Orb']) {
+    onNavigate.mockClear()
+    const icon = within(button).getByRole('img', { name })
+    fireEvent.pointerDown(icon)
+    fireEvent.focusIn(button)
+    fireEvent.click(icon)
+    expect(screen.queryByRole('tooltip')).toBeNull()
+    expect(onNavigate).toHaveBeenCalledExactlyOnceWith(1)
+  }
 })
 
 it.each(locales)('localizes the crafting record heading in %s', (locale) => {

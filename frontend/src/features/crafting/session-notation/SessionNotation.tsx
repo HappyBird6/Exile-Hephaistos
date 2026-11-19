@@ -75,7 +75,7 @@ function ResourceIcon({
       role="img"
       tabIndex={focusable ? 0 : undefined}
       aria-label={`${custom ? customExaltMessages[locale].title + ' · ' : ''}${label}${missing ? ` · ${text.imageUnavailable}` : ''}`}
-      {...(resource ? { 'data-material-tooltip': id } : {})}
+      {...(focusable && resource ? { 'data-material-tooltip': id } : {})}
     >
       {custom && <b aria-hidden="true">C</b>}
       {missing ? (
@@ -164,11 +164,6 @@ export function SessionNotation({
                     className="wb-session-notation__jump"
                     aria-label={label}
                     aria-current={current ? 'step' : undefined}
-                    data-material-tooltip={
-                      registry.has(step.currencyId)
-                        ? step.currencyId
-                        : undefined
-                    }
                     disabled={disabled}
                     onClick={() => onNavigate(step.frameIndex)}
                   >
