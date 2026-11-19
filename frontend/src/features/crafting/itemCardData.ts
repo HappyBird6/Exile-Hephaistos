@@ -16,6 +16,7 @@ export interface ItemCardLine {
 
   attributeKey?: string
   tierRows?: {
+    onSelect?: () => void
     label: string
     value: string
     chance?: string

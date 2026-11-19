@@ -76,7 +76,15 @@ function Lines({
                   <tbody>
                     {line.tierRows.map((row, index) => (
                       <tr key={index}>
-                        <th scope="row">{row.label}</th>
+                        <th scope="row">
+                          {row.onSelect ? (
+                            <button type="button" onClick={row.onSelect}>
+                              {row.label}
+                            </button>
+                          ) : (
+                            row.label
+                          )}
+                        </th>
                         <td>{formatAttributeText(row.value, locale)}</td>
                         {row.chance && <td>{row.chance}</td>}
                       </tr>

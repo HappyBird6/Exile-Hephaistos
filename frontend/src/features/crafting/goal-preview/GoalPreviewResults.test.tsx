@@ -84,8 +84,20 @@ const preview = {
   ],
 }
 
-function renderPreview(response: unknown, filter = goal) {
-  const fetch = vi.fn(() => Promise.resolve(jsonResponse(response)))
+function renderPreview(
+  response: unknown,
+  filter = goal,
+  selectedResponse?: unknown,
+) {
+  const fetch = vi.fn((_url: RequestInfo | URL, init?: RequestInit) =>
+    Promise.resolve(
+      jsonResponse(
+        selectedResponse && JSON.parse(String(init?.body)).selectedTier
+          ? selectedResponse
+          : response,
+      ),
+    ),
+  )
   vi.stubGlobal('fetch', fetch)
   render(
     <QueryClientProvider client={new QueryClient()}>
@@ -123,6 +135,40 @@ it('shows disjoint matching tiers beside the option and qualifies the sources th
   )
   expect(card.getByText('Sources · Implicit')).toBeVisible()
   expect(fetch.mock.calls).toHaveLength(1)
+})
+
+it('loads the selected tier witness and restores the complete tier range', async () => {
+  const fetch = renderPreview(preview, goal, {
+    ...preview,
+    cards: [
+      {
+        item: otherTier,
+        tierVariants: [otherTier],
+        sources,
+        optionTiers: { implicit: ['implicit'], p2: ['p2'] },
+      },
+    ],
+  })
+  const original = within(await screen.findByRole('article'))
+  fireEvent.click(
+    original.getByText('+15 to maximum Life', { selector: 'summary' }),
+  )
+  fireEvent.click(original.getByRole('button', { name: 'T2 · Stalwart' }))
+  expect(await original.findByText('T2')).toBeVisible()
+  expect(original.getByText('+25 to maximum Life')).toBeVisible()
+  expect(JSON.parse(String(fetch.mock.calls[1]?.[1]?.body)).selectedTier).toBe(
+    'p2',
+  )
+  fireEvent.click(screen.getByRole('button', { name: 'Show all tiers' }))
+  expect(original.getByText('T4, T2~T1')).toBeVisible()
+})
+
+it('keeps valid siblings when a card cannot be displayed', async () => {
+  renderPreview({ ...preview, cards: [null, ...preview.cards] })
+  expect(await screen.findByRole('alert')).toHaveTextContent(
+    'Cards that could not be displayed 1',
+  )
+  expect(screen.getAllByRole('article')).toHaveLength(1)
 })
 
 it('names the affix when only one of two definitions at the same tier has a source', async () => {

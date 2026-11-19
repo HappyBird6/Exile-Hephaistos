@@ -31,6 +31,7 @@ final class GoalExamples {
   private final ItemStateValidator validator;
   private List<ModifierDefinition> fillers = List.of();
   private ModifierInstance fracture;
+  private String selectedTier;
 
   /** 단일 티어의 정의, 현재 희귀도에서 허용된 획득처, 목표 수치 구간, 실제 굴림 순회다. */
   private record Tier(
@@ -83,7 +84,8 @@ final class GoalExamples {
   }
 
   /** 목표 레벨·희귀도 안에서 관련 옵션만 추가한다. 빈 결과는 탐색한 범위에서 예시가 없다는 의미다. */
-  List<Matches> find(GoalFilter.Context context, ModifierInstance fracture) {
+  List<Matches> find(GoalFilter.Context context, ModifierInstance fracture, String selectedTier) {
+    this.selectedTier = selectedTier;
     this.fracture = fracture;
     if (fracture != null && (!fracture.fractured() || !sources.containsKey(fracture.modifierId())))
       throw new GoalFilterService.InvalidGoal(
@@ -145,6 +147,11 @@ final class GoalExamples {
         grouped
             .computeIfAbsent(tierGroups.getOrDefault(d.id(), d.id()), ignored -> new ArrayList<>())
             .add(new Tier(d, origins, range, domain));
+      }
+      if (selectedTier != null) {
+        var group = grouped.get(tierGroups.getOrDefault(selectedTier, selectedTier));
+        if (group != null) group.removeIf(t -> !t.definition().id().equals(selectedTier));
+        if (group != null && group.isEmpty()) continue;
       }
       var slots =
           grouped.values().stream()
@@ -302,7 +309,10 @@ final class GoalExamples {
     if (bounds.blocked(range).isEmpty() && mechanicsPossible(limits, shape)) {
       var witnesses = witnesses(seeds, shape);
       for (var group : bySupport(shape, witnesses))
-        cards.add(new Matches(group, optionTiers(shape, group), occupancies(group.getFirst())));
+        if (selectedTier == null
+            || group.getFirst().explicits().stream()
+                .anyMatch(m -> m.modifierId().equals(selectedTier)))
+          cards.add(new Matches(group, optionTiers(shape, group), occupancies(group.getFirst())));
     }
     for (int i = start; i < slots.size(); i++) {
       var slot = slots.get(i);

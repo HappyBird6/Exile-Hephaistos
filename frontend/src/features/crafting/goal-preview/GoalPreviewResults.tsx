@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { craftingFetch } from '../../../shared/gameIdTransport'
 import { loadModifierDefinitions } from '../../../shared/i18n/localeData'
@@ -64,6 +65,13 @@ function validCard(
   if (
     !Array.isArray(card.tierVariants) ||
     !card.tierVariants.length ||
+    (card.occupancy != null &&
+      (!Array.isArray(card.occupancy) ||
+        !card.occupancy.every((o) =>
+          [o.prefixes, o.suffixes, o.emptyPrefixes, o.emptySuffixes].every(
+            (v) => Number.isInteger(v) && v >= 0,
+          ),
+        ))) ||
     !card.optionTiers
   )
     return false
@@ -90,8 +98,18 @@ function validCard(
         item.snapshotId === context.snapshotId &&
         item.baseItemId === context.baseItemId &&
         item.itemLevel === context.itemLevel &&
-        [...item.implicits, ...item.explicits].every(({ modifierId }) =>
-          allowed.has(modifierId),
+        ['NORMAL', 'MAGIC', 'RARE', 'UNIQUE'].includes(item.rarity) &&
+        (item.installedAugments == null ||
+          (Array.isArray(item.installedAugments) &&
+            item.installedAugments.every(
+              (a) => typeof a.augmentId === 'string',
+            ))) &&
+        [...item.implicits, ...item.explicits].every(
+          ({ modifierId, values }) =>
+            allowed.has(modifierId) &&
+            values != null &&
+            typeof values === 'object' &&
+            Object.values(values).every(Number.isFinite),
         ),
     )
   )
@@ -162,17 +180,87 @@ function sourcesForOptions(
     .join(', ')
 }
 
+type QueryInputs = Pick<GoalPreviewInput, 'context' | 'goal' | 'fracture'> & {
+  rulesetIdentity: string
+}
+function previewOptions(
+  { context, goal, fracture, rulesetIdentity }: QueryInputs,
+  selectedTier?: string,
+) {
+  return {
+    queryKey: [
+      'goalPreview',
+      rulesetIdentity,
+      context,
+      goal,
+      fracture,
+      selectedTier,
+    ],
+    queryFn: async ({ signal }: { signal: AbortSignal }) => {
+      const response = await craftingFetch(
+        '/api/v1/crafting/support/goal-filters/preview',
+        {
+          method: 'POST',
+          signal,
+          headers: rulesetHeaders(rulesetIdentity),
+          body: JSON.stringify({ context, goal, fracture, selectedTier }),
+        },
+      )
+      if (response.ok) verifyRulesetResponse(response, rulesetIdentity)
+      const result = await readGoalFilterResponse<Preview>(response)
+      if (!Array.isArray(result.cards) || !result.modifiers)
+        throw new Error('Invalid goal preview')
+      const cards = result.cards.filter((card) => {
+        try {
+          return validCard(card, result.modifiers, context)
+        } catch {
+          return false
+        }
+      })
+      await loadModifierDefinitions([
+        ...new Set(cards.flatMap((card) => Object.keys(card.sources))),
+      ])
+      signal.throwIfAborted()
+      return { ...result, cards, omitted: result.cards.length - cards.length }
+    },
+    retry: false,
+    staleTime: Infinity,
+  }
+}
+
 function PreviewCard({
-  example,
-  definitions,
+  example: original,
+  inputs,
+  definitions: originalDefinitions,
   present,
   locale,
 }: {
   example: Example
+  inputs: QueryInputs
   definitions: Record<string, Definition>
   present: ItemPresentation
   locale: Locale
 }) {
+  const [selected, setSelected] = useState<string>()
+  const conditional = useQuery({
+    ...previewOptions(inputs, selected),
+    enabled: !!selected,
+  })
+  const slots = Object.values(original.optionTiers)
+  const match =
+    selected &&
+    conditional.data?.cards.find((c) => {
+      const ids = Object.keys(c.optionTiers)
+      return (
+        c.item.rarity === original.item.rarity &&
+        ids.includes(selected) &&
+        ids.length === slots.length &&
+        slots.every((slot) => ids.some((id) => slot.includes(id)))
+      )
+    })
+  const definitions =
+    (match && conditional.data?.modifiers) || originalDefinitions
+  const example = match || original
   const { item, tierVariants, optionTiers, sources } = example
   const copy = previewResultMessages[locale]
   const card = present(item, locale)
@@ -191,90 +279,110 @@ function PreviewCard({
         )
     }
   return (
-    <ItemCard
-      baseItemId={item.baseItemId}
-      item={{
-        ...card,
-        properties: [
-          { id: 'rarity', text: rarityLabel(item.rarity, locale) },
-          ...(example.minimumQuality
-            ? [
-                {
-                  id: 'quality-goal',
-                  text:
-                    qualityGoalMessages[locale].label +
-                    ' ≥ ' +
-                    example.minimumQuality +
-                    '%',
-                },
-              ]
-            : []),
-          ...(quality
-            ? [
-                {
-                  id: 'quality',
-                  text: localizedCatalystQuality(
-                    quality,
-                    item.baseItemId,
-                    locale,
-                  ),
-                },
-              ]
-            : []),
-          ...(example.occupancy?.length
-            ? [
-                {
-                  id: 'occupancy',
-                  text:
-                    copy.occupancy +
-                    ' · ' +
-                    example.occupancy
-                      .map(
-                        (o) =>
-                          `${o.prefixes}/${o.suffixes} (${o.emptyPrefixes}/${o.emptySuffixes})`,
-                      )
-                      .join(', '),
-                },
-              ]
-            : []),
-          ...(item.installedAugments ?? []).map((a, i) => ({
-            id: 'socket-' + i,
-            text: augmentName(a.augmentId),
-          })),
-        ],
-        modifiers: card.modifiers.map((line) => {
-          const options = optionTiers[line.id]!.map(
-            (id) => definitions[id]!,
-          ).sort((a, b) => b.tier - a.tier)
-          return {
-            ...line,
-            text: localizedModifierText(
-              definitions[line.id]!,
-              rolls.get(line.id)!,
-              locale,
-            ),
-            affixLabel: tierRanges(options),
-            sourceLabel:
-              copy.sources +
-              ' · ' +
-              sourcesForOptions(options, sources, locale),
-            ...(options.length > 1 && {
-              tierRows: options.flatMap((d) => {
-                const values = rolls.get(d.id)
-                return values
-                  ? [
-                      {
-                        label: `T${d.tier} · ${localizedModifierName(d, locale)}`,
-                        value: localizedModifierText(d, values, locale),
-                      },
-                    ]
-                  : []
+    <div>
+      <ItemCard
+        baseItemId={item.baseItemId}
+        item={{
+          ...card,
+          properties: [
+            { id: 'rarity', text: rarityLabel(item.rarity, locale) },
+            ...(example.minimumQuality
+              ? [
+                  {
+                    id: 'quality-goal',
+                    text:
+                      qualityGoalMessages[locale].label +
+                      ' ≥ ' +
+                      example.minimumQuality +
+                      '%',
+                  },
+                ]
+              : []),
+            ...(quality
+              ? [
+                  {
+                    id: 'quality',
+                    text: localizedCatalystQuality(
+                      quality,
+                      item.baseItemId,
+                      locale,
+                    ),
+                  },
+                ]
+              : []),
+            ...(example.occupancy?.length
+              ? [
+                  {
+                    id: 'occupancy',
+                    text:
+                      copy.occupancy +
+                      ' · ' +
+                      example.occupancy
+                        .map(
+                          (o) =>
+                            `${o.prefixes}/${o.suffixes} (${o.emptyPrefixes}/${o.emptySuffixes})`,
+                        )
+                        .join(', '),
+                  },
+                ]
+              : []),
+            ...(item.installedAugments ?? []).map((a, i) => ({
+              id: 'socket-' + i,
+              text: augmentName(a.augmentId),
+            })),
+          ],
+          modifiers: card.modifiers.map((line) => {
+            const options = optionTiers[line.id]!.map(
+              (id) => definitions[id]!,
+            ).sort((a, b) => b.tier - a.tier)
+            return {
+              ...line,
+              text: localizedModifierText(
+                definitions[line.id]!,
+                rolls.get(line.id)!,
+                locale,
+              ),
+              affixLabel: tierRanges(options),
+              sourceLabel:
+                copy.sources +
+                ' · ' +
+                sourcesForOptions(options, sources, locale),
+              ...(options.length > 1 && {
+                tierRows: options.flatMap((d) => {
+                  const values = rolls.get(d.id)
+                  return values
+                    ? [
+                        {
+                          label: `T${d.tier} · ${localizedModifierName(d, locale)}`,
+                          onSelect: () => setSelected(d.id),
+                          value: localizedModifierText(d, values, locale),
+                        },
+                      ]
+                    : []
+                }),
               }),
-            }),
-          }
-        }),
-      }}
-    />
+            }
+          }),
+        }}
+      />
+      {selected && (
+        <div role="status">
+          {conditional.isFetching
+            ? copy.loading
+            : match
+              ? 'T' +
+                definitions[selected]!.tier +
+                ' · ' +
+                localizedModifierName(definitions[selected]!, locale)
+              : conditional.isError
+                ? goalFilterMessages[locale].error
+                : copy.empty}
+          <button onClick={() => setSelected(undefined)} type="button">
+            {copy.allTiers}
+          </button>
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -290,35 +398,8 @@ export function GoalPreviewResults({
   const copy = previewResultMessages[locale],
     labels = goalFilterMessages[locale]
   const { rulesetIdentity } = initial
-  const preview = useQuery({
-    queryKey: ['goalPreview', rulesetIdentity, context, goal, fracture],
-    queryFn: async ({ signal }) => {
-      const response = await craftingFetch(
-        '/api/v1/crafting/support/goal-filters/preview',
-        {
-          method: 'POST',
-          signal,
-          headers: rulesetHeaders(rulesetIdentity),
-          body: JSON.stringify({ context, goal, fracture }),
-        },
-      )
-      if (response.ok) verifyRulesetResponse(response, rulesetIdentity)
-      const result = await readGoalFilterResponse<Preview>(response)
-      if (
-        !Array.isArray(result.cards) ||
-        !result.modifiers ||
-        !result.cards.every((card) =>
-          validCard(card, result.modifiers, context),
-        )
-      )
-        throw new Error('Invalid goal preview')
-      await loadModifierDefinitions(Object.keys(result.modifiers))
-      signal.throwIfAborted()
-      return result
-    },
-    retry: false,
-    staleTime: Infinity,
-  })
+  const inputs = { context, goal, fracture, rulesetIdentity }
+  const preview = useQuery(previewOptions(inputs))
   const presentationCatalog = {
     ...catalog,
     sourceModifiers: catalog.sourceModifiers ?? initial.modifiers,
@@ -395,7 +476,12 @@ export function GoalPreviewResults({
           </button>
         </p>
       )}
-      {preview.data?.cards.length === 0 && (
+      {preview.data && preview.data.omitted > 0 && (
+        <p role="alert">
+          {copy.omitted} {preview.data.omitted}
+        </p>
+      )}
+      {preview.data?.cards.length === 0 && !preview.data.omitted && (
         <p role="status">
           {preview.data.reasonCode === 'QUALITY_PROJECTION_NOT_IMPLEMENTED'
             ? copy.qualityProjection
@@ -405,7 +491,8 @@ export function GoalPreviewResults({
       <div className="goal-preview-cards">
         {preview.data?.cards.map((example) => (
           <PreviewCard
-            key={JSON.stringify(example.item)}
+            key={JSON.stringify([example.item, goal])}
+            inputs={inputs}
             example={example}
             definitions={preview.data.modifiers}
             locale={locale}

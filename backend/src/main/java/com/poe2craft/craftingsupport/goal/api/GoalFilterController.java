@@ -58,13 +58,15 @@ public final class GoalFilterController {
   private record PreviewRequest(
       Context context,
       com.poe2craft.craftingsupport.goal.domain.GoalFilter goal,
-      com.poe2craft.shared.item.ModifierInstance fracture) {}
+      com.poe2craft.shared.item.ModifierInstance fracture,
+      String selectedTier) {}
 
   /** 목표와 문맥을 엄격히 읽고 확인된 아이템 예시 및 옵션별 획득처를 반환한다. */
   @PostMapping("/preview")
   public GoalFilterService.Preview preview(@RequestBody JsonNode body) {
     var request = reader.decode(body, PreviewRequest.class);
-    return service.preview(request.context(), request.goal(), workbench, request.fracture());
+    return service.preview(
+        request.context(), request.goal(), workbench, request.fracture(), request.selectedTier());
   }
 
   @PostMapping("/recommend")

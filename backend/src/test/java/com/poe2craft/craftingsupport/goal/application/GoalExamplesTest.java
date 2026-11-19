@@ -144,6 +144,18 @@ class GoalExamplesTest {
                           assertThat(service.evaluate(item, goal).status())
                               .isEqualTo(Status.MATCH));
             });
+    var selected =
+        service.preview(context(catalog, 6), goal, workbench, null, "amulet:prefix:hale");
+    assertThat(selected.cards())
+        .singleElement()
+        .satisfies(
+            card -> {
+              assertThat(card.optionTiers())
+                  .containsEntry("amulet:prefix:hale", List.of("amulet:prefix:hale"))
+                  .containsEntry("amulet:prefix:cobalt", List.of("amulet:prefix:cobalt"))
+                  .doesNotContainKeys("amulet:prefix:healthy", "amulet:prefix:beryl");
+              assertThat(service.evaluate(card.item(), goal).status()).isEqualTo(Status.MATCH);
+            });
   }
 
   /** 각 티어 경계에서 떨어진 단 하나의 정수 쌍으로만 가중합을 달성하는 실제 카탈로그 사례다. */

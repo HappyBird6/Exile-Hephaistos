@@ -50,6 +50,7 @@ function domain(
       return 'bases'
     case 'modifierId':
     case 'implicitModifierId':
+    case 'selectedTier':
     case 'modifierIds':
       return 'modifiers'
     case 'sourceStatId':

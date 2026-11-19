@@ -106,7 +106,7 @@ public final class GoalFilterService {
       GoalFilter goal,
       WorkbenchSimulator simulator,
       Map<String, List<ModifierAcquisition>> sources) {
-    return exampleGroups(context, goal, simulator, sources, null).stream()
+    return exampleGroups(context, goal, simulator, sources, null, null).stream()
         .flatMap(group -> group.variants().stream())
         .toList();
   }
@@ -117,7 +117,8 @@ public final class GoalFilterService {
       GoalFilter goal,
       WorkbenchSimulator simulator,
       Map<String, List<ModifierAcquisition>> sources,
-      ModifierInstance fracture) {
+      ModifierInstance fracture,
+      String selectedTier) {
     validate(context, goal);
     var catalog = index.itemCatalog(context).orElse(null);
     if (catalog == null
@@ -139,7 +140,7 @@ public final class GoalFilterService {
             known,
             sources,
             compiledEvaluation(optionGoal, known, simulator.catalog()))
-        .find(context, fracture);
+        .find(context, fracture, selectedTier);
   }
 
   /**
@@ -172,12 +173,22 @@ public final class GoalFilterService {
   /** 시작 장비의 분열 옵션이 있으면 모든 완성 예시에 그대로 보존한다. */
   public Preview preview(
       Context context, GoalFilter goal, CraftingOperations workbench, ModifierInstance fracture) {
+    return preview(context, goal, workbench, fracture, null);
+  }
+
+  /** 특정 티어를 고정한 상태에서도 나머지 옵션의 적격 티어를 다시 검증한다. */
+  public Preview preview(
+      Context context,
+      GoalFilter goal,
+      CraftingOperations workbench,
+      ModifierInstance fracture,
+      String selectedTier) {
     requireContext(context);
     var simulator = workbench.simulatorForBase(context.baseItemId());
     var sources = simulator.modifierSources(context.itemLevel());
     var definitions = new java.util.TreeMap<String, ModifierDefinition>();
     var cards = new ArrayList<ExampleCard>();
-    for (var group : exampleGroups(context, goal, simulator, sources, fracture)) {
+    for (var group : exampleGroups(context, goal, simulator, sources, fracture, selectedTier)) {
       var variants = group.variants();
       var used = new java.util.TreeMap<String, List<ModifierAcquisition>>();
       for (var item : variants) {
