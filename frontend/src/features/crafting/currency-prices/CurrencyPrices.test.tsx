@@ -70,7 +70,7 @@ it.each(locales)(
     expect(within(ticker).queryByText('Current League')).toBeNull()
     expect(within(ticker).queryByText('1', { exact: true })).toBeNull()
     expect(ticker).toHaveAttribute(
-      'title',
+      'aria-description',
       expect.stringContaining('Current League'),
     )
     const button = screen.getByRole('button', {
@@ -204,7 +204,7 @@ it('uses only the lower-bound sign for partial totals without an extra marker', 
       <CraftingCostLine film={film} cursor={1} />
     </CurrencyPriceContext.Provider>,
   )
-  expect(page.container.textContent).toContain('≥')
+  expect(page.container.textContent).toContain('≥ 1·≥ 0.01')
   expect(
     page.container.querySelector('.crafting-cost-line__partial'),
   ).toBeNull()

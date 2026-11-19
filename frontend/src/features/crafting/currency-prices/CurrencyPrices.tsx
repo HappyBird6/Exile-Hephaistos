@@ -1,3 +1,4 @@
+import { formatCurrencyAmount } from './formatCurrencyAmount'
 import type { ReactNode } from 'react'
 import { useEffect, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
@@ -21,21 +22,7 @@ export function CoinAmount({
   iconOnly?: boolean
 }) {
   const { locale, name } = useI18n()
-  const amount =
-    value === null
-      ? '—'
-      : new Intl.NumberFormat(locale, {
-          maximumFractionDigits:
-            value > 0 && value < (kind === 'Exalted_Orb' ? 0.01 : 0.0001)
-              ? 2
-              : kind === 'Exalted_Orb'
-                ? 2
-                : 4,
-          notation:
-            value > 0 && value < (kind === 'Exalted_Orb' ? 0.01 : 0.0001)
-              ? 'scientific'
-              : 'standard',
-        }).format(value)
+  const amount = formatCurrencyAmount(value, kind, locale)
   return (
     <span
       className="coin-amount"
@@ -89,14 +76,14 @@ export function CurrencyTicker() {
     <section
       className={`currency-ticker${view?.stale || market?.error ? ' currency-ticker--stale' : ''}`}
       aria-label={text.market}
-      title={details}
+      aria-description={details}
     >
       <div className="currency-ticker__display">
         <a
           href="https://poe.ninja/poe2/economy"
           target="_blank"
           rel="noreferrer"
-          aria-label={`1 ${name('Divine_Orb', 'Divine Orb')} ~ ${snapshot ? new Intl.NumberFormat(locale, { maximumFractionDigits: 2 }).format(snapshot.exaltedPerDivine) : '—'} ${name('Exalted_Orb', 'Exalted Orb')} · ${snapshot?.league ?? ''} · ${text.source}`}
+          aria-label={`1 ${name('Divine_Orb', 'Divine Orb')} ~ ${formatCurrencyAmount(snapshot?.exaltedPerDivine ?? null, 'Exalted_Orb', locale)} ${name('Exalted_Orb', 'Exalted Orb')} · ${snapshot?.league ?? ''} · ${text.source}`}
         >
           <CoinAmount kind="Divine_Orb" value={1} iconOnly />
           <span className="currency-ticker__separator" aria-hidden="true">
@@ -185,7 +172,7 @@ export function CraftingCostLine({
       className="crafting-cost-line"
       role="group"
       aria-label={text.spent}
-      title={details}
+      aria-description={details}
     >
       {children && (
         <div className="crafting-cost-line__controls">{children}</div>

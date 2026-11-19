@@ -135,9 +135,9 @@ describe('counted Chaos notation', () => {
         <MaterialTooltip onlyWithin=".wb-session-notation" />
       </>,
     )
-    fireEvent.mouseOver(screen.getByRole('img', { name: 'Omen of Whittling' }))
+    fireEvent.focusIn(screen.getByRole('img', { name: 'Omen of Whittling' }))
     expect(screen.getByRole('tooltip')).toHaveTextContent('Omen of Whittling')
-    fireEvent.mouseOver(screen.getByRole('img', { name: 'Greater Chaos Orb' }))
+    fireEvent.focusIn(screen.getByRole('img', { name: 'Greater Chaos Orb' }))
     expect(screen.getByRole('tooltip')).toHaveTextContent('Greater Chaos Orb')
     fireEvent.keyDown(document, { key: 'Escape' })
     expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
@@ -240,6 +240,8 @@ describe('icon-based session notation', () => {
     const icon = screen.getByRole('img', { name: 'Orb of Transmutation' })
     expect(icon).toHaveAttribute('tabindex', '0')
     fireEvent.pointerOver(icon.querySelector('img')!)
+    expect(screen.queryByRole('tooltip')).toBeNull()
+    fireEvent.focusIn(icon)
     expect(screen.getAllByRole('tooltip')).toHaveLength(1)
     expect(
       within(screen.getByRole('tooltip')).getByText('Orb of Transmutation'),
@@ -485,14 +487,14 @@ it('retains separate omen and currency hover tooltips inside a clickable step', 
       <MaterialTooltip onlyWithin=".wb-session-notation" />
     </>,
   )
-  fireEvent.mouseOver(
+  fireEvent.focusIn(
     screen.getByRole('img', { name: 'Omen of Greater Exaltation' }),
   )
   expect(screen.getByRole('tooltip')).toHaveTextContent(
     'Omen of Greater Exaltation',
   )
   expect(onNavigate).not.toHaveBeenCalled()
-  fireEvent.mouseOver(screen.getByRole('img', { name: 'Exalted Orb' }))
+  fireEvent.focusIn(screen.getByRole('img', { name: 'Exalted Orb' }))
   expect(screen.getByRole('tooltip')).toHaveTextContent('Exalted Orb')
   fireEvent.click(screen.getByRole('button', { name: 'Step 1' }))
   expect(onNavigate).toHaveBeenCalledWith(1)

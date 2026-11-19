@@ -189,6 +189,9 @@ public final class AutomaticMethodExecution implements AutoCloseable {
    *   <li>{@code abstractQuality}: 추상화된·품질 ({@code int}).
    *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierCell>}).
    *   <li>{@code intermediate}: 재료별 상태를 복원하기 위한 실제 중간 아이템 목록이다. 동일한 확률 상태에는 하나의 예시만 보존한다.
+   *   <li>{@code withFinalStepChance(chance)}는 동일한 결과에 마지막 화폐의 조건부 확률을 기록한 복사본을 반환한다.
+   *   <li>조건부 확률을 전달하지 않는 기존 생성자는 해당 값을 비워 둔다.
+   *   <li>{@code finalStepChance}: 두 화폐를 연속 사용할 때 중간 상태에서 마지막 화폐가 해당 결과를 만들 조건부 확률이다.
    *   <li>{@code expectedChaos}: 첫 적중까지 카오스를 쓰는 결과의 조건부 평균 소모량이다.
    *   <li>{@code retainedFromRoot}: 보유·원본·시작점 ({@code Set<String>}).
    * </ul>
@@ -225,7 +228,44 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           List<ItemState> intermediate,
       @com.fasterxml.jackson.annotation.JsonInclude(
               com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
-          Fraction expectedChaos) {
+          Fraction expectedChaos,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+          Fraction finalStepChance) {
+    public State(
+        ItemState item,
+        boolean temporaryPreparation,
+        boolean quality40,
+        int abstractQuality,
+        Map<String, TierCell> tiers,
+        Set<String> retainedFromRoot,
+        List<ItemState> intermediate,
+        Fraction expectedChaos) {
+      this(
+          item,
+          temporaryPreparation,
+          quality40,
+          abstractQuality,
+          tiers,
+          retainedFromRoot,
+          intermediate,
+          expectedChaos,
+          null);
+    }
+
+    State withFinalStepChance(Fraction chance) {
+      return new State(
+          item,
+          temporaryPreparation,
+          quality40,
+          abstractQuality,
+          tiers,
+          retainedFromRoot,
+          intermediate,
+          expectedChaos,
+          chance);
+    }
+
     public State(
         ItemState item,
         boolean temporaryPreparation,
@@ -255,7 +295,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
               && item.equals(s.item)
               && tiers.equals(s.tiers)
               && retainedFromRoot.equals(s.retainedFromRoot)
-              && Objects.equals(expectedChaos, s.expectedChaos);
+              && Objects.equals(expectedChaos, s.expectedChaos)
+              && Objects.equals(finalStepChance, s.finalStepChance);
     }
 
     @Override
@@ -267,7 +308,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           abstractQuality,
           tiers,
           retainedFromRoot,
-          expectedChaos);
+          expectedChaos,
+          finalStepChance);
     }
 
     public State {
@@ -765,11 +807,26 @@ public final class AutomaticMethodExecution implements AutoCloseable {
             Fraction::add);
       }
     }
-    var result =
-        new Kernel<State>(
-            outcomes.entrySet().stream().map(e -> new Outcome<>(e.getKey(), e.getValue())).toList(),
-            unresolved,
-            false);
+    // 두 작업이 연결된 성공 경로는 준비 상태별 마지막 전이 확률을 보존한다.
+    // 먼저 같은 결과의 티어·수치 확률을 합산한 후 기록해야 대표 수치 하나의 확률이 되지 않는다.
+    boolean split =
+        template.initial().size() == 1
+            && template.cycle().size() == 1
+            && state.temporaryPreparation()
+            && action.equals(template.cycle().getFirst())
+            && !template.boundedChaos()
+            && !action.equals(template.initial().getFirst());
+    var transitions = new ArrayList<Outcome<State>>(outcomes.size());
+    outcomes.forEach(
+        (next, probability) -> {
+          var exit = split ? classifyState(next).orElse(null) : null;
+          var observed =
+              exit == Exit.GOAL || exit == Exit.CHECKPOINT
+                  ? next.withFinalStepChance(probability)
+                  : next;
+          transitions.add(new Outcome<>(observed, probability));
+        });
+    var result = new Kernel<State>(transitions, unresolved, false);
     // A proven renewal state's complete transition law is identical on every cycle.
     // Retain only this one folded law; never cache an OUTCOME_BUDGET result.
     if (state.item().equals(preparedRetryAnchor) && action.equals(template.cycle().getFirst())) {

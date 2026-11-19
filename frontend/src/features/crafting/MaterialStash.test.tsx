@@ -173,7 +173,7 @@ describe('Material stash and shared favorites', () => {
       pick('Greater Essence of the Mind')
       fireEvent.click(tab(label))
       const material = screen.getByRole('button', { name })
-      fireEvent.pointerOver(material)
+      fireEvent.focusIn(material)
       expect(screen.getByRole('tooltip')).toBeVisible()
       expect(fireEvent.contextMenu(material)).toBe(false)
       expect(material).toHaveAttribute('aria-pressed', 'true')
@@ -253,7 +253,7 @@ describe('Material stash and shared favorites', () => {
     expect(favorite(1)).not.toHaveAttribute('title')
     fireEvent.click(favorite(1))
     expect(favorite(1)).not.toHaveAttribute('title')
-    fireEvent.pointerOver(favorite(1))
+    fireEvent.focusIn(favorite(1))
     expect(screen.getByRole('tooltip')).toHaveTextContent(
       'Greater Essence of the Body',
     )
@@ -285,7 +285,7 @@ describe('Material stash and shared favorites', () => {
     expect(screen.queryByRole('checkbox', { name: 'Show tooltips' })).toBeNull()
     expect(screen.queryByText(/^\d+ items$/)).not.toBeInTheDocument()
     const chaos = currencyButton('Chaos Orb')
-    fireEvent.pointerOver(chaos)
+    fireEvent.focusIn(chaos)
     const feedback = document.querySelector('.workbench-feedback-region')!
     expect(feedback).toContainElement(screen.getByRole('tooltip'))
     expect(screen.getByRole('tooltip')).not.toHaveTextContent('Stack Size')
@@ -308,9 +308,11 @@ describe('Material stash and shared favorites', () => {
     expect(essence).not.toHaveAttribute('aria-describedby')
   })
 
-  it('shows sourced descriptions on hover and focus, including favorites', () => {
+  it('shows sourced descriptions on focus, including favorites', () => {
     show()
     fireEvent.pointerOver(currencyButton('Chaos Orb'))
+    expect(screen.queryByRole('tooltip')).toBeNull()
+    fireEvent.focusIn(currencyButton('Chaos Orb'))
     expect(screen.getByRole('tooltip')).toHaveTextContent('Chaos Orb')
     expect(currencyButton('Chaos Orb')).toHaveAttribute(
       'aria-describedby',

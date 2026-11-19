@@ -2,7 +2,10 @@ import { useI18n } from '../../../shared/i18n/i18n'
 import { localizedAction } from '../localizedCrafting'
 import type { WorkbenchAction } from '../workbenchApi'
 import { policyCandidateMessages } from './policyCandidateMessages'
-import { probabilityText, quantityText } from './probabilityPresentation'
+import {
+  probabilityText,
+  materialQuantityText,
+} from './probabilityPresentation'
 import type { PolicyCandidate } from './policyCandidates'
 export function CandidateSummary({
   candidate,
@@ -40,8 +43,11 @@ export function CandidateSummary({
                   : localizedAction(material as WorkbenchAction)}
                 :{' '}
                 {amount.upper
-                  ? `${quantityText(amount.lower)} – ${quantityText(amount.upper)}`
-                  : `≥ ${quantityText(amount.lower)}`}
+                  ? materialQuantityText(material, locale, amount.lower, {
+                      lower: amount.lower,
+                      upper: amount.upper,
+                    })
+                  : `≥ ${materialQuantityText(material, locale, amount.lower)}`}
               </li>
             ))}
         </ul>

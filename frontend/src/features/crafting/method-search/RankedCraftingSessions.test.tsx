@@ -1,3 +1,4 @@
+import { RouteProbability } from './RouteProbability'
 import { useState } from 'react'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 import { expect, it, vi } from 'vitest'
@@ -163,4 +164,39 @@ it('ranks equal-looking percentages by exact mass and opens the completed film w
   fireEvent.click(buttons[1]!)
   expect(screen.getAllByRole('combobox')).toHaveLength(1)
   expect(buttons[1]).toHaveAttribute('aria-pressed', 'true')
+})
+
+it('shows the conditional factors under the session and sums the other successful routes separately', () => {
+  setLocale('ko')
+  const fraction = (n: number, d: number) => ({
+    numerator: String(n),
+    denominator: String(d),
+  })
+  const steps = [fraction(24, 25), fraction(1, 1000), fraction(1, 3)].map(
+    (p, index) => ({
+      first: index + 1,
+      last: index + 1,
+      label: ['카오스', '엑잘티드', '에센스'][index]!,
+      probability: { lower: p, upper: p },
+    }),
+  )
+  const total = fraction(21, 10000)
+  render(
+    <RouteProbability
+      steps={steps}
+      completed
+      success={{
+        lower: total,
+        upper: total,
+        arithmeticWidth: fraction(0, 1),
+        exact: true,
+        confirmedPercent: null,
+      }}
+    />,
+    { wrapper: AppProviders },
+  )
+  const detail = screen.getByRole('region', { name: '단계별 확률' })
+  expect(detail).toHaveTextContent('96.00% × 0.10% × 33.33% ≈ 0.03%')
+  expect(detail).toHaveTextContent('0.03% + 0.18% (다른 성공 경로) ≈ 0.21%')
+  setLocale('en')
 })

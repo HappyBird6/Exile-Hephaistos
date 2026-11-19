@@ -96,6 +96,8 @@ it('keeps failures, descriptions, source links and existing aria descriptions to
   render(<Fixture />)
   const anchor = screen.getByRole('button', { name: 'Chaos' })
   fireEvent.pointerOver(anchor)
+  expect(screen.queryByRole('tooltip')).toBeNull()
+  fireEvent.focusIn(anchor)
   const tooltip = screen.getByRole('tooltip')
   expect(document.querySelector('.workbench-feedback-region')).toContainElement(
     tooltip,
@@ -118,7 +120,7 @@ it('keeps failures, descriptions, source links and existing aria descriptions to
   expect(anchor).toHaveFocus()
   expect(anchor).toHaveAttribute('aria-describedby', 'existing-note')
   expect(screen.getByRole('alert')).toBeVisible()
-  fireEvent.pointerOver(anchor)
+  fireEvent.focusIn(anchor)
   act(() => anchor.blur())
   fireEvent.pointerOut(anchor, { relatedTarget: document.body })
   act(() => vi.advanceTimersByTime(250))
@@ -138,7 +140,7 @@ it('shows touch descriptions and routes missing-image and removal-candidate titl
   fireEvent.error(document.querySelector('img[src="/missing.png"]')!)
   const missing = screen.getByText('Image unavailable')
   expect(missing).not.toHaveAttribute('title')
-  fireEvent.pointerOver(missing)
+  fireEvent.pointerDown(missing, { pointerType: 'touch' })
   expect(screen.getByRole('tooltip')).toHaveTextContent(
     'Chaos Orb · Image unavailable',
   )
@@ -188,6 +190,8 @@ it.each(locales)('retains sourced material explanations in %s', (locale) => {
 it('keeps standalone tooltip compatibility without a manual workbench destination', () => {
   render(<Fixture enabled={false} />)
   fireEvent.mouseOver(screen.getByRole('button', { name: 'Chaos' }))
+  expect(screen.queryByRole('tooltip')).toBeNull()
+  fireEvent.focusIn(screen.getByRole('button', { name: 'Chaos' }))
   expect(screen.getByRole('tooltip')).toHaveClass('material-tooltip')
   expect(
     document.querySelector('.workbench-feedback-region'),
@@ -214,6 +218,10 @@ it('preserves workspace inputs and keyboard focus without routing descriptions i
   fireEvent.change(outerMaterialSearch(), { target: { value: 'Essence' } })
   const manualSearch = outerMaterialSearch()
   fireEvent.pointerOver(
+    document.querySelector('[data-material-tooltip="Chaos_Orb"]')!,
+  )
+  expect(screen.queryByRole('tooltip')).toBeNull()
+  fireEvent.focusIn(
     document.querySelector('[data-material-tooltip="Chaos_Orb"]')!,
   )
   expect(screen.getByRole('tooltip')).toHaveClass('workbench-feedback-tooltip')

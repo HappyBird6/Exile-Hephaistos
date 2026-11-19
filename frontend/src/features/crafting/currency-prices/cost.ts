@@ -1,3 +1,4 @@
+import { costAccumulator } from './decimalAmount'
 import type { Film } from '../workbenchHistory'
 import { extractSessionNotation } from '../session-notation/extractSessionNotation'
 import { currencyNames } from '../currencyNames'
@@ -26,8 +27,8 @@ export function craftingCost(
   cursor: number,
   snapshot: PriceSnapshot | null | undefined,
 ): CraftingCost {
-  let divine = 0,
-    exalted = 0
+  const divine = costAccumulator(),
+    exalted = costAccumulator()
   const unknown = new Set<string>()
   const visible = film
     ? { ...film, frames: film.frames.slice(0, cursor + 1) }
@@ -48,14 +49,14 @@ export function craftingCost(
       const quote = currencyQuote(snapshot, id)
       if (!quote) unknown.add(id)
       else {
-        divine += quote.divine * count
-        exalted += quote.exalted * count
+        divine.add(quote.divine, count)
+        exalted.add(quote.exalted, count)
       }
     }
   }
   return {
-    divine,
-    exalted,
+    divine: divine.total(),
+    exalted: exalted.total(),
     unknown: [...unknown],
     incomplete:
       unknownRepeatCount ||

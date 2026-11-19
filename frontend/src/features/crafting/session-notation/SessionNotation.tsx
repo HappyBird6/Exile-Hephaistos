@@ -1,3 +1,4 @@
+import { formatExpectedUses } from '../currency-prices/formatCurrencyAmount'
 import {
   currencyRank,
   chanceText,
@@ -261,9 +262,7 @@ export function NotationResources({
         {step.expectedUses && (
           <span className="wb-session-notation__uses">
             {text.expectedUses(
-              step.expectedUses.toLocaleString(locale, {
-                maximumFractionDigits: 2,
-              }),
+              formatExpectedUses(step.expectedUses, step.currencyId, locale),
             )}
           </span>
         )}

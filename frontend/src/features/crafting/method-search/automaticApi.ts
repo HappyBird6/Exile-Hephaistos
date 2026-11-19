@@ -94,6 +94,7 @@ export type AutomaticArrow = {
       conditional?: {
         preparationOnly?: boolean
         intermediate?: Item[]
+        finalStepChance?: { numerator: string; denominator: string }
         expectedChaos?: { numerator: string; denominator: string }
         local: Item['explicits']
         tiers: NonNullable<AutomaticNode['tiers']>

@@ -119,6 +119,11 @@ export function FeedbackTooltipProvider({
       const materialAnchor = element?.closest<HTMLElement>(
         '[data-material-tooltip]',
       )
+      if (
+        materialAnchor &&
+        (event.type === 'pointerover' || event.type === 'mouseover')
+      )
+        return
       const textAnchor =
         element?.closest<HTMLElement>('[data-feedback-tooltip]') ??
         materialAnchor?.querySelector<HTMLElement>(

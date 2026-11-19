@@ -1,3 +1,4 @@
+import { formatExpectedUses } from '../currency-prices/formatCurrencyAmount'
 import {
   sessionNotationMessages,
   workLabel,
@@ -63,9 +64,7 @@ export function SessionFlow({
         (step.expectedUses
           ? ' ' +
             sessionNotationMessages[locale].expectedUses(
-              step.expectedUses.toLocaleString(locale, {
-                maximumFractionDigits: 2,
-              }),
+              formatExpectedUses(step.expectedUses, step.currencyId, locale),
             )
           : step.maxUses
             ? ` ×1–${step.maxUses}`
@@ -79,17 +78,7 @@ export function SessionFlow({
       label,
       card: <HistoryCard film={film} frame={frame} />,
       resources: (
-        <div
-          className="session-flow-resources"
-          title={
-            group
-              .flatMap((step) => step.consumedOmenIds)
-              .map((id) =>
-                name(id, resources.find((r) => r.id === id)?.name ?? id),
-              )
-              .join(' + ') || undefined
-          }
-        >
+        <div className="session-flow-resources">
           {group
             .filter((step) => !step.work)
             .map((step) => (

@@ -131,6 +131,11 @@ export function validateJointGraph(
               (!Array.isArray(c.intermediate) ||
                 c.intermediate.length >
                   method.initial.length + method.cycle.length - 1)) ||
+            (c.finalStepChance !== undefined &&
+              (!/^[1-9]\d*$/.test(c.finalStepChance.numerator) ||
+                !/^[1-9]\d*$/.test(c.finalStepChance.denominator) ||
+                BigInt(c.finalStepChance.numerator) >
+                  BigInt(c.finalStepChance.denominator))) ||
             (c.expectedChaos !== undefined &&
               (!/^\d+$/.test(c.expectedChaos.numerator) ||
                 !/^[1-9]\d*$/.test(c.expectedChaos.denominator) ||

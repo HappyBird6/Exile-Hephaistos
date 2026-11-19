@@ -1,3 +1,4 @@
+import { formatCurrencyAmount } from '../currency-prices/formatCurrencyAmount'
 import { useQueryClient } from '@tanstack/react-query'
 import { craftingCost } from '../currency-prices/cost'
 import type { PriceSnapshot } from '../currency-prices/api'
@@ -20,6 +21,8 @@ import type { ItemCardData } from '../itemCardData'
 import { OpenCraftingSession } from './openCraftingSession'
 import type { Item } from '../path-tree/types'
 import { rankedPlans, previewRoute, type Plan } from './rankedPlans'
+import { stepProbabilities } from './stepProbabilities'
+import { RouteProbability, type ProbabilityStep } from './RouteProbability'
 import { CandidateSummary } from './CandidateSummary'
 import type {
   AutomaticAction,
@@ -393,9 +396,11 @@ function planTitle(
   probability: string,
 ) {
   const cost = craftingCost(film, film.frames.length - 1, snapshot)
-  const exalted = cost.incomplete
-    ? '—'
-    : cost.exalted.toLocaleString(locale, { maximumFractionDigits: 2 })
+  const exalted =
+    cost.incomplete && !cost.exalted
+      ? '—'
+      : (cost.incomplete ? '≥ ' : '') +
+        formatCurrencyAmount(cost.exalted, 'Exalted_Orb', locale)
   return `${exalted} ex · ${probability}`
 }
 
@@ -424,6 +429,7 @@ export function SessionSteps({
   view,
   plan,
   action,
+  card,
   onRoute,
   identity,
   allowStart,
@@ -433,6 +439,7 @@ export function SessionSteps({
   overview = false,
   onInspect,
 }: Omit<Props, 'start' | 'card'> & {
+  card?: Props['card']
   plan: Plan
   overview?: boolean
   onInspect?: () => void
@@ -469,6 +476,7 @@ export function SessionSteps({
       rulesetIdentity: identity,
     },
   ]
+  const probabilities: ProbabilityStep[] = []
   let method: AutomaticArrow | undefined = plan.root
   let completed = root.progress.goal === 'MATCH'
   let removalRisk = false
@@ -564,7 +572,7 @@ export function SessionSteps({
         )}
       </li>,
     )
-    if (result && outcome) {
+    if (result && outcome && point) {
       const steps = projectedFrames(
         states.at(-1)!.state,
         current,
@@ -577,6 +585,22 @@ export function SessionSteps({
         incomplete = true
         break
       }
+      const odds = stepProbabilities(
+        current,
+        point,
+        outcome,
+        steps,
+        states.length,
+        actions,
+      )
+      const chaos = odds.find((step) => step.firstChaos)
+      if (chaos && card) {
+        const modifier = card(result).modifiers.find(
+          (line) => line.kind === 'explicit' && !line.fractured,
+        )
+        if (modifier) chaos.label += ' · ' + modifier.text
+      }
+      probabilities.push(...odds)
       states.push(...steps)
       completed = outcome.kind === 'GOAL'
       manualReveal =
@@ -686,6 +710,11 @@ export function SessionSteps({
         }
       />
       <p>{chance}</p>
+      <RouteProbability
+        steps={probabilities}
+        success={plan.success}
+        completed={completed}
+      />
       {removalRisk && <p>{guide.risk}</p>}
       {incomplete && <p role="status">{policy.unresolved}</p>}
       {manualReveal && <p>{policy.end}</p>}

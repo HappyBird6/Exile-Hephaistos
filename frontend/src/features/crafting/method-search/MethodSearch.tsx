@@ -20,7 +20,10 @@ import {
   loadDistribution,
   mutateCertifiedJob,
 } from './certifiedApi'
-import { probabilityText, quantityText } from './probabilityPresentation'
+import {
+  probabilityText,
+  materialQuantityText,
+} from './probabilityPresentation'
 import { methodSearchMessages } from './messages'
 import { policyMessages } from './policyMessages'
 import { presentRollCell } from './rollPresentation'
@@ -410,7 +413,7 @@ function Run({
                         {Object.entries(uses)
                           .map(
                             ([currency, p]) =>
-                              `${action(currency)} ${quantityText(p, (phase === 'initial' ? point.initialUseBounds : point.cycleUseBounds)?.[currency])}`,
+                              `${action(currency)} ${materialQuantityText(currency, locale, p, (phase === 'initial' ? point.initialUseBounds : point.cycleUseBounds)?.[currency])}`,
                           )
                           .join(' · ') || '0'}
                       </p>

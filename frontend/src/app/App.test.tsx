@@ -98,6 +98,8 @@ describe('Crafting workbench', async () => {
       screen.queryByRole('checkbox', { name: 'Show tooltips' }),
     ).not.toBeInTheDocument()
     fireEvent.pointerOver(currencyButton('Chaos Orb'))
+    expect(screen.queryByRole('tooltip')).toBeNull()
+    fireEvent.focusIn(currencyButton('Chaos Orb'))
     expect(
       document.querySelector('.workbench-feedback-region'),
     ).toContainElement(screen.getByRole('tooltip'))

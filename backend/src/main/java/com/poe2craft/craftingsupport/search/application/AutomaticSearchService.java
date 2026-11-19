@@ -222,6 +222,7 @@ public final class AutomaticSearchService implements AutoCloseable {
    *       AutomaticCraftingKernel.RollBand>}).
    *   <li>{@code retainedFromSource}: 보유·원본·출처 ({@code Set<String>}).
    *   <li>{@code intermediate}: 복합 제작 중 각 선행 화폐를 적용한 직후의 실현 가능한 아이템 이력이다.
+   *   <li>{@code finalStepChance}: 준비 이후 마지막 단일 화폐의 조건부 결과 확률이다.
    *   <li>{@code expectedChaos}: 이 경로에서 목표가 붙을 때까지 반복하는 카오스의 조건부 기대 소모량이다.
    *   <li>{@code preparationOnly}: 준비 작업에서 이미 목표 상태로 종료되어 후속 화폐를 사용하지 않았는지 표시한다.
    *   <li>{@code probability}: 확률 ({@code CertifiedMethodProtocol.Bounds}).
@@ -241,6 +242,9 @@ public final class AutomaticSearchService implements AutoCloseable {
       @com.fasterxml.jackson.annotation.JsonInclude(
               com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
           PathSearchProtocol.Probability expectedChaos,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+          PathSearchProtocol.Probability finalStepChance,
       CertifiedMethodProtocol.Bounds probability) {}
 
   /**

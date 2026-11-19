@@ -172,7 +172,8 @@ class GoalDirectedPlannerScenariosTest {
                       e.getKey(),
                       stat.statId(),
                       stat.unit(),
-                      new GoalFilter.Range(BigDecimal.valueOf(e.getValue()), null),
+                      new GoalFilter.Range(
+                          e.getValue() == null ? null : BigDecimal.valueOf(e.getValue()), null),
                       null,
                       false);
                 })

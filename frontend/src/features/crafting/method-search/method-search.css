@@ -733,3 +733,18 @@
 .session-plan-steps select {
   max-width: 100%;
 }
+
+.route-probability ul {
+  list-style: none;
+  padding: 0;
+}
+.route-probability li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+}
+.route-probability strong {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}

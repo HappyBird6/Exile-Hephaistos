@@ -147,6 +147,9 @@ final class AutomaticResultProjection {
                         state.expectedChaos() == null
                             ? null
                             : PathSearchProtocol.Probability.of(state.expectedChaos()),
+                        state.finalStepChance() == null
+                            ? null
+                            : PathSearchProtocol.Probability.of(state.finalStepChance()),
                         probability.apply(mass.probability())));
           }
         }

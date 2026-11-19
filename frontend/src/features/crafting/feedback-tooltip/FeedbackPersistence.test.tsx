@@ -52,7 +52,7 @@ it('retains the last valid description after hover/focus leave and replaces it w
   vi.useFakeTimers()
   await show()
   const chaos = currencyButton('Chaos Orb')
-  fireEvent.pointerOver(chaos)
+  fireEvent.focusIn(chaos)
   fireEvent.pointerOut(chaos, { relatedTarget: document.body })
   fireEvent.mouseOver(document.body)
   fireEvent.focusIn(screen.getByRole('button', { name: 'Edit item' }))
@@ -63,7 +63,7 @@ it('retains the last valid description after hover/focus leave and replaces it w
   fireEvent.scroll(shared()!)
   expect(link).toHaveFocus()
   expect(link.parentElement).toHaveClass('material-description__header')
-  fireEvent.pointerOver(currencyButton('Divine Orb'))
+  fireEvent.focusIn(currencyButton('Divine Orb'))
   expect(shared()).toHaveTextContent('Divine Orb')
   fireEvent.keyDown(document, { key: 'Escape' })
   expect(shared()).toBeNull()
@@ -113,7 +113,7 @@ it('pins the actual left-click held material across other hover and tabs, then r
     }),
   ).toBeVisible()
   expect(shared()).toBeNull()
-  fireEvent.pointerOver(currencyButton('Divine Orb'))
+  fireEvent.focusIn(currencyButton('Divine Orb'))
   expect(shared()).toHaveTextContent('Divine Orb')
 })
 
@@ -131,7 +131,7 @@ it('pins right-click use selection and lets Escape from its source link cancel t
   expect(chaos).toHaveAttribute('aria-pressed', 'false')
   expect(document.querySelector('.currency-cursor')).toBeNull()
   expect(shared()).toBeNull()
-  fireEvent.pointerOver(currencyButton('Divine Orb'))
+  fireEvent.focusIn(currencyButton('Divine Orb'))
   expect(shared()).toHaveTextContent('Divine Orb')
 })
 
@@ -223,7 +223,7 @@ it('clears stale descriptions on material/workspace context changes and successf
   const fetch = vi.fn(fixtureFetch)
   vi.stubGlobal('fetch', fetch)
   await show()
-  fireEvent.pointerOver(currencyButton('Chaos Orb'))
+  fireEvent.focusIn(currencyButton('Chaos Orb'))
   await act(async () => {
     fireEvent.click(outerMaterialTab('Essence'))
   })
@@ -244,7 +244,7 @@ it('clears stale descriptions on material/workspace context changes and successf
   await waitFor(() =>
     expect(screen.getByRole('article')).toHaveClass('item-card--magic'),
   )
-  fireEvent.pointerOver(currencyButton('Chaos Orb'))
+  fireEvent.focusIn(currencyButton('Chaos Orb'))
   const requests = fetch.mock.calls.length
   await act(async () => {
     fireEvent.click(
@@ -261,7 +261,7 @@ it('clears stale descriptions on material/workspace context changes and successf
           String(url).includes('/economy/prices'),
       ),
   ).toBe(true)
-  fireEvent.pointerOver(currencyButton('Chaos Orb'))
+  fireEvent.focusIn(currencyButton('Chaos Orb'))
   await act(async () => {
     fireEvent.click(screen.getByRole('tab', { name: /Craft Support/ }))
   })

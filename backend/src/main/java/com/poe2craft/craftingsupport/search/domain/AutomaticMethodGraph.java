@@ -1759,7 +1759,8 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                                 TerminalAdditionClasses.transport(
                                     method.owner.source.item, method.source.item, item))
                         .toList(),
-                    state.expectedChaos()),
+                    state.expectedChaos(),
+                    state.finalStepChance()),
                 mass,
                 CertifiedInterval::add));
     return result;

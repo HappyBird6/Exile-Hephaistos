@@ -57,7 +57,11 @@ import {
   distributionEditMessages,
   automaticItemIsDistribution,
 } from './automaticTierLaws'
-import { probabilityText, quantityText } from './probabilityPresentation'
+import {
+  probabilityText,
+  materialQuantityText,
+  quantityText,
+} from './probabilityPresentation'
 import {
   automaticApi,
   AutomaticError,
@@ -1018,7 +1022,7 @@ function Run({
                                           )
                                           .map(
                                             ([material, b]) =>
-                                              `${material.startsWith('OMEN:') ? material.slice(5).replaceAll('_', ' ') : localizedAction(material as WorkbenchAction)} ${quantityText(b.lower, b)}`,
+                                              `${material.startsWith('OMEN:') ? material.slice(5).replaceAll('_', ' ') : localizedAction(material as WorkbenchAction)} ${materialQuantityText(material, locale, b.lower, b)}`,
                                           )
                                           .join(', ') || '0'}
                                       </p>

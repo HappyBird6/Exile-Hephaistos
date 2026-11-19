@@ -58,8 +58,7 @@ function FloatingMaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
     const escape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') hide()
     }
-    document.addEventListener('pointerover', inspect)
-    document.addEventListener('mouseover', inspect)
+
     document.addEventListener('focusin', inspect)
     document.addEventListener('keydown', escape)
     window.addEventListener('blur', hide)
@@ -74,8 +73,7 @@ function FloatingMaterialTooltip({ onlyWithin }: { onlyWithin?: string } = {}) {
     document.addEventListener('scroll', scroll, true)
     return () => {
       clearTimeout(timer)
-      document.removeEventListener('pointerover', inspect)
-      document.removeEventListener('mouseover', inspect)
+
       document.removeEventListener('focusin', inspect)
       document.removeEventListener('keydown', escape)
       window.removeEventListener('blur', hide)

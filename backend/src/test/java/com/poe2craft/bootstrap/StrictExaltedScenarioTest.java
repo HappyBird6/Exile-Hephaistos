@@ -4,7 +4,10 @@ import static org.assertj.core.api.Assertions.*;
 
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
+import com.poe2craft.craftingsupport.search.domain.AutomaticMethodExecution;
 import com.poe2craft.craftingsupport.search.domain.AutomaticMethodGraph;
+import com.poe2craft.craftingsupport.search.domain.CertifiedInterval;
+import com.poe2craft.craftingsupport.search.domain.ExactMethodRunner;
 import com.poe2craft.craftingsupport.search.domain.GoalDirectedPlanner;
 import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
 import com.poe2craft.shared.crafting.domain.AutomaticCraftingPlan;
@@ -20,6 +23,8 @@ import org.junit.jupiter.api.*;
 
 /**
  * 엄격파서·엑잘티드·Scenario 동작을 고정 입력·기대 결과로 검증한다. 각 테스트가 공유하는 준비 값과 시나리오는 아래와 같다.
+ *
+ * <p>무징조 에센스의 3개 제거 후보와 최소 수치가 없는 정신력의 5개 티어도 실제 작업대 분포로 검증한다.
  *
  * <p>필드·상수:
  *
@@ -162,6 +167,127 @@ class StrictExaltedScenarioTest {
                 .map(AutomaticCraftingKernel.Outcome::probability)
                 .reduce(Fraction.ZERO, Fraction::add))
         .isEqualTo(Fraction.ONE);
+  }
+
+  @Test
+  void plainEnhancementMustRemoveTheDesecratedSuffixToKeepBothGoals() {
+    var spirit = new ModifierInstance("amulet:prefix:baronness", Map.of(SPIRIT, 34L));
+    var root =
+        f.item(ItemState.Rarity.RARE, 82, List.of(spirit, projectile))
+            .withDesecrated(
+                List.of(
+                    new ItemState.DesecratedSlot(
+                        "unrevealed", ModifierDefinition.AffixType.SUFFIX, null)));
+    var requirements = new HashMap<String, Long>();
+    requirements.put(SPIRIT, null);
+    requirements.put(PROJECTILE, 3L);
+    requirements.put(DEFENCE, null);
+    var goal = f.goal(root, requirements);
+    var kernel = f.kernel(root, goal);
+    var action =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.PERFECT_ESSENCE_ENHANCEMENT,
+            Set.of(),
+            AutomaticCurrencyPolicy.Purpose.ORDINARY);
+    var result = kernel.expand(root, action, 5000);
+    assertThat(result.status()).isEqualTo(AutomaticCraftingKernel.Status.COMPLETE);
+    var evaluate = f.evaluation(root, goal);
+    var success = Fraction.ZERO;
+    var loss = Fraction.ZERO;
+    for (var outcome : result.outcomes()) {
+      if (evaluate.apply(outcome.item()).goal() == GoalFilter.Status.MATCH) {
+        assertThat(outcome.item().explicits()).contains(spirit, projectile);
+        assertThat(outcome.item().desecrated()).isEmpty();
+        success = success.add(outcome.probability());
+      } else loss = loss.add(outcome.probability());
+    }
+    assertThat(success).isEqualTo(Fraction.of(1, 3));
+    assertThat(loss).isEqualTo(Fraction.of(2, 3));
+  }
+
+  @Test
+  void compoundExaltThenEssencePreservesTheLastCurrencyProbability() {
+    var spirit = new ModifierInstance("amulet:prefix:baronness", Map.of(SPIRIT, 34L));
+    var source =
+        f.item(ItemState.Rarity.RARE, 82, List.of(spirit))
+            .withDesecrated(
+                List.of(
+                    new ItemState.DesecratedSlot(
+                        "unrevealed", ModifierDefinition.AffixType.SUFFIX, null)));
+    var requirements = new HashMap<String, Long>();
+    requirements.put(SPIRIT, null);
+    requirements.put(PROJECTILE, 3L);
+    requirements.put(DEFENCE, null);
+    var goal = f.goal(source, requirements);
+    var evaluate = f.evaluation(source, goal);
+    var first =
+        exalt(
+            AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL,
+            WorkbenchOmen.DEXTRAL_EXALTATION);
+    var last =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.PERFECT_ESSENCE_ENHANCEMENT,
+            Set.of(),
+            AutomaticCurrencyPolicy.Purpose.ORDINARY);
+    var kernel = f.kernel(source, goal);
+    var intermediate = kernel.expand(source, first, 20000);
+    var projectileChance =
+        intermediate.outcomes().stream()
+            .filter(o -> o.item().explicits().contains(projectile))
+            .map(AutomaticCraftingKernel.Outcome::probability)
+            .reduce(Fraction.ZERO, Fraction::add);
+    assertThat(projectileChance).isNotEqualTo(Fraction.ZERO);
+    try (var run =
+        new AutomaticMethodExecution(
+            source,
+            new AutomaticMethodExecution.Template("exalt-essence", List.of(first), List.of(last)),
+            kernel,
+            item ->
+                evaluate.apply(item).goal() == GoalFilter.Status.MATCH
+                    ? Optional.of(ExactMethodRunner.Exit.GOAL)
+                    : Optional.empty(),
+            CertifiedInterval.Precision.standard(),
+            20000,
+            AutomaticMethodExecution.PreparationSuccess.REQUIRE_REPLACEMENT)) {
+      while (!run.atBoundary()) run.step(64);
+      run.beginCycle();
+      while (!run.atBoundary()) run.step(64);
+      var goals = run.observation().exits().get(ExactMethodRunner.Exit.GOAL);
+      assertThat(goals).isNotEmpty();
+      assertThat(goals.keySet())
+          .allMatch(state -> Fraction.of(1, 3).equals(state.finalStepChance()));
+      var total =
+          goals.values().stream().reduce(CertifiedInterval.zero(64), CertifiedInterval::add);
+      assertThat(total.contains(projectileChance.multiply(Fraction.of(1, 3)))).isTrue();
+    }
+  }
+
+  @Test
+  void spiritWithoutMinimumIncludesEveryEligibleTierInChaosProbability() {
+    var root = f.item(ItemState.Rarity.RARE, 82, List.of(f.life()));
+    var goal = f.goal(root, Collections.singletonMap(SPIRIT, null));
+    var kernel = f.kernel(root, goal);
+    var action =
+        new AutomaticCraftingAction(
+            WorkbenchCurrency.CHAOS, Set.of(), AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION);
+    var candidates = kernel.plan(root, action).branches().getFirst().candidates();
+    var weights =
+        candidates.stream()
+            .filter(m -> m.stats().stream().anyMatch(s -> s.id().equals(SPIRIT)))
+            .map(ModifierDefinition::weight)
+            .toList();
+    assertThat(weights).containsExactlyInAnyOrder(500, 500, 500, 500, 400);
+    var total = candidates.stream().mapToLong(ModifierDefinition::weight).sum();
+    var evaluate = f.evaluation(root, goal);
+    assertThat(evaluate.apply(root).goal()).isNotEqualTo(GoalFilter.Status.MATCH);
+    var result = kernel.expand(root, action, 20000);
+    assertThat(result.status()).isEqualTo(AutomaticCraftingKernel.Status.COMPLETE);
+    var success =
+        result.outcomes().stream()
+            .filter(o -> evaluate.apply(o.item()).goal() == GoalFilter.Status.MATCH)
+            .map(AutomaticCraftingKernel.Outcome::probability)
+            .reduce(Fraction.ZERO, Fraction::add);
+    assertThat(success).isEqualTo(Fraction.of(2400, total));
   }
 
   @Test
