@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "policyVersion": "approved-187-2026-11-18-first-chaos-v11",
+  "policyVersion": "approved-187-2026-11-19-lossless-chaos-v12",
   "sourceRef": "src2795",
   "sourceModifiedAt": "2026-10-15T08:05:34.858Z",
   "maximumExploredExplicits": 6,

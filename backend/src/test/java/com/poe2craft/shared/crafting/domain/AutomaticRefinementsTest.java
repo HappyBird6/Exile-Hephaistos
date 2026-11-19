@@ -37,8 +37,8 @@ import org.junit.jupiter.api.Test;
  *       결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code chaosFirstHitWithin100IncludesEveryFailureAndRestores()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
  *       기대값과 비교한다.
- *   <li>{@code routeStrategyUsesTheSameFinite100ChaosProbabilityWithoutAnUnlimitedRetryLoop()}: 이름에
- *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code losslessSessionChaosReachesTheFirstAffixWithItsGeometricMean()}: 이름에 명시한 시나리오의 실제
+ *       결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code changingChaosFailuresUseTheirOwnLawFor100Attempts()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
  *       기대값과 비교한다.
  *   <li>{@code incomparablePrefixAndSuffixGoalsKeepBothOmenRoutesAndOrdinaryLaw()}: 이름에 명시한 시나리오의
@@ -122,7 +122,7 @@ class AutomaticRefinementsTest {
   }
 
   @Test
-  void routeStrategyUsesTheSameFinite100ChaosProbabilityWithoutAnUnlimitedRetryLoop() {
+  void losslessSessionChaosReachesTheFirstAffixWithItsGeometricMean() {
     var root = tiny.item(ItemState.Rarity.RARE, List.of(tiny.mod("b", 3)));
     java.util.function.Function<ItemState, AutomaticMethodGraph.Progress> evaluate =
         item -> {
@@ -148,11 +148,27 @@ class AutomaticRefinementsTest {
             5000)) {
       for (int i = 0; i < 30000 && !graph.finished() && !graph.resourceLimited(); i++) graph.step();
       assertThat(graph.finished()).isTrue();
-      var expected = Fraction.of(7, 8).pow(100).complement();
+
       var strategy = graph.strategy(100);
       for (int i = 0; i < 16; i++) strategy.refine();
-      assertThat(strategy.result(0).value().contains(expected)).isTrue();
-      assertThat(strategy.result(0).value().contains(Fraction.ONE)).isFalse();
+      assertThat(strategy.result(0).value().lower()).isEqualTo(Fraction.ONE);
+      var chaos =
+          graph.methods().stream()
+              .filter(
+                  m ->
+                      m.source() == 0
+                          && m.template().boundedChaos()
+                          && m.template().initial().isEmpty())
+              .findFirst()
+              .orElseThrow();
+      var point = chaos.points().get(100);
+      assertThat(point.active()).isEmpty();
+      assertThat(
+              point
+                  .cycleUses()
+                  .get(chaos.template().cycle().getFirst())
+                  .contains(Fraction.of(8, 1)))
+          .isTrue();
     }
   }
 

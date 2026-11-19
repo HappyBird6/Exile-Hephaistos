@@ -14,7 +14,7 @@ import { useId, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { WorkbenchResource } from '../stash/stashTypes'
 import type { Film } from '../workbenchHistory'
-import { sessionNotationMessages } from './messages'
+import { sessionNotationMessages, workLabel } from './messages'
 import { historyMessages } from '../session-history/messages'
 import { localHistoryUrl } from '../session-history/transfer'
 import { extractSessionNotation } from './extractSessionNotation'
@@ -134,11 +134,13 @@ export function SessionNotation({
               new Intl.NumberFormat(locale).format(step.uses),
             )
             const label = `${text.step} ${step.number}${
-              step.kind === 'reveal'
-                ? ` · ${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
-                : step.repeated
-                  ? ` · ${name(step.currencyId, registry.get(step.currencyId)?.name ?? text.unknownCurrency)} · ${uses}`
-                  : ''
+              step.work
+                ? ' · ' + workLabel(step.work, locale)
+                : step.kind === 'reveal'
+                  ? ` · ${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
+                  : step.repeated
+                    ? ` · ${name(step.currencyId, registry.get(step.currencyId)?.name ?? text.unknownCurrency)} · ${uses}`
+                    : ''
             }`
             const content = (
               <NotationResources
@@ -211,6 +213,13 @@ export function NotationResources({
   const { locale } = useI18n()
   const text = sessionNotationMessages[locale]
   const registry = new Map(resources.map((r) => [r.id, r]))
+  if (step.work)
+    return (
+      <>
+        <span className="wb-session-notation__number">{step.number}.</span>
+        <span>{workLabel(step.work, locale)}</span>
+      </>
+    )
   const uses = text.repeatUses(new Intl.NumberFormat(locale).format(step.uses))
   return (
     <>
@@ -247,6 +256,15 @@ export function NotationResources({
             aria-label={customExaltMessages[locale].chance}
           >
             {chanceText(step.customExalt.probability, locale)}
+          </span>
+        )}
+        {step.expectedUses && (
+          <span className="wb-session-notation__uses">
+            {text.expectedUses(
+              step.expectedUses.toLocaleString(locale, {
+                maximumFractionDigits: 2,
+              }),
+            )}
           </span>
         )}
         {step.maxUses && (

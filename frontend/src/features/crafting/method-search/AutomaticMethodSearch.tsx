@@ -32,7 +32,7 @@ import { sumBounds } from './outcomeGrouping'
 import { guideMessages } from './guideMessages'
 import { removesModifier } from './methodRisk'
 import { RankedCraftingSessions } from './RankedCraftingSessions'
-import { isRepeatable, methodPoint } from './methodObservation'
+import { chaosMeanLabel, isRepeatable, methodPoint } from './methodObservation'
 import { outcomeMessages } from './outcomeMessages'
 import { CalculationStatus, CalculationControlLabel } from './CalculationStatus'
 import { calculationState } from './calculationState'
@@ -839,6 +839,7 @@ function Run({
                     action={action}
                     render={(m, methodIndex) => {
                       const point = methodPoint(m, cycles)
+                      const mean = chaosMeanLabel(point, locale)
                       const local = recommendations?.local.includes(m.id),
                         final =
                           view.complete &&
@@ -857,17 +858,18 @@ function Run({
                                 .join(' → ')}
                             </strong>
                             <span>
-                              {isRepeatable(m)
-                                ? (m.initial.length
-                                    ? m.initial.map(action).join(' → ') +
-                                      ' · ' +
-                                      m.cycle.map(action).join(' → ') +
-                                      ': '
-                                    : '') +
-                                  guide.within.replace('{n}', String(cycles))
-                                : m.executionMode === 'PENDING'
-                                  ? outcomeMessages[locale].pending
-                                  : ''}
+                              {mean ??
+                                (isRepeatable(m)
+                                  ? (m.initial.length
+                                      ? m.initial.map(action).join(' → ') +
+                                        ' · ' +
+                                        m.cycle.map(action).join(' → ') +
+                                        ': '
+                                      : '') +
+                                    guide.within.replace('{n}', String(cycles))
+                                  : m.executionMode === 'PENDING'
+                                    ? outcomeMessages[locale].pending
+                                    : '')}
                             </span>
                             {point && (
                               <span className="craft-chance">
@@ -919,7 +921,7 @@ function Run({
                                 <a href="#crafting-policy">{guide.scope}</a>
                               </p>
                             )}
-                            {isRepeatable(m) && (
+                            {!mean && isRepeatable(m) && (
                               <label>
                                 {copy.cycles}
                                 <select

@@ -1,4 +1,8 @@
-import { useQuery } from '@tanstack/react-query'
+import type { Film } from '../workbenchHistory'
+import { SessionOverviewPage } from '../session-history/SessionOverviewPage'
+import { CurrencyPriceContext } from '../currency-prices/context'
+import { useCurrencyPrices } from '../currency-prices/useCurrencyPrices'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { historyMessages } from '../session-history/messages'
 import { SessionOverviewLayout } from '../session-history/SessionOverviewLayout'
@@ -10,19 +14,43 @@ import { usePlanAction } from './usePlanAction'
 
 export function PlanOverviewPage({ id }: { id: string }) {
   const { locale } = useI18n()
+  const market = useCurrencyPrices()
   const action = usePlanAction()
   const params = new URLSearchParams(location.search)
   const identity = params.get('rules') ?? ''
   const text = historyMessages[locale]
+  const film = useQueryClient().getQueryData<Film>([
+    'plan-film',
+    location.pathname + location.search,
+  ])
   const query = useQuery({
     queryKey: ['plan-overview', id, identity],
     retry: false,
+    enabled: !film,
     queryFn: ({ signal }) => automaticApi.get(id, identity, signal),
   })
   const view = query.data
   const cycles = Number(params.get('cycles')) || 100
   const plan =
     view && rankedPlans(view, cycles).find((p) => p.id === params.get('plan'))
+  if (film)
+    return (
+      <SessionOverviewPage
+        id={id}
+        source={{
+          film,
+          title: film.title ?? text.title,
+          backHref:
+            '/?' +
+            new URLSearchParams({
+              workbench: 'support',
+              job: id,
+              plan: params.get('plan') ?? '',
+            }),
+          backLabel: text.home,
+        }}
+      />
+    )
   if (!view || !plan)
     return (
       <SessionOverviewLayout
@@ -55,18 +83,20 @@ export function PlanOverviewPage({ id }: { id: string }) {
     /* Links with missing outcome data still show the starting item. */
   }
   return (
-    <SessionSteps
-      overview
-      plan={plan}
-      action={action}
-      view={view}
-      identity={identity}
-      allowStart={false}
-      cycles={cycles}
-      route={route}
-      terminal={terminal}
-      setTerminal={() => {}}
-      onRoute={() => {}}
-    />
+    <CurrencyPriceContext.Provider value={market}>
+      <SessionSteps
+        overview
+        plan={plan}
+        action={action}
+        view={view}
+        identity={identity}
+        allowStart={false}
+        cycles={cycles}
+        route={route}
+        terminal={terminal}
+        setTerminal={() => {}}
+        onRoute={() => {}}
+      />
+    </CurrencyPriceContext.Provider>
   )
 }

@@ -11,7 +11,7 @@ import java.util.*;
  * <p>필드·상수:
  *
  * <ul>
- *   <li>{@code VERSION}: 버전; 초기값 {@code "approved-187-2026-11-18-first-chaos-v11"} ({@code
+ *   <li>{@code VERSION}: 버전; 초기값 {@code "approved-187-2026-11-19-lossless-chaos-v12"} ({@code
  *       String}).
  *   <li>{@code MAXIMUM_EXPLORED_EXPLICITS}: 명시옵션목록; 초기값 {@code 6} ({@code int}).
  *   <li>{@code MANUAL_CURRENCY_POLICY_IDS}: 식별자목록 ({@code Map<String, String>}).
@@ -47,7 +47,7 @@ import java.util.*;
  * </ul>
  */
 public final class AutomaticCurrencyPolicy {
-  public static final String VERSION = "approved-187-2026-11-18-first-chaos-v11";
+  public static final String VERSION = "approved-187-2026-11-19-lossless-chaos-v12";
   public static final int MAXIMUM_EXPLORED_EXPLICITS = 6;
   // The frozen 187-entry policy already excludes these as supplementary resources.
   // Their new manual enum names must not expand the approved automatic search inventory.

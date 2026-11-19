@@ -127,6 +127,15 @@ export function validateJointGraph(
             !object(c) ||
             (c.preparationOnly !== undefined &&
               typeof c.preparationOnly !== 'boolean') ||
+            (c.intermediate !== undefined &&
+              (!Array.isArray(c.intermediate) ||
+                c.intermediate.length >
+                  method.initial.length + method.cycle.length - 1)) ||
+            (c.expectedChaos !== undefined &&
+              (!/^\d+$/.test(c.expectedChaos.numerator) ||
+                !/^[1-9]\d*$/.test(c.expectedChaos.denominator) ||
+                BigInt(c.expectedChaos.numerator) <
+                  BigInt(c.expectedChaos.denominator))) ||
             !Array.isArray(c.local) ||
             c.local.length > 6 ||
             !Array.isArray(c.retainedFromSource) ||
@@ -139,6 +148,14 @@ export function validateJointGraph(
             )
           )
             throw new Error('Invalid conditional source projection')
+          for (const intermediate of c.intermediate ?? []) {
+            assertShape('item', intermediate)
+            if (
+              intermediate.baseItemId !== source.item.baseItemId ||
+              intermediate.itemLevel !== source.item.itemLevel
+            )
+              throw new Error('Invalid intermediate item')
+          }
           const item = { ...source.item, explicits: c.local }
           assertShape('item', item)
           validateTierLaws({ ...source, item, tiers: c.tiers })

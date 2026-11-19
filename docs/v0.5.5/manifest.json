@@ -1700,7 +1700,7 @@
     },
     {
       "path": "game-data/crafting/automatic-currency-policy-v1.json",
-      "sha256": "a9f170c5f178f79a68e47a3099a93f7d0b1129d94f1d6e892f67838b2ce63783"
+      "sha256": "91ad1efdeb550dc975590b104b848a3d5dbe733958c61ad3abab283d4718c3c8"
     },
     {
       "path": "game-data/crafting/essences/targets.json",
@@ -1776,7 +1776,7 @@
     },
     {
       "path": "game-data/crafting/ruleset-v1.json",
-      "sha256": "15d6f566ea362f395973e3648788b56386b160b679221622994d7cc9e3e2ac31"
+      "sha256": "05e147995bbc5af265eacf2deaa18a26f9da5a1e582f3a48b48647da1f57b8ad"
     },
     {
       "path": "game-data/crafting/supported-base-sets-v1.json",
@@ -2750,7 +2750,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/automatic-currency-policy-v1.json",
-      "sha256": "667adc24ea9ad3208ec4bac5c469f530210eb435b72c1be0458cb20f484c5662"
+      "sha256": "ebdacee97fd0d5649b884ff1f941f25bc310520bd4ac187dd3090fb3558be3a4"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/goalfilter/base-inventory-v5-readonly.json",
@@ -2794,7 +2794,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/ruleset-v1.json",
-      "sha256": "15d6f566ea362f395973e3648788b56386b160b679221622994d7cc9e3e2ac31"
+      "sha256": "05e147995bbc5af265eacf2deaa18a26f9da5a1e582f3a48b48647da1f57b8ad"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/supported-base-sets-v1.json",

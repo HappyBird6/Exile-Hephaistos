@@ -620,6 +620,16 @@ function ReadyCraftingPage({
     abyssBusy ||
     imported.pending ||
     editPending
+  const focusImportedSession = useRef(false)
+  useLayoutEffect(() => {
+    if (!focusImportedSession.current || view !== 'workbench' || workbenchBusy)
+      return
+    focusImportedSession.current = false
+    document
+      .getElementById('workbench-panel-simulation')
+      ?.focus({ preventScroll: true })
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [view, workbenchBusy])
   useLayoutEffect(() => {
     const revision = augmentFocusRevision.current
     if (revision === null || workbenchBusy) return
@@ -866,6 +876,7 @@ function ReadyCraftingPage({
         next.cursor = session.frames.length - 1
       }
       if (await commitLibraryHistory(next)) {
+        focusImportedSession.current = !!plannedFilm
         setView('workbench')
         setObservedPreview(null)
         setSelected(null)
@@ -2226,6 +2237,7 @@ function ReadyCraftingPage({
       <div
         className="workbench-layout workspace-panel"
         id="workbench-panel-simulation"
+        tabIndex={-1}
         role="tabpanel"
         aria-labelledby="workspace-workbench"
         hidden={view !== 'workbench'}

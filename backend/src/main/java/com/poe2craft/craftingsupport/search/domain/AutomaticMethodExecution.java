@@ -166,13 +166,15 @@ public final class AutomaticMethodExecution implements AutoCloseable {
    * <ul>
    *   <li>{@code UNDECIDED}: UNDECIDED 구분값.
    *   <li>{@code STOP_ON_FIRST_HIT}: 목표도달 구분값.
-   *   <li>{@code REQUIRE_REPLACEMENT}: 교체 구분값.
+   *   <li>{@code REQUIRE_REPLACEMENT}: 준비 단계의 우연한 적중을 생략하고 교체한다.
+   *   <li>{@code REPEAT_UNTIL_FIRST_AFFIX}: 제작지원 세션에서 준비 후 첫 목표 옵션까지 손실 없는 카오스를 반복한다.
    * </ul>
    */
   public enum PreparationSuccess {
     UNDECIDED,
     STOP_ON_FIRST_HIT,
-    REQUIRE_REPLACEMENT
+    REQUIRE_REPLACEMENT,
+    REPEAT_UNTIL_FIRST_AFFIX
   }
 
   /**
@@ -186,6 +188,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
    *   <li>{@code quality40}: 품질·40 ({@code boolean}).
    *   <li>{@code abstractQuality}: 추상화된·품질 ({@code int}).
    *   <li>{@code tiers}: 티어목록 ({@code Map<String, TierCell>}).
+   *   <li>{@code intermediate}: 재료별 상태를 복원하기 위한 실제 중간 아이템 목록이다. 동일한 확률 상태에는 하나의 예시만 보존한다.
+   *   <li>{@code expectedChaos}: 첫 적중까지 카오스를 쓰는 결과의 조건부 평균 소모량이다.
    *   <li>{@code retainedFromRoot}: 보유·원본·시작점 ({@code Set<String>}).
    * </ul>
    *
@@ -215,8 +219,59 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       boolean quality40,
       int abstractQuality,
       Map<String, TierCell> tiers,
-      Set<String> retainedFromRoot) {
+      Set<String> retainedFromRoot,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
+          List<ItemState> intermediate,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL)
+          Fraction expectedChaos) {
+    public State(
+        ItemState item,
+        boolean temporaryPreparation,
+        boolean quality40,
+        int abstractQuality,
+        Map<String, TierCell> tiers,
+        Set<String> retainedFromRoot) {
+      this(
+          item,
+          temporaryPreparation,
+          quality40,
+          abstractQuality,
+          tiers,
+          retainedFromRoot,
+          List.of(),
+          null);
+    }
+
+    // 같은 확률 상태에는 실제로 관측한 중간 경로 하나만 보존한다.
+    @Override
+    public boolean equals(Object other) {
+      return this == other
+          || other instanceof State s
+              && temporaryPreparation == s.temporaryPreparation
+              && quality40 == s.quality40
+              && abstractQuality == s.abstractQuality
+              && item.equals(s.item)
+              && tiers.equals(s.tiers)
+              && retainedFromRoot.equals(s.retainedFromRoot)
+              && Objects.equals(expectedChaos, s.expectedChaos);
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hash(
+          item,
+          temporaryPreparation,
+          quality40,
+          abstractQuality,
+          tiers,
+          retainedFromRoot,
+          expectedChaos);
+    }
+
     public State {
+      intermediate = intermediate == null ? List.of() : List.copyOf(intermediate);
       tiers = tiers == null ? Map.of() : Map.copyOf(tiers);
       retainedFromRoot = retainedFromRoot == null ? Set.of() : Set.copyOf(retainedFromRoot);
       if (abstractQuality < 0 || abstractQuality > 40)
@@ -273,6 +328,16 @@ public final class AutomaticMethodExecution implements AutoCloseable {
           && cycle.getFirst().currency() == WorkbenchCurrency.CHAOS
           && cycle.getFirst().omens().isEmpty()
           && cycle.getFirst().purpose() == AutomaticCurrencyPolicy.Purpose.GOAL_ACQUISITION;
+    }
+
+    /** 일반 장비에서 첫 카오스의 단일 교체 슬롯을 만드는 고정 준비 순서다. */
+    boolean preparesNormalChaos() {
+      return boundedChaos()
+          && initial.size() == 3
+          && initial.get(0).currency() == WorkbenchCurrency.TRANSMUTATION
+          && initial.get(1).currency() == WorkbenchCurrency.REGAL
+          && initial.get(2).currency() == WorkbenchCurrency.ANNULMENT
+          && initial.stream().allMatch(a -> a.omens().isEmpty());
     }
 
     public Template {
@@ -580,7 +645,45 @@ public final class AutomaticMethodExecution implements AutoCloseable {
     var outcomes = new LinkedHashMap<State, Fraction>();
     var terminalRepresentatives = new EnumMap<Exit, State>(Exit.class);
     var unresolved = law.unresolved().add(law.boundary());
+    var trace = state.intermediate();
+    if (!template.initial().isEmpty()
+        && !state.item().equals(root)
+        && (!action.equals(template.cycle().getFirst()) || state.temporaryPreparation())) {
+      var path = new ArrayList<>(trace);
+      path.add(state.item());
+      trace = List.copyOf(path);
+    }
+    // 이 세 준비 작업의 옵션은 모두 더미다. 최종 한 슬롯은 첫 카오스에서 완전히
+    // 교체되므로 실제 작업대 분포에서 대표 이력을 고르고 동일한 후속 분포를 한 번만 계산한다.
+    if (root.rarity() == ItemState.Rarity.NORMAL
+        && root.explicits().isEmpty()
+        && root.catalystQuality() == null
+        && template.preparesNormalChaos()
+        && template.initial().contains(action)
+        && unresolved.equals(Fraction.ZERO)
+        && !law.outcomes().isEmpty()) {
+      var example =
+          law.outcomes().stream()
+              .filter(o -> classify.apply(o.item(), state.abstractQuality()).isEmpty())
+              .findFirst()
+              .orElse(law.outcomes().getFirst());
+      var next =
+          new State(
+              example.item(),
+              true,
+              state.quality40(),
+              state.abstractQuality(),
+              example.tiers(),
+              retained(state, example),
+              trace,
+              null);
+      return new Kernel<>(List.of(new Outcome<>(next, Fraction.ONE)), Fraction.ZERO, false);
+    }
+    var hit = losslessChaosHit(state, action, law);
+    var expectation = hit == null ? null : Fraction.ONE.divide(hit);
     for (var outcome : law.outcomes()) {
+      if (hit != null && classify.apply(outcome.item(), state.abstractQuality()).isEmpty())
+        continue;
       if (!completedQuality(state)
           && AutomaticCraftingKernel.hasQualityCap(state.item())
           && !AutomaticCraftingKernel.hasQualityCap(outcome.item())) {
@@ -612,7 +715,8 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                 action.purpose() == AutomaticCurrencyPolicy.Purpose.TEMPORARY_AFFIX_FOR_REMOVAL
                     || action.purpose() == AutomaticCurrencyPolicy.Purpose.TARGET_PREPARATION
                     || (template.initial().contains(action)
-                        && (action.purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE
+                        && (template.boundedChaos()
+                            || action.purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE
                             || action.currency() == WorkbenchCurrency.ANNULMENT)),
                 state.quality40()
                     || action.purpose() == AutomaticCurrencyPolicy.Purpose.QUALITY_CHECKPOINT,
@@ -624,7 +728,9 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                 stationaryRetry || !preparedRepresentative(outcome.item()).equals(outcome.item())
                     ? initialTiers
                     : outcome.tiers(),
-                retained(state, outcome));
+                retained(state, outcome),
+                trace,
+                expectation);
         if (preparationSuccess == PreparationSuccess.STOP_ON_FIRST_HIT
             && preparedRetryAnchor != null) {
           var terminal = classifyState(next).orElse(null);
@@ -649,9 +755,14 @@ public final class AutomaticMethodExecution implements AutoCloseable {
                     next.quality40(),
                     next.abstractQuality(),
                     next.tiers(),
-                    next.retainedFromRoot());
+                    next.retainedFromRoot(),
+                    next.intermediate(),
+                    next.expectedChaos());
         }
-        outcomes.merge(next, outcome.probability(), Fraction::add);
+        outcomes.merge(
+            next,
+            hit == null ? outcome.probability() : outcome.probability().divide(hit),
+            Fraction::add);
       }
     }
     var result =
@@ -667,6 +778,30 @@ public final class AutomaticMethodExecution implements AutoCloseable {
       preparedTransition = result;
     }
     return result;
+  }
+
+  /** 단일 변경 옵션을 모두 제거하는 동일 풀에서 실패 시 손실 없이 재시도할 수 있는지 확인해 1회 적중 확률을 구한다. */
+  private Fraction losslessChaosHit(
+      State state, AutomaticCraftingAction action, AutomaticCraftingKernel.Result law) {
+    if (preparationSuccess != PreparationSuccess.REPEAT_UNTIL_FIRST_AFFIX
+        || !template.boundedChaos()
+        || action.currency() != WorkbenchCurrency.CHAOS
+        || !law.unresolved().equals(Fraction.ZERO)
+        || !law.boundary().equals(Fraction.ZERO)
+        || !state.item().desecrated().isEmpty()
+        || state.item().catalystQuality() != null
+        || AutomaticCraftingKernel.mutableAffixCount(state.item()) != 1) return null;
+    Fraction hit = Fraction.ZERO;
+    for (var outcome : law.outcomes()) {
+      var exit = classify.apply(outcome.item(), state.abstractQuality()).orElse(null);
+      if (exit == Exit.GOAL || exit == Exit.CHECKPOINT) hit = hit.add(outcome.probability());
+      else if (exit != null
+          || AutomaticCraftingKernel.mutableAffixCount(outcome.item()) != 1
+          || !AutomaticCraftingKernel.sameFractures(state.item(), outcome.item())
+          || outcome.item().catalystQuality() != null
+          || AutomaticCraftingKernel.hasQualityCap(outcome.item())) return null;
+    }
+    return hit.equals(Fraction.ZERO) ? null : hit;
   }
 
   private Set<String> retained(State source, AutomaticCraftingKernel.Outcome outcome) {
@@ -720,6 +855,11 @@ public final class AutomaticMethodExecution implements AutoCloseable {
 
   private Optional<Exit> classifyState(State state) {
     var exit = classify.apply(state.item(), state.abstractQuality());
+    if (state.temporaryPreparation()
+        && (preparationSuccess == PreparationSuccess.REPEAT_UNTIL_FIRST_AFFIX
+            || preparationSuccess == PreparationSuccess.REQUIRE_REPLACEMENT)
+        && (exit.orElse(null) == Exit.CHECKPOINT || exit.orElse(null) == Exit.GOAL))
+      return Optional.empty();
     if (state.abstractQuality() > initialAbstractQuality && exit.isEmpty())
       return Optional.of(Exit.CHECKPOINT);
     // Retry an eligible unsuccessful Chaos from its actual next state. Losing an already
@@ -1001,14 +1141,37 @@ public final class AutomaticMethodExecution implements AutoCloseable {
   }
 
   public CertifiedMethodRunner.Observation<State, AutomaticCraftingAction> observation() {
-    return runner.observation();
+    return withExpectedUses(runner.observation());
+  }
+
+  /** 첫 적중까지 반복한 경우, 한 번으로 축약한 전이에 누락된 기대 소모량을 복원한다. */
+  private CertifiedMethodRunner.Observation<State, AutomaticCraftingAction> withExpectedUses(
+      CertifiedMethodRunner.Observation<State, AutomaticCraftingAction> point) {
+    if (!template.boundedChaos()) return point;
+    var extra = CertifiedInterval.zero(precision.fractionalBits());
+    for (var law : point.exits().values())
+      for (var row : law.entrySet()) {
+        var mean = row.getKey().expectedChaos();
+        if (mean == null) continue;
+        var afterFirst =
+            new Fraction(mean.numerator().subtract(mean.denominator()), mean.denominator());
+        extra =
+            extra.add(
+                row.getValue()
+                    .multiply(CertifiedInterval.enclose(afterFirst, precision.fractionalBits())));
+      }
+    if (extra.zero()) return point;
+    var uses = new LinkedHashMap<>(point.cycleUses());
+    uses.merge(template.cycle().getFirst(), extra, CertifiedInterval::add);
+    return new CertifiedMethodRunner.Observation<>(
+        point.cycles(), point.exits(), point.active(), point.initialUses(), uses, point.mass());
   }
 
   public CertifiedMethodRunner.Observation<State, AutomaticCraftingAction> provisional(
       int horizon) {
     if (runner.atBoundary() && runner.absorbed())
-      return runner.observation().atLaterAbsorbedBoundary(horizon);
-    if (runner.atBoundary() && runner.cycles() == horizon) return runner.observation();
+      return observation().atLaterAbsorbedBoundary(horizon);
+    if (runner.atBoundary() && runner.cycles() == horizon) return observation();
     var point =
         runner.provisional(
             horizon,

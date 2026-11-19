@@ -43,6 +43,7 @@ export type CraftEvidence = Pick<
 export type PlannedCurrency = {
   currencyId: string
   omenIds: string[]
+  expectedUses?: number
   maxUses?: number
 }
 export function validProjectedCurrencies(
@@ -61,6 +62,10 @@ export function validProjectedCurrencies(
         step.omenIds.every(
           (id: unknown) => typeof id === 'string' && id.length <= 160,
         ) &&
+        (step.expectedUses === undefined ||
+          (Number.isFinite(step.expectedUses) &&
+            step.expectedUses >= 1 &&
+            step.maxUses === undefined)) &&
         (step.maxUses === undefined ||
           (Number.isInteger(step.maxUses) &&
             step.maxUses >= 1 &&

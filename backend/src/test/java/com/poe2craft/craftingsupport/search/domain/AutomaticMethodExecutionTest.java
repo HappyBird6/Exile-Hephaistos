@@ -163,6 +163,31 @@ class AutomaticMethodExecutionTest {
         while (!run.atBoundary()) run.step(100);
       }
     }
+    // 제작지원에서는 더미 엑잘이 목표를 뽑아도 준비 단계에서 성공으로 세지 않는다.
+    try (var run =
+        new AutomaticMethodExecution(
+            empty,
+            new AutomaticMethodExecution.Template("session-chaos", List.of(prep), List.of(chaos)),
+            kernel,
+            classify,
+            CertifiedInterval.Precision.standard(),
+            100,
+            AutomaticMethodExecution.PreparationSuccess.REPEAT_UNTIL_FIRST_AFFIX)) {
+      while (!run.atBoundary()) run.step(100);
+      assertThat(run.observation().exits().get(Exit.GOAL)).isEmpty();
+      run.beginCycle();
+      while (!run.atBoundary()) run.step(100);
+      var point = run.observation();
+      assertThat(point.active()).isEmpty();
+      assertThat(point.cycleUses().get(chaos).lower()).isEqualTo(Fraction.of(4, 1));
+      assertThat(point.initialUses().get(prep).lower()).isEqualTo(Fraction.ONE);
+      assertThat(point.exits().get(Exit.GOAL).keySet())
+          .allSatisfy(state -> assertThat(state.intermediate()).hasSize(1));
+      try (var restored =
+          AutomaticMethodExecution.restore(run.checkpoint("a"), kernel, "a", classify)) {
+        assertThat(restored.observation()).isEqualTo(point);
+      }
+    }
   }
 
   @Test

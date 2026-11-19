@@ -6,14 +6,14 @@ import { planOmenId } from './usePlanAction'
 import { isRepeatable } from './methodObservation'
 
 // A compound method supplies one observed outcome, even when it uses several currencies.
-export function projectedFrame(
+export function projectedFrames(
   previous: ConcreteItem,
   current: AutomaticArrow,
   outcome: AutomaticArrow['points'][number]['outcomes'][number],
   result: AutomaticNode,
   cycles: number,
   identity: string,
-): Frame | null {
+): Frame[] | null {
   const cases = outcome.conditional?.filter(
     (c) =>
       BigInt(c.probability.upper.numerator) > 0n &&
@@ -30,12 +30,26 @@ export function projectedFrame(
   if (outcome.conditional?.length && !member) {
     return null
   }
-  let projectedWork: Frame['projectedWork']
-  const projectedCurrencies: PlannedCurrency[] = []
+  const explicits = member
+    ? [
+        ...previous.explicits.filter((m) =>
+          member.retainedFromSource.includes(m.modifierId),
+        ),
+        ...member.local,
+      ]
+    : result.item.explicits
+  const finalState = { ...result.item, explicits } as ConcreteItem
+  const intermediate = member?.intermediate ?? []
+  const actions = [...current.initial, ...current.cycle]
   const used = member?.preparationOnly
-    ? current.initial
-    : [...current.initial, ...current.cycle]
-  for (const craft of used) {
+    ? current.initial.slice(0, intermediate.length + 1)
+    : actions
+  // Historical jobs can lack intermediate witnesses. Keep their original grouped record.
+  const witnessed = intermediate.length + 1 === used.length
+  const frames: Frame[] = []
+  for (const [index, craft] of used.entries()) {
+    let projectedWork: Frame['projectedWork']
+    const projectedCurrencies: PlannedCurrency[] = []
     if (craft.operation === 'DESECRATE')
       projectedWork =
         craft.side === 'PREFIX' ? 'DESECRATE_PREFIX' : 'DESECRATE_SUFFIX'
@@ -47,24 +61,38 @@ export function projectedFrame(
       projectedCurrencies.push({
         currencyId: id,
         omenIds: craft.omens.map(planOmenId),
-        ...(isRepeatable(current) && current.cycle.includes(craft)
-          ? { maxUses: cycles }
-          : {}),
+        ...(member?.expectedChaos && craft.currency === 'CHAOS'
+          ? {
+              expectedUses:
+                Number(member.expectedChaos.numerator) /
+                Number(member.expectedChaos.denominator),
+            }
+          : isRepeatable(current) && current.cycle.includes(craft)
+            ? { maxUses: cycles }
+            : {}),
+      })
+    const witness = witnessed ? intermediate[index] : undefined
+    const state = witness
+      ? ({
+          ...witness,
+          explicits: witness.explicits.map(
+            (m) =>
+              previous.explicits.find((p) => p.modifierId === m.modifierId) ??
+              m,
+          ),
+        } as ConcreteItem)
+      : finalState
+    if (!witnessed && frames.length) {
+      frames[0]!.projectedCurrencies!.push(...projectedCurrencies)
+      if (projectedWork) frames[0]!.projectedWork = projectedWork
+    } else
+      frames.push({
+        state,
+        action: 'SESSION_PLAN',
+        rulesetIdentity: identity,
+        projectedCurrencies,
+        ...(projectedWork ? { projectedWork } : {}),
       })
   }
-  const explicits = member
-    ? [
-        ...previous.explicits.filter((m) =>
-          member.retainedFromSource.includes(m.modifierId),
-        ),
-        ...member.local,
-      ]
-    : result.item.explicits
-  return {
-    state: { ...result.item, explicits } as ConcreteItem,
-    action: 'SESSION_PLAN',
-    rulesetIdentity: identity,
-    projectedCurrencies,
-    ...(projectedWork ? { projectedWork } : {}),
-  }
+  return frames
 }

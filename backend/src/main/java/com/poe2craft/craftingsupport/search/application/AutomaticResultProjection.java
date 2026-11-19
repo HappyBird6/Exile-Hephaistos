@@ -143,6 +143,10 @@ final class AutomaticResultProjection {
                         Map.copyOf(rolls),
                         state.retainedFromRoot(),
                         state.temporaryPreparation() && !method.template().initial().isEmpty(),
+                        state.intermediate(),
+                        state.expectedChaos() == null
+                            ? null
+                            : PathSearchProtocol.Probability.of(state.expectedChaos()),
                         probability.apply(mass.probability())));
           }
         }

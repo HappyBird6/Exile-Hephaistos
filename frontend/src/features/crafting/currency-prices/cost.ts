@@ -36,11 +36,12 @@ export function craftingCost(
   let hasCosts = false
   let unknownRepeatCount = false
   for (const step of notation.steps) {
-    if (step.frameIndex > cursor || step.kind === 'reveal') continue
+    if (step.frameIndex > cursor || step.kind === 'reveal' || step.work)
+      continue
     hasCosts = true
     unknownRepeatCount ||= step.maxUses !== undefined
     const consumed = [
-      [step.currencyId, step.uses] as const,
+      [step.currencyId, step.expectedUses ?? step.uses] as const,
       ...step.consumedOmenIds.map((id) => [id, 1] as const),
     ]
     for (const [id, count] of consumed) {

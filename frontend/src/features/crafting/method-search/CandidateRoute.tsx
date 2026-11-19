@@ -1,6 +1,6 @@
 import { operationGroups, operationKind } from './operationGrouping'
 import { operationMessages } from './operationMessages'
-import { isRepeatable, methodPoint } from './methodObservation'
+import { chaosMeanLabel, isRepeatable, methodPoint } from './methodObservation'
 import { guideMessages } from './guideMessages'
 import { removesModifier } from './methodRisk'
 import { probabilityText } from './probabilityPresentation'
@@ -112,14 +112,15 @@ export function CandidateRoute({
               </strong>
               <p className="craft-chance">
                 <span>
-                  {isRepeatable(m)
-                    ? (m.initial.length
-                        ? m.initial.map(action).join(' → ') +
-                          ' · ' +
-                          m.cycle.map(action).join(' → ') +
-                          ': '
-                        : '') + guide.within.replace('{n}', String(cycles))
-                    : ''}
+                  {chaosMeanLabel(methodPoint(m, cycles), locale) ??
+                    (isRepeatable(m)
+                      ? (m.initial.length
+                          ? m.initial.map(action).join(' → ') +
+                            ' · ' +
+                            m.cycle.map(action).join(' → ') +
+                            ': '
+                          : '') + guide.within.replace('{n}', String(cycles))
+                      : '')}
                 </span>
                 {isRepeatable(m) && ' · '}
                 {guide.chance}:{' '}

@@ -105,6 +105,7 @@ it('ranks equal-looking percentages by exact mass and opens the completed film w
     candidates: [
       policy('a', '50000000000000000000', 'm2'),
       policy('z', '50000000000000000001', 'm1'),
+      policy('duplicate-route', '40000000000000000000', 'm1'),
     ],
   }
   const open = vi.fn().mockResolvedValue(true),
@@ -135,8 +136,8 @@ it('ranks equal-looking percentages by exact mass and opens the completed film w
     .getAllByRole('button')
     .filter((b) => b.hasAttribute('aria-pressed'))
   expect(buttons).toHaveLength(2)
-  expect(buttons[0]).toHaveAccessibleName(/REGAL.*CHAOS ×1–100.*50.00%/)
-  expect(buttons[1]).toHaveAccessibleName(/EXALTED.*50.00%/)
+  expect(buttons[0]).toHaveAccessibleName(/1\. .*ex · 50.00%/)
+  expect(buttons[1]).toHaveAccessibleName(/2\. .*ex · 50.00%/)
   expect(screen.getAllByRole('combobox')).toHaveLength(2)
   fireEvent.click(buttons[0]!)
   expect(screen.getAllByRole('combobox')).toHaveLength(2)

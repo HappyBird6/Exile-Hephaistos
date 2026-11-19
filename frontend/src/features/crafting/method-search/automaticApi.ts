@@ -93,6 +93,8 @@ export type AutomaticArrow = {
       probability: Bounds
       conditional?: {
         preparationOnly?: boolean
+        intermediate?: Item[]
+        expectedChaos?: { numerator: string; denominator: string }
         local: Item['explicits']
         tiers: NonNullable<AutomaticNode['tiers']>
         rolls: RollBands

@@ -74,13 +74,29 @@ class AutomaticNormalStartTest {
     try (var graph = fixture.graph(root, goal)) {
       graph.increaseLimits(128, 256, 40000, 10000);
       fixture.exhaust(graph);
-      assertThat(graph.methods())
-          .anyMatch(
-              m ->
-                  m.template().boundedChaos()
-                      && m.template().initial().stream()
-                          .anyMatch(a -> a.currency() == WorkbenchCurrency.REGAL)
-                      && graph.nodes().get(m.source()).item().explicitSlotCount() == 0);
+      var method =
+          graph.methods().stream()
+              .filter(m -> m.source() == 0 && m.template().boundedChaos())
+              .findFirst()
+              .orElseThrow();
+      assertThat(method.template().initial())
+          .extracting(a -> a.currency())
+          .containsExactly(
+              WorkbenchCurrency.TRANSMUTATION,
+              WorkbenchCurrency.REGAL,
+              WorkbenchCurrency.ANNULMENT);
+      var point = method.points().get(100);
+      assertThat(point.active()).isEmpty();
+      var stops = point.exits().values().stream().flatMap(law -> law.keySet().stream()).toList();
+      assertThat(stops)
+          .isNotEmpty()
+          .allSatisfy(
+              state -> {
+                assertThat(state.expectedChaos()).isNotNull();
+                assertThat(state.intermediate())
+                    .extracting(ItemState::explicitSlotCount)
+                    .containsExactly(1, 2, 1);
+              });
       assertThat(graph.nodes())
           .anyMatch(
               n ->

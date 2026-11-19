@@ -1,3 +1,7 @@
+import type { Frame } from '../workbenchHistory'
+import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
+import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
+import { qualityWorkMessages } from '../method-search/qualityWorkMessages'
 import type { Locale } from '../../../shared/i18n/i18n'
 
 type Messages = {
@@ -10,6 +14,7 @@ type Messages = {
   unknownCurrency: string
   unknownOmen: string
   imageUnavailable: string
+  expectedUses: (count: string) => string
   repeatUses: (count: string) => string
 }
 
@@ -26,6 +31,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: 'Unidentified currency',
     unknownOmen: 'Unidentified omen',
     imageUnavailable: 'Image unavailable',
+    expectedUses: (count) => `Expected ${count}`,
     repeatUses: (count) => `${count} ${count === '1' ? 'use' : 'uses'}`,
   },
   ko: {
@@ -40,6 +46,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: '식별되지 않은 화폐',
     unknownOmen: '식별되지 않은 징조',
     imageUnavailable: '이미지 없음',
+    expectedUses: (count) => `기대 ${count}개`,
     repeatUses: (count) => `${count}회`,
   },
   'zh-CN': {
@@ -52,6 +59,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: '无法识别的通货',
     unknownOmen: '无法识别的预兆',
     imageUnavailable: '无可用图片',
+    expectedUses: (count) => `预计 ${count} 个`,
     repeatUses: (count) => `${count}次`,
   },
   'zh-TW': {
@@ -64,6 +72,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: '無法識別的通貨',
     unknownOmen: '無法識別的預兆',
     imageUnavailable: '無可用圖片',
+    expectedUses: (count) => `預期 ${count} 個`,
     repeatUses: (count) => `${count}次`,
   },
   ja: {
@@ -77,6 +86,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: '識別できない通貨',
     unknownOmen: '識別できないオーメン',
     imageUnavailable: '画像なし',
+    expectedUses: (count) => `期待 ${count} 個`,
     repeatUses: (count) => `${count}回`,
   },
   es: {
@@ -92,6 +102,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: 'Objeto monetario sin identificar',
     unknownOmen: 'Presagio sin identificar',
     imageUnavailable: 'Imagen no disponible',
+    expectedUses: (count) => `Media ${count}`,
     repeatUses: (count) => `${count} ${count === '1' ? 'uso' : 'usos'}`,
   },
 
@@ -107,6 +118,7 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: 'Неизвестная валюта',
     unknownOmen: 'Неизвестное знамение',
     imageUnavailable: 'Изображение недоступно',
+    expectedUses: (count) => `В среднем ${count}`,
     repeatUses: (count) => `${count} прим.`,
   },
   th: {
@@ -121,6 +133,19 @@ export const sessionNotationMessages: Record<Locale, Messages> = {
     unknownCurrency: 'สกุลเงินที่ไม่ปรากฏชื่อ',
     unknownOmen: 'ลางที่ไม่ปรากฏชื่อ',
     imageUnavailable: 'รูปภาพไม่พร้อมใช้งาน',
+    expectedUses: (count) => `คาดว่า ${count}`,
     repeatUses: (count) => `${count} ครั้ง`,
   },
+}
+
+export function workLabel(
+  work: NonNullable<Frame['projectedWork']>,
+  locale: Locale,
+) {
+  if (work === 'QUALITY_20') return qualityGoalMessages[locale].work20
+  if (work === 'QUALITY_40') return qualityWorkMessages[locale].work
+  return (
+    abyssWorkbenchMessages[locale].desecration +
+    (work === 'DESECRATE_PREFIX' ? ' · P' : ' · S')
+  )
 }

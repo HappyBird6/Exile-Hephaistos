@@ -10,8 +10,10 @@ import {
 import { validChaosRepeatFrame } from '../chaos-repeat/chaosRepeatReceipt'
 
 export type NotationStep = {
+  expectedUses?: number
   maxUses?: number
   customExalt?: { modifierId: string; probability: number }
+  work?: Frame['projectedWork']
   kind?: 'reveal'
 
   number: number
@@ -127,9 +129,21 @@ export function extractSessionNotation(
           omensKnown: true,
           uses: 1,
           repeated: false,
+          ...(craft.expectedUses ? { expectedUses: craft.expectedUses } : {}),
           ...(craft.maxUses ? { maxUses: craft.maxUses } : {}),
         })
       }
+      if (frame.projectedWork)
+        result.steps.push({
+          number: result.steps.length + 1,
+          frameIndex,
+          work: frame.projectedWork,
+          currencyId: '',
+          uses: 0,
+          consumedOmenIds: [],
+          omensKnown: true,
+          repeated: false,
+        })
       continue
     }
     const reveal = completedReveal(frame, film.frames[frameIndex - 1])

@@ -48,7 +48,7 @@ import java.util.function.Function;
  *       {@code c.initial}을(를) 사용한다. 입력: {@code source}(출처), {@code choices}(선택목록), {@code
  *       currency}(화폐).
  *   <li>{@code blockedRefill(source)}: 일반 추가로 목표에 접근할 수 없을 때 소멸 후 사용할 엑잘을 반환한다.
- *   <li>{@code firstChaosPreparation(source)}: 일반 시작에서 진화·소멸 후 제왕과 첫 옵션 카오스 반복을 적용할 수 있는지 확인한다.
+ *   <li>{@code firstChaosPreparation(source)}: 일반 시작에서 진화·제왕 후 소멸과 첫 옵션 카오스 반복을 적용할 수 있는지 확인한다.
  *   <li>{@code lastResortExalted(source)}: 기존 목표를 보존하며 새 목표에 접근하는 기본 엑잘 경로를 구한다.
  *   <li>{@code choices(source)}: 선택목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code source}(출처). 반환: {@code
  *       List<Choice>}.
@@ -294,15 +294,14 @@ public final class GoalDirectedPlanner {
     // 카오스는 변경 가능 옵션 하나를 완전히 교체한다. 준비 후 후보 풀이 열리는지 작업대 규칙으로 확인한다.
     return kernel.representatives(kernel.plan(source, transmute)).stream()
         .findFirst()
-        .flatMap(magic -> kernel.plan(magic, annul).branches().stream().findFirst())
-        .map(AutomaticCraftingPlan.Branch::remaining)
-        .filter(magic -> magic.rarity() == ItemState.Rarity.MAGIC && magic.explicitSlotCount() == 0)
         .flatMap(magic -> kernel.representatives(kernel.plan(magic, regal)).stream().findFirst())
+        .flatMap(rare -> kernel.plan(rare, annul).branches().stream().findFirst())
+        .map(AutomaticCraftingPlan.Branch::remaining)
         .filter(
             rare ->
                 kernel.representatives(kernel.plan(rare, chaos)).stream()
                     .anyMatch(item -> advances(source, item)))
-        .map(rare -> new Choice(List.of(transmute), List.of(annul)));
+        .map(rare -> new Choice(List.of(transmute, regal, annul), List.of(chaos)));
   }
 
   public List<Choice> choices(ItemState source) {
@@ -329,9 +328,7 @@ public final class GoalDirectedPlanner {
     for (int i = 0; i < Math.min(progress.entries().size(), emptyProgress.entries().size()); i++)
       if (progress.entries().get(i) == Status.MATCH
           && emptyProgress.entries().get(i) != Status.MATCH) acquired = true;
-    boolean emptyMagic =
-        source.rarity() == ItemState.Rarity.MAGIC && source.explicitSlotCount() == 0;
-    boolean allowChaos = !kernel.initialChaosOnly() || ((initialStage || emptyMagic) && !acquired);
+    boolean allowChaos = !kernel.initialChaosOnly() || (initialStage && !acquired);
     if (progress.goal() == Status.UNKNOWN
         || progress.goal() == Status.UNSUPPORTED
         || progress.entries().stream()

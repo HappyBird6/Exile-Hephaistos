@@ -1,5 +1,7 @@
-import { qualityWorkMessages } from '../method-search/qualityWorkMessages'
-import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
+import {
+  sessionNotationMessages,
+  workLabel,
+} from '../session-notation/messages'
 import type { ReactNode } from 'react'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { sessionTitle } from '../session-library/sessionTitle'
@@ -47,6 +49,7 @@ export function SessionFlow({
   const frames = film.frames.map((frame, index) => {
     const group = byFrame.get(index) ?? []
     const labels = group.map((step) => {
+      if (step.work) return workLabel(step.work, locale)
       const currency =
         step.kind === 'reveal'
           ? `${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
@@ -57,25 +60,20 @@ export function SessionFlow({
             )
       return (
         currency +
-        (step.maxUses
-          ? ` ×1–${step.maxUses}`
-          : step.repeated
-            ? ` × ${step.uses}`
-            : '')
+        (step.expectedUses
+          ? ' ' +
+            sessionNotationMessages[locale].expectedUses(
+              step.expectedUses.toLocaleString(locale, {
+                maximumFractionDigits: 2,
+              }),
+            )
+          : step.maxUses
+            ? ` ×1–${step.maxUses}`
+            : step.repeated
+              ? ` × ${step.uses}`
+              : '')
       )
     })
-    if (
-      frame.projectedWork === 'DESECRATE_PREFIX' ||
-      frame.projectedWork === 'DESECRATE_SUFFIX'
-    )
-      labels.push(
-        abyssWorkbenchMessages[locale].desecration +
-          (frame.projectedWork === 'DESECRATE_PREFIX' ? ' · P' : ' · S'),
-      )
-    if (frame.projectedWork === 'QUALITY_20')
-      labels.push(qualityGoalMessages[locale].work20)
-    if (frame.projectedWork === 'QUALITY_40')
-      labels.push(qualityWorkMessages[locale].work)
     const label = labels.join(' → ') || text.observation
     return {
       label,
@@ -92,11 +90,13 @@ export function SessionFlow({
               .join(' + ') || undefined
           }
         >
-          {group.map((step) => (
-            <span key={step.number}>
-              <NotationResources step={step} resources={resources} />
-            </span>
-          ))}
+          {group
+            .filter((step) => !step.work)
+            .map((step) => (
+              <span key={step.number}>
+                <NotationResources step={step} resources={resources} />
+              </span>
+            ))}
         </div>
       ),
     }

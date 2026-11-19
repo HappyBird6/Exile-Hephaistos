@@ -1,3 +1,7 @@
+import { useQueryClient } from '@tanstack/react-query'
+import { craftingCost } from '../currency-prices/cost'
+import type { PriceSnapshot } from '../currency-prices/api'
+import { useCurrencyMarket } from '../currency-prices/context'
 import { AppLink } from '../../../shared/navigation/AppLink'
 import { HistoryWorkspaceLayout } from '../session-library/HistoryWorkspaceLayout'
 import { SessionDetail } from '../session-detail/SessionDetail'
@@ -5,7 +9,7 @@ import { SessionOverviewPage } from '../session-history/SessionOverviewPage'
 import type { Film, Frame } from '../workbenchHistory'
 import type { ConcreteItem } from '../workbenchApi'
 import { historyResources } from '../session-history/resources'
-import { projectedFrame } from './projectedFrame'
+import { projectedFrames } from './projectedFrame'
 import '../session-history/history.css'
 import { SessionListCard } from '../session-library/SessionListCard'
 import { sessionLibraryMessages } from '../session-library/sessionLibraryMessages'
@@ -24,7 +28,7 @@ import type {
   AutomaticView,
 } from './automaticApi'
 import { removesModifier } from './methodRisk'
-import { methodPoint, isRepeatable } from './methodObservation'
+import { chaosMeanLabel, methodPoint, isRepeatable } from './methodObservation'
 import { policyCandidateMessages } from './policyCandidateMessages'
 import { guideMessages } from './guideMessages'
 import { probabilityText } from './probabilityPresentation'
@@ -112,6 +116,7 @@ export function RankedCraftingSessions(props: Props) {
   const { locale, name } = useI18n(),
     copy = labels[locale],
     policy = policyCandidateMessages[locale]
+  const market = useCurrencyMarket()
   const [terminal, setTerminal] = useState<{
     source: number
     key: string
@@ -128,7 +133,23 @@ export function RankedCraftingSessions(props: Props) {
       : props.start.baseItemId,
   )
   const [edited, setEdited] = useState(false)
+  const cache = useQueryClient()
+  type SelectionSnapshot = {
+    view: AutomaticView
+    plan: Plan
+    route: Selection[]
+  }
+  const snapshotKey = ['inspected-crafting-plan', props.view.id]
+  const [pinned, updatePinned] = useState<SelectionSnapshot | null>(
+    () => cache.getQueryData<SelectionSnapshot>(snapshotKey) ?? null,
+  )
+  const setPinned = (value: SelectionSnapshot) => {
+    updatePinned(value)
+    cache.setQueryData(snapshotKey, value)
+  }
+  const active = pinned?.view.id === props.view.id ? pinned : null
   const choose = (plan: Plan) => {
+    setPinned({ view: props.view, plan, route: examples.get(plan.id) ?? [] })
     setTerminal(null)
     setEdited(false)
     setSelected(plan.id)
@@ -142,14 +163,45 @@ export function RankedCraftingSessions(props: Props) {
     const complete = ranked.filter(
       (plan) => examples.get(plan.id)?.at(-1)?.kind === 'GOAL',
     )
-    return { examples, plans: complete.length ? complete : ranked }
-  }, [props.view, props.cycles])
+    const nodes = new Map(props.view.nodes.map((n) => [n.id, n]))
+    const methods = new Map(props.view.methods.map((m) => [m.id, m]))
+    const films = new Map<string, Film>()
+    const seen = new Set<string>()
+    const plans = (complete.length ? complete : ranked).filter((plan) => {
+      const film = projectedRoute(
+        props.view.id,
+        props.start,
+        props.identity,
+        examples.get(plan.id) ?? [],
+        plan.cycles,
+        methods,
+        nodes,
+      )
+      const frames = film.frames
+      films.set(plan.id, film)
+      const key =
+        frames.length > 1
+          ? JSON.stringify(
+              frames
+                .slice(1)
+                .map((frame) => [
+                  frame.projectedCurrencies?.map((c) => [
+                    c.currencyId,
+                    [...c.omenIds].sort(),
+                  ]),
+                  frame.projectedWork,
+                ]),
+            )
+          : plan.root.id
+      if (seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+    return { examples, plans, films }
+  }, [props.view, props.cycles, props.identity, props.start])
   const { plans, examples } = routes
-  const methods = useMemo(
-    () => new Map(props.view.methods.map((method) => [method.id, method])),
-    [props.view.methods],
-  )
   const chosen =
+    active?.plan ??
     plans.find((p) => p.id === selected) ??
     plans.find(
       (p) =>
@@ -160,7 +212,8 @@ export function RankedCraftingSessions(props: Props) {
     ) ??
     plans[0]
   const route =
-    chosen &&
+    active?.route ??
+    (chosen &&
     !edited &&
     (!props.route.length ||
       (examples.get(chosen.id)?.at(-1)?.kind === 'GOAL' &&
@@ -169,13 +222,24 @@ export function RankedCraftingSessions(props: Props) {
         (edge) => chosen.decisions.get(edge.source) !== edge.method,
       ))
       ? (examples.get(chosen.id) ?? [])
-      : props.route
+      : props.route)
   const detailProps = {
     ...props,
+    view: active?.view ?? props.view,
+    onInspect: () => {
+      if (chosen && !active)
+        setPinned({ view: props.view, plan: chosen, route })
+    },
     terminal,
     setTerminal,
     route,
     onRoute: (value: Selection[]) => {
+      if (chosen)
+        setPinned({
+          view: active?.view ?? props.view,
+          plan: chosen,
+          route: value,
+        })
       setEdited(true)
       props.onRoute(value)
     },
@@ -199,10 +263,27 @@ export function RankedCraftingSessions(props: Props) {
             >
               {plans.map((plan, index) => {
                 const example = examples.get(plan.id) ?? []
-                const title = routeTitle(example, plan, methods, props.action)
                 const probability = plan.success
                   ? probabilityText(plan.success.lower, plan.success)
                   : policy.unresolved
+                const film =
+                  active && active.plan.id === plan.id
+                    ? projectedRoute(
+                        active.view.id,
+                        props.start,
+                        props.identity,
+                        active.route,
+                        active.plan.cycles,
+                        new Map(active.view.methods.map((m) => [m.id, m])),
+                        new Map(active.view.nodes.map((n) => [n.id, n])),
+                      )
+                    : routes.films.get(plan.id)!
+                const title = planTitle(
+                  film,
+                  market?.data?.snapshot,
+                  locale,
+                  probability,
+                )
                 return (
                   <div role="listitem" key={plan.id}>
                     <SessionListCard
@@ -210,7 +291,7 @@ export function RankedCraftingSessions(props: Props) {
                       baseId={props.start.baseItemId}
                       baseName={baseName}
                       selected={chosen.id === plan.id}
-                      selectLabel={`${index + 1}. ${baseName} · ${title} · ${probability}`}
+                      selectLabel={`${index + 1}. ${title}`}
                       onSelect={() => {
                         choose(plan)
                         if (window.innerWidth <= 760)
@@ -218,13 +299,19 @@ export function RankedCraftingSessions(props: Props) {
                             ?.querySelector('.wb-history-preview')
                             ?.scrollIntoView?.({ block: 'nearest' })
                       }}
-                      metadata={
-                        <small>
-                          {baseName} · {policy.success} {probability}
-                        </small>
-                      }
+                      metadata={<small>{baseName}</small>}
                       actions={
                         <AppLink
+                          onClick={(event) =>
+                            cache.setQueryData(
+                              [
+                                'plan-film',
+                                event.currentTarget.pathname +
+                                  event.currentTarget.search,
+                              ],
+                              { ...film, title },
+                            )
+                          }
                           className="wb-session-card__overview"
                           href={overviewHref(
                             props,
@@ -255,25 +342,61 @@ export function RankedCraftingSessions(props: Props) {
   )
 }
 
-function routeTitle(
+function projectedRoute(
+  id: string,
+  start: Item,
+  identity: string,
   route: Selection[],
-  plan: Plan,
+  cycles: number,
   methods: Map<string, AutomaticArrow>,
-  action: Props['action'],
+  nodes: Map<number, AutomaticNode>,
+): Film {
+  const frames: Frame[] = [
+    {
+      state: start as ConcreteItem,
+      action: null,
+      rulesetIdentity: identity,
+    },
+  ]
+  for (const edge of route) {
+    const method = methods.get(edge.method)
+    const node = nodes.get(edge.target)
+    const outcome =
+      method &&
+      methodPoint(method, cycles)?.outcomes.find(
+        (o) => o.kind === edge.kind && o.target === edge.target,
+      )
+    if (!method || !node || !outcome) break
+    const steps = projectedFrames(
+      frames.at(-1)!.state,
+      method,
+      outcome,
+      node,
+      cycles,
+      identity,
+    )
+    if (!steps) break
+    frames.push(...steps)
+  }
+  return {
+    id: id,
+    createdAt: '',
+    frames,
+    rulesetIdentity: identity,
+  }
+}
+
+function planTitle(
+  film: Film,
+  snapshot: PriceSnapshot | null | undefined,
+  locale: string,
+  probability: string,
 ) {
-  const steps = route.length
-    ? route
-        .map((edge) => methods.get(edge.method))
-        .filter((m): m is AutomaticArrow => !!m)
-    : [plan.root]
-  return steps
-    .flatMap((m) => [
-      ...m.initial.map(action),
-      ...m.cycle.map(
-        (a) => action(a) + (isRepeatable(m) ? ` ×1–${plan.cycles}` : ''),
-      ),
-    ])
-    .join(' → ')
+  const cost = craftingCost(film, film.frames.length - 1, snapshot)
+  const exalted = cost.incomplete
+    ? '—'
+    : cost.exalted.toLocaleString(locale, { maximumFractionDigits: 2 })
+  return `${exalted} ex · ${probability}`
 }
 
 function overviewHref(
@@ -308,9 +431,11 @@ export function SessionSteps({
   terminal,
   setTerminal,
   overview = false,
+  onInspect,
 }: Omit<Props, 'start' | 'card'> & {
   plan: Plan
   overview?: boolean
+  onInspect?: () => void
   terminal: { source: number; key: string } | null
   setTerminal: (value: { source: number; key: string } | null) => void
 }) {
@@ -318,6 +443,9 @@ export function SessionSteps({
     guide = guideMessages[locale],
     copy = labels[locale],
     policy = policyCandidateMessages[locale]
+  const cache = useQueryClient()
+  const market = useCurrencyMarket()
+  const [cursor, setCursor] = useState<number | null>(null)
   const [opening, setOpening] = useState(false),
     [error, setError] = useState(false)
   const open = useContext(OpenCraftingSession)
@@ -383,9 +511,11 @@ export function SessionSteps({
                 ? policy.failure
                 : policy.unresolved
     const prefix = [...path]
-    const repeat = isRepeatable(current)
-      ? guide.within.replace('{n}', String(plan.cycles))
-      : guide.once
+    const repeat =
+      chaosMeanLabel(point, locale) ??
+      (isRepeatable(current)
+        ? guide.within.replace('{n}', String(plan.cycles))
+        : guide.once)
     removalRisk ||= removesModifier(current)
     incomplete ||= !point?.complete
     frames.push(
@@ -435,7 +565,7 @@ export function SessionSteps({
       </li>,
     )
     if (result && outcome) {
-      const frame = projectedFrame(
+      const steps = projectedFrames(
         states.at(-1)!.state,
         current,
         outcome,
@@ -443,11 +573,11 @@ export function SessionSteps({
         plan.cycles,
         identity,
       )
-      if (!frame) {
+      if (!steps) {
         incomplete = true
         break
       }
-      states.push(frame)
+      states.push(...steps)
       completed = outcome.kind === 'GOAL'
       manualReveal =
         outcome.kind === 'CHECKPOINT' &&
@@ -469,7 +599,6 @@ export function SessionSteps({
     })
     method = methods.get(plan.decisions.get(result.id) ?? '')
   }
-  const title = routeTitle(route, plan, methods, action)
   const chance =
     policy.success +
     ' ' +
@@ -478,11 +607,15 @@ export function SessionSteps({
       : policy.unresolved)
   const film: Film = {
     id: view.id,
-    title,
     createdAt: new Date().toISOString(),
     rulesetIdentity: identity,
     frames: states,
   }
+  const probability = plan.success
+    ? probabilityText(plan.success.lower, plan.success)
+    : policy.unresolved
+  const title = planTitle(film, market?.data?.snapshot, locale, probability)
+  film.title = title
   if (overview)
     return (
       <SessionOverviewPage
@@ -499,12 +632,18 @@ export function SessionSteps({
             }),
           backLabel: copy[0],
         }}
-        summary={chance}
       />
     )
   return (
     <section
       className="wb-history-preview session-plan-steps"
+      onClickCapture={(event) => {
+        const link = (event.target as Element).closest<HTMLAnchorElement>(
+          'a.session-overview-entry',
+        )
+        if (link)
+          cache.setQueryData(['plan-film', link.pathname + link.search], film)
+      }}
       aria-label={sessionLibraryMessages[locale].finalState}
     >
       <div className="wb-history-preview__heading">
@@ -514,7 +653,11 @@ export function SessionSteps({
       </div>
       <SessionDetail
         film={film}
-        cursor={states.length - 1}
+        cursor={cursor ?? states.length - 1}
+        onNavigate={(index) => {
+          onInspect?.()
+          setCursor(index)
+        }}
         resources={historyResources}
         overviewHref={overviewHref({ identity, view }, plan, route, terminal)}
         itemClassName="wb-history-preview__item"

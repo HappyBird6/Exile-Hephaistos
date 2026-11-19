@@ -694,6 +694,11 @@ public final class AutomaticMethodGraph implements AutoCloseable {
         .anyMatch(
             action -> action.purpose() == AutomaticCurrencyPolicy.Purpose.LAST_RESORT_EXALTED))
       return point;
+    if (method.template.boundedChaos()
+        && point.exits().values().stream()
+            .anyMatch(
+                law -> law.keySet().stream().anyMatch(state -> state.expectedChaos() != null)))
+      return point;
     return rareOutcomePolicy.apply(
         point,
         this::rareGroup,
@@ -1042,10 +1047,13 @@ public final class AutomaticMethodGraph implements AutoCloseable {
               (item, quality) -> classify(source, item, quality, rarityCheckpoint(template)),
               precision,
               primitiveOutcomeBudget,
-              template.initial().stream().anyMatch(a -> a.currency() == WorkbenchCurrency.EXALTED)
-                      && template.cycle().getFirst().currency() != WorkbenchCurrency.CHAOS
-                  ? AutomaticMethodExecution.PreparationSuccess.REQUIRE_REPLACEMENT
-                  : AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT,
+              template.boundedChaos()
+                  ? AutomaticMethodExecution.PreparationSuccess.REPEAT_UNTIL_FIRST_AFFIX
+                  : template.initial().stream()
+                              .anyMatch(a -> a.currency() == WorkbenchCurrency.EXALTED)
+                          && template.cycle().getFirst().currency() != WorkbenchCurrency.CHAOS
+                      ? AutomaticMethodExecution.PreparationSuccess.REQUIRE_REPLACEMENT
+                      : AutomaticMethodExecution.PreparationSuccess.STOP_ON_FIRST_HIT,
               source.quality40,
               source.abstractQuality,
               source.tiers,
@@ -1301,13 +1309,9 @@ public final class AutomaticMethodGraph implements AutoCloseable {
   }
 
   private static boolean rarityCheckpoint(AutomaticMethodExecution.Template template) {
-    if (template.cycle().size() != 1) return false;
-    if (template.initial().isEmpty())
-      return template.cycle().getFirst().purpose()
-          == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE;
-    return template.initial().size() == 1
-        && template.initial().getFirst().currency() == WorkbenchCurrency.TRANSMUTATION
-        && template.cycle().getFirst().currency() == WorkbenchCurrency.ANNULMENT;
+    return template.initial().isEmpty()
+        && template.cycle().size() == 1
+        && template.cycle().getFirst().purpose() == AutomaticCurrencyPolicy.Purpose.RARITY_UPGRADE;
   }
 
   private Optional<Exit> classify(Node source, ItemState item, int quality) {
@@ -1748,7 +1752,14 @@ public final class AutomaticMethodGraph implements AutoCloseable {
                     state.quality40(),
                     state.abstractQuality(),
                     transportedTiers(method, state),
-                    transportedRetention(method, state)),
+                    transportedRetention(method, state),
+                    state.intermediate().stream()
+                        .map(
+                            item ->
+                                TerminalAdditionClasses.transport(
+                                    method.owner.source.item, method.source.item, item))
+                        .toList(),
+                    state.expectedChaos()),
                 mass,
                 CertifiedInterval::add));
     return result;
