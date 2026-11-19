@@ -179,6 +179,54 @@ class SolarResistancePreviewTest {
     }
   }
 
+  /** 군왕의 합금으로 원래 티어 상한을 넘긴 다섯 종류의 저항이 각각 예시와 최종 판정을 통과한다. */
+  @Test
+  void findsAmplifiedTiersForEveryResistanceStat() {
+    var catalog = EquipmentCurrencyCatalog.enrich(ItemCatalogLoader.loadDefault());
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(simulator);
+    var base = SolarAmulet.initial(catalog, 82, 15);
+    var context = new Context(base.snapshotId(), base.baseItemId(), 82);
+    var alloy = "equipment:prefix:alloy-effect-of-resistance-mods1";
+    for (var stat : List.of(COLD, FIRE, LIGHTNING, CHAOS, "base_resist_all_elements_%")) {
+      var d =
+          catalog.modifiers().values().stream()
+              .filter(
+                  m ->
+                      m.weight() > 0
+                          && m.requiredItemLevel() <= 82
+                          && m.layer() == ModifierDefinition.Layer.EXPLICIT
+                          && m.stats().size() == 1
+                          && m.stats().getFirst().id().equals(stat))
+              .findFirst()
+              .orElseThrow();
+      var threshold =
+          BigDecimal.valueOf(d.stats().getFirst().max()).multiply(new BigDecimal("1.30"));
+      var row =
+          new Entry(
+              stat,
+              GoalCatalogIndex.id("explicit", stat),
+              "percent",
+              new Range(threshold, null),
+              null,
+              false);
+      var filter =
+          new GoalFilter(
+              1,
+              index.version(),
+              goal(index, catalog).general(),
+              List.of(new Group("res", Type.AND, false, null, List.of(row))));
+      var proof = rare(base, List.of(maxRoll(d), maxRoll(catalog.modifiers().get(alloy))));
+      assertThat(service.evaluate(proof, filter).status()).as(stat).isEqualTo(Status.MATCH);
+      assertThat(service.preview(context, filter, workbench).cards())
+          .anyMatch(
+              card -> card.sources().containsKey(alloy) && card.sources().containsKey(d.id()));
+    }
+  }
+
   /** 가중합이 0이어야 할 때 빈 옵션과 범위를 벗어난 티어를 두 가중합 방식이 반대로 처리하는지 검증한다. */
   @Test
   void zeroWeightedScoreDistinguishesAnAbsentRowFromAnOutOfRangeRoll() {

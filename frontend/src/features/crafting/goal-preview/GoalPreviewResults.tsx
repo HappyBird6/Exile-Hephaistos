@@ -14,7 +14,8 @@ import {
   type ItemPresentation,
 } from '../path-tree/presentation'
 import type { Item } from '../path-tree/types'
-import type { CatalystQuality } from '../catalystQuality'
+import type { ConcreteItem } from '../workbenchApi'
+import { modifierMagnitudeValues } from '../modifierMagnitudes'
 import { augmentName } from '../socketAugments'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import { goalFilterMessages } from '../goal-filter/i18n'
@@ -34,10 +35,7 @@ import {
 } from './acquisitionSources'
 import './previewResults.css'
 
-type PreviewItem = Item & {
-  catalystQuality: CatalystQuality | null
-  installedAugments?: { augmentId: string }[]
-}
+type PreviewItem = Item & ConcreteItem
 type Example = {
   item: PreviewItem
   tierVariants: PreviewItem[]
@@ -173,9 +171,9 @@ function PreviewCard({
   const card = present(item, locale)
   const quality = item.catalystQuality
   const rolls = new Map<string, Record<string, number>>()
-  for (const variant of tierVariants)
+  for (const variant of [item, ...tierVariants])
     for (const mod of [...variant.implicits, ...variant.explicits]) {
-      if (!rolls.has(mod.modifierId)) rolls.set(mod.modifierId, mod.values)
+      if (!rolls.has(mod.modifierId)) rolls.set(mod.modifierId, modifierMagnitudeValues(variant,definitions[mod.modifierId]!,mod.values))
     }
   return (
     <ItemCard
@@ -207,6 +205,7 @@ function PreviewCard({
           ).sort((a, b) => b.tier - a.tier)
           return {
             ...line,
+            text: localizedModifierText(definitions[line.id]!,rolls.get(line.id)!,locale),
             affixLabel: tierRanges(options),
             sourceLabel:
               copy.sources +

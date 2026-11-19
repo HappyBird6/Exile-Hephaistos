@@ -124,7 +124,8 @@ public final class GoalFilterService {
         || !catalog.base().id().equals(simulator.catalog().base().id())) return List.of();
     var known = requiredStats(goal, index.knownStats(context));
     // 수동 공개를 포함하는 작업대 카탈로그로 상태를 검증한 뒤 기존 목표 판정을 그대로 사용한다.
-    return new GoalExamples(simulator, goal, known, sources, compiledEvaluation(goal, known))
+    return new GoalExamples(
+            simulator, goal, known, sources, compiledEvaluation(goal, known, simulator.catalog()))
         .find(context);
   }
 
@@ -252,7 +253,7 @@ public final class GoalFilterService {
     }
     if (issues.stream().anyMatch(i -> i.severity() == Severity.ERROR))
       throw new InvalidGoal(issues);
-    var observations = projection.project(item, index.knownStats(context), supported);
+    var observations = projection.project(item, index.knownStats(context), supported, itemCatalog);
     for (int i = 0; i < goal.groups().size(); i++) {
       var group = goal.groups().get(i);
       if (group.disabled()) continue;
@@ -304,12 +305,14 @@ public final class GoalFilterService {
       return state -> evaluate(state, goal);
     var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     var known = requiredStats(goal, index.knownStats(context));
-    return compiledEvaluation(goal, known);
+    return compiledEvaluation(goal, known, index.itemCatalog(context).orElseThrow());
   }
 
   /** 검증된 아이템의 일반 조건과 목표 수치만 판정하는 요청 범위 함수를 만든다. */
   private java.util.function.Function<ItemState, GoalEvaluator.Evaluation> compiledEvaluation(
-      GoalFilter goal, Map<String, GoalCatalog.Stat> known) {
+      GoalFilter goal,
+      Map<String, GoalCatalog.Stat> known,
+      com.poe2craft.shared.item.ItemCatalog catalog) {
     return state ->
         evaluator.evaluate(
             goal,
@@ -322,7 +325,7 @@ public final class GoalFilterService {
                                 : state.catalystQuality().amount()))
                 ? Status.MATCH
                 : Status.NO_MATCH,
-            projection.project(state, known, true),
+            projection.project(state, known, true, catalog),
             List.of());
   }
 
@@ -489,7 +492,7 @@ public final class GoalFilterService {
                                       && general.rarities().contains(state.rarity())
                                   ? Status.MATCH
                                   : Status.NO_MATCH,
-                              projection.project(state, known, true),
+                              projection.project(state, known, true, catalog),
                               List.of())
                           .status(),
                   new NumericAdditionSearch.Budget(

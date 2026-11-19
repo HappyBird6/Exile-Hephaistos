@@ -2,6 +2,7 @@ package com.poe2craft.craftingsupport.goal.application;
 
 import com.poe2craft.craftingsupport.goal.application.GoalExampleBounds.Band;
 import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
 import com.poe2craft.craftingsupport.goal.domain.GoalEvaluator.Evaluation;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.Status;
@@ -86,18 +87,33 @@ final class GoalExamples {
             || (quality > 20 && !sources.containsKey(QualityLimitRules.BREACH_ID))))
       return List.of();
     var targets = rolls.targets(null);
-    var definitions =
+    var available =
         catalog.modifiers().values().stream()
             .filter(
                 d ->
                     d.layer() == ModifierDefinition.Layer.EXPLICIT
                         && d.requiredItemLevel() <= context.itemLevel()
-                        && !sources.getOrDefault(d.id(), List.of()).isEmpty()
-                        && GoalExampleRolls.relevant(d, targets))
+                        && !sources.getOrDefault(d.id(), List.of()).isEmpty())
             .sorted(
                 Comparator.comparingInt(ModifierDefinition::tier)
                     .thenComparing(ModifierDefinition::id))
             .toList();
+    var direct = available.stream().filter(d -> GoalExampleRolls.relevant(d, targets)).toList();
+    var providers =
+        available.stream()
+            .filter(ModifierMagnitudes::provider)
+            .filter(
+                p ->
+                    direct.stream()
+                        .anyMatch(d -> bounds.numeric(bounds.project(d, null)) && affects(p, d)))
+            .toList();
+    for (var provider : providers)
+      for (var stat : provider.stats())
+        targets.putIfAbsent(GoalCatalogIndex.id("EXPLICIT", stat.id()), Set.of());
+    var definitions =
+        available.stream().filter(d -> direct.contains(d) || providers.contains(d)).toList();
+    var lower = providers.stream().map(p -> extreme(p, false)).toList();
+    var upper = providers.stream().map(p -> extreme(p, true)).toList();
     var tierGroups = tierGroups(definitions);
     var cards = new ArrayList<Matches>();
     for (var rarity : goal.general().rarities()) {
@@ -110,7 +126,7 @@ final class GoalExamples {
             sources.get(d.id()).stream().filter(source -> source.supportsRarity(rarity)).toList();
         if (origins.isEmpty()) continue;
         if (origins.getFirst().kind() == Kind.NORMAL) origins = List.of(origins.getFirst());
-        var range = bounds.project(d, null);
+        var range = scaled(d, null, lower, upper);
         var domain = domain(d, range, targets);
         if (!domain.iterator().hasNext()) continue;
         grouped
@@ -132,9 +148,37 @@ final class GoalExamples {
       Map<String, Band> projection,
       Map<String, Set<BigDecimal>> targets) {
     var all = rolls.all(definition, targets);
-    if (bounds.numeric(projection)) return all;
+    if (ModifierMagnitudes.provider(definition) || bounds.numeric(projection)) return all;
     var iterator = all.iterator();
     return iterator.hasNext() ? List.of(iterator.next()) : List.of();
+  }
+
+  /** 선택 가능한 배율 옵션의 하한 또는 상한이다. 미선택은 0%다. */
+  private static ModifierInstance extreme(ModifierDefinition d, boolean upper) {
+    var values = new HashMap<String, Long>();
+    for (var stat : d.stats())
+      values.put(stat.id(), upper ? Math.max(0, stat.max()) : Math.min(0, stat.min()));
+    return new ModifierInstance(d.id(), values);
+  }
+
+  /** 공용 장비 배율 규칙으로 이 제공자가 대상 수치를 바꿀 수 있는지 판정한다. */
+  private static boolean affects(ModifierDefinition p, ModifierDefinition d) {
+    return ModifierMagnitudes.factor(List.of(extreme(p, true)), d).compareTo(BigDecimal.ONE) != 0
+        || ModifierMagnitudes.factor(List.of(extreme(p, false)), d).compareTo(BigDecimal.ONE) != 0;
+  }
+
+  /** 배율 제공자들의 양 끝으로 목표 수치의 가능한 구간을 감싼다. */
+  private Map<String, Band> scaled(
+      ModifierDefinition d,
+      Map<String, Long> values,
+      List<ModifierInstance> lower,
+      List<ModifierInstance> upper) {
+    var ranges = bounds.project(d, values);
+    if (ranges.isEmpty()) return ranges;
+    var low = ModifierMagnitudes.factor(lower, d);
+    var high = ModifierMagnitudes.factor(upper, d);
+    ranges.replaceAll((id, band) -> band.times(low).hull(band.times(high)));
+    return ranges;
   }
 
   /** 같은 슬롯을 대신하는 티어·고정 옵션 굴림의 최소·최대를 합친다. 이들은 같은 원천 수치를 갖는다. */
@@ -339,17 +383,52 @@ final class GoalExamples {
 
   /** 각 단계의 남은 수치 범위를 뒤에서부터 더한 뒤, 실제 고정 옵션과 양립하는 티어·굴림 하나를 찾는다. */
   private ItemState witness(List<Seed> seeds, List<Slot> slots) {
-    var remaining = new ArrayList<Map<String, Band>>();
-    remaining.add(Map.of());
-    for (int i = slots.size() - 1; i >= 0; i--)
-      remaining.addFirst(GoalExampleBounds.sum(slots.get(i).range(), remaining.getFirst()));
+    var providers =
+        slots.stream().filter(s -> ModifierMagnitudes.provider(s.definition())).toList();
+    var ordinary =
+        slots.stream().filter(s -> !ModifierMagnitudes.provider(s.definition())).toList();
     for (var seed : seeds) {
-      if (!bounds.blocked(GoalExampleBounds.sum(seed.range(), remaining.getFirst())).isEmpty())
-        continue;
-      var found = choose(seed.item(), seed.range(), slots, remaining, 0);
+      var found = chooseProviders(seed, providers, ordinary, 0);
       if (found != null) return found;
     }
     return null;
+  }
+
+  /** 실제 배율 굴림을 먼저 정하고 나머지 슬롯의 정확한 범위를 계산한다. */
+  private ItemState chooseProviders(
+      Seed seed, List<Slot> providers, List<Slot> ordinary, int index) {
+    if (index < providers.size()) {
+      for (var tier : providers.get(index).tiers())
+        for (var roll : tier.rolls())
+          for (var origin : tier.origins()) {
+            var item = append(seed.item(), tier.definition(), roll, origin);
+            if (item == null) continue;
+            var found =
+                chooseProviders(new Seed(item, seed.range()), providers, ordinary, index + 1);
+            if (found != null) return found;
+          }
+      return null;
+    }
+    var effects = seed.item().explicits();
+    var values = seed.range();
+    for (var mod : effects)
+      values =
+          GoalExampleBounds.sum(
+              values,
+              scaled(catalog.modifiers().get(mod.modifierId()), mod.values(), effects, effects));
+    var slots = ordinary;
+    var remaining = new ArrayList<Map<String, Band>>();
+    remaining.add(Map.of());
+    for (int i = slots.size() - 1; i >= 0; i--)
+      remaining.addFirst(
+          GoalExampleBounds.sum(
+              hull(
+                  slots.get(i).tiers().stream()
+                      .map(t -> scaled(t.definition(), null, effects, effects))
+                      .toList()),
+              remaining.getFirst()));
+    if (!bounds.blocked(GoalExampleBounds.sum(values, remaining.getFirst())).isEmpty()) return null;
+    return choose(seed.item(), values, slots, remaining, 0, effects);
   }
 
   /** 티어와 굴림별 남은 목표 구간을 확인한다. 희귀도·계열·슬롯·소켓·실제 목표까지 모두 유효한 첫 완성 상태를 반환한다. */
@@ -358,7 +437,8 @@ final class GoalExamples {
       Map<String, Band> values,
       List<Slot> slots,
       List<Map<String, Band>> remaining,
-      int index) {
+      int index,
+      List<ModifierInstance> effects) {
     if (index == slots.size()) {
       var complete = capacity.complete(item);
       return complete != null && evaluate.apply(complete).status() == Status.MATCH
@@ -367,15 +447,17 @@ final class GoalExamples {
     }
     var rest = GoalExampleBounds.sum(values, remaining.get(index + 1));
     for (var tier : slots.get(index).tiers()) {
-      if (!bounds.blocked(GoalExampleBounds.sum(rest, tier.range())).isEmpty()) continue;
+      if (!bounds
+          .blocked(GoalExampleBounds.sum(rest, scaled(tier.definition(), null, effects, effects)))
+          .isEmpty()) continue;
       for (var roll : tier.rolls()) {
-        var contribution = bounds.project(tier.definition(), roll.values());
+        var contribution = scaled(tier.definition(), roll.values(), effects, effects);
         if (!bounds.blocked(GoalExampleBounds.sum(rest, contribution)).isEmpty()) continue;
         var accumulated = GoalExampleBounds.sum(values, contribution);
         for (var origin : tier.origins()) {
           var updated = append(item, tier.definition(), roll, origin);
           if (updated == null) continue;
-          var found = choose(updated, accumulated, slots, remaining, index + 1);
+          var found = choose(updated, accumulated, slots, remaining, index + 1, effects);
           if (found != null) return found;
         }
       }

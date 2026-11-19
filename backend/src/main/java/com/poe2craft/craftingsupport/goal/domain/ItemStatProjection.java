@@ -2,7 +2,9 @@ package com.poe2craft.craftingsupport.goal.domain;
 
 import com.poe2craft.craftingsupport.goal.domain.GoalEvaluator.Observation;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.Capability;
+import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierMagnitudes;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -22,7 +24,10 @@ import java.util.*;
  */
 public final class ItemStatProjection {
   public Map<String, Observation> project(
-      ItemState item, Map<String, GoalCatalog.Stat> stats, boolean fullySupported) {
+      ItemState item,
+      Map<String, GoalCatalog.Stat> stats,
+      boolean fullySupported,
+      ItemCatalog catalog) {
     var result = new TreeMap<String, Observation>();
     for (var stat : stats.values()) {
       if (stat.kind() == GoalCatalog.Kind.PSEUDO) continue;
@@ -39,7 +44,15 @@ public final class ItemStatProjection {
         var value = modifier.values().get(mapping.sourceStatId());
         if (value != null && seen.add(modifier.modifierId())) {
           present = true;
-          sum = sum.add(BigDecimal.valueOf(value));
+          var definition = catalog.modifiers().get(modifier.modifierId());
+          sum =
+              sum.add(
+                  ModifierMagnitudes.value(
+                      item,
+                      definition,
+                      modifier,
+                      mapping.sourceStatId(),
+                      mapping.layer().equals("IMPLICIT")));
         }
       }
       result.put(
