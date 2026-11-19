@@ -17,7 +17,7 @@ import type { Editor } from './editor'
 import { goalFilterMessages, goalFilterActions } from './i18n'
 import type { GoalFilterLanguage } from './i18n'
 import { groupTypes, weighted } from './types'
-import { setupMessages } from './setupMessages'
+import { setupMessages, tradeGroupNames } from './setupMessages'
 import { startInputMessages } from './startInputMessages'
 import { PickerPopover } from './PickerPopover'
 import { PickerSearchInput } from './PickerSearchInput'
@@ -133,8 +133,8 @@ export function GoalFilterPanel({
         : '?'
   const { goal, edit, collapse, collapsedByGroupId } = useStore(editor)
   const groupOptions = groupTypes.map((type) => (
-    <option key={type} value={type}>
-      {setup.groups[type]}
+    <option key={type} value={type} lang="en">
+      {tradeGroupNames[type]}
     </option>
   ))
   const catalog = useGoalFilterCatalog(adapter, {

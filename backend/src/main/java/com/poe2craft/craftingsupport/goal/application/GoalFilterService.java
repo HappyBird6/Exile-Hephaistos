@@ -106,11 +106,13 @@ public final class GoalFilterService {
       GoalFilter goal,
       WorkbenchSimulator simulator,
       Map<String, List<ModifierAcquisition>> sources) {
-    return exampleGroups(context, goal, simulator, sources).stream().flatMap(List::stream).toList();
+    return exampleGroups(context, goal, simulator, sources).stream()
+        .flatMap(group -> group.variants().stream())
+        .toList();
   }
 
   /** 아이템 상태와 획득 가능성을 검증한 뒤 같은 옵션 구성의 티어 조합을 한 그룹으로 반환한다. */
-  private List<List<ItemState>> exampleGroups(
+  private List<GoalExamples.Matches> exampleGroups(
       Context context,
       GoalFilter goal,
       WorkbenchSimulator simulator,
@@ -126,11 +128,15 @@ public final class GoalFilterService {
         .find(context);
   }
 
-  /** item은 대표 완성 상태, tierVariants는 대표를 포함해 목표에 일치한 각 티어 조합의 실제 수치, sources는 모든 조합의 옵션별 획득처다. */
+  /**
+   * item은 대표 상태, tierVariants는 각 적격 티어를 증명하는 실제 아이템, sources는 티어별 획득처, optionTiers는 대표 옵션별 적격 정의
+   * ID다.
+   */
   public record ExampleCard(
       ItemState item,
       List<ItemState> tierVariants,
-      Map<String, List<ModifierAcquisition>> sources) {}
+      Map<String, List<ModifierAcquisition>> sources,
+      Map<String, List<String>> optionTiers) {}
 
   /** cards는 완성 예시, modifiers는 표시 정의, resolvedCountRanges는 판정에 쓰인 그룹별 개수 경계, reasonCode는 미지원 사유다. */
   public record Preview(
@@ -146,7 +152,8 @@ public final class GoalFilterService {
     var sources = simulator.modifierSources(context.itemLevel());
     var definitions = new java.util.TreeMap<String, ModifierDefinition>();
     var cards = new ArrayList<ExampleCard>();
-    for (var variants : exampleGroups(context, goal, simulator, sources)) {
+    for (var group : exampleGroups(context, goal, simulator, sources)) {
+      var variants = group.variants();
       var used = new java.util.TreeMap<String, List<ModifierAcquisition>>();
       for (var item : variants) {
         for (var layer : List.of(item.implicits(), item.explicits())) {
@@ -162,7 +169,8 @@ public final class GoalFilterService {
           }
         }
       }
-      cards.add(new ExampleCard(variants.getFirst(), variants, Map.copyOf(used)));
+      cards.add(
+          new ExampleCard(variants.getFirst(), variants, Map.copyOf(used), group.optionTiers()));
     }
     var countRanges = new java.util.LinkedHashMap<String, Range>();
     for (var group : goal.groups()) {

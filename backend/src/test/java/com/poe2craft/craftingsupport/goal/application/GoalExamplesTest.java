@@ -146,6 +146,57 @@ class GoalExamplesTest {
             });
   }
 
+  /** 각 티어 경계에서 떨어진 단 하나의 정수 쌍으로만 가중합을 달성하는 실제 카탈로그 사례다. */
+  @Test
+  void findsInteriorRollsForANonUnitWeightedSum() {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var context = context(catalog, 82);
+    var sources = new HashMap<>(simulator.modifierSources(82));
+    sources
+        .keySet()
+        .retainAll(
+            Set.of(
+                catalog.base().implicitModifierId(), "amulet:prefix:hale", "amulet:prefix:cobalt"));
+    var life = "base_maximum_life";
+    var mana = "base_maximum_mana";
+    var rows =
+        List.of(
+            new Entry(
+                "life",
+                GoalCatalogIndex.id("explicit", life),
+                "flat",
+                new Range(null, null),
+                BigDecimal.valueOf(4),
+                false),
+            new Entry(
+                "mana",
+                GoalCatalogIndex.id("explicit", mana),
+                "flat",
+                new Range(null, null),
+                BigDecimal.valueOf(7),
+                false));
+    var sum = BigDecimal.valueOf(206);
+    var goal =
+        goal(
+            index,
+            catalog,
+            List.of(new Group("sum", Type.WEIGHTED_V2, false, new Range(sum, sum), rows)));
+    var states = service.examples(context, goal, simulator, sources);
+    assertThat(states)
+        .singleElement()
+        .satisfies(
+            item -> {
+              assertThat(item.explicits())
+                  .containsExactlyInAnyOrder(
+                      new ModifierInstance("amulet:prefix:hale", Map.of(life, 13L)),
+                      new ModifierInstance("amulet:prefix:cobalt", Map.of(mana, 22L)));
+              assertThat(service.evaluate(item, goal).status()).isEqualTo(Status.MATCH);
+            });
+  }
+
   /** 같은 베이스에 T1 생명력 옵션이 두 개 있으면 T2와 한 카드에 담고 각 정의·수치의 정체성을 보존한다. */
   @Test
   void groupsBothRankOneLifeDefinitionsWithTheOtherEligibleRanks() {

@@ -194,6 +194,16 @@ public final class AugmentCraftingRules {
     return DATA.baseCraftedLimit();
   }
 
+  /** 접미 또는 제작 옵션 한도를 늘리며 해당 베이스에 신규 장착 가능한 증강물 ID를 반환한다. */
+  public static List<String> capacityAugments(String baseId) {
+    return DATA.effects().entrySet().stream()
+        .filter(entry -> entry.getValue().suffixBonus() > 0 || entry.getValue().craftedBonus() > 0)
+        .map(Map.Entry::getKey)
+        .filter(id -> SocketAugments.selectable(id) && SocketAugments.supports(baseId, id))
+        .sorted()
+        .toList();
+  }
+
   public static int craftedLimit(ItemState state) {
     return DATA.baseCraftedLimit()
         + state.installedAugments().stream()

@@ -1,4 +1,3 @@
-import { useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { craftingFetch } from '../../../shared/gameIdTransport'
 import { loadModifierDefinitions } from '../../../shared/i18n/localeData'
@@ -19,7 +18,7 @@ import type { CatalystQuality } from '../catalystQuality'
 import { augmentName } from '../socketAugments'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import { goalFilterMessages } from '../goal-filter/i18n'
-import { setupMessages } from '../goal-filter/setupMessages'
+import { tradeGroupNames } from '../goal-filter/setupMessages'
 import { hasActiveStatFilters } from '../goal-filter/useGoalFilter'
 import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
 import { readGoalFilterResponse } from '../goal-filter/api'
@@ -42,6 +41,7 @@ type PreviewItem = Item & {
 type Example = {
   item: PreviewItem
   tierVariants: PreviewItem[]
+  optionTiers: Record<string, string[]>
   sources: Record<string, AcquisitionSource[]>
 }
 type Preview = {
@@ -56,9 +56,26 @@ function validCard(
   definitions: Preview['modifiers'],
   context: GoalPreviewInput['context'],
 ) {
-  if (!Array.isArray(card.tierVariants) || !card.tierVariants.length)
+  if (
+    !Array.isArray(card.tierVariants) ||
+    !card.tierVariants.length ||
+    !card.optionTiers
+  )
     return false
   const { sources } = card
+  const allowed = new Set<string>()
+  for (const { modifierId } of [
+    ...card.item.implicits,
+    ...card.item.explicits,
+  ]) {
+    const options = card.optionTiers[modifierId]
+    if (!Array.isArray(options) || !options.includes(modifierId)) return false
+    for (const id of options) {
+      if (!definitions[id] || !sources[id]?.length || allowed.has(id))
+        return false
+      allowed.add(id)
+    }
+  }
   return (
     Object.values(sources).every(
       (entries) => entries.length && entries.every(acquisitionSourceLabel),
@@ -68,9 +85,8 @@ function validCard(
         item.snapshotId === context.snapshotId &&
         item.baseItemId === context.baseItemId &&
         item.itemLevel === context.itemLevel &&
-        [...item.implicits, ...item.explicits].every(
-          ({ modifierId }) =>
-            definitions[modifierId] && sources[modifierId]?.length,
+        [...item.implicits, ...item.explicits].every(({ modifierId }) =>
+          allowed.has(modifierId),
         ),
     )
   )
@@ -93,35 +109,52 @@ function rarityLabel(rarity: string, locale: Locale) {
   return uiText(rarity.charAt(0) + rarity.slice(1).toLowerCase(), locale)
 }
 
-function matchingTierLabels(
-  example: Example,
-  definitions: Record<string, Definition>,
+function tierRanges(options: Definition[]) {
+  const tiers = [
+    ...new Set(options.map((d) => d.tier).filter((tier) => tier > 0)),
+  ].sort((a, b) => b - a)
+  const ranges: string[] = []
+  for (let start = 0; start < tiers.length;) {
+    let end = start
+    while (tiers[end + 1] === tiers[end]! - 1) end++
+    ranges.push(
+      start === end ? 'T' + tiers[start] : `T${tiers[start]}~T${tiers[end]}`,
+    )
+    start = end + 1
+  }
+  return ranges.join(', ')
+}
+
+function sourcesForOptions(
+  options: Definition[],
+  sources: Example['sources'],
   locale: Locale,
 ) {
-  const variants = example.tierVariants
-  if (variants.length < 2) return []
-  const commonIds = new Set(
-    example.item.explicits
-      .map((m) => m.modifierId)
-      .filter((id) =>
-        variants.every((variant) =>
-          variant.explicits.some((m) => m.modifierId === id),
-        ),
-      ),
-  )
-  return variants.map((variant) =>
-    variant.explicits
-      .filter((m) => !commonIds.has(m.modifierId))
-      .map((m) => {
-        const definition = definitions[m.modifierId]!
-        const name = localizedModifierName(definition, locale)
-        const text = localizedModifierText(definition, m.values, locale)
-        return [definition.tier ? 'T' + definition.tier : null, name, text]
-          .filter(Boolean)
-          .join(' · ')
-      })
-      .join(' / '),
-  )
+  const bySource = new Map<string, Definition[]>()
+  for (const option of options) {
+    for (const label of acquisitionSourceLabels(sources[option.id]!)) {
+      const members = bySource.get(label)
+      if (members) members.push(option)
+      else bySource.set(label, [option])
+    }
+  }
+  return [...bySource]
+    .map(([source, members]) => {
+      if (members.length === options.length) return source
+      // Two affixes can have the same tier number. Name them if they have different sources.
+      const ambiguous = options.some(
+        (other) =>
+          !members.includes(other) &&
+          members.some((m) => m.tier === other.tier),
+      )
+      const label = ambiguous
+        ? members
+            .map((m) => `T${m.tier} ${localizedModifierName(m, locale)}`)
+            .join(', ')
+        : tierRanges(members)
+      return `${source} [${label}]`
+    })
+    .join(', ')
 }
 
 function PreviewCard({
@@ -135,16 +168,15 @@ function PreviewCard({
   present: ItemPresentation
   locale: Locale
 }) {
-  const [selected, setSelected] = useState(0)
-  const { tierVariants, sources } = example
-  const item = tierVariants[selected] ?? example.item
+  const { item, tierVariants, optionTiers, sources } = example
   const copy = previewResultMessages[locale]
   const card = present(item, locale)
   const quality = item.catalystQuality
-  const tierLabels = useMemo(
-    () => matchingTierLabels(example, definitions, locale),
-    [example, definitions, locale],
-  )
+  const rolls = new Map<string, Record<string, number>>()
+  for (const variant of tierVariants)
+    for (const mod of [...variant.implicits, ...variant.explicits]) {
+      if (!rolls.has(mod.modifierId)) rolls.set(mod.modifierId, mod.values)
+    }
   return (
     <ItemCard
       baseItemId={item.baseItemId}
@@ -169,31 +201,34 @@ function PreviewCard({
             text: augmentName(a.augmentId),
           })),
         ],
-        modifiers: card.modifiers.map((line) => ({
-          ...line,
-          sourceLabel:
-            copy.sources +
-            ' · ' +
-            acquisitionSourceLabels(sources[line.id]!).join(', '),
-        })),
+        modifiers: card.modifiers.map((line) => {
+          const options = optionTiers[line.id]!.map(
+            (id) => definitions[id]!,
+          ).sort((a, b) => b.tier - a.tier)
+          return {
+            ...line,
+            affixLabel: tierRanges(options),
+            sourceLabel:
+              copy.sources +
+              ' · ' +
+              sourcesForOptions(options, sources, locale),
+            ...(options.length > 1 && {
+              tierRows: options.flatMap((d) => {
+                const values = rolls.get(d.id)
+                return values
+                  ? [
+                      {
+                        label: `T${d.tier} · ${localizedModifierName(d, locale)}`,
+                        value: localizedModifierText(d, values, locale),
+                      },
+                    ]
+                  : []
+              }),
+            }),
+          }
+        }),
       }}
-    >
-      {tierVariants.length > 1 && (
-        <label className="goal-preview-tiers">
-          {copy.tiers} ({tierVariants.length.toLocaleString(locale)})
-          <select
-            value={selected}
-            onChange={(e) => setSelected(Number(e.target.value))}
-          >
-            {tierLabels.map((label, index) => (
-              <option key={index} value={index}>
-                {label}
-              </option>
-            ))}
-          </select>
-        </label>
-      )}
-    </ItemCard>
+    />
   )
 }
 
@@ -265,7 +300,7 @@ export function GoalPreviewResults({
             : group.range
         return (
           <div key={group.id}>
-            <strong>{setupMessages[locale].groups[group.type]}</strong>
+            <strong lang="en">{tradeGroupNames[group.type]}</strong>
             {' · '}
             {labels.operations[group.type]}
             {range && (range.min !== null || range.max !== null) && (

@@ -3,18 +3,11 @@
 }
 .goal-preview-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+  grid-template-columns: repeat(auto-fill, min(100%, 19rem));
   gap: 12px;
   align-items: start;
 }
-.goal-preview-tiers {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 0.25rem;
-  margin-block: 0.5rem;
-}
-.goal-preview-tiers select {
-  width: 100%;
+.goal-preview-cards > .item-card {
   min-width: 0;
 }
 .goal-preview-cards .item-card__line:has(.item-card__source) {
@@ -29,4 +22,18 @@
   flex-basis: 100%;
   color: #c4bbab;
   font-size: 0.85em;
+}
+.goal-preview-cards .item-card__line:has(.item-card__affix) {
+  display: grid;
+  grid-template-columns: fit-content(38%) minmax(0, 1fr);
+  column-gap: 0.5rem;
+}
+.goal-preview-cards .item-card__affix {
+  grid-area: 1 / 1;
+  margin: 0;
+  text-align: start;
+}
+.goal-preview-cards .item-card__line:has(.item-card__affix) .item-card__source {
+  grid-row: 2;
+  grid-column: 1 / -1;
 }

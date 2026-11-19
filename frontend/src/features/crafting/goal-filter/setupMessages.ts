@@ -1,6 +1,15 @@
 import type { GoalFilterLanguage } from './i18n'
 import type { GroupType } from './types'
 
+export const tradeGroupNames: Record<GroupType, string> = {
+  AND: 'And',
+  NOT: 'Not',
+  IF: 'If',
+  COUNT: 'Count',
+  WEIGHTED_V1: 'Weighted Sum',
+  WEIGHTED_V2: 'Weighted Sum v2',
+}
+
 type Copy = {
   rarity: string
   normal: string
@@ -11,7 +20,6 @@ type Copy = {
   explicit: string
   implicit: string
   pseudo: string
-  groups: Record<GroupType, string>
 }
 export const setupMessages: Record<GoalFilterLanguage, Copy> = {
   en: {
@@ -25,14 +33,6 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: 'Explicit modifier',
     implicit: 'Implicit modifier',
     pseudo: 'Combined total',
-    groups: {
-      AND: 'And',
-      NOT: 'Not',
-      IF: 'If',
-      COUNT: 'Count',
-      WEIGHTED_V1: 'Weighted Sum',
-      WEIGHTED_V2: 'Weighted Sum v2',
-    },
   },
   ko: {
     rarity: '시작 아이템 희귀도',
@@ -45,14 +45,6 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: '일반 속성',
     implicit: '고정 속성',
     pseudo: '유사 능력치 합계',
-    groups: {
-      AND: '그리고',
-      NOT: '제외',
-      IF: '조건부',
-      COUNT: '개수',
-      WEIGHTED_V1: '가중합',
-      WEIGHTED_V2: '가중합 v2',
-    },
   },
   'zh-CN': {
     rarity: '起始物品稀有度',
@@ -64,14 +56,6 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: '显式词缀',
     implicit: '固定词缀',
     pseudo: '相似属性总和',
-    groups: {
-      AND: '且',
-      NOT: '非',
-      IF: '如果',
-      COUNT: '计数',
-      WEIGHTED_V1: '加权总和',
-      WEIGHTED_V2: '加权总和 v2',
-    },
   },
   'zh-TW': {
     rarity: '起始物品稀有度',
@@ -83,14 +67,6 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: '一般詞綴',
     implicit: '固定詞綴',
     pseudo: '相似屬性總和',
-    groups: {
-      AND: '且',
-      NOT: '非',
-      IF: '如果',
-      COUNT: '計數',
-      WEIGHTED_V1: '加權總和',
-      WEIGHTED_V2: '加權總和 v2',
-    },
   },
   ja: {
     rarity: '開始アイテムのレアリティ',
@@ -103,14 +79,6 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: '明示モッド',
     implicit: '暗黙モッド',
     pseudo: '類似ステータスの合計',
-    groups: {
-      AND: 'かつ',
-      NOT: '除外',
-      IF: '条件付き',
-      COUNT: '個数',
-      WEIGHTED_V1: '加重合計',
-      WEIGHTED_V2: '加重合計 v2',
-    },
   },
   es: {
     rarity: 'Rareza inicial',
@@ -123,14 +91,6 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: 'Modificador explícito',
     implicit: 'Modificador implícito',
     pseudo: 'Total combinado',
-    groups: {
-      AND: 'Y',
-      NOT: 'No',
-      IF: 'Si',
-      COUNT: 'Recuento',
-      WEIGHTED_V1: 'Suma ponderada',
-      WEIGHTED_V2: 'Suma ponderada v2',
-    },
   },
 
   ru: {
@@ -144,14 +104,6 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: 'Явный модификатор',
     implicit: 'Неявный модификатор',
     pseudo: 'Общий итог',
-    groups: {
-      AND: 'И',
-      NOT: 'Не',
-      IF: 'Если',
-      COUNT: 'Количество',
-      WEIGHTED_V1: 'Взвешенная сумма',
-      WEIGHTED_V2: 'Взвешенная сумма v2',
-    },
   },
   th: {
     rarity: 'เริ่มหายาก.',
@@ -164,13 +116,5 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: 'ม็อดที่ชัดเจน',
     implicit: 'ม็อดโดยนัย',
     pseudo: 'รวมกันทั้งสิ้น',
-    groups: {
-      AND: 'และ',
-      NOT: 'ไม่',
-      IF: 'ถ้า',
-      COUNT: 'จำนวน',
-      WEIGHTED_V1: 'ผลรวมถ่วงน้ำหนัก',
-      WEIGHTED_V2: 'ผลรวมถ่วงน้ำหนัก v2',
-    },
   },
 }

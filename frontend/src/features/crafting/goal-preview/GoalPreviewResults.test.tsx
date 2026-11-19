@@ -55,14 +55,21 @@ const sources = {
   implicit: [{ kind: 'IMPLICIT' }],
   p: [{ kind: 'NORMAL' }, { kind: 'ESSENCE', id: 'GREATER_ESSENCE_BODY' }],
   p2: [{ kind: 'NORMAL' }],
+  p4: [{ kind: 'NORMAL' }],
 }
+const optionTiers = { implicit: ['implicit'], p: ['p2', 'p', 'p4'] }
 const otherTier = {
   ...item,
   explicits: [{ modifierId: 'p2', values: { life: 25 } }],
 }
+const tierFour = {
+  ...item,
+  explicits: [{ modifierId: 'p4', values: { life: 18 } }],
+}
 const preview = {
   modifiers: {
     ...initialFixture.modifiers,
+    p4: { ...initialFixture.modifiers.p!, tier: 4, id: 'p4' },
     p2: {
       ...initialFixture.modifiers.p!,
       tier: 2,
@@ -72,7 +79,9 @@ const preview = {
       stats: [{ id: 'life', min: 21, max: 30 }],
     },
   },
-  cards: [{ item, tierVariants: [item, otherTier], sources }],
+  cards: [
+    { item, tierVariants: [item, otherTier, tierFour], optionTiers, sources },
+  ],
 }
 
 function renderPreview(response: unknown, filter = goal) {
@@ -92,31 +101,90 @@ function renderPreview(response: unknown, filter = goal) {
   return fetch
 }
 
-it('shows matching tiers on one card with the roll and acquisition sources for the selected tier', async () => {
+it('shows disjoint matching tiers beside the option and qualifies the sources that apply to specific tiers', async () => {
   const fetch = renderPreview(preview)
   const cards = await screen.findAllByRole('article')
   expect(cards).toHaveLength(1)
   expect(screen.getByText(/Life · ≥ 15/)).toBeVisible()
   const card = within(cards[0]!)
-  expect(card.getByText('+15 to maximum Life')).toBeVisible()
+  expect(card.getByText('T4, T2~T1')).toBeVisible()
+  const summary = card.getByText('+15 to maximum Life', { selector: 'summary' })
+  expect(summary).toBeVisible()
   expect(
-    card.getByText('Sources · base, Essence (Greater Essence of the Body)'),
+    card.getByText(
+      'Sources · base, Essence (Greater Essence of the Body) [T1]',
+    ),
   ).toBeVisible()
-  const tiers = card.getByRole('combobox', {
-    name: /Matching tier combinations/,
-  })
-  expect(within(tiers).getAllByRole('option')).toHaveLength(2)
-  expect(
-    within(tiers).getByRole('option', {
-      name: 'T2 · Stalwart · +25 to maximum Life',
-    }),
-  ).toBeInTheDocument()
-  fireEvent.change(tiers, { target: { value: '1' } })
-  expect(card.getByText('+25 to maximum Life')).toBeVisible()
-  expect(card.getByText('Sources · base')).toBeVisible()
-  expect(card.queryByText(/Greater Essence/)).toBeNull()
+  expect(card.queryByRole('combobox')).toBeNull()
+  expect(card.queryByText('T0')).toBeNull()
+  fireEvent.click(summary)
+  expect(card.getByRole('row', { name: /T2 · Stalwart/ })).toHaveTextContent(
+    '+25 to maximum Life',
+  )
   expect(card.getByText('Sources · Implicit')).toBeVisible()
   expect(fetch.mock.calls).toHaveLength(1)
+})
+
+it('names the affix when only one of two definitions at the same tier has a source', async () => {
+  renderPreview({
+    ...preview,
+    modifiers: {
+      ...preview.modifiers,
+      p2: { ...preview.modifiers.p2, tier: 1 },
+    },
+  })
+  const card = within(await screen.findByRole('article'))
+  expect(card.getByText('T4, T1')).toBeVisible()
+  expect(
+    card.getByText(
+      'Sources · base, Essence (Greater Essence of the Body) [T1 Healthy]',
+    ),
+  ).toBeVisible()
+})
+
+it('keeps the tier ranges attached to their options when the order of affixes changes between matching items', async () => {
+  const state = {
+    ...item,
+    explicits: [
+      { modifierId: 's', values: { strength: 8 } },
+      ...item.explicits,
+    ],
+  }
+  const variant = {
+    ...otherTier,
+    explicits: [
+      ...otherTier.explicits,
+      { modifierId: 's3', values: { strength: 5 } },
+    ],
+  }
+  renderPreview({
+    modifiers: {
+      ...preview.modifiers,
+      s3: { ...initialFixture.modifiers.s!, id: 's3', tier: 3 },
+    },
+    cards: [
+      {
+        item: state,
+        tierVariants: [state, variant],
+        optionTiers: { implicit: ['implicit'], p: ['p', 'p2'], s: ['s3', 's'] },
+        sources: {
+          ...sources,
+          s: [{ kind: 'NORMAL' }],
+          s3: [{ kind: 'NORMAL' }],
+        },
+      },
+    ],
+  })
+  const card = within(await screen.findByRole('article'))
+  const lifeLine = card.getByText('T2~T1').parentElement!
+  const strengthLine = card.getByText('T3, T1').parentElement!
+  expect(
+    within(lifeLine).getByText('+15 to maximum Life', { selector: 'summary' }),
+  ).toBeVisible()
+  expect(
+    within(strengthLine).getByText('+8 to Strength', { selector: 'summary' }),
+  ).toBeVisible()
+  expect(within(strengthLine).queryByText(/Essence/)).toBeNull()
 })
 
 it('renders every returned option configuration, including the fifth one', async () => {
@@ -138,11 +206,14 @@ it('renders every returned option configuration, including the fifth one', async
       return {
         item: state,
         tierVariants: [state],
+        optionTiers: { implicit: ['implicit'], [m.id]: [m.id] },
         sources: { ...sources, [m.id]: [{ kind: 'NORMAL' }] },
       }
     }),
   })
-  expect(await screen.findAllByRole('article')).toHaveLength(5)
+  const cards = await screen.findAllByRole('article')
+  expect(cards).toHaveLength(5)
+  expect(within(cards[0]!).getByText('T1')).toBeVisible()
   expect(screen.queryByRole('combobox')).toBeNull()
 })
 
@@ -196,6 +267,7 @@ it('rejects a variant for a different base before showing the card', async () =>
       {
         item,
         tierVariants: [item, { ...otherTier, baseItemId: 'other' }],
+        optionTiers,
         sources,
       },
     ],

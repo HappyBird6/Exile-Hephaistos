@@ -9,23 +9,14 @@ import type { GoalFilterLanguage } from './i18n'
 import { groupTypes } from './types'
 import { locales } from '../../../shared/i18n/i18n'
 
-const expectedLabels: Record<GoalFilterLanguage, string[]> = {
-  en: ['And', 'Not', 'If', 'Count', 'Weighted Sum', 'Weighted Sum v2'],
-  ko: ['그리고', '제외', '조건부', '개수', '가중합', '가중합 v2'],
-  'zh-CN': ['且', '非', '如果', '计数', '加权总和', '加权总和 v2'],
-  'zh-TW': ['且', '非', '如果', '計數', '加權總和', '加權總和 v2'],
-  ja: ['かつ', '除外', '条件付き', '個数', '加重合計', '加重合計 v2'],
-  es: ['Y', 'No', 'Si', 'Recuento', 'Suma ponderada', 'Suma ponderada v2'],
-  ru: [
-    'И',
-    'Не',
-    'Если',
-    'Количество',
-    'Взвешенная сумма',
-    'Взвешенная сумма v2',
-  ],
-  th: ['และ', 'ไม่', 'ถ้า', 'จำนวน', 'ผลรวมถ่วงน้ำหนัก', 'ผลรวมถ่วงน้ำหนัก v2'],
-}
+const expectedLabels = [
+  'And',
+  'Not',
+  'If',
+  'Count',
+  'Weighted Sum',
+  'Weighted Sum v2',
+]
 
 async function renderEditor(
   language: GoalFilterLanguage,
@@ -91,7 +82,7 @@ describe('trade stat filter groups', () => {
     },
   )
   it.each(locales)(
-    'adds the selected operation and keeps saved Count bounds editable in %s',
+    'shows English operations with localized range controls in %s',
     async (locale) => {
       const editor = await renderEditor(locale, true)
       const t = goalFilterMessages[locale]
@@ -115,12 +106,12 @@ describe('trade stat filter groups', () => {
           .getAllByRole('option')
           .slice(1)
           .map((o) => o.textContent),
-      ).toEqual(expectedLabels[locale])
+      ).toEqual(expectedLabels)
       expect(
         within(first)
           .getAllByRole('option')
           .map((o) => o.textContent),
-      ).toEqual(expectedLabels[locale])
+      ).toEqual(expectedLabels)
       for (const type of types) {
         fireEvent.change(add, { target: { value: type } })
         expect(editor.getState().goal.groups.at(-1)!.type).toBe(type)

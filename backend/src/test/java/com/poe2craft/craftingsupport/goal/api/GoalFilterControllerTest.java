@@ -162,6 +162,7 @@ class GoalFilterControllerTest {
         .andExpect(jsonPath("$.cards[0].item.rarity").value("RARE"))
         .andExpect(jsonPath("$.cards[0].tierVariants[0].rarity").value("RARE"))
         .andExpect(jsonPath("$.cards[0].tierVariants[1].explicits[0].modifierId").isString())
+        .andExpect(jsonPath("$.cards[0].optionTiers['" + implicit + "'][0]").value(implicit))
         .andExpect(jsonPath("$.cards[0].sources['" + implicit + "'][0].kind").value("IMPLICIT"))
         .andExpect(jsonPath("$.modifiers['" + implicit + "'].id").value(implicit));
     var withQuality =

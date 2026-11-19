@@ -176,6 +176,30 @@ final class GoalExampleRolls {
             stat -> targets.containsKey(GoalCatalogIndex.id(definition.layer().name(), stat.id())));
   }
 
+  /** 경계에 가까운 굴림부터 검사하고, 남은 실제 정수나 결합 셀도 필요할 때 순서대로 생성한다. */
+  Iterable<ModifierInstance> all(
+      ModifierDefinition definition, Map<String, Set<BigDecimal>> targets) {
+    var preferred = new LinkedHashSet<>(variants(definition, targets));
+    if (preferred.isEmpty()) return List.of();
+    if (!relevant(definition, targets)) return List.of(preferred.getFirst());
+    return () -> {
+      java.util.stream.Stream<ModifierInstance> all;
+      if (definition.stats().size() > 1) {
+        all =
+            simulator.automaticJointRolls(definition).orElseThrow().stream()
+                .map(CoupledStatRollModel.Cell::modifier);
+      } else {
+        var stat = definition.stats().getFirst();
+        all =
+            java.util.stream.LongStream.rangeClosed(stat.min(), stat.max())
+                .mapToObj(value -> new ModifierInstance(definition.id(), Map.of(stat.id(), value)));
+      }
+      return java.util.stream.Stream.concat(
+              preferred.stream(), all.filter(m -> !preferred.contains(m)))
+          .iterator();
+    };
+  }
+
   /** 단일 수치는 실제 티어 범위 안으로 제한하고, 복합 수치는 Workbench의 동일 결합 굴림에서만 후보를 고른다. */
   List<ModifierInstance> variants(
       ModifierDefinition definition, Map<String, Set<BigDecimal>> targets) {
