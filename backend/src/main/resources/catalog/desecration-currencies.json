@@ -1,0 +1,119 @@
+{
+  "classes": {
+    "ARMOUR": [
+      "Body Armours",
+      "Helmets",
+      "Gloves",
+      "Boots",
+      "Shields",
+      "Bucklers",
+      "Foci"
+    ],
+    "WEAPONS": [
+      "Bows",
+      "Crossbows",
+      "Wands",
+      "Staves",
+      "Sceptres",
+      "Quarterstaves",
+      "Spears",
+      "One Hand Maces",
+      "Two Hand Maces",
+      "One Hand Axes",
+      "Two Hand Axes",
+      "One Hand Swords",
+      "Two Hand Swords",
+      "Daggers",
+      "Claws",
+      "Quivers",
+      "Flails",
+      "Traps",
+      "Talismans"
+    ],
+    "JEWELLERY": [
+      "Amulet",
+      "Amulets",
+      "Rings",
+      "Belts"
+    ]
+  },
+  "currencies": {
+    "Gnawed_Rib": {
+      "target": "ARMOUR",
+      "maximumItemLevel": 64,
+      "minimumModifierLevel": null,
+      "revealPool": null,
+      "selectable": false
+    },
+    "Preserved_Rib": {
+      "target": "ARMOUR",
+      "maximumItemLevel": null,
+      "minimumModifierLevel": null,
+      "revealPool": null,
+      "selectable": true
+    },
+    "Ancient_Rib": {
+      "target": "ARMOUR",
+      "maximumItemLevel": null,
+      "minimumModifierLevel": 40,
+      "revealPool": null,
+      "selectable": true
+    },
+    "Gnawed_Jawbone": {
+      "target": "WEAPONS",
+      "maximumItemLevel": 64,
+      "minimumModifierLevel": null,
+      "revealPool": null,
+      "selectable": false
+    },
+    "Preserved_Jawbone": {
+      "target": "WEAPONS",
+      "maximumItemLevel": null,
+      "minimumModifierLevel": null,
+      "revealPool": null,
+      "selectable": true
+    },
+    "Ancient_Jawbone": {
+      "target": "WEAPONS",
+      "maximumItemLevel": null,
+      "minimumModifierLevel": 40,
+      "revealPool": null,
+      "selectable": true
+    },
+    "Gnawed_Collarbone": {
+      "target": "JEWELLERY",
+      "maximumItemLevel": 64,
+      "minimumModifierLevel": null,
+      "revealPool": null,
+      "selectable": false
+    },
+    "Preserved_Collarbone": {
+      "target": "JEWELLERY",
+      "maximumItemLevel": null,
+      "minimumModifierLevel": null,
+      "revealPool": null,
+      "selectable": true
+    },
+    "Ancient_Collarbone": {
+      "target": "JEWELLERY",
+      "maximumItemLevel": null,
+      "minimumModifierLevel": 40,
+      "revealPool": null,
+      "selectable": true
+    },
+    "Altered_Collarbone": {
+      "target": "JEWELLERY",
+      "maximumItemLevel": null,
+      "minimumModifierLevel": null,
+      "revealPool": "ALTERED",
+      "selectable": true
+    },
+    "Preserved_Cranium": {
+      "target": "JEWEL",
+      "maximumItemLevel": null,
+      "minimumModifierLevel": null,
+      "revealPool": null,
+      "selectable": true
+    }
+  }
+}

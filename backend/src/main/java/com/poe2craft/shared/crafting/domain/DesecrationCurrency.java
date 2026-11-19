@@ -51,66 +51,52 @@ import java.util.random.RandomGenerator;
 public final class DesecrationCurrency {
   private DesecrationCurrency() {}
 
-  private static final Set<String> ARMOUR =
-      Set.of("Body Armours", "Helmets", "Gloves", "Boots", "Shields", "Bucklers", "Foci");
-  private static final Set<String> WEAPONS =
-      Set.of(
-          "Bows",
-          "Crossbows",
-          "Wands",
-          "Staves",
-          "Sceptres",
-          "Quarterstaves",
-          "Spears",
-          "One Hand Maces",
-          "Two Hand Maces",
-          "One Hand Axes",
-          "Two Hand Axes",
-          "One Hand Swords",
-          "Two Hand Swords",
-          "Daggers",
-          "Claws",
-          "Quivers",
-          "Flails",
-          "Traps",
-          "Talismans");
-  private static final Set<String> JEWELLERY = Set.of("Amulet", "Amulets", "Rings", "Belts");
+  /** 화폐별 장비군·레벨·공개 풀 및 작업대 선택 정책이다. */
+  private record Bone(
+      String target,
+      Integer maximumItemLevel,
+      Integer minimumModifierLevel,
+      String revealPool,
+      boolean selectable) {}
 
-  /** 수동 훼손에서 베이스와 레벨을 검증하고 공개 풀을 여는 화폐 ID. */
-  private static final List<String> CURRENCIES =
-      List.of(
-          "Gnawed_Rib",
-          "Preserved_Rib",
-          "Ancient_Rib",
-          "Gnawed_Jawbone",
-          "Preserved_Jawbone",
-          "Ancient_Jawbone",
-          "Gnawed_Collarbone",
-          "Preserved_Collarbone",
-          "Ancient_Collarbone",
-          "Altered_Collarbone",
-          "Preserved_Cranium");
+  /** 버전별 JSON의 장비군과 화폐 사전이다. */
+  private record Policy(
+      java.util.Map<String, Set<String>> classes, java.util.Map<String, Bone> currencies) {}
 
-  /** 베이스 종류와 아이템 레벨이 허용하는 화폐 목록을 실행과 동일한 기준으로 구한다. */
+  private static final Policy POLICY = loadPolicy();
+  private static final Set<String> WEAPONS = POLICY.classes().get("WEAPONS");
+  private static final Set<String> JEWELLERY = POLICY.classes().get("JEWELLERY");
+
+  /** 봉인한 규칙 원본에서 런타임 사전을 한 번 읽는다. */
+  private static Policy loadPolicy() {
+    try (var input =
+        com.poe2craft.shared.ruleset.SealedResources.open("/catalog/desecration-currencies.json")) {
+      return new com.fasterxml.jackson.databind.ObjectMapper().readValue(input, Policy.class);
+    } catch (java.io.IOException e) {
+      throw new IllegalStateException("Invalid desecration policy", e);
+    }
+  }
+
+  /** 현재 베이스와 레벨에서 쓸 수 있는 화폐를 등록 순서로 반환한다. */
   static List<String> currencies(String baseId, int level) {
-    return CURRENCIES.stream()
+    return POLICY.currencies().keySet().stream()
         .filter(c -> supportsBase(c, baseId) && levelRefusal(c, level) == null)
         .toList();
   }
 
   /** 베이스의 장비 종류 또는 주얼 등록 여부가 화폐에 맞는지 검사한다. */
   private static boolean supportsBase(String currency, String baseId) {
-    if (currency.equals("Preserved_Cranium")) return BasicJewel.supportedCrafting(baseId);
+    var group = POLICY.currencies().get(currency).target();
+    if (group.equals("JEWEL")) return BasicJewel.supportedCrafting(baseId);
     var itemClass = BaseRegistry.itemClass(baseId);
-    var classes =
-        currency.endsWith("_Rib") ? ARMOUR : currency.endsWith("_Jawbone") ? WEAPONS : JEWELLERY;
-    return itemClass != null && classes.contains(itemClass);
+    return itemClass != null && POLICY.classes().get(group).contains(itemClass);
   }
 
   /** 화폐 등급이 요구하는 아이템 레벨의 거절 사유, 또는 적용 가능하면 null을 반환한다. */
   private static String levelRefusal(String currency, int level) {
-    if (currency.startsWith("Gnawed_") && level > 64)
-      return "Gnawed bones require item level 64 or lower";
+    var maximum = POLICY.currencies().get(currency).maximumItemLevel();
+    if (maximum != null && level > maximum)
+      return "Gnawed bones require item level " + maximum + " or lower";
     var minimum = minimumModifierLevel(currency);
     if (minimum != null && level < minimum)
       return "No candidate can satisfy both item and minimum modifier levels";
@@ -119,12 +105,12 @@ public final class DesecrationCurrency {
 
   /** 공개 슬롯에 유지할 옵션의 최소 요구 레벨을 반환한다. 하한이 없는 화폐는 null이다. */
   public static Integer minimumModifierLevel(String currency) {
-    return currency.startsWith("Ancient_") ? 40 : null;
+    return POLICY.currencies().get(currency).minimumModifierLevel();
   }
 
   /** 별도 징조 없이 화폐 자체가 지정하는 공개 풀을 구한다. */
   public static String revealPool(String currency) {
-    return currency.equals("Altered_Collarbone") ? "ALTERED" : null;
+    return POLICY.currencies().get(currency).revealPool();
   }
 
   public static boolean supportsRevealPool(String baseItemId, String pool) {
@@ -268,7 +254,7 @@ public final class DesecrationCurrency {
       String removedSlotId,
       Set<String> activeOmens,
       ItemCatalog catalog) {
-    if (currency == null || !CURRENCIES.contains(currency))
+    if (currency == null || !POLICY.currencies().containsKey(currency))
       throw new IllegalArgumentException("Unsupported desecration currency");
     var omens = activeOmens == null ? Set.<String>of() : activeOmens;
     var sides =
@@ -304,7 +290,7 @@ public final class DesecrationCurrency {
     if (!supportsBase(currency, item.baseItemId()))
       throw new IllegalArgumentException("Currency does not match the equipment class");
     if (!poolOmens.isEmpty()
-        && (currency.equals("Altered_Collarbone")
+        && (revealPool(currency) != null
             || (!WEAPONS.contains(itemClass) && !JEWELLERY.contains(itemClass))))
       throw new IllegalArgumentException(
           "Lich omens require an ordinary weapon or jewellery desecration");

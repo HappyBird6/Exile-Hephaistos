@@ -1,3 +1,4 @@
+import bones from './desecrationBones.json'
 import { craftingFetch as fetch } from '../../shared/gameIdTransport'
 import { storedAbyssItem } from './workbenchHistory'
 import { poolHeaders, acceptPoolUpdate } from './modifier-pool/poolSnapshots'
@@ -16,21 +17,11 @@ export {
   boneRemainingOmens,
 } from './crafting-state/activeOmens'
 
-export const boneNames = {
-  Preserved_Cranium: 'Preserved Cranium',
-  Altered_Collarbone: 'Altered Collarbone',
-  Gnawed_Rib: 'Gnawed Rib',
-  Preserved_Rib: 'Preserved Rib',
-  Ancient_Rib: 'Ancient Rib',
-  Gnawed_Jawbone: 'Gnawed Jawbone',
-  Preserved_Jawbone: 'Preserved Jawbone',
-  Ancient_Jawbone: 'Ancient Jawbone',
-  Gnawed_Collarbone: 'Gnawed Collarbone',
-  Preserved_Collarbone: 'Preserved Collarbone',
-  Ancient_Collarbone: 'Ancient Collarbone',
-} as const
-export const isBone = (id: string): id is keyof typeof boneNames =>
-  Object.hasOwn(boneNames, id)
+export const boneNames = Object.fromEntries(
+  Object.entries(bones).map(([id, rule]) => [id, rule.name]),
+)
+export const isBone = (id: string): id is keyof typeof bones =>
+  Object.hasOwn(bones, id)
 export const necromancySide = (
   omens: readonly string[],
 ): 'PREFIX' | 'SUFFIX' | undefined =>
@@ -128,6 +119,8 @@ export async function applyBone(
 ): Promise<AbyssState> {
   // Only the currency's triggered omens are sent/consumed. Other active omens,
   // including Omen_of_Sanctification, remain active for their own currency.
+  if (!isBone(currency)) throw new Error(errorMessage)
+  const bone = bones[currency]
   activeOmens = boneConsumedOmens(activeOmens)
   const putrefaction = activeOmens.includes('Omen_of_Putrefaction')
   if (
@@ -240,11 +233,7 @@ export async function applyBone(
       result.item.implicits.some((n) => sameModifier(m, n)),
     ) ||
     (fresh[0]?.revealPool ?? null) !==
-      (currency === 'Altered_Collarbone'
-        ? 'ALTERED'
-        : poolOmens[0]
-          ? poolNames[poolOmens[0]]
-          : null) ||
+      (bone.revealPool ?? (poolOmens[0] ? poolNames[poolOmens[0]] : null)) ||
     fresh.length !== (putrefaction ? observedSides!.length : 1) ||
     fresh.some(
       (slot, i) =>
@@ -253,12 +242,10 @@ export async function applyBone(
           ? slot.side !== observedSides![i]
           : !!side && slot.side !== side) ||
         (slot.revealPool ?? null) !== (fresh[0]?.revealPool ?? null) ||
-        (slot.minimumModifierLevel ?? null) !==
-          (currency.startsWith('Ancient_') ? 40 : null),
+        (slot.minimumModifierLevel ?? null) !== bone.minimumModifierLevel,
     ) ||
     result.offer !== null ||
-    (fresh[0]!.minimumModifierLevel ?? null) !==
-      (currency.startsWith('Ancient_') ? 40 : null) ||
+    (fresh[0]!.minimumModifierLevel ?? null) !== bone.minimumModifierLevel ||
     retained.length !== expected.length ||
     (!putrefaction &&
       (removedModifiers.length !== (full ? 1 : 0) ||

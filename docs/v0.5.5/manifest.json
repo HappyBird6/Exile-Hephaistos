@@ -1771,12 +1771,16 @@
       "sha256": "f365ff7d5d8183e3c8b7d531711de4307cf2d8786fd45a6cb0852c12e6c2cd28"
     },
     {
+      "path": "game-data/crafting/reveal/currencies.json",
+      "sha256": "2ac37e908e4f2446e72116be013f51b170bc9ae3daa559b5a10a9cf1b76e9242"
+    },
+    {
       "path": "game-data/crafting/reveal/options.json",
       "sha256": "0ea5f8d8d2616a56cb5b86dee197993728451b32a38b288513321706d4e4fcef"
     },
     {
       "path": "game-data/crafting/ruleset-v1.json",
-      "sha256": "05e147995bbc5af265eacf2deaa18a26f9da5a1e582f3a48b48647da1f57b8ad"
+      "sha256": "e69a543975276da962d230adaf94626d577741a3411a425c14912a1d05811366"
     },
     {
       "path": "game-data/crafting/supported-base-sets-v1.json",
@@ -2099,6 +2103,10 @@
     {
       "runtimePath": "backend/src/main/resources/catalog/death-mantle/catalog.json",
       "sha256": "e46482b35028d0a19ed319514fcdf1ba78ee75c24cef76570341ef9d6b35c679"
+    },
+    {
+      "runtimePath": "backend/src/main/resources/catalog/desecration-currencies.json",
+      "sha256": "a43de01803066ed3d1bc13ebcb6189fbfeca509bda540d7f18a2c2ea91f43c86"
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/desert-buckler/catalog.json",
@@ -2794,7 +2802,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/ruleset-v1.json",
-      "sha256": "05e147995bbc5af265eacf2deaa18a26f9da5a1e582f3a48b48647da1f57b8ad"
+      "sha256": "e69a543975276da962d230adaf94626d577741a3411a425c14912a1d05811366"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/supported-base-sets-v1.json",
@@ -2815,6 +2823,10 @@
     {
       "runtimePath": "frontend/src/features/crafting/basicJewelLiquidTargets.json",
       "sha256": "6ba5def3ef7a148e41264d9b7bd1aa7fa18693f9ddeacea1471060ae0f1fba50"
+    },
+    {
+      "runtimePath": "frontend/src/features/crafting/desecrationBones.json",
+      "sha256": "6618855f3ed99c70233850db8ca57c1f515fadad8ece4ca7b87f8bcbc747c031"
     },
     {
       "runtimePath": "frontend/src/features/crafting/manualRevealDefinitions.json",

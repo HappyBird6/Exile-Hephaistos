@@ -85,6 +85,7 @@ public final class SealedResources {
           "catalog/time-lost-ruby/catalog.json",
           "catalog/time-lost-sapphire/catalog.json",
           "catalog/manual-reveal.json",
+          "catalog/desecration-currencies.json",
           "catalog/top-base-essences.json",
           "catalog/top-bases.json",
           "crafting/goalfilter/bases-v1.json",

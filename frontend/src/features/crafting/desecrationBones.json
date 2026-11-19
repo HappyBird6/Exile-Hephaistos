@@ -1,0 +1,90 @@
+{
+  "Gnawed_Rib": {
+    "target": "ARMOUR",
+    "maximumItemLevel": 64,
+    "minimumModifierLevel": null,
+    "revealPool": null,
+    "selectable": false,
+    "name": "Gnawed Rib"
+  },
+  "Preserved_Rib": {
+    "target": "ARMOUR",
+    "maximumItemLevel": null,
+    "minimumModifierLevel": null,
+    "revealPool": null,
+    "selectable": true,
+    "name": "Preserved Rib"
+  },
+  "Ancient_Rib": {
+    "target": "ARMOUR",
+    "maximumItemLevel": null,
+    "minimumModifierLevel": 40,
+    "revealPool": null,
+    "selectable": true,
+    "name": "Ancient Rib"
+  },
+  "Gnawed_Jawbone": {
+    "target": "WEAPONS",
+    "maximumItemLevel": 64,
+    "minimumModifierLevel": null,
+    "revealPool": null,
+    "selectable": false,
+    "name": "Gnawed Jawbone"
+  },
+  "Preserved_Jawbone": {
+    "target": "WEAPONS",
+    "maximumItemLevel": null,
+    "minimumModifierLevel": null,
+    "revealPool": null,
+    "selectable": true,
+    "name": "Preserved Jawbone"
+  },
+  "Ancient_Jawbone": {
+    "target": "WEAPONS",
+    "maximumItemLevel": null,
+    "minimumModifierLevel": 40,
+    "revealPool": null,
+    "selectable": true,
+    "name": "Ancient Jawbone"
+  },
+  "Gnawed_Collarbone": {
+    "target": "JEWELLERY",
+    "maximumItemLevel": 64,
+    "minimumModifierLevel": null,
+    "revealPool": null,
+    "selectable": false,
+    "name": "Gnawed Collarbone"
+  },
+  "Preserved_Collarbone": {
+    "target": "JEWELLERY",
+    "maximumItemLevel": null,
+    "minimumModifierLevel": null,
+    "revealPool": null,
+    "selectable": true,
+    "name": "Preserved Collarbone"
+  },
+  "Ancient_Collarbone": {
+    "target": "JEWELLERY",
+    "maximumItemLevel": null,
+    "minimumModifierLevel": 40,
+    "revealPool": null,
+    "selectable": true,
+    "name": "Ancient Collarbone"
+  },
+  "Altered_Collarbone": {
+    "target": "JEWELLERY",
+    "maximumItemLevel": null,
+    "minimumModifierLevel": null,
+    "revealPool": "ALTERED",
+    "selectable": true,
+    "name": "Altered Collarbone"
+  },
+  "Preserved_Cranium": {
+    "target": "JEWEL",
+    "maximumItemLevel": null,
+    "minimumModifierLevel": null,
+    "revealPool": null,
+    "selectable": true,
+    "name": "Preserved Cranium"
+  }
+}

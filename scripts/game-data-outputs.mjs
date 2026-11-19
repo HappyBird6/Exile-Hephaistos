@@ -458,6 +458,12 @@ export function gameDataOutputs(directory) {
   browser('basicJewelDefinitions.json', jewelDefinitions)
 
   const materialText = raw('i18n/materials/en.json')
+  const bones = read('game-data/crafting/reveal/currencies.json')
+  for (const [id, bone] of Object.entries(bones.currencies)) {
+    assert(own(materialText, id) && (bone.target === 'JEWEL' || own(bones.classes, bone.target)), 'Unknown bone or target: ' + id)
+  }
+  backend('catalog/desecration-currencies.json', bones)
+  browser('desecrationBones.json', Object.fromEntries(Object.entries(bones.currencies).map(([id, bone]) => [id, {...bone, name: materialText[id].name}])))
   browser(
     'materialTooltips.json',
     Object.fromEntries(
