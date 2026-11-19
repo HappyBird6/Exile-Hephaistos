@@ -9,7 +9,7 @@ import {
 } from '../method-search/supportStorage'
 import { workspaceMessages } from '../method-search/workspaceMessages'
 import { useQuery } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useStore } from 'zustand'
 import { concreteInitial } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
@@ -38,6 +38,7 @@ const numericInputMessages = {
 }
 const adapter = httpGoalFilterAdapter
 export type SearchGoalSnapshot = {
+  previewCatalog?: Catalog
   sourceStatIds?: string[] | undefined
   goal: GoalFilter
   catalogVersion: string | null
@@ -50,6 +51,7 @@ export function ConnectedGoalFilter({
   activeOmens,
   maxMillis,
   compact = false,
+  preview = false,
   allowQualityWork = true,
   language,
   onSearchGoalChange,
@@ -62,6 +64,7 @@ export function ConnectedGoalFilter({
   activeOmens: string[]
   maxMillis: number
   compact?: boolean
+  preview?: boolean
   allowQualityWork?: boolean
   onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: (snapshot: SearchGoalSnapshot) => void
@@ -219,6 +222,7 @@ export function ConnectedGoalFilter({
         maxMillis={maxMillis}
         allowQualityWork={allowQualityWork}
         compact={compact}
+        preview={preview}
       />
     </div>
   )
@@ -230,6 +234,7 @@ function ConnectedEditor({
   bases,
   language,
   compact,
+  preview,
   allowQualityWork,
   onSearchGoalChange,
   onResetGoal,
@@ -243,21 +248,23 @@ function ConnectedEditor({
   activeOmens: string[]
   maxMillis: number
   compact: boolean
+  preview: boolean
   allowQualityWork: boolean
   onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: ((snapshot: SearchGoalSnapshot) => void) | undefined
 }) {
   const { locale } = useI18n()
+  const persistGoal = compact && !preview
   const [editor] = useState(() =>
     createGoalFilterEditor(
-      (compact ? readSupport('goal', validGoal) : null) ??
+      (persistGoal ? readSupport('goal', validGoal) : null) ??
         emptyGoal(initialCatalog.context, initialCatalog.catalogVersion),
     ),
   )
   const goal = useStore(editor, (state) => state.goal)
   const [storageFailed, setStorageFailed] = useState(false)
   useEffect(() => {
-    if (!compact) return
+    if (!persistGoal) return
     const persist = () =>
       setStorageFailed(!saveSupport('goal', editor.getState().goal))
     const timer = setTimeout(persist, 250)
@@ -266,7 +273,7 @@ function ConnectedEditor({
       clearTimeout(timer)
       window.removeEventListener('pagehide', persist)
     }
-  }, [compact, goal, editor])
+  }, [persistGoal, goal, editor])
   useEffect(() => {
     if (
       compact &&
@@ -279,15 +286,25 @@ function ConnectedEditor({
   }, [compact, context.baseItemId, editor])
   const currentCatalog = useGoalFilterCatalog(adapter, context)
   const [resetGeneration, setResetGeneration] = useState(0)
-  const [inputReady, setInputReady] = useState(false)
+  const [validated, setValidated] = useState<{
+    goal: GoalFilter
+    catalog: Catalog
+  } | null>(null)
+  const catalog = currentCatalog.data
+  const validationChanged = useCallback(
+    (ready: boolean) =>
+      setValidated(ready && catalog ? { goal, catalog } : null),
+    [goal, catalog],
+  )
   useEffect(() => {
-    const catalog = currentCatalog.data
     onSearchGoalChange?.({
       goal: structuredClone(qualityWorkGoal(goal, allowQualityWork)),
+      ...(preview && catalog ? { previewCatalog: catalog } : {}),
       sourceStatIds: catalog ? goalSources(goal, catalog) : undefined,
       catalogVersion: catalog?.catalogVersion ?? null,
       ready:
-        inputReady &&
+        validated?.goal === goal &&
+        validated.catalog === catalog &&
         currentCatalog.isSuccess &&
         !currentCatalog.isFetching &&
         catalog?.catalogVersion === goal.catalogVersion &&
@@ -298,14 +315,15 @@ function ConnectedEditor({
   }, [
     goal,
     allowQualityWork,
-    currentCatalog.data,
+    catalog,
+    preview,
     currentCatalog.isSuccess,
     currentCatalog.isFetching,
     context.snapshotId,
     context.baseItemId,
     context.itemLevel,
     onSearchGoalChange,
-    inputReady,
+    validated,
   ])
   const ko = language === 'ko'
   return (
@@ -348,13 +366,13 @@ function ConnectedEditor({
                 currentCatalog.data.catalogVersion,
               )
               onResetGoal?.()
-              setInputReady(false)
+              setValidated(null)
               editor.setState((state) => ({
                 goal,
                 revision: state.revision + 1,
                 collapsedByGroupId: {},
               }))
-              if (compact) setStorageFailed(!saveSupport('goal', goal))
+              if (persistGoal) setStorageFailed(!saveSupport('goal', goal))
               setResetGeneration((n) => n + 1)
             }}
           >
@@ -362,7 +380,7 @@ function ConnectedEditor({
           </button>
         }
         key={resetGeneration}
-        onSearchReadinessChange={setInputReady}
+        onSearchReadinessChange={validationChanged}
         presentStatIds={presentNumericStats(
           item,
           currentCatalog.data ?? initialCatalog,
@@ -374,6 +392,7 @@ function ConnectedEditor({
         language={language}
         allowQualityWork={allowQualityWork}
         compact={compact}
+        preview={preview}
       />
     </div>
   )

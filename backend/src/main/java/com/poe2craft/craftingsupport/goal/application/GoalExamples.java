@@ -16,11 +16,10 @@ import java.util.function.Function;
 
 /**
  * 요청 한 건에서 목표에 가까운 조합을 확장하여 검증 가능한 서로 다른 예시를 찾는다. catalog·validator는 베이스 제약, goal·evaluate는 기존 목표
- * 판정, sources·rolls는 획득 가능 여부와 구체 수치 선택에 사용한다. CARD_LIMIT는 예시 수, FRONTIER_LIMIT와 TRIALS_PER_LAYER는
- * 슬롯 깊이마다 보관할 상태 수와 판정 횟수의 상한이다.
+ * 판정, sources·rolls는 획득 가능 여부와 구체 수치 선택에 사용한다. FRONTIER_LIMIT와 TRIALS_PER_LAYER는 여러 슬롯을 탐색할 때 다음
+ * 깊이로 확장할 부분 상태 수와 판정 횟수의 상한이다. 완성 카드 수는 제한하지 않는다.
  */
 final class GoalExamples {
-  private static final int CARD_LIMIT = 4;
   private static final int FRONTIER_LIMIT = 12;
   private static final int TRIALS_PER_LAYER = 4096;
   private final ItemCatalog catalog;
@@ -32,6 +31,15 @@ final class GoalExamples {
 
   /** 탐색 중 보관하는 아이템, 실제 목표 판정, 다음 깊이의 탐색 우선순위다. */
   private record Candidate(ItemState item, Evaluation evaluation, double priority) {}
+
+  /** 획득 분류, 계층, 접두·접미, 충돌 계열, 태그, 순서 있는 수치가 모두 같은 옵션의 티어만 묶는다. */
+  private record TierFamily(
+      Kind kind,
+      ModifierDefinition.Layer layer,
+      ModifierDefinition.AffixType affix,
+      Set<String> families,
+      Set<String> tags,
+      List<String> stats) {}
 
   /** 번들 데이터는 참조로 공유하고 목표와 한정된 탐색 상태는 요청별로 관리한다. */
   GoalExamples(
@@ -49,7 +57,7 @@ final class GoalExamples {
   }
 
   /** 목표 레벨·희귀도 안에서 관련 옵션만 추가한다. 빈 결과는 탐색한 범위에서 예시가 없다는 의미다. */
-  List<ItemState> find(GoalFilter.Context context) {
+  List<List<ItemState>> find(GoalFilter.Context context) {
     if (!goal.general().itemLevel().contains(BigDecimal.valueOf(context.itemLevel())))
       return List.of();
     var quality = goal.general().quality();
@@ -66,13 +74,14 @@ final class GoalExamples {
                 d ->
                     d.layer() == ModifierDefinition.Layer.EXPLICIT
                         && d.requiredItemLevel() <= context.itemLevel()
-                        && sources.containsKey(d.id())
+                        && !sources.getOrDefault(d.id(), List.of()).isEmpty()
                         && GoalExampleRolls.relevant(d, targets))
             .sorted(
                 Comparator.comparingInt(ModifierDefinition::tier)
                     .thenComparing(ModifierDefinition::id))
             .toList();
-    // 한 타입의 수치 변형만으로 카드를 채우지 않도록 옵션 ID 조합별 대표 상태를 남긴다.
+    var tierGroups = tierGroups(definitions);
+    // 같은 티어 조합에 여러 수치 예시가 있어도 실제로 통과한 상태 하나만 보관한다.
     var cards = new LinkedHashMap<List<?>, ItemState>();
     for (var rarity : goal.general().rarities()) {
       if (rarity == ItemState.Rarity.UNIQUE) continue;
@@ -95,23 +104,67 @@ final class GoalExamples {
         var first = candidate(seed);
         if (!save(first, cards)) frontier.add(first);
       }
-      while (!frontier.isEmpty() && cards.size() < CARD_LIMIT && !definitions.isEmpty()) {
+      while (!frontier.isEmpty() && !definitions.isEmpty()) {
         var next = new LinkedHashMap<List<?>, Candidate>();
         int perParent = TRIALS_PER_LAYER / frontier.size();
         for (var parent : frontier) {
-          expand(parent, definitions, perParent, cards, next);
-          if (cards.size() >= CARD_LIMIT) break;
+          // 첫 슬롯은 모든 티어를 판정한다. 더 깊은 조합은 부분 상태별 예산을 나눠 사용한다.
+          expand(
+              parent,
+              definitions,
+              parent.item().explicits().isEmpty() ? Integer.MAX_VALUE : perParent,
+              cards,
+              next);
         }
-        frontier =
-            new ArrayList<>(
-                next.values().stream()
-                    .sorted(Comparator.comparingDouble(Candidate::priority).reversed())
-                    .limit(FRONTIER_LIMIT)
-                    .toList());
+        frontier = nextFrontier(next.values(), tierGroups);
       }
-      if (cards.size() >= CARD_LIMIT) break;
     }
-    return List.copyOf(cards.values());
+    var grouped = new LinkedHashMap<List<?>, List<ItemState>>();
+    for (var item : cards.values())
+      grouped.computeIfAbsent(shape(item, tierGroups), key -> new ArrayList<>()).add(item);
+    return grouped.values().stream().map(List::copyOf).toList();
+  }
+
+  /** 같은 구조에서 처음 만난 정의 ID를 티어 공통 키로 사용한다. 같은 티어 번호의 정의라도 실제 상태에는 개별 ID가 보존된다. */
+  private Map<String, String> tierGroups(List<ModifierDefinition> definitions) {
+    var families = new HashMap<TierFamily, String>();
+    var groups = new HashMap<String, String>();
+    for (var d : definitions) {
+      // 주얼·훼손 등의 표시 전용 수치는 다른 효과에도 같은 ID를 사용하므로 옵션의 정체성이 될 수 없다.
+      if (d.tier() < 1 || d.stats().stream().anyMatch(stat -> stat.id().startsWith("display_")))
+        continue;
+      // 일반 옵션에 에센스 등의 추가 출처가 있어도 이 정의의 획득 분류는 일반이다.
+      var key =
+          new TierFamily(
+              sources.get(d.id()).getFirst().kind(),
+              d.layer(),
+              d.affixType(),
+              d.familyIds(),
+              d.tags(),
+              d.stats().stream().map(ModifierDefinition.StatRange::id).toList());
+      groups.put(d.id(), families.computeIfAbsent(key, ignored -> d.id()));
+    }
+    return groups;
+  }
+
+  /** 서로 다른 옵션 구성을 우선 확장하고 남는 탐색 자리는 높은 점수의 다른 티어가 사용한다. */
+  private static ArrayList<Candidate> nextFrontier(
+      Collection<Candidate> candidates, Map<String, String> tierGroups) {
+    var ranked =
+        candidates.stream()
+            .sorted(Comparator.comparingDouble(Candidate::priority).reversed())
+            .toList();
+    var seen = new HashSet<List<?>>();
+    var selected = new LinkedHashSet<Candidate>();
+    for (var candidate : ranked) {
+      if (seen.add(shape(candidate.item(), tierGroups))) selected.add(candidate);
+      if (selected.size() == FRONTIER_LIMIT) break;
+    }
+    for (var candidate : ranked) {
+      if (selected.size() == FRONTIER_LIMIT) break;
+      selected.add(candidate);
+    }
+    return new ArrayList<>(selected);
   }
 
   /** 기폭제 품질로 달라지는 옵션 수치의 목표 판정이 필요한지 확인한다. */
@@ -157,12 +210,12 @@ final class GoalExamples {
               .findFirst();
       if (origin.isEmpty()) continue;
       for (var roll : rolls.variants(definition, targets)) {
-        if (--budget < 0 || cards.size() >= CARD_LIMIT) return;
+        if (--budget < 0) return;
         var state = append(item, definition, roll, origin.get());
         if (state == null || !validator.validateForGeneration(state).isEmpty()) continue;
         var result = candidate(state);
         if (!save(result, cards)) {
-          var key = shape(state);
+          var key = shape(state, Map.of());
           var prior = next.get(key);
           if (prior == null || prior.priority() < result.priority()) next.put(key, result);
         }
@@ -257,16 +310,21 @@ final class GoalExamples {
     return 1 / (1 + distance.doubleValue());
   }
 
-  /** 희귀도와 카탈로그가 정렬한 옵션 ID 목록으로 완성 예시의 서로 다른 구성을 구별한다. */
-  private static List<?> shape(ItemState state) {
+  /** 단일 베이스의 희귀도와 옵션 ID 집합을 비교한다. 티어 그룹을 전달하면 구체 티어와 부여 순서가 달라도 같은 구성이다. */
+  private static List<?> shape(ItemState state, Map<String, String> tierGroups) {
     return List.of(
-        state.rarity(), state.explicits().stream().map(ModifierInstance::modifierId).toList());
+        state.rarity(),
+        state.explicits().stream()
+            .map(ModifierInstance::modifierId)
+            .map(id -> tierGroups.getOrDefault(id, id))
+            .sorted()
+            .toList());
   }
 
-  /** 목표 충족 상태를 최대 개수까지 저장하고, 이 상태에서 추가 옵션을 탐색할 필요가 없는지 알려준다. */
+  /** 목표를 충족한 구체 티어 조합을 보관하고, 이 상태에서 추가 옵션 탐색이 필요한지 알려준다. */
   private static boolean save(Candidate candidate, Map<List<?>, ItemState> cards) {
     if (candidate.evaluation().status() != Status.MATCH) return false;
-    if (cards.size() < CARD_LIMIT) cards.putIfAbsent(shape(candidate.item()), candidate.item());
+    cards.putIfAbsent(shape(candidate.item(), Map.of()), candidate.item());
     return true;
   }
 }

@@ -581,7 +581,7 @@ export function GoalFilterPanel({
                   }
                   title={collapsedByGroupId[group.id] ? t.expand : t.collapse}
                   aria-expanded={!collapsedByGroupId[group.id]}
-                  aria-controls={`goal-group-${group.id}`}
+                  aria-controls={`${id}-goal-group-${group.id}`}
                   onClick={() => collapse(group.id)}
                 >
                   <span aria-hidden="true">
@@ -605,7 +605,7 @@ export function GoalFilterPanel({
                 </button>
               </div>
               <div
-                id={`goal-group-${group.id}`}
+                id={`${id}-goal-group-${group.id}`}
                 hidden={collapsedByGroupId[group.id]}
               >
                 <p className="goal-filter-group-help">

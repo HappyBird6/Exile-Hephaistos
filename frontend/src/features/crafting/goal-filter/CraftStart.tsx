@@ -11,6 +11,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useId,
   useMemo,
   useRef,
   useState,
@@ -18,6 +19,8 @@ import {
 import type { ReactNode } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { httpGoalFilterAdapter } from './api'
+import type { Catalog, Context, GoalFilter } from './types'
+import { hasCompleteGoal } from './useGoalFilter'
 import { createStore } from 'zustand/vanilla'
 import { useStore } from 'zustand'
 import { baseSlugs } from '../baseRegistry'
@@ -39,13 +42,14 @@ import { loadProvenance } from '../basic-paths/api'
 import { pathTreeMessages } from '../path-tree/messages'
 import { StartModifierPicker } from './StartModifierPicker'
 import { craftStartMessages } from './craftStartMessages'
-import { startInputIssue } from './startInputMessages'
+import { startInputIssue, startInputMessages } from './startInputMessages'
 import { setupMessages } from './setupMessages'
 import { modifierPickerMessages } from './modifierPickerMessages'
 import { groupStartModifiers } from './modifierGroups'
 import { levelMessages } from './levelMessages'
 import { ModifierRow } from './ModifierRow'
 import { localizedModifierText } from '../localizedModifiers'
+import type { StartBase } from './startItem'
 import {
   startCard,
   startText,
@@ -66,6 +70,7 @@ type Draft = {
   rulesetIdentity: string | null
   card: ItemCardData | null
   issue: string
+  invalidLevelText: string | null
   levelEdited: boolean
   started: boolean
   editing: boolean
@@ -77,16 +82,27 @@ type Draft = {
   searchRequest: CreateRequest | null
   searchIssue: boolean
 }
+export type GoalPreviewInput = {
+  base: StartBase
+  initial: Initial
+  context: Context
+  catalog: Catalog
+  goal: GoalFilter
+}
 export function CraftStart({
   active,
   activeOmens = [],
   maxMillis = 2000,
+  renderPreview,
 }: {
   active: boolean
   children?: ReactNode
   activeOmens?: string[]
   maxMillis?: number
+  renderPreview?: (input: GoalPreviewInput | null) => ReactNode
 }) {
+  const previewOnly = !!renderPreview
+  const settingsId = useId()
   const toolbar = useContext(SupportToolbarContext)
   const { t, locale, name } = useI18n()
   const client = useQueryClient()
@@ -106,6 +122,7 @@ export function CraftStart({
       rulesetIdentity: null,
       card: null,
       issue: '',
+      invalidLevelText: null,
       levelEdited: false,
       started: false,
       editing: true,
@@ -116,19 +133,22 @@ export function CraftStart({
       searchGoal: null,
       searchRequest: null,
       searchIssue: false,
-      ...restoredStart(),
+      ...(previewOnly ? {} : restoredStart()),
     })),
   )
   const draft = useStore(editor)
   const [settingsExpanded, setSettingsExpanded] = useState(
     () =>
-      readSupport(
+      previewOnly ||
+      (readSupport(
         'settings-expanded',
         (v): v is boolean => typeof v === 'boolean',
-      ) ?? true,
+      ) ??
+        true),
   )
   const [storageFailed, setStorageFailed] = useState(false)
   const persist = useCallback(() => {
+    if (previewOnly) return
     const d = editor.getState()
     setStorageFailed(
       !saveSupport('start', {
@@ -144,8 +164,9 @@ export function CraftStart({
         searchRequest: d.searchRequest,
       }),
     )
-  }, [editor])
+  }, [editor, previewOnly])
   useEffect(() => {
+    if (previewOnly) return
     let timer: ReturnType<typeof setTimeout>
     const unsubscribe = editor.subscribe(() => {
       clearTimeout(timer)
@@ -158,11 +179,14 @@ export function CraftStart({
       clearTimeout(timer)
       window.removeEventListener('pagehide', flush)
     }
-  }, [editor, persist])
+  }, [editor, persist, previewOnly])
   const update = (value: Partial<Draft>) =>
     editor.setState({
       searchRequest: null,
       searchIssue: false,
+      ...(value.base !== undefined || value.item === null
+        ? { invalidLevelText: null }
+        : {}),
       ...((value.base !== undefined && value.base !== editor.getState().base) ||
       value.item === null
         ? { abstractQuality40: false, abstractQuality: 0 }
@@ -225,7 +249,7 @@ export function CraftStart({
     draft.rulesetIdentity === selected?.initial.rulesetIdentity
   const provenance = useQuery({
     queryKey: ['craftStart', 'provenance', draft.rulesetIdentity, draft.base],
-    enabled: active && currentRules,
+    enabled: active && currentRules && !previewOnly,
     queryFn: ({ signal }) =>
       loadProvenance(signal, selected?.initial.state.baseItemId),
     retry: false,
@@ -300,19 +324,21 @@ export function CraftStart({
         staleTime: 0,
         retry: false,
       })
-      const proof = await client.fetchQuery({
-        queryKey: [
-          'craftStart',
-          'provenance',
-          entry.initial.rulesetIdentity,
-          entry.base[0],
-        ],
-        queryFn: ({ signal }) => loadProvenance(signal, item.baseItemId),
-        staleTime: 0,
-        retry: false,
-      })
+      const proof =
+        !previewOnly &&
+        (await client.fetchQuery({
+          queryKey: [
+            'craftStart',
+            'provenance',
+            entry.initial.rulesetIdentity,
+            entry.base[0],
+          ],
+          queryFn: ({ signal }) => loadProvenance(signal, item.baseItemId),
+          staleTime: 0,
+          retry: false,
+        }))
       if (
-        proof.rulesetIdentity !== entry.initial.rulesetIdentity ||
+        (proof && proof.rulesetIdentity !== entry.initial.rulesetIdentity) ||
         catalog.context.snapshotId !== item.snapshotId ||
         catalog.context.baseItemId !== item.baseItemId ||
         catalog.context.itemLevel !== item.itemLevel
@@ -358,6 +384,7 @@ export function CraftStart({
     invalidateCalculation()
     update({
       item,
+      invalidLevelText: null,
       rulesetIdentity: selected.initial.rulesetIdentity,
       abstractQuality40: false,
       abstractQuality: 0,
@@ -593,6 +620,18 @@ export function CraftStart({
   const context = draft.item ?? selected?.initial.state
   const stateIssues =
     selected && draft.item ? startItemIssues(selected.initial, draft.item) : []
+  const startReady =
+    !reloadingCatalog &&
+    !!draft.item &&
+    currentRules &&
+    !!draft.card &&
+    !checking &&
+    !draft.issue &&
+    draft.invalidLevelText === null &&
+    !stateIssues.length &&
+    !levelConflict &&
+    draft.searchGoal?.ready
+  const previewCatalog = draft.searchGoal?.previewCatalog
   const availableModifiers =
     selected && draft.item
       ? eligibleStartModifiers(selected.initial, draft.item)
@@ -644,11 +683,12 @@ export function CraftStart({
           <button
             className="craft-start-disclosure"
             aria-expanded={settingsExpanded}
-            aria-controls="craft-start-settings"
+            aria-controls={settingsId}
             ref={editButton}
             onClick={() => {
               setSettingsExpanded(!settingsExpanded)
-              saveSupport('settings-expanded', !settingsExpanded)
+              if (!previewOnly)
+                saveSupport('settings-expanded', !settingsExpanded)
             }}
           >
             <span>
@@ -656,7 +696,7 @@ export function CraftStart({
             </span>
             <span>{settingsExpanded ? copy.hide : copy.edit}</span>
           </button>
-          <div id="craft-start-settings" hidden={!settingsExpanded}>
+          <div id={settingsId} hidden={!settingsExpanded}>
             {draft.item && !currentRules && !initial.isFetching && (
               <p role="alert">{t('ruleset.request_changed')}</p>
             )}
@@ -681,7 +721,7 @@ export function CraftStart({
             {(inventory.isLoading || initial.isLoading) && (
               <p role="status">{copy.loading}</p>
             )}
-            {provenance.isError && (
+            {!previewOnly && provenance.isError && (
               <p role="alert">
                 {pathTreeMessages[locale].error}{' '}
                 <button onClick={() => void provenance.refetch()}>
@@ -689,7 +729,8 @@ export function CraftStart({
                 </button>
               </p>
             )}
-            {((provenance.data &&
+            {((!previewOnly &&
+              provenance.data &&
               !currentProvenance &&
               !provenance.isFetching) ||
               (draft.searchGoal?.catalogVersion &&
@@ -827,28 +868,32 @@ export function CraftStart({
                       type="number"
                       min={1}
                       max={100}
-                      value={draft.item?.itemLevel ?? ''}
+                      required
+                      aria-invalid={draft.invalidLevelText !== null}
+                      value={
+                        draft.invalidLevelText ?? draft.item?.itemLevel ?? ''
+                      }
                       disabled={!draft.item || !currentRules}
                       onChange={(event) => {
                         if (!draft.item) return
-                        const value = Number(event.target.value)
+                        const value = event.target.valueAsNumber
                         if (
                           !Number.isInteger(value) ||
                           value < 1 ||
                           value > 100
                         ) {
-                          update({
-                            issue:
-                              'Item level must be an integer from 1 to 100.',
-                          })
+                          update({ invalidLevelText: event.target.value })
                           return
                         }
-                        update({ levelEdited: true })
+                        update({ levelEdited: true, invalidLevelText: null })
                         saveItem({ ...draft.item, itemLevel: value })
                       }}
                     />
                   </label>
                 </div>
+                {draft.invalidLevelText !== null && (
+                  <p role="alert">{startInputMessages[locale].range} 1–100</p>
+                )}
                 {levelConflict && <p role="alert">{levels.conflict}</p>}
                 <dialog
                   ref={dialog}
@@ -991,49 +1036,40 @@ export function CraftStart({
                       })}
                   </div>
                 </div>
-                <button
-                  className="craft-start-primary"
-                  ref={startButton}
-                  disabled={
-                    reloadingCatalog ||
-                    !draft.item ||
-                    !currentRules ||
-                    !draft.card ||
-                    checking ||
-                    Boolean(draft.issue) ||
-                    Boolean(stateIssues.length) ||
-                    !draft.searchGoal?.ready ||
-                    !currentProvenance ||
-                    levelConflict
-                  }
-                  onClick={() => {
-                    let searchRequest: CreateRequest
-                    try {
-                      searchRequest = createPathSearchRequest(
-                        draft.item!,
-                        draft.searchGoal!.goal,
-                        provenance.data!,
-                        activeOmens,
-                      )
-                    } catch {
-                      update({ searchIssue: true })
-                      return
-                    }
-                    update({
-                      started: true,
-                      searchRequest,
-                      editing: false,
-                      root: draft.card,
-                      rootItem: structuredClone(draft.item),
-                      rootDefinitions: structuredClone(
-                        selected?.initial.modifiers ?? null,
-                      ),
-                    })
-                    setRun((value) => value + 1)
-                  }}
-                >
-                  {copy.start}
-                </button>
+                {!previewOnly && (
+                  <button
+                    className="craft-start-primary"
+                    ref={startButton}
+                    disabled={!startReady || !currentProvenance}
+                    onClick={() => {
+                      let searchRequest: CreateRequest
+                      try {
+                        searchRequest = createPathSearchRequest(
+                          draft.item!,
+                          draft.searchGoal!.goal,
+                          provenance.data!,
+                          activeOmens,
+                        )
+                      } catch {
+                        update({ searchIssue: true })
+                        return
+                      }
+                      update({
+                        started: true,
+                        searchRequest,
+                        editing: false,
+                        root: draft.card,
+                        rootItem: structuredClone(draft.item),
+                        rootDefinitions: structuredClone(
+                          selected?.initial.modifiers ?? null,
+                        ),
+                      })
+                      setRun((value) => value + 1)
+                    }}
+                  >
+                    {copy.start}
+                  </button>
+                )}
                 {draft.searchIssue && (
                   <p role="alert">{pathTreeMessages[locale].unsupported}</p>
                 )}
@@ -1074,6 +1110,7 @@ export function CraftStart({
               <section className="craft-start-stats" aria-label={copy.target}>
                 {context && (
                   <ConnectedGoalFilter
+                    preview={previewOnly}
                     allowQualityWork={
                       !!selected &&
                       ['Amulets', 'Rings', 'Belts'].includes(selected.base[1])
@@ -1094,7 +1131,25 @@ export function CraftStart({
           </div>
         </section>
       </section>
-      {!reloadingCatalog &&
+      {active &&
+        renderPreview &&
+        (!draft.searchGoal || !hasCompleteGoal(draft.searchGoal.goal)
+          ? renderPreview(null)
+          : startReady &&
+            selected &&
+            draft.item &&
+            previewCatalog &&
+            previewCatalog.context.baseItemId === draft.item.baseItemId &&
+            previewCatalog.context.snapshotId === draft.item.snapshotId &&
+            previewCatalog.context.itemLevel === draft.item.itemLevel &&
+            renderPreview({
+              ...selected,
+              context: previewCatalog.context,
+              catalog: previewCatalog,
+              goal: draft.searchGoal.goal,
+            }))}
+      {!previewOnly &&
+        !reloadingCatalog &&
         currentRules &&
         draft.started &&
         !draft.editing &&
@@ -1135,6 +1190,7 @@ export function CraftStart({
                 update({
                   editing: true,
                   levelEdited: false,
+                  invalidLevelText: null,
                   abstractQuality40: context?.abstractQuality40 ?? false,
                   abstractQuality:
                     context?.abstractQuality ??

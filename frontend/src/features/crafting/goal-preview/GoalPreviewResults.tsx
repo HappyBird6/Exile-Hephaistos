@@ -1,22 +1,21 @@
+import { useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { craftingFetch } from '../../../shared/gameIdTransport'
 import { loadModifierDefinitions } from '../../../shared/i18n/localeData'
-import {
-  gameName,
-  uiText,
-  useI18n,
-  type Locale,
-} from '../../../shared/i18n/i18n'
+import { uiText, useI18n, type Locale } from '../../../shared/i18n/i18n'
 import { ItemCard } from '../ItemCard'
-import type { Definition, Initial } from '../craftingApi'
-import { localizedAction, localizedCatalystQuality } from '../localizedCrafting'
-import { createItemPresentation } from '../path-tree/presentation'
+import type { Definition } from '../craftingApi'
+import { localizedCatalystQuality } from '../localizedCrafting'
+import {
+  localizedModifierName,
+  localizedModifierText,
+} from '../localizedModifiers'
+import {
+  createItemPresentation,
+  type ItemPresentation,
+} from '../path-tree/presentation'
 import type { Item } from '../path-tree/types'
 import type { CatalystQuality } from '../catalystQuality'
-import {
-  workbenchActionNames,
-  type WorkbenchAction,
-} from '../currencyDefinitions'
 import { augmentName } from '../socketAugments'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import { goalFilterMessages } from '../goal-filter/i18n'
@@ -25,24 +24,25 @@ import { hasActiveStatFilters } from '../goal-filter/useGoalFilter'
 import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
 import { readGoalFilterResponse } from '../goal-filter/api'
 import { presentGoalStat } from '../goal-filter/statPresentation'
-import type { StartBase } from '../goal-filter/startItem'
-import type { Catalog, Context, GoalFilter, Range } from '../goal-filter/types'
+import type { GoalPreviewInput } from '../goal-filter/CraftStart'
+import type { Range } from '../goal-filter/types'
 import { weighted } from '../goal-filter/types'
 import { previewResultMessages } from './previewResultMessages'
+import {
+  acquisitionSourceLabel,
+  acquisitionSourceLabels,
+  type AcquisitionSource,
+} from './acquisitionSources'
 import './previewResults.css'
 
-type Source =
-  | { kind: 'IMPLICIT' | 'NORMAL'; id?: null }
-  | {
-      kind: 'ESSENCE' | 'ALLOY' | 'LIQUID' | 'DESECRATION' | 'AUGMENT'
-      id: string
-    }
+type PreviewItem = Item & {
+  catalystQuality: CatalystQuality | null
+  installedAugments?: { augmentId: string }[]
+}
 type Example = {
-  item: Item & {
-    catalystQuality: CatalystQuality | null
-    installedAugments?: { augmentId: string }[]
-  }
-  sources: Record<string, Source[]>
+  item: PreviewItem
+  tierVariants: PreviewItem[]
+  sources: Record<string, AcquisitionSource[]>
 }
 type Preview = {
   cards: Example[]
@@ -50,23 +50,30 @@ type Preview = {
   resolvedCountRanges?: Record<string, Range>
   reasonCode?: string | null
 }
-type Props = {
-  base: StartBase
-  initial: Initial
-  context: Context
-  catalog: Catalog
-  goal: GoalFilter
-}
 
-function sourceLabel(source: Source, locale: Locale) {
-  const copy = previewResultMessages[locale]
-  if (source.kind === 'IMPLICIT') return copy.implicit
-  if (source.kind === 'NORMAL') return copy.ordinary
-  const id = source.id!
-  if (source.kind === 'AUGMENT') return `${augmentName(id)} (${copy.augment})`
-  if (Object.hasOwn(workbenchActionNames, id))
-    return localizedAction(id as WorkbenchAction)
-  return gameName(id, id.replaceAll('_', ' '), locale)
+function validCard(
+  card: Example,
+  definitions: Preview['modifiers'],
+  context: GoalPreviewInput['context'],
+) {
+  if (!Array.isArray(card.tierVariants) || !card.tierVariants.length)
+    return false
+  const { sources } = card
+  return (
+    Object.values(sources).every(
+      (entries) => entries.length && entries.every(acquisitionSourceLabel),
+    ) &&
+    [card.item, ...card.tierVariants].every(
+      (item) =>
+        item.snapshotId === context.snapshotId &&
+        item.baseItemId === context.baseItemId &&
+        item.itemLevel === context.itemLevel &&
+        [...item.implicits, ...item.explicits].every(
+          ({ modifierId }) =>
+            definitions[modifierId] && sources[modifierId]?.length,
+        ),
+    )
+  )
 }
 
 function bounds(range: Range, locale: Locale, unit = '') {
@@ -86,13 +93,117 @@ function rarityLabel(rarity: string, locale: Locale) {
   return uiText(rarity.charAt(0) + rarity.slice(1).toLowerCase(), locale)
 }
 
+function matchingTierLabels(
+  example: Example,
+  definitions: Record<string, Definition>,
+  locale: Locale,
+) {
+  const variants = example.tierVariants
+  if (variants.length < 2) return []
+  const commonIds = new Set(
+    example.item.explicits
+      .map((m) => m.modifierId)
+      .filter((id) =>
+        variants.every((variant) =>
+          variant.explicits.some((m) => m.modifierId === id),
+        ),
+      ),
+  )
+  return variants.map((variant) =>
+    variant.explicits
+      .filter((m) => !commonIds.has(m.modifierId))
+      .map((m) => {
+        const definition = definitions[m.modifierId]!
+        const name = localizedModifierName(definition, locale)
+        const text = localizedModifierText(definition, m.values, locale)
+        return [definition.tier ? 'T' + definition.tier : null, name, text]
+          .filter(Boolean)
+          .join(' · ')
+      })
+      .join(' / '),
+  )
+}
+
+function PreviewCard({
+  example,
+  definitions,
+  present,
+  locale,
+}: {
+  example: Example
+  definitions: Record<string, Definition>
+  present: ItemPresentation
+  locale: Locale
+}) {
+  const [selected, setSelected] = useState(0)
+  const { tierVariants, sources } = example
+  const item = tierVariants[selected] ?? example.item
+  const copy = previewResultMessages[locale]
+  const card = present(item, locale)
+  const quality = item.catalystQuality
+  const tierLabels = useMemo(
+    () => matchingTierLabels(example, definitions, locale),
+    [example, definitions, locale],
+  )
+  return (
+    <ItemCard
+      baseItemId={item.baseItemId}
+      item={{
+        ...card,
+        properties: [
+          { id: 'rarity', text: rarityLabel(item.rarity, locale) },
+          ...(quality
+            ? [
+                {
+                  id: 'quality',
+                  text: localizedCatalystQuality(
+                    quality,
+                    item.baseItemId,
+                    locale,
+                  ),
+                },
+              ]
+            : []),
+          ...(item.installedAugments ?? []).map((a, i) => ({
+            id: 'socket-' + i,
+            text: augmentName(a.augmentId),
+          })),
+        ],
+        modifiers: card.modifiers.map((line) => ({
+          ...line,
+          sourceLabel:
+            copy.sources +
+            ' · ' +
+            acquisitionSourceLabels(sources[line.id]!).join(', '),
+        })),
+      }}
+    >
+      {tierVariants.length > 1 && (
+        <label className="goal-preview-tiers">
+          {copy.tiers} ({tierVariants.length.toLocaleString(locale)})
+          <select
+            value={selected}
+            onChange={(e) => setSelected(Number(e.target.value))}
+          >
+            {tierLabels.map((label, index) => (
+              <option key={index} value={index}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </label>
+      )}
+    </ItemCard>
+  )
+}
+
 export function GoalPreviewResults({
   base,
   initial,
   context,
   catalog,
   goal,
-}: Props) {
+}: GoalPreviewInput) {
   const { locale, name } = useI18n()
   const copy = previewResultMessages[locale],
     labels = goalFilterMessages[locale]
@@ -114,19 +225,8 @@ export function GoalPreviewResults({
       if (
         !Array.isArray(result.cards) ||
         !result.modifiers ||
-        result.cards.some(
-          ({ item, sources }) =>
-            item.snapshotId !== context.snapshotId ||
-            item.baseItemId !== context.baseItemId ||
-            item.itemLevel !== context.itemLevel ||
-            [...item.implicits, ...item.explicits].some(
-              ({ modifierId }) =>
-                !result.modifiers[modifierId] ||
-                !sources[modifierId]?.length ||
-                sources[modifierId]!.some(
-                  (s) => !s.id && s.kind !== 'IMPLICIT' && s.kind !== 'NORMAL',
-                ),
-            ),
+        !result.cards.every((card) =>
+          validCard(card, result.modifiers, context),
         )
       )
         throw new Error('Invalid goal preview')
@@ -221,48 +321,15 @@ export function GoalPreviewResults({
         </p>
       )}
       <div className="goal-preview-cards">
-        {preview.data?.cards.map(({ item, sources }) => {
-          const card = present(item, locale)
-          const quality = item.catalystQuality
-          const augments = item.installedAugments ?? []
-          return (
-            <ItemCard
-              key={JSON.stringify(item)}
-              baseItemId={item.baseItemId}
-              item={{
-                ...card,
-                properties: [
-                  { id: 'rarity', text: rarityLabel(item.rarity, locale) },
-                  ...(quality
-                    ? [
-                        {
-                          id: 'quality',
-                          text: localizedCatalystQuality(
-                            quality,
-                            item.baseItemId,
-                            locale,
-                          ),
-                        },
-                      ]
-                    : []),
-                  ...augments.map((a, i) => ({
-                    id: 'socket-' + i,
-                    text: augmentName(a.augmentId),
-                  })),
-                ],
-                modifiers: card.modifiers.map((line) => ({
-                  ...line,
-                  sourceLabel:
-                    copy.sources +
-                    ' · ' +
-                    sources[line.id]!.map((source) =>
-                      sourceLabel(source, locale),
-                    ).join(' / '),
-                })),
-              }}
-            />
-          )
-        })}
+        {preview.data?.cards.map((example) => (
+          <PreviewCard
+            key={JSON.stringify(example.item)}
+            example={example}
+            definitions={preview.data.modifiers}
+            locale={locale}
+            present={present}
+          />
+        ))}
       </div>
     </section>
   )

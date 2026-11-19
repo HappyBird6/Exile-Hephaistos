@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { expect, it, vi } from 'vitest'
 import {
   initialFixture,
@@ -54,16 +54,25 @@ const item = {
 const sources = {
   implicit: [{ kind: 'IMPLICIT' }],
   p: [{ kind: 'NORMAL' }, { kind: 'ESSENCE', id: 'GREATER_ESSENCE_BODY' }],
+  p2: [{ kind: 'NORMAL' }],
+}
+const otherTier = {
+  ...item,
+  explicits: [{ modifierId: 'p2', values: { life: 25 } }],
 }
 const preview = {
-  modifiers: initialFixture.modifiers,
-  cards: [
-    { item, sources },
-    {
-      item: { ...item, explicits: [{ modifierId: 'p', values: { life: 20 } }] },
-      sources: { ...sources, p: [{ kind: 'NORMAL' }] },
+  modifiers: {
+    ...initialFixture.modifiers,
+    p2: {
+      ...initialFixture.modifiers.p!,
+      tier: 2,
+      id: 'p2',
+      name: 'Stalwart',
+      text: '+(21—30) to maximum Life',
+      stats: [{ id: 'life', min: 21, max: 30 }],
     },
-  ],
+  },
+  cards: [{ item, tierVariants: [item, otherTier], sources }],
 }
 
 function renderPreview(response: unknown, filter = goal) {
@@ -83,21 +92,58 @@ function renderPreview(response: unknown, filter = goal) {
   return fetch
 }
 
-it('shows the numeric goal and binds each rolled modifier to its own acquisition sources', async () => {
+it('shows matching tiers on one card with the roll and acquisition sources for the selected tier', async () => {
   const fetch = renderPreview(preview)
   const cards = await screen.findAllByRole('article')
-  expect(cards).toHaveLength(2)
+  expect(cards).toHaveLength(1)
   expect(screen.getByText(/Life · ≥ 15/)).toBeVisible()
-  expect(within(cards[0]!).getByText(/15 to maximum Life/)).toBeVisible()
+  const card = within(cards[0]!)
+  expect(card.getByText('+15 to maximum Life')).toBeVisible()
   expect(
-    within(cards[0]!).getByText(
-      /Normal modifier pool \/ Greater Essence of the Body/,
-    ),
+    card.getByText('Sources · base, Essence (Greater Essence of the Body)'),
   ).toBeVisible()
-  expect(within(cards[1]!).getByText(/20 to maximum Life/)).toBeVisible()
-  expect(within(cards[1]!).queryByText(/Greater Essence/)).toBeNull()
-  expect(within(cards[0]!).getByText(/Base implicit/)).toBeVisible()
+  const tiers = card.getByRole('combobox', {
+    name: /Matching tier combinations/,
+  })
+  expect(within(tiers).getAllByRole('option')).toHaveLength(2)
+  expect(
+    within(tiers).getByRole('option', {
+      name: 'T2 · Stalwart · +25 to maximum Life',
+    }),
+  ).toBeInTheDocument()
+  fireEvent.change(tiers, { target: { value: '1' } })
+  expect(card.getByText('+25 to maximum Life')).toBeVisible()
+  expect(card.getByText('Sources · base')).toBeVisible()
+  expect(card.queryByText(/Greater Essence/)).toBeNull()
+  expect(card.getByText('Sources · Implicit')).toBeVisible()
   expect(fetch.mock.calls).toHaveLength(1)
+})
+
+it('renders every returned option configuration, including the fifth one', async () => {
+  const modifiers = Array.from({ length: 5 }, (_, index) => ({
+    ...initialFixture.modifiers.p!,
+    id: 'prefix-' + index,
+    familyIds: ['family-' + index],
+  }))
+  renderPreview({
+    modifiers: {
+      ...preview.modifiers,
+      ...Object.fromEntries(modifiers.map((m) => [m.id, m])),
+    },
+    cards: modifiers.map((m) => {
+      const state = {
+        ...item,
+        explicits: [{ ...item.explicits[0]!, modifierId: m.id }],
+      }
+      return {
+        item: state,
+        tierVariants: [state],
+        sources: { ...sources, [m.id]: [{ kind: 'NORMAL' }] },
+      }
+    }),
+  })
+  expect(await screen.findAllByRole('article')).toHaveLength(5)
+  expect(screen.queryByRole('combobox')).toBeNull()
 })
 
 it('distinguishes an empty search from a failed response', async () => {
@@ -143,10 +189,16 @@ it('summarizes Count and weighted filters with the same names and defaults as th
   expect(screen.queryByText('And')).toBeNull()
 })
 
-it('rejects a card for a different base before showing its modifiers', async () => {
+it('rejects a variant for a different base before showing the card', async () => {
   renderPreview({
     ...preview,
-    cards: [{ item: { ...item, baseItemId: 'other' }, sources }],
+    cards: [
+      {
+        item,
+        tierVariants: [item, { ...otherTier, baseItemId: 'other' }],
+        sources,
+      },
+    ],
   })
   expect(await screen.findByRole('alert')).toBeVisible()
   expect(screen.queryByRole('article')).toBeNull()

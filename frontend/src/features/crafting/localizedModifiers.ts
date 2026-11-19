@@ -39,6 +39,12 @@ function verifiedTemplate(definition: Definition, locale: Locale) {
   return translation ? { binding, translation } : undefined
 }
 
+export function localizedModifierName(definition: Definition, locale: Locale) {
+  return (
+    verifiedTemplate(definition, locale)?.translation.name ?? definition.name
+  )
+}
+
 // No localized string is fed to the API, catalog, grouping keys or saved films.
 // Only source-correlated display spans are projected; canonical rolls remain unchanged.
 export function localizedModifierText(

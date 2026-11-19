@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { useFeedbackTitle } from './feedback-tooltip/feedbackContext'
 import { UnrevealedRune } from './abyss-workbench/UnrevealedRune'
 import { useI18n, formatNumber, uiText } from '../../shared/i18n/i18n'
@@ -115,11 +116,13 @@ export function ItemCard({
   baseItemId,
   showOriginalOrder = false,
   modifierChanges,
+  children,
 }: {
   item: ItemCardData
   baseItemId?: string
   showOriginalOrder?: boolean
   modifierChanges?: Record<string, 'added' | 'changed'> | undefined
+  children?: ReactNode
 }) {
   const { t, name, locale } = useI18n()
   const implicit = item.modifiers.filter((line) => line.kind === 'implicit')
@@ -172,6 +175,7 @@ export function ItemCard({
               </div>
             ))}
         </div>
+        {children}
         <Lines lines={implicit} changes={modifierChanges} />
         <Lines lines={other} changes={modifierChanges} />
         <Lines lines={item.flags} flags />

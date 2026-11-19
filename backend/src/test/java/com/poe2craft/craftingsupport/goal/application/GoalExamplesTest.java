@@ -3,9 +3,11 @@ package com.poe2craft.craftingsupport.goal.application;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
+import com.poe2craft.craftingsupport.goal.domain.GoalDefinitions;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.*;
 import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
+import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.*;
@@ -17,9 +19,220 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.mockito.Mockito;
 
 /** 현행 장갑과 목걸이 카탈로그에서 목표 범위, 부분 합산, 획득·레벨 자격 및 원래 목표 판정과의 일치를 확인한다. */
 class GoalExamplesTest {
+  /** 여섯 가지 수치 중 하나만 필요한 경우에도 다섯 번째 이후 카드를 반환하고, 모든 적격 생명력 티어는 한 카드에 담는다. */
+  @Test
+  void groupsAllEligibleLifeTiersAndReturnsMoreThanFourDifferentCards() {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(simulator);
+    var entries =
+        List.of(
+            rangeEntry("explicit", "base_maximum_life", "flat", 35, 1000),
+            rangeEntry("explicit", "base_maximum_mana", "flat", 1, 1000),
+            rangeEntry("explicit", "base_spirit_from_equipment", "flat", 1, 1000),
+            rangeEntry("explicit", "base_cold_damage_resistance_%", "percent", 1, 100),
+            rangeEntry("explicit", "base_fire_damage_resistance_%", "percent", 1, 100),
+            rangeEntry("explicit", "base_lightning_damage_resistance_%", "percent", 1, 100));
+    var goal =
+        goal(
+            index,
+            catalog,
+            List.of(new Group("any", Type.COUNT, false, new Range(BigDecimal.ONE, null), entries)));
+    var result = service.preview(context(catalog, 82), goal, workbench);
+    var lifeIds =
+        catalog.modifiers().values().stream()
+            .filter(
+                d ->
+                    d.familyIds().equals(Set.of("IncreasedLife"))
+                        && d.weight() > 0
+                        && d.requiredItemLevel() <= 82
+                        && d.stats().getFirst().max() >= 35)
+            .map(ModifierDefinition::id)
+            .toList();
+    assertThat(lifeIds).hasSizeGreaterThan(4);
+    assertThat(result.cards().stream().filter(card -> card.item().explicits().size() == 1))
+        .hasSizeGreaterThan(4);
+    var sources = simulator.modifierSources(82);
+    assertThat(
+            result.cards().stream()
+                .filter(
+                    card ->
+                        card.item().explicits().size() == 1
+                            && lifeIds.contains(card.item().explicits().getFirst().modifierId())))
+        .singleElement()
+        .satisfies(
+            card -> {
+              assertThat(card.tierVariants().getFirst()).isEqualTo(card.item());
+              assertThat(
+                      card.tierVariants().stream()
+                          .map(item -> item.explicits().getFirst().modifierId()))
+                  .containsExactlyInAnyOrderElementsOf(lifeIds);
+              for (var item : card.tierVariants()) {
+                var id = item.explicits().getFirst().modifierId();
+                assertThat(card.sources().get(id))
+                    .isEqualTo(
+                        sources.get(id).stream()
+                            .filter(source -> source.supportsRarity(item.rarity()))
+                            .toList());
+                assertThat(result.modifiers().get(id)).isEqualTo(catalog.modifiers().get(id));
+                assertThat(service.evaluate(item, goal).status()).isEqualTo(Status.MATCH);
+              }
+            });
+  }
+
+  /** 두 티어 목록의 곱 중 합산 수치가 가능한 두 쌍만 실제 완성 상태로 한 카드에 보관한다. */
+  @Test
+  void preservesOnlyVerifiedPairsOfLifeAndManaTiers() {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(simulator);
+    var entries =
+        List.of(
+            rangeEntry("explicit", "base_maximum_life", "flat", 1, 100),
+            rangeEntry("explicit", "base_maximum_mana", "flat", 1, 100));
+    var score = BigDecimal.valueOf(34);
+    var goal =
+        goal(
+            index,
+            catalog,
+            List.of(
+                new Group("both", Type.AND, false, null, entries),
+                new Group(
+                    "sum",
+                    Type.WEIGHTED_V2,
+                    false,
+                    new Range(score, score),
+                    entries.stream()
+                        .map(
+                            e ->
+                                new Entry(
+                                    "score-" + e.id(),
+                                    e.statId(),
+                                    e.unit(),
+                                    e.range(),
+                                    e.weight(),
+                                    false))
+                        .toList())));
+    var result = service.preview(context(catalog, 6), goal, workbench);
+    assertThat(result.cards())
+        .singleElement()
+        .satisfies(
+            card -> {
+              assertThat(
+                      card.tierVariants().stream()
+                          .map(
+                              item ->
+                                  item.explicits().stream()
+                                      .map(ModifierInstance::modifierId)
+                                      .toList()))
+                  .containsExactlyInAnyOrder(
+                      List.of("amulet:prefix:beryl", "amulet:prefix:healthy"),
+                      List.of("amulet:prefix:cobalt", "amulet:prefix:hale"));
+              assertThat(card.tierVariants())
+                  .allSatisfy(
+                      item ->
+                          assertThat(service.evaluate(item, goal).status())
+                              .isEqualTo(Status.MATCH));
+            });
+  }
+
+  /** 같은 베이스에 T1 생명력 옵션이 두 개 있으면 T2와 한 카드에 담고 각 정의·수치의 정체성을 보존한다. */
+  @Test
+  void groupsBothRankOneLifeDefinitionsWithTheOtherEligibleRanks() {
+    var catalog = ItemCatalogLoader.loadTopBase("ancestral");
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(simulator);
+    var goal =
+        goal(
+            index,
+            catalog,
+            List.of(
+                new Group(
+                    "life",
+                    Type.AND,
+                    false,
+                    null,
+                    List.of(rangeEntry("explicit", "base_maximum_life", "flat", 100, 999)))));
+    var eligible =
+        List.of(
+            "stocky-mitts:prefix:athlete-s",
+            "rusted-greathelm:prefix:fecund",
+            "stocky-mitts:prefix:virile");
+    var result = service.preview(context(catalog, 82), goal, workbench);
+    assertThat(
+            result.cards().stream()
+                .filter(
+                    card ->
+                        card.item().explicits().size() == 1
+                            && eligible.contains(card.item().explicits().getFirst().modifierId())))
+        .singleElement()
+        .satisfies(
+            card -> {
+              assertThat(
+                      card.tierVariants().stream()
+                          .map(item -> item.explicits().getFirst().modifierId()))
+                  .containsExactlyInAnyOrderElementsOf(eligible);
+              assertThat(eligible.stream().map(id -> result.modifiers().get(id).tier()))
+                  .containsExactly(1, 1, 2);
+            });
+  }
+
+  /** 표시용 수치를 테스트 평가기에 등록해도 활·철퇴·육척봉 피해를 서로 같은 옵션의 티어로 합치지 않는다. */
+  @Test
+  void keepsDifferentJewelEffectsWithIdenticalDisplayRangesApart() {
+    var catalog = ItemCatalogLoader.loadBasicJewel("diamond");
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var display = "display_source_value";
+    var index =
+        new GoalCatalogIndex(
+            List.of(catalog),
+            new GoalDefinitions(
+                1,
+                "display-test",
+                List.of(new GoalDefinitions.Direct(display, "Test display value", "percent")),
+                List.of()));
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(simulator);
+    var goal =
+        goal(
+            index,
+            catalog,
+            List.of(
+                new Group(
+                    "display",
+                    Type.AND,
+                    false,
+                    null,
+                    List.of(rangeEntry("explicit", display, "percent", 10, 10)))));
+    var result = service.preview(context(catalog, 82), goal, workbench);
+    var weapons =
+        Set.of("diamond:prefix:beating", "diamond:prefix:monk-s", "diamond:prefix:perforating");
+    var cards =
+        result.cards().stream()
+            .filter(
+                card ->
+                    card.item().explicits().size() == 1
+                        && weapons.contains(card.item().explicits().getFirst().modifierId()))
+            .toList();
+    assertThat(cards)
+        .hasSize(3)
+        .allSatisfy(card -> assertThat(card.tierVariants()).containsExactly(card.item()));
+  }
+
   /** 일반 획득과 에센스로 얻는 Rotund는 수치 90을 실제로 굴린 상태로 반환하고 미달·레벨 부족 예시는 제외한다. */
   @Test
   void exactLifeRequiresTheRolledValueAndEligibleTier() {

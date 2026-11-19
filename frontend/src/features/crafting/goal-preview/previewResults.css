@@ -7,6 +7,16 @@
   gap: 12px;
   align-items: start;
 }
+.goal-preview-tiers {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.25rem;
+  margin-block: 0.5rem;
+}
+.goal-preview-tiers select {
+  width: 100%;
+  min-width: 0;
+}
 .goal-preview-cards .item-card__line:has(.item-card__source) {
   display: flex;
   flex-wrap: wrap;
