@@ -106,7 +106,7 @@ public final class GoalFilterService {
       GoalFilter goal,
       WorkbenchSimulator simulator,
       Map<String, List<ModifierAcquisition>> sources) {
-    return exampleGroups(context, goal, simulator, sources).stream()
+    return exampleGroups(context, goal, simulator, sources, null).stream()
         .flatMap(group -> group.variants().stream())
         .toList();
   }
@@ -116,7 +116,8 @@ public final class GoalFilterService {
       Context context,
       GoalFilter goal,
       WorkbenchSimulator simulator,
-      Map<String, List<ModifierAcquisition>> sources) {
+      Map<String, List<ModifierAcquisition>> sources,
+      ModifierInstance fracture) {
     validate(context, goal);
     var catalog = index.itemCatalog(context).orElse(null);
     if (catalog == null
@@ -126,7 +127,7 @@ public final class GoalFilterService {
     // 수동 공개를 포함하는 작업대 카탈로그로 상태를 검증한 뒤 기존 목표 판정을 그대로 사용한다.
     return new GoalExamples(
             simulator, goal, known, sources, compiledEvaluation(goal, known, simulator.catalog()))
-        .find(context);
+        .find(context, fracture);
   }
 
   /**
@@ -137,7 +138,11 @@ public final class GoalFilterService {
       ItemState item,
       List<ItemState> tierVariants,
       Map<String, List<ModifierAcquisition>> sources,
-      Map<String, List<String>> optionTiers) {}
+      Map<String, List<String>> optionTiers,
+      List<Occupancy> occupancy) {}
+
+  /** 동일 목표 카드의 잡옵 접두·접미 수와 남은 접두·접미 칸 수다. */
+  public record Occupancy(int prefixes, int suffixes, int emptyPrefixes, int emptySuffixes) {}
 
   /** cards는 완성 예시, modifiers는 표시 정의, resolvedCountRanges는 판정에 쓰인 그룹별 개수 경계, reasonCode는 미지원 사유다. */
   public record Preview(
@@ -148,12 +153,18 @@ public final class GoalFilterService {
 
   /** 요청의 베이스와 레벨로 획득처를 조회하고 예시 카드에 실제로 등장한 옵션만 응답에 포함한다. */
   public Preview preview(Context context, GoalFilter goal, CraftingOperations workbench) {
+    return preview(context, goal, workbench, null);
+  }
+
+  /** 시작 장비의 분열 옵션이 있으면 모든 완성 예시에 그대로 보존한다. */
+  public Preview preview(
+      Context context, GoalFilter goal, CraftingOperations workbench, ModifierInstance fracture) {
     requireContext(context);
     var simulator = workbench.simulatorForBase(context.baseItemId());
     var sources = simulator.modifierSources(context.itemLevel());
     var definitions = new java.util.TreeMap<String, ModifierDefinition>();
     var cards = new ArrayList<ExampleCard>();
-    for (var group : exampleGroups(context, goal, simulator, sources)) {
+    for (var group : exampleGroups(context, goal, simulator, sources, fracture)) {
       var variants = group.variants();
       var used = new java.util.TreeMap<String, List<ModifierAcquisition>>();
       for (var item : variants) {
@@ -171,7 +182,12 @@ public final class GoalFilterService {
         }
       }
       cards.add(
-          new ExampleCard(variants.getFirst(), variants, Map.copyOf(used), group.optionTiers()));
+          new ExampleCard(
+              variants.getFirst(),
+              variants,
+              Map.copyOf(used),
+              group.optionTiers(),
+              group.occupancy()));
     }
     var countRanges = new java.util.LinkedHashMap<String, Range>();
     for (var group : goal.groups()) {

@@ -1,6 +1,7 @@
 import type { Locale } from '../../../shared/i18n/i18n'
 
 type Copy = {
+  occupancy: string
   conditions: string
   examples: string
   sources: string
@@ -12,6 +13,7 @@ type Copy = {
 }
 export const previewResultMessages: Record<Locale, Copy> = {
   ko: {
+    occupancy: '잡옵 접두/접미 (빈 접두/접미)',
     qualityProjection:
       '기폭제 퀄리티가 적용된 옵션 수치는 아직 목표와 대조할 수 없습니다.',
     conditions: '목표 충족 조건',
@@ -23,6 +25,7 @@ export const previewResultMessages: Record<Locale, Copy> = {
     retry: '다시 시도',
   },
   en: {
+    occupancy: 'Other prefixes/suffixes (empty prefixes/suffixes)',
     qualityProjection:
       'Modifier values affected by catalyst quality cannot be checked against the goal yet.',
     conditions: 'Goal conditions',
@@ -34,6 +37,7 @@ export const previewResultMessages: Record<Locale, Copy> = {
     retry: 'Try again',
   },
   'zh-CN': {
+    occupancy: '其他前缀/后缀（空前缀/后缀）',
     qualityProjection: '暂时无法按目标核对受催化剂品质影响的词缀数值。',
     conditions: '目标条件',
     examples: '满足条件的物品示例',
@@ -44,6 +48,7 @@ export const previewResultMessages: Record<Locale, Copy> = {
     retry: '重试',
   },
   'zh-TW': {
+    occupancy: '其他前綴/後綴（空前綴/後綴）',
     qualityProjection: '目前無法依目標核對受催化劑品質影響的詞綴數值。',
     conditions: '目標條件',
     examples: '符合條件的物品範例',
@@ -54,6 +59,7 @@ export const previewResultMessages: Record<Locale, Copy> = {
     retry: '重試',
   },
   ja: {
+    occupancy: 'その他の接頭辞/接尾辞（空き接頭辞/接尾辞）',
     qualityProjection:
       '触媒の品質が影響するモッドの数値は、まだ目標と照合できません。',
     conditions: '目標条件',
@@ -65,6 +71,7 @@ export const previewResultMessages: Record<Locale, Copy> = {
     retry: '再試行',
   },
   es: {
+    occupancy: 'Otros prefijos/sufijos (prefijos/sufijos libres)',
     qualityProjection:
       'Aún no se pueden comprobar los valores afectados por la calidad del catalizador.',
     conditions: 'Condiciones del objetivo',
@@ -76,6 +83,7 @@ export const previewResultMessages: Record<Locale, Copy> = {
     retry: 'Reintentar',
   },
   ru: {
+    occupancy: 'Прочие префиксы/суффиксы (свободные префиксы/суффиксы)',
     qualityProjection:
       'Пока нельзя проверить значения свойств с учётом качества от катализатора.',
     conditions: 'Условия цели',
@@ -87,6 +95,7 @@ export const previewResultMessages: Record<Locale, Copy> = {
     retry: 'Повторить',
   },
   th: {
+    occupancy: 'พรีฟิกซ์/ซัฟฟิกซ์อื่น (ช่องว่างพรีฟิกซ์/ซัฟฟิกซ์)',
     qualityProjection:
       'ยังไม่สามารถตรวจค่าม็อดที่ได้รับผลจากคุณภาพของตัวเร่งเทียบกับเป้าหมายได้',
     conditions: 'เงื่อนไขเป้าหมาย',

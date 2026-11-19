@@ -83,6 +83,7 @@ type Draft = {
   searchIssue: boolean
 }
 export type GoalPreviewInput = {
+  fracture?: ConcreteItem['explicits'][number] | undefined
   base: StartBase
   initial: Initial
   context: Context
@@ -1144,6 +1145,7 @@ export function CraftStart({
             previewCatalog.context.itemLevel === draft.item.itemLevel &&
             renderPreview({
               ...selected,
+              fracture: draft.item.explicits.find((m) => m.fractured),
               context: previewCatalog.context,
               catalog: previewCatalog,
               goal: draft.searchGoal.goal,

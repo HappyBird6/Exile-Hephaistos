@@ -28,6 +28,9 @@ final class GoalExamples {
   private final GoalExampleRolls rolls;
   private final GoalExampleBounds bounds;
   private final GoalExampleCapacity capacity;
+  private final ItemStateValidator validator;
+  private List<ModifierDefinition> fillers = List.of();
+  private ModifierInstance fracture;
 
   /** 단일 티어의 정의, 현재 희귀도에서 허용된 획득처, 목표 수치 구간, 실제 굴림 순회다. */
   private record Tier(
@@ -48,7 +51,10 @@ final class GoalExamples {
   private record Seed(ItemState item, Map<String, Band> range) {}
 
   /** 같은 구성의 검증된 실제 상태와 대표 옵션에 대응하는 적격 정의 ID들이다. */
-  record Matches(List<ItemState> variants, Map<String, List<String>> optionTiers) {}
+  record Matches(
+      List<ItemState> variants,
+      Map<String, List<String>> optionTiers,
+      List<GoalFilterService.Occupancy> occupancy) {}
 
   /** 획득 분류, 계층, 접두·접미, 충돌 계열, 태그, 순서 있는 수치가 모두 같은 옵션의 티어만 묶는다. */
   private record TierFamily(
@@ -73,10 +79,16 @@ final class GoalExamples {
     rolls = new GoalExampleRolls(goal, stats, simulator);
     bounds = new GoalExampleBounds(goal, stats);
     capacity = new GoalExampleCapacity(catalog, sources);
+    validator = new ItemStateValidator(catalog);
   }
 
   /** 목표 레벨·희귀도 안에서 관련 옵션만 추가한다. 빈 결과는 탐색한 범위에서 예시가 없다는 의미다. */
-  List<Matches> find(GoalFilter.Context context) {
+  List<Matches> find(GoalFilter.Context context, ModifierInstance fracture) {
+    this.fracture = fracture;
+    if (fracture != null && (!fracture.fractured() || !sources.containsKey(fracture.modifierId())))
+      throw new GoalFilterService.InvalidGoal(
+          List.of(
+              GoalFilter.Issue.error("INVALID_ITEM", "/fracture", "Invalid fractured modifier.")));
     if (!goal.general().itemLevel().contains(BigDecimal.valueOf(context.itemLevel())))
       return List.of();
     var quality = goal.general().quality();
@@ -112,6 +124,7 @@ final class GoalExamples {
         targets.putIfAbsent(GoalCatalogIndex.id("EXPLICIT", stat.id()), Set.of());
     var definitions =
         available.stream().filter(d -> direct.contains(d) || providers.contains(d)).toList();
+    fillers = available.stream().filter(d -> !definitions.contains(d)).toList();
     var lower = providers.stream().map(p -> extreme(p, false)).toList();
     var upper = providers.stream().map(p -> extreme(p, true)).toList();
     var tierGroups = tierGroups(definitions);
@@ -212,12 +225,13 @@ final class GoalExamples {
               context.itemLevel(),
               rarity,
               implicit == null ? List.of() : List.of(implicit),
-              List.of(),
+              fracture == null ? List.of() : List.of(fracture),
               Set.of(),
               null,
               quality == null || quality == 0
                   ? null
                   : new CatalystQuality(CatalystQuality.Type.FLESH, quality));
+      if (fracture != null && !validator.validateForGeneration(item).isEmpty()) continue;
       seeds.add(
           new Seed(
               item, implicit == null ? Map.of() : bounds.project(definition, implicit.values())));
@@ -229,7 +243,29 @@ final class GoalExamples {
   private List<Matches> findShapes(List<Seed> seeds, List<Slot> slots) {
     var cards = new ArrayList<Matches>();
     var seedRange = hull(seeds.stream().map(Seed::range).toList());
-    var limits = capacity.limits(seeds.getFirst().item());
+    var initial = seeds.getFirst().item();
+    var limits = capacity.limits(initial);
+    var occupied = validator.slots(initial);
+    Set<String> conflicts = new HashSet<>();
+    if (fracture != null) {
+      var d = catalog.modifiers().get(fracture.modifierId());
+      conflicts.addAll(d.familyIds());
+      // 분열 수치도 이후 선택 가능한 배율 제공자의 영향을 받는다.
+      var extrema =
+          slots.stream()
+              .flatMap(s -> s.tiers().stream())
+              .map(Tier::definition)
+              .filter(ModifierMagnitudes::provider)
+              .toList();
+      seedRange =
+          GoalExampleBounds.sum(
+              seedRange,
+              scaled(
+                  d,
+                  fracture.values(),
+                  extrema.stream().map(p -> extreme(p, false)).toList(),
+                  extrema.stream().map(p -> extreme(p, true)).toList()));
+    }
     var optional = new ArrayList<Map<String, Band>>();
     optional.add(Map.of());
     for (int i = slots.size() - 1; i >= 0; i--) {
@@ -244,10 +280,10 @@ final class GoalExamples {
         limits,
         0,
         new ArrayList<>(),
-        new HashSet<>(),
+        conflicts,
         seedRange,
-        0,
-        0,
+        occupied.usedPrefixes(),
+        occupied.usedSuffixes(),
         cards);
     return cards;
   }
@@ -271,7 +307,7 @@ final class GoalExamples {
     if (bounds.blocked(range).isEmpty() && mechanicsPossible(limits, shape)) {
       var witnesses = witnesses(seeds, shape);
       for (var group : bySupport(shape, witnesses))
-        cards.add(new Matches(group, optionTiers(shape, group)));
+        cards.add(new Matches(group, optionTiers(shape, group), occupancies(group.getFirst())));
     }
     for (int i = start; i < slots.size(); i++) {
       var slot = slots.get(i);
@@ -295,6 +331,47 @@ final class GoalExamples {
       conflicts.removeAll(slot.definition().familyIds());
       shape.removeLast();
     }
+  }
+
+  /** 대표 아이템의 빈칸을 목표에 무관한 옵션으로 채울 수 있는 접사 수 조합을 검증한다. */
+  private List<GoalFilterService.Occupancy> occupancies(ItemState item) {
+    var slots = validator.slots(item);
+    var results = new ArrayList<GoalFilterService.Occupancy>();
+    for (int p = 0; p <= slots.remainingPrefixes(); p++)
+      for (int s = 0; s <= slots.remainingSuffixes(); s++)
+        if (canFill(item, 0, p, s))
+          results.add(
+              new GoalFilterService.Occupancy(
+                  p, s, slots.remainingPrefixes() - p, slots.remainingSuffixes() - s));
+    return List.copyOf(results);
+  }
+
+  /** 목표 밖 옵션의 계열·출처와 슬롯 충돌을 확인해 개수 조합당 실제 예 하나를 찾는다. */
+  private boolean canFill(ItemState item, int start, int prefixes, int suffixes) {
+    if (prefixes + suffixes == 0) return true;
+    var used = new HashSet<String>();
+    item.explicits().forEach(m -> used.addAll(catalog.modifiers().get(m.modifierId()).familyIds()));
+    for (int i = start; i < fillers.size(); i++) {
+      var d = fillers.get(i);
+      boolean prefix = d.affixType() == ModifierDefinition.AffixType.PREFIX;
+      if ((prefix ? prefixes : suffixes) == 0 || !Collections.disjoint(used, d.familyIds()))
+        continue;
+      var domain = rolls.variants(d, Map.of());
+      if (domain.isEmpty()) continue;
+      for (var origin : sources.get(d.id())) {
+        if (!origin.supportsRarity(item.rarity())) continue;
+        var next = append(item, d, domain.getFirst(), origin);
+        if (next != null
+            && validator.validateForGeneration(next).isEmpty()
+            && next.explicits().stream()
+                    .filter(m -> AugmentCraftingRules.crafted(m, catalog))
+                    .count()
+                <= AugmentCraftingRules.craftedLimit(next)
+            && canFill(next, i + 1, prefixes - (prefix ? 1 : 0), suffixes - (prefix ? 0 : 1)))
+          return true;
+      }
+    }
+    return false;
   }
 
   /** 한도 확장에 필요한 별도 보조 옵션이 다르면 완성 아이템의 실제 옵션 구성이 다르므로 카드를 나눈다. */

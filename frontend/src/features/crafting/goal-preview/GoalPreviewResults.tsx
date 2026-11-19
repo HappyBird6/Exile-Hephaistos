@@ -37,6 +37,12 @@ import './previewResults.css'
 
 type PreviewItem = Item & ConcreteItem
 type Example = {
+  occupancy?: {
+    prefixes: number
+    suffixes: number
+    emptyPrefixes: number
+    emptySuffixes: number
+  }[]
   item: PreviewItem
   tierVariants: PreviewItem[]
   optionTiers: Record<string, string[]>
@@ -173,7 +179,15 @@ function PreviewCard({
   const rolls = new Map<string, Record<string, number>>()
   for (const variant of [item, ...tierVariants])
     for (const mod of [...variant.implicits, ...variant.explicits]) {
-      if (!rolls.has(mod.modifierId)) rolls.set(mod.modifierId, modifierMagnitudeValues(variant,definitions[mod.modifierId]!,mod.values))
+      if (!rolls.has(mod.modifierId))
+        rolls.set(
+          mod.modifierId,
+          modifierMagnitudeValues(
+            variant,
+            definitions[mod.modifierId]!,
+            mod.values,
+          ),
+        )
     }
   return (
     <ItemCard
@@ -194,6 +208,22 @@ function PreviewCard({
                 },
               ]
             : []),
+          ...(example.occupancy?.length
+            ? [
+                {
+                  id: 'occupancy',
+                  text:
+                    copy.occupancy +
+                    ' · ' +
+                    example.occupancy
+                      .map(
+                        (o) =>
+                          `${o.prefixes}/${o.suffixes} (${o.emptyPrefixes}/${o.emptySuffixes})`,
+                      )
+                      .join(', '),
+                },
+              ]
+            : []),
           ...(item.installedAugments ?? []).map((a, i) => ({
             id: 'socket-' + i,
             text: augmentName(a.augmentId),
@@ -205,7 +235,11 @@ function PreviewCard({
           ).sort((a, b) => b.tier - a.tier)
           return {
             ...line,
-            text: localizedModifierText(definitions[line.id]!,rolls.get(line.id)!,locale),
+            text: localizedModifierText(
+              definitions[line.id]!,
+              rolls.get(line.id)!,
+              locale,
+            ),
             affixLabel: tierRanges(options),
             sourceLabel:
               copy.sources +
@@ -234,6 +268,7 @@ function PreviewCard({
 export function GoalPreviewResults({
   base,
   initial,
+  fracture,
   context,
   catalog,
   goal,
@@ -243,7 +278,7 @@ export function GoalPreviewResults({
     labels = goalFilterMessages[locale]
   const { rulesetIdentity } = initial
   const preview = useQuery({
-    queryKey: ['goalPreview', rulesetIdentity, context, goal],
+    queryKey: ['goalPreview', rulesetIdentity, context, goal, fracture],
     queryFn: async ({ signal }) => {
       const response = await craftingFetch(
         '/api/v1/crafting/support/goal-filters/preview',
@@ -251,7 +286,7 @@ export function GoalPreviewResults({
           method: 'POST',
           signal,
           headers: rulesetHeaders(rulesetIdentity),
-          body: JSON.stringify({ context, goal }),
+          body: JSON.stringify({ context, goal, fracture }),
         },
       )
       if (response.ok) verifyRulesetResponse(response, rulesetIdentity)

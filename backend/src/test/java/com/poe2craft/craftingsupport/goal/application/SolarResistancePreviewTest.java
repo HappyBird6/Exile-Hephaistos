@@ -179,6 +179,39 @@ class SolarResistancePreviewTest {
     }
   }
 
+  /** 시작 아이템의 분열 저항과 수치를 보존하고 비목표 옵션의 점유는 접사 수로 묶는다. */
+  @Test
+  void preservesFractureAndGroupsFillerOccupancy() {
+    var catalog = EquipmentCurrencyCatalog.enrich(ItemCatalogLoader.loadDefault());
+    var sim = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(sim);
+    var base = SolarAmulet.initial(catalog, 82, 15);
+    var frozen = new ModifierInstance("amulet:suffix:of-the-walrus", Map.of(COLD, 30L), true);
+    var goal =
+        new GoalFilter(
+            1,
+            index.version(),
+            goal(index, catalog).general(),
+            List.of(new Group("res", Type.AND, false, null, List.of(entry(COLD)))));
+    var cards =
+        service
+            .preview(new Context(base.snapshotId(), base.baseItemId(), 82), goal, workbench, frozen)
+            .cards();
+    assertThat(cards)
+        .singleElement()
+        .satisfies(
+            card -> {
+              assertThat(card.item().explicits()).containsExactly(frozen);
+              assertThat(card.occupancy())
+                  .contains(
+                      new GoalFilterService.Occupancy(0, 0, 3, 2),
+                      new GoalFilterService.Occupancy(3, 2, 0, 0));
+            });
+  }
+
   /** 군왕의 합금으로 원래 티어 상한을 넘긴 다섯 종류의 저항이 각각 예시와 최종 판정을 통과한다. */
   @Test
   void findsAmplifiedTiersForEveryResistanceStat() {
