@@ -8,6 +8,7 @@
     {"statId":"fixture:pseudo.total_cold_resistance","unit":"percent","kind":"PSEUDO","contributions":[{"statId":"fixture:explicit.cold_resistance","coefficient":1},{"statId":"fixture:explicit.all_elemental_resistance","coefficient":1}]}
   ],
   "entryTemplates": {
+    "coldPresent": {"id":"cold-present","statId":"fixture:explicit.cold_resistance","unit":"percent","range":{"min":null,"max":null},"weight":null,"disabled":false},
     "cold": {"id":"cold","statId":"fixture:explicit.cold_resistance","unit":"percent","range":{"min":10,"max":20},"weight":null,"disabled":false},
     "secondCold": {"id":"secondCold","statId":"fixture:explicit.cold_resistance","unit":"percent","range":{"min":null,"max":15},"weight":null,"disabled":false},
     "all": {"id":"all","statId":"fixture:explicit.all_elemental_resistance","unit":"percent","range":{"min":10,"max":20},"weight":null,"disabled":false},
@@ -36,6 +37,9 @@
     {"id":"count-relative-min-ignores-disabled","type":"COUNT","range":{"min":-1,"max":null},"entries":["cold","all","total"],"disabledEntries":["total"],"observedStats":{"fixture:explicit.cold_resistance":10},"expected":"MATCH","expectedCount":1},
     {"id":"count-relative-min-needs-one","type":"COUNT","range":{"min":-1,"max":null},"entries":["cold"],"observedStats":{},"expected":"NO_MATCH","expectedCount":0},
     {"id":"count-negative-half-away-from-zero","type":"COUNT","range":{"min":-1.5,"max":null},"entries":["cold","all","total"],"observedStats":{"fixture:explicit.cold_resistance":10},"expected":"MATCH","expectedCount":1},
+    {"id":"exclude-cold-resistance-new-count-positive","type":"COUNT","range":{"min":null,"max":-1},"entries":["coldPresent"],"observedStats":{"fixture:explicit.cold_resistance":35},"expected":"NO_MATCH","expectedCount":1},
+    {"id":"exclude-cold-resistance-new-count-absent","type":"COUNT","range":{"min":null,"max":-1},"entries":["coldPresent"],"observedStats":{},"expected":"MATCH","expectedCount":0},
+    {"id":"open-count-max-zero-keeps-cold","type":"COUNT","range":{"min":null,"max":0},"entries":["coldPresent"],"observedStats":{"fixture:explicit.cold_resistance":35},"expected":"MATCH","expectedCount":1},
     {"id":"count-zero-max-open","type":"COUNT","range":{"min":0,"max":0},"entries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":10},"expected":"MATCH","expectedCount":1},
     {"id":"count-rounded-zero-max-open","type":"COUNT","range":{"min":null,"max":0.1},"entries":["cold"],"observedStats":{"fixture:explicit.cold_resistance":10},"expected":"MATCH","expectedCount":1},
     {"id":"count-round-max-down","type":"COUNT","range":{"min":null,"max":1.1},"entries":["cold","secondCold"],"observedStats":{"fixture:explicit.cold_resistance":10},"expected":"NO_MATCH","expectedCount":2},
