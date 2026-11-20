@@ -186,12 +186,45 @@ public final class GoalFilterService {
       CraftingOperations workbench,
       ModifierInstance fracture,
       String selectedTier) {
+    return preview(context, goal, workbench, fracture, selectedTier, null);
+  }
+
+  /** 축성된 시작 아이템은 현재의 수치·품질·옵션만 평가한다. 기존 요청은 분열 옵션만 고정해 탐색한다. */
+  public Preview preview(
+      Context context,
+      GoalFilter goal,
+      CraftingOperations workbench,
+      ModifierInstance fracture,
+      String selectedTier,
+      ItemState startingItem) {
     requireContext(context);
+    if (startingItem != null) {
+      var actualFracture =
+          startingItem.explicits().stream()
+              .filter(ModifierInstance::fractured)
+              .findFirst()
+              .orElse(null);
+      if (!context.equals(
+              new Context(
+                  startingItem.snapshotId(), startingItem.baseItemId(), startingItem.itemLevel()))
+          || (fracture != null && !fracture.equals(actualFracture)))
+        throw new InvalidGoal(
+            List.of(
+                Issue.error(
+                    "INVALID_ITEM",
+                    "/startingItem",
+                    "Starting item does not match the preview context or fracture.")));
+      fracture = actualFracture;
+    }
     var simulator = workbench.simulatorForBase(context.baseItemId());
     var sources = simulator.modifierSources(context.itemLevel());
     var definitions = new java.util.TreeMap<String, ModifierDefinition>();
     var cards = new ArrayList<ExampleCard>();
-    for (var group : exampleGroups(context, goal, simulator, sources, fracture, selectedTier)) {
+    var groups =
+        startingItem != null && startingItem.conditions().contains(ItemState.Condition.SANCTIFIED)
+            ? existingItemGroup(startingItem, goal, selectedTier)
+            : exampleGroups(context, goal, simulator, sources, fracture, selectedTier);
+    for (var group : groups) {
       var variants = group.variants();
       var used = new java.util.TreeMap<String, List<ModifierAcquisition>>();
       var projectedValues = new java.util.TreeMap<String, Map<String, BigDecimal>>();
@@ -202,12 +235,13 @@ public final class GoalFilterService {
             if (used.containsKey(id)) continue;
             used.put(
                 id,
-                sources.get(id).stream()
+                sources.getOrDefault(id, List.of()).stream()
                     .filter(source -> source.supportsRarity(item.rarity()))
                     .toList());
             var definition = simulator.catalog().find(id).orElseThrow();
             definitions.put(id, definition);
-            if (item.catalystQuality() != null)
+            if (item.catalystQuality() != null
+                || item.conditions().contains(ItemState.Condition.SANCTIFIED))
               projectedValues.put(id, ItemStatProjection.qualityValues(item, definition, modifier));
           }
         }
@@ -230,6 +264,17 @@ public final class GoalFilterService {
       }
     }
     return new Preview(List.copyOf(cards), Map.copyOf(definitions), Map.copyOf(countRanges), null);
+  }
+
+  /** 변경 불가 상태가 목표에 맞으면 기존 옵션과 각 단일 티어를 그대로 가진 한 카드만 반환한다. */
+  private List<GoalExamples.Matches> existingItemGroup(
+      ItemState item, GoalFilter goal, String selectedTier) {
+    if (evaluate(item, goal).status() != Status.MATCH) return List.of();
+    var tiers = new java.util.TreeMap<String, List<String>>();
+    for (var layer : List.of(item.implicits(), item.explicits()))
+      for (var mod : layer) tiers.put(mod.modifierId(), List.of(mod.modifierId()));
+    if (selectedTier != null && !tiers.containsKey(selectedTier)) return List.of();
+    return List.of(new GoalExamples.Matches(List.of(item), Map.copyOf(tiers), List.of()));
   }
 
   public RollPartition rollPartition(ItemState item, GoalFilter goal) {

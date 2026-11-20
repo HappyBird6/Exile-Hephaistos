@@ -21,7 +21,7 @@ import { pathTreeMessages } from '../path-tree/messages'
 import { modifierMagnitudeValues } from '../modifierMagnitudes'
 import { augmentName } from '../socketAugments'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
-import { goalFilterMessages } from '../goal-filter/i18n'
+import { goalFilterActions, goalFilterMessages } from '../goal-filter/i18n'
 import { tradeGroupNames } from '../goal-filter/setupMessages'
 import { hasActiveStatFilters } from '../goal-filter/useGoalFilter'
 import { qualityGoalMessages } from '../goal-filter/qualityGoalMessages'
@@ -88,9 +88,20 @@ function validCard(
     const options = card.optionTiers[modifierId]
     if (!Array.isArray(options) || !options.includes(modifierId)) return false
     for (const id of options) {
-      if (!definitions[id] || !sources[id]?.length || allowed.has(id))
+      if (
+        !definitions[id] ||
+        !Array.isArray(sources[id]) ||
+        (!sources[id].length &&
+          !(
+            id === modifierId && card.item.conditions.includes('SANCTIFIED')
+          )) ||
+        allowed.has(id)
+      )
         return false
-      if (card.item.catalystQuality) {
+      if (
+        card.item.catalystQuality ||
+        card.item.conditions.includes('SANCTIFIED')
+      ) {
         const values = card.projectedValues?.[id]
         if (
           !values ||
@@ -104,8 +115,8 @@ function validCard(
     }
   }
   return (
-    Object.values(sources).every(
-      (entries) => entries.length && entries.every(acquisitionSourceLabel),
+    Object.values(sources).every((entries) =>
+      entries.every(acquisitionSourceLabel),
     ) &&
     [card.item, ...card.tierVariants].every(
       (item) =>
@@ -196,11 +207,14 @@ function sourcesForOptions(
     .join(', ')
 }
 
-type QueryInputs = Pick<GoalPreviewInput, 'context' | 'goal' | 'fracture'> & {
+type QueryInputs = Pick<
+  GoalPreviewInput,
+  'context' | 'goal' | 'fracture' | 'startingItem'
+> & {
   rulesetIdentity: string
 }
 function previewOptions(
-  { context, goal, fracture, rulesetIdentity }: QueryInputs,
+  { context, goal, fracture, startingItem, rulesetIdentity }: QueryInputs,
   selectedTier?: string,
 ) {
   return {
@@ -210,6 +224,7 @@ function previewOptions(
       context,
       goal,
       fracture,
+      startingItem,
       selectedTier,
     ],
     queryFn: async ({ signal }: { signal: AbortSignal }) => {
@@ -219,7 +234,13 @@ function previewOptions(
           method: 'POST',
           signal,
           headers: rulesetHeaders(rulesetIdentity),
-          body: JSON.stringify({ context, goal, fracture, selectedTier }),
+          body: JSON.stringify({
+            context,
+            goal,
+            fracture,
+            selectedTier,
+            startingItem,
+          }),
         },
       )
       if (response.ok) verifyRulesetResponse(response, rulesetIdentity)
@@ -374,10 +395,11 @@ function PreviewCard({
               ...line,
               text: optionText(definitions[line.id]!, rolls.get(line.id)!),
               affixLabel: tierRanges(options),
-              sourceLabel:
-                copy.sources +
-                ' · ' +
-                sourcesForOptions(options, sources, locale),
+              sourceLabel: !sources[line.id]?.length
+                ? goalFilterActions[locale].present
+                : copy.sources +
+                  ' · ' +
+                  sourcesForOptions(options, sources, locale),
               ...(options.length > 1 && {
                 tierRows: options.flatMap((d) => {
                   const values = rolls.get(d.id)
@@ -421,6 +443,7 @@ export function GoalPreviewResults({
   base,
   initial,
   fracture,
+  startingItem,
   context,
   catalog,
   goal,
@@ -429,7 +452,7 @@ export function GoalPreviewResults({
   const copy = previewResultMessages[locale],
     labels = goalFilterMessages[locale]
   const { rulesetIdentity } = initial
-  const inputs = { context, goal, fracture, rulesetIdentity }
+  const inputs = { context, goal, fracture, startingItem, rulesetIdentity }
   const preview = useQuery(previewOptions(inputs))
   const presentationCatalog = {
     ...catalog,

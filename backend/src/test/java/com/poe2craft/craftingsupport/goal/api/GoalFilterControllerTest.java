@@ -194,6 +194,63 @@ class GoalFilterControllerTest {
         .andExpect(jsonPath("$.reasonCode").isEmpty());
   }
 
+  /** 같은 입력 화면에서 가져온 축성 아이템은 이미 일치할 때만 그 상태 한 장을 반환한다. */
+  @Test
+  void sanctifiedStartIsOnlyShownAsItIs() throws Exception {
+    var start = SolarAmulet.initial(itemCatalog);
+    var locked =
+        new com.poe2craft.shared.item.ItemState(
+            start.snapshotId(),
+            start.baseItemId(),
+            82,
+            ItemState.Rarity.RARE,
+            start.implicits(),
+            List.of(
+                new com.poe2craft.shared.item.ModifierInstance(
+                    "amulet:prefix:hale", Map.of("base_maximum_life", 17L))),
+            Set.of(ItemState.Condition.SANCTIFIED));
+    var simulator = new WorkbenchSimulator(itemCatalog, new CraftingEngine(itemCatalog));
+    org.mockito.Mockito.when(workbench.simulatorForBase(start.baseItemId())).thenReturn(simulator);
+    var context = new Context(start.snapshotId(), start.baseItemId(), 82);
+    for (var stat : List.of("base_maximum_life", "base_cold_damage_resistance_%")) {
+      boolean life = stat.equals("base_maximum_life");
+      var exact = BigDecimal.valueOf(life ? 17 : 30);
+      var entry =
+          new Entry(
+              "row",
+              GoalCatalogIndex.id("explicit", stat),
+              life ? "flat" : "percent",
+              new Range(exact, exact),
+              null,
+              false);
+      var goal =
+          new GoalFilter(
+              1,
+              index.version(),
+              new General(
+                  start.baseItemId(), new Range(null, null), List.of(ItemState.Rarity.RARE)),
+              List.of(new Group("required", Type.AND, false, null, List.of(entry))));
+      var response =
+          mvc.perform(
+                  post(root + "/preview")
+                      .contentType(MediaType.APPLICATION_JSON)
+                      .content(
+                          json.writeValueAsString(
+                              Map.of("context", context, "goal", goal, "startingItem", locked))))
+              .andExpect(status().isOk())
+              .andExpect(jsonPath("$.cards.length()").value(life ? 1 : 0));
+      if (life)
+        response
+            .andExpect(jsonPath("$.cards[0].item.conditions[0]").value("SANCTIFIED"))
+            .andExpect(jsonPath("$.cards[0].tierVariants.length()").value(1))
+            .andExpect(jsonPath("$.cards[0].optionTiers['amulet:prefix:hale'].length()").value(1))
+            .andExpect(
+                jsonPath("$.cards[0].projectedValues['amulet:prefix:hale'].base_maximum_life")
+                    .value(17))
+            .andExpect(jsonPath("$.cards[0].occupancy").isEmpty());
+    }
+  }
+
   GoalFilter goal(String version, String stat) {
     return new GoalFilter(
         1,

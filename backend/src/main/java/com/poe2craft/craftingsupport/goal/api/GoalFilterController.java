@@ -60,7 +60,12 @@ public final class GoalFilterController {
   public GoalFilterService.Preview preview(@RequestBody JsonNode body) {
     var request = reader.decode(body, PreviewRequest.class);
     return service.preview(
-        request.context(), request.goal(), workbench, request.fracture(), request.selectedTier());
+        request.context(),
+        request.goal(),
+        workbench,
+        request.fracture(),
+        request.selectedTier(),
+        request.startingItem());
   }
 
   @PostMapping("/recommend")

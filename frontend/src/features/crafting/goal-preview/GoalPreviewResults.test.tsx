@@ -6,6 +6,7 @@ import {
   jsonResponse,
   rootBucket,
 } from '../../../shared/test/craftingFixtures'
+import type { ConcreteItem } from '../workbenchApi'
 import type { Catalog, GoalFilter } from '../goal-filter/types'
 import { GoalPreviewResults } from './GoalPreviewResults'
 
@@ -88,6 +89,7 @@ function renderPreview(
   response: unknown,
   filter = goal,
   selectedResponse?: unknown,
+  startingItem?: ConcreteItem,
 ) {
   const fetch = vi.fn((_url: RequestInfo | URL, init?: RequestInit) =>
     Promise.resolve(
@@ -107,11 +109,39 @@ function renderPreview(
         context={context}
         catalog={catalog}
         goal={filter}
+        startingItem={startingItem}
       />
     </QueryClientProvider>,
   )
   return fetch
 }
+
+it('sends the full sanctified starting item and renders its single fixed tier', async () => {
+  const locked: ConcreteItem = {
+    ...item,
+    rarity: 'RARE',
+    conditions: ['SANCTIFIED'],
+  }
+  const card = {
+    item: locked,
+    tierVariants: [locked],
+    sources: { implicit: sources.implicit, p: [] },
+    optionTiers: { implicit: ['implicit'], p: ['p'] },
+    projectedValues: { implicit: { spirit: 15 }, p: { life: 17 } },
+  }
+  const fetch = renderPreview(
+    { ...preview, cards: [card] },
+    goal,
+    undefined,
+    locked,
+  )
+  const result = within(await screen.findByRole('article'))
+  expect(result.getByText('+17 to maximum Life')).toBeVisible()
+  expect(result.getByText('Already on the starting item')).toBeVisible()
+  expect(
+    JSON.parse(String(fetch.mock.calls[0]?.[1]?.body)).startingItem,
+  ).toEqual(locked)
+})
 
 it('shows disjoint matching tiers beside the option and qualifies the sources that apply to specific tiers', async () => {
   const fetch = renderPreview(preview)

@@ -27,13 +27,15 @@ final class GoalRequestReader {
   <T> T decode(JsonNode body, Class<T> type) {
     if (body == null || !body.isObject()) throw new MalformedPayload();
     try {
+      if (body.hasNonNull("startingItem"))
+        com.poe2craft.shared.item.ItemStateWireDefaults.normalizeOwned(body.get("startingItem"));
       return json.treeToValue(body, type);
     } catch (ValueInstantiationException error) {
       throw new GoalFilterService.InvalidGoal(
           List.of(
               GoalFilter.Issue.error(
                   "INVALID_ITEM", "/item", "ItemState properties are invalid.")));
-    } catch (JsonProcessingException error) {
+    } catch (IllegalArgumentException | JsonProcessingException error) {
       throw new MalformedPayload();
     }
   }

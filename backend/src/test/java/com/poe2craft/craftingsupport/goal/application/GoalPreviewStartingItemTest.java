@@ -88,5 +88,18 @@ class GoalPreviewStartingItemTest {
         .allSatisfy(
             c -> assertThat(c.item().conditions()).doesNotContain(ItemState.Condition.SANCTIFIED));
     assertThat(service.preview(context, coldGoal(80, 40), workbench).cards()).isEmpty();
+    var locked =
+        service
+            .preview(context, coldGoal(80, 40), workbench, null, null, sanctified.state())
+            .cards();
+    assertThat(locked)
+        .singleElement()
+        .satisfies(
+            card -> {
+              assertThat(card.item()).isEqualTo(sanctified.state());
+              assertThat(card.tierVariants()).containsExactly(sanctified.state());
+              assertThat(card.projectedValues().get(cold.modifierId()).get(COLD))
+                  .isEqualByComparingTo("80");
+            });
   }
 }

@@ -83,6 +83,7 @@ type Draft = {
   searchIssue: boolean
 }
 export type GoalPreviewInput = {
+  startingItem?: ConcreteItem | undefined
   fracture?: ConcreteItem['explicits'][number] | undefined
   base: StartBase
   initial: Initial
@@ -1147,6 +1148,9 @@ export function CraftStart({
             previewCatalog.context.itemLevel === draft.item.itemLevel &&
             renderPreview({
               ...selected,
+              startingItem: draft.item.conditions.includes('SANCTIFIED')
+                ? draft.item
+                : undefined,
               fracture: draft.item.explicits.find((m) => m.fractured),
               context: previewCatalog.context,
               catalog: previewCatalog,
