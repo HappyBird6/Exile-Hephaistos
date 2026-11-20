@@ -66,7 +66,8 @@ class GoalExamplesTest {
             result.cards().stream()
                 .filter(
                     card ->
-                        card.item().explicits().size() == 1
+                        card.item().catalystQuality() == null
+                            && card.item().explicits().size() == 1
                             && lifeIds.contains(card.item().explicits().getFirst().modifierId())))
         .singleElement()
         .satisfies(
@@ -127,6 +128,7 @@ class GoalExamplesTest {
                         .toList())));
     var result = service.preview(context(catalog, 6), goal, workbench);
     assertThat(result.cards())
+        .filteredOn(c -> c.item().catalystQuality() == null)
         .singleElement()
         .satisfies(
             card -> {
@@ -149,6 +151,7 @@ class GoalExamplesTest {
     var selected =
         service.preview(context(catalog, 6), goal, workbench, null, "amulet:prefix:hale");
     assertThat(selected.cards())
+        .filteredOn(c -> c.item().catalystQuality() == null)
         .singleElement()
         .satisfies(
             card -> {
@@ -200,6 +203,7 @@ class GoalExamplesTest {
             List.of(new Group("sum", Type.WEIGHTED_V2, false, new Range(sum, sum), rows)));
     var states = service.examples(context, goal, simulator, sources);
     assertThat(states)
+        .filteredOn(i -> i.catalystQuality() == null)
         .singleElement()
         .satisfies(
             item -> {
@@ -291,6 +295,7 @@ class GoalExamplesTest {
             .filter(
                 card ->
                     card.item().explicits().size() == 1
+                        && card.item().catalystQuality() == null
                         && weapons.contains(card.item().explicits().getFirst().modifierId()))
             .toList();
     assertThat(cards)
@@ -382,7 +387,9 @@ class GoalExamplesTest {
             item -> {
               assertThat(service.evaluate(item, goal).status()).isEqualTo(Status.MATCH);
               assertThat(new ItemStateValidator(catalog).validateForGeneration(item)).isEmpty();
-              assertThat(item.explicits()).hasSize(2);
+              assertThat(item.explicits())
+                  .filteredOn(m -> !m.modifierId().equals(QualityLimitRules.BREACH_ID))
+                  .hasSize(2);
               item.explicits().forEach(m -> assertThat(sources).containsKey(m.modifierId()));
             });
   }
@@ -546,6 +553,45 @@ class GoalExamplesTest {
                   .isEqualTo(new CatalystQuality(CatalystQuality.Type.TUL, 20));
               assertThat(c.optionTiers().get(tier)).containsExactly(tier);
             });
+  }
+
+  /** 최소 품질이 없어도 기폭제가 필요한 42%와 원래 상태에서 가능한 30%를 모두 제공한다. */
+  @Test
+  void optionalQualityCanReachFrozenResistanceWithACatalyst() {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var sim = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(sim);
+    String cold = "base_cold_damage_resistance_%";
+    var frozen = new ModifierInstance("amulet:suffix:of-the-walrus", Map.of(cold, 30L), true);
+    for (int value : List.of(30, 42, 45)) {
+      var goal =
+          goal(
+              index,
+              catalog,
+              List.of(
+                  new Group(
+                      "cold",
+                      Type.AND,
+                      false,
+                      null,
+                      List.of(rangeEntry("explicit", cold, "percent", value, value)))));
+      var cards = service.preview(context(catalog, 82), goal, workbench, frozen).cards();
+      assertThat(cards)
+          .anySatisfy(
+              card -> {
+                assertThat(card.item().explicits()).containsExactly(frozen);
+                assertThat(card.minimumQuality()).isNull();
+                assertThat(card.item().catalystQuality())
+                    .isEqualTo(
+                        value == 30
+                            ? null
+                            : new CatalystQuality(CatalystQuality.Type.TUL, value == 42 ? 40 : 50));
+                assertThat(service.evaluate(card.item(), goal).status()).isEqualTo(Status.MATCH);
+              });
+    }
   }
 
   /** 하나의 분열 저항에 목표 수치를 적용해, 같은 원본 티어를 올바른 기폭제만 충족하는지 확인한다. */

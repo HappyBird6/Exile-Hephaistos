@@ -110,18 +110,23 @@ final class GoalExamples {
       return List.of();
     var minimum = goal.general().quality();
     var matches = new ArrayList<Matches>();
+    boolean optional = minimum == null || minimum == 0;
     var catalysts =
-        minimum != null && minimum > 0
-            ? simulator.baseMaterialActions().stream()
-                .filter(c -> c.catalystType() != null)
-                .toList()
-            : List.<WorkbenchCurrency>of();
+        simulator.baseMaterialActions().stream()
+            .filter(c -> c.catalystType() != null)
+            .filter(
+                c ->
+                    !optional
+                        || catalog.modifiers().values().stream()
+                            .anyMatch(
+                                d ->
+                                    !d.tags().contains("unscalable")
+                                        && (jewel || c.catalystType().matches(d.tags()))
+                                        && bounds.numeric(bounds.project(d, null))))
+            .toList();
     for (var rarity : goal.general().rarities()) {
       if (rarity == ItemState.Rarity.UNIQUE) continue;
-      if (minimum == null || minimum == 0) {
-        matches.addAll(findForQuality(context, rarity, null, false));
-        continue;
-      }
+      if (optional) matches.addAll(findForQuality(context, rarity, null, false));
       if (catalysts.isEmpty()) continue;
       // 품질 자격은 옵션 수치와 독립적이다. 실제 베이스와 분열 옵션으로 가능한 상한을 먼저 검증한다.
       catalyst = null;
@@ -129,8 +134,8 @@ final class GoalExamples {
       var seeds = seeds(context, rarity, Map.of());
       if (seeds.isEmpty()) continue;
       var qualities = reachableQualities(seeds.getFirst().item(), catalysts.getFirst());
-      qualities.removeIf(q -> q.amount() < minimum);
-      if (!needsQualityProjection(goal)) {
+      if (!optional) qualities.removeIf(q -> q.amount() < minimum);
+      if (goal.groups().stream().noneMatch(GoalFilter.Group::active)) {
         if (!qualities.isEmpty()) matches.addAll(findForQuality(context, rarity, null, false));
         continue;
       }
@@ -704,13 +709,6 @@ final class GoalExamples {
       groups.put(d.id(), families.computeIfAbsent(key, ignored -> d.id()));
     }
     return groups;
-  }
-
-  /** 기폭제 품질로 달라지는 옵션 수치의 목표 판정이 필요한지 확인한다. */
-  static boolean needsQualityProjection(GoalFilter goal) {
-    return goal.general().quality() != null
-        && goal.general().quality() > 0
-        && goal.groups().stream().anyMatch(GoalFilter.Group::active);
   }
 
   /** 같은 옵션의 일반 획득을 우선한다. 전용 옵션에는 제작 표시·훼손 슬롯·필요한 소켓 증강물을 실제 상태로 남긴다. */

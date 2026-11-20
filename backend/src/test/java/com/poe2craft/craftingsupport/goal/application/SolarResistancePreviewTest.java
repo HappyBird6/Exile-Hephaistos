@@ -287,7 +287,11 @@ class SolarResistancePreviewTest {
               index.version(),
               goal(index, catalog).general(),
               List.of(new Group("zero-score", type, false, zero, List.of(cold))));
-      var cards = service.preview(context, filter, workbench).cards();
+      var all = service.preview(context, filter, workbench).cards();
+      assertThat(all)
+          .allSatisfy(
+              c -> assertThat(service.evaluate(c.item(), filter).status()).isEqualTo(Status.MATCH));
+      var cards = all.stream().filter(c -> c.item().catalystQuality() == null).toList();
       assertThat(cards).hasSize(1);
       var card = cards.getFirst();
       if (type == Type.WEIGHTED_V1) assertThat(card.item().explicits()).isEmpty();
