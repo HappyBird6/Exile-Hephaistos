@@ -2,6 +2,7 @@ package com.poe2craft.craftingsupport.goal.domain;
 
 import com.poe2craft.craftingsupport.goal.domain.GoalEvaluator.Observation;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.Capability;
+import com.poe2craft.shared.item.BasicJewel;
 import com.poe2craft.shared.item.CatalystQualityDisplay;
 import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
@@ -26,6 +27,14 @@ import java.util.*;
  * </ul>
  */
 public final class ItemStatProjection {
+  /** 저장된 수치에 기폭제 또는 주얼의 접사 효과를 적용해야 하는지 판정한다. */
+  public static boolean usesQualityProjection(ItemState item) {
+    return item.catalystQuality() != null
+        || (BasicJewel.supported(item.baseItemId())
+            && (BasicJewel.effect(item, ModifierDefinition.AffixType.PREFIX) != 0
+                || BasicJewel.effect(item, ModifierDefinition.AffixType.SUFFIX) != 0));
+  }
+
   /** 실제 기폭제·주얼 효과로 반올림한 뒤 장비 배율을 적용한다. 미검증 수치는 비워 목표와 카드 모두에서 구분한다. */
   public static Map<String, BigDecimal> qualityValues(
       ItemState item, ModifierDefinition definition, ModifierInstance modifier) {
@@ -47,8 +56,8 @@ public final class ItemStatProjection {
       boolean fullySupported,
       ItemCatalog catalog) {
     var result = new TreeMap<String, Observation>();
-    var typed = item.catalystQuality() != null;
-    var projected = typed ? new HashMap<String, Map<String, BigDecimal>>() : null;
+    var projected =
+        usesQualityProjection(item) ? new HashMap<String, Map<String, BigDecimal>>() : null;
     for (var stat : stats.values()) {
       if (stat.kind() == GoalCatalog.Kind.PSEUDO) continue;
       if (!fullySupported || stat.support().evaluation() != Capability.SUPPORTED) {

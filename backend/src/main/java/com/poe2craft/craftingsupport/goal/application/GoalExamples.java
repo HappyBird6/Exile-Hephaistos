@@ -40,6 +40,9 @@ final class GoalExamples {
   /** 현재 사례가 품질 주입을 사용했는지 시드와 완성 상태에 보존한다. */
   private boolean infused;
 
+  /** 품질을 요구하지 않은 경우 해당 기폭제가 목표 수치를 바꿀 수 있는 옵션만 식별한다. */
+  private Set<String> affectedOptions = Set.of();
+
   /** 기폭제 종류와 무관하게 도달 가능한 품질 수치와 주입 사용 여부다. */
   private record Quality(int amount, boolean infused) {}
 
@@ -126,7 +129,7 @@ final class GoalExamples {
                             .anyMatch(
                                 d ->
                                     !d.tags().contains("unscalable")
-                                        && (jewel || c.catalystType().matches(d.tags()))
+                                        && c.catalystType().matches(d.tags())
                                         && bounds.numeric(bounds.project(d, null))))
             .toList();
     for (var rarity : goal.general().rarities()) {
@@ -202,6 +205,19 @@ final class GoalExamples {
       boolean infused) {
     this.catalyst = catalyst;
     this.infused = infused;
+    boolean optional =
+        catalyst != null && (goal.general().quality() == null || goal.general().quality() == 0);
+    affectedOptions =
+        optional
+            ? catalog.modifiers().values().stream()
+                .filter(
+                    d ->
+                        !d.tags().contains("unscalable")
+                            && catalyst.type().matches(d.tags())
+                            && bounds.numeric(bounds.project(d, null)))
+                .map(ModifierDefinition::id)
+                .collect(java.util.stream.Collectors.toUnmodifiableSet())
+            : Set.of();
     var quality = catalyst == null ? goal.general().quality() : Integer.valueOf(catalyst.amount());
     var targets = rolls.targets(null);
     if (quality != null && quality > QualityLimitRules.BASE_CAP)
@@ -218,12 +234,14 @@ final class GoalExamples {
                     .thenComparing(ModifierDefinition::id))
             .toList();
     var direct = available.stream().filter(d -> GoalExampleRolls.relevant(d, targets)).toList();
+    var numericTargets = new ArrayList<>(direct);
+    if (fracture != null) numericTargets.add(catalog.find(fracture.modifierId()).orElseThrow());
     var providers =
         available.stream()
             .filter(this::provider)
             .filter(
                 p ->
-                    direct.stream()
+                    numericTargets.stream()
                         .anyMatch(d -> bounds.numeric(bounds.project(d, null)) && affects(p, d)))
             .toList();
     for (var provider : providers)
@@ -283,8 +301,7 @@ final class GoalExamples {
 
   /** 공용 장비 배율 규칙으로 이 제공자가 대상 수치를 바꿀 수 있는지 판정한다. */
   private boolean affects(ModifierDefinition p, ModifierDefinition d) {
-    if (catalyst != null
-        && jewel
+    if (jewel
         && !d.tags().contains("unscalable")
         && BasicJewel.effect(List.of(extreme(p, true)), d.affixType()) != 0) return true;
     return ModifierMagnitudes.factor(List.of(extreme(p, true)), d).compareTo(BigDecimal.ONE) != 0
@@ -294,7 +311,7 @@ final class GoalExamples {
   /** 품질 주얼의 접사 효과도 실제 굴림을 먼저 정해야 하는 제공자에 포함한다. */
   private boolean provider(ModifierDefinition d) {
     if (ModifierMagnitudes.provider(d)) return true;
-    if (catalyst == null || !jewel) return false;
+    if (!jewel) return false;
     var modifiers = List.of(extreme(d, true));
     return BasicJewel.effect(modifiers, ModifierDefinition.AffixType.PREFIX) != 0
         || BasicJewel.effect(modifiers, ModifierDefinition.AffixType.SUFFIX) != 0;
@@ -308,7 +325,7 @@ final class GoalExamples {
       List<ModifierInstance> upper) {
     var ranges = bounds.project(d, values);
     if (ranges.isEmpty()) return ranges;
-    if (catalyst != null) {
+    if (catalyst != null || jewel) {
       long minEffect = jewel ? BasicJewel.effect(lower, d.affixType()) : 0;
       long maxEffect = jewel ? BasicJewel.effect(upper, d.affixType()) : 0;
       var min = qualityEndpoint(d, values, minEffect, maxEffect, false);
@@ -457,7 +474,15 @@ final class GoalExamples {
     if (!bounds
         .blocked(GoalExampleBounds.sum(range, optional.get(start)), range.keySet())
         .isEmpty()) return;
-    if (bounds.blocked(range).isEmpty() && mechanicsPossible(limits, shape)) {
+    if (bounds.blocked(range).isEmpty()
+        && mechanicsPossible(limits, shape)
+        && (affectedOptions.isEmpty()
+            || seeds.getFirst().item().implicits().stream()
+                .anyMatch(m -> affectedOptions.contains(m.modifierId()))
+            || fracture != null && affectedOptions.contains(fracture.modifierId())
+            || shape.stream()
+                .flatMap(slot -> slot.tiers().stream())
+                .anyMatch(tier -> affectedOptions.contains(tier.definition().id())))) {
       var witnesses = witnesses(seeds, shape);
       for (var group : bySupport(shape, witnesses))
         if (selectedTier == null

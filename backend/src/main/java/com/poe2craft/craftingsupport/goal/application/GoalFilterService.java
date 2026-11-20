@@ -240,7 +240,7 @@ public final class GoalFilterService {
                     .toList());
             var definition = simulator.catalog().find(id).orElseThrow();
             definitions.put(id, definition);
-            if (item.catalystQuality() != null
+            if (ItemStatProjection.usesQualityProjection(item)
                 || item.conditions().contains(ItemState.Condition.SANCTIFIED))
               projectedValues.put(id, ItemStatProjection.qualityValues(item, definition, modifier));
           }
