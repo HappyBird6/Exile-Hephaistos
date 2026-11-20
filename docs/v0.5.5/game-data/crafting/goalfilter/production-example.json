@@ -2,9 +2,9 @@
   "synthetic": false,
   "catalog": {
     "version": 1,
-    "catalogVersion": "hephaistos-goal-v1-e02aeb99056dcb6ea33612fd557f2df793abbd0341f56c024f315784a2714594",
+    "catalogVersion": "hephaistos-goal-v1-90ac1223a9bbd612b6308529d46fea7b1eb66191d87272f701254b0435148c48",
     "context": {
-      "snapshotId": "solar-special-0eddf6e6993c96d9c19942db5e81ff0774afe85c42d4a6646b978d442700d7b4",
+      "snapshotId": "equipment-currency-2d21d9327b80251a04263b39fc05cd4ee6b38fb7b194103b947f198d79b7120b",
       "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
       "itemLevel": 82
     },
@@ -690,6 +690,26 @@
         "contributions": [],
         "sourceUrls": [
           "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceGlobalDefences1"
+        ]
+      },
+      {
+        "statId": "hephaistos:v1:explicit:heist_enchantment_resistance_mod_effect_+%",
+        "label": "(20—30)% increased Explicit Resistance Modifier magnitudes",
+        "unit": "source",
+        "kind": "EXPLICIT",
+        "support": {
+          "evaluation": "UNSUPPORTED",
+          "probability": "UNSUPPORTED",
+          "reasonCode": "UNIT_OR_EFFECT_NOT_REVIEWED"
+        },
+        "eligible": false,
+        "eligibilityReason": "NO_ELIGIBLE_GENERATION_MODIFIER",
+        "sourceStatIds": [
+          "heist_enchantment_resistance_mod_effect_+%"
+        ],
+        "contributions": [],
+        "sourceUrls": [
+          "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyEffectOfResistanceMods1"
         ]
       },
       {
@@ -6795,12 +6815,34 @@
         ],
         "tags": [],
         "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix"
+      },
+      "equipment:prefix:alloy-effect-of-resistance-mods1": {
+        "id": "equipment:prefix:alloy-effect-of-resistance-mods1",
+        "name": "Verisium",
+        "layer": "EXPLICIT",
+        "affixType": "PREFIX",
+        "familyIds": [
+          "EnchantmentHeistArmour"
+        ],
+        "requiredItemLevel": 65,
+        "weight": 0,
+        "tier": 1,
+        "text": "(20—30)% increased Explicit Resistance Modifier magnitudes",
+        "stats": [
+          {
+            "id": "heist_enchantment_resistance_mod_effect_+%",
+            "min": 20,
+            "max": 30
+          }
+        ],
+        "tags": [],
+        "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyEffectOfResistanceMods1"
       }
     }
   },
   "evaluateRequest": {
     "item": {
-      "snapshotId": "solar-special-0eddf6e6993c96d9c19942db5e81ff0774afe85c42d4a6646b978d442700d7b4",
+      "snapshotId": "equipment-currency-2d21d9327b80251a04263b39fc05cd4ee6b38fb7b194103b947f198d79b7120b",
       "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
       "itemLevel": 82,
       "rarity": "RARE",
@@ -6835,7 +6877,7 @@
     },
     "goal": {
       "version": 1,
-      "catalogVersion": "hephaistos-goal-v1-e02aeb99056dcb6ea33612fd557f2df793abbd0341f56c024f315784a2714594",
+      "catalogVersion": "hephaistos-goal-v1-90ac1223a9bbd612b6308529d46fea7b1eb66191d87272f701254b0435148c48",
       "general": {
         "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
         "itemLevel": {
@@ -6874,7 +6916,7 @@
   "version": 1,
   "evaluateResponse": {
     "version": 1,
-    "catalogVersion": "hephaistos-goal-v1-e02aeb99056dcb6ea33612fd557f2df793abbd0341f56c024f315784a2714594",
+    "catalogVersion": "hephaistos-goal-v1-90ac1223a9bbd612b6308529d46fea7b1eb66191d87272f701254b0435148c48",
     "status": "MATCH",
     "generalStatus": "MATCH",
     "groups": [
@@ -6896,7 +6938,7 @@
     "issues": []
   },
   "context": {
-    "snapshotId": "solar-special-0eddf6e6993c96d9c19942db5e81ff0774afe85c42d4a6646b978d442700d7b4",
+    "snapshotId": "equipment-currency-2d21d9327b80251a04263b39fc05cd4ee6b38fb7b194103b947f198d79b7120b",
     "baseItemId": "Metadata/Items/Amulets/FourAmulet9",
     "itemLevel": 82
   }

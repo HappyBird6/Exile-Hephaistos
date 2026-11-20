@@ -1736,7 +1736,7 @@
     },
     {
       "path": "game-data/crafting/goalfilter/production-example.json",
-      "sha256": "5b5d7a82d6aff65686e39217f3e04a63acfc7d25711da39c81abc8d3ac469027"
+      "sha256": "65729cf3e21024847b8637e3b9954063a66b4c27c0ca14e760adb368cc758df3"
     },
     {
       "path": "game-data/crafting/liquids/targets.json",
@@ -2790,7 +2790,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/goalfilter/production-example.json",
-      "sha256": "5b5d7a82d6aff65686e39217f3e04a63acfc7d25711da39c81abc8d3ac469027"
+      "sha256": "65729cf3e21024847b8637e3b9954063a66b4c27c0ca14e760adb368cc758df3"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/registry-v1.json",

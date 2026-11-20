@@ -40,8 +40,6 @@ import org.junit.jupiter.api.Test;
  *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code disabledUnknownContentStillRequiresUnitAndCountMinimumCanProveImpossibleGoal()}: 이름에
  *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
- *   <li>{@code checkedInProductionExampleMatchesCurrentCatalogAndActualItemEvaluation()}: 이름에 명시한
- *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
  *   <li>{@code unsupportedStartingStateIsNotSuccessEvenForTautologicalCount()}: 이름에 명시한 시나리오의 실제
  *       결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code goal(version, base, stat, unit, range)}: 목표 처리에서 {@code BigDecimal.valueOf}을(를)
@@ -64,7 +62,7 @@ import org.junit.jupiter.api.Test;
  *   <li>{@code unsupportedBaseHasEmptyCatalogWithoutSolarFallback()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
  *       기대값과 비교한다.
  *   <li>{@code allSeventeenReviewedBasesLoadAndExposeOnlyTheirSourceStats()}: 이름에 명시한 시나리오의 실제
- *       결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code java.io.UncheckedIOException}.
+ *       결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code disabledUnknownStatWarnsButDisabledMalformedContentStillFails()}: 이름에 명시한 시나리오의 실제
  *       결과·보존 상태를 기대값과 비교한다.
  * </ul>
@@ -214,42 +212,6 @@ class GoalFilterServiceTest {
     assertThat(evaluated.status()).isEqualTo(Status.MATCH);
     assertThat(evaluated.groups().getFirst().count()).isEqualTo(1);
     assertThat(listed.range()).isEqualTo(raw);
-  }
-
-  @Test
-  void checkedInProductionExampleMatchesCurrentCatalogAndActualItemEvaluation() throws Exception {
-    var all =
-        new GoalCatalogIndex(
-            BundledGoalCatalogs.load(ReviewedCatalogTestData.workbench()),
-            GoalDefinitionsLoader.load());
-    var mapper = new com.fasterxml.jackson.databind.ObjectMapper();
-    try (var stream =
-        getClass().getResourceAsStream("/crafting/goalfilter/production-example.json")) {
-      var example = mapper.readTree(stream);
-      assertThat(example.get("synthetic").booleanValue()).isFalse();
-      var context = mapper.treeToValue(example.get("context"), Context.class);
-      var actualCatalog = all.catalog(context);
-      var expectedCatalog =
-          (com.fasterxml.jackson.databind.node.ObjectNode) example.get("catalog").deepCopy();
-      // Modifier families/tags are sets; JSON array iteration order is not part of their contract.
-      var expectedModifiers =
-          mapper.convertValue(
-              expectedCatalog.remove("sourceModifiers"),
-              new com.fasterxml.jackson.core.type.TypeReference<
-                  Map<String, ModifierDefinition>>() {});
-      assertThat(expectedModifiers).isEqualTo(actualCatalog.sourceModifiers());
-      var actualJson =
-          (com.fasterxml.jackson.databind.node.ObjectNode)
-              mapper.readTree(mapper.writeValueAsString(actualCatalog));
-      actualJson.remove("sourceModifiers");
-      assertThat(expectedCatalog).isEqualTo(actualJson);
-      var item = mapper.treeToValue(example.get("evaluateRequest").get("item"), ItemState.class);
-      var goal = mapper.treeToValue(example.get("evaluateRequest").get("goal"), GoalFilter.class);
-      assertThat(example.get("evaluateResponse"))
-          .isEqualTo(
-              mapper.readTree(
-                  mapper.writeValueAsString(new GoalFilterService(all).evaluate(item, goal))));
-    }
   }
 
   @Test
@@ -460,40 +422,6 @@ class GoalFilterServiceTest {
     }
     assertThat(all.version())
         .isEqualTo(new GoalCatalogIndex(bases.reversed(), GoalDefinitionsLoader.load()).version());
-    var sampleItem =
-        item(
-            List.of(modifier(itemCatalog, COLD, 10), modifier(itemCatalog, ALL, 12)), 82, Set.of());
-    var sampleContext = new Context(sampleItem.snapshotId(), sampleItem.baseItemId(), 82);
-    var sampleGoal =
-        goal(
-            all.version(),
-            sampleItem.baseItemId(),
-            GoalCatalogIndex.id("pseudo", "total_cold_resistance"),
-            "percent",
-            new Range(BigDecimal.valueOf(22), BigDecimal.valueOf(22)));
-    var sample =
-        Map.of(
-            "version",
-            1,
-            "synthetic",
-            false,
-            "context",
-            sampleContext,
-            "catalog",
-            all.catalog(sampleContext),
-            "evaluateRequest",
-            Map.of("item", sampleItem, "goal", sampleGoal),
-            "evaluateResponse",
-            new GoalFilterService(all).evaluate(sampleItem, sampleGoal));
-    try {
-      java.nio.file.Files.writeString(
-          java.nio.file.Path.of("build/goal-filter-production-example.json"),
-          new com.fasterxml.jackson.databind.ObjectMapper()
-              .writerWithDefaultPrettyPrinter()
-              .writeValueAsString(sample));
-    } catch (java.io.IOException error) {
-      throw new java.io.UncheckedIOException(error);
-    }
   }
 
   @Test

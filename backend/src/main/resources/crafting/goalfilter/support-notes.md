@@ -82,8 +82,9 @@ not count as ordinary addition candidates. This is not an item-specific free-slo
 | Time-Lost Sapphire | 4 | 0 |
 
 The real catalog and real Solar ItemState API example are in production-example.json, including
-cold resistance 10 plus all elemental resistance 12 yielding pseudo total 22. It uses the full
-17-base inventory catalog version and is checked against runtime catalog/evaluation in tests.
+cold resistance 10 plus all elemental resistance 12 yielding pseudo total 22. The example uses
+the production workbench snapshot and goal catalog version. GoalCatalogParityTest checks the
+catalog and evaluation and writes the current example to build/goal-filter-production-example.json.
 Fixture IDs and observedStats remain unit-test-only; HTTP rejects observedStats and unknown fields.
 HTTP activeOmens uses existing Workbench Omen_of_... IDs, not enum names.
 
