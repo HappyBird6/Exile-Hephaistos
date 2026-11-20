@@ -15,6 +15,7 @@ import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.ModifierAcquisition;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
+import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import com.poe2craft.shared.item.ModifierDefinition;
@@ -222,7 +223,7 @@ public final class GoalFilterService {
     var cards = new ArrayList<ExampleCard>();
     var groups =
         startingItem != null && startingItem.conditions().contains(ItemState.Condition.SANCTIFIED)
-            ? existingItemGroup(startingItem, goal, selectedTier)
+            ? existingItemGroup(startingItem, goal, selectedTier, simulator.catalog())
             : exampleGroups(context, goal, simulator, sources, fracture, selectedTier);
     for (var group : groups) {
       var variants = group.variants();
@@ -268,8 +269,8 @@ public final class GoalFilterService {
 
   /** 변경 불가 상태가 목표에 맞으면 기존 옵션과 각 단일 티어를 그대로 가진 한 카드만 반환한다. */
   private List<GoalExamples.Matches> existingItemGroup(
-      ItemState item, GoalFilter goal, String selectedTier) {
-    if (evaluate(item, goal).status() != Status.MATCH) return List.of();
+      ItemState item, GoalFilter goal, String selectedTier, ItemCatalog catalog) {
+    if (evaluate(item, goal, catalog).status() != Status.MATCH) return List.of();
     var tiers = new java.util.TreeMap<String, List<String>>();
     for (var layer : List.of(item.implicits(), item.explicits()))
       for (var mod : layer) tiers.put(mod.modifierId(), List.of(mod.modifierId()));
@@ -311,13 +312,20 @@ public final class GoalFilterService {
   }
 
   public GoalEvaluator.Evaluation evaluate(ItemState item, GoalFilter goal) {
+    return evaluate(item, goal, null);
+  }
+
+  /** 작업대의 실제 아이템에는 수동 공개를 포함한 해당 작업대 카탈로그로 같은 목표 판정을 수행한다. */
+  private GoalEvaluator.Evaluation evaluate(
+      ItemState item, GoalFilter goal, ItemCatalog workbenchCatalog) {
     if (item == null)
       throw new InvalidGoal(
           List.of(Issue.error("INVALID_ITEM", "/item", "ItemState is required.")));
     var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     var validated = validate(context, goal);
     var issues = new ArrayList<>(validated.issues());
-    var itemCatalog = index.itemCatalog(context).orElse(null);
+    var itemCatalog =
+        workbenchCatalog != null ? workbenchCatalog : index.itemCatalog(context).orElse(null);
     boolean supported = itemCatalog != null;
     if (itemCatalog != null) {
       var violations = new ItemStateValidator(itemCatalog).validate(item);

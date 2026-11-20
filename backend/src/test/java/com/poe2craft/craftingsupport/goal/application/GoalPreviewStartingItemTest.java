@@ -103,6 +103,32 @@ class GoalPreviewStartingItemTest {
             });
   }
 
+  /** 축성 전에 이미 공개된 훼손 접두도 작업대 카탈로그에서 검증하고 기존 상태 그대로 보존한다. */
+  @Test
+  void sanctifiedStartKeepsItsRevealedAffix() {
+    var id = "reveal:AbyssModRingAmuletUlamanPrefixAttackDamageWhileLowLife";
+    var revealed = new ModifierInstance(id, Map.of("display_reveal_value_0", 20L));
+    var cold = new ModifierInstance("amulet:suffix:of-the-walrus", Map.of(COLD, 30L));
+    var locked =
+        new ItemState(
+                base.snapshotId(),
+                base.baseItemId(),
+                82,
+                ItemState.Rarity.RARE,
+                base.implicits(),
+                List.of(revealed, cold),
+                Set.of(ItemState.Condition.SANCTIFIED))
+            .withDesecrated(
+                List.of(
+                    new ItemState.DesecratedSlot(
+                        "prefix", ModifierDefinition.AffixType.PREFIX, id)));
+    assertThat(service.preview(context, coldGoal(30, null), workbench, null, null, locked).cards())
+        .extracting(GoalFilterService.ExampleCard::item)
+        .containsExactly(locked);
+    assertThat(service.preview(context, coldGoal(31, null), workbench, null, null, locked).cards())
+        .isEmpty();
+  }
+
   /** 이미 붙은 T4는 레벨 20에서 보존되며 새 T4나 범위를 벗어난 분열 굴림은 생성되지 않는다. */
   @Test
   void existingFractureCanExceedTheGenerationLevel() {
