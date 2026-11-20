@@ -16,6 +16,8 @@ import {
 } from '../path-tree/presentation'
 import type { Item } from '../path-tree/types'
 import type { ConcreteItem } from '../workbenchApi'
+import { qualityShape } from '../catalystQuality'
+import { pathTreeMessages } from '../path-tree/messages'
 import { modifierMagnitudeValues } from '../modifierMagnitudes'
 import { augmentName } from '../socketAugments'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
@@ -38,6 +40,7 @@ import './previewResults.css'
 
 type PreviewItem = Item & ConcreteItem
 type Example = {
+  projectedValues?: Record<string, Record<string, number>>
   minimumQuality?: number | null
   occupancy?: {
     prefixes: number
@@ -72,6 +75,7 @@ function validCard(
             (v) => Number.isInteger(v) && v >= 0,
           ),
         ))) ||
+    !qualityShape(card.item.catalystQuality) ||
     !card.optionTiers
   )
     return false
@@ -86,6 +90,16 @@ function validCard(
     for (const id of options) {
       if (!definitions[id] || !sources[id]?.length || allowed.has(id))
         return false
+      if (card.item.catalystQuality) {
+        const values = card.projectedValues?.[id]
+        if (
+          !values ||
+          Array.isArray(values) ||
+          typeof values !== 'object' ||
+          !Object.values(values).every(Number.isFinite)
+        )
+          return false
+      }
       allowed.add(id)
     }
   }
@@ -98,6 +112,8 @@ function validCard(
         item.snapshotId === context.snapshotId &&
         item.baseItemId === context.baseItemId &&
         item.itemLevel === context.itemLevel &&
+        item.catalystQuality?.type === card.item.catalystQuality?.type &&
+        item.catalystQuality?.amount === card.item.catalystQuality?.amount &&
         ['NORMAL', 'MAGIC', 'RARE', 'UNIQUE'].includes(item.rarity) &&
         (item.installedAugments == null ||
           (Array.isArray(item.installedAugments) &&
@@ -253,6 +269,9 @@ function PreviewCard({
       const ids = Object.keys(c.optionTiers)
       return (
         c.item.rarity === original.item.rarity &&
+        c.item.catalystQuality?.type === original.item.catalystQuality?.type &&
+        c.item.catalystQuality?.amount ===
+          original.item.catalystQuality?.amount &&
         ids.includes(selected) &&
         ids.length === slots.length &&
         slots.every((slot) => ids.some((id) => slot.includes(id)))
@@ -271,13 +290,21 @@ function PreviewCard({
       if (!rolls.has(mod.modifierId))
         rolls.set(
           mod.modifierId,
-          modifierMagnitudeValues(
-            variant,
-            definitions[mod.modifierId]!,
-            mod.values,
-          ),
+          example.projectedValues?.[mod.modifierId] ??
+            modifierMagnitudeValues(
+              variant,
+              definitions[mod.modifierId]!,
+              mod.values,
+            ),
         )
     }
+  function optionText(d: Definition, values: Record<string, number>) {
+    return quality && d.stats?.length && Object.keys(values).length === 0
+      ? localizedModifierName(d, locale) +
+          ' · ' +
+          pathTreeMessages[locale].unavailable
+      : localizedModifierText(d, values, locale)
+  }
   return (
     <div>
       <ItemCard
@@ -337,11 +364,7 @@ function PreviewCard({
             ).sort((a, b) => b.tier - a.tier)
             return {
               ...line,
-              text: localizedModifierText(
-                definitions[line.id]!,
-                rolls.get(line.id)!,
-                locale,
-              ),
+              text: optionText(definitions[line.id]!, rolls.get(line.id)!),
               affixLabel: tierRanges(options),
               sourceLabel:
                 copy.sources +
@@ -355,7 +378,7 @@ function PreviewCard({
                         {
                           label: `T${d.tier} · ${localizedModifierName(d, locale)}`,
                           onSelect: () => setSelected(d.id),
-                          value: localizedModifierText(d, values, locale),
+                          value: optionText(d, values),
                         },
                       ]
                     : []

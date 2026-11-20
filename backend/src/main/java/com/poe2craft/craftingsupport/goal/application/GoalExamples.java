@@ -10,6 +10,7 @@ import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
 import com.poe2craft.shared.crafting.domain.ModifierAcquisition;
 import com.poe2craft.shared.crafting.domain.ModifierAcquisition.Kind;
 import com.poe2craft.shared.crafting.domain.QualityLimitRules;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.*;
 import java.math.BigDecimal;
@@ -32,6 +33,12 @@ final class GoalExamples {
   private List<ModifierDefinition> fillers = List.of();
   private ModifierInstance fracture;
   private String selectedTier;
+
+  /** 현재 탐색 사례의 기폭제와 주얼 여부다. 요청의 최소 품질은 goal에 그대로 둔다. */
+  private CatalystQuality catalyst;
+
+  private final boolean jewel;
+  private final WorkbenchSimulator simulator;
 
   /** 단일 티어의 정의, 현재 희귀도에서 허용된 획득처, 목표 수치 구간, 실제 굴림 순회다. */
   private record Tier(
@@ -73,7 +80,9 @@ final class GoalExamples {
       Map<String, GoalCatalog.Stat> stats,
       Map<String, List<ModifierAcquisition>> sources,
       Function<ItemState, Evaluation> evaluate) {
+    this.simulator = simulator;
     catalog = simulator.catalog();
+    jewel = BasicJewel.supported(catalog.base().id());
     this.goal = goal;
     this.sources = sources;
     this.evaluate = evaluate;
@@ -97,11 +106,31 @@ final class GoalExamples {
     if (quality != null
         && quality > 0
         && (!CatalystQuality.supportedBase(context.baseItemId())
-            || needsQualityProjection(goal)
-            || (quality > 20 && !sources.containsKey(QualityLimitRules.BREACH_ID))))
-      return List.of();
+            || (quality > QualityLimitRules.BASE_CAP
+                && !sources.containsKey(QualityLimitRules.BREACH_ID)))) return List.of();
+    if (!needsQualityProjection(goal)) return findForQuality(context, null);
+    var caps = new ArrayList<Integer>();
+    if (quality <= QualityLimitRules.BASE_CAP) caps.add(QualityLimitRules.BASE_CAP);
+    if (sources.containsKey(QualityLimitRules.BREACH_ID)) caps.add(QualityLimitRules.BREACH_CAP);
+    var types =
+        simulator.baseMaterialActions().stream()
+            .map(WorkbenchCurrency::catalystType)
+            .filter(Objects::nonNull)
+            .distinct()
+            .toList();
+    var matches = new ArrayList<Matches>();
+    for (var cap : caps)
+      for (var type : types)
+        matches.addAll(findForQuality(context, new CatalystQuality(type, cap)));
+    return matches;
+  }
+
+  /** 한 기폭제와 도달 가능한 실제 품질을 고정해 각 티어의 증명 사례를 독립적으로 찾는다. */
+  private List<Matches> findForQuality(GoalFilter.Context context, CatalystQuality catalyst) {
+    this.catalyst = catalyst;
+    var quality = catalyst == null ? goal.general().quality() : Integer.valueOf(catalyst.amount());
     var targets = rolls.targets(null);
-    if (quality != null && quality > 20)
+    if (quality != null && quality > QualityLimitRules.BASE_CAP)
       targets.putIfAbsent(GoalCatalogIndex.id("EXPLICIT", QualityLimitRules.STAT_ID), Set.of());
     var available =
         catalog.modifiers().values().stream()
@@ -117,7 +146,7 @@ final class GoalExamples {
     var direct = available.stream().filter(d -> GoalExampleRolls.relevant(d, targets)).toList();
     var providers =
         available.stream()
-            .filter(ModifierMagnitudes::provider)
+            .filter(this::provider)
             .filter(
                 p ->
                     direct.stream()
@@ -170,7 +199,7 @@ final class GoalExamples {
       Map<String, Band> projection,
       Map<String, Set<BigDecimal>> targets) {
     var all = rolls.all(definition, targets);
-    if (ModifierMagnitudes.provider(definition) || bounds.numeric(projection)) return all;
+    if (provider(definition) || bounds.numeric(projection)) return all;
     var iterator = all.iterator();
     return iterator.hasNext() ? List.of(iterator.next()) : List.of();
   }
@@ -184,9 +213,22 @@ final class GoalExamples {
   }
 
   /** 공용 장비 배율 규칙으로 이 제공자가 대상 수치를 바꿀 수 있는지 판정한다. */
-  private static boolean affects(ModifierDefinition p, ModifierDefinition d) {
+  private boolean affects(ModifierDefinition p, ModifierDefinition d) {
+    if (catalyst != null
+        && jewel
+        && !d.tags().contains("unscalable")
+        && BasicJewel.effect(List.of(extreme(p, true)), d.affixType()) != 0) return true;
     return ModifierMagnitudes.factor(List.of(extreme(p, true)), d).compareTo(BigDecimal.ONE) != 0
         || ModifierMagnitudes.factor(List.of(extreme(p, false)), d).compareTo(BigDecimal.ONE) != 0;
+  }
+
+  /** 품질 주얼의 접사 효과도 실제 굴림을 먼저 정해야 하는 제공자에 포함한다. */
+  private boolean provider(ModifierDefinition d) {
+    if (ModifierMagnitudes.provider(d)) return true;
+    if (catalyst == null || !jewel) return false;
+    var modifiers = List.of(extreme(d, true));
+    return BasicJewel.effect(modifiers, ModifierDefinition.AffixType.PREFIX) != 0
+        || BasicJewel.effect(modifiers, ModifierDefinition.AffixType.SUFFIX) != 0;
   }
 
   /** 배율 제공자들의 양 끝으로 목표 수치의 가능한 구간을 감싼다. */
@@ -197,10 +239,43 @@ final class GoalExamples {
       List<ModifierInstance> upper) {
     var ranges = bounds.project(d, values);
     if (ranges.isEmpty()) return ranges;
+    if (catalyst != null) {
+      long minEffect = jewel ? BasicJewel.effect(lower, d.affixType()) : 0;
+      long maxEffect = jewel ? BasicJewel.effect(upper, d.affixType()) : 0;
+      var min = qualityEndpoint(d, values, minEffect, maxEffect, false);
+      var max =
+          values != null && minEffect == maxEffect
+              ? min
+              : qualityEndpoint(d, values, minEffect, maxEffect, true);
+      ranges = bounds.project(d, min, max);
+    }
     var low = ModifierMagnitudes.factor(lower, d);
     var high = ModifierMagnitudes.factor(upper, d);
     ranges.replaceAll((id, band) -> band.times(low).hull(band.times(high)));
     return ranges;
+  }
+
+  /** 원천 범위의 한쪽 끝에 품질을 적용한다. 음수 수치도 포함하므로 가능한 주얼 효과의 양 끝을 비교한다. */
+  private Map<String, Long> qualityEndpoint(
+      ModifierDefinition d,
+      Map<String, Long> values,
+      long minEffect,
+      long maxEffect,
+      boolean upper) {
+    if (values == null) {
+      values = new HashMap<>();
+      for (var stat : d.stats()) values.put(stat.id(), upper ? stat.max() : stat.min());
+    }
+    var roll = new ModifierInstance(d.id(), values);
+    var first =
+        CatalystQualityDisplay.project(roll, d, catalyst, jewel, minEffect).displayedValues();
+    if (minEffect == maxEffect) return first;
+    var second =
+        CatalystQualityDisplay.project(roll, d, catalyst, jewel, maxEffect).displayedValues();
+    var endpoint = new HashMap<>(first);
+    endpoint.replaceAll(
+        (id, value) -> upper ? Math.max(value, second.get(id)) : Math.min(value, second.get(id)));
+    return endpoint;
   }
 
   /** 같은 슬롯을 대신하는 티어·고정 옵션 굴림의 최소·최대를 합친다. 이들은 같은 원천 수치를 갖는다. */
@@ -234,11 +309,14 @@ final class GoalExamples {
               fracture == null ? List.of() : List.of(fracture),
               Set.of(),
               null,
-              null);
+              catalyst);
       if (fracture != null && !validator.validateForGeneration(item).isEmpty()) continue;
       seeds.add(
           new Seed(
-              item, implicit == null ? Map.of() : bounds.project(definition, implicit.values())));
+              item,
+              implicit == null
+                  ? Map.of()
+                  : scaled(definition, implicit.values(), List.of(), List.of())));
     }
     return seeds;
   }
@@ -259,7 +337,7 @@ final class GoalExamples {
           slots.stream()
               .flatMap(s -> s.tiers().stream())
               .map(Tier::definition)
-              .filter(ModifierMagnitudes::provider)
+              .filter(this::provider)
               .toList();
       seedRange =
           GoalExampleBounds.sum(
@@ -308,7 +386,9 @@ final class GoalExamples {
     if (!bounds
         .blocked(GoalExampleBounds.sum(range, optional.get(start)), range.keySet())
         .isEmpty()) return;
-    if (bounds.blocked(range).isEmpty() && mechanicsPossible(limits, shape)) {
+    if (bounds.blocked(range).isEmpty()
+        && mechanicsPossible(limits, shape)
+        && qualityCapPossible(shape)) {
       var witnesses = witnesses(seeds, shape);
       for (var group : bySupport(shape, witnesses))
         if (selectedTier == null
@@ -338,6 +418,16 @@ final class GoalExamples {
       conflicts.removeAll(slot.definition().familyIds());
       shape.removeLast();
     }
+  }
+
+  /** 기폭제 재적용 후의 40% 사례에는 균열 옵션이 필요하다. 충족할 수 없는 구성의 굴림을 펼치지 않는다. */
+  private boolean qualityCapPossible(List<Slot> shape) {
+    if (catalyst == null) return true;
+    boolean extended =
+        (fracture != null && fracture.modifierId().equals(QualityLimitRules.BREACH_ID))
+            || shape.stream()
+                .anyMatch(s -> s.definition().id().equals(QualityLimitRules.BREACH_ID));
+    return extended == (catalyst.amount() == QualityLimitRules.BREACH_CAP);
   }
 
   /** 대표 아이템의 빈칸을 목표에 무관한 옵션으로 채울 수 있는 접사 수 조합을 검증한다. */
@@ -467,10 +557,8 @@ final class GoalExamples {
 
   /** 각 단계의 남은 수치 범위를 뒤에서부터 더한 뒤, 실제 고정 옵션과 양립하는 티어·굴림 하나를 찾는다. */
   private ItemState witness(List<Seed> seeds, List<Slot> slots) {
-    var providers =
-        slots.stream().filter(s -> ModifierMagnitudes.provider(s.definition())).toList();
-    var ordinary =
-        slots.stream().filter(s -> !ModifierMagnitudes.provider(s.definition())).toList();
+    var providers = slots.stream().filter(s -> provider(s.definition())).toList();
+    var ordinary = slots.stream().filter(s -> !provider(s.definition())).toList();
     for (var seed : seeds) {
       var found = chooseProviders(seed, providers, ordinary, 0);
       if (found != null) return found;
@@ -527,9 +615,11 @@ final class GoalExamples {
       var complete = capacity.complete(item);
       if (complete == null) return null;
       var quality = goal.general().quality();
-      if (quality != null && quality > 20) {
+      if (catalyst != null || (quality != null && quality > QualityLimitRules.BASE_CAP)) {
         var limit = QualityLimitRules.describe(complete, catalog);
-        if (limit == null || limit.maximumQuality() < quality) return null;
+        if (limit == null
+            || limit.maximumQuality() < quality
+            || (catalyst != null && catalyst.amount() != limit.maximumQuality())) return null;
       }
       return evaluate.apply(complete).status() == Status.MATCH ? complete : null;
     }

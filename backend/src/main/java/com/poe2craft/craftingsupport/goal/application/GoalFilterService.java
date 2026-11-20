@@ -126,7 +126,7 @@ public final class GoalFilterService {
         || !catalog.base().id().equals(simulator.catalog().base().id())) return List.of();
     var known = requiredStats(goal, index.knownStats(context));
     // 수동 공개를 포함하는 작업대 카탈로그로 상태를 검증한 뒤 기존 목표 판정을 그대로 사용한다.
-    // 종류 미지정 품질은 미리보기 조건에 남긴다. 옵션 증명용 아이템에 특정 기폭제를 부여하지 않는다.
+    // 단독 품질은 최소 조건으로, 복합 목표의 구체적 기폭제 사례는 탐색에서 실제 장비 상한으로 검증한다.
     var general = goal.general();
     var optionGoal =
         new GoalFilter(
@@ -153,7 +153,10 @@ public final class GoalFilterService {
       Map<String, List<ModifierAcquisition>> sources,
       Map<String, List<String>> optionTiers,
       List<Occupancy> occupancy,
-      Integer minimumQuality) {}
+      Integer minimumQuality,
+      @com.fasterxml.jackson.annotation.JsonInclude(
+              com.fasterxml.jackson.annotation.JsonInclude.Include.NON_EMPTY)
+          Map<String, Map<String, BigDecimal>> projectedValues) {}
 
   /** 동일 목표 카드의 잡옵 접두·접미 수와 남은 접두·접미 칸 수다. */
   public record Occupancy(int prefixes, int suffixes, int emptyPrefixes, int emptySuffixes) {}
@@ -191,6 +194,7 @@ public final class GoalFilterService {
     for (var group : exampleGroups(context, goal, simulator, sources, fracture, selectedTier)) {
       var variants = group.variants();
       var used = new java.util.TreeMap<String, List<ModifierAcquisition>>();
+      var projectedValues = new java.util.TreeMap<String, Map<String, BigDecimal>>();
       for (var item : variants) {
         for (var layer : List.of(item.implicits(), item.explicits())) {
           for (var modifier : layer) {
@@ -201,7 +205,10 @@ public final class GoalFilterService {
                 sources.get(id).stream()
                     .filter(source -> source.supportsRarity(item.rarity()))
                     .toList());
-            definitions.put(id, simulator.catalog().find(id).orElseThrow());
+            var definition = simulator.catalog().find(id).orElseThrow();
+            definitions.put(id, definition);
+            if (item.catalystQuality() != null)
+              projectedValues.put(id, ItemStatProjection.qualityValues(item, definition, modifier));
           }
         }
       }
@@ -212,7 +219,8 @@ public final class GoalFilterService {
               Map.copyOf(used),
               group.optionTiers(),
               group.occupancy(),
-              goal.general().quality()));
+              goal.general().quality(),
+              Map.copyOf(projectedValues)));
     }
     var countRanges = new java.util.LinkedHashMap<String, Range>();
     for (var group : goal.groups()) {
@@ -221,11 +229,7 @@ public final class GoalFilterService {
         countRanges.put(group.id(), group.range().forCount(rows));
       }
     }
-    return new Preview(
-        List.copyOf(cards),
-        Map.copyOf(definitions),
-        Map.copyOf(countRanges),
-        GoalExamples.needsQualityProjection(goal) ? "QUALITY_PROJECTION_NOT_IMPLEMENTED" : null);
+    return new Preview(List.copyOf(cards), Map.copyOf(definitions), Map.copyOf(countRanges), null);
   }
 
   public RollPartition rollPartition(ItemState item, GoalFilter goal) {
@@ -282,15 +286,6 @@ public final class GoalFilterService {
                   "Special conditions or quality effects need a reviewed numeric projection."));
         } else issues.add(Issue.error(violation.code().name(), "/item", violation.message()));
       }
-    }
-    // Quality can change displayed values. Never assume its source values are final display values.
-    if (item.catalystQuality() != null && goal.groups().stream().anyMatch(Group::active)) {
-      supported = false;
-      issues.add(
-          Issue.warning(
-              "QUALITY_PROJECTION_NOT_IMPLEMENTED",
-              "/item/catalystQuality",
-              "Quality scaling is not implemented by this numeric filter."));
     }
     if (issues.stream().anyMatch(i -> i.severity() == Severity.ERROR))
       throw new InvalidGoal(issues);

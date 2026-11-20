@@ -97,6 +97,12 @@ final class GoalExampleBounds {
 
   /** 한 티어의 전체 범위 또는 주어진 실제 굴림을 목표 행 단위로 투영한다. 나눗셈은 바깥 방향으로만 반올림한다. */
   Map<String, Band> project(ModifierDefinition definition, Map<String, Long> values) {
+    return project(definition, values, values);
+  }
+
+  /** 품질 반올림을 거친 각 원천 수치의 양 끝을 계수·단위 변환 전에 반영한다. */
+  Map<String, Band> project(
+      ModifierDefinition definition, Map<String, Long> minimum, Map<String, Long> maximum) {
     var result = new HashMap<String, Band>();
     for (var entry : terms.entrySet())
       for (var term : entry.getValue()) {
@@ -104,11 +110,11 @@ final class GoalExampleBounds {
         for (var stat : definition.stats())
           if (stat.id().equals(term.raw())) {
             var raw =
-                values == null
+                minimum == null
                     ? new Band(BigDecimal.valueOf(stat.min()), BigDecimal.valueOf(stat.max()))
                     : new Band(
-                        BigDecimal.valueOf(values.get(stat.id())),
-                        BigDecimal.valueOf(values.get(stat.id())));
+                        BigDecimal.valueOf(minimum.get(stat.id())),
+                        BigDecimal.valueOf(maximum.get(stat.id())));
             var amount = raw.times(term.factor());
             if (term.divisor().compareTo(BigDecimal.ONE) != 0)
               amount =

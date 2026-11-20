@@ -1,6 +1,7 @@
 package com.poe2craft.shared.item;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -96,11 +97,16 @@ public final class BasicJewel {
   }
 
   public static long effect(ItemState state, ModifierDefinition.AffixType side) {
+    return effect(state.explicits(), side);
+  }
+
+  /** 구성 중인 명시 옵션의 접두·접미 효과도 완성 상태와 동일한 기준으로 읽는다. */
+  public static long effect(List<ModifierInstance> modifiers, ModifierDefinition.AffixType side) {
     String code =
         side == ModifierDefinition.AffixType.PREFIX
             ? ":crafted:CraftedJewelPrefixEffect"
             : ":crafted:CraftedJewelSuffixEffect";
-    return state.explicits().stream()
+    return modifiers.stream()
         .filter(m -> m.modifierId().endsWith(code))
         .mapToLong(m -> m.values().get("display_source_value"))
         .findFirst()

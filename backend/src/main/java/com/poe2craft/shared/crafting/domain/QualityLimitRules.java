@@ -38,6 +38,10 @@ import com.poe2craft.shared.item.ModifierDefinition;
  */
 public final class QualityLimitRules {
   public static final String VERSION = "quality-limit-v1";
+
+  /** 일반 품질 상한 및 균열 에센스 옵션을 보유한 경우의 상한이다. */
+  public static final int BASE_CAP = 20, BREACH_CAP = 40;
+
   public static final String BREACH_ID = "amulet:prefix:essence-maximum-quality";
   public static final String STAT_ID = "local_maximum_quality_+";
 
@@ -48,7 +52,7 @@ public final class QualityLimitRules {
       throw new IllegalArgumentException("Unsupported state for quality limit");
     if (!BaseRegistry.qualityLimit(state.baseItemId())) return null;
     int maximum =
-        Math.max(20, com.poe2craft.shared.item.AugmentCraftingRules.maximumQuality(state));
+        Math.max(BASE_CAP, com.poe2craft.shared.item.AugmentCraftingRules.maximumQuality(state));
     for (var instance : state.explicits()) {
       if (!instance.values().containsKey(STAT_ID)) continue;
       var definition = catalog.find(instance.modifierId()).orElseThrow();
@@ -61,7 +65,7 @@ public final class QualityLimitRules {
           || definition.stats().getFirst().max() != 20
           || instance.values().get(STAT_ID) != 20L)
         throw new IllegalArgumentException("Unreviewed maximum-quality modifier");
-      maximum = 40;
+      maximum = BREACH_CAP;
     }
     return new Limit(VERSION, maximum);
   }

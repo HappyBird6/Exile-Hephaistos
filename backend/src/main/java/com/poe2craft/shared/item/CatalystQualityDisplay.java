@@ -81,7 +81,8 @@ public final class CatalystQualityDisplay {
         .toList();
   }
 
-  private static Projection projectStages(
+  /** 저장 굴림에 신성화와 기폭제를 순서대로 적용한다. 최종 장비 배율은 호출자가 적용한다. */
+  public static Projection projectStages(
       ModifierInstance modifier, ModifierDefinition definition, ItemState state) {
     if (state.sanctification() == null) return project(modifier, definition, state);
     var values = new java.util.TreeMap<String, Long>();
@@ -109,8 +110,19 @@ public final class CatalystQualityDisplay {
   }
 
   private static Projection project(ModifierInstance m, ModifierDefinition d, ItemState state) {
-    CatalystQuality quality = state.catalystQuality();
-    if (BasicJewel.supported(state.baseItemId())) return projectJewel(m, d, state);
+    boolean jewel = BasicJewel.supported(state.baseItemId());
+    return project(
+        m, d, state.catalystQuality(), jewel, jewel ? BasicJewel.effect(state, d.affixType()) : 0);
+  }
+
+  /** 탐색 중인 굴림에도 작업대와 동일한 태그·반올림·주얼 접사 효과를 적용한다. */
+  public static Projection project(
+      ModifierInstance m,
+      ModifierDefinition d,
+      CatalystQuality quality,
+      boolean jewel,
+      long jewelEffect) {
+    if (jewel) return projectJewel(m, d, quality, jewelEffect);
     if (quality == null)
       return new Projection(m.modifierId(), m.values(), m.values(), "NO_TYPED_QUALITY");
     if (m.values().containsKey("local_maximum_quality_+") || d.tags().contains("unscalable"))
@@ -154,12 +166,10 @@ public final class CatalystQualityDisplay {
   }
 
   private static Projection projectJewel(
-      ModifierInstance m, ModifierDefinition d, ItemState state) {
+      ModifierInstance m, ModifierDefinition d, CatalystQuality q, long effect) {
     if (d.tags().contains("unscalable"))
       return new Projection(m.modifierId(), m.values(), m.values(), "UNSCALABLE");
-    var q = state.catalystQuality();
     int quality = q != null && q.type().matches(d.tags()) ? q.amount() : 0;
-    long effect = BasicJewel.effect(state, d.affixType());
     if (quality == 0 && effect == 0)
       return new Projection(
           m.modifierId(), m.values(), m.values(), q == null ? "NO_TYPED_QUALITY" : "NO_MATCH");

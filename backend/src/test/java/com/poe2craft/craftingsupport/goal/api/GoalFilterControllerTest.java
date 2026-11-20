@@ -188,8 +188,10 @@ class GoalFilterControllerTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.resolvedCountRanges.count.min").value(1))
         .andExpect(jsonPath("$.resolvedCountRanges.count.max").value(5))
-        .andExpect(jsonPath("$.cards").isEmpty())
-        .andExpect(jsonPath("$.reasonCode").value("QUALITY_PROJECTION_NOT_IMPLEMENTED"));
+        .andExpect(jsonPath("$.cards[0].minimumQuality").value(40))
+        .andExpect(jsonPath("$.cards[0].item.catalystQuality.amount").value(40))
+        .andExpect(jsonPath("$.cards[0].projectedValues").isMap())
+        .andExpect(jsonPath("$.reasonCode").isEmpty());
   }
 
   GoalFilter goal(String version, String stat) {

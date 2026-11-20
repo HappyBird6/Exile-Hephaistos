@@ -171,6 +171,47 @@ it('keeps valid siblings when a card cannot be displayed', async () => {
   expect(screen.getAllByRole('article')).toHaveLength(1)
 })
 
+it('keeps the catalyst scenario when selecting a tier and shows its projected values', async () => {
+  const scenario = (type: 'FLESH' | 'NEURAL', selected = false) => {
+    const quality = { type, amount: 20 }
+    const roll = selected ? otherTier : item
+    const state = { ...roll, catalystQuality: quality }
+    return {
+      item: state,
+      minimumQuality: 15,
+      tierVariants: [state, { ...otherTier, catalystQuality: quality }],
+      sources,
+      optionTiers: selected
+        ? { implicit: ['implicit'], p2: ['p2'] }
+        : { implicit: ['implicit'], p: ['p', 'p2'] },
+      projectedValues: {
+        implicit: { spirit: 15 },
+        p: { life: type === 'FLESH' ? 18 : 15 },
+        p2: { life: type === 'FLESH' ? 30 : 25 },
+      },
+    }
+  }
+  renderPreview(
+    { ...preview, cards: [scenario('FLESH'), scenario('NEURAL')] },
+    goal,
+    {
+      ...preview,
+      cards: [scenario('NEURAL', true), scenario('FLESH', true)],
+    },
+  )
+  const [flesh, neural] = await screen.findAllByRole('article')
+  const card = within(flesh!)
+  fireEvent.click(
+    card.getByText('+18 to maximum Life', { selector: 'summary' }),
+  )
+  fireEvent.click(card.getByRole('button', { name: 'T2 · Stalwart' }))
+  expect(await card.findByText('T2')).toBeVisible()
+  expect(card.getByText('+30 to maximum Life')).toBeVisible()
+  expect(
+    within(neural!).getByText('+15 to maximum Life', { selector: 'summary' }),
+  ).toBeVisible()
+})
+
 it('names the affix when only one of two definitions at the same tier has a source', async () => {
   renderPreview({
     ...preview,

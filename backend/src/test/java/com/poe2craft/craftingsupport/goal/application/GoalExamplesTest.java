@@ -460,6 +460,175 @@ class GoalExamplesTest {
             });
   }
 
+  /** 같은 냉기 원본을 보존하고 기폭제별 20·40% 최종 수치, 티어 고정, 하한과 상한을 대조한다. */
+  @Test
+  void catalystScenariosUseOneEligibleTypeAndTheActualCap() {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(simulator);
+    var cold = "base_cold_damage_resistance_%";
+    var tier = "amulet:suffix:of-the-walrus";
+    var raw = new ModifierInstance(tier, Map.of(cold, 30L), true);
+    var general =
+        new General(catalog.base().id(), new Range(null, null), List.of(ItemState.Rarity.RARE), 15);
+    for (int target : List.of(30, 36, 42, 43)) {
+      var goal =
+          new GoalFilter(
+              1,
+              index.version(),
+              general,
+              List.of(
+                  new Group(
+                      "cold",
+                      Type.AND,
+                      false,
+                      null,
+                      List.of(rangeEntry("explicit", cold, "percent", target, target)))));
+      var cards = service.preview(context(catalog, 82), goal, workbench, raw, tier).cards();
+      var types =
+          cards.stream()
+              .map(c -> c.item().catalystQuality().type())
+              .collect(java.util.stream.Collectors.toSet());
+      if (target == 43) assertThat(cards).isEmpty();
+      else if (target == 30) {
+        var expected = EnumSet.allOf(CatalystQuality.Type.class);
+        expected.remove(CatalystQuality.Type.TUL);
+        assertThat(types).containsExactlyInAnyOrderElementsOf(expected);
+      } else {
+        assertThat(types).containsExactly(CatalystQuality.Type.TUL);
+        assertThat(cards)
+            .allSatisfy(
+                c ->
+                    assertThat(c.item().catalystQuality().amount())
+                        .isEqualTo(target == 36 ? 20 : 40));
+      }
+      for (var card : cards) {
+        assertThat(card.minimumQuality()).isEqualTo(15);
+        assertThat(card.projectedValues().get(tier).get(cold))
+            .isEqualByComparingTo(BigDecimal.valueOf(target));
+        assertThat(card.optionTiers().get(tier)).containsExactly(tier);
+        assertThat(card.tierVariants())
+            .allSatisfy(
+                item -> {
+                  assertThat(item.explicits()).contains(raw);
+                  assertThat(service.evaluate(item, goal).status()).isEqualTo(Status.MATCH);
+                });
+      }
+    }
+    var exact36 =
+        new GoalFilter(
+            1,
+            index.version(),
+            general,
+            List.of(
+                new Group(
+                    "cold",
+                    Type.AND,
+                    false,
+                    null,
+                    List.of(rangeEntry("explicit", cold, "percent", 36, 36)))));
+    assertThat(service.preview(context(catalog, 82), exact36, workbench, null, tier).cards())
+        .anySatisfy(
+            c -> {
+              assertThat(c.item().catalystQuality())
+                  .isEqualTo(new CatalystQuality(CatalystQuality.Type.TUL, 20));
+              assertThat(c.optionTiers().get(tier)).containsExactly(tier);
+            });
+  }
+
+  /** 개수 필터는 한 아이템에 하나의 기폭제만 적용한다. 두 저항에 서로 다른 기폭제의 최댓값을 합치지 않는다. */
+  @Test
+  void countCannotCombineTwoDifferentCatalystsOnOneItem() {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var sources = new LinkedHashMap<>(simulator.modifierSources(82));
+    sources
+        .keySet()
+        .retainAll(
+            Set.of(
+                catalog.base().implicitModifierId(),
+                "amulet:suffix:of-the-walrus",
+                "amulet:suffix:of-the-furnace"));
+    var rows =
+        List.of(
+            rangeEntry("explicit", "base_cold_damage_resistance_%", "percent", 36, 36),
+            rangeEntry("explicit", "base_fire_damage_resistance_%", "percent", 36, 36));
+    for (int minimum : List.of(1, 2)) {
+      var goal =
+          new GoalFilter(
+              1,
+              index.version(),
+              new General(
+                  catalog.base().id(), new Range(null, null), List.of(ItemState.Rarity.RARE), 20),
+              List.of(
+                  new Group(
+                      "either",
+                      Type.COUNT,
+                      false,
+                      new Range(BigDecimal.valueOf(minimum), null),
+                      rows)));
+      var items = service.examples(context(catalog, 82), goal, simulator, sources);
+      if (minimum == 2) assertThat(items).isEmpty();
+      else
+        assertThat(items.stream().map(i -> i.catalystQuality().type()).distinct())
+            .containsExactlyInAnyOrder(CatalystQuality.Type.TUL, CatalystQuality.Type.XOPH);
+    }
+  }
+
+  /** 정제 기폭제와 주얼 접미 효과가 같은 굴림에 적용돼야 도달하는 가중합을 실제 아이템으로 검증한다. */
+  @Test
+  void refinedQualityAndJewelEffectReachWeightedScoreTogether() {
+    var catalog = ItemCatalogLoader.loadSapphire();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var stat = "display_cast_speed_percent";
+    var index =
+        new GoalCatalogIndex(
+            List.of(catalog),
+            new GoalDefinitions(
+                1,
+                "cast-speed",
+                List.of(new GoalDefinitions.Direct(stat, "Cast Speed", "percent")),
+                List.of()));
+    var service = new GoalFilterService(index);
+    String suffix = "sapphire:suffix:of-enchanting",
+        effect = "sapphire:crafted:CraftedJewelSuffixEffect";
+    var sources = new LinkedHashMap<>(simulator.modifierSources(82));
+    sources.keySet().retainAll(Set.of(suffix, effect));
+    var score = BigDecimal.TEN;
+    var row =
+        new Entry(
+            "speed",
+            GoalCatalogIndex.id("explicit", stat),
+            "percent",
+            new Range(null, null),
+            BigDecimal.TWO,
+            false);
+    var goal =
+        new GoalFilter(
+            1,
+            index.version(),
+            new General(
+                catalog.base().id(), new Range(null, null), List.of(ItemState.Rarity.RARE), 20),
+            List.of(
+                new Group(
+                    "score", Type.WEIGHTED_V2, false, new Range(score, score), List.of(row))));
+    var items = service.examples(context(catalog, 82), goal, simulator, sources);
+    assertThat(items)
+        .anySatisfy(
+            item -> {
+              assertThat(item.catalystQuality().type()).isEqualTo(CatalystQuality.Type.SIBILANT);
+              assertThat(item.explicits())
+                  .extracting(ModifierInstance::modifierId)
+                  .containsExactlyInAnyOrder(suffix, effect);
+              assertThat(service.evaluate(item, goal).status()).isEqualTo(Status.MATCH);
+            });
+  }
+
   /** 증강물의 치명타 수치 19가 필요한 단일·중복 가중합의 점수와 행 범위를 구성한다. */
   private static Stream<Arguments> criticalStrikeScores() {
     var any = new Range(null, null);
