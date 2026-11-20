@@ -8,6 +8,7 @@ import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.*;
 import com.poe2craft.shared.crafting.application.CatalogCraftingService;
+import com.poe2craft.shared.crafting.domain.QualityLimitRules;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.item.*;
 import java.math.BigDecimal;
@@ -145,6 +146,114 @@ class NonResistanceGoalPreviewTest {
                         exact(BigDecimal.valueOf(100000)),
                         null))));
     assertThat(service.preview(context, impossible, workbench, frozen, id).cards()).isEmpty();
+  }
+
+  /** 실제 품질 50%인 같은 목걸이로 입증한 두 행의 개수와 가중합을 카드 탐색과 대조한다. */
+  @ParameterizedTest
+  @org.junit.jupiter.params.provider.EnumSource(
+      value = Type.class,
+      names = {"COUNT", "WEIGHTED_V1", "WEIGHTED_V2"})
+  void compoundGoalsRequireOneCatalyst(Type type) {
+    var start = workbench.initial("solar", 82).state();
+    var context = context("solar", 82);
+    var catalog = service.catalog(context);
+    String life = "base_maximum_life",
+        regen = "base_life_regeneration_rate_per_minute",
+        strength = "additional_strength";
+    var item =
+        new ItemState(
+            start.snapshotId(),
+            start.baseItemId(),
+            82,
+            ItemState.Rarity.RARE,
+            start.implicits(),
+            List.of(
+                new ModifierInstance("amulet:prefix:athlete-s", Map.of(life, 149L)),
+                new ModifierInstance("amulet:suffix:of-immortality", Map.of(regen, 1980L)),
+                new ModifierInstance("amulet:suffix:of-the-titan", Map.of(strength, 33L)),
+                new ModifierInstance(
+                        QualityLimitRules.BREACH_ID, Map.of(QualityLimitRules.STAT_ID, 20L))
+                    .asCrafted()),
+            Set.of());
+    var simulator = workbench.simulatorForBase(start.baseItemId());
+    var controls = new ArrayList<ItemState>();
+    for (var currency :
+        List.of(WorkbenchCurrency.CATALYST_FLESH, WorkbenchCurrency.CATALYST_ADAPTIVE)) {
+      var typed = simulator.apply(item, currency, Set.of(), new Random(1));
+      assertThat(typed.applied()).isTrue();
+      var infused =
+          simulator.apply(
+              typed.state(), WorkbenchCurrency.VAAL_CATALYSING_INFUSER, Set.of(), new Random(1));
+      assertThat(infused.applied()).isTrue();
+      controls.add(infused.state());
+    }
+    boolean count = type == Type.COUNT;
+    var unbounded = new Range(null, null);
+    var lifeRow =
+        row(
+            catalog,
+            life,
+            count ? exact(BigDecimal.valueOf(224)) : unbounded,
+            count ? null : BigDecimal.TWO);
+    var regenRow =
+        row(
+            catalog,
+            regen,
+            count ? exact(new BigDecimal("49.5")) : unbounded,
+            count ? null : BigDecimal.ONE);
+    var strengthRow =
+        row(
+            catalog,
+            strength,
+            count ? exact(BigDecimal.valueOf(50)) : unbounded,
+            count ? null : BigDecimal.ONE);
+    // 생명력과 재생은 같은 기폭제로 함께 오른다. 힘까지 넣으면 서로 다른 기폭제의 최댓값을 합칠 수 없다.
+    var shared =
+        goal(
+            catalog,
+            new Group(
+                "shared",
+                type,
+                false,
+                exact(count ? BigDecimal.TWO : new BigDecimal("497.5")),
+                List.of(lifeRow, regenRow)));
+    var boundary =
+        goal(
+            catalog,
+            new Group(
+                "separate",
+                type,
+                false,
+                exact(BigDecimal.valueOf(count ? 1 : 481)),
+                List.of(lifeRow, strengthRow)));
+    var over =
+        goal(
+            catalog,
+            new Group(
+                "over",
+                type,
+                false,
+                new Range(BigDecimal.valueOf(count ? 2 : 482), null),
+                List.of(lifeRow, strengthRow)));
+    for (var goal : List.of(shared, boundary, over)) {
+      var accepted =
+          controls.stream()
+              .filter(i -> service.evaluate(i, goal).status() == Status.MATCH)
+              .map(i -> i.catalystQuality().type())
+              .toList();
+      if (goal == over) assertThat(accepted).isEmpty();
+      else if (count && goal == boundary)
+        assertThat(accepted)
+            .containsExactly(CatalystQuality.Type.FLESH, CatalystQuality.Type.ADAPTIVE);
+      else assertThat(accepted).containsExactly(CatalystQuality.Type.FLESH);
+      var cards = service.preview(context, goal, workbench).cards();
+      var variants = cards.stream().flatMap(c -> c.tierVariants().stream()).toList();
+      assertThat(variants)
+          .allSatisfy(v -> assertThat(service.evaluate(v, goal).status()).isEqualTo(Status.MATCH));
+      assertThat(variants.stream().map(i -> i.catalystQuality().type()).distinct().toList())
+          .as("%s / %s", type, goal.groups().getFirst().id())
+          .containsExactlyInAnyOrderElementsOf(accepted);
+    }
   }
 
   /** 레벨 24 장갑의 세 접두 티어에 대해 결합 굴림에서 얻은 14쌍과 나머지 112쌍을 모두 대조한다. */
