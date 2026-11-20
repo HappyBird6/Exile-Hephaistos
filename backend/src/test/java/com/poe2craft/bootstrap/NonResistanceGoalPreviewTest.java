@@ -8,8 +8,10 @@ import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.*;
 import com.poe2craft.shared.crafting.application.CatalogCraftingService;
+import com.poe2craft.shared.crafting.domain.ModifierAcquisition;
 import com.poe2craft.shared.crafting.domain.QualityLimitRules;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.item.*;
 import java.math.BigDecimal;
 import java.util.*;
@@ -254,6 +256,260 @@ class NonResistanceGoalPreviewTest {
           .as("%s / %s", type, goal.groups().getFirst().id())
           .containsExactlyInAnyOrderElementsOf(accepted);
     }
+  }
+
+  /** 실제 교체 화폐로 전용 옵션을 만든 뒤 일반 옵션을 엑잘로 추가한 카드와 획득처를 검증한다. */
+  @ParameterizedTest
+  @CsvSource({
+    "PERFECT_ESSENCE_ENHANCEMENT,ESSENCE,amulet:prefix:essence-global-defences,global_armour_evasion_energy_shield_+%",
+    "RUNIC_ALLOY,ALLOY,amulet:prefix:alloy-maximum-runic-ward,maximum_ward_+%"
+  })
+  void materialExclusiveAndOrdinaryAffix(
+      WorkbenchCurrency currency, ModifierAcquisition.Kind kind, String specialId, String stat) {
+    var start = workbench.initial("solar", 82).state();
+    var context = context("solar", 82);
+    var catalog = service.catalog(context);
+    var simulator = workbench.simulatorForBase(start.baseItemId());
+    String ordinaryId = "amulet:prefix:hale", life = "base_maximum_life";
+    var item =
+        new ItemState(
+            start.snapshotId(),
+            start.baseItemId(),
+            82,
+            ItemState.Rarity.RARE,
+            start.implicits(),
+            List.of(new ModifierInstance(ordinaryId, Map.of(life, 17L))),
+            Set.of());
+    var replaced = simulator.apply(item, currency, Set.of(), new Random(1));
+    assertThat(replaced.applied()).as(replaced.reason()).isTrue();
+    var result =
+        simulator.applyCustomExalt(
+            replaced.state(), WorkbenchCurrency.EXALTED, Set.of(), new Random(2), ordinaryId);
+    assertThat(result.applied()).isTrue();
+    var rows = new ArrayList<Entry>();
+    for (var mod : result.state().explicits()) {
+      String raw = mod.modifierId().equals(specialId) ? stat : life;
+      rows.add(row(catalog, raw, exact(BigDecimal.valueOf(mod.values().get(raw))), null));
+    }
+    var group = new Group("both", Type.AND, false, null, rows);
+    var goal = goal(catalog, group);
+    assertThat(service.evaluate(result.state(), goal).status()).isEqualTo(Status.MATCH);
+    var cards = service.preview(context, goal, workbench).cards();
+    assertThat(cards)
+        .anySatisfy(
+            card -> {
+              assertThat(card.sources().get(specialId))
+                  .containsExactly(new ModifierAcquisition(kind, currency.name()));
+              assertThat(card.sources().get(ordinaryId))
+                  .contains(new ModifierAcquisition(ModifierAcquisition.Kind.NORMAL, null));
+              assertThat(card.tierVariants())
+                  .anySatisfy(
+                      v -> {
+                        assertThat(v.catalystQuality()).isNull();
+                        assertThat(v.explicits())
+                            .containsExactlyInAnyOrderElementsOf(result.state().explicits());
+                      });
+            });
+    assertThat(cards)
+        .allSatisfy(
+            c ->
+                c.tierVariants()
+                    .forEach(
+                        v ->
+                            assertThat(service.evaluate(v, goal).status())
+                                .isEqualTo(Status.MATCH)));
+    var magic =
+        new GoalFilter(
+            1,
+            catalog.catalogVersion(),
+            new General(
+                context.baseItemId(), new Range(null, null), List.of(ItemState.Rarity.MAGIC)),
+            List.of(group));
+    assertThat(service.preview(context, magic, workbench).cards()).isEmpty();
+    var low = context("solar", catalog.sourceModifiers().get(specialId).requiredItemLevel() - 1);
+    assertThat(simulator.modifierSources(low.itemLevel()))
+        .containsKey(ordinaryId)
+        .doesNotContainKey(specialId);
+    assertThat(service.preview(low, goal, workbench).cards()).isEmpty();
+  }
+
+  /** 두 전용 옵션 각각에 대해 생명력 35 이상을 실제로 굴릴 수 있는 일반 티어 집합과 카드의 티어 집합을 대조한다. */
+  @ParameterizedTest
+  @CsvSource({
+    "amulet:prefix:essence-global-defences,global_armour_evasion_energy_shield_+%",
+    "amulet:prefix:alloy-maximum-runic-ward,maximum_ward_+%"
+  })
+  void specialAffixKeepsEveryEligibleOrdinaryLifeTier(String specialId, String stat) {
+    var context = context("solar", 82);
+    var catalog = service.catalog(context);
+    String life = "base_maximum_life";
+    var floor = BigDecimal.valueOf(35);
+    var goal =
+        goal(
+            catalog,
+            new Group(
+                "tiers",
+                Type.AND,
+                false,
+                null,
+                List.of(
+                    row(catalog, stat, new Range(null, null), null),
+                    row(catalog, life, new Range(floor, null), null))));
+    var expected =
+        catalog.sourceModifiers().values().stream()
+            .filter(
+                d ->
+                    d.weight() > 0
+                        && d.requiredItemLevel() <= context.itemLevel()
+                        && d.stats().size() == 1)
+            .filter(
+                d ->
+                    d.stats().getFirst().id().equals(life)
+                        && d.stats().getFirst().max() >= floor.longValueExact())
+            .map(ModifierDefinition::id)
+            .toList();
+    assertThat(expected).hasSizeGreaterThan(1);
+    var variants =
+        service.preview(context, goal, workbench).cards().stream()
+            .flatMap(c -> c.tierVariants().stream())
+            .filter(v -> v.catalystQuality() == null && v.explicits().size() == 2)
+            .filter(v -> v.explicits().stream().anyMatch(m -> m.modifierId().equals(specialId)))
+            .toList();
+    var found = new HashSet<String>();
+    for (var variant : variants) {
+      assertThat(service.evaluate(variant, goal).status()).isEqualTo(Status.MATCH);
+      for (var mod : variant.explicits())
+        if (!mod.modifierId().equals(specialId)) found.add(mod.modifierId());
+    }
+    assertThat(found).containsExactlyInAnyOrderElementsOf(expected);
+  }
+
+  /** 제작 옵션 한도가 하나인 태양의 목걸이에는 두 전용 접두를 생명력과 동시에 붙일 수 없다. */
+  @Test
+  void solarAmuletCannotKeepBothExclusivePrefixesWithLife() {
+    var context = context("solar", 82);
+    var catalog = service.catalog(context);
+    var goal =
+        goal(
+            catalog,
+            new Group(
+                "three",
+                Type.AND,
+                false,
+                null,
+                List.of(
+                    row(catalog, "base_maximum_life", exact(BigDecimal.valueOf(17)), null),
+                    row(
+                        catalog,
+                        "global_armour_evasion_energy_shield_+%",
+                        new Range(null, null),
+                        null),
+                    row(catalog, "maximum_ward_+%", new Range(null, null), null))));
+    assertThat(AugmentCraftingRules.capacityAugments(context.baseItemId())).isEmpty();
+    assertThat(service.preview(context, goal, workbench).cards()).isEmpty();
+  }
+
+  /** 마법봉은 추가 제작 슬롯으로 전용 에센스·합금과 일반 접미를 유지한다. 같은 계열의 분열 마나는 합금과 충돌한다. */
+  @Test
+  void wandSupportsMixedMaterialsWithAnExtraCraftedSlotButRejectsFamilyConflict() {
+    var start = workbench.initial("wand", 82).state();
+    var context = context("wand", 82);
+    var catalog = service.catalog(context);
+    var sim = workbench.simulatorForBase(start.baseItemId());
+    String alloy = "equipment:prefix:alloy-spell-level-mana-hybrid1",
+        essence = "attuned-wand:suffix:essence-spell-skill-level",
+        normal = "attuned-wand:suffix:of-finesse",
+        mana = "base_maximum_mana",
+        speed = "base_cast_speed_+%",
+        skill = "spell_skill_gem_level_+";
+    var initial =
+        new ItemState(
+            start.snapshotId(),
+            start.baseItemId(),
+            82,
+            ItemState.Rarity.RARE,
+            start.implicits(),
+            List.of(),
+            Set.of(),
+            1);
+    var socketed = SocketAugments.install(initial, 0, "Astrids_Creativity");
+    var random = new Random(17);
+    String filler = "attuned-wand:suffix:of-the-pupil";
+    var carrier =
+        sim.applyCustomExalt(socketed, WorkbenchCurrency.EXALTED, Set.of(), random, filler);
+    var first = sim.apply(carrier.state(), WorkbenchCurrency.CELESTIAL_ALLOY, Set.of(), random);
+    assertThat(first.applied()).as(first.reason()).isTrue();
+    carrier =
+        sim.applyCustomExalt(first.state(), WorkbenchCurrency.EXALTED, Set.of(), random, filler);
+    var second =
+        sim.apply(
+            carrier.state(),
+            WorkbenchCurrency.PERFECT_ESSENCE_SORCERY,
+            Set.of(WorkbenchOmen.DEXTRAL_CRYSTALLISATION.id()),
+            random);
+    assertThat(second.applied()).as(second.reason()).isTrue();
+    var result =
+        sim.applyCustomExalt(second.state(), WorkbenchCurrency.EXALTED, Set.of(), random, normal);
+    assertThat(result.applied()).isTrue();
+    var mods = result.state().explicits();
+    assertThat(mods)
+        .extracting(ModifierInstance::modifierId)
+        .containsExactlyInAnyOrder(alloy, essence, normal);
+    var rows = new ArrayList<Entry>();
+    for (var stat : List.of(mana, skill, speed)) {
+      long total = mods.stream().mapToLong(m -> m.values().getOrDefault(stat, 0L)).sum();
+      rows.add(row(catalog, stat, exact(BigDecimal.valueOf(total)), null));
+    }
+    var goal = goal(catalog, new Group("mixed", Type.AND, false, null, rows));
+    assertThat(service.evaluate(result.state(), goal).status()).isEqualTo(Status.MATCH);
+    var cards = service.preview(context, goal, workbench, null, alloy).cards();
+    assertThat(cards)
+        .anySatisfy(
+            card -> {
+              assertThat(card.sources().get(alloy))
+                  .containsExactly(
+                      new ModifierAcquisition(ModifierAcquisition.Kind.ALLOY, "CELESTIAL_ALLOY"));
+              assertThat(card.sources().get(essence))
+                  .containsExactly(
+                      new ModifierAcquisition(
+                          ModifierAcquisition.Kind.ESSENCE, "PERFECT_ESSENCE_SORCERY"));
+              assertThat(card.sources().get(normal))
+                  .contains(new ModifierAcquisition(ModifierAcquisition.Kind.NORMAL, null));
+              assertThat(card.tierVariants())
+                  .anySatisfy(
+                      v -> {
+                        assertThat(v.explicits()).containsExactlyInAnyOrderElementsOf(mods);
+                        assertThat(v.installedAugments())
+                            .extracting(ItemState.InstalledAugment::augmentId)
+                            .contains("Astrids_Creativity");
+                      });
+            });
+    assertThat(cards)
+        .allSatisfy(
+            c ->
+                c.tierVariants()
+                    .forEach(
+                        v ->
+                            assertThat(service.evaluate(v, goal).status())
+                                .isEqualTo(Status.MATCH)));
+    String conflict = "attuned-wand:prefix:beryl";
+    var def = catalog.sourceModifiers().get(conflict);
+    assertThat(def.familyIds())
+        .containsAnyElementsOf(catalog.sourceModifiers().get(alloy).familyIds());
+    var frozen = new ModifierInstance(conflict, Map.of(mana, def.stats().getFirst().min()), true);
+    var sameFamilyGoal =
+        goal(
+            catalog,
+            new Group(
+                "mana",
+                Type.AND,
+                false,
+                null,
+                List.of(row(catalog, mana, new Range(null, null), null))));
+    assertThat(service.preview(context, sameFamilyGoal, workbench, null, alloy).cards())
+        .isNotEmpty();
+    assertThat(service.preview(context, sameFamilyGoal, workbench, frozen, alloy).cards())
+        .isEmpty();
   }
 
   /** 레벨 24 장갑의 세 접두 티어에 대해 결합 굴림에서 얻은 14쌍과 나머지 112쌍을 모두 대조한다. */
