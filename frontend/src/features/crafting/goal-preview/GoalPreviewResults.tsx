@@ -5,7 +5,7 @@ import { loadModifierDefinitions } from '../../../shared/i18n/localeData'
 import { uiText, useI18n, type Locale } from '../../../shared/i18n/i18n'
 import { ItemCard } from '../ItemCard'
 import type { Definition } from '../craftingApi'
-import { localizedCatalystQuality } from '../localizedCrafting'
+import { localizedAction, localizedCatalystQuality } from '../localizedCrafting'
 import {
   localizedModifierName,
   localizedModifierText,
@@ -334,6 +334,14 @@ function PreviewCard({
                       item.baseItemId,
                       locale,
                     ),
+                  },
+                ]
+              : []),
+            ...(item.qualityInfused
+              ? [
+                  {
+                    id: 'quality-infuser',
+                    text: localizedAction('VAAL_CATALYSING_INFUSER'),
                   },
                 ]
               : []),

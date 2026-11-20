@@ -126,7 +126,7 @@ public final class GoalFilterService {
         || !catalog.base().id().equals(simulator.catalog().base().id())) return List.of();
     var known = requiredStats(goal, index.knownStats(context));
     // 수동 공개를 포함하는 작업대 카탈로그로 상태를 검증한 뒤 기존 목표 판정을 그대로 사용한다.
-    // 단독 품질은 최소 조건으로, 복합 목표의 구체적 기폭제 사례는 탐색에서 실제 장비 상한으로 검증한다.
+    // 단독 품질은 최소 조건으로, 복합 목표는 작업대에서 도달한 품질을 고정해 같은 기폭제로 모든 행을 판정한다.
     var general = goal.general();
     var optionGoal =
         new GoalFilter(

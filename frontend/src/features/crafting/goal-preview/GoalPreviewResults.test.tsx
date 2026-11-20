@@ -212,6 +212,34 @@ it('keeps the catalyst scenario when selecting a tier and shows its projected va
   ).toBeVisible()
 })
 
+it('shows retained quality and identifies the infused card without a maximum-quality affix', async () => {
+  const cards = [false, true].map((infused) => {
+    const amount = infused ? 50 : 40
+    const state = {
+      ...item,
+      catalystQuality: { type: 'FLESH', amount },
+      qualityInfused: infused,
+    }
+    return {
+      item: state,
+      tierVariants: [state],
+      minimumQuality: 40,
+      optionTiers: { implicit: ['implicit'], p: ['p'] },
+      sources: { implicit: sources.implicit, p: sources.p },
+      projectedValues: {
+        implicit: { spirit: 15 },
+        p: { life: infused ? 23 : 21 },
+      },
+    }
+  })
+  renderPreview({ ...preview, cards })
+  const [retained, infused] = await screen.findAllByRole('article')
+  expect(within(retained!).getByText('+21 to maximum Life')).toBeVisible()
+  expect(within(retained!).queryByText('Vaal Catalysing Infuser')).toBeNull()
+  expect(within(infused!).getByText('+23 to maximum Life')).toBeVisible()
+  expect(within(infused!).getByText('Vaal Catalysing Infuser')).toBeVisible()
+})
+
 it('names the affix when only one of two definitions at the same tier has a source', async () => {
   renderPreview({
     ...preview,

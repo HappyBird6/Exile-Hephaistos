@@ -37,6 +37,12 @@ final class GoalExamples {
   /** 현재 탐색 사례의 기폭제와 주얼 여부다. 요청의 최소 품질은 goal에 그대로 둔다. */
   private CatalystQuality catalyst;
 
+  /** 현재 사례가 품질 주입을 사용했는지 시드와 완성 상태에 보존한다. */
+  private boolean infused;
+
+  /** 기폭제 종류와 무관하게 도달 가능한 품질 수치와 주입 사용 여부다. */
+  private record Quality(int amount, boolean infused) {}
+
   private final boolean jewel;
   private final WorkbenchSimulator simulator;
 
@@ -102,32 +108,90 @@ final class GoalExamples {
               GoalFilter.Issue.error("INVALID_ITEM", "/fracture", "Invalid fractured modifier.")));
     if (!goal.general().itemLevel().contains(BigDecimal.valueOf(context.itemLevel())))
       return List.of();
-    var quality = goal.general().quality();
-    if (quality != null
-        && quality > 0
-        && (!CatalystQuality.supportedBase(context.baseItemId())
-            || (quality > QualityLimitRules.BASE_CAP
-                && !sources.containsKey(QualityLimitRules.BREACH_ID)))) return List.of();
-    if (!needsQualityProjection(goal)) return findForQuality(context, null);
-    var caps = new ArrayList<Integer>();
-    if (quality <= QualityLimitRules.BASE_CAP) caps.add(QualityLimitRules.BASE_CAP);
-    if (sources.containsKey(QualityLimitRules.BREACH_ID)) caps.add(QualityLimitRules.BREACH_CAP);
-    var types =
-        simulator.baseMaterialActions().stream()
-            .map(WorkbenchCurrency::catalystType)
-            .filter(Objects::nonNull)
-            .distinct()
-            .toList();
+    var minimum = goal.general().quality();
     var matches = new ArrayList<Matches>();
-    for (var cap : caps)
-      for (var type : types)
-        matches.addAll(findForQuality(context, new CatalystQuality(type, cap)));
+    var catalysts =
+        minimum != null && minimum > 0
+            ? simulator.baseMaterialActions().stream()
+                .filter(c -> c.catalystType() != null)
+                .toList()
+            : List.<WorkbenchCurrency>of();
+    for (var rarity : goal.general().rarities()) {
+      if (rarity == ItemState.Rarity.UNIQUE) continue;
+      if (minimum == null || minimum == 0) {
+        matches.addAll(findForQuality(context, rarity, null, false));
+        continue;
+      }
+      if (catalysts.isEmpty()) continue;
+      // 품질 자격은 옵션 수치와 독립적이다. 실제 베이스와 분열 옵션으로 가능한 상한을 먼저 검증한다.
+      catalyst = null;
+      infused = false;
+      var seeds = seeds(context, rarity, Map.of());
+      if (seeds.isEmpty()) continue;
+      var qualities = reachableQualities(seeds.getFirst().item(), catalysts.getFirst());
+      qualities.removeIf(q -> q.amount() < minimum);
+      if (!needsQualityProjection(goal)) {
+        if (!qualities.isEmpty()) matches.addAll(findForQuality(context, rarity, null, false));
+        continue;
+      }
+      for (var quality : qualities)
+        for (var currency : catalysts)
+          matches.addAll(
+              findForQuality(
+                  context,
+                  rarity,
+                  new CatalystQuality(currency.catalystType(), quality.amount()),
+                  quality.infused()));
+    }
     return matches;
   }
 
-  /** 한 기폭제와 도달 가능한 실제 품질을 고정해 각 티어의 증명 사례를 독립적으로 찾는다. */
-  private List<Matches> findForQuality(GoalFilter.Context context, CatalystQuality catalyst) {
+  /** 시작 상태와 균열 옵션을 임시로 획득할 수 있는 상태 각각에서 기폭제·주입기 규칙을 적용한다. */
+  private Set<Quality> reachableQualities(ItemState seed, WorkbenchCurrency currency) {
+    var result = new LinkedHashSet<Quality>();
+    if (!validator.validateForGeneration(seed).isEmpty()) return result;
+    addQualities(result, seed, currency);
+    var breach = catalog.find(QualityLimitRules.BREACH_ID).orElse(null);
+    if (breach == null
+        || seed.explicits().stream().anyMatch(m -> m.modifierId().equals(breach.id())))
+      return result;
+    for (var source : sources.getOrDefault(breach.id(), List.of())) {
+      if (!source.supportsRarity(seed.rarity())) continue;
+      var withBreach = append(seed, breach, rolls.variants(breach, Map.of()).getFirst(), source);
+      if (withBreach == null) continue;
+      var valid = capacity.complete(withBreach);
+      if (valid != null) {
+        addQualities(result, valid, currency);
+        break;
+      }
+    }
+    return result;
+  }
+
+  /** 작업대가 품질을 보존하므로 높였을 때의 상한을 사용한다. 실제 주입이 가능한 경우만 한 번 더 계산한다. */
+  private void addQualities(Set<Quality> result, ItemState item, WorkbenchCurrency currency) {
+    // 두 작업 모두 수치가 확정적이며 작업대 API의 난수 인자를 소비하지 않는다.
+    var random = java.util.concurrent.ThreadLocalRandom.current();
+    var applied = simulator.apply(item, currency, Set.of(), random);
+    if (!applied.applied()) return;
+    var typed = applied.state();
+    result.add(new Quality(typed.catalystQuality().amount(), typed.qualityInfused()));
+    var infusion =
+        simulator.apply(typed, WorkbenchCurrency.VAAL_CATALYSING_INFUSER, Set.of(), random);
+    if (infusion.applied()) {
+      var after = infusion.state();
+      result.add(new Quality(after.catalystQuality().amount(), after.qualityInfused()));
+    }
+  }
+
+  /** 한 희귀도와 한 기폭제의 실제 품질을 고정해 각 티어의 증명 사례를 독립적으로 찾는다. */
+  private List<Matches> findForQuality(
+      GoalFilter.Context context,
+      ItemState.Rarity rarity,
+      CatalystQuality catalyst,
+      boolean infused) {
     this.catalyst = catalyst;
+    this.infused = infused;
     var quality = catalyst == null ? goal.general().quality() : Integer.valueOf(catalyst.amount());
     var targets = rolls.targets(null);
     if (quality != null && quality > QualityLimitRules.BASE_CAP)
@@ -161,36 +225,31 @@ final class GoalExamples {
     var lower = providers.stream().map(p -> extreme(p, false)).toList();
     var upper = providers.stream().map(p -> extreme(p, true)).toList();
     var tierGroups = tierGroups(definitions);
-    var cards = new ArrayList<Matches>();
-    for (var rarity : goal.general().rarities()) {
-      if (rarity == ItemState.Rarity.UNIQUE) continue;
-      var seeds = seeds(context, rarity, targets);
-      if (seeds.isEmpty()) continue;
-      var grouped = new LinkedHashMap<String, List<Tier>>();
-      for (var d : definitions) {
-        var origins =
-            sources.get(d.id()).stream().filter(source -> source.supportsRarity(rarity)).toList();
-        if (origins.isEmpty()) continue;
-        if (origins.getFirst().kind() == Kind.NORMAL) origins = List.of(origins.getFirst());
-        var range = scaled(d, null, lower, upper);
-        var domain = domain(d, range, targets);
-        if (!domain.iterator().hasNext()) continue;
-        grouped
-            .computeIfAbsent(tierGroups.getOrDefault(d.id(), d.id()), ignored -> new ArrayList<>())
-            .add(new Tier(d, origins, range, domain));
-      }
-      if (selectedTier != null) {
-        var group = grouped.get(tierGroups.getOrDefault(selectedTier, selectedTier));
-        if (group != null) group.removeIf(t -> !t.definition().id().equals(selectedTier));
-        if (group != null && group.isEmpty()) continue;
-      }
-      var slots =
-          grouped.values().stream()
-              .map(tiers -> new Slot(tiers, hull(tiers.stream().map(Tier::range).toList())))
-              .toList();
-      cards.addAll(findShapes(seeds, slots));
+    var seeds = seeds(context, rarity, targets);
+    if (seeds.isEmpty()) return List.of();
+    var grouped = new LinkedHashMap<String, List<Tier>>();
+    for (var d : definitions) {
+      var origins =
+          sources.get(d.id()).stream().filter(source -> source.supportsRarity(rarity)).toList();
+      if (origins.isEmpty()) continue;
+      if (origins.getFirst().kind() == Kind.NORMAL) origins = List.of(origins.getFirst());
+      var range = scaled(d, null, lower, upper);
+      var domain = domain(d, range, targets);
+      if (!domain.iterator().hasNext()) continue;
+      grouped
+          .computeIfAbsent(tierGroups.getOrDefault(d.id(), d.id()), ignored -> new ArrayList<>())
+          .add(new Tier(d, origins, range, domain));
     }
-    return cards;
+    if (selectedTier != null) {
+      var group = grouped.get(tierGroups.getOrDefault(selectedTier, selectedTier));
+      if (group != null) group.removeIf(t -> !t.definition().id().equals(selectedTier));
+      if (group != null && group.isEmpty()) return List.of();
+    }
+    var slots =
+        grouped.values().stream()
+            .map(tiers -> new Slot(tiers, hull(tiers.stream().map(Tier::range).toList())))
+            .toList();
+    return findShapes(seeds, slots);
   }
 
   /** 실제 수치가 영향을 주는 티어는 모든 굴림, 존재만 중요한 티어는 검증 가능한 첫 굴림을 사용한다. */
@@ -301,15 +360,16 @@ final class GoalExamples {
     for (var implicit : domain) {
       var item =
           new ItemState(
-              context.snapshotId(),
-              context.baseItemId(),
-              context.itemLevel(),
-              rarity,
-              implicit == null ? List.of() : List.of(implicit),
-              fracture == null ? List.of() : List.of(fracture),
-              Set.of(),
-              null,
-              catalyst);
+                  context.snapshotId(),
+                  context.baseItemId(),
+                  context.itemLevel(),
+                  rarity,
+                  implicit == null ? List.of() : List.of(implicit),
+                  fracture == null ? List.of() : List.of(fracture),
+                  Set.of(),
+                  null,
+                  catalyst)
+              .withQualityInfused(infused);
       if (fracture != null && !validator.validateForGeneration(item).isEmpty()) continue;
       seeds.add(
           new Seed(
@@ -386,9 +446,7 @@ final class GoalExamples {
     if (!bounds
         .blocked(GoalExampleBounds.sum(range, optional.get(start)), range.keySet())
         .isEmpty()) return;
-    if (bounds.blocked(range).isEmpty()
-        && mechanicsPossible(limits, shape)
-        && qualityCapPossible(shape)) {
+    if (bounds.blocked(range).isEmpty() && mechanicsPossible(limits, shape)) {
       var witnesses = witnesses(seeds, shape);
       for (var group : bySupport(shape, witnesses))
         if (selectedTier == null
@@ -418,16 +476,6 @@ final class GoalExamples {
       conflicts.removeAll(slot.definition().familyIds());
       shape.removeLast();
     }
-  }
-
-  /** 기폭제 재적용 후의 40% 사례에는 균열 옵션이 필요하다. 충족할 수 없는 구성의 굴림을 펼치지 않는다. */
-  private boolean qualityCapPossible(List<Slot> shape) {
-    if (catalyst == null) return true;
-    boolean extended =
-        (fracture != null && fracture.modifierId().equals(QualityLimitRules.BREACH_ID))
-            || shape.stream()
-                .anyMatch(s -> s.definition().id().equals(QualityLimitRules.BREACH_ID));
-    return extended == (catalyst.amount() == QualityLimitRules.BREACH_CAP);
   }
 
   /** 대표 아이템의 빈칸을 목표에 무관한 옵션으로 채울 수 있는 접사 수 조합을 검증한다. */
@@ -614,13 +662,6 @@ final class GoalExamples {
     if (index == slots.size()) {
       var complete = capacity.complete(item);
       if (complete == null) return null;
-      var quality = goal.general().quality();
-      if (catalyst != null || (quality != null && quality > QualityLimitRules.BASE_CAP)) {
-        var limit = QualityLimitRules.describe(complete, catalog);
-        if (limit == null
-            || limit.maximumQuality() < quality
-            || (catalyst != null && catalyst.amount() != limit.maximumQuality())) return null;
-      }
       return evaluate.apply(complete).status() == Status.MATCH ? complete : null;
     }
     var rest = GoalExampleBounds.sum(values, remaining.get(index + 1));
@@ -705,20 +746,22 @@ final class GoalExamples {
     }
     explicits.add(roll);
     try {
-      var result =
-          new ItemState(
-                  item.snapshotId(),
-                  item.baseItemId(),
-                  item.itemLevel(),
-                  item.rarity(),
-                  item.implicits(),
-                  explicits,
-                  Set.of(),
-                  sockets,
-                  item.catalystQuality(),
-                  desecrated)
-              .withAugments(installed);
-      return result;
+      return new ItemState(
+          item.snapshotId(),
+          item.baseItemId(),
+          item.itemLevel(),
+          item.rarity(),
+          item.implicits(),
+          explicits,
+          item.conditions(),
+          sockets,
+          item.catalystQuality(),
+          desecrated,
+          item.equipmentQuality(),
+          item.observations(),
+          item.sanctification(),
+          installed,
+          item.qualityInfused());
     } catch (IllegalArgumentException conflictingSockets) {
       // 개별 획득처의 장착 자격이 있어도 여러 증강물의 소켓 그룹 제한이 충돌할 수 있다.
       return null;

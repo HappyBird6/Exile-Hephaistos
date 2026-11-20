@@ -9,6 +9,8 @@ import com.poe2craft.craftingsupport.goal.domain.GoalFilter.*;
 import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
+import com.poe2craft.shared.crafting.domain.QualityLimitRules;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.*;
 import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
@@ -414,7 +416,7 @@ class GoalExamplesTest {
             });
   }
 
-  /** 품질 단독 목표는 기폭제 종류를 열어 두고, 기본 상한을 넘기려면 실제 확장 옵션을 요구한다. */
+  /** 품질 단독 목표는 기폭제 종류를 열어 두고, 주입 및 상한 옵션 보유·제거가 가능한 희귀도를 빠짐없이 제공한다. */
   @Test
   void qualityOnlyKeepsMinimumWithoutInventingACatalyst() {
     var catalog = ItemCatalogLoader.loadDefault();
@@ -447,17 +449,24 @@ class GoalExamplesTest {
                 List.of(ItemState.Rarity.NORMAL, ItemState.Rarity.RARE),
                 30),
             List.of());
-    assertThat(service.preview(context(catalog, 82), higher, workbench).cards())
-        .singleElement()
-        .satisfies(
+    var cards = service.preview(context(catalog, 82), higher, workbench).cards();
+    assertThat(cards)
+        .allSatisfy(
             card -> {
               assertThat(card.minimumQuality()).isEqualTo(30);
               assertThat(card.item().catalystQuality()).isNull();
-              assertThat(card.item().rarity()).isEqualTo(ItemState.Rarity.RARE);
-              assertThat(card.item().explicits())
-                  .extracting(ModifierInstance::modifierId)
-                  .contains(com.poe2craft.shared.crafting.domain.QualityLimitRules.BREACH_ID);
             });
+    assertThat(cards)
+        .extracting(
+            c ->
+                List.of(
+                    c.item().rarity(),
+                    c.item().explicits().stream()
+                        .anyMatch(m -> m.modifierId().equals(QualityLimitRules.BREACH_ID))))
+        .containsExactlyInAnyOrder(
+            List.of(ItemState.Rarity.NORMAL, false),
+            List.of(ItemState.Rarity.RARE, false),
+            List.of(ItemState.Rarity.RARE, true));
   }
 
   /** 같은 냉기 원본을 보존하고 기폭제별 20·40% 최종 수치, 티어 고정, 하한과 상한을 대조한다. */
@@ -539,6 +548,157 @@ class GoalExamplesTest {
             });
   }
 
+  /** 하나의 분열 저항에 목표 수치를 적용해, 같은 원본 티어를 올바른 기폭제만 충족하는지 확인한다. */
+  @ParameterizedTest
+  @MethodSource("resistanceQualities")
+  void projectedResistanceCardsUseTheMatchingCatalysts(
+      String stat,
+      String tier,
+      long raw,
+      int amount,
+      int target,
+      Set<CatalystQuality.Type> expected) {
+    var catalog =
+        tier.startsWith("iron-ring:")
+            ? ItemCatalogLoader.loadRing()
+            : ItemCatalogLoader.loadDefault();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(simulator);
+    var fracture = new ModifierInstance(tier, Map.of(stat, raw), true);
+    var goal =
+        new GoalFilter(
+            1,
+            index.version(),
+            new General(
+                catalog.base().id(),
+                new Range(null, null),
+                List.of(ItemState.Rarity.RARE),
+                Math.min(amount, 40)),
+            List.of(
+                new Group(
+                    "res",
+                    Type.AND,
+                    false,
+                    null,
+                    List.of(rangeEntry("explicit", stat, "percent", target, target)))));
+    var cards = service.preview(context(catalog, 82), goal, workbench, fracture, tier).cards();
+    assertThat(cards.stream().map(c -> c.item().catalystQuality().type()).distinct())
+        .containsExactlyInAnyOrderElementsOf(expected);
+    assertThat(cards)
+        .allSatisfy(
+            c -> {
+              assertThat(c.optionTiers().get(tier)).containsExactly(tier);
+              assertThat(c.projectedValues().get(tier).get(stat))
+                  .isEqualByComparingTo(BigDecimal.valueOf(target));
+              assertThat(c.tierVariants())
+                  .allSatisfy(
+                      item -> {
+                        assertThat(item.explicits()).contains(fracture);
+                        assertThat(item.catalystQuality().amount()).isEqualTo(amount);
+                        assertThat(item.qualityInfused()).isTrue();
+                        assertThat(service.evaluate(item, goal).status()).isEqualTo(Status.MATCH);
+                      });
+            });
+  }
+
+  /** 네 단일 저항과 세 원소 기폭제가 적용되는 모든 원소 저항의 실제 카탈로그 굴림이다. */
+  private static Stream<Arguments> resistanceQualities() {
+    return Stream.of(
+        Arguments.of(
+            "base_cold_damage_resistance_%",
+            "amulet:suffix:of-the-walrus", 30L, 50, 45, Set.of(CatalystQuality.Type.TUL)),
+        Arguments.of(
+            "base_fire_damage_resistance_%",
+            "amulet:suffix:of-the-furnace", 30L, 50, 45, Set.of(CatalystQuality.Type.XOPH)),
+        Arguments.of(
+            "base_lightning_damage_resistance_%",
+            "amulet:suffix:of-the-tempest", 30L, 50, 45, Set.of(CatalystQuality.Type.ESH)),
+        Arguments.of(
+            "base_chaos_damage_resistance_%",
+            "amulet:suffix:of-exile", 20L, 50, 30, Set.of(CatalystQuality.Type.CHAYULA)),
+        Arguments.of(
+            "base_resist_all_elements_%",
+            "iron-ring:suffix:of-the-rainbow",
+            16L,
+            30,
+            21,
+            Set.of(CatalystQuality.Type.XOPH, CatalystQuality.Type.TUL, CatalystQuality.Type.ESH)));
+  }
+
+  /** 작업대에서 기폭제·주입·소멸을 실제 적용한 상태를 동일한 목표의 완성 카드에서 복원한다. */
+  @Test
+  void cardsIncludeRetainedAndInfusedQualityAfterRemovingTheCap() {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var workbench = Mockito.mock(CraftingOperations.class);
+    Mockito.when(workbench.simulatorForBase(catalog.base().id())).thenReturn(simulator);
+    var base = SolarAmulet.initial(catalog);
+    String cold = "base_cold_damage_resistance_%", tier = "amulet:suffix:of-the-walrus";
+    var fracture = new ModifierInstance(tier, Map.of(cold, 30L), true);
+    var cap =
+        new ModifierInstance(QualityLimitRules.BREACH_ID, Map.of(QualityLimitRules.STAT_ID, 20L))
+            .asCrafted();
+    var start =
+        new ItemState(
+            base.snapshotId(),
+            base.baseItemId(),
+            82,
+            ItemState.Rarity.RARE,
+            base.implicits(),
+            List.of(fracture, cap),
+            Set.of());
+    var random = new Random(1);
+    var typed = simulator.apply(start, WorkbenchCurrency.CATALYST_TUL, Set.of(), random);
+    assertThat(typed.applied()).isTrue();
+    var infused =
+        simulator.apply(typed.state(), WorkbenchCurrency.VAAL_CATALYSING_INFUSER, Set.of(), random);
+    assertThat(infused.applied()).isTrue();
+    for (var before : List.of(typed.state(), infused.state())) {
+      var removed = simulator.apply(before, WorkbenchCurrency.ANNULMENT, Set.of(), random);
+      assertThat(removed.applied()).isTrue();
+      var item = removed.state();
+      assertThat(item.explicits()).containsExactly(fracture);
+      assertThat(item.catalystQuality()).isEqualTo(before.catalystQuality());
+      int target = before.qualityInfused() ? 45 : 42;
+      var goal =
+          new GoalFilter(
+              1,
+              index.version(),
+              new General(
+                  base.baseItemId(), new Range(null, null), List.of(ItemState.Rarity.RARE), 40),
+              List.of(
+                  new Group(
+                      "cold",
+                      Type.AND,
+                      false,
+                      null,
+                      List.of(rangeEntry("explicit", cold, "percent", target, target))),
+                  new Group(
+                      "cap",
+                      Type.NOT,
+                      false,
+                      null,
+                      List.of(
+                          rangeEntry("explicit", QualityLimitRules.STAT_ID, "percent", 20, 20)))));
+      assertThat(service.evaluate(item, goal).status()).isEqualTo(Status.MATCH);
+      assertThat(service.preview(context(catalog, 82), goal, workbench, fracture).cards())
+          .singleElement()
+          .satisfies(
+              c -> {
+                assertThat(c.item().explicits()).containsExactly(fracture);
+                assertThat(c.item().qualityInfused()).isEqualTo(item.qualityInfused());
+                assertThat(c.item().catalystQuality()).isEqualTo(item.catalystQuality());
+                assertThat(c.projectedValues().get(tier).get(cold))
+                    .isEqualByComparingTo(BigDecimal.valueOf(target));
+              });
+    }
+  }
+
   /** 개수 필터는 한 아이템에 하나의 기폭제만 적용한다. 두 저항에 서로 다른 기폭제의 최댓값을 합치지 않는다. */
   @Test
   void countCannotCombineTwoDifferentCatalystsOnOneItem() {
@@ -580,6 +740,65 @@ class GoalExamplesTest {
     }
   }
 
+  /** 두 저항이 각각 30인 최상 굴림에서 한 기폭제는 하나만 45로 높인다. Count와 두 가중합의 경계를 확인한다. */
+  @ParameterizedTest
+  @org.junit.jupiter.params.provider.EnumSource(
+      value = Type.class,
+      names = {"COUNT", "WEIGHTED_V1", "WEIGHTED_V2"})
+  void compoundGoalsCannotCombineDifferentCatalysts(Type type) {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
+    var service = new GoalFilterService(index);
+    var sources = new LinkedHashMap<>(simulator.modifierSources(82));
+    sources
+        .keySet()
+        .retainAll(
+            Set.of(
+                catalog.base().implicitModifierId(),
+                QualityLimitRules.BREACH_ID,
+                "amulet:suffix:of-the-walrus",
+                "amulet:suffix:of-the-furnace"));
+    boolean count = type == Type.COUNT;
+    var rows =
+        List.of("base_cold_damage_resistance_%", "base_fire_damage_resistance_%").stream()
+            .map(
+                stat ->
+                    new Entry(
+                        stat,
+                        GoalCatalogIndex.id("explicit", stat),
+                        "percent",
+                        count ? new Range(BigDecimal.valueOf(45), null) : new Range(null, null),
+                        count ? null : BigDecimal.ONE,
+                        false))
+            .toList();
+    int best = count ? 1 : 75;
+    for (int minimum : List.of(best, best + 1)) {
+      var goal =
+          new GoalFilter(
+              1,
+              index.version(),
+              new General(
+                  catalog.base().id(), new Range(null, null), List.of(ItemState.Rarity.RARE), 40),
+              List.of(
+                  new Group(
+                      "res", type, false, new Range(BigDecimal.valueOf(minimum), null), rows)));
+      var items = service.examples(context(catalog, 82), goal, simulator, sources);
+      if (minimum > best) assertThat(items).isEmpty();
+      else {
+        assertThat(items.stream().map(i -> i.catalystQuality().type()).distinct())
+            .containsExactlyInAnyOrder(CatalystQuality.Type.TUL, CatalystQuality.Type.XOPH);
+        assertThat(items)
+            .allSatisfy(
+                i -> {
+                  assertThat(i.catalystQuality().amount()).isEqualTo(50);
+                  assertThat(i.qualityInfused()).isTrue();
+                  assertThat(service.evaluate(i, goal).status()).isEqualTo(Status.MATCH);
+                });
+      }
+    }
+  }
+
   /** 정제 기폭제와 주얼 접미 효과가 같은 굴림에 적용돼야 도달하는 가중합을 실제 아이템으로 검증한다. */
   @Test
   void refinedQualityAndJewelEffectReachWeightedScoreTogether() {
@@ -618,6 +837,7 @@ class GoalExamplesTest {
                 new Group(
                     "score", Type.WEIGHTED_V2, false, new Range(score, score), List.of(row))));
     var items = service.examples(context(catalog, 82), goal, simulator, sources);
+    assertThat(items).allSatisfy(item -> assertThat(item.qualityInfused()).isFalse());
     assertThat(items)
         .anySatisfy(
             item -> {
