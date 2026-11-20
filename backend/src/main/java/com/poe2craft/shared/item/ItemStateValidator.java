@@ -234,8 +234,19 @@ public final class ItemStateValidator {
 
   /** Separate from existing-item validation: only newly generated affixes obey this check. */
   public List<Violation> validateForGeneration(ItemState state) {
+    return validateForGeneration(state, false);
+  }
+
+  /** 완성 예시에 새로 추가한 옵션의 레벨을 검사한다. 입력에서 그대로 유지한 분열 옵션은 기존 상태로 검증한다. */
+  public List<Violation> validateForGenerationRetainingFracture(ItemState state) {
+    return validateForGeneration(state, true);
+  }
+
+  /** 모든 옵션의 값·계열·슬롯은 검증하고 신규 획득인 옵션에만 요구 레벨을 적용한다. */
+  private List<Violation> validateForGeneration(ItemState state, boolean retainFracture) {
     var errors = new ArrayList<>(validate(state));
     for (var modifier : state.explicits()) {
+      if (retainFracture && modifier.fractured()) continue;
       catalog
           .find(modifier.modifierId())
           .ifPresent(

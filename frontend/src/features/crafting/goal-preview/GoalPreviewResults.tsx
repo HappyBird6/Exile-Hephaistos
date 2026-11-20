@@ -81,7 +81,7 @@ function validCard(
     return false
   const { sources } = card
   const allowed = new Set<string>()
-  for (const { modifierId } of [
+  for (const { modifierId, fractured } of [
     ...card.item.implicits,
     ...card.item.explicits,
   ]) {
@@ -93,7 +93,8 @@ function validCard(
         !Array.isArray(sources[id]) ||
         (!sources[id].length &&
           !(
-            id === modifierId && card.item.conditions.includes('SANCTIFIED')
+            id === modifierId &&
+            (fractured || card.item.conditions.includes('SANCTIFIED'))
           )) ||
         allowed.has(id)
       )

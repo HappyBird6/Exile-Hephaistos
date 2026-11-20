@@ -102,7 +102,12 @@ final class GoalExamples {
   List<Matches> find(GoalFilter.Context context, ModifierInstance fracture, String selectedTier) {
     this.selectedTier = selectedTier;
     this.fracture = fracture;
-    if (fracture != null && (!fracture.fractured() || !sources.containsKey(fracture.modifierId())))
+    if (fracture != null
+        && (!fracture.fractured()
+            || catalog
+                .find(fracture.modifierId())
+                .filter(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT)
+                .isEmpty()))
       throw new GoalFilterService.InvalidGoal(
           List.of(
               GoalFilter.Issue.error("INVALID_ITEM", "/fracture", "Invalid fractured modifier.")));
@@ -154,7 +159,7 @@ final class GoalExamples {
   /** 시작 상태와 균열 옵션을 임시로 획득할 수 있는 상태 각각에서 기폭제·주입기 규칙을 적용한다. */
   private Set<Quality> reachableQualities(ItemState seed, WorkbenchCurrency currency) {
     var result = new LinkedHashSet<Quality>();
-    if (!validator.validateForGeneration(seed).isEmpty()) return result;
+    if (!validator.validateForGenerationRetainingFracture(seed).isEmpty()) return result;
     addQualities(result, seed, currency);
     var breach = catalog.find(QualityLimitRules.BREACH_ID).orElse(null);
     if (breach == null
@@ -375,7 +380,8 @@ final class GoalExamples {
                   null,
                   catalyst)
               .withQualityInfused(infused);
-      if (fracture != null && !validator.validateForGeneration(item).isEmpty()) continue;
+      if (fracture != null && !validator.validateForGenerationRetainingFracture(item).isEmpty())
+        continue;
       seeds.add(
           new Seed(
               item,
@@ -512,7 +518,7 @@ final class GoalExamples {
         if (!origin.supportsRarity(item.rarity())) continue;
         var next = append(item, d, domain.getFirst(), origin);
         if (next != null
-            && validator.validateForGeneration(next).isEmpty()
+            && validator.validateForGenerationRetainingFracture(next).isEmpty()
             && next.explicits().stream()
                     .filter(m -> AugmentCraftingRules.crafted(m, catalog))
                     .count()

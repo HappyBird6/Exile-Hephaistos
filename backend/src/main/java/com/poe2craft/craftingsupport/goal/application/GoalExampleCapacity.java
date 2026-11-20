@@ -112,7 +112,7 @@ final class GoalExampleCapacity {
         item.explicits().stream().filter(m -> AugmentCraftingRules.crafted(m, catalog)).count()
             > AugmentCraftingRules.craftedLimit(item);
     if (!needsSuffix && !needsCrafted)
-      return validator.validateForGeneration(item).isEmpty() ? item : null;
+      return validator.validateForGenerationRetainingFracture(item).isEmpty() ? item : null;
     if (item.rarity() == ItemState.Rarity.NORMAL) return null;
     for (int i = first; i < capacityAugments.size(); i++) {
       var id = capacityAugments.get(i);

@@ -102,4 +102,34 @@ class GoalPreviewStartingItemTest {
                   .isEqualByComparingTo("80");
             });
   }
+
+  /** 이미 붙은 T4는 레벨 20에서 보존되며 새 T4나 범위를 벗어난 분열 굴림은 생성되지 않는다. */
+  @Test
+  void existingFractureCanExceedTheGenerationLevel() {
+    var context = new Context(base.snapshotId(), base.baseItemId(), 20);
+    var tier = "amulet:suffix:of-the-walrus";
+    var fracture = new ModifierInstance(tier, Map.of(COLD, 30L), true);
+    assertThat(catalog.find(tier).orElseThrow().requiredItemLevel()).isEqualTo(50);
+    var existing = service.preview(context, coldGoal(30, null), workbench, fracture, tier).cards();
+    assertThat(existing)
+        .anySatisfy(
+            card -> {
+              assertThat(card.item().explicits()).containsExactly(fracture);
+              assertThat(card.optionTiers().get(tier)).containsExactly(tier);
+              assertThat(card.sources().get(tier)).isEmpty();
+              assertThat(card.occupancy()).isNotEmpty();
+            });
+    assertThat(service.preview(context, coldGoal(30, null), workbench, null, tier).cards())
+        .isEmpty();
+    assertThat(
+            service
+                .preview(
+                    context,
+                    coldGoal(31, null),
+                    workbench,
+                    new ModifierInstance(tier, Map.of(COLD, 31L), true),
+                    tier)
+                .cards())
+        .isEmpty();
+  }
 }

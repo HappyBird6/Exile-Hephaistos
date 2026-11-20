@@ -143,6 +143,27 @@ it('sends the full sanctified starting item and renders its single fixed tier', 
   ).toEqual(locked)
 })
 
+it('keeps a fractured tier without advertising a new source at this item level', async () => {
+  const low = {
+    ...item,
+    explicits: item.explicits.map((m) => ({ ...m, fractured: true })),
+  }
+  renderPreview({
+    ...preview,
+    cards: [
+      {
+        item: low,
+        tierVariants: [low],
+        sources: { implicit: sources.implicit, p: [] },
+        optionTiers: { implicit: ['implicit'], p: ['p'] },
+      },
+    ],
+  })
+  const card = within(await screen.findByRole('article'))
+  expect(card.getByText('Already on the starting item')).toBeVisible()
+  expect(card.getByText('+15 to maximum Life')).toBeVisible()
+})
+
 it('shows disjoint matching tiers beside the option and qualifies the sources that apply to specific tiers', async () => {
   const fetch = renderPreview(preview)
   const cards = await screen.findAllByRole('article')
