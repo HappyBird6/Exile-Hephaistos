@@ -40,8 +40,8 @@ import org.junit.jupiter.api.Test;
  *       실제 결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code qualityPrerequisiteCanReplaceAnAlreadyMatchedAffixAndReacquireItAfterWork()}: 이름에
  *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
- *   <li>{@code knownQualityAloneDoesNotRequireAnUnimplementedAffixScalingProjection()}: 이름에 명시한
- *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code knownQualityAndScaledLifeUseTheirConcreteThresholds()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *       기대값과 비교한다.
  *   <li>{@code oldGoalJsonHasNoNewRequiredFieldAndNewQualityIsValidatedAndPreserved()}: 이름에 명시한
  *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
  * </ul>
@@ -216,7 +216,7 @@ class AutomaticQualityGoalsTest {
   }
 
   @Test
-  void knownQualityAloneDoesNotRequireAnUnimplementedAffixScalingProjection() {
+  void knownQualityAndScaledLifeUseTheirConcreteThresholds() {
     var typed =
         new ItemState(
             root.snapshotId(),
@@ -244,9 +244,14 @@ class AutomaticQualityGoalsTest {
       assertThat(GoalDirectedPlannerScenariosTest.goals.evaluate(typed, goal).status())
           .isEqualTo(minimum == 20 ? GoalFilter.Status.MATCH : GoalFilter.Status.NO_MATCH);
     }
-    var affixGoal = fixture.goal(root, Map.of(GoalDirectedPlannerScenariosTest.LIFE, 1L));
-    assertThat(GoalDirectedPlannerScenariosTest.goals.evaluate(typed, affixGoal).status())
-        .isEqualTo(GoalFilter.Status.UNSUPPORTED);
+    var atThreshold = fixture.goal(root, Map.of(GoalDirectedPlannerScenariosTest.LIFE, 144L));
+    var aboveThreshold = fixture.goal(root, Map.of(GoalDirectedPlannerScenariosTest.LIFE, 145L));
+    assertThat(GoalDirectedPlannerScenariosTest.goals.evaluate(root, atThreshold).status())
+        .isEqualTo(GoalFilter.Status.NO_MATCH);
+    assertThat(GoalDirectedPlannerScenariosTest.goals.evaluate(typed, atThreshold).status())
+        .isEqualTo(GoalFilter.Status.MATCH);
+    assertThat(GoalDirectedPlannerScenariosTest.goals.evaluate(typed, aboveThreshold).status())
+        .isEqualTo(GoalFilter.Status.NO_MATCH);
   }
 
   @Test
