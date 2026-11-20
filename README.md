@@ -146,6 +146,7 @@ v0.5.5가 게임 JSON·번역의 편집 원본이고 backend/frontend 경로는 
 | 베이스 이미지·출처 | `game-data/assets/base-images.json`, `game-data/sources.json` |
 | 게임 규칙 설명 | `docs/v0.5.5/game-rule/`의 해당 MD |
 | API 형식·공유 검증 사례 | `docs/contracts/`의 해당 schema·fixture |
+| 제작지원 LLM의 레시피 후보 생성 논의·실험 기록 | [LLM 통신 설계 기록](docs/llm/README.md) |
 | API 제한·지원 언어 정책 | `backend/src/main/resources/contracts/` |
 | 서버 운영 값 | `backend/src/main/resources/backend-settings.yaml` |
 
