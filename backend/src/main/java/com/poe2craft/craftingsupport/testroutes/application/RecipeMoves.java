@@ -7,7 +7,6 @@ import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.AugmentCraftingRules;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
-import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import java.util.*;
 
@@ -44,13 +43,12 @@ final class RecipeMoves {
     LOW_PREPARATION,
     LOW_CHAOS,
     LOW_EXALT,
-    LOW_LIGHT,
     LOW_BONE,
     LOW_REVEAL,
-    LOW_REVEAL_MISS
+    DESECRATION
   }
 
-  /** eligibleTiers는 해당 L 예외가 실제로 얻을 수 있는 티어다. followup은 더미가 보호할 교체다. */
+  /** eligibleTiers는 해당 L 경로 또는 훼손 선택으로 얻을 수 있는 목표 티어다. followup은 더미가 보호할 교체다. */
   record Choice(
       int target,
       Move move,
@@ -76,7 +74,6 @@ final class RecipeMoves {
       Map<Integer, String> after,
       Set<String> removed,
       Set<String> lowIds) {
-    if (choice.purpose() == Purpose.LOW_REVEAL_MISS) return before.equals(after);
     for (var entry : after.entrySet()) {
       var id = entry.getValue();
       if (!lowIds.contains(id) || (id.equals(before.get(entry.getKey())) && !removed.contains(id)))
@@ -86,7 +83,8 @@ final class RecipeMoves {
     }
     if (choice.purpose() == Purpose.LOW_CHAOS
         || choice.purpose() == Purpose.LOW_EXALT
-        || choice.purpose() == Purpose.LOW_REVEAL) {
+        || choice.purpose() == Purpose.LOW_REVEAL
+        || choice.purpose() == Purpose.DESECRATION) {
       var acquired = after.get(choice.target());
       return acquired != null
           && choice.eligibleTiers().contains(acquired)
@@ -109,6 +107,7 @@ final class RecipeMoves {
   List<Choice> choices(ItemState item, RouteCards.Card card, Map<Integer, String> held) {
     var result = new LinkedHashSet<Choice>();
     var slots = validator.slots(item);
+    var pendingReveal = pendingReveal(item);
     var mandatory =
         card.options().stream()
             .filter(o -> !held.containsKey(o.number()))
@@ -131,7 +130,8 @@ final class RecipeMoves {
       int target = opt.number();
       if (held.containsKey(target)) continue;
       if (lowFirst && !mandatory.contains(opt)) continue;
-      lowMoves(result, item, card, opt, held, slots);
+      lowMoves(result, item, opt, slots, pendingReveal);
+      var bones = new LinkedHashMap<String, Set<String>>();
       for (var tier : opt.tiers().entrySet()) {
         if (low(tier.getValue())) continue;
         var definition = simulator.catalog().find(tier.getKey());
@@ -151,13 +151,7 @@ final class RecipeMoves {
                 result.addAll(rarityPreparation(target, item));
               else add(result, target, new Move(source.id()), false);
             }
-            case "D" -> {
-              if (item.rarity() != ItemState.Rarity.RARE)
-                result.addAll(rarityPreparation(target, item));
-              else if (item.desecrated().stream().anyMatch(s -> s.modifierId() == null))
-                add(result, target, new Move("REVEAL"), false);
-              else add(result, target, new Move(source.id()), false);
-            }
+            case "D" -> bones.computeIfAbsent(source.id(), k -> new TreeSet<>()).add(tier.getKey());
             case "C" -> {
               if (item.rarity() != ItemState.Rarity.RARE) {
                 result.addAll(rarityPreparation(target, item));
@@ -191,6 +185,7 @@ final class RecipeMoves {
           }
         }
       }
+      desecrationChoices(result, item, target, bones, pendingReveal, false);
     }
     return List.copyOf(result);
   }
@@ -199,10 +194,9 @@ final class RecipeMoves {
   private void lowMoves(
       Set<Choice> result,
       ItemState item,
-      RouteCards.Card card,
       RouteCards.Option option,
-      Map<Integer, String> held,
-      ItemStateValidator.AffixSlots slots) {
+      ItemStateValidator.AffixSlots slots,
+      Set<String> pendingReveal) {
     var chaosTiers = new TreeSet<String>();
     var exaltTiers = new TreeSet<String>();
     var boneTiers = new LinkedHashMap<String, Set<String>>();
@@ -212,7 +206,7 @@ final class RecipeMoves {
       var definition = simulator.catalog().find(tier.getKey());
       if (definition.isEmpty()) continue;
       for (var source : tier.getValue()) {
-        if (source.label().equals("D") && held.size() == 5)
+        if (source.label().equals("D"))
           boneTiers.computeIfAbsent(source.id(), k -> new TreeSet<>()).add(tier.getKey());
         if (source.frequency() != RouteCards.Frequency.L) continue;
         if (source.label().equals("A")
@@ -243,19 +237,7 @@ final class RecipeMoves {
               null,
               Purpose.LOW_EXALT,
               Set.copyOf(exaltTiers)));
-    if (boneTiers.isEmpty() || item.rarity() != ItemState.Rarity.RARE) return;
-    if (item.desecrated().isEmpty()) {
-      if (item.explicitSlotCount() == 5)
-        boneTiers.forEach(
-            (id, tiers) ->
-                result.add(
-                    new Choice(
-                        target, new Move(id), true, null, Purpose.LOW_BONE, Set.copyOf(tiers))));
-    } else {
-      var revealTiers = new TreeSet<String>();
-      boneTiers.values().forEach(revealTiers::addAll);
-      lowDesecration(result, target, item, held, card, Set.copyOf(revealTiers));
-    }
+    desecrationChoices(result, item, target, boneTiers, pendingReveal, true);
   }
 
   /** B/A 추첨에 희소도가 있는 티어에 한해서 L 보호·첫 획득 규칙을 적용한다. */
@@ -263,56 +245,58 @@ final class RecipeMoves {
     return sources.stream().anyMatch(s -> s.frequency() == RouteCards.Frequency.L);
   }
 
-  /** 보존할 다섯 옵션을 남기고 마지막 한 슬롯에만 뼈, 공개 또는 빛+소멸을 쓴다. */
-  private void lowDesecration(
-      Set<Choice> result,
-      int target,
-      ItemState item,
-      Map<Integer, String> held,
-      RouteCards.Card card,
-      Set<String> tiers) {
-    if (item.rarity() != ItemState.Rarity.RARE) return;
-    if (item.explicitSlotCount() != 6 || item.desecrated().size() != 1) return;
-    var slot = item.desecrated().getFirst();
-    if (slot.modifierId() != null && held.containsValue(slot.modifierId())) return;
-    if (slot.modifierId() == null) {
-      var workbench = simulator.forItem(item);
-      var catalog = workbench.catalog();
-      var abyss = AbyssCraftingState.from(item, catalog);
-      var eligible = abyss.eligibleRevealIds(slot.id(), catalog);
-      if (!Collections.disjoint(tiers, eligible)) {
-        result.add(new Choice(target, new Move("REVEAL"), false, null, Purpose.LOW_REVEAL, tiers));
-        // 결과를 모르는 공개에서도 실제 가능한 실패 한 개만 대표 상태로 보여준다.
-        var goalTiers = new HashSet<String>();
-        for (var option : card.options()) goalTiers.addAll(option.tiers().keySet());
-        eligible.stream()
-            .filter(id -> !goalTiers.contains(id))
-            .map(id -> catalog.find(id).orElseThrow())
-            .filter(d -> d.stats().size() == 1 || workbench.automaticJointRolls(d).isPresent())
-            .min(
-                Comparator.comparingInt((ModifierDefinition d) -> d.stats().size())
-                    .thenComparing(ModifierDefinition::id))
-            .ifPresent(
-                d ->
-                    result.add(
-                        new Choice(
-                            target,
-                            new Move("REVEAL"),
-                            true,
-                            null,
-                            Purpose.LOW_REVEAL_MISS,
-                            Set.of(d.id()))));
-        return;
-      }
+  /** 이미 열린 미공개 슬롯에서 실제 선택 가능한 티어를 베이스·방향·전용 공개 풀로 검증한다. */
+  private Set<String> pendingReveal(ItemState item) {
+    if (item.desecrated().stream().noneMatch(s -> s.modifierId() == null)) return Set.of();
+    var catalog = simulator.forItem(item).catalog();
+    var abyss = AbyssCraftingState.from(item, catalog);
+    var eligible = new TreeSet<String>();
+    for (var slot : item.desecrated()) {
+      if (slot.modifierId() == null) eligible.addAll(abyss.eligibleRevealIds(slot.id(), catalog));
     }
-    result.add(
-        new Choice(
-            target,
-            new Move(WorkbenchCurrency.ANNULMENT, WorkbenchOmen.LIGHT),
-            true,
-            null,
-            Purpose.LOW_LIGHT,
-            tiers));
+    return eligible;
+  }
+
+  /** 빈칸에 쓰는 재료와 기존 슬롯의 공개 중 실제 선택만 해당 목표·재료별 티어로 묶는다. */
+  private static void desecrationChoices(
+      Set<Choice> result,
+      ItemState item,
+      int target,
+      Map<String, Set<String>> bones,
+      Set<String> pendingReveal,
+      boolean low) {
+    if (bones.isEmpty()) return;
+    if (item.rarity() != ItemState.Rarity.RARE) {
+      if (!low) result.addAll(rarityPreparation(target, item));
+      return;
+    }
+    if (item.desecrated().isEmpty()) {
+      if (low && item.explicitSlotCount() != 5) return;
+      bones.forEach(
+          (id, tiers) ->
+              result.add(
+                  new Choice(
+                      target,
+                      new Move(id),
+                      low,
+                      null,
+                      low ? Purpose.LOW_BONE : Purpose.DESECRATION,
+                      Set.copyOf(tiers))));
+      return;
+    }
+    if (pendingReveal.isEmpty()) return;
+    var eligible = new TreeSet<String>();
+    bones.values().forEach(eligible::addAll);
+    eligible.retainAll(pendingReveal);
+    if (!eligible.isEmpty())
+      result.add(
+          new Choice(
+              target,
+              new Move("REVEAL"),
+              false,
+              null,
+              low ? Purpose.LOW_REVEAL : Purpose.DESECRATION,
+              Set.copyOf(eligible)));
   }
 
   /** 베이스 풀을 실제로 추첨할 수 있는 화폐와 목표 쪽 징조, 자리가 차면 제거 후보를 추가한다. */

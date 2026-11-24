@@ -21,7 +21,9 @@ import com.poe2craft.shared.crafting.domain.CraftingEngine;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.ids.GameIdCodec;
 import com.poe2craft.shared.ids.GameIdMappings;
+import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.item.SolarAmulet;
 import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
@@ -40,12 +42,15 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 class TestRouteControllerTest {
   private static final String URL = "/api/v1/crafting/support/goal-filters/test-routes";
   private static final String LIFE = "base_maximum_life";
+
+  /** HTTP 입력에 사용하는 작업대와 같은 검증된 카탈로그다. */
+  private final ItemCatalog catalog = ItemCatalogLoader.loadDefault();
+
   private final ObjectMapper json = new ObjectMapper();
   private final ObjectNode body;
   private final MockMvc mvc;
 
   TestRouteControllerTest() {
-    var catalog = ItemCatalogLoader.loadDefault();
     var index = new GoalCatalogIndex(List.of(catalog), GoalDefinitionsLoader.load());
     var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
     var workbench = mock(CraftingOperations.class);
@@ -199,6 +204,131 @@ class TestRouteControllerTest {
     assertThat(route.at("/steps/0/expectedUses").doubleValue()).isBetween(1d, 1000d);
     step.put("maxUses", 1001);
     grade(input).andExpect(status().isBadRequest());
+  }
+
+  /** 5개 기존 옵션과 마지막 미공개 접두 칸을 넣고, +85~99 생명력 한 티어에 해당하는 목표를 만든다. */
+  private ObjectNode hiddenLifeRequest(int minimum, int maximum) {
+    var input = body.deepCopy();
+    var item = (ObjectNode) input.get("item");
+    var mods = item.putArray("explicits");
+    for (var stat :
+        List.of(
+            "base_maximum_mana",
+            "base_maximum_energy_shield",
+            "base_chaos_damage_resistance_%",
+            "base_cold_damage_resistance_%",
+            "base_fire_damage_resistance_%")) {
+      var definition =
+          catalog.modifiers().values().stream()
+              .filter(
+                  d ->
+                      d.weight() > 0
+                          && d.stats().size() == 1
+                          && d.stats().getFirst().id().equals(stat))
+              .min(java.util.Comparator.comparingInt(ModifierDefinition::requiredItemLevel))
+              .orElseThrow();
+      mods.add(
+          json.valueToTree(
+              new ModifierInstance(
+                  definition.id(), Map.of(stat, definition.stats().getFirst().min()))));
+    }
+    item.putArray("desecrated")
+        .addObject()
+        .put("id", "hidden-prefix")
+        .put("side", "PREFIX")
+        .putNull("modifierId");
+    ((ObjectNode) input.at("/goal/groups/0/entries/0/range"))
+        .put("min", minimum)
+        .put("max", maximum);
+    return input;
+  }
+
+  /** 기존 슬롯에서는 적격한 생명력 티어를 한 번에 공개하고, 원래 다섯 옵션과 입력한 수치 기준을 보존한다. */
+  @Test
+  void aSingleEligibleHiddenTierIsChosenOnceAndOnlyItsNumericRollIsRandom() throws Exception {
+    var input = hiddenLifeRequest(85, 99);
+    var data =
+        json.readTree(
+            request(input)
+                .andExpect(status().isOk())
+                .andReturn()
+                .getResponse()
+                .getContentAsByteArray());
+    assertThat(data.at("/cards/0/options/0/modifierIds"))
+        .extracting(id -> id.asText())
+        .containsExactly("amulet:prefix:rotund");
+    assertThat(data.required("routes"))
+        .allSatisfy(
+            route ->
+                assertThat(route.required("steps"))
+                    .allMatch(step -> !step.path("omens").toString().contains("Omen_of_Light")));
+    var direct =
+        java.util.stream.StreamSupport.stream(data.required("routes").spliterator(), false)
+            .filter(
+                r ->
+                    r.path("steps").size() == 1
+                        && r.at("/steps/0/action").asText().equals("REVEAL"))
+            .findFirst()
+            .orElseThrow();
+    assertThat(direct.required("probability").doubleValue()).isEqualTo(1d);
+    assertThat(direct.at("/steps/0/chance/probability").doubleValue()).isEqualTo(1d);
+    assertThat(direct.at("/steps/0").has("maxUses")).isFalse();
+    var end = data.required("states").required(direct.at("/stateIndices/0").asInt());
+    assertThat(end.at("/desecrated/0/modifierId").asText()).isEqualTo("amulet:prefix:rotund");
+    assertThat(end.required("explicits"))
+        .hasSize(6)
+        .anySatisfy(
+            mod -> {
+              assertThat(mod.get("modifierId").asText()).isEqualTo("amulet:prefix:rotund");
+              assertThat(mod.at("/values/base_maximum_life").intValue()).isBetween(85, 99);
+            });
+    var storedMods = json.treeToValue(end.required("explicits"), ModifierInstance[].class);
+    var startMods = json.treeToValue(input.at("/item/explicits"), ModifierInstance[].class);
+    assertThat(storedMods).contains(startMods);
+    // 같은 티어에서 +90만 요구하면 획득은 100%이고 최종 성공은 15개 정수 굴림 중 하나다.
+    var exact = hiddenLifeRequest(90, 90);
+    exact.put("cardIndex", 0);
+    var reveal = exact.putArray("steps").addObject();
+    reveal.put("action", "REVEAL").putArray("omens");
+    reveal.putArray("acquired").add(1);
+    reveal.putArray("lost");
+    var graded =
+        grade(exact)
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.routes.length()").value(1))
+            .andExpect(jsonPath("$.routes[0].steps[0].chance.probability").value(1d))
+            .andExpect(jsonPath("$.routes[0].probability").value(1d / 15d))
+            .andReturn()
+            .getResponse();
+    var replay = json.readTree(graded.getContentAsByteArray());
+    var witness =
+        replay.required("states").required(replay.at("/routes/0/stateIndices/0").intValue());
+    assertThat(witness.required("explicits"))
+        .anyMatch(
+            mod ->
+                mod.path("modifierId").asText().equals("amulet:prefix:rotund")
+                    && mod.path("values").path(LIFE).intValue() == 90);
+    // 과거 반복 공개 표기는 신규 고정 경로 입력으로 받아들이지 않는다.
+    reveal.put("maxUses", 1000);
+    grade(exact).andExpect(status().isBadRequest());
+  }
+
+  /** 과거의 빛·소멸 → 새 뼈 → 공개 순서는 재생 요청으로 보내도 동일 아이템에서 실행할 후보가 없다. */
+  @Test
+  void replayCannotInsertAnAnnulWithLightBeforeTheReveal() throws Exception {
+    var input = hiddenLifeRequest(85, 99);
+    input.put("cardIndex", 0);
+    var steps = input.putArray("steps");
+    for (var action : List.of("ANNULMENT", "Preserved_Collarbone", "REVEAL")) {
+      var step = steps.addObject();
+      step.put("action", action);
+      var omens = step.putArray("omens");
+      if (action.equals("ANNULMENT")) omens.add("Omen_of_Light");
+      var acquired = step.putArray("acquired");
+      if (action.equals("REVEAL")) acquired.add(1);
+      step.putArray("lost");
+    }
+    grade(input).andExpect(status().isOk()).andExpect(jsonPath("$.routes").isEmpty());
   }
 
   /** 사용자가 선택한 화폐 등급의 고정 경로만 재검증하는 API에 JSON을 보낸다. */

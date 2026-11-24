@@ -67,6 +67,11 @@ const market = {
       exaltedPerDivine: 500,
       prices: {
         'Exalted Orb': { name: 'Exalted Orb', exalted: 1, divine: 0.002 },
+        'Preserved Collarbone': {
+          name: 'Preserved Collarbone',
+          exalted: 8,
+          divine: 0.016,
+        },
         'Chaos Orb': { name: 'Chaos Orb', exalted: 2, divine: 0.004 },
         'Omen of Whittling': {
           name: 'Omen of Whittling',
@@ -345,6 +350,75 @@ it('keeps a zero success chance distinct from an unknown chance', async () => {
     within(list).getByRole('button', { name: /1 ex · Not yet determined/ }),
   ).toBeInTheDocument()
 })
+
+it.each([
+  { split: false, probability: 0.5, percent: '50%' },
+  { split: true, probability: 1, percent: '100%' },
+])(
+  'prices a single bone and qualifies the eligible reveal assumption (separate reveal: $split)',
+  async ({ split, probability, percent }) => {
+    await setLocale('en')
+    const slot = { id: 'd', side: 'PREFIX' as const, modifierId: null }
+    const hidden = { ...observed(null, null), desecrated: [slot] }
+    const revealed = {
+      ...observed(17, null),
+      desecrated: [{ ...slot, modifierId: 'life' }],
+    }
+    const target = {
+      acquired: [1],
+      lost: [],
+      omens: [],
+      chance: { probability },
+    }
+    const bone = 'Preserved_Collarbone'
+    serve({
+      cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+      states: [hidden, revealed],
+      routes: [
+        {
+          cardIndex: 0,
+          order: [1],
+          probability,
+          stateIndices: split ? [0, 1] : [1],
+          steps: split
+            ? [
+                { action: bone, omens: [], acquired: [], lost: [] },
+                { ...target, action: 'REVEAL' },
+              ]
+            : [{ ...target, action: bone }],
+        },
+      ],
+      complete: true,
+    })
+    show()
+    const assumption = '(assumes an eligible desecration target is revealed)'
+    const list = await screen.findByRole('list', { name: 'Crafting methods' })
+    expect(
+      within(list).getByRole('button', { pressed: true }),
+    ).toHaveTextContent(`8 ex · ${percent} ${assumption}`)
+    expect(
+      screen.getByText(`Route success chance · ${percent} ${assumption}`),
+    ).toBeVisible()
+    expect(
+      screen.getByText(`Step chance ${percent} ${assumption}`),
+    ).toBeVisible()
+    const history = screen.getByRole('region', { name: 'History' })
+    expect(
+      within(history).getAllByRole('img', { name: /Preserved Collarbone/ }),
+    ).toHaveLength(1)
+    expect(
+      within(history).queryByRole('img', { name: /Omen of Light/ }),
+    ).toBeNull()
+    expect(history).not.toHaveTextContent('1000')
+    if (split) {
+      fireEvent.click(
+        screen.getByRole('button', { name: 'Previous crafting step' }),
+      )
+      expect(screen.queryByText(/^Step chance/)).toBeNull()
+      expect(screen.getByLabelText('8 Exalted Orb')).toBeVisible()
+    }
+  },
+)
 
 it('retains the reported probability when an example state is unavailable', async () => {
   await setLocale('en')

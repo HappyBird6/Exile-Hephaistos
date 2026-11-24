@@ -109,20 +109,43 @@ class RecipeTransitionsTest {
                     && o.state().explicits().stream().noneMatch(ModifierInstance::crafted));
   }
 
-  /** 미관측 훼손 후보는 적격 상태의 조건부 실행만 성립한다. */
+  /** 뼈의 두 방향 중 접두만 성공한다. 공개할 수 있는 목표 옵션의 각 실제 수치는 작업대의 질량을 유지한다. */
   @Test
-  void unobservedRevealsAreConditional() {
+  void boneSideSelectionPrecedesGuaranteedEligibleModifier() {
     var result =
         law.successors(
             item(ItemState.Rarity.RARE), "Preserved_Collarbone", Set.of(), Set.of(life), 32, false);
-    assertThat(result.complete()).isFalse();
+    assertThat(result.complete()).isTrue();
     assertThat(result.outcomes())
-        .isNotEmpty()
+        .hasSize(15)
         .allMatch(
             o ->
-                o.probability() == null
+                o.probability().equals(Fraction.of(1, 30))
                     && o.state().desecrated().size() == 1
                     && o.state().explicits().getFirst().modifierId().equals(life));
+  }
+
+  /** 여섯 칸이 모두 차면 같은 생명력 계열을 먼저 지워야 목표 티어를 고를 수 있다. 나머지 다섯 제거도 분모에 둔다. */
+  @Test
+  void fullBoneRetainsAllRemovalChoicesBeforeSelectingTheTarget() {
+    var five = new RecipeLightTransitionTest().fiveModifiers();
+    var mods = new ArrayList<>(five.explicits());
+    mods.add(minimum(catalog.find(life).orElseThrow()));
+    var full = workbench.finishBasicCurrency(five, mods);
+    var target = "amulet:prefix:virile";
+    var law =
+        new RecipeTransitions(workbench, true)
+            .successors(full, "Preserved_Collarbone", Set.of(), Set.of(target), 100, false);
+    assertThat(law.complete()).isTrue();
+    assertThat(law.removableModifierIds()).hasSize(6);
+    assertThat(law.outcomes())
+        .singleElement()
+        .satisfies(
+            o -> {
+              assertThat(o.removedModifierIds()).containsExactly(life);
+              assertThat(o.probability()).isEqualTo(Fraction.of(1, 6));
+              assertThat(o.state().explicits()).containsAll(five.explicits());
+            });
   }
 
   /** 일반 Divine은 비분열 생명력과 힘 양쪽을 다시 굴린다. */

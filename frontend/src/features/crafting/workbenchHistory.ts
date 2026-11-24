@@ -117,7 +117,7 @@ export function validProjectedCurrencies(
 export type Frame = {
   /** 공개 확률이 미확정인 빛·소멸·뼈 반복의 전체 공개 한도다. */
   projectedRevealLimit?: number
-  projectedChance?: { probability: number | null }
+  projectedChance?: { probability: number | null; assumesEligibleReveal?: true }
   projectedWork?:
     'DESECRATE_PREFIX' | 'DESECRATE_SUFFIX' | 'QUALITY_20' | 'QUALITY_40'
   projectedCurrencies?: PlannedCurrency[]

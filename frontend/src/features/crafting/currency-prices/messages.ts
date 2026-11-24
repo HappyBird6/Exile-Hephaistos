@@ -7,6 +7,7 @@ type Messages = {
   unavailable: string
   stale: string
   actionChance: string
+  assumedReveal: string
   unknownUses: string
   perRetry: string
   desecrationBone: string
@@ -24,6 +25,7 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: 'Prices unavailable',
     stale: 'Last available prices',
     actionChance: 'Step chance',
+    assumedReveal: 'assumes an eligible desecration target is revealed',
     unknownUses: 'Expected number of uses unknown',
     perRetry: 'Per retry',
     desecrationBone: 'desecration bone',
@@ -40,6 +42,7 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: '시세 없음',
     stale: '마지막 확인 시세',
     actionChance: '단계 확률',
+    assumedReveal: '훼손 슬롯이 허용하는 목표는 공개된다고 가정',
     unknownUses: '기대 사용 횟수 미확정',
     perRetry: '재시도 1회당',
     desecrationBone: '훼손 뼈',
@@ -56,6 +59,7 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: '价格不可用',
     stale: '上次可用价格',
     actionChance: '步骤概率',
+    assumedReveal: '假设符合亵渎槽位条件的目标词缀会被揭示',
     unknownUses: '预计使用次数未知',
     perRetry: '每次重试',
     desecrationBone: '亵渎骨材',
@@ -72,6 +76,7 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: '價格無法取得',
     stale: '上次可用價格',
     actionChance: '步驟機率',
+    assumedReveal: '假設符合褻瀆欄位條件的目標詞綴會被揭示',
     unknownUses: '預期使用次數未知',
     perRetry: '每次重試',
     desecrationBone: '褻瀆骨材',
@@ -88,6 +93,7 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: '価格情報なし',
     stale: '前回取得した価格',
     actionChance: 'ステップの確率',
+    assumedReveal: '冒涜枠の条件を満たす目標モッドが開示されると仮定',
     unknownUses: '期待使用回数は不明',
     perRetry: '再試行1回につき',
     desecrationBone: '冒涜の骨',
@@ -104,6 +110,8 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: 'Precios no disponibles',
     stale: 'Últimos precios disponibles',
     actionChance: 'Probabilidad del paso',
+    assumedReveal:
+      'se supone que se revela el modificador objetivo si la ranura de profanación lo permite',
     unknownUses: 'Número esperado de usos desconocido',
     perRetry: 'Por reintento',
     desecrationBone: 'hueso de profanación',
@@ -121,6 +129,8 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: 'Цены недоступны',
     stale: 'Последние доступные цены',
     actionChance: 'Шанс шага',
+    assumedReveal:
+      'предполагается, что допустимое для слота осквернения целевое свойство будет раскрыто',
     unknownUses: 'Ожидаемое число применений неизвестно',
     perRetry: 'На повторную попытку',
     desecrationBone: 'кость осквернения',
@@ -137,6 +147,8 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: 'ไม่มีข้อมูลราคา',
     stale: 'ราคาล่าสุดที่มีอยู่',
     actionChance: 'โอกาสของขั้นตอน',
+    assumedReveal:
+      'สมมติว่าม็อดเป้าหมายจะถูกเปิดเผยหากตรงตามเงื่อนไขของช่องดูหมิ่น',
     unknownUses: 'ไม่ทราบจำนวนครั้งที่คาดว่าจะใช้',
     perRetry: 'ต่อการลองใหม่หนึ่งครั้ง',
     desecrationBone: 'กระดูกสำหรับการดูหมิ่น',

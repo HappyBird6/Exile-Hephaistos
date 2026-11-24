@@ -211,7 +211,7 @@ node scripts/versioned-game-data.mjs --check
 
 에센스 후보는 기존 베이스까지 `crafting/essences/targets.json`에서 관리합니다. 일반 추가 후보 수가 예전 Java 목록과 다르다는 이유로 거절하지 않으며, 실제 옵션 존재·layer·가중치·아이템 레벨·슬롯/가족 충돌 검증은 유지합니다. 합금·감정액 후보는 각각 `alloys/targets.json`, `liquids/targets.json`, 증강물 설치 제한은 `augments/items.json`, 효과·기본 제작 옵션 한도(`baseCraftedLimit`)는 `augments/rules.json`에서 수정합니다. 원본 수정 후 위 `--write` 명령으로 생성하고 서버를 재시작합니다. 실행 중 active 규칙을 다른 값으로 덮어쓰지 않습니다.
 
-`crafting/reveal/options.json`의 `probability: null`은 확률 미확정이며 수동 공개만 허용한다는 뜻입니다. 기존 실행 형식의 weight 0을 실제 출현 확률 0으로 해석하지 않습니다. 주얼·수동 공개 옵션의 프런트 정의는 공통 modifier에서 생성하므로 별도 원본을 유지하지 않습니다. 사용하지 않는 sapphire 표시 데이터와 기존 catalog 공통 파일·display 원본은 `docs/legacy/game-data-before-normalization/`에 보관합니다. 검증 proof/review는 `docs/legacy/raw-data/`에서 테스트만 읽습니다.
+`crafting/reveal/options.json`의 `probability: null`은 실제 공개 확률이 미확정이라는 뜻입니다. 작업대에서는 관측한 후보를 수동으로 선택합니다. 기존 실행 형식의 weight 0을 실제 출현 확률 0으로 해석하지 않습니다. 주얼·수동 공개 옵션의 프런트 정의는 공통 modifier에서 생성하므로 별도 원본을 유지하지 않습니다. 사용하지 않는 sapphire 표시 데이터와 기존 catalog 공통 파일·display 원본은 `docs/legacy/game-data-before-normalization/`에 보관합니다. 검증 proof/review는 `docs/legacy/raw-data/`에서 테스트만 읽습니다. [제작지원 테스트의 훼손 공개 확률 계산](docs/v0.5.5/game-rule/support-test-routes.md#3-2차-검증과-확률-계산)
 
 출처 URL은 `sources.json`에 한 번 등록하고 `sourceRef`로 연결합니다. `src` 참조는 내부 출처 키이며 송수신용 짧은 ID가 아닙니다. 기존 참조 키를 재할당하지 않습니다. 과거 readonly 정의·registry-v1·저장 예제는 당시 원문과 bytes를 유지합니다. 원래 수집 시점·snapshot·근거 해시는 해당 메타데이터에 보존하고 새 수집 기록으로 덮어쓰지 않습니다.
 

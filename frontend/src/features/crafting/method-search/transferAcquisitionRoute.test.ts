@@ -4,9 +4,14 @@ import { webcrypto } from 'node:crypto'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
 import * as auth from '../../account/auth'
 import { publicFilm } from '../../community/sharedSnapshot'
+import { revealAction } from '../abyss-workbench/revealAction'
+import { craftingCost } from '../currency-prices/cost'
+import { requestFixture } from '../path-tree/fixtures.test-support'
 import { IndexedFilmRepository } from '../session-library/IndexedFilmRepository'
+import { extractSessionNotation } from '../session-notation/extractSessionNotation'
 import { concreteInitial } from '../workbenchApi'
 import type { Film } from '../workbenchHistory'
+import { acquisitionRouteFilm } from './acquisitionRouteFilm'
 import {
   transferAcquisitionRoute,
   type RouteDestination,
@@ -134,6 +139,129 @@ it('forks at the selected verified checkpoint, keeps the full source and preserv
   expect(retrieved.films[0]).toEqual(modified)
   expect(retrieved.active).toBe(branch!.id)
   expect(retrieved.films[2]!.frames).toEqual(film.frames)
+  await repository.close()
+})
+
+it('restores an assumed reveal from an existing slot alongside a recorded Light and Annulment payment', async () => {
+  const slot = { id: 'd', side: 'PREFIX' as const, modifierId: null }
+  const base = { ...root, rarity: 'RARE' as const }
+  const hidden = { ...base, desecrated: [slot] }
+  const revealed = {
+    ...base,
+    desecrated: [{ ...slot, modifierId: 'p' }],
+    explicits: [{ modifierId: 'p', values: { life: 15 } }],
+  }
+  const request = requestFixture()
+  request.start.item = {
+    ...request.start.item,
+    snapshotId: hidden.snapshotId,
+    baseItemId: hidden.baseItemId,
+    rarity: hidden.rarity,
+    implicits: hidden.implicits.map((modifier) => ({
+      ...modifier,
+      fractured: false,
+    })),
+    explicits: [],
+    desecrated: hidden.desecrated,
+  }
+  request.start.provenance.rulesetIdentity = identity
+  const result = {
+    complete: true,
+    cards: [{ options: [{ number: 1, modifierIds: ['p'] }] }],
+    states: [revealed],
+    routes: [
+      {
+        cardIndex: 0,
+        order: [1],
+        stateIndices: [0],
+        probability: 1,
+        steps: [
+          {
+            action: 'REVEAL',
+            acquired: [1],
+            lost: [],
+            omens: [],
+            chance: { probability: 1 },
+          },
+        ],
+      },
+    ],
+  }
+  const film = acquisitionRouteFilm(request, result, 0)!
+  await open(film, 1, 'library')
+  const repository = new IndexedFilmRepository()
+  const history = await repository.load()
+  const saved = history.films[0]!
+  expect(saved.frames[1]!.projectedChance).toEqual({
+    probability: 1,
+    assumesEligibleReveal: true,
+  })
+  expect(extractSessionNotation(saved, 1).steps).toMatchObject([
+    {
+      kind: 'reveal',
+      currencyId: revealAction,
+      consumedOmenIds: [],
+    },
+  ])
+  expect(craftingCost(saved, 1, null)).toEqual({
+    divine: 0,
+    exalted: 0,
+    unknown: [],
+    incomplete: false,
+    hasCosts: false,
+  })
+
+  const payment: Film = {
+    id: 'older-light-payment',
+    createdAt: saved.createdAt,
+    rulesetIdentity: identity,
+    frames: [
+      { state: revealed, action: null, rulesetIdentity: identity },
+      {
+        state: base,
+        action: 'ANNULMENT',
+        rulesetIdentity: identity,
+        manual: {
+          action: 'ANNULMENT',
+          rulesetIdentity: identity,
+          consumedOmens: ['Omen_of_Light'],
+        },
+      },
+    ],
+  }
+  await repository.save({ ...history, films: [...history.films, payment] })
+  const restored = (await repository.load()).films.find(
+    (f) => f.id === payment.id,
+  )!
+  expect(restored.frames).toEqual(payment.frames)
+  expect(extractSessionNotation(restored, 1).steps).toMatchObject([
+    {
+      currencyId: 'Orb_of_Annulment',
+      consumedOmenIds: ['Omen_of_Light'],
+      uses: 1,
+    },
+  ])
+  expect(
+    craftingCost(restored, 1, {
+      league: 'fixture',
+      updatedAt: '',
+      exaltedPerDivine: 100,
+      prices: {
+        'Orb of Annulment': {
+          name: 'Orb of Annulment',
+          divine: 0.03,
+          exalted: 3,
+        },
+        'Omen of Light': { name: 'Omen of Light', divine: 0.07, exalted: 7 },
+      },
+    }),
+  ).toEqual({
+    divine: 0.1,
+    exalted: 10,
+    unknown: [],
+    incomplete: false,
+    hasCosts: true,
+  })
   await repository.close()
 })
 

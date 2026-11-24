@@ -2,7 +2,9 @@ package com.poe2craft.craftingsupport.testroutes.application;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
 import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -110,5 +112,48 @@ class RecipeLowAcquisitionPolicyTest {
     assertThat(moves.choices(empty, new RouteCards.Card(lastOnly, 0), Map.of()))
         .isNotEmpty()
         .allMatch(c -> c.target() == 1);
+  }
+
+  /** 같은 뼈의 두 목표를 별도 선택으로 유지하고, 기존 접두 공개 슬롯에는 실제 가능한 접두 티어만 둔다. */
+  @Test
+  void eachDesecrationChoiceKeepsItsTargetTiersAndExistingSlot() {
+    var start = fixture.item(ItemState.Rarity.RARE);
+    var bone = new RouteCards.Source("D", "Preserved_Collarbone", null);
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(1, Map.of(fixture.life, List.of(bone), low, List.of(bone))),
+                new RouteCards.Option(2, Map.of(fixture.strength, List.of(bone)))),
+            0);
+    var choices = moves.choices(start, card, Map.of());
+    assertThat(choices)
+        .hasSize(2)
+        .allMatch(
+            c ->
+                c.purpose() == RecipeMoves.Purpose.DESECRATION
+                    && c.move().action().equals(bone.id()));
+    assertThat(choices)
+        .anyMatch(c -> c.target() == 1 && c.eligibleTiers().equals(Set.of(fixture.life, low)))
+        .anyMatch(c -> c.target() == 2 && c.eligibleTiers().equals(Set.of(fixture.strength)));
+    var pending =
+        DesecrationCurrency.apply(
+            start, bone.id(), AffixType.PREFIX, null, Set.of(), fixture.catalog);
+    var revealChoices = moves.choices(pending.storedItem(), card, Map.of());
+    assertThat(revealChoices)
+        .singleElement()
+        .satisfies(
+            c -> {
+              assertThat(c.target()).isEqualTo(1);
+              assertThat(c.move().action()).isEqualTo("REVEAL");
+              assertThat(c.eligibleTiers()).containsExactlyInAnyOrder(fixture.life, low);
+            });
+    var selected =
+        pending
+            .selectDirect(
+                pending.slots().getLast().id(),
+                fixture.item(ItemState.Rarity.RARE, fixture.life).explicits().getFirst(),
+                fixture.catalog)
+            .storedItem();
+    assertThat(moves.choices(selected, card, Map.of(1, fixture.life))).isEmpty();
   }
 }

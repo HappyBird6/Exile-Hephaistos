@@ -94,7 +94,7 @@ public final class RecipeRoutePlanner {
       var base = RecipeMoves.baseMove(new Move(action));
       if (maxUses != null
           && (maxUses != DivineRepeatEstimate.MAX_USES
-              || !Set.of("CHAOS", "DIVINE", "REVEAL").contains(base.action()))) return false;
+              || !Set.of("CHAOS", "DIVINE").contains(base.action()))) return false;
       return originalAction == null
           || (!originalAction.isBlank()
               && !originalAction.equals(action)
@@ -152,7 +152,7 @@ public final class RecipeRoutePlanner {
   }
 
   /** 같은 아이템에 도달한 모든 분기의 probability와, 그중 실제로 성립한 witness 한 개다. */
-  private record Mass(Fraction probability, Witness witness) {}
+  private record Mass(RevealTierMass weight, Witness witness) {}
 
   /** 같은 경로의 서로 다른 실제 아이템별 질량과, 그 경로에 빠진 분기가 있는지를 보존한다. */
   private static final class Distribution {
@@ -171,22 +171,25 @@ public final class RecipeRoutePlanner {
     }
 
     /** 미확정 질량은 null로 유지한다. 서로 배타적인 같은 상태 결과만 합친다. */
-    void add(ItemState item, Fraction probability, Witness parent) {
+    void add(ItemState item, RevealTierMass weight, Witness parent) {
       masses.compute(
           item,
           (key, existing) ->
               existing == null
-                  ? new Mass(probability, new Witness(key, parent))
-                  : new Mass(sum(existing.probability, probability), existing.witness));
+                  ? new Mass(weight, new Witness(key, parent))
+                  : new Mass(existing.weight.plus(weight), existing.witness));
     }
 
     /** 같은 관측 단계에 들어오는 모든 아이템의 원래 확률 질량이다. */
     Fraction total() {
-      Fraction weight = Fraction.ZERO;
-      for (var mass : masses.values()) weight = sum(weight, mass.probability);
-      return weight;
+      var total = RevealTierMass.known(Fraction.ZERO);
+      for (var mass : masses.values()) total = total.plus(mass.weight);
+      return total.exact();
     }
   }
+
+  /** 훼손에서는 목표 번호마다 독립적으로 선택할 수 있다. 일반 추첨은 한 행동의 모든 목표가 같은 분모를 사용한다. */
+  private record Trial(Move move, int target) {}
 
   /** 같은 행동이 가능한 질량과, 그중 목표 없이 승급하거나 임시 칸을 채운 모든 결과의 질량이다. */
   private static final class PreparationMass {
@@ -332,7 +335,7 @@ public final class RecipeRoutePlanner {
                 null,
                 repeat);
         var root = new Distribution(null);
-        root.add(start, Fraction.ONE, null);
+        root.add(start, RevealTierMass.known(Fraction.ONE), null);
         search.explore(List.of(), root);
         routes.addAll(search.routes);
         complete &= search.complete;
@@ -414,7 +417,7 @@ public final class RecipeRoutePlanner {
               List.copyOf(selectedSteps),
               seek);
       var initial = new Distribution(null);
-      initial.add(start, Fraction.ONE, null);
+      initial.add(start, RevealTierMass.known(Fraction.ONE), null);
       planner.explore(List.of(), initial);
       verified &= planner.complete;
       if (!planner.routes.isEmpty())
@@ -446,10 +449,10 @@ public final class RecipeRoutePlanner {
   private void expand(List<Step> path, Distribution current, Queue<Pending> pending) {
     boolean skippedStates = false;
     Witness representative = null;
-    Fraction success = Fraction.ZERO;
-    Fraction live = Fraction.ZERO;
+    var successfulMass = RevealTierMass.known(Fraction.ZERO);
+    var liveMass = RevealTierMass.known(Fraction.ZERO);
     var children = new LinkedHashMap<Step, Distribution>();
-    var preparations = new HashMap<Move, PreparationMass>();
+    var preparations = new HashMap<Trial, PreparationMass>();
     var divine = new DivineRepeatEstimate();
     boolean atFixedEnd = fixedSteps != null && path.size() == fixedSteps.size();
     var required = fixedSteps == null || atFixedEnd ? null : fixedSteps.get(path.size());
@@ -470,11 +473,11 @@ public final class RecipeRoutePlanner {
             && item.explicits().stream()
                 .noneMatch(m -> !m.fractured() && lowIds.contains(m.modifierId()))) continue;
         if (representative == null) representative = mass.witness;
-        success = sum(success, mass.probability);
+        successfulMass = successfulMass.plus(mass.weight);
         continue;
       }
       if (atFixedEnd) continue;
-      live = sum(live, entry.getValue().probability);
+      liveMass = liveMass.plus(entry.getValue().weight);
       if (remaining == 0) {
         complete = false;
         skippedStates = true;
@@ -526,8 +529,6 @@ public final class RecipeRoutePlanner {
         }
         choices.addAll(installations);
       } else choices.removeIf(c -> c.purpose() == Purpose.LOW_CHAOS);
-      if (path.stream().anyMatch(s -> s.action().equals("REVEAL") && s.acquired().isEmpty()))
-        choices.removeIf(c -> c.purpose() == Purpose.LOW_REVEAL_MISS);
       if (required != null
           && required.boundedChaos()
               != (repeat
@@ -566,6 +567,8 @@ public final class RecipeRoutePlanner {
           repeat,
           required == null ? null : required.originalAction());
     }
+    var live = liveMass.exact();
+    var success = successfulMass.exact();
     if (representative != null && (fixedSteps == null || atFixedEnd)) {
       var completed = path;
       Double routeProbability =
@@ -589,6 +592,7 @@ public final class RecipeRoutePlanner {
         completed = List.copyOf(steps);
       }
       var order = path.stream().flatMap(s -> s.acquired().stream()).toList();
+      if (routeProbability == null) complete = false;
       routes.add(
           new Route(
               cardIndex, order, completed, routeProbability, representative.indices(stateIndices)));
@@ -655,7 +659,7 @@ public final class RecipeRoutePlanner {
       Mass prior,
       boolean parentComplete,
       Map<Step, Distribution> children,
-      Map<Move, PreparationMass> preparations,
+      Map<Trial, PreparationMass> preparations,
       DivineRepeatEstimate divine,
       Move selected,
       Set<String> selectedTargets,
@@ -665,20 +669,37 @@ public final class RecipeRoutePlanner {
     for (var c : choices) byMove.computeIfAbsent(c.move(), ignored -> new ArrayList<>()).add(c);
     if (selected != null)
       byMove = forReplay(byMove, selected, !protectedIds.isEmpty(), originalAction);
-    var laws = new LinkedHashMap<Move, Law>();
-    var firstLaws = new HashMap<Move, Law>();
+    var trials = new LinkedHashMap<Trial, List<Choice>>();
+    for (var entry : byMove.entrySet())
+      for (var intent : entry.getValue()) {
+        boolean desecration =
+            intent.purpose() == Purpose.DESECRATION || intent.purpose() == Purpose.LOW_REVEAL;
+        if (desecration
+            && selected != null
+            && selected.equals(entry.getKey())
+            && !selectedTargets.isEmpty()
+            && Collections.disjoint(intent.eligibleTiers(), selectedTargets)) continue;
+        var trial = new Trial(entry.getKey(), desecration ? intent.target() : 0);
+        trials.computeIfAbsent(trial, k -> new ArrayList<>()).add(intent);
+      }
+    var laws = new LinkedHashMap<Trial, Law>();
+    var firstLaws = new HashMap<Trial, Law>();
     var safeTargets = new HashSet<Integer>();
     boolean allConsidered = true;
-    for (var entry : byMove.entrySet()) {
-      var move = entry.getKey();
+    for (var entry : trials.entrySet()) {
+      var trial = entry.getKey();
+      var move = trial.move();
       if (selected != null
           && !move.equals(selected)
-          && laws.containsKey(selected)
-          && Collections.disjoint(laws.get(selected).removableModifierIds(), protectedIds)) break;
+          && laws.entrySet().stream()
+              .filter(l -> l.getKey().move().equals(selected))
+              .noneMatch(
+                  l -> !Collections.disjoint(l.getValue().removableModifierIds(), protectedIds)))
+        break;
       if (remaining == 0) {
         complete = false;
         allConsidered = false;
-        var skipped = preparations.computeIfAbsent(move, k -> new PreparationMass());
+        var skipped = preparations.computeIfAbsent(trial, k -> new PreparationMass());
         skipped.complete = false;
         skipped.firstKnown = false;
         continue;
@@ -689,7 +710,7 @@ public final class RecipeRoutePlanner {
           move.socketIndex() == null ? move.action() : move.action() + "@" + move.socketIndex();
       // 고정된 적중 단계는 해당 번호의 모든 티어만 열거한다. 전이 법칙은 여전히 전체 작업대 후보를 분모로 쓴다.
       boolean replayHit = move.equals(selected) && !selectedTargets.isEmpty();
-      var preparation = preparations.computeIfAbsent(move, k -> new PreparationMass());
+      var preparation = preparations.computeIfAbsent(trial, k -> new PreparationMass());
       Law law;
       if (repeat && RecipeMoves.baseMove(move).action().equals(WorkbenchCurrency.CHAOS.name())) {
         // 가장 우선인 목표 번호 중 하나가 붙으면 멈춘다. 같은 번호의 모든 허용 티어를 포함한다.
@@ -712,11 +733,11 @@ public final class RecipeRoutePlanner {
                 DivineRepeatEstimate.MAX_USES,
                 remaining);
         law = bounded.hits();
-        firstLaws.put(move, bounded.firstHits());
+        firstLaws.put(trial, bounded.firstHits());
         preparation.firstKnown &= bounded.firstHits().complete();
         preparation.repeatUses =
-            sum(preparation.repeatUses, product(prior.probability, bounded.expectedUses()));
-        preparation.repeatCovered = sum(preparation.repeatCovered, prior.probability);
+            sum(preparation.repeatUses, product(prior.weight.exact(), bounded.expectedUses()));
+        preparation.repeatCovered = sum(preparation.repeatCovered, prior.weight.exact());
         remaining -= Math.max(1, bounded.work());
       } else {
         var interested = replayHit ? selectedTargets : targets;
@@ -725,7 +746,7 @@ public final class RecipeRoutePlanner {
                 c ->
                     c.purpose() == Purpose.LOW_BONE
                         || c.purpose() == Purpose.LOW_REVEAL
-                        || c.purpose() == Purpose.LOW_REVEAL_MISS)) {
+                        || c.purpose() == Purpose.DESECRATION)) {
           interested = new HashSet<>();
           for (var intent : intents) interested.addAll(intent.eligibleTiers());
         }
@@ -739,12 +760,12 @@ public final class RecipeRoutePlanner {
       }
       preparation.complete &= law.complete();
       if (move.action().equals(WorkbenchCurrency.DIVINE.name()))
-        divine.add(prior.probability, law, matchesGoal);
+        divine.add(prior.weight.exact(), law, matchesGoal);
       if (prepares && !replayHit)
-        countDummyMisses(preparation, item, before, prior.probability, law);
+        countDummyMisses(preparation, item, before, prior.weight.exact(), law);
 
       complete &= law.complete();
-      laws.put(move, law);
+      laws.put(trial, law);
       if (!protectedIds.isEmpty()
           && Collections.disjoint(law.removableModifierIds(), protectedIds)) {
         for (Choice c : intents) {
@@ -754,40 +775,47 @@ public final class RecipeRoutePlanner {
       }
     }
     for (var entry : laws.entrySet()) {
-      var move = entry.getKey();
+      var trial = entry.getKey();
+      var move = trial.move();
       if (selected != null && !selected.equals(move)) continue;
       var law = entry.getValue();
       boolean safe = Collections.disjoint(law.removableModifierIds(), protectedIds);
       if (!safe && !allConsidered) {
-        preparations.get(move).complete = false;
-        preparations.get(move).firstKnown = false;
+        preparations.get(trial).complete = false;
+        preparations.get(trial).firstKnown = false;
         continue;
       }
       var intents =
-          byMove.get(move).stream().filter(c -> safe || !safeTargets.contains(c.target())).toList();
+          trials.get(trial).stream()
+              .filter(c -> safe || !safeTargets.contains(c.target()))
+              .toList();
       if (intents.isEmpty()) continue;
-      boolean bounded = firstLaws.containsKey(move);
+      boolean bounded = firstLaws.containsKey(trial);
       Integer maxUses = bounded ? DivineRepeatEstimate.MAX_USES : null;
-      var preparation = preparations.get(move);
+      var preparation = preparations.get(trial);
       if (bounded) {
-        for (var outcome : firstLaws.get(move).outcomes()) {
+        for (var outcome : firstLaws.get(trial).outcomes()) {
           var step = observed(move, item, before, protectedIds, intents, outcome, maxUses);
           if (step != null)
             preparation.firstHitMass.put(
                 step,
                 sum(
                     preparation.firstHitMass.getOrDefault(step, Fraction.ZERO),
-                    product(prior.probability, outcome.probability())));
+                    product(prior.weight.exact(), outcome.probability())));
         }
       }
       for (var outcome : law.outcomes()) {
         var step = observed(move, item, before, protectedIds, intents, outcome, maxUses);
         if (step == null) continue;
         var child =
-            children.computeIfAbsent(step, ignored -> new Distribution(preparations.get(move)));
+            children.computeIfAbsent(step, ignored -> new Distribution(preparations.get(trial)));
         child.complete &= parentComplete && law.complete();
-        child.add(
-            outcome.state(), product(prior.probability, outcome.probability()), prior.witness);
+        var reveal = outcome.reveal();
+        var weight =
+            reveal == null
+                ? prior.weight.times(outcome.probability())
+                : prior.weight.select(reveal.group(), reveal.tier(), reveal.conditional());
+        child.add(outcome.state(), weight, prior.witness);
       }
     }
   }
@@ -816,13 +844,6 @@ public final class RecipeRoutePlanner {
             .toList();
     var acquired =
         after.keySet().stream().filter(n -> !before.containsKey(n) || lost.contains(n)).toList();
-    if (!acquired.isEmpty()
-        && intents.stream()
-            .anyMatch(
-                c ->
-                    c.purpose() == Purpose.LOW_REVEAL
-                        && c.eligibleTiers().contains(after.get(c.target()))))
-      maxUses = DivineRepeatEstimate.MAX_USES;
     return new Step(move, acquired, lost).measured(null, null, maxUses);
   }
 

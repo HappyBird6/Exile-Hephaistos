@@ -181,9 +181,9 @@ class RecipeStepChanceTest {
     assertThat(result.routes().getFirst().probability()).isEqualTo(1);
   }
 
-  /** 훼손 공개의 적중은 단계에 존재하나 분포가 없어 확률을 알 수 없다. 순수 준비의 필드 생략과 구별한다. */
+  /** 뼈가 두 방향 중 맞는 방향을 여는 경우에만 원하는 공개 옵션이 붙는다. */
   @Test
-  void unverifiedRevealIsAnUnknownChance() {
+  void guaranteedDesecrationKeepsTheBonesSideProbability() {
     var start = fixture.item(ItemState.Rarity.RARE);
     var source = new RouteCards.Source("D", "Preserved_Collarbone", null);
     var card =
@@ -200,8 +200,151 @@ class RecipeStepChanceTest {
             null);
     var route = result.routes().getFirst();
     assertThat(route.steps().getFirst().chance()).isNotNull();
-    assertThat(route.steps().getFirst().chance().probability()).isNull();
-    assertThat(route.probability()).isNull();
+    assertThat(route.steps().getFirst().chance().probability()).isEqualTo(0.5);
+    assertThat(route.probability()).isEqualTo(0.5);
+  }
+
+  /** 어느 옵션을 수동 선택할지는 독립된 제작 의도다. 같은 슬롯에서 둘 중 하나를 고르는 두 경로를 반반으로 나누지 않는다. */
+  @Test
+  void choosingADifferentDesecrationGoalDoesNotDiluteTheSelectedOne() {
+    var start =
+        fixture
+            .item(ItemState.Rarity.RARE)
+            .withDesecrated(
+                List.of(
+                    new ItemState.DesecratedSlot(
+                        "open", ModifierDefinition.AffixType.PREFIX, null)));
+    String mana = "amulet:prefix:azure";
+    var source = new RouteCards.Source("D", "Preserved_Collarbone", null);
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(1, Map.of(fixture.life, List.of(source, base))),
+                new RouteCards.Option(2, Map.of(mana, List.of(source, base)))),
+            0);
+    java.util.function.Predicate<ItemState> done =
+        s ->
+            s.explicits().stream()
+                .map(m -> m.modifierId())
+                .toList()
+                .containsAll(List.of(fixture.life, mana));
+    var found =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench, start, List.of(card), done, 12000, true, null);
+    for (int selected : List.of(1, 2)) {
+      var first =
+          new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(selected), List.of(), null);
+      var second =
+          new RecipeRoutePlanner.Step("EXALTED", List.of(), List.of(3 - selected), List.of(), null);
+      var route =
+          found.routes().stream()
+              .filter(
+                  r ->
+                      r.steps().size() == 2
+                          && r.steps().getFirst().action().equals("REVEAL")
+                          && r.steps().getFirst().acquired().equals(first.acquired())
+                          && r.steps().getLast().action().equals("EXALTED")
+                          && r.steps().getLast().omens().isEmpty())
+              .findFirst()
+              .orElseThrow();
+      var fixed =
+          RecipeRoutePlanner.evaluateFixed(
+              fixture.workbench, start, card, done, 12000, true, null, List.of(first, second));
+      assertThat(route.steps().getFirst().chance().probability()).isEqualTo(1);
+      assertThat(fixed.routes())
+          .singleElement()
+          .satisfies(
+              r -> {
+                assertThat(r.steps()).isEqualTo(route.steps());
+                assertThat(r.probability()).isEqualTo(route.probability());
+              });
+    }
+  }
+
+  /** 선택한 Rotund 티어 자체는 확정이어도 85~99의 수치는 실제 확률로 굴린다. 미달하면 이후 Divine에서 다시 굴린다. */
+  @Test
+  void guaranteedTierRollsItsValuesBeforeDivine() {
+    var start =
+        fixture
+            .item(ItemState.Rarity.RARE)
+            .withDesecrated(
+                List.of(
+                    new ItemState.DesecratedSlot(
+                        "open", ModifierDefinition.AffixType.PREFIX, null)));
+    var source = new RouteCards.Source("D", "Preserved_Collarbone", null);
+    var card =
+        new RouteCards.Card(
+            List.of(new RouteCards.Option(1, Map.of(fixture.life, List.of(source)))), 0);
+    java.util.function.Predicate<ItemState> done =
+        s ->
+            s.explicits().stream()
+                .anyMatch(
+                    m -> m.modifierId().equals(fixture.life) && m.values().containsValue(99L));
+    var search =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench, start, List.of(card), done, 10000, false, null);
+    var direct =
+        search.routes().stream().filter(r -> r.steps().size() == 1).findFirst().orElseThrow();
+    var divine =
+        search.routes().stream()
+            .filter(r -> r.steps().size() == 2 && r.steps().getLast().action().equals("DIVINE"))
+            .findFirst()
+            .orElseThrow();
+    assertThat(direct.steps().getFirst().chance().probability()).isEqualTo(1);
+    assertThat(direct.probability()).isCloseTo(1.0 / 15, offset(1e-12));
+    assertThat(divine.steps().getLast().chance().probability()).isCloseTo(1.0 / 15, offset(1e-12));
+    assertThat(divine.probability())
+        .isCloseTo(14.0 / 15 * (1 - Math.pow(14.0 / 15, 1000)), offset(1e-12));
+  }
+
+  /** 공개될 티어의 분포 자료 없이도 모든 티어가 같은 성패·수치 롤 결과를 내면 그 확률만 확정한다. */
+  @Test
+  void unknownRevealTierDistributionKeepsCommonSuccessAndBoneRisk() {
+    var high = "amulet:prefix:virile";
+    var d = new RouteCards.Source("D", "Preserved_Collarbone", null);
+    var tiers = Map.of(fixture.life, List.of(d), high, List.of(d));
+    var card = new RouteCards.Card(List.of(new RouteCards.Option(1, tiers)), 0);
+    var bare = fixture.item(ItemState.Rarity.RARE);
+    var hidden =
+        bare.withDesecrated(
+            List.of(
+                new ItemState.DesecratedSlot("open", ModifierDefinition.AffixType.PREFIX, null)));
+    java.util.function.Predicate<ItemState> any =
+        s -> s.explicits().stream().anyMatch(m -> tiers.containsKey(m.modifierId()));
+    for (var start : List.of(bare, hidden)) {
+      var action = start == bare ? "Preserved_Collarbone" : "REVEAL";
+      var step = new RecipeRoutePlanner.Step(action, List.of(), List.of(1), List.of(), null);
+      var fixed =
+          RecipeRoutePlanner.evaluateFixed(
+              fixture.workbench, start, card, any, 20000, false, null, List.of(step));
+      assertThat(fixed.routes())
+          .singleElement()
+          .satisfies(
+              r -> {
+                double expected = start == bare ? 0.5 : 1.0;
+                assertThat(r.steps().getFirst().chance().probability()).isEqualTo(expected);
+                assertThat(r.probability()).isEqualTo(expected);
+              });
+    }
+    var needs99 =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench,
+            hidden,
+            card,
+            s ->
+                s.explicits().stream()
+                    .anyMatch(m -> m.values().getOrDefault("base_maximum_life", 0L) >= 99L),
+            20000,
+            false,
+            null,
+            List.of(new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(1), List.of(), null)));
+    assertThat(needs99.routes())
+        .singleElement()
+        .satisfies(
+            r -> {
+              assertThat(r.steps().getFirst().chance().probability()).isEqualTo(1);
+              assertThat(r.probability()).isNull();
+            });
   }
 
   /** 생명력의 두 허용 티어가 같은 단계 번호를 받으며 부분 겹치는 85~99의 모든 수치가 적중한다. */

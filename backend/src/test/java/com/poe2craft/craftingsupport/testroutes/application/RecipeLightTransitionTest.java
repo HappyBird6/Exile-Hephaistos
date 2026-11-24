@@ -8,7 +8,7 @@ import com.poe2craft.shared.probability.Fraction;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-/** 접두 한 칸만 비어 있는 희귀 목걸이에서 훼손 준비·공개·빛의 징조 소멸의 중간 상태를 확인한다. */
+/** 제작지원 테스트에서 훼손 준비와 공개 대상의 티어·실제 수치 분포를 확인한다. */
 class RecipeLightTransitionTest {
   private final RecipeTransitionsTest fixture = new RecipeTransitionsTest();
 
@@ -38,53 +38,36 @@ class RecipeLightTransitionTest {
     return fixture.item(ItemState.Rarity.RARE, ids);
   }
 
-  /** 작업대의 소멸 결과와 같은 유일한 결과만 반환한다. 공개한 경우에만 제거된 수정자 ID를 기록한다. */
+  /** 지원 경로에서는 미공개·공개 슬롯 어느 쪽에도 빛의 징조로 소멸하는 후속 행동을 추가하지 않는다. */
   @Test
-  void removesOnlyTheSingleDesecratedSlotWhetherHiddenOrRevealed() {
+  void lightDoesNotResetAHiddenOrRevealedSlot() {
     var start = fiveModifiers();
+    var targets = Set.of(fixture.life);
     var hidden =
-        DesecrationCurrency.apply(
-            start,
-            "Preserved_Collarbone",
-            ModifierDefinition.AffixType.PREFIX,
-            null,
-            Set.of(),
-            fixture.catalog);
-    String id = hidden.slots().getLast().id();
-    var life = fixture.item(ItemState.Rarity.RARE, fixture.life).explicits().getFirst();
-    var shown = hidden.selectDirect(id, life, fixture.catalog);
-    var executor = new AbyssCurrencyExecutor(fixture.catalog, fixture.workbench);
-    for (var state : List.of(hidden, shown)) {
-      var expected =
-          executor.apply(
-              state, WorkbenchCurrency.ANNULMENT, Set.of(WorkbenchOmen.LIGHT.id()), new Random(1));
-      var law =
-          fixture.law.successors(
-              state.storedItem(),
-              "ANNULMENT",
-              Set.of(WorkbenchOmen.LIGHT),
-              Set.of(fixture.life),
-              1);
-      assertThat(expected.applied()).isTrue();
+        fixture
+            .law
+            .prepareDesecration(start, "Preserved_Collarbone", Set.of(), targets, 1)
+            .outcomes()
+            .getFirst()
+            .state();
+    var revealed =
+        fixture
+            .law
+            .successors(hidden, "REVEAL", Set.of(), targets, 100)
+            .outcomes()
+            .getFirst()
+            .state();
+    for (var state : List.of(hidden, revealed)) {
+      var law = fixture.law.successors(state, "ANNULMENT", Set.of(WorkbenchOmen.LIGHT), targets, 1);
       assertThat(law.complete()).isTrue();
-      var removed = state == hidden ? Set.<String>of() : Set.of(fixture.life);
-      assertThat(law.removableModifierIds()).isEqualTo(removed);
-      assertThat(law.outcomes())
-          .singleElement()
-          .satisfies(
-              outcome -> {
-                assertThat(outcome.probability()).isEqualTo(Fraction.ONE);
-                assertThat(outcome.removedModifierIds()).isEqualTo(removed);
-                assertThat(outcome.state()).isEqualTo(expected.state().storedItem());
-                assertThat(outcome.state().desecrated()).isEmpty();
-                assertThat(outcome.state().explicits()).isEqualTo(start.explicits());
-              });
+      assertThat(law.removableModifierIds()).isEmpty();
+      assertThat(law.outcomes()).isEmpty();
     }
   }
 
-  /** 관측할 후보 분포를 가정하지 않고, 빗나간 실제 옵션 하나를 지워 같은 뼈를 다시 쓸 수 있다. */
+  /** 빈 접두에 놓인 훼손 슬롯은 다음 단계에서 선택한 목표로 공개된다. 실제 수치의 확률 질량 합이 1이다. */
   @Test
-  void desecratesRevealsAndRetriesWithoutInventingARevealRate() {
+  void eligibleTargetHasUnitMassSpreadOverActualRolls() {
     var start = fiveModifiers();
     var targets = Set.of(fixture.life);
     var preparation =
@@ -101,33 +84,37 @@ class RecipeLightTransitionTest {
               assertThat(slot.modifierId()).isNull();
               assertThat(slot.side()).isEqualTo(ModifierDefinition.AffixType.PREFIX);
             });
-    var opaque = AbyssCraftingState.from(hidden, fixture.catalog);
-    var miss =
-        opaque.eligibleRevealIds(hidden.desecrated().getFirst().id(), fixture.catalog).stream()
-            .filter(id -> !id.equals(fixture.life))
-            .findFirst()
-            .orElseThrow();
-    var reveal = fixture.law.successors(hidden, "REVEAL", Set.of(), Set.of(miss), 1);
-    var missed = reveal.outcomes().getFirst();
-    assertThat(missed.state().desecrated().getFirst().modifierId()).isEqualTo(miss);
-    assertThat(missed.probability()).isNull();
-    var clear =
-        fixture
-            .law
-            .successors(missed.state(), "ANNULMENT", Set.of(WorkbenchOmen.LIGHT), targets, 1)
-            .outcomes()
-            .getFirst();
-    assertThat(clear.state()).isEqualTo(start);
-    var retry =
-        fixture
-            .law
-            .prepareDesecration(clear.state(), "Preserved_Collarbone", Set.of(), targets, 1)
-            .outcomes()
-            .getFirst()
-            .state();
-    var hit = fixture.law.successors(retry, "REVEAL", Set.of(), targets, 1).outcomes().getFirst();
-    assertThat(hit.state().desecrated().getFirst().modifierId()).isEqualTo(fixture.life);
-    assertThat(hit.probability()).isNull();
+    var reveal = fixture.law.successors(hidden, "REVEAL", Set.of(), targets, 100);
+    assertThat(reveal.complete()).isTrue();
+    var range = fixture.catalog.find(fixture.life).orElseThrow().stats().getFirst();
+    long count = range.max() - range.min() + 1;
+    assertThat(count).isGreaterThan(1);
+    assertThat(reveal.outcomes()).hasSize((int) count);
+    assertThat(
+            reveal.outcomes().stream()
+                .map(RecipeTransitions.Outcome::probability)
+                .reduce(Fraction.ZERO, Fraction::add))
+        .isEqualTo(Fraction.ONE);
+    var values = new TreeSet<Long>();
+    for (var outcome : reveal.outcomes()) {
+      var item = outcome.state();
+      assertThat(item.explicits()).containsAll(start.explicits());
+      assertThat(item.desecrated().getFirst().modifierId()).isEqualTo(fixture.life);
+      var actual =
+          item.explicits().stream()
+              .filter(m -> m.modifierId().equals(fixture.life))
+              .findFirst()
+              .orElseThrow();
+      values.add(actual.values().get(range.id()));
+      assertThat(outcome.probability()).isEqualTo(Fraction.of(1, count));
+    }
+    assertThat(values).hasSize((int) count).contains(range.min(), range.max());
+    assertThat(
+            fixture
+                .law
+                .successors(hidden, "REVEAL", Set.of(), Set.of(fixture.strength), 100)
+                .outcomes())
+        .isEmpty();
     assertThat(
             fixture
                 .law

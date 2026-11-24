@@ -27,8 +27,22 @@ public final class RecipeTransitions {
     this.presenceOnly = presenceOnly;
   }
 
-  /** state는 행동 후 상태, probability는 작업대 모델의 분기 질량(공개 분포 미확정이면 null), removedModifierIds는 제거 이력이다. */
-  public record Outcome(ItemState state, Fraction probability, Set<String> removedModifierIds) {}
+  /** 같은 미공개 슬롯과 목표 번호에 속하는 허용 티어 집합이다. */
+  record RevealGroup(ItemState item, Set<String> tiers) {}
+
+  /** 실제 티어를 조건으로 뼈 분기와 수치 굴림에 해당하는 질량이다. 티어 간 비율은 부여하지 않는다. */
+  record RevealRoll(RevealGroup group, String tier, Fraction conditional) {}
+
+  /**
+   * state는 실제 결과, probability는 확정한 분기 질량, removedModifierIds는 제거 이력이다. 티어 분포를 모르면 reveal에 조건부 질량을
+   * 보관한다.
+   */
+  public record Outcome(
+      ItemState state, Fraction probability, Set<String> removedModifierIds, RevealRoll reveal) {
+    public Outcome(ItemState state, Fraction probability, Set<String> removedModifierIds) {
+      this(state, probability, removedModifierIds, null);
+    }
+  }
 
   /** outcomes는 열거된 분기, complete는 질량을 모두 확인했는지, removableModifierIds는 제한 전의 모든 제거 가능 대상이다. */
   public record Law(List<Outcome> outcomes, boolean complete, Set<String> removableModifierIds) {
@@ -47,7 +61,17 @@ public final class RecipeTransitions {
       boolean uniform,
       Fraction probability,
       Set<String> removed,
-      Function<ModifierInstance, ItemState> finish) {}
+      Function<ModifierInstance, ItemState> finish,
+      RevealGroup revealGroup) {
+    Draw(
+        List<ModifierDefinition> options,
+        boolean uniform,
+        Fraction probability,
+        Set<String> removed,
+        Function<ModifierInstance, ItemState> finish) {
+      this(options, uniform, probability, removed, finish, null);
+    }
+  }
 
   /**
    * action은 Workbench 화폐 key, 증강물·훼손 재료 ID 또는 기존 슬롯의 REVEAL이다. targetModifierIds는 결과 열거 순서와 조건부 공개
@@ -92,23 +116,7 @@ public final class RecipeTransitions {
     }
     var abyss = item.desecrated().isEmpty() ? null : AbyssCraftingState.from(item, catalog);
     var known = abyss == null ? item : abyss.knownItem();
-    if (currency == WorkbenchCurrency.ANNULMENT && omens.contains(WorkbenchOmen.LIGHT)) {
-      if (abyss == null) return Law.empty(true);
-      var removable =
-          abyss.removalCandidates(null).stream()
-              .filter(AbyssCraftingState.Slot::desecrated)
-              .toList();
-      if (removable.isEmpty()) return Law.empty(true);
-      // 한 슬롯일 때 실행기의 균등 선택은 그 슬롯으로 확정된다. 다중 훼손은 이 경로의 단일 제거가 아니다.
-      if (removable.size() != 1) return Law.empty(false);
-      var used =
-          new AbyssCurrencyExecutor(catalog, workbench)
-              .apply(abyss, currency, omenIds(omens), () -> 0L);
-      if (!used.applied()) return Law.empty(!used.reason().contains("UNSUPPORTED"));
-      var loss = removed(known, used.state().knownItem());
-      return new Law(
-          List.of(new Outcome(used.state().storedItem(), Fraction.ONE, loss)), true, loss);
-    }
+    if (omens.contains(WorkbenchOmen.LIGHT)) return Law.empty(true);
     boolean hidden = item.desecrated().stream().anyMatch(s -> s.modifierId() == null);
     if (currency == WorkbenchCurrency.ARTIFICER
         || currency.catalystType() != null
@@ -239,7 +247,8 @@ public final class RecipeTransitions {
     var catalog = simulator.forItem(item).catalog();
     var slots = new ItemStateValidator(catalog).slots(item);
     if (slots.remainingPrefixes() + slots.remainingSuffixes() != 1) return Law.empty(true);
-    for (var state : boneStates(item, material, omens, catalog)) {
+    for (var prepared : boneStates(item, material, omens, catalog)) {
+      var state = prepared.state();
       var last = state.slots().getLast();
       if (!Collections.disjoint(state.eligibleRevealIds(last.id(), catalog), targetIds))
         return Law.deterministic(state.storedItem());
@@ -247,20 +256,23 @@ public final class RecipeTransitions {
     return Law.empty(true);
   }
 
+  /** 제거·방향을 이미 결정한 실제 미공개 상태와 해당 작업대 분기 확률이다. */
+  private record BoneState(AbyssCraftingState state, Fraction probability) {}
+
   /** 재료 적용으로 열 수 있는 미공개 상태를 작업대에서 검사한다. 가득 찬 경우에는 제거할 슬롯별로 검사한다. */
-  private static List<AbyssCraftingState> boneStates(
+  private static List<BoneState> boneStates(
       ItemState item, String material, Set<WorkbenchOmen> omens, ItemCatalog catalog) {
-    var prepared = new ArrayList<AbyssCraftingState>();
+    var removalsWithSides = new ArrayList<List<AbyssCraftingState>>();
     if (item.desecrated().isEmpty()) {
       var slots = new ItemStateValidator(catalog).slots(item);
-      boolean full = slots.remainingPrefixes() + slots.remainingSuffixes() == 0;
+      var before = AbyssCraftingState.from(item, catalog);
+      boolean full = before.slots().size() == slots.maxPrefixes() + slots.maxSuffixes();
       var removals =
           full
-              ? AbyssCraftingState.from(item, catalog).removalCandidates(null).stream()
-                  .map(AbyssCraftingState.Slot::id)
-                  .toList()
+              ? before.removalCandidates(null).stream().map(AbyssCraftingState.Slot::id).toList()
               : List.of("");
       for (String removed : removals) {
+        var sides = new ArrayList<AbyssCraftingState>();
         for (var side :
             List.of(ModifierDefinition.AffixType.PREFIX, ModifierDefinition.AffixType.SUFFIX)) {
           try {
@@ -281,12 +293,18 @@ public final class RecipeTransitions {
                                     s.revealPool())
                                 : s)
                     .toList();
-            prepared.add(new AbyssCraftingState(rolled.item(), slotsWithStableIds, rolled.offer()));
+            sides.add(new AbyssCraftingState(rolled.item(), slotsWithStableIds, rolled.offer()));
           } catch (IllegalArgumentException unavailable) {
             // 이 제거·방향 조합에서만 베이스·분열·레벨·방향·슬롯 자격이 맞지 않았다.
           }
         }
+        if (!sides.isEmpty()) removalsWithSides.add(sides);
       }
+    }
+    var prepared = new ArrayList<BoneState>();
+    for (var sides : removalsWithSides) {
+      var mass = Fraction.of(1, (long) removalsWithSides.size() * sides.size());
+      for (var state : sides) prepared.add(new BoneState(state, mass));
     }
     return prepared;
   }
@@ -301,31 +319,42 @@ public final class RecipeTransitions {
       int limit) {
     var catalog = workbench.catalog();
     var before = AbyssCraftingState.from(item, catalog);
+    boolean existing = "REVEAL".equals(material);
+    if (omens.contains(WorkbenchOmen.LIGHT) || (existing && !omens.isEmpty()))
+      return Law.empty(true);
     var prepared =
-        "REVEAL".equals(material) ? List.of(before) : boneStates(item, material, omens, catalog);
+        existing
+            ? List.of(new BoneState(before, Fraction.ONE))
+            : boneStates(item, material, omens, catalog);
     var draws = new ArrayList<Draw>();
     var removable = new HashSet<String>();
-    for (var state : prepared) {
+    for (var bone : prepared) {
+      var state = bone.state();
       var removed = removed(before.knownItem(), state.knownItem());
       removable.addAll(removed);
+      // 수동 공개에서 같은 티어를 여러 슬롯에서 고를 수 있어도 한 번만 획득한다.
+      var slotForTier = new TreeMap<String, String>();
       for (var slot : state.slots()) {
         if (!slot.desecrated() || slot.modifier() != null) continue;
-        var choices =
-            state.eligibleRevealIds(slot.id(), catalog).stream()
-                .filter(targets::contains)
-                .map(id -> catalog.find(id).orElseThrow())
-                .toList();
-        if (choices.isEmpty()) continue;
-        draws.add(
-            new Draw(
-                choices,
-                true,
-                null,
-                removed,
-                m -> state.selectDirect(slot.id(), m, catalog).storedItem()));
+        for (var id : state.eligibleRevealIds(slot.id(), catalog))
+          if (targets.contains(id)) slotForTier.putIfAbsent(id, slot.id());
       }
+      var group =
+          slotForTier.size() <= 1
+              ? null
+              : new RevealGroup(state.storedItem(), Set.copyOf(slotForTier.keySet()));
+      slotForTier.forEach(
+          (id, slot) ->
+              draws.add(
+                  new Draw(
+                      List.of(catalog.find(id).orElseThrow()),
+                      true,
+                      bone.probability(),
+                      removed,
+                      m -> state.selectDirect(slot, m, catalog).storedItem(),
+                      group)));
     }
-    var law = enumerate(workbench, draws, false, targets, limit, draws.isEmpty(), false);
+    var law = enumerate(workbench, draws, false, targets, limit, true, false);
     return new Law(law.outcomes(), law.complete(), Set.copyOf(removable));
   }
 
@@ -373,11 +402,17 @@ public final class RecipeTransitions {
               (roll, probability) -> {
                 if (outcomes.size() >= limit) return false;
                 var value = crafted ? roll.asCrafted() : roll;
+                var mass = baseMass == null ? null : baseMass.multiply(probability);
+                var choice =
+                    draw.revealGroup() == null
+                        ? null
+                        : new RevealRoll(draw.revealGroup(), candidate.id(), mass);
                 outcomes.add(
                     new Outcome(
                         draw.finish().apply(value),
-                        baseMass == null ? null : baseMass.multiply(probability),
-                        draw.removed()));
+                        choice == null ? mass : null,
+                        draw.removed(),
+                        choice));
                 return true;
               })) complete = false;
         }

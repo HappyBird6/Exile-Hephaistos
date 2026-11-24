@@ -9,6 +9,7 @@ import {
 import { materialNames } from '../catalogData'
 import type { Initial } from '../craftingApi'
 import { useCurrencyMarket } from '../currency-prices/context'
+import { priceMessages } from '../currency-prices/messages'
 import {
   currencyId,
   type NotationStep,
@@ -45,6 +46,7 @@ import {
   acquisitionRouteCost,
   acquisitionRouteFilm,
   acquisitionRouteTitle,
+  assumesEligibleReveal,
 } from './acquisitionRouteFilm'
 import { acquisitionRouteMessages } from './acquisitionRouteMessages'
 import { acquisitionTierText } from './acquisitionTierText'
@@ -262,14 +264,18 @@ function RouteList({
     if (example) cache.setQueryData(['plan-film', href(index)], example)
     select(index)
   }
-  const chance = (route: AcquisitionRoute) =>
-    route.probability == null
-      ? policyCandidateMessages[locale].unresolved
-      : formatNumber(
-          route.probability,
-          { style: 'percent', maximumSignificantDigits: 4 },
-          locale,
-        )
+  const chance = (route: AcquisitionRoute) => {
+    if (route.probability == null)
+      return policyCandidateMessages[locale].unresolved
+    const value = formatNumber(
+      route.probability,
+      { style: 'percent', maximumSignificantDigits: 4 },
+      locale,
+    )
+    return route.steps.some(assumesEligibleReveal)
+      ? `${value} (${priceMessages[locale].assumedReveal})`
+      : value
+  }
   const rows = result.routes.map((route, index) => {
     const entry = updated.get(index)
     const active = entry ? entry.data?.routes[0] : route

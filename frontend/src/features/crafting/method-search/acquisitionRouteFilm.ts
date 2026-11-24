@@ -2,6 +2,7 @@ import { getLocale, type Locale } from '../../../shared/i18n/i18n'
 import { revealAction } from '../abyss-workbench/revealAction'
 import type { PriceSnapshot } from '../currency-prices/api'
 import { craftingStepCost } from '../currency-prices/cost'
+import { isBone } from '../desecrationCurrency'
 import { pathTreeMessages } from '../path-tree/messages'
 import type { CreateRequest } from '../path-tree/types'
 import { currencyId } from '../session-notation/extractSessionNotation'
@@ -48,6 +49,14 @@ export function acquisitionOverviewHref(
 
 function materialId(action: string) {
   return currencyId(action) ?? action
+}
+
+export function assumesEligibleReveal(step: AcquisitionStep) {
+  return (
+    step.chance?.probability != null &&
+    (step.action === 'REVEAL' ||
+      (isBone(step.action) && step.acquired.length > 0))
+  )
 }
 
 function repeatUses(step: AcquisitionStep) {
@@ -116,7 +125,14 @@ export function acquisitionRouteFilm(
       return null
     const chance = step.chance
     const odds = validStepChance(chance)
-      ? { projectedChance: { probability: chance.probability } }
+      ? {
+          projectedChance: {
+            probability: chance.probability,
+            ...(assumesEligibleReveal(step)
+              ? { assumesEligibleReveal: true as const }
+              : {}),
+          },
+        }
       : {}
     if (step.action === 'REVEAL') {
       frames.push({

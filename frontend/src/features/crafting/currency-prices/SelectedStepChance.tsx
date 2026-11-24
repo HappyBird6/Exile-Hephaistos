@@ -12,10 +12,19 @@ import {
 } from '../workbenchHistory'
 import { priceMessages } from './messages'
 
-function Chance({ probability }: { probability: number | null }) {
+function Chance({
+  probability,
+  assumesEligibleReveal,
+}: {
+  probability: number | null
+  assumesEligibleReveal?: boolean
+}) {
   const { locale, t } = useI18n()
   return (
-    <span className="crafting-cost-line__chance">
+    <span
+      className="crafting-cost-line__chance"
+      data-assumed-reveal={assumesEligibleReveal || undefined}
+    >
       {priceMessages[locale].actionChance}{' '}
       {probability === null
         ? t('ui.unknown')
@@ -24,6 +33,7 @@ function Chance({ probability }: { probability: number | null }) {
             { style: 'percent', maximumSignificantDigits: 4 },
             locale,
           )}
+      {assumesEligibleReveal && ` (${priceMessages[locale].assumedReveal})`}
     </span>
   )
 }
@@ -78,7 +88,14 @@ export function SelectedStepChance({
         frame.manual?.action === revealAction &&
         frame.manual.rulesetIdentity === film.rulesetIdentity))
   )
-    return <Chance probability={frame.projectedChance.probability} />
+    return (
+      <Chance
+        probability={frame.projectedChance.probability}
+        assumesEligibleReveal={
+          frame.projectedChance.assumesEligibleReveal === true
+        }
+      />
+    )
   return frame.evidence &&
     (frame.customExalt || frame.evidence.events?.length === 1) ? (
     <RecordedChance film={film} frame={frame} cursor={cursor} />

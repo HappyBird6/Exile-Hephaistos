@@ -253,3 +253,7 @@
 .crafting-cost-line__chance {
   white-space: nowrap;
 }
+.crafting-cost-line__chance[data-assumed-reveal] {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
