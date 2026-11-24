@@ -263,7 +263,7 @@ it('clears stale descriptions on material/workspace context changes and successf
   ).toBe(true)
   fireEvent.focusIn(currencyButton('Chaos Orb'))
   await act(async () => {
-    fireEvent.click(screen.getByRole('tab', { name: /Craft Support/ }))
+    fireEvent.click(screen.getByRole('tab', { name: 'Craft Support' }))
   })
   expect(shared()).toBeNull()
   await act(async () => {

@@ -1,3 +1,6 @@
+const SupportTestPage = lazy(
+  () => import('../features/crafting/support-test/SupportTestPage'),
+)
 const CommunityList = lazy(() =>
   import('../features/community/CommunityList').then((m) => ({
     default: m.CommunityList,
@@ -81,6 +84,13 @@ function AppContent() {
     return (
       <Suspense fallback={<p role="status">…</p>}>
         <PlanOverviewPage id={plan[1]!} />
+      </Suspense>
+    )
+
+  if (location.pathname === '/support-test')
+    return (
+      <Suspense fallback={<p role="status">…</p>}>
+        <SupportTestPage />
       </Suspense>
     )
 

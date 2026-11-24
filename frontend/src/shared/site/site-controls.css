@@ -20,7 +20,8 @@
     .community-filters,
     .account-dialog,
     .account-sync,
-    .account-menu
+    .account-menu,
+    .site-actions
   )
   button {
   min-height: 40px;
@@ -39,7 +40,8 @@
     .community-filters,
     .account-dialog,
     .account-sync,
-    .account-menu
+    .account-menu,
+    .site-actions
   )
   button:hover:not(:disabled) {
   border-color: var(--site-gold);
@@ -52,7 +54,8 @@
     .community-filters,
     .account-dialog,
     .account-sync,
-    .account-menu
+    .account-menu,
+    .site-actions
   )
   button:focus-visible,
 .site-controls a:focus-visible {
@@ -66,7 +69,8 @@
     .community-filters,
     .account-dialog,
     .account-sync,
-    .account-menu
+    .account-menu,
+    .site-actions
   )
   button:disabled {
   opacity: 0.45;
