@@ -2,6 +2,7 @@ import {
   observedSanctified,
   validSanctification,
 } from './sanctification/sanctification'
+import { revealAction } from './abyss-workbench/revealAction'
 import type { AbyssState } from './crafting-state/types'
 import { baseAffixCapacity } from './baseRegistry'
 import { supportsConcreteStateShape } from './workbenchStateShape'
@@ -10,7 +11,12 @@ import { verifiedCatalystQuality } from './catalystQuality'
 import { maximumQuality, qualityLimitMatches } from './qualityLimit'
 import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
-import { coupledModelsMatch, workbenchActionNames } from './workbenchApi'
+import {
+  baseWorkbenchAction,
+  coupledModelsMatch,
+  workbenchActionNames,
+  workbenchCurrencyActions,
+} from './workbenchApi'
 import { isRulesetIdentity } from './rulesetIdentity'
 import { validAbyssResponse } from './abyssResponse'
 import { itemFromSlots, sameItemState } from './crafting-state/itemIdentity'
@@ -44,8 +50,38 @@ export type PlannedCurrency = {
   currencyId: string
   omenIds: string[]
   expectedUses?: number | null
+  omensPerUse?: boolean
   maxUses?: number
 }
+/** 준비 결과에 따라 카오스를 쓸 수 없는 분기는 0개를 소비해 반복 전체의 평균이 1 미만일 수 있다. */
+export function boundedChaosCurrency(
+  currencyId: string,
+  maxUses: number | undefined,
+) {
+  const action = workbenchCurrencyActions[currencyId]
+  return (
+    maxUses !== undefined &&
+    Number.isInteger(maxUses) &&
+    maxUses > 1 &&
+    maxUses <= 1000 &&
+    typeof action === 'string' &&
+    baseWorkbenchAction(action) === 'CHAOS'
+  )
+}
+export function validExpectedUses(
+  count: unknown,
+  currencyId: string,
+  maxUses?: number,
+): count is number {
+  return (
+    typeof count === 'number' &&
+    Number.isFinite(count) &&
+    count > 0 &&
+    (count >= 1 || boundedChaosCurrency(currencyId, maxUses)) &&
+    (maxUses === undefined || count <= maxUses)
+  )
+}
+
 export function validProjectedCurrencies(
   value: unknown,
 ): value is PlannedCurrency[] {
@@ -62,12 +98,15 @@ export function validProjectedCurrencies(
         step.omenIds.every(
           (id: unknown) => typeof id === 'string' && id.length <= 160,
         ) &&
+        (step.omensPerUse === undefined ||
+          (step.omensPerUse === true && step.maxUses !== undefined)) &&
         (step.expectedUses === undefined ||
           step.expectedUses === null ||
-          (Number.isFinite(step.expectedUses) &&
-            step.expectedUses >= 1 &&
-            (step.maxUses === undefined ||
-              step.expectedUses <= step.maxUses))) &&
+          validExpectedUses(
+            step.expectedUses,
+            step.currencyId,
+            step.maxUses,
+          )) &&
         (step.maxUses === undefined ||
           (Number.isInteger(step.maxUses) &&
             step.maxUses >= 1 &&
@@ -76,6 +115,8 @@ export function validProjectedCurrencies(
   )
 }
 export type Frame = {
+  /** 공개 확률이 미확정인 빛·소멸·뼈 반복의 전체 공개 한도다. */
+  projectedRevealLimit?: number
   projectedChance?: { probability: number | null }
   projectedWork?:
     'DESECRATE_PREFIX' | 'DESECRATE_SUFFIX' | 'QUALITY_20' | 'QUALITY_40'
@@ -128,6 +169,19 @@ export type FilmRulesetStatus =
   'current' | 'mismatch' | 'legacy-unverified' | 'inconsistent'
 
 function validRepeatFrame(frame: Frame): boolean {
+  if (
+    frame.projectedRevealLimit !== undefined &&
+    (frame.action !== revealAction ||
+      !frame.rulesetIdentity ||
+      frame.manual?.action !== revealAction ||
+      frame.manual.rulesetIdentity !== frame.rulesetIdentity ||
+      !validStepChance(frame.projectedChance) ||
+      frame.projectedChance.probability !== null ||
+      !Number.isInteger(frame.projectedRevealLimit) ||
+      frame.projectedRevealLimit < 2 ||
+      frame.projectedRevealLimit > 1000)
+  )
+    return false
   if (!validChaosRepeatFrame(frame)) return false
   if (frame.chaosRepeatWitness?.kind !== 'ABYSS') return true
   try {
@@ -478,7 +532,7 @@ export function startFilm(
   }
 }
 /** Fork the selected path, retaining all earlier receipts without changing its source film. */
-function forkFilm(
+export function forkFilm(
   films: Films,
   before: ConcreteItem,
   id: string,

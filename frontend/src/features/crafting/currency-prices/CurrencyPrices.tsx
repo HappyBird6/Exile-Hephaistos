@@ -187,17 +187,43 @@ export function CraftingCostLine({
         <div className="crafting-cost-line__controls">{children}</div>
       )}
       <SelectedStepChance film={film} cursor={cursor} />
-      <CoinAmount
-        kind="Exalted_Orb"
-        value={priced ? cost.exalted : null}
-        prefix={priced && cost.incomplete ? '≥ ' : ''}
-      />
-      <span aria-hidden="true">·</span>
-      <CoinAmount
-        kind="Divine_Orb"
-        value={priced ? cost.divine : null}
-        prefix={priced && cost.incomplete ? '≥ ' : ''}
-      />
+      {cost.retryMaterials?.length ? (
+        <span>
+          {text.unknownUses} ·{' '}
+          {cost.retryMaterials
+            .map((retry) => {
+              const materials = [...retry.omenIds, retry.currencyId].map((id) =>
+                name(id, id.replaceAll('_', ' ')),
+              )
+              if (retry.bone !== undefined)
+                materials.push(
+                  retry.bone
+                    ? name(retry.bone, retry.bone.replaceAll('_', ' '))
+                    : text.desecrationBone,
+                )
+              return (
+                text.perRetry +
+                ' · ' +
+                materials.map((material) => material + ' ×1').join(' + ')
+              )
+            })
+            .join(' / ')}
+        </span>
+      ) : (
+        <>
+          <CoinAmount
+            kind="Exalted_Orb"
+            value={priced ? cost.exalted : null}
+            prefix={priced && cost.incomplete ? '≥ ' : ''}
+          />
+          <span aria-hidden="true">·</span>
+          <CoinAmount
+            kind="Divine_Orb"
+            value={priced ? cost.divine : null}
+            prefix={priced && cost.incomplete ? '≥ ' : ''}
+          />
+        </>
+      )}
     </div>
   )
 }

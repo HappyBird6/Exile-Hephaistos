@@ -3,7 +3,12 @@ import type { PriceSnapshot } from '../currency-prices/api'
 import { craftingCost } from '../currency-prices/cost'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import type { ConcreteItem } from '../workbenchApi'
-import { filmRulesetStatus } from '../workbenchHistory'
+import { planTitle } from './probabilityPresentation'
+import {
+  filmRulesetStatus,
+  validProjectedCurrencies,
+} from '../workbenchHistory'
+import { formatExpectedUses } from '../currency-prices/formatCurrencyAmount'
 import type { AcquisitionResult, AcquisitionStep } from './acquisitionRouteApi'
 import {
   acquisitionRouteCost,
@@ -16,7 +21,11 @@ const snapshot: PriceSnapshot = {
   league: 'test',
   updatedAt: '2026-11-09T00:00:00Z',
   exaltedPerDivine: 100,
-  prices: { 'Divine Orb': { name: 'Divine Orb', divine: 1, exalted: 100 } },
+  prices: {
+    'Divine Orb': { name: 'Divine Orb', divine: 1, exalted: 100 },
+    'Chaos Orb': { name: 'Chaos Orb', divine: 0.02, exalted: 2 },
+    'Omen of Whittling': { name: 'Omen of Whittling', divine: 1, exalted: 100 },
+  },
 }
 function routeFilm(step: Partial<AcquisitionStep>) {
   const result: AcquisitionResult = {
@@ -89,4 +98,186 @@ it('keeps the concrete tier and omens when the selected action is stored', () =>
       },
     ],
   })
+})
+
+it('charges a fresh omen on each verified same-base repeat, including after saving', () => {
+  const { film, cost } = routeFilm({
+    action: 'CHAOS',
+    omens: ['Omen_of_Whittling'],
+    expectedUses: 2.5,
+    maxUses: 1000,
+  })
+  expect(cost).toMatchObject({ divine: 2.55, exalted: 255, incomplete: false })
+  expect(craftingCost(JSON.parse(JSON.stringify(film)), 1, snapshot)).toEqual(
+    cost,
+  )
+})
+
+it.each([false, true])(
+  'keeps unknown Light retry costs in the list and in a saved reveal (shown bone %s)',
+  (shownBone) => {
+    const slot = { id: 'd', side: 'PREFIX' as const, modifierId: null }
+    const hidden = { ...state, desecrated: [slot] }
+    const after = {
+      ...state,
+      desecrated: [{ ...slot, modifierId: 'chosen' }],
+      explicits: [
+        ...state.explicits,
+        { modifierId: 'chosen', values: { life: 3 } },
+      ],
+    }
+    const req = {
+      ...request,
+      start: {
+        ...request.start,
+        item: {
+          ...request.start.item,
+          ...(shownBone ? {} : { desecrated: [slot] }),
+        },
+      },
+    }
+    const setup: AcquisitionStep[] = shownBone
+      ? [{ action: 'Preserved_Collarbone', omens: [], acquired: [], lost: [] }]
+      : []
+    const result: AcquisitionResult = {
+      cards: [{ options: [] }],
+      complete: false,
+      states: [hidden, after],
+      routes: [
+        {
+          cardIndex: 0,
+          order: [2],
+          probability: null,
+          stateIndices: shownBone ? [0, 1] : [1],
+          steps: [
+            ...setup,
+            {
+              action: 'REVEAL',
+              maxUses: 1000,
+              chance: { probability: null },
+              omens: [],
+              acquired: [2],
+              lost: [],
+            },
+          ],
+        },
+      ],
+    }
+    const cap = 1000
+    const market = {
+      ...snapshot,
+      prices: {
+        ...snapshot.prices,
+        'Preserved Collarbone': {
+          name: 'Preserved Collarbone',
+          divine: 0.1,
+          exalted: 10,
+        },
+      },
+    }
+    const route = result.routes[0]!
+    const film = acquisitionRouteFilm(req, result, 0, 'en')!
+    const saved = JSON.parse(JSON.stringify(film)) as typeof film
+    const cost = acquisitionRouteCost(route, market)
+    expect(saved.frames.at(-1)).toMatchObject({
+      projectedRevealLimit: cap,
+      projectedChance: { probability: null },
+    })
+    expect(filmRulesetStatus(saved, req.start.provenance.rulesetIdentity)).toBe(
+      'current',
+    )
+    expect(cost).toMatchObject({
+      hasCosts: true,
+      incomplete: true,
+      unknownUses: true,
+      retryMaterials: [
+        {
+          currencyId: 'Orb_of_Annulment',
+          omenIds: ['Omen_of_Light'],
+          bone: shownBone ? 'Preserved_Collarbone' : null,
+        },
+      ],
+      exalted: shownBone ? 10 : 0,
+    })
+    expect(craftingCost(saved, saved.frames.length - 1, market)).toEqual(cost)
+    if (shownBone)
+      expect(craftingCost(saved, 1, market)).toMatchObject({
+        incomplete: false,
+        exalted: 10,
+      })
+    expect(planTitle(cost, 'en', 'Unresolved')).toBe(
+      'Expected number of uses unknown · Unresolved',
+    )
+    const normal = structuredClone(route)
+    delete normal.steps.at(-1)!.maxUses
+    expect(acquisitionRouteCost(normal, market)).not.toHaveProperty(
+      'retryMaterials',
+    )
+  },
+)
+
+it('preserves a bounded Chaos mean below one and prices every fractional orb and omen', () => {
+  const options = {
+    omens: ['Omen_of_Whittling'],
+    maxUses: 1000,
+    expectedUses: 0.125,
+  }
+  for (const [action, id] of [
+    ['CHAOS', 'Chaos_Orb'],
+    ['GREATER_CHAOS', 'Greater_Chaos_Orb'],
+    ['PERFECT_CHAOS', 'Perfect_Chaos_Orb'],
+  ] as const) {
+    const { film, cost } = routeFilm({ ...options, action })
+    const saved = JSON.parse(JSON.stringify(film)) as typeof film
+    expect(saved.frames[1]!.projectedCurrencies).toMatchObject([
+      { currencyId: id, expectedUses: 0.125, omensPerUse: true },
+    ])
+    expect(
+      filmRulesetStatus(saved, request.start.provenance.rulesetIdentity),
+    ).toBe('current')
+    expect(craftingCost(saved, 1, snapshot)).toEqual(cost)
+    if (action === 'CHAOS')
+      expect(cost).toMatchObject({
+        divine: 0.1275,
+        exalted: 12.75,
+        incomplete: false,
+      })
+  }
+  expect(formatExpectedUses(0.00012, 'Chaos_Orb', 'en')).toBe('0.00012')
+  expect(
+    validProjectedCurrencies([
+      { currencyId: 'Chaos_Orb', omenIds: [], ...options, expectedUses: 0 },
+    ]),
+  ).toBe(false)
+  expect(
+    validProjectedCurrencies([
+      { currencyId: 'Chaos_Orb', omenIds: [], expectedUses: 0.125 },
+    ]),
+  ).toBe(false)
+  expect(
+    validProjectedCurrencies([
+      { currencyId: 'Divine_Orb', omenIds: [], ...options },
+    ]),
+  ).toBe(false)
+})
+it('shows the materials for unknown bounded Chaos consumption without assuming even one guaranteed attempt', () => {
+  const { film, cost } = routeFilm({
+    action: 'CHAOS',
+    omens: ['Omen_of_Whittling'],
+    maxUses: 1000,
+    chance: { probability: null },
+  })
+  expect(cost).toMatchObject({
+    divine: 0,
+    exalted: 0,
+    incomplete: true,
+    unknownUses: true,
+    retryMaterials: [
+      { currencyId: 'Chaos_Orb', omenIds: ['Omen_of_Whittling'] },
+    ],
+  })
+  expect(craftingCost(film, 1, snapshot)).toEqual(cost)
+  expect(planTitle(cost, 'en', 'Unresolved')).toBe(
+    'Expected number of uses unknown · Unresolved',
+  )
 })

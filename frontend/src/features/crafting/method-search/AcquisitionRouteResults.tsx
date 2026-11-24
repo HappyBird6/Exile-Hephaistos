@@ -54,8 +54,11 @@ import {
   fixedSteps,
   gradeActions,
   gradeSearch,
+  hasGradeOverride,
   readRouteGrades,
+  routeGrades,
 } from './fixedRouteGrades'
+import { AcquisitionRouteActions } from './AcquisitionRouteActions'
 import { RouteGradePicker } from './RouteGradePicker'
 import { graphStateMessages } from './graphStateMessages'
 import { planTitle } from './probabilityPresentation'
@@ -160,7 +163,9 @@ function RouteList({
     )
       return {}
     const grades = readRouteGrades(location.search, result.routes[selection])
-    return grades && gradeSearch(grades) ? { [selection]: grades } : {}
+    return grades && hasGradeOverride(result.routes[selection], grades)
+      ? { [selection]: grades }
+      : {}
   })
   const [cursor, setCursor] = useState<number | null>(null)
   const changedIndices = Object.keys(choices).map(Number)
@@ -193,7 +198,7 @@ function RouteList({
       <p role="status">{result.complete ? copy.empty : messages.unknown}</p>
     )
   const card = result.cards[base.cardIndex]!
-  const grades = choices[selection] ?? base.steps.map(() => 1)
+  const grades = choices[selection] ?? routeGrades(base)
   const steps = selected?.steps ?? fixedSteps(base, grades)
   const pendingSteps: NotationStep[] = film
     ? []
@@ -235,13 +240,14 @@ function RouteList({
   function changeGrade(stepIndex: number, grade: number) {
     const next = [...grades]
     next[stepIndex] = grade
+    const override = hasGradeOverride(base, next)
     setChoices((stored) => {
       const edited = { ...stored }
-      if (gradeSearch(next)) edited[selection] = next
+      if (override) edited[selection] = next
       else delete edited[selection]
       return edited
     })
-    writeSelection(selection, next)
+    writeSelection(selection, override ? next : undefined)
   }
   function openOverview(index: number) {
     const entry = updated.get(index)
@@ -317,6 +323,15 @@ function RouteList({
               film={film}
               cursor={cursor ?? steps.length}
               onNavigate={setCursor}
+              actions={
+                film && (
+                  <AcquisitionRouteActions
+                    key={href(selection) + '/' + (cursor ?? steps.length)}
+                    film={film}
+                    cursor={cursor ?? steps.length}
+                  />
+                )
+              }
               {...(!film ? { item: status, pendingSteps } : {})}
               stepControls={(frameIndex) => {
                 const action = steps[frameIndex - 1]!.action

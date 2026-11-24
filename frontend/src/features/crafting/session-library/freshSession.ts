@@ -3,6 +3,15 @@ import type { Film, Films, Frame } from '../workbenchHistory'
 import { startFilm, currentFilm } from '../workbenchHistory'
 import { verifiedHistoryState } from '../workbenchHistory'
 import { checkSessionCompatibility } from '../workbenchReferenceApi'
+/** The search wire may omit untouched equipment quality. The manual checkpoint records the catalog's initial zero. */
+export function plannedFrameForWorkbench(
+  frame: Frame,
+  catalog: Initial,
+): Frame {
+  return frame.state.equipmentQuality == null && catalog.equipmentQuality === 0
+    ? { ...frame, state: { ...frame.state, equipmentQuality: 0 } }
+    : frame
+}
 /** Shared checkpoint-to-new-craft boundary; preserves sockets, hidden slots and quality. */
 export async function freshSession(
   history: Films,

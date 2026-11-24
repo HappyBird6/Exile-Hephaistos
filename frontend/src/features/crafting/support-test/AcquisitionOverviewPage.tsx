@@ -7,6 +7,7 @@ import { acquisitionRouteQuery } from '../method-search/acquisitionRouteApi'
 import { acquisitionRouteFilm } from '../method-search/acquisitionRouteFilm'
 import {
   readRouteGrades,
+  hasGradeOverride,
   fixedRouteQuery,
   evaluatedRouteResult,
 } from '../method-search/fixedRouteGrades'
@@ -41,7 +42,7 @@ export default function AcquisitionOverviewPage() {
   const base = query.data
   const recipe = base?.routes[index]
   const grades = recipe ? readRouteGrades(location.search, recipe) : null
-  const changed = grades?.some((grade) => grade !== 1) ?? false
+  const changed = hasGradeOverride(recipe, grades)
   const replay = useQuery(fixedRouteQuery(request, base, index, grades))
   const displayed =
     base && grades

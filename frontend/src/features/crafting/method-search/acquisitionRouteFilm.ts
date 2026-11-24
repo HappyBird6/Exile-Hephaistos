@@ -7,7 +7,11 @@ import type { CreateRequest } from '../path-tree/types'
 import { currencyId } from '../session-notation/extractSessionNotation'
 import type { ConcreteItem } from '../workbenchApi'
 import type { Film, Frame } from '../workbenchHistory'
-import { validStepChance } from '../workbenchHistory'
+import {
+  boundedChaosCurrency,
+  validExpectedUses,
+  validStepChance,
+} from '../workbenchHistory'
 import type {
   AcquisitionResult,
   AcquisitionRoute,
@@ -56,14 +60,11 @@ function repeatUses(step: AcquisitionStep) {
     limit <= 1000
       ? { maxUses: limit }
       : {}
-  if (
-    typeof count === 'number' &&
-    Number.isFinite(count) &&
-    count >= 1 &&
-    (bounds.maxUses === undefined || count <= bounds.maxUses)
-  )
+  if (validExpectedUses(count, materialId(step.action), bounds.maxUses))
     return { ...bounds, expectedUses: count }
-  return step.action === 'DIVINE' || count !== undefined
+  return step.action === 'DIVINE' ||
+    count !== undefined ||
+    boundedChaosCurrency(materialId(step.action), bounds.maxUses)
     ? { ...bounds, expectedUses: null }
     : bounds
 }
@@ -73,14 +74,14 @@ export function acquisitionRouteCost(
   snapshot: PriceSnapshot | null | undefined,
 ) {
   return craftingStepCost(
-    route.steps
-      .filter((s) => s.action !== 'REVEAL')
-      .map((step) => ({
-        currencyId: materialId(step.action),
-        consumedOmenIds: step.omens,
-        uses: 1,
-        ...repeatUses(step),
-      })),
+    route.steps.map((step) => ({
+      ...(step.action === 'REVEAL' ? { kind: 'reveal' as const } : {}),
+      currencyId: materialId(step.action),
+      omensPerUse: !!step.maxUses && step.omens.length > 0,
+      consumedOmenIds: step.omens,
+      uses: 1,
+      ...repeatUses(step),
+    })),
     snapshot,
   )
 }
@@ -123,6 +124,9 @@ export function acquisitionRouteFilm(
         action: revealAction,
         rulesetIdentity,
         ...odds,
+        ...(step.maxUses && step.maxUses > 1
+          ? { projectedRevealLimit: step.maxUses }
+          : {}),
         manual: {
           action: revealAction,
           rulesetIdentity,
@@ -139,6 +143,7 @@ export function acquisitionRouteFilm(
           {
             currencyId: materialId(step.action),
             omenIds: step.omens,
+            ...(step.maxUses && step.omens.length ? { omensPerUse: true } : {}),
             ...repeatUses(step),
           },
         ],

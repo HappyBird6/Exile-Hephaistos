@@ -108,21 +108,30 @@ const result = {
   ],
 }
 
-it('rebuilds the requested route from the saved input when the overview is reloaded', async () => {
-  saveRequest()
-  const fetch = vi.fn().mockResolvedValue(
-    new Response(JSON.stringify(result), {
-      headers: { [rulesetHeader]: request.start.provenance.rulesetIdentity },
-    }),
-  )
-  vi.stubGlobal('fetch', fetch)
-  await openOverview()
-  expect(
-    await screen.findByRole('heading', { name: 'Target 2 · 1' }),
-  ).toBeVisible()
-  expect(screen.getByText('2 frames')).toBeVisible()
-  expect(fetch).toHaveBeenCalledTimes(1)
-})
+it.each([
+  ['EXALTED', 'Exalted_Orb'],
+  ['PERFECT_EXALTED', 'Perfect_Exalted_Orb'],
+])(
+  'restores the original %s grade from its base route when no grade override is saved',
+  async (action, material) => {
+    saveRequest()
+    const base = structuredClone(result)
+    base.routes[1]!.steps[0]!.action = action
+    const fetch = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify(base), {
+        headers: { [rulesetHeader]: request.start.provenance.rulesetIdentity },
+      }),
+    )
+    vi.stubGlobal('fetch', fetch)
+    await openOverview()
+    expect(
+      await screen.findByRole('heading', { name: 'Target 2 · 1' }),
+    ).toBeVisible()
+    expect(screen.getByText('2 frames')).toBeVisible()
+    expect(screen.getByText(material)).toBeVisible()
+    expect(fetch).toHaveBeenCalledTimes(1)
+  },
+)
 
 it.each(['request=older&route=0', 'request=older&route=-1'])(
   'never substitutes a different saved session for %s',
@@ -136,39 +145,47 @@ it.each(['request=older&route=0', 'request=older&route=-1'])(
   },
 )
 
-it('replays the selected material grade after a reload and returns to that exact selection', async () => {
-  saveRequest()
-  const action = { ...result.routes[1]!.steps[0]!, action: 'PERFECT_EXALTED' }
-  const alternative = {
-    ...result,
-    cards: [result.cards[1]],
-    routes: [{ ...result.routes[1], cardIndex: 0, steps: [action] }],
-  }
-  const fetch = vi.fn((url: string) =>
-    Promise.resolve(
-      new Response(
-        JSON.stringify(url.endsWith('/grade') ? alternative : result),
-        {
-          headers: {
-            [rulesetHeader]: request.start.provenance.rulesetIdentity,
+it.each([
+  ['EXALTED', 'PERFECT_EXALTED', '3', 'Perfect_Exalted_Orb'],
+  ['PERFECT_EXALTED', 'EXALTED', '1', 'Exalted_Orb'],
+])(
+  'replays %s as %s after a reload and returns to that exact selection',
+  async (original, override, grade, material) => {
+    saveRequest()
+    const originalResult = structuredClone(result)
+    originalResult.routes[1]!.steps[0]!.action = original
+    const action = { ...result.routes[1]!.steps[0]!, action: override }
+    const alternative = {
+      ...result,
+      cards: [result.cards[1]],
+      routes: [{ ...result.routes[1], cardIndex: 0, steps: [action] }],
+    }
+    const fetch = vi.fn((url: string) =>
+      Promise.resolve(
+        new Response(
+          JSON.stringify(url.endsWith('/grade') ? alternative : originalResult),
+          {
+            headers: {
+              [rulesetHeader]: request.start.provenance.rulesetIdentity,
+            },
           },
-        },
+        ),
       ),
-    ),
-  )
-  vi.stubGlobal('fetch', fetch)
-  await openOverview(href + '&grades=3')
-  expect(await screen.findByText('Perfect_Exalted_Orb')).toBeVisible()
-  expect(screen.getByRole('heading', { name: 'Target 2 · 1' })).toBeVisible()
-  expect(screen.getByRole('link', { name: 'Return' })).toHaveAttribute(
-    'href',
-    '/support-test?' + params + '&grades=3',
-  )
-  expect(fetch.mock.calls.map((call) => call[0])).toEqual([
-    '/api/v1/crafting/support/goal-filters/test-routes',
-    '/api/v1/crafting/support/goal-filters/test-routes/grade',
-  ])
-})
+    )
+    vi.stubGlobal('fetch', fetch)
+    await openOverview(href + '&grades=' + grade)
+    expect(await screen.findByText(material)).toBeVisible()
+    expect(screen.getByRole('heading', { name: 'Target 2 · 1' })).toBeVisible()
+    expect(screen.getByRole('link', { name: 'Return' })).toHaveAttribute(
+      'href',
+      '/support-test?' + params + '&grades=' + grade,
+    )
+    expect(fetch.mock.calls.map((call) => call[0])).toEqual([
+      '/api/v1/crafting/support/goal-filters/test-routes',
+      '/api/v1/crafting/support/goal-filters/test-routes/grade',
+    ])
+  },
+)
 
 it.each([
   [true, 'Not available'],

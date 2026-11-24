@@ -1,3 +1,5 @@
+import type { Locale } from '../../../shared/i18n/i18n'
+import { priceMessages } from '../currency-prices/messages'
 import type { CraftingCost } from '../currency-prices/cost'
 import { formatCurrencyAmount } from '../currency-prices/formatCurrencyAmount'
 import type { Fraction } from '../path-tree/types'
@@ -54,9 +56,11 @@ export function materialQuantityText(
 
 export function planTitle(
   cost: CraftingCost,
-  locale: string,
+  locale: Locale,
   probability: string,
 ) {
+  if (cost.retryMaterials?.length)
+    return priceMessages[locale].unknownUses + ' · ' + probability
   const exalted =
     cost.incomplete && !cost.exalted
       ? '—'

@@ -16,14 +16,35 @@ export function gradeActions(action: string) {
   return [basic, 'GREATER_' + basic, 'PERFECT_' + basic]
 }
 
+const rankNumbers = { I: 1, II: 2, III: 3 } as const
+function initialGrade(step: AcquisitionStep) {
+  return rankNumbers[currencyRank(step.action) ?? 'I']
+}
+
+export function routeGrades(route: AcquisitionRoute) {
+  return route.steps.map(initialGrade)
+}
+
+export function hasGradeOverride(
+  route: AcquisitionRoute | undefined,
+  grades: readonly number[] | null | undefined,
+) {
+  return (
+    !!route &&
+    !!grades &&
+    route.steps.length === grades.length &&
+    route.steps.some((step, i) => initialGrade(step) !== grades[i])
+  )
+}
+
 export function gradeSearch(grades?: readonly number[]) {
-  return grades?.some((grade) => grade !== 1) ? grades.join('.') : ''
+  return grades?.join('.') ?? ''
 }
 
 export function readRouteGrades(search: string, route?: AcquisitionRoute) {
   if (!route) return null
   const raw = new URLSearchParams(search).get('grades')
-  if (raw === null) return route.steps.map(() => 1)
+  if (raw === null) return routeGrades(route)
   const parts = raw.split('.')
   if (
     parts.length !== route.steps.length ||
@@ -43,6 +64,7 @@ function methodStep({
   acquired,
   lost,
   socketIndex,
+  maxUses,
 }: AcquisitionStep) {
   return {
     action,
@@ -50,15 +72,21 @@ function methodStep({
     acquired,
     lost,
     ...(socketIndex == null ? {} : { socketIndex }),
+    ...(maxUses == null ? {} : { maxUses }),
   }
 }
 
 /** Preserve the entire successful method, changing only explicitly selected currency grades. */
 export function fixedSteps(route: AcquisitionRoute, grades: readonly number[]) {
-  return route.steps.map((step, index) => ({
-    ...methodStep(step),
-    action: gradeActions(step.action)?.[grades[index]! - 1] ?? step.action,
-  }))
+  return route.steps.map((step, index) => {
+    const action =
+      gradeActions(step.action)?.[grades[index]! - 1] ?? step.action
+    return {
+      ...methodStep(step),
+      action,
+      ...(action === step.action ? {} : { originalAction: step.action }),
+    }
+  })
 }
 
 export function fixedRouteQuery(
@@ -69,7 +97,9 @@ export function fixedRouteQuery(
 ) {
   const route = base?.routes[index]
   const steps =
-    route && grades && gradeSearch(grades) ? fixedSteps(route, grades) : null
+    route && grades && hasGradeOverride(route, grades)
+      ? fixedSteps(route, grades)
+      : null
   return queryOptions({
     queryKey: [
       'support-test-fixed-grade',
@@ -107,7 +137,7 @@ export function fixedRouteQuery(
               (replay &&
                 (replay.cardIndex !== 0 ||
                   JSON.stringify(replay.steps.map(methodStep)) !==
-                    JSON.stringify(steps)))
+                    JSON.stringify(steps.map(methodStep))))
             ) {
               throw new Error('Grade evaluation returned another method')
             }

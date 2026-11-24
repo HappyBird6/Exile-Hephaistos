@@ -276,3 +276,43 @@ it('uses the recorded modifier-selection odds of a verified single workbench eve
   page.rerender(ui())
   expect(screen.queryByText(/Step chance/)).toBeNull()
 })
+
+it('shows retry materials and unresolved uses for a bounded Light reveal without charging a second currency on reveal', () => {
+  const root = { ...concreteInitial(initialFixture), rarity: 'RARE' as const }
+  const slot = { id: 'hidden', side: 'PREFIX' as const, modifierId: null }
+  const identity = initialFixture.rulesetIdentity
+  const film: Film = {
+    id: 'light-retry',
+    createdAt: '',
+    rulesetIdentity: identity,
+    frames: [
+      {
+        state: { ...root, desecrated: [slot] },
+        action: null,
+        rulesetIdentity: identity,
+      },
+      {
+        state: {
+          ...root,
+          desecrated: [{ ...slot, modifierId: 'p' }],
+          explicits: [{ modifierId: 'p', values: { life: 15 } }],
+        },
+        action: 'DESECRATION_REVEAL',
+        rulesetIdentity: identity,
+        manual: {
+          action: 'DESECRATION_REVEAL',
+          rulesetIdentity: identity,
+          consumedOmens: [],
+        },
+        projectedChance: { probability: null },
+        projectedRevealLimit: 1000,
+      },
+    ],
+  }
+  const page = render(<CraftingCostLine film={film} cursor={1} />)
+  expect(screen.getByText(/Expected number of uses unknown/)).toHaveTextContent(
+    'Omen of Light ×1 + Orb of Annulment ×1 + desecration bone ×1',
+  )
+  expect(page.container.querySelector('.coin-amount')).toBeNull()
+  expect(page.container.textContent).not.toContain('100%')
+})

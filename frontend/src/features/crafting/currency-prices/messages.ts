@@ -8,6 +8,8 @@ type Messages = {
   stale: string
   actionChance: string
   unknownUses: string
+  perRetry: string
+  desecrationBone: string
   spent: string
   incomplete: string
   unknown: string
@@ -23,6 +25,8 @@ export const priceMessages: Record<Locale, Messages> = {
     stale: 'Last available prices',
     actionChance: 'Step chance',
     unknownUses: 'Expected number of uses unknown',
+    perRetry: 'Per retry',
+    desecrationBone: 'desecration bone',
     spent: 'Crafting cost through this step',
     incomplete: 'Partial total; unpriced materials',
     unknown: 'No price',
@@ -37,6 +41,8 @@ export const priceMessages: Record<Locale, Messages> = {
     stale: '마지막 확인 시세',
     actionChance: '단계 확률',
     unknownUses: '기대 사용 횟수 미확정',
+    perRetry: '재시도 1회당',
+    desecrationBone: '훼손 뼈',
     spent: '현재 단계까지의 제작 소모액',
     incomplete: '일부 재료의 시세를 제외한 합계',
     unknown: '시세 미확인',
@@ -51,6 +57,8 @@ export const priceMessages: Record<Locale, Messages> = {
     stale: '上次可用价格',
     actionChance: '步骤概率',
     unknownUses: '预计使用次数未知',
+    perRetry: '每次重试',
+    desecrationBone: '亵渎骨材',
     spent: '截至此步骤的制作费用',
     incomplete: '部分材料无价格，合计不完整',
     unknown: '暂无价格',
@@ -65,6 +73,8 @@ export const priceMessages: Record<Locale, Messages> = {
     stale: '上次可用價格',
     actionChance: '步驟機率',
     unknownUses: '預期使用次數未知',
+    perRetry: '每次重試',
+    desecrationBone: '褻瀆骨材',
     spent: '截至此步驟的製作費用',
     incomplete: '部分材料無價格，合計不完整',
     unknown: '尚無價格',
@@ -79,6 +89,8 @@ export const priceMessages: Record<Locale, Messages> = {
     stale: '前回取得した価格',
     actionChance: 'ステップの確率',
     unknownUses: '期待使用回数は不明',
+    perRetry: '再試行1回につき',
+    desecrationBone: '冒涜の骨',
     spent: 'この段階までの製作費用',
     incomplete: '価格不明の素材を除いた合計',
     unknown: '価格不明',
@@ -93,6 +105,8 @@ export const priceMessages: Record<Locale, Messages> = {
     stale: 'Últimos precios disponibles',
     actionChance: 'Probabilidad del paso',
     unknownUses: 'Número esperado de usos desconocido',
+    perRetry: 'Por reintento',
+    desecrationBone: 'hueso de profanación',
     spent: 'Coste de fabricación hasta este paso',
     incomplete: 'Total parcial; materiales sin precio',
     unknown: 'Sin precio',
@@ -108,6 +122,8 @@ export const priceMessages: Record<Locale, Messages> = {
     stale: 'Последние доступные цены',
     actionChance: 'Шанс шага',
     unknownUses: 'Ожидаемое число применений неизвестно',
+    perRetry: 'На повторную попытку',
+    desecrationBone: 'кость осквернения',
     spent: 'Расходы на крафт до этого этапа',
     incomplete: 'Частичный итог: для части материалов нет цены',
     unknown: 'Нет цены',
@@ -122,6 +138,8 @@ export const priceMessages: Record<Locale, Messages> = {
     stale: 'ราคาล่าสุดที่มีอยู่',
     actionChance: 'โอกาสของขั้นตอน',
     unknownUses: 'ไม่ทราบจำนวนครั้งที่คาดว่าจะใช้',
+    perRetry: 'ต่อการลองใหม่หนึ่งครั้ง',
+    desecrationBone: 'กระดูกสำหรับการดูหมิ่น',
     spent: 'ค่าเคอร์เรนซีที่ใช้จนถึงขั้นตอนนี้',
     incomplete: 'ยอดรวมบางส่วน: วัสดุบางชนิดยังไม่มีราคา',
     unknown: 'ไม่มีราคา',

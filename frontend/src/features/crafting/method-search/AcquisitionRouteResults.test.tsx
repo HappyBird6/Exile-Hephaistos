@@ -15,6 +15,7 @@ import { CurrencyPriceContext } from '../currency-prices/context'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import { rulesetHeader } from '../rulesetIdentity'
 import { AcquisitionRouteResults } from './AcquisitionRouteResults'
+import { fixedRouteQuery } from './fixedRouteGrades'
 import {
   loadAcquisitionRoutes,
   type AcquisitionResult,
@@ -66,6 +67,12 @@ const market = {
       exaltedPerDivine: 500,
       prices: {
         'Exalted Orb': { name: 'Exalted Orb', exalted: 1, divine: 0.002 },
+        'Chaos Orb': { name: 'Chaos Orb', exalted: 2, divine: 0.004 },
+        'Omen of Whittling': {
+          name: 'Omen of Whittling',
+          exalted: 3,
+          divine: 0.006,
+        },
         'Perfect Exalted Orb': {
           name: 'Perfect Exalted Orb',
           exalted: 5,
@@ -456,7 +463,13 @@ it('reevaluates only the selected grades on the original method and keeps the ch
       goal: request.goal,
       cardIndex: 0,
       steps: [
-        { action: 'PERFECT_EXALTED', omens: [], acquired: [1], lost: [] },
+        {
+          action: 'PERFECT_EXALTED',
+          originalAction: 'EXALTED',
+          omens: [],
+          acquired: [1],
+          lost: [],
+        },
         { action: 'EXALTED', omens: [], acquired: [2], lost: [] },
       ],
     })
@@ -567,6 +580,157 @@ it.each([true, false])(
     ).toHaveTextContent('+15 to maximum Life')
   },
 )
+it('can downgrade a scarce target’s default Perfect Exalted step, retain repeated Chaos, and restore the original', async () => {
+  await setLocale('en')
+  const exalt = {
+    action: 'PERFECT_EXALTED',
+    omens: [],
+    acquired: [1],
+    lost: [],
+  }
+  const chaos = {
+    action: 'CHAOS',
+    omens: ['Omen_of_Whittling'],
+    acquired: [2],
+    lost: [],
+    maxUses: 1000,
+    expectedUses: 2,
+  }
+  const route = {
+    cardIndex: 0,
+    order: [1, 2],
+    steps: [exalt, chaos],
+    stateIndices: [0, 1],
+    probability: 0.7,
+  }
+  const base = {
+    cards: [
+      {
+        options: [
+          { number: 1, modifierIds: ['life'] },
+          { number: 2, modifierIds: ['cold'] },
+        ],
+      },
+    ],
+    states: [observed(19, null), observed(19, 11)],
+    routes: [route],
+    complete: true,
+  }
+  const lower = {
+    ...base,
+    routes: [
+      {
+        ...route,
+        steps: [
+          { ...exalt, action: 'EXALTED' },
+          { ...chaos, expectedUses: 3 },
+        ],
+        probability: 0.4,
+      },
+    ],
+  }
+  const post = vi.fn(async (url: RequestInfo | URL, init?: RequestInit) => {
+    if (String(url).endsWith('/grade')) {
+      const submitted = JSON.parse(String(init?.body))
+      expect(submitted.steps).toEqual([
+        { ...exalt, action: 'EXALTED', originalAction: 'PERFECT_EXALTED' },
+        {
+          action: 'CHAOS',
+          omens: ['Omen_of_Whittling'],
+          acquired: [2],
+          lost: [],
+          maxUses: 1000,
+        },
+      ])
+    }
+    return new Response(
+      JSON.stringify(String(url).endsWith('/grade') ? lower : base),
+      {
+        headers: { [rulesetHeader]: request.start.provenance.rulesetIdentity },
+      },
+    )
+  })
+  vi.stubGlobal('fetch', post)
+  window.history.replaceState(null, '', '/support-test')
+  try {
+    show()
+    const list = await screen.findByRole('list', { name: 'Crafting methods' })
+    const selected = within(list).getByRole('button', { pressed: true })
+    expect(selected).toHaveAccessibleName(/15 ex · 70%/)
+    const history = screen.getByRole('region', { name: 'History' })
+    const clickGrade = (from: string, to: string) => {
+      fireEvent.click(
+        within(history).getByRole('button', { name: 'Step 1 · ' + from }),
+      )
+      fireEvent.click(within(history).getByRole('button', { name: to }))
+    }
+    clickGrade('Perfect Exalted Orb', 'Exalted Orb')
+    await waitFor(() => expect(selected).toHaveAccessibleName(/16 ex · 40%/))
+    expect(new URLSearchParams(location.search).get('grades')).toBe('1.1')
+    expect(
+      within(history)
+        .getByRole('link', { name: 'Session overview' })
+        .getAttribute('href'),
+    ).toMatch(/&grades=1\.1$/)
+    expect(
+      screen.getByRole('group', { name: 'Crafting cost through this step' }),
+    ).toHaveTextContent('16')
+    clickGrade('Exalted Orb', 'Perfect Exalted Orb')
+    expect(selected).toHaveAccessibleName(/15 ex · 70%/)
+    expect(new URLSearchParams(location.search).has('grades')).toBe(false)
+    clickGrade('Perfect Exalted Orb', 'Exalted Orb')
+    expect(selected).toHaveAccessibleName(/16 ex · 40%/)
+    expect(
+      post.mock.calls.filter(([url]) => String(url).endsWith('/grade')),
+    ).toHaveLength(1)
+  } finally {
+    window.history.replaceState(null, '', '/')
+  }
+})
+
+it('caches grade II separately for the ordinary and scarce methods that acquire the same option number', async () => {
+  const step = { action: 'EXALTED', omens: [], acquired: [1], lost: [] }
+  const route = {
+    cardIndex: 0,
+    order: [1],
+    steps: [step],
+    stateIndices: [0],
+    probability: 0.5,
+  }
+  const base: AcquisitionResult = {
+    cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+    states: [observed(15, null)],
+    complete: true,
+    routes: [
+      route,
+      { ...route, steps: [{ ...step, action: 'PERFECT_EXALTED' }] },
+    ],
+  }
+  const originalActions: string[] = []
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (_url: RequestInfo | URL, init?: RequestInit) => {
+      const [selected] = JSON.parse(String(init?.body)).steps
+      originalActions.push(selected.originalAction)
+      const replay = {
+        ...route,
+        steps: [{ ...step, action: 'GREATER_EXALTED' }],
+        probability: selected.originalAction === 'PERFECT_EXALTED' ? 0.03 : 0.4,
+      }
+      return new Response(JSON.stringify({ ...base, routes: [replay] }), {
+        headers: { [rulesetHeader]: request.start.provenance.rulesetIdentity },
+      })
+    }),
+  )
+  const client = new QueryClient()
+  const ordinary = fixedRouteQuery(request, base, 0, [2])
+  const scarce = fixedRouteQuery(request, base, 1, [2])
+  expect((await client.fetchQuery(ordinary)).routes[0]!.probability).toBe(0.4)
+  expect((await client.fetchQuery(scarce)).routes[0]!.probability).toBe(0.03)
+  expect((await client.fetchQuery(ordinary)).routes[0]!.probability).toBe(0.4)
+  expect(originalActions).toEqual(['EXALTED', 'PERFECT_EXALTED'])
+})
+
 it('retains the method and permits retry when the replay reports a different later action', async () => {
   await setLocale('en')
   const step = { action: 'EXALTED', omens: [], acquired: [1], lost: [] }

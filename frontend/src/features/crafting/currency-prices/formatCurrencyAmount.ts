@@ -48,5 +48,10 @@ export function formatExpectedUses(
     currencyId === 'Perfect_Exalted_Orb'
   )
     return formatCurrencyAmount(value, 'Exalted_Orb', locale)
-  return value.toLocaleString(locale, { maximumFractionDigits: 2 })
+  return value.toLocaleString(
+    locale,
+    value > 0 && value < 1
+      ? { maximumSignificantDigits: 2 }
+      : { maximumFractionDigits: 2 },
+  )
 }

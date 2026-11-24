@@ -6,7 +6,10 @@ import {
   subscribeAppLocation,
 } from '../../shared/navigation/navigation'
 import { WorkspaceNavigation } from '../../shared/site/WorkspaceNavigation'
-import { freshSession } from './session-library/freshSession'
+import {
+  freshSession,
+  plannedFrameForWorkbench,
+} from './session-library/freshSession'
 import { accountScope } from '../account/auth'
 import { SiteHeader } from '../../shared/site/SiteHeader'
 import { SessionDetail } from './session-detail/SessionDetail'
@@ -828,13 +831,9 @@ function ReadyCraftingPage({
       })
       if (plannedFilm && frame.rulesetIdentity !== catalog.rulesetIdentity)
         return false
-      // The search encodes untouched equipment quality as absent. Restore the catalog's initial zero.
-      const startingFrame =
-        plannedFilm &&
-        frame.state.equipmentQuality == null &&
-        catalog.equipmentQuality === 0
-          ? { ...frame, state: { ...frame.state, equipmentQuality: 0 } }
-          : frame
+      const startingFrame = plannedFilm
+        ? plannedFrameForWorkbench(frame, catalog)
+        : frame
       const next = await freshSession(
         filmState.history,
         sourceFilm,
@@ -854,13 +853,9 @@ function ReadyCraftingPage({
       if (plannedFilm) {
         const session = currentFilm(next)!
         const final = session.frames[0]!
-        session.frames = plannedFilm.frames.map((f) => ({
-          ...f,
-          state:
-            catalog.equipmentQuality === 0 && f.state.equipmentQuality == null
-              ? { ...f.state, equipmentQuality: 0 }
-              : f.state,
-        }))
+        session.frames = plannedFilm.frames.map((f) =>
+          plannedFrameForWorkbench(f, catalog),
+        )
         if (
           !session.frames.every((f) => verifiedHistoryState(f.state, catalog))
         )

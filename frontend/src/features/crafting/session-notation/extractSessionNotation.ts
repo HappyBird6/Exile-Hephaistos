@@ -10,6 +10,7 @@ import {
 import { validChaosRepeatFrame } from '../chaos-repeat/chaosRepeatReceipt'
 
 export type NotationStep = {
+  omensPerUse?: boolean
   expectedUses?: number | null
   maxUses?: number
   customExalt?: { modifierId: string; probability: number }
@@ -133,6 +134,7 @@ export function extractSessionNotation(
             ? { expectedUses: craft.expectedUses }
             : {}),
           ...(craft.maxUses ? { maxUses: craft.maxUses } : {}),
+          ...(craft.omensPerUse ? { omensPerUse: true } : {}),
         })
       }
       if (frame.projectedWork)
@@ -183,6 +185,9 @@ export function extractSessionNotation(
     result.incompleteOmens ||= !omensKnown
     result.steps.push({
       ...(reveal ? { kind: 'reveal' as const } : {}),
+      ...(reveal && frame.projectedRevealLimit
+        ? { maxUses: frame.projectedRevealLimit, expectedUses: null }
+        : {}),
       ...(frame.customExalt &&
       ['EXALTED', 'GREATER_EXALTED', 'PERFECT_EXALTED'].includes(
         frame.action ?? '',
