@@ -15,6 +15,20 @@
 
 실제 비교에서는 보강 입력이 간략 입력에서 누락된 양성 카드 17장을 회수했다. 간략 입력에서만 회수된 카드도 5장이므로 이미 검증한 후보를 같은 시작 상태·목표·재고·규칙에서 보존한다. 어떤 필드를 카드별로 생략해도 되는지는 별도 검증 대상이다. [100회 비교와 실제 입력 예시](context-ab-100.md)
 
+### 옵션 출처 라벨
+
+각 티어의 `sources`는 가능한 획득처의 배열이다. 각 항목에 `label`을 쓰고, 재료가 있는 네 라벨에는 재료를 식별하는 `id`를 하나씩 쓴다. 백엔드는 이 ID로 재료를 조회하므로 별도 `kind`는 보내지 않는다.
+
+| `label` | 획득 방법 | `id` 예시 |
+|---|---|---|
+| `base` | 일반 옵션 풀에서 추첨한다. 알려진 일반 풀 가중치는 `weight`에 담는다. | 생략 |
+| `essence` | 하위·일반·상위 에센스로 Magic → Rare 승급 시 일반 명시 옵션을 얻는다. 제작 옵션 한도 소모는 0이다. | `GREATER_ESSENCE_BODY` |
+| `crafted` | 완벽한 에센스 등 교체형 에센스, 합금, 감정액으로 제작 옵션을 얻는다. 세 재료군은 같은 제작 옵션 한도를 쓴다. | `PERFECT_ESSENCE_ENHANCEMENT`, `CELESTIAL_ALLOY`, `LIQUID_ENVY` |
+| `desecrated` | 훼손 재료를 쓰고 공개된 후보 중에서 선택한다. | `Preserved_Collarbone` |
+| `augment` | 해당 증강물을 장착해 열린 전용 풀에서 추첨한다. | `Kolrs_Hunt` |
+
+에센스·합금·감정액의 `id`는 기존 Workbench 화폐 action이고, 훼손 재료와 증강물에는 등록된 재료 ID를 쓴다. 베이스 고정 옵션(`implicit`)은 획득처 목록에서 제외한다. 목표 수치에 기여하는 고정값은 시작 상태에 담는다. [화폐와 제작 규칙](../v0.5.5/game-rule/currency.md)
+
 ## 1. 생명력 정확히 90인 태양의 목걸이 요청
 
 시작 아이템은 레벨 82 Rare Solar Amulet이며 명시 옵션은 생명력 +90과 힘 +6이다. 사용자는 생명력 90과 일반 방어도·회피·에너지 보호막 증가 25%를 동시에 요구한다. 여기서 선택한 완성 형태는 품질 0에 목표 밖 명시 옵션이 없는 경우다. 힘 +6이 남아 있다면 사용자 필터를 통과해도 이 완성 형태에는 도달하지 못한다.
@@ -51,11 +65,13 @@
             "tier": 3,
             "mod": "amulet:prefix:rotund",
             "roll": [85, 99],
-            "sources": {
-              "base": {"weight": 1000},
-              "essence": ["GREATER_ESSENCE_BODY"],
-              "desecrated": ["Preserved_Collarbone", "Ancient_Collarbone", "Altered_Collarbone"]
-            }
+            "sources": [
+              {"label": "base", "weight": 1000},
+              {"label": "essence", "id": "GREATER_ESSENCE_BODY"},
+              {"label": "desecrated", "id": "Preserved_Collarbone"},
+              {"label": "desecrated", "id": "Ancient_Collarbone"},
+              {"label": "desecrated", "id": "Altered_Collarbone"}
+            ]
           }
         ]
       },
@@ -68,7 +84,7 @@
             "tier": 1,
             "mod": "amulet:prefix:essence-global-defences",
             "roll": [20, 30],
-            "sources": {"essence": ["PERFECT_ESSENCE_ENHANCEMENT"]}
+            "sources": [{"label": "crafted", "id": "PERFECT_ESSENCE_ENHANCEMENT"}]
           }
         ]
       }
@@ -78,7 +94,7 @@
 ```
 
 - `goal`의 범위는 최종 수치에 적용한다. `roll`은 해당 티어 원래의 굴림 범위다. 방어가 24%로 붙어도 같은 티어에서 25%를 다시 굴릴 수 있다.
-- `sources`는 해당 티어를 공급할 수 있는 모든 획득처다. 개별 노드의 아이템 상태에서 실제로 그 화폐를 쓸 수 있는지는 별도로 검사한다. `base.weight`는 일반 풀에서만 쓰는 원시 가중치다.
+- `sources`는 해당 티어를 공급할 수 있는 모든 획득처다. 개별 노드의 아이템 상태에서 실제로 그 화폐를 쓸 수 있는지는 별도로 검사한다.
 - 요청은 버전에 맞는 관련 화폐의 효과와 자격 조건을 공통 지침으로 공유한다는 전제다. 예를 들어 Greater Essence of the Body는 Magic 아이템을 Rare로 올릴 때 쓰고, Perfect Essence of Enhancement는 Rare 아이템의 옵션을 교체한다.
 - 두 예시 모두 생략된 시작 품질은 0이고 분열·축성·훼손은 없다. 베이스의 정신력 고정 옵션은 목표 행과 화폐 선택에 영향을 주지 않아 전송에서 생략했다. `life`와 `defences`는 이 요청 안에서만 사용하는 참조다. [베이스](../v0.5.5/game-data/catalog/amulets/solar-amulet/base.json) · [옵션](../v0.5.5/game-data/modifiers/amulets.json) · [재료별 효과](../v0.5.5/i18n/materials/en.json)
 
@@ -139,7 +155,7 @@
       ]
     },
     "prepare-desecration": {
-      "chooseOneSource": {"option": "life", "tier": 3, "kind": "desecrated"},
+      "chooseOneSource": {"option": "life", "tier": 3, "label": "desecrated"},
       "on": [
         {"when": "unrevealed_prefix_available", "to": "observe-life"},
         {"when": "otherwise", "to": "review"}
@@ -205,29 +221,35 @@
             "tier": 1,
             "mod": "amulet:prefix:athlete-s",
             "roll": [120, 149],
-            "sources": {
-              "base": {"weight": 1000},
-              "desecrated": ["Preserved_Collarbone", "Ancient_Collarbone", "Altered_Collarbone"]
-            }
+            "sources": [
+              {"label": "base", "weight": 1000},
+              {"label": "desecrated", "id": "Preserved_Collarbone"},
+              {"label": "desecrated", "id": "Ancient_Collarbone"},
+              {"label": "desecrated", "id": "Altered_Collarbone"}
+            ]
           },
           {
             "tier": 2,
             "mod": "amulet:prefix:virile",
             "roll": [100, 119],
-            "sources": {
-              "base": {"weight": 1000},
-              "desecrated": ["Preserved_Collarbone", "Ancient_Collarbone", "Altered_Collarbone"]
-            }
+            "sources": [
+              {"label": "base", "weight": 1000},
+              {"label": "desecrated", "id": "Preserved_Collarbone"},
+              {"label": "desecrated", "id": "Ancient_Collarbone"},
+              {"label": "desecrated", "id": "Altered_Collarbone"}
+            ]
           },
           {
             "tier": 3,
             "mod": "amulet:prefix:rotund",
             "roll": [85, 99],
-            "sources": {
-              "base": {"weight": 1000},
-              "essence": ["GREATER_ESSENCE_BODY"],
-              "desecrated": ["Preserved_Collarbone", "Ancient_Collarbone", "Altered_Collarbone"]
-            }
+            "sources": [
+              {"label": "base", "weight": 1000},
+              {"label": "essence", "id": "GREATER_ESSENCE_BODY"},
+              {"label": "desecrated", "id": "Preserved_Collarbone"},
+              {"label": "desecrated", "id": "Ancient_Collarbone"},
+              {"label": "desecrated", "id": "Altered_Collarbone"}
+            ]
           }
         ]
       },
@@ -240,7 +262,7 @@
             "tier": 1,
             "mod": "amulet:prefix:essence-global-defences",
             "roll": [20, 30],
-            "sources": {"essence": ["PERFECT_ESSENCE_ENHANCEMENT"]}
+            "sources": [{"label": "crafted", "id": "PERFECT_ESSENCE_ENHANCEMENT"}]
           }
         ]
       }
@@ -264,7 +286,7 @@
 ```json
 {
   "prepare-desecration": {
-    "chooseOneSource": {"option": "life", "kind": "desecrated"},
+    "chooseOneSource": {"option": "life", "label": "desecrated"},
     "on": [
       {"when": "unrevealed_prefix_available", "to": "observe-life"},
       {"when": "otherwise", "to": "review"}
@@ -321,7 +343,7 @@ Flesh 카드에서 5개 티어 조합과 원래 목표 판정을 함께 적용�
 
 다음 시작 아이템에서 지정한 완성 카드에 도달할 제작 레시피 후보를 JSON으로 제안하라. 유효한 순서를 폭넓게 남기고 확률과 비용은 백엔드에 맡긴다.
 
-sourceSet의 include는 참조 집합에 명시한 출처를 더한다. 획득처와 지금 쓸 수 있는 화폐를 구분하라. joint의 각 행은 order 순서로 읽는 최종 티어 조합이다. complete이면 이 카드에서 가능한 행을 모두 담았다. partial이면 목록 밖은 미검증으로 보낸다. 부분 상태는 보존할 옵션과 양립하는 모든 행으로 이어라. 행에 들어 있어도 실제 수치를 다시 판정하라.
+sourceSet에 include가 있으면 참조 집합을 먼저 펼친 뒤 sources 배열의 항목을 더하라. label은 획득 방법이고 id는 사용할 재료를 식별한다. 획득처와 지금 쓸 수 있는 화폐를 구분하라. joint의 각 행은 order 순서로 읽는 최종 티어 조합이다. complete이면 이 카드에서 가능한 행을 모두 담았다. partial이면 목록 밖은 미검증으로 보낸다. 부분 상태는 보존할 옵션과 양립하는 모든 행으로 이어라. 행에 들어 있어도 실제 수치를 다시 판정하라.
 
 목표는 같은 아이템의 표시 수치로 계산한다. 이 카드에서는 Flesh Catalyst로 품질 20이 되면 생명력만 1.2배로 반올림하고 힘은 원래 값이다. 두 행 범위와 가중합 범위를 모두 확인하라. 다른 기폭제의 수치를 섞지 마라.
 
@@ -340,10 +362,19 @@ sourceSet의 include는 참조 집합에 명시한 출처를 더한다. 획득�
     ]}
   ]},
   "sourceSets":{
-    "L2":{"base":{"weight":1000},"desecrated":["Preserved_Collarbone","Ancient_Collarbone","Altered_Collarbone"]},
-    "L3":{"include":"L2","essence":["GREATER_ESSENCE_BODY"]},
-    "S68":{"base":{"weight":1000},"desecrated":["Preserved_Collarbone","Altered_Collarbone"]},
-    "S7":{"include":"S68","essence":["LESSER_ESSENCE_INFINITE"]}
+    "L2":{"sources":[
+      {"label":"base","weight":1000},
+      {"label":"desecrated","id":"Preserved_Collarbone"},
+      {"label":"desecrated","id":"Ancient_Collarbone"},
+      {"label":"desecrated","id":"Altered_Collarbone"}
+    ]},
+    "L3":{"include":"L2","sources":[{"label":"essence","id":"GREATER_ESSENCE_BODY"}]},
+    "S68":{"sources":[
+      {"label":"base","weight":1000},
+      {"label":"desecrated","id":"Preserved_Collarbone"},
+      {"label":"desecrated","id":"Altered_Collarbone"}
+    ]},
+    "S7":{"include":"S68","sources":[{"label":"essence","id":"LESSER_ESSENCE_INFINITE"}]}
   },
   "card":{
     "quality":{"type":"FLESH","amount":20},"otherAffixes":{"prefix":0,"suffix":0},
@@ -382,7 +413,7 @@ sourceSet의 include는 참조 집합에 명시한 출처를 더한다. 획득�
     ]},
     "chaos":{"requires":["opening_one_mutable_base_affix"],"use":"CHAOS","next":"inspect"},
     "second":{"choose":["exalt","bone"]},
-    "bone":{"requires":["no_desecrated_slot"],"chooseOneSource":{"kind":"desecrated","for":"missing_options_in_compatible_rows"},
+    "bone":{"requires":["no_desecrated_slot"],"chooseOneSource":{"label":"desecrated","for":"missing_options_in_compatible_rows"},
       "on":[{"when":"eligible_unrevealed_slot","to":"reveal"},{"when":"otherwise","to":"review"}]},
     "reveal":{"observe":"desecrated_offers","chooseEach":"offered_mod_from_used_source_in_compatible_rows",
       "on":[{"when":"selected","to":"inspect"},{"when":"otherwise","to":"review"}]},
