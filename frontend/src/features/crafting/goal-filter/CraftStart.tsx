@@ -15,7 +15,7 @@ import {
   useRef,
   useState,
 } from 'react'
-import type { ReactNode } from 'react'
+import type { ComponentType, ReactNode } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { httpGoalFilterAdapter } from './api'
 import { createStore } from 'zustand/vanilla'
@@ -81,12 +81,20 @@ export function CraftStart({
   active,
   activeOmens = [],
   maxMillis = 2000,
+  testResults: TestResults,
 }: {
   active: boolean
   children?: ReactNode
   activeOmens?: string[]
   maxMillis?: number
+  testResults?: ComponentType<{
+    request: CreateRequest
+    baseName: string
+    definitions: Initial['modifiers']
+    active: boolean
+  }>
 }) {
+  const storagePrefix = TestResults ? 'support-test-' : ''
   const toolbar = useContext(SupportToolbarContext)
   const { t, locale, name } = useI18n()
   const client = useQueryClient()
@@ -116,14 +124,14 @@ export function CraftStart({
       searchGoal: null,
       searchRequest: null,
       searchIssue: false,
-      ...restoredStart(),
+      ...restoredStart(storagePrefix + 'start'),
     })),
   )
   const draft = useStore(editor)
   const [settingsExpanded, setSettingsExpanded] = useState(
     () =>
       readSupport(
-        'settings-expanded',
+        storagePrefix + 'settings-expanded',
         (v): v is boolean => typeof v === 'boolean',
       ) ?? true,
   )
@@ -131,7 +139,7 @@ export function CraftStart({
   const persist = useCallback(() => {
     const d = editor.getState()
     setStorageFailed(
-      !saveSupport('start', {
+      !saveSupport(storagePrefix + 'start', {
         base: d.base,
         text: d.text,
         item: d.item,
@@ -144,7 +152,7 @@ export function CraftStart({
         searchRequest: d.searchRequest,
       }),
     )
-  }, [editor])
+  }, [editor, storagePrefix])
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
     const unsubscribe = editor.subscribe(() => {
@@ -648,7 +656,10 @@ export function CraftStart({
             ref={editButton}
             onClick={() => {
               setSettingsExpanded(!settingsExpanded)
-              saveSupport('settings-expanded', !settingsExpanded)
+              saveSupport(
+                storagePrefix + 'settings-expanded',
+                !settingsExpanded,
+              )
             }}
           >
             <span>
@@ -1074,6 +1085,7 @@ export function CraftStart({
               <section className="craft-start-stats" aria-label={copy.target}>
                 {context && (
                   <ConnectedGoalFilter
+                    storageKey={storagePrefix + 'goal'}
                     allowQualityWork={
                       !!selected &&
                       ['Amulets', 'Rings', 'Belts'].includes(selected.base[1])
@@ -1102,51 +1114,62 @@ export function CraftStart({
         draft.searchRequest &&
         draft.rootDefinitions && (
           <section ref={tree} tabIndex={-1} aria-label={copy.tree}>
-            <MethodSearch
-              active={active}
-              request={draft.searchRequest}
-              baseKey={draft.base}
-              inputGeneration={run}
-              abstractQuality40={draft.abstractQuality40}
-              abstractQuality={draft.abstractQuality}
-              presentItem={createItemPresentation(
-                { name: draft.root.base!, itemClass: draft.root.itemClass },
-                draft.rootDefinitions,
-              )}
-              onRecalculate={() => {
-                update({ editing: true })
-                requestAnimationFrame(() => startButton.current?.focus())
-              }}
-              onEditState={(item, context) => {
-                if (
-                  item.rarity === 'UNIQUE' ||
-                  !qualityShape(item.catalystQuality) ||
-                  !supportsConcreteStateShape(item) ||
-                  item.baseItemId !== draft.item?.baseItemId
-                ) {
-                  update({ searchIssue: true, editing: true })
-                  return
-                }
-                saveItem({
-                  ...item,
-                  rarity: item.rarity,
-                  catalystQuality: item.catalystQuality,
-                })
-                update({
-                  editing: true,
-                  levelEdited: false,
-                  abstractQuality40: context?.abstractQuality40 ?? false,
-                  abstractQuality:
-                    context?.abstractQuality ??
-                    (context?.abstractQuality40 ? 40 : 0),
-                })
-                requestAnimationFrame(() =>
-                  modifierRegion.current
-                    ?.querySelector<HTMLInputElement>('input[role="combobox"]')
-                    ?.focus(),
-                )
-              }}
-            />
+            {TestResults ? (
+              <TestResults
+                active={active}
+                request={draft.searchRequest}
+                definitions={draft.rootDefinitions}
+                baseName={draft.root.base!}
+              />
+            ) : (
+              <MethodSearch
+                active={active}
+                request={draft.searchRequest}
+                baseKey={draft.base}
+                inputGeneration={run}
+                abstractQuality40={draft.abstractQuality40}
+                abstractQuality={draft.abstractQuality}
+                presentItem={createItemPresentation(
+                  { name: draft.root.base!, itemClass: draft.root.itemClass },
+                  draft.rootDefinitions,
+                )}
+                onRecalculate={() => {
+                  update({ editing: true })
+                  requestAnimationFrame(() => startButton.current?.focus())
+                }}
+                onEditState={(item, context) => {
+                  if (
+                    item.rarity === 'UNIQUE' ||
+                    !qualityShape(item.catalystQuality) ||
+                    !supportsConcreteStateShape(item) ||
+                    item.baseItemId !== draft.item?.baseItemId
+                  ) {
+                    update({ searchIssue: true, editing: true })
+                    return
+                  }
+                  saveItem({
+                    ...item,
+                    rarity: item.rarity,
+                    catalystQuality: item.catalystQuality,
+                  })
+                  update({
+                    editing: true,
+                    levelEdited: false,
+                    abstractQuality40: context?.abstractQuality40 ?? false,
+                    abstractQuality:
+                      context?.abstractQuality ??
+                      (context?.abstractQuality40 ? 40 : 0),
+                  })
+                  requestAnimationFrame(() =>
+                    modifierRegion.current
+                      ?.querySelector<HTMLInputElement>(
+                        'input[role="combobox"]',
+                      )
+                      ?.focus(),
+                  )
+                }}
+              />
+            )}
           </section>
         )}
     </>

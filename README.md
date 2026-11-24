@@ -8,6 +8,8 @@ PoE2 아이템 텍스트 파싱, 검토된 카탈로그 기반 Workbench와 최�
 
 제작지원에서 베이스와 목표 옵션을 선택하면 계산한 제작 세션이 성공 확률순으로 표시됩니다. 각 세션에서 최종 아이템 예시, 경로별 화폐 사용 순서와 세션 오버뷰를 볼 수 있습니다. ‘작업대에서 시작’을 누르면 같은 시작 아이템과 선택한 경로로 직접 제작할 수 있습니다.
 
+제작지원 테스트(`/support-test`)에서 시작 아이템과 목표를 설정하고 제작을 시작하면, 백엔드가 계산한 획득 순서와 단계별 재료를 하단 경로 목록에서 확인할 수 있습니다. [제작지원 테스트의 경로 계산 규칙](docs/v0.5.5/game-rule/support-test-routes.md)
+
 ## Docker 실행
 
 Docker Desktop의 Linux container 모드를 켜고 Windows PowerShell 5.1에서 실행합니다.
@@ -31,9 +33,6 @@ Frontend: http://localhost:9001 · Backend liveness: http://localhost:9000/actua
 readiness는 앱·PostgreSQL·Redis 연결 상태를 확인합니다. 제작 계산의 완결이나 게임 규칙 검증을 뜻하지 않습니다.
 
 최초 실행 시 스크립트가 DB·Redis 설정과 무작위 로컬 DB 비밀번호를 `.env`에 생성합니다. 기존 `.env`는 덮어쓰지 않습니다. `.env.example`은 필요하지 않습니다.
-
-제작지원 테스트(`/support-test`)는 목표 카드를 선택해 프롬프트와 전송 JSON을 확인하고 모델 응답을 받는 화면입니다. 실제 전송을 사용하려면 루트 `.env`에 `OPENAI_API_KEY`를 설정하고 백엔드를 다시 시작합니다. Compose로 실행 중이면 app 컨테이너를 다시 생성합니다. 기본 전송 한도는 서버 전체에서 UTC 하루 20회이며 `SUPPORT_TEST_DAILY_CALLS`로 조정할 수 있습니다. 카드와 프롬프트는 [보강 실험 기록](docs/llm/context-ab-responses.md)에서 빌드 시 추출합니다.
-
 `stop`은 컨테이너만 정지합니다. PostgreSQL은 외부 volume을 사용하며 기존 데이터를 삭제하지 않습니다. 코드 반영 시 `stack`을 다시 실행합니다.
 
 ## 기존 데이터 보존
@@ -148,9 +147,7 @@ v0.5.5가 게임 JSON·번역의 편집 원본이고 backend/frontend 경로는 
 
 경량화의 우선 목표는 직접 이해하고 수정하기 쉬운 구조입니다. 수정 지점·중간 계층·중복 관리를 줄입니다. 데이터 전송 크기와 코드 줄 수만으로 판단하지 않습니다.
 
-### 가능성 검토 중인 기능
-
-**LLM을 활용한 제작 레시피 후보 생성**을 검토 중입니다. 완성 카드별로 목표 조건과 옵션의 가능한 획득처를 전달하면 LLM이 화폐 사용 순서와 결과별 분기를 제안하고, 백엔드가 각 경로의 성립 여부와 계산 가능한 확률·비용을 검증하는 구상입니다. 가능한 제작 순서를 놓치는 사례를 우선 점검합니다. [설계 논의와 미정 사항](docs/llm/README.md) · [후보 생성 규칙안과 기대 응답](docs/llm/recipe-candidate-rules.md)
+이전에 검토한 LLM 레시피 후보 생성안은 설계 자료로 보관합니다. [설계 논의](docs/llm/README.md) · [이전 후보 생성 규칙안](docs/llm/recipe-candidate-rules.md)
 
 ### 갱신과 검증
 

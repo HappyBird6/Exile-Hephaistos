@@ -18,6 +18,7 @@ import com.poe2craft.craftingsupport.search.infrastructure.AutomaticCurrencyPoli
 import com.poe2craft.craftingsupport.search.infrastructure.BundledSearchRuntimeFactory;
 import com.poe2craft.craftingsupport.search.infrastructure.LocalAutomaticJobRepository;
 import com.poe2craft.craftingsupport.search.infrastructure.LocalCertifiedJobRepository;
+import com.poe2craft.craftingsupport.testroutes.application.TestRouteService;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.crafting.infrastructure.CraftingRegistryLoader;
@@ -130,6 +131,13 @@ public class CraftingSupportConfiguration {
       ItemCatalog catalog, GoalFilterService goals, ObjectMapper json, BackendSettings settings) {
     return new PathSearchService(
         catalog, goals, RulesetManifestLoader.load().identity(), json, settings.pathSearch());
+  }
+
+  /** 테스트 탭의 입력 검증과 규칙 계산을 작업대·목표 필터·테스트 탐색 설정에 연결한다. */
+  @Bean
+  TestRouteService testRouteService(
+      CraftingOperations workbench, GoalFilterService goals, BackendSettings settings) {
+    return new TestRouteService(workbench, goals, settings.testRoutes());
   }
 
   @Bean

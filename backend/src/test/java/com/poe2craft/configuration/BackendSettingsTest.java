@@ -65,6 +65,9 @@ class BackendSettingsTest {
         .withPropertyValues(
             "backend.path-search.max-jobs=3",
             "backend.path-search.ttl=7m",
+            "backend.test-routes.low-below=0.03",
+            "backend.test-routes.high-from=0.20",
+            "backend.test-routes.outcome-budget=500",
             "backend.workbench.repeat-concurrency=2")
         .run(
             context -> {
@@ -72,6 +75,8 @@ class BackendSettingsTest {
               var settings = context.getBean(BackendSettings.class);
               assertThat(settings.pathSearch().maxJobs()).isEqualTo(3);
               assertThat(settings.pathSearch().ttl()).isEqualTo(Duration.ofMinutes(7));
+              assertThat(settings.testRoutes())
+                  .isEqualTo(new BackendSettings.TestRoutes(.03, .20, 500));
               assertThat(settings.workbench().repeatConcurrency()).isEqualTo(2);
             });
   }
@@ -100,6 +105,8 @@ class BackendSettingsTest {
         new String[] {
           "backend.path-search.max-jobs=0",
           "backend.method-search.run-budget=0",
+          "backend.test-routes.outcome-budget=0",
+          "backend.test-routes.high-from=0.01",
           "backend.workbench.repeat-concurrency=0"
         }) {
       runner.withPropertyValues(property).run(context -> assertThat(context).hasFailed());

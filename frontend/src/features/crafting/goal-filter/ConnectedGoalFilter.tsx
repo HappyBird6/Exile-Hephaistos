@@ -50,6 +50,7 @@ export function ConnectedGoalFilter({
   activeOmens,
   maxMillis,
   compact = false,
+  storageKey = 'goal',
   allowQualityWork = true,
   language,
   onSearchGoalChange,
@@ -61,6 +62,7 @@ export function ConnectedGoalFilter({
   language: GoalFilterLanguage
   activeOmens: string[]
   maxMillis: number
+  storageKey?: string
   compact?: boolean
   allowQualityWork?: boolean
   onResetGoal?: (() => void) | undefined
@@ -192,6 +194,7 @@ export function ConnectedGoalFilter({
         </p>
       )}
       <ConnectedEditor
+        storageKey={storageKey}
         onResetGoal={onResetGoal}
         onSearchGoalChange={onSearchGoalChange}
         initialCatalog={initialCatalog}
@@ -224,6 +227,7 @@ export function ConnectedGoalFilter({
   )
 }
 function ConnectedEditor({
+  storageKey,
   initialCatalog,
   item,
   context,
@@ -235,6 +239,7 @@ function ConnectedEditor({
   onResetGoal,
 }: {
   initialCatalog: Catalog
+  storageKey: string
   item: ConcreteItem | null
   rulesetIdentity?: string | undefined
   context: Context
@@ -250,7 +255,7 @@ function ConnectedEditor({
   const { locale } = useI18n()
   const [editor] = useState(() =>
     createGoalFilterEditor(
-      (compact ? readSupport('goal', validGoal) : null) ??
+      (compact ? readSupport(storageKey, validGoal) : null) ??
         emptyGoal(initialCatalog.context, initialCatalog.catalogVersion),
     ),
   )
@@ -259,14 +264,14 @@ function ConnectedEditor({
   useEffect(() => {
     if (!compact) return
     const persist = () =>
-      setStorageFailed(!saveSupport('goal', editor.getState().goal))
+      setStorageFailed(!saveSupport(storageKey, editor.getState().goal))
     const timer = setTimeout(persist, 250)
     window.addEventListener('pagehide', persist)
     return () => {
       clearTimeout(timer)
       window.removeEventListener('pagehide', persist)
     }
-  }, [compact, goal, editor])
+  }, [compact, goal, editor, storageKey])
   useEffect(() => {
     if (
       compact &&
@@ -355,7 +360,7 @@ function ConnectedEditor({
                 collapsedByGroupId: {},
                 presentedTypes: {},
               }))
-              if (compact) setStorageFailed(!saveSupport('goal', goal))
+              if (compact) setStorageFailed(!saveSupport(storageKey, goal))
               setResetGeneration((n) => n + 1)
             }}
           >

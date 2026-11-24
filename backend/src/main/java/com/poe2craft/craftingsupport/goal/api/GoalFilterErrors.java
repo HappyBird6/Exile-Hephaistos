@@ -24,7 +24,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
  *       detail}(상세). 반환: {@code ProblemDetail}.
  * </ul>
  */
-@RestControllerAdvice(assignableTypes = GoalFilterController.class)
+@RestControllerAdvice(assignableTypes = {GoalFilterController.class, TestRouteController.class})
 public final class GoalFilterErrors {
   @ExceptionHandler(InvalidGoal.class)
   public ProblemDetail invalid(InvalidGoal error) {

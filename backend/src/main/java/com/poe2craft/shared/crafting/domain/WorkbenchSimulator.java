@@ -310,6 +310,27 @@ public final class WorkbenchSimulator {
     return Collections.unmodifiableMap(result);
   }
 
+  /** 해당 베이스의 실제 제작기에서 재료별로 부여할 수 있는 적격 옵션 ID를 조회한다. */
+  public Map<WorkbenchCurrency, List<String>> sourceMaterialTargets(int itemLevel) {
+    var result = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
+    for (var action : baseMaterialActions()) {
+      if (action.minimumModifierLevel() > itemLevel) continue;
+      var targets =
+          java.util.stream.Stream.concat(
+                  materials.essenceTargets(action).stream(),
+                  materials.replacementTargets(action).stream())
+              .distinct()
+              .toList();
+      if (!targets.isEmpty()
+          && targets.stream()
+              .allMatch(
+                  id ->
+                      catalog.find(id).filter(d -> d.requiredItemLevel() <= itemLevel).isPresent()))
+        result.put(action, targets);
+    }
+    return result;
+  }
+
   /** Per-base mechanics identity; cosmetics and other catalogs never participate. */
   private volatile String cachedCompatibilityId;
 
@@ -901,9 +922,26 @@ public final class WorkbenchSimulator {
 
   /** Read-only exhaustive projection; the manual sampler remains independent of search policy. */
   public AutomaticCraftingPlan automaticPlan(ItemState state, AutomaticCraftingAction execution) {
+    return currencyPlan(state, execution.currency(), List.copyOf(execution.omens()), false);
+  }
+
+  /** 특정 재료의 작업대 적용 자격을 확인한다. 전체 화면용 행동 목록은 생성하지 않는다. */
+  public Availability availability(
+      ItemState state, WorkbenchCurrency action, Set<WorkbenchOmen> omens) {
     validate(state);
-    var action = execution.currency();
-    var omens = List.copyOf(execution.omens());
+    return availability(state, action, List.copyOf(new TreeSet<>(omens)));
+  }
+
+  /** 실험 카드의 한 번 사용을 작업대 후보·교체 규칙으로 전개한다. 자동 탐색의 지원 화폐 목록은 별도로 적용한다. */
+  public AutomaticCraftingPlan recipePlan(
+      ItemState state, WorkbenchCurrency action, Set<WorkbenchOmen> omens) {
+    return currencyPlan(state, action, List.copyOf(new TreeSet<>(omens)), true);
+  }
+
+  /** 실행 방식에 따라 허용 화폐를 확인하고 각 제거 직후 상태와 실제 추가 풀을 반환한다. */
+  private AutomaticCraftingPlan currencyPlan(
+      ItemState state, WorkbenchCurrency action, List<WorkbenchOmen> omens, boolean recipe) {
+    validate(state);
     if (action == WorkbenchCurrency.ANNULMENT) {
       var availability = availability(state, action, omens);
       if (!availability.available() || !WorkbenchOmens.matching(action, omens).containsAll(omens))
@@ -935,7 +973,9 @@ public final class WorkbenchSimulator {
           false,
           "https://poe2db.tw/us/Orb_of_Annulment");
     }
-    if (action == WorkbenchCurrency.TRANSMUTATION && omens.isEmpty()) {
+    if (omens.isEmpty()
+        && (action == WorkbenchCurrency.TRANSMUTATION
+            || (recipe && BasicCurrencyPlan.ACTIONS.contains(action)))) {
       var plan = basicCurrencyPlan(state, action);
       return new AutomaticCraftingPlan(
           plan.available()
@@ -951,12 +991,13 @@ public final class WorkbenchSimulator {
     boolean basic =
         action == WorkbenchCurrency.REGAL
             || action == WorkbenchCurrency.EXALTED
-            || action == WorkbenchCurrency.CHAOS;
+            || action == WorkbenchCurrency.CHAOS
+            || (recipe && BasicCurrencyPlan.ACTIONS.contains(action));
     boolean replacement = !materials.replacementTargets(action).isEmpty();
     boolean essence = !materials.essenceTargets(action).isEmpty();
-    if (action == WorkbenchCurrency.ESSENCE_ABYSS
+    if ((!recipe && (action == WorkbenchCurrency.ESSENCE_ABYSS || action.isLiquid()))
         || (!basic && !replacement && !essence)
-        || action.isLiquid()
+        || (recipe && WorkbenchOmen.verifiedDoubleAddition(omens))
         || WorkbenchOmens.matching(action, omens).size() != omens.size())
       return new AutomaticCraftingPlan(
           AutomaticCraftingPlan.Status.UNSUPPORTED,
@@ -968,7 +1009,7 @@ public final class WorkbenchSimulator {
         action == WorkbenchCurrency.REGAL || essence
             ? ItemState.Rarity.MAGIC
             : ItemState.Rarity.RARE;
-    if (basic ? state.rarity() != required : !action.materialPolicy().allows(state))
+    if (basic ? !recipe && state.rarity() != required : !action.materialPolicy().allows(state))
       return new AutomaticCraftingPlan(
           AutomaticCraftingPlan.Status.UNAVAILABLE, "RARITY_NOT_APPLICABLE", List.of(), !basic, "");
     var available = availability(state, action, omens);
@@ -988,7 +1029,7 @@ public final class WorkbenchSimulator {
           "");
     var branches = new ArrayList<AutomaticCraftingPlan.Branch>();
     var omen = omens.isEmpty() ? null : omens.getFirst();
-    if (action == WorkbenchCurrency.CHAOS) {
+    if (action.baseAction() == CraftingAction.CHAOS) {
       for (var removed : removalCandidates(state, action, omens)) {
         var rest = new ArrayList<>(state.explicits());
         rest.remove(removed);
@@ -1013,17 +1054,18 @@ public final class WorkbenchSimulator {
       for (var removed : replacementRemovalCandidates(state, action, omen)) {
         var rest = new ArrayList<>(state.explicits());
         rest.remove(removed);
-        branches.add(
-            new AutomaticCraftingPlan.Branch(
-                copy(state, state.rarity(), state.implicits(), rest), targets));
+        var remaining = copy(state, state.rarity(), state.implicits(), rest);
+        var allowed =
+            action.isLiquid()
+                ? targets.stream().filter(target -> canAddFixed(remaining, target)).toList()
+                : targets;
+        branches.add(new AutomaticCraftingPlan.Branch(remaining, allowed));
       }
     } else {
       var upgraded =
           copy(
               state,
-              essence
-                  ? action.materialPolicy().result(state)
-                  : action == WorkbenchCurrency.REGAL ? ItemState.Rarity.RARE : state.rarity(),
+              essence ? action.materialPolicy().result(state) : upgrade(state, action),
               state.implicits(),
               state.explicits());
       branches.add(

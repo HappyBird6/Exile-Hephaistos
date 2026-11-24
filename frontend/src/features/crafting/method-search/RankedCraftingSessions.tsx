@@ -15,7 +15,14 @@ import '../session-history/history.css'
 import { SessionListCard } from '../session-library/SessionListCard'
 import { sessionLibraryMessages } from '../session-library/sessionLibraryMessages'
 import { historyMessages } from '../session-history/messages'
-import { useContext, useMemo, useRef, useState } from 'react'
+import {
+  useContext,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+  type Ref,
+} from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { ItemCardData } from '../itemCardData'
 import { OpenCraftingSession } from './openCraftingSession'
@@ -104,6 +111,43 @@ const labels = {
   ],
 } as const
 
+export function SessionPlansLayout({
+  children,
+  detail,
+  sectionRef,
+}: {
+  children: ReactNode
+  detail?: ReactNode
+  sectionRef?: Ref<HTMLElement>
+}) {
+  const { locale } = useI18n()
+  const [heading, sort] = labels[locale]
+  return (
+    <section className="session-plans" ref={sectionRef}>
+      <HistoryWorkspaceLayout
+        heading={
+          <>
+            <h2>{heading}</h2>
+            <span>{sort}</span>
+          </>
+        }
+        list={
+          <div className="wb-history-list wb-scrollbar">
+            <div
+              className="wb-session-library"
+              role="list"
+              aria-label={heading}
+            >
+              {children}
+            </div>
+          </div>
+        }
+        preview={detail}
+      />
+    </section>
+  )
+}
+
 type Props = {
   view: AutomaticView
   cycles: number
@@ -117,7 +161,6 @@ type Props = {
 }
 export function RankedCraftingSessions(props: Props) {
   const { locale, name } = useI18n(),
-    copy = labels[locale],
     policy = policyCandidateMessages[locale]
   const market = useCurrencyMarket()
   const [terminal, setTerminal] = useState<{
@@ -249,99 +292,81 @@ export function RankedCraftingSessions(props: Props) {
   }
   if (!chosen) return null
   return (
-    <section className="session-plans" ref={preview}>
-      <HistoryWorkspaceLayout
-        heading={
-          <>
-            <h2>{copy[0]}</h2>
-            <span>{copy[1]}</span>
-          </>
-        }
-        list={
-          <div className="wb-history-list wb-scrollbar">
-            <div
-              className="wb-session-library"
-              role="list"
-              aria-label={copy[0]}
-            >
-              {plans.map((plan, index) => {
-                const example = examples.get(plan.id) ?? []
-                const probability = plan.success
-                  ? probabilityText(plan.success.lower, plan.success)
-                  : policy.unresolved
-                const film =
-                  active && active.plan.id === plan.id
-                    ? projectedRoute(
-                        active.view.id,
-                        props.start,
-                        props.identity,
-                        active.route,
-                        active.plan.cycles,
-                        new Map(active.view.methods.map((m) => [m.id, m])),
-                        new Map(active.view.nodes.map((n) => [n.id, n])),
-                      )
-                    : routes.films.get(plan.id)!
-                const title = planTitle(
-                  film,
-                  market?.data?.snapshot,
-                  locale,
-                  probability,
-                )
-                return (
-                  <div role="listitem" key={plan.id}>
-                    <SessionListCard
-                      title={title}
-                      baseId={props.start.baseItemId}
-                      baseName={baseName}
-                      selected={chosen.id === plan.id}
-                      selectLabel={`${index + 1}. ${title}`}
-                      onSelect={() => {
-                        choose(plan)
-                        if (window.innerWidth <= 760)
-                          preview.current
-                            ?.querySelector('.wb-history-preview')
-                            ?.scrollIntoView?.({ block: 'nearest' })
-                      }}
-                      metadata={<small>{baseName}</small>}
-                      actions={
-                        <AppLink
-                          onClick={(event) =>
-                            cache.setQueryData(
-                              [
-                                'plan-film',
-                                event.currentTarget.pathname +
-                                  event.currentTarget.search,
-                              ],
-                              { ...film, title },
-                            )
-                          }
-                          className="wb-session-card__overview"
-                          href={overviewHref(
-                            props,
-                            plan,
-                            chosen.id === plan.id ? route : example,
-                            chosen.id === plan.id ? terminal : null,
-                          )}
-                        >
-                          <svg viewBox="0 0 20 20" aria-hidden="true">
-                            <rect x="2.5" y="3" width="15" height="14" rx="2" />
-                            <path d="M6 7h8M6 10h8M6 13h5" />
-                          </svg>
-                          {historyMessages[locale].title}
-                        </AppLink>
-                      }
-                    />
-                  </div>
-                )
-              })}
-            </div>
+    <SessionPlansLayout
+      sectionRef={preview}
+      detail={<SessionSteps key={chosen.id} {...detailProps} plan={chosen} />}
+    >
+      {plans.map((plan, index) => {
+        const example = examples.get(plan.id) ?? []
+        const probability = plan.success
+          ? probabilityText(plan.success.lower, plan.success)
+          : policy.unresolved
+        const film =
+          active && active.plan.id === plan.id
+            ? projectedRoute(
+                active.view.id,
+                props.start,
+                props.identity,
+                active.route,
+                active.plan.cycles,
+                new Map(active.view.methods.map((m) => [m.id, m])),
+                new Map(active.view.nodes.map((n) => [n.id, n])),
+              )
+            : routes.films.get(plan.id)!
+        const title = planTitle(
+          film,
+          market?.data?.snapshot,
+          locale,
+          probability,
+        )
+        return (
+          <div role="listitem" key={plan.id}>
+            <SessionListCard
+              title={title}
+              baseId={props.start.baseItemId}
+              baseName={baseName}
+              selected={chosen.id === plan.id}
+              selectLabel={`${index + 1}. ${title}`}
+              onSelect={() => {
+                choose(plan)
+                if (window.innerWidth <= 760)
+                  preview.current
+                    ?.querySelector('.wb-history-preview')
+                    ?.scrollIntoView?.({ block: 'nearest' })
+              }}
+              metadata={<small>{baseName}</small>}
+              actions={
+                <AppLink
+                  onClick={(event) =>
+                    cache.setQueryData(
+                      [
+                        'plan-film',
+                        event.currentTarget.pathname +
+                          event.currentTarget.search,
+                      ],
+                      { ...film, title },
+                    )
+                  }
+                  className="wb-session-card__overview"
+                  href={overviewHref(
+                    props,
+                    plan,
+                    chosen.id === plan.id ? route : example,
+                    chosen.id === plan.id ? terminal : null,
+                  )}
+                >
+                  <svg viewBox="0 0 20 20" aria-hidden="true">
+                    <rect x="2.5" y="3" width="15" height="14" rx="2" />
+                    <path d="M6 7h8M6 10h8M6 13h5" />
+                  </svg>
+                  {historyMessages[locale].title}
+                </AppLink>
+              }
+            />
           </div>
-        }
-        preview={
-          <SessionSteps key={chosen.id} {...detailProps} plan={chosen} />
-        }
-      />
-    </section>
+        )
+      })}
+    </SessionPlansLayout>
   )
 }
 

@@ -1,4 +1,4 @@
-import { experimentText } from '../../features/crafting/support-test/messages'
+import { supportTestTabNames } from '../../features/crafting/support-test/messages'
 import { workspacePath, type Workspace } from './workspaceRoutes'
 import { useEffect } from 'react'
 import { useI18n } from '../i18n/i18n'
@@ -73,7 +73,7 @@ export function WorkspaceNavigation({
             }}
           >
             {tab === 'support-test'
-              ? experimentText[locale].title
+              ? supportTestTabNames[locale]
               : tab === 'community'
                 ? communityText(locale).board
                 : tab === 'history'

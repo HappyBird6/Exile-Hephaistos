@@ -245,7 +245,8 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
         && com.poe2craft.shared.item.SocketAugmentText.affectsCrafting(
             item.observations().augmentEffects()))
       throw new IllegalArgumentException(
-          "Installed Augment names and counts must be resolved before crafting; observations are preserved.");
+          "Installed Augment names and counts must be resolved before crafting; observations are"
+              + " preserved.");
     var validationItem = knownItem();
     if (item.conditions().equals(Set.of(ItemState.Condition.CORRUPTED))
         && slots.stream().anyMatch(Slot::desecrated))
@@ -357,20 +358,26 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
   }
 
   private boolean revealEligible(Slot slot, ModifierDefinition d) {
+    return d.affixType() == slot.side() && revealPoolEligible(slot.revealPool(), d, d.weight() > 0);
+  }
+
+  /** 공개·카드 출처 조회가 공유하는 훼손 풀 조건. 레벨·슬롯·계열은 각 상태에서 별도로 검사한다. */
+  static boolean revealPoolEligible(String pool, ModifierDefinition d, boolean inWeightedPool) {
     if (d.layer() != ModifierDefinition.Layer.EXPLICIT
-        || d.affixType() != slot.side()
-        || (d.weight() <= 0 && !d.tags().contains("reveal_only"))) return false;
-    if (d.tags().contains("otherworldly") && !"ALTERED".equals(slot.revealPool())) return false;
-    return slot.revealPool() == null
-        || "ALTERED".equals(slot.revealPool())
-        || d.tags().contains(slot.revealPool().toLowerCase(java.util.Locale.ROOT) + "_mod");
+        || (!inWeightedPool && !d.tags().contains("reveal_only"))) return false;
+    if (d.tags().contains("otherworldly") && !"ALTERED".equals(pool)) return false;
+    return pool == null
+        || "ALTERED".equals(pool)
+        || d.tags().contains(pool.toLowerCase(java.util.Locale.ROOT) + "_mod");
   }
 
   public AbyssCraftingState selectDirect(
       String id, ModifierInstance candidate, ItemCatalog catalog) {
     requireMutable();
-    if (!eligibleRevealIds(id, catalog).contains(candidate.modifierId()))
-      throw new IllegalArgumentException("Ineligible reveal option");
+    validate(catalog);
+    if (slots.stream()
+        .noneMatch(slot -> slot.id().equals(id) && slot.desecrated() && slot.modifier() == null))
+      throw new IllegalArgumentException("Unrevealed slot required");
     return selected(id, candidate, catalog);
   }
 

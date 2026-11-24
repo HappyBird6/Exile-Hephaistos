@@ -56,6 +56,9 @@ public interface CraftingOperations extends CraftingCatalogs {
 
   WorkbenchSimulator simulator(ItemState state);
 
+  /** 여러 장착 상태를 거치는 경로는 보정 전 베이스에서 각 단계의 forItem을 선택한다. */
+  WorkbenchSimulator baseSimulator(ItemState state);
+
   AbyssCraftingPlan abyssPlan(
       AbyssCraftingState state, WorkbenchCurrency action, Set<String> omens);
 

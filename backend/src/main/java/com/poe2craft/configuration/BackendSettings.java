@@ -26,6 +26,7 @@ import org.springframework.validation.annotation.Validated;
  *   <li>{@code methodSearch}: 제작방법·탐색 ({@code MethodSearch}).
  *   <li>{@code certifiedSearch}: 확률구간·탐색 ({@code CertifiedSearch}).
  *   <li>{@code automaticSearch}: 자동·탐색 ({@code AutomaticSearch}).
+ *   <li>{@code testRoutes}: 제작 지원 테스트의 일반·증강물 풀 등장 빈도 분류 기준.
  *   <li>{@code cache}: 캐시 ({@code Cache}).
  *   <li>{@code storage}: 저장소 ({@code Storage}).
  *   <li>{@code workbench}: 작업대 ({@code Workbench}).
@@ -51,6 +52,7 @@ import org.springframework.validation.annotation.Validated;
  *   <li>{@code MethodSearch}: {@code BackendSettings}에서 사용하는 제작방법·탐색의 불변 값이다.
  *   <li>{@code CertifiedSearch}: {@code BackendSettings}에서 사용하는 확률구간·탐색의 불변 값이다.
  *   <li>{@code AutomaticSearch}: {@code BackendSettings}에서 사용하는 자동·탐색의 불변 값이다.
+ *   <li>{@code TestRoutes}: 제작 지원 테스트의 등장 빈도 분류와 계산 예산이다.
  *   <li>{@code Cache}: {@code BackendSettings}에서 사용하는 캐시의 불변 값이다.
  *   <li>{@code Storage}: {@code BackendSettings}에서 사용하는 저장소의 불변 값이다.
  *   <li>{@code Workbench}: {@code BackendSettings}에서 사용하는 작업대의 불변 값이다.
@@ -65,12 +67,23 @@ public record BackendSettings(
     @Valid @NotNull MethodSearch methodSearch,
     @Valid @NotNull CertifiedSearch certifiedSearch,
     @Valid @NotNull AutomaticSearch automaticSearch,
+    @Valid @NotNull TestRoutes testRoutes,
     @Valid @NotNull Cache cache,
     @Valid @NotNull Storage storage,
     @Valid @NotNull Workbench workbench,
     @Valid @NotNull Prices prices,
     @Valid @NotNull RequestProtection requestProtection,
     @Valid @NotNull AdminLogs adminLogs) {
+
+  /** lowBelow 미만은 L, highFrom 이상은 H로 분류하며 outcomeBudget은 한 요청이 검증할 제작 결과 수다. */
+  public record TestRoutes(double lowBelow, double highFrom, @Min(1) int outcomeBudget) {
+    /** 두 경계가 유효한 확률인지 시작 시 검사한다. */
+    public TestRoutes {
+      if (!(0 < lowBelow && lowBelow < highFrom && highFrom <= 1)) {
+        throw new IllegalArgumentException("Invalid test route frequency thresholds");
+      }
+    }
+  }
 
   /**
    * {@code BackendSettings}에서 사용하는 Admin·로그목록의 불변 값이다.

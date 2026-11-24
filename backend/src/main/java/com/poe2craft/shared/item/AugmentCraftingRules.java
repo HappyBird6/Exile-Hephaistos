@@ -223,6 +223,21 @@ public final class AugmentCraftingRules {
     return Set.copyOf(result);
   }
 
+  /** 이 베이스에 장착 가능한 증강물과 장착으로 열리는 실제 추첨 옵션의 ID를 연결한다. */
+  public static Map<String, Set<String>> poolSources(String baseId) {
+    var pools = DATA.pools().getOrDefault(baseId, Map.of());
+    var result = new TreeMap<String, Set<String>>();
+    DATA.effects()
+        .forEach(
+            (id, effect) -> {
+              if (effect.pool() != null
+                  && pools.containsKey(effect.pool())
+                  && SocketAugments.supports(baseId, id))
+                result.put(id, Set.copyOf(pools.get(effect.pool()).keySet()));
+            });
+    return Collections.unmodifiableMap(result);
+  }
+
   public static boolean affectsSampling(ItemState state) {
     return suffixBonus(state) > 0 || !pools(state).isEmpty();
   }

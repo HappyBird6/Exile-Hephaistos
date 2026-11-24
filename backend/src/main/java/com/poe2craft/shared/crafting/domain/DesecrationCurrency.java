@@ -6,6 +6,7 @@ import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import com.poe2craft.shared.item.ManualRevealCatalog;
+import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import java.util.*;
 import java.util.random.RandomGenerator;
@@ -75,6 +76,40 @@ public final class DesecrationCurrency {
           "Traps",
           "Talismans");
   private static final Set<String> JEWELLERY = Set.of("Amulet", "Amulets", "Rings", "Belts");
+
+  /** 훼손 재료와 공개 티어에 공통으로 적용하는 단계별 레벨 제한이다. */
+  private static final int GNAWED_MAX_LEVEL = 64;
+
+  private static final int ANCIENT_MIN_LEVEL = 40;
+
+  /** 베이스별로 작업대가 받는 뼈의 이름이다. 옵션 티어의 획득처와 실제 적용이 이 목록을 공유한다. */
+  private static List<String> bones(String base) {
+    if (BasicJewel.supportedCrafting(base)) return List.of("Preserved_Cranium");
+    var type = BaseRegistry.itemClass(base);
+    if (type == null) return List.of();
+    if (JEWELLERY.contains(type))
+      return List.of(
+          "Gnawed_Collarbone", "Preserved_Collarbone", "Ancient_Collarbone", "Altered_Collarbone");
+    if (WEAPONS.contains(type))
+      return List.of("Gnawed_Jawbone", "Preserved_Jawbone", "Ancient_Jawbone");
+    if (ARMOUR.contains(type)) return List.of("Gnawed_Rib", "Preserved_Rib", "Ancient_Rib");
+    return List.of();
+  }
+
+  /** 이 아이템 레벨·옵션 티어에서 공개 가능한 재료 ID다. inWeightedPool은 장착으로 열 수 있는 전용 풀을 포함한다. */
+  public static List<String> sources(
+      String base, int level, ModifierDefinition modifier, boolean inWeightedPool) {
+    if (modifier.requiredItemLevel() > level) return List.of();
+    return bones(base).stream()
+        .filter(id -> !id.startsWith("Gnawed_") || level <= GNAWED_MAX_LEVEL)
+        .filter(
+            id -> !id.startsWith("Ancient_") || modifier.requiredItemLevel() >= ANCIENT_MIN_LEVEL)
+        .filter(
+            id ->
+                AbyssCraftingState.revealPoolEligible(
+                    id.equals("Altered_Collarbone") ? "ALTERED" : null, modifier, inWeightedPool))
+        .toList();
+  }
 
   public static boolean supportsRevealPool(String baseItemId, String pool) {
     if (pool == null) return true;
@@ -253,11 +288,7 @@ public final class DesecrationCurrency {
       throw new IllegalArgumentException(
           "Requires an identified, unmodified-condition Rare item without desecration");
     var itemClass = BaseRegistry.itemClass(item.baseItemId());
-    var classes =
-        currency.endsWith("_Rib") ? ARMOUR : currency.endsWith("_Jawbone") ? WEAPONS : JEWELLERY;
-    if (currency.equals("Preserved_Cranium")
-        ? !BasicJewel.supportedCrafting(item.baseItemId())
-        : itemClass == null || !classes.contains(itemClass))
+    if (!bones(item.baseItemId()).contains(currency))
       throw new IllegalArgumentException("Currency does not match the equipment class");
     if (!poolOmens.isEmpty()
         && (currency.equals("Altered_Collarbone")
@@ -268,9 +299,9 @@ public final class DesecrationCurrency {
         currency.equals("Altered_Collarbone")
             ? "ALTERED"
             : poolOmens.isEmpty() ? null : pools.get(poolOmens.getFirst());
-    if (currency.startsWith("Gnawed_") && item.itemLevel() > 64)
+    if (currency.startsWith("Gnawed_") && item.itemLevel() > GNAWED_MAX_LEVEL)
       throw new IllegalArgumentException("Gnawed bones require item level 64 or lower");
-    if (currency.startsWith("Ancient_") && item.itemLevel() < 40)
+    if (currency.startsWith("Ancient_") && item.itemLevel() < ANCIENT_MIN_LEVEL)
       throw new IllegalArgumentException(
           "No candidate can satisfy both item and minimum modifier levels");
     if (side == null || side == AffixType.NONE)
@@ -294,7 +325,7 @@ public final class DesecrationCurrency {
             side,
             null,
             true,
-            currency.startsWith("Ancient_") ? 40 : null,
+            currency.startsWith("Ancient_") ? ANCIENT_MIN_LEVEL : null,
             pool));
     var result = new AbyssCraftingState(remaining.item(), slots, null);
     result.validate(catalog);
