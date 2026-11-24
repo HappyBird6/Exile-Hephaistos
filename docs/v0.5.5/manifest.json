@@ -1768,7 +1768,7 @@
     },
     {
       "path": "game-data/crafting/registry-v2.json",
-      "sha256": "f365ff7d5d8183e3c8b7d531711de4307cf2d8786fd45a6cb0852c12e6c2cd28"
+      "sha256": "995f07ae88ce191b0f10c57503aac1c9180fce274599582455bb5d4142226c94"
     },
     {
       "path": "game-data/crafting/reveal/options.json",
@@ -1776,7 +1776,7 @@
     },
     {
       "path": "game-data/crafting/ruleset-v1.json",
-      "sha256": "05e147995bbc5af265eacf2deaa18a26f9da5a1e582f3a48b48647da1f57b8ad"
+      "sha256": "93893de6fafeca2b7e826d88d5f271bd2ef2f8249851c3f1e162687a3bb7edcc"
     },
     {
       "path": "game-data/crafting/supported-base-sets-v1.json",
@@ -2790,11 +2790,11 @@
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/registry-v2.json",
-      "sha256": "191503a26b466a69b0f9c2dd836c1c0be2f8bb1dbecb634fded228d789edceff"
+      "sha256": "b50dd3578935532814aa47597e4ed46b309cc4c9eb88bf01e674b5b87615e5b7"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/ruleset-v1.json",
-      "sha256": "05e147995bbc5af265eacf2deaa18a26f9da5a1e582f3a48b48647da1f57b8ad"
+      "sha256": "93893de6fafeca2b7e826d88d5f271bd2ef2f8249851c3f1e162687a3bb7edcc"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/supported-base-sets-v1.json",

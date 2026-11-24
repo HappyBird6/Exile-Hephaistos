@@ -65,6 +65,13 @@ it('keeps ordinary choices unlabelled and distinguishes guaranteed, exclusive de
         actions: [],
       },
       {
+        modifierId: 'ordinary',
+        kind: 'essence',
+        eligible: true,
+        reasons: [],
+        actions: ['ESSENCE_MIND'],
+      },
+      {
         modifierId: 'essence',
         kind: 'essence',
         eligible: true,
@@ -93,10 +100,18 @@ it('keeps ordinary choices unlabelled and distinguishes guaranteed, exclusive de
   )
   expect(options.map((o) => [o.definition.id, o.source])).toEqual([
     ['ordinary', ''],
+    ['ordinary', 'Essence'],
     ['essence', 'Essence'],
     ['hidden', 'Desecrated'],
     ['rune', 'Thruds_Might'],
   ])
+  const upgrade = options.find(
+    (o) => o.definition.id === 'ordinary' && o.source === 'Essence',
+  )!
+  expect(upgrade.kind).toBe('ordinary')
+  expect(options.find((o) => o.definition.id === 'essence')?.kind).toBe(
+    'crafted',
+  )
   const item = startingItem(initial, 'RARE', [
     { modifierId: 'essence', values: {}, source: 'Essence', kind: 'crafted' },
     {

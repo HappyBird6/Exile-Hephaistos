@@ -161,11 +161,16 @@ export function verifyMaterialTransition(
         'Could not verify the essence replacement. Your item is unchanged. Please retry.',
       )
   }
+  const guaranteed = essenceCandidates.length
+    ? next.explicits.find((m) => m.modifierId === v.events[0]?.modifierId)
+    : undefined
   if (
     v.applied &&
     essenceCandidates.length > 0 &&
     (v.events.length !== 1 ||
       v.events[0]?.kind !== 'ADD' ||
+      !guaranteed ||
+      guaranteed.crafted ||
       !essenceCandidates.includes(v.events[0]?.modifierId ?? '') ||
       v.events[0]?.selectionProbability !== 1 / essenceCandidates.length ||
       (essenceCandidates.length > 1 &&
@@ -186,11 +191,7 @@ export function verifyMaterialTransition(
           .filter(Boolean),
         state.explicits,
       ) ||
-      !sameValues(
-        v.events[0]?.values,
-        next.explicits.find((m) => m.modifierId === v.events[0]?.modifierId)
-          ?.values,
-      ))
+      !sameValues(v.events[0]?.values, guaranteed.values))
   )
     throw new Error(
       'Could not verify the guaranteed essence modifier. Your item is unchanged. Please retry.',

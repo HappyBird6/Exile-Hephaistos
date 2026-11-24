@@ -1,3 +1,4 @@
+import { materialActions, materialProfiles } from '../catalogData'
 import { basePreview } from './baseChoices'
 import type { BaseChoice } from './baseChoices'
 import { defenceDisplay } from '../defenceDisplay'
@@ -78,18 +79,19 @@ export function startingAffixOptions(
       sources = ['Desecrated']
       kind = 'desecrated'
     } else if (entry.kind === 'essence') {
-      kind = 'crafted'
-      sources = [
-        ...new Set(
-          entry.actions.map((a) =>
-            a.includes('ESSENCE')
-              ? 'Essence'
-              : a.includes('ALLOY')
-                ? 'Alloy'
-                : 'Liquid Emotions',
-          ),
-        ),
-      ]
+      for (const action of entry.actions) {
+        const material = materialProfiles[materialActions[action] ?? '']
+        if (!material) continue
+        const source =
+          material.kind === 'ESSENCE'
+            ? 'Essence'
+            : material.kind === 'ALLOY'
+              ? 'Alloy'
+              : 'Liquid Emotions'
+        const kind = material.mode === 'ADD' ? 'ordinary' : 'crafted'
+        const key = [definition.id, source, kind].join('|')
+        choices.set(key, { key, definition, kind, source })
+      }
     }
     for (const source of sources) {
       const key = definition.id + '|' + source

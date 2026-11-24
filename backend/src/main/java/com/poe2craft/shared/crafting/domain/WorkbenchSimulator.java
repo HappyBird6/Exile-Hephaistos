@@ -31,7 +31,7 @@ import java.util.random.RandomGenerator;
  * <p>필드·상수:
  *
  * <ul>
- *   <li>{@code RULE_VERSION}: 버전; 초기값 {@code "solar-workbench-abyss-essence-v23"} ({@code String}).
+ *   <li>{@code RULE_VERSION}: 버전; 초기값 {@code "solar-workbench-abyss-essence-v24"} ({@code String}).
  *   <li>{@code LEDGER_VERSION}: 버전; 초기값 {@code "solar-uniform-assumptions-v14"} ({@code String}).
  *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
  *   <li>{@code MAX_SOCKET_SAMPLERS}: SAMPLERS; 초기값 {@code 32} ({@code int}).
@@ -71,8 +71,6 @@ import java.util.random.RandomGenerator;
  *   <li>{@code forItem(state)}: 대상·아이템 처리에서 {@code catalog.augmentContextApplied}, {@code
  *       AugmentCraftingRules.affectsSampling}을(를) 사용한다. 입력: {@code state}(상태). 반환: {@code
  *       WorkbenchSimulator}.
- *   <li>{@code craftsModifier(action)}: crafts·옵션 처리에서 {@code materials.essenceTargets}, {@code
- *       materials.replacementTargets}을(를) 사용한다. 입력: {@code action}(행동). 반환: {@code boolean}.
  *   <li>{@code referenceEssenceTargets()}: 참조·에센스·대상목록 값을 조회·구성한다. 반환: {@code Map<String,
  *       List<String>>}.
  *   <li>{@code compatibilityId()}: 호환성·식별자 값을 조회·구성한다. 반환: {@code String}.
@@ -194,7 +192,7 @@ import java.util.random.RandomGenerator;
  * </ul>
  */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v23";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v24";
   public static final String LEDGER_VERSION = "solar-uniform-assumptions-v14";
   private final ItemCatalog catalog;
   private static final int MAX_SOCKET_SAMPLERS = 32;
@@ -290,11 +288,6 @@ public final class WorkbenchSimulator {
       socketSamplers.put(key, created);
       return created;
     }
-  }
-
-  private boolean craftsModifier(WorkbenchCurrency action) {
-    return !materials.essenceTargets(action).isEmpty()
-        || !materials.replacementTargets(action).isEmpty();
   }
 
   /** The same resolved targets used by manual execution, limited to this catalog. */
@@ -494,7 +487,7 @@ public final class WorkbenchSimulator {
       return blocked(
           action,
           "Installed Augment effects are preserved. Provide their names and counts before crafting; their crafting effects are not resolved.");
-    if (craftsModifier(action)
+    if (!materials.replacementTargets(action).isEmpty()
         && state.explicits().stream().filter(m -> AugmentCraftingRules.crafted(m, catalog)).count()
             >= AugmentCraftingRules.craftedLimit(state))
       return blocked(action, "Crafted modifier limit reached.");
@@ -1413,7 +1406,7 @@ public final class WorkbenchSimulator {
     var rarity =
         action == WorkbenchCurrency.ALCHEMY
             ? ItemState.Rarity.RARE
-            : craftsModifier(action)
+            : action.materialPolicy().mode() != WorkbenchDefinitions.MaterialMode.NONE
                 ? action.materialPolicy().result(state)
                 : upgrade(state, action);
     if (!materials.replacementTargets(action).isEmpty()) {
@@ -1499,7 +1492,7 @@ public final class WorkbenchSimulator {
                     ? catalog.metadata().sourceUrl()
                     : action.essenceChoiceSource(),
                 "Uniform among the sourced modifier outcomes; no published essence choice weights. Ordinary affix pool weights are not asserted to be essence choice weights."));
-      var rolled = rolls.roll(definition, random, assumptions).asCrafted();
+      var rolled = rolls.roll(definition, random, assumptions);
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / candidates.size()));
     } else if (action == WorkbenchCurrency.FRACTURING) {

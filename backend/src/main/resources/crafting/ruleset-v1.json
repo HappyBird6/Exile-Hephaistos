@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "rulesetVersion": "reviewed-equipment-0.5.5-v15",
+  "rulesetVersion": "reviewed-equipment-0.5.5-v16",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "provenance": "Bundled source-reviewed project snapshots; retrieval dates differ by resource. No verified current GGG season or patch mapping. See docs/catalog-data-maintenance.md.",
-  "engineRuleVersion": "solar-workbench-abyss-essence-v23",
+  "engineRuleVersion": "solar-workbench-abyss-essence-v24",
   "ledgerVersion": "solar-uniform-assumptions-v14",
   "files": {
     "catalog/absent-amulet/catalog.json": "9d441cd97f945b964f3d55ba602f9515b8808c78deaa71845e59dd46e6465d69",
@@ -217,7 +217,7 @@
     "crafting/goalfilter/definitions-v3-readonly.json": "370f5d76382cd5735a1862ee5bd2ffd637f9150f777052b91849bd8417c50d48",
     "crafting/goalfilter/definitions-v4-readonly.json": "2eaf293caf99cd63415e4e52badd98cee3e2730d72c2fc4130ebcaa6454d6e36",
     "crafting/goalfilter/definitions-v5-readonly.json": "01f0dcb28e930f5c6c1e511dd177f54f4ee46a430c764929d632312e9599be07",
-    "crafting/registry-v2.json": "191503a26b466a69b0f9c2dd836c1c0be2f8bb1dbecb634fded228d789edceff",
+    "crafting/registry-v2.json": "b50dd3578935532814aa47597e4ed46b309cc4c9eb88bf01e674b5b87615e5b7",
     "crafting/supported-base-sets-v1.json": "29042686b98093f3a367c19f5f44c855c633a059bde7ce052ca49487ec91f7d6",
     "crafting/workbench-definitions-v1.json": "aa48efd5891408d7f1ff902e4f0de290a2ca60aab06192338dd3ffb8942a2dcc"
   }

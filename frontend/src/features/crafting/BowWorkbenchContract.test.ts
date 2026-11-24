@@ -41,6 +41,22 @@ it('accepts actual multi-stat Essence values when event JSON key order differs',
   ).resolves.toMatchObject({ applied: true })
 })
 
+it('rejects a crafted flag on the ordinary affix added by an upgrade essence', async () => {
+  const response = structuredClone(result)
+  response.state.explicits[0]!.crafted = true
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse(response)))
+  await expect(
+    applyCurrency(
+      before,
+      'LESSER_ESSENCE_ICE',
+      definitions,
+      new AbortController().signal,
+      result.remainingOmens,
+      'fixture-ruleset',
+    ),
+  ).rejects.toThrow('Could not verify the guaranteed essence modifier')
+})
+
 it.each(['changed', 'extra', 'missing', 'out-of-range'])(
   'rejects %s event stat data while accepting key reordering',
   async (kind) => {

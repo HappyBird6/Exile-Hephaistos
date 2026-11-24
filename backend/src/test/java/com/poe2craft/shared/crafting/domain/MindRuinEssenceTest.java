@@ -105,6 +105,39 @@ class MindRuinEssenceTest {
   }
 
   @Test
+  void upgradeEssenceLeavesCraftedSlotForPerfectEssence() {
+    for (var action : actions) {
+      var upgraded =
+          simulator.apply(magic(82, "amulet:suffix:of-the-brute"), action, Set.of(), new Random(1));
+      assertThat(upgraded.applied()).as(action.name()).isTrue();
+      var perfect = WorkbenchCurrency.PERFECT_ESSENCE_ENHANCEMENT;
+      var replaced = simulator.apply(upgraded.state(), perfect, Set.of(), new Random(2));
+      assertThat(replaced.applied())
+          .as(action + " → " + perfect + ": " + replaced.reason())
+          .isTrue();
+      assertThat(upgraded.state().explicits()).noneMatch(ModifierInstance::crafted);
+      assertThat(replaced.state().explicits()).filteredOn(ModifierInstance::crafted).hasSize(1);
+      var again = simulator.apply(replaced.state(), perfect, Set.of(), new Random(3));
+      assertThat(again.applied()).isFalse();
+      assertThat(again.reason()).contains("Crafted modifier limit");
+    }
+  }
+
+  @Test
+  void upgradeCanAddOrdinaryAffixWhenMagicItemAlreadyHasACraftedAffix() {
+    var before = magic(82, "amulet:prefix:essence-global-defences");
+    var upgraded =
+        simulator.apply(before, WorkbenchCurrency.GREATER_ESSENCE_MIND, Set.of(), new Random(1));
+    assertThat(upgraded.applied()).as(upgraded.reason()).isTrue();
+    assertThat(upgraded.state().explicits()).contains(before.explicits().getFirst());
+    var perfect =
+        simulator.apply(
+            upgraded.state(), WorkbenchCurrency.PERFECT_ESSENCE_INFINITE, Set.of(), new Random(2));
+    assertThat(perfect.applied()).isFalse();
+    assertThat(perfect.reason()).contains("Crafted modifier limit");
+  }
+
+  @Test
   void catalogLevelBoundaryIsSupportedButLowerLevelsAndFamilyOverlapAreNotGuessed() {
     for (var action : actions) {
       var definition = catalog.find(action.fixedModifierId()).orElseThrow();
