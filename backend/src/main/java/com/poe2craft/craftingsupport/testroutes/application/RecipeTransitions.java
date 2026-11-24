@@ -92,6 +92,23 @@ public final class RecipeTransitions {
     }
     var abyss = item.desecrated().isEmpty() ? null : AbyssCraftingState.from(item, catalog);
     var known = abyss == null ? item : abyss.knownItem();
+    if (currency == WorkbenchCurrency.ANNULMENT && omens.contains(WorkbenchOmen.LIGHT)) {
+      if (abyss == null) return Law.empty(true);
+      var removable =
+          abyss.removalCandidates(null).stream()
+              .filter(AbyssCraftingState.Slot::desecrated)
+              .toList();
+      if (removable.isEmpty()) return Law.empty(true);
+      // 한 슬롯일 때 실행기의 균등 선택은 그 슬롯으로 확정된다. 다중 훼손은 이 경로의 단일 제거가 아니다.
+      if (removable.size() != 1) return Law.empty(false);
+      var used =
+          new AbyssCurrencyExecutor(catalog, workbench)
+              .apply(abyss, currency, omenIds(omens), () -> 0L);
+      if (!used.applied()) return Law.empty(!used.reason().contains("UNSUPPORTED"));
+      var loss = removed(known, used.state().knownItem());
+      return new Law(
+          List.of(new Outcome(used.state().storedItem(), Fraction.ONE, loss)), true, loss);
+    }
     boolean hidden = item.desecrated().stream().anyMatch(s -> s.modifierId() == null);
     if (currency == WorkbenchCurrency.ARTIFICER
         || currency.catalystType() != null
@@ -208,26 +225,40 @@ public final class RecipeTransitions {
     }
   }
 
-  /** 현재 조건에서 제거 가능한 슬롯과 방향을 분리해 훼손 재료를 적용하고, 목표가 공개되었을 때의 선택을 열거한다. */
-  private Law reveal(
+  /** 다섯 명시 옵션을 유지하며 마지막 빈 자리에 뼈만 적용한다. 공개의 목표 선택은 다음 전이에서 검증한다. */
+  public Law prepareDesecration(
       ItemState item,
       String material,
       Set<WorkbenchOmen> omens,
-      Set<String> targets,
-      WorkbenchSimulator workbench,
-      int limit) {
-    var catalog = workbench.catalog();
-    var before = AbyssCraftingState.from(item, catalog);
+      Set<String> targetIds,
+      int remainingOutcomes) {
+    if (remainingOutcomes < 1) return Law.empty(false);
+    if (item.rarity() != ItemState.Rarity.RARE
+        || !item.desecrated().isEmpty()
+        || item.explicits().size() != 5) return Law.empty(true);
+    var catalog = simulator.forItem(item).catalog();
+    var slots = new ItemStateValidator(catalog).slots(item);
+    if (slots.remainingPrefixes() + slots.remainingSuffixes() != 1) return Law.empty(true);
+    for (var state : boneStates(item, material, omens, catalog)) {
+      var last = state.slots().getLast();
+      if (!Collections.disjoint(state.eligibleRevealIds(last.id(), catalog), targetIds))
+        return Law.deterministic(state.storedItem());
+    }
+    return Law.empty(true);
+  }
+
+  /** 재료 적용으로 열 수 있는 미공개 상태를 작업대에서 검사한다. 가득 찬 경우에는 제거할 슬롯별로 검사한다. */
+  private static List<AbyssCraftingState> boneStates(
+      ItemState item, String material, Set<WorkbenchOmen> omens, ItemCatalog catalog) {
     var prepared = new ArrayList<AbyssCraftingState>();
-    if ("REVEAL".equals(material)) {
-      if (before.slots().stream().anyMatch(s -> s.desecrated() && s.modifier() == null))
-        prepared.add(before);
-    } else if (item.desecrated().isEmpty()) {
+    if (item.desecrated().isEmpty()) {
       var slots = new ItemStateValidator(catalog).slots(item);
       boolean full = slots.remainingPrefixes() + slots.remainingSuffixes() == 0;
       var removals =
           full
-              ? before.removalCandidates(null).stream().map(AbyssCraftingState.Slot::id).toList()
+              ? AbyssCraftingState.from(item, catalog).removalCandidates(null).stream()
+                  .map(AbyssCraftingState.Slot::id)
+                  .toList()
               : List.of("");
       for (String removed : removals) {
         for (var side :
@@ -257,6 +288,21 @@ public final class RecipeTransitions {
         }
       }
     }
+    return prepared;
+  }
+
+  /** 현재 조건에서 제거 가능한 슬롯과 방향을 분리해 훼손 재료를 적용하고, 목표가 공개되었을 때의 선택을 열거한다. */
+  private Law reveal(
+      ItemState item,
+      String material,
+      Set<WorkbenchOmen> omens,
+      Set<String> targets,
+      WorkbenchSimulator workbench,
+      int limit) {
+    var catalog = workbench.catalog();
+    var before = AbyssCraftingState.from(item, catalog);
+    var prepared =
+        "REVEAL".equals(material) ? List.of(before) : boneStates(item, material, omens, catalog);
     var draws = new ArrayList<Draw>();
     var removable = new HashSet<String>();
     for (var state : prepared) {

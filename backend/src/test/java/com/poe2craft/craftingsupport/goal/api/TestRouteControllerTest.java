@@ -125,6 +125,7 @@ class TestRouteControllerTest {
     input.put("cardIndex", 0);
     var step = input.putArray("steps").addObject();
     step.put("action", "GREATER_EXALTED");
+    step.put("originalAction", "EXALTED");
     step.putArray("omens");
     step.putArray("acquired").add(1);
     step.putArray("lost");
@@ -133,8 +134,15 @@ class TestRouteControllerTest {
         .andExpect(header().string(RulesetBoundary.HEADER, RulesetBoundary.identity()))
         .andExpect(jsonPath("$.routes.length()").value(1))
         .andExpect(jsonPath("$.routes[0].steps[0].action").value("GREATER_EXALTED"))
+        .andExpect(jsonPath("$.routes[0].steps[0].originalAction").doesNotExist())
         .andExpect(jsonPath("$.routes[0].steps[0].chance.probability").isNumber())
         .andExpect(jsonPath("$.routes[0].stateIndices.length()").value(1));
+    step.put("originalAction", "CHAOS");
+    grade(input).andExpect(status().isBadRequest());
+    step.remove("originalAction");
+    step.put("maxUses", 1000);
+    grade(input).andExpect(status().isBadRequest());
+    step.remove("maxUses");
     step.put("probability", 1);
     grade(input).andExpect(status().isBadRequest());
   }
@@ -154,6 +162,43 @@ class TestRouteControllerTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.complete").value(true))
         .andExpect(jsonPath("$.routes").isEmpty());
+  }
+
+  /** 같은 등급의 카오스라도 1회 적중과 최대 1,000회 내 적중을 구분해 반환한다. */
+  @Test
+  void repeatedChaosKeepsItsSingleUseOddsAndRecomputesConsumptionAtTheSelectedGrade()
+      throws Exception {
+    var input = body.deepCopy();
+    ((ObjectNode) input.path("item"))
+        .withArray("explicits")
+        .removeAll()
+        .add(
+            json.valueToTree(
+                new ModifierInstance(
+                    "amulet:suffix:of-the-seal", Map.of("base_cold_damage_resistance_%", 6L))));
+    ((ObjectNode) input.at("/goal/groups/0/entries/0/range")).putNull("min");
+    input.put("cardIndex", 0);
+    var step = input.putArray("steps").addObject();
+    step.put("action", "GREATER_CHAOS").put("maxUses", 1000);
+    step.putArray("omens");
+    step.putArray("acquired").add(1);
+    step.putArray("lost");
+    var result =
+        grade(input)
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.routes.length()").value(1))
+            .andExpect(jsonPath("$.routes[0].steps[0].maxUses").value(1000))
+            .andReturn()
+            .getResponse();
+    var route = json.readTree(result.getContentAsByteArray()).at("/routes/0");
+    var single = route.at("/steps/0/chance/probability").doubleValue();
+    assertThat(single).isStrictlyBetween(0d, 1d);
+    assertThat(route.get("probability").doubleValue())
+        .isGreaterThan(single)
+        .isLessThanOrEqualTo(1d);
+    assertThat(route.at("/steps/0/expectedUses").doubleValue()).isBetween(1d, 1000d);
+    step.put("maxUses", 1001);
+    grade(input).andExpect(status().isBadRequest());
   }
 
   /** 사용자가 선택한 화폐 등급의 고정 경로만 재검증하는 API에 JSON을 보낸다. */

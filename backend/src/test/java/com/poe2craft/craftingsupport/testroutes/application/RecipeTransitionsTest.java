@@ -251,6 +251,118 @@ class RecipeTransitionsTest {
         .isNotEmpty();
   }
 
+  /** 실제 완드의 전용 풀이 장착 전에는 닫혀 있고, 홈을 열고 장착한 뒤에만 한 옵션 카오스 반복이 성립한다. */
+  @Test
+  void initialChaosCanOpenASocketAndInstallTheRequiredAugmentFirst() {
+    var catalog = AugmentCraftingRules.enrich(ItemCatalogLoader.loadTopBase("acrid"));
+    var sim = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var rune = "Thruds_Might";
+    var targets = AugmentCraftingRules.poolSources(catalog.base().id()).get(rune);
+    var target = targets.stream().sorted().findFirst().orElseThrow();
+    var placeholder =
+        catalog.modifiers().values().stream()
+            .filter(
+                d ->
+                    d.layer() == ModifierDefinition.Layer.EXPLICIT
+                        && d.weight() > 0
+                        && d.requiredItemLevel() <= 82
+                        && !targets.contains(d.id()))
+            .min(Comparator.comparing(ModifierDefinition::id))
+            .orElseThrow();
+    var start =
+        new ItemState(
+            catalog.metadata().snapshotId(),
+            catalog.base().id(),
+            82,
+            ItemState.Rarity.RARE,
+            catalog.base().hasImplicit()
+                ? List.of(minimum(catalog.find(catalog.base().implicitModifierId()).orElseThrow()))
+                : List.of(),
+            List.of(minimum(placeholder)),
+            Set.of(),
+            0);
+    var plan = sim.forItem(start).recipePlan(start, WorkbenchCurrency.CHAOS, Set.of());
+    assertThat(plan.branches())
+        .singleElement()
+        .satisfies(b -> assertThat(b.candidates()).noneMatch(d -> d.id().equals(target)));
+    for (var frequency : List.of(RouteCards.Frequency.L, RouteCards.Frequency.M)) {
+      var opt =
+          new RouteCards.Option(
+              1, Map.of(target, List.of(new RouteCards.Source("A", rune, frequency))));
+      var card = new RouteCards.Card(List.of(opt), 0);
+      java.util.function.Predicate<ItemState> done =
+          item -> item.explicits().stream().anyMatch(m -> m.modifierId().equals(target));
+      var search = RecipeRoutePlanner.calculate(sim, start, List.of(card), done, 20000, true, null);
+      var found =
+          search.routes().stream()
+              .filter(
+                  r ->
+                      r.steps().size() == 3
+                          && r.steps().stream()
+                              .map(RecipeRoutePlanner.Step::action)
+                              .toList()
+                              .equals(List.of("ARTIFICER", rune, "CHAOS"))
+                          && Integer.valueOf(1000).equals(r.steps().getLast().maxUses())
+                          && r.steps().getLast().omens().isEmpty())
+              .findFirst()
+              .orElseThrow();
+      var picked =
+          found.steps().stream()
+              .map(
+                  s ->
+                      new RecipeRoutePlanner.Step(
+                          s.action(),
+                          s.omens(),
+                          s.acquired(),
+                          s.lost(),
+                          s.socketIndex(),
+                          s.maxUses()))
+              .toList();
+      var replay =
+          RecipeRoutePlanner.evaluateFixed(sim, start, card, done, 20000, true, null, picked);
+      assertThat(replay.routes())
+          .singleElement()
+          .satisfies(
+              r -> {
+                assertThat(r.steps()).isEqualTo(found.steps());
+                assertThat(r.probability()).isEqualTo(found.probability());
+                var opened = replay.states().get(r.stateIndices().getFirst());
+                var installed = replay.states().get(r.stateIndices().get(1));
+                var acquired = replay.states().get(r.stateIndices().getLast());
+                assertThat(opened.augmentSockets()).isEqualTo(1);
+                assertThat(opened.installedAugments()).isEmpty();
+                assertThat(installed.installedAugments())
+                    .singleElement()
+                    .satisfies(a -> assertThat(a.augmentId()).isEqualTo(rune));
+                assertThat(installed.explicits()).isEqualTo(start.explicits());
+                assertThat(acquired.installedAugments()).isEqualTo(installed.installedAugments());
+                assertThat(done.test(acquired)).isTrue();
+                var actualPool =
+                    sim.forItem(installed)
+                        .recipePlan(installed, WorkbenchCurrency.CHAOS, Set.of())
+                        .branches()
+                        .getFirst()
+                        .candidates();
+                int weight =
+                    actualPool.stream()
+                        .filter(d -> d.id().equals(target))
+                        .findFirst()
+                        .orElseThrow()
+                        .weight();
+                double first =
+                    (double) weight
+                        / actualPool.stream().mapToLong(ModifierDefinition::weight).sum();
+                double byCap = -Math.expm1(1000 * Math.log1p(-first));
+                assertThat(r.steps().getLast().chance().probability())
+                    .isCloseTo(first, org.assertj.core.data.Offset.offset(1e-14));
+                assertThat(r.steps().getLast().expectedUses())
+                    .isCloseTo(byCap / first, org.assertj.core.data.Offset.offset(1e-7));
+                assertThat(r.probability())
+                    .isCloseTo(byCap, org.assertj.core.data.Offset.offset(1e-12));
+              });
+    }
+  }
+
   /** 감정액은 해당 주얼의 교체 후 적격 결과만 분모에 포함한다. */
   @Test
   void jewelLiquidUsesEligibleReplacementLaw() {
