@@ -1,3 +1,4 @@
+import { isTotalStat } from './types'
 import type { Catalog, GoalFilter, Issue, Stat } from './types'
 
 const storageKey = 'hephaistos.goal-catalog-contract.v1'
@@ -65,6 +66,10 @@ export function compatibilityIssues(
       add(path, 'RECOVERY_OPERATION')
     group.entries.forEach((entry, j) => {
       const row = `${path}/entries/${j}`
+      if (isTotalStat(entry.statId, catalog)) {
+        if (!group.disabled && !entry.disabled) add(row, 'RECOVERY_MEANING')
+        return
+      }
       const stat = catalog.stats.find((s) => s.statId === entry.statId)
       if (!stat) {
         add(row, 'RECOVERY_MISSING')

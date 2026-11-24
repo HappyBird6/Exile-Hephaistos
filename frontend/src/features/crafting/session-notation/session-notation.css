@@ -67,6 +67,52 @@
   outline-offset: 2px;
 }
 
+.wb-session-notation__step:has(.route-grade-picker) .wb-session-notation__jump {
+  width: auto;
+}
+.route-grade-picker,
+.route-grade-picker__options {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.route-grade-picker {
+  flex-wrap: wrap;
+}
+.route-grade-picker button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 2px 3px;
+  border: 1px solid #75623e;
+  border-radius: 3px;
+  background: #242019;
+  color: #ecce87;
+  cursor: pointer;
+}
+.route-grade-picker button[aria-pressed='true'],
+.route-grade-picker button:hover:enabled {
+  border-color: #e0c687;
+  background: #3d3221;
+}
+.route-grade-picker button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.route-grade-picker button:focus-visible {
+  outline: 2px solid #e0c687;
+  outline-offset: 1px;
+}
+.route-grade-picker__arrow {
+  width: 0;
+  height: 0;
+  border-inline: 3px solid transparent;
+  border-top: 4px solid currentColor;
+}
+
 .wb-session-notation__number {
   min-width: 2ch;
   color: #d9c395;

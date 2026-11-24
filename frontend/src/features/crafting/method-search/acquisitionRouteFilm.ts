@@ -7,8 +7,14 @@ import type { CreateRequest } from '../path-tree/types'
 import { currencyId } from '../session-notation/extractSessionNotation'
 import type { ConcreteItem } from '../workbenchApi'
 import type { Film, Frame } from '../workbenchHistory'
-import type { AcquisitionResult, AcquisitionRoute } from './acquisitionRouteApi'
+import { validStepChance } from '../workbenchHistory'
+import type {
+  AcquisitionResult,
+  AcquisitionRoute,
+  AcquisitionStep,
+} from './acquisitionRouteApi'
 import { acquisitionRouteMessages } from './acquisitionRouteMessages'
+import { gradeSearch } from './fixedRouteGrades'
 
 export function acquisitionRouteTitle(route: AcquisitionRoute, locale: Locale) {
   const target = acquisitionRouteMessages[locale].card.replace(
@@ -22,18 +28,44 @@ export function acquisitionRouteTitle(route: AcquisitionRoute, locale: Locale) {
   return [target, order].filter(Boolean).join(' · ')
 }
 
-export function acquisitionOverviewHref(requestId: string, routeIndex: number) {
-  return (
-    '/support-test/overview?' +
-    new URLSearchParams({
-      request: requestId,
-      route: String(routeIndex),
-    })
-  )
+export function acquisitionOverviewHref(
+  requestId: string,
+  routeIndex: number,
+  grades?: readonly number[],
+) {
+  const params = new URLSearchParams({
+    request: requestId,
+    route: String(routeIndex),
+  })
+  const selection = gradeSearch(grades)
+  if (selection) params.set('grades', selection)
+  return '/support-test/overview?' + params
 }
 
 function materialId(action: string) {
   return currencyId(action) ?? action
+}
+
+function repeatUses(step: AcquisitionStep) {
+  const count = step.expectedUses
+  const limit = step.maxUses
+  const bounds =
+    typeof limit === 'number' &&
+    Number.isInteger(limit) &&
+    limit >= 1 &&
+    limit <= 1000
+      ? { maxUses: limit }
+      : {}
+  if (
+    typeof count === 'number' &&
+    Number.isFinite(count) &&
+    count >= 1 &&
+    (bounds.maxUses === undefined || count <= bounds.maxUses)
+  )
+    return { ...bounds, expectedUses: count }
+  return step.action === 'DIVINE' || count !== undefined
+    ? { ...bounds, expectedUses: null }
+    : bounds
 }
 
 export function acquisitionRouteCost(
@@ -47,6 +79,7 @@ export function acquisitionRouteCost(
         currencyId: materialId(step.action),
         consumedOmenIds: step.omens,
         uses: 1,
+        ...repeatUses(step),
       })),
     snapshot,
   )
@@ -58,6 +91,7 @@ export function acquisitionRouteFilm(
   result: AcquisitionResult,
   routeIndex: number,
   locale: Locale = getLocale(),
+  sourceIndex = routeIndex,
 ): Film | null {
   const route = result.routes[routeIndex]
   if (
@@ -79,11 +113,16 @@ export function acquisitionRouteFilm(
       state.snapshotId !== start.snapshotId
     )
       return null
+    const chance = step.chance
+    const odds = validStepChance(chance)
+      ? { projectedChance: { probability: chance.probability } }
+      : {}
     if (step.action === 'REVEAL') {
       frames.push({
         state,
         action: revealAction,
         rulesetIdentity,
+        ...odds,
         manual: {
           action: revealAction,
           rulesetIdentity,
@@ -95,17 +134,19 @@ export function acquisitionRouteFilm(
         state,
         action: 'SESSION_PLAN',
         rulesetIdentity,
+        ...odds,
         projectedCurrencies: [
           {
             currencyId: materialId(step.action),
             omenIds: step.omens,
+            ...repeatUses(step),
           },
         ],
       })
     }
   }
   return {
-    id: `${request.clientRequestId}-${routeIndex}`,
+    id: `${request.clientRequestId}-${sourceIndex}`,
     title: acquisitionRouteTitle(route, locale),
     createdAt: '',
     rulesetIdentity,

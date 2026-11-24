@@ -1,31 +1,31 @@
 package com.poe2craft.craftingsupport.testroutes.application;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.poe2craft.configuration.BackendSettings;
 import com.poe2craft.craftingsupport.goal.application.GoalFilterService;
+import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.Status;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
+import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import java.util.List;
+import java.util.Set;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /** 테스트 탭의 카드 사전 검사와 경로 검증을 현재 작업대·목표 카탈로그에 연결한다. */
 public final class TestRouteService {
-  /** number는 목표 번호이고 modifierIds는 해당 번호로 인정되는 티어별 ID다. */
-  public record Option(int number, List<String> modifierIds) {
-    /** 같은 카드에서 티어가 항상 같은 순서로 표시되게 한다. */
-    private Option(RouteCards.Option option) {
-      this(option.number(), option.tiers().keySet().stream().sorted().toList());
-    }
-  }
+  /** number는 목표 번호, modifierIds는 허용한 티어, hasLowerBound와 hasUpperBound는 이 옵션에 적용되는 목표 경계다. */
+  public record Option(
+      int number,
+      List<String> modifierIds,
+      @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean hasLowerBound,
+      @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean hasUpperBound) {}
 
   /** 경로의 cardIndex로 참조하는 옵션 번호표다. */
-  public record Card(List<Option> options) {
-    /** 내부 카드에서 화면이 참조할 번호표를 만든다. */
-    private Card(RouteCards.Card card) {
-      this(card.options().stream().map(Option::new).toList());
-    }
-  }
+  public record Card(List<Option> options) {}
 
   /** 검증한 카드와 경로를 돌려준다. complete는 카드 생성과 경로 평가가 모두 끝났을 때 참이다. */
   public record View(
@@ -46,8 +46,14 @@ public final class TestRouteService {
     this.settings = settings;
   }
 
-  /** 시작 아이템과 목표를 검증하고, 만들 수 있는 카드별로 실제 획득 순서를 계산한다. */
+  /** 기본 등급 화폐로 도달할 수 있는 경로를 찾는다. */
   public View calculate(ItemState item, GoalFilter goal) {
+    return calculate(item, goal, null, List.of());
+  }
+
+  /** cardIndex가 있으면 그 카드의 지정된 제작 단계만 사용해 선택한 화폐 등급으로 재검증한다. */
+  public View calculate(
+      ItemState item, GoalFilter goal, Integer cardIndex, List<RecipeRoutePlanner.Step> steps) {
     // compile은 시작 아이템·목표·catalogVersion을 검증한 후 같은 필터 평가기를 재사용한다.
     var evaluate = goals.compile(item, goal);
     var simulator = workbench.baseSimulator(item);
@@ -69,34 +75,94 @@ public final class TestRouteService {
       return new View(List.of(), List.of(), false, List.of());
     }
     var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
+    var goalCatalog = goals.catalog(context);
     var generated =
         RouteCards.build(
-            simulator,
-            item,
-            goal,
-            goals.catalog(context),
-            settings.lowBelow(),
-            settings.highFrom());
+            simulator, item, goal, goalCatalog, settings.lowBelow(), settings.highFrom());
     boolean complete = generated.complete() && coveredByAcquisition(goal);
     if (generated.cards().isEmpty()) {
       return new View(List.of(), List.of(), complete, List.of());
     }
-    var result =
-        RecipeRoutePlanner.calculate(
-            simulator,
-            item,
-            generated.cards(),
-            state -> evaluate.apply(state) == Status.MATCH,
-            settings.outcomeBudget(),
-            presenceOnly(goal),
-            minimumQuality);
-    var dictionary = generated.cards().stream().map(Card::new).toList();
+    var cards = generated.cards();
+    if (cardIndex != null && (cardIndex < 0 || cardIndex >= cards.size()))
+      throw new GoalFilterService.InvalidGoal(
+          List.of(
+              GoalFilter.Issue.error("INVALID_CARD_INDEX", "/cardIndex", "Unknown target card.")));
+    Predicate<ItemState> matchesGoal = state -> evaluate.apply(state) == Status.MATCH;
+    RecipeRoutePlanner.Result result;
+    if (cardIndex == null) {
+      result =
+          RecipeRoutePlanner.calculate(
+              simulator,
+              item,
+              cards,
+              matchesGoal,
+              settings.outcomeBudget(),
+              presenceOnly(goal),
+              minimumQuality);
+    } else {
+      var card = cards.get(cardIndex);
+      cards = List.of(card);
+      result =
+          RecipeRoutePlanner.evaluateFixed(
+              simulator,
+              item,
+              card,
+              matchesGoal,
+              settings.outcomeBudget(),
+              presenceOnly(goal),
+              minimumQuality,
+              steps);
+      // 이 응답은 한 가지 지정된 경로에 한정되므로 다른 후보의 미탐색 여부는 영향을 주지 않는다.
+      complete = true;
+    }
+    var lower = boundedStats(goal, goalCatalog, e -> e.range().min() != null);
+    var upper = boundedStats(goal, goalCatalog, e -> e.range().max() != null);
+    var catalog = simulator.catalog();
+    var dictionary =
+        cards.stream()
+            .map(
+                card ->
+                    new Card(
+                        card.options().stream()
+                            .map(option -> displayOption(option, catalog, lower, upper))
+                            .toList()))
+            .toList();
     boolean alreadySatisfied = result.routes().stream().anyMatch(route -> route.steps().isEmpty());
     return new View(
         dictionary,
         result.routes(),
         alreadySatisfied || (complete && result.complete()),
         result.states());
+  }
+
+  /** 해당 경계가 있는 활성 목표 행에서 참조한 카탈로그 수치를 모은다. */
+  private static Set<String> boundedStats(
+      GoalFilter goal, GoalCatalog catalog, Predicate<GoalFilter.Entry> hasBound) {
+    var rows =
+        goal.groups().stream()
+            .filter(g -> !g.disabled())
+            .flatMap(g -> g.entries().stream())
+            .filter(e -> !e.disabled() && hasBound.test(e))
+            .map(GoalFilter.Entry::statId)
+            .collect(Collectors.toSet());
+    return catalog.stats().stream()
+        .filter(s -> rows.contains(s.statId()))
+        .flatMap(s -> s.sourceStatIds().stream())
+        .collect(Collectors.toSet());
+  }
+
+  /** 카드의 허용 티어와 해당 옵션이 기여하는 하한·상한만 표시 사전에 포함한다. */
+  private static Option displayOption(
+      RouteCards.Option option, ItemCatalog catalog, Set<String> lower, Set<String> upper) {
+    var ids = option.tiers().keySet().stream().sorted().toList();
+    // 같은 옵션 계열 안에서는 모든 티어가 동일한 수치 ID 목록을 공유한다.
+    var stats = catalog.find(ids.getFirst()).orElseThrow().stats();
+    return new Option(
+        option.number(),
+        ids,
+        stats.stream().anyMatch(s -> lower.contains(s.id())),
+        stats.stream().anyMatch(s -> upper.contains(s.id())));
   }
 
   /** 단순 제거로도 달성할 수 있는 부정·조건부·가중합·상한 목표는 획득 순서 탐색만으로 완전성을 보장할 수 없다. */

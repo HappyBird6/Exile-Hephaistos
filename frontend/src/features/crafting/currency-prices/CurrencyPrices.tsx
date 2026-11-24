@@ -1,3 +1,4 @@
+import { SelectedStepChance } from './SelectedStepChance'
 import { formatCurrencyAmount } from './formatCurrencyAmount'
 import type { ReactNode } from 'react'
 import { useEffect, useState } from 'react'
@@ -164,9 +165,17 @@ export function CraftingCostLine({
   const text = priceMessages[locale]
   const cost = craftingCost(film, cursor, market?.data?.snapshot)
   const priced = market?.data?.snapshot && (!cost.incomplete || cost.divine > 0)
-  const details = cost.incomplete
-    ? `${text.incomplete}${cost.unknown.length ? ': ' + cost.unknown.map((id) => name(id, id.replaceAll('_', ' '))).join(', ') : ''}`
-    : text.spent
+  const details =
+    [
+      cost.unknownUses ? text.unknownUses : '',
+      cost.unknown.length
+        ? text.incomplete +
+          ': ' +
+          cost.unknown.map((id) => name(id, id.replaceAll('_', ' '))).join(', ')
+        : '',
+    ]
+      .filter(Boolean)
+      .join(' · ') || (cost.incomplete ? text.incomplete : text.spent)
   return (
     <div
       className="crafting-cost-line"
@@ -177,6 +186,7 @@ export function CraftingCostLine({
       {children && (
         <div className="crafting-cost-line__controls">{children}</div>
       )}
+      <SelectedStepChance film={film} cursor={cursor} />
       <CoinAmount
         kind="Exalted_Orb"
         value={priced ? cost.exalted : null}

@@ -12,6 +12,7 @@ type Copy = {
   explicit: string
   implicit: string
   pseudo: string
+  retiredTotal: string
   groups: Record<GroupType, string>
 }
 export const setupMessages: Record<GoalFilterLanguage, Copy> = {
@@ -27,6 +28,8 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: 'Explicit modifier',
     implicit: 'Implicit modifier',
     pseudo: 'Combined total',
+    retiredTotal:
+      'Remove or disable the saved total condition to calculate routes.',
     groups: {
       AND: 'AND',
       COUNT: 'COUNT',
@@ -48,6 +51,8 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: '일반 속성',
     implicit: '고정 속성',
     pseudo: '유사 능력치 합계',
+    retiredTotal:
+      '경로를 계산하려면 저장된 합계 조건을 삭제하거나 비활성화하세요.',
     groups: {
       AND: 'AND',
       COUNT: 'COUNT',
@@ -68,6 +73,7 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: '显式词缀',
     implicit: '固定词缀',
     pseudo: '相似属性总和',
+    retiredTotal: '请删除或停用已保存的总和条件以计算路线。',
     groups: {
       AND: 'AND',
       COUNT: 'COUNT',
@@ -88,6 +94,7 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: '一般詞綴',
     implicit: '固定詞綴',
     pseudo: '相似屬性總和',
+    retiredTotal: '請刪除或停用已儲存的總和條件以計算路線。',
     groups: {
       AND: 'AND',
       COUNT: 'COUNT',
@@ -109,6 +116,8 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: '明示モッド',
     implicit: '暗黙モッド',
     pseudo: '類似ステータスの合計',
+    retiredTotal:
+      '経路を計算するには、保存された合計条件を削除するか無効にしてください。',
     groups: {
       AND: 'AND',
       COUNT: 'COUNT',
@@ -130,6 +139,8 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: 'Modificador explícito',
     implicit: 'Modificador implícito',
     pseudo: 'Total combinado',
+    retiredTotal:
+      'Elimina o desactiva la condición de total guardada para calcular rutas.',
     groups: {
       AND: 'AND',
       COUNT: 'COUNT',
@@ -152,6 +163,8 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: 'Явный модификатор',
     implicit: 'Неявный модификатор',
     pseudo: 'Общий итог',
+    retiredTotal:
+      'Удалите или отключите сохранённое условие суммы, чтобы рассчитать пути.',
     groups: {
       AND: 'AND',
       COUNT: 'COUNT',
@@ -173,6 +186,7 @@ export const setupMessages: Record<GoalFilterLanguage, Copy> = {
     explicit: 'ม็อดที่ชัดเจน',
     implicit: 'ม็อดโดยนัย',
     pseudo: 'รวมกันทั้งสิ้น',
+    retiredTotal: 'ลบหรือปิดเงื่อนไขผลรวมที่บันทึกไว้เพื่อคำนวณเส้นทาง',
     groups: {
       AND: 'AND',
       COUNT: 'COUNT',

@@ -14,6 +14,7 @@ import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.item.ModifierMagnitudes;
 import com.poe2craft.shared.item.SocketAugments;
 import java.math.BigDecimal;
 import java.util.*;
@@ -51,10 +52,14 @@ public final class RouteCards {
 
   private final ItemCatalog itemCatalog;
 
-  /** 품질 보정이 없는 아이템인지, 명시 옵션의 크기를 바꿀 수 있는 태그 조합은 무엇인지 보관한다. */
-  private final boolean rawRanges;
+  /** 품질·신성화가 별도 표시값 투영을 요구하는 상태인지와 이 베이스의 강도 제공 옵션을 보관한다. */
+  private final boolean checkTierRanges;
 
-  private final List<List<String>> scaledTags;
+  private final List<ModifierDefinition> magnitudeProviders;
+  private final Map<String, Set<String>> augmentPools;
+
+  /** 이 카드에서 공존할 수 있는 강도 보정의 하한·상한을 통상의 작업대 계산에 전달한다. */
+  private record Magnitudes(List<ModifierInstance> lower, List<ModifierInstance> upper) {}
 
   /** 목표의 활성 그룹·수치 사전과 그 그룹에 기여하는 원본 수치 ID를 보관한다. */
   private final Map<String, GoalCatalog.Stat> stats = new HashMap<>();
@@ -121,20 +126,25 @@ public final class RouteCards {
       for (var entry : group.entries()) if (!entry.disabled()) addStats(entry.statId());
     for (var mod : start.explicits()) held.put(mod.modifierId(), mod);
     itemCatalog = simulator.catalog();
-    rawRanges =
+    checkTierRanges =
         start.catalystQuality() == null
             && start.sanctification() == null
             && !start.observedSanctified()
-            && goal.general().quality() == null
-            && start.installedAugments().isEmpty();
-    var catalogStats = new HashSet<String>();
-    for (var d : itemCatalog.modifiers().values()) for (var s : d.stats()) catalogStats.add(s.id());
-    scaledTags =
-        AugmentCraftingRules.magnitudeRules().stream()
-            .filter(rule -> catalogStats.contains(rule.stat()))
-            .map(rule -> rule.tags())
-            .toList();
-    sources = sourceMap(simulator, start, relevant, lowProbability, highProbability);
+            && (goal.general().quality() == null || goal.general().quality() == 0)
+            && groups.stream()
+                .flatMap(g -> g.entries().stream())
+                .anyMatch(
+                    e -> !e.disabled() && (e.range().min() != null || e.range().max() != null));
+    augmentPools = AugmentCraftingRules.poolSources(start.baseItemId());
+    magnitudeProviders =
+        checkTierRanges
+            ? itemCatalog.modifiers().values().stream()
+                .filter(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT)
+                .filter(d -> held.containsKey(d.id()) || d.requiredItemLevel() <= start.itemLevel())
+                .filter(ModifierMagnitudes::provider)
+                .toList()
+            : List.of();
+    sources = sourceMap(simulator, start, relevant, augmentPools, lowProbability, highProbability);
     var byFamily = new LinkedHashMap<Family, List<ModifierDefinition>>();
     itemCatalog.modifiers().values().stream()
         .filter(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT)
@@ -213,6 +223,7 @@ public final class RouteCards {
       WorkbenchSimulator simulator,
       ItemState start,
       Set<String> relevant,
+      Map<String, Set<String>> augmentPools,
       double low,
       double high) {
     var catalog = simulator.catalog();
@@ -236,7 +247,6 @@ public final class RouteCards {
                     .computeIfAbsent(target, k -> new ArrayList<>())
                     .add(new Source(label, action.name(), null));
             });
-    var augmentPools = AugmentCraftingRules.poolSources(base);
     var availablePools = new LinkedHashMap<String, Set<String>>();
     var activeIds = new HashSet<String>();
     for (var augment : augmentPools.entrySet()) {
@@ -352,8 +362,9 @@ public final class RouteCards {
     }
     int requiredCrafted = 0;
     var options = new ArrayList<Option>();
+    var magnitudes = magnitudes(selected);
     for (var f : selected) {
-      var tiers = eligibleTiers(f, selected);
+      var tiers = eligibleTiers(f, selected, magnitudes);
       if (tiers.isEmpty()) return;
       if (tiers.entrySet().stream().allMatch(t -> requiresCrafted(t.getKey(), t.getValue())))
         requiredCrafted++;
@@ -364,7 +375,8 @@ public final class RouteCards {
   }
 
   /** 분열 티어와 수치 범위에 맞으며 시작 상태부터 도달할 수 있는 티어만 남긴다. */
-  private Map<String, List<Source>> eligibleTiers(TierGroup family, List<TierGroup> selected) {
+  private Map<String, List<Source>> eligibleTiers(
+      TierGroup family, List<TierGroup> selected, Magnitudes magnitudes) {
     var tiers = new TreeMap<String, List<Source>>();
     var fractured =
         family.tiers().stream()
@@ -377,7 +389,7 @@ public final class RouteCards {
       if (fractured.isPresent() && !fractured.get().modifierId().equals(d.id())) continue;
       var choices = sources.getOrDefault(d.id(), List.of());
       if ((held.containsKey(d.id()) || choices.stream().anyMatch(this::usableFromStart))
-          && matchesRanges(d, selected)) tiers.put(d.id(), choices);
+          && matchesRanges(d, selected, magnitudes)) tiers.put(d.id(), choices);
     }
     return tiers;
   }
@@ -397,13 +409,52 @@ public final class RouteCards {
     return choices.stream().filter(this::usableFromStart).allMatch(s -> s.label().equals("C"));
   }
 
+  /** 보유 옵션, 선택한 목표 또는 그 목표의 추첨 풀에서 실제로 붙을 수 있는 명시 강도만 반영한다. */
+  private Magnitudes magnitudes(List<TierGroup> selected) {
+    if (magnitudeProviders.isEmpty()) return new Magnitudes(List.of(), List.of());
+    var reachable = new HashSet<>(held.keySet());
+    var pools = new HashSet<String>();
+    start.installedAugments().forEach(a -> pools.add(a.augmentId()));
+    for (var group : selected) {
+      for (var tier : group.tiers()) {
+        reachable.add(tier.id());
+        for (var source : sources.getOrDefault(tier.id(), List.of()))
+          if (source.label().equals("A")) pools.add(source.id());
+      }
+    }
+    pools.forEach(id -> reachable.addAll(augmentPools.getOrDefault(id, Set.of())));
+    var lower = new ArrayList<ModifierInstance>();
+    var upper = new ArrayList<ModifierInstance>();
+    for (var d : magnitudeProviders) {
+      if (!reachable.contains(d.id()) && (d.weight() == 0 || d.tags().contains("augment_pool")))
+        continue;
+      var existing = held.get(d.id());
+      if (existing != null && existing.fractured()) {
+        lower.add(existing);
+        upper.add(existing);
+      } else {
+        // 제거·재획득 가능성을 포함한다. 서로 배타적인 제공자가 있어도 가능한 티어를 먼저 버리지 않는다.
+        var lows = new HashMap<String, Long>();
+        var highs = new HashMap<String, Long>();
+        for (var stat : d.stats()) {
+          lows.put(stat.id(), Math.min(0L, stat.min()));
+          highs.put(stat.id(), Math.max(0L, stat.max()));
+        }
+        lower.add(new ModifierInstance(d.id(), lows));
+        upper.add(new ModifierInstance(d.id(), highs));
+      }
+    }
+    return new Magnitudes(lower, upper);
+  }
+
   /** 단일 기여 옵션인 AND 행의 수치 범위와 양립하는 티어만 남긴다. 복합·합산은 2차 평가에 맡긴다. */
-  private boolean matchesRanges(ModifierDefinition d, List<TierGroup> selected) {
-    if (!rawRanges || scaledTags.stream().anyMatch(d.tags()::containsAll)) return true;
+  private boolean matchesRanges(
+      ModifierDefinition d, List<TierGroup> selected, Magnitudes magnitudes) {
+    if (!checkTierRanges) return true;
     for (var group : groups) {
       if (group.type() != GoalFilter.Type.AND) continue;
       for (var e : group.entries()) {
-        if (e.disabled()) continue;
+        if (e.disabled() || e.range().min() == null && e.range().max() == null) continue;
         var s = stats.get(e.statId());
         if (s == null || s.kind() != GoalCatalog.Kind.EXPLICIT || s.sourceStatIds().size() != 1)
           continue;
@@ -414,11 +465,15 @@ public final class RouteCards {
         var fracture = held.get(d.id());
         long min = range.min(), max = range.max();
         if (fracture != null && fracture.fractured()) min = max = fracture.values().get(raw);
+        var lo = ModifierMagnitudes.factor(magnitudes.lower(), d);
+        var hi = ModifierMagnitudes.factor(magnitudes.upper(), d);
+        var minRaw = BigDecimal.valueOf(min);
+        var maxRaw = BigDecimal.valueOf(max);
+        var lowValue = minRaw.multiply(lo).min(minRaw.multiply(hi));
+        var highValue = maxRaw.multiply(hi).max(maxRaw.multiply(lo));
         var divisor = BigDecimal.valueOf(s.sourceDivisor() == null ? 1 : s.sourceDivisor());
-        if (e.range().min() != null
-                && e.range().min().multiply(divisor).compareTo(BigDecimal.valueOf(max)) > 0
-            || e.range().max() != null
-                && e.range().max().multiply(divisor).compareTo(BigDecimal.valueOf(min)) < 0)
+        if (e.range().min() != null && e.range().min().multiply(divisor).compareTo(highValue) > 0
+            || e.range().max() != null && e.range().max().multiply(divisor).compareTo(lowValue) < 0)
           return false;
       }
     }

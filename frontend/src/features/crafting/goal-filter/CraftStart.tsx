@@ -2,6 +2,7 @@ import { createPortal } from 'react-dom'
 import { SupportToolbarContext } from '../supportToolbar'
 import { supportLayoutMessages } from '../supportLayoutMessages'
 import { resetMessages } from './resetMessages'
+import { hasActiveTotalGoal } from './types'
 import { restoredStart } from './savedStart'
 import { readSupport, saveSupport } from '../method-search/supportStorage'
 import { canonical } from '../path-tree/validation'
@@ -1086,6 +1087,12 @@ export function CraftStart({
                 {context && (
                   <ConnectedGoalFilter
                     storageKey={storagePrefix + 'goal'}
+                    savedRequestGoal={
+                      draft.searchRequest &&
+                      hasActiveTotalGoal(draft.searchRequest.goal)
+                        ? draft.searchRequest.goal
+                        : undefined
+                    }
                     allowQualityWork={
                       !!selected &&
                       ['Amulets', 'Rings', 'Belts'].includes(selected.base[1])

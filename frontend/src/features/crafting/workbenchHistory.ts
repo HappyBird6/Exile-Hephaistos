@@ -39,11 +39,11 @@ export type CraftEvidence = Pick<
   | 'qualityLimit'
   | 'rulesetIdentity'
 >
-/** 계산된 한 체크포인트에 도달하기까지 사용하는 재료. 반복 횟수는 첫 성공까지의 상한이다. */
+/** 체크포인트의 재료와 반복 상한. 기대 횟수가 null이면 비용은 확인된 최소 사용량만큼의 하한이다. */
 export type PlannedCurrency = {
   currencyId: string
   omenIds: string[]
-  expectedUses?: number
+  expectedUses?: number | null
   maxUses?: number
 }
 export function validProjectedCurrencies(
@@ -63,9 +63,11 @@ export function validProjectedCurrencies(
           (id: unknown) => typeof id === 'string' && id.length <= 160,
         ) &&
         (step.expectedUses === undefined ||
+          step.expectedUses === null ||
           (Number.isFinite(step.expectedUses) &&
             step.expectedUses >= 1 &&
-            step.maxUses === undefined)) &&
+            (step.maxUses === undefined ||
+              step.expectedUses <= step.maxUses))) &&
         (step.maxUses === undefined ||
           (Number.isInteger(step.maxUses) &&
             step.maxUses >= 1 &&
@@ -74,6 +76,7 @@ export function validProjectedCurrencies(
   )
 }
 export type Frame = {
+  projectedChance?: { probability: number | null }
   projectedWork?:
     'DESECRATE_PREFIX' | 'DESECRATE_SUFFIX' | 'QUALITY_20' | 'QUALITY_40'
   projectedCurrencies?: PlannedCurrency[]
@@ -108,6 +111,18 @@ export type Film = {
   sourceDocument?: string
   frames: Frame[]
   rulesetIdentity?: string
+}
+
+export function validStepChance(
+  value: unknown,
+): value is { probability: number | null } {
+  if (!value || typeof value !== 'object' || !('probability' in value))
+    return false
+  const p = value.probability
+  return (
+    p === null ||
+    (typeof p === 'number' && Number.isFinite(p) && p >= 0 && p <= 1)
+  )
 }
 export type FilmRulesetStatus =
   'current' | 'mismatch' | 'legacy-unverified' | 'inconsistent'

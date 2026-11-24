@@ -70,6 +70,16 @@ public final class GoalValidator {
 
   public Validation validate(
       Context context, GoalFilter goal, GoalCatalog catalog, Map<String, GoalCatalog.Stat> known) {
+    return validate(context, goal, catalog, known, false);
+  }
+
+  /** 현재 요청에서 사용 종료된 Total 행은 명시적으로 거절한다. 표시용 과거 그래프에는 원래 계산을 적용한다. */
+  public Validation validate(
+      Context context,
+      GoalFilter goal,
+      GoalCatalog catalog,
+      Map<String, GoalCatalog.Stat> known,
+      boolean historicalDisplay) {
     var issues = new ArrayList<Issue>();
     Capability evaluation = Capability.SUPPORTED;
     if (goal == null)
@@ -201,6 +211,12 @@ public final class GoalValidator {
                     : Issue.warning(
                         "UNKNOWN_STAT", row + "/statId", "Disabled stat identity is unknown."));
           else {
+            if (enabledRow && !historicalDisplay && stat.kind() == GoalCatalog.Kind.PSEUDO)
+              issues.add(
+                  Issue.error(
+                      "RETIRED_TOTAL_GOAL",
+                      row + "/statId",
+                      "Remove or disable this Total goal before calculating."));
             if (!stat.unit().equals(entry.unit()))
               issues.add(
                   Issue.error(
@@ -210,7 +226,8 @@ public final class GoalValidator {
                   Issue.warning(
                       "INELIGIBLE_STAT",
                       row + "/statId",
-                      "No new generation candidate is eligible; existing values remain evaluable."));
+                      "No new generation candidate is eligible; existing values remain"
+                          + " evaluable."));
             if (stat.support().evaluation() != Capability.SUPPORTED) {
               issues.add(
                   Issue.warning(

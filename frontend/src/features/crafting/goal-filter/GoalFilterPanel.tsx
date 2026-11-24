@@ -18,7 +18,13 @@ import { GoalFilterApiError } from './api'
 import type { Editor } from './editor'
 import { goalFilterMessages, goalFilterActions } from './i18n'
 import type { GoalFilterLanguage } from './i18n'
-import { groupTypes, weighted } from './types'
+import {
+  groupTypes,
+  weighted,
+  isTotalStat,
+  hasActiveTotalGoal,
+  savedTotalLabel,
+} from './types'
 import { setupMessages } from './setupMessages'
 import { startInputMessages } from './startInputMessages'
 import { PickerPopover } from './PickerPopover'
@@ -163,8 +169,10 @@ export function GoalFilterPanel({
       ? recommendation
       : undefined
   const implicitGoal = hasImplicitGoal(goal)
+  const totalGoal = hasActiveTotalGoal(goal, catalog.data)
   const validInput =
     !implicitGoal &&
+    !totalGoal &&
     hasCompleteGoal(qualityWorkGoal(goal, allowQualityWork)) &&
     !Object.values(invalidFields).some(Boolean)
   const recovery = useCatalogRecovery(
@@ -201,7 +209,6 @@ export function GoalFilterPanel({
   const [searchOpen, setSearchOpen] = useState(false)
   const [activeStat, setActiveStat] = useState(0)
   const [generalCollapsed, setGeneralCollapsed] = useState(false)
-  const [category, setCategory] = useState('ALL')
   const [target, setTarget] = useState(goal.groups[0]?.id ?? '')
   const searchRef = useRef<HTMLInputElement>(null)
   const candidatesRef = useRef<HTMLUListElement>(null)
@@ -222,8 +229,7 @@ export function GoalFilterPanel({
   const stats =
     presentedStats.filter(
       (s) =>
-        s.kind !== 'IMPLICIT' &&
-        (category === 'ALL' || s.kind === category) &&
+        s.kind === 'EXPLICIT' &&
         s.searchText
           .normalize('NFC')
           .toLocaleLowerCase(language)
@@ -316,28 +322,6 @@ export function GoalFilterPanel({
         <PickerPopover anchor={searchRef}>
           <div className="goal-filter-search-options" hidden={!searchOpen}>
             <label>
-              {t.category}
-              <select
-                value={category}
-                onChange={(e) => {
-                  setCategory(e.target.value)
-                  setActiveStat(0)
-                }}
-              >
-                {['ALL', 'EXPLICIT', 'PSEUDO'].map((kind) => (
-                  <option key={kind} value={kind}>
-                    {kind === 'ALL'
-                      ? t.all
-                      : kind === 'EXPLICIT'
-                        ? setup.explicit
-                        : kind === 'IMPLICIT'
-                          ? setup.implicit
-                          : setup.pseudo}
-                  </option>
-                ))}
-              </select>
-            </label>
-            <label>
               {t.group}
               <select
                 value={targetId ?? ''}
@@ -380,13 +364,7 @@ export function GoalFilterPanel({
               >
                 <span className="goal-filter-candidate-label">
                   {stat.label} ({unitLabel(stat.unit)}){' '}
-                  <small>
-                    {stat.kind === 'PSEUDO'
-                      ? setup.pseudo
-                      : stat.kind === 'IMPLICIT'
-                        ? setup.implicit
-                        : setup.explicit}
-                  </small>
+                  <small>{setup.explicit}</small>
                 </span>
                 {!compact && (
                   <small>
@@ -429,6 +407,7 @@ export function GoalFilterPanel({
       {implicitGoal && (
         <p role="alert">{workspaceMessages[language].implicit}</p>
       )}
+      {totalGoal && <p role="alert">{setup.retiredTotal}</p>}
       <header className="support-section-heading goal-filter-heading">
         <h3>{compact ? craftStartMessages[language].target : t.title}</h3>
         {headerActions}
@@ -627,26 +606,29 @@ export function GoalFilterPanel({
                   const stat = presentedStats.find(
                     (s) => s.statId === entry.statId,
                   )
+                  const total = isTotalStat(entry.statId, catalog.data)
+                  const label =
+                    stat?.label ??
+                    (total ? savedTotalLabel(entry.statId) : entry.statId)
                   return (
                     <div
                       key={entry.id}
                       role="group"
-                      aria-label={stat?.label ?? entry.statId}
+                      aria-label={label}
                       className={`goal-filter-row${entry.disabled ? ' goal-filter-disabled' : ''}`}
                     >
                       <div className="goal-filter-row-label">
-                        {stat?.kind === 'PSEUDO' && (
-                          <strong>{setup.pseudo} </strong>
-                        )}
+                        {total && <strong>{setup.pseudo} </strong>}
                         <span>
-                          {stat?.label ??
-                            (compact ? actions.unavailable : entry.statId)}{' '}
+                          {!stat && !total && compact
+                            ? actions.unavailable
+                            : label}{' '}
                           ({unitLabel(entry.unit)})
                         </span>
                       </div>
-                      {catalog.data && (!stat || !stat.eligible) && (
+                      {catalog.data && (total || !stat || !stat.eligible) && (
                         <p className="goal-filter-row-warning" role="status">
-                          {compact
+                          {compact || total
                             ? actions.unavailable
                             : (stat?.eligibilityReason ?? 'UNKNOWN_STAT')}
                         </p>
@@ -700,8 +682,8 @@ export function GoalFilterPanel({
                       <button
                         type="button"
                         className="goal-filter-icon"
-                        aria-label={`${t.remove} ${stat?.label ?? entry.statId}`}
-                        title={`${t.remove} ${stat?.label ?? entry.statId}`}
+                        aria-label={`${t.remove} ${label}`}
+                        title={`${t.remove} ${label}`}
                         onClick={() => {
                           edit((g) => {
                             g.groups[index]!.entries.splice(row, 1)
@@ -785,7 +767,7 @@ export function GoalFilterPanel({
             {recovery.failed && !recovery.issues.length && <p>{t.error}</p>}
           </div>
         )}
-        {!validInput && <p role="alert">{t.invalid}</p>}
+        {!validInput && !totalGoal && <p role="alert">{t.invalid}</p>}
         {catalog.data &&
           catalog.data.catalogVersion !== goal.catalogVersion && (
             <p>{t.stale}</p>

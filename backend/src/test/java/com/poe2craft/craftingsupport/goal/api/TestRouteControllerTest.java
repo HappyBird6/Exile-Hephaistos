@@ -96,6 +96,91 @@ class TestRouteControllerTest {
             .content(json.writeValueAsBytes(data)));
   }
 
+  /** 양쪽 경계에 걸친 티어를 보존하고, 화면은 그 티어의 전체 수치 범위를 표시할 수 있다. */
+  @Test
+  void bothGoalBoundsIncludePartiallyOverlappingTiers() throws Exception {
+    var input = body.deepCopy();
+    ((ObjectNode) input.at("/goal/groups/0/entries/0/range")).put("min", 90).put("max", 111);
+    request(input)
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.cards[0].options[0].hasLowerBound").value(true))
+        .andExpect(jsonPath("$.cards[0].options[0].hasUpperBound").value(true))
+        .andExpect(
+            jsonPath(
+                "$.cards[0].options[0].modifierIds",
+                org.hamcrest.Matchers.hasItems("amulet:prefix:rotund", "amulet:prefix:virile")))
+        .andExpect(
+            jsonPath(
+                "$.cards[0].options[0].modifierIds",
+                org.hamcrest.Matchers.not(
+                    org.hamcrest.Matchers.hasItem("amulet:prefix:athlete-s"))));
+  }
+
+  /** 기본 경로의 등급 하나만 바꾼 실제 HTTP 입력으로 선택 화폐와 결과 상태를 돌려받는다. */
+  @Test
+  void gradesOneExaltedStepWithoutReplacingTheMethodOrTrustingClientOdds() throws Exception {
+    var input = body.deepCopy();
+    ((ObjectNode) input.path("item")).putArray("explicits");
+    ((ObjectNode) input.at("/goal/groups/0/entries/0/range")).putNull("min");
+    input.put("cardIndex", 0);
+    var step = input.putArray("steps").addObject();
+    step.put("action", "GREATER_EXALTED");
+    step.putArray("omens");
+    step.putArray("acquired").add(1);
+    step.putArray("lost");
+    grade(input)
+        .andExpect(status().isOk())
+        .andExpect(header().string(RulesetBoundary.HEADER, RulesetBoundary.identity()))
+        .andExpect(jsonPath("$.routes.length()").value(1))
+        .andExpect(jsonPath("$.routes[0].steps[0].action").value("GREATER_EXALTED"))
+        .andExpect(jsonPath("$.routes[0].steps[0].chance.probability").isNumber())
+        .andExpect(jsonPath("$.routes[0].stateIndices.length()").value(1));
+    step.put("probability", 1);
+    grade(input).andExpect(status().isBadRequest());
+  }
+
+  /** 합법적인 화폐여도 정해 둔 단계의 획득 기록과 맞지 않으면 다른 경로를 돌려주지 않는다. */
+  @Test
+  void unavailableFixedMethodDoesNotGenerateAlternativeRoutes() throws Exception {
+    var input = body.deepCopy();
+    ((ObjectNode) input.path("item")).putArray("explicits");
+    input.put("cardIndex", 0);
+    var step = input.putArray("steps").addObject();
+    step.put("action", "PERFECT_REGAL");
+    step.putArray("omens");
+    step.putArray("acquired").add(1);
+    step.putArray("lost");
+    grade(input)
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.complete").value(true))
+        .andExpect(jsonPath("$.routes").isEmpty());
+  }
+
+  /** 사용자가 선택한 화폐 등급의 고정 경로만 재검증하는 API에 JSON을 보낸다. */
+  private ResultActions grade(ObjectNode data) throws Exception {
+    return mvc.perform(
+        post(URL + "/grade")
+            .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(json.writeValueAsBytes(data)));
+  }
+
+  /** 이미 만족한 일반 조건에 활성 Total 행이 더 있으면 부분 목표로 경로를 만들지 않는다. */
+  @Test
+  void retiredTotalStopsRouteCreationBeforeTheAlreadySatisfiedShortcut() throws Exception {
+    var input = body.deepCopy();
+    var entries =
+        (com.fasterxml.jackson.databind.node.ArrayNode) input.at("/goal/groups/0/entries");
+    var total = ((ObjectNode) entries.get(0)).deepCopy();
+    total.put("id", "saved-total").put("statId", GoalCatalogIndex.id("pseudo", "total_strength"));
+    entries.add(total);
+    request(input)
+        .andExpect(status().isUnprocessableEntity())
+        .andExpect(jsonPath("$.issues[0].code").value("RETIRED_TOTAL_GOAL"));
+    total.put("disabled", true);
+    request(input).andExpect(status().isOk()).andExpect(jsonPath("$.routes[0].steps").isEmpty());
+  }
+
   @Test
   void aSatisfiedGoalWithOmittedOptionalFlagsHasAZeroActionRoute() throws Exception {
     var input = body.deepCopy();

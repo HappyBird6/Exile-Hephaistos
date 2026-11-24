@@ -1,15 +1,11 @@
+import { useHistoryInitial } from './useHistoryInitial'
 import { lastCurrencyAffectedOptions } from '../lastCurrencyAffectedOptions'
-import { performanceSettings } from '../../../shared/performance'
 import { useBonded, bondedLabel } from '../bonded'
 import { installedAugmentEffects } from '../augmentEffects'
 import { unidentifiedRuneEffects } from '../socketAugments'
-import basePolicies from '../basePolicies.json'
-import type { WorkbenchBaseKey } from '../baseRegistry'
 import type { ItemCardLine } from '../itemCardData'
 import { supportsConcreteStateShape } from '../workbenchStateShape'
-import { useQuery } from '@tanstack/react-query'
-import { loadInitial } from '../craftingApi'
-import { topBaseKey, topBase, basePropertyLines } from '../topBases'
+import { topBase, basePropertyLines } from '../topBases'
 import { baseClass, baseSlugs } from '../baseRegistry'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { ItemCard } from '../ItemCard'
@@ -27,19 +23,8 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
   const { locale, name, t } = useI18n()
   const text = historyMessages[locale]
   const state = frame.state
-  const base =
-    topBaseKey(state.baseItemId) ??
-    (Object.entries(basePolicies.legacy).find(
-      ([, v]) => v.id === state.baseItemId,
-    )?.[0] as WorkbenchBaseKey | undefined)
+  const { base, initial } = useHistoryInitial(state)
   const bonded = useBonded()
-  const initial = useQuery({
-    queryKey: ['crafting', 'initial', base, state.itemLevel, 'manual'],
-    staleTime: performanceSettings.initialRetentionMs,
-    enabled: !!base,
-    queryFn: ({ signal }) => loadInitial(state.itemLevel, signal, base!, true),
-    retry: false,
-  })
   const supported = supportsConcreteStateShape(state)
   const valid =
     supported &&

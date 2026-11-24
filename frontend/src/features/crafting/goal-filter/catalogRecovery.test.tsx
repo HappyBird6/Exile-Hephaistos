@@ -168,13 +168,32 @@ describe('catalog recovery preserves the goal', () => {
     c.stats = []
     expect(compatibilityIssues(g, c)).toHaveLength(1)
   })
-  it('accepts a pseudo only with an unchanged saved semantic definition', () => {
+  it('recovers the other conditions while preserving an inactive retired total', () => {
+    const original = goal()
+    const group = original.groups[0]!
+    group.entries.push({
+      ...group.entries[0]!,
+      id: 'old',
+      disabled: true,
+      statId: 'hephaistos:v1:pseudo:total_cold_resistance',
+    })
+    expect(compatibilityIssues(original, catalog())).toHaveLength(0)
+    group.entries[1]!.disabled = false
+    expect(compatibilityIssues(original, catalog())).toHaveLength(1)
+    group.disabled = true
+    expect(compatibilityIssues(original, catalog())).toHaveLength(0)
+  })
+  it('requires review of an active saved total even if its old catalog signature matches', () => {
     const g = goal()
     const c = catalog('old')
     c.stats[0]!.kind = 'PSEUDO'
+    c.stats[0]!.statId = 'hephaistos:v1:pseudo:total_strength'
+    g.groups[0]!.entries[0]!.statId = c.stats[0]!.statId
     c.stats[0]!.contributions = [{ statId: 'life', coefficient: 1 }]
     rememberContract(g, c)
-    expect(compatibilityIssues(g, { ...c, catalogVersion: 'new' })).toEqual([])
+    expect(
+      compatibilityIssues(g, { ...c, catalogVersion: 'new' })[0]?.code,
+    ).toBe('RECOVERY_MEANING')
     c.stats[0]!.contributions[0]!.coefficient = 2
     expect(
       compatibilityIssues(g, { ...c, catalogVersion: 'new' })[0]?.code,

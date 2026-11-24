@@ -6,6 +6,8 @@ type Messages = {
   waiting: string
   unavailable: string
   stale: string
+  actionChance: string
+  unknownUses: string
   spent: string
   incomplete: string
   unknown: string
@@ -19,6 +21,8 @@ export const priceMessages: Record<Locale, Messages> = {
     waiting: 'Next refresh',
     unavailable: 'Prices unavailable',
     stale: 'Last available prices',
+    actionChance: 'Step chance',
+    unknownUses: 'Expected number of uses unknown',
     spent: 'Crafting cost through this step',
     incomplete: 'Partial total; unpriced materials',
     unknown: 'No price',
@@ -31,6 +35,8 @@ export const priceMessages: Record<Locale, Messages> = {
     waiting: '다음 갱신 가능',
     unavailable: '시세 없음',
     stale: '마지막 확인 시세',
+    actionChance: '단계 확률',
+    unknownUses: '기대 사용 횟수 미확정',
     spent: '현재 단계까지의 제작 소모액',
     incomplete: '일부 재료의 시세를 제외한 합계',
     unknown: '시세 미확인',
@@ -43,6 +49,8 @@ export const priceMessages: Record<Locale, Messages> = {
     waiting: '下次可刷新',
     unavailable: '价格不可用',
     stale: '上次可用价格',
+    actionChance: '步骤概率',
+    unknownUses: '预计使用次数未知',
     spent: '截至此步骤的制作费用',
     incomplete: '部分材料无价格，合计不完整',
     unknown: '暂无价格',
@@ -55,6 +63,8 @@ export const priceMessages: Record<Locale, Messages> = {
     waiting: '下次可更新',
     unavailable: '價格無法取得',
     stale: '上次可用價格',
+    actionChance: '步驟機率',
+    unknownUses: '預期使用次數未知',
     spent: '截至此步驟的製作費用',
     incomplete: '部分材料無價格，合計不完整',
     unknown: '尚無價格',
@@ -67,6 +77,8 @@ export const priceMessages: Record<Locale, Messages> = {
     waiting: '次回更新可能',
     unavailable: '価格情報なし',
     stale: '前回取得した価格',
+    actionChance: 'ステップの確率',
+    unknownUses: '期待使用回数は不明',
     spent: 'この段階までの製作費用',
     incomplete: '価格不明の素材を除いた合計',
     unknown: '価格不明',
@@ -79,6 +91,8 @@ export const priceMessages: Record<Locale, Messages> = {
     waiting: 'Próxima actualización',
     unavailable: 'Precios no disponibles',
     stale: 'Últimos precios disponibles',
+    actionChance: 'Probabilidad del paso',
+    unknownUses: 'Número esperado de usos desconocido',
     spent: 'Coste de fabricación hasta este paso',
     incomplete: 'Total parcial; materiales sin precio',
     unknown: 'Sin precio',
@@ -92,6 +106,8 @@ export const priceMessages: Record<Locale, Messages> = {
     waiting: 'Следующее обновление',
     unavailable: 'Цены недоступны',
     stale: 'Последние доступные цены',
+    actionChance: 'Шанс шага',
+    unknownUses: 'Ожидаемое число применений неизвестно',
     spent: 'Расходы на крафт до этого этапа',
     incomplete: 'Частичный итог: для части материалов нет цены',
     unknown: 'Нет цены',
@@ -104,6 +120,8 @@ export const priceMessages: Record<Locale, Messages> = {
     waiting: 'รีเฟรชครั้งถัดไป',
     unavailable: 'ไม่มีข้อมูลราคา',
     stale: 'ราคาล่าสุดที่มีอยู่',
+    actionChance: 'โอกาสของขั้นตอน',
+    unknownUses: 'ไม่ทราบจำนวนครั้งที่คาดว่าจะใช้',
     spent: 'ค่าเคอร์เรนซีที่ใช้จนถึงขั้นตอนนี้',
     incomplete: 'ยอดรวมบางส่วน: วัสดุบางชนิดยังไม่มีราคา',
     unknown: 'ไม่มีราคา',

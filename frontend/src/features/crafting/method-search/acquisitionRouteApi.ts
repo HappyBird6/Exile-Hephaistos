@@ -5,13 +5,18 @@ import type { CreateRequest } from '../path-tree/types'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import type { ConcreteItem } from '../workbenchApi'
 
-interface RouteOption {
+export interface RouteOption {
+  hasLowerBound?: boolean
+  hasUpperBound?: boolean
   number: number
   modifierIds: string[]
 }
 
 export interface AcquisitionStep {
   action: string
+  chance?: { probability: number | null } | null
+  expectedUses?: number | null
+  maxUses?: number
   socketIndex?: number | null
   omens: string[]
   acquired: number[]

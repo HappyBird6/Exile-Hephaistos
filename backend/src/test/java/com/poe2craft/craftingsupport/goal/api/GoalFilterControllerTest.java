@@ -141,6 +141,59 @@ class GoalFilterControllerTest {
                         "r", stat, "percent", new Range(BigDecimal.ONE, null), null, false)))));
   }
 
+  /** 직접 목표와 과거 Total이 함께 있으면 세 API 모두 활성 Total 행을 가리켜 거절한다. */
+  @Test
+  void retiredTotalBlocksTheWholeRequestAndDisabledTotalsRemainReadable() throws Exception {
+    var item = SolarAmulet.initial(itemCatalog);
+    var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
+    var current =
+        goal(index.version(), GoalCatalogIndex.id("explicit", "base_cold_damage_resistance_%"));
+    var old =
+        goal(index.version(), GoalCatalogIndex.id("pseudo", "total_cold_resistance"))
+            .groups()
+            .getFirst()
+            .entries()
+            .getFirst();
+    for (boolean disabled : List.of(false, true)) {
+      var saved = new Entry("saved", old.statId(), old.unit(), old.range(), old.weight(), disabled);
+      var group =
+          new Group(
+              "g",
+              Type.AND,
+              false,
+              null,
+              List.of(current.groups().getFirst().entries().getFirst(), saved));
+      var mixed = new GoalFilter(1, current.catalogVersion(), current.general(), List.of(group));
+      for (String path : List.of("validate", "evaluate", "recommend")) {
+        var payload =
+            switch (path) {
+              case "validate" -> Map.of("context", context, "goal", mixed);
+              case "evaluate" -> Map.of("item", item, "goal", mixed);
+              default ->
+                  Map.of(
+                      "item",
+                      item,
+                      "goal",
+                      mixed,
+                      "activeOmens",
+                      Set.of(),
+                      "limits",
+                      new GoalFilterService.Limits(100, 100, 100));
+            };
+        var call =
+            mvc.perform(
+                post(root + "/" + path)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(json.writeValueAsBytes(payload)));
+        if (disabled) call.andExpect(status().isOk());
+        else
+          call.andExpect(status().isUnprocessableEntity())
+              .andExpect(jsonPath("$.issues[0].code").value("RETIRED_TOTAL_GOAL"))
+              .andExpect(jsonPath("$.issues[0].path").value("/goal/groups/0/entries/1/statId"));
+      }
+    }
+  }
+
   @Test
   void catalogValidateEvaluateAndPartialRecommendationUseContractWireShape() throws Exception {
     var item = SolarAmulet.initial(itemCatalog);
@@ -153,7 +206,8 @@ class GoalFilterControllerTest {
                 .param("itemLevel", "82"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.version").value(1))
-        .andExpect(jsonPath("$.groupTypes.length()").value(6));
+        .andExpect(jsonPath("$.groupTypes.length()").value(6))
+        .andExpect(jsonPath("$.stats[?(@.kind == 'PSEUDO')]").isEmpty());
     var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     mvc.perform(
             post(root + "/validate")

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Film } from '../workbenchHistory'
+import type { NotationStep } from '../session-notation/extractSessionNotation'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { HistoryCard } from '../session-history/HistoryCard'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
@@ -15,6 +16,8 @@ export function SessionDetail({
   itemClassName,
   className,
   onNavigate,
+  stepControls,
+  pendingSteps,
   disabled = false,
   resources,
   onNewCraft,
@@ -31,6 +34,8 @@ export function SessionDetail({
   itemClassName?: string
   className?: string
   onNavigate?: (cursor: number) => void
+  stepControls?: (frameIndex: number) => ReactNode
+  pendingSteps?: NotationStep[]
   disabled?: boolean
   resources?: readonly WorkbenchResource[]
   onNewCraft?: () => void
@@ -44,7 +49,7 @@ export function SessionDetail({
   const { t } = useI18n()
   const index = Math.max(0, Math.min(cursor, (film?.frames.length ?? 1) - 1))
   const frame = film?.frames[index]
-  const controls = onNavigate && (
+  const controls = onNavigate && (film || !pendingSteps) && (
     <div className="workbench-film-toolbar">
       <div className="workbench-film-controls">
         <button
@@ -87,9 +92,11 @@ export function SessionDetail({
   )
   const record = (
     <>
-      <CraftingCostLine film={film ?? undefined} cursor={index}>
-        {costControls}
-      </CraftingCostLine>
+      {(film || !pendingSteps) && (
+        <CraftingCostLine film={film ?? undefined} cursor={index}>
+          {costControls}
+        </CraftingCostLine>
+      )}
       {resources && (
         <SessionNotation
           film={film}
@@ -98,6 +105,8 @@ export function SessionDetail({
           showOverview={showOverview}
           {...(overviewHref ? { overviewHref } : {})}
           {...(onNavigate ? { onNavigate } : {})}
+          {...(stepControls ? { stepControls } : {})}
+          {...(pendingSteps ? { pendingSteps } : {})}
           disabled={disabled}
           {...(onNewCraft ? { onNewCraft } : {})}
         />

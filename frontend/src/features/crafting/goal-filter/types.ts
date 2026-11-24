@@ -119,3 +119,31 @@ export interface GoalFilterAdapter {
 }
 export const weighted = (type: GroupType) =>
   type === 'WEIGHTED_V1' || type === 'WEIGHTED_V2'
+
+const totalPrefix = 'hephaistos:v1:pseudo:'
+export function isTotalStat(statId: string, catalog?: Catalog) {
+  if (statId.startsWith('hephaistos:v1:')) return statId.startsWith(totalPrefix)
+  return (
+    catalog?.stats.some(
+      (stat) => stat.statId === statId && stat.kind === 'PSEUDO',
+    ) ?? false
+  )
+}
+
+export function hasActiveTotalGoal(goal: GoalFilter, catalog?: Catalog) {
+  return goal.groups.some(
+    (group) =>
+      !group.disabled &&
+      group.entries.some(
+        (entry) => !entry.disabled && isTotalStat(entry.statId, catalog),
+      ),
+  )
+}
+
+export function savedTotalLabel(statId: string) {
+  return statId
+    .slice(totalPrefix.length)
+    .split('_')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}

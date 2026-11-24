@@ -110,7 +110,10 @@ export type ExaltedAction = (typeof exaltedActions)[number]
 export const isExaltedAction = (
   action: string | undefined,
 ): action is ExaltedAction => exaltedActions.some((a) => a === action)
-export function currencyRank(action: string | undefined): string | undefined {
+export type CurrencyRank = 'I' | 'II' | 'III'
+export function currencyRank(
+  action: string | undefined,
+): CurrencyRank | undefined {
   if (
     !action ||
     !/^(?:(?:GREATER|PERFECT)_)?(?:TRANSMUTATION|AUGMENTATION|REGAL|EXALTED|CHAOS)$/.test(

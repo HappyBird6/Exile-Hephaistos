@@ -61,6 +61,7 @@ export function changeGroupType(group: Group, type: GroupType) {
 }
 export function addStat(group: Group, stat: Stat, present = false) {
   if (
+    stat.kind !== 'EXPLICIT' ||
     (!stat.eligible && !present) ||
     group.entries.some((entry) => entry.statId === stat.statId)
   )

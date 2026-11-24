@@ -177,7 +177,7 @@ public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactor
     }
     var runtime =
         factory.apply(
-            goalService,
+            goalService.forHistoricalDisplay(),
             new MethodSearchProtocol.Create(
                 request.version(),
                 request.clientRequestId(),
@@ -215,6 +215,7 @@ public final class BundledSearchRuntimeFactory implements AutomaticRuntimeFactor
         historicalGoals.put(key, service);
       }
       var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
+      service = service.forHistoricalDisplay();
       var local =
           new GoalFilter(
               goal.version(),

@@ -11,7 +11,8 @@ import { RevealIcon } from '../abyss-workbench/RevealIcon'
 import { revealAction } from '../abyss-workbench/revealAction'
 import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
 import { AppLink } from '../../../shared/navigation/AppLink'
-import { useId, useState } from 'react'
+import { useId, useState, type ReactNode } from 'react'
+import { CurrencyRankIcon } from './CurrencyRankIcon'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { WorkbenchResource } from '../stash/stashTypes'
 import type { Film } from '../workbenchHistory'
@@ -29,6 +30,8 @@ export type SessionNotationProps = {
   /** Full display registry, including retained legacy resources and omens. */
   resources: readonly WorkbenchResource[]
   onNavigate?: (frameIndex: number) => void
+  stepControls?: (frameIndex: number) => ReactNode
+  pendingSteps?: NotationStep[]
   onNewCraft?: () => void
   disabled?: boolean
   showOverview?: boolean
@@ -98,6 +101,8 @@ export function SessionNotation({
   cursor,
   resources,
   onNavigate,
+  stepControls,
+  pendingSteps,
   onNewCraft,
   disabled = false,
   showOverview = true,
@@ -107,6 +112,7 @@ export function SessionNotation({
   const text = sessionNotationMessages[locale]
   const headingId = useId()
   const notation = extractSessionNotation(film, cursor)
+  const steps = !film && pendingSteps ? pendingSteps : notation.steps
   const registry = new Map(resources.map((resource) => [resource.id, resource]))
   const currentFrameIndex = notation.steps.reduce(
     (current, step) => (step.frameIndex <= cursor ? step.frameIndex : current),
@@ -125,11 +131,11 @@ export function SessionNotation({
           </AppLink>
         )}
       </div>
-      {notation.steps.length === 0 ? (
+      {steps.length === 0 ? (
         <p className="wb-session-notation__empty">{text.empty}</p>
       ) : (
         <ol className="wb-session-notation__steps wb-scrollbar">
-          {notation.steps.map((step) => {
+          {steps.map((step) => {
             const current = step.frameIndex === currentFrameIndex
             const uses = text.repeatUses(
               new Intl.NumberFormat(locale).format(step.uses),
@@ -143,11 +149,13 @@ export function SessionNotation({
                     ? ` · ${name(step.currencyId, registry.get(step.currencyId)?.name ?? text.unknownCurrency)} · ${uses}`
                     : ''
             }`
+            const controls = stepControls?.(step.frameIndex)
             const content = (
               <NotationResources
                 step={step}
                 resources={resources}
                 focusable={!onNavigate}
+                showRank={!controls}
               />
             )
             return (
@@ -164,7 +172,7 @@ export function SessionNotation({
                     className="wb-session-notation__jump"
                     aria-label={label}
                     aria-current={current ? 'step' : undefined}
-                    disabled={disabled}
+                    disabled={disabled || !film}
                     onClick={() => onNavigate(step.frameIndex)}
                   >
                     {content}
@@ -172,6 +180,7 @@ export function SessionNotation({
                 ) : (
                   content
                 )}
+                {controls}
               </li>
             )
           })}
@@ -201,14 +210,17 @@ export function NotationResources({
   step,
   resources,
   focusable = true,
+  showRank = true,
 }: {
   step: NotationStep
   focusable?: boolean
+  showRank?: boolean
   resources: readonly WorkbenchResource[]
 }) {
   const { locale } = useI18n()
   const text = sessionNotationMessages[locale]
   const registry = new Map(resources.map((r) => [r.id, r]))
+  const rank = currencyRank(workbenchCurrencyActions[step.currencyId])
   if (step.work)
     return (
       <>
@@ -240,9 +252,9 @@ export function NotationResources({
             resource={registry.get(step.currencyId)}
             focusable={focusable}
           />
-          {currencyRank(workbenchCurrencyActions[step.currencyId]) && (
+          {rank && showRank && (
             <span className="wb-session-notation__rank" aria-hidden="true">
-              {currencyRank(workbenchCurrencyActions[step.currencyId])}
+              <CurrencyRankIcon rank={rank} />
             </span>
           )}
         </span>

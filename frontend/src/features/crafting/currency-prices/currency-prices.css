@@ -249,3 +249,7 @@
   outline: 2px solid #d7ba78;
   outline-offset: 3px;
 }
+
+.crafting-cost-line__chance {
+  white-space: nowrap;
+}

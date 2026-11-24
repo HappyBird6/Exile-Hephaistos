@@ -21,6 +21,7 @@ import { createGoalFilterEditor, emptyGoal } from './editor'
 import { GoalFilterPanel } from './GoalFilterPanel'
 import type { GoalFilterLanguage } from './i18n'
 import type { Catalog, Context, GoalFilter } from './types'
+import { hasActiveTotalGoal } from './types'
 import { startBases } from './startItem'
 import { useI18n, translate } from '../../../shared/i18n/i18n'
 import { goalFilterMessages } from './i18n'
@@ -51,6 +52,7 @@ export function ConnectedGoalFilter({
   maxMillis,
   compact = false,
   storageKey = 'goal',
+  savedRequestGoal,
   allowQualityWork = true,
   language,
   onSearchGoalChange,
@@ -63,6 +65,7 @@ export function ConnectedGoalFilter({
   activeOmens: string[]
   maxMillis: number
   storageKey?: string
+  savedRequestGoal?: GoalFilter | undefined
   compact?: boolean
   allowQualityWork?: boolean
   onResetGoal?: (() => void) | undefined
@@ -195,6 +198,7 @@ export function ConnectedGoalFilter({
       )}
       <ConnectedEditor
         storageKey={storageKey}
+        savedRequestGoal={savedRequestGoal}
         onResetGoal={onResetGoal}
         onSearchGoalChange={onSearchGoalChange}
         initialCatalog={initialCatalog}
@@ -228,6 +232,7 @@ export function ConnectedGoalFilter({
 }
 function ConnectedEditor({
   storageKey,
+  savedRequestGoal,
   initialCatalog,
   item,
   context,
@@ -240,6 +245,7 @@ function ConnectedEditor({
 }: {
   initialCatalog: Catalog
   storageKey: string
+  savedRequestGoal?: GoalFilter | undefined
   item: ConcreteItem | null
   rulesetIdentity?: string | undefined
   context: Context
@@ -256,6 +262,7 @@ function ConnectedEditor({
   const [editor] = useState(() =>
     createGoalFilterEditor(
       (compact ? readSupport(storageKey, validGoal) : null) ??
+        savedRequestGoal ??
         emptyGoal(initialCatalog.context, initialCatalog.catalogVersion),
     ),
   )
@@ -292,6 +299,7 @@ function ConnectedEditor({
       sourceStatIds: catalog ? goalSources(goal, catalog) : undefined,
       catalogVersion: catalog?.catalogVersion ?? null,
       ready:
+        !hasActiveTotalGoal(goal, catalog) &&
         inputReady &&
         currentCatalog.isSuccess &&
         !currentCatalog.isFetching &&

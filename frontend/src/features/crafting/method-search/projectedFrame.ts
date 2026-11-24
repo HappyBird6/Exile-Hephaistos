@@ -3,7 +3,9 @@ import type { ConcreteItem } from '../workbenchApi'
 import type { AutomaticArrow, AutomaticNode } from './automaticApi'
 import { currencyId } from '../session-notation/extractSessionNotation'
 import { planOmenId } from './usePlanAction'
-import { isRepeatable } from './methodObservation'
+import { compare } from '../path-tree/validation'
+import { isRepeatable, methodPoint } from './methodObservation'
+import { stepProbabilities } from './stepProbabilities'
 
 // A compound method supplies one observed outcome, even when it uses several currencies.
 export function projectedFrames(
@@ -93,6 +95,45 @@ export function projectedFrames(
         projectedCurrencies,
         ...(projectedWork ? { projectedWork } : {}),
       })
+  }
+  const point = methodPoint(current, cycles)
+  if (
+    point?.complete &&
+    !isRepeatable(current) &&
+    used.length === frames.length
+  ) {
+    const odds = stepProbabilities(
+      current,
+      point,
+      outcome,
+      frames,
+      0,
+      used.map((action) => action.purpose),
+    )
+    for (const step of odds) {
+      const craft = used[step.first]
+      if (
+        step.first !== step.last ||
+        !craft?.currency ||
+        ![
+          'ORDINARY',
+          'GOAL_ACQUISITION',
+          'REFILL_AFTER_ANNULMENT',
+          'LAST_RESORT_EXALTED',
+        ].includes(craft.purpose)
+      )
+        continue
+      const { lower, upper } = step.probability
+      if (compare(lower, upper) !== 0) continue
+      const p = Number(lower.numerator) / Number(lower.denominator)
+      if (
+        Number.isFinite(p) &&
+        p >= 0 &&
+        p <= 1 &&
+        (p > 0 || BigInt(lower.numerator) === 0n)
+      )
+        frames[step.first]!.projectedChance = { probability: p }
+    }
   }
   return frames
 }

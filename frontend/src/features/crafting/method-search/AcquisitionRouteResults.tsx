@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQueries, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useMemo, useRef, useState } from 'react'
 import {
   formatNumber,
@@ -9,6 +9,11 @@ import {
 import { materialNames } from '../catalogData'
 import type { Initial } from '../craftingApi'
 import { useCurrencyMarket } from '../currency-prices/context'
+import {
+  currencyId,
+  type NotationStep,
+} from '../session-notation/extractSessionNotation'
+import { revealAction } from '../abyss-workbench/revealAction'
 import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
 import {
   workbenchActionNames,
@@ -17,7 +22,6 @@ import {
 import { GoalFilterApiError } from '../goal-filter/api'
 import { craftStartMessages } from '../goal-filter/craftStartMessages'
 import { localizedAction } from '../localizedCrafting'
-import { localizedModifierText } from '../localizedModifiers'
 import { pathTreeMessages } from '../path-tree/messages'
 import type { CreateRequest } from '../path-tree/types'
 import { SessionDetail } from '../session-detail/SessionDetail'
@@ -34,6 +38,7 @@ import {
   type AcquisitionResult,
   type AcquisitionRoute,
   type AcquisitionStep,
+  type RouteOption,
 } from './acquisitionRouteApi'
 import {
   acquisitionOverviewHref,
@@ -42,6 +47,16 @@ import {
   acquisitionRouteTitle,
 } from './acquisitionRouteFilm'
 import { acquisitionRouteMessages } from './acquisitionRouteMessages'
+import { acquisitionTierText } from './acquisitionTierText'
+import {
+  evaluatedRouteResult,
+  fixedRouteQuery,
+  fixedSteps,
+  gradeActions,
+  gradeSearch,
+  readRouteGrades,
+} from './fixedRouteGrades'
+import { RouteGradePicker } from './RouteGradePicker'
 import { graphStateMessages } from './graphStateMessages'
 import { planTitle } from './probabilityPresentation'
 import { policyCandidateMessages } from './policyCandidateMessages'
@@ -127,50 +142,117 @@ function RouteList({
   const section = useRef<HTMLElement>(null)
   const cache = useQueryClient()
   const market = useCurrencyMarket()?.data?.snapshot
-  const costs = useMemo(
-    () => result.routes.map((route) => acquisitionRouteCost(route, market)),
-    [result.routes, market],
-  )
   const [selection, setSelection] = useState(() => {
     const params = new URLSearchParams(location.search)
-    const index = Number(params.get('route'))
+    const raw = params.get('route') ?? ''
+    const index = Number(raw)
     return params.get('request') === request.clientRequestId &&
-      Number.isInteger(index) &&
+      /^(0|[1-9]\d*)$/.test(raw) &&
       result.routes[index]
       ? index
       : 0
   })
+  const [choices, setChoices] = useState<Record<number, number[]>>(() => {
+    const params = new URLSearchParams(location.search)
+    if (
+      params.get('request') !== request.clientRequestId ||
+      params.get('route') !== String(selection)
+    )
+      return {}
+    const grades = readRouteGrades(location.search, result.routes[selection])
+    return grades && gradeSearch(grades) ? { [selection]: grades } : {}
+  })
   const [cursor, setCursor] = useState<number | null>(null)
-  const selected = result.routes[selection]
-  const film = useMemo(
-    () => acquisitionRouteFilm(request, result, selection, locale),
-    [request, result, selection, locale],
+  const changedIndices = Object.keys(choices).map(Number)
+  const replays = useQueries({
+    queries: changedIndices.map((index) =>
+      fixedRouteQuery(request, result, index, choices[index]!),
+    ),
+  })
+  const updated = new Map(
+    changedIndices.map((index, i) => [index, replays[i]!]),
   )
-  if (!selected)
+  const replay = updated.get(selection)
+  const base = result.routes[selection]
+  const replayData = replay?.data
+  const changed = !!replay
+  const selectedView = changed
+    ? replayData && evaluatedRouteResult(result, selection, replayData)
+    : result
+  const viewIndex = changed ? 0 : selection
+  const selected = selectedView?.routes[viewIndex]
+  const film = selectedView
+    ? acquisitionRouteFilm(request, selectedView, viewIndex, locale, selection)
+    : null
+  const baseCosts = useMemo(
+    () => result.routes.map((route) => acquisitionRouteCost(route, market)),
+    [result.routes, market],
+  )
+  if (!base)
     return (
       <p role="status">{result.complete ? copy.empty : messages.unknown}</p>
     )
-
-  const card = result.cards[selected.cardIndex]!
+  const card = result.cards[base.cardIndex]!
+  const grades = choices[selection] ?? base.steps.map(() => 1)
+  const steps = selected?.steps ?? fixedSteps(base, grades)
+  const pendingSteps: NotationStep[] = film
+    ? []
+    : steps.map((step, index) => ({
+        number: index + 1,
+        frameIndex: index + 1,
+        currencyId:
+          step.action === 'REVEAL'
+            ? revealAction
+            : (currencyId(step.action) ?? step.action),
+        consumedOmenIds: step.omens,
+        omensKnown: true,
+        uses: 1,
+        repeated: false,
+        ...(step.action === 'REVEAL' ? { kind: 'reveal' as const } : {}),
+      }))
+  const optionText = (option: RouteOption) =>
+    acquisitionTierText(option.modifierIds, definitions, locale, option)
+  const selectedStep = selected?.steps[(cursor ?? steps.length) - 1]
   const title = (route: AcquisitionRoute) =>
     acquisitionRouteTitle(route, locale)
   const href = (index: number) =>
-    acquisitionOverviewHref(request.clientRequestId, index)
+    acquisitionOverviewHref(request.clientRequestId, index, choices[index])
+  function writeSelection(index: number, grades?: number[]) {
+    if (location.pathname !== '/support-test') return
+    const url = new URL(location.href)
+    url.searchParams.set('request', request.clientRequestId)
+    url.searchParams.set('route', String(index))
+    const encoded = gradeSearch(grades)
+    if (encoded) url.searchParams.set('grades', encoded)
+    else url.searchParams.delete('grades')
+    history.replaceState(history.state, '', url)
+  }
   function select(index: number) {
     if (selection !== index) setCursor(null)
     setSelection(index)
-    if (location.pathname === '/support-test') {
-      const url = new URL(location.href)
-      url.searchParams.set('request', request.clientRequestId)
-      url.searchParams.set('route', String(index))
-      history.replaceState(history.state, '', url)
-    }
+    writeSelection(index, choices[index])
+  }
+  function changeGrade(stepIndex: number, grade: number) {
+    const next = [...grades]
+    next[stepIndex] = grade
+    setChoices((stored) => {
+      const edited = { ...stored }
+      if (gradeSearch(next)) edited[selection] = next
+      else delete edited[selection]
+      return edited
+    })
+    writeSelection(selection, next)
   }
   function openOverview(index: number) {
+    const entry = updated.get(index)
+    const view = entry
+      ? entry.data && evaluatedRouteResult(result, index, entry.data)
+      : result
     const example =
       index === selection
         ? film
-        : acquisitionRouteFilm(request, result, index, locale)
+        : view &&
+          acquisitionRouteFilm(request, view, entry ? 0 : index, locale, index)
     if (example) cache.setQueryData(['plan-film', href(index)], example)
     select(index)
   }
@@ -182,6 +264,32 @@ function RouteList({
           { style: 'percent', maximumSignificantDigits: 4 },
           locale,
         )
+  const rows = result.routes.map((route, index) => {
+    const entry = updated.get(index)
+    const active = entry ? entry.data?.routes[0] : route
+    let summary = messages.unknown
+    if (active)
+      summary = planTitle(
+        entry ? acquisitionRouteCost(active, market) : baseCosts[index]!,
+        locale,
+        chance(active),
+      )
+    else if (entry?.isPending) summary = messages.calculating
+    else if (entry?.isError) summary = messages.error
+    else if (entry?.data?.complete) summary = copy.empty
+    return { index, route, active, summary }
+  })
+  const summary = rows[selection]!.summary
+  const status = replay?.isError ? (
+    <p role="alert">
+      {messages.error}{' '}
+      <button type="button" onClick={() => void replay.refetch()}>
+        {craftStartMessages[locale].retry}
+      </button>
+    </p>
+  ) : (
+    <p role="status">{selected ? messages.unknown : summary}</p>
+  )
   return (
     <>
       {!result.complete && <p role="status">{messages.partial}</p>}
@@ -201,59 +309,67 @@ function RouteList({
           >
             <div className="wb-history-preview__heading">
               <div className="wb-history-title">
-                <h3>
-                  {planTitle(costs[selection]!, locale, chance(selected))}
-                </h3>
+                <h3>{selected ? summary : title(base)}</h3>
               </div>
             </div>
-            {film ? (
-              <>
-                <h4>{copy.example}</h4>
-                <SessionDetail
-                  film={film}
-                  cursor={cursor ?? film.frames.length - 1}
-                  onNavigate={setCursor}
-                  resources={historyResources}
-                  overviewHref={href(selection)}
-                  itemClassName="wb-history-preview__item"
-                />
-              </>
-            ) : (
-              <p role="status">{messages.unknown}</p>
+            {film && <h4>{copy.example}</h4>}
+            <SessionDetail
+              film={film}
+              cursor={cursor ?? steps.length}
+              onNavigate={setCursor}
+              {...(!film ? { item: status, pendingSteps } : {})}
+              stepControls={(frameIndex) => {
+                const action = steps[frameIndex - 1]!.action
+                const available = gradeActions(action)
+                return (
+                  available && (
+                    <RouteGradePicker
+                      choices={available}
+                      current={action}
+                      step={frameIndex}
+                      onSelect={(grade) => changeGrade(frameIndex - 1, grade)}
+                    />
+                  )
+                )
+              }}
+              resources={historyResources}
+              overviewHref={href(selection)}
+              itemClassName="wb-history-preview__item"
+            />
+            {selectedStep && selectedStep.acquired.length > 0 && (
+              <p>
+                {changes.added}{' '}
+                {card.options
+                  .filter((option) =>
+                    selectedStep.acquired.includes(option.number),
+                  )
+                  .map((option) => optionText(option))
+                  .join(' · ')}
+              </p>
             )}
-            <p>
-              {copy.chance} · {chance(selected)}
-            </p>
-            {card.options.length + selected.steps.length > 0 && (
+            {selected && (
+              <p>
+                {copy.chance} · {chance(selected)}
+              </p>
+            )}
+            {card.options.length + steps.length > 0 && (
               <details>
                 <summary>{copy.order}</summary>
                 <div role="region" aria-label={copy.order}>
-                  <p>{title(selected)}</p>
+                  <p>{title(base)}</p>
                   {card.options.length > 0 && (
                     <dl>
                       {card.options.map((option) => (
                         <div key={option.number}>
                           <dt>{option.number}</dt>
-                          <dd>
-                            {option.modifierIds
-                              .map((id) =>
-                                definitions[id]
-                                  ? localizedModifierText(
-                                      definitions[id],
-                                      undefined,
-                                      locale,
-                                    )
-                                  : id,
-                              )
-                              .join(' / ')}
-                          </dd>
+                          <dd>{optionText(option)}</dd>
                         </div>
                       ))}
                     </dl>
                   )}
-                  {selected.steps.length > 0 && (
+                  {steps.length > 0 && (
                     <ol>
-                      {selected.steps.map((step, index) => (
+                      {steps.map((step, index) => (
                         <li key={index}>
                           <strong>{stepLabel(step)}</strong>
                           {step.lost.length > 0 && (
@@ -278,44 +394,50 @@ function RouteList({
           </section>
         }
       >
-        {result.routes.map((route, index) => {
-          const priceAndChance = planTitle(costs[index]!, locale, chance(route))
-          const options = [
-            title(route),
-            ...route.steps
-              .filter((step) => step.socketIndex != null)
-              .map(stepLabel),
-          ].join(' · ')
-          return (
-            <div role="listitem" key={index}>
-              <SessionListCard
-                title={priceAndChance}
-                baseId={request.start.item.baseItemId}
-                baseName={baseName}
-                selected={selected === route}
-                selectLabel={`${index + 1}. ${options} · ${priceAndChance}`}
-                metadata={
-                  <small>
-                    {baseName} · {options}
-                  </small>
-                }
-                onSelect={() => {
-                  select(index)
-                  if (window.innerWidth <= 760)
-                    section.current
-                      ?.querySelector('.wb-history-preview')
-                      ?.scrollIntoView?.({ block: 'nearest' })
-                }}
-                actions={
-                  <SessionPlanOverviewLink
-                    href={href(index)}
-                    onClick={() => openOverview(index)}
-                  />
-                }
-              />
-            </div>
+        {rows
+          .sort(
+            (a, b) =>
+              (b.active?.probability ?? -1) - (a.active?.probability ?? -1),
           )
-        })}
+          .map(({ index, route, active, summary }, rank) => {
+            const options = [
+              title(route),
+              ...route.steps
+                .filter((s) => s.socketIndex != null)
+                .map(stepLabel),
+            ].join(' · ')
+            return (
+              <div role="listitem" key={index}>
+                <SessionListCard
+                  title={summary}
+                  baseId={request.start.item.baseItemId}
+                  baseName={baseName}
+                  selected={index === selection}
+                  selectLabel={`${rank + 1}. ${options} · ${summary}`}
+                  metadata={
+                    <small>
+                      {baseName} · {options}
+                    </small>
+                  }
+                  onSelect={() => {
+                    select(index)
+                    if (window.innerWidth <= 760)
+                      section.current
+                        ?.querySelector('.wb-history-preview')
+                        ?.scrollIntoView?.({ block: 'nearest' })
+                  }}
+                  actions={
+                    active && (
+                      <SessionPlanOverviewLink
+                        href={href(index)}
+                        onClick={() => openOverview(index)}
+                      />
+                    )
+                  }
+                />
+              </div>
+            )
+          })}
       </SessionPlansLayout>
     </>
   )

@@ -38,7 +38,7 @@ describe('goal filter contract editor', () => {
     )
     fireEvent.focus(screen.getByLabelText('Search stats'))
     const add = await screen.findByRole('button', {
-      name: 'Add total cold resistance',
+      name: 'Add cold resistance',
     })
     expect(adapter.validate).not.toHaveBeenCalled()
     expect(readiness).toHaveBeenLastCalledWith(false)
@@ -46,7 +46,7 @@ describe('goal filter contract editor', () => {
     await waitFor(() => expect(adapter.validate).toHaveBeenCalledTimes(1))
     await waitFor(() => expect(readiness).toHaveBeenLastCalledWith(true))
     fireEvent.click(
-      screen.getByRole('button', { name: 'Delete total cold resistance' }),
+      screen.getByRole('button', { name: 'Delete cold resistance' }),
     )
     await waitFor(() => expect(readiness).toHaveBeenLastCalledWith(false))
     expect(adapter.validate).toHaveBeenCalledTimes(1)
@@ -125,7 +125,7 @@ describe('goal filter contract editor', () => {
     expect(editor.getState().goal.groups).toHaveLength(1)
     expect(JSON.stringify(editor.getState().goal)).not.toContain('collapsed')
   })
-  it('supports category search, repeated edits, delete focus and unsupported-base diagnostics', async () => {
+  it('supports explicit stat search, repeated edits, delete focus and unsupported-base diagnostics', async () => {
     const editor = createGoalFilterEditor(
       emptyGoal(fixtureContext, fixture.catalogVersion),
     )
@@ -156,21 +156,22 @@ describe('goal filter contract editor', () => {
     )
     fireEvent.focus(screen.getByLabelText('Search stats'))
     const add = await screen.findByRole('button', {
-      name: 'Add total cold resistance',
+      name: 'Add cold resistance',
     })
-    fireEvent.change(screen.getByLabelText('Category'), {
-      target: { value: 'PSEUDO' },
-    })
+    expect(
+      screen.queryByRole('button', { name: 'Add total cold resistance' }),
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByRole('option', { name: 'Combined total' }),
+    ).not.toBeInTheDocument()
     fireEvent.click(add)
     expect(screen.getByLabelText('Search stats')).toHaveFocus()
     fireEvent.click(
-      screen.getByRole('button', { name: 'Delete total cold resistance' }),
+      screen.getByRole('button', { name: 'Delete cold resistance' }),
     )
     expect(screen.getByLabelText('Search stats')).toHaveFocus()
     fireEvent.focus(screen.getByLabelText('Search stats'))
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Add total cold resistance' }),
-    )
+    fireEvent.click(screen.getByRole('button', { name: 'Add cold resistance' }))
     fireEvent.change(screen.getByLabelText('Equipment base'), {
       target: { value: 'unsupported' },
     })
@@ -209,7 +210,7 @@ describe('goal filter async and numeric editing', () => {
     expect(search).toHaveAttribute('aria-expanded', 'false')
     fireEvent.focus(search)
     const add = await screen.findByRole('button', {
-      name: 'Add total cold resistance',
+      name: 'Add cold resistance',
     })
     fireEvent.keyDown(search, { key: 'ArrowDown' })
     expect(search).toHaveFocus()
@@ -220,21 +221,19 @@ describe('goal filter async and numeric editing', () => {
     expect(search).toHaveFocus()
     expect(search).toHaveAttribute('aria-expanded', 'false')
     fireEvent.keyDown(search, { key: 'Enter' })
-    fireEvent.click(
-      screen.getByRole('button', { name: 'Add total cold resistance' }),
-    )
+    fireEvent.click(screen.getByRole('button', { name: 'Add cold resistance' }))
     expect(search).toHaveAttribute('aria-expanded', 'false')
     expect(search).toHaveValue('')
     fireEvent.click(screen.getAllByRole('checkbox', { name: 'Active' })[1]!)
     expect(editor.getState().goal.groups[0]!.entries[0]!.disabled).toBe(true)
     fireEvent.click(screen.getByRole('button', { name: 'Collapse' }))
     expect(
-      screen.queryByRole('button', { name: 'Delete total cold resistance' }),
+      screen.queryByRole('button', { name: 'Delete cold resistance' }),
     ).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'Expand' }))
     expect(editor.getState().goal.groups[0]!.entries[0]!.disabled).toBe(true)
     fireEvent.click(
-      screen.getByRole('button', { name: 'Delete total cold resistance' }),
+      screen.getByRole('button', { name: 'Delete cold resistance' }),
     )
     expect(search).toHaveFocus()
     fireEvent.click(screen.getByRole('button', { name: 'Delete Group 1' }))

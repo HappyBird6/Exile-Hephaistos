@@ -1,6 +1,5 @@
 package com.poe2craft.craftingsupport.testroutes.application;
 
-import com.poe2craft.shared.crafting.domain.CraftingAction;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
@@ -21,6 +20,20 @@ final class RecipeMoves {
     Move(WorkbenchCurrency currency, WorkbenchOmen omen) {
       this(currency.name(), Set.of(omen), null);
     }
+  }
+
+  /** 재생할 화폐의 상위 등급만 탐색에 쓴 기본 화폐에 대응시키고, 같은 단계의 징조와 장착 위치를 보존한다. */
+  static Move baseMove(Move move) {
+    String base =
+        switch (move.action()) {
+          case "GREATER_TRANSMUTATION", "PERFECT_TRANSMUTATION" -> "TRANSMUTATION";
+          case "GREATER_AUGMENTATION", "PERFECT_AUGMENTATION" -> "AUGMENTATION";
+          case "GREATER_REGAL", "PERFECT_REGAL" -> "REGAL";
+          case "GREATER_EXALTED", "PERFECT_EXALTED" -> "EXALTED";
+          case "GREATER_CHAOS", "PERFECT_CHAOS" -> "CHAOS";
+          default -> move.action();
+        };
+    return base.equals(move.action()) ? move : new Move(base, move.omens(), move.socketIndex());
   }
 
   /** preparation이면 획득이 없는 중간 상태도 이어간다. followup은 더미가 보호할 교체다. */
@@ -56,18 +69,20 @@ final class RecipeMoves {
               } else install(result, target, item, source.id());
             }
             case "E" -> {
-              if (item.rarity() == ItemState.Rarity.NORMAL) rarityPreparation(result, target, item);
+              if (item.rarity() == ItemState.Rarity.NORMAL)
+                result.addAll(rarityPreparation(target, item));
               else add(result, target, new Move(source.id()), false);
             }
             case "D" -> {
-              if (item.rarity() != ItemState.Rarity.RARE) rarityPreparation(result, target, item);
+              if (item.rarity() != ItemState.Rarity.RARE)
+                result.addAll(rarityPreparation(target, item));
               else if (item.desecrated().stream().anyMatch(s -> s.modifierId() == null))
                 add(result, target, new Move("REVEAL"), false);
               else add(result, target, new Move(source.id()), false);
             }
             case "C" -> {
               if (item.rarity() != ItemState.Rarity.RARE) {
-                rarityPreparation(result, target, item);
+                result.addAll(rarityPreparation(target, item));
               } else if (item.explicits().stream()
                       .filter(m -> AugmentCraftingRules.crafted(m, simulator.catalog()))
                       .count()
@@ -111,23 +126,24 @@ final class RecipeMoves {
       ItemStateValidator.AffixSlots slots) {
     var actions =
         switch (item.rarity()) {
-          case NORMAL -> Set.of(CraftingAction.TRANSMUTATION);
-          case MAGIC -> Set.of(CraftingAction.AUGMENTATION, CraftingAction.REGAL);
-          case RARE -> Set.of(CraftingAction.EXALTED, CraftingAction.CHAOS);
-          default -> Set.<CraftingAction>of();
+          case NORMAL -> List.of(WorkbenchCurrency.TRANSMUTATION);
+          case MAGIC -> List.of(WorkbenchCurrency.AUGMENTATION, WorkbenchCurrency.REGAL);
+          case RARE -> List.of(WorkbenchCurrency.EXALTED, WorkbenchCurrency.CHAOS);
+          default -> List.<WorkbenchCurrency>of();
         };
-    for (var currency : WorkbenchCurrency.values()) {
-      if (currency.baseAction() == null || !actions.contains(currency.baseAction())) continue;
-      add(result, target, new Move(currency.name()), false);
+    for (var currency : actions) {
+      boolean upgrades =
+          currency == WorkbenchCurrency.TRANSMUTATION || currency == WorkbenchCurrency.REGAL;
+      add(result, target, new Move(currency.name()), upgrades);
       for (var omen : WorkbenchOmen.values()) {
-        if (currency.baseAction() == CraftingAction.CHAOS) {
+        if (currency == WorkbenchCurrency.CHAOS) {
           if (omen.trigger() == WorkbenchCurrency.CHAOS
               && (omen.affix() != null || omen == WorkbenchOmen.WHITTLING))
             add(result, target, new Move(currency, omen), false);
         } else if (omen.trigger() != null
             && omen.trigger().baseAction() == currency.baseAction()
             && side == omen.affix()) {
-          add(result, target, new Move(currency, omen), false);
+          add(result, target, new Move(currency, omen), upgrades);
         }
       }
     }
@@ -193,12 +209,15 @@ final class RecipeMoves {
     }
   }
 
-  /** Rare 전용 재료를 쓰기 위해 희귀도를 한 단계 올린다. 이 과정의 우연한 목표 획득도 기록된다. */
-  private static void rarityPreparation(Set<Choice> choices, int target, ItemState item) {
-    if (item.rarity() == ItemState.Rarity.NORMAL)
-      add(choices, target, new Move(WorkbenchCurrency.TRANSMUTATION.name()), true);
-    if (item.rarity() == ItemState.Rarity.MAGIC)
-      add(choices, target, new Move(WorkbenchCurrency.REGAL.name()), true);
+  /** 시작 희귀도를 한 단계 올리는 기본 화폐의 적중과 승급만 이뤄진 결과를 모두 이어간다. */
+  static List<Choice> rarityPreparation(int target, ItemState item) {
+    return switch (item.rarity()) {
+      case NORMAL ->
+          List.of(new Choice(target, new Move(WorkbenchCurrency.TRANSMUTATION.name()), true, null));
+      case MAGIC ->
+          List.of(new Choice(target, new Move(WorkbenchCurrency.REGAL.name()), true, null));
+      default -> List.of();
+    };
   }
 
   /** 지정한 쪽의 남은 명시 옵션 자리를 반환한다. */

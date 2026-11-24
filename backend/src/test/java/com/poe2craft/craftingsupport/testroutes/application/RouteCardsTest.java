@@ -8,6 +8,7 @@ import com.poe2craft.shared.crafting.application.CatalogCraftingService;
 import com.poe2craft.shared.crafting.domain.BasicCurrencyFixture;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
 import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchDefinitions;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.EquipmentCurrencyCatalog;
@@ -18,6 +19,7 @@ import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.item.SocketAugments;
 import com.poe2craft.shared.item.SolarAmulet;
 import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
+import com.poe2craft.shared.probability.Fraction;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -55,6 +57,18 @@ class RouteCardsTest {
       double low,
       double high,
       String... rawIds) {
+    return cards(simulator, start, rarity, low, high, new GoalFilter.Range(null, null), rawIds);
+  }
+
+  /** 직접 수치의 하한·상한으로 각 원본 티어의 허용 범위를 검증한다. */
+  private RouteCards.Result cards(
+      WorkbenchSimulator simulator,
+      ItemState start,
+      ItemState.Rarity rarity,
+      double low,
+      double high,
+      GoalFilter.Range rowRange,
+      String... rawIds) {
     var context = new GoalFilter.Context(start.snapshotId(), start.baseItemId(), start.itemLevel());
     var stats =
         Arrays.stream(rawIds)
@@ -76,7 +90,7 @@ class RouteCardsTest {
     var any = new GoalFilter.Range(null, null);
     var entries =
         Arrays.stream(rawIds)
-            .map(id -> new GoalFilter.Entry(id, id, "flat", any, null, false))
+            .map(id -> new GoalFilter.Entry(id, id, "flat", rowRange, null, false))
             .toList();
     var goal =
         new GoalFilter(
@@ -85,6 +99,113 @@ class RouteCardsTest {
             new GoalFilter.General(start.baseItemId(), any, List.of(rarity)),
             List.of(new GoalFilter.Group("all", GoalFilter.Type.AND, false, null, entries)));
     return RouteCards.build(simulator, start, goal, catalog, low, high);
+  }
+
+  /** 아스트리드의 룬과 미장착 강도 제공자는 단일 직접 행의 범위 밖 티어를 획득으로 만들지 않는다. */
+  @Test
+  void directRangesWithUnrelatedRuneKeepExactlyTheOverlappingTiers() {
+    var simulator = simulator(ItemCatalogLoader.loadStocky());
+    var catalog = simulator.catalog();
+    var empty =
+        new ItemState(
+            catalog.metadata().snapshotId(),
+            catalog.base().id(),
+            82,
+            ItemState.Rarity.RARE,
+            List.of(),
+            List.of(),
+            Set.of(),
+            1);
+    var installed = SocketAugments.install(empty, 0, "Astrids_Creativity");
+    var stat = "base_fire_damage_resistance_%";
+    for (var start : List.of(empty, installed)) {
+      var all =
+          cards(simulator, start, stat).cards().stream()
+              .filter(c -> c.options().size() == 1)
+              .flatMap(c -> c.options().getFirst().tiers().keySet().stream())
+              .collect(java.util.stream.Collectors.toSet());
+      var bounds =
+          new GoalFilter.Range(java.math.BigDecimal.valueOf(17), java.math.BigDecimal.valueOf(28));
+      var expected =
+          all.stream()
+              .filter(
+                  id ->
+                      catalog.find(id).orElseThrow().stats().stream()
+                          .anyMatch(r -> r.id().equals(stat) && r.max() >= 17 && r.min() <= 28))
+              .toList();
+      assertThat(expected.size()).isGreaterThan(1).isLessThan(all.size());
+      var bounded = cards(simulator, start, ItemState.Rarity.RARE, 0.01, 0.1, bounds, stat);
+      assertThat(
+              bounded.cards().stream()
+                  .filter(c -> c.options().size() == 1)
+                  .flatMap(c -> c.options().getFirst().tiers().keySet().stream())
+                  .distinct())
+          .containsExactlyInAnyOrderElementsOf(expected);
+      var current = simulator.forItem(start);
+      var pool = current.pool(start, WorkbenchCurrency.EXALTED, null);
+      var total = pool.stream().mapToLong(ModifierDefinition::weight).sum();
+      var hit =
+          pool.stream()
+              .filter(d -> expected.contains(d.id()))
+              .mapToLong(ModifierDefinition::weight)
+              .sum();
+      var law =
+          new RecipeTransitions(current, true)
+              .successors(start, "EXALTED", Set.of(), Set.copyOf(expected), 2000, false);
+      assertThat(law.complete()).isTrue();
+      assertThat(
+              law.outcomes().stream()
+                  .map(RecipeTransitions.Outcome::probability)
+                  .reduce(Fraction.ZERO, Fraction::add))
+          .isEqualTo(Fraction.of(hit, total));
+    }
+  }
+
+  /** 합금의 실제 저항 강도가 붙은 반지에서는 원래 티어 상한보다 큰 표시값도 후보로 남긴다. */
+  @Test
+  void existingResistanceMagnitudePreservesTheScaledTier() {
+    var simulator = simulator(ItemCatalogLoader.loadRing());
+    var catalog = simulator.catalog();
+    var providerId = "equipment:prefix:alloy-effect-of-resistance-mods1";
+    var stat = "base_fire_damage_resistance_%";
+    var tier =
+        catalog.modifiers().values().stream()
+            .filter(d -> d.weight() > 0 && d.tags().contains("resistance") && d.stats().size() == 1)
+            .filter(d -> d.stats().getFirst().id().equals(stat) && d.stats().getFirst().max() > 0)
+            .min(java.util.Comparator.comparingInt(ModifierDefinition::requiredItemLevel))
+            .orElseThrow();
+    var boost = catalog.find(providerId).orElseThrow().stats().getFirst();
+    var maximum = java.math.BigDecimal.valueOf(tier.stats().getFirst().max());
+    var requested = maximum.multiply(java.math.BigDecimal.valueOf(100L + boost.max(), 2));
+    var range = new GoalFilter.Range(requested, requested);
+    var empty =
+        new ItemState(
+            catalog.metadata().snapshotId(),
+            catalog.base().id(),
+            82,
+            ItemState.Rarity.RARE,
+            List.of(),
+            List.of(),
+            Set.of());
+    var provider = new ModifierInstance(providerId, Map.of(boost.id(), boost.max())).asCrafted();
+    var scaled =
+        new ItemState(
+            empty.snapshotId(),
+            empty.baseItemId(),
+            82,
+            empty.rarity(),
+            List.of(),
+            List.of(provider),
+            Set.of());
+    assertThat(requested).isGreaterThan(maximum);
+    for (var start : List.of(empty, scaled)) {
+      var bounded = cards(simulator, start, ItemState.Rarity.RARE, 0.01, 0.1, range, stat);
+      assertThat(
+              bounded.cards().stream()
+                  .flatMap(c -> c.options().stream())
+                  .anyMatch(o -> o.tiers().containsKey(tier.id())))
+          .isEqualTo(start == scaled);
+    }
   }
 
   /** 보유 중인 분열 티어만 허용하고 다른 목표만으로 구성된 카드는 거른다. */

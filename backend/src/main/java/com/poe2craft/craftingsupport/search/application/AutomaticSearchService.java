@@ -712,7 +712,8 @@ public final class AutomaticSearchService implements AutoCloseable {
   }
 
   private Job restore(Disk disk) {
-    if (!VERSION.equals(disk.version())) throw new Rejected(409, "RECALCULATION_REQUIRED");
+    if (!VERSION.equals(disk.version()) || disk.request().goal().usesRetiredTotal())
+      throw new Rejected(409, "RECALCULATION_REQUIRED");
     var job = new Job();
     job.id = disk.id();
     job.owner = disk.owner();
@@ -871,7 +872,9 @@ public final class AutomaticSearchService implements AutoCloseable {
     var saved = read(id);
     if (!saved.owner().equals(ownerKey(owner)) || saved.expires() < clock.millis())
       throw new Rejected(404, "JOB_NOT_FOUND");
-    if ("goal-directed-milestone-graph-v14-amulet-evaluation".equals(saved.graph().version())
+    if ((AutomaticMethodGraph.VERSION.equals(saved.graph().version())
+            && saved.request().goal().usesRetiredTotal())
+        || "goal-directed-milestone-graph-v14-amulet-evaluation".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v13-initial-chaos-stage".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v12-joint-attribute-laws".equals(saved.graph().version())
         || "goal-directed-milestone-graph-v11-tier-laws".equals(saved.graph().version())

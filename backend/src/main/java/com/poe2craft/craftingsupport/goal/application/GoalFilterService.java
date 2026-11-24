@@ -76,12 +76,27 @@ import java.util.Set;
  */
 public final class GoalFilterService {
   private final GoalCatalogIndex index;
+
+  /** 저장된 그래프를 읽을 때만 당시 Total 목표의 수치 정의를 적용한다. */
+  private final boolean historicalDisplay;
+
   private final GoalValidator validator = new GoalValidator();
   private final GoalEvaluator evaluator = new GoalEvaluator();
   private final ItemStatProjection projection = new ItemStatProjection();
 
   public GoalFilterService(GoalCatalogIndex index) {
+    this(index, false);
+  }
+
+  /** 같은 불변 인덱스를 사용하되 저장 결과 표시와 현재 목표 정책을 구분한다. */
+  private GoalFilterService(GoalCatalogIndex index, boolean historicalDisplay) {
     this.index = index;
+    this.historicalDisplay = historicalDisplay;
+  }
+
+  /** 예전 그래프를 읽기 위한 평가기로, 당시 저장한 Total 목표의 구성·수치를 보존한다. */
+  public GoalFilterService forHistoricalDisplay() {
+    return historicalDisplay ? this : new GoalFilterService(index, true);
   }
 
   public int minimumExplicitModifiers(ItemState item, GoalFilter goal) {
@@ -91,7 +106,16 @@ public final class GoalFilterService {
 
   public GoalCatalog catalog(Context context) {
     requireContext(context);
-    return index.catalog(context);
+    var catalog = index.catalog(context);
+    if (historicalDisplay) return catalog;
+    return new GoalCatalog(
+        catalog.version(),
+        catalog.catalogVersion(),
+        context,
+        catalog.groupTypes(),
+        catalog.stats().stream().filter(s -> s.kind() != GoalCatalog.Kind.PSEUDO).toList(),
+        catalog.issues(),
+        catalog.sourceModifiers());
   }
 
   public RollPartition rollPartition(ItemState item, GoalFilter goal) {
@@ -105,7 +129,8 @@ public final class GoalFilterService {
   public GoalValidator.Validation validate(Context context, GoalFilter goal) {
     requireContext(context);
     var result =
-        validator.validate(context, goal, index.catalog(context), index.knownStats(context));
+        validator.validate(
+            context, goal, index.catalog(context), index.knownStats(context), historicalDisplay);
     if (!result.valid()) throw new InvalidGoal(result.issues());
     var catalog = index.catalog(context);
     boolean numeric =
@@ -160,7 +185,8 @@ public final class GoalFilterService {
     }
     if (issues.stream().anyMatch(i -> i.severity() == Severity.ERROR))
       throw new InvalidGoal(issues);
-    var observations = projection.project(item, index.knownStats(context), supported);
+    var observations =
+        projection.project(item, requiredStats(goal, index.knownStats(context)), supported);
     for (int i = 0; i < goal.groups().size(); i++) {
       var group = goal.groups().get(i);
       if (group.disabled()) continue;
@@ -301,8 +327,10 @@ public final class GoalFilterService {
                   "Existing AdditionRules eligibility and catalog weight / total eligible weight.",
                   "Single-stat min..max integers are equiprobable under uniform-integer-roll-v1.",
                   "All candidates remain in the denominator, including unrelated modifiers.",
-                  "Fixed starting rolls; first success is absorbing; finite open-loop addition sequences.",
-                  "No quality, omens, multi-stat ratio ticks, removal, recovery, or repeat policies."));
+                  "Fixed starting rolls; first success is absorbing; finite open-loop addition"
+                      + " sequences.",
+                  "No quality, omens, multi-stat ratio ticks, removal, recovery, or repeat"
+                      + " policies."));
     }
   }
 

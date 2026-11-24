@@ -1,4 +1,10 @@
-import { fireEvent, render, screen, within } from '@testing-library/react'
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
@@ -60,6 +66,11 @@ const market = {
       exaltedPerDivine: 500,
       prices: {
         'Exalted Orb': { name: 'Exalted Orb', exalted: 1, divine: 0.002 },
+        'Perfect Exalted Orb': {
+          name: 'Perfect Exalted Orb',
+          exalted: 5,
+          divine: 0.01,
+        },
       },
     },
     nextRefreshAllowedAt: '2026-11-09T01:00:00Z',
@@ -351,6 +362,268 @@ it('retains the reported probability when an example state is unavailable', asyn
     screen.queryByRole('article', { name: 'Item card' }),
   ).not.toBeInTheDocument()
   expect(screen.getByRole('status')).toHaveTextContent('Not fully calculated')
+})
+
+it('reevaluates only the selected grades on the original method and keeps the choice in its overview URL', async () => {
+  await setLocale('en')
+  const step = {
+    action: 'EXALTED',
+    omens: [],
+    acquired: [1],
+    lost: [],
+    chance: { probability: 0.4 },
+  }
+  const last = { ...step, acquired: [2] }
+  const route = {
+    cardIndex: 0,
+    order: [1, 2],
+    steps: [step, last],
+    stateIndices: [0, 1],
+    probability: 0.2,
+  }
+  const base = {
+    cards: [
+      {
+        options: [
+          { number: 1, modifierIds: ['life'] },
+          { number: 2, modifierIds: ['cold'] },
+        ],
+      },
+    ],
+    states: [observed(10, null), observed(10, 5)],
+    routes: [route],
+    complete: false,
+  }
+  const upgraded = {
+    ...base,
+    states: [observed(19, null), observed(19, 11)],
+    routes: [
+      {
+        ...route,
+        steps: [
+          { ...step, action: 'PERFECT_EXALTED', expectedUses: 2 },
+          { ...last },
+        ],
+        probability: 0.6,
+      },
+    ],
+  }
+  const response = (body: AcquisitionResult) =>
+    new Response(JSON.stringify(body), {
+      headers: { [rulesetHeader]: request.start.provenance.rulesetIdentity },
+    })
+  let finish: ((result: Response) => void) | undefined
+  const post = vi.fn(async (input: RequestInfo | URL) =>
+    String(input).endsWith('/grade')
+      ? new Promise<Response>((resolve) => {
+          finish = resolve
+        })
+      : response(base),
+  )
+  vi.stubGlobal('fetch', post)
+  window.history.replaceState(null, '', '/support-test')
+  try {
+    show()
+    const list = await screen.findByRole('list', { name: 'Crafting methods' })
+    expect(within(list).getAllByRole('listitem')).toHaveLength(1)
+    const method = within(list).getByRole('button', { pressed: true })
+    expect(method).toHaveAccessibleName(/2 ex · 20%/)
+    const history = screen.getByRole('region', { name: 'History' })
+    fireEvent.click(within(history).getByRole('button', { name: 'Step 1' }))
+    const trigger = within(history).getByRole('button', {
+      name: 'Step 1 · Exalted Orb',
+    })
+    expect(trigger.parentElement?.closest('button')).toBeNull()
+    fireEvent.keyDown(trigger, { key: 'ArrowDown' })
+    expect(
+      within(history).getByRole('button', { name: 'Exalted Orb' }),
+    ).toHaveFocus()
+    fireEvent.keyDown(trigger, { key: 'Escape' })
+    expect(trigger).toHaveFocus()
+    fireEvent.click(trigger)
+    const perfect = within(history).getByRole('button', {
+      name: 'Perfect Exalted Orb',
+    })
+    expect(perfect.querySelector('svg')).toBeInTheDocument()
+    fireEvent.click(perfect)
+    await waitFor(() => expect(post).toHaveBeenCalledTimes(2))
+    const [path, init] = (
+      post.mock.calls as unknown as [string, RequestInit][]
+    )[1]!
+    expect(path).toBe('/api/v1/crafting/support/goal-filters/test-routes/grade')
+    expect(JSON.parse(String(init.body))).toEqual({
+      item: request.start.item,
+      goal: request.goal,
+      cardIndex: 0,
+      steps: [
+        { action: 'PERFECT_EXALTED', omens: [], acquired: [1], lost: [] },
+        { action: 'EXALTED', omens: [], acquired: [2], lost: [] },
+      ],
+    })
+    expect(screen.queryByRole('article', { name: 'Item card' })).toBeNull()
+    expect(screen.queryByText(/Route success chance · 20%/)).toBeNull()
+    expect(method).not.toHaveAccessibleName(/2 ex|20%/)
+    expect(new URLSearchParams(location.search).get('route')).toBe('0')
+    expect(new URLSearchParams(location.search).get('grades')).toBe('3.1')
+    finish!(response(upgraded))
+    const card = await screen.findByRole('article', { name: 'Item card' })
+    expect(card).toHaveTextContent('+19 to maximum Life')
+    expect(card).not.toHaveTextContent('Cold Resistance')
+    expect(screen.getByText(/^Added .*maximum Life$/)).toBeVisible()
+    expect(
+      screen.getByRole('group', { name: 'Crafting cost through this step' }),
+    ).toHaveTextContent('Step chance 40%')
+    expect(method).toHaveAccessibleName(/11 ex · 60%/)
+    fireEvent.click(within(history).getByRole('button', { name: 'Step 2' }))
+    expect(card).toHaveTextContent('+11% to Cold Resistance')
+    expect(screen.getByText(/^Added .*Cold Resistance$/)).toBeVisible()
+    expect(
+      within(history).getByRole('link', { name: 'Session overview' }),
+    ).toHaveAttribute(
+      'href',
+      '/support-test/overview?request=' +
+        encodeURIComponent(request.clientRequestId) +
+        '&route=0&grades=3.1',
+    )
+    fireEvent.click(
+      within(history).getByRole('button', {
+        name: 'Step 1 · Perfect Exalted Orb',
+      }),
+    )
+    fireEvent.click(
+      within(history).getByRole('button', { name: 'Exalted Orb' }),
+    )
+    expect(method).toHaveAccessibleName(/2 ex · 20%/)
+    expect(card).toHaveTextContent('+5% to Cold Resistance')
+    expect(new URLSearchParams(location.search).has('grades')).toBe(false)
+    expect(post).toHaveBeenCalledTimes(2)
+  } finally {
+    window.history.replaceState(null, '', '/')
+  }
+})
+
+it.each([true, false])(
+  'keeps an unavailable grade editable when the evaluation is complete=%s',
+  async (complete) => {
+    await setLocale('en')
+    const step = { action: 'EXALTED', omens: [], acquired: [1], lost: [] }
+    const base = {
+      cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+      states: [observed(15, null)],
+      routes: [
+        {
+          cardIndex: 0,
+          order: [1],
+          steps: [step],
+          stateIndices: [0],
+          probability: 0.5,
+        },
+      ],
+      complete: true,
+    }
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(
+        async (input: RequestInfo | URL) =>
+          new Response(
+            JSON.stringify(
+              String(input).endsWith('/grade')
+                ? { ...base, routes: [], states: [], complete }
+                : base,
+            ),
+            {
+              headers: {
+                [rulesetHeader]: request.start.provenance.rulesetIdentity,
+              },
+            },
+          ),
+      ),
+    )
+    show()
+    const history = await screen.findByRole('region', { name: 'History' })
+    fireEvent.click(
+      within(history).getByRole('button', { name: 'Step 1 · Exalted Orb' }),
+    )
+    fireEvent.click(
+      within(history).getByRole('button', { name: 'Greater Exalted Orb' }),
+    )
+    const banner = await screen.findByRole('status')
+    await waitFor(() =>
+      expect(banner).toHaveTextContent(
+        complete ? 'No matching crafting route found.' : 'Not fully calculated',
+      ),
+    )
+    expect(screen.queryByRole('article', { name: 'Item card' })).toBeNull()
+    fireEvent.click(
+      within(history).getByRole('button', {
+        name: 'Step 1 · Greater Exalted Orb',
+      }),
+    )
+    fireEvent.click(
+      within(history).getByRole('button', { name: 'Exalted Orb' }),
+    )
+    expect(
+      screen.getByRole('article', { name: 'Item card' }),
+    ).toHaveTextContent('+15 to maximum Life')
+  },
+)
+it('retains the method and permits retry when the replay reports a different later action', async () => {
+  await setLocale('en')
+  const step = { action: 'EXALTED', omens: [], acquired: [1], lost: [] }
+  const tail = { ...step, acquired: [2] }
+  const route = {
+    cardIndex: 0,
+    order: [1, 2],
+    steps: [step, tail],
+    stateIndices: [0, 1],
+    probability: 0.5,
+  }
+  const base = {
+    cards: [{ options: [] }],
+    states: [observed(15, null), observed(15, 7)],
+    routes: [route],
+    complete: true,
+  }
+  let attempts = 0
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(async (input: RequestInfo | URL) => {
+      const replay = String(input).endsWith('/grade')
+      if (replay) attempts++
+      const value = replay
+        ? {
+            ...base,
+            routes: [
+              {
+                ...route,
+                steps: [
+                  { ...step, action: 'GREATER_EXALTED' },
+                  { ...tail, action: attempts === 1 ? 'CHAOS' : 'EXALTED' },
+                ],
+              },
+            ],
+          }
+        : base
+      return new Response(JSON.stringify(value), {
+        headers: { [rulesetHeader]: request.start.provenance.rulesetIdentity },
+      })
+    }),
+  )
+  show()
+  const history = await screen.findByRole('region', { name: 'History' })
+  fireEvent.click(
+    within(history).getByRole('button', { name: 'Step 1 · Exalted Orb' }),
+  )
+  fireEvent.click(
+    within(history).getByRole('button', { name: 'Greater Exalted Orb' }),
+  )
+  const error = await screen.findByRole('alert')
+  expect(screen.queryByRole('article', { name: 'Item card' })).toBeNull()
+  fireEvent.click(within(error).getByRole('button', { name: 'Retry' }))
+  expect(
+    await screen.findByRole('article', { name: 'Item card' }),
+  ).toHaveTextContent('+7% to Cold Resistance')
+  expect(attempts).toBe(2)
 })
 
 it('labels both socket replacement choices with the localized material and one-based socket number', async () => {

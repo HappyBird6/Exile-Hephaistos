@@ -1,9 +1,15 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { craftStartMessages } from '../goal-filter/craftStartMessages'
+import { hasActiveTotalGoal } from '../goal-filter/types'
 import { loadStart } from '../goal-filter/savedStart'
 import { acquisitionRouteQuery } from '../method-search/acquisitionRouteApi'
 import { acquisitionRouteFilm } from '../method-search/acquisitionRouteFilm'
+import {
+  readRouteGrades,
+  fixedRouteQuery,
+  evaluatedRouteResult,
+} from '../method-search/fixedRouteGrades'
 import { pathTreeMessages } from '../path-tree/messages'
 import { historyMessages } from '../session-history/messages'
 import { SessionOverviewLayout } from '../session-history/SessionOverviewLayout'
@@ -25,19 +31,47 @@ export default function AcquisitionOverviewPage() {
   ])
   const saved =
     valid && !cached ? loadStart('support-test-start')?.searchRequest : null
-  const request = saved && saved.clientRequestId === requestId ? saved : null
+  const request =
+    saved &&
+    saved.clientRequestId === requestId &&
+    !hasActiveTotalGoal(saved.goal)
+      ? saved
+      : null
   const query = useQuery(acquisitionRouteQuery(request))
+  const base = query.data
+  const recipe = base?.routes[index]
+  const grades = recipe ? readRouteGrades(location.search, recipe) : null
+  const changed = grades?.some((grade) => grade !== 1) ?? false
+  const replay = useQuery(fixedRouteQuery(request, base, index, grades))
+  const displayed =
+    base && grades
+      ? changed
+        ? replay.data && evaluatedRouteResult(base, index, replay.data)
+        : base
+      : null
   const film =
     valid &&
     (cached ??
       (request &&
-        query.data &&
-        acquisitionRouteFilm(request, query.data, index)))
+        displayed &&
+        acquisitionRouteFilm(
+          request,
+          displayed,
+          changed ? 0 : index,
+          locale,
+          index,
+        )))
+  const activeQuery = changed ? replay : query
   const backLabel = supportTestTabNames[locale]
-  const backHref = valid
-    ? '/support-test?' +
-      new URLSearchParams({ request: requestId, route: indexText })
-    : '/support-test'
+  const backParams = new URLSearchParams()
+  if (valid) {
+    backParams.set('request', requestId)
+    backParams.set('route', indexText)
+    const selectedGrades = params.get('grades')
+    if (selectedGrades && (cached || grades))
+      backParams.set('grades', selectedGrades)
+  }
+  const backHref = valid ? '/support-test?' + backParams : '/support-test'
   const title = historyMessages[locale].title
   if (film)
     return (
@@ -53,18 +87,20 @@ export default function AcquisitionOverviewPage() {
       backHref={backHref}
       backLabel={backLabel}
     >
-      {request && query.isError ? (
+      {request && activeQuery.isError ? (
         <p role="alert">
           {messages.error}{' '}
-          <button type="button" onClick={() => void query.refetch()}>
+          <button type="button" onClick={() => void activeQuery.refetch()}>
             {craftStartMessages[locale].retry}
           </button>
         </p>
       ) : (
         <p role="status">
-          {request && query.isPending
+          {request && activeQuery.isPending
             ? messages.calculating
-            : messages.unavailable}
+            : changed && replay.data && !replay.data.complete
+              ? messages.unknown
+              : messages.unavailable}
         </p>
       )}
     </SessionOverviewLayout>

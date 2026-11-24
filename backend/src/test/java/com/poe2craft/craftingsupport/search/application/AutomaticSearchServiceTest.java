@@ -191,6 +191,39 @@ class AutomaticSearchServiceTest {
         List.of());
   }
 
+  /** 이전에 생성한 현재 그래프의 Total 요청은 읽기만 허용하고 저장 바이트를 보존한다. */
+  @Test
+  void savedTotalShowsItsExistingGraphAndPreventsResumingIt() throws Exception {
+    var repository = new Repository();
+    var old = request("retired-total");
+    var json = new ObjectMapper();
+    var payload = (com.fasterxml.jackson.databind.node.ObjectNode) json.valueToTree(old);
+    var row =
+        (com.fasterxml.jackson.databind.node.ObjectNode) payload.at("/goal/groups/0/entries/0");
+    row.put("statId", "hephaistos:v1:pseudo:total_strength");
+    var savedInput = json.treeToValue(payload, MethodSearchProtocol.Create.class);
+    String id;
+    try (var before = service(repository)) {
+      id = before.create("owner", savedInput).id();
+    }
+    var original = repository.read(id);
+    try (var now = service(repository)) {
+      var view = now.get("owner", id);
+      assertThat(view.reason()).isEqualTo("LEGACY_READ_ONLY");
+      assertThat(view.canResume()).isFalse();
+      assertThat(now.original("owner", id).goal()).isEqualTo(savedInput.goal());
+      assertThatThrownBy(
+              () ->
+                  now.control(
+                      "owner",
+                      id,
+                      new AutomaticSearchService.Control(
+                          "resume-retired", view.revision(), view.generation(), "RESUME")))
+          .hasMessage("RECALCULATION_REQUIRED");
+      assertThat(repository.read(id)).isEqualTo(original);
+    }
+  }
+
   @Test
   void previousPlusOneManualPolicyRemainsAnImmutableObservation() throws Exception {
     var repository = new Repository();

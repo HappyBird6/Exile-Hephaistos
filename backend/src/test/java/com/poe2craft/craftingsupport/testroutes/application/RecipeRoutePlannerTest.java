@@ -68,12 +68,13 @@ class RecipeRoutePlannerTest {
             true,
             null);
     assertThat(result.routes())
-        .isNotEmpty()
+        .extracting(r -> r.steps().getFirst().action())
+        .containsExactly("EXALTED");
+    assertThat(result.routes())
         .allSatisfy(
             r -> {
               assertThat(r.steps()).hasSize(2);
               assertThat(r.order()).containsExactly(4);
-              assertThat(r.steps().getFirst().action()).isEqualTo("EXALTED");
               assertThat(r.steps().getFirst().acquired()).isEmpty();
               assertThat(r.steps().getLast().omens())
                   .containsExactly("Omen_of_Dextral_Crystallisation");

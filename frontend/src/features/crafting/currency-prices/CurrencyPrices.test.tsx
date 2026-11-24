@@ -210,3 +210,69 @@ it('uses only the lower-bound sign for partial totals without an extra marker', 
   ).toBeNull()
   expect(page.container.textContent).not.toContain('*')
 })
+
+it('displays the selected action chance immediately before cost and clears it for preparation or legacy frames', () => {
+  const state = concreteInitial(initialFixture)
+  const rulesetIdentity = 'test-rules'
+  const frame = {
+    state,
+    action: 'SESSION_PLAN',
+    rulesetIdentity,
+    projectedCurrencies: [{ currencyId: 'Exalted_Orb', omenIds: [] }],
+  }
+  const film: Film = {
+    id: 'chance',
+    createdAt: '',
+    rulesetIdentity,
+    frames: [
+      { state, action: null, rulesetIdentity },
+      frame,
+      { ...frame, projectedChance: { probability: 0.125 } },
+      { ...frame, projectedChance: { probability: null } },
+    ],
+  }
+  const ui = (cursor: number) => (
+    <CraftingCostLine film={film} cursor={cursor} />
+  )
+  const page = render(ui(2))
+  const chance = screen.getByText('Step chance 12.5%')
+  expect(chance.nextElementSibling).toHaveClass('coin-amount')
+  page.rerender(ui(3))
+  expect(screen.getByText('Step chance Unknown')).toBeInTheDocument()
+  page.rerender(ui(1))
+  expect(screen.queryByText(/Step chance/)).toBeNull()
+  page.rerender(ui(0))
+  expect(screen.queryByText(/Step chance/)).toBeNull()
+})
+
+it('uses the recorded modifier-selection odds of a verified single workbench event and hides a mismatched receipt', async () => {
+  const { twoSteps } = await import('../session-notation/fixtures.test-support')
+  const { history } = await twoSteps()
+  const film = history.films[0]!
+  const baseId = 'Metadata/Items/Amulets/FourAmulet9'
+  for (const frame of film.frames)
+    frame.state = { ...frame.state, baseItemId: baseId }
+  const receipt = film.frames[2]!.evidence!
+  receipt.events[0]!.selectionProbability = 0.25
+  const initial = {
+    ...initialFixture,
+    state: { ...initialFixture.state, baseItemId: baseId },
+  }
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  client.setQueryData(
+    ['crafting', 'initial', 'solar', film.frames[2]!.state.itemLevel, 'manual'],
+    initial,
+  )
+  const ui = () => (
+    <QueryClientProvider client={client}>
+      <CraftingCostLine film={film} cursor={2} />
+    </QueryClientProvider>
+  )
+  const page = render(ui())
+  expect(await screen.findByText('Step chance 25%')).toBeInTheDocument()
+  receipt.rulesetIdentity = 'unverified'
+  page.rerender(ui())
+  expect(screen.queryByText(/Step chance/)).toBeNull()
+})

@@ -5,12 +5,18 @@ import {
 } from '../method-search/supportStorage'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import {
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import { ConnectedGoalFilter } from './ConnectedGoalFilter'
 import type { SearchGoalSnapshot } from './ConnectedGoalFilter'
 import { evaluateNumericItem, presentNumericStats } from './numericApi'
 import { addStat, emptyGoal } from './editor'
-import type { Catalog } from './types'
+import type { Catalog, GoalFilter } from './types'
 import type { ConcreteItem } from '../workbenchApi'
 const item: ConcreteItem = {
   snapshotId: 'solar',
@@ -38,10 +44,10 @@ const catalog = {
   issues: [],
   stats: [
     {
-      statId: 'cold-total',
-      label: 'Cold total',
+      statId: 'direct-cold',
+      label: 'Cold resistance',
       unit: 'percent',
-      kind: 'PSEUDO',
+      kind: 'EXPLICIT',
       support: {
         evaluation: 'SUPPORTED',
         probability: 'UNSUPPORTED',
@@ -49,7 +55,7 @@ const catalog = {
       },
       eligible: true,
       eligibilityReason: null,
-      sourceStatIds: [],
+      sourceStatIds: ['cold'],
       contributions: [],
       sourceUrls: [],
     },
@@ -92,6 +98,7 @@ function setup(
   onLegacyChange = vi.fn(),
   compact = false,
   onSearchGoalChange = vi.fn<(snapshot: SearchGoalSnapshot) => void>(),
+  savedRequestGoal?: GoalFilter,
 ) {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false } },
@@ -101,6 +108,7 @@ function setup(
       <QueryClientProvider client={client}>
         <ConnectedGoalFilter
           onSearchGoalChange={onSearchGoalChange}
+          savedRequestGoal={savedRequestGoal}
           rulesetIdentity="fixture-ruleset"
           item={actual}
           context={item}
@@ -143,7 +151,7 @@ describe('production goal connection', () => {
     const search = await screen.findByRole('combobox', { name: 'Search stats' })
     fireEvent.change(search, { target: { value: 'Cold' } })
     fireEvent.click(
-      await screen.findByRole('button', { name: 'Add Cold total' }),
+      await screen.findByRole('button', { name: 'Add Cold resistance' }),
     )
     await waitFor(() =>
       expect(capture.mock.lastCall?.[0].goal.groups[0]?.entries).toHaveLength(
@@ -154,10 +162,10 @@ describe('production goal connection', () => {
     const snapshot = capture.mock.lastCall![0]
     expect(snapshot.ready).toBe(true)
     expect(snapshot.catalogVersion).toBe('v1')
-    expect(snapshot.goal.groups[0]!.entries[0]!.statId).toBe('cold-total')
+    expect(snapshot.goal.groups[0]!.entries[0]!.statId).toBe('direct-cold')
     snapshot.goal.groups[0]!.entries[0]!.statId = 'consumer-mutation'
     expect(
-      screen.getByRole('button', { name: 'Delete Cold total' }),
+      screen.getByRole('button', { name: 'Delete Cold resistance' }),
     ).toBeVisible()
     expect(screen.queryByText('consumer-mutation')).not.toBeInTheDocument()
     fireEvent.change(screen.getByPlaceholderText('Min'), {
@@ -172,6 +180,57 @@ describe('production goal connection', () => {
       capture.mock.lastCall![0].goal.groups[0]!.entries[0]!.range.min,
     ).toBe(15)
   })
+  it.each(['editor', 'request'])(
+    'preserves a total from the saved %s and blocks the whole goal until the user disables or removes it',
+    async (source) => {
+      const fetcher = mockFetch()
+      const goal = emptyGoal(context, 'v1')
+      addStat(goal.groups[0]!, (catalog as Catalog).stats[0]!)
+      goal.groups[0]!.entries.push({
+        ...goal.groups[0]!.entries[0]!,
+        id: 'old',
+        statId: 'hephaistos:v1:pseudo:total_cold_resistance',
+        range: { min: 25, max: 45 },
+      })
+      if (source === 'editor') saveSupport('goal', goal)
+      else localStorage.removeItem('hephaistos.support.v1:goal')
+      const capture = vi.fn<(snapshot: SearchGoalSnapshot) => void>()
+      setup(
+        item,
+        vi.fn(),
+        true,
+        capture,
+        source === 'request' ? goal : undefined,
+      )
+      const label = 'Total Cold Resistance'
+      const stored = await screen.findByRole('group', { name: label })
+      const toggle = within(stored).getByRole('checkbox', { name: 'Active' })
+      expect(toggle).toBeChecked()
+      expect(
+        screen.getByText(
+          'Remove or disable the saved total condition to calculate routes.',
+        ),
+      ).toBeVisible()
+      await waitFor(() => expect(capture.mock.lastCall?.[0].goal).toEqual(goal))
+      expect(capture.mock.lastCall?.[0].ready).toBe(false)
+      expect(
+        fetcher.mock.calls.some(([url]) => String(url).endsWith('/validate')),
+      ).toBe(false)
+      fireEvent.click(toggle)
+      await waitFor(() => expect(capture.mock.lastCall?.[0].ready).toBe(true))
+      expect(capture.mock.lastCall?.[0].goal.groups[0]?.entries[1]).toEqual({
+        ...goal.groups[0]!.entries[1],
+        disabled: true,
+      })
+      fireEvent.click(toggle)
+      await waitFor(() => expect(capture.mock.lastCall?.[0].ready).toBe(false))
+      fireEvent.click(screen.getByRole('button', { name: 'Delete ' + label }))
+      await waitFor(() => expect(capture.mock.lastCall?.[0].ready).toBe(true))
+      expect(capture.mock.lastCall?.[0].goal.groups[0]?.entries).toEqual([
+        goal.groups[0]!.entries[0],
+      ])
+    },
+  )
   it('removes manual evaluation while retaining numeric editing', async () => {
     const fetch = mockFetch()
     setup(item, vi.fn(), true)
@@ -184,7 +243,7 @@ describe('production goal connection', () => {
     expect(screen.queryByText('Numeric input settings')).not.toBeInTheDocument()
     fireEvent.change(search, { target: { value: 'Cold' } })
     fireEvent.click(
-      await screen.findByRole('button', { name: 'Add Cold total' }),
+      await screen.findByRole('button', { name: 'Add Cold resistance' }),
     )
     expect(
       screen.queryByRole('button', { name: 'Evaluate current item' }),
@@ -222,11 +281,13 @@ describe('production goal connection', () => {
       },
       {
         ...c.stats[0]!,
+        statId: 'cold-total',
+        kind: 'PSEUDO',
         contributions: [{ statId: 'direct-cold', coefficient: 1 }],
       },
     ]
     const present = presentNumericStats(item, c)
-    expect([...present]).toEqual(['direct-cold', 'cold-total'])
+    expect([...present]).toEqual(['direct-cold'])
     const goal = emptyGoal(context, 'v1')
     addStat(goal.groups[0]!, c.stats[0]!, present.has('direct-cold'))
     expect(goal.groups[0]!.entries).toHaveLength(1)

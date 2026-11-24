@@ -36,6 +36,20 @@ import java.util.List;
  */
 public record GoalFilter(
     Integer version, String catalogVersion, General general, List<Group> groups) {
+  /** 저장 목표의 활성 Total 행은 현재 계산기 대신 과거 결과 표시 경로로 연결한다. */
+  public boolean usesRetiredTotal() {
+    return groups != null
+        && groups.stream()
+            .filter(g -> g != null && Boolean.FALSE.equals(g.disabled()) && g.entries() != null)
+            .flatMap(g -> g.entries().stream())
+            .anyMatch(
+                e ->
+                    e != null
+                        && Boolean.FALSE.equals(e.disabled())
+                        && e.statId() != null
+                        && e.statId().startsWith("hephaistos:v1:pseudo:"));
+  }
+
   /**
    * {@code GoalFilter}에서 사용하는 문맥의 불변 값이다.
    *

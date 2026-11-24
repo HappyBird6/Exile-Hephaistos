@@ -2,6 +2,7 @@ import type { ConcreteItem } from '../workbenchApi'
 import type { CreateRequest } from '../path-tree'
 import { assertShape } from '../path-tree/validation'
 import { hasImplicitGoal, readSupport } from '../method-search/supportStorage'
+import { hasActiveTotalGoal } from './types'
 import { qualityShape } from '../catalystQuality'
 export type SavedStart = {
   base: string
@@ -71,6 +72,8 @@ export function restoredStart(key = 'start') {
       }
     : null
   if (!saved) return {}
+  if (saved.searchRequest && hasActiveTotalGoal(saved.searchRequest.goal))
+    return { ...saved, editing: true }
   return saved.searchRequest && hasImplicitGoal(saved.searchRequest.goal)
     ? { ...saved, searchRequest: null, editing: true }
     : saved

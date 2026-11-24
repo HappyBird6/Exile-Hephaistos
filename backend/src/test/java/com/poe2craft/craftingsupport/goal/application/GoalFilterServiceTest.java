@@ -36,12 +36,12 @@ import org.junit.jupiter.api.Test;
  * <p>생성자·메서드:
  *
  * <ul>
- *   <li>{@code compiledDependencyClosurePreservesEveryAstKindAndPseudoAcrossLossAndMerge()}: 이름에
- *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
+ *   <li>{@code compiledDependencyClosurePreservesEveryAstKindAcrossLossAndMerge()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code disabledUnknownContentStillRequiresUnitAndCountMinimumCanProveImpossibleGoal()}: 이름에
  *       명시한 시나리오의 실제 결과·보존 상태를 기대값과 비교한다.
- *   <li>{@code checkedInProductionExampleMatchesCurrentCatalogAndActualItemEvaluation()}: 이름에 명시한
- *       시나리오의 실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code checkedInProductionExampleRetainsItsHistoricalCatalogAndEvaluation()}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 사용하는 예외: {@code Exception}.
  *   <li>{@code unsupportedStartingStateIsNotSuccessEvenForTautologicalCount()}: 이름에 명시한 시나리오의 실제
  *       결과·보존 상태를 기대값과 비교한다.
  *   <li>{@code goal(version, base, stat, unit, range)}: 목표 처리에서 {@code BigDecimal.valueOf}을(를)
@@ -53,7 +53,7 @@ import org.junit.jupiter.api.Test;
  *   <li>{@code modifier(catalog, source, value)}: 옵션 처리에서 {@code catalog.modifiers}, {@code
  *       d.layer}을(를) 사용한다. 입력: {@code catalog}(카탈로그), {@code source}(출처), {@code value}(값). 반환:
  *       {@code ModifierInstance}.
- *   <li>{@code productionPseudoAddsTenAndTwelveOnceAndKeepsRawValues()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
+ *   <li>{@code retiredTotalsArePreservedWhenReadingHistoricalValues()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
  *       기대값과 비교한다.
  *   <li>{@code existingHigherLevelModifierIsNotDeletedByGenerationEligibility()}: 이름에 명시한 시나리오의 실제
  *       결과·보존 상태를 기대값과 비교한다.
@@ -71,7 +71,7 @@ import org.junit.jupiter.api.Test;
  */
 class GoalFilterServiceTest {
   @Test
-  void compiledDependencyClosurePreservesEveryAstKindAndPseudoAcrossLossAndMerge() {
+  void compiledDependencyClosurePreservesEveryAstKindAcrossLossAndMerge() {
     var empty = item(List.of(), 82, Set.of());
     var sources =
         List.of(
@@ -87,8 +87,8 @@ class GoalFilterServiceTest {
       var entries =
           List.of(
               new Entry(
-                  "pseudo",
-                  GoalCatalogIndex.id("pseudo", "total_cold_resistance"),
+                  "all-elements",
+                  GoalCatalogIndex.id("explicit", ALL),
                   "percent",
                   new Range(BigDecimal.TEN, null),
                   weighted ? BigDecimal.valueOf(2) : null,
@@ -185,7 +185,7 @@ class GoalFilterServiceTest {
   }
 
   @Test
-  void checkedInProductionExampleMatchesCurrentCatalogAndActualItemEvaluation() throws Exception {
+  void checkedInProductionExampleRetainsItsHistoricalCatalogAndEvaluation() throws Exception {
     var all =
         new GoalCatalogIndex(
             BundledGoalCatalogs.load(ReviewedCatalogTestData.workbench()),
@@ -216,7 +216,8 @@ class GoalFilterServiceTest {
       assertThat(example.get("evaluateResponse"))
           .isEqualTo(
               mapper.readTree(
-                  mapper.writeValueAsString(new GoalFilterService(all).evaluate(item, goal))));
+                  mapper.writeValueAsString(
+                      new GoalFilterService(all).forHistoricalDisplay().evaluate(item, goal))));
     }
   }
 
@@ -298,7 +299,7 @@ class GoalFilterServiceTest {
   }
 
   @Test
-  void productionPseudoAddsTenAndTwelveOnceAndKeepsRawValues() {
+  void retiredTotalsArePreservedWhenReadingHistoricalValues() {
     var item =
         item(
             List.of(modifier(itemCatalog, COLD, 10), modifier(itemCatalog, ALL, 12)), 82, Set.of());
@@ -309,18 +310,34 @@ class GoalFilterServiceTest {
             GoalCatalogIndex.id("pseudo", "total_cold_resistance"),
             "percent",
             new Range(BigDecimal.valueOf(22), BigDecimal.valueOf(22)));
-    var evaluation = service.evaluate(item, goal);
+    var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
+    assertThat(service.catalog(context).stats())
+        .noneMatch(s -> s.kind() == GoalCatalog.Kind.PSEUDO);
+    assertThatThrownBy(() -> service.evaluate(item, goal))
+        .isInstanceOfSatisfying(
+            GoalFilterService.InvalidGoal.class,
+            e -> assertThat(e.issues()).extracting(Issue::code).contains("RETIRED_TOTAL_GOAL"));
+    var evaluation = service.forHistoricalDisplay().evaluate(item, goal);
     assertThat(evaluation.status()).isEqualTo(Status.MATCH);
     assertThat(evaluation.groups().getFirst().entries().getFirst().value())
         .isEqualByComparingTo("22");
     assertThat(item.explicits()).extracting(m -> m.values().get(COLD)).contains(10L);
+    assertThat(service.forHistoricalDisplay().compile(item, goal).apply(item))
+        .isEqualTo(Status.MATCH);
+    var direct =
+        goal(
+            index.version(),
+            item.baseItemId(),
+            GoalCatalogIndex.id("explicit", COLD),
+            "percent",
+            new Range(BigDecimal.TEN, BigDecimal.TEN));
     var recommendation =
-        service.recommend(item, goal, Set.of(), new GoalFilterService.Limits(100, 100, 100));
+        service.recommend(item, direct, Set.of(), new GoalFilterService.Limits(100, 100, 100));
     assertThat(recommendation.evaluation()).isEqualTo(Status.MATCH);
     assertThat(recommendation.probability().status()).isIn("COMPLETE", "PARTIAL");
     assertThat(recommendation.probability().modelVersion()).isEqualTo(NumericAdditionKernel.MODEL);
-    assertThat(recommendation.comparisons()).isNotEmpty();
     assertThat(recommendation.comparisons())
+        .isNotEmpty()
         .allSatisfy(c -> assertThat(c.successLower()).isEqualTo(1));
     assertThat(recommendation.totalSequences()).isPositive();
   }
@@ -452,7 +469,7 @@ class GoalFilterServiceTest {
             "evaluateRequest",
             Map.of("item", sampleItem, "goal", sampleGoal),
             "evaluateResponse",
-            new GoalFilterService(all).evaluate(sampleItem, sampleGoal));
+            new GoalFilterService(all).forHistoricalDisplay().evaluate(sampleItem, sampleGoal));
     try {
       java.nio.file.Files.writeString(
           java.nio.file.Path.of("build/goal-filter-production-example.json"),

@@ -23,6 +23,7 @@ export type CraftingCost = {
   unknown: string[]
   incomplete: boolean
   hasCosts: boolean
+  unknownUses?: boolean
 }
 /** The current cursor is the paid path. Reveal observations cost no currency. */
 export function craftingCost(
@@ -66,7 +67,9 @@ export function craftingStepCost(
   for (const step of steps) {
     if (step.kind === 'reveal' || step.work) continue
     hasCosts = true
-    unknownRepeatCount ||= step.maxUses !== undefined
+    unknownRepeatCount ||=
+      (step.maxUses !== undefined && step.expectedUses == null) ||
+      step.expectedUses === null
     const consumed = [
       [step.currencyId, step.expectedUses ?? step.uses] as const,
       ...step.consumedOmenIds.map((id) => [id, 1] as const),
@@ -86,5 +89,6 @@ export function craftingStepCost(
     unknown: [...unknown],
     incomplete: incomplete || unknownRepeatCount || unknown.size > 0,
     hasCosts,
+    ...(unknownRepeatCount ? { unknownUses: true } : {}),
   }
 }

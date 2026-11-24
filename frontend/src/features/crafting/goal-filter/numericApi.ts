@@ -95,11 +95,5 @@ export function presentNumericStats(
     )
       present.add(stat.statId)
   }
-  for (const stat of catalog.stats)
-    if (
-      stat.kind === 'PSEUDO' &&
-      stat.contributions.some((source) => present.has(source.statId))
-    )
-      present.add(stat.statId)
   return present
 }
