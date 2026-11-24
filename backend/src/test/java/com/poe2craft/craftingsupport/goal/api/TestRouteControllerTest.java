@@ -9,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.poe2craft.bootstrap.http.GameIdTransport;
 import com.poe2craft.configuration.BackendSettings;
 import com.poe2craft.craftingsupport.goal.application.GoalFilterService;
 import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
@@ -18,6 +19,8 @@ import com.poe2craft.craftingsupport.testroutes.application.TestRouteService;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
+import com.poe2craft.shared.ids.GameIdCodec;
+import com.poe2craft.shared.ids.GameIdMappings;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.item.SolarAmulet;
@@ -52,7 +55,7 @@ class TestRouteControllerTest {
         new TestRouteService(workbench, new GoalFilterService(index), settings.testRoutes());
     mvc =
         MockMvcBuilders.standaloneSetup(new TestRouteController(service, json))
-            .setControllerAdvice(new GoalFilterErrors())
+            .setControllerAdvice(new GoalFilterErrors(), new GameIdTransport(json, settings))
             .addFilters(new RulesetBoundary(json))
             .build();
     var initial = SolarAmulet.initial(catalog);
@@ -144,20 +147,75 @@ class TestRouteControllerTest {
     request(input).andExpect(status().isOk()).andExpect(jsonPath("$.complete").value(false));
   }
 
-  /** 옵션 수치를 요구하지 않은 품질 목표는 기폭제 한 번으로 검증할 수 있다. */
-  @Test
-  void aQualityOnlyGoalShowsCatalystWithoutAnOptionAcquisition() throws Exception {
+  /** 기폭제 한 번으로 달성할 수 있는 품질 목표를 만든다. */
+  private ObjectNode qualityOnlyRequest() {
     var input = body.deepCopy();
     var goal = (ObjectNode) input.path("goal");
     ((ObjectNode) goal.path("general")).put("quality", 1);
     goal.withArray("groups").removeAll();
-    request(input)
+    return input;
+  }
+
+  /** 옵션 수치를 요구하지 않은 품질 목표는 기폭제 한 번으로 검증할 수 있다. */
+  @Test
+  void aQualityOnlyGoalShowsCatalystWithoutAnOptionAcquisition() throws Exception {
+    request(qualityOnlyRequest())
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.routes[0].probability").value(1d))
         .andExpect(jsonPath("$.routes[0].order").isEmpty())
         .andExpect(
             jsonPath("$.routes[0].steps[0].action")
                 .value(org.hamcrest.Matchers.containsString("CATALYST")));
+  }
+
+  /** 단계가 가리키는 압축 상태의 베이스·옵션·스탯을 복원해 같은 API의 시작 아이템으로 다시 읽는다. */
+  @Test
+  void negotiatedRouteStatesRoundTripAndCanStartANewRequest() throws Exception {
+    var input = qualityOnlyRequest();
+    var legacyResponse = request(input).andExpect(status().isOk()).andReturn().getResponse();
+    var legacy = json.readTree(legacyResponse.getContentAsByteArray());
+    var mappings = GameIdMappings.active();
+    var codec = new GameIdCodec(mappings);
+    var compactResponse =
+        mvc.perform(
+                post(URL)
+                    .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                    .header(GameIdMappings.HEADER, mappings.identity())
+                    .header(GameIdTransport.BODY_HEADER, "compact")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(json.writeValueAsBytes(codec.encode(input))))
+            .andExpect(status().isOk())
+            .andExpect(header().string(GameIdMappings.HEADER, mappings.identity()))
+            .andReturn()
+            .getResponse();
+    var compact = json.readTree(compactResponse.getContentAsByteArray());
+    var decoded = codec.decode(compact);
+    assertThat(decoded).isEqualTo(legacy);
+
+    var states = compact.required("states");
+    var routes = compact.required("routes");
+    assertThat(routes).anyMatch(route -> route.at("/stateIndices/0").asInt(-1) == 0);
+    for (var route : routes) {
+      assertThat(route.required("steps")).hasSize(1);
+      var indices = route.required("stateIndices");
+      assertThat(indices).hasSize(1);
+      assertThat(indices.required(0).isIntegralNumber()).isTrue();
+      var index = indices.get(0).intValue();
+      assertThat(index).isBetween(0, states.size() - 1);
+      var state = states.required(index);
+      assertThat(state.required("baseItemId").textValue()).isEqualTo("b005a");
+      assertThat(state.at("/explicits/0/modifierId").textValue()).isEqualTo("m002k");
+      assertThat(state.at("/explicits/0/values"))
+          .isEqualTo(json.createObjectNode().put("s0028", 90));
+    }
+
+    var firstState = routes.required(0).at("/stateIndices/0").intValue();
+    input.set("item", decoded.required("states").required(firstState));
+    request(input)
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.routes[0].probability").value(1d))
+        .andExpect(jsonPath("$.routes[0].steps").isEmpty())
+        .andExpect(jsonPath("$.routes[0].stateIndices").isEmpty());
   }
 
   /** 승급 에센스의 +85~99 중 +90 이상인 열 가지 굴림만 같은 1회 경로의 성공 질량에 포함된다. */

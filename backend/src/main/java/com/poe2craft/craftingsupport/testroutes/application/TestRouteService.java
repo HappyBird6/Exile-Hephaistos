@@ -28,7 +28,11 @@ public final class TestRouteService {
   }
 
   /** 검증한 카드와 경로를 돌려준다. complete는 카드 생성과 경로 평가가 모두 끝났을 때 참이다. */
-  public record View(List<Card> cards, List<RecipeRoutePlanner.Route> routes, boolean complete) {}
+  public record View(
+      List<Card> cards,
+      List<RecipeRoutePlanner.Route> routes,
+      boolean complete,
+      List<ItemState> states) {}
 
   private final CraftingOperations workbench;
   private final GoalFilterService goals;
@@ -62,7 +66,7 @@ public final class TestRouteService {
         || initial == Status.UNSUPPORTED
         || (usesCatalyst && goal.groups().stream().anyMatch(g -> !g.disabled()))) {
       // 활성 옵션 조건에서는 기폭제가 바꾼 표시값을 원래 목표 평가기가 검증할 수 없다.
-      return new View(List.of(), List.of(), false);
+      return new View(List.of(), List.of(), false, List.of());
     }
     var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     var generated =
@@ -75,7 +79,7 @@ public final class TestRouteService {
             settings.highFrom());
     boolean complete = generated.complete() && coveredByAcquisition(goal);
     if (generated.cards().isEmpty()) {
-      return new View(List.of(), List.of(), complete);
+      return new View(List.of(), List.of(), complete, List.of());
     }
     var result =
         RecipeRoutePlanner.calculate(
@@ -89,7 +93,10 @@ public final class TestRouteService {
     var dictionary = generated.cards().stream().map(Card::new).toList();
     boolean alreadySatisfied = result.routes().stream().anyMatch(route -> route.steps().isEmpty());
     return new View(
-        dictionary, result.routes(), alreadySatisfied || (complete && result.complete()));
+        dictionary,
+        result.routes(),
+        alreadySatisfied || (complete && result.complete()),
+        result.states());
   }
 
   /** 단순 제거로도 달성할 수 있는 부정·조건부·가중합·상한 목표는 획득 순서 탐색만으로 완전성을 보장할 수 없다. */

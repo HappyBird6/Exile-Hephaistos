@@ -25,7 +25,12 @@ async function show(fromTestTab = false) {
       if (String(url).endsWith('/workbench/registry'))
         return jsonResponse({ workbenchBases: { solar: {} }, entries: [] })
       if (String(url).endsWith('/goal-filters/test-routes'))
-        return jsonResponse({ cards: [], routes: [], complete: true })
+        return jsonResponse({
+          cards: [],
+          routes: [],
+          states: [],
+          complete: true,
+        })
       const response = await fixtureFetch(url, init)
       if (!String(url).includes('/goal-filters/catalog?')) return response
       return jsonResponse({

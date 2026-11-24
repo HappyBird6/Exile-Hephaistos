@@ -234,6 +234,81 @@ class RecipeRoutePlannerTest {
     }
   }
 
+  /** 같은 단계에서 굴림이 갈라져도 표시 예시는 마지막 성공 상태로 실제로 이어진 부모 분기를 따른다. */
+  @Test
+  void witnessesReplayFromTheSameStartAndOnlyReferencedStatesAreReturned() {
+    var start = fixture.item(ItemState.Rarity.MAGIC, strength);
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(
+                    1,
+                    Map.of(
+                        life, List.of(new RouteCards.Source("E", "GREATER_ESSENCE_BODY", null)))),
+                new RouteCards.Option(
+                    2,
+                    Map.of(
+                        def,
+                        List.of(new RouteCards.Source("C", "PERFECT_ESSENCE_ENHANCEMENT", null))))),
+            0);
+    var result =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench,
+            start,
+            List.of(card),
+            state ->
+                state.explicits().stream()
+                        .anyMatch(m -> m.modifierId().equals(life) && m.values().containsValue(99L))
+                    && state.explicits().stream()
+                        .anyMatch(m -> m.modifierId().equals(def) && m.values().containsValue(25L)),
+            50000);
+    var materialRoute =
+        result.routes().stream()
+            .filter(
+                r ->
+                    r.steps().size() == 2
+                        && r.steps().getFirst().action().equals("GREATER_ESSENCE_BODY")
+                        && r.steps()
+                            .getLast()
+                            .omens()
+                            .equals(List.of("Omen_of_Dextral_Crystallisation")))
+            .findFirst()
+            .orElseThrow();
+    assertThat(materialRoute.probability()).isEqualTo(1.0 / 165);
+    assertThat(materialRoute.stateIndices()).hasSameSizeAs(materialRoute.steps());
+    ItemState previous = start;
+    for (int i = 0; i < materialRoute.steps().size(); i++) {
+      var step = materialRoute.steps().get(i);
+      var next = result.states().get(materialRoute.stateIndices().get(i));
+      var omens =
+          step.omens().stream()
+              .map(com.poe2craft.shared.crafting.domain.WorkbenchOmen::fromId)
+              .collect(java.util.stream.Collectors.toSet());
+      assertThat(
+              fixture
+                  .law
+                  .successors(previous, step.action(), omens, Set.of(life, def), 1000, false)
+                  .outcomes())
+          .extracting(RecipeTransitions.Outcome::state)
+          .contains(next);
+      assertThat(next.explicits())
+          .anyMatch(m -> m.modifierId().equals(life) && m.values().containsValue(99L));
+      previous = next;
+    }
+    var used =
+        result.routes().stream()
+            .flatMap(r -> r.stateIndices().stream())
+            .collect(java.util.stream.Collectors.toSet());
+    assertThat(result.routes())
+        .allSatisfy(r -> assertThat(r.stateIndices()).hasSameSizeAs(r.steps()));
+    assertThat(result.states()).doesNotHaveDuplicates();
+    assertThat(used)
+        .containsExactlyInAnyOrderElementsOf(
+            java.util.stream.IntStream.range(0, result.states().size()).boxed().toList());
+    assertThat(result.routes().stream().mapToInt(r -> r.stateIndices().size()).sum())
+        .isGreaterThan(result.states().size());
+  }
+
   /** 이미 맞는 목표는 카드 중복과 관계없이 한 번만 반환한다. */
   @Test
   void returnsOneCompletedStart() {
@@ -243,7 +318,8 @@ class RecipeRoutePlannerTest {
         RecipeRoutePlanner.calculate(
             fixture.workbench, start, List.of(card, card), this::matches, 1);
     assertThat(result.routes())
-        .containsExactly(new RecipeRoutePlanner.Route(0, List.of(), List.of(), 1.0));
+        .containsExactly(new RecipeRoutePlanner.Route(0, List.of(), List.of(), 1.0, List.of()));
+    assertThat(result.states()).isEmpty();
     assertThat(result.complete()).isTrue();
   }
 

@@ -1,3 +1,4 @@
+import type { CraftingCost } from '../currency-prices/cost'
 import { formatCurrencyAmount } from '../currency-prices/formatCurrencyAmount'
 import type { Fraction } from '../path-tree/types'
 import { percent } from '../path-tree/validation'
@@ -49,4 +50,17 @@ export function materialQuantityText(
   const lower = formatCurrencyAmount(bounds?.lower ?? value, coin, locale)
   const upper = formatCurrencyAmount(bounds?.upper ?? value, coin, locale)
   return lower === upper ? lower : lower + ' – ' + upper
+}
+
+export function planTitle(
+  cost: CraftingCost,
+  locale: string,
+  probability: string,
+) {
+  const exalted =
+    cost.incomplete && !cost.exalted
+      ? '—'
+      : (cost.incomplete ? '≥ ' : '') +
+        formatCurrencyAmount(cost.exalted, 'Exalted_Orb', locale)
+  return `${exalted} ex · ${probability}`
 }

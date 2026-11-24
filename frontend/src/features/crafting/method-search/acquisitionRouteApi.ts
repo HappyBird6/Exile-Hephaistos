@@ -1,7 +1,9 @@
+import { queryOptions, skipToken } from '@tanstack/react-query'
 import { craftingFetch } from '../../../shared/gameIdTransport'
 import { readGoalFilterResponse } from '../goal-filter/api'
 import type { CreateRequest } from '../path-tree/types'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
+import type { ConcreteItem } from '../workbenchApi'
 
 interface RouteOption {
   number: number
@@ -20,13 +22,31 @@ export interface AcquisitionRoute {
   cardIndex: number
   order: number[]
   steps: AcquisitionStep[]
+  stateIndices: number[]
   probability: number | null
 }
 
 export interface AcquisitionResult {
   cards: { options: RouteOption[] }[]
+  states: ConcreteItem[]
   routes: AcquisitionRoute[]
   complete: boolean
+}
+
+export function acquisitionRouteQuery(request: CreateRequest | null) {
+  return queryOptions({
+    queryKey: [
+      'support-test-routes',
+      request?.start.provenance.rulesetIdentity,
+      request?.start.item,
+      request?.goal,
+    ],
+    queryFn: request
+      ? ({ signal }) => loadAcquisitionRoutes(request, signal)
+      : skipToken,
+    staleTime: Infinity,
+    retry: false,
+  })
 }
 
 export async function loadAcquisitionRoutes(

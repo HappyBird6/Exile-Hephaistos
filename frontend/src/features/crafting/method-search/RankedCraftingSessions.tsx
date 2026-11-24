@@ -1,7 +1,5 @@
-import { formatCurrencyAmount } from '../currency-prices/formatCurrencyAmount'
 import { useQueryClient } from '@tanstack/react-query'
 import { craftingCost } from '../currency-prices/cost'
-import type { PriceSnapshot } from '../currency-prices/api'
 import { useCurrencyMarket } from '../currency-prices/context'
 import { AppLink } from '../../../shared/navigation/AppLink'
 import { HistoryWorkspaceLayout } from '../session-library/HistoryWorkspaceLayout'
@@ -20,6 +18,7 @@ import {
   useMemo,
   useRef,
   useState,
+  type MouseEventHandler,
   type ReactNode,
   type Ref,
 } from 'react'
@@ -41,7 +40,7 @@ import { removesModifier } from './methodRisk'
 import { chaosMeanLabel, methodPoint, isRepeatable } from './methodObservation'
 import { policyCandidateMessages } from './policyCandidateMessages'
 import { guideMessages } from './guideMessages'
-import { probabilityText } from './probabilityPresentation'
+import { planTitle, probabilityText } from './probabilityPresentation'
 import type { Selection } from './supportStorage'
 
 const labels = {
@@ -110,6 +109,29 @@ const labels = {
     'ตัวอย่างไอเทมสุดท้ายในเส้นทางที่เลือก โอกาสสำเร็จรวมทุกผลลัพธ์ที่บรรลุเป้าหมาย',
   ],
 } as const
+
+export function SessionPlanOverviewLink({
+  href,
+  onClick,
+}: {
+  href: string
+  onClick: MouseEventHandler<HTMLAnchorElement>
+}) {
+  const { locale } = useI18n()
+  return (
+    <AppLink
+      className="wb-session-card__overview"
+      href={href}
+      onClick={onClick}
+    >
+      <svg viewBox="0 0 20 20" aria-hidden="true">
+        <rect x="2.5" y="3" width="15" height="14" rx="2" />
+        <path d="M6 7h8M6 10h8M6 13h5" />
+      </svg>
+      {historyMessages[locale].title}
+    </AppLink>
+  )
+}
 
 export function SessionPlansLayout({
   children,
@@ -314,8 +336,7 @@ export function RankedCraftingSessions(props: Props) {
               )
             : routes.films.get(plan.id)!
         const title = planTitle(
-          film,
-          market?.data?.snapshot,
+          craftingCost(film, film.frames.length - 1, market?.data?.snapshot),
           locale,
           probability,
         )
@@ -336,7 +357,7 @@ export function RankedCraftingSessions(props: Props) {
               }}
               metadata={<small>{baseName}</small>}
               actions={
-                <AppLink
+                <SessionPlanOverviewLink
                   onClick={(event) =>
                     cache.setQueryData(
                       [
@@ -347,20 +368,13 @@ export function RankedCraftingSessions(props: Props) {
                       { ...film, title },
                     )
                   }
-                  className="wb-session-card__overview"
                   href={overviewHref(
                     props,
                     plan,
                     chosen.id === plan.id ? route : example,
                     chosen.id === plan.id ? terminal : null,
                   )}
-                >
-                  <svg viewBox="0 0 20 20" aria-hidden="true">
-                    <rect x="2.5" y="3" width="15" height="14" rx="2" />
-                    <path d="M6 7h8M6 10h8M6 13h5" />
-                  </svg>
-                  {historyMessages[locale].title}
-                </AppLink>
+                />
               }
             />
           </div>
@@ -412,21 +426,6 @@ function projectedRoute(
     frames,
     rulesetIdentity: identity,
   }
-}
-
-function planTitle(
-  film: Film,
-  snapshot: PriceSnapshot | null | undefined,
-  locale: string,
-  probability: string,
-) {
-  const cost = craftingCost(film, film.frames.length - 1, snapshot)
-  const exalted =
-    cost.incomplete && !cost.exalted
-      ? '—'
-      : (cost.incomplete ? '≥ ' : '') +
-        formatCurrencyAmount(cost.exalted, 'Exalted_Orb', locale)
-  return `${exalted} ex · ${probability}`
 }
 
 function overviewHref(
@@ -663,7 +662,11 @@ export function SessionSteps({
   const probability = plan.success
     ? probabilityText(plan.success.lower, plan.success)
     : policy.unresolved
-  const title = planTitle(film, market?.data?.snapshot, locale, probability)
+  const title = planTitle(
+    craftingCost(film, film.frames.length - 1, market?.data?.snapshot),
+    locale,
+    probability,
+  )
   film.title = title
   if (overview)
     return (

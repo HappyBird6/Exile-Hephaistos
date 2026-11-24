@@ -1,6 +1,9 @@
 import { costAccumulator } from './decimalAmount'
 import type { Film } from '../workbenchHistory'
-import { extractSessionNotation } from '../session-notation/extractSessionNotation'
+import {
+  extractSessionNotation,
+  type NotationStep,
+} from '../session-notation/extractSessionNotation'
 import { currencyNames } from '../currencyNames'
 import { materialNames } from '../catalogData'
 import type { CurrencyQuote, PriceSnapshot } from './api'
@@ -27,18 +30,41 @@ export function craftingCost(
   cursor: number,
   snapshot: PriceSnapshot | null | undefined,
 ): CraftingCost {
-  const divine = costAccumulator(),
-    exalted = costAccumulator()
-  const unknown = new Set<string>()
   const visible = film
     ? { ...film, frames: film.frames.slice(0, cursor + 1) }
     : undefined
   const notation = extractSessionNotation(visible, cursor)
+  return craftingStepCost(
+    notation.steps,
+    snapshot,
+    notation.omittedFrames > 0 || notation.incompleteOmens,
+  )
+}
+
+/** Sum the currencies and omens on either a recorded history or a verified route. */
+export function craftingStepCost(
+  steps: Iterable<
+    Pick<
+      NotationStep,
+      | 'currencyId'
+      | 'consumedOmenIds'
+      | 'uses'
+      | 'expectedUses'
+      | 'maxUses'
+      | 'kind'
+      | 'work'
+    >
+  >,
+  snapshot: PriceSnapshot | null | undefined,
+  incomplete = false,
+): CraftingCost {
+  const divine = costAccumulator(),
+    exalted = costAccumulator()
+  const unknown = new Set<string>()
   let hasCosts = false
   let unknownRepeatCount = false
-  for (const step of notation.steps) {
-    if (step.frameIndex > cursor || step.kind === 'reveal' || step.work)
-      continue
+  for (const step of steps) {
+    if (step.kind === 'reveal' || step.work) continue
     hasCosts = true
     unknownRepeatCount ||= step.maxUses !== undefined
     const consumed = [
@@ -58,11 +84,7 @@ export function craftingCost(
     divine: divine.total(),
     exalted: exalted.total(),
     unknown: [...unknown],
-    incomplete:
-      unknownRepeatCount ||
-      unknown.size > 0 ||
-      notation.omittedFrames > 0 ||
-      notation.incompleteOmens,
+    incomplete: incomplete || unknownRepeatCount || unknown.size > 0,
     hasCosts,
   }
 }

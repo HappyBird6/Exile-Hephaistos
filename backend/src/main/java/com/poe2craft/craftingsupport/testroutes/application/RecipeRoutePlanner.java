@@ -28,21 +28,46 @@ public final class RecipeRoutePlanner {
       List<Integer> lost,
       @JsonInclude(JsonInclude.Include.NON_NULL) Integer socketIndex) {}
 
-  /** order에는 회복한 목표도 다시 나타난다. probability는 이 관측 경로의 검증된 성공 확률이다. */
-  public record Route(int cardIndex, List<Integer> order, List<Step> steps, Double probability) {}
+  /** order는 재획득을 포함한 순서, probability는 전체 완주 질량, stateIndices는 한 완주 분기에서 각 단계 직후 상태의 번호다. */
+  public record Route(
+      int cardIndex,
+      List<Integer> order,
+      List<Step> steps,
+      Double probability,
+      List<Integer> stateIndices) {}
 
-  /** complete가 거짓이면 미확정 결과 또는 계산 예산 밖 경로가 남았다. */
-  public record Result(List<Route> routes, boolean complete) {}
+  /** states는 반환 경로가 참조하는 상태만 담는다. complete가 거짓이면 미확정 결과 또는 예산 밖 경로가 남았다. */
+  public record Result(List<Route> routes, boolean complete, List<ItemState> states) {}
+
+  /** state와 parent는 같은 실제 분기의 연속 상태다. 시작 상태만 parent가 없다. */
+  private record Witness(ItemState state, Witness parent) {
+    /** 시작 이후의 상태만 순서대로 공통 응답 사전에 등록하여 0 기반 번호로 반환한다. */
+    List<Integer> indices(Map<ItemState, Integer> dictionary) {
+      var frames = new ArrayDeque<ItemState>();
+      for (var frame = this; frame.parent != null; frame = frame.parent)
+        frames.addFirst(frame.state);
+      return frames.stream()
+          .map(s -> dictionary.computeIfAbsent(s, ignored -> dictionary.size()))
+          .toList();
+    }
+  }
+
+  /** 같은 아이템에 도달한 모든 분기의 probability와, 그중 실제로 성립한 witness 한 개다. */
+  private record Mass(Fraction probability, Witness witness) {}
 
   /** 같은 경로의 서로 다른 실제 아이템별 질량과, 그 경로에 빠진 분기가 있는지를 보존한다. */
   private static final class Distribution {
-    final Map<ItemState, Fraction> masses = new LinkedHashMap<>();
+    final Map<ItemState, Mass> masses = new LinkedHashMap<>();
     boolean complete = true;
 
     /** 미확정 질량은 null로 유지한다. 서로 배타적인 같은 상태 결과만 합친다. */
-    void add(ItemState item, Fraction probability) {
-      if (!masses.containsKey(item)) masses.put(item, probability);
-      else masses.put(item, sum(masses.get(item), probability));
+    void add(ItemState item, Fraction probability, Witness parent) {
+      masses.compute(
+          item,
+          (key, existing) ->
+              existing == null
+                  ? new Mass(probability, new Witness(key, parent))
+                  : new Mass(sum(existing.probability, probability), existing.witness));
     }
   }
 
@@ -58,6 +83,7 @@ public final class RecipeRoutePlanner {
   private final Map<Integer, Set<String>> allowed = new TreeMap<>();
   private final int cardIndex;
   private final List<Route> routes = new ArrayList<>();
+  private final Map<ItemState, Integer> stateIndices;
   private int remaining;
   private boolean complete = true;
   private long nextSequence;
@@ -70,7 +96,9 @@ public final class RecipeRoutePlanner {
       Predicate<ItemState> matchesGoal,
       int outcomeBudget,
       boolean presenceOnly,
-      Integer minimumQuality) {
+      Integer minimumQuality,
+      Map<ItemState, Integer> stateIndices) {
+    this.stateIndices = stateIndices;
     this.presenceOnly = presenceOnly;
     this.minimumQuality = minimumQuality;
     this.simulator = simulator;
@@ -121,18 +149,27 @@ public final class RecipeRoutePlanner {
       for (int i = 0; i < cards.size(); i++)
         if (cards.get(i).options().stream()
             .allMatch(o -> !Collections.disjoint(ids, o.tiers().keySet())))
-          return new Result(List.of(new Route(i, List.of(), List.of(), 1.0)), true);
+          return new Result(
+              List.of(new Route(i, List.of(), List.of(), 1.0, List.of())), true, List.of());
     }
     var routes = new ArrayList<Route>();
+    var stateIndices = new LinkedHashMap<ItemState, Integer>();
     boolean complete = true;
     int budget = outcomeBudget;
     for (int i = 0; i < cards.size(); i++) {
       int share = budget / (cards.size() - i);
       var search =
           new RecipeRoutePlanner(
-              simulator, i, cards.get(i), matchesGoal, share, presenceOnly, minimumQuality);
+              simulator,
+              i,
+              cards.get(i),
+              matchesGoal,
+              share,
+              presenceOnly,
+              minimumQuality,
+              stateIndices);
       var root = new Distribution();
-      root.add(start, Fraction.ONE);
+      root.add(start, Fraction.ONE, null);
       search.explore(List.of(), root);
       routes.addAll(search.routes);
       complete &= search.complete;
@@ -143,7 +180,7 @@ public final class RecipeRoutePlanner {
             .thenComparingInt(r -> r.steps().size())
             .thenComparingInt(Route::cardIndex)
             .thenComparing(r -> r.steps().toString()));
-    return new Result(List.copyOf(routes), complete);
+    return new Result(List.copyOf(routes), complete, List.copyOf(stateIndices.keySet()));
   }
 
   /** 같은 관측 경로의 상태 및 검색 우선순위. 보유 목표가 많은 경로부터 검사하고 동점이면 짧은 경로·등록 순서를 따른다. */
@@ -166,15 +203,16 @@ public final class RecipeRoutePlanner {
   /** 동일 관측 경로의 실제 아이템을 함께 전개해, 먼저 달성한 상태에서 즉시 멈춘다. */
   private void expand(List<Step> path, Distribution current, Queue<Pending> pending) {
     boolean skippedStates = false;
-    boolean found = false;
+    Witness representative = null;
     Fraction success = Fraction.ZERO;
     var children = new LinkedHashMap<Step, Distribution>();
     for (var entry : current.masses.entrySet()) {
       var item = entry.getKey();
       var before = held(item);
       if (before.size() == allowed.size() && matchesGoal.test(item)) {
-        found = true;
-        success = sum(success, entry.getValue());
+        var mass = entry.getValue();
+        if (representative == null) representative = mass.witness;
+        success = sum(success, mass.probability);
         continue;
       }
       if (remaining == 0) {
@@ -208,9 +246,15 @@ public final class RecipeRoutePlanner {
           !extend(
               item, before, protectedIds, choices, entry.getValue(), current.complete, children);
     }
-    if (found) {
+    if (representative != null) {
       var order = path.stream().flatMap(s -> s.acquired().stream()).toList();
-      routes.add(new Route(cardIndex, order, path, current.complete ? decimal(success) : null));
+      routes.add(
+          new Route(
+              cardIndex,
+              order,
+              path,
+              current.complete ? decimal(success) : null,
+              representative.indices(stateIndices)));
     }
     // 유한 예산이어도 긴 반복 분기만 우선하지 않도록 직접 획득한 후보를 준비 후보보다 먼저 본다.
     var ordered = new ArrayList<>(children.entrySet());
@@ -230,7 +274,7 @@ public final class RecipeRoutePlanner {
       Map<Integer, String> before,
       Set<String> protectedIds,
       List<Choice> choices,
-      Fraction prior,
+      Mass prior,
       boolean parentComplete,
       Map<Step, Distribution> children) {
     var byMove = new LinkedHashMap<Move, List<Choice>>();
@@ -294,9 +338,10 @@ public final class RecipeRoutePlanner {
         child.complete &= parentComplete && law.complete();
         child.add(
             outcome.state(),
-            prior == null || outcome.probability() == null
+            prior.probability == null || outcome.probability() == null
                 ? null
-                : prior.multiply(outcome.probability()));
+                : prior.probability.multiply(outcome.probability()),
+            prior.witness);
       }
     }
     return allConsidered;
