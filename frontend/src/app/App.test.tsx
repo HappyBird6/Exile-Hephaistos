@@ -107,7 +107,7 @@ describe('Crafting workbench', async () => {
     expect(
       screen.queryByRole('button', { name: 'Scroll of Wisdom' }),
     ).not.toBeInTheDocument()
-    expect(screen.getAllByRole('tab')).toHaveLength(11)
+    expect(screen.getAllByRole('tab')).toHaveLength(12)
     expect(
       screen.getByRole('tab', { name: 'Crafting Workbench' }),
     ).toHaveAttribute('aria-selected', 'true')
@@ -122,7 +122,7 @@ describe('Crafting workbench', async () => {
       screen.queryByRole('heading', { name: 'Current state' }),
     ).not.toBeInTheDocument()
   })
-  it('navigates three top-level workspaces and closes the picker while preserving simulation input', async () => {
+  it('navigates top-level workspaces and closes the picker while preserving simulation input', async () => {
     await show()
     const nav = document.querySelector('.workspace-nav')!
     const tabs = [...nav.querySelectorAll<HTMLButtonElement>('[role="tab"]')]
@@ -131,6 +131,7 @@ describe('Crafting workbench', async () => {
       'Craft Support',
       'History',
       'Session board',
+      'Craft Support Test',
     ])
     const base = screen.getByRole('button', { name: 'Select base' })
     await act(async () => {

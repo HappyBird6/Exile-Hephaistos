@@ -91,3 +91,51 @@ tasks.processResources { dependsOn(chaosDisplayResources) }
 
 // Captured source checksums remain testable without shipping raw evidence in the server.
 sourceSets.test { resources.srcDir(layout.projectDirectory.dir("../docs/legacy/raw-data")) }
+
+// 실험 기록에서 전송한 보강 입력만 묶는다. 기대 실행열과 과거 응답은 배포하지 않는다.
+val experimentSource = layout.projectDirectory.file("../docs/llm/context-ab-responses.md")
+val experimentFixtures = layout.projectDirectory.file("../docs/llm/context-ab-cards.json")
+val modifierDisplay = layout.projectDirectory.file("../frontend/src/shared/i18n/modifierTemplates.json")
+val experimentResource = layout.buildDirectory.file("generated-resources/llmtest/llmtest/cards.json")
+val extractExperimentCards by tasks.registering {
+    inputs.files(experimentSource, experimentFixtures, modifierDisplay)
+    outputs.file(experimentResource)
+    doLast {
+        val source = experimentSource.asFile.readText().replace("\r\n", "\n")
+        val fence = "```"
+        val prompt = source.substringAfter("${fence}text\n", "").substringBefore("\n$fence")
+        require(prompt.isNotBlank()) { "Missing experiment prompt" }
+        val cards = linkedMapOf<String, Any>()
+        val json = groovy.json.JsonSlurper()
+        val fixtures = json.parse(experimentFixtures.asFile) as Map<*, *>
+        val display = json.parse(modifierDisplay.asFile) as Map<*, *>
+        val definitions = display["definitions"] as Map<*, *>
+        for (section in source.split("\n## 호출 ").drop(1)) {
+            val heading = section.substringBefore('\n').split(" · ")
+            if (heading.last() != "보강") continue
+            val id = heading[1]
+            val block = section.substringAfter("전송한 사용자 메시지와 응답 스키마.\n\n${fence}json\n", "")
+                .substringBefore("\n$fence")
+            val payload = json.parseText(block) as Map<*, *>
+            require(payload["input"] is Map<*, *> && payload["schema"] is Map<*, *>)
+            val fixture = (fixtures[id] as Map<*, *>)["fixture"] as Map<*, *>
+            val labels = (fixture["mods"] as Map<*, *>).mapValues { (_, value) ->
+                val modifier = value as Map<*, *>
+                val binding = definitions[modifier["id"]] as Map<*, *>
+                require(binding["englishText"] == modifier["text"] && binding["stats"] == modifier["stats"])
+                binding["template"] as String
+            }
+            val card = mapOf("input" to payload["input"], "schema" to payload["schema"],
+                "baseId" to fixture["baseId"], "templates" to labels)
+            require(cards.put(id, card) == null) { "Duplicate experiment card $id" }
+        }
+        require(cards.isNotEmpty() && cards.keys == fixtures.keys) { "Enhanced experiment card set differs from fixtures" }
+        val target = experimentResource.get().asFile
+        target.parentFile.mkdirs()
+        target.writeText(groovy.json.JsonOutput.toJson(mapOf("prompt" to prompt, "cards" to cards)))
+    }
+}
+tasks.processResources {
+    dependsOn(extractExperimentCards)
+    from(experimentResource) { into("llmtest") }
+}

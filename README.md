@@ -31,6 +31,9 @@ Frontend: http://localhost:9001 · Backend liveness: http://localhost:9000/actua
 readiness는 앱·PostgreSQL·Redis 연결 상태를 확인합니다. 제작 계산의 완결이나 게임 규칙 검증을 뜻하지 않습니다.
 
 최초 실행 시 스크립트가 DB·Redis 설정과 무작위 로컬 DB 비밀번호를 `.env`에 생성합니다. 기존 `.env`는 덮어쓰지 않습니다. `.env.example`은 필요하지 않습니다.
+
+제작지원 테스트(`/support-test`)는 목표 카드를 선택해 프롬프트와 전송 JSON을 확인하고 모델 응답을 받는 화면입니다. 실제 전송을 사용하려면 루트 `.env`에 `OPENAI_API_KEY`를 설정하고 백엔드를 다시 시작합니다. Compose로 실행 중이면 app 컨테이너를 다시 생성합니다. 기본 전송 한도는 서버 전체에서 UTC 하루 20회이며 `SUPPORT_TEST_DAILY_CALLS`로 조정할 수 있습니다. 카드와 프롬프트는 [보강 실험 기록](docs/llm/context-ab-responses.md)에서 빌드 시 추출합니다.
+
 `stop`은 컨테이너만 정지합니다. PostgreSQL은 외부 volume을 사용하며 기존 데이터를 삭제하지 않습니다. 코드 반영 시 `stack`을 다시 실행합니다.
 
 ## 기존 데이터 보존

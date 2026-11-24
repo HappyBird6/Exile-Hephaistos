@@ -1,5 +1,6 @@
-export type Workspace = 'workbench' | 'support' | 'history' | 'community'
+export type Workspace =
+  'workbench' | 'support' | 'support-test' | 'history' | 'community'
 export const workspacePath = (tab: Workspace) =>
-  tab === 'community'
-    ? '/community'
+  tab === 'community' || tab === 'support-test'
+    ? '/' + tab
     : '/?workbench=' + (tab === 'workbench' ? 'simulation' : tab)
