@@ -329,7 +329,57 @@ public final class RecipeRoutePlanner {
   }
 
   /** states는 반환 경로가 참조하는 상태만 담는다. complete가 거짓이면 미확정 결과 또는 예산 밖 경로가 남았다. */
-  public record Result(List<Route> routes, boolean complete, List<ItemState> states) {}
+  public record Result(
+      List<Route> routes, boolean complete, List<ItemState> states, SearchTrace trace) {}
+
+  /** 중단된 분기 중 가장 깊은 예 한 건. depth는 수행한 행동 수다. */
+  public record DeadEnd(
+      int cardIndex,
+      boolean seekFirstChaos,
+      int depth,
+      List<String> actions,
+      int heldGoals,
+      long evaluatedChoices,
+      int budgetSkippedStates) {}
+
+  /** 한 화폐 행동의 후보 평가·결과 생성·후속 경로 채택 횟수다. */
+  public static final class ActionTrace {
+    /** 작업대 전이를 조회한 횟수다. */
+    public long trials;
+
+    /** 전이가 반환한 결과 수다. */
+    public long outcomes;
+
+    /** 목표 보호와 제작 의도 검사를 통과해 후속 상태에 들어간 결과 수다. */
+    public long accepted;
+  }
+
+  /** 요청 단위 누적 카운터와 중단 예시. 탐색 순서·예산에는 관여하지 않는다. */
+  public static final class SearchTrace {
+    /** 평가한 경로 접두사 수. */
+    public int expandedPaths;
+
+    /** 화폐별로 집계하며 아이템 원문이나 개별 확률 분기는 보관하지 않는다. */
+    public final Map<String, ActionTrace> actions = new TreeMap<>();
+
+    /** 후속 탐색 큐에 넣은 경로 수. */
+    public int queuedPaths;
+
+    /** 후속 행동 평가에 넘긴 후보 수. */
+    public long evaluatedChoices;
+
+    /** 예산 때문에 전이를 평가하지 않은 상태 수. */
+    public int budgetSkippedStates;
+
+    /** 후속 경로와 완성 결과가 모두 없는 경로 수. */
+    public int deadEnds;
+
+    /** 가장 깊은 중단 사례 하나만 보관한다. */
+    public DeadEnd deepestDeadEnd;
+  }
+
+  /** 이 카드의 탐색과 다른 카드의 탐색이 합산하는 요청 전용 진단이다. */
+  private final SearchTrace trace;
 
   /** state와 parent는 같은 실제 분기의 연속 상태다. 시작 상태만 parent가 없다. */
   private record Witness(ItemState state, Witness parent, boolean lucky, boolean chaosDummy) {
@@ -488,7 +538,9 @@ public final class RecipeRoutePlanner {
       List<Step> fixedSteps,
       boolean seekFirstChaos,
       Set<String> numericSourceStatIds,
-      OmenBudget omenBudget) {
+      OmenBudget omenBudget,
+      SearchTrace trace) {
+    this.trace = trace;
     this.omenBudget = omenBudget;
     this.seekFirstChaos = seekFirstChaos;
     this.stateIndices = stateIndices;
@@ -562,6 +614,7 @@ public final class RecipeRoutePlanner {
       boolean presenceOnly,
       Integer minimumQuality,
       Set<String> numericSourceStatIds) {
+    var trace = new SearchTrace();
     if (outcomeBudget < 1)
       throw new IllegalArgumentException("Positive route outcome budget required");
     if (matchesGoal.test(start)) {
@@ -573,7 +626,7 @@ public final class RecipeRoutePlanner {
         if (cards.get(i).options().stream()
             .allMatch(o -> !Collections.disjoint(ids, o.tiers().keySet())))
           return new Result(
-              List.of(new Route(i, List.of(), List.of(), 1.0, List.of())), true, List.of());
+              List.of(new Route(i, List.of(), List.of(), 1.0, List.of())), true, List.of(), trace);
     }
     var routes = new ArrayList<Route>();
     var stateIndices = new LinkedHashMap<ItemState, Integer>();
@@ -602,7 +655,8 @@ public final class RecipeRoutePlanner {
                 null,
                 repeat,
                 numericSourceStatIds,
-                omenBudget);
+                omenBudget,
+                trace);
         var root = new Distribution(null);
         root.add(start, RevealTierMass.known(Fraction.ONE), null, search.stateGroups);
         search.explore(List.of(), root);
@@ -621,7 +675,7 @@ public final class RecipeRoutePlanner {
             .thenComparingInt(r -> r.steps().size())
             .thenComparingInt(Route::cardIndex)
             .thenComparing(r -> r.steps().toString()));
-    return new Result(List.copyOf(routes), complete, List.copyOf(stateIndices.keySet()));
+    return new Result(List.copyOf(routes), complete, List.copyOf(stateIndices.keySet()), trace);
   }
 
   /** 분열만 유지한 희귀 풀에서 첫 L 후보 중 하나라도 실제로 뽑을 수 있으면 카오스 준비와 그 우연 적중부터 계산한다. */
@@ -753,6 +807,7 @@ public final class RecipeRoutePlanner {
       Integer minimumQuality,
       List<Step> selectedSteps,
       Set<String> numericSourceStatIds) {
+    var trace = new SearchTrace();
     if (outcomeBudget < 1)
       throw new IllegalArgumentException("Positive route outcome budget required");
     if (selectedSteps.stream()
@@ -760,11 +815,12 @@ public final class RecipeRoutePlanner {
             s ->
                 RecipeMoves.baseMove(s.move()).action().equals(WorkbenchCurrency.CHAOS.name())
                     && s.omens().isEmpty() != s.repeatingChaos())) {
-      return new Result(List.of(), true, List.of());
+      return new Result(List.of(), true, List.of(), trace);
     }
     var states = new LinkedHashMap<ItemState, Integer>();
     boolean explicitRepeat = selectedSteps.stream().anyMatch(Step::repeatingChaos);
-    if (explicitRepeat && !canSeekChaos(card, start)) return new Result(List.of(), true, List.of());
+    if (explicitRepeat && !canSeekChaos(card, start))
+      return new Result(List.of(), true, List.of(), trace);
     var firstMove =
         selectedSteps.isEmpty() ? null : RecipeMoves.baseMove(selectedSteps.getFirst().move());
     boolean mayHitDuringSetup =
@@ -799,17 +855,18 @@ public final class RecipeRoutePlanner {
               List.copyOf(selectedSteps),
               seek,
               numericSourceStatIds,
-              omenBudget);
+              omenBudget,
+              trace);
       var initial = new Distribution(null);
       initial.add(start, RevealTierMass.known(Fraction.ONE), null, planner.stateGroups);
       planner.explore(List.of(), initial);
       verified &= planner.complete;
       if (!planner.routes.isEmpty())
         return new Result(
-            List.copyOf(planner.routes), planner.complete, List.copyOf(states.keySet()));
+            List.copyOf(planner.routes), planner.complete, List.copyOf(states.keySet()), trace);
       available = planner.remaining;
     }
-    return new Result(List.of(), verified, List.of());
+    return new Result(List.of(), verified, List.of(), trace);
   }
 
   /** 같은 관측 경로의 상태 및 검색 우선순위. 보유 목표가 많은 경로부터 검사하고 동점이면 짧은 경로·등록 순서를 따른다. */
@@ -839,7 +896,30 @@ public final class RecipeRoutePlanner {
       var next = (takeLucky ? lucky : regular).remove();
       int allowance = remaining;
       var children = new ArrayDeque<Pending>();
+      int routesBefore = routes.size();
+      long choicesBefore = trace.evaluatedChoices;
+      int skippedBefore = trace.budgetSkippedStates;
+      trace.expandedPaths++;
       expand(next.path(), next.current(), children, regular.size() + lucky.size());
+      trace.queuedPaths += children.size();
+      if (children.isEmpty() && routesBefore == routes.size()) {
+        trace.deadEnds++;
+        int depth = next.path().size();
+        if (trace.deepestDeadEnd == null || depth > trace.deepestDeadEnd.depth()) {
+          trace.deepestDeadEnd =
+              new DeadEnd(
+                  cardIndex,
+                  seekFirstChaos,
+                  depth,
+                  next.path().stream().map(Step::action).toList(),
+                  next.path().isEmpty()
+                      ? held(next.current().masses.values().iterator().next().witness.state())
+                          .size()
+                      : next.heldCount(),
+                  trace.evaluatedChoices - choicesBefore,
+                  trace.budgetSkippedStates - skippedBefore);
+        }
+      }
       for (var child : children) {
         boolean onlyLucky =
             fixedSteps == null
@@ -933,6 +1013,7 @@ public final class RecipeRoutePlanner {
       if (atFixedEnd) continue;
       if (remaining == 0 || startingBudget - remaining >= stageAllowance) {
         complete = false;
+        trace.budgetSkippedStates++;
         skippedStates = true;
         continue;
       }
@@ -1037,6 +1118,7 @@ public final class RecipeRoutePlanner {
                   default -> true;
                 });
       }
+      trace.evaluatedChoices += choices.size();
       extend(
           item,
           before,
@@ -1480,6 +1562,9 @@ public final class RecipeRoutePlanner {
                   item, action, move.omens(), interested, remaining, prepares && !replayHit);
         remaining -= Math.max(1, law.outcomes().size());
       }
+      var actionTrace = trace.actions.computeIfAbsent(move.action(), ignored -> new ActionTrace());
+      actionTrace.trials++;
+      actionTrace.outcomes += law.outcomes().size();
       preparation.complete &= law.complete();
       if (move.action().equals(WorkbenchCurrency.DIVINE.name()))
         divine.add(prior.weight.exact(), law, matchesGoal);
@@ -1579,6 +1664,7 @@ public final class RecipeRoutePlanner {
             observed(
                 move, item, before, protectedIds, intents, outcome, maxUses, repeatUntilHit, dummy);
         if (step == null) continue;
+        trace.actions.get(move.action()).accepted++;
         if (repeatUntilHit) preparation.repeatHits = preparation.repeatHits.plus(weight);
         var child =
             children.computeIfAbsent(step, ignored -> new Distribution(preparations.get(trial)));

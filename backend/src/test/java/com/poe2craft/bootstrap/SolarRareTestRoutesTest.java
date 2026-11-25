@@ -94,6 +94,10 @@ class SolarRareTestRoutesTest {
     var item = start(spirit);
     var view = service.calculate(item, goal);
     assertThat(view.routes()).isNotEmpty();
+    assertThat(view.diagnostics().stage()).isEqualTo("ROUTES_FOUND");
+    var trace = view.diagnostics().search();
+    assertThat(trace.queuedPaths).isPositive();
+    assertThat(trace.actions.get("REVEAL").accepted).isPositive();
     assertThat(view.routes().stream().flatMap(r -> r.steps().stream()))
         .noneMatch(s -> s.action().equals("PERFECT_EXALTED") || isRepeatedChaos(s));
     assertThat(view.routes())

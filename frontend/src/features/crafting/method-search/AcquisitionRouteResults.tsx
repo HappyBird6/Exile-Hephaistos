@@ -1,5 +1,5 @@
 import { useQueries, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { gameName, getLocale, useI18n } from '../../../shared/i18n/i18n'
 import { materialNames } from '../catalogData'
 import type { Initial } from '../craftingApi'
@@ -248,6 +248,25 @@ function RouteList({
         lower
     )
   })
+  useEffect(() => {
+    console.info('[API] 제작 경로 화면 필터', {
+      request: request.clientRequestId,
+      received: rows.length,
+      afterLuckyFilter: eligible.length,
+      visible: visible.length,
+      showLucky,
+      minimumProbability: lower,
+      maximumCost: priceCap,
+    })
+  }, [
+    request.clientRequestId,
+    rows.length,
+    eligible.length,
+    visible.length,
+    showLucky,
+    lower,
+    priceCap,
+  ])
   const selection =
     visible.find((row) => row.index === preferred)?.index ??
     visible[0]?.index ??

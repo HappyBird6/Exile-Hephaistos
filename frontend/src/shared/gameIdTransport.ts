@@ -1,3 +1,4 @@
+import { inheritApiTrace } from './apiTrace'
 import bundle from './contracts/gameIds.json'
 
 const domains: Record<string, Record<string, string>> = bundle.domains
@@ -176,7 +177,7 @@ export async function craftingFetch(
   if (identity !== gameIdIdentity && !sharedSnapshot)
     throw new Error('Identifier mappings differ; reload the crafting catalog')
   negotiatedRuleset = response.headers.get('X-Crafting-Ruleset')
-  return decodedResponse(response, sharedSnapshot)
+  return inheritApiTrace(response, decodedResponse(response, sharedSnapshot))
 }
 
 function decodedResponse(

@@ -31,7 +31,12 @@ public final class TestRouteService {
       List<Card> cards,
       List<RecipeRoutePlanner.Route> routes,
       boolean complete,
-      List<ItemState> states) {}
+      List<ItemState> states,
+      Diagnostics diagnostics) {}
+
+  /** stage는 마지막 계산 단계, outcomeBudget은 적용된 예산, search는 실제 전이 평가 결과다. */
+  public record Diagnostics(
+      String stage, int outcomeBudget, RecipeRoutePlanner.SearchTrace search) {}
 
   private final CraftingOperations workbench;
   private final GoalFilterService goals;
@@ -67,11 +72,19 @@ public final class TestRouteService {
     var minimumQuality = goal.general().quality();
     boolean usesCatalyst =
         item.catalystQuality() != null || (minimumQuality != null && minimumQuality > 0);
-    if (initial == Status.UNKNOWN
-        || initial == Status.UNSUPPORTED
-        || (usesCatalyst && goal.groups().stream().anyMatch(g -> !g.disabled()))) {
+    boolean catalystRestriction =
+        usesCatalyst && goal.groups().stream().anyMatch(g -> !g.disabled());
+    if (initial == Status.UNKNOWN || initial == Status.UNSUPPORTED || catalystRestriction) {
       // 활성 옵션 조건에서는 기폭제가 바꾼 표시값을 원래 목표 평가기가 검증할 수 없다.
-      return new View(List.of(), List.of(), false, List.of());
+      return new View(
+          List.of(),
+          List.of(),
+          false,
+          List.of(),
+          new Diagnostics(
+              catalystRestriction ? "CATALYST_RESTRICTION" : initial.name(),
+              settings.outcomeBudget(),
+              null));
     }
     var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     var goalCatalog = goals.catalog(context);
@@ -80,7 +93,12 @@ public final class TestRouteService {
             simulator, item, goal, goalCatalog, settings.lowBelow(), settings.highFrom());
     boolean complete = generated.complete() && coveredByAcquisition(goal);
     if (generated.cards().isEmpty()) {
-      return new View(List.of(), List.of(), complete, List.of());
+      return new View(
+          List.of(),
+          List.of(),
+          complete,
+          List.of(),
+          new Diagnostics("NO_ELIGIBLE_CARDS", settings.outcomeBudget(), null));
     }
     var cards = generated.cards();
     if (cardIndex != null && (cardIndex < 0 || cardIndex >= cards.size()))
@@ -138,7 +156,11 @@ public final class TestRouteService {
         dictionary,
         result.routes(),
         alreadySatisfied || (complete && result.complete()),
-        result.states());
+        result.states(),
+        new Diagnostics(
+            result.routes().isEmpty() ? "NO_VERIFIED_ROUTES" : "ROUTES_FOUND",
+            settings.outcomeBudget(),
+            result.trace()));
   }
 
   /** 직접 수치 조건만 있으면 그 원본 ID를 넘긴다. 다른 점수·파생 규칙은 모든 수치를 보존한다. */

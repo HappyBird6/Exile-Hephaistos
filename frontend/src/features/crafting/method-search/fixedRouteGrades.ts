@@ -1,9 +1,9 @@
 import { queryOptions, skipToken } from '@tanstack/react-query'
 import { craftingFetch } from '../../../shared/gameIdTransport'
 import { currencyRank } from '../custom-exalt/messages'
-import { readGoalFilterResponse } from '../goal-filter/api'
+import { readAcquisitionResponse } from './acquisitionRouteApi'
 import type { CreateRequest } from '../path-tree/types'
-import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
+import { rulesetHeaders } from '../rulesetIdentity'
 import type {
   AcquisitionResult,
   AcquisitionRoute,
@@ -134,10 +134,7 @@ export function fixedRouteQuery(
                 }),
               },
             )
-            if (response.ok)
-              verifyRulesetResponse(response, provenance.rulesetIdentity)
-            const evaluation =
-              await readGoalFilterResponse<AcquisitionResult>(response)
+            const evaluation = await readAcquisitionResponse(response, request)
             const replay = evaluation.routes[0]
             if (
               evaluation.routes.length > 1 ||
