@@ -2,13 +2,27 @@ package com.poe2craft.craftingsupport.testroutes.application;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
+import com.poe2craft.shared.crafting.domain.CraftingEngine;
 import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
+import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
+import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
+import com.poe2craft.shared.item.ModifierInstance;
+import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Predicate;
 import org.junit.jupiter.api.Test;
 
 /** 시작의 희소 목표를 우선하고, 완벽 엑잘의 실제 적중·하위 등급 재생과 일반 목표를 구분한다. */
@@ -108,7 +122,7 @@ class RecipeLowAcquisitionPolicyTest {
     var oneLow = fixture.item(ItemState.Rarity.RARE, fixture.strength);
     assertThat(moves.choices(oneLow, card, Map.of(2, fixture.strength)))
         .anyMatch(c -> c.target() == 3 && c.move().action().equals("EXALTED"));
-    var lastOnly = new java.util.ArrayList<>(options);
+    var lastOnly = new ArrayList<>(options);
     lastOnly.set(1, new RouteCards.Option(2, Map.of(fixture.strength, List.of(common))));
     assertThat(moves.choices(empty, new RouteCards.Card(lastOnly, 0), Map.of()))
         .isNotEmpty()
@@ -121,7 +135,7 @@ class RecipeLowAcquisitionPolicyTest {
   void onlyOppositeSidePreparationCanImproveTheSecondLowReveal() {
     String spirit = "amulet:prefix:countess", melee = "amulet:suffix:of-battle";
     var initial = fixture.item(ItemState.Rarity.RARE, spirit, "amulet:prefix:adept-s");
-    var sources = new java.util.ArrayList<>(List.of(rare));
+    var sources = new ArrayList<>(List.of(rare));
     var actual =
         DesecrationCurrency.sources(
             initial.baseItemId(),
@@ -196,6 +210,285 @@ class RecipeLowAcquisitionPolicyTest {
                   assertThat(moves.choices(closed, card, Map.of(1, spirit)))
                       .noneMatch(c -> c.purpose() == RecipeMoves.Purpose.LOW_SLOT_PREPARATION);
                 }
+              });
+    }
+  }
+
+  /** 철제 반지의 실제 가중치에서 생명력은 H, 카오스 저항은 M이다. 어려운 접미에 훼손을 남기고 생명력을 먼저 얻는다. */
+  @Test
+  void reservesTheIronRingRevealForTheHarderRemainingExaltTarget() {
+    var catalog = ItemCatalogLoader.loadRing();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var moves = new RecipeMoves(simulator);
+    var implicit = catalog.find(catalog.base().implicitModifierId()).orElseThrow();
+    var bare =
+        new ItemState(
+            catalog.metadata().snapshotId(),
+            catalog.base().id(),
+            82,
+            ItemState.Rarity.RARE,
+            List.of(minimum(implicit)),
+            List.of(),
+            Set.of());
+    var first = family(catalog, "IncreasedLife", 1, RouteCards.Frequency.H);
+    var second = family(catalog, "ChaosResistance", 2, RouteCards.Frequency.M);
+    var card = new RouteCards.Card(List.of(first, second), 0);
+    var candidates = moves.choices(bare, card, Map.of());
+    assertThat(candidates.stream().filter(c -> c.purpose() == RecipeMoves.Purpose.BONE))
+        .isNotEmpty()
+        .allMatch(c -> c.target() == 2);
+    assertThat(candidates)
+        .anyMatch(c -> c.target() == 1 && c.move().action().equals("EXALTED"))
+        .noneMatch(c -> c.target() == 2 && c.move().action().equals("EXALTED"));
+    // 둘 다 M인 경우에도 같은 풀에서 합산 가중치 1,500의 카오스 저항이 8,000의 냉기 저항보다 어렵다.
+    var cold = family(catalog, "ColdResistance", 1, RouteCards.Frequency.M);
+    var sameFrequency =
+        moves.choices(bare, new RouteCards.Card(List.of(cold, second), 0), Map.of());
+    assertThat(sameFrequency.stream().filter(c -> c.purpose() == RecipeMoves.Purpose.BONE))
+        .isNotEmpty()
+        .allMatch(c -> c.target() == 2);
+    var single = moves.choices(bare, new RouteCards.Card(List.of(first), 0), Map.of());
+    assertThat(single)
+        .anyMatch(c -> c.purpose() == RecipeMoves.Purpose.BONE)
+        .noneMatch(c -> !c.preparation() && c.move().action().equals("EXALTED"));
+    var reveal = new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(2), List.of(), null);
+    var bone =
+        new RecipeRoutePlanner.Step("Preserved_Collarbone", List.of(), List.of(), List.of(), null);
+    var add = new RecipeRoutePlanner.Step("EXALTED", List.of(), List.of(1), List.of(), null);
+    var fixed =
+        RecipeRoutePlanner.evaluateFixed(
+            simulator,
+            bare,
+            card,
+            state ->
+                state.explicits().stream().anyMatch(m -> first.tiers().containsKey(m.modifierId()))
+                    && state.explicits().stream()
+                        .anyMatch(m -> second.tiers().containsKey(m.modifierId())),
+            20000,
+            true,
+            null,
+            List.of(bone, add, reveal));
+    assertThat(fixed.routes())
+        .singleElement()
+        .satisfies(
+            route -> {
+              assertThat(route.steps().getFirst().chance().probability()).isEqualTo(0.5);
+              assertThat(route.steps().getLast().chance().probability()).isEqualTo(1.0);
+              assertThat(route.probability())
+                  .isEqualTo(0.5 * route.steps().get(1).chance().probability());
+              var pending = fixed.states().get(route.stateIndices().get(1)).desecrated().getFirst();
+              assertThat(pending.modifierId()).isNull();
+              assertThat(pending.side()).isEqualTo(AffixType.SUFFIX);
+            });
+  }
+
+  /** 골라 둔 계열의 실제 베이스 티어마다 공통 B·실제 뼈 출처를 만들며 출처에 따른 누적 빈도도 확인한다. */
+  private RouteCards.Option family(
+      ItemCatalog catalog, String family, int number, RouteCards.Frequency expected) {
+    var tiers = new LinkedHashMap<String, List<RouteCards.Source>>();
+    var familyMods =
+        catalog.modifiers().values().stream()
+            .filter(
+                m ->
+                    m.familyIds().contains(family) && m.weight() > 0 && m.requiredItemLevel() <= 82)
+            .toList();
+    long all =
+        catalog.modifiers().values().stream()
+            .filter(
+                m ->
+                    m.affixType() == familyMods.getFirst().affixType()
+                        && m.weight() > 0
+                        && m.requiredItemLevel() <= 82)
+            .mapToLong(m -> m.weight())
+            .sum();
+    double hit = (double) familyMods.stream().mapToLong(m -> m.weight()).sum() / all;
+    if (expected == RouteCards.Frequency.H) assertThat(hit).isGreaterThanOrEqualTo(.1);
+    else assertThat(hit).isGreaterThanOrEqualTo(.01).isLessThan(.1);
+    for (var tier : familyMods) {
+      assertThat(DesecrationCurrency.sources(catalog.base().id(), 82, tier, true))
+          .contains("Preserved_Collarbone");
+      tiers.put(
+          tier.id(),
+          List.of(
+              new RouteCards.Source("B", null, expected),
+              new RouteCards.Source("D", "Preserved_Collarbone", null)));
+    }
+    return new RouteCards.Option(number, tiers);
+  }
+
+  /** 화염 X가 막은 상위 화염은 절사가 X를 없애면서 획득한다. 이후 뼈가 남은 냉기를 공개한다. */
+  @Test
+  void whittlingUpgradesBlockedFireAndLeavesTheIronRingRevealForCold() {
+    var catalog = ItemCatalogLoader.loadRing();
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    String blocker = "iron-ring:suffix:of-the-whelpling";
+    var start =
+        new ItemState(
+            catalog.metadata().snapshotId(),
+            catalog.base().id(),
+            82,
+            ItemState.Rarity.RARE,
+            List.of(minimum(catalog.find(catalog.base().implicitModifierId()).orElseThrow())),
+            List.of(
+                minimum(catalog.find(blocker).orElseThrow()),
+                minimum(catalog.find("iron-ring:prefix:rotund").orElseThrow())),
+            Set.of());
+    var sources =
+        List.of(
+            new RouteCards.Source("B", null, RouteCards.Frequency.M),
+            new RouteCards.Source("D", "Preserved_Collarbone", null));
+    var fire =
+        new RouteCards.Option(
+            1,
+            Map.of("iron-ring:suffix:of-magma", sources, "iron-ring:suffix:of-tzteosh", sources));
+    var cold =
+        new RouteCards.Option(
+            2,
+            Map.of("iron-ring:suffix:of-haast", sources, "iron-ring:suffix:of-the-ice", sources));
+    var card = new RouteCards.Card(List.of(fire, cold), 0);
+    var omens = Set.of(WorkbenchOmen.WHITTLING);
+    var law = simulator.recipePlan(start, WorkbenchCurrency.CHAOS, omens);
+    assertThat(law.branches())
+        .singleElement()
+        .satisfies(
+            b -> {
+              assertThat(b.remaining().explicits()).noneMatch(m -> m.modifierId().equals(blocker));
+              assertThat(
+                      b.candidates().stream()
+                          .filter(m -> fire.tiers().containsKey(m.id()))
+                          .mapToLong(m -> m.weight())
+                          .sum())
+                  .isEqualTo(2000);
+            });
+    var chaos =
+        new RecipeRoutePlanner.Step(
+            "CHAOS", List.of(WorkbenchOmen.WHITTLING.id()), List.of(1), List.of(), null);
+    var bone =
+        new RecipeRoutePlanner.Step("Preserved_Collarbone", List.of(), List.of(), List.of(), null);
+    var reveal = new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(2), List.of(), null);
+    var expected = List.of("CHAOS", "Preserved_Collarbone", "REVEAL");
+    Predicate<ItemState> both =
+        item ->
+            item.explicits().stream().anyMatch(m -> fire.tiers().containsKey(m.modifierId()))
+                && item.explicits().stream()
+                    .anyMatch(m -> cold.tiers().containsKey(m.modifierId()));
+    var fixed =
+        RecipeRoutePlanner.evaluateFixed(
+            simulator, start, card, both, 20000, true, null, List.of(chaos, bone, reveal));
+    var search =
+        RecipeRoutePlanner.calculate(simulator, start, List.of(card), both, 80000, true, null);
+    for (var result : List.of(fixed, search)) {
+      assertThat(result.routes())
+          .anySatisfy(
+              route -> {
+                assertThat(route.steps())
+                    .extracting(RecipeRoutePlanner.Step::action)
+                    .containsExactlyElementsOf(expected);
+                assertThat(route.steps().getFirst().omens())
+                    .containsExactly(WorkbenchOmen.WHITTLING.id());
+                assertThat(route.steps().getFirst().acquired()).containsExactly(1);
+                assertThat(route.steps().getLast().acquired()).containsExactly(2);
+                assertThat(route.steps().getLast().chance().probability()).isEqualTo(1);
+                var changed = result.states().get(route.stateIndices().getFirst()).explicits();
+                assertThat(changed)
+                    .noneMatch(m -> m.modifierId().equals(blocker))
+                    .anyMatch(m -> fire.tiers().containsKey(m.modifierId()));
+              });
+    }
+  }
+
+  /** 실제 카탈로그의 최솟값으로 테스트 시작 옵션을 만든다. */
+  private ModifierInstance minimum(ModifierDefinition tier) {
+    var values = new HashMap<String, Long>();
+    tier.stats().forEach(s -> values.put(s.id(), s.min()));
+    return new ModifierInstance(tier.id(), values);
+  }
+
+  /** 여러 티어의 뼈 예약 결과는 슬롯별 실제 단일 티어 검사들의 합집합과 같아야 한다. */
+  @Test
+  void fullBoardReservationSharesBranchesWithoutLosingProtectedRemovalOrTierChecks() {
+    var five = new RecipeLightTransitionTest().fiveModifiers();
+    var mods = new ArrayList<>(five.explicits());
+    mods.add(minimum(fixture.catalog.find(fixture.life).orElseThrow()));
+    var full = fixture.workbench.finishBasicCurrency(five, mods);
+    var targets = Set.of(low, fixture.strength, fixture.defences);
+    var bone = "Preserved_Collarbone";
+    for (var protectedIds : List.of(Set.<String>of(), Set.of(fixture.life)))
+      for (boolean defer : List.of(false, true)) {
+        var individual = new HashSet<String>();
+        for (String target : targets) {
+          var law =
+              fixture.law.prepareDesecration(
+                  full, bone, Set.of(), Set.of(target), Integer.MAX_VALUE, defer);
+          if (law.outcomes().stream()
+              .anyMatch(o -> Collections.disjoint(o.removedModifierIds(), protectedIds)))
+            individual.add(target);
+        }
+        var batched =
+            RecipeTransitions.reservableBoneTargets(
+                full, bone, fixture.catalog, targets, protectedIds, defer);
+        assertThat(batched)
+            .isEqualTo(individual)
+            .contains(fixture.strength)
+            .doesNotContain(fixture.defences);
+        if (!defer && protectedIds.contains(fixture.life)) assertThat(batched).doesNotContain(low);
+        if (!defer && protectedIds.isEmpty()) assertThat(batched).contains(low);
+      }
+  }
+
+  /** 작업대에서 기존 타락 슬롯은 공개할 수 있고 타락 후 새 뼈는 쓸 수 없다. 탐색과 고정 재생 모두 같은 자격을 쓴다. */
+  @Test
+  void corruptedItemsMayRevealAnExistingSlotButCannotOpenANewOne() {
+    var start = fixture.item(ItemState.Rarity.RARE);
+    var bone = "Preserved_Collarbone";
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(
+                    1, Map.of(fixture.life, List.of(new RouteCards.Source("D", bone, null))))),
+            0);
+    var corrupted = Set.of(ItemState.Condition.CORRUPTED);
+    var pending =
+        DesecrationCurrency.apply(start, bone, AffixType.PREFIX, null, Set.of(), fixture.catalog)
+            .storedItem()
+            .withConditions(corrupted);
+    var actual = AbyssCraftingState.from(pending, fixture.catalog);
+    var slot = actual.slots().getLast();
+    assertThat(actual.eligibleRevealIds(slot.id(), fixture.catalog, Set.of(fixture.life)))
+        .containsExactly(fixture.life);
+    assertThat(moves.choices(start.withConditions(corrupted), card, Map.of())).isEmpty();
+    var reach =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench,
+            pending,
+            List.of(card),
+            item -> item.explicits().stream().anyMatch(m -> m.modifierId().equals(fixture.life)),
+            100,
+            true,
+            null);
+    var reveal = new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(1), List.of(), null);
+    var fixed =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench,
+            pending,
+            card,
+            item -> item.explicits().stream().anyMatch(m -> m.modifierId().equals(fixture.life)),
+            100,
+            true,
+            null,
+            List.of(reveal));
+    for (var result : List.of(reach, fixed)) {
+      assertThat(result.routes())
+          .singleElement()
+          .satisfies(
+              r -> {
+                assertThat(r.probability()).isEqualTo(1);
+                assertThat(r.steps())
+                    .singleElement()
+                    .satisfies(s -> assertThat(s.action()).isEqualTo("REVEAL"));
+                var end = result.states().get(r.stateIndices().getFirst());
+                assertThat(end.conditions()).isEqualTo(corrupted);
+                assertThat(end.desecrated().getFirst().modifierId()).isEqualTo(fixture.life);
               });
     }
   }

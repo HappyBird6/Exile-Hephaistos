@@ -267,6 +267,53 @@ class RouteCardsTest {
         .allMatch(s -> s.frequency() == RouteCards.Frequency.H);
   }
 
+  /** 마법 목걸이에서 하위 에센스는 수동으로 사용할 수 있고 제작지원의 후보·고정 재생은 일반 등급부터 허용한다. */
+  @Test
+  void lesserEssenceIsManualOnlyWhileOrdinaryAndGreaterRemainReplayable() {
+    var simulator = simulator(ItemCatalogLoader.loadDefault());
+    var start =
+        RecipeStateGroups.withAffixes(
+            SolarAmulet.initial(simulator.catalog(), 82, 15),
+            ItemState.Rarity.MAGIC,
+            List.of(
+                new ModifierInstance(
+                    "amulet:suffix:of-the-seal", Map.of("base_cold_damage_resistance_%", 6L))));
+    var lesser = WorkbenchCurrency.LESSER_ESSENCE_BODY;
+    var card = cards(simulator, start, LIFE).cards().getFirst();
+    var option = card.options().getFirst();
+    var lesserTier = simulator.sourceMaterialTargets(82).get(lesser).getFirst();
+    assertThat(
+            simulator.apply(start, lesser, Set.of(), new java.util.Random(1)).state().explicits())
+        .extracting(ModifierInstance::modifierId)
+        .contains(lesserTier);
+    assertThat(option.tiers().get(lesserTier)).extracting(RouteCards.Source::label).contains("B");
+    assertThat(option.tiers().values().stream().flatMap(List::stream))
+        .noneMatch(source -> lesser.name().equals(source.id()));
+
+    for (var action :
+        List.of(lesser, WorkbenchCurrency.ESSENCE_BODY, WorkbenchCurrency.GREATER_ESSENCE_BODY)) {
+      var step =
+          new RecipeRoutePlanner.Step(
+              action.name(), List.of(), List.of(option.number()), List.of(), null);
+      var replay =
+          RecipeRoutePlanner.evaluateFixed(
+              simulator,
+              start,
+              card,
+              state -> state.explicits().stream().anyMatch(m -> m.values().containsKey(LIFE)),
+              2000,
+              true,
+              null,
+              List.of(step));
+      assertThat(replay.complete()).isTrue();
+      if (action == lesser) assertThat(replay.routes()).isEmpty();
+      else
+        assertThat(replay.routes())
+            .singleElement()
+            .satisfies(r -> assertThat(r.probability()).isOne());
+    }
+  }
+
   /** 정신력 43 이상은 두 티어의 합이 M이고 47 이상은 한 티어만 적격이라 L이다. 실제로 보유한 티어도 목표 빈도로 보호한다. */
   @Test
   void spiritFrequencyUsesEveryEligibleTierEvenWhenAHigherTierIsAlreadyHeld() {

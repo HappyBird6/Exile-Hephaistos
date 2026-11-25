@@ -345,16 +345,37 @@ public final class RecipeTransitions {
       var state = prepared.state();
       var removed = removed(item, state.knownItem());
       removable.addAll(removed);
-      var last = state.slots().getLast();
-      var eligible =
-          deferSelection
-              ? reservableRevealIds(state, last.id(), catalog, targetIds)
-              : state.eligibleRevealIds(last.id(), catalog, targetIds);
-      if (eligible.isEmpty()) continue;
+      if (eligibleAfterBone(state, catalog, targetIds, deferSelection).isEmpty()) continue;
       if (outcomes.size() == remainingOutcomes) complete = false;
       else outcomes.add(new Outcome(state.storedItem(), prepared.probability(), removed));
     }
     return new Law(List.copyOf(outcomes), complete, Set.copyOf(removable));
+  }
+
+  /** 제거·방향이 결정된 한 뼈 결과에서 바로 공개하거나 마지막에 공개를 예약할 수 있는 목표 티어다. */
+  private static Collection<String> eligibleAfterBone(
+      AbyssCraftingState state, ItemCatalog catalog, Set<String> targets, boolean deferSelection) {
+    var slot = state.slots().getLast();
+    return deferSelection
+        ? reservableRevealIds(state, slot.id(), catalog, targets)
+        : state.eligibleRevealIds(slot.id(), catalog, targets);
+  }
+
+  /** 가득 찬 아이템의 한 뼈가 보호 옵션을 보존하는 모든 실제 분기를 한 번 확인해 여러 목표의 허용 티어를 모은다. */
+  static Set<String> reservableBoneTargets(
+      ItemState item,
+      String bone,
+      ItemCatalog catalog,
+      Set<String> targets,
+      Set<String> protectedIds,
+      boolean deferSelection) {
+    var eligible = new HashSet<String>();
+    for (var branch : boneStates(item, bone, Set.of(), catalog)) {
+      var state = branch.state();
+      if (Collections.disjoint(removed(item, state.knownItem()), protectedIds))
+        eligible.addAll(eligibleAfterBone(state, catalog, targets, deferSelection));
+    }
+    return eligible;
   }
 
   /** 빈 칸에 쓴 같은 뼈가 양쪽을 모두 열 수 있을 때, 실제 공개 가능한 목표 티어만 반환한다. */

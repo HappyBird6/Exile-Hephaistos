@@ -9,6 +9,7 @@ import com.poe2craft.shared.item.ManualRevealCatalog;
 import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.random.RandomGenerator;
 
 /**
@@ -199,8 +200,13 @@ public final class DesecrationCurrency {
       String removedSlotId,
       Set<String> activeOmens,
       ItemCatalog catalog) {
+    // 탐색이 방향과 제거를 지정했으면 그 결과만 검증한다. 빈 제거 ID는 빈자리에 뼈를 쓰는 경우다.
+    if (side != null && removedSlotId != null)
+      return applyEnriched(
+          item, currency, side, removedSlotId, activeOmens, ManualRevealCatalog.enrich(catalog));
+    // 수동 제작의 미지정 선택은 배포 JRE의 java.base에서 제공하는 생성기로 추첨한다.
     return apply(
-        item, currency, side, removedSlotId, activeOmens, catalog, RandomGenerator.getDefault());
+        item, currency, side, removedSlotId, activeOmens, catalog, ThreadLocalRandom.current());
   }
 
   /** Uniform eligible removal, then uniform eligible side; never samples a reveal modifier. */

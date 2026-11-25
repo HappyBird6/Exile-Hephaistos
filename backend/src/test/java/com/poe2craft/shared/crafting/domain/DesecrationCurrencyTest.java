@@ -11,7 +11,9 @@ import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import java.util.*;
+import java.util.random.RandomGenerator;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 /**
  * 훼손 생성·제거를 앱 정책으로 실행하고 공개 후보 선택은 수동으로 유지한다. 해당 동작과 실패 경계를 검증하는 테스트다.
@@ -65,6 +67,31 @@ class DesecrationCurrencyTest {
     var values = new HashMap<String, Long>();
     definition.stats().forEach(stat -> values.put(stat.id(), stat.min()));
     return new ModifierInstance(definition.id(), values);
+  }
+
+  /** 운영 JRE에 선택적 난수 공급자가 없어도 지정 방향과 자동 방향 모두 실제 미공개 슬롯을 연다. */
+  @Test
+  void missingDefaultRandomProviderDoesNotEliminateBoneOutcomes() {
+    var item = f.rare(82, "", "amulet:prefix:countess");
+    try (var unavailable = Mockito.mockStatic(RandomGenerator.class)) {
+      unavailable
+          .when(RandomGenerator::getDefault)
+          .thenThrow(new IllegalArgumentException("No default random generator provider"));
+      for (var bone : List.of("Preserved_Collarbone", "Ancient_Collarbone", "Altered_Collarbone")) {
+        var fixed = apply(item, bone, AffixType.SUFFIX, null);
+        var slot = fixed.slots().getLast();
+        assertThat(slot.side()).isEqualTo(AffixType.SUFFIX);
+        assertThat(slot.modifier()).isNull();
+        assertThat(
+                fixed.eligibleRevealIds(
+                    slot.id(), f.catalog, Set.of("amulet:suffix:of-the-sharpshooter")))
+            .containsExactly("amulet:suffix:of-the-sharpshooter");
+        var automatic = apply(item, bone, null, null);
+        assertThat(automatic.storedItem().explicits()).isEqualTo(item.explicits());
+        assertThat(automatic.slots().getLast().modifier()).isNull();
+        assertThat(automatic.slots().getLast().side()).isIn(AffixType.PREFIX, AffixType.SUFFIX);
+      }
+    }
   }
 
   @Test

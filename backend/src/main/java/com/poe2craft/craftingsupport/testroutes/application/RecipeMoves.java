@@ -1,6 +1,7 @@
 package com.poe2craft.craftingsupport.testroutes.application;
 
 import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
+import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
@@ -111,6 +112,12 @@ final class RecipeMoves {
 
   /** 목표를 아직 보유하지 않은 상태에서 사용할 직접 획득 및 필수 준비 후보를 만든다. */
   List<Choice> choices(ItemState item, RouteCards.Card card, Map<Integer, String> held) {
+    return choices(item, card, held, false);
+  }
+
+  /** 고정 경로의 엑잘은 새 추천의 훼손 선호를 적용하기 전 기본·증강 추첨 후보로도 검증한다. */
+  List<Choice> choices(
+      ItemState item, RouteCards.Card card, Map<Integer, String> held, boolean replayExalt) {
     var result = new LinkedHashSet<Choice>();
     var slots = validator.slots(item);
     var pendingReveal = pendingReveal(item, card, false);
@@ -125,36 +132,24 @@ final class RecipeMoves {
             .filter(
                 o -> !o.tiers().isEmpty() && o.tiers().values().stream().allMatch(RecipeMoves::low))
             .toList();
-    // 목표 수와 무관하게 마지막 희소 목표의 실제 쪽에 한 칸을 남긴다.
-    var lastLow = mandatory.size() == 1 ? mandatory.getFirst() : null;
-    var revealTiers =
-        lastLow == null ? Set.<String>of() : revealTiers(lastLow, item, pendingReveal);
-    if (lastLow != null
-        && revealTiers.isEmpty()
-        && held.size() + 1 < card.options().size()
-        && item.desecrated().stream().anyMatch(slot -> slot.modifierId() == null)) {
-      // 다른 목표의 교체 제작이 막고 있던 일반 계열을 지울 수 있다. 실제 공개는 원래 보드로 다시 검사한다.
-      revealTiers = revealTiers(lastLow, item, pendingReveal(item, card, true));
-    }
-    boolean deferLast =
-        !revealTiers.isEmpty()
-            && card.options().stream()
-                .filter(o -> o != lastLow && !held.containsKey(o.number()))
-                .allMatch(
-                    o ->
-                        o.tiers().values().stream()
-                            .flatMap(List::stream)
-                            .anyMatch(source -> !source.label().equals("D")));
-    boolean lowFirst = !mandatory.isEmpty() && !deferLast;
+    var reserved = preferredReveals(item, card, held, pendingReveal, protectedIds);
+    boolean lowFirst = mandatory.stream().anyMatch(o -> !reserved.containsKey(o.number()));
     for (var opt : card.options()) {
       int target = opt.number();
       if (held.containsKey(target)) continue;
       if (lowFirst && !mandatory.contains(opt)) continue;
+      var revealTiers = reserved.get(target);
+      // 동률인 여러 목표에는 다른 목표를 먼저 얻는 분기가 필요하다. 하나만 남으면 그 목표의 추첨을 훼손으로 대체한다.
+      boolean useReveal = revealTiers != null && reserved.size() == 1;
+      boolean preferRevealDraw = useReveal && !replayExalt;
       lowMoves(result, item, opt, slots, pendingReveal);
-      if (deferLast && opt == lastLow) {
+      if (revealTiers == null && item.rarity() == ItemState.Rarity.RARE)
+        result.removeIf(
+            c ->
+                c.target() == target
+                    && (c.purpose() == Purpose.BONE || c.purpose() == Purpose.LOW_REVEAL));
+      if (useReveal) {
         result.removeIf(c -> c.target() == target && c.purpose() == Purpose.LOW_EXALT);
-        if (held.size() + 1 == card.options().size())
-          fillForReveal(result, item, opt, slots, revealTiers);
       }
       var bones = new LinkedHashMap<String, Set<String>>();
       for (var tier : opt.tiers().entrySet()) {
@@ -164,11 +159,12 @@ final class RecipeMoves {
         var side = definition.get().affixType();
         for (var source : tier.getValue()) {
           switch (source.label()) {
-            case "B" -> baseMoves(result, target, item, side, slots, deferLast);
+            case "B" ->
+                baseMoves(result, target, item, side, slots, !reserved.isEmpty(), preferRevealDraw);
             case "A" -> {
               if (item.installedAugments().stream()
                   .anyMatch(a -> source.id().equals(a.augmentId()))) {
-                baseMoves(result, target, item, side, slots, deferLast);
+                baseMoves(result, target, item, side, slots, !reserved.isEmpty(), preferRevealDraw);
               } else install(result, target, item, source.id());
             }
             case "E" -> {
@@ -210,14 +206,22 @@ final class RecipeMoves {
                     WorkbenchCurrency.valueOf(source.id()),
                     side,
                     slots,
+                    held.values(),
                     protectedIds);
             }
             default -> throw new IllegalArgumentException("Unknown acquisition source");
           }
         }
       }
-      if (!deferLast || opt == lastLow)
+      if (!reserved.isEmpty()) addWhittlingForBlockedDraw(result, opt, item, held);
+      if (item.rarity() != ItemState.Rarity.RARE || revealTiers != null)
         desecrationChoices(result, item, target, bones, pendingReveal, false);
+      if (useReveal
+          && held.size() + 1 == card.options().size()
+          && opt.tiers().values().stream()
+              .flatMap(List::stream)
+              .anyMatch(src -> src.frequency() != null))
+        fillForReveal(result, item, opt, slots, revealTiers);
     }
     // 공개는 마지막 옵션을 얻는 행동이다. 뼈가 먼저 부여한 미공개 슬롯은 그때까지 실제 작업대 상태에 남는다.
     if (held.size() + 1 < card.options().size())
@@ -225,27 +229,203 @@ final class RecipeMoves {
     return List.copyOf(result);
   }
 
-  /** 카탈로그에 등록된 뼈가 있고, 같은 쪽의 한 자리와 해당 티어의 계열이 실제로 남아 있는지 판정한다. */
-  private Set<String> revealTiers(RouteCards.Option option, ItemState item, Set<String> pending) {
-    if (item.rarity() != ItemState.Rarity.RARE) return Set.of();
+  /** 같은 계열의 비목표 X가 막은 추첨이면, 절사로 바로 그 X를 제거하고 목표를 얻어 다른 옵션에 훼손을 남길 수 있다. */
+  private void addWhittlingForBlockedDraw(
+      Set<Choice> result, RouteCards.Option option, ItemState item, Map<Integer, String> held) {
+    var workbench = simulator.forItem(item);
+    var catalog = workbench.catalog();
+    var families = new HashSet<String>();
+    for (var tier : option.tiers().entrySet()) {
+      boolean ordinary =
+          tier.getValue().stream()
+              .anyMatch(
+                  source ->
+                      source.frequency() != null
+                          && source.frequency() != RouteCards.Frequency.L
+                          && (source.label().equals("B")
+                              || source.label().equals("A")
+                                  && item.installedAugments().stream()
+                                      .anyMatch(a -> a.augmentId().equals(source.id()))));
+      if (ordinary) families.addAll(catalog.find(tier.getKey()).orElseThrow().familyIds());
+    }
+    if (families.isEmpty()) return;
+    var blockers = new HashSet<String>();
+    for (var mod : item.explicits())
+      if (!mod.fractured()
+          && !held.containsValue(mod.modifierId())
+          && !Collections.disjoint(
+              families, catalog.find(mod.modifierId()).orElseThrow().familyIds()))
+        blockers.add(mod.modifierId());
+    if (blockers.isEmpty()) return;
+    for (var omens : WhittlingRecovery.OMEN_COMBINATIONS) {
+      if (workbench.chaosRemovalCandidates(item, WorkbenchCurrency.CHAOS, omens).stream()
+          .anyMatch(m -> blockers.contains(m.modifierId())))
+        add(result, option.number(), new Move(WorkbenchCurrency.CHAOS.name(), omens, null), false);
+    }
+  }
+
+  /** 현재 미보유 목표에서 실제 공개할 수 있는 옵션을 골라, 다른 방법으로 가장 얻기 어려운 목표에 마지막 공개를 배정한다. */
+  private Map<Integer, Set<String>> preferredReveals(
+      ItemState item,
+      RouteCards.Card card,
+      Map<Integer, String> held,
+      Set<String> pendingReveal,
+      Set<String> protectedIds) {
+    if (item.rarity() != ItemState.Rarity.RARE
+        || (item.desecrated().isEmpty() && !item.conditions().isEmpty())) return Map.of();
+    Map<Integer, Set<String>> preferred = new HashMap<>();
+    var tied = new ArrayList<RouteCards.Option>();
+    int priority = Integer.MAX_VALUE;
+    Set<String> reservable = null;
+    var slots = validator.slots(item);
+    boolean defer = held.size() + 1 < card.options().size();
+    Map<String, Set<String>> fullBoardTiers = null;
+    if (item.desecrated().isEmpty() && slots.remainingPrefixes() + slots.remainingSuffixes() == 0) {
+      fullBoardTiers = new HashMap<>();
+      for (var option : card.options()) {
+        if (held.containsKey(option.number())) continue;
+        for (var tier : option.tiers().entrySet())
+          for (var source : tier.getValue())
+            if (source.label().equals("D"))
+              fullBoardTiers.computeIfAbsent(source.id(), k -> new HashSet<>()).add(tier.getKey());
+      }
+      var catalog = simulator.forItem(item).catalog();
+      fullBoardTiers.replaceAll(
+          (bone, targets) ->
+              RecipeTransitions.reservableBoneTargets(
+                  item, bone, catalog, targets, protectedIds, defer));
+    }
+    // 카드에 C만 있는 목표와 이미 확보한 목표에는 훼손 후보 검사를 수행할 필요가 없다.
+    for (var option : card.options()) {
+      if (held.containsKey(option.number())) continue;
+      var sources = option.tiers().values().stream().flatMap(List::stream).toList();
+      if (sources.stream().noneMatch(s -> s.label().equals("D"))) continue;
+      boolean craftable = hasCraftAlternative(item, option, sources, protectedIds);
+      var frequency =
+          sources.stream()
+              .map(RouteCards.Source::frequency)
+              .filter(Objects::nonNull)
+              .max(Comparator.naturalOrder())
+              .orElse(null);
+      // 희귀 단계에서는 승급 에센스를 쓸 수 없다. D 전용부터, L/M/H, 제작 대안이 있는 목표 순이다.
+      int rank =
+          craftable
+              ? RouteCards.Frequency.values().length + 1
+              : frequency == null ? 0 : frequency.ordinal() + 1;
+      if (rank > priority) continue;
+      var tiers = revealTiers(option, item, pendingReveal, fullBoardTiers, protectedIds, defer);
+      if (tiers.isEmpty()
+          && defer
+          && item.desecrated().stream().anyMatch(slot -> slot.modifierId() == null)) {
+        // 남은 제작이 기존 일반 계열을 제거할 수 있다. 분열 충돌과 실제 마지막 공개는 우회하지 않는다.
+        if (reservable == null) reservable = pendingReveal(item, card, true);
+        tiers = revealTiers(option, item, reservable, fullBoardTiers, protectedIds, true);
+      }
+      if (tiers.isEmpty()) continue;
+      if (rank < priority) {
+        preferred.clear();
+        tied.clear();
+        priority = rank;
+      }
+      preferred.put(option.number(), tiers);
+      tied.add(option);
+    }
+    if (tied.size() < 2 || priority == 0) return preferred;
+    // 같은 빈도 분류 안에서만 실제 장착·슬롯·차단 계열이 반영된 엑잘 풀의 허용 티어 가중치 합으로 비교한다.
+    var pool = simulator.forItem(item).pool(item, WorkbenchCurrency.EXALTED, null);
+    var weights = new HashMap<Integer, Long>();
+    for (var option : tied) {
+      long weight =
+          pool.stream()
+              .filter(m -> option.tiers().containsKey(m.id()))
+              .mapToLong(m -> m.weight())
+              .sum();
+      weights.put(option.number(), weight);
+    }
+    long least = Collections.min(weights.values());
+    preferred.keySet().removeIf(number -> weights.get(number) != least);
+    return preferred;
+  }
+
+  /** 희귀에서 쓸 수 있는 확정 제작이 실제로 원하는 티어를 붙이고 보호 옵션을 유지하는 분기가 있는지 확인한다. */
+  private boolean hasCraftAlternative(
+      ItemState item,
+      RouteCards.Option option,
+      List<RouteCards.Source> sources,
+      Set<String> protectedIds) {
+    for (var source : sources) {
+      if (!source.label().equals("C")) continue;
+      var plan =
+          simulator
+              .forItem(item)
+              .recipePlan(item, WorkbenchCurrency.valueOf(source.id()), Set.of());
+      if (plan.branches().stream()
+          .anyMatch(
+              branch ->
+                  branch.candidates().stream()
+                          .anyMatch(candidate -> option.tiers().containsKey(candidate.id()))
+                      && branch.remaining().explicits().stream()
+                          .map(m -> m.modifierId())
+                          .toList()
+                          .containsAll(protectedIds))) return true;
+    }
+    return false;
+  }
+
+  /** 적격 재료·티어·빈칸이나 이미 열린 슬롯을 검사한다. 풀 보드의 뼈는 실제 교체로 해당 슬롯이 열려야 한다. */
+  private Set<String> revealTiers(
+      RouteCards.Option option,
+      ItemState item,
+      Set<String> pending,
+      Map<String, Set<String>> fullBoardTiers,
+      Set<String> protectedIds,
+      boolean defer) {
     var ids = new LinkedHashSet<String>();
-    for (var t : option.tiers().entrySet()) {
-      if (t.getValue().stream().anyMatch(s -> s.label().equals("D"))
-          && (item.desecrated().isEmpty()
-              ? canReserve(item, t.getKey())
-              : pending.contains(t.getKey()))) ids.add(t.getKey());
+    if (!item.desecrated().isEmpty()) {
+      for (var entry : option.tiers().entrySet())
+        if (pending.contains(entry.getKey())
+            && entry.getValue().stream().anyMatch(s -> s.label().equals("D")))
+          ids.add(entry.getKey());
+      return ids;
+    }
+    var workbench = simulator.forItem(item);
+    for (var entry : option.tiers().entrySet()) {
+      if (entry.getValue().stream().noneMatch(s -> s.label().equals("D"))) continue;
+      if (fullBoardTiers != null) {
+        if (entry.getValue().stream()
+            .anyMatch(
+                source ->
+                    source.label().equals("D")
+                        && fullBoardTiers.get(source.id()).contains(entry.getKey())))
+          ids.add(entry.getKey());
+        continue;
+      }
+      var d = workbench.catalog().find(entry.getKey()).orElse(null);
+      if (d == null || !canReserve(item, d.id(), protectedIds, defer)) continue;
+      // 장착으로 활성화된 증강물 옵션은 현재 카탈로그에서 실제 추첨 가중치를 갖는다.
+      var bones =
+          DesecrationCurrency.sources(item.baseItemId(), item.itemLevel(), d, d.weight() > 0);
+      if (entry.getValue().stream()
+          .anyMatch(source -> source.label().equals("D") && bones.contains(source.id())))
+        ids.add(d.id());
     }
     return ids;
   }
 
   /** 뼈를 쓰기 전의 목표 쪽 한 칸과 배타 계열을 보존한다. 재료·공개 자격은 실제 슬롯에서 다시 검증한다. */
   boolean canReserve(ItemState item, String tier) {
-    var catalog = simulator.catalog();
+    return canReserve(item, tier, Set.of(), false);
+  }
+
+  /** 나중에 공개할 때에는 후속 제작이 제거할 수 있는 일반 옵션의 계열 충돌을 임시로 허용한다. */
+  private boolean canReserve(ItemState item, String tier, Set<String> protectedIds, boolean defer) {
+    var catalog = simulator.forItem(item).catalog();
     var definition = catalog.find(tier).orElse(null);
     return definition != null
         && definition.requiredItemLevel() <= item.itemLevel()
         && free(validator.slots(item), definition.affixType()) > 0
         && item.explicits().stream()
+            .filter(m -> !defer || m.fractured() || protectedIds.contains(m.modifierId()))
             .map(m -> catalog.find(m.modifierId()).orElseThrow())
             .noneMatch(m -> !Collections.disjoint(m.familyIds(), definition.familyIds()));
   }
@@ -402,7 +582,8 @@ final class RecipeMoves {
       ItemState item,
       AffixType side,
       ItemStateValidator.AffixSlots slots,
-      boolean reservingReveal) {
+      boolean reservingReveal,
+      boolean useReveal) {
     var actions =
         switch (item.rarity()) {
           case NORMAL -> List.of(WorkbenchCurrency.TRANSMUTATION);
@@ -413,8 +594,13 @@ final class RecipeMoves {
     for (var currency : actions) {
       boolean upgrades =
           currency == WorkbenchCurrency.TRANSMUTATION || currency == WorkbenchCurrency.REGAL;
-      // 무징조 카오스는 한 개의 변경 가능 옵션으로 시작하는 반복에만 사용한다.
-      if (currency == WorkbenchCurrency.CHAOS && reservingReveal && free(slots, side) > 0) continue;
+      // 마지막 공개 목표의 엑잘 추첨은 대체하지만, 최초 희귀 한 칸의 무징조 카오스 전략은 계속 독립적으로 비교한다.
+      if (useReveal && currency == WorkbenchCurrency.EXALTED) continue;
+      if (currency == WorkbenchCurrency.CHAOS && reservingReveal && free(slots, side) > 0) {
+        if (OneOptionPreparation.ready(item))
+          addBaseDraw(result, target, new Move(currency.name()), false);
+        continue;
+      }
       if (currency != WorkbenchCurrency.CHAOS || OneOptionPreparation.ready(item))
         addBaseDraw(result, target, new Move(currency.name()), upgrades);
       if (currency == WorkbenchCurrency.CHAOS) {
@@ -431,7 +617,7 @@ final class RecipeMoves {
         }
       }
     }
-    if (item.rarity() == ItemState.Rarity.RARE && free(slots, side) == 0) {
+    if (!useReveal && item.rarity() == ItemState.Rarity.RARE && free(slots, side) == 0) {
       add(result, target, new Move(WorkbenchCurrency.ANNULMENT.name()), true);
       add(
           result,
@@ -465,6 +651,7 @@ final class RecipeMoves {
       WorkbenchCurrency currency,
       AffixType targetSide,
       ItemStateValidator.AffixSlots slots,
+      Collection<String> heldGoals,
       Set<String> protectedIds) {
     add(result, target, new Move(currency.name()), false);
     if (currency.isAlloy() || currency.isLiquid()) {
@@ -474,39 +661,33 @@ final class RecipeMoves {
     }
     var mutableSides = EnumSet.noneOf(AffixType.class);
     var protectedSides = EnumSet.noneOf(AffixType.class);
+    var expendableSides = EnumSet.noneOf(AffixType.class);
     for (var mod : item.explicits()) {
       if (mod.fractured()) continue;
       var side = simulator.catalog().find(mod.modifierId()).orElseThrow().affixType();
       mutableSides.add(side);
       if (protectedIds.contains(mod.modifierId())) protectedSides.add(side);
+      if (!heldGoals.contains(mod.modifierId())) expendableSides.add(side);
     }
-    boolean safeReplacement =
-        mutableSides.stream()
-            .anyMatch(
-                side ->
-                    !protectedSides.contains(side)
-                        && (side == targetSide || free(slots, targetSide) > 0));
+    boolean roomForTarget = free(slots, targetSide) > 0;
+    var safeSides =
+        roomForTarget ? EnumSet.of(AffixType.PREFIX, AffixType.SUFFIX) : EnumSet.of(targetSide);
+    safeSides.removeAll(protectedSides);
+    boolean safeReplacement = !Collections.disjoint(mutableSides, safeSides);
+    // L을 지키는 직접 교체가 있어도 남은 제거 후보가 전부 목표라면 한 번의 더미로 보존 분기를 연다.
+    boolean canKeepAll = !Collections.disjoint(expendableSides, safeSides);
     for (var removal :
         List.of(WorkbenchOmen.SINISTRAL_CRYSTALLISATION, WorkbenchOmen.DEXTRAL_CRYSTALLISATION)) {
       var next = new Move(currency, removal);
       add(result, target, next, false);
       var side = removal.affix();
       var otherSide = side == AffixType.PREFIX ? AffixType.SUFFIX : AffixType.PREFIX;
-      boolean canPrepareSafeSide =
-          !protectedSides.contains(otherSide)
-              && free(slots, otherSide) > 0
-              && (otherSide == targetSide || free(slots, targetSide) > 0);
-      if (safeReplacement
-          || (protectedSides.contains(side) && canPrepareSafeSide)
+      boolean canPrepareSafeSide = safeSides.contains(otherSide) && free(slots, otherSide) > 0;
+      if (canKeepAll
+          || (protectedSides.contains(side) && (safeReplacement || canPrepareSafeSide))
+          || expendableSides.contains(side)
           || free(slots, side) <= 0
-          || (side != targetSide && free(slots, targetSide) <= 0)) continue;
-      if (item.explicits().stream()
-          .anyMatch(
-              m ->
-                  !m.fractured()
-                      && !protectedIds.contains(m.modifierId())
-                      && simulator.catalog().find(m.modifierId()).orElseThrow().affixType()
-                          == side)) continue;
+          || (side != targetSide && !roomForTarget)) continue;
       var omen =
           side == AffixType.PREFIX
               ? WorkbenchOmen.SINISTRAL_EXALTATION

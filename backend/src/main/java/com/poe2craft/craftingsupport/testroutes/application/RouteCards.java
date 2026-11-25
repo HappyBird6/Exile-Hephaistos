@@ -261,6 +261,8 @@ public final class RouteCards {
         .sourceMaterialTargets(level)
         .forEach(
             (action, targets) -> {
+              // 하위 에센스는 수동 작업대에서만 쓴다. 같은 일반 옵션의 다른 획득처는 유지한다.
+              if (action.name().startsWith("LESSER_ESSENCE_")) return;
               var label = action.materialPolicy().mode() == MaterialMode.ADD ? "E" : "C";
               for (var target : targets)
                 materialOptions

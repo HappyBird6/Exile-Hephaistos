@@ -10,6 +10,7 @@ import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
+import com.poe2craft.shared.item.BasicJewel;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import com.poe2craft.shared.probability.Fraction;
@@ -397,8 +398,8 @@ public final class RecipeRoutePlanner {
   /** 같은 아이템에 도달한 모든 분기의 probability와, 그중 실제로 성립한 witness 한 개다. */
   private record Mass(RevealTierMass weight, Witness witness) {}
 
-  /** 같은 아이템이어도 방금 방향 고정을 위해 준비한 재료가 다르면 다음 선택과 확률이 달라진다. */
-  private record StateKey(ItemState item, Set<Move> revealBones) {}
+  /** 훼손 방향 고정에 쓸 재료와 첫 카오스 준비 중 모두 지울 일반 옵션 수를 같은 상태 비교에 포함한다. */
+  private record StateKey(ItemState item, Set<Move> revealBones, int disposableCount) {}
 
   /** 같은 경로의 서로 다른 실제 아이템별 질량과, 그 경로에 빠진 분기가 있는지를 보존한다. */
   private static final class Distribution {
@@ -425,7 +426,7 @@ public final class RecipeRoutePlanner {
 
     /** 미확정 질량은 null로 유지한다. 서로 배타적인 같은 상태 결과만 합친다. */
     void add(ItemState item, RevealTierMass weight, Witness parent, RecipeStateGroups groups) {
-      add(item, weight, parent, groups, false, false, Set.of());
+      add(item, weight, parent, new StateKey(groups.key(item), Set.of(), 0), false, false);
     }
 
     /** 동일한 실제 경로가 준비 적중과 직접 획득 둘 다 가능하면 직접 획득 예시를 우선한다. */
@@ -433,12 +434,11 @@ public final class RecipeRoutePlanner {
         ItemState item,
         RevealTierMass weight,
         Witness parent,
-        RecipeStateGroups groups,
+        StateKey stateKey,
         boolean lucky,
-        boolean chaosDummy,
-        Set<Move> revealBones) {
+        boolean chaosDummy) {
       masses.compute(
-          new StateKey(groups.key(item), revealBones),
+          stateKey,
           (key, existing) -> {
             if (existing == null)
               return new Mass(weight, new Witness(item, parent, lucky, chaosDummy));
@@ -507,6 +507,9 @@ public final class RecipeRoutePlanner {
   /** 첫 카오스 방식을 선택한 탐색만 희귀 한 옵션 준비를 수행한다. */
   private final boolean seekFirstChaos;
 
+  /** 목표 외 일반 옵션의 계열에 관계없이 같은 L 목표들을 첫 카오스로 노리는 카드다. */
+  private final boolean sameFirstChaosTargets;
+
   /** 하나의 요청 안에서 모든 카드와 고정 재생 분기가 공유하는 1회 옵션 분류 예산이다. */
   private static final class OmenBudget {
     int left;
@@ -567,7 +570,7 @@ public final class RecipeRoutePlanner {
             priorities.merge(
                 opt.number(), source.frequency(), (a, b) -> a.compareTo(b) < 0 ? a : b);
         }
-      augmentIds.put(opt.number(), augments);
+      if (!augments.isEmpty()) augmentIds.put(opt.number(), augments);
       targets.addAll(opt.tiers().keySet());
       opt.tiers()
           .forEach(
@@ -576,6 +579,13 @@ public final class RecipeRoutePlanner {
                   lowIds.add(id);
               });
     }
+    sameFirstChaosTargets =
+        seekFirstChaos
+            && augmentIds.isEmpty()
+            && !lowIds.isEmpty()
+            && card.options().stream()
+                .filter(o -> priorities.get(o.number()) == RouteCards.Frequency.L)
+                .allMatch(RecipeRoutePlanner::requiresLow);
     stateGroups =
         new RecipeStateGroups(
             simulator.catalog(), card, targets, presenceOnly, numericSourceStatIds);
@@ -694,16 +704,7 @@ public final class RecipeRoutePlanner {
     var missing =
         card.options().stream()
             .filter(o -> Collections.disjoint(o.tiers().keySet(), held))
-            .filter(
-                o ->
-                    !o.tiers().isEmpty()
-                        && o.tiers().values().stream()
-                            .allMatch(
-                                s ->
-                                    s.stream()
-                                        .anyMatch(
-                                            source ->
-                                                source.frequency() == RouteCards.Frequency.L)))
+            .filter(RecipeRoutePlanner::requiresLow)
             .toList();
     if (missing.isEmpty()) return false;
     var empty =
@@ -736,6 +737,14 @@ public final class RecipeRoutePlanner {
               .anyMatch(o -> hasLowInPool(simulator, o.state(), missing))) return true;
     }
     return false;
+  }
+
+  /** 허용 티어마다 L 추첨 출처가 있을 때 첫 희소 목표로 노린다. */
+  private static boolean requiresLow(RouteCards.Option option) {
+    return !option.tiers().isEmpty()
+        && option.tiers().values().stream()
+            .allMatch(
+                sources -> sources.stream().anyMatch(s -> s.frequency() == RouteCards.Frequency.L));
   }
 
   /** 교체 가능한 한 옵션을 제거한 뒤의 실제 추첨 풀에 첫 L 중 하나라도 있는지 판정한다. */
@@ -947,6 +956,9 @@ public final class RecipeRoutePlanner {
     boolean atFixedEnd = fixedSteps != null && path.size() == fixedSteps.size();
     var required = fixedSteps == null || atFixedEnd ? null : fixedSteps.get(path.size());
     var selected = required == null ? null : required.move();
+    boolean replayExalt =
+        selected != null
+            && RecipeMoves.baseMove(selected).action().equals(WorkbenchCurrency.EXALTED.name());
     boolean hadChaos = path.stream().anyMatch(Step::repeatingChaos);
     var selectedTargets = new HashSet<String>();
     if (required != null) {
@@ -1025,7 +1037,7 @@ public final class RecipeRoutePlanner {
               && item.explicits().stream()
                   .noneMatch(m -> !m.fractured() && lowIds.contains(m.modifierId()));
       boolean repeat = seeking && OneOptionPreparation.ready(item);
-      var choices = new ArrayList<>(moves.choices(item, card, before));
+      var choices = new ArrayList<>(moves.choices(item, card, before, replayExalt));
       if (seeking) {
         // 증강물 풀에서만 얻는 목표도 같은 시작 아이템에 홈을 열고 장착한 뒤 반복할 수 있다.
         var installations =
@@ -1619,6 +1631,10 @@ public final class RecipeRoutePlanner {
             .computeIfAbsent(move, k -> new ArrayList<>())
             .add(new OmenParent(prior, before, protectedIds, intents));
       boolean bounded = firstLaws.containsKey(trial);
+      boolean preparingFirstChaos =
+          sameFirstChaosTargets
+              && !intents.isEmpty()
+              && intents.stream().allMatch(c -> c.purpose() == Purpose.LOW_PREPARATION);
       var revealBones =
           fixedSteps == null
                   && intents.stream().allMatch(c -> c.purpose() == Purpose.LOW_SLOT_PREPARATION)
@@ -1679,16 +1695,37 @@ public final class RecipeRoutePlanner {
                                 step.acquired().contains(c.target())
                                     && (!c.preparation() || c.purpose() == Purpose.DIRECT_UPGRADE)
                                     && reaches(c, before, outcome, protectedIds));
-        child.add(
-            outcome.state(),
-            weight,
-            prior.witness,
-            stateGroups,
-            lucky,
-            dummy,
-            step.acquired().isEmpty() ? revealBones : Set.of());
+        var key =
+            childKey(
+                outcome.state(),
+                preparingFirstChaos,
+                step.acquired().isEmpty() ? revealBones : Set.of());
+        child.add(outcome.state(), weight, prior.witness, key, lucky, dummy);
       }
     }
+  }
+
+  /** 무징조 소멸로 한 칸을 남기고 카오스로 마지막 칸까지 교체하는 준비만, 모든 순수 더미의 질량을 합친다. */
+  private StateKey childKey(ItemState item, boolean preparingFirstChaos, Set<Move> revealBones) {
+    if (preparingFirstChaos
+        && item.rarity() == ItemState.Rarity.RARE
+        && !BasicJewel.supportedCrafting(item.baseItemId())
+        && item.catalystQuality() == null
+        && item.sanctification() == null
+        && item.observations() == null
+        && item.conditions().isEmpty()
+        && !item.qualityInfused()
+        && item.desecrated().isEmpty()
+        && item.installedAugments().isEmpty()
+        && !item.explicits().isEmpty()
+        && item.explicits().stream()
+            .noneMatch(m -> m.fractured() || m.crafted() || targets.contains(m.modifierId()))) {
+      // 마법 단계는 기존 옵션이 제왕 추첨 풀을 바꾸므로 구별한다. 희귀가 된 뒤 이 분기에는 추가 추첨 없이
+      // 무조건 한 옵션을 제거하는 행동만 남는다. 마지막 옵션도 제거한 빈 베이스가 카오스 분모다.
+      var empty = RecipeStateGroups.withAffixes(item, item.rarity(), List.of());
+      return new StateKey(empty, Set.of(), item.explicits().size());
+    }
+    return new StateKey(stateGroups.key(item), revealBones, 0);
   }
 
   /** 같은 원래 분모를 유지하며 확인된 일반 확률 또는 특정 훼손 티어의 조건부 질량을 곱한다. */

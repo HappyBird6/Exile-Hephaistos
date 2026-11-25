@@ -114,6 +114,64 @@ class SolarRareTestRoutesTest {
             });
   }
 
+  /** 일반 베이스에서 진화 적중과 미적중 후 소멸·카오스를 모두 운영 예산으로 완주한다. */
+  @Test
+  void normalStartFinishesViaBothTheMissedUpgradeChaosRouteAndTheLuckySpiritHit() {
+    var entries =
+        List.of(
+            entry(SolarAmulet.SPIRIT_STAT, "flat", 47),
+            entry("global_armour_evasion_energy_shield_+%", "percent", null),
+            entry("base_cold_damage_resistance_%", "percent", null));
+    var cold =
+        new GoalFilter(
+            goal.version(),
+            goal.catalogVersion(),
+            goal.general(),
+            List.of(new GoalFilter.Group("cold", GoalFilter.Type.AND, false, null, entries)));
+    var view = service.calculate(solar, cold);
+    var normal = view.routes().stream().filter(r -> !r.lucky()).toList();
+    assertThat(normal)
+        .anySatisfy(
+            r -> {
+              var steps = r.steps();
+              assertThat(steps.subList(0, 4))
+                  .extracting(RecipeRoutePlanner.Step::action)
+                  .containsExactly("TRANSMUTATION", "REGAL", "ANNULMENT", "CHAOS");
+              assertThat(steps.subList(0, 3))
+                  .allMatch(s -> s.acquired().isEmpty() && s.omens().isEmpty());
+              assertThat(steps.get(3).repeatUntilHit()).isTrue();
+              assertThat(steps.get(3).chance().probability()).isEqualTo(1d);
+              var afterRegal = view.states().get(r.stateIndices().get(1));
+              var afterAnnul = view.states().get(r.stateIndices().get(2));
+              var afterChaos = view.states().get(r.stateIndices().get(3));
+              assertThat(afterRegal.explicits()).hasSize(2).containsAll(afterAnnul.explicits());
+              assertThat(afterAnnul.explicits()).hasSize(1);
+              assertThat(afterChaos.explicits())
+                  .extracting(ModifierInstance::modifierId)
+                  .containsExactly(COUNTESS);
+              var finalMods = view.states().get(r.stateIndices().getLast()).explicits();
+              assertThat(finalMods)
+                  .anyMatch(m -> m.modifierId().equals(COUNTESS))
+                  .anyMatch(m -> m.modifierId().equals(GLOBAL))
+                  .anyMatch(m -> m.values().containsKey("base_cold_damage_resistance_%"));
+            });
+    assertThat(view.routes().stream().filter(RecipeRoutePlanner.Route::lucky))
+        .anyMatch(
+            r ->
+                view.states().get(r.stateIndices().getFirst()).explicits().stream()
+                    .anyMatch(m -> m.modifierId().equals(COUNTESS)));
+    var selected = normal.getFirst();
+    var replay = service.calculate(solar, cold, selected.cardIndex(), selected.steps());
+    assertThat(replay.routes())
+        .singleElement()
+        .satisfies(
+            r -> {
+              assertThat(r.lucky()).isFalse();
+              assertThat(r.steps()).isEqualTo(selected.steps());
+              assertThat(r.probability()).isEqualTo(selected.probability());
+            });
+  }
+
   /** 희귀 빈 아이템에서도 첫 희소 옵션을 먼저 확보하고 다른 희소 옵션을 훼손으로 마무리할 수 있다. */
   @Test
   void emptyRareReachesThreeGoalsThroughDesecration() {
