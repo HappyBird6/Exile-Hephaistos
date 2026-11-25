@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { useEffect, useRef, type ReactNode } from 'react'
 import type { Film } from '../workbenchHistory'
 import type { NotationStep } from '../session-notation/extractSessionNotation'
 import { useI18n } from '../../../shared/i18n/i18n'
@@ -50,10 +50,56 @@ export function SessionDetail({
   const { t } = useI18n()
   const index = Math.max(0, Math.min(cursor, (film?.frames.length ?? 1) - 1))
   const frame = film?.frames[index]
+  const previous = useRef<HTMLButtonElement>(null)
+  const next = useRef<HTMLButtonElement>(null)
+  const canBrowse = Boolean(
+    onNavigate && !disabled && (film?.frames.length ?? 0) > 1,
+  )
+  useEffect(() => {
+    if (!canBrowse) return
+    function navigate(event: KeyboardEvent) {
+      if (
+        event.defaultPrevented ||
+        event.isComposing ||
+        event.ctrlKey ||
+        event.altKey ||
+        event.metaKey ||
+        (event.target instanceof Element &&
+          event.target.closest(
+            'input, textarea, select, [contenteditable]:not([contenteditable="false"]), [role="textbox"], [role="combobox"], [role="dialog"], dialog',
+          ))
+      )
+        return
+      const key = /^[a-z]$/i.test(event.key)
+        ? event.key.toLowerCase()
+        : event.code === 'KeyQ'
+          ? 'q'
+          : event.code === 'KeyE'
+            ? 'e'
+            : ''
+      const button =
+        key === 'q' ? previous.current : key === 'e' ? next.current : null
+      if (
+        !button ||
+        button.disabled ||
+        button.closest('[hidden], [inert], [aria-hidden="true"]') ||
+        document.querySelector(
+          'dialog[open], [aria-modal="true"]:not([hidden])',
+        )
+      )
+        return
+      event.preventDefault()
+      button.click()
+    }
+    window.addEventListener('keydown', navigate)
+    return () => window.removeEventListener('keydown', navigate)
+  }, [canBrowse])
   const controls = onNavigate && (film || !pendingSteps) && (
     <div className="workbench-film-toolbar">
       <div className="workbench-film-controls">
         <button
+          ref={previous}
+          aria-keyshortcuts="Q"
           type="button"
           aria-label={t('ui.previous_crafting_step')}
           disabled={!film || index === 0 || disabled}
@@ -69,6 +115,8 @@ export function SessionDetail({
             : t('ui.new_craft')}
         </span>
         <button
+          ref={next}
+          aria-keyshortcuts="E"
           type="button"
           aria-label={t('ui.next_crafting_step')}
           disabled={!film || index === film.frames.length - 1 || disabled}
