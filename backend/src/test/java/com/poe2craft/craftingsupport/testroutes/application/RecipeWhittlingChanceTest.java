@@ -230,7 +230,7 @@ class RecipeWhittlingChanceTest {
             .toList();
     assertThat(routes)
         .anyMatch(
-            r -> r.steps().getFirst().omens().isEmpty() && r.steps().getFirst().maxUses() != null);
+            r -> r.steps().getFirst().omens().isEmpty() && r.steps().getFirst().repeatUntilHit());
     for (var route : routes) {
       var step = route.steps().getFirst();
       if (step.omens().isEmpty()) {

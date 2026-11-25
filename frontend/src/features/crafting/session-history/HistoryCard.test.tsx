@@ -2,9 +2,13 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { cleanup, render, screen } from '@testing-library/react'
 import { afterEach, expect, it } from 'vitest'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
-import { setLocale } from '../../../shared/i18n/i18n'
+import { setLocale, type Locale } from '../../../shared/i18n/i18n'
+import { itemCardMessages } from '../itemCardMessages'
+import type { Definition } from '../craftingApi'
 import { concreteInitial } from '../workbenchApi'
 import { HistoryCard } from './HistoryCard'
+import { requestFixture } from '../path-tree/fixtures.test-support'
+import { acquisitionRouteFilm } from '../method-search/acquisitionRouteFilm'
 afterEach(() => cleanup())
 it('keeps known option sentences readable across ruleset changes without editing the saved item', async () => {
   setLocale('en')
@@ -162,3 +166,160 @@ it('restores the workbench affected-option mark at each saved step and clears it
   ).toBeNull()
   expect(JSON.stringify(film)).toBe(saved)
 })
+
+const countess: Definition = {
+  id: 'amulet:prefix:countess',
+  name: 'Countess',
+  text: '+(47—50) to Spirit',
+  tier: 1,
+  affixType: 'PREFIX',
+  familyIds: ['BaseSpirit'],
+  stats: [{ id: 'base_spirit_from_equipment', min: 47, max: 50 }],
+}
+
+const spiritSentences: Record<Locale, string> = {
+  en: '+47 to Spirit',
+  ko: '정신력 +47',
+  'zh-CN': '+47 精魂',
+  'zh-TW': '+47精魂',
+  ja: 'スピリット +47',
+  es: '+47 al espíritu',
+  ru: '+47 к духу',
+  th: 'พลังวิญญาณ +47',
+}
+
+it.each(Object.entries(spiritSentences))(
+  'shows the acquired roll and eligible tier range before Divine, and preserves actual rolls after transfer in %s',
+  async (language, acquiredText) => {
+    const locale = language as Locale
+    await setLocale(locale)
+    const baseItemId = 'Metadata/Items/Amulets/FourAmulet9'
+    const held = { modifierId: 's', values: { strength: 7 }, fractured: true }
+    const start = {
+      ...concreteInitial(initialFixture),
+      baseItemId,
+      rarity: 'RARE' as const,
+      explicits: [held],
+    }
+    const dummy = {
+      ...start,
+      explicits: [held, { modifierId: 'p', values: { life: 12 } }],
+    }
+    const spiritState = (value: number) => ({
+      ...start,
+      explicits: [
+        held,
+        {
+          modifierId: countess.id,
+          values: { base_spirit_from_equipment: value },
+        },
+      ],
+    })
+    const hit = spiritState(47)
+    const divined = spiritState(49)
+    const request = requestFixture()
+    request.start.item = {
+      ...request.start.item,
+      baseItemId,
+      snapshotId: start.snapshotId,
+      rarity: start.rarity,
+      implicits: start.implicits.map((mod) => ({ ...mod, fractured: false })),
+      explicits: [held],
+    }
+    request.start.provenance.rulesetIdentity = initialFixture.rulesetIdentity
+    const film = acquisitionRouteFilm(
+      request,
+      {
+        cards: [
+          {
+            options: [
+              {
+                number: 1,
+                modifierIds: [countess.id],
+                hasLowerBound: true,
+                hasUpperBound: true,
+              },
+            ],
+          },
+        ],
+        states: [dummy, hit, divined],
+        complete: true,
+        routes: [
+          {
+            cardIndex: 0,
+            stateIndices: [0, 1, 2],
+            order: [1],
+            probability: 1,
+            steps: [
+              {
+                action: 'EXALTED',
+                dummy: true,
+                omens: [],
+                acquired: [],
+                lost: [],
+                chance: { probability: 1 },
+              },
+              {
+                action: 'CHAOS',
+                omens: [],
+                acquired: [1],
+                lost: [],
+                repeatUntilHit: true,
+                expectedUses: 3,
+                chance: { probability: 1 },
+              },
+              {
+                action: 'DIVINE',
+                omens: [],
+                acquired: [],
+                lost: [],
+                maxUses: 1000,
+                expectedUses: 2,
+              },
+            ],
+          },
+        ],
+      },
+      0,
+      locale,
+    )!
+    const client = new QueryClient()
+    client.setQueryData(['crafting', 'initial', 'solar', 82, 'manual'], {
+      ...initialFixture,
+      state: { ...initialFixture.state, baseItemId },
+      modifiers: { ...initialFixture.modifiers, [countess.id]: countess },
+    })
+    const view = (f: typeof film, index: number) => (
+      <QueryClientProvider client={client}>
+        <HistoryCard film={f} frame={f.frames[index]!} />
+      </QueryClientProvider>
+    )
+    const rendered = render(view(film, 1))
+    expect(
+      await screen.findByText(itemCardMessages[locale].replaceable),
+    ).toBeVisible()
+    expect(screen.getByText('+7 to Strength')).toBeVisible()
+    rendered.rerender(view(film, 2))
+    expect(await screen.findByText(acquiredText)).toBeVisible()
+    const range = rendered.container.querySelector('.item-card__tier-range')!
+    expect(range).toBeVisible()
+    expect(range).toHaveTextContent(itemCardMessages[locale].tierRange)
+    expect(range).toHaveTextContent(/47.*50/)
+    expect(film.frames[2]!.state).toEqual(hit)
+    rendered.rerender(view(film, 3))
+    expect(
+      await screen.findByText(acquiredText.replace('47', '49')),
+    ).toBeVisible()
+    expect(
+      rendered.container.querySelector('.item-card__tier-range'),
+    ).toBeNull()
+    const stored = structuredClone(film)
+    rendered.rerender(view(stored, 2))
+    expect(await screen.findByText(acquiredText)).toBeVisible()
+    expect(
+      rendered.container.querySelector('.item-card__tier-range'),
+    ).toBeNull()
+    expect(stored.frames[2]!.state).toEqual(hit)
+    expect(stored.frames[3]!.state).toEqual(divined)
+  },
+)

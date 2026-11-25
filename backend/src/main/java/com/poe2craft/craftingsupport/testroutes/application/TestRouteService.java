@@ -7,7 +7,6 @@ import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.Status;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
-import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import java.util.List;
@@ -119,16 +118,19 @@ public final class TestRouteService {
       // 이 응답은 한 가지 지정된 경로에 한정되므로 다른 후보의 미탐색 여부는 영향을 주지 않는다.
       complete = true;
     }
-    var lower = boundedStats(goal, goalCatalog, e -> e.range().min() != null);
-    var upper = boundedStats(goal, goalCatalog, e -> e.range().max() != null);
-    var catalog = simulator.catalog();
     var dictionary =
         cards.stream()
             .map(
                 card ->
                     new Card(
                         card.options().stream()
-                            .map(option -> displayOption(option, catalog, lower, upper))
+                            .map(
+                                option ->
+                                    new Option(
+                                        option.number(),
+                                        option.tiers().keySet().stream().sorted().toList(),
+                                        option.hasLowerBound(),
+                                        option.hasUpperBound()))
                             .toList()))
             .toList();
     boolean alreadySatisfied = result.routes().stream().anyMatch(route -> route.steps().isEmpty());
@@ -137,22 +139,6 @@ public final class TestRouteService {
         result.routes(),
         alreadySatisfied || (complete && result.complete()),
         result.states());
-  }
-
-  /** 해당 경계가 있는 활성 목표 행에서 참조한 카탈로그 수치를 모은다. */
-  private static Set<String> boundedStats(
-      GoalFilter goal, GoalCatalog catalog, Predicate<GoalFilter.Entry> hasBound) {
-    var rows =
-        goal.groups().stream()
-            .filter(g -> !g.disabled())
-            .flatMap(g -> g.entries().stream())
-            .filter(e -> !e.disabled() && hasBound.test(e))
-            .map(GoalFilter.Entry::statId)
-            .collect(Collectors.toSet());
-    return catalog.stats().stream()
-        .filter(s -> rows.contains(s.statId()))
-        .flatMap(s -> s.sourceStatIds().stream())
-        .collect(Collectors.toSet());
   }
 
   /** 직접 수치 조건만 있으면 그 원본 ID를 넘긴다. 다른 점수·파생 규칙은 모든 수치를 보존한다. */
@@ -180,19 +166,6 @@ public final class TestRouteService {
       result.addAll(stat.get().sourceStatIds());
     }
     return Set.copyOf(result);
-  }
-
-  /** 카드의 허용 티어와 해당 옵션이 기여하는 하한·상한만 표시 사전에 포함한다. */
-  private static Option displayOption(
-      RouteCards.Option option, ItemCatalog catalog, Set<String> lower, Set<String> upper) {
-    var ids = option.tiers().keySet().stream().sorted().toList();
-    // 같은 옵션 계열 안에서는 모든 티어가 동일한 수치 ID 목록을 공유한다.
-    var stats = catalog.find(ids.getFirst()).orElseThrow().stats();
-    return new Option(
-        option.number(),
-        ids,
-        stats.stream().anyMatch(s -> lower.contains(s.id())),
-        stats.stream().anyMatch(s -> upper.contains(s.id())));
   }
 
   /** 단순 제거로도 달성할 수 있는 부정·조건부·가중합·상한 목표는 획득 순서 탐색만으로 완전성을 보장할 수 없다. */

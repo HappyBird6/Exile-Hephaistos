@@ -1009,3 +1009,171 @@ it('rejects a response from another ruleset', async () => {
     loadAcquisitionRoutes(request, new AbortController().signal),
   ).rejects.toThrow()
 })
+
+it('filters by certified minimum, includes ties at tenth, and requires a fully priced route under a finite cap', async () => {
+  await setLocale('en')
+  const step = { action: 'EXALTED', acquired: [1], lost: [], omens: [] }
+  const ordinary = {
+    cardIndex: 0,
+    order: [1],
+    stateIndices: [0],
+    steps: [step],
+  }
+  serve({
+    cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+    states: [observed(17, null)],
+    complete: true,
+    routes: [
+      { ...ordinary, probability: 1, lucky: true },
+      ...Array.from({ length: 9 }, (_, i) => ({
+        ...ordinary,
+        probability: (90 - i) / 100,
+        ...(i === 1
+          ? {
+              stateIndices: [0, 0],
+              steps: [step, { ...step, action: 'DIVINE' }],
+            }
+          : {}),
+      })),
+      { ...ordinary, probability: 0.4 },
+      {
+        ...ordinary,
+        probability: null,
+        probabilityBounds: { lower: 0.4, upper: 0.99 },
+      },
+      { ...ordinary, probability: 0.1 },
+    ],
+  })
+  show()
+  const list = await screen.findByRole('list', { name: 'Crafting methods' })
+  const min = screen.getByRole('slider', { name: 'Minimum success chance' })
+  const max = screen.getByRole('slider', { name: 'Maximum cost (ex)' })
+  const lucky = screen.getByRole('checkbox', { name: 'Show lucky routes' })
+  expect(lucky).not.toBeChecked()
+  expect(min).toHaveAttribute('aria-valuetext', '40%')
+  expect(max).toHaveAttribute('aria-valuetext', 'No limit')
+  expect(within(list).getAllByRole('listitem')).toHaveLength(11)
+  expect(within(list).queryByRole('button', { name: /100%$/ })).toBeNull()
+  expect(
+    within(list).getByRole('button', { name: /≥ 1 ex · 89%$/ }),
+  ).toBeVisible()
+  fireEvent.change(min, { target: { value: '0' } })
+  expect(within(list).getAllByRole('listitem')).toHaveLength(12)
+  fireEvent.click(lucky)
+  expect(within(list).getAllByRole('listitem')).toHaveLength(13)
+  fireEvent.change(max, { target: { value: '1' } })
+  expect(max).toHaveAttribute('aria-valuetext', '1 ex')
+  expect(within(list).getAllByRole('listitem')).toHaveLength(12)
+  expect(within(list).queryByRole('button', { name: /89%$/ })).toBeNull()
+  fireEvent.change(max, { target: { value: '0' } })
+  expect(within(list).queryAllByRole('listitem')).toHaveLength(0)
+  expect(screen.getByRole('status')).toHaveTextContent(
+    'No routes match these filters.',
+  )
+  expect(screen.getByRole('slider', { name: 'Maximum cost (ex)' })).toBe(max)
+  fireEvent.change(max, { target: { value: '2' } })
+  expect(within(list).getAllByRole('listitem')).toHaveLength(13)
+})
+
+it('shows the rounded icon multiplier and full cost for unlimited Chaos, and locks the verified 100% dummy independently of the route chance', async () => {
+  await setLocale('en')
+  serve({
+    cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+    states: [observed(null, 8), observed(17, null)],
+    complete: true,
+    routes: [
+      {
+        cardIndex: 0,
+        order: [1],
+        stateIndices: [0, 1],
+        probability: 1,
+        steps: [
+          {
+            action: 'EXALTED',
+            dummy: true,
+            omens: [],
+            acquired: [],
+            lost: [],
+            chance: { probability: 1 },
+          },
+          {
+            action: 'CHAOS',
+            omens: [],
+            acquired: [1],
+            lost: [],
+            repeatUntilHit: true,
+            expectedUses: 382.74,
+            chance: { probability: 1 },
+          },
+        ],
+      },
+    ],
+  })
+  show()
+  const history = await screen.findByRole('region', { name: 'History' })
+  const chaos = within(history).getByRole('button', { name: 'Step 2' })
+  expect(chaos).toHaveTextContent('×383')
+  expect(chaos).toHaveAccessibleDescription('Expected 383')
+  expect(history).not.toHaveTextContent('1–1000')
+  const list = screen.getByRole('list', { name: 'Crafting methods' })
+  expect(
+    within(list).getByRole('button', { pressed: true }),
+  ).toHaveAccessibleName(/767 ex · 100%$/)
+  const max = screen.getByRole('slider', { name: 'Maximum cost (ex)' })
+  fireEvent.change(max, { target: { value: '1' } })
+  expect(max).toHaveAttribute('aria-valuetext', '766.48 ex')
+  const stepChance = screen.getByText('Step chance 100%')
+  const costGroup = stepChance.closest('[role="group"]')!
+  expect(costGroup).not.toHaveTextContent('Route success chance')
+  fireEvent.click(within(history).getByRole('button', { name: 'Step 1' }))
+  expect(costGroup).toHaveTextContent('Step chance 100%')
+  expect(
+    within(history).queryByRole('button', { name: 'Step 1 · Exalted Orb' }),
+  ).toBeNull()
+  expect(
+    within(history).getByRole('button', { name: 'Step 2 · Chaos Orb' }),
+  ).toBeVisible()
+  expect(screen.getByText('Route success chance · 100%')).toBeVisible()
+})
+
+it('keeps the lucky hit grade editable on a route that also contains a locked dummy of the same currency', async () => {
+  await setLocale('en')
+  const exalt = { action: 'EXALTED', omens: [], acquired: [], lost: [] }
+  serve({
+    cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+    states: [observed(null, 7), observed(12, 7)],
+    complete: true,
+    routes: [
+      {
+        cardIndex: 0,
+        order: [1],
+        stateIndices: [0, 1],
+        probability: 0.07,
+        lucky: true,
+        steps: [
+          { ...exalt, dummy: true, chance: { probability: 1 } },
+          { ...exalt, acquired: [1], chance: { probability: 0.07 } },
+        ],
+      },
+    ],
+  })
+  show()
+  fireEvent.click(
+    await screen.findByRole('checkbox', { name: 'Show lucky routes' }),
+  )
+  const history = await screen.findByRole('region', { name: 'History' })
+  expect(
+    within(history).queryByRole('button', { name: 'Step 1 · Exalted Orb' }),
+  ).toBeNull()
+  fireEvent.click(
+    within(history).getByRole('button', { name: 'Step 2 · Exalted Orb' }),
+  )
+  expect(
+    within(history).getByRole('button', { name: 'Perfect Exalted Orb' }),
+  ).toBeVisible()
+  expect(screen.getByText('Step chance 7%')).toBeVisible()
+  fireEvent.click(within(history).getByRole('button', { name: 'Step 1' }))
+  expect(screen.getByText('One replaceable modifier')).toBeVisible()
+  expect(screen.getByText('Step chance 100%')).toBeVisible()
+  expect(screen.getByText('Route success chance · 7%')).toBeVisible()
+})

@@ -92,32 +92,43 @@ class RecipeStepChanceTest {
     assertThat(successful.routes().getFirst().probability()).isBetween(0.0, 1.0);
   }
 
-  /** 수치 열거가 중단되어도 확인한 다섯 굴림은 원래 전체 작업대 분모에서 실제 적중한 질량이다. */
+  /** 한 티어의 15가지 값은 획득에서 한 경계 상태다. 작은 예산에서도 전체 제왕 후보 풀의 원래 가중치를 유지한다. */
   @Test
-  void partialRollsBoundTheRouteAndItsStepWithoutRenormalization() {
+  void aSingleBoundaryStateKeepsTheWholeTierMassWithASmallBudget() {
     var start = fixture.item(ItemState.Rarity.MAGIC, fixture.strength);
     var card =
         new RouteCards.Card(
             List.of(new RouteCards.Option(1, Map.of(fixture.life, List.of(base)))), 0);
-    java.util.function.Predicate<ItemState> goal =
-        s -> s.explicits().stream().anyMatch(m -> m.modifierId().equals(fixture.life));
     var selected = new RecipeRoutePlanner.Step("REGAL", List.of(), List.of(1), List.of(), null);
-    var partial =
-        RecipeRoutePlanner.evaluateFixed(
-            fixture.workbench, start, card, goal, 5, false, null, List.of(selected));
-    var whole =
-        RecipeRoutePlanner.evaluateFixed(
-            fixture.workbench, start, card, goal, 100, false, null, List.of(selected));
-    var route = partial.routes().getFirst();
-    var exact = whole.routes().getFirst().probability();
-    assertThat(partial.complete()).isFalse();
-    assertThat(route.probability()).isNull();
-    assertThat(route.probabilityBounds().lower()).isCloseTo(exact * 5 / 15, offset(1e-15));
-    assertThat(exact)
-        .isBetween(route.probabilityBounds().lower(), route.probabilityBounds().upper());
-    assertThat(route.steps().getFirst().chance().probabilityBounds())
-        .isEqualTo(route.probabilityBounds());
-    assertThat(whole.routes().getFirst().probabilityBounds()).isNull();
+    // 제왕이 여는 희귀 접미까지 분모에 포함한다. 마법 시작 상태의 1/1 슬롯 제한은 이미 풀린다.
+    var upgraded = RecipeStateGroups.withAffixes(start, ItemState.Rarity.RARE, start.explicits());
+    var pool = fixture.workbench.pool(upgraded, WorkbenchCurrency.REGAL, null);
+    long total = pool.stream().mapToLong(ModifierDefinition::weight).sum();
+    double expected = (double) fixture.catalog.find(fixture.life).orElseThrow().weight() / total;
+    assertThat(expected).isBetween(0.0, 1.0);
+    for (int budget : List.of(5, 100)) {
+      var result =
+          RecipeRoutePlanner.evaluateFixed(
+              fixture.workbench,
+              start,
+              card,
+              item -> item.explicits().stream().anyMatch(m -> m.modifierId().equals(fixture.life)),
+              budget,
+              false,
+              null,
+              List.of(selected));
+      assertThat(result.complete()).isTrue();
+      assertThat(result.routes())
+          .singleElement()
+          .satisfies(
+              route -> {
+                assertThat(route.probability()).isCloseTo(expected, offset(1e-15));
+                assertThat(route.steps().getFirst().chance().probability())
+                    .isEqualTo(route.probability());
+                assertThat(route.probabilityBounds()).isNull();
+                assertThat(selectedLife(result, route, 0)).isEqualTo(85);
+              });
+    }
   }
 
   /** 무징조 단회 카오스는 선택 등급이 바뀌어도 기존 세션의 고정 재생 후보가 아니다. */
@@ -187,20 +198,41 @@ class RecipeStepChanceTest {
     var followed =
         RecipeRoutePlanner.evaluateFixed(
             fixture.workbench, start, card, goal, 10000, true, null, List.of(topMiss, exalt));
-    assertThat(followed.routes()).hasSize(1);
-    var route = followed.routes().getFirst();
+    assertThat(followed.routes()).isEmpty();
+    var changedDummy =
+        new RecipeRoutePlanner.Step(
+            "GREATER_REGAL", List.of(), List.of(), List.of(), null, null, "REGAL");
+    assertThat(
+            RecipeRoutePlanner.evaluateFixed(
+                    fixture.workbench,
+                    start,
+                    card,
+                    goal,
+                    10000,
+                    true,
+                    null,
+                    List.of(changedDummy, exalt))
+                .routes())
+        .isEmpty();
+    var ordinaryMiss = new RecipeRoutePlanner.Step("REGAL", List.of(), List.of(), List.of(), null);
+    var prepared =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench, start, card, goal, 10000, true, null, List.of(ordinaryMiss, exalt));
+    assertThat(prepared.routes()).hasSize(1);
+    var route = prepared.routes().getFirst();
     assertThat(route.steps())
         .extracting(RecipeRoutePlanner.Step::action)
-        .containsExactly("PERFECT_REGAL", "EXALTED");
-    assertThat(route.steps().getFirst().chance()).isNull();
+        .containsExactly("REGAL", "EXALTED");
+    assertThat(route.steps().getFirst().dummy()).isTrue();
+    assertThat(route.steps().getFirst().chance().probability()).isEqualTo(1);
     assertThat(route.order()).containsExactly(1);
-    assertThat(followed.states().get(route.stateIndices().getFirst()).explicits())
+    assertThat(prepared.states().get(route.stateIndices().getFirst()).explicits())
         .noneMatch(m -> m.modifierId().equals(fixture.life));
-    assertThat(followed.states().get(route.stateIndices().getLast()).explicits())
+    assertThat(prepared.states().get(route.stateIndices().getLast()).explicits())
         .anyMatch(m -> m.modifierId().equals(fixture.life));
     var limited =
         RecipeRoutePlanner.evaluateFixed(
-            fixture.workbench, start, card, goal, 1, true, null, List.of(topMiss, exalt));
+            fixture.workbench, start, card, goal, 1, true, null, List.of(ordinaryMiss, exalt));
     assertThat(limited.routes()).isEmpty();
     assertThat(limited.complete()).isFalse();
   }
@@ -286,24 +318,24 @@ class RecipeStepChanceTest {
             fixture.workbench, start, List.of(card), done, 12000, true, null);
     for (int selected : List.of(1, 2)) {
       var first =
-          new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(selected), List.of(), null);
-      var second =
           new RecipeRoutePlanner.Step("EXALTED", List.of(), List.of(3 - selected), List.of(), null);
+      var second =
+          new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(selected), List.of(), null);
       var route =
           found.routes().stream()
               .filter(
                   r ->
                       r.steps().size() == 2
-                          && r.steps().getFirst().action().equals("REVEAL")
+                          && r.steps().getFirst().action().equals("EXALTED")
                           && r.steps().getFirst().acquired().equals(first.acquired())
-                          && r.steps().getLast().action().equals("EXALTED")
-                          && r.steps().getLast().omens().isEmpty())
+                          && r.steps().getLast().action().equals("REVEAL")
+                          && r.steps().getFirst().omens().isEmpty())
               .findFirst()
               .orElseThrow();
       var fixed =
           RecipeRoutePlanner.evaluateFixed(
               fixture.workbench, start, card, done, 12000, true, null, List.of(first, second));
-      assertThat(route.steps().getFirst().chance().probability()).isEqualTo(1);
+      assertThat(route.steps().getLast().chance().probability()).isEqualTo(1);
       assertThat(fixed.routes())
           .singleElement()
           .satisfies(
@@ -314,9 +346,9 @@ class RecipeStepChanceTest {
     }
   }
 
-  /** 선택한 Rotund 티어 자체는 확정이어도 85~99의 수치는 실제 확률로 굴린다. 미달하면 이후 Divine에서 다시 굴린다. */
+  /** 목표 99에 대해 공개는 Rotund의 85로 시작하고, 실제 85~99 중 99를 굴릴 확률은 Divine에서만 쓴다. */
   @Test
-  void guaranteedTierRollsItsValuesBeforeDivine() {
+  void guaranteedTierStartsAtItsBoundaryAndDivineRollsTheActualValues() {
     var start =
         fixture
             .item(ItemState.Rarity.RARE)
@@ -336,23 +368,24 @@ class RecipeStepChanceTest {
     var search =
         RecipeRoutePlanner.calculate(
             fixture.workbench, start, List.of(card), done, 10000, false, null);
-    var direct =
-        search.routes().stream().filter(r -> r.steps().size() == 1).findFirst().orElseThrow();
+    assertThat(search.routes()).noneMatch(r -> r.steps().size() == 1);
     var divine =
         search.routes().stream()
             .filter(r -> r.steps().size() == 2 && r.steps().getLast().action().equals("DIVINE"))
             .findFirst()
             .orElseThrow();
-    assertThat(direct.steps().getFirst().chance().probability()).isEqualTo(1);
-    assertThat(direct.probability()).isCloseTo(1.0 / 15, offset(1e-12));
+    assertThat(divine.steps().getFirst().chance().probability()).isEqualTo(1);
+    assertThat(selectedLife(search, divine, 0)).isEqualTo(85);
+    assertThat(selectedLife(search, divine, 1)).isEqualTo(99);
     assertThat(divine.steps().getLast().chance().probability()).isCloseTo(1.0 / 15, offset(1e-12));
-    assertThat(divine.probability())
-        .isCloseTo(14.0 / 15 * (1 - Math.pow(14.0 / 15, 1000)), offset(1e-12));
+    double completed = 1 - Math.pow(14.0 / 15, 1000);
+    assertThat(divine.probability()).isCloseTo(completed, offset(1e-12));
+    assertThat(divine.steps().getLast().expectedUses()).isCloseTo(15 * completed, offset(1e-12));
   }
 
-  /** 공개될 티어의 분포 자료 없이도 모든 티어가 같은 성패·수치 롤 결과를 내면 그 확률만 확정한다. */
+  /** 공개에서 허용된 같은 계열의 두 티어는 Rotund 85로 모으고, 뼈가 여는 방향 확률은 보존한다. */
   @Test
-  void unknownRevealTierDistributionKeepsCommonSuccessAndBoneRisk() {
+  void revealCombinesEligibleTiersAtTheBoundaryAndPreservesBoneDirectionRisk() {
     var high = "amulet:prefix:virile";
     var d = new RouteCards.Source("D", "Preserved_Collarbone", null);
     var tiers = Map.of(fixture.life, List.of(d), high, List.of(d));
@@ -365,11 +398,17 @@ class RecipeStepChanceTest {
     java.util.function.Predicate<ItemState> any =
         s -> s.explicits().stream().anyMatch(m -> tiers.containsKey(m.modifierId()));
     for (var start : List.of(bare, hidden)) {
-      var action = start == bare ? "Preserved_Collarbone" : "REVEAL";
-      var step = new RecipeRoutePlanner.Step(action, List.of(), List.of(1), List.of(), null);
+      var reveal = new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(1), List.of(), null);
+      var steps =
+          start == bare
+              ? List.of(
+                  new RecipeRoutePlanner.Step(
+                      "Preserved_Collarbone", List.of(), List.of(), List.of(), null),
+                  reveal)
+              : List.of(reveal);
       var fixed =
           RecipeRoutePlanner.evaluateFixed(
-              fixture.workbench, start, card, any, 20000, false, null, List.of(step));
+              fixture.workbench, start, card, any, 20000, false, null, steps);
       assertThat(fixed.routes())
           .singleElement()
           .satisfies(
@@ -377,6 +416,7 @@ class RecipeStepChanceTest {
                 double expected = start == bare ? 0.5 : 1.0;
                 assertThat(r.steps().getFirst().chance().probability()).isEqualTo(expected);
                 assertThat(r.probability()).isEqualTo(expected);
+                assertThat(selectedLife(fixed, r, r.steps().size() - 1)).isEqualTo(85);
               });
     }
     var needs99 =
@@ -391,57 +431,56 @@ class RecipeStepChanceTest {
             false,
             null,
             List.of(new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(1), List.of(), null)));
-    assertThat(needs99.routes())
-        .singleElement()
-        .satisfies(
-            r -> {
-              assertThat(r.steps().getFirst().chance().probability()).isEqualTo(1);
-              assertThat(r.probability()).isNull();
-              assertThat(r.probabilityBounds().lower()).isCloseTo(1d / 15, offset(1e-15));
-              assertThat(r.probabilityBounds().upper()).isEqualTo(1);
-            });
+    assertThat(needs99.complete()).isTrue();
+    assertThat(needs99.routes()).isEmpty();
   }
 
-  /** 생명력의 두 허용 티어가 같은 단계 번호를 받으며 부분 겹치는 85~99의 모든 수치가 적중한다. */
+  /** 두 허용 티어의 가중치를 전부 합쳐 Rotund 85에 적립하고 Divine에서 90 이상일 실제 확률을 적용한다. */
   @Test
-  void addsWholeTierProbabilitiesButOnlyCreditsSuccessfulFinalRolls() {
+  void sumsBothTierWeightsAtTheLowerBoundaryBeforeDivine() {
     var start = fixture.item(ItemState.Rarity.RARE);
     var higher = "amulet:prefix:virile";
     var tiers = Map.of(fixture.life, List.of(base), higher, List.of(base));
     var card = new RouteCards.Card(List.of(new RouteCards.Option(1, tiers)), 0);
+    var exalted = new RecipeRoutePlanner.Step("EXALTED", List.of(), List.of(1), List.of(), null);
+    var divine = new RecipeRoutePlanner.Step("DIVINE", List.of(), List.of(), List.of(), null);
+    java.util.function.Predicate<ItemState> needs90 =
+        state ->
+            state.explicits().stream()
+                .anyMatch(m -> m.values().getOrDefault("base_maximum_life", 0L) >= 90);
+    var direct =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench, start, card, needs90, 30000, false, null, List.of(exalted));
+    assertThat(direct.routes()).isEmpty();
     var result =
-        RecipeRoutePlanner.calculate(
-            fixture.workbench,
-            start,
-            List.of(card),
-            state ->
-                state.explicits().stream()
-                    .anyMatch(m -> m.values().getOrDefault("base_maximum_life", 0L) >= 90),
-            30000);
-    var route =
-        result.routes().stream()
-            .filter(
-                r ->
-                    r.steps().size() == 1
-                        && r.steps().getFirst().action().equals("EXALTED")
-                        && r.steps().getFirst().omens().isEmpty())
-            .findFirst()
-            .orElseThrow();
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench, start, card, needs90, 30000, false, null, List.of(exalted, divine));
     long total =
         fixture.workbench.pool(start, WorkbenchCurrency.EXALTED, null).stream()
             .mapToLong(ModifierDefinition::weight)
             .sum();
-    double lowerWeight = fixture.catalog.find(fixture.life).orElseThrow().weight();
-    double higherWeight = fixture.catalog.find(higher).orElseThrow().weight();
-    assertThat(route.steps().getFirst().chance().probability())
-        .isCloseTo((lowerWeight + higherWeight) / total, offset(1e-14));
-    assertThat(route.probability())
-        .isCloseTo((lowerWeight * (10d / 15) + higherWeight) / total, offset(1e-14));
+    long combined =
+        fixture.catalog.find(fixture.life).orElseThrow().weight()
+            + fixture.catalog.find(higher).orElseThrow().weight();
+    double tierHit = (double) combined / total;
+    assertThat(result.routes())
+        .singleElement()
+        .satisfies(
+            route -> {
+              assertThat(route.steps().getFirst().chance().probability())
+                  .isCloseTo(tierHit, offset(1e-14));
+              assertThat(selectedLife(result, route, 0)).isEqualTo(85);
+              assertThat(selectedLife(result, route, 1)).isBetween(90L, 99L);
+              assertThat(route.steps().getLast().chance().probability())
+                  .isCloseTo(10d / 15, offset(1e-14));
+              assertThat(route.probability())
+                  .isCloseTo(tierHit * (1 - Math.pow(5d / 15, 1000)), offset(1e-14));
+            });
   }
 
-  /** 일반 승급 에센스는 정해진 티어에 적중하고, 미달 상태에서만 마지막 Divine을 사용한다. */
+  /** 일반 승급 에센스의 대표 수치 85는 항상 미달이므로 모든 질량이 마지막 Divine에 진입한다. */
   @Test
-  void countsDivineFromUnfinishedStatesOnly() {
+  void everyGuaranteedEssenceHitEntersDivineFromTheBoundary() {
     var start = fixture.item(ItemState.Rarity.MAGIC, fixture.strength);
     var essence = new RouteCards.Source("E", "GREATER_ESSENCE_BODY", null);
     var card =
@@ -463,10 +502,22 @@ class RecipeStepChanceTest {
             .orElseThrow();
     assertThat(route.steps().getFirst().chance().probability()).isEqualTo(1);
     assertThat(route.steps().getLast().chance().probability()).isCloseTo(10d / 15, offset(1e-14));
+    assertThat(selectedLife(result, route, 0)).isEqualTo(85);
+    assertThat(selectedLife(result, route, 1)).isBetween(90L, 99L);
     assertThat(route.steps().getLast().expectedUses()).isEqualTo(1.5);
     assertThat(route.steps().getLast().maxUses()).isEqualTo(1000);
-    assertThat(route.probability())
-        .isCloseTo((5d / 15) * (1 - Math.pow(5d / 15, 1000)), offset(1e-14));
+    assertThat(route.probability()).isCloseTo(1 - Math.pow(5d / 15, 1000), offset(1e-14));
+  }
+
+  /** 반환한 경로의 지정 프레임에서 실제 Rotund 생명력 수치를 읽는다. 다른 허용 티어가 대신 들어가면 실패한다. */
+  private long selectedLife(
+      RecipeRoutePlanner.Result result, RecipeRoutePlanner.Route route, int step) {
+    return result.states().get(route.stateIndices().get(step)).explicits().stream()
+        .filter(m -> m.modifierId().equals(fixture.life))
+        .findFirst()
+        .orElseThrow()
+        .values()
+        .get("base_maximum_life");
   }
 
   /** 승급 중 목표를 빗나간 질량을 감안해 더미 각각에서의 다음 적중 확률을 가중평균한다. */
@@ -517,7 +568,8 @@ class RecipeStepChanceTest {
     var expected = hitAfterMiss.divide(misses);
     double chance = expected.numerator().doubleValue() / expected.denominator().doubleValue();
     assertThat(misses).isNotEqualTo(Fraction.ONE);
-    assertThat(route.steps().getFirst().chance()).isNull();
+    assertThat(route.steps().getFirst().dummy()).isTrue();
+    assertThat(route.steps().getFirst().chance().probability()).isEqualTo(1);
     assertThat(route.steps().getLast().chance().probability()).isCloseTo(chance, offset(1e-14));
     assertThat(route.probability()).isCloseTo(chance, offset(1e-14));
     var limited =

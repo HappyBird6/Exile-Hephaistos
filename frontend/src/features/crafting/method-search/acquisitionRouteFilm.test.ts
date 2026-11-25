@@ -3,12 +3,18 @@ import type { PriceSnapshot } from '../currency-prices/api'
 import { craftingCost } from '../currency-prices/cost'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import type { ConcreteItem } from '../workbenchApi'
+import {
+  fixedSteps,
+  hasGradeOverride,
+  readRouteGrades,
+} from './fixedRouteGrades'
 import { planTitle } from './probabilityPresentation'
 import {
   filmRulesetStatus,
   validStepChance,
   projectedWhittlingOutcomes,
   validProjectedCurrencies,
+  validStoredFilm,
 } from '../workbenchHistory'
 import { formatExpectedUses } from '../currency-prices/formatCurrencyAmount'
 import type { AcquisitionResult, AcquisitionStep } from './acquisitionRouteApi'
@@ -328,4 +334,87 @@ it('shows the materials for unknown bounded Chaos consumption without assuming e
   expect(planTitle(cost, 'en', 'Unresolved')).toBe(
     'Expected number of uses unknown · Unresolved',
   )
+})
+
+it('restores unlimited Chaos above the former cap with unchanged expected cost and replays the method', () => {
+  const step = {
+    action: 'CHAOS',
+    acquired: [1],
+    lost: [],
+    omens: [],
+    repeatUntilHit: true as const,
+    repeatTarget: 1,
+    expectedUses: 2382.2,
+    chance: { probability: 1 },
+  }
+  const { film, cost } = routeFilm(step)
+  const restored = JSON.parse(JSON.stringify(film)) as typeof film
+  expect(validStoredFilm(restored)).toBe(true)
+  expect(restored.frames[1]?.projectedCurrencies).toEqual([
+    {
+      currencyId: 'Chaos_Orb',
+      omenIds: [],
+      repeatUntilHit: true,
+      expectedUses: 2382.2,
+    },
+  ])
+  expect(formatExpectedUses(step.expectedUses, 'Chaos_Orb', 'en', true)).toBe(
+    '2,382',
+  )
+  expect(cost).toMatchObject({ exalted: 4764.4, incomplete: false })
+  expect(craftingCost(restored, 1, snapshot)).toEqual(cost)
+  expect(
+    fixedSteps(
+      {
+        cardIndex: 0,
+        order: [1],
+        stateIndices: [0],
+        probability: 1,
+        steps: [step],
+      },
+      [2],
+    ),
+  ).toEqual([
+    {
+      action: 'GREATER_CHAOS',
+      originalAction: 'CHAOS',
+      acquired: [1],
+      lost: [],
+      omens: [],
+      repeatUntilHit: true,
+      repeatTarget: 1,
+    },
+  ])
+  const currency = restored.frames[1]!.projectedCurrencies![0]!
+  expect(validProjectedCurrencies([{ ...currency, maxUses: 1000 }])).toBe(false)
+  expect(
+    validProjectedCurrencies([{ ...currency, omenIds: ['Omen_of_Whittling'] }]),
+  ).toBe(false)
+})
+
+it('validates the dummy grade on reload and omits derived dummy metadata when replaying an editable step', () => {
+  const step = { action: 'EXALTED', omens: [], acquired: [], lost: [] }
+  const route = {
+    cardIndex: 0,
+    order: [1],
+    stateIndices: [0, 1],
+    probability: 0.4,
+    steps: [
+      { ...step, dummy: true, chance: { probability: 1 } },
+      { ...step, acquired: [1], chance: { probability: 0.4 } },
+    ],
+  }
+  expect(readRouteGrades('?grades=1.3', route)).toEqual([1, 3])
+  expect(hasGradeOverride(route, [1, 3])).toBe(true)
+  expect(readRouteGrades('?grades=3.3', route)).toBeNull()
+  expect(hasGradeOverride(route, [3, 3])).toBe(false)
+  expect(fixedSteps(route, [3, 3])).toEqual([
+    step,
+    {
+      ...step,
+      acquired: [1],
+      action: 'PERFECT_EXALTED',
+      originalAction: 'EXALTED',
+    },
+  ])
 })

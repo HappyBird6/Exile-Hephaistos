@@ -10,8 +10,8 @@ import type {
   AcquisitionStep,
 } from './acquisitionRouteApi'
 
-export function gradeActions(action: string) {
-  if (!currencyRank(action)) return null
+export function gradeActions({ action, dummy }: AcquisitionStep) {
+  if (dummy || !currencyRank(action)) return null
   const basic = action.replace(/^(GREATER|PERFECT)_/, '')
   return [basic, 'GREATER_' + basic, 'PERFECT_' + basic]
 }
@@ -33,12 +33,17 @@ export function hasGradeOverride(
     !!route &&
     !!grades &&
     route.steps.length === grades.length &&
+    route.steps.every((step, i) => validGrade(step, grades[i]!)) &&
     route.steps.some((step, i) => initialGrade(step) !== grades[i])
   )
 }
 
 export function gradeSearch(grades?: readonly number[]) {
   return grades?.join('.') ?? ''
+}
+
+function validGrade(step: AcquisitionStep, grade: number) {
+  return initialGrade(step) === grade || !!gradeActions(step)?.[grade - 1]
 }
 
 export function readRouteGrades(search: string, route?: AcquisitionRoute) {
@@ -50,8 +55,7 @@ export function readRouteGrades(search: string, route?: AcquisitionRoute) {
     parts.length !== route.steps.length ||
     parts.some(
       (part, i) =>
-        !/^[1-3]$/.test(part) ||
-        (part !== '1' && !currencyRank(route.steps[i]!.action)),
+        !/^[1-3]$/.test(part) || !validGrade(route.steps[i]!, Number(part)),
     )
   )
     return null
@@ -65,6 +69,8 @@ function methodStep({
   lost,
   socketIndex,
   maxUses,
+  repeatUntilHit,
+  repeatTarget,
 }: AcquisitionStep) {
   return {
     action,
@@ -73,14 +79,15 @@ function methodStep({
     lost,
     ...(socketIndex == null ? {} : { socketIndex }),
     ...(maxUses == null ? {} : { maxUses }),
+    ...(repeatUntilHit ? { repeatUntilHit } : {}),
+    ...(repeatTarget == null ? {} : { repeatTarget }),
   }
 }
 
 /** Preserve the entire successful method, changing only explicitly selected currency grades. */
 export function fixedSteps(route: AcquisitionRoute, grades: readonly number[]) {
   return route.steps.map((step, index) => {
-    const action =
-      gradeActions(step.action)?.[grades[index]! - 1] ?? step.action
+    const action = gradeActions(step)?.[grades[index]! - 1] ?? step.action
     return {
       ...methodStep(step),
       action,

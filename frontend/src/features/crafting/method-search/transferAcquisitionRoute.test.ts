@@ -165,6 +165,85 @@ it('forks at the selected verified checkpoint, keeps the full source and preserv
   await repository.close()
 })
 
+it('continues before Divine from the acquired model value and keeps the later roll in the saved route', async () => {
+  const request = requestFixture()
+  request.start.provenance.rulesetIdentity = identity
+  request.start.item = {
+    ...request.start.item,
+    snapshotId: root.snapshotId,
+    baseItemId: root.baseItemId,
+    rarity: 'RARE',
+    implicits: root.implicits.map((mod) => ({ ...mod, fractured: false })),
+    explicits: [],
+  }
+  const acquired = {
+    ...root,
+    rarity: 'RARE' as const,
+    explicits: [{ modifierId: 'p', values: { life: 10 } }],
+  }
+  const divined = {
+    ...acquired,
+    explicits: [{ modifierId: 'p', values: { life: 17 } }],
+  }
+  const film = acquisitionRouteFilm(
+    request,
+    {
+      cards: [
+        {
+          options: [
+            {
+              number: 1,
+              modifierIds: ['p'],
+              hasLowerBound: true,
+              hasUpperBound: true,
+            },
+          ],
+        },
+      ],
+      states: [acquired, divined],
+      complete: true,
+      routes: [
+        {
+          cardIndex: 0,
+          order: [1],
+          probability: 1,
+          stateIndices: [0, 1],
+          steps: [
+            { action: 'EXALTED', omens: [], acquired: [1], lost: [] },
+            {
+              action: 'DIVINE',
+              omens: [],
+              acquired: [],
+              lost: [],
+              maxUses: 1000,
+              expectedUses: 2,
+            },
+          ],
+        },
+      ],
+    },
+    0,
+  )!
+  await open(film, 1, 'simulation')
+  const repository = new IndexedFilmRepository()
+  try {
+    const history = await repository.load()
+    const branch = history.films.find((entry) => entry.id === history.active)!
+    const saved = history.films.find(
+      (entry) => entry.id === branch.continuationOf?.sessionId,
+    )!
+    expect(branch.frames[history.cursor]!.state.explicits).toEqual(
+      acquired.explicits,
+    )
+    expect(saved.frames[1]!.state.explicits).toEqual(acquired.explicits)
+    expect(publicFilm(saved).frames[2]!.state.explicits).toEqual(
+      divined.explicits,
+    )
+  } finally {
+    await repository.close()
+  }
+})
+
 it('restores an assumed reveal from an existing slot alongside a recorded Light and Annulment payment', async () => {
   const slot = { id: 'd', side: 'PREFIX' as const, modifierId: null }
   const base = { ...root, rarity: 'RARE' as const }

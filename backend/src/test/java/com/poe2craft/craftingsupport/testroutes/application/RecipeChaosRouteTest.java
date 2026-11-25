@@ -42,6 +42,86 @@ class RecipeChaosRouteTest {
         0);
   }
 
+  /** 44와 48 이상은 각 화폐의 경계 티어만 남기고, 티어 확률·기대량은 적격 티어 전체로 계산한다. */
+  @Test
+  void spiritChaosRequiresDivineFromTheAcquisitionBoundary() {
+    var f = new RecipeTransitionsTest();
+    String countess = "amulet:prefix:countess";
+    String marchioness = "amulet:prefix:marchioness";
+    String spirit = SolarAmulet.SPIRIT_STAT;
+    var item = f.item(ItemState.Rarity.RARE, f.strength);
+    var chaos =
+        new RecipeRoutePlanner.Step(
+            "CHAOS", List.of(), List.of(1), List.of(), null, null, null, true, 1);
+    var divine = new RecipeRoutePlanner.Step("DIVINE", List.of(), List.of(), List.of(), null);
+    for (int threshold : List.of(44, 48)) {
+      boolean multiple = threshold == 44;
+      var base =
+          List.of(
+              new RouteCards.Source(
+                  "B", null, multiple ? RouteCards.Frequency.M : RouteCards.Frequency.L));
+      var tiers = multiple ? Map.of(countess, base, marchioness, base) : Map.of(countess, base);
+      var card = new RouteCards.Card(List.of(new RouteCards.Option(1, tiers, true, false)), 0);
+      Predicate<ItemState> goal =
+          state ->
+              state.explicits().stream()
+                  .anyMatch(m -> m.values().getOrDefault(spirit, 0L) >= threshold);
+      var onlyChaos =
+          RecipeRoutePlanner.evaluateFixed(
+              f.workbench,
+              item,
+              card,
+              goal,
+              10000,
+              false,
+              null,
+              List.of(chaos),
+              java.util.Set.of(spirit));
+      assertThat(onlyChaos.complete()).isTrue();
+      assertThat(onlyChaos.routes()).isEmpty();
+      var corrected =
+          RecipeRoutePlanner.evaluateFixed(
+              f.workbench,
+              item,
+              card,
+              goal,
+              10000,
+              false,
+              null,
+              List.of(chaos, divine),
+              java.util.Set.of(spirit));
+      long weight =
+          tiers.keySet().stream().mapToLong(id -> f.catalog.find(id).orElseThrow().weight()).sum();
+      long total =
+          f
+              .workbench
+              .pool(
+                  RecipeStateGroups.withAffixes(item, ItemState.Rarity.RARE, List.of()),
+                  WorkbenchCurrency.CHAOS,
+                  null)
+              .stream()
+              .mapToLong(ModifierDefinition::weight)
+              .sum();
+      assertThat(total).isEqualTo(168856);
+      assertThat(corrected.routes())
+          .singleElement()
+          .satisfies(
+              r -> {
+                var first = r.steps().getFirst();
+                assertThat(first.chance().probability()).isEqualTo(1.0);
+                assertThat(first.expectedUses()).isEqualTo((double) total / weight);
+                assertThat(corrected.states().get(r.stateIndices().getFirst()).explicits())
+                    .containsExactly(
+                        new ModifierInstance(
+                            multiple ? marchioness : countess,
+                            Map.of(spirit, (long) threshold - 1)));
+                assertThat(r.steps().getLast().chance().probability()).isEqualTo(0.75);
+                assertThat(r.steps().getLast().expectedUses()).isCloseTo(4.0 / 3, offset(1e-12));
+                assertThat(goal.test(corrected.states().get(r.stateIndices().getLast()))).isTrue();
+              });
+    }
+  }
+
   /** 목표 a·c와 임시 옵션 b의 가중치를 1·2·3으로 정해 실제 풀과 빈 풀을 독립적으로 계산할 수 있다. */
   private WorkbenchSimulator threeOptionWorkbench() {
     var c = fixture.definition("c", ModifierDefinition.AffixType.PREFIX, 1, 1, 2);
@@ -49,9 +129,9 @@ class RecipeChaosRouteTest {
     return new WorkbenchSimulator(example, new CraftingEngine(example));
   }
 
-  /** 한 번에 1/2000이므로 1000회 안에도 실패한다. 결과 분포를 확률 1로 처리할 수 없다. */
+  /** 새 경로는 1/2000 적중까지 평균 2000회를 쓰고, 기존 1000회 저장 경로는 원래 확률로 재생한다. */
   @Test
-  void plainInitialChaosUsesTheCappedRepeatAndItsActualOdds() {
+  void plainInitialChaosRepeatsUntilHitAndKeepsLegacyCappedReplay() {
     var card = card(RouteCards.Frequency.M);
     var result =
         RecipeRoutePlanner.calculate(simulator, start, List.of(card), goal, 18000, true, null);
@@ -68,10 +148,11 @@ class RecipeChaosRouteTest {
     double cumulative = -Math.expm1(1000 * Math.log1p(-perTry));
     var route = direct.getFirst();
     var step = route.steps().getFirst();
-    assertThat(step.maxUses()).isEqualTo(1000);
-    assertThat(step.chance().probability()).isCloseTo(perTry, offset(1e-14));
-    assertThat(step.expectedUses()).isCloseTo(cumulative / perTry, offset(1e-10));
-    assertThat(route.probability()).isCloseTo(cumulative, offset(1e-14));
+    assertThat(step.maxUses()).isNull();
+    assertThat(step.repeatUntilHit()).isTrue();
+    assertThat(step.chance().probability()).isEqualTo(1.0);
+    assertThat(step.expectedUses()).isEqualTo(2000.0);
+    assertThat(route.probability()).isEqualTo(1.0);
     assertThat(goal.test(result.states().get(route.stateIndices().getFirst()))).isTrue();
 
     var repeat =
@@ -81,7 +162,9 @@ class RecipeChaosRouteTest {
             step.acquired(),
             step.lost(),
             step.socketIndex(),
-            step.maxUses());
+            step.maxUses(),
+            null,
+            step.repeatUntilHit());
     var replay =
         RecipeRoutePlanner.evaluateFixed(
             simulator, start, card, goal, 18000, true, null, List.of(repeat));
@@ -91,6 +174,23 @@ class RecipeChaosRouteTest {
             r -> {
               assertThat(r.steps()).containsExactly(step);
               assertThat(r.probability()).isEqualTo(route.probability());
+            });
+    var legacy =
+        new RecipeRoutePlanner.Step(
+            step.action(), step.omens(), step.acquired(), step.lost(), step.socketIndex(), 1000);
+    var capped =
+        RecipeRoutePlanner.evaluateFixed(
+            simulator, start, card, goal, 18000, true, null, List.of(legacy));
+    assertThat(capped.routes())
+        .singleElement()
+        .satisfies(
+            r -> {
+              var saved = r.steps().getFirst();
+              assertThat(saved.repeatUntilHit()).isFalse();
+              assertThat(saved.maxUses()).isEqualTo(1000);
+              assertThat(saved.chance().probability()).isCloseTo(perTry, offset(1e-14));
+              assertThat(saved.expectedUses()).isCloseTo(cumulative / perTry, offset(1e-10));
+              assertThat(r.probability()).isCloseTo(cumulative, offset(1e-14));
             });
     var once =
         new RecipeRoutePlanner.Step(
@@ -111,13 +211,13 @@ class RecipeChaosRouteTest {
         .anyMatch(
             r ->
                 r.steps().getFirst().action().equals("CHAOS")
-                    && Integer.valueOf(1000).equals(r.steps().getFirst().maxUses()));
+                    && r.steps().getFirst().repeatUntilHit());
     assertThat(result.routes())
         .noneMatch(
             r ->
                 r.steps().getFirst().action().equals("EXALTED")
                     || (r.steps().getFirst().action().equals("CHAOS")
-                        && r.steps().getFirst().maxUses() == null));
+                        && !r.steps().getFirst().repeatUntilHit()));
   }
 
   /** 우선인 M을 기다리는 동안 임시 H만 붙은 결과도 재시도에 들어간다. 이후 엑잘로 H를 얻는다. */
@@ -273,6 +373,127 @@ class RecipeChaosRouteTest {
     assertThat(direct).hasSize(1);
     assertThat(direct.getFirst().steps().getFirst().maxUses()).isNull();
     assertThat(direct.getFirst().steps().getFirst().expectedUses()).isNull();
+    assertThat(direct.getFirst().lucky()).isTrue();
+    var normalTarget =
+        RecipeRoutePlanner.calculate(
+            simulator, initial, List.of(card(RouteCards.Frequency.M)), goal, 18000, true, null);
+    assertThat(
+            normalTarget.routes().stream()
+                .filter(
+                    r -> r.steps().size() == 1 && r.steps().getFirst().action().equals("REGAL")))
+        .isNotEmpty()
+        .allMatch(r -> !r.lucky());
+  }
+
+  /** 분열 뒤 첫 빈칸이 다음 목표에 해당해도 카오스가 즉시 교체할 더미는 준비 확률이나 획득 순서를 제한하지 않는다. */
+  @Test
+  void aFractureOnlyExaltCanUseTheFutureHighTargetAsItsDisposableSlot() {
+    var bench = threeOptionWorkbench();
+    var fractured = new ModifierInstance("c", Map.of("c", 1L), true);
+    var initial = fixture.item(ItemState.Rarity.RARE, List.of(fractured));
+    var options =
+        new RouteCards.Card(
+            List.of(
+                card(RouteCards.Frequency.L).options().getFirst(),
+                new RouteCards.Option(
+                    2,
+                    Map.of("b", List.of(new RouteCards.Source("B", null, RouteCards.Frequency.H)))),
+                new RouteCards.Option(
+                    3,
+                    Map.of(
+                        "c", List.of(new RouteCards.Source("B", null, RouteCards.Frequency.H))))),
+            0);
+    Predicate<ItemState> done =
+        item ->
+            item.explicits().stream()
+                .map(ModifierInstance::modifierId)
+                .toList()
+                .containsAll(List.of("a", "b", "c"));
+    var dummy = new RecipeRoutePlanner.Step("EXALTED", List.of(), List.of(), List.of(), null);
+    var chaos =
+        new RecipeRoutePlanner.Step(
+            "CHAOS", List.of(), List.of(1), List.of(), null, null, null, true);
+    var high = new RecipeRoutePlanner.Step("EXALTED", List.of(), List.of(2), List.of(), null);
+    var result =
+        RecipeRoutePlanner.evaluateFixed(
+            bench, initial, options, done, 5000, true, null, List.of(dummy, chaos, high));
+    assertThat(result.routes())
+        .singleElement()
+        .satisfies(
+            route -> {
+              assertThat(route.lucky()).isFalse();
+              assertThat(route.order()).containsExactly(1, 2);
+              assertThat(route.steps().getFirst().dummy()).isTrue();
+              assertThat(route.steps().getFirst().chance().probability()).isEqualTo(1);
+              assertThat(result.states().get(route.stateIndices().getFirst()).explicits())
+                  .extracting(ModifierInstance::modifierId)
+                  .containsExactlyInAnyOrder("b", "c");
+              assertThat(route.steps().get(1).chance().probability()).isEqualTo(1);
+              assertThat(route.probability()).isEqualTo(1);
+            });
+    var lucky = new RecipeRoutePlanner.Step("EXALTED", List.of(), List.of(1), List.of(), null);
+    var earlierHit =
+        RecipeRoutePlanner.evaluateFixed(
+            bench, initial, options, done, 5000, true, null, List.of(lucky, high));
+    assertThat(earlierHit.routes())
+        .singleElement()
+        .satisfies(
+            route -> {
+              assertThat(route.lucky()).isTrue();
+              assertThat(route.probability()).isEqualTo(0.25);
+              assertThat(route.steps().getFirst().dummy()).isFalse();
+              assertThat(route.steps().getFirst().chance().probability()).isEqualTo(0.25);
+            });
+  }
+
+  /** 같은 실제 엑잘 등급도 최초 의도가 한 칸 준비면 럭키, 완벽 엑잘 목표 추첨이면 직접 획득이다. */
+  @Test
+  void selectedGradeRetainsTheIntendedLuckyHitOnAnEmptySolar() {
+    var actual = new RecipeTransitionsTest();
+    var empty = actual.item(ItemState.Rarity.RARE);
+    String target = "amulet:suffix:of-battle";
+    var goals =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(
+                    1,
+                    Map.of(
+                        target,
+                        List.of(new RouteCards.Source("B", null, RouteCards.Frequency.L))))),
+            0);
+    var grade = "GREATER_EXALTED";
+    var law =
+        new RecipeTransitions(actual.workbench, true)
+            .successors(empty, grade, java.util.Set.of(), java.util.Set.of(target), 1000, false);
+    var actualChance = law.outcomes().getFirst().probability();
+    for (String origin : List.of("EXALTED", "PERFECT_EXALTED")) {
+      var selected =
+          new RecipeRoutePlanner.Step(grade, List.of(), List.of(1), List.of(), null, null, origin);
+      var result =
+          RecipeRoutePlanner.evaluateFixed(
+              actual.workbench,
+              empty,
+              goals,
+              state -> state.explicits().stream().anyMatch(mod -> mod.modifierId().equals(target)),
+              1000,
+              true,
+              null,
+              List.of(selected));
+      assertThat(result.routes())
+          .singleElement()
+          .satisfies(
+              route -> {
+                assertThat(route.lucky()).isEqualTo(origin.equals("EXALTED"));
+                var step = route.steps().getFirst();
+                assertThat(step.dummy()).isFalse();
+                assertThat(step.chance().probability())
+                    .isCloseTo(
+                        actualChance.numerator().doubleValue()
+                            / actualChance.denominator().doubleValue(),
+                        offset(1e-14));
+                assertThat(route.probability()).isEqualTo(step.chance().probability());
+              });
+    }
   }
 
   /** 분열로 현재 풀이 줄어도 카오스 수량은 빈 베이스의 전체 가중치로 추정하고 실제 적중 판정은 분열을 보존한다. */
@@ -313,9 +534,9 @@ class RecipeChaosRouteTest {
             });
   }
 
-  /** 실제 적중 수치를 일부만 검증한 경로에도 빈 베이스의 티어 가중치가 알려져 있으면 예상 수량을 표시한다. */
+  /** 목표 티어 하나는 수치 범위가 있어도 단일 경계 상태다. 결과 예산 한 칸으로 적중 확률을 검증한다. */
   @Test
-  void reportsEmptyBaseCostWhileTheActualHitProbabilityIsUnresolved() {
+  void verifiesTheWholeTargetTierUnderASingleOutcomeBudget() {
     var chaos = new RecipeRoutePlanner.Step("CHAOS", List.of(), List.of(1), List.of(), null, 1000);
     var partial =
         RecipeRoutePlanner.evaluateFixed(
@@ -327,9 +548,98 @@ class RecipeChaosRouteTest {
         .satisfies(
             r -> {
               var step = r.steps().getFirst();
-              assertThat(step.chance().probability()).isNull();
+              assertThat(step.chance().probability()).isEqualTo(first);
               assertThat(step.expectedUses()).isCloseTo(estimate, offset(1e-10));
             });
+  }
+
+  /** 동률 L 둘을 각자 지정하여 반복한다. 먼저 나온 다른 L의 가중치는 성공 확률과 기대량에 합치지 않는다. */
+  @Test
+  void competingLowOptionsEachRepeatToCertaintyAtTheirOwnCost() {
+    var bench = threeOptionWorkbench();
+    var low = List.of(new RouteCards.Source("B", null, RouteCards.Frequency.L));
+    var goals =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(1, Map.of("a", low)),
+                new RouteCards.Option(2, Map.of("c", low))),
+            0);
+    Predicate<ItemState> both =
+        state ->
+            state.explicits().stream()
+                .map(ModifierInstance::modifierId)
+                .toList()
+                .containsAll(List.of("a", "c"));
+    var generated =
+        RecipeRoutePlanner.calculate(bench, start, List.of(goals), both, 18000, true, null);
+    for (int number : List.of(1, 2)) {
+      var route =
+          generated.routes().stream()
+              .filter(r -> r.steps().size() == 2)
+              .filter(r -> Integer.valueOf(number).equals(r.steps().getFirst().repeatTarget()))
+              .filter(r -> r.steps().getLast().action().equals("PERFECT_EXALTED"))
+              .findFirst()
+              .orElseThrow();
+      var first = route.steps().getFirst();
+      var wanted = number == 1 ? "a" : "c";
+      assertThat(first.acquired()).containsExactly(number);
+      assertThat(first.chance().probability()).isEqualTo(1.0);
+      assertThat(first.expectedUses()).isEqualTo(number == 1 ? 6d : 3d);
+      assertThat(generated.states().get(route.stateIndices().getFirst()).explicits())
+          .extracting(ModifierInstance::modifierId)
+          .containsExactly(wanted);
+      var replay =
+          RecipeRoutePlanner.evaluateFixed(
+              bench, start, goals, both, 18000, true, null, route.steps());
+      assertThat(replay.routes())
+          .singleElement()
+          .satisfies(
+              r -> {
+                assertThat(r.steps()).isEqualTo(route.steps());
+                assertThat(r.probability()).isEqualTo(route.probability());
+              });
+    }
+  }
+
+  /** 하나의 실제 티어가 두 번호에 속해도 의도한 번호에 따라 반복의 분모와 적중 후 상태를 따로 보관한다. */
+  @Test
+  void simultaneouslyAcquiredNumbersKeepTheirDistinctRepeatIntentInGradeReplay() {
+    var bench = threeOptionWorkbench();
+    var low = List.of(new RouteCards.Source("B", null, RouteCards.Frequency.L));
+    var options =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(1, Map.of("a", low, "c", low)),
+                new RouteCards.Option(2, Map.of("a", low))),
+            0);
+    var generated =
+        RecipeRoutePlanner.calculate(bench, start, List.of(options), goal, 18000, true, null);
+    var repeats =
+        generated.routes().stream()
+            .filter(r -> r.steps().size() == 1)
+            .filter(r -> r.steps().getFirst().repeatUntilHit())
+            .toList();
+    assertThat(repeats)
+        .extracting(r -> r.steps().getFirst().repeatTarget())
+        .containsExactlyInAnyOrder(1, 2);
+    for (var path : repeats) {
+      var step = path.steps().getFirst();
+      assertThat(step.acquired()).containsExactly(1, 2);
+      assertThat(step.chance().probability()).isEqualTo(1.0);
+      boolean firstNumber = step.repeatTarget() == 1;
+      assertThat(step.expectedUses()).isEqualTo(firstNumber ? 2d : 6d);
+      assertThat(path.probability()).isCloseTo(firstNumber ? 1.0 / 3 : 1.0, offset(1e-12));
+      var replay =
+          RecipeRoutePlanner.evaluateFixed(
+              bench, start, options, goal, 18000, true, null, List.of(step));
+      assertThat(replay.routes())
+          .singleElement()
+          .satisfies(
+              r -> {
+                assertThat(r.steps()).containsExactly(step);
+                assertThat(r.probability()).isEqualTo(path.probability());
+              });
+    }
   }
 
   /** 같은 우선순위 목표 둘을 함께 탐색해도 각 경로에는 그 경로에서 획득한 번호의 기대량을 붙인다. */

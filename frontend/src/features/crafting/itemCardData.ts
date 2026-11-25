@@ -41,6 +41,7 @@ export interface ItemCardLine {
   text: string
   kind?: ModifierKind
   detail?: string | undefined
+  tierRange?: string | undefined
   affixLabel?: string | undefined
   removalCandidate?: boolean | undefined
   fractured?: boolean | undefined

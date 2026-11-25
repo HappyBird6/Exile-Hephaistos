@@ -15,7 +15,7 @@ public record GradeRouteRequest(
 
   /**
    * action은 선택한 등급의 화폐, omens·socketIndex는 재료 적용 조건, acquired·lost는 지켜야 할 목표 번호 기록이고 maxUses는 반복
-   * 단계의 사용 한도다. originalAction은 등급을 바꾼 단계가 원래 어떤 화폐와 목표 티어로 생성됐는지 구분한다.
+   * 단계의 사용 한도다. 무제한 카오스의 repeatTarget은 적중을 기다릴 목표 번호이고, originalAction은 원래 등급이다.
    */
   public record GradeStep(
       String action,
@@ -24,7 +24,9 @@ public record GradeRouteRequest(
       List<Integer> lost,
       Integer socketIndex,
       Integer maxUses,
-      String originalAction) {
+      String originalAction,
+      boolean repeatUntilHit,
+      Integer repeatTarget) {
     /** 응답에서 받은 확률을 입력으로 사용하지 않고 서버가 검증할 단계만 만든다. */
     public RecipeRoutePlanner.Step step() {
       if (action == null
@@ -37,7 +39,15 @@ public record GradeRouteRequest(
           || (socketIndex != null && socketIndex < 0)) throw new MalformedPayload();
       var selected =
           new RecipeRoutePlanner.Step(
-              action, omens, acquired, lost, socketIndex, maxUses, originalAction);
+              action,
+              omens,
+              acquired,
+              lost,
+              socketIndex,
+              maxUses,
+              originalAction,
+              repeatUntilHit,
+              repeatTarget);
       if (!selected.validGradeSelection()) throw new MalformedPayload();
       return selected;
     }

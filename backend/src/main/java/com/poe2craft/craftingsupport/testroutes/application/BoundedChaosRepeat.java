@@ -72,7 +72,8 @@ final class BoundedChaosRepeat {
       Set<WorkbenchOmen> omens,
       Set<String> targets,
       Set<String> protectedIds,
-      int budget) {
+      int budget,
+      boolean ignoreStartingDummy) {
     this.simulator = simulator;
     this.transitions = transitions;
     this.action = action;
@@ -82,11 +83,12 @@ final class BoundedChaosRepeat {
     this.budget = budget;
     held = new HashSet<>();
     for (var modifier : start.explicits()) {
-      if (targets.contains(modifier.modifierId())) held.add(modifier.modifierId());
+      if ((!ignoreStartingDummy || modifier.fractured()) && targets.contains(modifier.modifierId()))
+        held.add(modifier.modifierId());
     }
   }
 
-  /** 호출자가 반복으로 지정한 한 단계만 계산한다. 작업대 반복 한도를 넘는 입력은 거절한다. */
+  /** maxUses가 없으면 무징조 카오스를 목표까지 반복한다. 저장한 유한 반복은 기존 작업대 한도를 따른다. */
   static Result calculate(
       WorkbenchSimulator simulator,
       RecipeTransitions transitions,
@@ -95,14 +97,48 @@ final class BoundedChaosRepeat {
       Set<WorkbenchOmen> omens,
       Set<String> targetIds,
       Set<String> protectedIds,
-      int maxUses,
+      Integer maxUses,
       int budget) {
+    return calculate(
+        simulator,
+        transitions,
+        start,
+        action,
+        omens,
+        targetIds,
+        protectedIds,
+        maxUses,
+        budget,
+        false);
+  }
+
+  /** 다음 카오스에서 갈아낼 임시 옵션은 시작부터 보유한 목표에서 뺀다. 그 티어를 다시 뽑으면 실제 신규 획득이다. */
+  static Result calculate(
+      WorkbenchSimulator simulator,
+      RecipeTransitions transitions,
+      ItemState start,
+      WorkbenchCurrency action,
+      Set<WorkbenchOmen> omens,
+      Set<String> targetIds,
+      Set<String> protectedIds,
+      Integer maxUses,
+      int budget,
+      boolean ignoreStartingDummy) {
     if (action.baseAction() != CraftingAction.CHAOS
-        || maxUses < 1
-        || maxUses > PublicContracts.REPEAT.maximumUses()
+        || (maxUses == null
+            ? !omens.isEmpty()
+            : maxUses < 1 || maxUses > PublicContracts.REPEAT.maximumUses())
         || budget < 0) throw new IllegalArgumentException("Invalid bounded Chaos step");
     return new BoundedChaosRepeat(
-            simulator, transitions, start, action, omens, targetIds, protectedIds, budget)
+            simulator,
+            transitions,
+            start,
+            action,
+            omens,
+            targetIds,
+            protectedIds,
+            budget,
+            ignoreStartingDummy)
         .run(start, maxUses);
   }
 
@@ -115,10 +151,9 @@ final class BoundedChaosRepeat {
       ItemState item,
       WorkbenchCurrency action,
       Set<String> targetIds,
-      int maxUses) {
+      Integer maxUses) {
     if (action.baseAction() != CraftingAction.CHAOS
-        || maxUses < 1
-        || maxUses > PublicContracts.REPEAT.maximumUses())
+        || (maxUses != null && (maxUses < 1 || maxUses > PublicContracts.REPEAT.maximumUses())))
       throw new IllegalArgumentException("Invalid bounded Chaos estimate");
     if (targetIds.isEmpty()) return null;
     var base = item.desecrated().isEmpty() ? item : item.withDesecrated(List.of());
@@ -131,19 +166,20 @@ final class BoundedChaosRepeat {
       if (targetIds.contains(candidate.id())) targetWeight += candidate.weight();
     }
     if (totalWeight == 0) return null;
+    if (maxUses == null) return targetWeight == 0 ? null : (double) totalWeight / targetWeight;
     double p = (double) targetWeight / totalWeight;
     if (p == 0) return (double) maxUses;
     return Math.min(maxUses, -Math.expm1(maxUses * Math.log1p(-p)) / p);
   }
 
   /** 첫 시도 이후 실제 미적중 상태만 전파한다. 사용 불가·보호 실패·제한 도달 질량도 초기 분모에 남는다. */
-  private Result run(ItemState start, int maxUses) {
+  private Result run(ItemState start, Integer maxUses) {
     var samePool = samePoolWithoutMissRolls(start, maxUses);
     if (samePool != null) return samePool;
     var first = attempt(start);
     var firstHits = law(first.hits(), first.complete());
     if (!first.complete()) return unknown(firstHits, first.hits());
-    if (first.unavailable() || maxUses == 1 || first.misses().isEmpty())
+    if (first.unavailable() || Integer.valueOf(1).equals(maxUses) || first.misses().isEmpty())
       return new Result(
           firstHits, firstHits, first.unavailable() ? Fraction.ZERO : Fraction.ONE, work);
     var renewal = verifiedRetryMass(start, first);
@@ -151,7 +187,7 @@ final class BoundedChaosRepeat {
     var hits = new LinkedHashMap<>(first.hits());
     var frontier = first.misses();
     var uses = Fraction.ONE;
-    for (int used = 1; used < maxUses && !frontier.isEmpty(); used++) {
+    for (int used = 1; (maxUses == null || used < maxUses) && !frontier.isEmpty(); used++) {
       var next = new LinkedHashMap<ItemState, Fraction>();
       for (var branch : frontier.entrySet()) {
         var current = attempt(branch.getKey());
@@ -177,14 +213,14 @@ final class BoundedChaosRepeat {
    * 무징조 카오스가 유일한 공개 비분열 옵션을 제거하면 매번 동일한 분열·소켓 상태에서 새 티어를 뽑는다. 종료 목표의 숫자 분포는 실제 작업대 법칙으로 검증하고, 다음에
    * 전부 제거될 비목표의 숫자는 적분한다. 제거 대상·자격이 변할 수 있는 주얼이나 훼손, 징조에는 적용하지 않는다.
    */
-  private Result samePoolWithoutMissRolls(ItemState start, int maxUses) {
+  private Result samePoolWithoutMissRolls(ItemState start, Integer maxUses) {
     if (work >= budget
         || !omens.isEmpty()
         || !start.desecrated().isEmpty()
         || BasicJewel.supportedCrafting(start.baseItemId())
         || !OneOptionPreparation.ready(start)) return null;
     var mutable = start.explicits().stream().filter(m -> !m.fractured()).findFirst().orElseThrow();
-    if (targets.contains(mutable.modifierId())
+    if (held.contains(mutable.modifierId())
         || !start.explicits().stream()
             .filter(ModifierInstance::fractured)
             .map(ModifierInstance::modifierId)
@@ -215,7 +251,7 @@ final class BoundedChaosRepeat {
       else hits.merge(hit, outcome.probability(), Fraction::add);
     }
     var firstHits = law(hits, complete);
-    if (maxUses > 1)
+    if (maxUses == null || maxUses > 1)
       for (var candidate : redraw.candidates())
         if (!targets.contains(candidate.id())) removable.add(candidate.id());
     if (!complete) return unknown(firstHits, hits);
@@ -223,13 +259,17 @@ final class BoundedChaosRepeat {
     return renewalResult(hits, firstHits, chance.complement(), maxUses);
   }
 
-  /** 재시도 가능한 질량이 매번 같으면 유한 등비합으로 최초 적중 분포와 중단까지의 평균 사용량을 구한다. */
+  /** 재시도 상태의 분포가 같으면 등비합으로 각 최초 적중의 질량과 중단까지의 평균 사용량을 구한다. */
   private Result renewalResult(
-      Map<Hit, Fraction> hits, RecipeTransitions.Law first, Fraction retry, int maxUses) {
+      Map<Hit, Fraction> hits, RecipeTransitions.Law first, Fraction retry, Integer maxUses) {
+    if (maxUses == null && retry.equals(Fraction.ONE))
+      return new Result(law(Map.of(), true), first, null, work);
     var mean =
-        retry.equals(Fraction.ONE)
-            ? Fraction.of(maxUses, 1)
-            : retry.pow(maxUses).complement().divide(retry.complement());
+        maxUses == null
+            ? Fraction.ONE.divide(retry.complement())
+            : retry.equals(Fraction.ONE)
+                ? Fraction.of(maxUses, 1)
+                : retry.pow(maxUses).complement().divide(retry.complement());
     var accumulated = new LinkedHashMap<Hit, Fraction>();
     accumulate(accumulated, hits, mean);
     return new Result(law(accumulated, true), first, mean, work);
@@ -239,7 +279,7 @@ final class BoundedChaosRepeat {
   private Fraction verifiedRetryMass(ItemState start, Attempt first) {
     if (!start.desecrated().isEmpty()) return null;
     var mutable = start.explicits().stream().filter(m -> !m.fractured()).toList();
-    if (mutable.size() != 1 || targets.contains(mutable.getFirst().modifierId())) return null;
+    if (mutable.size() != 1 || held.contains(mutable.getFirst().modifierId())) return null;
     var initial = simulator.forItem(start).recipePlan(start, action, omens);
     if (initial.status() != AutomaticCraftingPlan.Status.READY || initial.branches().size() != 1)
       return null;

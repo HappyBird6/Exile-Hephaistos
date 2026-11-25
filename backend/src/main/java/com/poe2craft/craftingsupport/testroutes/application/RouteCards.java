@@ -28,11 +28,17 @@ public final class RouteCards {
     H
   }
 
-  /** label은 B/E/C/D/A, id는 작업대 재료 식별자이며 B에는 재료가 없다. */
+  /** label은 B/E/C/D/A, id는 작업대 재료 식별자다. frequency는 해당 출처에서 목표 허용 티어 중 하나를 얻는 빈도다. */
   public record Source(String label, String id, Frequency frequency) {}
 
-  /** 카드 내 번호와 해당 번호로 인정되는 modifier ID별 실제 획득처 목록이다. */
-  public record Option(int number, Map<String, List<Source>> tiers) {}
+  /** 카드 내 번호·허용 티어·획득처와 목표에 입력한 수치 경계다. 상한만 지정하면 획득 시 티어 최댓값을 사용한다. */
+  public record Option(
+      int number, Map<String, List<Source>> tiers, boolean hasLowerBound, boolean hasUpperBound) {
+    /** 수치 범위 없는 목표는 획득한 티어의 최저값에서 시작한다. */
+    public Option(int number, Map<String, List<Source>> tiers) {
+      this(number, tiers, false, false);
+    }
+  }
 
   /** options는 동시에 유지할 옵션이고 requiredAstrids는 추가로 장착해야 할 제작 한도 증강물 수다. */
   public record Card(List<Option> options, int requiredAstrids) {}
@@ -72,6 +78,19 @@ public final class RouteCards {
 
   private final Map<String, List<Source>> sources;
   private final Set<String> relevant = new HashSet<>();
+
+  /** 실제 옵션에 기여하는 원본 stat 중 하한 또는 상한이 명시된 집합이다. */
+  private final Set<String> lowerBoundStats = new HashSet<>();
+
+  private final Set<String> upperBoundStats = new HashSet<>();
+
+  /** 카드의 목표 범위를 적용하기 전 B/A 추첨 출처와 접두·접미별 전체 적격 가중치다. */
+  private final Map<Source, Map<AffixType, Long>> poolWeights = new HashMap<>();
+
+  /** B/A 추첨에서 L은 lowProbability 미만, H는 highProbability 이상이다. */
+  private final double lowProbability;
+
+  private final double highProbability;
 
   /** 시작 제작 옵션 한도와 실제로 늘릴 수 있는 한도다. */
   private final int maxPrefixes;
@@ -120,10 +139,14 @@ public final class RouteCards {
       double lowProbability,
       double highProbability) {
     this.start = start;
+    this.lowProbability = lowProbability;
+    this.highProbability = highProbability;
     groups = goal.groups().stream().filter(g -> !g.disabled()).toList();
     catalog.stats().forEach(s -> stats.put(s.statId(), s));
     for (var group : groups)
-      for (var entry : group.entries()) if (!entry.disabled()) addStats(entry.statId());
+      for (var entry : group.entries())
+        if (!entry.disabled())
+          addStats(entry.statId(), entry.range().min() != null, entry.range().max() != null);
     for (var mod : start.explicits()) held.put(mod.modifierId(), mod);
     itemCatalog = simulator.catalog();
     checkTierRanges =
@@ -144,7 +167,7 @@ public final class RouteCards {
                 .filter(ModifierMagnitudes::provider)
                 .toList()
             : List.of();
-    sources = sourceMap(simulator, start, relevant, augmentPools, lowProbability, highProbability);
+    sources = sourceMap(simulator);
     var byFamily = new LinkedHashMap<Family, List<ModifierDefinition>>();
     itemCatalog.modifiers().values().stream()
         .filter(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT)
@@ -210,22 +233,19 @@ public final class RouteCards {
   }
 
   /** 파생 스탯은 원래 필터에 등록된 기여 스탯들로 펼친다. 암묵 옵션은 새 획득 단계에서 제외한다. */
-  private void addStats(String id) {
+  private void addStats(String id, boolean lowerBound, boolean upperBound) {
     var stat = stats.get(id);
     if (stat == null) return;
-    if (stat.kind() == GoalCatalog.Kind.EXPLICIT) relevant.addAll(stat.sourceStatIds());
-    else if (stat.kind() == GoalCatalog.Kind.PSEUDO)
-      stat.contributions().forEach(c -> addStats(c.statId()));
+    if (stat.kind() == GoalCatalog.Kind.EXPLICIT) {
+      relevant.addAll(stat.sourceStatIds());
+      if (lowerBound) lowerBoundStats.addAll(stat.sourceStatIds());
+      if (upperBound) upperBoundStats.addAll(stat.sourceStatIds());
+    } else if (stat.kind() == GoalCatalog.Kind.PSEUDO)
+      stat.contributions().forEach(c -> addStats(c.statId(), lowerBound, upperBound));
   }
 
-  /** 일반 풀과 장착한 전용 풀이 함께 경쟁하는 같은 쪽의 총가중치로 실험용 희소도를 계산한다. */
-  private static Map<String, List<Source>> sourceMap(
-      WorkbenchSimulator simulator,
-      ItemState start,
-      Set<String> relevant,
-      Map<String, Set<String>> augmentPools,
-      double low,
-      double high) {
+  /** 같은 쪽의 전체 추첨 풀을 보관하고 목표 범위를 적용하기 전 각 티어의 획득처를 구한다. */
+  private Map<String, List<Source>> sourceMap(WorkbenchSimulator simulator) {
     var catalog = simulator.catalog();
     var base = start.baseItemId();
     var level = start.itemLevel();
@@ -256,38 +276,26 @@ public final class RouteCards {
       if (installed || additionalInstallations(start, simulator, augment.getKey()) > 0)
         availablePools.put(augment.getKey(), augment.getValue());
     }
-    var baseWeight = weights(pool, activeIds);
-    var augmentWeights = new HashMap<String, Map<AffixType, Long>>();
+    var baseSource = new Source("B", null, null);
+    poolWeights.put(baseSource, weights(pool, activeIds));
     availablePools.forEach(
         (augment, ids) -> {
           var enabled = new HashSet<>(activeIds);
           enabled.addAll(ids);
-          augmentWeights.put(augment, weights(pool, enabled));
+          poolWeights.put(new Source("A", augment, null), weights(pool, enabled));
         });
     var result = new HashMap<String, List<Source>>();
-    var weightPerAugmentTier = AugmentCraftingRules.poolWeightPolicy().weightPerTier();
     for (var d : pool) {
       if (d.stats().stream().noneMatch(s -> relevant.contains(s.id()))) continue;
       var list = new ArrayList<Source>();
-      if (d.weight() > 0 && !d.tags().contains("augment_pool"))
-        list.add(
-            new Source("B", null, frequency(d.weight(), baseWeight.get(d.affixType()), low, high)));
+      if (d.weight() > 0 && !d.tags().contains("augment_pool")) list.add(baseSource);
       list.addAll(materialOptions.getOrDefault(d.id(), List.of()));
       boolean inPool =
           d.weight() > 0 || availablePools.values().stream().anyMatch(ids -> ids.contains(d.id()));
       for (var bone : DesecrationCurrency.sources(base, level, d, inPool))
         list.add(new Source("D", bone, null));
       for (var augment : availablePools.entrySet()) {
-        if (augment.getValue().contains(d.id()))
-          list.add(
-              new Source(
-                  "A",
-                  augment.getKey(),
-                  frequency(
-                      weightPerAugmentTier,
-                      augmentWeights.get(augment.getKey()).get(d.affixType()),
-                      low,
-                      high)));
+        if (augment.getValue().contains(d.id())) list.add(new Source("A", augment.getKey(), null));
       }
       if (!list.isEmpty()) result.put(d.id(), List.copyOf(list));
     }
@@ -310,10 +318,12 @@ public final class RouteCards {
     return weights;
   }
 
-  /** 같은 쪽의 적격 가중치를 분모로 티어의 추첨 빈도를 분류한다. */
-  private static Frequency frequency(long weight, long total, double low, double high) {
-    double chance = (double) weight / total;
-    return chance < low ? Frequency.L : chance >= high ? Frequency.H : Frequency.M;
+  /** 주어진 획득 가중치를 해당 출처·방향의 전체 가중치로 나눠 빈도를 판정한다. */
+  private Frequency frequency(Source source, AffixType side, long weight) {
+    double chance = (double) weight / poolWeights.get(source).get(side);
+    return chance < lowProbability
+        ? Frequency.L
+        : chance >= highProbability ? Frequency.H : Frequency.M;
   }
 
   /** 최대 6옵션, 계열 충돌 없는 조합을 방문한다. 같은 접두와 티어를 반복 조합하지 않는다. */
@@ -368,7 +378,12 @@ public final class RouteCards {
       if (tiers.isEmpty()) return;
       if (tiers.entrySet().stream().allMatch(t -> requiresCrafted(t.getKey(), t.getValue())))
         requiredCrafted++;
-      options.add(new Option(options.size() + 1, Collections.unmodifiableMap(tiers)));
+      options.add(
+          new Option(
+              options.size() + 1,
+              Collections.unmodifiableMap(tiers),
+              !Collections.disjoint(f.key().stats(), lowerBoundStats),
+              !Collections.disjoint(f.key().stats(), upperBoundStats)));
     }
     int extra = Math.max(0, requiredCrafted - craftedLimit);
     if (extra <= additionalAstrids) cards.add(new Card(List.copyOf(options), extra));
@@ -378,6 +393,7 @@ public final class RouteCards {
   private Map<String, List<Source>> eligibleTiers(
       TierGroup family, List<TierGroup> selected, Magnitudes magnitudes) {
     var tiers = new TreeMap<String, List<Source>>();
+    var goalWeights = new HashMap<Source, Long>();
     var fractured =
         family.tiers().stream()
             .map(ModifierDefinition::id)
@@ -386,11 +402,29 @@ public final class RouteCards {
             .filter(ModifierInstance::fractured)
             .findFirst();
     for (var d : family.tiers()) {
-      if (fractured.isPresent() && !fractured.get().modifierId().equals(d.id())) continue;
       var choices = sources.getOrDefault(d.id(), List.of());
-      if ((held.containsKey(d.id()) || choices.stream().anyMatch(this::usableFromStart))
-          && matchesRanges(d, selected, magnitudes)) tiers.put(d.id(), choices);
+      if ((!held.containsKey(d.id()) && choices.stream().noneMatch(this::usableFromStart))
+          || !matchesRanges(d, selected, magnitudes)) continue;
+      // 분열은 실제 보유 티어만 카드에 남긴다. 빈도는 같은 목표를 충족할 수 있는 티어 전체로 판단한다.
+      if (fractured.isEmpty() || fractured.get().modifierId().equals(d.id()))
+        tiers.put(d.id(), choices);
+      for (var source : choices) {
+        if (!poolWeights.containsKey(source)) continue;
+        long weight =
+            source.label().equals("B")
+                ? d.weight()
+                : AugmentCraftingRules.poolWeightPolicy().weightPerTier();
+        goalWeights.merge(source, weight, Long::sum);
+      }
     }
+    // 수치 범위가 허용하는 티어만 합한다. 한 증강물의 추첨과 다른 증강물의 추첨은 별개다.
+    var classified = new HashMap<Source, Source>();
+    goalWeights.forEach(
+        (s, weight) ->
+            classified.put(
+                s, new Source(s.label(), s.id(), frequency(s, family.key().side(), weight))));
+    tiers.replaceAll(
+        (id, choices) -> choices.stream().map(s -> classified.getOrDefault(s, s)).toList());
     return tiers;
   }
 

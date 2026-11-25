@@ -71,6 +71,8 @@ public final class SharedSession {
         var original = frame.get("projectedChance");
         publishChance(((ObjectNode) frame).putObject("projectedChance"), original);
       }
+      for (var craft : frame.path("projectedCurrencies"))
+        if (craft.has("repeatUntilHit") && !validRepeatUntilHit(craft, chaosMaterial)) bad();
       if (frame.has("projectedOmenOutcomes"))
         publishOmenOutcomes((ObjectNode) frame, index, chaosMaterial);
     }
@@ -125,7 +127,20 @@ public final class SharedSession {
         || WorkbenchOmen.sideWhittling(matching);
   }
 
-  /** 횟수 필드가 붙은 기보는 보관함의 유한한 카오스 반복 및 기대 사용량 범위를 그대로 검사한다. */
+  /** 목표를 뽑을 때까지 반복하는 기보는 무징조 카오스 한 단계이며 기존의 사용 한도와 함께 저장하지 않는다. */
+  private static boolean validRepeatUntilHit(JsonNode craft, Predicate<String> chaosMaterial) {
+    var repeat = craft.get("repeatUntilHit");
+    var omens = craft.path("omenIds");
+    return repeat.isBoolean()
+        && repeat.booleanValue()
+        && !craft.has("maxUses")
+        && chaosMaterial.test(craft.path("currencyId").asText())
+        && omens.isArray()
+        && omens.isEmpty()
+        && validChaosCounts(craft);
+  }
+
+  /** 무제한의 기대량은 1 이상인 유한 수치이고, 유한 카오스 기록은 원래 사용 한도까지 허용한다. */
   private static boolean validChaosCounts(JsonNode craft) {
     var max = craft.get("maxUses");
     if (max != null

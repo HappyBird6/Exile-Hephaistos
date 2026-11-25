@@ -56,6 +56,56 @@ class BoundedChaosRepeatTest {
         .reduce(Fraction.ZERO, Fraction::add);
   }
 
+  /** 적중에서 멈추는 경우 각 종료 상태에 그 티어의 조건부 비중을 부여하고, 불가능한 적중을 확정하지 않는다. */
+  @Test
+  void unboundedRepeatSharesTheFirstHitAcrossReachableTiers() {
+    var start = rare(fixture.mod("b", 3));
+    var result =
+        BoundedChaosRepeat.calculate(
+            workbench,
+            transitions,
+            start,
+            WorkbenchCurrency.CHAOS,
+            Set.of(),
+            Set.of("a", "c"),
+            Set.of(),
+            null,
+            300);
+    assertThat(result.hits().complete()).isTrue();
+    assertThat(mass(result.hits(), "a")).isEqualTo(Fraction.of(1, 3));
+    assertThat(mass(result.hits(), "c")).isEqualTo(Fraction.of(2, 3));
+    assertThat(result.expectedUses()).isEqualTo(Fraction.of(2, 1));
+    var provisional =
+        BoundedChaosRepeat.calculate(
+            workbench,
+            transitions,
+            rare(fixture.mod("a", 1)),
+            WorkbenchCurrency.CHAOS,
+            Set.of(),
+            Set.of("a"),
+            Set.of(),
+            null,
+            300,
+            true);
+    assertThat(provisional.hits().complete()).isTrue();
+    assertThat(mass(provisional.hits(), "a")).isEqualTo(Fraction.ONE);
+    assertThat(provisional.expectedUses()).isEqualTo(Fraction.of(6, 1));
+    var impossible =
+        BoundedChaosRepeat.calculate(
+            workbench,
+            transitions,
+            start,
+            WorkbenchCurrency.CHAOS,
+            Set.of(),
+            Set.of("absent"),
+            Set.of(),
+            null,
+            300);
+    assertThat(impossible.hits().complete()).isTrue();
+    assertThat(impossible.hits().outcomes()).isEmpty();
+    assertThat(impossible.expectedUses()).isNull();
+  }
+
   /** 같은 추첨 풀이 계속되는 경우에도 최대 사용 횟수에서 계산을 중단한다. */
   @ParameterizedTest
   @ValueSource(ints = {1, 2, 1000})

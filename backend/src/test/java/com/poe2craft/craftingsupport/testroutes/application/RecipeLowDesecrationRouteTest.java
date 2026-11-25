@@ -49,40 +49,65 @@ class RecipeLowDesecrationRouteTest {
         null);
   }
 
-  /** 공개 적중은 보장되어도 실제 최댓값이 함께 필요하면 해당 원시 굴림만 두 단계 완주의 확률에 기여한다. */
+  /** 뼈와 공개는 경계 티어의 최저값을 확보하며, 그 후 Divine에서만 목표 최댓값의 실제 확률을 적용한다. */
   @Test
   void fixedRevealSeparatesTheGuaranteedTierFromTheRequestedMaximum() {
     var value = fixture.catalog.find(fixture.life).orElseThrow().stats().getFirst();
+    var prepare = new RecipeRoutePlanner.Step(BONE, List.of(), List.of(), List.of(), null);
+    var reveal = new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(6), List.of(), null);
+    var divine = new RecipeRoutePlanner.Step("DIVINE", List.of(), List.of(), List.of(), null);
+    java.util.function.Predicate<ItemState> maximum =
+        s ->
+            s.explicits().stream()
+                .anyMatch(
+                    m ->
+                        m.modifierId().equals(fixture.life)
+                            && m.values().get(value.id()) == value.max());
+    assertThat(
+            RecipeRoutePlanner.evaluateFixed(
+                    fixture.workbench,
+                    five,
+                    card(),
+                    maximum,
+                    5000,
+                    false,
+                    null,
+                    List.of(prepare, reveal),
+                    Set.of(value.id()))
+                .routes())
+        .isEmpty();
     var result =
         RecipeRoutePlanner.evaluateFixed(
             fixture.workbench,
             five,
             card(),
-            item ->
-                item.explicits().containsAll(five.explicits())
-                    && item.explicits().stream()
-                        .anyMatch(
-                            m ->
-                                m.modifierId().equals(fixture.life)
-                                    && m.values().get(value.id()) == value.max()),
+            maximum,
             5000,
             false,
             null,
-            List.of(
-                new RecipeRoutePlanner.Step(BONE, List.of(), List.of(), List.of(), null),
-                new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(6), List.of(), null)));
+            List.of(prepare, reveal, divine),
+            Set.of(value.id()));
     assertThat(result.routes())
         .singleElement()
         .satisfies(
             route -> {
-              assertThat(route.steps().getLast().chance().probability()).isEqualTo(1d);
-              assertThat(route.probability()).isEqualTo(1d / (value.max() - value.min() + 1));
-              var finalItem = result.states().get(route.stateIndices().getLast());
-              assertThat(finalItem.explicits())
+              var afterReveal = result.states().get(route.stateIndices().get(1));
+              assertThat(afterReveal.explicits())
+                  .containsAll(five.explicits())
                   .anyMatch(
                       m ->
                           m.modifierId().equals(fixture.life)
-                              && m.values().get(value.id()) == value.max());
+                              && m.values().get(value.id()) == value.min());
+              assertThat(route.steps().get(1).chance().probability()).isEqualTo(1d);
+              double perDivine = 1d / (value.max() - value.min() + 1);
+              var adjustment = route.steps().getLast();
+              assertThat(adjustment.chance().probability()).isEqualTo(perDivine);
+              assertThat(route.probability())
+                  .isCloseTo(
+                      1 - Math.pow(1 - perDivine, adjustment.maxUses()),
+                      org.assertj.core.data.Offset.offset(1e-12));
+              assertThat(maximum.test(result.states().get(route.stateIndices().getLast())))
+                  .isTrue();
             });
   }
 
@@ -139,17 +164,24 @@ class RecipeLowDesecrationRouteTest {
                 one, BONE, ModifierDefinition.AffixType.PREFIX, null, Set.of(), fixture.catalog)
             .storedItem();
     assertThat(new RecipeMoves(fixture.workbench).choices(one, card, Map.of()))
-        .noneMatch(c -> c.move().action().equals(BONE));
+        .anyMatch(c -> c.move().action().equals(BONE));
     for (var start : List.of(five, hidden)) {
+      var reveal = new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(1), List.of(), null);
+      var steps =
+          start == five
+              ? List.of(
+                  new RecipeRoutePlanner.Step(BONE, List.of(), List.of(), List.of(), null), reveal)
+              : List.of(reveal);
       var actual =
-          RecipeRoutePlanner.calculate(
+          RecipeRoutePlanner.evaluateFixed(
               fixture.workbench,
               start,
-              List.of(card),
+              card,
               item -> item.explicits().stream().anyMatch(m -> m.modifierId().equals(fixture.life)),
               20000,
               true,
-              null);
+              null,
+              steps);
       var expected = start.desecrated().isEmpty() ? List.of(BONE, "REVEAL") : List.of("REVEAL");
       var route =
           actual.routes().stream()

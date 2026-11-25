@@ -655,7 +655,7 @@ describe('Craft Support starting screen', () => {
     fireEvent.paste(input, {
       clipboardData: { getData: () => 'verified item' },
     })
-    expect(await within(preview).findByText('Prefix')).toBeVisible()
+    expect(await within(preview).findByText('P')).toBeVisible()
     expect(within(preview).getByText(source.raw)).toBeVisible()
   })
   it('keeps a late validation response from replacing a newly selected base', async () => {

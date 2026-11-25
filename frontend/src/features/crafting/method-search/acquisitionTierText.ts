@@ -1,6 +1,7 @@
 import type { Locale } from '../../../shared/i18n/i18n'
 import type { Definition, Initial } from '../craftingApi'
 import { localizedModifierText } from '../localizedModifiers'
+import { rangeText } from './rollPresentation'
 
 type Tier = Definition & { stats: NonNullable<Definition['stats']> }
 type Bounds = { hasLowerBound?: boolean; hasUpperBound?: boolean }
@@ -46,4 +47,19 @@ export function acquisitionTierText(
   if (!bounds.hasLowerBound) return high
   const low = tierEdge(tiers, 'min', locale)
   return low === high ? low : `${low} – ${high}`
+}
+
+/** Keep the eligible tier interval beside the concrete roll for a two-bound support preview. */
+export function acquisitionTierRangeText(
+  ids: readonly string[],
+  definitions: Initial['modifiers'],
+  locale: Locale,
+) {
+  const tiers = ids.map((id) => definitions[id])
+  if (!tiers.length || !tiers.every((d): d is Tier => !!d?.stats?.length))
+    return undefined
+  return rangeText(
+    tierEdge(tiers, 'min', locale),
+    tierEdge(tiers, 'max', locale),
+  )
 }

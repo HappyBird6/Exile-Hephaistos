@@ -235,7 +235,7 @@ class RecipeRoutePlannerTest {
     }
   }
 
-  /** 같은 단계에서 굴림이 갈라져도 표시 예시는 마지막 성공 상태로 실제로 이어진 부모 분기를 따른다. */
+  /** 획득 단계에는 각 티어의 하한을, 마지막 Divine에는 같은 기보에서 실제로 성공한 굴림을 기록한다. */
   @Test
   void witnessesReplayFromTheSameStartAndOnlyReferencedStatesAreReturned() {
     var start = fixture.item(ItemState.Rarity.MAGIC, strength);
@@ -267,15 +267,27 @@ class RecipeRoutePlannerTest {
         result.routes().stream()
             .filter(
                 r ->
-                    r.steps().size() == 2
-                        && r.steps().getFirst().action().equals("GREATER_ESSENCE_BODY")
+                    r.steps().stream()
+                            .map(RecipeRoutePlanner.Step::action)
+                            .toList()
+                            .equals(
+                                List.of(
+                                    "GREATER_ESSENCE_BODY",
+                                    "PERFECT_ESSENCE_ENHANCEMENT",
+                                    "DIVINE"))
                         && r.steps()
-                            .getLast()
+                            .get(1)
                             .omens()
                             .equals(List.of("Omen_of_Dextral_Crystallisation")))
             .findFirst()
             .orElseThrow();
-    assertThat(materialRoute.probability()).isEqualTo(1.0 / 165);
+    var adjustment = materialRoute.steps().getLast();
+    double hit = 1d / 165; // 생명력 85~99와 전체 방어 20~30의 두 독립 굴림이다.
+    assertThat(adjustment.chance().probability()).isEqualTo(hit);
+    assertThat(materialRoute.probability())
+        .isCloseTo(
+            1 - Math.pow(1 - hit, adjustment.maxUses()),
+            org.assertj.core.data.Offset.offset(1e-12));
     assertThat(materialRoute.stateIndices()).hasSameSizeAs(materialRoute.steps());
     ItemState previous = start;
     for (int i = 0; i < materialRoute.steps().size(); i++) {
@@ -292,8 +304,15 @@ class RecipeRoutePlannerTest {
                   .outcomes())
           .extracting(RecipeTransitions.Outcome::state)
           .contains(next);
+      long expectedLife = i == 2 ? 99L : 85L;
       assertThat(next.explicits())
-          .anyMatch(m -> m.modifierId().equals(life) && m.values().containsValue(99L));
+          .anyMatch(m -> m.modifierId().equals(life) && m.values().containsValue(expectedLife));
+      if (i > 0) {
+        long expectedDefences = i == 2 ? 25L : 20L;
+        assertThat(next.explicits())
+            .anyMatch(
+                m -> m.modifierId().equals(def) && m.values().containsValue(expectedDefences));
+      }
       previous = next;
     }
     var used =

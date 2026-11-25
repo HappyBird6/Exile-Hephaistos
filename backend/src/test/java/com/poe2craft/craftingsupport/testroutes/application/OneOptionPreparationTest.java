@@ -19,7 +19,7 @@ class OneOptionPreparationTest {
   /** 지정한 준비가 이번 아이템에 후보로 존재하면 그 전이의 실제 분기들을 반환한다. */
   private List<RecipeTransitions.Outcome> advance(
       ItemState item, WorkbenchCurrency currency, Set<WorkbenchOmen> omens) {
-    assertThat(OneOptionPreparation.choices(item, 1))
+    assertThat(OneOptionPreparation.choices(item, 1, fixture.workbench, Set.of(fixture.life)))
         .anyMatch(
             c ->
                 c.preparation()
@@ -55,7 +55,10 @@ class OneOptionPreparationTest {
               assertThat(item.itemLevel()).isEqualTo(start.itemLevel());
               assertThat(item.implicits()).isEqualTo(start.implicits());
               assertThat(OneOptionPreparation.ready(item)).isTrue();
-              assertThat(OneOptionPreparation.choices(item, 1)).isEmpty();
+              assertThat(
+                      OneOptionPreparation.choices(
+                          item, 1, fixture.workbench, Set.of(fixture.life)))
+                  .isEmpty();
             });
   }
 
@@ -98,8 +101,24 @@ class OneOptionPreparationTest {
         new ItemState.DesecratedSlot("slot", ModifierDefinition.AffixType.PREFIX, fixture.life);
     assertThat(OneOptionPreparation.ready(plain.withDesecrated(List.of(revealed)))).isTrue();
     assertThat(OneOptionPreparation.ready(plain.withDesecrated(List.of(hidden)))).isFalse();
-    assertThat(OneOptionPreparation.choices(plain.withDesecrated(List.of(hidden)), 1)).isNotEmpty();
+    assertThat(
+            OneOptionPreparation.choices(
+                plain.withDesecrated(List.of(hidden)), 1, fixture.workbench, Set.of()))
+        .extracting(c -> c.move().omens())
+        .containsExactly(Set.of(), Set.of(WorkbenchOmen.DEXTRAL_ANNULMENT));
     assertThat(OneOptionPreparation.ready(empty.withDesecrated(List.of(hidden)))).isFalse();
+  }
+
+  /** 두 일반 옵션 중 어느 쪽을 지워도 같은 반복을 시작하면 방향 소멸을 추가하지 않는다. */
+  @Test
+  void omitsBothAnnulmentOmensWhenEitherSideCanBeDiscarded() {
+    var item = fixture.item(ItemState.Rarity.RARE, fixture.life, fixture.strength);
+    assertThat(OneOptionPreparation.choices(item, 1, fixture.workbench, Set.of()))
+        .extracting(c -> c.move().omens())
+        .containsExactly(Set.of());
+    assertThat(OneOptionPreparation.choices(item, 1, fixture.workbench, Set.of(fixture.life)))
+        .extracting(c -> c.move().omens())
+        .containsExactly(Set.of(), Set.of(WorkbenchOmen.DEXTRAL_ANNULMENT));
   }
 
   /** 분열은 고정하고 그 밖의 명시만 세어, 0개면 엑잘 준비·1개면 반복·2개면 소멸 준비가 된다. */
@@ -121,7 +140,7 @@ class OneOptionPreparationTest {
     var exalted = advance(onlyFracture, WorkbenchCurrency.EXALTED, Set.of()).getFirst().state();
     assertThat(exalted.explicits()).contains(fracture);
     assertThat(OneOptionPreparation.ready(exalted)).isTrue();
-    assertThat(OneOptionPreparation.choices(exalted, 1)).isEmpty();
+    assertThat(OneOptionPreparation.choices(exalted, 1, fixture.workbench, Set.of())).isEmpty();
     var twoMore = fixture.item(ItemState.Rarity.RARE, fixture.strength, "amulet:prefix:adept-s");
     var beforeAnnul =
         new ItemState(

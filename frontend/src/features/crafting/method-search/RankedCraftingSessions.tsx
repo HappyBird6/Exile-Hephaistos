@@ -137,7 +137,9 @@ export function SessionPlansLayout({
   children,
   detail,
   sectionRef,
+  filters,
 }: {
+  filters?: ReactNode
   children: ReactNode
   detail?: ReactNode
   sectionRef?: Ref<HTMLElement>
@@ -147,6 +149,7 @@ export function SessionPlansLayout({
   return (
     <section className="session-plans" ref={sectionRef}>
       <HistoryWorkspaceLayout
+        beforeColumns={filters}
         heading={
           <>
             <h2>{heading}</h2>

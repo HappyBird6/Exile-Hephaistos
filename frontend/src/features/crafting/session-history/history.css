@@ -172,6 +172,15 @@
 .session-flow-resources .wb-session-notation__uses {
   display: none;
 }
+.session-flow-resources .wb-session-notation__uses[data-repeat-until-hit] {
+  display: inline;
+}
+.session-flow-edge:has(
+    .session-flow-resources > :only-child [data-repeat-until-hit]
+  )
+  .session-flow-label {
+  display: none;
+}
 .session-flow-edge--down {
   display: flex;
   flex-direction: column;

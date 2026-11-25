@@ -150,6 +150,34 @@ class CommunityIntegrationTest {
     assertThatThrownBy(() -> board.get(p.id())).isInstanceOf(ResponseStatusException.class);
   }
 
+  /** 게시한 무징조 카오스는 무제한 기대량을 보존하며, 잘못된 표식·재료·한도와의 조합은 거절한다. */
+  @Test
+  void unboundedChaosSurvivesPublicationWithItsExpectedUses() throws Exception {
+    var actor = member();
+    var film = film();
+    var frames = (ArrayNode) film.path("frames");
+    var frame = ((ObjectNode) frames.get(0)).deepCopy();
+    frames.add(frame);
+    frame.put("action", "SESSION_PLAN");
+    var craft = frame.putArray("projectedCurrencies").addObject();
+    craft.put("currencyId", "Chaos_Orb").put("repeatUntilHit", true).put("expectedUses", 2000.5);
+    var omens = craft.putArray("omenIds");
+    var post = board.create(actor, draft(film, "", null, 0));
+    assertThat(board.get(post.id()).film().at("/frames/1/projectedCurrencies/0")).isEqualTo(craft);
+    craft.put("maxUses", 1000);
+    assertInvalidSharedSession(actor, film);
+    craft.remove("maxUses");
+    omens.add("Omen_of_Whittling");
+    assertInvalidSharedSession(actor, film);
+    omens.removeAll();
+    craft.put("currencyId", "Exalted_Orb");
+    assertInvalidSharedSession(actor, film);
+    craft.put("currencyId", "Chaos_Orb").put("repeatUntilHit", "true");
+    assertInvalidSharedSession(actor, film);
+    craft.put("repeatUntilHit", true).put("expectedUses", 0.5);
+    assertInvalidSharedSession(actor, film);
+  }
+
   /** 게시한 절사 기보는 보관함과 같은 조합·분류·오차로 검사하고 구간과 원래 소수값을 보존한다. */
   @Test
   void whittlingOutcomesRemainImportableAfterPublication() throws Exception {

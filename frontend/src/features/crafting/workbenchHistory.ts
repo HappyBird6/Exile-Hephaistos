@@ -2,6 +2,7 @@ import {
   observedSanctified,
   validSanctification,
 } from './sanctification/sanctification'
+import { repeatContract } from '../../shared/contracts/public'
 import { revealAction } from './abyss-workbench/revealAction'
 import type { AbyssState } from './crafting-state/types'
 import { baseAffixCapacity } from './baseRegistry'
@@ -47,25 +48,29 @@ export type CraftEvidence = Pick<
 >
 /** 체크포인트의 재료와 반복 상한. 기대 횟수가 null이면 비용은 확인된 최소 사용량만큼의 하한이다. */
 export type PlannedCurrency = {
+  repeatUntilHit?: true
   currencyId: string
   omenIds: string[]
   expectedUses?: number | null
   omensPerUse?: boolean
   maxUses?: number
 }
+function isChaosCurrency(currencyId: string) {
+  const action = workbenchCurrencyActions[currencyId]
+  return typeof action === 'string' && baseWorkbenchAction(action) === 'CHAOS'
+}
+
 /** 준비 결과에 따라 카오스를 쓸 수 없는 분기는 0개를 소비해 반복 전체의 평균이 1 미만일 수 있다. */
 export function boundedChaosCurrency(
   currencyId: string,
   maxUses: number | undefined,
 ) {
-  const action = workbenchCurrencyActions[currencyId]
   return (
     maxUses !== undefined &&
     Number.isInteger(maxUses) &&
     maxUses > 1 &&
-    maxUses <= 1000 &&
-    typeof action === 'string' &&
-    baseWorkbenchAction(action) === 'CHAOS'
+    maxUses <= repeatContract.maximumUses &&
+    isChaosCurrency(currencyId)
   )
 }
 export function validExpectedUses(
@@ -98,6 +103,11 @@ export function validProjectedCurrencies(
         step.omenIds.every(
           (id: unknown) => typeof id === 'string' && id.length <= 160,
         ) &&
+        (step.repeatUntilHit === undefined ||
+          (step.repeatUntilHit === true &&
+            step.maxUses === undefined &&
+            step.omenIds.length === 0 &&
+            isChaosCurrency(step.currencyId))) &&
         (step.omensPerUse === undefined ||
           (step.omensPerUse === true && step.maxUses !== undefined)) &&
         (step.expectedUses === undefined ||
@@ -109,8 +119,8 @@ export function validProjectedCurrencies(
           )) &&
         (step.maxUses === undefined ||
           (Number.isInteger(step.maxUses) &&
-            step.maxUses >= 1 &&
-            step.maxUses <= 1000)),
+            step.maxUses >= repeatContract.minimumUses &&
+            step.maxUses <= repeatContract.maximumUses)),
     )
   )
 }
@@ -125,7 +135,14 @@ export type ProjectedOmenOutcomes = {
   recoverable: ProjectedChance
   failure: ProjectedChance
 }
+/** Presentation hints for the live support preview. Structured clones and JSON retain the real item only. */
+export const acquisitionPreview = Symbol('acquisitionPreview')
+export type AcquisitionPreview = {
+  tierRanges: readonly string[][]
+  dummyId?: string
+}
 export type Frame = {
+  [acquisitionPreview]?: AcquisitionPreview
   /** 공개 확률이 미확정인 빛·소멸·뼈 반복의 전체 공개 한도다. */
   projectedRevealLimit?: number
   projectedChance?: ProjectedChance
@@ -213,8 +230,7 @@ export function projectedWhittlingOutcomes(
   )
     return undefined
   const craft = crafts[0]!
-  const action = workbenchCurrencyActions[craft.currencyId]
-  if (!action || baseWorkbenchAction(action) !== 'CHAOS') return undefined
+  if (!isChaosCurrency(craft.currencyId)) return undefined
   const omens = craft.omenIds
   if (
     !omens.includes('Omen_of_Whittling') ||

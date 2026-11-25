@@ -58,6 +58,7 @@ export function craftingStepCost(
       | 'consumedOmenIds'
       | 'uses'
       | 'expectedUses'
+      | 'repeatUntilHit'
       | 'omensPerUse'
       | 'maxUses'
       | 'kind'
@@ -92,11 +93,13 @@ export function craftingStepCost(
     if (step.work) continue
     hasCosts = true
     unknownRepeatCount ||=
-      (step.maxUses !== undefined && step.expectedUses == null) ||
+      ((step.maxUses !== undefined || !!step.repeatUntilHit) &&
+        step.expectedUses == null) ||
       step.expectedUses === null
     if (
-      step.expectedUses === null &&
-      boundedChaosCurrency(step.currencyId, step.maxUses)
+      (step.repeatUntilHit && step.expectedUses == null) ||
+      (step.expectedUses === null &&
+        boundedChaosCurrency(step.currencyId, step.maxUses))
     ) {
       retryMaterials.push({
         currencyId: step.currencyId,

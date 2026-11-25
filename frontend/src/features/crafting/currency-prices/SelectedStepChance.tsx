@@ -104,6 +104,16 @@ export function SupportChance({
   )
 }
 
+export function RouteChanceSummary({
+  film,
+}: {
+  film?: Film | null | undefined
+}) {
+  return film?.rulesetIdentity && validStepChance(film.projectedRouteChance) ? (
+    <SupportChance chance={film.projectedRouteChance} route />
+  ) : null
+}
+
 export function SelectedStepChance({
   film,
   cursor,
@@ -115,15 +125,15 @@ export function SelectedStepChance({
 }) {
   const frame = film?.frames[cursor]
   if (!film || !frame) return null
-  const route =
-    film.rulesetIdentity && validStepChance(film.projectedRouteChance)
-      ? film.projectedRouteChance
-      : undefined
-  if (sessionSummary && route) return <SupportChance chance={route} route />
+  if (
+    sessionSummary &&
+    film.rulesetIdentity &&
+    validStepChance(film.projectedRouteChance)
+  )
+    return <SupportChance chance={film.projectedRouteChance} route />
   const step = cursor > 0 ? projectedStepProbability(film, frame) : undefined
   return (
     <>
-      {route && <SupportChance chance={route} route />}
       {step ? (
         <SupportChance {...step} />
       ) : cursor > 0 &&

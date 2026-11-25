@@ -65,6 +65,8 @@ describe('ItemCard', () => {
         ),
       ).toHaveTextContent(messages.suffix)
       expect(container.querySelectorAll('.item-card__affix')).toHaveLength(2)
+      expect(screen.getByText('P')).toBeVisible()
+      expect(screen.getByText('S')).toBeVisible()
     },
   )
   it.each(Object.entries(itemCardMessages))(
@@ -196,7 +198,8 @@ describe('ItemCard', () => {
       ],
     }
     render(card(toItemCard(parsed)))
-    expect(screen.getByText('Prefix · T1')).toBeVisible()
+    expect(screen.getByTitle('Prefix')).toHaveTextContent('T1')
+    expect(screen.getByText('P')).toBeVisible()
     expect(
       screen.getByText('Synthetic +13').closest('.item-card__line'),
     ).toHaveClass('item-card__line--fractured')

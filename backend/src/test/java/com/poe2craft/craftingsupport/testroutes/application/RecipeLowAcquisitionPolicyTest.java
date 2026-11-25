@@ -111,7 +111,8 @@ class RecipeLowAcquisitionPolicyTest {
     lastOnly.set(1, new RouteCards.Option(2, Map.of(fixture.strength, List.of(common))));
     assertThat(moves.choices(empty, new RouteCards.Card(lastOnly, 0), Map.of()))
         .isNotEmpty()
-        .allMatch(c -> c.target() == 1);
+        .anyMatch(c -> c.target() == 1 && c.purpose() == RecipeMoves.Purpose.BONE)
+        .noneMatch(c -> c.purpose() == RecipeMoves.Purpose.LOW_EXALT);
   }
 
   /** 같은 뼈의 두 목표를 별도 선택으로 유지하고, 기존 접두 공개 슬롯에는 실제 가능한 접두 티어만 둔다. */
@@ -129,16 +130,19 @@ class RecipeLowAcquisitionPolicyTest {
     assertThat(choices)
         .hasSize(2)
         .allMatch(
-            c ->
-                c.purpose() == RecipeMoves.Purpose.DESECRATION
-                    && c.move().action().equals(bone.id()));
+            c -> c.purpose() == RecipeMoves.Purpose.BONE && c.move().action().equals(bone.id()));
     assertThat(choices)
         .anyMatch(c -> c.target() == 1 && c.eligibleTiers().equals(Set.of(fixture.life, low)))
         .anyMatch(c -> c.target() == 2 && c.eligibleTiers().equals(Set.of(fixture.strength)));
     var pending =
         DesecrationCurrency.apply(
             start, bone.id(), AffixType.PREFIX, null, Set.of(), fixture.catalog);
-    var revealChoices = moves.choices(pending.storedItem(), card, Map.of());
+    assertThat(moves.choices(pending.storedItem(), card, Map.of())).isEmpty();
+    var revealChoices =
+        moves.choices(
+            pending.storedItem(),
+            new RouteCards.Card(List.of(card.options().getFirst()), 0),
+            Map.of());
     assertThat(revealChoices)
         .singleElement()
         .satisfies(

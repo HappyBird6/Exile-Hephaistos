@@ -271,6 +271,16 @@ class TestRouteControllerTest {
     assertThat(route.at("/steps/0/expectedUses").doubleValue()).isBetween(1d, 1000d);
     step.put("maxUses", 1001);
     grade(input).andExpect(status().isBadRequest());
+    step.remove("maxUses");
+    step.put("repeatUntilHit", true).put("repeatTarget", 1);
+    grade(input)
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.routes[0].steps[0].repeatUntilHit").value(true))
+        .andExpect(jsonPath("$.routes[0].steps[0].repeatTarget").value(1))
+        .andExpect(jsonPath("$.routes[0].steps[0].chance.probability").value(1d))
+        .andExpect(jsonPath("$.routes[0].steps[0].maxUses").doesNotExist());
+    step.put("repeatTarget", 2);
+    grade(input).andExpect(status().isBadRequest());
   }
 
   /** 5개 기존 옵션과 마지막 미공개 접두 칸을 넣고, +85~99 생명력 한 티어에 해당하는 목표를 만든다. */
@@ -312,7 +322,7 @@ class TestRouteControllerTest {
 
   /** 기존 슬롯에서는 적격한 생명력 티어를 한 번에 공개하고, 원래 다섯 옵션과 입력한 수치 기준을 보존한다. */
   @Test
-  void aSingleEligibleHiddenTierIsChosenOnceAndOnlyItsNumericRollIsRandom() throws Exception {
+  void revealsAtTheTierFloorAndUsesDivineForAnInteriorValue() throws Exception {
     var input = hiddenLifeRequest(85, 99);
     var data =
         json.readTree(
@@ -347,29 +357,36 @@ class TestRouteControllerTest {
         .anySatisfy(
             mod -> {
               assertThat(mod.get("modifierId").asText()).isEqualTo("amulet:prefix:rotund");
-              assertThat(mod.at("/values/base_maximum_life").intValue()).isBetween(85, 99);
+              assertThat(mod.at("/values/base_maximum_life").intValue()).isEqualTo(85);
             });
     var storedMods = json.treeToValue(end.required("explicits"), ModifierInstance[].class);
     var startMods = json.treeToValue(input.at("/item/explicits"), ModifierInstance[].class);
     assertThat(storedMods).contains(startMods);
-    // 같은 티어에서 +90만 요구하면 획득은 100%이고 최종 성공은 15개 정수 굴림 중 하나다.
+    // +90만 요구하면 공개 시 +85에서 시작한다. 이후 Divine 한 번의 적중률은 1/15이다.
     var exact = hiddenLifeRequest(90, 90);
     exact.put("cardIndex", 0);
     var reveal = exact.putArray("steps").addObject();
     reveal.put("action", "REVEAL").putArray("omens");
     reveal.putArray("acquired").add(1);
     reveal.putArray("lost");
+    grade(exact).andExpect(status().isOk()).andExpect(jsonPath("$.routes").isEmpty());
+    var divine = exact.withArray("steps").addObject();
+    divine.put("action", "DIVINE");
+    divine.putArray("omens");
+    divine.putArray("acquired");
+    divine.putArray("lost");
     var graded =
         grade(exact)
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.routes.length()").value(1))
             .andExpect(jsonPath("$.routes[0].steps[0].chance.probability").value(1d))
-            .andExpect(jsonPath("$.routes[0].probability").value(1d / 15d))
+            .andExpect(jsonPath("$.routes[0].steps[1].chance.probability").value(1d / 15d))
+            .andExpect(jsonPath("$.routes[0].steps[1].expectedUses").value(15d))
             .andReturn()
             .getResponse();
     var replay = json.readTree(graded.getContentAsByteArray());
     var witness =
-        replay.required("states").required(replay.at("/routes/0/stateIndices/0").intValue());
+        replay.required("states").required(replay.at("/routes/0/stateIndices/1").intValue());
     assertThat(witness.required("explicits"))
         .anyMatch(
             mod ->
@@ -545,9 +562,9 @@ class TestRouteControllerTest {
         .andExpect(jsonPath("$.routes[0].stateIndices").isEmpty());
   }
 
-  /** 승급 에센스의 +85~99 중 +90 이상인 열 가지 굴림만 같은 1회 경로의 성공 질량에 포함된다. */
+  /** 승급 에센스로 +85~99 티어를 얻으면 +85에서 시작하고, +90 이상은 Divine 한 번에 10/15로 적중한다. */
   @Test
-  void numericGoalCountsOnlyPassingRollsOfTheAcquiredOption() throws Exception {
+  void essenceObtainsTheTierAndDivineRollsItsFinalValue() throws Exception {
     var input = body.deepCopy();
     var item = (ObjectNode) input.path("item");
     item.put("rarity", "MAGIC");
@@ -563,10 +580,18 @@ class TestRouteControllerTest {
         .anySatisfy(
             route -> {
               var steps = route.path("steps");
-              assertThat(steps.size()).isEqualTo(1);
+              assertThat(steps.size()).isEqualTo(2);
               assertThat(steps.get(0).path("action").asText()).isEqualTo("GREATER_ESSENCE_BODY");
               assertThat(route.path("order").toString()).isEqualTo("[1]");
-              assertThat(route.path("probability").doubleValue())
+              assertThat(steps.get(1).path("action").asText()).isEqualTo("DIVINE");
+              var acquired =
+                  result.required("states").required(route.at("/stateIndices/0").intValue());
+              assertThat(acquired.required("explicits"))
+                  .anyMatch(
+                      mod ->
+                          mod.path("modifierId").asText().equals("amulet:prefix:rotund")
+                              && mod.path("values").path(LIFE).intValue() == 85);
+              assertThat(steps.get(1).path("chance").path("probability").doubleValue())
                   .isCloseTo(10d / 15d, org.assertj.core.data.Offset.offset(1e-12));
               var option =
                   result

@@ -1,3 +1,6 @@
+import { acquisitionTierRangeText } from '../method-search/acquisitionTierText'
+import { itemCardMessages } from '../itemCardMessages'
+import { acquisitionPreview } from '../workbenchHistory'
 import { useHistoryInitial } from './useHistoryInitial'
 import { lastCurrencyAffectedOptions } from '../lastCurrencyAffectedOptions'
 import { useBonded, bondedLabel } from '../bonded'
@@ -161,13 +164,37 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                       state,
                     ).values
                 : m.values
+              const preview =
+                valid && i >= state.implicits.length
+                  ? frame[acquisitionPreview]
+                  : undefined
+              const eligibleTiers = preview?.tierRanges.find((ids) =>
+                ids.includes(m.modifierId),
+              )
+              const isDummy = preview?.dummyId === m.modifierId
               return {
+                ...(isDummy && definition
+                  ? {
+                      detail: localizedModifierText(definition, values, locale),
+                    }
+                  : {}),
                 id: `${i}`,
-                text: definition
-                  ? localizedModifierText(definition, values, locale)
-                  : `${m.modifierId}: ${Object.entries(m.values)
-                      .map(([key, value]) => `${key} ${value}`)
-                      .join(', ')}`,
+                text: isDummy
+                  ? itemCardMessages[locale].replaceable
+                  : definition
+                    ? localizedModifierText(definition, values, locale)
+                    : `${m.modifierId}: ${Object.entries(m.values)
+                        .map(([key, value]) => `${key} ${value}`)
+                        .join(', ')}`,
+                ...(eligibleTiers && definitions
+                  ? {
+                      tierRange: acquisitionTierRangeText(
+                        eligibleTiers,
+                        definitions,
+                        locale,
+                      ),
+                    }
+                  : {}),
                 fractured: m.fractured,
                 ...stateModifierAffix(
                   state,

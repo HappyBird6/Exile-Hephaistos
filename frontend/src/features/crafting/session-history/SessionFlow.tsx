@@ -66,7 +66,12 @@ export function SessionFlow({
         (step.expectedUses
           ? ' ' +
             sessionNotationMessages[locale].expectedUses(
-              formatExpectedUses(step.expectedUses, step.currencyId, locale),
+              formatExpectedUses(
+                step.expectedUses,
+                step.currencyId,
+                locale,
+                step.repeatUntilHit,
+              ),
             )
           : step.maxUses
             ? ` ×1–${step.maxUses}`

@@ -158,6 +158,7 @@ export function SessionNotation({
                       step.expectedUses,
                       step.currencyId,
                       locale,
+                      step.repeatUntilHit,
                     ),
                   )
             const content = (
@@ -279,10 +280,25 @@ export function NotationResources({
           </span>
         )}
         {step.expectedUses && (
-          <span className="wb-session-notation__uses">
-            {text.expectedUses(
-              formatExpectedUses(step.expectedUses, step.currencyId, locale),
-            )}
+          <span
+            className="wb-session-notation__uses"
+            data-repeat-until-hit={step.repeatUntilHit}
+          >
+            {step.repeatUntilHit
+              ? '×' +
+                formatExpectedUses(
+                  step.expectedUses,
+                  step.currencyId,
+                  locale,
+                  true,
+                )
+              : text.expectedUses(
+                  formatExpectedUses(
+                    step.expectedUses,
+                    step.currencyId,
+                    locale,
+                  ),
+                )}
           </span>
         )}
         {step.maxUses && (

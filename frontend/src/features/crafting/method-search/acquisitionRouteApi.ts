@@ -17,6 +17,9 @@ export interface RouteOption {
 }
 
 export interface AcquisitionStep {
+  dummy?: boolean
+  repeatUntilHit?: true
+  repeatTarget?: number
   omenOutcomes?: ProjectedOmenOutcomes
   action: string
   chance?: {
@@ -32,6 +35,7 @@ export interface AcquisitionStep {
 }
 
 export interface AcquisitionRoute {
+  lucky?: boolean
   cardIndex: number
   order: number[]
   steps: AcquisitionStep[]

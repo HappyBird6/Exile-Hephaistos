@@ -95,6 +95,10 @@
   position: relative;
   display: flow-root;
 }
+.item-card__tier-range {
+  display: block;
+  color: #bbb;
+}
 .item-card__line[data-last-currency-affected] {
   padding-inline-start: 0.85em;
 }

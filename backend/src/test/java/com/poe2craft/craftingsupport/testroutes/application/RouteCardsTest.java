@@ -261,6 +261,47 @@ class RouteCardsTest {
                         s ->
                             (s.label().equals("B") || s.label().equals("A"))
                                 == (s.frequency() != null)));
+    // 수치가 없는 생명력은 일반 접두 아홉 티어(9,000/72,200)가 모두 적격이다.
+    assertThat(sources.stream().flatMap(List::stream).filter(s -> s.label().equals("B")))
+        .isNotEmpty()
+        .allMatch(s -> s.frequency() == RouteCards.Frequency.H);
+  }
+
+  /** 정신력 43 이상은 두 티어의 합이 M이고 47 이상은 한 티어만 적격이라 L이다. 실제로 보유한 티어도 목표 빈도로 보호한다. */
+  @Test
+  void spiritFrequencyUsesEveryEligibleTierEvenWhenAHigherTierIsAlreadyHeld() {
+    var catalog = ItemCatalogLoader.loadDefault();
+    var simulator = simulator(catalog);
+    var initial = SolarAmulet.initial(catalog, 82, 15);
+    String spirit = "base_spirit_from_equipment";
+    String t1 = "amulet:prefix:countess";
+    String t2 = "amulet:prefix:marchioness";
+    var owned = new ModifierInstance(t1, Map.of(spirit, 47L));
+    var fracture = new ModifierInstance(t1, owned.values(), true);
+    var empty = RecipeStateGroups.withAffixes(initial, ItemState.Rarity.RARE, List.of());
+    for (var mods : List.of(List.<ModifierInstance>of(), List.of(owned), List.of(fracture))) {
+      var start = RecipeStateGroups.withAffixes(empty, empty.rarity(), mods);
+      for (int lower : List.of(43, 47)) {
+        var bound = new GoalFilter.Range(java.math.BigDecimal.valueOf(lower), null);
+        var result = cards(simulator, start, ItemState.Rarity.RARE, 0.01, 0.1, bound, spirit);
+        var option =
+            result.cards().stream()
+                .flatMap(card -> card.options().stream())
+                .filter(o -> o.tiers().containsKey(t1))
+                .findFirst()
+                .orElseThrow();
+        var eligible = lower == 47 || mods.contains(fracture) ? Set.of(t1) : Set.of(t1, t2);
+        assertThat(option.tiers().keySet()).isEqualTo(eligible);
+        var expected = lower == 43 ? RouteCards.Frequency.M : RouteCards.Frequency.L;
+        assertThat(option.tiers().values())
+            .allSatisfy(
+                sources ->
+                    assertThat(sources.stream().filter(s -> s.label().equals("B")))
+                        .singleElement()
+                        .extracting(RouteCards.Source::frequency)
+                        .isEqualTo(expected));
+      }
+    }
   }
 
   /** 장갑의 0홈에서 장인의 오브를 사용할 수 있으며 이미 장착한 룬은 다시 요구하지 않는다. */
@@ -396,8 +437,9 @@ class RouteCardsTest {
     assertThat(source.forItem(marksman).catalog().find(id).orElseThrow().weight()).isZero();
     assertThat(source.forItem(both).catalog().find(id).orElseThrow().weight()).isPositive();
     // 각각의 실제 sampler에서 분모를 읽는다. 두 값 중간의 경계를 쓰면 잘못된 분모는 등급이 바뀐다.
-    var chanceBoth = chance(source.forItem(both), definition, empty.itemLevel());
-    var chanceDecay = chance(source.forItem(decay), definition, empty.itemLevel());
+    var ids = List.of(id, "augment:decay:DecayInfluenceIgniteMagnitude2");
+    var chanceBoth = chance(source.forItem(both), ids, empty.itemLevel());
+    var chanceDecay = chance(source.forItem(decay), ids, empty.itemLevel());
     assertThat(chanceBoth).isLessThan(chanceDecay);
     var midpoint = (chanceBoth + chanceDecay) / 2;
     var test =
@@ -405,7 +447,7 @@ class RouteCardsTest {
             source,
             marksman,
             ItemState.Rarity.RARE,
-            0,
+            chanceBoth * 0.75,
             midpoint,
             definition.stats().getFirst().id());
     var labels =
@@ -418,13 +460,19 @@ class RouteCardsTest {
         .allMatch(s -> s.id().equals("Katlas_Gloom") && s.frequency() == RouteCards.Frequency.M);
   }
 
-  /** 적용된 카탈로그에서 같은 쪽의 레벨 적격 티어 가중치를 직접 합산한다. */
-  private double chance(WorkbenchSimulator simulator, ModifierDefinition tier, int level) {
+  /** 적용된 카탈로그의 같은 쪽 전체 풀에서 목표가 허용하는 티어 가중치를 직접 합산한다. */
+  private double chance(WorkbenchSimulator simulator, List<String> ids, int level) {
+    var side = simulator.catalog().find(ids.getFirst()).orElseThrow().affixType();
     long total =
         simulator.catalog().modifiers().values().stream()
-            .filter(d -> d.affixType() == tier.affixType() && d.requiredItemLevel() <= level)
+            .filter(d -> d.affixType() == side && d.requiredItemLevel() <= level)
             .mapToLong(ModifierDefinition::weight)
             .sum();
-    return (double) simulator.catalog().find(tier.id()).orElseThrow().weight() / total;
+    long hit =
+        ids.stream()
+            .map(id -> simulator.catalog().find(id).orElseThrow())
+            .mapToLong(ModifierDefinition::weight)
+            .sum();
+    return (double) hit / total;
   }
 }

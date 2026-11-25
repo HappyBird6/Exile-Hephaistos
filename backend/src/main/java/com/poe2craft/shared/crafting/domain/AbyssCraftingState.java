@@ -333,13 +333,32 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
   }
 
   public List<String> eligibleRevealIds(String id, ItemCatalog catalog) {
+    return revealIds(id, catalog, catalog.modifiers().values().stream()).sorted().toList();
+  }
+
+  /** 동일한 작업대 규칙으로 요청한 목표 티어만 검증한다. */
+  public List<String> eligibleRevealIds(String id, ItemCatalog catalog, Set<String> candidates) {
+    return revealIds(
+            id, catalog, candidates.stream().map(catalog.modifiers()::get).filter(Objects::nonNull))
+        .sorted()
+        .toList();
+  }
+
+  /** 재료 적용 시에는 가능한 후보 하나를 발견하면 검사를 마친다. */
+  boolean canReveal(String id, ItemCatalog catalog) {
+    return revealIds(id, catalog, catalog.modifiers().values().stream()).findAny().isPresent();
+  }
+
+  /** 주어진 후보에 슬롯·레벨·차단 계열과 실제 선택 검사를 적용한다. */
+  private java.util.stream.Stream<String> revealIds(
+      String id, ItemCatalog catalog, java.util.stream.Stream<ModifierDefinition> candidates) {
     validate(catalog);
     var target =
         slots.stream()
             .filter(s -> s.id().equals(id) && s.desecrated() && s.modifier() == null)
             .findFirst()
             .orElseThrow(() -> new IllegalArgumentException("Unrevealed slot required"));
-    return catalog.modifiers().values().stream()
+    return candidates
         .filter(d -> revealEligible(target, d))
         .filter(
             d -> {
@@ -352,13 +371,26 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
                 return false;
               }
             })
-        .map(ModifierDefinition::id)
-        .sorted()
-        .toList();
+        .map(ModifierDefinition::id);
   }
 
   private boolean revealEligible(Slot slot, ModifierDefinition d) {
     return d.affixType() == slot.side() && revealPoolEligible(slot.revealPool(), d, d.weight() > 0);
+  }
+
+  /** 미공개 슬롯을 만든 시점에 확정된 방향·재료 풀·레벨로 해당 티어의 공개 예약 가능 여부를 판단한다. */
+  public boolean permitsReservedTier(Slot slot, ModifierDefinition definition) {
+    return slot.desecrated()
+        && slot.modifier() == null
+        && revealEligible(slot, definition)
+        && revealLevelAllows(slot, definition);
+  }
+
+  /** 새로 공개하는 티어는 아이템 레벨 이하이며 뼈가 지정한 최소 옵션 레벨 이상이어야 한다. */
+  private boolean revealLevelAllows(Slot slot, ModifierDefinition definition) {
+    return definition.requiredItemLevel() <= item.itemLevel()
+        && (slot.minimumModifierLevel() == null
+            || definition.requiredItemLevel() >= slot.minimumModifierLevel());
   }
 
   /** 공개·카드 출처 조회가 공유하는 훼손 풀 조건. 레벨·슬롯·계열은 각 상태에서 별도로 검사한다. */
@@ -403,9 +435,7 @@ public record AbyssCraftingState(ItemState item, List<Slot> slots, Offer offer) 
             .orElseThrow(() -> new IllegalArgumentException("Unknown slot or modifier"));
     if (!revealEligible(target, definition))
       throw new IllegalArgumentException("Candidate violates reveal pool");
-    if (definition.requiredItemLevel() > item.itemLevel()
-        || (target.minimumModifierLevel() != null
-            && definition.requiredItemLevel() < target.minimumModifierLevel()))
+    if (!revealLevelAllows(target, definition))
       throw new IllegalArgumentException("Candidate violates item or currency level limits");
     var next =
         slots.stream()

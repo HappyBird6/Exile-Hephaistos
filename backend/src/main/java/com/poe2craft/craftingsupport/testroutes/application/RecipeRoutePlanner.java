@@ -6,6 +6,7 @@ import com.poe2craft.craftingsupport.testroutes.application.RecipeMoves.Move;
 import com.poe2craft.craftingsupport.testroutes.application.RecipeMoves.Purpose;
 import com.poe2craft.craftingsupport.testroutes.application.RecipeTransitions.Law;
 import com.poe2craft.craftingsupport.testroutes.application.RecipeTransitions.Outcome;
+import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
@@ -46,7 +47,10 @@ public final class RecipeRoutePlanner {
     }
   }
 
-  /** action과 omens는 제작 선택, acquired·lost는 목표 번호다. 순수 준비에는 chance가 없고 반복 Divine에는 예상 사용량을 담는다. */
+  /**
+   * action과 omens는 제작 선택, acquired·lost는 목표 번호다. 순수 더미를 붙이는 단계는 dummy와 100%를, 반복 Divine에는 예상 사용량을
+   * 담는다.
+   */
   public record Step(
       String action,
       List<String> omens,
@@ -57,7 +61,10 @@ public final class RecipeRoutePlanner {
       @JsonInclude(JsonInclude.Include.NON_NULL) Double expectedUses,
       @JsonInclude(JsonInclude.Include.NON_NULL) Integer maxUses,
       @JsonInclude(JsonInclude.Include.NON_NULL) String originalAction,
-      @JsonInclude(JsonInclude.Include.NON_NULL) OmenOutcomes omenOutcomes) {
+      @JsonInclude(JsonInclude.Include.NON_NULL) OmenOutcomes omenOutcomes,
+      @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean repeatUntilHit,
+      @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean dummy,
+      @JsonInclude(JsonInclude.Include.NON_NULL) Integer repeatTarget) {
     /** 측정된 서버 응답에는 등급 비교용 입력의 원본 화폐를 포함하지 않는다. */
     public Step(
         String action,
@@ -68,7 +75,20 @@ public final class RecipeRoutePlanner {
         Chance chance,
         Double expectedUses,
         Integer maxUses) {
-      this(action, omens, acquired, lost, socketIndex, chance, expectedUses, maxUses, null, null);
+      this(
+          action,
+          omens,
+          acquired,
+          lost,
+          socketIndex,
+          chance,
+          expectedUses,
+          maxUses,
+          null,
+          null,
+          false,
+          false,
+          null);
     }
 
     /** 화폐 등급을 바꿔도 일반 추첨과 희소 티어를 노린 원래 추첨을 구별한다. */
@@ -80,7 +100,69 @@ public final class RecipeRoutePlanner {
         Integer socketIndex,
         Integer maxUses,
         String originalAction) {
-      this(action, omens, acquired, lost, socketIndex, null, null, maxUses, originalAction, null);
+      this(
+          action,
+          omens,
+          acquired,
+          lost,
+          socketIndex,
+          null,
+          null,
+          maxUses,
+          originalAction,
+          null,
+          false,
+          false,
+          null);
+    }
+
+    /** 지정 번호가 없던 고정 경로도 실제 획득 기록으로 다시 계산한다. */
+    public Step(
+        String action,
+        List<String> omens,
+        List<Integer> acquired,
+        List<Integer> lost,
+        Integer socketIndex,
+        Integer maxUses,
+        String originalAction,
+        boolean repeatUntilHit) {
+      this(
+          action,
+          omens,
+          acquired,
+          lost,
+          socketIndex,
+          maxUses,
+          originalAction,
+          repeatUntilHit,
+          null);
+    }
+
+    /** 무제한 카오스는 처음부터 노린 단일 목표 번호를 같은 등급 또는 선택 등급으로 재생한다. */
+    public Step(
+        String action,
+        List<String> omens,
+        List<Integer> acquired,
+        List<Integer> lost,
+        Integer socketIndex,
+        Integer maxUses,
+        String originalAction,
+        boolean repeatUntilHit,
+        Integer repeatTarget) {
+      this(
+          action,
+          omens,
+          acquired,
+          lost,
+          socketIndex,
+          null,
+          null,
+          maxUses,
+          originalAction,
+          null,
+          repeatUntilHit,
+          false,
+          repeatTarget);
     }
 
     /** 고정 경로 입력은 확률을 받지 않고 실제 작업대 분포에서 다시 계산한다. */
@@ -105,15 +187,29 @@ public final class RecipeRoutePlanner {
     }
 
     /** 누적 확률을 갖는 카오스 시도와 동일 화폐의 단회 사용을 구별한다. */
-    private boolean boundedChaos() {
-      return maxUses != null
+    private boolean repeatingChaos() {
+      return (repeatUntilHit || maxUses != null)
           && RecipeMoves.baseMove(move()).action().equals(WorkbenchCurrency.CHAOS.name());
+    }
+
+    /** 이전 응답에 지정 번호가 없으면 기록된 첫 획득 번호를 사용한다. */
+    private Integer selectedRepeatTarget() {
+      if (!repeatUntilHit) return null;
+      if (repeatTarget != null || acquired.isEmpty()) return repeatTarget;
+      return acquired.getFirst();
     }
 
     /** 선택한 반복 한도와 원본 화폐가 실제로 비교 가능한 제작인지 확인한다. */
     public boolean validGradeSelection() {
       if (action == null || action.isBlank()) return false;
+      if (repeatTarget != null
+          && (!repeatUntilHit
+              || repeatTarget < 1
+              || repeatTarget > 6
+              || (!acquired.isEmpty() && !acquired.contains(repeatTarget)))) return false;
       var base = RecipeMoves.baseMove(new Move(action));
+      if (repeatUntilHit && (maxUses != null || !base.action().equals("CHAOS") || !omens.isEmpty()))
+        return false;
       if (maxUses != null
           && (maxUses != DivineRepeatEstimate.MAX_USES
               || !Set.of("CHAOS", "DIVINE").contains(base.action())
@@ -125,18 +221,62 @@ public final class RecipeRoutePlanner {
     }
 
     /** 같은 제작을 택한 상태 간에 공통인 행동과 관측 결과를 표현한다. */
-    private Step(Move move, List<Integer> acquired, List<Integer> lost) {
+    private Step(
+        Move move,
+        List<Integer> acquired,
+        List<Integer> lost,
+        Integer maxUses,
+        Integer repeatTarget) {
       this(
           move.action(),
           move.omens().stream().map(WorkbenchOmen::id).sorted().toList(),
           acquired,
           lost,
-          move.socketIndex());
+          move.socketIndex(),
+          null,
+          null,
+          maxUses,
+          null,
+          null,
+          repeatTarget != null,
+          false,
+          repeatTarget);
     }
 
     /** 행동 전이를 묶은 후 해당 경로 분포의 확률과 기대 사용량을 붙인다. */
     private Step measured(Chance hit, Double uses, Integer maximum) {
-      return new Step(action, omens, acquired, lost, socketIndex, hit, uses, maximum);
+      return new Step(
+          action,
+          omens,
+          acquired,
+          lost,
+          socketIndex,
+          hit,
+          uses,
+          maximum,
+          null,
+          null,
+          repeatUntilHit,
+          dummy,
+          repeatTarget);
+    }
+
+    /** 실제로 목표를 얻지 않은 더미 추가는 등급을 선택하지 않고, 경로에는 조건부 준비 확률 1을 곱한다. */
+    private Step asDummy() {
+      return new Step(
+          action,
+          omens,
+          acquired,
+          lost,
+          socketIndex,
+          new Chance(1.0, null),
+          null,
+          null,
+          null,
+          null,
+          false,
+          true,
+          null);
     }
 
     /** 표시용 3분류를 추가한다. 다음 단계나 전체 경로의 성공 확률은 별도로 유지한다. */
@@ -151,7 +291,10 @@ public final class RecipeRoutePlanner {
           expectedUses,
           maxUses,
           null,
-          results);
+          results,
+          repeatUntilHit,
+          dummy,
+          repeatTarget);
     }
 
     /** 클라이언트에서 돌아온 행동·징조와 실제 홈 위치만 재생 키에 포함한다. */
@@ -172,7 +315,8 @@ public final class RecipeRoutePlanner {
       List<Step> steps,
       Double probability,
       List<Integer> stateIndices,
-      @JsonInclude(JsonInclude.Include.NON_NULL) ProbabilityBounds probabilityBounds) {
+      @JsonInclude(JsonInclude.Include.NON_NULL) ProbabilityBounds probabilityBounds,
+      boolean lucky) {
     /** 시작부터 이미 달성한 경로 등 정확한 확률에는 추가 경계가 없다. */
     public Route(
         int cardIndex,
@@ -180,7 +324,7 @@ public final class RecipeRoutePlanner {
         List<Step> steps,
         Double probability,
         List<Integer> stateIndices) {
-      this(cardIndex, order, steps, probability, stateIndices, null);
+      this(cardIndex, order, steps, probability, stateIndices, null, false);
     }
   }
 
@@ -188,7 +332,7 @@ public final class RecipeRoutePlanner {
   public record Result(List<Route> routes, boolean complete, List<ItemState> states) {}
 
   /** state와 parent는 같은 실제 분기의 연속 상태다. 시작 상태만 parent가 없다. */
-  private record Witness(ItemState state, Witness parent) {
+  private record Witness(ItemState state, Witness parent, boolean lucky, boolean chaosDummy) {
     /** 시작 이후의 상태만 순서대로 공통 응답 사전에 등록하여 0 기반 번호로 반환한다. */
     List<Integer> indices(Map<ItemState, Integer> dictionary) {
       var frames = new ArrayDeque<ItemState>();
@@ -228,12 +372,28 @@ public final class RecipeRoutePlanner {
 
     /** 미확정 질량은 null로 유지한다. 서로 배타적인 같은 상태 결과만 합친다. */
     void add(ItemState item, RevealTierMass weight, Witness parent, RecipeStateGroups groups) {
+      add(item, weight, parent, groups, false, false);
+    }
+
+    /** 동일한 실제 경로가 준비 적중과 직접 획득 둘 다 가능하면 직접 획득 예시를 우선한다. */
+    void add(
+        ItemState item,
+        RevealTierMass weight,
+        Witness parent,
+        RecipeStateGroups groups,
+        boolean lucky,
+        boolean chaosDummy) {
       masses.compute(
           groups.key(item),
-          (key, existing) ->
-              existing == null
-                  ? new Mass(weight, new Witness(item, parent))
-                  : new Mass(existing.weight.plus(weight), existing.witness));
+          (key, existing) -> {
+            if (existing == null)
+              return new Mass(weight, new Witness(item, parent, lucky, chaosDummy));
+            var example =
+                existing.witness.lucky && !lucky
+                    ? new Witness(item, parent, false, chaosDummy)
+                    : existing.witness;
+            return new Mass(existing.weight.plus(weight), example);
+          });
     }
 
     /** 같은 관측 단계에 들어오는 모든 아이템의 원래 확률 질량이다. */
@@ -253,6 +413,8 @@ public final class RecipeRoutePlanner {
     RevealTierMass covered = RevealTierMass.known(Fraction.ZERO);
     RevealTierMass firstCovered = RevealTierMass.known(Fraction.ZERO);
     final Map<Step, RevealTierMass> firstWeights = new HashMap<>();
+    // 지정한 목표에 적중한 전체 질량이다. 같은 티어가 다른 목표를 동시에 달성한 경우도 한 번만 더한다.
+    RevealTierMass repeatHits = RevealTierMass.known(Fraction.ZERO);
     RevealTierMass missedProof = RevealTierMass.known(Fraction.ZERO);
     Fraction eligible = Fraction.ZERO;
     Fraction missed = Fraction.ZERO;
@@ -274,6 +436,9 @@ public final class RecipeRoutePlanner {
   private final Integer minimumQuality;
   private final Set<String> targets = new TreeSet<>();
   private final Set<String> lowIds = new HashSet<>();
+
+  /** 카드에서 실제로 사용할 수 있는 뼈 식별자다. */
+  private final Set<String> boneIds = new HashSet<>();
 
   /** 같은 카드 안에서 이미 구한 목표 번호별 빈도와 장착 후 추첨 풀을 열어 주는 증강물이다. */
   private final Map<Integer, RouteCards.Frequency> priorities = new HashMap<>();
@@ -328,7 +493,8 @@ public final class RecipeRoutePlanner {
     this.minimumQuality = minimumQuality;
     this.simulator = simulator;
     slots = new ItemStateValidator(simulator.catalog());
-    transitions = new RecipeTransitions(simulator, presenceOnly, numericSourceStatIds);
+    transitions =
+        new RecipeTransitions(simulator, presenceOnly, numericSourceStatIds, card.options());
     moves = new RecipeMoves(simulator);
     this.card = card;
     this.cardIndex = cardIndex;
@@ -339,6 +505,7 @@ public final class RecipeRoutePlanner {
       var augments = new HashSet<String>();
       for (var sources : opt.tiers().values())
         for (var source : sources) {
+          if (source.label().equals("D")) boneIds.add(source.id());
           if (source.label().equals("A")) augments.add(source.id());
           if (source.frequency() != null)
             priorities.merge(
@@ -413,9 +580,10 @@ public final class RecipeRoutePlanner {
       int share = budget / (cards.size() - i);
       var card = cards.get(i);
       boolean canRepeat = canSeekChaos(card, start);
-      int reserve = canRepeat ? share / 3 : 0;
-      for (boolean repeat : (canRepeat ? List.of(false, true) : List.of(false))) {
-        // 일반 획득과 시작 카오스에 각각 기회를 준다. 일반 탐색의 잔여 예산은 반복에 쓸 수 있다.
+      boolean chaosFirst = canRepeat && prefersFirstChaos(simulator, card, start);
+      var modes = chaosFirst ? List.of(true) : canRepeat ? List.of(false, true) : List.of(false);
+      int reserve = modes.size() == 2 ? share / 3 : 0;
+      for (boolean repeat : modes) {
         int allocation = repeat ? share : share - reserve;
         var search =
             new RecipeRoutePlanner(
@@ -450,6 +618,75 @@ public final class RecipeRoutePlanner {
             .thenComparingInt(Route::cardIndex)
             .thenComparing(r -> r.steps().toString()));
     return new Result(List.copyOf(routes), complete, List.copyOf(stateIndices.keySet()));
+  }
+
+  /** 분열만 유지한 희귀 풀에서 첫 L 후보 중 하나라도 실제로 뽑을 수 있으면 카오스 준비와 그 우연 적중부터 계산한다. */
+  private static boolean prefersFirstChaos(
+      WorkbenchSimulator simulator, RouteCards.Card card, ItemState start) {
+    if (!start.desecrated().isEmpty()) return false;
+    var held = start.explicits().stream().map(m -> m.modifierId()).toList();
+    // 이미 지킬 목표가 붙은 5칸 보드는 강제로 네 옵션을 지우지 않고 남은 훼손 슬롯을 쓸 수 있다.
+    if (start.explicitSlotCount() >= 5
+        && start.explicits().stream()
+            .anyMatch(
+                m ->
+                    !m.fractured()
+                        && card.options().stream()
+                            .anyMatch(o -> o.tiers().containsKey(m.modifierId())))) return false;
+    var missing =
+        card.options().stream()
+            .filter(o -> Collections.disjoint(o.tiers().keySet(), held))
+            .filter(
+                o ->
+                    !o.tiers().isEmpty()
+                        && o.tiers().values().stream()
+                            .allMatch(
+                                s ->
+                                    s.stream()
+                                        .anyMatch(
+                                            source ->
+                                                source.frequency() == RouteCards.Frequency.L)))
+            .toList();
+    if (missing.isEmpty()) return false;
+    var empty =
+        RecipeStateGroups.withAffixes(
+            start,
+            ItemState.Rarity.RARE,
+            start.explicits().stream().filter(m -> m.fractured()).toList());
+    if (hasLowInPool(simulator, empty, missing)) return true;
+    // 장착 전 닫혀 있던 A 풀도 실제로 열 수 있는 홈과 증강물에 대해서만 시작 카오스를 선택한다.
+    var augments = new LinkedHashSet<String>();
+    for (var option : missing)
+      for (var sources : option.tiers().values())
+        for (var source : sources) if (source.label().equals("A")) augments.add(source.id());
+    if (augments.isEmpty()) return false;
+    var transitions = new RecipeTransitions(simulator, true);
+    var contexts = new ArrayList<ItemState>();
+    contexts.add(empty);
+    transitions
+        .successors(empty, WorkbenchCurrency.ARTIFICER.name(), Set.of(), Set.of(), 1, false)
+        .outcomes()
+        .forEach(o -> contexts.add(o.state()));
+    for (var context : contexts) {
+      int sockets = context.augmentSockets() == null ? 0 : context.augmentSockets();
+      for (String augment : augments)
+        for (int i = 0; i < sockets; i++)
+          if (transitions
+              .successors(context, augment + "@" + i, Set.of(), Set.of(), 1, false)
+              .outcomes()
+              .stream()
+              .anyMatch(o -> hasLowInPool(simulator, o.state(), missing))) return true;
+    }
+    return false;
+  }
+
+  /** 교체 가능한 한 옵션을 제거한 뒤의 실제 추첨 풀에 첫 L 중 하나라도 있는지 판정한다. */
+  private static boolean hasLowInPool(
+      WorkbenchSimulator simulator, ItemState empty, List<RouteCards.Option> missing) {
+    var pool = simulator.forItem(empty).recipePlan(empty, WorkbenchCurrency.EXALTED, Set.of());
+    return pool.branches().stream()
+        .flatMap(b -> b.candidates().stream())
+        .anyMatch(m -> missing.stream().anyMatch(o -> o.tiers().containsKey(m.id())));
   }
 
   /** 시작부터 지켜야 하는 비분열 L이 없고 새로 뽑을 일반·증강 목표가 있을 때에만 한 옵션 카오스를 준비한다. */
@@ -518,23 +755,33 @@ public final class RecipeRoutePlanner {
         .anyMatch(
             s ->
                 RecipeMoves.baseMove(s.move()).action().equals(WorkbenchCurrency.CHAOS.name())
-                    && s.omens().isEmpty() != s.boundedChaos())) {
+                    && s.omens().isEmpty() != s.repeatingChaos())) {
       return new Result(List.of(), true, List.of());
     }
     var states = new LinkedHashMap<ItemState, Integer>();
-    boolean explicitRepeat = selectedSteps.stream().anyMatch(Step::boundedChaos);
+    boolean explicitRepeat = selectedSteps.stream().anyMatch(Step::repeatingChaos);
     if (explicitRepeat && !canSeekChaos(card, start)) return new Result(List.of(), true, List.of());
+    var firstMove =
+        selectedSteps.isEmpty() ? null : RecipeMoves.baseMove(selectedSteps.getFirst().move());
     boolean mayHitDuringSetup =
         !explicitRepeat
             && canSeekChaos(card, start)
-            && !selectedSteps.isEmpty()
-            && OneOptionPreparation.choices(start, 0).stream()
-                .anyMatch(
-                    c -> RecipeMoves.baseMove(selectedSteps.getFirst().move()).equals(c.move()));
+            && firstMove != null
+            && OneOptionPreparation.choices(start, 0, simulator, Set.of()).stream()
+                .anyMatch(c -> firstMove.equals(c.move()));
+    // 일반 엑잘 준비와 완벽 엑잘 목표 적중이 같은 등급으로 재생될 수 있다. 실제 첫 화폐의 제작 의도를 먼저 검사한다.
+    var modes = List.of(explicitRepeat);
+    if (mayHitDuringSetup) {
+      var first = selectedSteps.getFirst();
+      var origin = first.originalAction() == null ? first.action() : first.originalAction();
+      boolean seekFirst =
+          firstMove.action().equals(origin) && prefersFirstChaos(simulator, card, start);
+      modes = List.of(seekFirst, !seekFirst);
+    }
     int available = outcomeBudget;
     var omenBudget = new OmenBudget(outcomeBudget);
     boolean verified = true;
-    for (boolean seek : (mayHitDuringSetup ? List.of(false, true) : List.of(explicitRepeat))) {
+    for (boolean seek : modes) {
       var planner =
           new RecipeRoutePlanner(
               simulator,
@@ -565,21 +812,47 @@ public final class RecipeRoutePlanner {
   private record Pending(List<Step> path, Distribution current, int heldCount, long sequence) {}
 
   private void explore(List<Step> initialPath, Distribution initial) {
-    var pending =
-        new PriorityQueue<>(
-            Comparator.comparingInt(Pending::heldCount)
-                .reversed()
-                .thenComparingInt(p -> p.path().size())
-                .thenComparingLong(Pending::sequence));
-    pending.add(new Pending(initialPath, initial, 0, nextSequence++));
-    while (!pending.isEmpty()) {
-      var next = pending.remove();
-      expand(next.path(), next.current(), pending);
+    var order =
+        Comparator.comparingInt(Pending::heldCount)
+            .reversed()
+            .thenComparingInt(p -> p.path().size())
+            .thenComparingLong(Pending::sequence);
+    var regular = new PriorityQueue<>(order);
+    var lucky = new PriorityQueue<>(order);
+    regular.add(new Pending(initialPath, initial, 0, nextSequence++));
+    int regularWork = 0;
+    int luckyWork = 0;
+    while (!regular.isEmpty() || !lucky.isEmpty()) {
+      boolean takeLucky = !lucky.isEmpty() && (regular.isEmpty() || luckyWork < regularWork);
+      int budget = remaining;
+      boolean sharing = !regular.isEmpty() && !lucky.isEmpty();
+      if (sharing) {
+        // 미적중 준비→카오스와 준비 중 우연한 첫 적중이 모두 있으면 남은 작업을 양쪽에 배분한다.
+        int total = remaining + regularWork + luckyWork;
+        int otherWork = takeLucky ? regularWork : luckyWork;
+        remaining -= Math.min(remaining, Math.max(0, total / 2 - otherWork));
+      }
+      var next = (takeLucky ? lucky : regular).remove();
+      int allowance = remaining;
+      var children = new ArrayDeque<Pending>();
+      expand(next.path(), next.current(), children, regular.size() + lucky.size());
+      for (var child : children) {
+        boolean setupHit =
+            fixedSteps == null
+                && seekFirstChaos
+                && child.path().stream().anyMatch(step -> !step.acquired().isEmpty())
+                && child.path().stream().noneMatch(Step::repeatingChaos);
+        (setupHit ? lucky : regular).add(child);
+      }
+      int used = allowance - remaining;
+      if (takeLucky) luckyWork += used;
+      else regularWork += used;
+      remaining = budget - used;
     }
   }
 
   /** 동일 관측 경로의 실제 아이템을 함께 전개해, 먼저 달성한 상태에서 즉시 멈춘다. */
-  private void expand(List<Step> path, Distribution current, Queue<Pending> pending) {
+  private void expand(List<Step> path, Distribution current, Queue<Pending> pending, int waiting) {
     boolean skippedStates = false;
     Witness representative = null;
     Map<Integer, String> representativeTiers = Map.of();
@@ -592,22 +865,64 @@ public final class RecipeRoutePlanner {
     boolean atFixedEnd = fixedSteps != null && path.size() == fixedSteps.size();
     var required = fixedSteps == null || atFixedEnd ? null : fixedSteps.get(path.size());
     var selected = required == null ? null : required.move();
-    boolean hadChaos = path.stream().anyMatch(Step::boundedChaos);
+    boolean hadChaos = path.stream().anyMatch(Step::repeatingChaos);
     var selectedTargets = new HashSet<String>();
     if (required != null) {
       for (int number : required.acquired())
         selectedTargets.addAll(allowed.getOrDefault(number, Set.of()));
     }
+    // 여러 첫 L 순서가 경쟁할 때 큰 더미 분포 하나가 뒤의 뼈·공개 검증 예산까지 소진하지 않게 한다.
+    // 제외한 부모의 질량은 성공으로 세지 않고 미완료/확률 구간에 남긴다.
+    int startingBudget = remaining;
+    var sampleState = current.masses.values().iterator().next().witness.state();
+    var sampleHeld = held(sampleState);
+    boolean staging =
+        fixedSteps == null
+            && card.options().size() >= 3
+            && sampleHeld.values().stream().anyMatch(lowIds::contains)
+            && card.options().stream()
+                .filter(o -> !sampleHeld.containsKey(o.number()))
+                .anyMatch(
+                    o ->
+                        o.tiers().values().stream()
+                            .anyMatch(
+                                s ->
+                                    s.stream()
+                                            .anyMatch(
+                                                source ->
+                                                    source.frequency() == RouteCards.Frequency.L)
+                                        && s.stream()
+                                            .anyMatch(source -> source.label().equals("D"))));
+    int stageAllowance =
+        staging
+            ? Math.max(
+                1,
+                startingBudget
+                    / Math.max(1, waiting + 2 + Math.max(0, 5 - sampleState.explicitSlotCount())))
+            : startingBudget;
     for (var entry : current.masses.entrySet()) {
       var item = entry.getValue().witness.state();
       var before = held(item);
+      if (entry.getValue().witness.chaosDummy) {
+        // 이 칸은 방금 준비한 다음 곧바로 교체한다. 이전에 보유했던 분열 목표만 계속 추적한다.
+        item.explicits().stream()
+            .filter(m -> !m.fractured())
+            .forEach(mod -> before.values().removeIf(mod.modifierId()::equals));
+      }
       if (before.size() == allowed.size() && matchesGoal.test(item)) {
+        // 계획이 새로 연 슬롯을 끝까지 사용하지 않은 가지는 완주한 훼손 제작이 아니다.
+        if (!path.isEmpty()
+            && item.desecrated().stream().anyMatch(s -> s.modifierId() == null)
+            && path.stream().anyMatch(s -> boneIds.contains(s.action()))) continue;
         var mass = entry.getValue();
         if (seekFirstChaos
             && !hadChaos
             && item.explicits().stream()
                 .noneMatch(m -> !m.fractured() && lowIds.contains(m.modifierId()))) continue;
-        if (representative == null || earlierAcquiredTier(path, before, representativeTiers)) {
+        if (representative == null
+            || (representative.lucky && !mass.witness.lucky)
+            || (representative.lucky == mass.witness.lucky
+                && earlierAcquiredTier(path, before, representativeTiers))) {
           representative = mass.witness;
           representativeTiers = before;
         }
@@ -616,7 +931,7 @@ public final class RecipeRoutePlanner {
       }
       liveMass = liveMass.plus(entry.getValue().weight);
       if (atFixedEnd) continue;
-      if (remaining == 0) {
+      if (remaining == 0 || startingBudget - remaining >= stageAllowance) {
         complete = false;
         skippedStates = true;
         continue;
@@ -647,7 +962,7 @@ public final class RecipeRoutePlanner {
           choices.clear();
           for (var opt : card.options()) {
             if (!before.containsKey(opt.number()))
-              OneOptionPreparation.choices(item, opt.number()).stream()
+              OneOptionPreparation.choices(item, opt.number(), simulator, protectedIds).stream()
                   .map(Choice::asLowPreparation)
                   .forEach(choices::add);
           }
@@ -678,7 +993,7 @@ public final class RecipeRoutePlanner {
                             .action()
                             .equals(WorkbenchCurrency.CHAOS.name())));
       if (required != null
-          && required.boundedChaos()
+          && required.repeatingChaos()
               != (repeat
                   && RecipeMoves.baseMove(selected)
                       .action()
@@ -718,6 +1033,8 @@ public final class RecipeRoutePlanner {
           selected,
           selectedTargets,
           repeat,
+          required == null ? null : required.selectedRepeatTarget(),
+          required == null ? null : required.maxUses(),
           required == null ? null : required.originalAction());
     }
     var live = liveMass.exact();
@@ -769,7 +1086,8 @@ public final class RecipeRoutePlanner {
               completed,
               routeProbability,
               representative.indices(stateIndices),
-              routeProbability == null ? range.wire() : null));
+              routeProbability == null ? range.wire() : null,
+              representative.lucky));
     }
     // 유한 예산이어도 긴 반복 분기만 우선하지 않도록 직접 획득한 후보를 준비 후보보다 먼저 본다.
     var omenChances =
@@ -799,6 +1117,9 @@ public final class RecipeRoutePlanner {
       var eventBounds = measuredEvent(weight, preparation.covered, nextStates.complete, liveBounds);
       nextStates.rawCap = eventBounds.upper();
       if (step.acquired().isEmpty() && step.lost().isEmpty() && preparation.dummy) {
+        // 더미용 화폐는 기본 등급으로만 준비한다. 실물에서 목표를 얻은 적중 분기는 그대로 등급을 비교한다.
+        if (required != null && !RecipeMoves.baseMove(step.move()).equals(step.move())) continue;
+        step = step.asDummy();
         // 실제 후속 제작이 가능한 더미만 남았더라도 모든 미적중 더미를 분모에 유지한다.
         nextStates.preparationFactor =
             product(current.preparationFactor, ratio(preparation.eligible, preparation.missed));
@@ -817,14 +1138,15 @@ public final class RecipeRoutePlanner {
           eventBounds
               .displayed(nextStates.factorLow, nextStates.factorHigh, nextStates.parentDisplayedCap)
               .upper();
-      if (step.boundedChaos()) {
+      if (step.repeatingChaos()) {
         boolean firstKnown = current.complete && !skippedStates && preparation.firstKnown;
         var firstWeight =
             preparation.firstWeights.getOrDefault(step, RevealTierMass.known(Fraction.ZERO));
         var first = firstKnown ? ratio(firstWeight.exact(), live) : null;
-        // 손실만 관측되면 원래 노린 목표 중 하나, 여러 번호를 획득하면 그 번호들을 함께 충족하는 티어를 기준으로 한다.
+        // 무제한은 지정한 번호의 모든 티어를, 구형 유한 반복은 기록된 동시 획득 티어를 기준으로 한다.
         var tiers = new HashSet<>(preparation.chaosTargetTiers);
-        for (int number : step.acquired()) tiers.retainAll(allowed.get(number));
+        if (!step.repeatUntilHit())
+          for (int number : step.acquired()) tiers.retainAll(allowed.get(number));
         var expected =
             BoundedChaosRepeat.emptyBaseExpectedUses(
                 simulator,
@@ -835,10 +1157,22 @@ public final class RecipeRoutePlanner {
         var firstBounds =
             measuredEvent(firstWeight, preparation.firstCovered, firstKnown, liveBounds)
                 .given(liveBounds);
-        step = step.measured(Chance.measured(first, firstBounds), expected, step.maxUses());
+        var chance =
+            step.repeatUntilHit()
+                ? Chance.measured(
+                    nextStates.complete ? ratio(preparation.repeatHits.exact(), live) : null,
+                    measuredEvent(
+                            preparation.repeatHits,
+                            preparation.covered,
+                            nextStates.complete,
+                            liveBounds)
+                        .given(liveBounds))
+                : Chance.measured(first, firstBounds);
+        step = step.measured(chance, expected, step.maxUses());
       } else if (!step.acquired().isEmpty()
           || !step.lost().isEmpty()
           || step.action().equals("REVEAL")
+          || boneIds.contains(step.action())
           || step.action().equals(WorkbenchCurrency.ANNULMENT.name())) {
         var hit = nextStates.complete ? ratio(weight.exact(), live) : null;
         step =
@@ -919,7 +1253,16 @@ public final class RecipeRoutePlanner {
         for (var outcome : raw.outcomes()) {
           var mass = transitionMass(parent.prior.weight, outcome);
           var observed =
-              observed(move, item, parent.held, parent.protectedIds, parent.intents, outcome, null);
+              observed(
+                  move,
+                  item,
+                  parent.held,
+                  parent.protectedIds,
+                  parent.intents,
+                  outcome,
+                  null,
+                  false,
+                  false);
           String added = WhittlingOutcomeLaw.addedId(item, outcome);
           for (var interest : interests.entrySet()) {
             var counts = result.get(interest.getKey());
@@ -1006,6 +1349,8 @@ public final class RecipeRoutePlanner {
       Move selected,
       Set<String> selectedTargets,
       boolean repeat,
+      Integer requestedRepeatTarget,
+      Integer chaosLimit,
       String originalAction) {
     var byMove = new LinkedHashMap<Move, List<Choice>>();
     for (var c : choices) byMove.computeIfAbsent(c.move(), ignored -> new ArrayList<>()).add(c);
@@ -1021,7 +1366,16 @@ public final class RecipeRoutePlanner {
             && selected.equals(entry.getKey())
             && !selectedTargets.isEmpty()
             && Collections.disjoint(intent.eligibleTiers(), selectedTargets)) continue;
-        var trial = new Trial(entry.getKey(), desecration ? intent.target() : 0);
+        boolean targetRepeat =
+            repeat
+                && chaosLimit == null
+                && RecipeMoves.baseMove(entry.getKey())
+                    .action()
+                    .equals(WorkbenchCurrency.CHAOS.name());
+        if (targetRepeat
+            && requestedRepeatTarget != null
+            && requestedRepeatTarget != intent.target()) continue;
+        var trial = new Trial(entry.getKey(), desecration || targetRepeat ? intent.target() : 0);
         trials.computeIfAbsent(trial, k -> new ArrayList<>()).add(intent);
       }
     var laws = new LinkedHashMap<Trial, Law>();
@@ -1055,7 +1409,7 @@ public final class RecipeRoutePlanner {
       var preparation = preparations.computeIfAbsent(trial, k -> new PreparationMass());
       Law law;
       if (repeat && RecipeMoves.baseMove(move).action().equals(WorkbenchCurrency.CHAOS.name())) {
-        // 가장 우선인 목표 번호 중 하나가 붙으면 멈춘다. 같은 번호의 모든 허용 티어를 포함한다.
+        // 무제한은 지정 번호가 나올 때만 멈추고, 구형 유한 반복은 원래의 동순위 적중 규칙을 보존한다.
         // 시작 M/H의 제거는 관측 결과 lost에 남긴다. 새 목표 전에 기존 M/H가 빠져도 반복은 이어진다.
         var interested = new HashSet<String>();
         for (var intent : intents)
@@ -1074,25 +1428,34 @@ public final class RecipeRoutePlanner {
                 move.omens(),
                 interested,
                 protectedIds,
-                DivineRepeatEstimate.MAX_USES,
-                remaining);
+                chaosLimit,
+                remaining,
+                prior.witness.chaosDummy);
         law = bounded.hits();
         firstLaws.put(trial, bounded.firstHits());
         preparation.firstKnown &= bounded.firstHits().complete();
         remaining -= Math.max(1, bounded.work());
       } else {
         var interested = replayHit ? selectedTargets : targets;
-        if (intents.stream()
-            .anyMatch(
-                c ->
-                    c.purpose() == Purpose.LOW_BONE
-                        || c.purpose() == Purpose.LOW_REVEAL
-                        || c.purpose() == Purpose.DESECRATION)) {
+        if (intents.stream().allMatch(c -> c.purpose() == Purpose.LOW_EXALT)
+            || intents.stream()
+                .anyMatch(
+                    c ->
+                        c.purpose() == Purpose.BONE
+                            || c.purpose() == Purpose.LOW_REVEAL
+                            || c.purpose() == Purpose.DESECRATION)) {
           interested = new HashSet<>();
           for (var intent : intents) interested.addAll(intent.eligibleTiers());
         }
-        if (intents.stream().anyMatch(c -> c.purpose() == Purpose.LOW_BONE))
-          law = transitions.prepareDesecration(item, action, move.omens(), interested, remaining);
+        if (intents.stream().anyMatch(c -> c.purpose() == Purpose.BONE))
+          law =
+              transitions.prepareDesecration(
+                  item,
+                  action,
+                  move.omens(),
+                  interested,
+                  remaining,
+                  before.size() + 1 < allowed.size());
         else
           law =
               transitions.successors(
@@ -1102,7 +1465,8 @@ public final class RecipeRoutePlanner {
       preparation.complete &= law.complete();
       if (move.action().equals(WorkbenchCurrency.DIVINE.name()))
         divine.add(prior.weight.exact(), law, matchesGoal);
-      if (prepares && !replayHit) countDummyMisses(preparation, item, before, prior.weight, law);
+      if (prepares && !replayHit)
+        countDummyMisses(preparation, item, before, prior.weight, law, intents);
 
       complete &= law.complete();
       laws.put(trial, law);
@@ -1152,7 +1516,8 @@ public final class RecipeRoutePlanner {
             .computeIfAbsent(move, k -> new ArrayList<>())
             .add(new OmenParent(prior, before, protectedIds, intents));
       boolean bounded = firstLaws.containsKey(trial);
-      Integer maxUses = bounded ? DivineRepeatEstimate.MAX_USES : null;
+      Integer maxUses = bounded ? chaosLimit : null;
+      boolean repeatUntilHit = bounded && chaosLimit == null;
       var preparation = preparations.get(trial);
       if (law.complete()) preparation.covered = preparation.covered.plus(prior.weight);
       if (bounded) {
@@ -1163,20 +1528,47 @@ public final class RecipeRoutePlanner {
           var firstWeight = transitionMass(prior.weight, outcome);
           if (!firstLaw.complete())
             preparation.firstCovered = preparation.firstCovered.plus(firstWeight);
-          var step = observed(move, item, before, protectedIds, intents, outcome, maxUses);
+          var step =
+              observed(
+                  move,
+                  item,
+                  before,
+                  protectedIds,
+                  intents,
+                  outcome,
+                  maxUses,
+                  repeatUntilHit,
+                  false);
           if (step != null) preparation.firstWeights.merge(step, firstWeight, RevealTierMass::plus);
         }
       }
       for (var outcome : law.outcomes()) {
         var weight = transitionMass(prior.weight, outcome);
         if (!law.complete()) preparation.covered = preparation.covered.plus(weight);
-        var step = observed(move, item, before, protectedIds, intents, outcome, maxUses);
+        boolean dummy =
+            disposableChaosSlot(item, outcome.state(), intents)
+                || (prior.witness.chaosDummy
+                    && !bounded
+                    && outcome.state().explicits().equals(item.explicits()));
+        var step =
+            observed(
+                move, item, before, protectedIds, intents, outcome, maxUses, repeatUntilHit, dummy);
         if (step == null) continue;
+        if (repeatUntilHit) preparation.repeatHits = preparation.repeatHits.plus(weight);
         var child =
             children.computeIfAbsent(step, ignored -> new Distribution(preparations.get(trial)));
         child.complete &= parentComplete && law.complete();
 
-        child.add(outcome.state(), weight, prior.witness, stateGroups);
+        boolean lucky =
+            prior.witness.lucky
+                || !step.acquired().isEmpty()
+                    && intents.stream()
+                        .noneMatch(
+                            c ->
+                                step.acquired().contains(c.target())
+                                    && (!c.preparation() || c.purpose() == Purpose.DIRECT_UPGRADE)
+                                    && reaches(c, before, outcome, protectedIds));
+        child.add(outcome.state(), weight, prior.witness, stateGroups, lucky, dummy);
       }
     }
   }
@@ -1197,13 +1589,24 @@ public final class RecipeRoutePlanner {
       Set<String> protectedIds,
       List<Choice> intents,
       Outcome outcome,
-      Integer maxUses) {
+      Integer maxUses,
+      boolean repeatUntilHit,
+      boolean dummy) {
+    var after = held(outcome.state());
     if ((outcome.state().equals(item)
+            && before.equals(after)
             && !move.action().equals(WorkbenchCurrency.DIVINE.name())
             && Collections.disjoint(outcome.removedModifierIds(), before.values()))
         || !Collections.disjoint(outcome.removedModifierIds(), protectedIds)) return null;
+    if (!move.action().equals("REVEAL")
+        && item.desecrated().stream().anyMatch(s -> s.modifierId() == null)
+        && outcome.state().desecrated().stream().noneMatch(s -> s.modifierId() == null))
+      return null;
     if (intents.stream().noneMatch(c -> reaches(c, before, outcome, protectedIds))) return null;
-    var after = held(outcome.state());
+    if (dummy) {
+      // 다음 반복이 바로 제거할 더미의 실제 ID는 물리 상태에만 남긴다.
+      after.keySet().retainAll(before.keySet());
+    }
     var lost =
         before.entrySet().stream()
             .filter(
@@ -1215,7 +1618,17 @@ public final class RecipeRoutePlanner {
     var acquired =
         after.keySet().stream().filter(n -> !before.containsKey(n) || lost.contains(n)).toList();
     if (move.omens().contains(WorkbenchOmen.WHITTLING) && acquired.isEmpty()) return null;
-    return new Step(move, acquired, lost).measured(null, null, maxUses);
+    return new Step(
+        move, acquired, lost, maxUses, repeatUntilHit ? intents.getFirst().target() : null);
+  }
+
+  /** 첫 카오스 직전에 새로 만든 일반 한 칸은 추첨 목표에 해당해도 그대로 교체한다. 준비에서 확보한 L은 보존한다. */
+  private boolean disposableChaosSlot(ItemState before, ItemState after, List<Choice> intents) {
+    return intents.stream().anyMatch(c -> c.purpose() == Purpose.LOW_PREPARATION)
+        && OneOptionPreparation.ready(after)
+        && after.explicits().size() > before.explicits().size()
+        && after.explicits().stream()
+            .noneMatch(m -> !m.fractured() && lowIds.contains(m.modifierId()));
   }
 
   /** 기본 등급 경로에서 합법이었던 한 행동만 선택 등급으로 교체한다. 위험한 제거의 L 보호 여부를 검증할 대안만 함께 둔다. */
@@ -1262,7 +1675,8 @@ public final class RecipeRoutePlanner {
       ItemState item,
       Map<Integer, String> held,
       RevealTierMass prior,
-      Law law) {
+      Law law,
+      List<Choice> intents) {
     if (law.outcomes().isEmpty() || !law.removableModifierIds().isEmpty()) return;
     var first = law.outcomes().getFirst().state();
     if (first.rarity() == item.rarity() && first.explicits().size() <= item.explicits().size())
@@ -1270,9 +1684,10 @@ public final class RecipeRoutePlanner {
     prep.dummy = true;
     prep.eligible = sum(prep.eligible, prior.exact());
     for (var outcome : law.outcomes()) {
-      if (outcome.state().explicits().stream()
-          .noneMatch(
-              m -> targets.contains(m.modifierId()) && !held.containsValue(m.modifierId()))) {
+      if (disposableChaosSlot(item, outcome.state(), intents)
+          || outcome.state().explicits().stream()
+              .noneMatch(
+                  m -> targets.contains(m.modifierId()) && !held.containsValue(m.modifierId()))) {
         prep.missed = sum(prep.missed, product(prior.exact(), outcome.probability()));
         prep.missedProof = prep.missedProof.plus(transitionMass(prior, outcome));
       }
@@ -1287,6 +1702,10 @@ public final class RecipeRoutePlanner {
         && !Collections.disjoint(outcome.removedModifierIds(), before.values())) return false;
     if (!RecipeMoves.permits(
         choice, before, held(outcome.state()), outcome.removedModifierIds(), lowIds)) return false;
+    if (choice.purpose() == Purpose.LOW_SLOT_PREPARATION) {
+      return held(outcome.state()).containsKey(choice.target())
+          || choice.eligibleTiers().stream().anyMatch(t -> moves.canReserve(outcome.state(), t));
+    }
     if (!choice.preparation()) {
       return outcome.state().explicits().stream()
           .anyMatch(
@@ -1306,20 +1725,39 @@ public final class RecipeRoutePlanner {
     if (choice.followup() == null) return true;
     var workbench = simulator.forItem(outcome.state());
     var followup = choice.followup();
-    var plan =
-        workbench.recipePlan(
-            outcome.state(), WorkbenchCurrency.valueOf(followup.action()), followup.omens());
+    var next = outcome.state();
+    var currency = WorkbenchCurrency.valueOf(followup.action());
+    if (next.desecrated().stream().anyMatch(slot -> slot.modifierId() == null)) {
+      var abyss = AbyssCraftingState.from(next, workbench.catalog());
+      var omens =
+          followup.omens().stream()
+              .map(WorkbenchOmen::id)
+              .collect(java.util.stream.Collectors.toSet());
+      var plan = workbench.abyssPlan(abyss, currency, omens);
+      return plan.available()
+          && plan.branches().stream()
+              .anyMatch(
+                  b ->
+                      b.remaining().slots().stream()
+                              .anyMatch(slot -> slot.desecrated() && slot.modifier() == null)
+                          && b.remaining().knownItem().explicits().stream()
+                              .map(m -> m.modifierId())
+                              .toList()
+                              .containsAll(protectedIds)
+                          && b.candidates().stream()
+                              .anyMatch(m -> allowed.get(choice.target()).contains(m.id())));
+    }
+    var plan = workbench.recipePlan(next, currency, followup.omens());
     return plan.status() == com.poe2craft.shared.crafting.domain.AutomaticCraftingPlan.Status.READY
         && plan.branches().stream()
-            .allMatch(
+            .anyMatch(
                 b ->
                     b.remaining().explicits().stream()
-                        .map(m -> m.modifierId())
-                        .toList()
-                        .containsAll(protectedIds))
-        && plan.branches().stream()
-            .flatMap(b -> b.candidates().stream())
-            .anyMatch(m -> allowed.get(choice.target()).contains(m.id()));
+                            .map(m -> m.modifierId())
+                            .toList()
+                            .containsAll(protectedIds)
+                        && b.candidates().stream()
+                            .anyMatch(m -> allowed.get(choice.target()).contains(m.id())));
   }
 
   /** 구체적인 명시 옵션을 카드 번호에 투영한다. 시작 목표의 단순 보유는 획득으로 세지 않는다. */

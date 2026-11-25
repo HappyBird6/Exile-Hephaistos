@@ -187,7 +187,7 @@ public final class DesecrationCurrency {
       throw new IllegalArgumentException("Observed slots exceed item capacity");
     result.validate(catalog);
     for (var slot : slots)
-      if (result.eligibleRevealIds(slot.id(), catalog).isEmpty())
+      if (!result.canReveal(slot.id(), catalog))
         throw new IllegalArgumentException("No eligible reveal options for observed slots");
     return result;
   }
@@ -329,7 +329,7 @@ public final class DesecrationCurrency {
             pool));
     var result = new AbyssCraftingState(remaining.item(), slots, null);
     result.validate(catalog);
-    if (result.eligibleRevealIds(slots.getLast().id(), catalog).isEmpty())
+    if (!result.canReveal(slots.getLast().id(), catalog))
       throw new IllegalArgumentException("No eligible reveal option for this item and currency");
     return result;
   }

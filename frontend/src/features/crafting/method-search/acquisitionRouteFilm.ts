@@ -9,6 +9,7 @@ import { currencyId } from '../session-notation/extractSessionNotation'
 import type { ConcreteItem } from '../workbenchApi'
 import type { Film, Frame } from '../workbenchHistory'
 import {
+  acquisitionPreview,
   boundedChaosCurrency,
   validExpectedUses,
   validStepChance,
@@ -62,6 +63,14 @@ export function assumesEligibleReveal(step: AcquisitionStep) {
 function repeatUses(step: AcquisitionStep) {
   const count = step.expectedUses
   const limit = step.maxUses
+  if (step.repeatUntilHit) {
+    return {
+      repeatUntilHit: true as const,
+      expectedUses: validExpectedUses(count, materialId(step.action))
+        ? count
+        : null,
+    }
+  }
   const bounds =
     typeof limit === 'number' &&
     Number.isInteger(limit) &&
@@ -113,6 +122,11 @@ export function acquisitionRouteFilm(
   const { rulesetIdentity } = request.start.provenance
   const start = request.start.item as ConcreteItem
   const frames: Frame[] = [{ state: start, action: null, rulesetIdentity }]
+  const rangedOptions =
+    result.cards[route.cardIndex]?.options.filter(
+      (option) => option.hasLowerBound && option.hasUpperBound,
+    ) ?? []
+  const heldOptions = new Set<number>()
   for (const [index, step] of route.steps.entries()) {
     const stateIndex = route.stateIndices[index]!
     const state = result.states?.[stateIndex]
@@ -123,6 +137,33 @@ export function acquisitionRouteFilm(
       state.snapshotId !== start.snapshotId
     )
       return null
+    const previous = frames[index]!
+    if (step.action === 'DIVINE') heldOptions.clear()
+    else {
+      for (const lost of step.lost) heldOptions.delete(lost)
+      for (const acquired of step.acquired) heldOptions.add(acquired)
+    }
+    const tierRanges = rangedOptions
+      .filter((option) => heldOptions.has(option.number))
+      .map((option) => option.modifierIds)
+    const isDummy =
+      step.dummy ??
+      (!step.acquired.length && !!route.steps[index + 1]?.repeatUntilHit)
+    const dummy = isDummy
+      ? state.explicits.find(
+          (mod) =>
+            !mod.fractured &&
+            !previous.state.explicits.some(
+              (old) => old.modifierId === mod.modifierId,
+            ),
+        )
+      : undefined
+    const preview = {
+      [acquisitionPreview]: {
+        tierRanges,
+        ...(dummy ? { dummyId: dummy.modifierId } : {}),
+      },
+    }
     const chance = step.chance
     const odds = validStepChance(chance)
       ? {
@@ -143,6 +184,7 @@ export function acquisitionRouteFilm(
         action: revealAction,
         rulesetIdentity,
         ...odds,
+        ...preview,
         ...(step.maxUses && step.maxUses > 1
           ? { projectedRevealLimit: step.maxUses }
           : {}),
@@ -158,6 +200,7 @@ export function acquisitionRouteFilm(
         action: 'SESSION_PLAN',
         rulesetIdentity,
         ...odds,
+        ...preview,
         ...(step.omenOutcomes
           ? { projectedOmenOutcomes: step.omenOutcomes }
           : {}),

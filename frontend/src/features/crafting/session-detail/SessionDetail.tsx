@@ -3,6 +3,7 @@ import type { Film } from '../workbenchHistory'
 import type { NotationStep } from '../session-notation/extractSessionNotation'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { HistoryCard } from '../session-history/HistoryCard'
+import { RouteChanceSummary } from '../currency-prices/SelectedStepChance'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
 import { SessionNotation } from '../session-notation/SessionNotation'
 import type { WorkbenchResource } from '../stash/stashTypes'
@@ -92,6 +93,7 @@ export function SessionDetail({
   )
   const record = (
     <>
+      <RouteChanceSummary film={film} />
       {(film || !pendingSteps) && (
         <CraftingCostLine film={film ?? undefined} cursor={index}>
           {costControls}

@@ -10,6 +10,7 @@ import {
 import { validChaosRepeatFrame } from '../chaos-repeat/chaosRepeatReceipt'
 
 export type NotationStep = {
+  repeatUntilHit?: true
   omensPerUse?: boolean
   expectedUses?: number | null
   maxUses?: number
@@ -134,6 +135,7 @@ export function extractSessionNotation(
             ? { expectedUses: craft.expectedUses }
             : {}),
           ...(craft.maxUses ? { maxUses: craft.maxUses } : {}),
+          ...(craft.repeatUntilHit ? { repeatUntilHit: true } : {}),
           ...(craft.omensPerUse ? { omensPerUse: true } : {}),
         })
       }

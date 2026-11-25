@@ -18,6 +18,85 @@ class RecipeTransitionsTest {
   final String strength = "amulet:suffix:of-the-brute";
   final String defences = "amulet:prefix:essence-global-defences";
 
+  /** 목표 티어의 가중치를 더하되 새 수치는 입력 방향과 그 화폐의 실제 후보에서 고른다. 시작 보유 수치는 보존한다. */
+  @Test
+  void eachAcquisitionUsesTheAvailableTierBoundaryAndKeepsOtherValues() {
+    String top = "amulet:prefix:countess";
+    String next = "amulet:prefix:marchioness";
+    String spirit = SolarAmulet.SPIRIT_STAT;
+    var base = List.of(new RouteCards.Source("B", null, RouteCards.Frequency.M));
+    var tiers = Map.of(top, base, next, base);
+    var initial = item(ItemState.Rarity.RARE, strength);
+    var stat = catalog.find(strength).orElseThrow().stats().getFirst();
+    var held = new ModifierInstance(strength, Map.of(stat.id(), stat.max()));
+    var rare = RecipeStateGroups.withAffixes(initial, initial.rarity(), List.of(held));
+    for (var bounds : List.of(List.of(true, false), List.of(false, true), List.of(true, true))) {
+      var configured =
+          new RecipeTransitions(
+              workbench,
+              false,
+              Set.of(spirit),
+              List.of(new RouteCards.Option(1, tiers, bounds.getFirst(), bounds.getLast())));
+      var selected = configured.successors(rare, "EXALTED", Set.of(), tiers.keySet(), 1, false);
+      long pool =
+          workbench.pool(rare, WorkbenchCurrency.EXALTED, null).stream()
+              .mapToLong(ModifierDefinition::weight)
+              .sum();
+      assertThat(selected.complete()).isTrue();
+      var expected =
+          bounds.getFirst()
+              ? new ModifierInstance(next, Map.of(spirit, 43L))
+              : new ModifierInstance(top, Map.of(spirit, 50L));
+      assertThat(selected.outcomes())
+          .singleElement()
+          .satisfies(
+              hit -> {
+                assertThat(hit.probability()).isEqualTo(Fraction.of(900, pool));
+                assertThat(hit.state().explicits()).containsExactly(expected, held);
+              });
+    }
+    var minimumGoal =
+        new RecipeTransitions(
+            workbench,
+            false,
+            Set.of(spirit),
+            List.of(new RouteCards.Option(1, tiers, true, false)));
+    var perfect =
+        minimumGoal.successors(rare, "PERFECT_EXALTED", Set.of(), tiers.keySet(), 1, false);
+    var actualPool = workbench.pool(rare, WorkbenchCurrency.PERFECT_EXALTED, null);
+    assertThat(actualPool).extracting(ModifierDefinition::id).contains(top).doesNotContain(next);
+    assertThat(perfect.outcomes())
+        .singleElement()
+        .satisfies(
+            hit -> {
+              long total = actualPool.stream().mapToLong(ModifierDefinition::weight).sum();
+              assertThat(hit.probability()).isEqualTo(Fraction.of(400, total));
+              assertThat(hit.state().explicits())
+                  .containsExactly(new ModifierInstance(top, Map.of(spirit, 47L)), held);
+            });
+    var both = Map.of(life, base, "amulet:prefix:virile", base);
+    var essence =
+        new RecipeTransitions(
+            workbench, false, Set.of(), List.of(new RouteCards.Option(1, both, true, false)));
+    var result =
+        essence.successors(
+            item(ItemState.Rarity.MAGIC, strength),
+            "GREATER_ESSENCE_BODY",
+            Set.of(),
+            both.keySet(),
+            1,
+            false);
+    assertThat(result.complete()).isTrue();
+    assertThat(result.outcomes())
+        .singleElement()
+        .satisfies(
+            hit -> {
+              assertThat(hit.probability()).isEqualTo(Fraction.ONE);
+              assertThat(hit.state().explicits())
+                  .contains(minimum(catalog.find(life).orElseThrow()));
+            });
+  }
+
   /** 절사의 접두·접미 동률 제거 및 등급별 교체 분포를 숫자를 전부 굴린 결과와 대조한다. */
   @Test
   void whittlingIdentityLawPreservesTiesReacquisitionAndGradedWeights() {
@@ -524,7 +603,7 @@ class RecipeTransitionsTest {
                               .map(RecipeRoutePlanner.Step::action)
                               .toList()
                               .equals(List.of("ARTIFICER", rune, "CHAOS"))
-                          && Integer.valueOf(1000).equals(r.steps().getLast().maxUses())
+                          && r.steps().getLast().repeatUntilHit()
                           && r.steps().getLast().omens().isEmpty())
               .findFirst()
               .orElseThrow();
@@ -538,7 +617,9 @@ class RecipeTransitionsTest {
                           s.acquired(),
                           s.lost(),
                           s.socketIndex(),
-                          s.maxUses()))
+                          s.maxUses(),
+                          null,
+                          s.repeatUntilHit()))
               .toList();
       var replay =
           RecipeRoutePlanner.evaluateFixed(sim, start, card, done, 20000, true, null, picked);
@@ -574,13 +655,10 @@ class RecipeTransitionsTest {
                 double first =
                     (double) weight
                         / actualPool.stream().mapToLong(ModifierDefinition::weight).sum();
-                double byCap = -Math.expm1(1000 * Math.log1p(-first));
-                assertThat(r.steps().getLast().chance().probability())
-                    .isCloseTo(first, org.assertj.core.data.Offset.offset(1e-14));
+                assertThat(r.steps().getLast().chance().probability()).isEqualTo(1.0);
                 assertThat(r.steps().getLast().expectedUses())
-                    .isCloseTo(byCap / first, org.assertj.core.data.Offset.offset(1e-7));
-                assertThat(r.probability())
-                    .isCloseTo(byCap, org.assertj.core.data.Offset.offset(1e-12));
+                    .isCloseTo(1.0 / first, org.assertj.core.data.Offset.offset(1e-7));
+                assertThat(r.probability()).isEqualTo(1.0);
               });
     }
   }

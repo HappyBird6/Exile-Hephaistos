@@ -40,7 +40,12 @@ export function formatExpectedUses(
   value: number,
   currencyId: string,
   locale: string,
+  repeatUntilHit = false,
 ) {
+  if (repeatUntilHit)
+    return new Intl.NumberFormat(locale, { maximumFractionDigits: 0 }).format(
+      value,
+    )
   if (currencyId === 'Divine_Orb' || currencyId === 'Exalted_Orb')
     return formatCurrencyAmount(value, currencyId, locale)
   if (

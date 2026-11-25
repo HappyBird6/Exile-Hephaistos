@@ -57,6 +57,7 @@ import {
 } from './fixedRouteGrades'
 import { AcquisitionRouteActions } from './AcquisitionRouteActions'
 import { RouteGradePicker } from './RouteGradePicker'
+import { AcquisitionRouteFilters } from './AcquisitionRouteFilters'
 import { graphStateMessages } from './graphStateMessages'
 import { planTitle } from './probabilityPresentation'
 
@@ -65,6 +66,10 @@ type Props = {
   definitions: Initial['modifiers']
   baseName: string
   active: boolean
+}
+
+function filterStops(values: number[]) {
+  return [...new Set(values)].sort((a, b) => a - b)
 }
 
 function materialLabel(id: string) {
@@ -141,7 +146,7 @@ function RouteList({
   const section = useRef<HTMLElement>(null)
   const cache = useQueryClient()
   const market = useCurrencyMarket()?.data?.snapshot
-  const [selection, setSelection] = useState(() => {
+  const [preferred, setSelection] = useState<number | null>(() => {
     const params = new URLSearchParams(location.search)
     const raw = params.get('route') ?? ''
     const index = Number(raw)
@@ -149,21 +154,31 @@ function RouteList({
       /^(0|[1-9]\d*)$/.test(raw) &&
       result.routes[index]
       ? index
-      : 0
+      : null
   })
   const [choices, setChoices] = useState<Record<number, number[]>>(() => {
     const params = new URLSearchParams(location.search)
     if (
       params.get('request') !== request.clientRequestId ||
-      params.get('route') !== String(selection)
+      preferred === null ||
+      params.get('route') !== String(preferred)
     )
       return {}
-    const grades = readRouteGrades(location.search, result.routes[selection])
-    return grades && hasGradeOverride(result.routes[selection], grades)
-      ? { [selection]: grades }
+    const grades = readRouteGrades(location.search, result.routes[preferred])
+    return grades && hasGradeOverride(result.routes[preferred], grades)
+      ? { [preferred]: grades }
       : {}
   })
-  const [cursor, setCursor] = useState<number | null>(null)
+  const [position, setPosition] = useState<{
+    route: number
+    step: number
+  } | null>(null)
+  const [showLucky, setShowLucky] = useState(
+    () => !!(preferred !== null && result.routes[preferred]?.lucky),
+  )
+  const [priceCap, setPriceCap] = useState(Infinity)
+  const [minimum, setMinimum] = useState<number | null>(null)
+  const [openingRoute] = useState(preferred)
   const changedIndices = Object.keys(choices).map(Number)
   const replays = useQueries({
     queries: changedIndices.map((index) =>
@@ -172,6 +187,96 @@ function RouteList({
   })
   const updated = new Map(
     changedIndices.map((index, i) => [index, replays[i]!]),
+  )
+  const baseCosts = useMemo(
+    () => result.routes.map((route) => acquisitionRouteCost(route, market)),
+    [result.routes, market],
+  )
+  const chance = (route: AcquisitionRoute) =>
+    supportProbabilityText(
+      {
+        ...route,
+        ...(route.steps.some(assumesEligibleReveal)
+          ? { assumesEligibleReveal: true }
+          : {}),
+      },
+      locale,
+    )
+  const rows = result.routes.map((route, index) => {
+    const entry = updated.get(index)
+    const active = entry ? entry.data?.routes[0] : route
+    const cost =
+      entry && active ? acquisitionRouteCost(active, market) : baseCosts[index]!
+    const lower = active?.probability ?? active?.probabilityBounds?.lower ?? 0
+    const price = active && !cost.incomplete ? cost.exalted : undefined
+    let summary = messages.unknown
+    if (active) summary = planTitle(cost, locale, chance(active))
+    else if (entry?.isPending) summary = messages.calculating
+    else if (entry?.isError) summary = messages.error
+    else if (entry?.data?.complete) summary = copy.empty
+    return {
+      index,
+      route,
+      active,
+      summary,
+      lower,
+      price,
+      lucky: active?.lucky ?? route.lucky ?? false,
+    }
+  })
+  const eligible = rows.filter((row) => showLucky || !row.lucky)
+  eligible.sort((a, b) => b.lower - a.lower || a.index - b.index)
+  const cutoff = eligible[9]?.lower ?? 0
+  // Returning from an overview should reopen the route the user explicitly chose.
+  const opening = openingRoute === null ? undefined : rows[openingRoute]
+  const lower = minimum ?? Math.min(cutoff, opening?.lower ?? cutoff)
+  const visible = eligible.filter((row) => {
+    if (
+      Number.isFinite(priceCap) &&
+      (row.price === undefined || row.price > priceCap)
+    )
+      return false
+    if (row.lower >= lower) return true
+    // Keep the grade selector available while retrying a previously visible method.
+    return (
+      !row.active &&
+      row.index === preferred &&
+      updated.has(preferred) &&
+      (row.route.probability ?? row.route.probabilityBounds?.lower ?? 0) >=
+        lower
+    )
+  })
+  const selection =
+    visible.find((row) => row.index === preferred)?.index ??
+    visible[0]?.index ??
+    -1
+  const cursor = position?.route === selection ? position.step : null
+  function setCursor(step: number | null) {
+    setPosition(step === null ? null : { route: selection, step })
+  }
+  const filters = (
+    <AcquisitionRouteFilters
+      lower={lower}
+      cap={priceCap}
+      lucky={showLucky}
+      lowerStops={filterStops([
+        0,
+        1,
+        lower,
+        ...eligible.map((row) => row.lower),
+      ])}
+      costStops={filterStops([
+        0,
+        Infinity,
+        priceCap,
+        ...eligible.flatMap((row) =>
+          row.price === undefined ? [] : [row.price],
+        ),
+      ])}
+      setLower={setMinimum}
+      setCap={setPriceCap}
+      setLucky={setShowLucky}
+    />
   )
   const replay = updated.get(selection)
   const base = result.routes[selection]
@@ -185,10 +290,19 @@ function RouteList({
   const film = selectedView
     ? acquisitionRouteFilm(request, selectedView, viewIndex, locale, selection)
     : null
-  const baseCosts = useMemo(
-    () => result.routes.map((route) => acquisitionRouteCost(route, market)),
-    [result.routes, market],
-  )
+  if (!base && result.routes.length)
+    return (
+      <>
+        {!result.complete && <p role="status">{messages.partial}</p>}
+        <SessionPlansLayout
+          sectionRef={section}
+          filters={filters}
+          detail={<p role="status">{copy.noFilteredRoutes}</p>}
+        >
+          {null}
+        </SessionPlansLayout>
+      </>
+    )
   if (!base)
     return (
       <p role="status">{result.complete ? copy.empty : messages.unknown}</p>
@@ -234,6 +348,7 @@ function RouteList({
     writeSelection(index, choices[index])
   }
   function changeGrade(stepIndex: number, grade: number) {
+    setSelection(selection)
     const next = [...grades]
     next[stepIndex] = grade
     const override = hasGradeOverride(base, next)
@@ -258,32 +373,6 @@ function RouteList({
     if (example) cache.setQueryData(['plan-film', href(index)], example)
     select(index)
   }
-  const chance = (route: AcquisitionRoute) =>
-    supportProbabilityText(
-      {
-        ...route,
-        ...(route.steps.some(assumesEligibleReveal)
-          ? { assumesEligibleReveal: true }
-          : {}),
-      },
-      locale,
-    )
-  const rows = result.routes.map((route, index) => {
-    const entry = updated.get(index)
-    const active = entry ? entry.data?.routes[0] : route
-    let summary = messages.unknown
-    if (active)
-      summary = planTitle(
-        entry ? acquisitionRouteCost(active, market) : baseCosts[index]!,
-        locale,
-        chance(active),
-      )
-    else if (entry?.isPending) summary = messages.calculating
-    else if (entry?.isError) summary = messages.error
-    else if (entry?.data?.complete) summary = copy.empty
-    const lower = active?.probabilityBounds?.lower ?? active?.probability ?? -1
-    return { index, route, active, summary, lower }
-  })
   const summary = rows[selection]!.summary
   const status = replay?.isError ? (
     <p role="alert">
@@ -300,6 +389,7 @@ function RouteList({
       {!result.complete && <p role="status">{messages.partial}</p>}
       <SessionPlansLayout
         sectionRef={section}
+        filters={filters}
         detail={
           <section
             className="wb-history-preview session-plan-steps"
@@ -334,7 +424,7 @@ function RouteList({
               {...(!film ? { item: status, pendingSteps } : {})}
               stepControls={(frameIndex) => {
                 const action = steps[frameIndex - 1]!.action
-                const available = gradeActions(action)
+                const available = gradeActions(base.steps[frameIndex - 1]!)
                 return (
                   available && (
                     <RouteGradePicker
@@ -408,51 +498,43 @@ function RouteList({
           </section>
         }
       >
-        {rows
-          .sort(
-            (a, b) =>
-              Number(b.active?.probability != null) -
-                Number(a.active?.probability != null) || b.lower - a.lower,
+        {visible.map(({ index, route, active, summary }, rank) => {
+          const options = [
+            title(route),
+            ...route.steps.filter((s) => s.socketIndex != null).map(stepLabel),
+          ].join(' · ')
+          return (
+            <div role="listitem" key={index}>
+              <SessionListCard
+                title={summary}
+                baseId={request.start.item.baseItemId}
+                baseName={baseName}
+                selected={index === selection}
+                selectLabel={`${rank + 1}. ${options} · ${summary}`}
+                metadata={
+                  <small>
+                    {baseName} · {options}
+                  </small>
+                }
+                onSelect={() => {
+                  select(index)
+                  if (window.innerWidth <= 760)
+                    section.current
+                      ?.querySelector('.wb-history-preview')
+                      ?.scrollIntoView?.({ block: 'nearest' })
+                }}
+                actions={
+                  active && (
+                    <SessionPlanOverviewLink
+                      href={href(index)}
+                      onClick={() => openOverview(index)}
+                    />
+                  )
+                }
+              />
+            </div>
           )
-          .map(({ index, route, active, summary }, rank) => {
-            const options = [
-              title(route),
-              ...route.steps
-                .filter((s) => s.socketIndex != null)
-                .map(stepLabel),
-            ].join(' · ')
-            return (
-              <div role="listitem" key={index}>
-                <SessionListCard
-                  title={summary}
-                  baseId={request.start.item.baseItemId}
-                  baseName={baseName}
-                  selected={index === selection}
-                  selectLabel={`${rank + 1}. ${options} · ${summary}`}
-                  metadata={
-                    <small>
-                      {baseName} · {options}
-                    </small>
-                  }
-                  onSelect={() => {
-                    select(index)
-                    if (window.innerWidth <= 760)
-                      section.current
-                        ?.querySelector('.wb-history-preview')
-                        ?.scrollIntoView?.({ block: 'nearest' })
-                  }}
-                  actions={
-                    active && (
-                      <SessionPlanOverviewLink
-                        href={href(index)}
-                        onClick={() => openOverview(index)}
-                      />
-                    )
-                  }
-                />
-              </div>
-            )
-          })}
+        })}
       </SessionPlansLayout>
     </>
   )

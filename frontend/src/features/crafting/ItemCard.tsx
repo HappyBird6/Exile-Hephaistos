@@ -70,8 +70,17 @@ function Lines({
               />
             )}
             {(sideLabel || line.affixLabel) && (
-              <span className="item-card__affix">
-                {[sideLabel, line.affixLabel].filter(Boolean).join(' · ')}{' '}
+              <span className="item-card__affix" title={sideLabel}>
+                {sideLabel && (
+                  <>
+                    <span aria-hidden="true">
+                      {side === 'PREFIX' ? 'P' : 'S'}
+                    </span>
+                    <span className="sr-only">{sideLabel}</span>
+                  </>
+                )}
+                {sideLabel && line.affixLabel && ' · '}
+                {line.affixLabel}{' '}
               </span>
             )}
             {line.unrevealedDesecrated ? (
@@ -111,6 +120,11 @@ function Lines({
                 )}
                 {line.text}
               </>
+            )}
+            {line.tierRange && (
+              <small className="item-card__tier-range">
+                {itemCardMessages[locale].tierRange} · {line.tierRange}
+              </small>
             )}
           </div>
         )

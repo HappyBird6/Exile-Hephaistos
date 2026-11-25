@@ -19,6 +19,12 @@ public final class RecipeTransitions {
   /** 활성 목표가 실제 수치로 평가하는 원본 stat ID다. 의존성을 모르면 기존처럼 모든 수치를 열거한다. */
   private final Set<String> numericSourceStatIds;
 
+  /** 같은 목표 번호들을 동시에 획득하는 티어만 합한다. 상한만 지정한 경우 높은 경계에서 시작한다. */
+  private record Acquisition(int optionMask, boolean maximum, boolean protectedLow) {}
+
+  /** 이 카드에서 목표 티어가 되는 실제 ID와 획득 시 적용할 경계다. */
+  private final Map<String, Acquisition> acquisitionTiers;
+
   /** simulator에 설정된 수치·교체 정책을 공유한다. */
   public RecipeTransitions(WorkbenchSimulator simulator) {
     this(simulator, false);
@@ -32,6 +38,35 @@ public final class RecipeTransitions {
   /** 수치 목표·제작 자격에 쓰이지 않는 옵션은 동일한 획득 결과로 합친다. null이면 수치 목표의 전체 분포를 유지한다. */
   public RecipeTransitions(
       WorkbenchSimulator simulator, boolean presenceOnly, Set<String> numericSourceStatIds) {
+    this(simulator, presenceOnly, numericSourceStatIds, List.of());
+  }
+
+  /** 등급 검증·탐색·반복 모두 동일한 카드 경계에서 실제 후속 수치 판정을 시작한다. */
+  RecipeTransitions(
+      WorkbenchSimulator simulator,
+      boolean presenceOnly,
+      Set<String> numericSourceStatIds,
+      List<RouteCards.Option> options) {
+    var tiers = new HashMap<String, Acquisition>();
+    for (var option : options) {
+      for (var entry : option.tiers().entrySet()) {
+        var rule =
+            new Acquisition(
+                1 << (option.number() - 1),
+                option.hasUpperBound() && !option.hasLowerBound(),
+                entry.getValue().stream()
+                    .anyMatch(source -> source.frequency() == RouteCards.Frequency.L));
+        tiers.merge(
+            entry.getKey(),
+            rule,
+            (a, b) ->
+                new Acquisition(
+                    a.optionMask() | b.optionMask(),
+                    a.maximum() && b.maximum(),
+                    a.protectedLow() || b.protectedLow()));
+      }
+    }
+    this.acquisitionTiers = Map.copyOf(tiers);
     this.simulator = Objects.requireNonNull(simulator);
     this.presenceOnly = presenceOnly;
     this.numericSourceStatIds =
@@ -277,27 +312,70 @@ public final class RecipeTransitions {
     }
   }
 
-  /** 다섯 명시 옵션을 유지하며 마지막 빈 자리에 뼈만 적용한다. 공개의 목표 선택은 다음 전이에서 검증한다. */
+  /** 실제 뼈 사용에서 목표를 공개할 수 있는 미공개 슬롯만 남긴다. 제거와 방향의 확률 분모에는 모든 적법한 결과가 들어간다. */
   public Law prepareDesecration(
       ItemState item,
       String material,
       Set<WorkbenchOmen> omens,
       Set<String> targetIds,
       int remainingOutcomes) {
+    return prepareDesecration(item, material, omens, targetIds, remainingOutcomes, false);
+  }
+
+  /** 다른 목표를 먼저 얻을 경우에는 제거 가능한 기존 옵션과의 계열 충돌을 마지막 실제 공개에서 검사한다. */
+  public Law prepareDesecration(
+      ItemState item,
+      String material,
+      Set<WorkbenchOmen> omens,
+      Set<String> targetIds,
+      int remainingOutcomes,
+      boolean deferSelection) {
     if (remainingOutcomes < 1) return Law.empty(false);
-    if (item.rarity() != ItemState.Rarity.RARE
-        || !item.desecrated().isEmpty()
-        || item.explicits().size() != 5) return Law.empty(true);
+    if (item.rarity() != ItemState.Rarity.RARE || !item.desecrated().isEmpty())
+      return Law.empty(true);
     var catalog = simulator.forItem(item).catalog();
-    var slots = new ItemStateValidator(catalog).slots(item);
-    if (slots.remainingPrefixes() + slots.remainingSuffixes() != 1) return Law.empty(true);
+    var outcomes = new ArrayList<Outcome>();
+    var removable = new HashSet<String>();
+    boolean complete = true;
     for (var prepared : boneStates(item, material, omens, catalog)) {
       var state = prepared.state();
+      var removed = removed(item, state.knownItem());
+      removable.addAll(removed);
       var last = state.slots().getLast();
-      if (!Collections.disjoint(state.eligibleRevealIds(last.id(), catalog), targetIds))
-        return Law.deterministic(state.storedItem());
+      var eligible =
+          deferSelection
+              ? reservableRevealIds(state, last.id(), catalog, targetIds)
+              : state.eligibleRevealIds(last.id(), catalog, targetIds);
+      if (eligible.isEmpty()) continue;
+      if (outcomes.size() == remainingOutcomes) complete = false;
+      else outcomes.add(new Outcome(state.storedItem(), prepared.probability(), removed));
     }
-    return Law.empty(true);
+    return new Law(List.copyOf(outcomes), complete, Set.copyOf(removable));
+  }
+
+  /** 실제 미공개 슬롯에 맞는 티어 중 제거할 수 없는 분열 옵션의 ID·계열과 충돌하는 것은 예약할 수 없다. */
+  static Set<String> reservableRevealIds(
+      AbyssCraftingState state, String slotId, ItemCatalog catalog, Set<String> targets) {
+    var slot = state.slots().stream().filter(s -> s.id().equals(slotId)).findFirst().orElseThrow();
+    var fixed =
+        state.slots().stream()
+            .map(AbyssCraftingState.Slot::modifier)
+            .filter(m -> m != null && m.fractured())
+            .map(m -> catalog.find(m.modifierId()).orElseThrow())
+            .toList();
+    return targets.stream()
+        .map(catalog.modifiers()::get)
+        .filter(Objects::nonNull)
+        .filter(d -> state.permitsReservedTier(slot, d))
+        .filter(
+            d ->
+                fixed.stream()
+                    .noneMatch(
+                        f ->
+                            f.id().equals(d.id())
+                                || !Collections.disjoint(f.familyIds(), d.familyIds())))
+        .map(ModifierDefinition::id)
+        .collect(Collectors.toUnmodifiableSet());
   }
 
   /** 제거·방향을 이미 결정한 실제 미공개 상태와 해당 작업대 분기 확률이다. */
@@ -380,23 +458,35 @@ public final class RecipeTransitions {
       var slotForTier = new TreeMap<String, String>();
       for (var slot : state.slots()) {
         if (!slot.desecrated() || slot.modifier() != null) continue;
-        for (var id : state.eligibleRevealIds(slot.id(), catalog))
-          if (targets.contains(id)) slotForTier.putIfAbsent(id, slot.id());
+        for (var id : state.eligibleRevealIds(slot.id(), catalog, targets))
+          slotForTier.putIfAbsent(id, slot.id());
       }
+      var eligible =
+          slotForTier.keySet().stream().map(id -> catalog.find(id).orElseThrow()).toList();
+      var choices = boundaryWeights(eligible, true);
       var group =
-          slotForTier.size() <= 1
+          choices.size() <= 1
               ? null
-              : new RevealGroup(state.storedItem(), Set.copyOf(slotForTier.keySet()));
-      slotForTier.forEach(
-          (id, slot) ->
-              draws.add(
-                  new Draw(
-                      List.of(catalog.find(id).orElseThrow()),
-                      true,
-                      bone.probability(),
-                      removed,
-                      m -> state.selectDirect(slot, m, catalog).storedItem(),
-                      group)));
+              : new RevealGroup(
+                  state.storedItem(),
+                  choices.keySet().stream()
+                      .map(ModifierDefinition::id)
+                      .collect(Collectors.toUnmodifiableSet()));
+      choices
+          .keySet()
+          .forEach(
+              tier ->
+                  draws.add(
+                      new Draw(
+                          List.of(tier),
+                          true,
+                          bone.probability(),
+                          removed,
+                          m ->
+                              state
+                                  .selectDirect(slotForTier.get(tier.id()), m, catalog)
+                                  .storedItem(),
+                          group)));
     }
     var law = enumerate(workbench, draws, false, targets, limit, true, false);
     return new Law(law.outcomes(), law.complete(), Set.copyOf(removable));
@@ -432,15 +522,16 @@ public final class RecipeTransitions {
           complete = false;
           continue;
         }
-        for (var candidate : draw.options()) {
-          if (targets.contains(candidate.id()) != priority) continue;
+        var eligible =
+            draw.options().stream().filter(d -> targets.contains(d.id()) == priority).toList();
+        for (var tier : boundaryWeights(eligible, draw.uniform()).entrySet()) {
+          var candidate = tier.getKey();
           if (outcomes.size() >= limit) return new Law(List.copyOf(outcomes), false, removable);
           var baseMass =
               draw.probability() == null
                   ? null
-                  : draw.probability()
-                      .multiply(Fraction.of(draw.uniform() ? 1 : candidate.weight(), total));
-          if (!rolls(
+                  : draw.probability().multiply(Fraction.of(tier.getValue(), total));
+          if (!acquisitionRolls(
               workbench,
               candidate,
               (roll, probability) -> {
@@ -463,6 +554,69 @@ public final class RecipeTransitions {
       }
     }
     return new Law(List.copyOf(outcomes), complete, removable);
+  }
+
+  /** 이번 화폐·등급·제거 후의 실제 후보 안에서 경계 티어로 원래 가중치를 합산한다. */
+  private Map<ModifierDefinition, Long> boundaryWeights(
+      List<ModifierDefinition> eligible, boolean uniform) {
+    var choices = new HashMap<Acquisition, List<ModifierDefinition>>();
+    for (var tier : eligible) {
+      if (!uniform && tier.weight() <= 0) continue;
+      var rule = acquisitionTiers.get(tier.id());
+      if (rule != null) choices.computeIfAbsent(rule, k -> new ArrayList<>()).add(tier);
+    }
+    var edges = new HashMap<Acquisition, ModifierDefinition>();
+    for (var entry : choices.entrySet()) {
+      var rule = entry.getKey();
+      var tiers = entry.getValue();
+      // 복합 범위가 교차하면 모든 수치를 대표하는 단일 실제 경계 티어가 없으므로 각각 유지한다.
+      for (var tier : tiers)
+        if (tiers.stream().allMatch(other -> atBoundary(tier, other, rule.maximum()))) {
+          edges.put(rule, tier);
+          break;
+        }
+    }
+    var weights = new LinkedHashMap<ModifierDefinition, Long>();
+    for (var tier : eligible) {
+      long weight = uniform ? 1 : tier.weight();
+      if (weight > 0)
+        weights.merge(edges.getOrDefault(acquisitionTiers.get(tier.id()), tier), weight, Long::sum);
+    }
+    return weights;
+  }
+
+  /** 모든 원본 수치에서 낮은(상한 목표는 높은) 실제 티어인지 판별한다. */
+  private static boolean atBoundary(
+      ModifierDefinition candidate, ModifierDefinition other, boolean maximum) {
+    if (candidate == other) return true;
+    for (var range : candidate.stats()) {
+      var stat = other.stats().stream().filter(s -> s.id().equals(range.id())).findFirst();
+      if (stat.isEmpty()
+          || (maximum ? range.max() < stat.get().max() : range.min() > stat.get().min()))
+        return false;
+    }
+    return true;
+  }
+
+  /** 목표 획득은 티어 내부의 모든 굴림 질량을 경계 수치 한 개에 배정한다. 비목표는 실제 분포를 따른다. */
+  private boolean acquisitionRolls(
+      WorkbenchSimulator workbench,
+      ModifierDefinition definition,
+      BiPredicate<ModifierInstance, Fraction> accept) {
+    var rule = acquisitionTiers.get(definition.id());
+    if (rule == null) return rolls(workbench, definition, accept);
+    boolean maximum = rule.maximum();
+    if (definition.stats().size() == 1) {
+      var stat = definition.stats().getFirst();
+      return accept.test(
+          new ModifierInstance(
+              definition.id(), Map.of(stat.id(), maximum ? stat.max() : stat.min())),
+          Fraction.ONE);
+    }
+    var cells = workbench.automaticJointRolls(definition);
+    if (cells.isEmpty() || cells.get().isEmpty()) return false;
+    return accept.test(
+        (maximum ? cells.get().getLast() : cells.get().getFirst()).modifier(), Fraction.ONE);
   }
 
   /** 일반 Divine의 모든 변경 가능 명시 수치를 함께 굴린다. unchanged·분열 옵션은 원래 인스턴스를 보존한다. */
