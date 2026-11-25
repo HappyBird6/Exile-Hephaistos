@@ -28,6 +28,10 @@ class RevealTierMassTest {
     var otherTier = parent.select(group(82), "T2", Fraction.ONE);
     assertThat(firstRoll.exact()).isNull();
     assertThat(firstRoll.plus(otherTier).exact()).isNull();
+    assertThat(firstRoll.minimum()).isEqualTo(Fraction.ZERO);
+    assertThat(firstRoll.maximum()).isEqualTo(Fraction.of(1, 6));
+    assertThat(firstRoll.plus(otherTier).minimum()).isEqualTo(Fraction.of(1, 6));
+    assertThat(firstRoll.plus(otherTier).maximum()).isEqualTo(Fraction.of(1, 2));
     assertThat(firstRoll.plus(secondRoll).plus(otherTier).exact()).isEqualTo(Fraction.of(1, 2));
     assertThat(
             firstRoll
@@ -37,6 +41,26 @@ class RevealTierMassTest {
                 .plus(RevealTierMass.known(Fraction.of(1, 8)))
                 .exact())
         .isEqualTo(Fraction.of(1, 4));
+  }
+
+  /** 한 공개의 모든 티어가 보장하는 질량과 별도로 확인한 성공은 일반 분포의 나머지를 모를 때에도 유지한다. */
+  @Test
+  void unknownBranchesPreserveVerifiedLowerMassIncludingTierMinimum() {
+    var parent = RevealTierMass.known(Fraction.of(1, 2));
+    var tiered =
+        parent
+            .select(group(82), "T1", Fraction.ONE)
+            .plus(parent.select(group(82), "T2", Fraction.of(1, 2)));
+    var known = RevealTierMass.known(Fraction.of(1, 8)).plus(tiered);
+    assertThat(known.minimum()).isEqualTo(Fraction.of(3, 8));
+    assertThat(known.maximum()).isEqualTo(Fraction.of(5, 8));
+    var mixed = RevealTierMass.known(null).plus(known).times(Fraction.of(1, 2));
+    assertThat(mixed.minimum()).isEqualTo(Fraction.of(3, 16));
+    assertThat(mixed.maximum()).isNull();
+    assertThat(mixed.exact()).isNull();
+    assertThat(mixed.times(Fraction.ZERO).maximum()).isEqualTo(Fraction.ZERO);
+    assertThat(RevealTierMass.known(Fraction.of(0, 7)).times(null).exact())
+        .isEqualTo(Fraction.ZERO);
   }
 
   /** 다른 부모에서 가져온 티어를 합쳐 불확실성을 지우거나, 미해결 공개 위에 새 티어 분포를 가정할 수 없다. */

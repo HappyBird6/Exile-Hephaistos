@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.node.*;
 import com.poe2craft.account.application.AccountLibrary;
 import com.poe2craft.community.application.SessionBoard;
 import com.poe2craft.community.application.SessionBoard.*;
+import com.poe2craft.configuration.PublicContracts;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,7 +108,8 @@ class CommunityIntegrationTest {
 
   JsonNode film() throws Exception {
     return json.readTree(
-        "{\"id\":\"source\",\"createdAt\":\"2026-11-12T00:00:00Z\",\"sourceDocument\":\"private clipboard\",\"frames\":[{\"action\":null,\"state\":{\"snapshotId\":\"test\",\"baseItemId\":\"Metadata/Items/Amulets/FourAmulet9\",\"rarity\":\"NORMAL\",\"itemLevel\":82,\"implicits\":[],\"explicits\":[],\"conditions\":[]}}]}");
+        "{\"id\":\"source\",\"createdAt\":\"2026-11-12T00:00:00Z\",\"sourceDocument\":\"private"
+            + " clipboard\",\"frames\":[{\"action\":null,\"state\":{\"snapshotId\":\"test\",\"baseItemId\":\"Metadata/Items/Amulets/FourAmulet9\",\"rarity\":\"NORMAL\",\"itemLevel\":82,\"implicits\":[],\"explicits\":[],\"conditions\":[]}}]}");
   }
 
   Draft draft(JsonNode film, String body, String password, long revision) {
@@ -118,16 +120,105 @@ class CommunityIntegrationTest {
   void guestPermissionsPasswordAndPublicSnapshot() throws Exception {
     var actor = new Actor(null, UUID.randomUUID());
     var film = film();
+    var forecast = ((ObjectNode) film).putObject("projectedRouteChance");
+    forecast.putNull("probability").put("sourceDocument", "private");
+    forecast.putObject("probabilityBounds").put("lower", 0.01).put("upper", 0.02);
+    var frames = (ArrayNode) film.path("frames");
+    var replacement = ((ObjectNode) frames.get(0)).deepCopy();
+    replacement.put("action", "SESSION_PLAN");
+    var stepCurrency = replacement.putArray("projectedCurrencies").addObject();
+    stepCurrency.put("currencyId", "Chaos_Orb");
+    stepCurrency.putArray("omenIds").add("Omen_of_Whittling");
+    var outcomes = replacement.putObject("projectedOmenOutcomes");
+    outcomes.putObject("success").put("probability", 0.4);
+    outcomes.putObject("recoverable").put("probability", 0.35);
+    outcomes.putObject("failure").put("probability", 0.25);
+    frames.add(replacement);
     assertThatThrownBy(() -> board.create(actor, draft(film, "not allowed", "delete-pass", 0)))
         .isInstanceOf(ResponseStatusException.class);
     var p = board.create(actor, draft(film, "", "delete-pass", 0));
     assertThat(p.film().has("sourceDocument")).isFalse();
+    assertThat(p.film().at("/projectedRouteChance/probabilityBounds"))
+        .isEqualTo(forecast.get("probabilityBounds"));
+    assertThat(p.film().at("/projectedRouteChance").has("sourceDocument")).isFalse();
+    assertThat(p.film().at("/frames/1/projectedOmenOutcomes")).isEqualTo(outcomes);
     assertThat(film.has("sourceDocument")).isTrue();
     assertThat(board.create(actor, draft(film, "", "delete-pass", 0)).id()).isEqualTo(p.id());
     assertThatThrownBy(() -> board.delete(actor, p.id(), "wrong", p.revision()))
         .isInstanceOf(ResponseStatusException.class);
     board.delete(new Actor(null, UUID.randomUUID()), p.id(), "delete-pass", p.revision());
     assertThatThrownBy(() -> board.get(p.id())).isInstanceOf(ResponseStatusException.class);
+  }
+
+  /** 게시한 절사 기보는 보관함과 같은 조합·분류·오차로 검사하고 구간과 원래 소수값을 보존한다. */
+  @Test
+  void whittlingOutcomesRemainImportableAfterPublication() throws Exception {
+    var actor = member();
+    var film = film();
+    var frames = (ArrayNode) film.path("frames");
+    var frame = ((ObjectNode) frames.get(0)).deepCopy();
+    frames.add(frame);
+    frame.put("action", "SESSION_PLAN");
+    var craft = frame.putArray("projectedCurrencies").addObject();
+    craft.put("currencyId", "Greater_Chaos_Orb");
+    var omens = craft.putArray("omenIds").add("Omen_of_Dextral_Erasure").add("Omen_of_Whittling");
+    var results = frame.putObject("projectedOmenOutcomes");
+    var success = results.putObject("success").put("probability", 0.75);
+    var recoverable = results.putObject("recoverable").put("probability", 0.75);
+    var failure = results.putObject("failure").put("probability", 0.75);
+    assertInvalidSharedSession(actor, film);
+    success.putNull("probability");
+    recoverable.putNull("probability");
+    failure.putNull("probability");
+    assertInvalidSharedSession(actor, film);
+
+    success.put("probability", 0.1);
+    recoverable.put("probability", 0.2);
+    // 분포 합이 이진 부동소수로 1보다 한 ULP 작더라도 거절하지 않는다.
+    failure.put("probability", 0.6999999999999998);
+    omens.removeAll();
+    assertInvalidSharedSession(actor, film);
+    omens.add("Omen_of_Whittling").add("Omen_of_Dextral_Annulment");
+    assertInvalidSharedSession(actor, film);
+    omens.remove(1);
+    omens.add("Omen_of_Dextral_Erasure");
+    craft.put("currencyId", "Exalted_Orb");
+    assertInvalidSharedSession(actor, film);
+    craft.put("currencyId", "Greater_Chaos_Orb");
+    craft.put("maxUses", PublicContracts.REPEAT.maximumUses() + 1);
+    assertInvalidSharedSession(actor, film);
+    craft.remove("maxUses");
+    frame.putObject("manual");
+    assertInvalidSharedSession(actor, film);
+    frame.remove("manual");
+    var step = frame.putObject("projectedChance").putNull("probability");
+    var bounds = step.putObject("probabilityBounds").put("lower", 0.4).put("upper", 0.3);
+    assertInvalidSharedSession(actor, film);
+    bounds.put("lower", 0.2);
+    var published = board.create(actor, draft(film, "", null, 0));
+    var restored = board.get(published.id()).film().at("/frames/1");
+    assertThat(restored.get("projectedChance")).isEqualTo(step);
+    assertThat(restored.get("projectedOmenOutcomes")).isEqualTo(results);
+
+    // 완벽 화폐와 반대 방향의 말소도 경계 끝을 합했을 때 1이 포함되면 공개할 수 있다.
+    craft.put("currencyId", "Perfect_Chaos_Orb");
+    omens.removeAll().add("Omen_of_Sinistral_Erasure").add("Omen_of_Whittling");
+    success.putNull("probability");
+    success.putObject("probabilityBounds").put("lower", 0.05).put("upper", 0.2);
+    var bounded = board.create(member(), draft(film, "", null, 0));
+    assertThat(board.get(bounded.id()).film().at("/frames/1/projectedOmenOutcomes"))
+        .isEqualTo(results);
+  }
+
+  /** 게시판 입력이 다른 오류와 섞이지 않고 공개 세션 형식 오류로 거절되는지 확인한다. */
+  private void assertInvalidSharedSession(Actor actor, JsonNode film) {
+    assertThatThrownBy(() -> board.create(actor, draft(film, "", null, 0)))
+        .isInstanceOfSatisfying(
+            ResponseStatusException.class,
+            error -> {
+              assertThat(error.getStatusCode().value()).isEqualTo(400);
+              assertThat(error.getReason()).isEqualTo("INVALID_SHARED_SESSION");
+            });
   }
 
   @Test

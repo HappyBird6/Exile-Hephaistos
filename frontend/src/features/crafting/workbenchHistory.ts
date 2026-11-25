@@ -114,10 +114,22 @@ export function validProjectedCurrencies(
     )
   )
 }
+export type ProbabilityBounds = { lower: number; upper: number }
+export type ProjectedChance = {
+  probability: number | null
+  probabilityBounds?: ProbabilityBounds
+  assumesEligibleReveal?: true
+}
+export type ProjectedOmenOutcomes = {
+  success: ProjectedChance
+  recoverable: ProjectedChance
+  failure: ProjectedChance
+}
 export type Frame = {
   /** 공개 확률이 미확정인 빛·소멸·뼈 반복의 전체 공개 한도다. */
   projectedRevealLimit?: number
-  projectedChance?: { probability: number | null; assumesEligibleReveal?: true }
+  projectedChance?: ProjectedChance
+  projectedOmenOutcomes?: ProjectedOmenOutcomes
   projectedWork?:
     'DESECRATE_PREFIX' | 'DESECRATE_SUFFIX' | 'QUALITY_20' | 'QUALITY_40'
   projectedCurrencies?: PlannedCurrency[]
@@ -132,6 +144,8 @@ export type Frame = {
   chaosRepeatWitness?: ChaosRepeatWitness
 }
 export type Film = {
+  /** Saved success probability of the complete projected crafting route. */
+  projectedRouteChance?: ProjectedChance
   plannedSteps?: string[]
   compatibilityId?: string
   continuationOf?: {
@@ -154,21 +168,97 @@ export type Film = {
   rulesetIdentity?: string
 }
 
-export function validStepChance(
-  value: unknown,
-): value is { probability: number | null } {
+function unitProbability(value: unknown): value is number {
+  return (
+    typeof value === 'number' &&
+    Number.isFinite(value) &&
+    value >= 0 &&
+    value <= 1
+  )
+}
+export function validStepChance(value: unknown): value is ProjectedChance {
   if (!value || typeof value !== 'object' || !('probability' in value))
     return false
   const p = value.probability
+  if (p !== null && !unitProbability(p)) return false
+  if (!('probabilityBounds' in value)) return true
+  const bounds = value.probabilityBounds
   return (
-    p === null ||
-    (typeof p === 'number' && Number.isFinite(p) && p >= 0 && p <= 1)
+    !!bounds &&
+    typeof bounds === 'object' &&
+    'lower' in bounds &&
+    unitProbability(bounds.lower) &&
+    'upper' in bounds &&
+    unitProbability(bounds.upper) &&
+    bounds.lower <= bounds.upper &&
+    (p === null || (bounds.lower <= p && p <= bounds.upper))
   )
 }
 export type FilmRulesetStatus =
   'current' | 'mismatch' | 'legacy-unverified' | 'inconsistent'
 
+/** Only projected Chaos using Whittling and at most one Erasure has these three outcomes. */
+export function projectedWhittlingOutcomes(
+  frame: Frame,
+): ProjectedOmenOutcomes | undefined {
+  const outcomes = frame.projectedOmenOutcomes
+  const crafts = frame.projectedCurrencies
+  if (
+    !outcomes ||
+    frame.action !== 'SESSION_PLAN' ||
+    frame.manual ||
+    frame.evidence ||
+    !validProjectedCurrencies(crafts) ||
+    crafts.length !== 1
+  )
+    return undefined
+  const craft = crafts[0]!
+  const action = workbenchCurrencyActions[craft.currencyId]
+  if (!action || baseWorkbenchAction(action) !== 'CHAOS') return undefined
+  const omens = craft.omenIds
+  if (
+    !omens.includes('Omen_of_Whittling') ||
+    !(
+      omens.length === 1 ||
+      (omens.length === 2 &&
+        (omens.includes('Omen_of_Sinistral_Erasure') ||
+          omens.includes('Omen_of_Dextral_Erasure')))
+    )
+  )
+    return undefined
+  const chances = [outcomes.success, outcomes.recoverable, outcomes.failure]
+  if (
+    !chances.every(
+      (chance) =>
+        validStepChance(chance) &&
+        (chance.probability !== null || chance.probabilityBounds),
+    )
+  )
+    return undefined
+  const lower = chances.reduce(
+    (sum, c) => sum + (c.probability ?? c.probabilityBounds!.lower),
+    0,
+  )
+  const upper = chances.reduce(
+    (sum, c) => sum + (c.probability ?? c.probabilityBounds!.upper),
+    0,
+  )
+  return lower <= 1 + Number.EPSILON * 2 && upper >= 1 - Number.EPSILON * 2
+    ? outcomes
+    : undefined
+}
+
 function validRepeatFrame(frame: Frame): boolean {
+  if (
+    frame.projectedOmenOutcomes !== undefined &&
+    !projectedWhittlingOutcomes(frame)
+  )
+    return false
+  if (
+    frame.projectedChance !== undefined &&
+    !validStepChance(frame.projectedChance)
+  )
+    return false
   if (
     frame.projectedRevealLimit !== undefined &&
     (frame.action !== revealAction ||
@@ -200,6 +290,11 @@ export function filmRulesetStatus(
   film: Film,
   identity: string,
 ): FilmRulesetStatus {
+  if (
+    film.projectedRouteChance !== undefined &&
+    !validStepChance(film.projectedRouteChance)
+  )
+    return 'inconsistent'
   const identities: unknown[] = [film.rulesetIdentity]
   for (const [index, frame] of film.frames.entries()) {
     if (
@@ -376,6 +471,8 @@ export function validStoredFilm(film: Film): boolean {
     film &&
     typeof film.id === 'string' &&
     typeof film.createdAt === 'string' &&
+    (film.projectedRouteChance === undefined ||
+      validStepChance(film.projectedRouteChance)) &&
     validPlannedSteps(film.plannedSteps) &&
     (film.sourceDocument === undefined ||
       typeof film.sourceDocument === 'string') &&
@@ -470,16 +567,19 @@ export class LocalFilmRepository implements FilmRepository {
     if (new Set(films.films.map((film) => film.id)).size !== films.films.length)
       throw new Error('Duplicate session IDs. Existing storage is preserved.')
     if (
-      !films.films.every((film) =>
-        film.frames.every(
-          (frame, index) =>
-            (frame.projectedCurrencies === undefined ||
-              (index > 0 &&
-                frame.action === 'SESSION_PLAN' &&
-                validProjectedCurrencies(frame.projectedCurrencies))) &&
-            validRepeatFrame(frame) &&
-            (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
-        ),
+      !films.films.every(
+        (film) =>
+          (film.projectedRouteChance === undefined ||
+            validStepChance(film.projectedRouteChance)) &&
+          film.frames.every(
+            (frame, index) =>
+              (frame.projectedCurrencies === undefined ||
+                (index > 0 &&
+                  frame.action === 'SESSION_PLAN' &&
+                  validProjectedCurrencies(frame.projectedCurrencies))) &&
+              validRepeatFrame(frame) &&
+              (index > 0 || !Object.hasOwn(frame, 'chaosRepeat')),
+          ),
       )
     )
       throw new Error('Invalid repeat history. Existing storage is preserved.')
@@ -552,6 +652,13 @@ export function forkFilm(
   if (source && matches) {
     const created = currentFilm(next)!
     created.frames = structuredClone(source.frames.slice(0, films.cursor + 1))
+    if (
+      source.projectedRouteChance &&
+      created.frames.length === source.frames.length
+    )
+      created.projectedRouteChance = structuredClone(
+        source.projectedRouteChance,
+      )
     created.continuationOf = {
       sessionId: source.id,
       frameIndex: films.cursor,
@@ -590,6 +697,12 @@ export function continueFilm(
   }
   if (abyss) created.frames[0]!.abyss = structuredClone(abyss)
   return next
+}
+/** A changed recipe no longer has the success probability of the original route. */
+function replaceFilmFrames(film: Film, frames: Frame[]): Film {
+  const updated = { ...film, frames, updatedAt: new Date().toISOString() }
+  delete updated.projectedRouteChance
+  return updated
 }
 export function recordCraft(
   films: Films,
@@ -647,9 +760,7 @@ export function recordCraft(
   return {
     ...next,
     films: next.films.map((entry) =>
-      entry.id === active.id
-        ? { ...entry, frames, updatedAt: new Date().toISOString() }
-        : entry,
+      entry.id === active.id ? replaceFilmFrames(entry, frames) : entry,
     ),
     cursor: frames.length - 1,
   }
@@ -804,9 +915,7 @@ export function recordAbyss(
   return {
     ...next,
     films: next.films.map((f) =>
-      f.id === active.id
-        ? { ...f, frames, updatedAt: new Date().toISOString() }
-        : f,
+      f.id === active.id ? replaceFilmFrames(f, frames) : f,
     ),
     cursor: frames.length - 1,
   }
@@ -1063,11 +1172,7 @@ export function resetCurrentFilm(films: Films): Films {
     cursor: 0,
     films: films.films.map((f) =>
       f.id === active.id
-        ? {
-            ...f,
-            frames: [structuredClone(f.frames[0]!)],
-            updatedAt: new Date().toISOString(),
-          }
+        ? replaceFilmFrames(f, [structuredClone(f.frames[0]!)])
         : f,
     ),
   }

@@ -53,7 +53,7 @@ function materialId(action: string) {
 
 export function assumesEligibleReveal(step: AcquisitionStep) {
   return (
-    step.chance?.probability != null &&
+    (step.chance?.probability != null || !!step.chance?.probabilityBounds) &&
     (step.action === 'REVEAL' ||
       (isBone(step.action) && step.acquired.length > 0))
   )
@@ -128,6 +128,9 @@ export function acquisitionRouteFilm(
       ? {
           projectedChance: {
             probability: chance.probability,
+            ...(chance.probabilityBounds
+              ? { probabilityBounds: chance.probabilityBounds }
+              : {}),
             ...(assumesEligibleReveal(step)
               ? { assumesEligibleReveal: true as const }
               : {}),
@@ -155,6 +158,9 @@ export function acquisitionRouteFilm(
         action: 'SESSION_PLAN',
         rulesetIdentity,
         ...odds,
+        ...(step.omenOutcomes
+          ? { projectedOmenOutcomes: step.omenOutcomes }
+          : {}),
         projectedCurrencies: [
           {
             currencyId: materialId(step.action),
@@ -171,6 +177,19 @@ export function acquisitionRouteFilm(
     title: acquisitionRouteTitle(route, locale),
     createdAt: '',
     rulesetIdentity,
+    ...(validStepChance(route)
+      ? {
+          projectedRouteChance: {
+            probability: route.probability,
+            ...(route.probabilityBounds
+              ? { probabilityBounds: route.probabilityBounds }
+              : {}),
+            ...(route.steps.some(assumesEligibleReveal)
+              ? { assumesEligibleReveal: true as const }
+              : {}),
+          },
+        }
+      : {}),
     frames,
   }
 }

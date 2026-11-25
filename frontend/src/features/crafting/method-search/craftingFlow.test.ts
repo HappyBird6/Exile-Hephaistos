@@ -109,7 +109,7 @@ it('keeps unrevealed modifiers visible and green without introducing synthetic c
   const card = abyssCard(s, present, 'en')
   expect(card.modifiers.find((m) => m.id === 'slot-5')).toMatchObject({
     kind: 'desecrated',
-    affixLabel: 'S',
+    affixType: 'SUFFIX',
     text: 'Unrevealed desecrated modifier',
   })
   expect(s.item.explicits).toEqual([])

@@ -4,15 +4,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.poe2craft.shared.crafting.domain.BasicCurrencyFixture;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
+import com.poe2craft.shared.crafting.domain.QualityCapChangePolicy;
+import com.poe2craft.shared.crafting.domain.QualityLimitRules;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
+import com.poe2craft.shared.item.CatalystQuality;
 import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.probability.Fraction;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -165,6 +169,93 @@ class BoundedChaosRepeatTest {
     assertThat(result.expectedUses()).isEqualTo(Fraction.of(3, 2));
   }
 
+  /** 목표의 두 수치만 열거할 수 있어도 같은 풀의 모든 비목표 가중치와 실제 종착 수치를 보존한다. */
+  @Test
+  void budgetsOnlyTheTargetRollsWhenEveryMissRestoresThePool() {
+    var result =
+        BoundedChaosRepeat.calculate(
+            workbench,
+            new RecipeTransitions(workbench),
+            rare(fixture.mod("c", 1)),
+            WorkbenchCurrency.CHAOS,
+            Set.of(),
+            Set.of("a"),
+            Set.of(),
+            2,
+            2);
+
+    assertThat(result.work()).isEqualTo(2);
+    assertThat(result.firstHits().complete()).isTrue();
+    assertThat(result.firstHits().removableModifierIds()).containsExactly("c");
+    assertThat(result.firstHits().outcomes())
+        .extracting(RecipeTransitions.Outcome::probability)
+        .containsExactly(Fraction.of(1, 12), Fraction.of(1, 12));
+    assertThat(result.hits().complete()).isTrue();
+    assertThat(result.hits().removableModifierIds()).containsExactlyInAnyOrder("b", "c");
+    assertThat(result.hits().outcomes())
+        .extracting(o -> o.state().explicits().getFirst().values().get("a"))
+        .containsExactly(1L, 2L);
+    assertThat(result.hits().outcomes())
+        .extracting(RecipeTransitions.Outcome::probability)
+        .containsExactly(Fraction.of(11, 72), Fraction.of(11, 72));
+    assertThat(result.expectedUses()).isEqualTo(Fraction.of(11, 6));
+  }
+
+  /** 품질 상한 제거를 금지한 작업대에서는 해당 옵션이 뜬 뒤 반복이 중단되는 전이를 보존한다. */
+  @Test
+  void aMissThatLocksTheNextRemovalCannotBeTreatedAsARetry() {
+    var maximumQuality =
+        new ModifierDefinition(
+            QualityLimitRules.BREACH_ID,
+            "maximum quality",
+            ModifierDefinition.Layer.EXPLICIT,
+            ModifierDefinition.AffixType.PREFIX,
+            Set.of("LocalMaximumQuality"),
+            1,
+            2,
+            1,
+            "+20 to maximum quality",
+            List.of(new ModifierDefinition.StatRange(QualityLimitRules.STAT_ID, 20, 20)),
+            Set.of(),
+            "https://example.test/maximum-quality");
+    var rules = fixture.catalog(List.of(fixture.implicit, fixture.a, fixture.b, maximumQuality));
+    var rejecting =
+        new WorkbenchSimulator(
+            rules,
+            new CraftingEngine(rules),
+            Set.of(),
+            Map.of(),
+            Map.of(),
+            QualityCapChangePolicy.REJECT_OVERCAP);
+    var base = rare(fixture.mod("b", 3));
+    var start =
+        new ItemState(
+            base.snapshotId(),
+            base.baseItemId(),
+            base.itemLevel(),
+            base.rarity(),
+            base.implicits(),
+            base.explicits(),
+            base.conditions(),
+            null,
+            new CatalystQuality(CatalystQuality.Type.NEURAL, 30));
+    var result =
+        BoundedChaosRepeat.calculate(
+            rejecting,
+            new RecipeTransitions(rejecting, true),
+            start,
+            WorkbenchCurrency.CHAOS,
+            Set.of(),
+            Set.of("a"),
+            Set.of(),
+            2,
+            100);
+    assertThat(result.hits().complete()).isTrue();
+    assertThat(mass(result.firstHits(), "a")).isEqualTo(Fraction.of(1, 6));
+    assertThat(mass(result.hits(), "a")).isEqualTo(Fraction.of(1, 4));
+    assertThat(result.expectedUses()).isEqualTo(Fraction.of(3, 2));
+  }
+
   /** 단독으로 남은 L이 제거되면 같은 옵션이나 다른 목표를 다시 뽑아도 실패로 끝난다. */
   @Test
   void neverRetriesOrCreditsAnOutcomeThatRemovedAProtectedOption() {
@@ -193,15 +284,41 @@ class BoundedChaosRepeatTest {
     var exhausted =
         BoundedChaosRepeat.calculate(
             workbench,
-            transitions,
+            new RecipeTransitions(workbench),
             start,
             WorkbenchCurrency.CHAOS,
             Set.of(),
-            Set.of("c"),
+            Set.of("b"),
             Set.of(),
             5,
             1);
     assertThat(exhausted.hits().complete()).isFalse();
+    assertThat(exhausted.firstHits().complete()).isFalse();
+    // 목표 b의 가중치 3/6 중 값 3이 나오는 절반만 열거했다. 이후에 같은 상태로 적중할 질량은 아직 모른다.
+    assertThat(exhausted.firstHits().outcomes())
+        .singleElement()
+        .satisfies(
+            o -> {
+              assertThat(o.probability()).isEqualTo(Fraction.of(1, 4));
+              assertThat(o.state().explicits()).containsExactly(fixture.mod("b", 3));
+            });
+    assertThat(exhausted.hits().outcomes()).isEqualTo(exhausted.firstHits().outcomes());
+    var full =
+        BoundedChaosRepeat.calculate(
+            workbench,
+            new RecipeTransitions(workbench),
+            start,
+            WorkbenchCurrency.CHAOS,
+            Set.of(),
+            Set.of("b"),
+            Set.of(),
+            5,
+            100);
+    assertThat(full.hits().complete()).isTrue();
+    assertThat(full.hits().outcomes())
+        .filteredOn(o -> o.state().equals(exhausted.hits().outcomes().getFirst().state()))
+        .singleElement()
+        .satisfies(o -> assertThat(o.probability()).isEqualTo(Fraction.of(31, 64)));
     assertThat(exhausted.expectedUses()).isNull();
 
     var unsupported =
@@ -217,6 +334,28 @@ class BoundedChaosRepeatTest {
             100);
     assertThat(unsupported.hits().complete()).isFalse();
     assertThat(unsupported.expectedUses()).isNull();
+  }
+
+  /** 방향 징조의 첫 시도는 완전히 셌지만 이후 재시도가 예산을 넘으면 첫 시도의 적중 질량은 여전히 하한이다. */
+  @Test
+  void keepsTheVerifiedFirstHitWhenLaterDirectedAttemptsAreIncomplete() {
+    var start = rare(fixture.mod("b", 3));
+    var result =
+        BoundedChaosRepeat.calculate(
+            workbench,
+            transitions,
+            start,
+            WorkbenchCurrency.CHAOS,
+            Set.of(WorkbenchOmen.DEXTRAL_ERASURE),
+            Set.of("a"),
+            Set.of(),
+            2,
+            3);
+    assertThat(result.firstHits().complete()).isTrue();
+    assertThat(mass(result.firstHits(), "a")).isEqualTo(Fraction.of(1, 6));
+    assertThat(result.hits().complete()).isFalse();
+    assertThat(mass(result.hits(), "a")).isEqualTo(Fraction.of(1, 6));
+    assertThat(result.expectedUses()).isNull();
   }
 
   /** 시작부터 제거할 옵션이 없으면 목표 적중과 화폐 소비가 모두 0임이 확정된다. */

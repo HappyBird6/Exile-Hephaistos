@@ -1,4 +1,7 @@
 import type { Locale } from '../../shared/i18n/i18n'
+import { isCraftedModifier } from './augmentRules'
+import type { Definition } from './craftingApi'
+import type { ConcreteItem } from './workbenchApi'
 import type {
   Item,
   TextLine,
@@ -6,6 +9,16 @@ import type {
 } from './itemModels'
 
 export type ModifierKind = Lowercase<ApiModifierType> | 'unknown'
+const explicitKinds = new Set<ModifierKind>([
+  'explicit',
+  'fractured',
+  'crafted',
+  'desecrated',
+  'mutated',
+])
+export function isExplicitOption(kind: ModifierKind | undefined) {
+  return kind !== undefined && explicitKinds.has(kind)
+}
 export interface ItemCardLine {
   sourceLabel?: string | undefined
   unrevealedDesecrated?: boolean
@@ -45,6 +58,27 @@ export interface ItemCardData {
   flags: readonly ItemCardLine[]
 }
 
+/** The stored slot also identifies a revealed desecrated modifier in older sessions. */
+export function stateModifierAffix(
+  item: ConcreteItem,
+  modifier: ConcreteItem['explicits'][number],
+  definition: Definition | undefined,
+  implicit: boolean,
+): Pick<ItemCardLine, 'kind' | 'affixType'> {
+  if (implicit) return { kind: 'implicit' }
+  const slot = item.desecrated?.find(
+    (s) => s.modifierId === modifier.modifierId,
+  )
+  return {
+    kind: slot
+      ? 'desecrated'
+      : isCraftedModifier(modifier, definition)
+        ? 'crafted'
+        : 'explicit',
+    affixType: slot?.side ?? definition?.affixType,
+  }
+}
+
 // Display-only exclusion; the untouched source remains in parsing evidence.
 export function isTradePrice(text: string): boolean {
   return /^\s*(?:[~-]\s*)?(?:b\/o|price)\s+\d+(?:[.,]\d+)?\s+\S/i.test(text)
@@ -81,9 +115,11 @@ export function toItemCard(item: Item): ItemCardData {
           : mod.source.raw !== mod.text
             ? mod.source.raw
             : undefined,
-        affixLabel: mod.affix
-          ? `${mod.affix === 'PREFIX' ? 'P' : 'S'}${mod.tier ?? '?'}`
-          : undefined,
+        affixType: mod.affix ?? undefined,
+        affixLabel:
+          mod.affix && isExplicitOption(kinds[mod.type])
+            ? `T${mod.tier ?? '?'}`
+            : undefined,
       },
     })),
     ...item.unparsedLines

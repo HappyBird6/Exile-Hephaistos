@@ -1,15 +1,10 @@
 import { useQueries, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useMemo, useRef, useState } from 'react'
-import {
-  formatNumber,
-  gameName,
-  getLocale,
-  useI18n,
-} from '../../../shared/i18n/i18n'
+import { gameName, getLocale, useI18n } from '../../../shared/i18n/i18n'
 import { materialNames } from '../catalogData'
 import type { Initial } from '../craftingApi'
 import { useCurrencyMarket } from '../currency-prices/context'
-import { priceMessages } from '../currency-prices/messages'
+import { supportProbabilityText } from '../supportProbability'
 import {
   currencyId,
   type NotationStep,
@@ -64,7 +59,6 @@ import { AcquisitionRouteActions } from './AcquisitionRouteActions'
 import { RouteGradePicker } from './RouteGradePicker'
 import { graphStateMessages } from './graphStateMessages'
 import { planTitle } from './probabilityPresentation'
-import { policyCandidateMessages } from './policyCandidateMessages'
 
 type Props = {
   request: CreateRequest
@@ -264,18 +258,16 @@ function RouteList({
     if (example) cache.setQueryData(['plan-film', href(index)], example)
     select(index)
   }
-  const chance = (route: AcquisitionRoute) => {
-    if (route.probability == null)
-      return policyCandidateMessages[locale].unresolved
-    const value = formatNumber(
-      route.probability,
-      { style: 'percent', maximumSignificantDigits: 4 },
+  const chance = (route: AcquisitionRoute) =>
+    supportProbabilityText(
+      {
+        ...route,
+        ...(route.steps.some(assumesEligibleReveal)
+          ? { assumesEligibleReveal: true }
+          : {}),
+      },
       locale,
     )
-    return route.steps.some(assumesEligibleReveal)
-      ? `${value} (${priceMessages[locale].assumedReveal})`
-      : value
-  }
   const rows = result.routes.map((route, index) => {
     const entry = updated.get(index)
     const active = entry ? entry.data?.routes[0] : route
@@ -289,7 +281,8 @@ function RouteList({
     else if (entry?.isPending) summary = messages.calculating
     else if (entry?.isError) summary = messages.error
     else if (entry?.data?.complete) summary = copy.empty
-    return { index, route, active, summary }
+    const lower = active?.probabilityBounds?.lower ?? active?.probability ?? -1
+    return { index, route, active, summary, lower }
   })
   const summary = rows[selection]!.summary
   const status = replay?.isError ? (
@@ -368,7 +361,7 @@ function RouteList({
                   .join(' · ')}
               </p>
             )}
-            {selected && (
+            {selected && !film?.projectedRouteChance && (
               <p>
                 {copy.chance} · {chance(selected)}
               </p>
@@ -418,7 +411,8 @@ function RouteList({
         {rows
           .sort(
             (a, b) =>
-              (b.active?.probability ?? -1) - (a.active?.probability ?? -1),
+              Number(b.active?.probability != null) -
+                Number(a.active?.probability != null) || b.lower - a.lower,
           )
           .map(({ index, route, active, summary }, rank) => {
             const options = [

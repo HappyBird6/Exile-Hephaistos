@@ -48,6 +48,7 @@ import { levelMessages } from './levelMessages'
 import { ModifierRow } from './ModifierRow'
 import { localizedModifierText } from '../localizedModifiers'
 import {
+  mappedStartCard,
   startCard,
   startText,
   eligibleStartModifiers,
@@ -470,8 +471,9 @@ export function CraftStart({
           }
         : undefined
       if (controller.signal.aborted || version !== revision.current) return
+      const parsedCard = toItemCard(parsed)
       update({
-        card: toItemCard(parsed),
+        card: parsedCard,
         item: null,
         rulesetIdentity: null,
         base: entry?.base[0] ?? '',
@@ -525,6 +527,11 @@ export function CraftStart({
           )
         update({
           item: result.state,
+          card: mappedStartCard(
+            parsedCard,
+            result.state,
+            entry.initial.modifiers,
+          ),
           levelEdited: false,
           rulesetIdentity: entry.initial.rulesetIdentity,
         })

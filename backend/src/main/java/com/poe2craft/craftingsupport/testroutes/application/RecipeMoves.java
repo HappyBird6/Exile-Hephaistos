@@ -316,13 +316,17 @@ final class RecipeMoves {
     for (var currency : actions) {
       boolean upgrades =
           currency == WorkbenchCurrency.TRANSMUTATION || currency == WorkbenchCurrency.REGAL;
-      add(result, target, new Move(currency.name()), upgrades);
+      // 무징조 카오스는 한 개의 변경 가능 옵션으로 시작하는 반복에만 사용한다.
+      if (currency != WorkbenchCurrency.CHAOS || OneOptionPreparation.ready(item))
+        add(result, target, new Move(currency.name()), upgrades);
+      if (currency == WorkbenchCurrency.CHAOS) {
+        // 절사의 징조로 가장 낮은 등장 레벨을 제거한다. 좌우 말소를 함께 쓰면 해당 쪽에서 고른다.
+        for (var omens : WhittlingRecovery.OMEN_COMBINATIONS)
+          add(result, target, new Move(currency.name(), omens, null), false);
+        continue;
+      }
       for (var omen : WorkbenchOmen.values()) {
-        if (currency == WorkbenchCurrency.CHAOS) {
-          if (omen.trigger() == WorkbenchCurrency.CHAOS
-              && (omen.affix() != null || omen == WorkbenchOmen.WHITTLING))
-            add(result, target, new Move(currency, omen), false);
-        } else if (omen.trigger() != null
+        if (omen.trigger() != null
             && omen.trigger().baseAction() == currency.baseAction()
             && side == omen.affix()) {
           add(result, target, new Move(currency, omen), upgrades);

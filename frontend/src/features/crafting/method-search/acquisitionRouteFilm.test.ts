@@ -6,6 +6,8 @@ import type { ConcreteItem } from '../workbenchApi'
 import { planTitle } from './probabilityPresentation'
 import {
   filmRulesetStatus,
+  validStepChance,
+  projectedWhittlingOutcomes,
   validProjectedCurrencies,
 } from '../workbenchHistory'
 import { formatExpectedUses } from '../currency-prices/formatCurrencyAmount'
@@ -47,6 +49,52 @@ function routeFilm(step: Partial<AcquisitionStep>) {
   const film = acquisitionRouteFilm(request, result, 0, 'en')!
   return { film, cost: acquisitionRouteCost(result.routes[0]!, snapshot) }
 }
+it('preserves a bounded step independently of the session success probability', () => {
+  const chance = {
+    probability: null,
+    probabilityBounds: { lower: 0.02, upper: 0.9 },
+  }
+  const { film } = routeFilm({ chance })
+  expect(film.projectedRouteChance).toEqual({ probability: 1 })
+  expect(film.frames[1]?.projectedChance).toEqual(chance)
+  expect(
+    validStepChance({
+      probability: null,
+      probabilityBounds: { lower: 0.9, upper: 0.02 },
+    }),
+  ).toBe(false)
+  expect(
+    validStepChance({
+      probability: 0.95,
+      probabilityBounds: chance.probabilityBounds,
+    }),
+  ).toBe(false)
+})
+it('restores the three outcomes only for a valid Whittling Chaos combination', () => {
+  const omenOutcomes = {
+    success: { probability: 0.2 },
+    recoverable: { probability: 0.55 },
+    failure: { probability: 0.25 },
+  }
+  for (const side of [
+    null,
+    'Omen_of_Sinistral_Erasure',
+    'Omen_of_Dextral_Erasure',
+  ]) {
+    const omens = side ? ['Omen_of_Whittling', side] : ['Omen_of_Whittling']
+    const step = { action: 'CHAOS', omens, omenOutcomes }
+    const { film } = routeFilm(step)
+    expect(projectedWhittlingOutcomes(film.frames[1]!)).toEqual(omenOutcomes)
+  }
+  const plain = routeFilm({ action: 'CHAOS', omens: [], omenOutcomes })
+  expect(projectedWhittlingOutcomes(plain.film.frames[1]!)).toBeUndefined()
+  const overlaps = routeFilm({
+    action: 'CHAOS',
+    omens: ['Omen_of_Whittling'],
+    omenOutcomes: { ...omenOutcomes, failure: { probability: 0.8 } },
+  })
+  expect(projectedWhittlingOutcomes(overlaps.film.frames[1]!)).toBeUndefined()
+})
 it('uses the same verified expected Divine cost in the list and the restored film', () => {
   const { film, cost } = routeFilm({
     expectedUses: 2.5,

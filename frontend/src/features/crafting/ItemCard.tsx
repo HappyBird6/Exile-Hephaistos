@@ -1,11 +1,12 @@
 import { useFeedbackTitle } from './feedback-tooltip/feedbackContext'
 import { UnrevealedRune } from './abyss-workbench/UnrevealedRune'
 import { useI18n, formatNumber, uiText } from '../../shared/i18n/i18n'
-import { isTradePrice } from './itemCardData'
+import { isExplicitOption, isTradePrice } from './itemCardData'
 import type { ItemCardData, ItemCardLine } from './itemCardData'
 import './item-card.css'
 import { formatAttributeText } from './numeric-display/attributeNumbers'
 import { itemCardMessages } from './itemCardMessages'
+import { modifierPickerMessages } from './goal-filter/modifierPickerMessages'
 
 function Lines({
   lines,
@@ -36,6 +37,13 @@ function Lines({
                   sourceLine.numericLocale ?? locale,
                 ),
               }
+        const side = isExplicitOption(line.kind) ? line.affixType : undefined
+        const sideLabel =
+          side === 'PREFIX'
+            ? modifierPickerMessages[locale].prefix
+            : side === 'SUFFIX'
+              ? modifierPickerMessages[locale].suffix
+              : undefined
         return (
           <div
             key={line.id}
@@ -61,8 +69,10 @@ function Lines({
                 aria-label={itemCardMessages[locale].lastCurrencyAffected}
               />
             )}
-            {line.affixLabel && (
-              <span className="item-card__affix">{line.affixLabel}</span>
+            {(sideLabel || line.affixLabel) && (
+              <span className="item-card__affix">
+                {[sideLabel, line.affixLabel].filter(Boolean).join(' · ')}{' '}
+              </span>
             )}
             {line.unrevealedDesecrated ? (
               <UnrevealedRune />

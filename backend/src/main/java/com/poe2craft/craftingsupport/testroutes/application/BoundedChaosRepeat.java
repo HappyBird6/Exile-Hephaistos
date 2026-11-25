@@ -3,6 +3,7 @@ package com.poe2craft.craftingsupport.testroutes.application;
 import com.poe2craft.configuration.PublicContracts;
 import com.poe2craft.shared.crafting.domain.AutomaticCraftingPlan;
 import com.poe2craft.shared.crafting.domain.CraftingAction;
+import com.poe2craft.shared.crafting.domain.QualityCapChangePolicy;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
@@ -105,14 +106,43 @@ final class BoundedChaosRepeat {
         .run(start, maxUses);
   }
 
+  /**
+   * 비용 표시는 명시 옵션이 없는 동일 베이스의 희귀 아이템에서 대상 티어들의 추첨 확률로 추정한다. 화폐 등급과 장착 효과는 작업대 풀을 따르고, 카오스용 제거 징조는 새로
+   * 붙는 티어의 분모에 관여하지 않는다. 실제 경로 전이는 원래 아이템에서 별도로 검증한다.
+   */
+  static Double emptyBaseExpectedUses(
+      WorkbenchSimulator simulator,
+      ItemState item,
+      WorkbenchCurrency action,
+      Set<String> targetIds,
+      int maxUses) {
+    if (action.baseAction() != CraftingAction.CHAOS
+        || maxUses < 1
+        || maxUses > PublicContracts.REPEAT.maximumUses())
+      throw new IllegalArgumentException("Invalid bounded Chaos estimate");
+    if (targetIds.isEmpty()) return null;
+    var base = item.desecrated().isEmpty() ? item : item.withDesecrated(List.of());
+    var empty = RecipeStateGroups.withAffixes(base, ItemState.Rarity.RARE, List.of());
+    var pool = simulator.forItem(empty).pool(empty, action, null);
+    long totalWeight = 0;
+    long targetWeight = 0;
+    for (var candidate : pool) {
+      totalWeight += candidate.weight();
+      if (targetIds.contains(candidate.id())) targetWeight += candidate.weight();
+    }
+    if (totalWeight == 0) return null;
+    double p = (double) targetWeight / totalWeight;
+    if (p == 0) return (double) maxUses;
+    return Math.min(maxUses, -Math.expm1(maxUses * Math.log1p(-p)) / p);
+  }
+
   /** 첫 시도 이후 실제 미적중 상태만 전파한다. 사용 불가·보호 실패·제한 도달 질량도 초기 분모에 남는다. */
   private Result run(ItemState start, int maxUses) {
+    var samePool = samePoolWithoutMissRolls(start, maxUses);
+    if (samePool != null) return samePool;
     var first = attempt(start);
     var firstHits = law(first.hits(), first.complete());
-    if (!first.complete()) {
-      var exact = samePoolWithoutMissRolls(start, maxUses);
-      return exact != null ? exact : unknown(firstHits, first.hits());
-    }
+    if (!first.complete()) return unknown(firstHits, first.hits());
     if (first.unavailable() || maxUses == 1 || first.misses().isEmpty())
       return new Result(
           firstHits, firstHits, first.unavailable() ? Fraction.ZERO : Fraction.ONE, work);
@@ -160,7 +190,12 @@ final class BoundedChaosRepeat {
             .map(ModifierInstance::modifierId)
             .toList()
             .containsAll(protectedIds)) return null;
-    var plan = simulator.forItem(start).recipePlan(start, action, omens);
+    var workbench = simulator.forItem(start);
+    // 품질 상한 옵션의 제거를 막는 작업대에서는 미적중한 옵션에 따라 다음 사용 가능 여부가 달라진다.
+    if (start.catalystQuality() != null
+        && workbench.automaticIdentity().qualityPolicy() == QualityCapChangePolicy.REJECT_OVERCAP)
+      return null;
+    var plan = workbench.recipePlan(start, action, omens);
     if (plan.status() != AutomaticCraftingPlan.Status.READY || plan.branches().size() != 1)
       return null;
     var redraw = plan.branches().getFirst();
@@ -169,18 +204,23 @@ final class BoundedChaosRepeat {
     var terminal =
         transitions.successors(start, action.name(), omens, targets, budget - work, false);
     work += Math.min(budget - work, Math.max(1, terminal.outcomes().size()));
-    if (!terminal.complete()) return null;
+    removable.addAll(terminal.removableModifierIds());
     // 한 번에 정확히 하나만 새로 붙는다. 종료 이후 후속 행동은 적중한 실제 상태의 분포를 받는다.
     var hits = new LinkedHashMap<Hit, Fraction>();
-    var chance = Fraction.ZERO;
+    boolean complete =
+        terminal.complete() && terminal.outcomes().stream().noneMatch(o -> o.probability() == null);
     for (var outcome : terminal.outcomes()) {
-      if (outcome.probability() == null) return null;
-      hits.merge(new Hit(outcome.state(), Set.of()), outcome.probability(), Fraction::add);
-      chance = chance.add(outcome.probability());
+      var hit = new Hit(outcome.state(), Set.of());
+      if (outcome.probability() == null) hits.putIfAbsent(hit, null);
+      else hits.merge(hit, outcome.probability(), Fraction::add);
     }
-    for (var candidate : redraw.candidates())
-      if (!targets.contains(candidate.id())) removable.add(candidate.id());
-    return renewalResult(hits, law(hits, true), chance.complement(), maxUses);
+    var firstHits = law(hits, complete);
+    if (maxUses > 1)
+      for (var candidate : redraw.candidates())
+        if (!targets.contains(candidate.id())) removable.add(candidate.id());
+    if (!complete) return unknown(firstHits, hits);
+    var chance = hits.values().stream().reduce(Fraction.ZERO, Fraction::add);
+    return renewalResult(hits, firstHits, chance.complement(), maxUses);
   }
 
   /** 재시도 가능한 질량이 매번 같으면 유한 등비합으로 최초 적중 분포와 중단까지의 평균 사용량을 구한다. */
@@ -267,11 +307,9 @@ final class BoundedChaosRepeat {
     local.forEach((key, value) -> combined.merge(key, mass.multiply(value), Fraction::add));
   }
 
-  /** 검증할 수 없는 질량 대신 실제 도달 사례만 보존한다. 기대 사용량 역시 미확정이다. */
+  /** 이미 관측한 배타적 첫 적중의 질량은 하한이다. 아직 계산하지 않은 추가 적중과 기대 사용량은 미확정이다. */
   private Result unknown(RecipeTransitions.Law firstHits, Map<Hit, Fraction> knownHits) {
-    var witnesses = new LinkedHashMap<Hit, Fraction>(knownHits);
-    witnesses.replaceAll((hit, mass) -> null);
-    return new Result(law(witnesses, false), firstHits, null, work);
+    return new Result(law(knownHits, false), firstHits, null, work);
   }
 
   /** 후속 단계가 사용하는 실제 종착 상태와 옵션 제거 이력을 일반 전이 형식으로 반환한다. */

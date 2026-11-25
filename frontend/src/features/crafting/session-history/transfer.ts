@@ -2,6 +2,8 @@ import {
   LocalFilmRepository,
   historyStorageLimit,
   validPlannedSteps,
+  validStepChance,
+  projectedWhittlingOutcomes,
 } from '../workbenchHistory'
 import type { Film, Films } from '../workbenchHistory'
 
@@ -44,6 +46,8 @@ export function decodeDocument(raw: string): SessionDocument {
     typeof d.film.id !== 'string' ||
     !d.film.id ||
     !validPlannedSteps(d.film.plannedSteps) ||
+    (d.film.projectedRouteChance !== undefined &&
+      !validStepChance(d.film.projectedRouteChance)) ||
     d.film.id.length > 256 ||
     (d.film.title !== undefined && typeof d.film.title !== 'string') ||
     (d.film.rulesetIdentity !== undefined &&
@@ -57,6 +61,10 @@ export function decodeDocument(raw: string): SessionDocument {
     !d.film.frames.every(
       (f) =>
         f &&
+        (f.projectedChance === undefined ||
+          validStepChance(f.projectedChance)) &&
+        (f.projectedOmenOutcomes === undefined ||
+          projectedWhittlingOutcomes(f) !== undefined) &&
         (f.action === null || typeof f.action === 'string') &&
         f.state &&
         typeof f.state.baseItemId === 'string' &&

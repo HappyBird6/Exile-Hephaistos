@@ -155,10 +155,12 @@ export function CraftingCostLine({
   film,
   cursor,
   children,
+  sessionSummary = false,
 }: {
   film: Film | undefined
   children?: ReactNode
   cursor: number
+  sessionSummary?: boolean
 }) {
   const market = useCurrencyMarket()
   const { locale, name } = useI18n()
@@ -186,7 +188,11 @@ export function CraftingCostLine({
       {children && (
         <div className="crafting-cost-line__controls">{children}</div>
       )}
-      <SelectedStepChance film={film} cursor={cursor} />
+      <SelectedStepChance
+        film={film}
+        cursor={cursor}
+        sessionSummary={sessionSummary}
+      />
       {cost.retryMaterials?.length ? (
         <span>
           {text.unknownUses} ·{' '}

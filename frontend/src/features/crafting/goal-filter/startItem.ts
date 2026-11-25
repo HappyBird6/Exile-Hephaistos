@@ -1,7 +1,12 @@
 import type { Definition, Initial } from '../craftingApi'
 import type { ConcreteItem } from '../workbenchApi'
 import { rolledText } from '../workbenchApi'
-import type { ItemCardData } from '../itemCardData'
+import {
+  isExplicitOption,
+  stateModifierAffix,
+  type ItemCardData,
+} from '../itemCardData'
+import { localizedModifierText } from '../localizedModifiers'
 import { supportsConcreteStateShape } from '../workbenchStateShape'
 import { baseClass, baseSlugs, newBaseSelectionAllowed } from '../baseRegistry'
 import type { WorkbenchBaseKey } from '../baseRegistry'
@@ -196,16 +201,55 @@ export function startCard(
     requirements: [],
     flags: [],
     modifiers: [
-      ...item.implicits.map((m) => ({ ...m, kind: 'implicit' as const })),
-      ...item.explicits.map((m) => ({ ...m, kind: 'explicit' as const })),
-    ].map((m) => ({
-      id: m.modifierId,
-      kind: m.kind,
-      fractured: Boolean(m.fractured),
-      text: definitions[m.modifierId]
-        ? rolledText(definitions[m.modifierId]!, m.values)
-        : m.modifierId,
-    })),
+      ...[...item.implicits, ...item.explicits].map((m, i) => {
+        const definition = definitions[m.modifierId]
+        return {
+          id: m.modifierId,
+          ...stateModifierAffix(item, m, definition, i < item.implicits.length),
+          fractured: Boolean(m.fractured),
+          text: definition ? rolledText(definition, m.values) : m.modifierId,
+        }
+      }),
+      ...(item.desecrated ?? [])
+        .filter((slot) => slot.modifierId === null)
+        .map((slot) => ({
+          id: slot.id,
+          kind: 'desecrated' as const,
+          affixType: slot.side,
+          unrevealedDesecrated: true,
+          text: slot.side,
+        })),
+    ],
+  }
+}
+/** Keep original pasted rows, including their metadata. Assign a side only to an exact, unambiguous line of the mapped state. */
+export function mappedStartCard(
+  card: ItemCardData,
+  item: ConcreteItem,
+  definitions: Initial['modifiers'],
+): ItemCardData {
+  const options = item.explicits.flatMap((m) => {
+    const definition = definitions[m.modifierId]
+    if (!definition) return []
+    return [
+      {
+        side: stateModifierAffix(item, m, definition, false).affixType,
+        lines: localizedModifierText(definition, m.values, 'en').split('\n'),
+      },
+    ]
+  })
+  return {
+    ...card,
+    modifiers: card.modifiers.map((line) => {
+      if (line.affixType || !isExplicitOption(line.kind)) return line
+      const matches = options.filter((option) =>
+        option.lines.includes(line.text),
+      )
+      const side = matches[0]?.side
+      return side && matches.every((option) => option.side === side)
+        ? { ...line, affixType: side }
+        : line
+    }),
   }
 }
 export function startText(
@@ -227,7 +271,7 @@ export function startText(
       .map((m) => `${m.text} (implicit)`),
     ...(item.implicits.length && item.explicits.length ? ['--------'] : []),
     ...card.modifiers
-      .filter((m) => m.kind === 'explicit')
+      .filter((m) => m.kind !== 'implicit' && !m.unrevealedDesecrated)
       .map((m) => m.text + (m.fractured ? ' (fractured)' : '')),
   ].join('\n')
 }

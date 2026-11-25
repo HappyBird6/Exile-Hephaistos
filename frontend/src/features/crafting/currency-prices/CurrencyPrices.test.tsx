@@ -238,7 +238,7 @@ it('displays the selected action chance immediately before cost and clears it fo
   const chance = screen.getByText('Step chance 12.5%')
   expect(chance.nextElementSibling).toHaveClass('coin-amount')
   page.rerender(ui(3))
-  expect(screen.getByText('Step chance Unknown')).toBeInTheDocument()
+  expect(screen.getByText('Step chance 0% – 100%')).toBeInTheDocument()
   page.rerender(ui(1))
   expect(screen.queryByText(/Step chance/)).toBeNull()
   page.rerender(ui(0))
@@ -275,6 +275,79 @@ it('uses the recorded modifier-selection odds of a verified single workbench eve
   receipt.rulesetIdentity = 'unverified'
   page.rerender(ui())
   expect(screen.queryByText(/Step chance/)).toBeNull()
+})
+
+it.each(locales)(
+  'shows three recorded Whittling outcomes with success first in %s',
+  (locale) => {
+    setLocale(locale)
+    const text = priceMessages[locale]
+    const state = {
+      ...concreteInitial(initialFixture),
+      rarity: 'RARE' as const,
+    }
+    const rulesetIdentity = initialFixture.rulesetIdentity
+    const film: Film = {
+      id: 'omen-choice',
+      createdAt: '',
+      rulesetIdentity,
+      frames: [
+        { state, action: null, rulesetIdentity },
+        {
+          state,
+          action: 'SESSION_PLAN',
+          rulesetIdentity,
+          projectedCurrencies: [
+            {
+              currencyId: 'Greater_Chaos_Orb',
+              omenIds: ['Omen_of_Whittling', 'Omen_of_Sinistral_Erasure'],
+            },
+          ],
+          projectedOmenOutcomes: {
+            success: { probability: 0.4 },
+            recoverable: { probability: 0.6 },
+            failure: { probability: 0 },
+          },
+        },
+      ],
+    }
+    const page = render(<CraftingCostLine film={film} cursor={1} />)
+    const group = screen.getByRole('group', { name: text.actionChance })
+    const percent = new Intl.NumberFormat(locale, { style: 'percent' })
+    expect(Array.from(group.children, (child) => child.textContent)).toEqual([
+      `${text.success} ${percent.format(0.4)}`,
+      `${text.recoverable} ${percent.format(0.6)}`,
+      `${text.failure} ${percent.format(0)}`,
+    ])
+    expect(group.firstElementChild?.tagName).toBe('STRONG')
+    page.rerender(<CraftingCostLine film={film} cursor={0} />)
+    expect(screen.queryByRole('group', { name: text.actionChance })).toBeNull()
+  },
+)
+
+it('keeps historical Whittling records at their recorded step chance', () => {
+  const state = concreteInitial(initialFixture)
+  const rulesetIdentity = initialFixture.rulesetIdentity
+  const film: Film = {
+    id: 'legacy-whittling',
+    createdAt: '',
+    rulesetIdentity,
+    frames: [
+      { state, action: null, rulesetIdentity },
+      {
+        state,
+        action: 'SESSION_PLAN',
+        rulesetIdentity,
+        projectedCurrencies: [
+          { currencyId: 'Chaos_Orb', omenIds: ['Omen_of_Whittling'] },
+        ],
+        projectedChance: { probability: 0.25 },
+      },
+    ],
+  }
+  render(<CraftingCostLine film={film} cursor={1} />)
+  expect(screen.getByText('Step chance 25%')).toBeInTheDocument()
+  expect(screen.queryByRole('group', { name: 'Step chance' })).toBeNull()
 })
 
 it('shows retry materials and unresolved uses for a bounded Light reveal without charging a second currency on reveal', () => {
@@ -314,5 +387,5 @@ it('shows retry materials and unresolved uses for a bounded Light reveal without
     'Omen of Light ×1 + Orb of Annulment ×1 + desecration bone ×1',
   )
   expect(page.container.querySelector('.coin-amount')).toBeNull()
-  expect(page.container.textContent).not.toContain('100%')
+  expect(screen.getByText('Step chance 0% – 100%')).toBeInTheDocument()
 })

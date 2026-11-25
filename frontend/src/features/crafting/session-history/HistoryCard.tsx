@@ -3,7 +3,7 @@ import { lastCurrencyAffectedOptions } from '../lastCurrencyAffectedOptions'
 import { useBonded, bondedLabel } from '../bonded'
 import { installedAugmentEffects } from '../augmentEffects'
 import { unidentifiedRuneEffects } from '../socketAugments'
-import type { ItemCardLine } from '../itemCardData'
+import { stateModifierAffix, type ItemCardLine } from '../itemCardData'
 import { supportsConcreteStateShape } from '../workbenchStateShape'
 import { topBase, basePropertyLines } from '../topBases'
 import { baseClass, baseSlugs } from '../baseRegistry'
@@ -169,11 +169,13 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                       .map(([key, value]) => `${key} ${value}`)
                       .join(', ')}`,
                 fractured: m.fractured,
+                ...stateModifierAffix(
+                  state,
+                  m,
+                  definition,
+                  i < state.implicits.length,
+                ),
                 lastCurrencyAffected: affected.has(m.modifierId),
-                kind:
-                  i < state.implicits.length
-                    ? ('implicit' as const)
-                    : ('explicit' as const),
               }
             })
             .concat(
@@ -182,6 +184,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                 .map((s) => ({
                   id: s.id,
                   text: s.side,
+                  affixType: s.side,
                   unrevealedDesecrated: true,
                   lastCurrencyAffected: affected.has(s.id),
                   kind: 'desecrated' as const,

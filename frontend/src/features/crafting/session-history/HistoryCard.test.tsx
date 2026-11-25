@@ -74,6 +74,59 @@ it('uses the translated catalyst quality in a preserved session instead of the r
   await setLocale('en')
 })
 
+it('shows the saved slot side before and after a desecration reveal alongside a fractured prefix', () => {
+  setLocale('ko')
+  const baseItemId = 'Metadata/Items/Amulets/FourAmulet9'
+  const slot = { id: 'd', side: 'SUFFIX' as const, modifierId: null }
+  const hidden = {
+    ...concreteInitial(initialFixture),
+    baseItemId,
+    rarity: 'RARE' as const,
+    explicits: [{ modifierId: 'p', values: { life: 17 }, fractured: true }],
+    desecrated: [slot],
+  }
+  const revealed = {
+    ...hidden,
+    explicits: [
+      ...hidden.explicits,
+      { modifierId: 's', values: { strength: 6 } },
+    ],
+    desecrated: [{ ...slot, modifierId: 's' }],
+  }
+  const rulesetIdentity = initialFixture.rulesetIdentity
+  const frames = [
+    { action: null, state: hidden, rulesetIdentity },
+    { action: 'DESECRATION_REVEAL', state: revealed, rulesetIdentity },
+  ]
+  const film = { id: 'reveal', createdAt: '', rulesetIdentity, frames }
+  const client = new QueryClient()
+  client.setQueryData(['crafting', 'initial', 'solar', 82, 'manual'], {
+    ...initialFixture,
+    state: { ...initialFixture.state, baseItemId },
+  })
+  const view = (index: number) => (
+    <QueryClientProvider client={client}>
+      <HistoryCard film={film} frame={frames[index]!} />
+    </QueryClientProvider>
+  )
+  const { container, rerender } = render(view(0))
+  const desecrated = () =>
+    container.querySelector('.item-card__line--desecrated')!
+  expect(desecrated()).toHaveTextContent('접미어')
+  expect(desecrated().querySelector('[role="img"]')).toBeVisible()
+  rerender(view(1))
+  expect(desecrated()).toHaveTextContent('접미어')
+  expect(desecrated().textContent).toContain('6')
+  expect(desecrated().querySelector('.abyss-unrevealed-rune')).toBeNull()
+  expect(
+    container.querySelector('[data-fractured] .item-card__affix'),
+  ).toHaveTextContent('접두어')
+  expect(
+    container.querySelector('.item-card__line--implicit .item-card__affix'),
+  ).toBeNull()
+  setLocale('en')
+})
+
 it('restores the workbench affected-option mark at each saved step and clears it at step zero', async () => {
   const { twoSteps } = await import('../session-notation/fixtures.test-support')
   const { history } = await twoSteps(),

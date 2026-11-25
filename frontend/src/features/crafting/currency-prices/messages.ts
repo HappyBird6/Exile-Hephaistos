@@ -7,6 +7,9 @@ type Messages = {
   unavailable: string
   stale: string
   actionChance: string
+  success: string
+  recoverable: string
+  failure: string
   assumedReveal: string
   unknownUses: string
   perRetry: string
@@ -25,6 +28,9 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: 'Prices unavailable',
     stale: 'Last available prices',
     actionChance: 'Step chance',
+    success: 'Success',
+    recoverable: 'Recoverable',
+    failure: 'Failure',
     assumedReveal: 'assumes an eligible desecration target is revealed',
     unknownUses: 'Expected number of uses unknown',
     perRetry: 'Per retry',
@@ -42,6 +48,9 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: '시세 없음',
     stale: '마지막 확인 시세',
     actionChance: '단계 확률',
+    success: '성공',
+    recoverable: '복구 가능',
+    failure: '실패',
     assumedReveal: '훼손 슬롯이 허용하는 목표는 공개된다고 가정',
     unknownUses: '기대 사용 횟수 미확정',
     perRetry: '재시도 1회당',
@@ -59,6 +68,9 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: '价格不可用',
     stale: '上次可用价格',
     actionChance: '步骤概率',
+    success: '成功',
+    recoverable: '可挽回',
+    failure: '失败',
     assumedReveal: '假设符合亵渎槽位条件的目标词缀会被揭示',
     unknownUses: '预计使用次数未知',
     perRetry: '每次重试',
@@ -76,6 +88,9 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: '價格無法取得',
     stale: '上次可用價格',
     actionChance: '步驟機率',
+    success: '成功',
+    recoverable: '可挽回',
+    failure: '失敗',
     assumedReveal: '假設符合褻瀆欄位條件的目標詞綴會被揭示',
     unknownUses: '預期使用次數未知',
     perRetry: '每次重試',
@@ -93,6 +108,9 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: '価格情報なし',
     stale: '前回取得した価格',
     actionChance: 'ステップの確率',
+    success: '成功',
+    recoverable: '立て直し可能',
+    failure: '失敗',
     assumedReveal: '冒涜枠の条件を満たす目標モッドが開示されると仮定',
     unknownUses: '期待使用回数は不明',
     perRetry: '再試行1回につき',
@@ -110,6 +128,9 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: 'Precios no disponibles',
     stale: 'Últimos precios disponibles',
     actionChance: 'Probabilidad del paso',
+    success: 'Éxito',
+    recoverable: 'Recuperable',
+    failure: 'Fracaso',
     assumedReveal:
       'se supone que se revela el modificador objetivo si la ranura de profanación lo permite',
     unknownUses: 'Número esperado de usos desconocido',
@@ -129,6 +150,9 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: 'Цены недоступны',
     stale: 'Последние доступные цены',
     actionChance: 'Шанс шага',
+    success: 'Успех',
+    recoverable: 'Можно исправить',
+    failure: 'Неудача',
     assumedReveal:
       'предполагается, что допустимое для слота осквернения целевое свойство будет раскрыто',
     unknownUses: 'Ожидаемое число применений неизвестно',
@@ -147,6 +171,9 @@ export const priceMessages: Record<Locale, Messages> = {
     unavailable: 'ไม่มีข้อมูลราคา',
     stale: 'ราคาล่าสุดที่มีอยู่',
     actionChance: 'โอกาสของขั้นตอน',
+    success: 'สำเร็จ',
+    recoverable: 'แก้ไขได้',
+    failure: 'ล้มเหลว',
     assumedReveal:
       'สมมติว่าม็อดเป้าหมายจะถูกเปิดเผยหากตรงตามเงื่อนไขของช่องดูหมิ่น',
     unknownUses: 'ไม่ทราบจำนวนครั้งที่คาดว่าจะใช้',

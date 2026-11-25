@@ -36,7 +36,7 @@ import { resetCurrentFilm } from './workbenchHistory'
 import { startingItem } from './base-picker/baseAffixSetup'
 import type { StartingAffix } from './base-picker/baseAffixSetup'
 import { loadModifierPools } from './workbenchReferenceApi'
-import { isCraftedModifier, craftedLimitMessages } from './augmentRules'
+import { craftedLimitMessages } from './augmentRules'
 import { useBonded, setBonded, bondedLabel } from './bonded'
 import { installedAugmentEffects } from './augmentEffects'
 import type { Item } from './itemModels'
@@ -133,7 +133,7 @@ import {
 import { ItemCard } from './ItemCard'
 import { lastCurrencyAffectedOptions } from './lastCurrencyAffectedOptions'
 import { whittlingCandidates } from './omenRemovalCandidates'
-import { toItemCard } from './itemCardData'
+import { stateModifierAffix, toItemCard } from './itemCardData'
 import {
   FeedbackTooltipProvider,
   FeedbackTooltipOutlet,
@@ -2067,20 +2067,18 @@ function ReadyCraftingPage({
                           roll: localizedModifierText(d, m.values),
                         })
                       : undefined,
-                  kind:
-                    i < concrete.implicits.length
-                      ? ('implicit' as const)
-                      : concrete.desecrated?.some(
-                            (slot) => slot.modifierId === m.modifierId,
-                          )
-                        ? ('desecrated' as const)
-                        : isCraftedModifier(m, d)
-                          ? ('crafted' as const)
-                          : ('explicit' as const),
+                  ...stateModifierAffix(
+                    concrete,
+                    m,
+                    d,
+                    i < concrete.implicits.length,
+                  ),
                   affixLabel:
-                    d.affixType === 'NONE'
+                    d.affixType === 'NONE' ||
+                    Object.hasOwn(workbenchJewelBases, catalogBase) ||
+                    d.tier === 0
                       ? undefined
-                      : `${d.affixType === 'PREFIX' ? 'P' : 'S'}${Object.hasOwn(workbenchJewelBases, catalogBase) || d.tier === 0 ? '' : d.tier}`,
+                      : `T${d.tier}`,
                 }
               })
               .concat(
@@ -2092,6 +2090,7 @@ function ReadyCraftingPage({
                   fractured: false,
                   detail: undefined,
                   kind: 'implicit' as const,
+                  affixType: undefined,
                   affixLabel: undefined,
                 })),
               )
@@ -2101,7 +2100,7 @@ function ReadyCraftingPage({
                     ? -1
                     : line.kind === 'implicit'
                       ? 0
-                      : line.affixLabel?.startsWith('P')
+                      : line.affixType === 'PREFIX'
                         ? 1
                         : 2
                 return rank(a) - rank(b)
@@ -2853,7 +2852,7 @@ function ReadyCraftingPage({
                               text: abyssWorkbenchMessages[locale].hidden,
                               kind: 'desecrated' as const,
                               unrevealedDesecrated: true,
-                              affixLabel: slot.side === 'PREFIX' ? 'P' : 'S',
+                              affixType: slot.side,
                             })),
                         ],
                       }}

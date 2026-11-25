@@ -2,6 +2,7 @@ package com.poe2craft.shared.crafting.infrastructure;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.poe2craft.shared.crafting.domain.CraftingAction;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
@@ -107,6 +108,28 @@ public final class CraftingRegistryLoader {
    */
   private static final class Loaded {
     private static final JsonNode VALUE = loadBundle();
+
+    /** 검증된 등록 목록을 한 번 순회해 기보의 카오스 재료 ID를 공유한다. */
+    private static final Set<String> CHAOS_MATERIALS = chaosMaterials(VALUE);
+  }
+
+  /** 등록·구현된 화폐 중 작업대의 기본 행동이 카오스인 공개 식별자를 선택한다. */
+  private static Set<String> chaosMaterials(JsonNode registry) {
+    var materials = new HashSet<String>();
+    for (var entry : registry.path("entries")) {
+      if (entry.path("category").asText().equals("CURRENCY")
+          && entry.path("registrationStatus").asText().equals("REGISTERED")
+          && entry.path("effectStatus").asText().equals("IMPLEMENTED")
+          && entry.hasNonNull("action")
+          && WorkbenchCurrency.valueOf(entry.path("action").asText()).baseAction()
+              == CraftingAction.CHAOS) materials.add(entry.path("id").asText());
+    }
+    return Set.copyOf(materials);
+  }
+
+  /** 게시된 기보의 재료 ID가 현재 등록된 카오스 등급 중 하나인지 확인한다. */
+  public static boolean isChaosMaterial(String materialId) {
+    return Loaded.CHAOS_MATERIALS.contains(materialId);
   }
 
   public static JsonNode load() {

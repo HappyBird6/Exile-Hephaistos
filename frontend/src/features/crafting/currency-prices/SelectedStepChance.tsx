@@ -1,30 +1,26 @@
 import { formatNumber, useI18n } from '../../../shared/i18n/i18n'
-import { revealAction } from '../abyss-workbench/revealAction'
 import { useHistoryInitial } from '../session-history/useHistoryInitial'
 import { extractSessionNotation } from '../session-notation/extractSessionNotation'
 import {
   filmRulesetStatus,
-  validProjectedCurrencies,
   validStepChance,
   verifiedFrameEvidence,
   type Film,
   type Frame,
+  type ProjectedChance,
+  type ProjectedOmenOutcomes,
 } from '../workbenchHistory'
 import { priceMessages } from './messages'
+import { acquisitionRouteMessages } from '../method-search/acquisitionRouteMessages'
+import {
+  projectedStepProbability,
+  supportProbabilityText,
+} from '../supportProbability'
 
-function Chance({
-  probability,
-  assumesEligibleReveal,
-}: {
-  probability: number | null
-  assumesEligibleReveal?: boolean
-}) {
+function RecordedProbability({ probability }: { probability: number | null }) {
   const { locale, t } = useI18n()
   return (
-    <span
-      className="crafting-cost-line__chance"
-      data-assumed-reveal={assumesEligibleReveal || undefined}
-    >
+    <span className="crafting-cost-line__chance">
       {priceMessages[locale].actionChance}{' '}
       {probability === null
         ? t('ui.unknown')
@@ -33,7 +29,6 @@ function Chance({
             { style: 'percent', maximumSignificantDigits: 4 },
             locale,
           )}
-      {assumesEligibleReveal && ` (${priceMessages[locale].assumedReveal})`}
     </span>
   )
 }
@@ -59,45 +54,84 @@ function RecordedChance({
     const choice = extractSessionNotation(film, cursor).steps.find(
       (step) => step.frameIndex === cursor,
     )?.customExalt
-    return choice ? <Chance probability={choice.probability} /> : null
+    return choice ? (
+      <RecordedProbability probability={choice.probability} />
+    ) : null
   }
   if (receipt.events.length !== 1) return null
   const event = receipt.events[0]!
   if (!['ADD', 'REMOVE', 'FRACTURE'].includes(event.kind)) return null
-  return <Chance probability={event.selectionProbability} />
+  return <RecordedProbability probability={event.selectionProbability} />
+}
+
+export function SupportChance({
+  chance,
+  route = false,
+  outcomes,
+}: {
+  chance: ProjectedChance
+  route?: boolean
+  outcomes?: ProjectedOmenOutcomes
+}) {
+  const { locale } = useI18n()
+  const copy = priceMessages[locale]
+  if (outcomes)
+    return (
+      <span
+        className="crafting-cost-line__outcomes"
+        role="group"
+        aria-label={copy.actionChance}
+      >
+        <strong>
+          {copy.success} {supportProbabilityText(chance, locale)}
+        </strong>
+        <span>
+          {copy.recoverable}{' '}
+          {supportProbabilityText(outcomes.recoverable, locale)}
+        </span>
+        <span>
+          {copy.failure} {supportProbabilityText(outcomes.failure, locale)}
+        </span>
+      </span>
+    )
+  return (
+    <span className="crafting-cost-line__chance crafting-cost-line__chance--projected">
+      {route
+        ? acquisitionRouteMessages[locale].chance + ' · '
+        : copy.actionChance + ' '}
+      {supportProbabilityText(chance, locale)}
+    </span>
+  )
 }
 
 export function SelectedStepChance({
   film,
   cursor,
+  sessionSummary = false,
 }: {
   film: Film | undefined
   cursor: number
+  sessionSummary?: boolean
 }) {
   const frame = film?.frames[cursor]
-  if (!film || !frame || cursor === 0 || frame.chaosRepeat) return null
-  if (
-    validStepChance(frame.projectedChance) &&
-    film.rulesetIdentity &&
-    frame.rulesetIdentity === film.rulesetIdentity &&
-    ((frame.action === 'SESSION_PLAN' &&
-      validProjectedCurrencies(frame.projectedCurrencies) &&
-      !frame.evidence &&
-      !frame.manual) ||
-      (frame.action === revealAction &&
-        frame.manual?.action === revealAction &&
-        frame.manual.rulesetIdentity === film.rulesetIdentity))
+  if (!film || !frame) return null
+  const route =
+    film.rulesetIdentity && validStepChance(film.projectedRouteChance)
+      ? film.projectedRouteChance
+      : undefined
+  if (sessionSummary && route) return <SupportChance chance={route} route />
+  const step = cursor > 0 ? projectedStepProbability(film, frame) : undefined
+  return (
+    <>
+      {route && <SupportChance chance={route} route />}
+      {step ? (
+        <SupportChance {...step} />
+      ) : cursor > 0 &&
+        !frame.chaosRepeat &&
+        frame.evidence &&
+        (frame.customExalt || frame.evidence.events?.length === 1) ? (
+        <RecordedChance film={film} frame={frame} cursor={cursor} />
+      ) : null}
+    </>
   )
-    return (
-      <Chance
-        probability={frame.projectedChance.probability}
-        assumesEligibleReveal={
-          frame.projectedChance.assumesEligibleReveal === true
-        }
-      />
-    )
-  return frame.evidence &&
-    (frame.customExalt || frame.evidence.events?.length === 1) ? (
-    <RecordedChance film={film} frame={frame} cursor={cursor} />
-  ) : null
 }

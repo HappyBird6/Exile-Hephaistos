@@ -92,6 +92,59 @@ class RecipeStepChanceTest {
     assertThat(successful.routes().getFirst().probability()).isBetween(0.0, 1.0);
   }
 
+  /** 수치 열거가 중단되어도 확인한 다섯 굴림은 원래 전체 작업대 분모에서 실제 적중한 질량이다. */
+  @Test
+  void partialRollsBoundTheRouteAndItsStepWithoutRenormalization() {
+    var start = fixture.item(ItemState.Rarity.MAGIC, fixture.strength);
+    var card =
+        new RouteCards.Card(
+            List.of(new RouteCards.Option(1, Map.of(fixture.life, List.of(base)))), 0);
+    java.util.function.Predicate<ItemState> goal =
+        s -> s.explicits().stream().anyMatch(m -> m.modifierId().equals(fixture.life));
+    var selected = new RecipeRoutePlanner.Step("REGAL", List.of(), List.of(1), List.of(), null);
+    var partial =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench, start, card, goal, 5, false, null, List.of(selected));
+    var whole =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench, start, card, goal, 100, false, null, List.of(selected));
+    var route = partial.routes().getFirst();
+    var exact = whole.routes().getFirst().probability();
+    assertThat(partial.complete()).isFalse();
+    assertThat(route.probability()).isNull();
+    assertThat(route.probabilityBounds().lower()).isCloseTo(exact * 5 / 15, offset(1e-15));
+    assertThat(exact)
+        .isBetween(route.probabilityBounds().lower(), route.probabilityBounds().upper());
+    assertThat(route.steps().getFirst().chance().probabilityBounds())
+        .isEqualTo(route.probabilityBounds());
+    assertThat(whole.routes().getFirst().probabilityBounds()).isNull();
+  }
+
+  /** 무징조 단회 카오스는 선택 등급이 바뀌어도 기존 세션의 고정 재생 후보가 아니다. */
+  @Test
+  void unmarkedSingleChaosCannotBeReplayedAsAnAcquisition() {
+    var item = fixture.item(ItemState.Rarity.RARE, fixture.strength);
+    var card =
+        new RouteCards.Card(
+            List.of(new RouteCards.Option(1, Map.of(fixture.life, List.of(base)))), 0);
+    for (var name : List.of("CHAOS", "GREATER_CHAOS", "PERFECT_CHAOS")) {
+      var step = new RecipeRoutePlanner.Step(name, List.of(), List.of(1), List.of(), null);
+      var replay =
+          RecipeRoutePlanner.evaluateFixed(
+              fixture.workbench,
+              item,
+              card,
+              state ->
+                  state.explicits().stream().anyMatch(m -> m.modifierId().equals(fixture.life)),
+              10000,
+              true,
+              null,
+              List.of(step));
+      assertThat(replay.routes()).isEmpty();
+      assertThat(replay.complete()).isTrue();
+    }
+  }
+
   /** 기본 경로의 이후 단계는 유지하고, 요청한 한 등급의 작업대 풀로만 확률과 예시를 재검증한다. */
   @Test
   void replaysOnlyTheRequestedGradeAndObservationSequence() {
@@ -344,6 +397,8 @@ class RecipeStepChanceTest {
             r -> {
               assertThat(r.steps().getFirst().chance().probability()).isEqualTo(1);
               assertThat(r.probability()).isNull();
+              assertThat(r.probabilityBounds().lower()).isCloseTo(1d / 15, offset(1e-15));
+              assertThat(r.probabilityBounds().upper()).isEqualTo(1);
             });
   }
 
@@ -465,5 +520,25 @@ class RecipeStepChanceTest {
     assertThat(route.steps().getFirst().chance()).isNull();
     assertThat(route.steps().getLast().chance().probability()).isCloseTo(chance, offset(1e-14));
     assertThat(route.probability()).isCloseTo(chance, offset(1e-14));
+    var limited =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench,
+            start,
+            card,
+            state -> state.explicits().stream().anyMatch(m -> m.modifierId().equals(fixture.life)),
+            220,
+            true,
+            null,
+            route.steps());
+    var incomplete = limited.routes().getFirst();
+    assertThat(incomplete.probability()).isNull();
+    assertThat(incomplete.probabilityBounds().lower()).isGreaterThan(0);
+    assertThat(incomplete.probabilityBounds().upper()).isLessThan(1);
+    assertThat(chance)
+        .isBetween(incomplete.probabilityBounds().lower(), incomplete.probabilityBounds().upper());
+    assertThat(chance)
+        .isBetween(
+            incomplete.steps().getLast().chance().probabilityBounds().lower(),
+            incomplete.steps().getLast().chance().probabilityBounds().upper());
   }
 }

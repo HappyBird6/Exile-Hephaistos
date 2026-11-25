@@ -187,6 +187,7 @@ export function startingPreview(
       return {
         id: m.modifierId,
         fractured: m.fractured,
+        affixType: implicit ? undefined : d.affixType,
         text: localizedModifierText(d, values, locale),
         kind: implicit
           ? ('implicit' as const)

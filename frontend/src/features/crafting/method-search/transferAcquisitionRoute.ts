@@ -18,7 +18,11 @@ export type RouteDestination = 'library' | 'simulation' | 'community'
 
 /** Compare only the verified recipe. User titles, favorites and timestamps belong to the library. */
 function recipeContent(film: Film) {
-  return canonical([film.rulesetIdentity, film.frames])
+  return canonical([
+    film.rulesetIdentity,
+    film.frames,
+    ...(film.projectedRouteChance ? [film.projectedRouteChance] : []),
+  ])
 }
 
 function saveRecipe(history: Films, film: Film, id: string, catalog: Initial) {
@@ -41,6 +45,8 @@ function saveRecipe(history: Films, film: Film, id: string, catalog: Initial) {
   )
   const source = currentFilm(saved)!
   source.frames = structuredClone(film.frames)
+  if (film.projectedRouteChance)
+    source.projectedRouteChance = structuredClone(film.projectedRouteChance)
   if (film.title) source.title = Array.from(film.title).slice(0, 64).join('')
   return {
     id: savedId,

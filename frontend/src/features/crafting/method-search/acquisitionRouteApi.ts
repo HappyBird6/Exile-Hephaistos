@@ -4,6 +4,10 @@ import { readGoalFilterResponse } from '../goal-filter/api'
 import type { CreateRequest } from '../path-tree/types'
 import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import type { ConcreteItem } from '../workbenchApi'
+import type {
+  ProbabilityBounds,
+  ProjectedOmenOutcomes,
+} from '../workbenchHistory'
 
 export interface RouteOption {
   hasLowerBound?: boolean
@@ -13,8 +17,12 @@ export interface RouteOption {
 }
 
 export interface AcquisitionStep {
+  omenOutcomes?: ProjectedOmenOutcomes
   action: string
-  chance?: { probability: number | null } | null
+  chance?: {
+    probability: number | null
+    probabilityBounds?: ProbabilityBounds
+  } | null
   expectedUses?: number | null
   maxUses?: number
   socketIndex?: number | null
@@ -29,6 +37,7 @@ export interface AcquisitionRoute {
   steps: AcquisitionStep[]
   stateIndices: number[]
   probability: number | null
+  probabilityBounds?: ProbabilityBounds
 }
 
 export interface AcquisitionResult {

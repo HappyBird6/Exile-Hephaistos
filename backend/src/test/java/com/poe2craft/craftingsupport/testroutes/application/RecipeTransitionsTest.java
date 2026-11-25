@@ -18,6 +18,96 @@ class RecipeTransitionsTest {
   final String strength = "amulet:suffix:of-the-brute";
   final String defences = "amulet:prefix:essence-global-defences";
 
+  /** 절사의 접두·접미 동률 제거 및 등급별 교체 분포를 숫자를 전부 굴린 결과와 대조한다. */
+  @Test
+  void whittlingIdentityLawPreservesTiesReacquisitionAndGradedWeights() {
+    String prefix = "amulet:prefix:hale";
+    var start = item(ItemState.Rarity.RARE, prefix, strength);
+    assertThat(catalog.find(prefix).orElseThrow().requiredItemLevel())
+        .isEqualTo(catalog.find(strength).orElseThrow().requiredItemLevel());
+    record Replacement(Set<String> removed, String added) {}
+    for (var action :
+        List.of(
+            WorkbenchCurrency.CHAOS,
+            WorkbenchCurrency.GREATER_CHAOS,
+            WorkbenchCurrency.PERFECT_CHAOS)) {
+      var omens =
+          action == WorkbenchCurrency.CHAOS
+              ? Set.of(WorkbenchOmen.WHITTLING)
+              : Set.of(WorkbenchOmen.WHITTLING, WorkbenchOmen.SINISTRAL_ERASURE);
+      var move = new RecipeMoves.Move(action.name(), omens, null);
+      var byIdentity = WhittlingOutcomeLaw.calculate(workbench, start, move, 1_000);
+      var byValue = law.successors(start, action.name(), omens, Set.of(), 20_000);
+      assertThat(byIdentity.complete()).isTrue();
+      assertThat(byValue.complete()).isTrue();
+      var weighted = new HashMap<Replacement, Fraction>();
+      for (var o : byValue.outcomes())
+        weighted.merge(
+            new Replacement(o.removedModifierIds(), WhittlingOutcomeLaw.addedId(start, o)),
+            o.probability(),
+            Fraction::add);
+      var actual = new HashMap<Replacement, Fraction>();
+      for (var o : byIdentity.outcomes()) {
+        var added = WhittlingOutcomeLaw.addedId(start, o);
+        assertThat(o.state().explicits()).hasSize(start.explicits().size());
+        assertThat(
+                o.state().explicits().stream().filter(m -> !m.modifierId().equals(added)).toList())
+            .isEqualTo(
+                start.explicits().stream()
+                    .filter(m -> !o.removedModifierIds().contains(m.modifierId()))
+                    .toList());
+        actual.merge(
+            new Replacement(o.removedModifierIds(), added), o.probability(), Fraction::add);
+      }
+      assertThat(actual).isEqualTo(weighted);
+      var plan = workbench.recipePlan(start, action, omens);
+      for (var branch : plan.branches()) {
+        String removed =
+            start.explicits().stream()
+                .filter(m -> !branch.remaining().explicits().contains(m))
+                .findFirst()
+                .orElseThrow()
+                .modifierId();
+        long branchWeight =
+            branch.candidates().stream().mapToLong(ModifierDefinition::weight).sum();
+        for (var candidate : branch.candidates())
+          assertThat(actual.get(new Replacement(Set.of(removed), candidate.id())))
+              .isEqualTo(Fraction.of(candidate.weight(), branchWeight * plan.branches().size()));
+      }
+      assertThat(byIdentity.outcomes()).hasSizeLessThan(byValue.outcomes().size());
+      assertThat(actual.values().stream().reduce(Fraction.ZERO, Fraction::add))
+          .isEqualTo(Fraction.ONE);
+      if (action == WorkbenchCurrency.CHAOS) {
+        assertThat(actual)
+            .containsKeys(
+                new Replacement(Set.of(prefix), prefix),
+                new Replacement(Set.of(strength), strength));
+        assertThat(
+                actual.entrySet().stream()
+                    .filter(e -> e.getKey().removed().contains(prefix))
+                    .map(Map.Entry::getValue)
+                    .reduce(Fraction.ZERO, Fraction::add))
+            .isEqualTo(Fraction.of(1, 2));
+      } else assertThat(byIdentity.removableModifierIds()).containsExactly(prefix);
+      var partial = WhittlingOutcomeLaw.calculate(workbench, start, move, 2);
+      assertThat(partial.complete()).isFalse();
+      assertThat(partial.outcomes()).isEqualTo(byIdentity.outcomes().subList(0, 2));
+      assertThat(partial.removableModifierIds()).isEqualTo(byIdentity.removableModifierIds());
+    }
+  }
+
+  /** 미공개 옵션의 요구 레벨을 알 수 없는 입력은 계속 절사할 수 있다고 가정하지 않는다. */
+  @Test
+  void whittlingWithHiddenLevelIsUnknown() {
+    var before = AbyssCraftingState.from(item(ItemState.Rarity.RARE, strength), catalog);
+    var hidden =
+        before.addUnrevealed("hidden", ModifierDefinition.AffixType.PREFIX, catalog).storedItem();
+    var move = new RecipeMoves.Move(WorkbenchCurrency.CHAOS, WorkbenchOmen.WHITTLING);
+    var result = WhittlingOutcomeLaw.calculate(workbench, hidden, move, 1_000);
+    assertThat(result.complete()).isFalse();
+    assertThat(result.outcomes()).isEmpty();
+  }
+
   /** 명시 옵션 ID마다 카탈로그의 최소 수치를 부여한다. */
   ItemState item(ItemState.Rarity rarity, String... ids) {
     var root = SolarAmulet.initial(catalog, 82, 12);
@@ -39,6 +129,51 @@ class RecipeTransitionsTest {
         root.implicits(),
         explicit,
         Set.of());
+  }
+
+  /** 결정화 징조가 지정한 방향의 교체 가능한 옵션이 없으면 해당 에센스의 결과는 0이다. 미검증 징조는 별도로 남긴다. */
+  @Test
+  void directionalEssenceWithoutAMutableSlotIsAProvenMiss() {
+    var suffixes = item(ItemState.Rarity.RARE, strength, "amulet:suffix:of-the-starfish");
+    var action = WorkbenchCurrency.PERFECT_ESSENCE_ENHANCEMENT;
+    var prefix = Set.of(WorkbenchOmen.SINISTRAL_CRYSTALLISATION);
+    assertThat(workbench.availability(suffixes, action, prefix).available()).isFalse();
+    var blocked = law.successors(suffixes, action.name(), prefix, Set.of(defences), 20, false);
+    assertThat(blocked.outcomes()).isEmpty();
+    assertThat(blocked.complete()).isTrue();
+    var allowed =
+        law.successors(
+            suffixes,
+            action.name(),
+            Set.of(WorkbenchOmen.DEXTRAL_CRYSTALLISATION),
+            Set.of(defences),
+            200,
+            false);
+    assertThat(allowed.complete()).isTrue();
+    assertThat(allowed.outcomes()).isNotEmpty();
+    // 접미를 지울 수 있어도 비어 있지 않은 접두 세 자리에 목표 접두를 추가할 수 없다.
+    var fullPrefixes =
+        item(ItemState.Rarity.RARE, life, "amulet:prefix:azure", "amulet:prefix:adept-s", strength);
+    var noRoom =
+        law.successors(
+            fullPrefixes,
+            action.name(),
+            Set.of(WorkbenchOmen.DEXTRAL_CRYSTALLISATION),
+            Set.of(defences),
+            20,
+            false);
+    assertThat(noRoom.complete()).isTrue();
+    assertThat(noRoom.outcomes()).isEmpty();
+    var unknown =
+        law.successors(
+            suffixes,
+            action.name(),
+            Set.of(WorkbenchOmen.SINISTRAL_EXALTATION),
+            Set.of(defences),
+            20,
+            false);
+    assertThat(unknown.outcomes()).isEmpty();
+    assertThat(unknown.complete()).isFalse();
   }
 
   /** 직접 적중만 요청해도 분모는 작업대의 전체 엑잘 풀이다. */
@@ -204,6 +339,70 @@ class RecipeTransitionsTest {
                           .map(RecipeTransitions.Outcome::probability)
                           .reduce(Fraction.ZERO, Fraction::add));
             });
+  }
+
+  /** 태양 목걸이 진화에서 정신력은 티어별 수치를 보존한다. 다른 옵션의 모든 수치를 합쳐도 같은 원래 추첨 확률이다. */
+  @Test
+  void numericSpiritGoalGroupsOnlyIrrelevantTransmutationRolls() {
+    String spirit = "base_spirit_from_equipment";
+    var start = SolarAmulet.initial(catalog, 82, 15);
+    var full = law.successors(start, "TRANSMUTATION", Set.of(), Set.of(), 10000, true);
+    var projected =
+        new RecipeTransitions(workbench, false, Set.of(spirit))
+            .successors(start, "TRANSMUTATION", Set.of(), Set.of(), 10000, true);
+    assertThat(full.complete()).isTrue();
+    assertThat(projected.complete()).isTrue();
+    assertThat(projected.outcomes().size()).isLessThan(full.outcomes().size());
+    record Choice(String tier, Long spiritRoll) {}
+    var expected = new HashMap<Choice, Fraction>();
+    var actual = new HashMap<Choice, Fraction>();
+    var witnesses = new HashSet<ItemState>();
+    for (var outcome : full.outcomes()) {
+      var mod = outcome.state().explicits().getFirst();
+      expected.merge(
+          new Choice(mod.modifierId(), mod.values().get(spirit)),
+          outcome.probability(),
+          Fraction::add);
+      witnesses.add(outcome.state());
+    }
+    for (var outcome : projected.outcomes()) {
+      var mod = outcome.state().explicits().getFirst();
+      assertThat(witnesses).contains(outcome.state());
+      actual.merge(
+          new Choice(mod.modifierId(), mod.values().get(spirit)),
+          outcome.probability(),
+          Fraction::add);
+    }
+    assertThat(actual).isEqualTo(expected);
+  }
+
+  /** 신성한 오브가 정신력과 힘을 함께 재굴림할 때도 정신력의 네 수치와 확률은 그대로다. */
+  @Test
+  void divineKeepsTargetNumericDistributionWhenAnotherRollIsIrrelevant() {
+    String spirit = "base_spirit_from_equipment";
+    var start = item(ItemState.Rarity.RARE, "amulet:prefix:countess", strength);
+    var grouped =
+        new RecipeTransitions(workbench, false, Set.of(spirit))
+            .successors(start, "DIVINE", Set.of(), Set.of(), 4);
+    assertThat(grouped.complete()).isTrue();
+    assertThat(grouped.outcomes())
+        .hasSize(4)
+        .allSatisfy(o -> assertThat(o.probability()).isEqualTo(Fraction.of(1, 4)));
+    assertThat(grouped.outcomes())
+        .extracting(
+            o ->
+                o.state().explicits().stream()
+                    .filter(m -> m.values().containsKey(spirit))
+                    .findFirst()
+                    .orElseThrow()
+                    .values()
+                    .get(spirit))
+        .containsExactlyInAnyOrder(47L, 48L, 49L, 50L);
+    var full = law.successors(start, "DIVINE", Set.of(), Set.of(), 1000);
+    assertThat(full.complete()).isTrue();
+    assertThat(full.outcomes().size()).isGreaterThan(grouped.outcomes().size());
+    assertThat(full.outcomes().stream().map(RecipeTransitions.Outcome::state).toList())
+        .containsAll(grouped.outcomes().stream().map(RecipeTransitions.Outcome::state).toList());
   }
 
   /** 장착 전후의 같은 엑잘에서 증강물 전용 풀의 실제 자격이 달라진다. */

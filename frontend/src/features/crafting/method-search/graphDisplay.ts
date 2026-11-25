@@ -86,7 +86,7 @@ export function junkCard(
       id: 'junk:' + key,
       kind: 'explicit',
       fractured: key.endsWith(':fractured'),
-      affixLabel: key.startsWith('PREFIX') ? 'P' : 'S',
+      affixType: key.startsWith('PREFIX') ? 'PREFIX' : 'SUFFIX',
       text: `${labels[locale]} ×${count}`,
     })
   return { ...card, modifiers }

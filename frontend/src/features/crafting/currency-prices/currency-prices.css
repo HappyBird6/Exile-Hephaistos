@@ -253,7 +253,14 @@
 .crafting-cost-line__chance {
   white-space: nowrap;
 }
-.crafting-cost-line__chance[data-assumed-reveal] {
+.crafting-cost-line__chance--projected {
   white-space: normal;
+  overflow-wrap: anywhere;
+}
+.crafting-cost-line__outcomes {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25em 0.85em;
+  align-items: baseline;
   overflow-wrap: anywhere;
 }

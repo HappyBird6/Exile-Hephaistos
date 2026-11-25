@@ -125,7 +125,11 @@ export function SessionOverviewPage({
         summary={
           film && (
             <div className="history-session-summary">
-              <CraftingCostLine film={film} cursor={film.frames.length - 1} />
+              <CraftingCostLine
+                film={film}
+                cursor={film.frames.length - 1}
+                sessionSummary
+              />
               <span className="history-state-count">
                 {film.frames.length} {text.count}
               </span>

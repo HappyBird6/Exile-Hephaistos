@@ -2,6 +2,7 @@ package com.poe2craft.community.infrastructure;
 
 import com.fasterxml.jackson.databind.*;
 import com.poe2craft.community.application.*;
+import com.poe2craft.shared.crafting.infrastructure.CraftingRegistryLoader;
 import com.poe2craft.shared.item.BaseRegistry;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -179,7 +180,8 @@ public class PostgresSessionBoard implements SessionBoard {
     if (actor.account() == null
         && (!text(d.title(), 160).isEmpty() || !text(d.body(), maxBody).isEmpty()))
       throw new ResponseStatusException(HttpStatus.FORBIDDEN, "GUEST_TEXT_DISABLED");
-    return SharedSession.validate(d.film(), maxBytes, maxFrames);
+    return SharedSession.validate(
+        d.film(), maxBytes, maxFrames, CraftingRegistryLoader::isChaosMaterial);
   }
 
   private String hash(String password) {

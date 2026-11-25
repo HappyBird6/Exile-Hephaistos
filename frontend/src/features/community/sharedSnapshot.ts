@@ -6,6 +6,9 @@ export function publicFilm(film: Film): Film {
     id: film.id,
     createdAt: film.createdAt,
     frames: film.frames,
+    ...(film.projectedRouteChance
+      ? { projectedRouteChance: film.projectedRouteChance }
+      : {}),
     ...(film.rulesetIdentity ? { rulesetIdentity: film.rulesetIdentity } : {}),
     ...(film.compatibilityId ? { compatibilityId: film.compatibilityId } : {}),
   }

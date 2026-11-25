@@ -93,6 +93,9 @@ export function planSync(
 export function filmFingerprint(film: Film) {
   return canonical({
     frames: film.frames,
+    ...(film.projectedRouteChance
+      ? { projectedRouteChance: film.projectedRouteChance }
+      : {}),
     rulesetIdentity: film.rulesetIdentity,
     sourceDocument: film.sourceDocument,
   })

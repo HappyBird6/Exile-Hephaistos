@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.poe2craft.bootstrap.http.GameIdTransport;
@@ -119,6 +120,72 @@ class TestRouteControllerTest {
                 "$.cards[0].options[0].modifierIds",
                 org.hamcrest.Matchers.not(
                     org.hamcrest.Matchers.hasItem("amulet:prefix:athlete-s"))));
+  }
+
+  /** 82레벨 일반 태양의 목걸이에서 전체 방어 목표와 선택적인 명시 정신력 하한을 함께 보낸다. */
+  private JsonNode solarDefenceRoutes(boolean withSpirit) throws Exception {
+    var input = body.deepCopy();
+    input.set("item", json.valueToTree(SolarAmulet.initial(catalog, 82, 15)));
+    var entries = ((ObjectNode) input.at("/goal/groups/0")).putArray("entries");
+    entries.add(
+        json.<JsonNode>valueToTree(
+            new GoalFilter.Entry(
+                "defences",
+                GoalCatalogIndex.id("explicit", "global_armour_evasion_energy_shield_+%"),
+                "percent",
+                new GoalFilter.Range(null, null),
+                null,
+                false)));
+    if (withSpirit) {
+      entries.add(
+          json.<JsonNode>valueToTree(
+              new GoalFilter.Entry(
+                  "spirit",
+                  GoalCatalogIndex.id("explicit", SolarAmulet.SPIRIT_STAT),
+                  "flat",
+                  new GoalFilter.Range(BigDecimal.valueOf(47), null),
+                  null,
+                  false)));
+    }
+    var response = request(input).andExpect(status().isOk()).andReturn().getResponse();
+    return json.readTree(response.getContentAsByteArray());
+  }
+
+  /** 승급 결과에 상관없이 무징조 완벽한 강화 에센스가 유일한 목표를 확정으로 부여한다. */
+  @Test
+  void normalSolarAmuletHasGuaranteedGlobalDefencesAfterPromotion() throws Exception {
+    var result = solarDefenceRoutes(false);
+    assertThat(result.required("routes"))
+        .anySatisfy(
+            route -> {
+              var steps = route.required("steps");
+              assertThat(steps)
+                  .extracting(s -> s.required("action").asText())
+                  .containsExactly("TRANSMUTATION", "REGAL", "PERFECT_ESSENCE_ENHANCEMENT");
+              assertThat(steps).allMatch(s -> s.required("omens").isEmpty());
+              assertThat(route.required("probability").doubleValue()).isEqualTo(1d);
+              assertThat(steps.get(2).at("/chance/probability").doubleValue()).isEqualTo(1d);
+            });
+  }
+
+  /** 고정 정신력 +15와 별도로 명시 +47 이상과 전체 방어가 함께 붙은 세션에 확률을 반환한다. */
+  @Test
+  void normalSolarAmuletHasMeasuredRoutesForGlobalDefencesAndExplicitSpirit47() throws Exception {
+    var result = solarDefenceRoutes(true);
+    assertThat(result.required("routes"))
+        .anySatisfy(
+            route -> {
+              var probability = route.required("probability");
+              assertThat(probability.isNumber()).isTrue();
+              assertThat(probability.doubleValue()).isGreaterThan(0d).isLessThanOrEqualTo(1d);
+              var frames = route.required("stateIndices");
+              var finalState =
+                  result.required("states").required(frames.get(frames.size() - 1).intValue());
+              assertThat(finalState.required("rarity").asText()).isEqualTo("RARE");
+              assertThat(finalState.required("explicits"))
+                  .anyMatch(m -> m.path("values").path(SolarAmulet.SPIRIT_STAT).asInt() >= 47)
+                  .anyMatch(m -> m.path("values").has("global_armour_evasion_energy_shield_+%"));
+            });
   }
 
   /** 기본 경로의 등급 하나만 바꾼 실제 HTTP 입력으로 선택 화폐와 결과 상태를 돌려받는다. */

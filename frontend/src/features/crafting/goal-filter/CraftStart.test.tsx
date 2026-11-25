@@ -602,6 +602,62 @@ describe('Craft Support starting screen', () => {
       screen.getByRole('button', { name: 'Start Crafting' }),
     ).toBeDisabled()
   })
+  it('labels a plain pasted option only after successful catalog mapping', async () => {
+    await setup()
+    const source = {
+      number: 7,
+      section: 2,
+      kind: 'CONTENT' as const,
+      raw: '+17 to maximum Life',
+    }
+    const parsedItem = {
+      ...parsed(),
+      modifiers: [
+        {
+          text: source.raw,
+          source,
+          type: 'EXPLICIT' as const,
+          metadata: null,
+          affixName: null,
+          affix: null,
+          tier: null,
+        },
+      ],
+    }
+    vi.mocked(parseItemText).mockResolvedValue(parsedItem)
+    vi.mocked(mapSolarText).mockResolvedValueOnce({
+      mapped: false,
+      state: null,
+      issues: [],
+    })
+    vi.mocked(mapSolarText).mockResolvedValueOnce({
+      mapped: true,
+      state: {
+        ...concreteInitial(solar),
+        rarity: 'MAGIC',
+        explicits: [{ modifierId: 'p', values: { life: 17 } }],
+      },
+      issues: [],
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Import item text' }))
+    const input = screen.getByLabelText('Starting item text')
+    const preview = screen.getByRole('region', {
+      name: 'Starting item preview',
+    })
+    fireEvent.paste(input, { clipboardData: { getData: () => 'unknown item' } })
+    expect(await within(preview).findByText(source.raw)).toBeVisible()
+    await waitFor(() =>
+      expect(
+        screen.getByRole('button', { name: 'Start Crafting' }),
+      ).toBeDisabled(),
+    )
+    expect(preview.querySelector('.item-card__affix')).toBeNull()
+    fireEvent.paste(input, {
+      clipboardData: { getData: () => 'verified item' },
+    })
+    expect(await within(preview).findByText('Prefix')).toBeVisible()
+    expect(within(preview).getByText(source.raw)).toBeVisible()
+  })
   it('keeps a late validation response from replacing a newly selected base', async () => {
     await setup()
     fireEvent.click(screen.getByRole('button', { name: 'Import item text' }))
@@ -1004,6 +1060,13 @@ it('allows exactly one explicit fracture and prevents rarity loss until it is sw
   const lock = screen.getByRole('button', { name: /Fractured:/ })
   fireEvent.click(lock)
   expect(lock).toHaveAttribute('aria-pressed', 'true')
+  const preview = screen.getByRole('region', { name: 'Starting item preview' })
+  expect(
+    preview.querySelector('[data-fractured] .item-card__affix'),
+  ).toHaveTextContent('Prefix')
+  expect(
+    preview.querySelector('.item-card__line--implicit .item-card__affix'),
+  ).toBeNull()
   expect(within(rarity).getByRole('option', { name: 'Magic' })).toBeDisabled()
   fireEvent.change(rarity, { target: { value: 'MAGIC' } })
   expect(rarity).toHaveValue('RARE')

@@ -272,11 +272,11 @@ it('bundles only non-target differences with counts and sides intact, retaining 
   })
   expect(
     junkCard(nodes[0]!, present(nodes[0]!.item, 'ko'), junk, 'ko').modifiers[0],
-  ).toMatchObject({ text: '비유효옵(잡옵) ×1', affixLabel: 'P' })
+  ).toMatchObject({ text: '비유효옵(잡옵) ×1', affixType: 'PREFIX' })
   expect(
     junkCard(nodes[2]!, present(nodes[2]!.item, 'ko'), junk, 'ko').modifiers[0]!
-      .affixLabel,
-  ).toBe('S')
+      .affixType,
+  ).toBe('SUFFIX')
   expect(JSON.stringify(graph)).toBe(before)
 })
 it('resolves pseudo contributions and conservatively disables junk grouping for unknown goals', () => {

@@ -16,6 +16,9 @@ public final class RecipeTransitions {
   private final WorkbenchSimulator simulator;
   private final boolean presenceOnly;
 
+  /** 활성 목표가 실제 수치로 평가하는 원본 stat ID다. 의존성을 모르면 기존처럼 모든 수치를 열거한다. */
+  private final Set<String> numericSourceStatIds;
+
   /** simulator에 설정된 수치·교체 정책을 공유한다. */
   public RecipeTransitions(WorkbenchSimulator simulator) {
     this(simulator, false);
@@ -23,8 +26,16 @@ public final class RecipeTransitions {
 
   /** presenceOnly가 참이면 목표·다음 행동이 수치와 무관한 굴림을 합산한다. */
   public RecipeTransitions(WorkbenchSimulator simulator, boolean presenceOnly) {
+    this(simulator, presenceOnly, null);
+  }
+
+  /** 수치 목표·제작 자격에 쓰이지 않는 옵션은 동일한 획득 결과로 합친다. null이면 수치 목표의 전체 분포를 유지한다. */
+  public RecipeTransitions(
+      WorkbenchSimulator simulator, boolean presenceOnly, Set<String> numericSourceStatIds) {
     this.simulator = Objects.requireNonNull(simulator);
     this.presenceOnly = presenceOnly;
+    this.numericSourceStatIds =
+        numericSourceStatIds == null ? null : Set.copyOf(numericSourceStatIds);
   }
 
   /** 같은 미공개 슬롯과 목표 번호에 속하는 허용 티어 집합이다. */
@@ -159,7 +170,12 @@ public final class RecipeTransitions {
     var draws = new ArrayList<Draw>();
     if (hidden) {
       var plan = workbench.abyssPlan(abyss, currency, omenIds(omens));
-      if (!plan.available()) return Law.empty(!plan.reason().contains("UNSUPPORTED"));
+      if (!plan.available()) {
+        boolean unknown =
+            plan.reason().contains("UNSUPPORTED")
+                || plan.reason().equals("UNREVEALED_MODIFIER_LEVEL_UNKNOWN");
+        return Law.empty(!unknown);
+      }
       for (var branch : plan.branches()) {
         var remaining = branch.remaining();
         String id = branch.removedSlotId() == null ? freeSlot(remaining) : branch.removedSlotId();
@@ -178,7 +194,9 @@ public final class RecipeTransitions {
     } else {
       var plan = workbench.recipePlan(known, currency, omens);
       if (plan.status() != AutomaticCraftingPlan.Status.READY)
-        return Law.empty(plan.status() == AutomaticCraftingPlan.Status.UNAVAILABLE);
+        return Law.empty(
+            plan.status() == AutomaticCraftingPlan.Status.UNAVAILABLE
+                || (crafted && noEligibleEssenceRemoval(known, currency, omens, workbench)));
       for (var branch : plan.branches()) {
         var remaining = branch.remaining();
         var removed = removed(known, remaining);
@@ -203,6 +221,32 @@ public final class RecipeTransitions {
     }
     return enumerate(
         workbench, draws, crafted, targetModifierIds, remainingOutcomes, true, includeMisses);
+  }
+
+  /** 교체형 에센스의 결정화 방향에 제거할 옵션이 없거나, 그 제거로는 모든 적격 결과의 자리가 막혀 있으면 확정 실패다. */
+  private static boolean noEligibleEssenceRemoval(
+      ItemState item,
+      WorkbenchCurrency currency,
+      Set<WorkbenchOmen> omens,
+      WorkbenchSimulator workbench) {
+    if (currency.materialPolicy().kind() != WorkbenchDefinitions.MaterialKind.ESSENCE
+        || omens.size() != 1) return false;
+    var omen = omens.iterator().next();
+    if (omen != WorkbenchOmen.SINISTRAL_CRYSTALLISATION
+        && omen != WorkbenchOmen.DEXTRAL_CRYSTALLISATION) return false;
+    var side = omen.affix();
+    var catalog = workbench.catalog();
+    if (AbyssCraftingState.from(item, catalog).removalCandidates(side).isEmpty()) return true;
+    var slots = new ItemStateValidator(catalog).slots(item);
+    boolean otherSideFull =
+        side == ModifierDefinition.AffixType.PREFIX
+            ? slots.remainingSuffixes() == 0
+            : slots.remainingPrefixes() == 0;
+    if (!otherSideFull) return false;
+    var targets =
+        workbench.sourceMaterialTargets(item.itemLevel()).getOrDefault(currency, List.of());
+    return !targets.isEmpty()
+        && targets.stream().allMatch(id -> catalog.find(id).orElseThrow().affixType() != side);
   }
 
   /** 실제 설치 검증을 거친 첫 빈 홈만 사용한다. 이미 설치된 증강물을 덮어쓰지 않는다. */
@@ -464,20 +508,17 @@ public final class RecipeTransitions {
       WorkbenchSimulator workbench,
       ModifierDefinition definition,
       BiPredicate<ModifierInstance, Fraction> accept) {
-    if (presenceOnly && !definition.stats().isEmpty()) {
-      var values = new LinkedHashMap<String, Long>();
-      definition.stats().forEach(stat -> values.put(stat.id(), stat.min()));
-      var minimum = new ModifierInstance(definition.id(), values);
-      // 품질 한도·슬롯 등 다음 행동의 자격을 바꾸는 수치는 생략할 수 없다.
-      boolean onlyScalable =
-          QualitySanctification.targets(minimum, workbench.catalog()).containsAll(values.keySet());
-      if (onlyScalable
-          && (definition.stats().size() == 1
-              || workbench.automaticJointRolls(definition).isPresent()))
-        return accept.test(minimum, Fraction.ONE);
-    }
+    boolean ignoresValues =
+        presenceOnly
+            || (numericSourceStatIds != null
+                && definition.stats().stream().noneMatch(s -> numericSourceStatIds.contains(s.id()))
+                && !ModifierMagnitudes.provider(definition));
     if (definition.stats().size() == 1) {
       var stat = definition.stats().getFirst();
+      if (ignoresValues) {
+        var minimum = new ModifierInstance(definition.id(), Map.of(stat.id(), stat.min()));
+        if (scalableRoll(minimum, workbench)) return accept.test(minimum, Fraction.ONE);
+      }
       var mass = Fraction.of(1, Math.addExact(Math.subtractExact(stat.max(), stat.min()), 1));
       for (long value = stat.min(); ; value++) {
         if (!accept.test(new ModifierInstance(definition.id(), Map.of(stat.id(), value)), mass))
@@ -486,12 +527,23 @@ public final class RecipeTransitions {
       }
     }
     var cells = workbench.automaticJointRolls(definition);
-    if (cells.isEmpty()) return false;
+    if (cells.isEmpty() || cells.get().isEmpty()) return false;
+    if (ignoresValues) {
+      // 결합 굴림은 검토된 분포에서 실제 가능한 한 셀을 예시로 남긴다.
+      var witness = cells.get().getFirst().modifier();
+      if (scalableRoll(witness, workbench)) return accept.test(witness, Fraction.ONE);
+    }
     for (var cell : cells.get())
       if (!accept.test(
           cell.modifier(), Fraction.of(cell.ticks(), CoupledStatRollModel.RESOLUTION + 1)))
         return false;
     return true;
+  }
+
+  /** 품질 한도나 허용 슬롯 수 등 제작 자격에 쓰이는 수치가 하나라도 있으면 전체 굴림을 검증한다. */
+  private static boolean scalableRoll(ModifierInstance witness, WorkbenchSimulator workbench) {
+    return QualitySanctification.targets(witness, workbench.catalog())
+        .containsAll(witness.values().keySet());
   }
 
   /** 유한 분기가 제공한 정확한 분모를 사용한다. 0인 일반 분기는 모두 같은 확률이다. */

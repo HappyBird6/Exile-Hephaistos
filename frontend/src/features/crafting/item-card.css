@@ -93,6 +93,7 @@
 
 .item-card__line {
   position: relative;
+  display: flow-root;
 }
 .item-card__line[data-last-currency-affected] {
   padding-inline-start: 0.85em;
@@ -108,8 +109,9 @@
   pointer-events: none;
 }
 .item-card__affix {
-  float: left;
-  margin-right: 8px;
+  float: inline-start;
+  max-inline-size: 45%;
+  margin-inline-end: 0.55em;
   color: #c2c2c2;
   font-size: 12.1px;
 }

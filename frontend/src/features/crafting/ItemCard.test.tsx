@@ -6,6 +6,7 @@ import { toItemCard } from './itemCardData'
 import type { Item } from './itemModels'
 import { setLocale } from '../../shared/i18n/i18n'
 import { itemCardMessages } from './itemCardMessages'
+import { modifierPickerMessages } from './goal-filter/modifierPickerMessages'
 
 const base: ItemCardData = {
   rarity: 'NORMAL',
@@ -22,6 +23,50 @@ function card(item: ItemCardData) {
   return <ItemCard item={item} />
 }
 describe('ItemCard', () => {
+  it.each(Object.entries(modifierPickerMessages))(
+    'labels explicit sides in %s and keeps implicits separate',
+    (locale, messages) => {
+      setLocale(locale as keyof typeof modifierPickerMessages)
+      const { container } = render(
+        card({
+          ...base,
+          modifiers: [
+            {
+              id: 'innate',
+              text: '+15 to Spirit',
+              kind: 'implicit',
+              affixType: 'NONE',
+            },
+            {
+              id: 'life',
+              text: '+17 to maximum Life',
+              kind: 'explicit',
+              affixType: 'PREFIX',
+              fractured: true,
+            },
+            {
+              id: 'strength',
+              text: '+6 to Strength',
+              kind: 'desecrated',
+              affixType: 'SUFFIX',
+            },
+            { id: 'unknown', text: 'Unresolved attribute', kind: 'unknown' },
+          ],
+        }),
+      )
+      expect(
+        container.querySelector(
+          '.item-card__line[data-fractured] .item-card__affix',
+        ),
+      ).toHaveTextContent(messages.prefix)
+      expect(
+        container.querySelector(
+          '.item-card__line--desecrated .item-card__affix',
+        ),
+      ).toHaveTextContent(messages.suffix)
+      expect(container.querySelectorAll('.item-card__affix')).toHaveLength(2)
+    },
+  )
   it.each(Object.entries(itemCardMessages))(
     'marks affected options with one accessible red-circle element in %s without changing text',
     (locale, messages) => {
@@ -151,7 +196,7 @@ describe('ItemCard', () => {
       ],
     }
     render(card(toItemCard(parsed)))
-    expect(screen.getByText('P1')).toBeVisible()
+    expect(screen.getByText('Prefix · T1')).toBeVisible()
     expect(
       screen.getByText('Synthetic +13').closest('.item-card__line'),
     ).toHaveClass('item-card__line--fractured')

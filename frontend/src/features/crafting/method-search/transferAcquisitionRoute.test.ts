@@ -36,6 +36,10 @@ function recipe(currencyId = 'Perfect_Exalted_Orb'): Film {
     createdAt: '',
     rulesetIdentity: identity,
     title: 'Target 1 · 1 → 2',
+    projectedRouteChance: {
+      probability: null,
+      probabilityBounds: { lower: 0.125, upper: 0.25 },
+    },
     frames: [
       {
         action: null,
@@ -47,7 +51,10 @@ function recipe(currencyId = 'Perfect_Exalted_Orb'): Film {
         action: 'SESSION_PLAN',
         rulesetIdentity: identity,
         projectedCurrencies: [{ currencyId, omenIds: [] }],
-        projectedChance: { probability: 0.25 },
+        projectedChance: {
+          probability: null,
+          probabilityBounds: { lower: 0.25, upper: 0.5 },
+        },
       },
       {
         state: {
@@ -67,6 +74,17 @@ function recipe(currencyId = 'Perfect_Exalted_Orb'): Film {
           },
         ],
         projectedChance: { probability: 0.5 },
+        projectedOmenOutcomes: {
+          success: { probability: 0.5 },
+          recoverable: {
+            probability: null,
+            probabilityBounds: { lower: 0.1, upper: 0.4 },
+          },
+          failure: {
+            probability: null,
+            probabilityBounds: { lower: 0.1, upper: 0.4 },
+          },
+        },
       },
     ],
   }
@@ -95,6 +113,10 @@ it('saves the full verified grade once for the library and composer without swit
   expect(saved.id).toBe(id)
   expect(saved.id.length).toBeLessThanOrEqual(160)
   expect(saved.frames).toEqual(film.frames)
+  expect(saved.projectedRouteChance).toEqual(film.projectedRouteChance)
+  expect(publicFilm(saved).projectedRouteChance).toEqual(
+    film.projectedRouteChance,
+  )
   expect(film.createdAt).toBe('')
   expect(publicFilm(saved).frames[2]).toEqual(film.frames[2])
   await repository.save({
@@ -124,6 +146,7 @@ it('forks at the selected verified checkpoint, keeps the full source and preserv
   expect(next.cursor).toBe(1)
   expect(source!.frames).toEqual(film.frames)
   expect(branch!.frames).toEqual(film.frames.slice(0, 2))
+  expect(branch!.projectedRouteChance).toBeUndefined()
   expect(branch!.continuationOf).toEqual({
     sessionId: source!.id,
     frameIndex: 1,

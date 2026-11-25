@@ -106,6 +106,8 @@ import java.util.random.RandomGenerator;
  *   <li>{@code pool(state, currency, omen)}: 후보풀 처리에서 {@code additionRules.pool}, {@code
  *       StateBucket.forModifierEligibility}을(를) 사용한다. 입력: {@code state}(상태), {@code currency}(화폐),
  *       {@code omen}(징조). 반환: {@code List<ModifierDefinition>}.
+ *   <li>{@code chaosRemovalCandidates(state, currency, omens)}: 지정한 카오스와 징조에서 제거 대상이 될 수 있는 실제 명시
+ *       옵션을 조회한다.
  *   <li>{@code removalCandidates(state, omen)}: 제거·후보목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code state}(상태),
  *       {@code omen}(징조). 반환: {@code List<ModifierInstance>}.
  *   <li>{@code removalCandidates(state, omens)}: 제거·후보목록의 입력에 따른 분기·결과를 처리한다. 입력: {@code
@@ -830,6 +832,14 @@ public final class WorkbenchSimulator {
 
   private List<ModifierInstance> removalCandidates(ItemState state, List<WorkbenchOmen> omens) {
     return removalCandidates(state, null, omens);
+  }
+
+  /** 카오스의 분열·주얼 잠금·방향·요구 레벨 필터를 적용한 실제 제거 후보를 반환한다. 전체 화폐 사용 자격은 recipePlan에서 별도로 검사한다. */
+  public List<ModifierInstance> chaosRemovalCandidates(
+      ItemState state, WorkbenchCurrency currency, Set<WorkbenchOmen> omens) {
+    if (currency.baseAction() != CraftingAction.CHAOS)
+      throw new IllegalArgumentException("Expected a Chaos Orb");
+    return removalCandidates(state, currency, List.copyOf(omens));
   }
 
   private List<ModifierInstance> removalCandidates(

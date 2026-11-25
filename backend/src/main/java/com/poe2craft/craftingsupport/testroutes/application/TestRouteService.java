@@ -89,6 +89,7 @@ public final class TestRouteService {
           List.of(
               GoalFilter.Issue.error("INVALID_CARD_INDEX", "/cardIndex", "Unknown target card.")));
     Predicate<ItemState> matchesGoal = state -> evaluate.apply(state) == Status.MATCH;
+    var numerical = numericSourceStats(goal, goalCatalog);
     RecipeRoutePlanner.Result result;
     if (cardIndex == null) {
       result =
@@ -98,8 +99,9 @@ public final class TestRouteService {
               cards,
               matchesGoal,
               settings.outcomeBudget(),
-              presenceOnly(goal),
-              minimumQuality);
+              numerical != null && numerical.isEmpty(),
+              minimumQuality,
+              numerical);
     } else {
       var card = cards.get(cardIndex);
       cards = List.of(card);
@@ -110,9 +112,10 @@ public final class TestRouteService {
               card,
               matchesGoal,
               settings.outcomeBudget(),
-              presenceOnly(goal),
+              numerical != null && numerical.isEmpty(),
               minimumQuality,
-              steps);
+              steps,
+              numerical);
       // 이 응답은 한 가지 지정된 경로에 한정되므로 다른 후보의 미탐색 여부는 영향을 주지 않는다.
       complete = true;
     }
@@ -152,6 +155,33 @@ public final class TestRouteService {
         .collect(Collectors.toSet());
   }
 
+  /** 직접 수치 조건만 있으면 그 원본 ID를 넘긴다. 다른 점수·파생 규칙은 모든 수치를 보존한다. */
+  private static Set<String> numericSourceStats(GoalFilter goal, GoalCatalog catalog) {
+    if (goal.groups().stream()
+        .anyMatch(
+            g ->
+                !g.disabled()
+                    && (g.type() == GoalFilter.Type.WEIGHTED_V1
+                        || g.type() == GoalFilter.Type.WEIGHTED_V2))) return null;
+    var rows =
+        goal.groups().stream()
+            .filter(g -> !g.disabled())
+            .flatMap(g -> g.entries().stream())
+            .filter(e -> !e.disabled() && (e.range().min() != null || e.range().max() != null))
+            .map(GoalFilter.Entry::statId)
+            .collect(Collectors.toSet());
+    var result = new java.util.HashSet<String>();
+    for (var row : rows) {
+      var stat = catalog.stats().stream().filter(s -> s.statId().equals(row)).findFirst();
+      if (stat.isEmpty()
+          || (stat.get().kind() != GoalCatalog.Kind.EXPLICIT
+              && stat.get().kind() != GoalCatalog.Kind.IMPLICIT)
+          || stat.get().sourceStatIds().isEmpty()) return null;
+      result.addAll(stat.get().sourceStatIds());
+    }
+    return Set.copyOf(result);
+  }
+
   /** 카드의 허용 티어와 해당 옵션이 기여하는 하한·상한만 표시 사전에 포함한다. */
   private static Option displayOption(
       RouteCards.Option option, ItemCatalog catalog, Set<String> lower, Set<String> upper) {
@@ -175,20 +205,6 @@ public final class TestRouteService {
       if (group.entries().stream()
           .anyMatch(entry -> !entry.disabled() && entry.range().max() != null)) {
         return false;
-      }
-    }
-    return true;
-  }
-
-  /** 가중 점수와 행별 수치 범위가 없을 때만 같은 옵션의 서로 다른 굴림을 하나로 합산한다. */
-  private static boolean presenceOnly(GoalFilter goal) {
-    for (var group : goal.groups()) {
-      if (group.disabled()) continue;
-      if (group.type() == GoalFilter.Type.WEIGHTED_V1
-          || group.type() == GoalFilter.Type.WEIGHTED_V2) return false;
-      for (var entry : group.entries()) {
-        if (!entry.disabled() && (entry.range().min() != null || entry.range().max() != null))
-          return false;
       }
     }
     return true;

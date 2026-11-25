@@ -5,6 +5,8 @@ import {
 } from '../session-notation/messages'
 import type { ReactNode } from 'react'
 import { CraftingCostLine } from '../currency-prices/CurrencyPrices'
+import { SupportChance } from '../currency-prices/SelectedStepChance'
+import { projectedStepProbability } from '../supportProbability'
 import { sessionTitle } from '../session-library/sessionTitle'
 import { abyssWorkbenchMessages } from '../abyss-workbench/messages'
 import { Fragment, useLayoutEffect, useRef, useState } from 'react'
@@ -74,9 +76,15 @@ export function SessionFlow({
       )
     })
     const label = labels.join(' → ') || text.observation
+    const step = index > 0 ? projectedStepProbability(film, frame) : undefined
     return {
       label,
-      card: <HistoryCard film={film} frame={frame} />,
+      card: (
+        <>
+          <HistoryCard film={film} frame={frame} />
+          {step && <SupportChance {...step} />}
+        </>
+      ),
       resources: (
         <div className="session-flow-resources">
           {group
@@ -97,7 +105,11 @@ export function SessionFlow({
       summary={
         <>
           <strong>{sessionTitle(film, locale)}</strong>
-          <CraftingCostLine film={film} cursor={film.frames.length - 1} />
+          <CraftingCostLine
+            film={film}
+            cursor={film.frames.length - 1}
+            sessionSummary
+          />
         </>
       }
     />

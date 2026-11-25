@@ -150,6 +150,16 @@ export function SessionNotation({
                     : ''
             }`
             const controls = stepControls?.(step.frameIndex)
+            const expectation =
+              step.expectedUses == null
+                ? undefined
+                : text.expectedUses(
+                    formatExpectedUses(
+                      step.expectedUses,
+                      step.currencyId,
+                      locale,
+                    ),
+                  )
             const content = (
               <NotationResources
                 step={step}
@@ -164,6 +174,7 @@ export function SessionNotation({
                 className="wb-session-notation__step"
                 data-frame-index={step.frameIndex}
                 aria-label={label}
+                aria-description={expectation}
                 aria-current={current ? 'step' : undefined}
               >
                 {onNavigate ? (
@@ -171,6 +182,7 @@ export function SessionNotation({
                     type="button"
                     className="wb-session-notation__jump"
                     aria-label={label}
+                    aria-description={expectation}
                     aria-current={current ? 'step' : undefined}
                     disabled={disabled || !film}
                     onClick={() => onNavigate(step.frameIndex)}

@@ -275,7 +275,7 @@ export function abyssCard(
           kind: 'desecrated' as const,
           text: labels[locale],
           unrevealedDesecrated: true,
-          affixLabel: s.side === 'PREFIX' ? 'P' : 'S',
+          affixType: s.side,
         })),
     ],
   }

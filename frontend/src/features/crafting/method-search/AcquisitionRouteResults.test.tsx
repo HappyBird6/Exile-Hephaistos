@@ -266,7 +266,7 @@ it('previews the selected final item and navigates its returned states and cumul
       encodeURIComponent(request.clientRequestId) +
       '&route=0',
   )
-  expect(second).toHaveAccessibleName(/1 → 2 → 1.*3 ex · Not yet determined/)
+  expect(second).toHaveAccessibleName(/1 → 2 → 1.*3 ex · 0% – 100%/)
   fireEvent.click(second)
   expect(screen.getByLabelText('3 Exalted Orb')).toBeVisible()
   expect(card()).toHaveTextContent('+16 to maximum Life')
@@ -344,12 +344,109 @@ it('keeps a zero success chance distinct from an unknown chance', async () => {
   show()
   const list = await screen.findByRole('list', { name: 'Crafting methods' })
   expect(
-    within(list).getByRole('button', { name: /1 ex · 0%/ }),
+    within(list).getByRole('button', { name: /1 ex · 0%$/ }),
   ).toBeInTheDocument()
   expect(
-    within(list).getByRole('button', { name: /1 ex · Not yet determined/ }),
+    within(list).getByRole('button', { name: /1 ex · 0% – 100%/ }),
   ).toBeInTheDocument()
 })
+
+it('uses certified bounds independently for the full recipe and the currently selected step', async () => {
+  await setLocale('en')
+  serve({
+    cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+    states: [observed(17, null)],
+    routes: [
+      {
+        cardIndex: 0,
+        order: [1],
+        stateIndices: [0],
+        probability: null,
+        probabilityBounds: { lower: 0.25, upper: 1 },
+        steps: [
+          {
+            action: 'EXALTED',
+            omens: [],
+            acquired: [1],
+            lost: [],
+            chance: {
+              probability: null,
+              probabilityBounds: { lower: 0, upper: 0.0734567 },
+            },
+          },
+        ],
+      },
+    ],
+    complete: false,
+  })
+  show()
+  const list = await screen.findByRole('list', { name: 'Crafting methods' })
+  expect(
+    within(list).getByRole('button', { pressed: true }),
+  ).toHaveAccessibleName(/1 ex · ≥ 25%/)
+  expect(screen.getByText('Route success chance · ≥ 25%')).toBeVisible()
+  expect(screen.getByText('Step chance ≤ 7.346%')).toBeVisible()
+  fireEvent.click(
+    screen.getByRole('button', { name: 'Previous crafting step' }),
+  )
+  expect(screen.getByText('Route success chance · ≥ 25%')).toBeVisible()
+  expect(screen.queryByText(/^Step chance/)).toBeNull()
+})
+
+it.each([
+  ['CHAOS', ['Omen_of_Whittling']],
+  ['GREATER_CHAOS', ['Omen_of_Sinistral_Erasure', 'Omen_of_Whittling']],
+  ['PERFECT_CHAOS', ['Omen_of_Whittling', 'Omen_of_Dextral_Erasure']],
+] as const)(
+  'separates the selected %s omen outcomes from the full recipe chance',
+  async (action, omens) => {
+    await setLocale('en')
+    serve({
+      cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+      states: [observed(17, null)],
+      routes: [
+        {
+          cardIndex: 0,
+          order: [1],
+          stateIndices: [0],
+          probability: 0.12,
+          steps: [
+            {
+              action,
+              omens: [...omens],
+              acquired: [1],
+              lost: [],
+              chance: { probability: 0.2 },
+              omenOutcomes: {
+                success: { probability: 0.2 },
+                recoverable: {
+                  probability: null,
+                  probabilityBounds: { lower: 0.5, upper: 0.6 },
+                },
+                failure: {
+                  probability: null,
+                  probabilityBounds: { lower: 0.2, upper: 0.3 },
+                },
+              },
+            },
+          ],
+        },
+      ],
+      complete: false,
+    })
+    show()
+    expect(await screen.findByText('Route success chance · 12%')).toBeVisible()
+    const group = screen.getByRole('group', { name: 'Step chance' })
+    expect(within(group).getByText('Success 20%')).toBeVisible()
+    expect(within(group).getByText('Recoverable 50% – 60%')).toBeVisible()
+    expect(within(group).getByText('Failure 20% – 30%')).toBeVisible()
+    expect(screen.queryByText('Step chance 20%')).toBeNull()
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Previous crafting step' }),
+    )
+    expect(screen.queryByRole('group', { name: 'Step chance' })).toBeNull()
+  },
+)
 
 it.each([
   { split: false, probability: 0.5, percent: '50%' },

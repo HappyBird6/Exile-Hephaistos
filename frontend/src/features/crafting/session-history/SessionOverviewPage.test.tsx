@@ -144,6 +144,77 @@ it('places the full-session spending to the left of the state count and keeps sn
   client.clear()
 })
 
+it('restores the recipe probability in the overview and the action probability at each checkpoint', async () => {
+  setLocale('en')
+  const { history } = await twoSteps()
+  const film = history.films[0]!
+  film.projectedRouteChance = {
+    probability: null,
+    probabilityBounds: { lower: 0.1, upper: 0.3 },
+  }
+  for (const [index, currencyId] of [
+    'Orb_of_Transmutation',
+    'Orb_of_Augmentation',
+  ].entries()) {
+    film.frames[index + 1] = {
+      state: film.frames[index + 1]!.state,
+      rulesetIdentity: initialFixture.rulesetIdentity,
+      action: 'SESSION_PLAN',
+      projectedCurrencies: [{ currencyId, omenIds: [] }],
+      projectedChance:
+        index === 0
+          ? { probability: 0.5 }
+          : { probability: null, probabilityBounds: { lower: 0.25, upper: 1 } },
+    }
+  }
+  const repository = new LocalFilmRepository(localStorage)
+  film.frames.push({
+    state: { ...film.frames[2]!.state, rarity: 'RARE' },
+    action: 'SESSION_PLAN',
+    rulesetIdentity: initialFixture.rulesetIdentity,
+    projectedCurrencies: [
+      {
+        currencyId: 'Perfect_Chaos_Orb',
+        omenIds: ['Omen_of_Whittling', 'Omen_of_Dextral_Erasure'],
+      },
+    ],
+    projectedOmenOutcomes: {
+      success: { probability: 0.2 },
+      recoverable: { probability: 0.3 },
+      failure: { probability: 0.5 },
+    },
+  })
+  repository.save(history)
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false, staleTime: Infinity } },
+  })
+  client.setQueryData(['session-overview', film.id], repository.load().films[0])
+  const page = render(
+    <QueryClientProvider client={client}>
+      <SessionOverviewPage id={film.id} />
+    </QueryClientProvider>,
+  )
+  expect(
+    page.container.querySelector('.history-session-summary'),
+  ).toHaveTextContent('Route success chance · 10% – 30%')
+  expect(
+    page.container.querySelector('.history-session-summary'),
+  ).not.toHaveTextContent('Step chance')
+  expect(
+    page.container.querySelector('[data-flow-state][data-index="0"]'),
+  ).not.toHaveTextContent('Step chance')
+  expect(
+    page.container.querySelector('[data-flow-state][data-index="1"]'),
+  ).toHaveTextContent('Step chance 50%')
+  expect(
+    page.container.querySelector('[data-flow-state][data-index="2"]'),
+  ).toHaveTextContent('Step chance ≥ 25%')
+  const last = page.container.querySelector('[data-flow-state][data-index="3"]')
+  expect(last).toHaveTextContent('Success 20%')
+  expect(last).toHaveTextContent('Recoverable 30%')
+  expect(last).toHaveTextContent('Failure 50%')
+})
+
 it('renders a public source without reading or importing any private session', async () => {
   const { vi } = await import('vitest')
   const { IndexedFilmRepository } =

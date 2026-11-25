@@ -118,7 +118,7 @@ export function presentAutomaticItem(
             id: s.id,
             kind: 'desecrated' as const,
             text: labels[language],
-            affixLabel: s.side === 'PREFIX' ? 'P' : 'S',
+            affixType: s.side,
           })),
       ],
     }
