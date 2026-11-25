@@ -475,11 +475,17 @@ it.each([
         {
           cardIndex: 0,
           order: [1],
-          probability,
+          probability: 0.5,
           stateIndices: split ? [0, 1] : [1],
           steps: split
             ? [
-                { action: bone, omens: [], acquired: [], lost: [] },
+                {
+                  action: bone,
+                  omens: [],
+                  acquired: [],
+                  lost: [],
+                  chance: { probability: 0.5 },
+                },
                 { ...target, action: 'REVEAL' },
               ]
             : [{ ...target, action: bone }],
@@ -492,9 +498,9 @@ it.each([
     const list = await screen.findByRole('list', { name: 'Crafting methods' })
     expect(
       within(list).getByRole('button', { pressed: true }),
-    ).toHaveTextContent(`8 ex · ${percent} ${assumption}`)
+    ).toHaveTextContent(`8 ex · 50% ${assumption}`)
     expect(
-      screen.getByText(`Route success chance · ${percent} ${assumption}`),
+      screen.getByText(`Route success chance · 50% ${assumption}`),
     ).toBeVisible()
     expect(
       screen.getByText(`Step chance ${percent} ${assumption}`),
@@ -511,7 +517,11 @@ it.each([
       fireEvent.click(
         screen.getByRole('button', { name: 'Previous crafting step' }),
       )
-      expect(screen.queryByText(/^Step chance/)).toBeNull()
+      expect(screen.getByText('Step chance 50%')).toBeVisible()
+      expect(
+        screen.getByRole('img', { name: 'Unrevealed desecrated modifier' }),
+      ).toBeVisible()
+      expect(screen.queryByText(/^Added /)).toBeNull()
       expect(screen.getByLabelText('8 Exalted Orb')).toBeVisible()
     }
   },
@@ -1075,6 +1085,66 @@ it('filters by certified minimum, includes ties at tenth, and requires a fully p
   expect(within(list).getAllByRole('listitem')).toHaveLength(13)
 })
 
+it('hides an opened lucky route without retaining its cutoff or reopening it on reload', async () => {
+  await setLocale('en')
+  const ordinary = {
+    cardIndex: 0,
+    order: [1],
+    stateIndices: [0],
+    steps: [{ action: 'EXALTED', acquired: [1], lost: [], omens: [] }],
+  }
+  serve({
+    cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+    states: [observed(17, null)],
+    complete: true,
+    routes: [
+      { ...ordinary, probability: 0.01, lucky: true },
+      ...Array.from({ length: 11 }, (_, i) => ({
+        ...ordinary,
+        probability: (95 - i) / 100,
+      })),
+    ],
+  })
+  const params = new URLSearchParams({
+    request: request.clientRequestId,
+    route: '0',
+  })
+  window.history.replaceState(null, '', '/support-test?' + params)
+  try {
+    const first = show()
+    const list = await screen.findByRole('list', { name: 'Crafting methods' })
+    const toggle = screen.getByRole('checkbox', { name: 'Show lucky routes' })
+    expect(toggle).toBeChecked()
+    expect(
+      within(list).getByRole('button', { pressed: true }),
+    ).toHaveAccessibleName(/1%$/)
+    fireEvent.click(toggle)
+    expect(within(list).getAllByRole('listitem')).toHaveLength(10)
+    expect(
+      screen.getByRole('slider', { name: 'Minimum success chance' }),
+    ).toHaveAttribute('aria-valuetext', '86%')
+    expect(
+      within(list).getByRole('button', { pressed: true }),
+    ).toHaveAccessibleName(/95%$/)
+    fireEvent.click(toggle)
+    expect(within(list).getAllByRole('listitem')).toHaveLength(10)
+    fireEvent.click(toggle)
+    first.unmount()
+    show()
+    const reopened = await screen.findByRole('list', {
+      name: 'Crafting methods',
+    })
+    expect(
+      screen.getByRole('checkbox', { name: 'Show lucky routes' }),
+    ).not.toBeChecked()
+    expect(
+      within(reopened).getByRole('button', { pressed: true }),
+    ).toHaveAccessibleName(/95%$/)
+  } finally {
+    window.history.replaceState(null, '', '/')
+  }
+})
+
 it('shows the rounded icon multiplier and full cost for unlimited Chaos, and locks the verified 100% dummy independently of the route chance', async () => {
   await setLocale('en')
   serve({
@@ -1158,9 +1228,15 @@ it('keeps the lucky hit grade editable on a route that also contains a locked du
     ],
   })
   show()
-  fireEvent.click(
-    await screen.findByRole('checkbox', { name: 'Show lucky routes' }),
+  const showLucky = await screen.findByRole('checkbox', {
+    name: 'Show lucky routes',
+  })
+  expect(showLucky).not.toBeChecked()
+  expect(screen.getByRole('status')).toHaveTextContent(
+    'No routes match these filters.',
   )
+  expect(screen.queryByRole('region', { name: 'History' })).toBeNull()
+  fireEvent.click(showLucky)
   const history = await screen.findByRole('region', { name: 'History' })
   expect(
     within(history).queryByRole('button', { name: 'Step 1 · Exalted Orb' }),

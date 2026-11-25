@@ -180,7 +180,7 @@ function RouteList({
   )
   const [priceCap, setPriceCap] = useState(Infinity)
   const [minimum, setMinimum] = useState<number | null>(null)
-  const [openingRoute] = useState(preferred)
+  const [openingRoute, setOpeningRoute] = useState(preferred)
   const changedIndices = Object.keys(choices).map(Number)
   const replays = useQueries({
     queries: changedIndices.map((index) =>
@@ -230,7 +230,7 @@ function RouteList({
   eligible.sort((a, b) => b.lower - a.lower || a.index - b.index)
   const cutoff = eligible[9]?.lower ?? 0
   // Returning from an overview should reopen the route the user explicitly chose.
-  const opening = openingRoute === null ? undefined : rows[openingRoute]
+  const opening = eligible.find((row) => row.index === openingRoute)
   const lower = minimum ?? Math.min(cutoff, opening?.lower ?? cutoff)
   const visible = eligible.filter((row) => {
     if (
@@ -277,7 +277,14 @@ function RouteList({
       ])}
       setLower={setMinimum}
       setCap={setPriceCap}
-      setLucky={setShowLucky}
+      setLucky={(checked) => {
+        setShowLucky(checked)
+        if (!checked && opening?.lucky) setOpeningRoute(null)
+        if (!checked && preferred !== null && rows[preferred]?.lucky) {
+          setSelection(null)
+          writeSelection(null)
+        }
+      }}
     />
   )
   const replay = updated.get(selection)
@@ -356,11 +363,12 @@ function RouteList({
     acquisitionRouteTitle(route, locale)
   const href = (index: number) =>
     acquisitionOverviewHref(request.clientRequestId, index, choices[index])
-  function writeSelection(index: number, grades?: number[]) {
+  function writeSelection(index: number | null, grades?: number[]) {
     if (location.pathname !== '/support-test') return
     const url = new URL(location.href)
     url.searchParams.set('request', request.clientRequestId)
-    url.searchParams.set('route', String(index))
+    if (index === null) url.searchParams.delete('route')
+    else url.searchParams.set('route', String(index))
     const encoded = gradeSearch(grades)
     if (encoded) url.searchParams.set('grades', encoded)
     else url.searchParams.delete('grades')

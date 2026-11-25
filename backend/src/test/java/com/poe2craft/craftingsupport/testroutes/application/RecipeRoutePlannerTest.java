@@ -2,7 +2,11 @@ package com.poe2craft.craftingsupport.testroutes.application;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.poe2craft.shared.crafting.domain.BasicCurrencyFixture;
+import com.poe2craft.shared.crafting.domain.CraftingEngine;
+import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 import org.junit.jupiter.api.Test;
@@ -33,6 +37,101 @@ class RecipeRoutePlannerTest {
   private boolean matches(ItemState item) {
     var ids = item.explicits().stream().map(ModifierInstance::modifierId).toList();
     return ids.contains(life) && ids.contains(def);
+  }
+
+  /** 양쪽이 열린 뼈를 바로 쓰거나, 접미를 모두 채워 접두 훼손을 보장하는 두 전략만 반환한다. */
+  @Test
+  void usesDirectionalFillOnlyWhenItActuallyForcesTheBoneSide() {
+    String bone = "Preserved_Collarbone";
+    var low = new RouteCards.Source("B", null, RouteCards.Frequency.L);
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(1, Map.of(strength, List.of(low))),
+                new RouteCards.Option(
+                    2, Map.of(life, List.of(low, new RouteCards.Source("D", bone, null))))),
+            0);
+    var result =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench,
+            fixture.item(ItemState.Rarity.RARE, strength),
+            List.of(card),
+            item -> item.explicits().stream().anyMatch(m -> m.modifierId().equals(life)),
+            100000,
+            true,
+            null);
+    assertThat(result.routes())
+        .extracting(r -> r.steps().stream().map(RecipeRoutePlanner.Step::action).toList())
+        .containsExactlyInAnyOrder(
+            List.of(bone, "REVEAL"), List.of("EXALTED", "EXALTED", bone, "REVEAL"));
+    for (var route : result.routes()) {
+      var use = route.steps().get(route.steps().size() - 2);
+      assertThat(use.chance().probability()).isEqualTo(route.steps().size() == 2 ? 0.5 : 1.0);
+      assertThat(route.lucky()).isFalse();
+    }
+  }
+
+  /** 고대 뼈는 레벨 때문에 처음부터 접두만 가능하다. 보존된 뼈는 유일한 접미를 차단하면 빈칸이 남아도 방향이 확정된다. */
+  @Test
+  void checksTheActualPoolOfTheSameBoneBeforeAndAfterFill() {
+    var tiny = new BasicCurrencyFixture();
+    var target =
+        fixture.catalog.modifiers().values().stream()
+            .filter(
+                m ->
+                    m.affixType() == ModifierDefinition.AffixType.PREFIX
+                        && m.weight() > 0
+                        && m.requiredItemLevel() >= 40
+                        && m.requiredItemLevel() <= 60)
+            .findFirst()
+            .orElseThrow();
+    var catalog = tiny.catalog(List.of(tiny.implicit, tiny.a, tiny.b, target));
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    String ancient = "Ancient_Collarbone";
+    String preserved = "Preserved_Collarbone";
+    var low = new RouteCards.Source("B", null, RouteCards.Frequency.L);
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(1, Map.of("a", List.of(low))),
+                new RouteCards.Option(
+                    2,
+                    Map.of(
+                        target.id(),
+                        List.of(
+                            low,
+                            new RouteCards.Source("D", ancient, null),
+                            new RouteCards.Source("D", preserved, null))))),
+            0);
+    var base = tiny.item(ItemState.Rarity.RARE, List.of(tiny.mod("a", 1)));
+    var item60 =
+        new ItemState(
+            base.snapshotId(),
+            base.baseItemId(),
+            60,
+            base.rarity(),
+            base.implicits(),
+            base.explicits(),
+            base.conditions());
+    var result =
+        RecipeRoutePlanner.calculate(
+            simulator,
+            item60,
+            List.of(card),
+            item -> item.explicits().stream().anyMatch(m -> m.modifierId().equals(target.id())),
+            1000,
+            true,
+            null);
+    assertThat(result.routes())
+        .extracting(r -> r.steps().stream().map(RecipeRoutePlanner.Step::action).toList())
+        .containsExactlyInAnyOrder(
+            List.of(ancient, "REVEAL"),
+            List.of(preserved, "REVEAL"),
+            List.of("EXALTED", preserved, "REVEAL"));
+    for (var route : result.routes()) {
+      boolean unprepared = route.steps().getFirst().action().equals(preserved);
+      assertThat(route.probability()).isEqualTo(unprepared ? .5 : 1.0);
+    }
   }
 
   /** 접미 제거로 보존할 수 있으면 무징조·접두 제거를 권하지 않는다. */

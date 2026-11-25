@@ -39,6 +39,7 @@ export interface AcquisitionRoute {
   cardIndex: number
   order: number[]
   steps: AcquisitionStep[]
+  /** Post-action snapshots, including the hidden slot after a bone and the chosen modifier after REVEAL. */
   stateIndices: number[]
   probability: number | null
   probabilityBounds?: ProbabilityBounds

@@ -158,7 +158,11 @@ public final class RecipeTransitions {
           return Law.empty(true);
         }
       }
-      return reveal(item, action, omens, targetModifierIds, workbench, remainingOutcomes);
+      if (action.equals("REVEAL"))
+        return omens.isEmpty()
+            ? reveal(item, targetModifierIds, workbench, remainingOutcomes)
+            : Law.empty(true);
+      return prepareDesecration(item, action, omens, targetModifierIds, remainingOutcomes);
     }
     var abyss = item.desecrated().isEmpty() ? null : AbyssCraftingState.from(item, catalog);
     var known = abyss == null ? item : abyss.knownItem();
@@ -353,6 +357,19 @@ public final class RecipeTransitions {
     return new Law(List.copyOf(outcomes), complete, Set.copyOf(removable));
   }
 
+  /** 빈 칸에 쓴 같은 뼈가 양쪽을 모두 열 수 있을 때, 실제 공개 가능한 목표 티어만 반환한다. */
+  static Set<String> twoSidedRevealTargets(
+      ItemState item, String bone, ItemCatalog catalog, Set<String> targets) {
+    var branches = boneStates(item, bone, Set.of(), catalog);
+    if (branches.size() != 2) return Set.of();
+    var eligible = new HashSet<String>();
+    for (var branch : branches) {
+      var state = branch.state();
+      eligible.addAll(state.eligibleRevealIds(state.slots().getLast().id(), catalog, targets));
+    }
+    return eligible;
+  }
+
   /** 실제 미공개 슬롯에 맞는 티어 중 제거할 수 없는 분열 옵션의 ID·계열과 충돌하는 것은 예약할 수 없다. */
   static Set<String> reservableRevealIds(
       AbyssCraftingState state, String slotId, ItemCatalog catalog, Set<String> targets) {
@@ -431,65 +448,40 @@ public final class RecipeTransitions {
     return prepared;
   }
 
-  /** 현재 조건에서 제거 가능한 슬롯과 방향을 분리해 훼손 재료를 적용하고, 목표가 공개되었을 때의 선택을 열거한다. */
-  private Law reveal(
-      ItemState item,
-      String material,
-      Set<WorkbenchOmen> omens,
-      Set<String> targets,
-      WorkbenchSimulator workbench,
-      int limit) {
+  /** 이미 생성된 미공개 슬롯에서 선택 가능한 목표 티어를 공개한다. 공개 자체는 옵션을 제거하거나 새 슬롯을 만들지 않는다. */
+  private Law reveal(ItemState item, Set<String> targets, WorkbenchSimulator workbench, int limit) {
     var catalog = workbench.catalog();
-    var before = AbyssCraftingState.from(item, catalog);
-    boolean existing = "REVEAL".equals(material);
-    if (omens.contains(WorkbenchOmen.LIGHT) || (existing && !omens.isEmpty()))
-      return Law.empty(true);
-    var prepared =
-        existing
-            ? List.of(new BoneState(before, Fraction.ONE))
-            : boneStates(item, material, omens, catalog);
-    var draws = new ArrayList<Draw>();
-    var removable = new HashSet<String>();
-    for (var bone : prepared) {
-      var state = bone.state();
-      var removed = removed(before.knownItem(), state.knownItem());
-      removable.addAll(removed);
-      // 수동 공개에서 같은 티어를 여러 슬롯에서 고를 수 있어도 한 번만 획득한다.
-      var slotForTier = new TreeMap<String, String>();
-      for (var slot : state.slots()) {
-        if (!slot.desecrated() || slot.modifier() != null) continue;
-        for (var id : state.eligibleRevealIds(slot.id(), catalog, targets))
-          slotForTier.putIfAbsent(id, slot.id());
-      }
-      var eligible =
-          slotForTier.keySet().stream().map(id -> catalog.find(id).orElseThrow()).toList();
-      var choices = boundaryWeights(eligible, true);
-      var group =
-          choices.size() <= 1
-              ? null
-              : new RevealGroup(
-                  state.storedItem(),
-                  choices.keySet().stream()
-                      .map(ModifierDefinition::id)
-                      .collect(Collectors.toUnmodifiableSet()));
-      choices
-          .keySet()
-          .forEach(
-              tier ->
-                  draws.add(
-                      new Draw(
-                          List.of(tier),
-                          true,
-                          bone.probability(),
-                          removed,
-                          m ->
-                              state
-                                  .selectDirect(slotForTier.get(tier.id()), m, catalog)
-                                  .storedItem(),
-                          group)));
+    var state = AbyssCraftingState.from(item, catalog);
+    var slotForTier = new TreeMap<String, String>();
+    for (var slot : state.slots()) {
+      if (!slot.desecrated() || slot.modifier() != null) continue;
+      for (var id : state.eligibleRevealIds(slot.id(), catalog, targets))
+        slotForTier.putIfAbsent(id, slot.id());
     }
-    var law = enumerate(workbench, draws, false, targets, limit, true, false);
-    return new Law(law.outcomes(), law.complete(), Set.copyOf(removable));
+    var eligible = slotForTier.keySet().stream().map(id -> catalog.find(id).orElseThrow()).toList();
+    var choices = boundaryWeights(eligible, true);
+    var group =
+        choices.size() <= 1
+            ? null
+            : new RevealGroup(
+                item,
+                choices.keySet().stream()
+                    .map(ModifierDefinition::id)
+                    .collect(Collectors.toUnmodifiableSet()));
+    var draws =
+        choices.keySet().stream()
+            .map(
+                tier ->
+                    new Draw(
+                        List.of(tier),
+                        true,
+                        Fraction.ONE,
+                        Set.of(),
+                        m ->
+                            state.selectDirect(slotForTier.get(tier.id()), m, catalog).storedItem(),
+                        group))
+            .toList();
+    return enumerate(workbench, draws, false, targets, limit, true, false);
   }
 
   /** 원래 분모로 모든 후보의 수치 질량을 계산한다. 예산은 목표 수치를 먼저 열거하는 순서에만 쓰인다. */

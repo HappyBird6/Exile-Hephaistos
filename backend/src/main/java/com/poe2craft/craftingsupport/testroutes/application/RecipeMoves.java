@@ -50,7 +50,7 @@ final class RecipeMoves {
     DESECRATION
   }
 
-  /** eligibleTiers는 해당 L 경로 또는 훼손 선택으로 얻을 수 있는 목표 티어다. followup은 더미가 보호할 교체다. */
+  /** eligibleTiers는 해당 경로에서 얻을 수 있는 목표 티어다. followup은 더미로 보호할 교체 행동 또는 방향을 확정할 뼈다. */
   record Choice(
       int target,
       Move move,
@@ -250,29 +250,37 @@ final class RecipeMoves {
             .noneMatch(m -> !Collections.disjoint(m.familyIds(), definition.familyIds()));
   }
 
-  /** 희소 목표 한 자리만 비우기 위해 필요한 칸만 채운다. 같은 상태로 돌아오는 제거·재시도는 생성하지 않는다. */
+  /** 같은 뼈가 실제로 양쪽을 열 수 있을 때에만 반대쪽 칸을 닫아 목표 방향을 확정하는 준비를 제안한다. */
   private void fillForReveal(
       Set<Choice> result,
       ItemState item,
       RouteCards.Option option,
       ItemStateValidator.AffixSlots slots,
       Set<String> tiers) {
-    if (!item.desecrated().isEmpty() || item.explicitSlotCount() >= 5) return;
+    if (!item.desecrated().isEmpty()
+        || slots.remainingPrefixes() <= 0
+        || slots.remainingSuffixes() <= 0) return;
+    var catalog = simulator.forItem(item).catalog();
+    var eligibleByBone = new HashMap<String, Set<String>>();
     for (String tier : tiers) {
-      var side = simulator.catalog().find(tier).orElseThrow().affixType();
-      // 반대쪽부터 닫으면 다섯 칸 전에 방향을 확정할 수 있다. 목표 쪽을 채우는 중에도 실제 적중은 별도로 보존한다.
-      for (var fill : List.of(AffixType.PREFIX, AffixType.SUFFIX)) {
-        if (free(slots, fill) <= (side == fill ? 1 : 0)) continue;
-        var omen =
-            fill == AffixType.PREFIX
-                ? WorkbenchOmen.SINISTRAL_EXALTATION
-                : WorkbenchOmen.DEXTRAL_EXALTATION;
+      var side = catalog.find(tier).orElseThrow().affixType();
+      var omen =
+          side == AffixType.PREFIX
+              ? WorkbenchOmen.DEXTRAL_EXALTATION
+              : WorkbenchOmen.SINISTRAL_EXALTATION;
+      for (var source : option.tiers().get(tier)) {
+        if (!source.label().equals("D")
+            || !eligibleByBone
+                .computeIfAbsent(
+                    source.id(),
+                    bone -> RecipeTransitions.twoSidedRevealTargets(item, bone, catalog, tiers))
+                .contains(tier)) continue;
         result.add(
             new Choice(
                 option.number(),
                 new Move(WorkbenchCurrency.EXALTED, omen),
                 true,
-                null,
+                new Move(source.id()),
                 Purpose.LOW_SLOT_PREPARATION,
                 Set.of(tier)));
       }

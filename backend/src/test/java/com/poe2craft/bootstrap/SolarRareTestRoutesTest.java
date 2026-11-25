@@ -7,7 +7,10 @@ import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.testroutes.application.RecipeRoutePlanner;
 import com.poe2craft.craftingsupport.testroutes.application.TestRouteService;
+import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ItemStateValidator;
+import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.item.SolarAmulet;
 import java.math.BigDecimal;
@@ -30,13 +33,14 @@ class SolarRareTestRoutesTest {
   /** 서비스, 고정 정신력 +15 시작 상태, 제작 세션에 입력하는 세 행의 목표다. */
   private final TestRouteService service;
 
+  private final ItemCatalog catalog;
   private final ItemState solar;
   private final GoalFilter goal;
 
   /** 운영 카탈로그와 탐색 예산으로 서비스를 구성하고 명시 정신력·근접 스킬·전체 방어 행을 묶는다. */
   SolarRareTestRoutesTest() {
     var init = new CatalogConfiguration();
-    var catalog = init.itemCatalog(init.workbenchDefinitions());
+    catalog = init.itemCatalog(init.workbenchDefinitions());
     var operations =
         init.workbenchService(
             catalog, init.workbenchSimulator(catalog, init.craftingEngine(catalog)));
@@ -110,8 +114,33 @@ class SolarRareTestRoutesTest {
   @Test
   void emptyRareReachesThreeGoalsThroughDesecration() {
     var item = start();
-    var view = service.calculate(item, goal);
+    // 화면에서 꺼 둔 방어도와 냉기 저항 행도 실제 HTTP 입력에는 남아 있다.
+    var entries = new ArrayList<>(goal.groups().getFirst().entries());
+    int position = 2;
+    for (String stat :
+        List.of("physical_damage_reduction_rating_+%", "base_cold_damage_resistance_%")) {
+      var row = entry(stat, "percent", null);
+      entries.add(
+          position++,
+          new GoalFilter.Entry(row.id(), row.statId(), row.unit(), row.range(), null, true));
+    }
+    var filter =
+        new GoalFilter(
+            goal.version(),
+            goal.catalogVersion(),
+            goal.general(),
+            List.of(new GoalFilter.Group("three", GoalFilter.Type.AND, false, null, entries)));
+    var view = service.calculate(item, filter);
+    assertThat(view.cards())
+        .singleElement()
+        .satisfies(
+            card ->
+                assertThat(card.options())
+                    .extracting(TestRouteService.Option::modifierIds)
+                    .containsExactlyInAnyOrder(
+                        List.of(COUNTESS), List.of(GLOBAL), List.of(BATTLE)));
     for (var route : view.routes()) {
+      assertFillersImproveTheLastBone(view, route);
       var first =
           route.steps().stream()
               .filter(step -> !step.acquired().isEmpty())
@@ -130,6 +159,7 @@ class SolarRareTestRoutesTest {
     for (var firstTier : List.of(COUNTESS, BATTLE)) {
       var repeated =
           view.routes().stream()
+              .filter(route -> !route.lucky())
               .filter(
                   route -> {
                     var card = view.cards().get(route.cardIndex());
@@ -155,10 +185,49 @@ class SolarRareTestRoutesTest {
           .anySatisfy(
               route -> {
                 assertFinalReveal(item, view, route);
+                int bone = boneIndex(view, route);
+                assertThat(route.steps().get(bone - 1).action())
+                    .isEqualTo("PERFECT_ESSENCE_ENHANCEMENT");
                 var end = view.states().get(route.stateIndices().getLast());
                 assertThat(end.desecrated().getFirst().modifierId())
                     .isEqualTo(firstTier.equals(COUNTESS) ? BATTLE : COUNTESS);
               });
+    }
+  }
+
+  /** 마지막 목표만 남은 시점의 추가 엑잘은 공개 반대편을 끝까지 채워 뼈의 방향 확률을 높일 때만 필요하다. */
+  private void assertFillersImproveTheLastBone(
+      TestRouteService.View view, RecipeRoutePlanner.Route route) {
+    int bone = boneIndex(view, route);
+    if (bone <= 0 || !route.steps().getLast().action().equals("REVEAL")) return;
+    var end = view.states().get(route.stateIndices().getLast());
+    var revealed = end.desecrated().getFirst().modifierId();
+    var targetSide = catalog.find(revealed).orElseThrow().affixType();
+    var slots = new ItemStateValidator(catalog);
+    boolean added = false;
+    for (int i = bone - 1; i > 0; i--) {
+      var step = route.steps().get(i);
+      if (!step.action().equals("EXALTED") || !step.acquired().isEmpty() || !step.lost().isEmpty())
+        break;
+      var before = view.states().get(route.stateIndices().get(i - 1));
+      var held = before.explicits().stream().map(ModifierInstance::modifierId).toList();
+      if (!held.contains(GLOBAL) || !held.contains(revealed.equals(BATTLE) ? COUNTESS : BATTLE))
+        break;
+      var after = view.states().get(route.stateIndices().get(i));
+      var sideBefore = slots.slots(before);
+      var sideAfter = slots.slots(after);
+      if (targetSide == AffixType.PREFIX)
+        assertThat(sideAfter.remainingSuffixes()).isEqualTo(sideBefore.remainingSuffixes() - 1);
+      else assertThat(sideAfter.remainingPrefixes()).isEqualTo(sideBefore.remainingPrefixes() - 1);
+      added = true;
+    }
+    if (added) {
+      var ready = slots.slots(view.states().get(route.stateIndices().get(bone - 1)));
+      assertThat(
+              targetSide == AffixType.PREFIX
+                  ? ready.remainingSuffixes()
+                  : ready.remainingPrefixes())
+          .isZero();
     }
   }
 

@@ -3,6 +3,7 @@ package com.poe2craft.craftingsupport.testroutes.application;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import java.util.List;
@@ -113,6 +114,90 @@ class RecipeLowAcquisitionPolicyTest {
         .isNotEmpty()
         .anyMatch(c -> c.target() == 1 && c.purpose() == RecipeMoves.Purpose.BONE)
         .noneMatch(c -> c.purpose() == RecipeMoves.Purpose.LOW_EXALT);
+  }
+
+  /** 정신력 L이 있는 태양 목걸이에서 다른 L인 +3 근접은 곧바로 공개 준비하거나 반대쪽 한 칸만 닫아 확정한다. */
+  @Test
+  void onlyOppositeSidePreparationCanImproveTheSecondLowReveal() {
+    String spirit = "amulet:prefix:countess", melee = "amulet:suffix:of-battle";
+    var initial = fixture.item(ItemState.Rarity.RARE, spirit, "amulet:prefix:adept-s");
+    var sources = new java.util.ArrayList<>(List.of(rare));
+    var actual =
+        DesecrationCurrency.sources(
+            initial.baseItemId(),
+            initial.itemLevel(),
+            fixture.catalog.find(melee).orElseThrow(),
+            true);
+    assertThat(actual)
+        .contains("Preserved_Collarbone", "Ancient_Collarbone")
+        .doesNotContain("Gnawed_Collarbone");
+    for (var bone : actual) sources.add(new RouteCards.Source("D", bone, null));
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(1, Map.of(spirit, List.of(rare))),
+                new RouteCards.Option(2, Map.of(melee, sources))),
+            0);
+    var choices = moves.choices(initial, card, Map.of(1, spirit));
+    assertThat(choices).anyMatch(c -> c.purpose() == RecipeMoves.Purpose.BONE);
+    var directional =
+        choices.stream()
+            .filter(c -> c.purpose() == RecipeMoves.Purpose.LOW_SLOT_PREPARATION)
+            .toList();
+    assertThat(directional)
+        .allSatisfy(
+            c -> assertThat(c.move().omens()).containsExactly(WorkbenchOmen.SINISTRAL_EXALTATION));
+    assertThat(directional)
+        .extracting(c -> c.followup().action())
+        .containsExactlyInAnyOrderElementsOf(actual);
+    var fill =
+        new RecipeRoutePlanner.Step(
+            "EXALTED",
+            List.of(WorkbenchOmen.SINISTRAL_EXALTATION.id()),
+            List.of(),
+            List.of(),
+            null);
+    var bone =
+        new RecipeRoutePlanner.Step("Preserved_Collarbone", List.of(), List.of(), List.of(), null);
+    var reveal = new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(2), List.of(), null);
+    for (var steps : List.of(List.of(bone, reveal), List.of(fill, bone, reveal))) {
+      var result =
+          RecipeRoutePlanner.evaluateFixed(
+              fixture.workbench,
+              initial,
+              card,
+              s -> s.explicits().stream().anyMatch(m -> m.modifierId().equals(melee)),
+              50000,
+              true,
+              null,
+              steps);
+      assertThat(result.routes())
+          .singleElement()
+          .satisfies(
+              r -> {
+                int index = steps.size() - 2;
+                assertThat(r.steps().get(index).chance().probability())
+                    .isEqualTo(index == 0 ? 0.5 : 1.0);
+                assertThat(r.steps().getLast().chance().probability()).isEqualTo(1.0);
+                var hidden =
+                    result.states().get(r.stateIndices().get(index)).desecrated().getFirst();
+                assertThat(hidden.modifierId()).isNull();
+                assertThat(hidden.side()).isEqualTo(AffixType.SUFFIX);
+                assertThat(
+                        result
+                            .states()
+                            .get(r.stateIndices().getLast())
+                            .desecrated()
+                            .getFirst()
+                            .modifierId())
+                    .isEqualTo(melee);
+                if (index > 0) {
+                  var closed = result.states().get(r.stateIndices().getFirst());
+                  assertThat(moves.choices(closed, card, Map.of(1, spirit)))
+                      .noneMatch(c -> c.purpose() == RecipeMoves.Purpose.LOW_SLOT_PREPARATION);
+                }
+              });
+    }
   }
 
   /** 같은 뼈의 두 목표를 별도 선택으로 유지하고, 기존 접두 공개 슬롯에는 실제 가능한 접두 티어만 둔다. */

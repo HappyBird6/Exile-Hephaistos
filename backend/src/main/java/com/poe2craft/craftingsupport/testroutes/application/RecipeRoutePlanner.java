@@ -347,9 +347,12 @@ public final class RecipeRoutePlanner {
   /** 같은 아이템에 도달한 모든 분기의 probability와, 그중 실제로 성립한 witness 한 개다. */
   private record Mass(RevealTierMass weight, Witness witness) {}
 
+  /** 같은 아이템이어도 방금 방향 고정을 위해 준비한 재료가 다르면 다음 선택과 확률이 달라진다. */
+  private record StateKey(ItemState item, Set<Move> revealBones) {}
+
   /** 같은 경로의 서로 다른 실제 아이템별 질량과, 그 경로에 빠진 분기가 있는지를 보존한다. */
   private static final class Distribution {
-    final Map<ItemState, Mass> masses = new LinkedHashMap<>();
+    final Map<StateKey, Mass> masses = new LinkedHashMap<>();
     boolean complete = true;
     // 검증에는 원래 질량을 유지하고, 표시 확률에서만 미적중 준비 사건에 조건을 건다.
     Fraction preparationFactor = Fraction.ONE;
@@ -372,7 +375,7 @@ public final class RecipeRoutePlanner {
 
     /** 미확정 질량은 null로 유지한다. 서로 배타적인 같은 상태 결과만 합친다. */
     void add(ItemState item, RevealTierMass weight, Witness parent, RecipeStateGroups groups) {
-      add(item, weight, parent, groups, false, false);
+      add(item, weight, parent, groups, false, false, Set.of());
     }
 
     /** 동일한 실제 경로가 준비 적중과 직접 획득 둘 다 가능하면 직접 획득 예시를 우선한다. */
@@ -382,9 +385,10 @@ public final class RecipeRoutePlanner {
         Witness parent,
         RecipeStateGroups groups,
         boolean lucky,
-        boolean chaosDummy) {
+        boolean chaosDummy,
+        Set<Move> revealBones) {
       masses.compute(
-          groups.key(item),
+          new StateKey(groups.key(item), revealBones),
           (key, existing) -> {
             if (existing == null)
               return new Mass(weight, new Witness(item, parent, lucky, chaosDummy));
@@ -827,7 +831,7 @@ public final class RecipeRoutePlanner {
       int budget = remaining;
       boolean sharing = !regular.isEmpty() && !lucky.isEmpty();
       if (sharing) {
-        // 미적중 준비→카오스와 준비 중 우연한 첫 적중이 모두 있으면 남은 작업을 양쪽에 배분한다.
+        // 어느 단계에서든 준비 중 목표가 우연히 붙은 경로와 일반 경로가 함께 있으면 예산을 나눈다.
         int total = remaining + regularWork + luckyWork;
         int otherWork = takeLucky ? regularWork : luckyWork;
         remaining -= Math.min(remaining, Math.max(0, total / 2 - otherWork));
@@ -837,12 +841,10 @@ public final class RecipeRoutePlanner {
       var children = new ArrayDeque<Pending>();
       expand(next.path(), next.current(), children, regular.size() + lucky.size());
       for (var child : children) {
-        boolean setupHit =
+        boolean onlyLucky =
             fixedSteps == null
-                && seekFirstChaos
-                && child.path().stream().anyMatch(step -> !step.acquired().isEmpty())
-                && child.path().stream().noneMatch(Step::repeatingChaos);
-        (setupHit ? lucky : regular).add(child);
+                && child.current().masses.values().stream().allMatch(mass -> mass.witness.lucky);
+        (onlyLucky ? lucky : regular).add(child);
       }
       int used = allowance - remaining;
       if (takeLucky) luckyWork += used;
@@ -896,9 +898,7 @@ public final class RecipeRoutePlanner {
     int stageAllowance =
         staging
             ? Math.max(
-                1,
-                startingBudget
-                    / Math.max(1, waiting + 2 + Math.max(0, 5 - sampleState.explicitSlotCount())))
+                1, startingBudget / (waiting + 2 + card.options().size() - sampleHeld.size()))
             : startingBudget;
     for (var entry : current.masses.entrySet()) {
       var item = entry.getValue().witness.state();
@@ -1018,6 +1018,24 @@ public final class RecipeRoutePlanner {
                     RecipeStateGroups.withAffixes(item, ItemState.Rarity.RARE, item.explicits())))
             && (path.isEmpty() || !path.getLast().action().equals(WorkbenchCurrency.DIVINE.name())))
           choices.add(new Choice(0, new Move(WorkbenchCurrency.DIVINE.name()), true, null));
+      }
+      var revealBones = entry.getKey().revealBones();
+      if (!revealBones.isEmpty() && fixedSteps == null) {
+        // 같은 뼈가 아직 양쪽을 열면 준비를 계속하고, 실제로 한쪽만 남으면 그 재료를 즉시 쓴다.
+        var fill = path.getLast().move();
+        var stillTwoSided = new HashSet<Move>();
+        for (var c : choices) {
+          if (c.purpose() == Purpose.LOW_SLOT_PREPARATION && revealBones.contains(c.followup()))
+            stillTwoSided.add(c.followup());
+        }
+        choices.removeIf(
+            c ->
+                switch (c.purpose()) {
+                  case BONE -> !revealBones.contains(c.move()) || stillTwoSided.contains(c.move());
+                  case LOW_SLOT_PREPARATION ->
+                      !fill.equals(c.move()) || !stillTwoSided.contains(c.followup());
+                  default -> true;
+                });
       }
       extend(
           item,
@@ -1196,7 +1214,7 @@ public final class RecipeRoutePlanner {
       }
       var next = new ArrayList<>(path);
       next.add(step);
-      int progress = held(child.getValue().masses.keySet().iterator().next()).size();
+      int progress = held(child.getValue().masses.keySet().iterator().next().item()).size();
       pending.add(new Pending(List.copyOf(next), child.getValue(), progress, nextSequence++));
     }
   }
@@ -1516,6 +1534,13 @@ public final class RecipeRoutePlanner {
             .computeIfAbsent(move, k -> new ArrayList<>())
             .add(new OmenParent(prior, before, protectedIds, intents));
       boolean bounded = firstLaws.containsKey(trial);
+      var revealBones =
+          fixedSteps == null
+                  && intents.stream().allMatch(c -> c.purpose() == Purpose.LOW_SLOT_PREPARATION)
+              ? intents.stream()
+                  .map(Choice::followup)
+                  .collect(java.util.stream.Collectors.toUnmodifiableSet())
+              : Set.<Move>of();
       Integer maxUses = bounded ? chaosLimit : null;
       boolean repeatUntilHit = bounded && chaosLimit == null;
       var preparation = preparations.get(trial);
@@ -1568,7 +1593,14 @@ public final class RecipeRoutePlanner {
                                 step.acquired().contains(c.target())
                                     && (!c.preparation() || c.purpose() == Purpose.DIRECT_UPGRADE)
                                     && reaches(c, before, outcome, protectedIds));
-        child.add(outcome.state(), weight, prior.witness, stateGroups, lucky, dummy);
+        child.add(
+            outcome.state(),
+            weight,
+            prior.witness,
+            stateGroups,
+            lucky,
+            dummy,
+            step.acquired().isEmpty() ? revealBones : Set.of());
       }
     }
   }

@@ -326,17 +326,32 @@ class RecipeTransitionsTest {
   /** 뼈의 두 방향 중 접두만 성공한다. 공개할 수 있는 목표 옵션의 각 실제 수치는 작업대의 질량을 유지한다. */
   @Test
   void boneSideSelectionPrecedesGuaranteedEligibleModifier() {
-    var result =
-        law.successors(
-            item(ItemState.Rarity.RARE), "Preserved_Collarbone", Set.of(), Set.of(life), 32, false);
-    assertThat(result.complete()).isTrue();
-    assertThat(result.outcomes())
+    var start = item(ItemState.Rarity.RARE);
+    var prepared = law.successors(start, "Preserved_Collarbone", Set.of(), Set.of(life), 1, false);
+    assertThat(prepared.complete()).isTrue();
+    var opened = prepared.outcomes().getFirst();
+    assertThat(prepared.outcomes()).hasSize(1);
+    assertThat(opened.probability()).isEqualTo(Fraction.of(1, 2));
+    assertThat(opened.state().explicits()).isEmpty();
+    var slot = opened.state().desecrated().getFirst();
+    assertThat(slot.modifierId()).isNull();
+    assertThat(slot.side()).isEqualTo(ModifierDefinition.AffixType.PREFIX);
+    assertThat(law.successors(start, "REVEAL", Set.of(), Set.of(life), 32).outcomes()).isEmpty();
+    assertThat(
+            law.successors(opened.state(), "Preserved_Collarbone", Set.of(), Set.of(life), 32)
+                .outcomes())
+        .isEmpty();
+    var revealed = law.successors(opened.state(), "REVEAL", Set.of(), Set.of(life), 32);
+    assertThat(revealed.complete()).isTrue();
+    assertThat(revealed.outcomes())
         .hasSize(15)
-        .allMatch(
-            o ->
-                o.probability().equals(Fraction.of(1, 30))
-                    && o.state().desecrated().size() == 1
-                    && o.state().explicits().getFirst().modifierId().equals(life));
+        .allSatisfy(
+            o -> {
+              assertThat(o.probability()).isEqualTo(Fraction.of(1, 15));
+              assertThat(o.removedModifierIds()).isEmpty();
+              assertThat(o.state().desecrated().getFirst().id()).isEqualTo(slot.id());
+              assertThat(o.state().desecrated().getFirst().modifierId()).isEqualTo(life);
+            });
   }
 
   /** 여섯 칸이 모두 차면 같은 생명력 계열을 먼저 지워야 목표 티어를 고를 수 있다. 나머지 다섯 제거도 분모에 둔다. */

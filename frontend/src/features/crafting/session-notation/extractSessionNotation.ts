@@ -62,7 +62,10 @@ function receipt(frame: Frame) {
 }
 
 /** Only a successful, receipted transition from a hidden slot to a known modifier is a reveal. */
-function completedReveal(frame: Frame, before: Frame | undefined): boolean {
+export function completedReveal(
+  frame: Frame,
+  before: Frame | undefined,
+): boolean {
   if (
     !before ||
     ![revealAction, 'ABYSS_SELECT', 'ABYSS_CHOOSE'].includes(
@@ -82,7 +85,10 @@ function completedReveal(frame: Frame, before: Frame | undefined): boolean {
       !!slot &&
       typeof slot.modifierId === 'string' &&
       before.state.desecrated?.some(
-        (previous) => previous.id === slot.id && previous.modifierId === null,
+        (previous) =>
+          previous.id === slot.id &&
+          previous.side === slot.side &&
+          previous.modifierId === null,
       ) &&
       frame.state.explicits.some(
         (modifier) => modifier.modifierId === slot.modifierId,

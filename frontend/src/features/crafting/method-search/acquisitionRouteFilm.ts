@@ -5,7 +5,10 @@ import { craftingStepCost } from '../currency-prices/cost'
 import { isBone } from '../desecrationCurrency'
 import { pathTreeMessages } from '../path-tree/messages'
 import type { CreateRequest } from '../path-tree/types'
-import { currencyId } from '../session-notation/extractSessionNotation'
+import {
+  completedReveal,
+  currencyId,
+} from '../session-notation/extractSessionNotation'
 import type { ConcreteItem } from '../workbenchApi'
 import type { Film, Frame } from '../workbenchHistory'
 import {
@@ -179,7 +182,7 @@ export function acquisitionRouteFilm(
         }
       : {}
     if (step.action === 'REVEAL') {
-      frames.push({
+      const revealed: Frame = {
         state,
         action: revealAction,
         rulesetIdentity,
@@ -193,7 +196,9 @@ export function acquisitionRouteFilm(
           rulesetIdentity,
           consumedOmens: step.omens,
         },
-      })
+      }
+      if (!completedReveal(revealed, previous)) return null
+      frames.push(revealed)
     } else {
       frames.push({
         state,
