@@ -143,7 +143,8 @@ export function workLabel(
   locale: Locale,
 ) {
   if (work === 'QUALITY_20') return qualityGoalMessages[locale].work20
-  if (work === 'QUALITY_40') return qualityWorkMessages[locale].work
+  if (work === 'QUALITY_40' || work === 'UNSPECIFIED_CATALYST_40')
+    return qualityWorkMessages[locale].work
   return (
     abyssWorkbenchMessages[locale].desecration +
     (work === 'DESECRATE_PREFIX' ? ' · P' : ' · S')

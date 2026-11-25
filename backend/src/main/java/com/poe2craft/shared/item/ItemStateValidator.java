@@ -118,12 +118,7 @@ public final class ItemStateValidator {
           new Violation(
               Code.UNSUPPORTED_STATE, "", "Equipment quality requires ordinary equipment"));
     if (state.catalystQuality() != null) {
-      int cap =
-          state.baseItemId().equals(SolarAmulet.BASE_ID)
-                  || ReviewedRings.supports(state.baseItemId())
-                  || ReviewedAmulets.supports(state.baseItemId())
-              ? 40
-              : 20;
+      int cap = BaseRegistry.maximumQualityBreach(state.baseItemId()) ? 40 : 20;
       if (!CatalystQuality.supportedBase(state.baseItemId())
           || state.catalystQuality().amount() > cap + (state.qualityInfused() ? 10 : 0))
         errors.add(

@@ -1,6 +1,6 @@
 import { acquisitionTierRangeText } from '../method-search/acquisitionTierText'
 import { itemCardMessages } from '../itemCardMessages'
-import { acquisitionPreview } from '../workbenchHistory'
+import { acquisitionPreview, hasUnspecifiedQuality } from '../workbenchHistory'
 import { useHistoryInitial } from './useHistoryInitial'
 import { lastCurrencyAffectedOptions } from '../lastCurrencyAffectedOptions'
 import { useBonded, bondedLabel } from '../bonded'
@@ -19,12 +19,14 @@ import { displayedModifierValues } from '../sanctification/preciseModifierProjec
 import { augmentName, socketText } from '../socketAugments'
 import { defenceDisplay } from '../defenceDisplay'
 import { historyMessages } from './messages'
-import { localizedCatalystQuality } from '../localizedCrafting'
+import { sessionCatalystProperty } from '../localizedCrafting'
 
 export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
   const { locale, name, t } = useI18n()
   const text = historyMessages[locale]
   const state = frame.state
+  const frameIndex = film.frames.indexOf(frame)
+  const plannedQuality = hasUnspecifiedQuality(film, frameIndex)
   const { base, initial } = useHistoryInitial(state)
   const bonded = useBonded()
   const supported = supportsConcreteStateShape(state)
@@ -34,11 +36,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
     filmRulesetStatus(film, initial.data.rulesetIdentity) === 'current' &&
     verifiedHistoryState(state, initial.data)
   const affected = initial.data
-    ? lastCurrencyAffectedOptions(
-        film,
-        film.frames.indexOf(frame),
-        initial.data,
-      )
+    ? lastCurrencyAffectedOptions(film, frameIndex, initial.data)
     : new Set<string>()
   const definitions = initial.data?.modifiers
   const defences =
@@ -99,18 +97,7 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                   },
                 ]
               : []),
-            ...(state.catalystQuality
-              ? [
-                  {
-                    id: 'catalyst',
-                    text: localizedCatalystQuality(
-                      state.catalystQuality,
-                      state.baseItemId,
-                      locale,
-                    ),
-                  },
-                ]
-              : []),
+            ...sessionCatalystProperty(state, plannedQuality, locale),
             ...(state.augmentSockets != null
               ? [
                   {

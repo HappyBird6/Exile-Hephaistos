@@ -66,6 +66,7 @@ const market = {
       updatedAt: '2026-11-09T00:00:00Z',
       exaltedPerDivine: 500,
       prices: {
+        'Flesh Catalyst': { name: 'Flesh Catalyst', exalted: 2, divine: 0.004 },
         'Exalted Orb': { name: 'Exalted Orb', exalted: 1, divine: 0.002 },
         'Preserved Collarbone': {
           name: 'Preserved Collarbone',
@@ -1253,3 +1254,55 @@ it('keeps the lucky hit grade editable on a route that also contains a locked du
   expect(screen.getByText('Step chance 100%')).toBeVisible()
   expect(screen.getByText('Route success chance · 7%')).toBeVisible()
 })
+
+it.each([true, false])(
+  'displays the exact catalyst quantity and charge or untyped work (specified: %s)',
+  async (specified) => {
+    await setLocale('en')
+    const action = specified ? 'CATALYST_FLESH' : 'QUALITY_40'
+    const end = observed(15, null)
+    if (specified) end.catalystQuality = { type: 'FLESH', amount: 40 }
+    serve({
+      cards: [{ options: [] }],
+      states: [end],
+      complete: true,
+      routes: [
+        {
+          cardIndex: 0,
+          order: [],
+          stateIndices: [0],
+          probability: 1,
+          steps: [
+            {
+              action,
+              omens: [],
+              acquired: [],
+              lost: [],
+              expectedUses: specified ? 40 : null,
+            },
+          ],
+        },
+      ],
+    })
+    show()
+    const list = await screen.findByRole('list', { name: 'Crafting methods' })
+    const history = screen.getByRole('region', { name: 'History' })
+    const details = screen
+      .getByText('Modifier acquisition order', { selector: 'summary' })
+      .closest('details')!
+    fireEvent.click(details.querySelector('summary')!)
+    if (specified) {
+      expect(
+        within(list).getByRole('button', { pressed: true }),
+      ).toHaveAccessibleName(/80 ex/)
+      expect(within(history).getByText('×40')).toBeVisible()
+      expect(details).toHaveTextContent('Flesh Catalyst ×40')
+      expect(screen.getByText('Quality (Flesh): +40%')).toBeVisible()
+    } else {
+      expect(within(history).getByText('Work to 40 quality')).toBeVisible()
+      expect(details).toHaveTextContent('Work to 40 quality')
+      expect(within(history).queryByText('×40')).toBeNull()
+      expect(screen.getByText(/40 quality work completed/)).toBeVisible()
+    }
+  },
+)

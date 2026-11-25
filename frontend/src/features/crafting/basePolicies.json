@@ -405,33 +405,33 @@
     },
     "dusk-amulet": {
       "initializeImplicit": true,
+      "rareOnly": true,
       "snapshotDate": "20261102",
-      "snapshotRetrievedAt": "SOURCE",
-      "rareOnly": true
+      "snapshotRetrievedAt": "SOURCE"
     },
     "penumbra-amulet": {
       "initializeImplicit": true,
+      "rareOnly": true,
       "snapshotDate": "20261102",
-      "snapshotRetrievedAt": "SOURCE",
-      "rareOnly": true
+      "snapshotRetrievedAt": "SOURCE"
     },
     "gloam-amulet": {
       "initializeImplicit": true,
+      "rareOnly": true,
       "snapshotDate": "20261102",
-      "snapshotRetrievedAt": "SOURCE",
-      "rareOnly": true
+      "snapshotRetrievedAt": "SOURCE"
     },
     "corona-amulet": {
       "initializeImplicit": true,
+      "rareOnly": true,
       "snapshotDate": "20261102",
-      "snapshotRetrievedAt": "SOURCE",
-      "rareOnly": true
+      "snapshotRetrievedAt": "SOURCE"
     },
     "tenebrous-amulet": {
       "initializeImplicit": true,
+      "rareOnly": true,
       "snapshotDate": "20261102",
-      "snapshotRetrievedAt": "SOURCE",
-      "rareOnly": true
+      "snapshotRetrievedAt": "SOURCE"
     },
     "lazuli-ring": {
       "initializeImplicit": true,
@@ -725,7 +725,7 @@
       "ordinaryCatalyst": true,
       "refinedCatalyst": false,
       "catalystQuality": true,
-      "maximumQualityBreach": false,
+      "maximumQualityBreach": true,
       "socketExecutionMaximum": null,
       "divine": true
     },

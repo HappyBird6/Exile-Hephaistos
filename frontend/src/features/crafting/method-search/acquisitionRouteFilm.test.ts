@@ -30,6 +30,7 @@ const snapshot: PriceSnapshot = {
   updatedAt: '2026-11-09T00:00:00Z',
   exaltedPerDivine: 100,
   prices: {
+    'Flesh Catalyst': { name: 'Flesh Catalyst', divine: 0.02, exalted: 2 },
     'Divine Orb': { name: 'Divine Orb', divine: 1, exalted: 100 },
     'Chaos Orb': { name: 'Chaos Orb', divine: 0.02, exalted: 2 },
     'Omen of Whittling': { name: 'Omen of Whittling', divine: 1, exalted: 100 },
@@ -418,3 +419,51 @@ it('validates the dummy grade on reload and omits derived dummy metadata when re
     },
   ])
 })
+
+it.each([
+  ['CATALYST_FLESH', 40, 80, true],
+  ['QUALITY_40', null, 0, false],
+] as const)(
+  'prices %s once in the results and in a restored session',
+  (action, expectedUses, exalted, hasCosts) => {
+    const { film, cost } = routeFilm({
+      action,
+      expectedUses,
+      chance: { probability: 1 },
+    })
+    const restored = JSON.parse(JSON.stringify(film)) as typeof film
+    expect(validStoredFilm(restored)).toBe(true)
+    expect(cost).toMatchObject({
+      exalted,
+      hasCosts,
+      incomplete: false,
+      unknown: [],
+    })
+    expect(craftingCost(restored, 1, snapshot)).toEqual(cost)
+    if (hasCosts) {
+      expect(restored.frames[1]!.projectedCurrencies).toEqual([
+        { currencyId: 'Flesh_Catalyst', omenIds: [], quantity: 40 },
+      ])
+      expect(craftingCost(restored, 1, null)).toMatchObject({
+        incomplete: true,
+        unknown: ['Flesh_Catalyst'],
+      })
+      expect(
+        validProjectedCurrencies([
+          {
+            currencyId: 'Flesh_Catalyst',
+            omenIds: [],
+            quantity: 40,
+            expectedUses: 40,
+          },
+        ]),
+      ).toBe(false)
+    } else {
+      expect(restored.frames[1]).toMatchObject({
+        projectedWork: 'UNSPECIFIED_CATALYST_40',
+        projectedCurrencies: [],
+      })
+      expect(craftingCost(restored, 1, null)).toEqual(cost)
+    }
+  },
+)

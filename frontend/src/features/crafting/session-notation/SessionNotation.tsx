@@ -145,7 +145,7 @@ export function SessionNotation({
                 ? ' · ' + workLabel(step.work, locale)
                 : step.kind === 'reveal'
                   ? ` · ${abyssWorkbenchMessages[locale].desecration} ${abyssWorkbenchMessages[locale].reveal}`
-                  : step.repeated
+                  : step.repeated || step.uses > 1
                     ? ` · ${name(step.currencyId, registry.get(step.currencyId)?.name ?? text.unknownCurrency)} · ${uses}`
                     : ''
             }`
@@ -306,6 +306,9 @@ export function NotationResources({
         )}
         {step.repeated && (
           <span className="wb-session-notation__uses">{uses}</span>
+        )}
+        {!step.repeated && step.uses > 1 && (
+          <span className="wb-session-notation__uses">×{step.uses}</span>
         )}
       </span>
       {!step.omensKnown && (

@@ -474,21 +474,55 @@ class TestRouteControllerTest {
         .andExpect(jsonPath("$.routes").isEmpty());
   }
 
-  /** 현재 획득 탐색에는 기폭제나 목표 옵션 제거만으로 끝나는 순서가 없어 불가능이라고 단정하지 않는다. */
+  /** 기존 최소 품질 요청도 활성 옵션의 원래 수치와 함께 판정한다. */
   @Test
-  void unmodeledQualityAndRemovalReportIncomplete() throws Exception {
+  void historicalMinimumQualityCanBeCombinedWithAnAffix() throws Exception {
     var input = body.deepCopy();
     ((ObjectNode) input.path("goal").path("general")).put("quality", 5);
     request(input)
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.routes").isEmpty())
-        .andExpect(jsonPath("$.complete").value(false));
+        .andExpect(jsonPath("$.routes[0].probability").value(1d))
+        .andExpect(
+            jsonPath("$.routes[0].steps[0].action")
+                .value(org.hamcrest.Matchers.startsWith("CATALYST_")));
+  }
 
-    input = body.deepCopy();
+  /** 활성 NOT은 새 탐색에서 거절하고 저장된 NOT의 고정 경로는 기존 판정으로 읽는다. */
+  @Test
+  void onlyNewSearchRejectsNonAndGroups() throws Exception {
+    var input = body.deepCopy();
     var group = (ObjectNode) input.path("goal").path("groups").get(0);
     group.put("type", "NOT");
     ((ObjectNode) group.path("entries").get(0).path("range")).put("min", 1);
-    request(input).andExpect(status().isOk()).andExpect(jsonPath("$.complete").value(false));
+    request(input)
+        .andExpect(status().isUnprocessableEntity())
+        .andExpect(jsonPath("$.issues[0].path").value("/goal/groups/0/type"))
+        .andExpect(jsonPath("$.issues[0].code").value("AND_GROUP_REQUIRED"));
+    input.put("cardIndex", 0);
+    input.putArray("steps");
+    grade(input).andExpect(status().isOk());
+  }
+
+  /** 생명력 기폭제가 붙은 분열 생명력 90은 표시 보정 전 원래 수치로만 인정한다. */
+  @Test
+  void typedStartingQualityPreservesRawAffixGoalAndTierSelection() throws Exception {
+    var input = body.deepCopy();
+    ((ObjectNode) input.at("/item"))
+        .putObject("catalystQuality")
+        .put("type", "FLESH")
+        .put("amount", 40);
+    ((ObjectNode) input.at("/item/explicits/0")).put("fractured", true);
+    ((ObjectNode) input.at("/goal/general")).put("quality", 40);
+    input.put("qualityCatalyst", "Flesh_Catalyst");
+    request(input)
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.routes[0].steps").isEmpty())
+        .andExpect(jsonPath("$.routes[0].probability").value(1d));
+    ((ObjectNode) input.at("/goal/groups/0/entries/0/range")).put("min", 91);
+    request(input)
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.cards").isEmpty())
+        .andExpect(jsonPath("$.complete").value(true));
   }
 
   /** 기폭제 한 번으로 달성할 수 있는 품질 목표를 만든다. */

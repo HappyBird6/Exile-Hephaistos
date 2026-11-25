@@ -8,6 +8,7 @@ import com.poe2craft.craftingsupport.testroutes.application.RecipeTransitions.La
 import com.poe2craft.craftingsupport.testroutes.application.RecipeTransitions.Outcome;
 import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
+import com.poe2craft.shared.crafting.domain.QualityLimitRules;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
@@ -504,6 +505,10 @@ public final class RecipeRoutePlanner {
   private final Predicate<ItemState> matchesGoal;
   private final boolean presenceOnly;
   private final Integer minimumQuality;
+
+  /** 지정 기폭제는 작업대의 실제 종류·품질을 바꾸고, 미지정 작업은 경로의 달성 단계로만 기록한다. */
+  private final WorkbenchCurrency qualityCatalyst;
+
   private final Set<String> targets = new TreeSet<>();
   private final Set<String> lowIds = new HashSet<>();
 
@@ -553,6 +558,7 @@ public final class RecipeRoutePlanner {
       int outcomeBudget,
       boolean presenceOnly,
       Integer minimumQuality,
+      WorkbenchCurrency qualityCatalyst,
       Map<ItemState, Integer> stateIndices,
       List<Step> fixedSteps,
       boolean seekFirstChaos,
@@ -566,6 +572,7 @@ public final class RecipeRoutePlanner {
     this.fixedSteps = fixedSteps;
     this.presenceOnly = presenceOnly;
     this.minimumQuality = minimumQuality;
+    this.qualityCatalyst = qualityCatalyst;
     this.simulator = simulator;
     slots = new ItemStateValidator(simulator.catalog());
     transitions =
@@ -640,10 +647,34 @@ public final class RecipeRoutePlanner {
       boolean presenceOnly,
       Integer minimumQuality,
       Set<String> numericSourceStatIds) {
+    return calculate(
+        simulator,
+        start,
+        cards,
+        matchesGoal,
+        outcomeBudget,
+        presenceOnly,
+        minimumQuality,
+        numericSourceStatIds,
+        null);
+  }
+
+  /** 선택된 기폭제 또는 임의의 품질 40 작업을 같은 제작 경로에서 확인한다. */
+  public static Result calculate(
+      WorkbenchSimulator simulator,
+      ItemState start,
+      List<RouteCards.Card> cards,
+      Predicate<ItemState> matchesGoal,
+      int outcomeBudget,
+      boolean presenceOnly,
+      Integer minimumQuality,
+      Set<String> numericSourceStatIds,
+      WorkbenchCurrency qualityCatalyst) {
     var trace = new SearchTrace();
     if (outcomeBudget < 1)
       throw new IllegalArgumentException("Positive route outcome budget required");
-    if (matchesGoal.test(start)) {
+    if (matchesGoal.test(start)
+        && (!Objects.equals(minimumQuality, 40) || qualityHeld(start, qualityCatalyst))) {
       var ids =
           start.explicits().stream()
               .map(m -> m.modifierId())
@@ -677,6 +708,7 @@ public final class RecipeRoutePlanner {
                 allocation,
                 presenceOnly,
                 minimumQuality,
+                qualityCatalyst,
                 stateIndices,
                 null,
                 repeat,
@@ -832,6 +864,31 @@ public final class RecipeRoutePlanner {
       Integer minimumQuality,
       List<Step> selectedSteps,
       Set<String> numericSourceStatIds) {
+    return evaluateFixed(
+        simulator,
+        start,
+        card,
+        matchesGoal,
+        outcomeBudget,
+        presenceOnly,
+        minimumQuality,
+        selectedSteps,
+        numericSourceStatIds,
+        null);
+  }
+
+  /** 선택된 기폭제 또는 임의의 품질 40 작업을 같은 제작 경로에서 확인한다. */
+  public static Result evaluateFixed(
+      WorkbenchSimulator simulator,
+      ItemState start,
+      RouteCards.Card card,
+      Predicate<ItemState> matchesGoal,
+      int outcomeBudget,
+      boolean presenceOnly,
+      Integer minimumQuality,
+      List<Step> selectedSteps,
+      Set<String> numericSourceStatIds,
+      WorkbenchCurrency qualityCatalyst) {
     var trace = new SearchTrace();
     if (outcomeBudget < 1)
       throw new IllegalArgumentException("Positive route outcome budget required");
@@ -876,6 +933,7 @@ public final class RecipeRoutePlanner {
               available,
               presenceOnly,
               minimumQuality,
+              qualityCatalyst,
               states,
               List.copyOf(selectedSteps),
               seek,
@@ -976,6 +1034,11 @@ public final class RecipeRoutePlanner {
         selected != null
             && RecipeMoves.baseMove(selected).action().equals(WorkbenchCurrency.EXALTED.name());
     boolean hadChaos = path.stream().anyMatch(Step::repeatingChaos);
+    boolean qualityWork = Objects.equals(minimumQuality, 40);
+    boolean abstractQualityDone =
+        qualityWork
+            && qualityCatalyst == null
+            && path.stream().anyMatch(s -> s.action().equals(RecipeMoves.QUALITY_WORK));
     var selectedTargets = new HashSet<String>();
     if (required != null) {
       for (int number : required.acquired())
@@ -1019,7 +1082,9 @@ public final class RecipeRoutePlanner {
       var essenceSlot = entry.getKey().essenceSlot();
       if (essenceSlot != null && essenceSlot.disposable())
         before.values().removeIf(essenceSlot.modifierId()::equals);
-      if (before.size() == allowed.size() && matchesGoal.test(item)) {
+      boolean needsQuality =
+          qualityWork && !abstractQualityDone && !qualityHeld(item, qualityCatalyst);
+      if (!needsQuality && before.size() == allowed.size() && matchesGoal.test(item)) {
         // 계획이 새로 연 슬롯을 끝까지 사용하지 않은 가지는 완주한 훼손 제작이 아니다.
         if (!path.isEmpty()
             && item.desecrated().stream().anyMatch(s -> s.modifierId() == null)
@@ -1109,7 +1174,25 @@ public final class RecipeRoutePlanner {
                   && RecipeMoves.baseMove(selected)
                       .action()
                       .equals(WorkbenchCurrency.CHAOS.name()))) continue;
+      if (needsQuality
+          && (!seeking
+              || item.explicits().stream()
+                  .anyMatch(m -> m.modifierId().equals(QualityLimitRules.BREACH_ID)))) {
+        // 품질 상한은 희귀에서 붙인다. 이때 실제 목표도 얻을 수 있는 진화·제왕·승급 에센스의 의도를 보존한다.
+        var upgradeEssences = new HashSet<String>();
+        if (item.rarity() == ItemState.Rarity.MAGIC)
+          for (var option : card.options())
+            for (var sources : option.tiers().values())
+              for (var source : sources)
+                if (source.label().equals("E")) upgradeEssences.add(source.id());
+        choices.removeIf(
+            c ->
+                c.purpose() != Purpose.DIRECT_UPGRADE
+                    && !upgradeEssences.contains(c.move().action()));
+        choices.addAll(moves.qualityPreparation(item, card, before, protectedIds, qualityCatalyst));
+      }
       if (!seeking
+          && !qualityWork
           && minimumQuality != null
           && minimumQuality
               > (item.catalystQuality() == null ? 0 : item.catalystQuality().amount())) {
@@ -1118,7 +1201,7 @@ public final class RecipeRoutePlanner {
             choices.add(new Choice(0, new Move(currency.name()), true, null));
         }
       }
-      if (!seeking && before.size() == allowed.size()) {
+      if (!seeking && !needsQuality && before.size() == allowed.size()) {
         // 한 번 재굴림한 뒤에도 미달이면 이 실행열은 실패다. 무한 재시도의 성공률을 가정하지 않는다.
         choices.addAll(RecipeMoves.rarityPreparation(0, item));
         if (!presenceOnly
@@ -1283,7 +1366,16 @@ public final class RecipeRoutePlanner {
                         .given(liveBounds))
                 : Chance.measured(first, firstBounds);
         step = step.measured(chance, expected, step.maxUses());
-      } else if (!step.acquired().isEmpty()
+      } else if (qualityWork
+          && (step.action().equals(RecipeMoves.QUALITY_WORK)
+              || (qualityCatalyst != null && step.action().equals(qualityCatalyst.name())))) {
+        var chance =
+            Chance.measured(
+                nextStates.complete ? ratio(weight.exact(), live) : null,
+                eventBounds.given(liveBounds));
+        step = step.measured(chance, qualityCatalyst == null ? null : 40.0, null);
+      } else if (step.action().equals(WorkbenchCurrency.ESSENCE_BREACH.name())
+          || !step.acquired().isEmpty()
           || !step.lost().isEmpty()
           || step.action().equals("REVEAL")
           || boneIds.contains(step.action())
@@ -1552,6 +1644,11 @@ public final class RecipeRoutePlanner {
         remaining -= Math.max(1, bounded.work());
       } else {
         var interested = replayHit ? selectedTargets : targets;
+        if (move.action().equals(WorkbenchCurrency.ESSENCE_BREACH.name())
+            && intents.stream().anyMatch(c -> c.target() == 0)) {
+          interested = new HashSet<>(interested);
+          interested.add(QualityLimitRules.BREACH_ID);
+        }
         if (intents.stream().allMatch(c -> c.purpose() == Purpose.LOW_EXALT)
             || intents.stream()
                 .anyMatch(
@@ -1790,6 +1887,7 @@ public final class RecipeRoutePlanner {
     if ((outcome.state().equals(item)
             && before.equals(after)
             && !move.action().equals(WorkbenchCurrency.DIVINE.name())
+            && !move.action().equals(RecipeMoves.QUALITY_WORK)
             && Collections.disjoint(outcome.removedModifierIds(), before.values()))
         || !Collections.disjoint(outcome.removedModifierIds(), protectedIds)) return null;
     if (!move.action().equals("REVEAL")
@@ -1903,11 +2001,14 @@ public final class RecipeRoutePlanner {
     if (!RecipeMoves.permits(
         choice, before, held(outcome.state()), outcome.removedModifierIds(), lowIds)) return false;
 
+    if (choice.purpose() == Purpose.QUALITY_CLEAR) {
+      return !Collections.disjoint(choice.eligibleTiers(), outcome.removedModifierIds());
+    }
     if (!choice.preparation()) {
       return outcome.state().explicits().stream()
           .anyMatch(
               m ->
-                  allowed.get(choice.target()).contains(m.modifierId())
+                  intendedTiers(choice).contains(m.modifierId())
                       && (!before.containsKey(choice.target())
                           || outcome.removedModifierIds().contains(before.get(choice.target()))));
     }
@@ -1943,7 +2044,7 @@ public final class RecipeRoutePlanner {
                               .toList()
                               .containsAll(protectedIds)
                           && b.candidates().stream()
-                              .anyMatch(m -> allowed.get(choice.target()).contains(m.id())));
+                              .anyMatch(m -> intendedTiers(choice).contains(m.id())));
     }
     var plan = workbench.recipePlan(next, currency, followup.omens());
     return plan.status() == com.poe2craft.shared.crafting.domain.AutomaticCraftingPlan.Status.READY
@@ -1955,7 +2056,22 @@ public final class RecipeRoutePlanner {
                             .toList()
                             .containsAll(protectedIds)
                         && b.candidates().stream()
-                            .anyMatch(m -> allowed.get(choice.target()).contains(m.id())));
+                            .anyMatch(m -> intendedTiers(choice).contains(m.id())));
+  }
+
+  /** 품질 상한 준비는 목표 번호 없이도 작업대에서 실제로 붙여야 하는 균열 접두를 검사한다. */
+  private Set<String> intendedTiers(Choice choice) {
+    return choice.target() == 0
+        ? Set.of(QualityLimitRules.BREACH_ID)
+        : allowed.get(choice.target());
+  }
+
+  /** 실제 시작·후속 아이템이 요청한 종류로 품질 40을 이미 달성했는지 판정한다. */
+  private static boolean qualityHeld(ItemState item, WorkbenchCurrency catalyst) {
+    var quality = item.catalystQuality();
+    return quality != null
+        && quality.amount() >= 40
+        && (catalyst == null || catalyst.catalystType() == quality.type());
   }
 
   /** 구체적인 명시 옵션을 카드 번호에 투영한다. 시작 목표의 단순 보유는 획득으로 세지 않는다. */

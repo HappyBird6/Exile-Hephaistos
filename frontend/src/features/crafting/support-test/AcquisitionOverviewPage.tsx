@@ -2,6 +2,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useI18n } from '../../../shared/i18n/i18n'
 import { craftStartMessages } from '../goal-filter/craftStartMessages'
 import { hasActiveTotalGoal } from '../goal-filter/types'
+import { isFlatRouteGoal } from '../goal-filter/testRouteGoal'
 import { loadStart } from '../goal-filter/savedStart'
 import { acquisitionRouteQuery } from '../method-search/acquisitionRouteApi'
 import { acquisitionRouteFilm } from '../method-search/acquisitionRouteFilm'
@@ -35,6 +36,7 @@ export default function AcquisitionOverviewPage() {
   const request =
     saved &&
     saved.clientRequestId === requestId &&
+    isFlatRouteGoal(saved.goal) &&
     !hasActiveTotalGoal(saved.goal)
       ? saved
       : null

@@ -44,7 +44,9 @@ import {
   acquisitionRouteFilm,
   acquisitionRouteTitle,
   assumesEligibleReveal,
+  qualityMaterialQuantity,
 } from './acquisitionRouteFilm'
+import { qualityWorkMessages } from './qualityWorkMessages'
 import { acquisitionRouteMessages } from './acquisitionRouteMessages'
 import { acquisitionTierText } from './acquisitionTierText'
 import {
@@ -75,6 +77,7 @@ function filterStops(values: number[]) {
 }
 
 function materialLabel(id: string) {
+  if (id === 'QUALITY_40') return qualityWorkMessages[getLocale()].work
   if (id === 'REVEAL') {
     const { desecration, reveal } = abyssWorkbenchMessages[getLocale()]
     return `${desecration} ${reveal}`
@@ -86,6 +89,8 @@ function materialLabel(id: string) {
 
 function stepLabel(step: AcquisitionStep) {
   const materials = [step.action, ...step.omens].map(materialLabel).join(' + ')
+  const quantity = qualityMaterialQuantity(step)
+  if (quantity !== undefined) return `${materials} ×${quantity}`
   return step.socketIndex == null
     ? materials
     : `${materials} (${socketText().socket} ${step.socketIndex + 1})`
@@ -359,9 +364,12 @@ function RouteList({
             : (currencyId(step.action) ?? step.action),
         consumedOmenIds: step.omens,
         omensKnown: true,
-        uses: 1,
+        uses: qualityMaterialQuantity(base.steps[index]!) ?? 1,
         repeated: false,
         ...(step.action === 'REVEAL' ? { kind: 'reveal' as const } : {}),
+        ...(step.action === 'QUALITY_40'
+          ? { work: 'UNSPECIFIED_CATALYST_40' as const }
+          : {}),
       }))
   const optionText = (option: RouteOption) =>
     acquisitionTierText(option.modifierIds, definitions, locale, option)

@@ -2447,6 +2447,86 @@
       "id": "u00dl",
       "sourceKey": "workspace.workbench",
       "retired": false
+    },
+    {
+      "id": "u00dm",
+      "sourceKey": "quality.tag.attack",
+      "retired": false
+    },
+    {
+      "id": "u00dn",
+      "sourceKey": "quality.tag.attribute",
+      "retired": false
+    },
+    {
+      "id": "u00do",
+      "sourceKey": "quality.tag.caster",
+      "retired": false
+    },
+    {
+      "id": "u00dp",
+      "sourceKey": "quality.tag.chaos",
+      "retired": false
+    },
+    {
+      "id": "u00dq",
+      "sourceKey": "quality.tag.cold",
+      "retired": false
+    },
+    {
+      "id": "u00dr",
+      "sourceKey": "quality.tag.defences",
+      "retired": false
+    },
+    {
+      "id": "u00ds",
+      "sourceKey": "quality.tag.fire",
+      "retired": false
+    },
+    {
+      "id": "u00dt",
+      "sourceKey": "quality.tag.life",
+      "retired": false
+    },
+    {
+      "id": "u00du",
+      "sourceKey": "quality.tag.lightning",
+      "retired": false
+    },
+    {
+      "id": "u00dv",
+      "sourceKey": "quality.tag.mana",
+      "retired": false
+    },
+    {
+      "id": "u00dw",
+      "sourceKey": "quality.tag.minion",
+      "retired": false
+    },
+    {
+      "id": "u00dx",
+      "sourceKey": "quality.tag.physical",
+      "retired": false
+    },
+    {
+      "id": "u00dy",
+      "sourceKey": "quality.tag.speed",
+      "retired": false
+    },
+    {
+      "id": "u00dz",
+      "sourceKey": "support.any_catalyst",
+      "retired": false
+    },
+    {
+      "id": "u00e0",
+      "sourceKey": "support.catalyst",
+      "retired": false
+    },
+    {
+      "id": "u00e1",
+      "sourceKey": "support.quality40",
+      "retired": false
     }
   ]
 }

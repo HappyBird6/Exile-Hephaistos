@@ -7,6 +7,8 @@ import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.goal.domain.GoalFilter.Status;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.item.BaseRegistry;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import java.util.List;
@@ -58,8 +60,47 @@ public final class TestRouteService {
   /** cardIndex가 있으면 그 카드의 지정된 제작 단계만 사용해 선택한 화폐 등급으로 재검증한다. */
   public View calculate(
       ItemState item, GoalFilter goal, Integer cardIndex, List<RecipeRoutePlanner.Step> steps) {
+    return calculate(item, goal, cardIndex, steps, null);
+  }
+
+  /** 품질 40의 기폭제 선택을 새 경로·고정 재생에 같이 적용하며, 기존 경로는 저장된 그룹을 재생할 수 있다. */
+  public View calculate(
+      ItemState item,
+      GoalFilter goal,
+      Integer cardIndex,
+      List<RecipeRoutePlanner.Step> steps,
+      WorkbenchCurrency qualityCatalyst) {
     // compile은 시작 아이템·목표·catalogVersion을 검증한 후 같은 필터 평가기를 재사용한다.
-    var evaluate = goals.compile(item, goal);
+    var evaluate = goals.compileTestRoute(item, goal);
+    var minimumQuality = goal.general().quality();
+    if (cardIndex == null) {
+      for (int i = 0; i < goal.groups().size(); i++) {
+        var group = goal.groups().get(i);
+        if (!group.disabled() && group.type() != GoalFilter.Type.AND)
+          throw new GoalFilterService.InvalidGoal(
+              List.of(
+                  GoalFilter.Issue.error(
+                      "AND_GROUP_REQUIRED",
+                      "/goal/groups/" + i + "/type",
+                      "Use AND for active target groups.")));
+      }
+    }
+    if (Integer.valueOf(40).equals(minimumQuality)) {
+      if (!BaseRegistry.maximumQualityBreach(item.baseItemId()))
+        throw new GoalFilterService.InvalidGoal(
+            List.of(
+                GoalFilter.Issue.error(
+                    "UNSUPPORTED_QUALITY_BASE",
+                    "/goal/general/quality",
+                    "Quality 40 requires an amulet or ring.")));
+    } else if (qualityCatalyst != null) {
+      throw new GoalFilterService.InvalidGoal(
+          List.of(
+              GoalFilter.Issue.error(
+                  "QUALITY_40_REQUIRED",
+                  "/qualityCatalyst",
+                  "A selected catalyst requires the quality 40 goal.")));
+    }
     var simulator = workbench.baseSimulator(item);
     var violations = new ItemStateValidator(simulator.forItem(item).catalog()).validate(item);
     if (!violations.isEmpty()) {
@@ -69,22 +110,13 @@ public final class TestRouteService {
               .toList());
     }
     var initial = evaluate.apply(item);
-    var minimumQuality = goal.general().quality();
-    boolean usesCatalyst =
-        item.catalystQuality() != null || (minimumQuality != null && minimumQuality > 0);
-    boolean catalystRestriction =
-        usesCatalyst && goal.groups().stream().anyMatch(g -> !g.disabled());
-    if (initial == Status.UNKNOWN || initial == Status.UNSUPPORTED || catalystRestriction) {
-      // 활성 옵션 조건에서는 기폭제가 바꾼 표시값을 원래 목표 평가기가 검증할 수 없다.
+    if (initial == Status.UNKNOWN || initial == Status.UNSUPPORTED) {
       return new View(
           List.of(),
           List.of(),
           false,
           List.of(),
-          new Diagnostics(
-              catalystRestriction ? "CATALYST_RESTRICTION" : initial.name(),
-              settings.outcomeBudget(),
-              null));
+          new Diagnostics(initial.name(), settings.outcomeBudget(), null));
     }
     var context = new GoalFilter.Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     var goalCatalog = goals.catalog(context);
@@ -118,7 +150,8 @@ public final class TestRouteService {
               settings.outcomeBudget(),
               numerical != null && numerical.isEmpty(),
               minimumQuality,
-              numerical);
+              numerical,
+              qualityCatalyst);
     } else {
       var card = cards.get(cardIndex);
       cards = List.of(card);
@@ -132,7 +165,8 @@ public final class TestRouteService {
               numerical != null && numerical.isEmpty(),
               minimumQuality,
               steps,
-              numerical);
+              numerical,
+              qualityCatalyst);
       // 이 응답은 한 가지 지정된 경로에 한정되므로 다른 후보의 미탐색 여부는 영향을 주지 않는다.
       complete = true;
     }

@@ -492,7 +492,7 @@
       "ordinaryCatalyst": true,
       "refinedCatalyst": false,
       "catalystQuality": true,
-      "maximumQualityBreach": false,
+      "maximumQualityBreach": true,
       "socketExecutionMaximum": null,
       "divine": true
     },

@@ -14,6 +14,7 @@ import type { Initial } from './craftingApi'
 import type { AppliedItem, ConcreteItem } from './workbenchApi'
 import {
   baseWorkbenchAction,
+  catalystActionType,
   coupledModelsMatch,
   workbenchActionNames,
   workbenchCurrencyActions,
@@ -51,6 +52,8 @@ export type PlannedCurrency = {
   repeatUntilHit?: true
   currencyId: string
   omenIds: string[]
+  /** Exact material count on a single planned step. */
+  quantity?: number
   expectedUses?: number | null
   omensPerUse?: boolean
   maxUses?: number
@@ -103,6 +106,12 @@ export function validProjectedCurrencies(
         step.omenIds.every(
           (id: unknown) => typeof id === 'string' && id.length <= 160,
         ) &&
+        (step.quantity === undefined ||
+          (Number.isSafeInteger(step.quantity) &&
+            step.quantity > 0 &&
+            step.expectedUses === undefined &&
+            step.maxUses === undefined &&
+            !step.repeatUntilHit)) &&
         (step.repeatUntilHit === undefined ||
           (step.repeatUntilHit === true &&
             step.maxUses === undefined &&
@@ -148,7 +157,11 @@ export type Frame = {
   projectedChance?: ProjectedChance
   projectedOmenOutcomes?: ProjectedOmenOutcomes
   projectedWork?:
-    'DESECRATE_PREFIX' | 'DESECRATE_SUFFIX' | 'QUALITY_20' | 'QUALITY_40'
+    | 'DESECRATE_PREFIX'
+    | 'DESECRATE_SUFFIX'
+    | 'QUALITY_20'
+    | 'QUALITY_40'
+    | 'UNSPECIFIED_CATALYST_40'
   projectedCurrencies?: PlannedCurrency[]
   rulesetIdentity?: string
   state: ConcreteItem
@@ -183,6 +196,28 @@ export type Film = {
   sourceDocument?: string
   frames: Frame[]
   rulesetIdentity?: string
+}
+
+/** An untyped quality checkpoint is a plan. A later concrete catalyst application supersedes it. */
+export function hasUnspecifiedQuality(film: Film, cursor: number) {
+  for (let index = cursor; index >= 0; index--) {
+    const frame = film.frames[index]
+    if (!frame) return false
+    if (
+      frame.projectedWork === 'UNSPECIFIED_CATALYST_40' &&
+      frame.action === 'SESSION_PLAN'
+    )
+      return true
+    if (
+      catalystActionType(frame.action) ||
+      (Array.isArray(frame.projectedCurrencies) &&
+        frame.projectedCurrencies.some((step) =>
+          catalystActionType(workbenchCurrencyActions[step?.currencyId]),
+        ))
+    )
+      return false
+  }
+  return false
 }
 
 function unitProbability(value: unknown): value is number {

@@ -62,6 +62,8 @@ export type Goal = {
   groups: Array<Group>
 }
 export type CreateRequest = {
+  /** Selected support-test material. An unspecified quality operation omits the material. */
+  qualityCatalyst?: string
   version: 1
   clientRequestId: string
   start: Start

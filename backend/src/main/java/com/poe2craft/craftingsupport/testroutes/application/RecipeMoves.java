@@ -2,10 +2,13 @@ package com.poe2craft.craftingsupport.testroutes.application;
 
 import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
+import com.poe2craft.shared.crafting.domain.QualityLimitRules;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.AugmentCraftingRules;
+import com.poe2craft.shared.item.BaseRegistry;
+import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
@@ -54,6 +57,8 @@ final class RecipeMoves {
     ORDINARY,
     DIRECT_UPGRADE,
     LOW_PREPARATION,
+    /** 균열 접두를 붙일 자리를 마련할 때 실제로 지정한 제작 옵션이 제거된 분기다. */
+    QUALITY_CLEAR,
     LOW_CHAOS,
     LOW_EXALT,
     BONE,
@@ -626,6 +631,75 @@ final class RecipeMoves {
             null,
             upgrades ? Purpose.DIRECT_UPGRADE : Purpose.ORDINARY,
             Set.of()));
+  }
+
+  /** 특정 기폭제를 정하지 않고 상한 40에서 작업을 마쳤다는 제작지원 단계다. */
+  static final String QUALITY_WORK = "QUALITY_40";
+
+  /** 균열을 쓸 수 있는 베이스에 실제 최대 품질 접두가 있고 작업대가 그 상한을 검증한 경우다. */
+  static boolean qualityCapReady(ItemState item, ItemCatalog catalog) {
+    if (!BaseRegistry.maximumQualityBreach(item.baseItemId())
+        || !item.conditions().isEmpty()
+        || item.explicits().stream()
+            .noneMatch(m -> m.modifierId().equals(QualityLimitRules.BREACH_ID))) return false;
+    var limit = QualityLimitRules.describe(item, catalog);
+    return limit != null && limit.maximumQuality() >= 40;
+  }
+
+  /** 실제 베이스·상한·제작 한도에서 균열 준비, 접두 획득, 품질 작업 중 다음 단계만 제공한다. */
+  List<Choice> qualityPreparation(
+      ItemState item,
+      RouteCards.Card card,
+      Map<Integer, String> held,
+      Set<String> protectedIds,
+      WorkbenchCurrency catalyst) {
+    if (!BaseRegistry.maximumQualityBreach(item.baseItemId()) || !item.conditions().isEmpty())
+      return List.of();
+    var workbench = simulator.forItem(item);
+    if (qualityCapReady(item, workbench.catalog()))
+      return List.of(
+          new Choice(0, new Move(catalyst == null ? QUALITY_WORK : catalyst.name()), true, null));
+    if (item.rarity() != ItemState.Rarity.RARE) return rarityPreparation(0, item);
+    var result = new LinkedHashSet<Choice>();
+    var crafted =
+        item.explicits().stream()
+            .filter(m -> AugmentCraftingRules.crafted(m, workbench.catalog()))
+            .toList();
+    if (crafted.size() >= AugmentCraftingRules.craftedLimit(item)) {
+      // 두 제작 옵션이 함께 허용되는 기반이면 기존 목표를 유지하도록 한도를 먼저 높일 수 있다.
+      install(result, 0, item, "Astrids_Creativity");
+      for (var m : crafted) {
+        if (m.fractured() || protectedIds.contains(m.modifierId())) continue;
+        var side = workbench.catalog().find(m.modifierId()).orElseThrow().affixType();
+        for (var move :
+            List.of(
+                new Move(WorkbenchCurrency.ANNULMENT.name()),
+                new Move(
+                    WorkbenchCurrency.ANNULMENT,
+                    side == AffixType.PREFIX
+                        ? WorkbenchOmen.SINISTRAL_ANNULMENT
+                        : WorkbenchOmen.DEXTRAL_ANNULMENT)))
+          result.add(
+              new Choice(0, move, true, null, Purpose.QUALITY_CLEAR, Set.of(m.modifierId())));
+      }
+    } else {
+      int capTarget =
+          card.options().stream()
+              .filter(o -> o.tiers().containsKey(QualityLimitRules.BREACH_ID))
+              .mapToInt(RouteCards.Option::number)
+              .findFirst()
+              .orElse(0);
+      replacement(
+          result,
+          item,
+          capTarget,
+          WorkbenchCurrency.ESSENCE_BREACH,
+          AffixType.PREFIX,
+          validator.slots(item),
+          held.values(),
+          protectedIds);
+    }
+    return List.copyOf(result);
   }
 
   /** 기존 옵션을 보호하는 제거 징조와, 같은 쪽에 제거할 더미를 먼저 추가하는 방법을 살핀다. */

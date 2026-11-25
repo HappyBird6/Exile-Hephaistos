@@ -10,7 +10,6 @@ const ringImplicitIds = Object.fromEntries(
       'implicitModifierId' in b ? b.implicitModifierId : '',
     ]),
 )
-import { topBase, topBaseKey } from './topBases'
 import { jewelEffect } from './basicJewel'
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
@@ -69,12 +68,7 @@ export function verifiedCatalystQuality(
     catalystBase(state.baseItemId) &&
     cap !== null &&
     state.catalystQuality.amount <=
-      (state.baseItemId === 'Metadata/Items/Amulets/FourAmulet9' ||
-      ['rings', 'amulets'].includes(
-        topBase(topBaseKey(state.baseItemId) ?? '')?.family ?? '',
-      )
-        ? 40
-        : cap) +
+      (basePolicy(state.baseItemId)?.maximumQualityBreach ? 40 : cap) +
         (state.qualityInfused ? 10 : 0)
   )
 }

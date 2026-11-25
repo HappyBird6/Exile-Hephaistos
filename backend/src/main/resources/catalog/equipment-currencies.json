@@ -1182,6 +1182,28 @@
         "ailment"
       ],
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLightningDamageIgnites1"
+    },
+    {
+      "id": "amulet:prefix:essence-maximum-quality",
+      "name": "Breachlord's",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "LocalMaximumQuality"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "+20% to Maximum Quality",
+      "stats": [
+        {
+          "id": "local_maximum_quality_+",
+          "min": 20,
+          "max": 20
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceBreach"
     }
   ],
   "targets": {
@@ -1467,6 +1489,20 @@
       ],
       "SOVEREIGN_ALLOY": [
         "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Rings/FourRing1": {
+      "ESSENCE_BREACH": [
+        "amulet:prefix:essence-maximum-quality"
+      ],
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-maximum-runic-ward1"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-attack-speed-ring1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
       ]
     },
     "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": {
@@ -3696,17 +3732,11 @@
       "SOVEREIGN_ALLOY": [
         "stocky-mitts:prefix:alloy-local-runic-ward"
       ]
-    },
-    "Metadata/Items/Rings/FourRing1": {
-      "RUNIC_ALLOY": [
-        "equipment:prefix:alloy-maximum-runic-ward1"
-      ],
-      "SWIFT_ALLOY": [
-        "equipment:suffix:alloy-attack-speed-ring1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:prefix:alloy-effect-of-resistance-mods1"
-      ]
     }
+  },
+  "previousSnapshots": {
+    "Metadata/Items/Rings/FourRing1": [
+      "equipment-currency-814c7ff8809e4a58c4435d7b9a6f075d76d0e0a23080907eea0cb8dd2a9c9ebb"
+    ]
   }
 }

@@ -7,6 +7,8 @@ import { itemCardMessages } from '../itemCardMessages'
 import type { Definition } from '../craftingApi'
 import { concreteInitial } from '../workbenchApi'
 import { HistoryCard } from './HistoryCard'
+import { qualityWorkMessages } from '../method-search/qualityWorkMessages'
+import type { Film } from '../workbenchHistory'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import { acquisitionRouteFilm } from '../method-search/acquisitionRouteFilm'
 afterEach(() => cleanup())
@@ -323,3 +325,68 @@ it.each(Object.entries(spiritSentences))(
     expect(stored.frames[3]!.state).toEqual(divined)
   },
 )
+
+it('restores untyped quality after the checkpoint until a later manual catalyst records its type', async () => {
+  await setLocale('ko')
+  const state = {
+    ...concreteInitial(initialFixture),
+    baseItemId: 'Metadata/Items/Amulets/FourAmulet9',
+    catalystQuality: { type: 'NECROTIC' as const, amount: 20 },
+  }
+  const rulesetIdentity = initialFixture.rulesetIdentity
+  const film: Film = {
+    id: 'continued',
+    createdAt: '',
+    rulesetIdentity,
+    frames: [
+      { action: null, state, rulesetIdentity },
+      {
+        action: 'SESSION_PLAN',
+        state,
+        rulesetIdentity,
+        projectedCurrencies: [],
+        projectedWork: 'UNSPECIFIED_CATALYST_40',
+      },
+      {
+        action: 'SESSION_PLAN',
+        state,
+        rulesetIdentity,
+        projectedCurrencies: [{ currencyId: 'Exalted_Orb', omenIds: [] }],
+      },
+      {
+        action: 'CATALYST_NECROTIC',
+        state: { ...state, catalystQuality: { type: 'NECROTIC', amount: 21 } },
+        rulesetIdentity,
+      },
+    ],
+  }
+  const client = new QueryClient()
+  client.setQueryData(['crafting', 'initial', 'solar', 82, 'manual'], {
+    ...initialFixture,
+    state: { ...initialFixture.state, baseItemId: state.baseItemId },
+  })
+  const view = (index: number, record = film) => (
+    <QueryClientProvider client={client}>
+      <HistoryCard film={record} frame={record.frames[index]!} />
+    </QueryClientProvider>
+  )
+  const { rerender } = render(view(0))
+  expect(screen.getByText('퀄리티 (괴사의 기폭제): +20%')).toBeVisible()
+  for (const index of [1, 2]) {
+    rerender(view(index))
+    expect(screen.getByText(qualityWorkMessages.ko.completed)).toBeVisible()
+    expect(screen.queryByText('퀄리티 (괴사의 기폭제): +20%')).toBeNull()
+  }
+  rerender(view(3))
+  expect(screen.getByText('퀄리티 (괴사의 기폭제): +21%')).toBeVisible()
+  expect(screen.queryByText(qualityWorkMessages.ko.completed)).toBeNull()
+  expect(film.frames[2]!.state.catalystQuality?.amount).toBe(20)
+  const legacy = structuredClone(film)
+  legacy.frames[1]!.projectedWork = 'QUALITY_40'
+  for (const index of [1, 2]) {
+    rerender(view(index, legacy))
+    expect(screen.getByText('퀄리티 (괴사의 기폭제): +20%')).toBeVisible()
+    expect(screen.queryByText(qualityWorkMessages.ko.completed)).toBeNull()
+  }
+  await setLocale('en')
+})

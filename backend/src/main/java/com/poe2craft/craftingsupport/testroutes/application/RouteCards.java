@@ -63,7 +63,7 @@ public final class RouteCards {
 
   private final ItemCatalog itemCatalog;
 
-  /** 품질·신성화가 별도 표시값 투영을 요구하는 상태인지와 이 베이스의 강도 제공 옵션을 보관한다. */
+  /** 기폭제 효과를 더하지 않은 목표 범위를 검사할 수 있는지와 이 베이스의 강도 제공 옵션을 보관한다. */
   private final boolean checkTierRanges;
 
   private final List<ModifierDefinition> magnitudeProviders;
@@ -155,10 +155,8 @@ public final class RouteCards {
     for (var mod : start.explicits()) held.put(mod.modifierId(), mod);
     itemCatalog = simulator.catalog();
     checkTierRanges =
-        start.catalystQuality() == null
-            && start.sanctification() == null
+        start.sanctification() == null
             && !start.observedSanctified()
-            && (goal.general().quality() == null || goal.general().quality() == 0)
             && groups.stream()
                 .flatMap(g -> g.entries().stream())
                 .anyMatch(

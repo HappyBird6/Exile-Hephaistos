@@ -3,6 +3,8 @@ import { workbenchCurrencyActions, workbenchActionNames } from './workbenchApi'
 import type { WorkbenchAction } from './workbenchApi'
 import type { CatalystQuality } from './catalystQuality'
 import { catalystTypes } from './catalystQuality'
+import { qualityWorkMessages } from './method-search/qualityWorkMessages'
+import type { ConcreteItem } from './workbenchApi'
 import { isBasicJewel } from './basicJewel'
 
 // Display adapters join only on stable IDs. Never replace catalog or request fields.
@@ -50,4 +52,28 @@ export function localizedCatalystQuality(
     },
     locale,
   )
+}
+
+/** 아이템 카드에서 확인된 기폭제 상태 또는 종류를 정하지 않은 제작 체크포인트를 표시한다. */
+export function sessionCatalystProperty(
+  state: ConcreteItem,
+  unspecified: boolean,
+  locale: Locale,
+) {
+  if (unspecified)
+    return [
+      { id: 'planned-quality', text: qualityWorkMessages[locale].completed },
+    ]
+  return state.catalystQuality
+    ? [
+        {
+          id: 'catalyst-quality',
+          text: localizedCatalystQuality(
+            state.catalystQuality,
+            state.baseItemId,
+            locale,
+          ),
+        },
+      ]
+    : []
 }

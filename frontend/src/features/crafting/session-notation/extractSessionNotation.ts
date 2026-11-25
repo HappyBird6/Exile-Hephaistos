@@ -135,7 +135,7 @@ export function extractSessionNotation(
           currencyId: craft.currencyId,
           consumedOmenIds: craft.omenIds,
           omensKnown: true,
-          uses: 1,
+          uses: craft.quantity ?? 1,
           repeated: false,
           ...(craft.expectedUses !== undefined
             ? { expectedUses: craft.expectedUses }

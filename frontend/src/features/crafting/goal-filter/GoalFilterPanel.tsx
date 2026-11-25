@@ -1,4 +1,6 @@
 import { qualityWorkGoal } from './qualityWorkGoal'
+import { TestQualityControl } from './TestQualityControl'
+import { testRouteGoal, type TestQualityEditor } from './testRouteGoal'
 import type { ReactNode } from 'react'
 import { supportLayoutMessages } from '../supportLayoutMessages'
 import {
@@ -108,6 +110,7 @@ export function GoalFilterPanel({
   compact = false,
   headerActions,
   allowQualityWork = true,
+  testQuality,
 }: {
   adapter: GoalFilterAdapter
   context: Context
@@ -125,6 +128,7 @@ export function GoalFilterPanel({
   compact?: boolean
   headerActions?: ReactNode
   allowQualityWork?: boolean
+  testQuality?: TestQualityEditor | undefined
 }) {
   const t = goalFilterMessages[language]
   const actions = goalFilterActions[language]
@@ -170,11 +174,15 @@ export function GoalFilterPanel({
       : undefined
   const implicitGoal = hasImplicitGoal(goal)
   const totalGoal = hasActiveTotalGoal(goal, catalog.data)
+  const calculationGoal = testQuality
+    ? testRouteGoal(goal, allowQualityWork && testQuality.choice !== null)
+    : qualityWorkGoal(goal, allowQualityWork)
+  const invalidNumber = Object.values(invalidFields).some(Boolean)
   const validInput =
     !implicitGoal &&
     !totalGoal &&
-    hasCompleteGoal(qualityWorkGoal(goal, allowQualityWork)) &&
-    !Object.values(invalidFields).some(Boolean)
+    hasCompleteGoal(calculationGoal) &&
+    !invalidNumber
   const recovery = useCatalogRecovery(
     adapter,
     context,
@@ -186,7 +194,7 @@ export function GoalFilterPanel({
   const validation = useGoalFilterValidation(
     adapter,
     context,
-    qualityWorkGoal(goal, allowQualityWork),
+    calculationGoal,
     validInput &&
       !!catalog.data &&
       catalog.data.catalogVersion === goal.catalogVersion,
@@ -268,7 +276,7 @@ export function GoalFilterPanel({
       }}
     >
       <PickerSearchInput
-        label={craftStartMessages[language].add}
+        label={testQuality ? undefined : craftStartMessages[language].add}
         aria-label={t.search}
         inputRef={searchRef}
         type="search"
@@ -320,21 +328,23 @@ export function GoalFilterPanel({
       />
       {searchOpen && (
         <PickerPopover anchor={searchRef}>
-          <div className="goal-filter-search-options" hidden={!searchOpen}>
-            <label>
-              {t.group}
-              <select
-                value={targetId ?? ''}
-                onChange={(e) => setTarget(e.target.value)}
-              >
-                {goal.groups.map((g, i) => (
-                  <option key={g.id} value={g.id}>
-                    {i + 1}: {groupPresentation(g)}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+          {!testQuality && (
+            <div className="goal-filter-search-options" hidden={!searchOpen}>
+              <label>
+                {t.group}
+                <select
+                  value={targetId ?? ''}
+                  onChange={(e) => setTarget(e.target.value)}
+                >
+                  {goal.groups.map((g, i) => (
+                    <option key={g.id} value={g.id}>
+                      {i + 1}: {groupPresentation(g)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          )}
           {catalog.isPending && <p role="status">{t.loading}</p>}
           {catalog.isError && <p role="alert">{t.error}</p>}
           <ul
@@ -413,24 +423,32 @@ export function GoalFilterPanel({
         <h3>{compact ? craftStartMessages[language].target : t.title}</h3>
         {headerActions}
         {adapter.mock && <p>{t.mock}</p>}
-        <label
-          className="quality-work-toggle"
-          title={supportLayoutMessages[language].qualityHelp}
-        >
-          <input
-            type="checkbox"
-            disabled={!allowQualityWork}
-            aria-label={supportLayoutMessages[language].qualityHelp}
-            checked={allowQualityWork && (goal.general.quality ?? 0) > 20}
-            onChange={(event) => {
-              onValidityChange('quality', false)
-              edit((g) => {
-                g.general.quality = event.target.checked ? 40 : null
-              })
-            }}
+        {testQuality ? (
+          <TestQualityControl
+            quality={testQuality}
+            allowed={allowQualityWork}
+            locale={language}
           />
-          <span>{supportLayoutMessages[language].quality}</span>
-        </label>
+        ) : (
+          <label
+            className="quality-work-toggle"
+            title={supportLayoutMessages[language].qualityHelp}
+          >
+            <input
+              type="checkbox"
+              disabled={!allowQualityWork}
+              aria-label={supportLayoutMessages[language].qualityHelp}
+              checked={allowQualityWork && (goal.general.quality ?? 0) > 20}
+              onChange={(event) => {
+                onValidityChange('quality', false)
+                edit((g) => {
+                  g.general.quality = event.target.checked ? 40 : null
+                })
+              }}
+            />
+            <span>{supportLayoutMessages[language].quality}</span>
+          </label>
+        )}
       </header>
       <div className="goal-filter-layout">
         {!compact && (
@@ -492,95 +510,112 @@ export function GoalFilterPanel({
           {goal.groups.map((group, index) => (
             <fieldset
               key={group.id}
-              className={`goal-filter-group${group.disabled ? ' goal-filter-disabled' : ''}`}
+              className={
+                testQuality
+                  ? 'test-goal-options'
+                  : `goal-filter-group${group.disabled ? ' goal-filter-disabled' : ''}`
+              }
             >
-              <legend className="goal-filter-sr-only">
-                {t.group} {index + 1}
-              </legend>
-              <div className="goal-filter-group-controls">
-                <label className="goal-filter-group-type">
-                  <span className="goal-filter-group-title" aria-hidden="true">
-                    {actions.stats}
-                  </span>
-                  <span className="goal-filter-sr-only">
+              {!testQuality && (
+                <>
+                  <legend className="goal-filter-sr-only">
                     {t.group} {index + 1}
-                  </span>
-                  <select
-                    title={groupHelp(group)}
-                    value={groupPresentation(group)}
-                    onChange={(e) =>
-                      chooseGroupType(
-                        group.id,
-                        e.target.value as GroupPresentation,
-                      )
-                    }
-                  >
-                    {(['AND', 'OR', 'COUNT', 'NOT'] as const).map((type) => (
-                      <option key={type} value={type}>
-                        {type === 'OR' ? 'OR' : setup.groups[type]}
-                      </option>
-                    ))}
-                    <optgroup label={setup.advanced}>
-                      {groupTypes
-                        .filter(
-                          (type) => !['AND', 'COUNT', 'NOT'].includes(type),
-                        )
-                        .map((type) => (
-                          <option key={type} value={type}>
-                            {setup.groups[type]}
-                          </option>
-                        ))}
-                    </optgroup>
-                  </select>
-                </label>
-                <label className="goal-filter-toggle" title={t.active}>
-                  <input
-                    type="checkbox"
-                    checked={!group.disabled}
-                    onChange={(e) =>
-                      edit((g) => {
-                        g.groups[index]!.disabled = !e.target.checked
-                      })
-                    }
-                  />
-                  <span className="goal-filter-sr-only">{t.active}</span>
-                </label>
-                <button
-                  type="button"
-                  className="goal-filter-icon"
-                  aria-label={
-                    collapsedByGroupId[group.id] ? t.expand : t.collapse
-                  }
-                  title={collapsedByGroupId[group.id] ? t.expand : t.collapse}
-                  aria-expanded={!collapsedByGroupId[group.id]}
-                  aria-controls={`goal-group-${group.id}`}
-                  onClick={() => collapse(group.id)}
-                >
-                  <span aria-hidden="true">
-                    {collapsedByGroupId[group.id] ? '▸' : '▾'}
-                  </span>
-                </button>
-                <button
-                  type="button"
-                  className="goal-filter-icon"
-                  aria-label={`${t.remove} ${t.group} ${index + 1}`}
-                  title={`${t.remove} ${t.group} ${index + 1}`}
-                  onClick={() => {
-                    edit((g) => {
-                      g.groups.splice(index, 1)
-                    })
-                    addGroupRef.current?.focus()
-                    setSearchOpen(false)
-                  }}
-                >
-                  <span aria-hidden="true">×</span>
-                </button>
-              </div>
+                  </legend>
+                  <div className="goal-filter-group-controls">
+                    <label className="goal-filter-group-type">
+                      <span
+                        className="goal-filter-group-title"
+                        aria-hidden="true"
+                      >
+                        {actions.stats}
+                      </span>
+                      <span className="goal-filter-sr-only">
+                        {t.group} {index + 1}
+                      </span>
+                      <select
+                        title={groupHelp(group)}
+                        value={groupPresentation(group)}
+                        onChange={(e) =>
+                          chooseGroupType(
+                            group.id,
+                            e.target.value as GroupPresentation,
+                          )
+                        }
+                      >
+                        {(['AND', 'OR', 'COUNT', 'NOT'] as const).map(
+                          (type) => (
+                            <option key={type} value={type}>
+                              {type === 'OR' ? 'OR' : setup.groups[type]}
+                            </option>
+                          ),
+                        )}
+                        <optgroup label={setup.advanced}>
+                          {groupTypes
+                            .filter(
+                              (type) => !['AND', 'COUNT', 'NOT'].includes(type),
+                            )
+                            .map((type) => (
+                              <option key={type} value={type}>
+                                {setup.groups[type]}
+                              </option>
+                            ))}
+                        </optgroup>
+                      </select>
+                    </label>
+                    <label className="goal-filter-toggle" title={t.active}>
+                      <input
+                        type="checkbox"
+                        checked={!group.disabled}
+                        onChange={(e) =>
+                          edit((g) => {
+                            g.groups[index]!.disabled = !e.target.checked
+                          })
+                        }
+                      />
+                      <span className="goal-filter-sr-only">{t.active}</span>
+                    </label>
+                    <button
+                      type="button"
+                      className="goal-filter-icon"
+                      aria-label={
+                        collapsedByGroupId[group.id] ? t.expand : t.collapse
+                      }
+                      title={
+                        collapsedByGroupId[group.id] ? t.expand : t.collapse
+                      }
+                      aria-expanded={!collapsedByGroupId[group.id]}
+                      aria-controls={`goal-group-${group.id}`}
+                      onClick={() => collapse(group.id)}
+                    >
+                      <span aria-hidden="true">
+                        {collapsedByGroupId[group.id] ? '▸' : '▾'}
+                      </span>
+                    </button>
+                    <button
+                      type="button"
+                      className="goal-filter-icon"
+                      aria-label={`${t.remove} ${t.group} ${index + 1}`}
+                      title={`${t.remove} ${t.group} ${index + 1}`}
+                      onClick={() => {
+                        edit((g) => {
+                          g.groups.splice(index, 1)
+                        })
+                        addGroupRef.current?.focus()
+                        setSearchOpen(false)
+                      }}
+                    >
+                      <span aria-hidden="true">×</span>
+                    </button>
+                  </div>
+                </>
+              )}
               <div
                 id={`goal-group-${group.id}`}
                 hidden={collapsedByGroupId[group.id]}
               >
-                <p className="goal-filter-group-help">{groupHelp(group)}</p>
+                {!testQuality && (
+                  <p className="goal-filter-group-help">{groupHelp(group)}</p>
+                )}
                 {group.range && groupPresentation(group) !== 'OR' && (
                   <fieldset className="goal-filter-group-range">
                     <legend>
@@ -721,26 +756,28 @@ export function GoalFilterPanel({
             </fieldset>
           ))}
           {!goal.groups.length && <p>{t.noGroups}</p>}
-          <button
-            ref={addGroupRef}
-            className="goal-filter-add-group"
-            type="button"
-            onClick={() => {
-              const id = crypto.randomUUID()
-              edit((g) => {
-                g.groups.push({
-                  id,
-                  type: 'AND',
-                  disabled: false,
-                  range: null,
-                  entries: [],
+          {!testQuality && (
+            <button
+              ref={addGroupRef}
+              className="goal-filter-add-group"
+              type="button"
+              onClick={() => {
+                const id = crypto.randomUUID()
+                edit((g) => {
+                  g.groups.push({
+                    id,
+                    type: 'AND',
+                    disabled: false,
+                    range: null,
+                    entries: [],
+                  })
                 })
-              })
-              setTarget(id)
-            }}
-          >
-            + {t.addGroup}
-          </button>
+                setTarget(id)
+              }}
+            >
+              + {t.addGroup}
+            </button>
+          )}
         </div>
       </div>
       <div aria-live="polite">
@@ -770,7 +807,9 @@ export function GoalFilterPanel({
             {recovery.failed && !recovery.issues.length && <p>{t.error}</p>}
           </div>
         )}
-        {!validInput && !totalGoal && <p role="alert">{t.invalid}</p>}
+        {!testQuality && !validInput && !totalGoal && (
+          <p role="alert">{t.invalid}</p>
+        )}
         {catalog.data &&
           catalog.data.catalogVersion !== goal.catalogVersion && (
             <p>{t.stale}</p>

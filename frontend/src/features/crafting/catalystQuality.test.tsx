@@ -53,7 +53,7 @@ it('selects a typed Ring film from an active Solar film without losing either ro
   }
   const ring = {
     ...concreteInitial(ringInitial as unknown as Initial),
-    catalystQuality: { type: 'REAVER' as const, amount: 20 },
+    catalystQuality: { type: 'REAVER' as const, amount: 40 },
   }
   const repo = new LocalFilmRepository(localStorage)
   repo.save(
@@ -96,7 +96,7 @@ it('selects a typed Ring film from an active Solar film without losing either ro
   fireEvent.click(
     screen.getByRole('button', { name: 'Continue in simulation' }),
   )
-  await screen.findByText('Quality (Reaver): +20%')
+  await screen.findByText('Quality (Reaver): +40%')
   expect(repo.load().active).toBe('typed-ring')
   expect(repo.load().films[0]!.frames[0]!.state).toEqual(ring)
   expect(repo.load().films[1]!.frames[0]!.state).toEqual(root)

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "rulesetVersion": "reviewed-equipment-0.5.5-v16",
+  "rulesetVersion": "reviewed-equipment-0.5.5-v17",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "provenance": "Bundled source-reviewed project snapshots; retrieval dates differ by resource. No verified current GGG season or patch mapping. See docs/catalog-data-maintenance.md.",
@@ -24,7 +24,7 @@
     "catalog/augments.json": "2c08820fc6c3a715799391c3928f3f50d59e671d4603188751d9ed642e656587",
     "catalog/austere-garb/catalog.json": "67379e6744ad3c52920b03ab0a08fc3f6fb6b317ca11db15b0acb8cbcc03713c",
     "catalog/azure-amulet/catalog.json": "39bc4642a9b96fff1e0fbf6942cdd752598563ca66498778e0dd8fe7a7c37a2d",
-    "catalog/base-policies.json": "bfec2996d8c4f447d7e72b9aa595ee8b00c182daf90e245369d609a1a2a3df49",
+    "catalog/base-policies.json": "f6ea033983590aae1a12b2befec271a179c8734e8e9a0abdbf99e985834e145d",
     "catalog/biostatic-ring/catalog.json": "6e4cfb305e932accd020f48e814e9b6c042b83461806f132160269522c37c430",
     "catalog/blacksteel-crest-shield/catalog.json": "126487f67f3e6c42ddb938ba5ece2b379dcdd51619fc7e9790fc7ec61cebe804",
     "catalog/blacksteel-gauntlets/catalog.json": "2a533d692cc8bcf2d35a9eb2c1676d532d4e4caba6e38a22004880d1a0745594",
@@ -62,7 +62,7 @@
     "catalog/emerald-ring/catalog.json": "553e739d1e8f0851925b25d9e299507abc77d332ced5561ae0848b01faa9432f",
     "catalog/emerald/catalog.json": "0588611fbd1ab5cd1c2b36755a9242d3b42bc3d95521a9b09c5b633c20421b71",
     "catalog/engraved-crossbow/catalog.json": "40f81153decb7ad24fc786f1cbf0a4a00ec16fc4ecbe976a18a85df75a4b6770",
-    "catalog/equipment-currencies.json": "1bcdaa49679607f2961d28090f67bd53a665c92f63b302d6e46be77d27b6595a",
+    "catalog/equipment-currencies.json": "3160464fd8c4a15bf2adbe12a4bcfc8b649be02cf0d7c0750b59c3d06f63600d",
     "catalog/faithful-leggings/catalog.json": "6dc3243538c2e77b6a69c1ff620bdf765ffc9b01632d4942419cc099773bdccb",
     "catalog/falconers-jacket/catalog.json": "fc0068703439c32f18328e005814708f2c8fa169f60da5e92d6bf07feb1ff211",
     "catalog/fanatic-bow/catalog.json": "8532b097c52c979272fed6702147e5f20c7c76267e7e89fc1c76afe146b3603e",
@@ -218,7 +218,7 @@
     "crafting/goalfilter/definitions-v4-readonly.json": "2eaf293caf99cd63415e4e52badd98cee3e2730d72c2fc4130ebcaa6454d6e36",
     "crafting/goalfilter/definitions-v5-readonly.json": "01f0dcb28e930f5c6c1e511dd177f54f4ee46a430c764929d632312e9599be07",
     "crafting/registry-v2.json": "b50dd3578935532814aa47597e4ed46b309cc4c9eb88bf01e674b5b87615e5b7",
-    "crafting/supported-base-sets-v1.json": "29042686b98093f3a367c19f5f44c855c633a059bde7ce052ca49487ec91f7d6",
+    "crafting/supported-base-sets-v1.json": "8591ff24f67aef69a4358e804c32b4c885e3fbaa355093470799db86153b8b8b",
     "crafting/workbench-definitions-v1.json": "aa48efd5891408d7f1ff902e4f0de290a2ca60aab06192338dd3ffb8942a2dcc"
   }
 }

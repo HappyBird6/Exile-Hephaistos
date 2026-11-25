@@ -6,9 +6,5 @@ export function catalystCurrencyAction(
   currencyId: string,
 ): CatalystAction | null {
   const action = workbenchCurrencyActions[currencyId]
-  return action &&
-    /^(REFINED_)?CATALYST_/.test(action) &&
-    catalystActionType(action)
-    ? (action as CatalystAction)
-    : null
+  return catalystActionType(action) ? (action as CatalystAction) : null
 }

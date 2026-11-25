@@ -3,6 +3,7 @@ package com.poe2craft.shared.crafting.domain;
 import static org.assertj.core.api.Assertions.*;
 
 import com.poe2craft.shared.crafting.application.CatalogCraftingService;
+import com.poe2craft.shared.item.EquipmentCurrencyCatalog;
 import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
@@ -271,6 +272,38 @@ class IronRingEssenceTest {
                     new Random(17))
                 .applied())
         .isFalse();
+  }
+
+  @Test
+  void breachRaisesIronRingQualityAndPreservesItsPublishedSnapshot() {
+    var current = EquipmentCurrencyCatalog.enrich(catalog);
+    assertThat(current.compatibleSnapshotIds())
+        .contains(
+            "equipment-currency-814c7ff8809e4a58c4435d7b9a6f075d76d0e0a23080907eea0cb8dd2a9c9ebb");
+    assertThat(current.find(QualityLimitRules.BREACH_ID).orElseThrow().weight()).isZero();
+    var before =
+        new ItemState(
+            current.metadata().snapshotId(),
+            current.base().id(),
+            82,
+            ItemState.Rarity.RARE,
+            fixedImplicit(),
+            state(82, ItemState.Rarity.RARE, "iron-ring:prefix:hale").explicits(),
+            Set.of());
+    var workbench = simulator.forCatalog(current);
+    var breach = workbench.apply(before, WorkbenchCurrency.ESSENCE_BREACH, Set.of(), new Random(1));
+    assertThat(breach.applied()).isTrue();
+    assertThat(breach.qualityLimit().maximumQuality()).isEqualTo(40);
+    var quality =
+        workbench.apply(breach.state(), WorkbenchCurrency.CATALYST_XOPH, Set.of(), new Random(2));
+    assertThat(quality.applied()).isTrue();
+    assertThat(quality.state().catalystQuality().amount()).isEqualTo(40);
+    var removed =
+        workbench.apply(quality.state(), WorkbenchCurrency.ANNULMENT, Set.of(), new Random(3));
+    assertThat(removed.state().explicits()).isEmpty();
+    assertThat(removed.qualityLimit().maximumQuality()).isEqualTo(20);
+    assertThat(removed.state().catalystQuality()).isEqualTo(quality.state().catalystQuality());
+    assertThat(new ItemStateValidator(current).validate(removed.state())).isEmpty();
   }
 
   @Test

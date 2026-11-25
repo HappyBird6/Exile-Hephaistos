@@ -17,7 +17,13 @@ vi.mock('../session-history/SessionOverviewPage', () => ({
     <>
       <h1>{source.film.title}</h1>
       <p>{source.film.frames.length} frames</p>
-      <p>{source.film.frames.at(-1)?.projectedCurrencies?.[0]?.currencyId}</p>
+      <p>
+        {source.film.frames.at(-1)?.projectedCurrencies?.[0]?.currencyId ??
+          source.film.frames.at(-1)?.projectedWork}
+      </p>
+      {source.film.frames.at(-1)?.projectedCurrencies?.[0]?.quantity && (
+        <p>×{source.film.frames.at(-1)?.projectedCurrencies?.[0]?.quantity}</p>
+      )}
       <a href={source.backHref}>Return</a>
     </>
   ),
@@ -80,17 +86,22 @@ it('opens the selected session directly from its cached film', async () => {
   expect(fetch).not.toHaveBeenCalled()
 })
 
-it('keeps a saved total overview from recomputing a retired goal', async () => {
-  const legacy = structuredClone(request)
-  legacy.goal.groups[0]!.entries[0]!.statId =
-    'hephaistos:v1:pseudo:total_fire_resistance'
-  saveRequest(legacy)
-  const fetch = vi.fn()
-  vi.stubGlobal('fetch', fetch)
-  await openOverview()
-  expect(screen.getByRole('status')).toHaveTextContent('Not available')
-  expect(fetch).not.toHaveBeenCalled()
-})
+it.each(['total', 'NOT'])(
+  'keeps a saved overview from recomputing a retired %s goal',
+  async (retired) => {
+    const legacy = structuredClone(request)
+    if (retired === 'NOT') legacy.goal.groups[0]!.type = 'NOT'
+    else
+      legacy.goal.groups[0]!.entries[0]!.statId =
+        'hephaistos:v1:pseudo:total_fire_resistance'
+    saveRequest(legacy)
+    const fetch = vi.fn()
+    vi.stubGlobal('fetch', fetch)
+    await openOverview()
+    expect(screen.getByRole('status')).toHaveTextContent('Not available')
+    expect(fetch).not.toHaveBeenCalled()
+  },
+)
 
 const result = {
   complete: true,
@@ -216,5 +227,62 @@ it.each([
     await openOverview(href + '&grades=3')
     expect(await screen.findByText(message)).toBeVisible()
     expect(screen.queryByText('Exalted_Orb')).toBeNull()
+  },
+)
+
+it.each([undefined, 'Flesh_Catalyst'])(
+  'reopens the quality plan including %s across search and fixed grade replay',
+  async (qualityCatalyst) => {
+    const saved = structuredClone(request)
+    saved.goal.general.quality = 40
+    if (qualityCatalyst) saved.qualityCatalyst = qualityCatalyst
+    saveRequest(saved)
+    const action = {
+      action: qualityCatalyst ? 'CATALYST_FLESH' : 'QUALITY_40',
+      expectedUses: qualityCatalyst ? 40 : null,
+      acquired: [],
+      lost: [],
+      omens: [],
+    }
+    const baseRoute = result.routes[1]!
+    const withQuality = {
+      ...baseRoute,
+      steps: [...baseRoute.steps, action],
+      stateIndices: [0, 0],
+    }
+    const base = { ...result, routes: [result.routes[0], withQuality] }
+    const replay = {
+      ...result,
+      cards: [result.cards[1]],
+      routes: [
+        {
+          ...withQuality,
+          cardIndex: 0,
+          steps: [{ ...baseRoute.steps[0], action: 'GREATER_EXALTED' }, action],
+        },
+      ],
+    }
+    const fetch = vi.fn(async (url: string, init: RequestInit) => {
+      const body = JSON.parse(init.body as string)
+      expect(body.goal.general.quality).toBe(40)
+      if (qualityCatalyst) expect(body.qualityCatalyst).toBe(qualityCatalyst)
+      else expect(body).not.toHaveProperty('qualityCatalyst')
+      return new Response(
+        JSON.stringify(url.endsWith('/grade') ? replay : base),
+        {
+          headers: {
+            [rulesetHeader]: request.start.provenance.rulesetIdentity,
+          },
+        },
+      )
+    })
+    vi.stubGlobal('fetch', fetch)
+    await openOverview(href + '&grades=2.1')
+    expect(await screen.findByText('3 frames')).toBeVisible()
+    expect(
+      screen.getByText(qualityCatalyst ?? 'UNSPECIFIED_CATALYST_40'),
+    ).toBeVisible()
+    if (qualityCatalyst) expect(screen.getByText('×40')).toBeVisible()
+    expect(fetch).toHaveBeenCalledTimes(2)
   },
 )

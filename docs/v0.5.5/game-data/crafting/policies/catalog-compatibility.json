@@ -348,5 +348,10 @@
     "time-lost-emerald": {},
     "time-lost-sapphire": {},
     "time-lost-diamond": {}
+  },
+  "previousEquipmentSnapshots": {
+    "Metadata/Items/Rings/FourRing1": [
+      "equipment-currency-814c7ff8809e4a58c4435d7b9a6f075d76d0e0a23080907eea0cb8dd2a9c9ebb"
+    ]
   }
 }

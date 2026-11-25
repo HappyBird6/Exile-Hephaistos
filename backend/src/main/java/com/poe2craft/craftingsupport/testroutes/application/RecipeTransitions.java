@@ -143,6 +143,11 @@ public final class RecipeTransitions {
     if (remainingOutcomes < 1) return Law.empty(false);
     var workbench = simulator.forItem(item);
     var catalog = workbench.catalog();
+    if (action.equals(RecipeMoves.QUALITY_WORK)) {
+      return omens.isEmpty() && RecipeMoves.qualityCapReady(item, catalog)
+          ? Law.deterministic(item)
+          : Law.empty(true);
+    }
     WorkbenchCurrency currency;
     try {
       currency = WorkbenchCurrency.valueOf(action);

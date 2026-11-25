@@ -6,9 +6,9 @@ import type { CatalystQuality } from './catalystQuality'
 export type CatalystAction =
   | `CATALYST_${keyof typeof catalystTypes}`
   | `REFINED_CATALYST_${keyof typeof catalystTypes}`
-export const catalystActionType = (action: WorkbenchAction) => {
-  const type = action.replace(/^REFINED_/, '').replace(/^CATALYST_/, '')
-  return Object.hasOwn(catalystTypes, type)
+export const catalystActionType = (action: string | null | undefined) => {
+  const type = action?.match(/^(?:REFINED_)?CATALYST_(.+)$/)?.[1]
+  return type && Object.hasOwn(catalystTypes, type)
     ? (type as CatalystQuality['type'])
     : null
 }

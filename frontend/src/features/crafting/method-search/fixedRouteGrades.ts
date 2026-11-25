@@ -115,6 +115,7 @@ export function fixedRouteQuery(
       request?.goal,
       route?.cardIndex,
       steps,
+      ...(request?.qualityCatalyst ? [request.qualityCatalyst] : []),
     ],
     queryFn:
       request && route && steps
@@ -129,6 +130,7 @@ export function fixedRouteQuery(
                 body: JSON.stringify({
                   item,
                   goal: request.goal,
+                  qualityCatalyst: request.qualityCatalyst,
                   cardIndex: route.cardIndex,
                   steps,
                 }),

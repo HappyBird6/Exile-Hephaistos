@@ -10,6 +10,7 @@ import {
   currencyId,
 } from '../session-notation/extractSessionNotation'
 import type { ConcreteItem } from '../workbenchApi'
+import { catalystActionType } from '../workbenchApi'
 import type { Film, Frame } from '../workbenchHistory'
 import {
   acquisitionPreview,
@@ -55,6 +56,17 @@ function materialId(action: string) {
   return currencyId(action) ?? action
 }
 
+/** Chosen catalysts are a fixed quantity, independent of the route's success probability. */
+export function qualityMaterialQuantity(step: AcquisitionStep) {
+  const count = step.expectedUses
+  return catalystActionType(step.action) &&
+    typeof count === 'number' &&
+    Number.isSafeInteger(count) &&
+    count > 0
+    ? count
+    : undefined
+}
+
 export function assumesEligibleReveal(step: AcquisitionStep) {
   return (
     (step.chance?.probability != null || !!step.chance?.probabilityBounds) &&
@@ -63,7 +75,9 @@ export function assumesEligibleReveal(step: AcquisitionStep) {
   )
 }
 
-function repeatUses(step: AcquisitionStep) {
+function materialUses(step: AcquisitionStep) {
+  const quantity = qualityMaterialQuantity(step)
+  if (quantity !== undefined) return { quantity }
   const count = step.expectedUses
   const limit = step.maxUses
   if (step.repeatUntilHit) {
@@ -96,12 +110,15 @@ export function acquisitionRouteCost(
 ) {
   return craftingStepCost(
     route.steps.map((step) => ({
+      ...(step.action === 'QUALITY_40'
+        ? { work: 'UNSPECIFIED_CATALYST_40' as const }
+        : {}),
       ...(step.action === 'REVEAL' ? { kind: 'reveal' as const } : {}),
       currencyId: materialId(step.action),
       omensPerUse: !!step.maxUses && step.omens.length > 0,
       consumedOmenIds: step.omens,
-      uses: 1,
-      ...repeatUses(step),
+      uses: qualityMaterialQuantity(step) ?? 1,
+      ...materialUses(step),
     })),
     snapshot,
   )
@@ -199,6 +216,16 @@ export function acquisitionRouteFilm(
       }
       if (!completedReveal(revealed, previous)) return null
       frames.push(revealed)
+    } else if (step.action === 'QUALITY_40') {
+      frames.push({
+        state,
+        action: 'SESSION_PLAN',
+        rulesetIdentity,
+        ...odds,
+        ...preview,
+        projectedCurrencies: [],
+        projectedWork: 'UNSPECIFIED_CATALYST_40',
+      })
     } else {
       frames.push({
         state,
@@ -214,7 +241,7 @@ export function acquisitionRouteFilm(
             currencyId: materialId(step.action),
             omenIds: step.omens,
             ...(step.maxUses && step.omens.length ? { omensPerUse: true } : {}),
-            ...repeatUses(step),
+            ...materialUses(step),
           },
         ],
       })

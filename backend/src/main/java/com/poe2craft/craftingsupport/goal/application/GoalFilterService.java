@@ -153,6 +153,11 @@ public final class GoalFilterService {
   }
 
   public GoalEvaluator.Evaluation evaluate(ItemState item, GoalFilter goal) {
+    return evaluate(item, goal, false);
+  }
+
+  /** 테스트 경로는 기폭제 보정 이전의 옵션을 평가하고 품질 40 체크포인트는 경로 탐색에서 확인한다. */
+  private GoalEvaluator.Evaluation evaluate(ItemState item, GoalFilter goal, boolean testRoute) {
     if (item == null)
       throw new InvalidGoal(
           List.of(Issue.error("INVALID_ITEM", "/item", "ItemState is required.")));
@@ -175,7 +180,9 @@ public final class GoalFilterService {
       }
     }
     // Quality can change displayed values. Never assume its source values are final display values.
-    if (item.catalystQuality() != null && goal.groups().stream().anyMatch(g -> !g.disabled())) {
+    if (!testRoute
+        && item.catalystQuality() != null
+        && goal.groups().stream().anyMatch(g -> !g.disabled())) {
       supported = false;
       issues.add(
           Issue.warning(
@@ -204,15 +211,7 @@ public final class GoalFilterService {
                   "The stat value cannot be established from this item."));
       }
     }
-    var general = goal.general();
-    var generalStatus =
-        general.itemLevel().contains(BigDecimal.valueOf(item.itemLevel()))
-                && general.rarities().contains(item.rarity())
-                && (general.quality() == null
-                    || general.quality()
-                        <= (item.catalystQuality() == null ? 0 : item.catalystQuality().amount()))
-            ? Status.MATCH
-            : Status.NO_MATCH;
+    var generalStatus = generalStatus(item, goal.general(), testRoute);
     var result = evaluator.evaluate(goal, generalStatus, observations, issues);
     if (supported) return result;
     return new GoalEvaluator.Evaluation(
@@ -230,28 +229,46 @@ public final class GoalFilterService {
     return state -> compiled.apply(state).status();
   }
 
+  /** 테스트 탭 전용 원본 수치 평가. 아이템에 이미 적용한 기폭제는 제작 상태와 스냅샷에 보존한다. */
+  public java.util.function.Function<ItemState, Status> compileTestRoute(
+      ItemState item, GoalFilter goal) {
+    var compiled = compileEvaluation(item, goal, true);
+    return state -> compiled.apply(state).status();
+  }
+
   /** Keeps every entry result for checkpoint classification without dropping the original AST. */
   public java.util.function.Function<ItemState, GoalEvaluator.Evaluation> compileEvaluation(
       ItemState item, GoalFilter goal) {
-    var initial = evaluate(item, goal);
+    return compileEvaluation(item, goal, false);
+  }
+
+  /** 최초·후속 판정에 동일한 수치 기준과 일반 조건을 적용한다. */
+  private java.util.function.Function<ItemState, GoalEvaluator.Evaluation> compileEvaluation(
+      ItemState item, GoalFilter goal, boolean testRoute) {
+    var initial = evaluate(item, goal, testRoute);
     if (initial.status() == Status.UNKNOWN || initial.status() == Status.UNSUPPORTED)
-      return state -> evaluate(state, goal);
+      return state -> evaluate(state, goal, testRoute);
     var context = new Context(item.snapshotId(), item.baseItemId(), item.itemLevel());
     var known = requiredStats(goal, index.knownStats(context));
     return state ->
         evaluator.evaluate(
             goal,
-            goal.general().itemLevel().contains(BigDecimal.valueOf(state.itemLevel()))
-                    && goal.general().rarities().contains(state.rarity())
-                    && (goal.general().quality() == null
-                        || goal.general().quality()
-                            <= (state.catalystQuality() == null
-                                ? 0
-                                : state.catalystQuality().amount()))
-                ? Status.MATCH
-                : Status.NO_MATCH,
+            generalStatus(state, goal.general(), testRoute),
             projection.project(state, known, true),
             List.of());
+  }
+
+  /** 기존 최소 품질은 상태에서 판정하며, 테스트 경로의 40 목표는 전이상의 체크포인트로 별도 판정한다. */
+  private static Status generalStatus(ItemState state, General general, boolean testRoute) {
+    var minimum = general.quality();
+    return general.itemLevel().contains(BigDecimal.valueOf(state.itemLevel()))
+            && general.rarities().contains(state.rarity())
+            && (minimum == null
+                || (testRoute && minimum == 40)
+                || minimum
+                    <= (state.catalystQuality() == null ? 0 : state.catalystQuality().amount()))
+        ? Status.MATCH
+        : Status.NO_MATCH;
   }
 
   /** A dependency closure, not a reduction of the submitted goal AST or its numeric values. */

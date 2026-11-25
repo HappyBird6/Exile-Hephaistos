@@ -75,7 +75,7 @@ export function SessionFlow({
             )
           : step.maxUses
             ? ` ×1–${step.maxUses}`
-            : step.repeated
+            : step.repeated || step.uses > 1
               ? ` × ${step.uses}`
               : '')
       )

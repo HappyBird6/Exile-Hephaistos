@@ -2,8 +2,8 @@ package com.poe2craft.craftingsupport.goal.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.poe2craft.craftingsupport.goal.api.dto.EvaluateRequest;
 import com.poe2craft.craftingsupport.goal.api.dto.GradeRouteRequest;
+import com.poe2craft.craftingsupport.goal.api.dto.TestRouteRequest;
 import com.poe2craft.craftingsupport.testroutes.application.TestRouteService;
 import com.poe2craft.shared.item.ItemStateWireDefaults;
 import java.util.Objects;
@@ -26,8 +26,13 @@ public final class TestRouteController {
   @PostMapping(consumes = "application/json")
   public TestRouteService.View calculate(@RequestBody JsonNode body) {
     ItemStateWireDefaults.normalizeOwned(body);
-    var input = reader.decode(body, EvaluateRequest.class);
-    return routes.calculate(input.item(), input.goal());
+    var input = reader.decode(body, TestRouteRequest.class);
+    return routes.calculate(
+        input.item(),
+        input.goal(),
+        null,
+        java.util.List.of(),
+        reader.qualityCatalyst(input.qualityCatalyst()));
   }
 
   /** 기본 경로 전체를 재탐색하지 않고 요청한 단계와 등급의 조합만 작업대 규칙으로 검증한다. */
@@ -45,6 +50,7 @@ public final class TestRouteController {
         input.item(),
         input.goal(),
         input.cardIndex(),
-        input.steps().stream().map(GradeRouteRequest.GradeStep::step).toList());
+        input.steps().stream().map(GradeRouteRequest.GradeStep::step).toList(),
+        reader.qualityCatalyst(input.qualityCatalyst()));
   }
 }

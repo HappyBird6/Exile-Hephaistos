@@ -354,8 +354,16 @@ export function gameDataOutputs(directory) {
       if (row.additional)
         equipmentTargets[id] = { ...equipmentTargets[id], ...row.additional }
   backend('catalog/equipment-currencies.json', {
-    definitions: refs(read('game-data/crafting/alloys/modifier-refs.json')),
+    definitions: refs([
+      ...new Set([
+        ...read('game-data/crafting/alloys/modifier-refs.json'),
+        ...Object.values(essenceBindings).flatMap((row) =>
+          Object.values(row.additional ?? {}).flat(),
+        ),
+      ]),
+    ]),
     targets: equipmentTargets,
+    previousSnapshots: compatibility.previousEquipmentSnapshots,
   })
   browser(
     'basicJewelLiquidTargets.json',

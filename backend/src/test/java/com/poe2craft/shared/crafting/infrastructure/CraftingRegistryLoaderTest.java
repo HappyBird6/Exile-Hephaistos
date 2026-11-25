@@ -34,6 +34,7 @@ import org.junit.jupiter.api.Test;
  *       scopes}(scopes). 반환: {@code JsonNode}. 사용하는 예외: {@code IOException}.
  *   <li>{@code canonical(node)}: 정규형 처리에서 {@code node.isObject}, {@code M.createObjectNode}을(를)
  *       사용한다. 입력: {@code node}(노드). 반환: {@code JsonNode}.
+ *   <li>{@code digest(node)}: 공개 JSON의 배열 순서와 모든 값을 포함한 SHA-256을 반환한다.
  *   <li>{@code publicRegistryRetainsEveryValueAndArrayOrder()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
  *       비교한다. 사용하는 예외: {@code Exception}.
  *   <li>{@code publicRegistryDoesNotExposeRetiredCollectionReports()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
@@ -117,6 +118,12 @@ class CraftingRegistryLoaderTest {
     return node;
   }
 
+  private static String digest(JsonNode node) throws Exception {
+    return HexFormat.of()
+        .formatHex(
+            MessageDigest.getInstance("SHA-256").digest(M.writeValueAsBytes(canonical(node))));
+  }
+
   @Test
   void publicRegistryRetainsEveryValueAndArrayOrder() throws Exception {
     var registry = CraftingRegistryLoader.load();
@@ -146,6 +153,19 @@ class CraftingRegistryLoaderTest {
         M.readTree(
             getClass().getResourceAsStream("/crafting-registry-v25-original-fragments.json"));
     var entries = (ArrayNode) registry.path("entries");
+    // v17에서 철 반지만 두 번째에 추가됐다. 나머지 대상 41개는 v16 공개 배열 그대로여야 한다.
+    var breachBases =
+        (ArrayNode)
+            entries
+                .valueStream()
+                .filter(entry -> "Essence_of_the_Breach".equals(entry.path("id").asText()))
+                .findFirst()
+                .orElseThrow()
+                .get("supportedBases");
+    assertEquals(42, breachBases.size());
+    assertEquals("ring", breachBases.remove(1).asText());
+    assertEquals(
+        "055f68c78416bdb672268d328ae1e4edbe995207d232b42bc8281211d2bebfd3", digest(breachBases));
     for (int index = 0; index < entries.size(); index++) {
       var original = originalFragments.path("entries").get(entries.get(index).path("id").asText());
       if (original != null) entries.set(index, original.deepCopy());
@@ -209,11 +229,6 @@ class CraftingRegistryLoaderTest {
         legacy.add(member);
     }
     ((ObjectNode) blessed).set("supportedBases", legacy);
-    String digest =
-        HexFormat.of()
-            .formatHex(
-                MessageDigest.getInstance("SHA-256")
-                    .digest(M.writeValueAsBytes(canonical(registry))));
     // The frozen baseline digest excludes only the 26 retired verificationEvidence arrays.
     // It was derived from the committed original registry after reproducing its former digest;
     // game data, metadata other than those report paths, and array ordering remain covered.
@@ -224,7 +239,7 @@ class CraftingRegistryLoaderTest {
                     .readAllBytes(),
                 StandardCharsets.UTF_8)
             .trim();
-    assertEquals(expected, digest);
+    assertEquals(expected, digest(registry));
     assertEquals(220, registry.get("entries").size());
     assertFalse(registry.toString().contains("supportedBaseSet"));
   }

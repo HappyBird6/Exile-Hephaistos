@@ -9,9 +9,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
-/** item·goal로 카드를 복원하고, cardIndex의 기존 단계 순서를 선택한 화폐 등급으로만 재생한다. */
+/** item·goal로 카드를 복원하고, cardIndex의 기존 순서와 선택한 화폐 등급·품질 기폭제를 재생한다. */
 public record GradeRouteRequest(
-    ItemState item, GoalFilter goal, Integer cardIndex, List<GradeStep> steps) {
+    ItemState item,
+    GoalFilter goal,
+    Integer cardIndex,
+    List<GradeStep> steps,
+    String qualityCatalyst) {
 
   /**
    * action은 선택한 등급의 화폐, omens·socketIndex는 재료 적용 조건, acquired·lost는 지켜야 할 목표 번호 기록이고 maxUses는 반복

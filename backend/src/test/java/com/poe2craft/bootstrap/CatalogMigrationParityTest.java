@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -26,6 +27,9 @@ import org.junit.jupiter.api.Test;
  * <ul>
  *   <li>{@code allReviewedCatalogsRetainTheirGameplayDataAndOrdering()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
  *       기대값과 비교한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code beforeIronRingBreachRegistration(document)}: v17 철 반지 전체 해시를 확인하고 균열 접두 추가 직전의 표현을
+ *       복원해 과거 전체 카탈로그와 비교한다.
+ *   <li>{@code hash(document)}: 객체 키와 집합을 정규화한 뒤 순서가 보존된 카탈로그의 SHA-256을 반환한다.
  *   <li>{@code canonical(value)}: 정규형 처리에서 {@code value.isObject}, {@code
  *       mapper.createObjectNode}을(를) 사용한다. 입력: {@code value}(값). 반환: {@code JsonNode}.
  * </ul>
@@ -46,16 +50,43 @@ class CatalogMigrationParityTest {
       document.set("base", mapper.valueToTree(reviewed.base()));
       document.set("compatibility", mapper.valueToTree(reviewed.compatibleSnapshotIds()));
       document.set("modifiers", mapper.valueToTree(new ArrayList<>(reviewed.modifiers().values())));
-      hashes.put(
-          reviewed.base().id(),
-          HexFormat.of()
-              .formatHex(
-                  MessageDigest.getInstance("SHA-256")
-                      .digest(mapper.writeValueAsBytes(canonical(document)))));
+      if (reviewed.base().id().equals("Metadata/Items/Rings/FourRing1"))
+        document = beforeIronRingBreachRegistration(document);
+      hashes.put(reviewed.base().id(), hash(document));
     }
     var expected = Path.of("src/test/resources/catalog-migration-sha256.json");
     // Captured from 278b3789 before reorganizing source data; array order is significant.
     assertEquals(mapper.readTree(expected.toFile()), mapper.valueToTree(hashes));
+  }
+
+  private ObjectNode beforeIronRingBreachRegistration(ObjectNode document) throws Exception {
+    // v17 원본도 배열 순서까지 고정한 뒤, 철 반지에서만 추가된 내용으로부터 이전 스냅샷을 재구성한다.
+    assertEquals(
+        "0bb289c16ddbf8a54c699cd385980e22d52a113ecf230492380ef389c9dcb9d8", hash(document));
+    var previous = document.deepCopy();
+    var compatibility = previous.withArray("compatibility");
+    var previousSnapshot = compatibility.remove(compatibility.size() - 1).textValue();
+    assertEquals(
+        "equipment-currency-814c7ff8809e4a58c4435d7b9a6f075d76d0e0a23080907eea0cb8dd2a9c9ebb",
+        previousSnapshot);
+    var metadata = (ObjectNode) previous.get("metadata");
+    metadata.put("snapshotId", previousSnapshot);
+    metadata.put("prefixCount", metadata.get("prefixCount").intValue() - 1);
+    var oldModifiers = mapper.createArrayNode();
+    for (var modifier : previous.withArray("modifiers")) {
+      if (!modifier.get("id").asText().equals("amulet:prefix:essence-maximum-quality"))
+        oldModifiers.add(modifier);
+    }
+    assertEquals(previous.withArray("modifiers").size() - 1, oldModifiers.size());
+    previous.set("modifiers", oldModifiers);
+    return previous;
+  }
+
+  private String hash(ObjectNode document) throws Exception {
+    return HexFormat.of()
+        .formatHex(
+            MessageDigest.getInstance("SHA-256")
+                .digest(mapper.writeValueAsBytes(canonical(document))));
   }
 
   private JsonNode canonical(JsonNode value) {

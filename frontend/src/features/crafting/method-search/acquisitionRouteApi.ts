@@ -70,6 +70,7 @@ export function acquisitionRouteQuery(request: CreateRequest | null) {
       request?.start.provenance.rulesetIdentity,
       request?.start.item,
       request?.goal,
+      ...(request?.qualityCatalyst ? [request.qualityCatalyst] : []),
     ],
     queryFn: request
       ? ({ signal }) => loadAcquisitionRoutes(request, signal)
@@ -90,7 +91,11 @@ export async function loadAcquisitionRoutes(
       method: 'POST',
       signal,
       headers: rulesetHeaders(provenance.rulesetIdentity),
-      body: JSON.stringify({ item, goal: request.goal }),
+      body: JSON.stringify({
+        item,
+        goal: request.goal,
+        qualityCatalyst: request.qualityCatalyst,
+      }),
     },
   )
   return readAcquisitionResponse(response, request)

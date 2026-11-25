@@ -496,3 +496,41 @@
   margin-left: auto;
   white-space: nowrap;
 }
+
+.craft-start .test-goal-options {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.goal-filter .test-quality-control {
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  max-width: 100%;
+  padding: 2px;
+  border: 1px solid #454648;
+}
+.goal-filter .test-quality-control button {
+  color: #b7b7b5;
+}
+.goal-filter .test-quality-control[data-enabled='true'] {
+  border-color: #a38a56;
+}
+.goal-filter .test-quality-control button[aria-pressed='true'] {
+  color: #e2c68c;
+  border-color: #a38a56;
+  background: #393328;
+}
+.goal-filter .test-quality-control select {
+  min-width: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+.goal-filter .test-quality-control button {
+  flex: none;
+  white-space: nowrap;
+}

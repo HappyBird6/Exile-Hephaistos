@@ -13976,6 +13976,12 @@
           ],
           "level": 72
         },
+        "ESSENCE_BREACH": {
+          "ids": [
+            "amulet:prefix:essence-maximum-quality"
+          ],
+          "level": 1
+        },
         "RUNIC_ALLOY": {
           "ids": [
             "equipment:prefix:alloy-maximum-runic-ward1"
@@ -14003,6 +14009,16 @@
               "id": "maximum_mana_+%",
               "min": 4,
               "max": 6
+            }
+          ]
+        },
+        "amulet:prefix:essence-maximum-quality": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceBreach",
+          "stats": [
+            {
+              "id": "local_maximum_quality_+",
+              "min": 20,
+              "max": 20
             }
           ]
         },

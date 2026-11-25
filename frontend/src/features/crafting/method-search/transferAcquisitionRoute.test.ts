@@ -425,3 +425,120 @@ it('stores a signed-in selection in that account alone and retains the workbench
   await guest.close()
   await owner.close()
 })
+
+it.each([true, false])(
+  'keeps the verified quality checkpoint in the library, composer and continuation (specified catalyst: %s)',
+  async (specified) => {
+    const baseItemId = 'Metadata/Items/Amulets/FourAmulet9'
+    const breach = 'amulet:prefix:essence-maximum-quality'
+    const stat = 'local_maximum_quality_+'
+    const catalog = {
+      ...initialFixture,
+      state: { ...initialFixture.state, baseItemId },
+      modifiers: {
+        ...initialFixture.modifiers,
+        [breach]: {
+          id: breach,
+          name: 'of the Breach',
+          text: '+20% to Maximum Quality',
+          tier: 1,
+          affixType: 'PREFIX' as const,
+          familyIds: ['LocalMaximumQuality'],
+          stats: [{ id: stat, min: 20, max: 20 }],
+        },
+      },
+    }
+    const request = requestFixture()
+    request.start.provenance.rulesetIdentity = identity
+    request.start.item = {
+      ...request.start.item,
+      snapshotId: root.snapshotId,
+      baseItemId,
+      rarity: 'RARE',
+      implicits: root.implicits.map((mod) => ({ ...mod, fractured: false })),
+      explicits: [
+        { modifierId: breach, values: { [stat]: 20 }, fractured: false },
+      ],
+    }
+    request.goal.general.quality = 40
+    if (specified) request.qualityCatalyst = 'Flesh_Catalyst'
+    const capped = {
+      ...root,
+      baseItemId,
+      rarity: 'RARE' as const,
+      explicits: request.start.item.explicits,
+      catalystQuality: specified
+        ? { type: 'FLESH' as const, amount: 40 }
+        : null,
+    }
+    const route = {
+      cardIndex: 0,
+      order: [],
+      probability: 1,
+      stateIndices: [0, 1],
+      steps: [
+        {
+          action: specified ? 'CATALYST_FLESH' : 'QUALITY_40',
+          expectedUses: specified ? 40 : null,
+          chance: { probability: 1 },
+          omens: [],
+          acquired: [],
+          lost: [],
+        },
+        { action: 'ANNULMENT', omens: [], acquired: [], lost: [] },
+      ],
+    }
+    const film = acquisitionRouteFilm(
+      request,
+      {
+        complete: true,
+        cards: [{ options: [] }],
+        states: [capped, { ...capped, explicits: [] }],
+        routes: [route],
+      },
+      0,
+    )!
+    const transfer = (destination: RouteDestination) =>
+      transferAcquisitionRoute(
+        film,
+        2,
+        destination,
+        catalog,
+        null,
+        new AbortController().signal,
+      )
+    const id = new URL(
+      await transfer('library'),
+      location.origin,
+    ).searchParams.get('session')
+    expect(await transfer('community')).toBe('/community/new?session=' + id)
+    expect(await transfer('simulation')).toBe('/?workbench=simulation')
+    const repository = new IndexedFilmRepository()
+    try {
+      const stored = await repository.load()
+      expect(stored.films).toHaveLength(2)
+      const source = stored.films.find((f) => f.id === id)!
+      const continued = stored.films.find((f) => f.id === stored.active)!
+      for (const copy of [source, continued, publicFilm(source)]) {
+        expect(copy.frames[1]?.projectedChance).toEqual({ probability: 1 })
+        expect(copy.frames[2]?.state.catalystQuality ?? null).toEqual(
+          specified ? { type: 'FLESH', amount: 40 } : null,
+        )
+        const first = extractSessionNotation(copy, 2).steps[0]
+        if (specified)
+          expect(first).toMatchObject({
+            currencyId: 'Flesh_Catalyst',
+            uses: 40,
+            repeated: false,
+          })
+        else
+          expect(first).toMatchObject({
+            work: 'UNSPECIFIED_CATALYST_40',
+            uses: 0,
+          })
+      }
+    } finally {
+      await repository.close()
+    }
+  },
+)

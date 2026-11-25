@@ -32,7 +32,7 @@ import { applyCustomExalt } from './custom-exalt/api'
 import type { CustomExaltContext } from './custom-exalt/api'
 import { customExaltMessages, isExaltedAction } from './custom-exalt/messages'
 import { freshCraftMessages } from './session-library/freshCraftMessages'
-import { resetCurrentFilm } from './workbenchHistory'
+import { hasUnspecifiedQuality, resetCurrentFilm } from './workbenchHistory'
 import { startingItem } from './base-picker/baseAffixSetup'
 import type { StartingAffix } from './base-picker/baseAffixSetup'
 import { loadModifierPools } from './workbenchReferenceApi'
@@ -115,7 +115,7 @@ import { ServiceMessage } from './ServiceMessage'
 import { serviceText } from './serviceMessages'
 import { getLocale, useI18n, uiText, translate } from '../../shared/i18n/i18n'
 import { LocaleSelector } from '../../shared/i18n/LocaleSelector'
-import { localizedAction, localizedCatalystQuality } from './localizedCrafting'
+import { localizedAction, sessionCatalystProperty } from './localizedCrafting'
 import { localizedModifierText } from './localizedModifiers'
 import { inServiceScope } from './serviceScope'
 import { catalystProjection } from './catalystQuality'
@@ -1995,18 +1995,13 @@ function ReadyCraftingPage({
                       }),
                     },
                   ]),
-              ...(concrete.catalystQuality
-                ? [
-                    {
-                      id: 'catalyst-quality',
-                      text: localizedCatalystQuality(
-                        concrete.catalystQuality,
-                        concrete.baseItemId,
-                        locale,
-                      ),
-                    },
-                  ]
-                : []),
+              ...sessionCatalystProperty(
+                concrete,
+                !!film &&
+                  restoredValid &&
+                  hasUnspecifiedQuality(film, filmState.history.cursor),
+                locale,
+              ),
               ...(catalogBase === 'stocky'
                 ? [
                     {

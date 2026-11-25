@@ -132,6 +132,20 @@ public final class CraftingRegistryLoader {
     return Loaded.CHAOS_MATERIALS.contains(materialId);
   }
 
+  /** 등록된 장신구용 기폭제 재료 ID를 실제 작업대 행동으로 찾는다. 정제형은 주얼 전용이다. */
+  public static Optional<WorkbenchCurrency> ordinaryCatalyst(String materialId) {
+    for (var entry : Loaded.VALUE.path("entries")) {
+      if (entry.path("id").asText().equals(materialId)
+          && entry.path("category").asText().equals("CATALYST")
+          && entry.path("serviceScope").asText().equals("ACTIVE")
+          && entry.hasNonNull("action")) {
+        var action = WorkbenchCurrency.valueOf(entry.get("action").asText());
+        if (action.catalystType() != null && !action.refinedCatalyst()) return Optional.of(action);
+      }
+    }
+    return Optional.empty();
+  }
+
   public static JsonNode load() {
     return Loaded.VALUE.deepCopy();
   }

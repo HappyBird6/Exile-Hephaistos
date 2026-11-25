@@ -17,7 +17,7 @@ import {
 } from '@testing-library/react'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act } from '@testing-library/react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { emptyGoal } from './editor'
 import type { SearchGoalSnapshot } from './ConnectedGoalFilter'
 import type { PathTreeProps } from '../path-tree'
@@ -27,6 +27,9 @@ import { requestFixture } from '../path-tree/fixtures.test-support'
 import { locales, setLocale } from '../../../shared/i18n/i18n'
 import { craftStartMessages } from './craftStartMessages'
 import { CraftStart } from './CraftStart'
+import { TestQualityControl } from './TestQualityControl'
+import { testRouteGoal, type TestQualityEditor } from './testRouteGoal'
+import { createPathSearchRequest, type CreateRequest } from '../path-tree'
 import {
   initialFixture,
   jsonResponse,
@@ -36,32 +39,65 @@ import { parseItemText } from '../itemTextApi'
 import { mapSolarText } from '../workbenchApi'
 import type { Item } from '../itemModels'
 
+const restoringSnapshot = vi.hoisted(() => ({ pending: false }))
 vi.mock('./ConnectedGoalFilter', () => ({
   ConnectedGoalFilter: ({
     context,
+    testQuality,
+    savedRequestGoal,
+    allowQualityWork,
     onSearchGoalChange,
     onResetGoal,
   }: {
     onResetGoal: () => void
+    testQuality?: TestQualityEditor
+    savedRequestGoal?: SearchGoalSnapshot['goal']
+    allowQualityWork: boolean
     context: { baseItemId: string }
     onSearchGoalChange: (snapshot: SearchGoalSnapshot) => void
   }) => {
+    const [pending, setPending] = useState(restoringSnapshot.pending)
     const baseItemId = context.baseItemId
     useEffect(
       () =>
         onSearchGoalChange({
-          goal: emptyGoal({ baseItemId }, 'test-catalog'),
+          goal: pending
+            ? emptyGoal({ baseItemId }, 'test-catalog')
+            : (savedRequestGoal ??
+              (testQuality
+                ? testRouteGoal(
+                    emptyGoal({ baseItemId }, 'test-catalog'),
+                    testQuality.choice !== null && allowQualityWork,
+                  )
+                : emptyGoal({ baseItemId }, 'test-catalog'))),
           catalogVersion: 'test-catalog',
-          ready: true,
+          ready: !pending,
         }),
-      [baseItemId, onSearchGoalChange],
+      [
+        baseItemId,
+        onSearchGoalChange,
+        testQuality,
+        allowQualityWork,
+        savedRequestGoal,
+        pending,
+      ],
     )
     return (
       <>
+        {pending && (
+          <button onClick={() => setPending(false)}>Resolve catalog</button>
+        )}
         <label>
           Target draft
           <input defaultValue="preserved" />
         </label>
+        {testQuality && (
+          <TestQualityControl
+            quality={testQuality}
+            allowed={allowQualityWork}
+            locale="en"
+          />
+        )}
         <button onClick={onResetGoal}>Reset goal</button>
       </>
     )
@@ -176,6 +212,7 @@ beforeEach(() => {
   })
 })
 afterEach(() => {
+  restoringSnapshot.pending = false
   vi.unstubAllGlobals()
   vi.clearAllMocks()
 })
@@ -1151,4 +1188,112 @@ it('keeps the base list usable after a selected catalog fails and retries only o
     ).toBeEnabled(),
   )
   expect(fetcher).toHaveBeenCalledTimes(count + 1)
+})
+
+it('sends the chosen catalyst only with Quality 40 and clears the choice when switching bases', async () => {
+  const receive = vi.fn(({ request }: { request: CreateRequest }) => (
+    <output>{request.qualityCatalyst}</output>
+  ))
+  render(
+    <QueryClientProvider
+      client={
+        new QueryClient({ defaultOptions: { queries: { retry: false } } })
+      }
+    >
+      <CraftStart active testResults={receive} />
+    </QueryClientProvider>,
+  )
+  const toggle = await screen.findByRole('button', { name: 'Quality 40' })
+  await waitFor(() => expect(toggle).toBeEnabled())
+  fireEvent.click(toggle)
+  fireEvent.change(screen.getByRole('combobox', { name: 'Catalyst' }), {
+    target: { value: 'Flesh_Catalyst' },
+  })
+  const start = screen.getByRole('button', { name: 'Start Crafting' })
+  await waitFor(() => expect(start).toBeEnabled())
+  fireEvent.click(start)
+  await waitFor(() => expect(receive).toHaveBeenCalled())
+  const request = receive.mock.lastCall![0].request
+  expect(request.goal.groups).toMatchObject([
+    { type: 'AND', disabled: true, entries: [] },
+  ])
+  expect(request).toMatchObject({
+    qualityCatalyst: 'Flesh_Catalyst',
+    goal: { general: { quality: 40 } },
+  })
+  fireEvent.change(screen.getByLabelText('Starting equipment type'), {
+    target: { value: 'Rings' },
+  })
+  await waitFor(() =>
+    expect(screen.getByLabelText('Starting item base')).toHaveValue('ring'),
+  )
+  expect(
+    await screen.findByRole('button', { name: 'Quality 40' }),
+  ).toHaveAttribute('aria-pressed', 'false')
+  expect(screen.queryByRole('combobox', { name: 'Catalyst' })).toBeNull()
+  fireEvent.change(screen.getByLabelText('Starting equipment type'), {
+    target: { value: 'Amulets' },
+  })
+  await waitFor(() =>
+    expect(screen.getByRole('button', { name: 'Quality 40' })).toBeEnabled(),
+  )
+  fireEvent.click(screen.getByRole('button', { name: 'Quality 40' }))
+  expect(screen.getByRole('combobox', { name: 'Catalyst' })).toHaveDisplayValue(
+    'Any catalyst',
+  )
+  await waitFor(() => expect(start).toBeEnabled())
+  fireEvent.click(start)
+  await waitFor(() =>
+    expect(receive.mock.lastCall![0].request.clientRequestId).not.toBe(
+      request.clientRequestId,
+    ),
+  )
+  expect(receive.mock.lastCall![0].request.goal.general.quality).toBe(40)
+  expect(receive.mock.lastCall![0].request).not.toHaveProperty(
+    'qualityCatalyst',
+  )
+})
+
+it('keeps the restored quality route through an unfinished catalog snapshot and invalidates it on explicit edit', async () => {
+  restoringSnapshot.pending = true
+  const item = concreteInitial(solar)
+  const request = createPathSearchRequest(
+    item,
+    testRouteGoal(emptyGoal(item, 'test-catalog'), true),
+    {
+      ...requestFixture().start.provenance,
+      rulesetIdentity: solar.rulesetIdentity,
+    },
+  )
+  request.qualityCatalyst = 'Eshs_Catalyst'
+  saveSupport('support-test-start', {
+    base: 'solar',
+    text: 'Solar Amulet',
+    item,
+    rulesetIdentity: solar.rulesetIdentity,
+    abstractQuality40: false,
+    abstractQuality: 0,
+    editing: false,
+    started: true,
+    levelEdited: false,
+    testQualityChoice: 'Eshs_Catalyst',
+    searchRequest: request,
+  })
+  const Results = ({ request }: { request: CreateRequest }) => (
+    <output>{request.clientRequestId}</output>
+  )
+  render(
+    <QueryClientProvider
+      client={
+        new QueryClient({ defaultOptions: { queries: { retry: false } } })
+      }
+    >
+      <CraftStart active testResults={Results} />
+    </QueryClientProvider>,
+  )
+  expect(await screen.findByText(request.clientRequestId)).toBeVisible()
+  fireEvent.click(screen.getByRole('button', { name: 'Resolve catalog' }))
+  expect(screen.getByText(request.clientRequestId)).toBeVisible()
+  fireEvent.click(screen.getByRole('button', { name: 'Quality 40' }))
+  expect(screen.queryByText(request.clientRequestId)).toBeNull()
 })

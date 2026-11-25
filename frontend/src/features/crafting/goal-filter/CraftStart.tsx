@@ -21,7 +21,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { httpGoalFilterAdapter } from './api'
 import { createStore } from 'zustand/vanilla'
 import { useStore } from 'zustand'
-import { baseSlugs } from '../baseRegistry'
+import { basePolicy, baseSlugs } from '../baseRegistry'
 import { startInventoryQuery, startInitialQuery } from './startCatalog'
 import type { Initial } from '../craftingApi'
 import { concreteInitial, mapSolarText } from '../workbenchApi'
@@ -60,6 +60,7 @@ import './craft-start.css'
 import { useI18n, uiText } from '../../../shared/i18n/i18n'
 
 type Draft = {
+  testQualityChoice: string | null
   abstractQuality40: boolean
   abstractQuality: number
   base: string
@@ -108,6 +109,7 @@ export function CraftStart({
   const pickerCopy = modifierPickerMessages[locale]
   const [editor] = useState(() =>
     createStore<Draft>(() => ({
+      testQualityChoice: null,
       abstractQuality40: false,
       abstractQuality: 0,
       base: 'solar',
@@ -143,6 +145,7 @@ export function CraftStart({
     setStorageFailed(
       !saveSupport(storagePrefix + 'start', {
         base: d.base,
+        ...(TestResults ? { testQualityChoice: d.testQualityChoice } : {}),
         text: d.text,
         item: d.item,
         rulesetIdentity: d.rulesetIdentity,
@@ -154,7 +157,7 @@ export function CraftStart({
         searchRequest: d.searchRequest,
       }),
     )
-  }, [editor, storagePrefix])
+  }, [editor, storagePrefix, TestResults])
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
     const unsubscribe = editor.subscribe(() => {
@@ -173,6 +176,11 @@ export function CraftStart({
     editor.setState({
       searchRequest: null,
       searchIssue: false,
+      ...(TestResults &&
+      value.base !== undefined &&
+      value.base !== editor.getState().base
+        ? { testQualityChoice: null, searchGoal: null }
+        : {}),
       ...((value.base !== undefined && value.base !== editor.getState().base) ||
       value.item === null
         ? { abstractQuality40: false, abstractQuality: 0 }
@@ -184,13 +192,30 @@ export function CraftStart({
       const d = editor.getState()
       const changed =
         d.searchRequest &&
+        (!TestResults || searchGoal.ready || searchGoal.edited) &&
         canonical(d.searchRequest.goal) !== canonical(searchGoal.goal)
       editor.setState({
         searchGoal,
         ...(changed ? { searchRequest: null, searchIssue: false } : {}),
       })
     },
-    [editor],
+    [editor, TestResults],
+  )
+  const testQuality = useMemo(
+    () =>
+      TestResults
+        ? {
+            choice: draft.testQualityChoice,
+            change: (choice: string | null) =>
+              editor.setState({
+                testQualityChoice: choice,
+                searchGoal: null,
+                searchRequest: null,
+                searchIssue: false,
+              }),
+          }
+        : undefined,
+    [TestResults, draft.testQualityChoice, editor],
   )
   const request = useRef<AbortController | null>(null)
   const revision = useRef(0)
@@ -1034,6 +1059,12 @@ export function CraftStart({
                         provenance.data!,
                         activeOmens,
                       )
+                      if (
+                        TestResults &&
+                        searchRequest.goal.general.quality === 40 &&
+                        draft.testQualityChoice
+                      )
+                        searchRequest.qualityCatalyst = draft.testQualityChoice
                     } catch {
                       update({ searchIssue: true })
                       return
@@ -1093,16 +1124,27 @@ export function CraftStart({
               <section className="craft-start-stats" aria-label={copy.target}>
                 {context && (
                   <ConnectedGoalFilter
-                    storageKey={storagePrefix + 'goal'}
+                    storageKey={
+                      TestResults
+                        ? 'support-test-flat-goal'
+                        : storagePrefix + 'goal'
+                    }
+                    testQuality={testQuality}
                     savedRequestGoal={
                       draft.searchRequest &&
-                      hasActiveTotalGoal(draft.searchRequest.goal)
+                      (TestResults ||
+                        hasActiveTotalGoal(draft.searchRequest.goal))
                         ? draft.searchRequest.goal
                         : undefined
                     }
                     allowQualityWork={
-                      !!selected &&
-                      ['Amulets', 'Rings', 'Belts'].includes(selected.base[1])
+                      TestResults
+                        ? basePolicy(context.baseItemId)
+                            ?.maximumQualityBreach === true
+                        : !!selected &&
+                          ['Amulets', 'Rings', 'Belts'].includes(
+                            selected.base[1],
+                          )
                     }
                     onResetGoal={invalidateCalculation}
                     onSearchGoalChange={onSearchGoalChange}

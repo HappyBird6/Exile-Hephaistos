@@ -1,5 +1,10 @@
 import { craftingFetch as fetch } from '../../../shared/gameIdTransport'
 import { qualityWorkGoal } from './qualityWorkGoal'
+import {
+  flatEditorGoal,
+  testRouteGoal,
+  type TestQualityEditor,
+} from './testRouteGoal'
 import { goalSources } from '../method-search/graphDisplay'
 import { resetMessages } from './resetMessages'
 import {
@@ -39,6 +44,7 @@ const numericInputMessages = {
 }
 const adapter = httpGoalFilterAdapter
 export type SearchGoalSnapshot = {
+  edited?: boolean
   sourceStatIds?: string[] | undefined
   goal: GoalFilter
   catalogVersion: string | null
@@ -54,6 +60,7 @@ export function ConnectedGoalFilter({
   storageKey = 'goal',
   savedRequestGoal,
   allowQualityWork = true,
+  testQuality,
   language,
   onSearchGoalChange,
   onResetGoal,
@@ -68,6 +75,7 @@ export function ConnectedGoalFilter({
   savedRequestGoal?: GoalFilter | undefined
   compact?: boolean
   allowQualityWork?: boolean
+  testQuality?: TestQualityEditor | undefined
   onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: (snapshot: SearchGoalSnapshot) => void
 }) {
@@ -224,6 +232,7 @@ export function ConnectedGoalFilter({
         language={language}
         activeOmens={activeOmens}
         maxMillis={maxMillis}
+        testQuality={testQuality}
         allowQualityWork={allowQualityWork}
         compact={compact}
       />
@@ -240,6 +249,7 @@ function ConnectedEditor({
   language,
   compact,
   allowQualityWork,
+  testQuality,
   onSearchGoalChange,
   onResetGoal,
 }: {
@@ -255,17 +265,24 @@ function ConnectedEditor({
   maxMillis: number
   compact: boolean
   allowQualityWork: boolean
+  testQuality?: TestQualityEditor | undefined
   onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: ((snapshot: SearchGoalSnapshot) => void) | undefined
 }) {
   const { locale } = useI18n()
-  const [editor] = useState(() =>
-    createGoalFilterEditor(
+  const [editor] = useState(() => {
+    const saved =
       (compact ? readSupport(storageKey, validGoal) : null) ??
-        savedRequestGoal ??
-        emptyGoal(initialCatalog.context, initialCatalog.catalogVersion),
-    ),
-  )
+      savedRequestGoal ??
+      (testQuality ? readSupport('support-test-goal', validGoal) : null)
+    const empty = emptyGoal(
+      initialCatalog.context,
+      initialCatalog.catalogVersion,
+    )
+    return createGoalFilterEditor(
+      testQuality ? flatEditorGoal(saved, empty) : (saved ?? empty),
+    )
+  })
   const goal = useStore(editor, (state) => state.goal)
   const [storageFailed, setStorageFailed] = useState(false)
   useEffect(() => {
@@ -295,7 +312,12 @@ function ConnectedEditor({
   useEffect(() => {
     const catalog = currentCatalog.data
     onSearchGoalChange?.({
-      goal: structuredClone(qualityWorkGoal(goal, allowQualityWork)),
+      ...(testQuality ? { edited: editor.getState().revision > 0 } : {}),
+      goal: structuredClone(
+        testQuality
+          ? testRouteGoal(goal, allowQualityWork && testQuality.choice !== null)
+          : qualityWorkGoal(goal, allowQualityWork),
+      ),
       sourceStatIds: catalog ? goalSources(goal, catalog) : undefined,
       catalogVersion: catalog?.catalogVersion ?? null,
       ready:
@@ -310,6 +332,8 @@ function ConnectedEditor({
     })
   }, [
     goal,
+    testQuality,
+    editor,
     allowQualityWork,
     currentCatalog.data,
     currentCatalog.isSuccess,
@@ -360,6 +384,7 @@ function ConnectedEditor({
                 context,
                 currentCatalog.data.catalogVersion,
               )
+              testQuality?.change(null)
               onResetGoal?.()
               setInputReady(false)
               editor.setState((state) => ({
@@ -386,6 +411,7 @@ function ConnectedEditor({
         editor={editor}
         bases={bases}
         language={language}
+        testQuality={testQuality}
         allowQualityWork={allowQualityWork}
         compact={compact}
       />

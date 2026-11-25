@@ -85,8 +85,8 @@
     {
       "path": "mappings/messages.json",
       "domain": "messages",
-      "count": 489,
-      "sha256": "b28dbe73812cc131f94e0b17e85fd035d5e4a519e40ef2a055e538f427ce9d95"
+      "count": 505,
+      "sha256": "f497e89faaf914ede2a221c73e573a723d4bcb17f1fe9655341f98f0b8537d4a"
     }
   ],
   "resources": [
@@ -1704,7 +1704,7 @@
     },
     {
       "path": "game-data/crafting/essences/targets.json",
-      "sha256": "f1de68654d955b5659607061d361f05c2d65bd7c2fa018c8af2eeb1d04d9ca9e"
+      "sha256": "93eaf6cb99a799a52b85452ac24c8f1537559064d077b34414be53746053f3f3"
     },
     {
       "path": "game-data/crafting/goalfilter/base-inventory-v5-readonly.json",
@@ -1756,11 +1756,11 @@
     },
     {
       "path": "game-data/crafting/policies/base-support.json",
-      "sha256": "91f6c6ac67f4455f9db4273541e6f74cd0ed039b7488ff007201c9285c9190ff"
+      "sha256": "b0b65525f61495cff55b2badb8b39e7491489fcd9c899ed60bf331de827cef15"
     },
     {
       "path": "game-data/crafting/policies/catalog-compatibility.json",
-      "sha256": "f1770fc104ffaea82b956b4809f12dd9cbd359e002fb03d1b0cacb83b8ee6520"
+      "sha256": "2843c37ec01ee5a931e32a9053c8636d4539c65bb84249217dfc5dc8b25acad9"
     },
     {
       "path": "game-data/crafting/registry-v1.json",
@@ -1776,11 +1776,11 @@
     },
     {
       "path": "game-data/crafting/ruleset-v1.json",
-      "sha256": "93893de6fafeca2b7e826d88d5f271bd2ef2f8249851c3f1e162687a3bb7edcc"
+      "sha256": "d30d029bef35dbc17d393414250fd2399ad4d9527c3c34cd387519c06e209185"
     },
     {
       "path": "game-data/crafting/supported-base-sets-v1.json",
-      "sha256": "29042686b98093f3a367c19f5f44c855c633a059bde7ce052ca49487ec91f7d6"
+      "sha256": "8591ff24f67aef69a4358e804c32b4c885e3fbaa355093470799db86153b8b8b"
     },
     {
       "path": "game-data/crafting/workbench-definitions-v1.json",
@@ -1928,7 +1928,7 @@
     },
     {
       "path": "i18n/messages.json",
-      "sha256": "69cebaa199a8303da5d1cecec494c211ebbc78f9e765e7dfe6e7bd3b53beffef"
+      "sha256": "b7c283c4dea187a8db7687fcc7ba07c92131a85ebe5771eaeb834f9a86df997f"
     },
     {
       "path": "i18n/modifierTemplates.json",
@@ -2006,7 +2006,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/base-policies.json",
-      "sha256": "bfec2996d8c4f447d7e72b9aa595ee8b00c182daf90e245369d609a1a2a3df49"
+      "sha256": "f6ea033983590aae1a12b2befec271a179c8734e8e9a0abdbf99e985834e145d"
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/biostatic-ring/catalog.json",
@@ -2158,7 +2158,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/equipment-currencies.json",
-      "sha256": "1bcdaa49679607f2961d28090f67bd53a665c92f63b302d6e46be77d27b6595a"
+      "sha256": "3160464fd8c4a15bf2adbe12a4bcfc8b649be02cf0d7c0750b59c3d06f63600d"
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/faithful-leggings/catalog.json",
@@ -2794,11 +2794,11 @@
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/ruleset-v1.json",
-      "sha256": "93893de6fafeca2b7e826d88d5f271bd2ef2f8249851c3f1e162687a3bb7edcc"
+      "sha256": "d30d029bef35dbc17d393414250fd2399ad4d9527c3c34cd387519c06e209185"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/supported-base-sets-v1.json",
-      "sha256": "29042686b98093f3a367c19f5f44c855c633a059bde7ce052ca49487ec91f7d6"
+      "sha256": "8591ff24f67aef69a4358e804c32b4c885e3fbaa355093470799db86153b8b8b"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/workbench-definitions-v1.json",
@@ -2830,7 +2830,7 @@
     },
     {
       "runtimePath": "frontend/src/features/crafting/materialVerification.json",
-      "sha256": "0a1d425150956acec5e3ee0b6db23f73777e14dcd1e257f333c71bef66724780"
+      "sha256": "e9a40732aea9387f41da60202dd4e141aba6a47cd1e413182b0cf7807c87f863"
     },
     {
       "runtimePath": "frontend/src/shared/i18n/augmentDisplay.json",
@@ -2850,7 +2850,7 @@
     },
     {
       "runtimePath": "frontend/src/shared/i18n/messages.json",
-      "sha256": "69cebaa199a8303da5d1cecec494c211ebbc78f9e765e7dfe6e7bd3b53beffef"
+      "sha256": "b7c283c4dea187a8db7687fcc7ba07c92131a85ebe5771eaeb834f9a86df997f"
     },
     {
       "runtimePath": "frontend/src/shared/i18n/modifierTemplates.json",

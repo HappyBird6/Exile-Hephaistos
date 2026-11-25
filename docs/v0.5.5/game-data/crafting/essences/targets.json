@@ -3886,6 +3886,13 @@
           "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"
         ]
       }
+    },
+    "essences-iron-ring": {
+      "additional": {
+        "ESSENCE_BREACH": [
+          "amulet:prefix:essence-maximum-quality"
+        ]
+      }
     }
   },
   "bases": {
@@ -4054,6 +4061,7 @@
     "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": "essences-wand",
     "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1": "essences-sceptre",
     "Metadata/Items/Armours/BodyArmours/FourBodyStr1": "essences-body",
-    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": "essences-body"
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": "essences-body",
+    "Metadata/Items/Rings/FourRing1": "essences-iron-ring"
   }
 }

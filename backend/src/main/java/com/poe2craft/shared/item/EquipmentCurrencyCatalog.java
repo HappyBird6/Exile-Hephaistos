@@ -51,7 +51,8 @@ public final class EquipmentCurrencyCatalog {
   private EquipmentCurrencyCatalog() {}
 
   /**
-   * definitions는 공통 특수 옵션, targets는 베이스 ID→화폐 ID→옵션 ID 목록이다. 로더에서 중첩 컬렉션까지 불변으로 만든다.
+   * definitions는 공통 특수 옵션, targets는 베이스 ID→화폐 ID→옵션 ID 목록이다. previousSnapshots는 추가 등록 전 저장된 장비 스냅샷을
+   * 베이스별로 보존한다. 로더에서 중첩 컬렉션까지 불변으로 만든다.
    *
    * <p>필드·상수·record 구성요소:
    *
@@ -61,7 +62,9 @@ public final class EquipmentCurrencyCatalog {
    * </ul>
    */
   public record Document(
-      List<ModifierDefinition> definitions, Map<String, Map<String, List<String>>> targets) {}
+      List<ModifierDefinition> definitions,
+      Map<String, Map<String, List<String>>> targets,
+      Map<String, List<String>> previousSnapshots) {}
 
   private static final Document DATA;
 
@@ -77,12 +80,25 @@ public final class EquipmentCurrencyCatalog {
                 actions.forEach((action, ids) -> copied.put(action, List.copyOf(ids)));
                 targets.put(base, Collections.unmodifiableMap(copied));
               });
+      var previousSnapshots = new HashMap<String, List<String>>();
+      parsed
+          .previousSnapshots()
+          .forEach(
+              (base, ids) -> {
+                if (!targets.containsKey(base)
+                    || ids.isEmpty()
+                    || ids.stream().anyMatch(id -> !id.matches("equipment-currency-[a-f0-9]{64}"))
+                    || new HashSet<>(ids).size() != ids.size())
+                  throw new IllegalArgumentException("Invalid previous equipment snapshot");
+                previousSnapshots.put(base, List.copyOf(ids));
+              });
       DATA =
           new Document(
               parsed.definitions().stream()
                   .map(com.poe2craft.shared.item.infrastructure.ItemCatalogLoader::sharedDefinition)
                   .toList(),
-              Collections.unmodifiableMap(targets));
+              Collections.unmodifiableMap(targets),
+              Map.copyOf(previousSnapshots));
       var definitions = new HashMap<String, ModifierDefinition>();
       for (var d : DATA.definitions()) {
         if (d.weight() != 0
@@ -151,6 +167,7 @@ public final class EquipmentCurrencyCatalog {
             old.suffixWeight());
     var compatible = new ArrayList<>(catalog.compatibleSnapshotIds());
     compatible.add(old.snapshotId());
+    compatible.addAll(DATA.previousSnapshots().getOrDefault(catalog.base().id(), List.of()));
     return AugmentCraftingRules.enrich(
         new ItemCatalog(metadata, catalog.base(), definitions, compatible));
   }
