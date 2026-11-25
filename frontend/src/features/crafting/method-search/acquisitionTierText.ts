@@ -2,6 +2,7 @@ import type { Locale } from '../../../shared/i18n/i18n'
 import type { Definition, Initial } from '../craftingApi'
 import { localizedModifierText } from '../localizedModifiers'
 import { rangeText } from './rollPresentation'
+import { compactAttribute } from './compactAttribute'
 
 type Tier = Definition & { stats: NonNullable<Definition['stats']> }
 type Bounds = { hasLowerBound?: boolean; hasUpperBound?: boolean }
@@ -58,8 +59,12 @@ export function acquisitionTierRangeText(
   const tiers = ids.map((id) => definitions[id])
   if (!tiers.length || !tiers.every((d): d is Tier => !!d?.stats?.length))
     return undefined
-  return rangeText(
-    tierEdge(tiers, 'min', locale),
-    tierEdge(tiers, 'max', locale),
+  const low = tierEdge(tiers, 'min', locale)
+  const high = tierEdge(tiers, 'max', locale)
+  const compact = compactAttribute(
+    { id: ids[0]!, text: low },
+    [{ label: '', low, high }],
+    locale,
   )
+  return compact.tierRows?.[0]?.value ?? rangeText(low, high)
 }

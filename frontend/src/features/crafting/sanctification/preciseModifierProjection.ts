@@ -58,3 +58,19 @@ export function preciseModifierProjection(
   }
   return { values, ratios, qualityStatus: eligibility.status }
 }
+
+export function displayedModifierValues(
+  state: ConcreteItem,
+  definition: Definition,
+  modifier: ConcreteItem['explicits'][number],
+  layer: 'implicits' | 'explicits',
+) {
+  return state.conditions.includes('SANCTIFIED')
+    ? preciseModifierProjection(state, definition, modifier, layer).values
+    : catalystProjection(
+        definition,
+        modifier.values,
+        state.catalystQuality,
+        state,
+      ).values
+}

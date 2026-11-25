@@ -653,14 +653,14 @@ it('reevaluates only the selected grades on the original method and keeps the ch
     const card = await screen.findByRole('article', { name: 'Item card' })
     expect(card).toHaveTextContent('+19 to maximum Life')
     expect(card).not.toHaveTextContent('Cold Resistance')
-    expect(screen.getByText(/^Added .*maximum Life$/)).toBeVisible()
+    expect(screen.getByText('Added +19 to maximum Life')).toBeVisible()
     expect(
       screen.getByRole('group', { name: 'Crafting cost through this step' }),
     ).toHaveTextContent('Step chance 40%')
     expect(method).toHaveAccessibleName(/11 ex · 60%/)
     fireEvent.click(within(history).getByRole('button', { name: 'Step 2' }))
     expect(card).toHaveTextContent('+11% to Cold Resistance')
-    expect(screen.getByText(/^Added .*Cold Resistance$/)).toBeVisible()
+    expect(screen.getByText('Added +11% to Cold Resistance')).toBeVisible()
     expect(
       within(history).getByRole('link', { name: 'Session overview' }),
     ).toHaveAttribute(

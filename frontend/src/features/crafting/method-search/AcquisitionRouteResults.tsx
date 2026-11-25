@@ -18,6 +18,8 @@ import {
 import { GoalFilterApiError } from '../goal-filter/api'
 import { craftStartMessages } from '../goal-filter/craftStartMessages'
 import { localizedAction } from '../localizedCrafting'
+import { localizedModifierText } from '../localizedModifiers'
+import { displayedModifierValues } from '../sanctification/preciseModifierProjection'
 import { pathTreeMessages } from '../path-tree/messages'
 import type { CreateRequest } from '../path-tree/types'
 import { SessionDetail } from '../session-detail/SessionDetail'
@@ -327,7 +329,29 @@ function RouteList({
       }))
   const optionText = (option: RouteOption) =>
     acquisitionTierText(option.modifierIds, definitions, locale, option)
-  const selectedStep = selected?.steps[(cursor ?? steps.length) - 1]
+  const frameIndex = cursor ?? steps.length
+  const selectedState = film?.frames[frameIndex]?.state
+  const acquiredLabels = (selected?.steps[frameIndex - 1]?.acquired ?? []).map(
+    (number) => {
+      const option = card.options.find((target) => target.number === number)
+      const mod = selectedState?.explicits.find((instance) =>
+        option?.modifierIds.includes(instance.modifierId),
+      )
+      const definition = mod && definitions[mod.modifierId]
+      return selectedState && mod && definition
+        ? localizedModifierText(
+            definition,
+            displayedModifierValues(
+              selectedState,
+              definition,
+              mod,
+              'explicits',
+            ),
+            locale,
+          )
+        : String(number)
+    },
+  )
   const title = (route: AcquisitionRoute) =>
     acquisitionRouteTitle(route, locale)
   const href = (index: number) =>
@@ -440,15 +464,9 @@ function RouteList({
               overviewHref={href(selection)}
               itemClassName="wb-history-preview__item"
             />
-            {selectedStep && selectedStep.acquired.length > 0 && (
+            {acquiredLabels.length > 0 && (
               <p>
-                {changes.added}{' '}
-                {card.options
-                  .filter((option) =>
-                    selectedStep.acquired.includes(option.number),
-                  )
-                  .map((option) => optionText(option))
-                  .join(' · ')}
+                {changes.added} {acquiredLabels.join(' · ')}
               </p>
             )}
             {selected && !film?.projectedRouteChance && (

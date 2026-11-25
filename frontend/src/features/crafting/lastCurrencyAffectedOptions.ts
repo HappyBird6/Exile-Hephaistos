@@ -1,5 +1,4 @@
-import type { Initial, Definition } from './craftingApi'
-import type { ConcreteItem } from './workbenchApi'
+import type { Initial } from './craftingApi'
 import { workbenchActionNames } from './workbenchApi'
 import type { Film } from './workbenchHistory'
 import {
@@ -10,30 +9,13 @@ import {
 import { isBone } from './desecrationCurrency'
 import { validAbyssResponse } from './abyssResponse'
 import { sameItemState } from './crafting-state/itemIdentity'
-import { catalystProjection } from './catalystQuality'
-import { preciseModifierProjection } from './sanctification/preciseModifierProjection'
+import { displayedModifierValues } from './sanctification/preciseModifierProjection'
 
 function sameValues(a: Record<string, number>, b: Record<string, number>) {
   return (
     Object.keys(a).length === Object.keys(b).length &&
     Object.entries(a).every(([key, value]) => value === b[key])
   )
-}
-
-function displayedValues(
-  state: ConcreteItem,
-  definition: Definition,
-  modifier: ConcreteItem['explicits'][number],
-  layer: 'implicits' | 'explicits',
-) {
-  return state.conditions.includes('SANCTIFIED')
-    ? preciseModifierProjection(state, definition, modifier, layer).values
-    : catalystProjection(
-        definition,
-        modifier.values,
-        state.catalystQuality,
-        state,
-      ).values
 }
 
 /** Derive display marks from the selected history; never persist or edit item data. */
@@ -90,8 +72,8 @@ export function lastCurrencyAffectedOptions(
         Boolean(previous.fractured) !== Boolean(modifier.fractured) ||
         !sameValues(previous.values, modifier.values) ||
         !sameValues(
-          displayedValues(before, definition, previous, layer),
-          displayedValues(after, definition, modifier, layer),
+          displayedModifierValues(before, definition, previous, layer),
+          displayedModifierValues(after, definition, modifier, layer),
         )
       ) {
         affected.add(modifier.modifierId)

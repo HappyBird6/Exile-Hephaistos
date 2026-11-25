@@ -304,7 +304,7 @@ it.each(Object.entries(spiritSentences))(
     const range = rendered.container.querySelector('.item-card__tier-range')!
     expect(range).toBeVisible()
     expect(range).toHaveTextContent(itemCardMessages[locale].tierRange)
-    expect(range).toHaveTextContent(/47.*50/)
+    expect(range).toHaveTextContent('+47–50')
     expect(film.frames[2]!.state).toEqual(hit)
     rendered.rerender(view(film, 3))
     expect(

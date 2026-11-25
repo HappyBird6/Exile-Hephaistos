@@ -15,8 +15,7 @@ import { ItemCard } from '../ItemCard'
 import { verifiedHistoryState, filmRulesetStatus } from '../workbenchHistory'
 import type { Film, Frame } from '../workbenchHistory'
 import { localizedModifierText } from '../localizedModifiers'
-import { catalystProjection } from '../catalystQuality'
-import { preciseModifierProjection } from '../sanctification/preciseModifierProjection'
+import { displayedModifierValues } from '../sanctification/preciseModifierProjection'
 import { augmentName, socketText } from '../socketAugments'
 import { defenceDisplay } from '../defenceDisplay'
 import { historyMessages } from './messages'
@@ -150,19 +149,12 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                   ? candidate
                   : undefined
               const values = definition
-                ? state.conditions.includes('SANCTIFIED')
-                  ? preciseModifierProjection(
-                      state,
-                      definition,
-                      m,
-                      i < state.implicits.length ? 'implicits' : 'explicits',
-                    ).values
-                  : catalystProjection(
-                      definition,
-                      m.values,
-                      state.catalystQuality,
-                      state,
-                    ).values
+                ? displayedModifierValues(
+                    state,
+                    definition,
+                    m,
+                    i < state.implicits.length ? 'implicits' : 'explicits',
+                  )
                 : m.values
               const preview =
                 valid && i >= state.implicits.length
