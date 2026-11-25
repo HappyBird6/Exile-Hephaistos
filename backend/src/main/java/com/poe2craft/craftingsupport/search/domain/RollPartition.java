@@ -197,6 +197,14 @@ public final class RollPartition {
       var stat = known.get(id);
       if (stat == null || stat.support().evaluation() != GoalFilter.Capability.SUPPORTED)
         return exact().withInitial(root);
+      // 별세계 효과들은 같은 표시 수치 키를 공유한다. 개별 옵션·수치가 보존되는 정확한 상태로 비교한다.
+      if (stat.sourceStatIds().stream()
+          .anyMatch(
+              idSource ->
+                  catalog
+                      .find(idSource)
+                      .filter(d -> d.tags().contains("otherworldly"))
+                      .isPresent())) return exact().withInitial(root);
       relevant.addAll(stat.sourceStatIds());
       stat.contributions().forEach(c -> pending.add(c.statId()));
     }

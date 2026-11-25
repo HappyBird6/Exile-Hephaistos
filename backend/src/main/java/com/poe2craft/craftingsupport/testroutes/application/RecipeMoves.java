@@ -14,7 +14,18 @@ import java.util.*;
 /** 카드의 허용 출처와 현재 작업대 상태에서 다음 화폐·징조 또는 준비 행동을 만든다. Choice의 target은 시도 목적이고 실제 획득 번호는 전이 뒤에 결정한다. */
 final class RecipeMoves {
   /** action은 실제 화폐 또는 재료 식별자이며 omens는 같은 사용에 소비하는 징조다. */
-  record Move(String action, Set<WorkbenchOmen> omens, Integer socketIndex) {
+  record Move(String action, Set<WorkbenchOmen> omens, Integer socketIndex, String boneOmen) {
+    Move(String action, Set<WorkbenchOmen> omens, Integer socketIndex) {
+      this(action, omens, socketIndex, null);
+    }
+
+    /** 작업대의 뼈 전용 징조와 일반 화폐 징조를 동일한 기록 형식으로 반환한다. */
+    List<String> omenIds() {
+      return boneOmen == null
+          ? omens.stream().map(WorkbenchOmen::id).sorted().toList()
+          : List.of(boneOmen);
+    }
+
     Move(String action) {
       this(action, Set.of(), null);
     }
@@ -45,13 +56,12 @@ final class RecipeMoves {
     LOW_PREPARATION,
     LOW_CHAOS,
     LOW_EXALT,
-    LOW_SLOT_PREPARATION,
     BONE,
     LOW_REVEAL,
     DESECRATION
   }
 
-  /** eligibleTiers는 해당 경로에서 얻을 수 있는 목표 티어다. followup은 더미로 보호할 교체 행동 또는 방향을 확정할 뼈다. */
+  /** eligibleTiers는 해당 경로에서 얻을 수 있는 목표 티어다. followup은 더미를 제거할 에센스다. */
   record Choice(
       int target,
       Move move,
@@ -81,8 +91,7 @@ final class RecipeMoves {
       var id = entry.getValue();
       if (!lowIds.contains(id) || (id.equals(before.get(entry.getKey())) && !removed.contains(id)))
         continue;
-      if (choice.purpose() == Purpose.LOW_PREPARATION
-          || choice.purpose() == Purpose.LOW_SLOT_PREPARATION) continue;
+      if (choice.purpose() == Purpose.LOW_PREPARATION) continue;
       boolean sameChaosHit =
           choice.purpose() == Purpose.LOW_CHAOS && id.equals(after.get(choice.target()));
       if ((!sameChaosHit && choice.target() != entry.getKey())
@@ -172,7 +181,8 @@ final class RecipeMoves {
                 result.addAll(rarityPreparation(target, item));
               else add(result, target, new Move(source.id()), false);
             }
-            case "D" -> bones.computeIfAbsent(source.id(), k -> new TreeSet<>()).add(tier.getKey());
+            case "D", "O" ->
+                bones.computeIfAbsent(source.id(), k -> new TreeSet<>()).add(tier.getKey());
             case "C" -> {
               if (item.rarity() != ItemState.Rarity.RARE) {
                 result.addAll(rarityPreparation(target, item));
@@ -216,12 +226,6 @@ final class RecipeMoves {
       if (!reserved.isEmpty()) addWhittlingForBlockedDraw(result, opt, item, held);
       if (item.rarity() != ItemState.Rarity.RARE || revealTiers != null)
         desecrationChoices(result, item, target, bones, pendingReveal, false);
-      if (useReveal
-          && held.size() + 1 == card.options().size()
-          && opt.tiers().values().stream()
-              .flatMap(List::stream)
-              .anyMatch(src -> src.frequency() != null))
-        fillForReveal(result, item, opt, slots, revealTiers);
     }
     // 공개는 마지막 옵션을 얻는 행동이다. 뼈가 먼저 부여한 미공개 슬롯은 그때까지 실제 작업대 상태에 남는다.
     if (held.size() + 1 < card.options().size())
@@ -286,7 +290,7 @@ final class RecipeMoves {
         if (held.containsKey(option.number())) continue;
         for (var tier : option.tiers().entrySet())
           for (var source : tier.getValue())
-            if (source.label().equals("D"))
+            if (source.reveal())
               fullBoardTiers.computeIfAbsent(source.id(), k -> new HashSet<>()).add(tier.getKey());
       }
       var catalog = simulator.forItem(item).catalog();
@@ -299,7 +303,7 @@ final class RecipeMoves {
     for (var option : card.options()) {
       if (held.containsKey(option.number())) continue;
       var sources = option.tiers().values().stream().flatMap(List::stream).toList();
-      if (sources.stream().noneMatch(s -> s.label().equals("D"))) continue;
+      if (sources.stream().noneMatch(RouteCards.Source::reveal)) continue;
       boolean craftable = hasCraftAlternative(item, option, sources, protectedIds);
       var frequency =
           sources.stream()
@@ -384,19 +388,18 @@ final class RecipeMoves {
     if (!item.desecrated().isEmpty()) {
       for (var entry : option.tiers().entrySet())
         if (pending.contains(entry.getKey())
-            && entry.getValue().stream().anyMatch(s -> s.label().equals("D")))
+            && entry.getValue().stream().anyMatch(RouteCards.Source::reveal))
           ids.add(entry.getKey());
       return ids;
     }
     var workbench = simulator.forItem(item);
     for (var entry : option.tiers().entrySet()) {
-      if (entry.getValue().stream().noneMatch(s -> s.label().equals("D"))) continue;
+      if (entry.getValue().stream().noneMatch(RouteCards.Source::reveal)) continue;
       if (fullBoardTiers != null) {
         if (entry.getValue().stream()
             .anyMatch(
                 source ->
-                    source.label().equals("D")
-                        && fullBoardTiers.get(source.id()).contains(entry.getKey())))
+                    source.reveal() && fullBoardTiers.get(source.id()).contains(entry.getKey())))
           ids.add(entry.getKey());
         continue;
       }
@@ -406,15 +409,9 @@ final class RecipeMoves {
       var bones =
           DesecrationCurrency.sources(item.baseItemId(), item.itemLevel(), d, d.weight() > 0);
       if (entry.getValue().stream()
-          .anyMatch(source -> source.label().equals("D") && bones.contains(source.id())))
-        ids.add(d.id());
+          .anyMatch(source -> source.reveal() && bones.contains(source.id()))) ids.add(d.id());
     }
     return ids;
-  }
-
-  /** 뼈를 쓰기 전의 목표 쪽 한 칸과 배타 계열을 보존한다. 재료·공개 자격은 실제 슬롯에서 다시 검증한다. */
-  boolean canReserve(ItemState item, String tier) {
-    return canReserve(item, tier, Set.of(), false);
   }
 
   /** 나중에 공개할 때에는 후속 제작이 제거할 수 있는 일반 옵션의 계열 충돌을 임시로 허용한다. */
@@ -428,43 +425,6 @@ final class RecipeMoves {
             .filter(m -> !defer || m.fractured() || protectedIds.contains(m.modifierId()))
             .map(m -> catalog.find(m.modifierId()).orElseThrow())
             .noneMatch(m -> !Collections.disjoint(m.familyIds(), definition.familyIds()));
-  }
-
-  /** 같은 뼈가 실제로 양쪽을 열 수 있을 때에만 반대쪽 칸을 닫아 목표 방향을 확정하는 준비를 제안한다. */
-  private void fillForReveal(
-      Set<Choice> result,
-      ItemState item,
-      RouteCards.Option option,
-      ItemStateValidator.AffixSlots slots,
-      Set<String> tiers) {
-    if (!item.desecrated().isEmpty()
-        || slots.remainingPrefixes() <= 0
-        || slots.remainingSuffixes() <= 0) return;
-    var catalog = simulator.forItem(item).catalog();
-    var eligibleByBone = new HashMap<String, Set<String>>();
-    for (String tier : tiers) {
-      var side = catalog.find(tier).orElseThrow().affixType();
-      var omen =
-          side == AffixType.PREFIX
-              ? WorkbenchOmen.DEXTRAL_EXALTATION
-              : WorkbenchOmen.SINISTRAL_EXALTATION;
-      for (var source : option.tiers().get(tier)) {
-        if (!source.label().equals("D")
-            || !eligibleByBone
-                .computeIfAbsent(
-                    source.id(),
-                    bone -> RecipeTransitions.twoSidedRevealTargets(item, bone, catalog, tiers))
-                .contains(tier)) continue;
-        result.add(
-            new Choice(
-                option.number(),
-                new Move(WorkbenchCurrency.EXALTED, omen),
-                true,
-                new Move(source.id()),
-                Purpose.LOW_SLOT_PREPARATION,
-                Set.of(tier)));
-      }
-    }
   }
 
   /** 각 L 출처의 실제 소재·티어를 묶어 한 번의 등급 추첨 또는 공개 사건으로 등록한다. */
@@ -483,7 +443,7 @@ final class RecipeMoves {
       var definition = simulator.catalog().find(tier.getKey());
       if (definition.isEmpty()) continue;
       for (var source : tier.getValue()) {
-        if (source.label().equals("D"))
+        if (source.reveal())
           boneTiers.computeIfAbsent(source.id(), k -> new TreeSet<>()).add(tier.getKey());
         if (source.frequency() != RouteCards.Frequency.L) continue;
         if (source.label().equals("A")
@@ -541,7 +501,7 @@ final class RecipeMoves {
   }
 
   /** 빈칸에 쓰는 재료와 기존 슬롯의 공개 중 실제 선택만 해당 목표·재료별 티어로 묶는다. */
-  private static void desecrationChoices(
+  private void desecrationChoices(
       Set<Choice> result,
       ItemState item,
       int target,
@@ -554,10 +514,30 @@ final class RecipeMoves {
       return;
     }
     if (item.desecrated().isEmpty()) {
-      bones.forEach(
-          (id, tiers) ->
-              result.add(
-                  new Choice(target, new Move(id), true, null, Purpose.BONE, Set.copyOf(tiers))));
+      var slots = validator.slots(item);
+      boolean prefixOpen = slots.remainingPrefixes() > 0;
+      boolean suffixOpen = slots.remainingSuffixes() > 0;
+      for (var entry : bones.entrySet()) {
+        String id = entry.getKey();
+        var tiers = Set.copyOf(entry.getValue());
+        addBone(result, target, new Move(id), tiers);
+        // 한쪽만 비어 있으면 뼈 자체가 이미 방향을 정한다.
+        if (prefixOpen != suffixOpen
+            || !RecipeTransitions.bothBoneSides(item, id, simulator.forItem(item).catalog()))
+          continue;
+        var bySide = new EnumMap<AffixType, Set<String>>(AffixType.class);
+        for (var tier : tiers) {
+          var side = simulator.catalog().find(tier).orElseThrow().affixType();
+          bySide.computeIfAbsent(side, ignored -> new TreeSet<>()).add(tier);
+        }
+        bySide.forEach(
+            (side, matching) ->
+                addBone(
+                    result,
+                    target,
+                    new Move(id, Set.of(), null, DesecrationCurrency.directionOmen(side)),
+                    Set.copyOf(matching)));
+      }
       return;
     }
     if (pendingReveal.isEmpty()) return;
@@ -573,6 +553,11 @@ final class RecipeMoves {
               null,
               low ? Purpose.LOW_REVEAL : Purpose.DESECRATION,
               Set.copyOf(eligible)));
+  }
+
+  /** 무징조 또는 방향을 지정한 뼈를 동일한 작업대 전이로 검증한다. */
+  private static void addBone(Set<Choice> result, int target, Move move, Set<String> tiers) {
+    result.add(new Choice(target, move, true, null, Purpose.BONE, tiers));
   }
 
   /** 베이스 풀을 실제로 추첨할 수 있는 화폐와 목표 쪽 징조, 자리가 차면 제거 후보를 추가한다. */

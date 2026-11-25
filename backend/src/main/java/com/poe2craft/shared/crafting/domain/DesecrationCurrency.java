@@ -112,6 +112,15 @@ public final class DesecrationCurrency {
         .toList();
   }
 
+  /** 훼손 방향에 해당하는 실제 작업대 징조 ID다. */
+  public static String directionOmen(AffixType side) {
+    return switch (side) {
+      case PREFIX -> "Omen_of_Sinistral_Necromancy";
+      case SUFFIX -> "Omen_of_Dextral_Necromancy";
+      default -> throw new IllegalArgumentException("Expected prefix or suffix");
+    };
+  }
+
   public static boolean supportsRevealPool(String baseItemId, String pool) {
     if (pool == null) return true;
     var itemClass = BaseRegistry.itemClass(baseItemId);
@@ -266,8 +275,8 @@ public final class DesecrationCurrency {
     var omens = activeOmens == null ? Set.<String>of() : activeOmens;
     var sides =
         Map.of(
-            "Omen_of_Sinistral_Necromancy", AffixType.PREFIX,
-            "Omen_of_Dextral_Necromancy", AffixType.SUFFIX);
+            directionOmen(AffixType.PREFIX), AffixType.PREFIX,
+            directionOmen(AffixType.SUFFIX), AffixType.SUFFIX);
     var pools =
         Map.of(
             "Omen_of_the_Liege",

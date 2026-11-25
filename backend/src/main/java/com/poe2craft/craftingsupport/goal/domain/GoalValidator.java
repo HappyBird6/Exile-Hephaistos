@@ -217,6 +217,14 @@ public final class GoalValidator {
                       "RETIRED_TOTAL_GOAL",
                       row + "/statId",
                       "Remove or disable this Total goal before calculating."));
+            if (stat.unit().equals("presence")
+                && entry.range() != null
+                && (entry.range().min() != null || entry.range().max() != null))
+              issues.add(
+                  Issue.error(
+                      "UNEXPECTED_RANGE",
+                      row + "/range",
+                      "This modifier is selected by presence."));
             if (!stat.unit().equals(entry.unit()))
               issues.add(
                   Issue.error(

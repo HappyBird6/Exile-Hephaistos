@@ -13,6 +13,15 @@ export function presentGoalStat(
   locale: Locale,
 ): Stat & { searchText: string } {
   if (stat.kind === 'PSEUDO') return { ...stat, searchText: stat.label }
+  const effect = catalog.sourceModifiers?.[stat.sourceStatIds[0]!]
+  if (effect?.tags?.includes('otherworldly')) {
+    const label = localizedModifierText(effect, undefined, locale)
+    return {
+      ...stat,
+      label,
+      searchText: [label, stat.label, effect.name].join(' '),
+    }
+  }
   const sources = Object.values(catalog.sourceModifiers ?? {})
     .filter(
       (d) =>

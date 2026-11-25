@@ -130,9 +130,9 @@ class RecipeLowAcquisitionPolicyTest {
         .noneMatch(c -> c.purpose() == RecipeMoves.Purpose.LOW_EXALT);
   }
 
-  /** 정신력 L이 있는 태양 목걸이에서 다른 L인 +3 근접은 곧바로 공개 준비하거나 반대쪽 한 칸만 닫아 확정한다. */
+  /** 정신력 L이 있는 태양 목걸이에서 다른 L인 +3 근접은 곧바로 공개 준비하거나 강령술의 징조로 방향을 확정한다. */
   @Test
-  void onlyOppositeSidePreparationCanImproveTheSecondLowReveal() {
+  void necromancyTargetsTheSecondLowWithoutFillingSlots() {
     String spirit = "amulet:prefix:countess", melee = "amulet:suffix:of-battle";
     var initial = fixture.item(ItemState.Rarity.RARE, spirit, "amulet:prefix:adept-s");
     var sources = new ArrayList<>(List.of(rare));
@@ -154,27 +154,14 @@ class RecipeLowAcquisitionPolicyTest {
             0);
     var choices = moves.choices(initial, card, Map.of(1, spirit));
     assertThat(choices).anyMatch(c -> c.purpose() == RecipeMoves.Purpose.BONE);
-    var directional =
-        choices.stream()
-            .filter(c -> c.purpose() == RecipeMoves.Purpose.LOW_SLOT_PREPARATION)
-            .toList();
-    assertThat(directional)
-        .allSatisfy(
-            c -> assertThat(c.move().omens()).containsExactly(WorkbenchOmen.SINISTRAL_EXALTATION));
-    assertThat(directional)
-        .extracting(c -> c.followup().action())
-        .containsExactlyInAnyOrderElementsOf(actual);
-    var fill =
-        new RecipeRoutePlanner.Step(
-            "EXALTED",
-            List.of(WorkbenchOmen.SINISTRAL_EXALTATION.id()),
-            List.of(),
-            List.of(),
-            null);
-    var bone =
-        new RecipeRoutePlanner.Step("Preserved_Collarbone", List.of(), List.of(), List.of(), null);
+    String omen = DesecrationCurrency.directionOmen(AffixType.SUFFIX);
+    assertThat(choices).noneMatch(c -> c.move().action().equals("EXALTED") && c.preparation());
+    assertThat(choices).anyMatch(c -> c.move().omenIds().equals(List.of(omen)));
     var reveal = new RecipeRoutePlanner.Step("REVEAL", List.of(), List.of(2), List.of(), null);
-    for (var steps : List.of(List.of(bone, reveal), List.of(fill, bone, reveal))) {
+    for (var omens : List.of(List.<String>of(), List.of(omen))) {
+      var bone =
+          new RecipeRoutePlanner.Step("Preserved_Collarbone", omens, List.of(), List.of(), null);
+      var steps = List.of(bone, reveal);
       var result =
           RecipeRoutePlanner.evaluateFixed(
               fixture.workbench,
@@ -191,7 +178,7 @@ class RecipeLowAcquisitionPolicyTest {
               r -> {
                 int index = steps.size() - 2;
                 assertThat(r.steps().get(index).chance().probability())
-                    .isEqualTo(index == 0 ? 0.5 : 1.0);
+                    .isEqualTo(omens.isEmpty() ? 0.5 : 1.0);
                 assertThat(r.steps().getLast().chance().probability()).isEqualTo(1.0);
                 var hidden =
                     result.states().get(r.stateIndices().get(index)).desecrated().getFirst();
@@ -205,11 +192,6 @@ class RecipeLowAcquisitionPolicyTest {
                             .getFirst()
                             .modifierId())
                     .isEqualTo(melee);
-                if (index > 0) {
-                  var closed = result.states().get(r.stateIndices().getFirst());
-                  assertThat(moves.choices(closed, card, Map.of(1, spirit)))
-                      .noneMatch(c -> c.purpose() == RecipeMoves.Purpose.LOW_SLOT_PREPARATION);
-                }
               });
     }
   }
@@ -506,7 +488,7 @@ class RecipeLowAcquisitionPolicyTest {
             0);
     var choices = moves.choices(start, card, Map.of());
     assertThat(choices)
-        .hasSize(2)
+        .hasSize(4)
         .allMatch(
             c -> c.purpose() == RecipeMoves.Purpose.BONE && c.move().action().equals(bone.id()));
     assertThat(choices)

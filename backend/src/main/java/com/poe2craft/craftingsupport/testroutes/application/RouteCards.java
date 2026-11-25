@@ -29,7 +29,12 @@ public final class RouteCards {
   }
 
   /** label은 B/E/C/D/A, id는 작업대 재료 식별자다. frequency는 해당 출처에서 목표 허용 티어 중 하나를 얻는 빈도다. */
-  public record Source(String label, String id, Frequency frequency) {}
+  public record Source(String label, String id, Frequency frequency) {
+    /** 일반 훼손과 별세계 목표는 하나의 공개 슬롯을 사용한다. */
+    boolean reveal() {
+      return label.equals("D") || label.equals("O");
+    }
+  }
 
   /** 카드 내 번호·허용 티어·획득처와 목표에 입력한 수치 경계다. 상한만 지정하면 획득 시 티어 최댓값을 사용한다. */
   public record Option(
@@ -172,7 +177,7 @@ public final class RouteCards {
     itemCatalog.modifiers().values().stream()
         .filter(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT)
         .filter(d -> sources.containsKey(d.id()) || held.containsKey(d.id()))
-        .filter(d -> d.stats().stream().anyMatch(s -> relevant.contains(s.id())))
+        .filter(d -> d.stats().stream().anyMatch(s -> relevant.contains(d.goalSource(s))))
         .sorted(
             Comparator.comparing(ModifierDefinition::affixType)
                 .thenComparing(ModifierDefinition::id))
@@ -182,7 +187,7 @@ public final class RouteCards {
                   new Family(
                       d.affixType(),
                       d.familyIds(),
-                      d.stats().stream().map(ModifierDefinition.StatRange::id).sorted().toList());
+                      d.stats().stream().map(d::goalSource).sorted().toList());
               byFamily.computeIfAbsent(key, ignored -> new ArrayList<>()).add(d);
             });
     families =
@@ -288,14 +293,17 @@ public final class RouteCards {
         });
     var result = new HashMap<String, List<Source>>();
     for (var d : pool) {
-      if (d.stats().stream().noneMatch(s -> relevant.contains(s.id()))) continue;
+      if (d.stats().stream().noneMatch(s -> relevant.contains(d.goalSource(s)))) continue;
       var list = new ArrayList<Source>();
       if (d.weight() > 0 && !d.tags().contains("augment_pool")) list.add(baseSource);
       list.addAll(materialOptions.getOrDefault(d.id(), List.of()));
       boolean inPool =
           d.weight() > 0 || availablePools.values().stream().anyMatch(ids -> ids.contains(d.id()));
-      for (var bone : DesecrationCurrency.sources(base, level, d, inPool))
-        list.add(new Source("D", bone, null));
+      for (var bone : DesecrationCurrency.sources(base, level, d, inPool)) {
+        boolean otherworldly = d.tags().contains("otherworldly");
+        if (bone.equals("Altered_Collarbone") == otherworldly)
+          list.add(new Source(otherworldly ? "O" : "D", bone, null));
+      }
       for (var augment : availablePools.entrySet()) {
         if (augment.getValue().contains(d.id())) list.add(new Source("A", augment.getKey(), null));
       }
@@ -496,11 +504,12 @@ public final class RouteCards {
           continue;
         var raw = s.sourceStatIds().getFirst();
         if (selected.stream().filter(f -> f.key().stats().contains(raw)).count() != 1) continue;
-        var range = d.stats().stream().filter(r -> r.id().equals(raw)).findFirst().orElse(null);
+        var range =
+            d.stats().stream().filter(r -> d.goalSource(r).equals(raw)).findFirst().orElse(null);
         if (range == null) continue;
         var fracture = held.get(d.id());
         long min = range.min(), max = range.max();
-        if (fracture != null && fracture.fractured()) min = max = fracture.values().get(raw);
+        if (fracture != null && fracture.fractured()) min = max = fracture.values().get(range.id());
         var lo = ModifierMagnitudes.factor(magnitudes.lower(), d);
         var hi = ModifierMagnitudes.factor(magnitudes.upper(), d);
         var minRaw = BigDecimal.valueOf(min);

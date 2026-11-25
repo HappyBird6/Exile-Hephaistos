@@ -36,7 +36,12 @@ public final class ItemStatProjection {
       var sum = BigDecimal.ZERO;
       boolean present = false;
       for (var modifier : modifiers) {
-        var value = modifier.values().get(mapping.sourceStatId());
+        var source = mapping.sourceStatId();
+        if (modifier.modifierId().equals(source)) {
+          source =
+              stat.unit().equals("presence") ? "display_reveal_present" : "display_reveal_value_0";
+        }
+        var value = modifier.values().get(source);
         if (value != null && seen.add(modifier.modifierId())) {
           present = true;
           sum = sum.add(BigDecimal.valueOf(value));

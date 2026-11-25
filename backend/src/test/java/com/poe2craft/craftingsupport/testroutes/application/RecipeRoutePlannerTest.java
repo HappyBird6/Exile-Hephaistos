@@ -39,9 +39,9 @@ class RecipeRoutePlannerTest {
     return ids.contains(life) && ids.contains(def);
   }
 
-  /** 양쪽이 열린 뼈를 바로 쓰거나, 접미를 모두 채워 접두 훼손을 보장하는 두 전략만 반환한다. */
+  /** 양쪽이 열린 뼈를 바로 쓰거나, 좌측 강령술로 접두 훼손을 보장하는 두 전략만 반환한다. */
   @Test
-  void usesDirectionalFillOnlyWhenItActuallyForcesTheBoneSide() {
+  void usesAPrefixNecromancyOmenOnTheBone() {
     String bone = "Preserved_Collarbone";
     var low = new RouteCards.Source("B", null, RouteCards.Frequency.L);
     var card =
@@ -62,18 +62,17 @@ class RecipeRoutePlannerTest {
             null);
     assertThat(result.routes())
         .extracting(r -> r.steps().stream().map(RecipeRoutePlanner.Step::action).toList())
-        .containsExactlyInAnyOrder(
-            List.of(bone, "REVEAL"), List.of("EXALTED", "EXALTED", bone, "REVEAL"));
+        .containsExactlyInAnyOrder(List.of(bone, "REVEAL"), List.of(bone, "REVEAL"));
     for (var route : result.routes()) {
       var use = route.steps().get(route.steps().size() - 2);
-      assertThat(use.chance().probability()).isEqualTo(route.steps().size() == 2 ? 0.5 : 1.0);
+      assertThat(use.chance().probability()).isEqualTo(use.omens().isEmpty() ? 0.5 : 1.0);
       assertThat(route.lucky()).isFalse();
     }
   }
 
-  /** 고대 뼈는 레벨 때문에 처음부터 접두만 가능하다. 보존된 뼈는 유일한 접미를 차단하면 빈칸이 남아도 방향이 확정된다. */
+  /** 고대 뼈는 레벨 때문에 처음부터 접두만 가능하다. 보존된 뼈는 좌측 징조로 접두를 지정한다. */
   @Test
-  void checksTheActualPoolOfTheSameBoneBeforeAndAfterFill() {
+  void checksTheActualPoolBeforeRecommendingNecromancy() {
     var tiny = new BasicCurrencyFixture();
     var target =
         fixture.catalog.modifiers().values().stream()
@@ -125,11 +124,11 @@ class RecipeRoutePlannerTest {
     assertThat(result.routes())
         .extracting(r -> r.steps().stream().map(RecipeRoutePlanner.Step::action).toList())
         .containsExactlyInAnyOrder(
-            List.of(ancient, "REVEAL"),
-            List.of(preserved, "REVEAL"),
-            List.of("EXALTED", preserved, "REVEAL"));
+            List.of(ancient, "REVEAL"), List.of(preserved, "REVEAL"), List.of(preserved, "REVEAL"));
     for (var route : result.routes()) {
-      boolean unprepared = route.steps().getFirst().action().equals(preserved);
+      boolean unprepared =
+          route.steps().getFirst().action().equals(preserved)
+              && route.steps().getFirst().omens().isEmpty();
       assertThat(route.probability()).isEqualTo(unprepared ? .5 : 1.0);
     }
   }
@@ -174,6 +173,8 @@ class RecipeRoutePlannerTest {
             r -> {
               assertThat(r.steps()).hasSize(2);
               assertThat(r.order()).containsExactly(4);
+              assertThat(r.steps().getFirst().dummy()).isTrue();
+              assertThat(r.steps().getFirst().chance().probability()).isEqualTo(1);
               assertThat(r.steps().getFirst().acquired()).isEmpty();
               assertThat(r.steps().getLast().omens())
                   .containsExactly("Omen_of_Dextral_Crystallisation");

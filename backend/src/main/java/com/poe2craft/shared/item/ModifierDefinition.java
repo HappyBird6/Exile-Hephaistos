@@ -91,6 +91,11 @@ public record ModifierDefinition(
     }
   }
 
+  /** 별세계의 수동 공개 수치 키는 여러 옵션이 공유하므로 목표에는 개별 옵션 ID를 쓴다. */
+  public String goalSource(StatRange range) {
+    return tags.contains("otherworldly") ? id : range.id();
+  }
+
   /**
    * {@code ModifierDefinition}의 옵션계층 구분값을 정의한다.
    *

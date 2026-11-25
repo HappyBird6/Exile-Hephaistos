@@ -41,7 +41,9 @@ public final class ExplicitGoalScope {
     for (var definition : catalog.sourceModifiers().values()) {
       if (definition.layer() != ModifierDefinition.Layer.EXPLICIT) continue;
       var covered = new HashSet<String>();
-      for (var stat : definition.stats()) if (required.contains(stat.id())) covered.add(stat.id());
+      for (var stat : definition.stats())
+        if (required.contains(definition.goalSource(stat)))
+          covered.add(definition.goalSource(stat));
       available.addAll(covered);
       coverage = Math.max(coverage, covered.size());
     }

@@ -60,8 +60,19 @@ public final class ManualRevealCatalog {
   }
 
   public static ItemCatalog enrich(ItemCatalog catalog) {
+    return enrich(catalog, false);
+  }
+
+  /** 제작 목표에는 해당 베이스의 별세계 정의만 추가한다. */
+  public static ItemCatalog enrichOtherworldly(ItemCatalog catalog) {
+    return enrich(catalog, true);
+  }
+
+  /** 수동 공개 및 목표 선택에 필요한 정의를 동일한 베이스별 원본에서 가져온다. */
+  private static ItemCatalog enrich(ItemCatalog catalog, boolean otherworldlyOnly) {
     var extra =
         BASES.getOrDefault(catalog.base().id(), List.of()).stream()
+            .filter(d -> !otherworldlyOnly || d.tags().contains("otherworldly"))
             .filter(d -> catalog.find(d.id()).isEmpty())
             .toList();
     if (extra.isEmpty()) return catalog;

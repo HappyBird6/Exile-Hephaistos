@@ -1,7 +1,7 @@
 import { useQueries, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { gameName, getLocale, useI18n } from '../../../shared/i18n/i18n'
-import { materialNames } from '../catalogData'
+import { manualRevealDefinitions, materialNames } from '../catalogData'
 import type { Initial } from '../craftingApi'
 import { useCurrencyMarket } from '../currency-prices/context'
 import { supportProbabilityText } from '../supportProbability'
@@ -132,7 +132,7 @@ export function AcquisitionRouteResults({
 
 function RouteList({
   result,
-  definitions,
+  definitions: startingDefinitions,
   request,
   baseName,
 }: {
@@ -142,6 +142,16 @@ function RouteList({
   baseName: string
 }) {
   const { locale } = useI18n()
+  const definitions = useMemo(() => {
+    const extra: Initial['modifiers'] = {}
+    const reveal: Initial['modifiers'] =
+      manualRevealDefinitions.definitions as Initial['modifiers']
+    for (const card of result.cards)
+      for (const option of card.options)
+        for (const id of option.modifierIds)
+          if (!startingDefinitions[id] && reveal[id]) extra[id] = reveal[id]
+    return { ...startingDefinitions, ...extra }
+  }, [startingDefinitions, result.cards])
   const copy = acquisitionRouteMessages[locale]
   const messages = pathTreeMessages[locale]
   const changes = graphStateMessages[locale]

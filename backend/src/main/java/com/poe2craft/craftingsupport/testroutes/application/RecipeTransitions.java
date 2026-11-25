@@ -334,6 +334,18 @@ public final class RecipeTransitions {
       Set<String> targetIds,
       int remainingOutcomes,
       boolean deferSelection) {
+    return prepareBone(
+        item, material, omenIds(omens), targetIds, remainingOutcomes, deferSelection);
+  }
+
+  /** 작업대의 뼈 전용 징조 ID와 현재 제거 후보로 실제 방향 확률을 계산한다. */
+  Law prepareBone(
+      ItemState item,
+      String material,
+      Set<String> omens,
+      Set<String> targetIds,
+      int remainingOutcomes,
+      boolean deferSelection) {
     if (remainingOutcomes < 1) return Law.empty(false);
     if (item.rarity() != ItemState.Rarity.RARE || !item.desecrated().isEmpty())
       return Law.empty(true);
@@ -378,19 +390,6 @@ public final class RecipeTransitions {
     return eligible;
   }
 
-  /** 빈 칸에 쓴 같은 뼈가 양쪽을 모두 열 수 있을 때, 실제 공개 가능한 목표 티어만 반환한다. */
-  static Set<String> twoSidedRevealTargets(
-      ItemState item, String bone, ItemCatalog catalog, Set<String> targets) {
-    var branches = boneStates(item, bone, Set.of(), catalog);
-    if (branches.size() != 2) return Set.of();
-    var eligible = new HashSet<String>();
-    for (var branch : branches) {
-      var state = branch.state();
-      eligible.addAll(state.eligibleRevealIds(state.slots().getLast().id(), catalog, targets));
-    }
-    return eligible;
-  }
-
   /** 실제 미공개 슬롯에 맞는 티어 중 제거할 수 없는 분열 옵션의 ID·계열과 충돌하는 것은 예약할 수 없다. */
   static Set<String> reservableRevealIds(
       AbyssCraftingState state, String slotId, ItemCatalog catalog, Set<String> targets) {
@@ -419,9 +418,19 @@ public final class RecipeTransitions {
   /** 제거·방향을 이미 결정한 실제 미공개 상태와 해당 작업대 분기 확률이다. */
   private record BoneState(AbyssCraftingState state, Fraction probability) {}
 
+  /** 무징조 뼈로 두 방향이 실제 가능한 경우만 방향 징조가 확률을 바꾼다. */
+  static boolean bothBoneSides(ItemState item, String material, ItemCatalog catalog) {
+    return boneStates(item, material, Set.of(), catalog).stream()
+            .map(b -> b.state().slots().getLast().side())
+            .distinct()
+            .limit(2)
+            .count()
+        == 2;
+  }
+
   /** 재료 적용으로 열 수 있는 미공개 상태를 작업대에서 검사한다. 가득 찬 경우에는 제거할 슬롯별로 검사한다. */
   private static List<BoneState> boneStates(
-      ItemState item, String material, Set<WorkbenchOmen> omens, ItemCatalog catalog) {
+      ItemState item, String material, Set<String> omens, ItemCatalog catalog) {
     var removalsWithSides = new ArrayList<List<AbyssCraftingState>>();
     if (item.desecrated().isEmpty()) {
       var slots = new ItemStateValidator(catalog).slots(item);
@@ -436,8 +445,7 @@ public final class RecipeTransitions {
         for (var side :
             List.of(ModifierDefinition.AffixType.PREFIX, ModifierDefinition.AffixType.SUFFIX)) {
           try {
-            var rolled =
-                DesecrationCurrency.apply(item, material, side, removed, omenIds(omens), catalog);
+            var rolled = DesecrationCurrency.apply(item, material, side, removed, omens, catalog);
             // 가상 분기끼리 같은 상태를 비교할 수 있게 작업대의 임의 신규 슬롯 ID만 정규화한다.
             var slotsWithStableIds =
                 rolled.slots().stream()
@@ -678,7 +686,8 @@ public final class RecipeTransitions {
     boolean ignoresValues =
         presenceOnly
             || (numericSourceStatIds != null
-                && definition.stats().stream().noneMatch(s -> numericSourceStatIds.contains(s.id()))
+                && definition.stats().stream()
+                    .noneMatch(s -> numericSourceStatIds.contains(definition.goalSource(s)))
                 && !ModifierMagnitudes.provider(definition));
     if (definition.stats().size() == 1) {
       var stat = definition.stats().getFirst();

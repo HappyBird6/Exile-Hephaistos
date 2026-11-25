@@ -132,7 +132,7 @@ export function GoalFilterPanel({
   const unitLabel = (unit: string) =>
     unit === 'percent'
       ? '%'
-      : unit === 'flat'
+      : unit === 'flat' || unit === 'roll'
         ? startInputMessages[language].value
         : '?'
   const {
@@ -363,7 +363,8 @@ export function GoalFilterPanel({
                 onClick={() => chooseStat(index)}
               >
                 <span className="goal-filter-candidate-label">
-                  {stat.label} ({unitLabel(stat.unit)}){' '}
+                  {stat.label}{' '}
+                  {stat.unit !== 'presence' && `(${unitLabel(stat.unit)})`}{' '}
                   <small>{setup.explicit}</small>
                 </span>
                 {!compact && (
@@ -623,7 +624,8 @@ export function GoalFilterPanel({
                           {!stat && !total && compact
                             ? actions.unavailable
                             : label}{' '}
-                          ({unitLabel(entry.unit)})
+                          {entry.unit !== 'presence' &&
+                            `(${unitLabel(entry.unit)})`}
                         </span>
                       </div>
                       {catalog.data && (total || !stat || !stat.eligible) && (
@@ -633,25 +635,26 @@ export function GoalFilterPanel({
                             : (stat?.eligibilityReason ?? 'UNKNOWN_STAT')}
                         </p>
                       )}
-                      {(['min', 'max'] as const).map((bound) => (
-                        <NumberField
-                          fieldId={`${entry.id}:${bound}`}
-                          invalidLabel={t.invalid}
-                          onValidityChange={onValidityChange}
-                          key={bound}
-                          label={t[bound]}
-                          value={entry.range[bound]}
-                          onChange={(n) =>
-                            edit((g) =>
-                              editRange(
-                                g.groups[index]!.entries[row]!.range,
-                                bound,
-                                n,
-                              ),
-                            )
-                          }
-                        />
-                      ))}
+                      {entry.unit !== 'presence' &&
+                        (['min', 'max'] as const).map((bound) => (
+                          <NumberField
+                            fieldId={`${entry.id}:${bound}`}
+                            invalidLabel={t.invalid}
+                            onValidityChange={onValidityChange}
+                            key={bound}
+                            label={t[bound]}
+                            value={entry.range[bound]}
+                            onChange={(n) =>
+                              edit((g) =>
+                                editRange(
+                                  g.groups[index]!.entries[row]!.range,
+                                  bound,
+                                  n,
+                                ),
+                              )
+                            }
+                          />
+                        ))}
                       {weighted(group.type) && (
                         <NumberField
                           fieldId={`${entry.id}:weight`}

@@ -7,12 +7,14 @@ import com.poe2craft.craftingsupport.testroutes.application.RecipeMoves.Purpose;
 import com.poe2craft.craftingsupport.testroutes.application.RecipeTransitions.Law;
 import com.poe2craft.craftingsupport.testroutes.application.RecipeTransitions.Outcome;
 import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
+import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.BasicJewel;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
+import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import com.poe2craft.shared.probability.Fraction;
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -230,7 +232,7 @@ public final class RecipeRoutePlanner {
         Integer repeatTarget) {
       this(
           move.action(),
-          move.omens().stream().map(WorkbenchOmen::id).sorted().toList(),
+          move.omenIds(),
           acquired,
           lost,
           move.socketIndex(),
@@ -300,6 +302,10 @@ public final class RecipeRoutePlanner {
 
     /** 클라이언트에서 돌아온 행동·징조와 실제 홈 위치만 재생 키에 포함한다. */
     private Move move() {
+      if (omens.size() == 1
+          && (omens.contains(DesecrationCurrency.directionOmen(AffixType.PREFIX))
+              || omens.contains(DesecrationCurrency.directionOmen(AffixType.SUFFIX))))
+        return new Move(action, Set.of(), socketIndex, omens.getFirst());
       return new Move(
           action,
           omens.stream().map(WorkbenchOmen::fromId).collect(java.util.stream.Collectors.toSet()),
@@ -398,8 +404,18 @@ public final class RecipeRoutePlanner {
   /** 같은 아이템에 도달한 모든 분기의 probability와, 그중 실제로 성립한 witness 한 개다. */
   private record Mass(RevealTierMass weight, Witness witness) {}
 
-  /** 훼손 방향 고정에 쓸 재료와 첫 카오스 준비 중 모두 지울 일반 옵션 수를 같은 상태 비교에 포함한다. */
-  private record StateKey(ItemState item, Set<Move> revealBones, int disposableCount) {}
+  /** 첫 카오스에서 지울 옵션 수와 다음 에센스로 교체할 칸의 역할까지 같을 때만 상태를 합친다. */
+  private record StateKey(ItemState item, int disposableCount, EssenceSlot essenceSlot) {
+    StateKey(ItemState item, int disposableCount) {
+      this(item, disposableCount, null);
+    }
+  }
+
+  /**
+   * 엑잘로 붙인 한 칸과 바로 뒤에서 그 칸을 교체할 수 있는 에센스·징조 조합이다. disposable이면 추가한 칸을 목표 보유에서 제외하고, 실제 제거 확률은 에센스
+   * 단계에서 평가한다.
+   */
+  private record EssenceSlot(String modifierId, Set<Move> replacements, boolean disposable) {}
 
   /** 같은 경로의 서로 다른 실제 아이템별 질량과, 그 경로에 빠진 분기가 있는지를 보존한다. */
   private static final class Distribution {
@@ -426,7 +442,7 @@ public final class RecipeRoutePlanner {
 
     /** 미확정 질량은 null로 유지한다. 서로 배타적인 같은 상태 결과만 합친다. */
     void add(ItemState item, RevealTierMass weight, Witness parent, RecipeStateGroups groups) {
-      add(item, weight, parent, new StateKey(groups.key(item), Set.of(), 0), false, false);
+      add(item, weight, parent, new StateKey(groups.key(item), 0), false, false);
     }
 
     /** 동일한 실제 경로가 준비 적중과 직접 획득 둘 다 가능하면 직접 획득 예시를 우선한다. */
@@ -470,8 +486,8 @@ public final class RecipeRoutePlanner {
     // 지정한 목표에 적중한 전체 질량이다. 같은 티어가 다른 목표를 동시에 달성한 경우도 한 번만 더한다.
     RevealTierMass repeatHits = RevealTierMass.known(Fraction.ZERO);
     RevealTierMass missedProof = RevealTierMass.known(Fraction.ZERO);
+    RevealTierMass essenceFillerMass = RevealTierMass.known(Fraction.ZERO);
     Fraction eligible = Fraction.ZERO;
-    Fraction missed = Fraction.ZERO;
     // 첫 시도 확률은 실제 시작 분포를 따르고 비용 기준이 되는 목표 티어는 별도로 보존한다.
     final Set<String> chaosTargetTiers = new HashSet<>();
     boolean firstKnown = true;
@@ -564,7 +580,7 @@ public final class RecipeRoutePlanner {
       var augments = new HashSet<String>();
       for (var sources : opt.tiers().values())
         for (var source : sources) {
-          if (source.label().equals("D")) boneIds.add(source.id());
+          if (source.reveal()) boneIds.add(source.id());
           if (source.label().equals("A")) augments.add(source.id());
           if (source.frequency() != null)
             priorities.merge(
@@ -985,8 +1001,7 @@ public final class RecipeRoutePlanner {
                                             .anyMatch(
                                                 source ->
                                                     source.frequency() == RouteCards.Frequency.L)
-                                        && s.stream()
-                                            .anyMatch(source -> source.label().equals("D"))));
+                                        && s.stream().anyMatch(RouteCards.Source::reveal)));
     int stageAllowance =
         staging
             ? Math.max(
@@ -1001,6 +1016,9 @@ public final class RecipeRoutePlanner {
             .filter(m -> !m.fractured())
             .forEach(mod -> before.values().removeIf(mod.modifierId()::equals));
       }
+      var essenceSlot = entry.getKey().essenceSlot();
+      if (essenceSlot != null && essenceSlot.disposable())
+        before.values().removeIf(essenceSlot.modifierId()::equals);
       if (before.size() == allowed.size() && matchesGoal.test(item)) {
         // 계획이 새로 연 슬롯을 끝까지 사용하지 않은 가지는 완주한 훼손 제작이 아니다.
         if (!path.isEmpty()
@@ -1112,24 +1130,8 @@ public final class RecipeRoutePlanner {
             && (path.isEmpty() || !path.getLast().action().equals(WorkbenchCurrency.DIVINE.name())))
           choices.add(new Choice(0, new Move(WorkbenchCurrency.DIVINE.name()), true, null));
       }
-      var revealBones = entry.getKey().revealBones();
-      if (!revealBones.isEmpty() && fixedSteps == null) {
-        // 같은 뼈가 아직 양쪽을 열면 준비를 계속하고, 실제로 한쪽만 남으면 그 재료를 즉시 쓴다.
-        var fill = path.getLast().move();
-        var stillTwoSided = new HashSet<Move>();
-        for (var c : choices) {
-          if (c.purpose() == Purpose.LOW_SLOT_PREPARATION && revealBones.contains(c.followup()))
-            stillTwoSided.add(c.followup());
-        }
-        choices.removeIf(
-            c ->
-                switch (c.purpose()) {
-                  case BONE -> !revealBones.contains(c.move()) || stillTwoSided.contains(c.move());
-                  case LOW_SLOT_PREPARATION ->
-                      !fill.equals(c.move()) || !stillTwoSided.contains(c.followup());
-                  default -> true;
-                });
-      }
+      if (essenceSlot != null && essenceSlot.disposable())
+        choices.removeIf(c -> !essenceSlot.replacements().contains(c.move()));
       trace.evaluatedChoices += choices.size();
       extend(
           item,
@@ -1137,6 +1139,7 @@ public final class RecipeRoutePlanner {
           protectedIds,
           choices,
           entry.getValue(),
+          essenceSlot,
           current.complete,
           children,
           preparations,
@@ -1228,21 +1231,20 @@ public final class RecipeRoutePlanner {
       var weight = nextStates.totalWeight();
       var eventBounds = measuredEvent(weight, preparation.covered, nextStates.complete, liveBounds);
       nextStates.rawCap = eventBounds.upper();
-      if (step.acquired().isEmpty() && step.lost().isEmpty() && preparation.dummy) {
-        // 더미용 화폐는 기본 등급으로만 준비한다. 실물에서 목표를 얻은 적중 분기는 그대로 등급을 비교한다.
+      if (step.dummy()
+          || (step.acquired().isEmpty() && step.lost().isEmpty() && preparation.dummy)) {
+        // 더미는 해당 칸을 준비한 조건에서 다음 제작으로 간다. 보존한 실제 목표 적중은 별도로 측정한다.
         if (required != null && !RecipeMoves.baseMove(step.move()).equals(step.move())) continue;
+        var denominator = step.dummy() ? preparation.essenceFillerMass : preparation.missedProof;
         step = step.asDummy();
-        // 실제 후속 제작이 가능한 더미만 남았더라도 모든 미적중 더미를 분모에 유지한다.
-        nextStates.preparationFactor =
-            product(current.preparationFactor, ratio(preparation.eligible, preparation.missed));
-        // 부분 열거에서 eligible/missed 자체는 확정 배수가 아니다. 실제 미적중은 적격 질량의 부분집합이다.
-        var knownFactor =
-            nextStates.complete ? ratio(preparation.eligible, preparation.missed) : null;
+        var factor = ratio(preparation.eligible, denominator.exact());
+        nextStates.preparationFactor = product(current.preparationFactor, factor);
+        var knownFactor = nextStates.complete ? factor : null;
         if (knownFactor != null) {
           nextStates.factorLow = product(current.factorLow, knownFactor);
           nextStates.factorHigh = product(current.factorHigh, knownFactor);
         } else {
-          var high = ratio(liveBounds.upper(), preparation.missedProof.minimum());
+          var high = ratio(liveBounds.upper(), denominator.minimum());
           nextStates.factorHigh = product(current.factorHigh, high);
         }
       }
@@ -1453,6 +1455,7 @@ public final class RecipeRoutePlanner {
       Set<String> protectedIds,
       List<Choice> choices,
       Mass prior,
+      EssenceSlot previousSlot,
       boolean parentComplete,
       Map<Step, Distribution> children,
       Map<Trial, PreparationMass> preparations,
@@ -1561,10 +1564,10 @@ public final class RecipeRoutePlanner {
         }
         if (intents.stream().anyMatch(c -> c.purpose() == Purpose.BONE))
           law =
-              transitions.prepareDesecration(
+              transitions.prepareBone(
                   item,
                   action,
-                  move.omens(),
+                  Set.copyOf(move.omenIds()),
                   interested,
                   remaining,
                   before.size() + 1 < allowed.size());
@@ -1635,13 +1638,6 @@ public final class RecipeRoutePlanner {
           sameFirstChaosTargets
               && !intents.isEmpty()
               && intents.stream().allMatch(c -> c.purpose() == Purpose.LOW_PREPARATION);
-      var revealBones =
-          fixedSteps == null
-                  && intents.stream().allMatch(c -> c.purpose() == Purpose.LOW_SLOT_PREPARATION)
-              ? intents.stream()
-                  .map(Choice::followup)
-                  .collect(java.util.stream.Collectors.toUnmodifiableSet())
-              : Set.<Move>of();
       Integer maxUses = bounded ? chaosLimit : null;
       boolean repeatUntilHit = bounded && chaosLimit == null;
       var preparation = preparations.get(trial);
@@ -1669,6 +1665,11 @@ public final class RecipeRoutePlanner {
         }
       }
       for (var outcome : law.outcomes()) {
+        // 더미 경로는 그 칸이 제거된 결과만 성공이다. 보유하기로 한 적중을 즉시 희생하는 같은 경로는 중복이다.
+        if (previousSlot != null
+            && previousSlot.replacements().contains(move)
+            && previousSlot.disposable()
+                != outcome.removedModifierIds().contains(previousSlot.modifierId())) continue;
         var weight = transitionMass(prior.weight, outcome);
         if (!law.complete()) preparation.covered = preparation.covered.plus(weight);
         boolean dummy =
@@ -1680,7 +1681,24 @@ public final class RecipeRoutePlanner {
             observed(
                 move, item, before, protectedIds, intents, outcome, maxUses, repeatUntilHit, dummy);
         if (step == null) continue;
+        var slot =
+            intents.stream().anyMatch(c -> c.followup() != null)
+                ? essenceSlot(item, before, protectedIds, outcome, intents)
+                : null;
         trace.actions.get(move.action()).accepted++;
+        if (slot != null) {
+          var staged = new Step(move, List.of(), List.of(), null, null).asDummy();
+          var group = children.computeIfAbsent(staged, ignored -> new Distribution(preparation));
+          group.complete &= parentComplete && law.complete();
+          group.add(
+              outcome.state(),
+              weight,
+              prior.witness,
+              new StateKey(stateGroups.key(outcome.state()), 0, slot),
+              prior.witness.lucky,
+              false);
+          if (step.acquired().isEmpty()) continue;
+        }
         if (repeatUntilHit) preparation.repeatHits = preparation.repeatHits.plus(weight);
         var child =
             children.computeIfAbsent(step, ignored -> new Distribution(preparations.get(trial)));
@@ -1695,18 +1713,39 @@ public final class RecipeRoutePlanner {
                                 step.acquired().contains(c.target())
                                     && (!c.preparation() || c.purpose() == Purpose.DIRECT_UPGRADE)
                                     && reaches(c, before, outcome, protectedIds));
-        var key =
-            childKey(
-                outcome.state(),
-                preparingFirstChaos,
-                step.acquired().isEmpty() ? revealBones : Set.of());
+        var key = childKey(outcome.state(), preparingFirstChaos);
+        if (slot != null)
+          key =
+              new StateKey(
+                  key.item(),
+                  key.disposableCount(),
+                  new EssenceSlot(slot.modifierId(), slot.replacements(), false));
         child.add(outcome.state(), weight, prior.witness, key, lucky, dummy);
       }
     }
   }
 
+  /** 현재 준비로 새로 붙인 한 칸과, 기존 L을 보호하면서 이어갈 에센스를 식별한다. */
+  private EssenceSlot essenceSlot(
+      ItemState item,
+      Map<Integer, String> held,
+      Set<String> protectedIds,
+      Outcome outcome,
+      List<Choice> intents) {
+    var added =
+        outcome.state().explicits().stream().filter(m -> !item.explicits().contains(m)).findFirst();
+    if (added.isEmpty() || lowIds.contains(added.get().modifierId())) return null;
+    var replacements = new HashSet<Move>();
+    for (var intent : intents)
+      if (intent.followup() != null && reaches(intent, held, outcome, protectedIds))
+        replacements.add(intent.followup());
+    return replacements.isEmpty()
+        ? null
+        : new EssenceSlot(added.get().modifierId(), Set.copyOf(replacements), true);
+  }
+
   /** 무징조 소멸로 한 칸을 남기고 카오스로 마지막 칸까지 교체하는 준비만, 모든 순수 더미의 질량을 합친다. */
-  private StateKey childKey(ItemState item, boolean preparingFirstChaos, Set<Move> revealBones) {
+  private StateKey childKey(ItemState item, boolean preparingFirstChaos) {
     if (preparingFirstChaos
         && item.rarity() == ItemState.Rarity.RARE
         && !BasicJewel.supportedCrafting(item.baseItemId())
@@ -1723,9 +1762,9 @@ public final class RecipeRoutePlanner {
       // 마법 단계는 기존 옵션이 제왕 추첨 풀을 바꾸므로 구별한다. 희귀가 된 뒤 이 분기에는 추가 추첨 없이
       // 무조건 한 옵션을 제거하는 행동만 남는다. 마지막 옵션도 제거한 빈 베이스가 카오스 분모다.
       var empty = RecipeStateGroups.withAffixes(item, item.rarity(), List.of());
-      return new StateKey(empty, Set.of(), item.explicits().size());
+      return new StateKey(empty, item.explicits().size());
     }
-    return new StateKey(stateGroups.key(item), revealBones, 0);
+    return new StateKey(stateGroups.key(item), 0);
   }
 
   /** 같은 원래 분모를 유지하며 확인된 일반 확률 또는 특정 훼손 티어의 조건부 질량을 곱한다. */
@@ -1793,7 +1832,8 @@ public final class RecipeRoutePlanner {
     var original =
         originalAction == null
             ? null
-            : new Move(originalAction, selected.omens(), selected.socketIndex());
+            : new Move(
+                originalAction, selected.omens(), selected.socketIndex(), selected.boneOmen());
     if (original == null) {
       if (choices.containsKey(selected)) original = selected;
       else if (choices.containsKey(selectedBase)) original = selectedBase;
@@ -1818,7 +1858,7 @@ public final class RecipeRoutePlanner {
               .toList();
       if (alternatives.isEmpty()) continue;
       if (RecipeMoves.baseMove(move).action().equals(selectedBase.action()))
-        move = new Move(selected.action(), move.omens(), move.socketIndex());
+        move = new Move(selected.action(), move.omens(), move.socketIndex(), move.boneOmen());
       replay.computeIfAbsent(move, k -> new ArrayList<>()).addAll(alternatives);
     }
     return replay;
@@ -1838,12 +1878,17 @@ public final class RecipeRoutePlanner {
       return;
     prep.dummy = true;
     prep.eligible = sum(prep.eligible, prior.exact());
+    boolean essencePreparation = intents.stream().anyMatch(c -> c.followup() != null);
     for (var outcome : law.outcomes()) {
+      if (essencePreparation
+          && outcome.state().explicits().stream()
+              .noneMatch(m -> lowIds.contains(m.modifierId()) && !item.explicits().contains(m))) {
+        prep.essenceFillerMass = prep.essenceFillerMass.plus(transitionMass(prior, outcome));
+      }
       if (disposableChaosSlot(item, outcome.state(), intents)
           || outcome.state().explicits().stream()
               .noneMatch(
                   m -> targets.contains(m.modifierId()) && !held.containsValue(m.modifierId()))) {
-        prep.missed = sum(prep.missed, product(prior.exact(), outcome.probability()));
         prep.missedProof = prep.missedProof.plus(transitionMass(prior, outcome));
       }
     }
@@ -1857,10 +1902,7 @@ public final class RecipeRoutePlanner {
         && !Collections.disjoint(outcome.removedModifierIds(), before.values())) return false;
     if (!RecipeMoves.permits(
         choice, before, held(outcome.state()), outcome.removedModifierIds(), lowIds)) return false;
-    if (choice.purpose() == Purpose.LOW_SLOT_PREPARATION) {
-      return held(outcome.state()).containsKey(choice.target())
-          || choice.eligibleTiers().stream().anyMatch(t -> moves.canReserve(outcome.state(), t));
-    }
+
     if (!choice.preparation()) {
       return outcome.state().explicits().stream()
           .anyMatch(
@@ -1870,7 +1912,8 @@ public final class RecipeRoutePlanner {
                           || outcome.removedModifierIds().contains(before.get(choice.target()))));
     }
     // 엑잘이 마지막 명시 칸에 목표 대신 더미를 붙이면 이 분기는 실패다. 미공개 훼손 칸도 점유에 포함한다.
-    if (RecipeMoves.baseMove(choice.move()).action().equals(WorkbenchCurrency.EXALTED.name())
+    if (choice.followup() == null
+        && RecipeMoves.baseMove(choice.move()).action().equals(WorkbenchCurrency.EXALTED.name())
         && outcome.state().explicits().stream()
             .noneMatch(
                 m -> targets.contains(m.modifierId()) && !before.containsValue(m.modifierId()))) {

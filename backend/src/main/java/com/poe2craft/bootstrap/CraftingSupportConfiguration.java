@@ -23,6 +23,7 @@ import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.crafting.infrastructure.CraftingRegistryLoader;
 import com.poe2craft.shared.item.ItemCatalog;
+import com.poe2craft.shared.item.ManualRevealCatalog;
 import com.poe2craft.shared.ruleset.RulesetManifestLoader;
 import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -145,7 +146,9 @@ public class CraftingSupportConfiguration {
     RulesetManifestLoader.load();
     return new GoalFilterService(
         new GoalCatalogIndex(
-            BundledGoalCatalogs.load(workbenchService),
+            BundledGoalCatalogs.load(workbenchService).stream()
+                .map(ManualRevealCatalog::enrichOtherworldly)
+                .toList(),
             GoalDefinitionsLoader.load(),
             RulesetManifestLoader.load().identity()));
   }

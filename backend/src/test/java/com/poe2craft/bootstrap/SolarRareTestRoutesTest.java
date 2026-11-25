@@ -9,8 +9,6 @@ import com.poe2craft.craftingsupport.testroutes.application.RecipeRoutePlanner;
 import com.poe2craft.craftingsupport.testroutes.application.TestRouteService;
 import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
-import com.poe2craft.shared.item.ItemStateValidator;
-import com.poe2craft.shared.item.ModifierDefinition.AffixType;
 import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.item.SolarAmulet;
 import java.math.BigDecimal;
@@ -85,6 +83,114 @@ class SolarRareTestRoutesTest {
         solar.implicits(),
         List.of(mods),
         Set.of());
+  }
+
+  /** 목걸이의 별세계 각 목표를 독립적으로 선택하고, 일반 뼈와 공유 표시 키로 오인하지 않는지 검증한다. */
+  @Test
+  void eachOtherworldlyGoalUsesOnlyAlteredCollarboneAndItsOwnReveal() {
+    var effects =
+        com.poe2craft.shared.item.ManualRevealCatalog.enrichOtherworldly(catalog)
+            .modifiers()
+            .values()
+            .stream()
+            .filter(d -> d.tags().contains("otherworldly"))
+            .toList();
+    assertThat(effects).hasSize(4);
+    for (var effect : effects) {
+      var range = effect.stats().getFirst();
+      boolean presence = range.id().equals("display_reveal_present");
+      var row =
+          entry(
+              effect.id(),
+              presence ? "presence" : "roll",
+              presence ? null : Math.toIntExact(range.min()));
+      var request =
+          new GoalFilter(
+              1,
+              goal.catalogVersion(),
+              goal.general(),
+              List.of(
+                  new GoalFilter.Group(
+                      "otherworldly", GoalFilter.Type.AND, false, null, List.of(row))));
+      var view = service.calculate(start(), request);
+      assertThat(view.routes())
+          .as(effect.id())
+          .isNotEmpty()
+          .allSatisfy(
+              route -> {
+                assertThat(route.steps())
+                    .extracting(RecipeRoutePlanner.Step::action)
+                    .containsExactly("Altered_Collarbone", "REVEAL");
+                assertThat(
+                        view.states()
+                            .get(route.stateIndices().getLast())
+                            .desecrated()
+                            .getFirst()
+                            .modifierId())
+                    .isEqualTo(effect.id());
+                assertThat(route.steps().getLast().chance().probability()).isEqualTo(1.0);
+              });
+      if (!presence && range.max() > range.min()) {
+        var high = entry(effect.id(), "roll", Math.toIntExact(range.max()));
+        var bounded =
+            new GoalFilter(
+                1,
+                goal.catalogVersion(),
+                goal.general(),
+                List.of(
+                    new GoalFilter.Group(
+                        "bounded", GoalFilter.Type.AND, false, null, List.of(high))));
+        assertThat(service.calculate(start(), bounded).routes())
+            .isNotEmpty()
+            .allSatisfy(
+                route ->
+                    assertThat(route.steps())
+                        .extracting(RecipeRoutePlanner.Step::action)
+                        .containsExactly("Altered_Collarbone", "REVEAL", "DIVINE"));
+      }
+    }
+  }
+
+  /** 일반 시작 5목표에서 보호용 접미는 임의의 한 칸으로 합치고, 실제 목표 적중과 재계산을 구분한다. */
+  @Test
+  void sacrificialSuffixIsCertainAndIsConsumedByTheNextEssence() {
+    var rows = new ArrayList<>(goal.groups().getFirst().entries());
+    rows.set(2, entry("projectile_skill_gem_level_+", "flat", 3));
+    rows.add(entry("base_cold_damage_resistance_%", "percent", null));
+    rows.add(entry("physical_damage_reduction_rating_+%", "percent", null));
+    var five =
+        new GoalFilter(
+            1,
+            goal.catalogVersion(),
+            goal.general(),
+            List.of(new GoalFilter.Group("five", GoalFilter.Type.AND, false, null, rows)));
+    var view = service.calculate(solar, five);
+    boolean seen = false;
+    for (var route : view.routes()) {
+      for (int i = 0; i + 1 < route.steps().size(); i++) {
+        var add = route.steps().get(i);
+        var use = route.steps().get(i + 1);
+        if (!add.action().equals("EXALTED")
+            || add.omens().isEmpty()
+            || !use.action().equals("PERFECT_ESSENCE_ENHANCEMENT")
+            || use.omens().isEmpty()) continue;
+        assertThat(java.util.Collections.disjoint(add.acquired(), use.lost())).isTrue();
+        if (!add.dummy()) continue;
+        assertThat(add.chance().probability()).isEqualTo(1);
+        assertThat(add.acquired()).isEmpty();
+        var before = i == 0 ? solar : view.states().get(route.stateIndices().get(i - 1));
+        var after = view.states().get(route.stateIndices().get(i));
+        var slot =
+            after.explicits().stream()
+                .filter(m -> !before.explicits().contains(m))
+                .findFirst()
+                .orElseThrow();
+        assertThat(view.states().get(route.stateIndices().get(i + 1)).explicits())
+            .doesNotContain(slot);
+        seen = true;
+      }
+    }
+    assertThat(seen).isTrue();
   }
 
   /** 명시 정신력 +47을 계속 보존한다. 여유 공간에서 준비한 뼈는 마지막 목표까지 미공개로 둘 수 있다. */
@@ -202,7 +308,7 @@ class SolarRareTestRoutesTest {
                     .containsExactlyInAnyOrder(
                         List.of(COUNTESS), List.of(GLOBAL), List.of(BATTLE)));
     for (var route : view.routes()) {
-      assertFillersImproveTheLastBone(view, route);
+      assertNoFillerBeforeLastBone(view, route);
       var first =
           route.steps().stream()
               .filter(step -> !step.acquired().isEmpty())
@@ -257,40 +363,24 @@ class SolarRareTestRoutesTest {
     }
   }
 
-  /** 마지막 목표만 남은 시점의 추가 엑잘은 공개 반대편을 끝까지 채워 뼈의 방향 확률을 높일 때만 필요하다. */
-  private void assertFillersImproveTheLastBone(
+  /** 마지막 공개 직전에 훼손 방향을 정하려고 더미 엑잘을 붙이지 않는다. */
+  private void assertNoFillerBeforeLastBone(
       TestRouteService.View view, RecipeRoutePlanner.Route route) {
     int bone = boneIndex(view, route);
-    if (bone <= 0 || !route.steps().getLast().action().equals("REVEAL")) return;
-    var end = view.states().get(route.stateIndices().getLast());
-    var revealed = end.desecrated().getFirst().modifierId();
-    var targetSide = catalog.find(revealed).orElseThrow().affixType();
-    var slots = new ItemStateValidator(catalog);
-    boolean added = false;
-    for (int i = bone - 1; i > 0; i--) {
-      var step = route.steps().get(i);
-      if (!step.action().equals("EXALTED") || !step.acquired().isEmpty() || !step.lost().isEmpty())
-        break;
-      var before = view.states().get(route.stateIndices().get(i - 1));
-      var held = before.explicits().stream().map(ModifierInstance::modifierId).toList();
-      if (!held.contains(GLOBAL) || !held.contains(revealed.equals(BATTLE) ? COUNTESS : BATTLE))
-        break;
-      var after = view.states().get(route.stateIndices().get(i));
-      var sideBefore = slots.slots(before);
-      var sideAfter = slots.slots(after);
-      if (targetSide == AffixType.PREFIX)
-        assertThat(sideAfter.remainingSuffixes()).isEqualTo(sideBefore.remainingSuffixes() - 1);
-      else assertThat(sideAfter.remainingPrefixes()).isEqualTo(sideBefore.remainingPrefixes() - 1);
-      added = true;
-    }
-    if (added) {
-      var ready = slots.slots(view.states().get(route.stateIndices().get(bone - 1)));
-      assertThat(
-              targetSide == AffixType.PREFIX
-                  ? ready.remainingSuffixes()
-                  : ready.remainingPrefixes())
-          .isZero();
-    }
+    if (bone < 2 || !route.steps().getLast().action().equals("REVEAL")) return;
+    var step = route.steps().get(bone - 1);
+    if (!step.action().equals("EXALTED") || !step.acquired().isEmpty() || !step.lost().isEmpty())
+      return;
+    var revealed =
+        view.states().get(route.stateIndices().getLast()).desecrated().getFirst().modifierId();
+    var before = view.states().get(route.stateIndices().get(bone - 2));
+    assertThat(
+            before.explicits().stream()
+                .map(ModifierInstance::modifierId)
+                .toList()
+                .containsAll(List.of(GLOBAL, revealed.equals(BATTLE) ? COUNTESS : BATTLE)))
+        .as("두 목표를 확보했으면 곧바로 뼈로 세 번째를 준비한다")
+        .isFalse();
   }
 
   /** 빈 희귀와 정신력 분열 희귀에서 수치 제한 없는 명시 방어도%까지 실제로 보유한 네 목표 제작 기록을 반환한다. */

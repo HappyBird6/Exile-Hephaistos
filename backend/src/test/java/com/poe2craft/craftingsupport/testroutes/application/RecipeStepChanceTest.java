@@ -283,10 +283,16 @@ class RecipeStepChanceTest {
             1000,
             true,
             null);
-    var route = result.routes().getFirst();
-    assertThat(route.steps().getFirst().chance()).isNotNull();
-    assertThat(route.steps().getFirst().chance().probability()).isEqualTo(0.5);
-    assertThat(route.probability()).isEqualTo(0.5);
+    assertThat(result.routes())
+        .hasSize(2)
+        .allSatisfy(
+            route -> {
+              var bone = route.steps().getFirst();
+              double chance = bone.omens().isEmpty() ? 0.5 : 1.0;
+              assertThat(bone.chance().probability()).isEqualTo(chance);
+              assertThat(route.probability()).isEqualTo(chance);
+              assertThat(route.steps().getLast().chance().probability()).isEqualTo(1);
+            });
   }
 
   /** 어느 옵션을 수동 선택할지는 독립된 제작 의도다. 같은 슬롯에서 둘 중 하나를 고르는 두 경로를 반반으로 나누지 않는다. */

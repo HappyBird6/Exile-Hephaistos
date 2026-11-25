@@ -247,7 +247,8 @@ public final class GoalCatalogIndex {
     for (var modifier : catalog.modifiers().values())
       for (var stat : modifier.stats())
         definitions
-            .computeIfAbsent(id(modifier.layer().name(), stat.id()), key -> new ArrayList<>())
+            .computeIfAbsent(
+                id(modifier.layer().name(), modifier.goalSource(stat)), key -> new ArrayList<>())
             .add(modifier);
     var result = new TreeMap<String, Stat>();
     definitions.forEach(
@@ -260,10 +261,31 @@ public final class GoalCatalogIndex {
                   .orElseThrow();
           var raw =
               first.stats().stream()
-                  .map(ModifierDefinition.StatRange::id)
+                  .map(first::goalSource)
                   .filter(s -> id(first.layer().name(), s).equals(key))
                   .findFirst()
                   .orElseThrow();
+          if (first.tags().contains("otherworldly")) {
+            boolean eligible = first.requiredItemLevel() <= level;
+            boolean presence = first.stats().getFirst().id().equals("display_reveal_present");
+            result.put(
+                key,
+                new Stat(
+                    key,
+                    first.text(),
+                    presence ? "presence" : "roll",
+                    Kind.EXPLICIT,
+                    new Support(
+                        Capability.SUPPORTED,
+                        Capability.UNSUPPORTED,
+                        "NUMERIC_DISTRIBUTION_NOT_IMPLEMENTED"),
+                    eligible,
+                    eligible ? null : "NO_ELIGIBLE_GENERATION_MODIFIER",
+                    List.of(raw),
+                    List.of(),
+                    List.of(first.sourceUrl())));
+            return;
+          }
           var direct = directStats.get(raw);
           boolean supported = direct != null;
           boolean eligible =
@@ -303,6 +325,8 @@ public final class GoalCatalogIndex {
       result.replaceAll(
           (key, stat) ->
               stat.support().evaluation() == Capability.SUPPORTED
+                      && !stat.unit().equals("presence")
+                      && !stat.unit().equals("roll")
                       && stat.sourceStatIds().stream()
                           .noneMatch(
                               raw ->

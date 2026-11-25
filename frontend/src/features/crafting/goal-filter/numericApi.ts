@@ -90,7 +90,10 @@ export function presentNumericStats(
     const sources = stat.kind === 'EXPLICIT' ? item.explicits : item.implicits
     if (
       sources.some((modifier) =>
-        stat.sourceStatIds.some((id) => Object.hasOwn(modifier.values, id)),
+        stat.sourceStatIds.some(
+          (id) =>
+            modifier.modifierId === id || Object.hasOwn(modifier.values, id),
+        ),
       )
     )
       present.add(stat.statId)
