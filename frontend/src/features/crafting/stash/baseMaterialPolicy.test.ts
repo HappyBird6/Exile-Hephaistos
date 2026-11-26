@@ -142,6 +142,25 @@ describe('base material policy', () => {
     const wand = Object.values(bases).find(
       (b) => basePolicy(b.id)?.itemClass === 'Wands',
     )!.id
+    for (const base of Object.values(bases)) {
+      const caster = ['Wands', 'Staves', 'Sceptres'].includes(
+        basePolicy(base.id)!.itemClass!,
+      )
+      expect(supportsBaseMaterial(currency('Arcanists_Etcher'), base.id)).toBe(
+        caster,
+      )
+      expect(
+        supportsBaseMaterial(currency('Vaal_Arcanists_Infuser'), base.id),
+      ).toBe(caster)
+      if (basePolicy(base.id)?.itemClass === 'Quarterstaves') {
+        expect(
+          supportsBaseMaterial(currency('Blacksmiths_Whetstone'), base.id),
+        ).toBe(true)
+        expect(
+          supportsBaseMaterial(currency('Vaal_Blacksmiths_Infuser'), base.id),
+        ).toBe(true)
+      }
+    }
     for (const actions of [undefined, []]) {
       expect(
         supportsBaseMaterial(currency('Preserved_Rib'), gloves, actions),

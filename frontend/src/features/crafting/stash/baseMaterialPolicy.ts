@@ -1,5 +1,5 @@
 import { infuserSupportsBase } from '../qualityInfuser'
-import { basePolicy } from '../baseRegistry'
+import { basePolicy, equipmentQualityTarget } from '../baseRegistry'
 import { augmentEffect } from '../socketAugments'
 import { workbenchCurrencyActions } from '../workbenchApi'
 import { isBone } from '../desecrationCurrency'
@@ -38,15 +38,13 @@ export function baseMaterialTargets(base: string): ReadonlySet<string> {
   if (!itemClass || !itemTargets[itemClass]) return targets
   targets.add(itemTargets[itemClass])
   targets.add('Equipment')
-  if (base.startsWith('Metadata/Items/Armours/')) targets.add('Armour')
+  const qualityTarget = equipmentQualityTarget(base, itemClass)
+  if (qualityTarget) targets.add(qualityTarget)
   if (['Amulet', 'Amulets', 'Rings', 'Belts'].includes(itemClass))
     targets.add('Jewellery')
   if (base.startsWith('Metadata/Items/Weapons/')) {
     targets.add('Weapons')
-    if (['Wands', 'Staves', 'Sceptres'].includes(itemClass))
-      targets.add('Caster Weapon')
-    else {
-      targets.add('Martial Weapon')
+    if (qualityTarget === 'Martial Weapon') {
       if (!['Bows', 'Crossbows'].includes(itemClass)) {
         targets.add('Melee Weapon')
         if (base.includes('/OneHandWeapons/'))
@@ -78,6 +76,7 @@ export function supportsBaseMaterial(
     if (resource.id === 'Armourers_Scrap') return targets.has('Armour')
     if (resource.id === 'Blacksmiths_Whetstone')
       return targets.has('Martial Weapon')
+    if (resource.id === 'Arcanists_Etcher') return targets.has('Caster Weapon')
     if (isBone(resource.id)) {
       if (resource.id === 'Preserved_Cranium')
         return isWorkbenchJewel(baseItemId)

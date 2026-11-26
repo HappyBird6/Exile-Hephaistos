@@ -13,6 +13,7 @@ import com.poe2craft.shared.crafting.domain.BasicCurrencyFixture;
 import com.poe2craft.shared.crafting.domain.BasicCurrencyState;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchDefinitions;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.ItemState;
@@ -524,6 +525,51 @@ class AutomaticSearchServiceTest {
                 PathSearchProtocol.Rejected.class,
                 e -> assertThat(e.code()).isEqualTo("RECALCULATION_REQUIRED"));
       }
+    }
+  }
+
+  /** 수동 식각기 이전 판본의 자동 모델과 같은 커서를 디스크에서 읽고 제작을 재개한다. */
+  @Test
+  void reloadsAndResumesTheAutomaticRosterFromBeforeEtching() throws Exception {
+    var repository = new Repository();
+    String id;
+    try (var first = service(repository)) {
+      var created = first.create("owner", request("before-etcher"));
+      id = created.id();
+      first.control(
+          "owner",
+          id,
+          new AutomaticSearchService.Control(
+              "cancel", created.revision(), created.generation(), "CANCEL"));
+    }
+    var mapper = new ObjectMapper();
+    var saved = mapper.readTree(repository.read(id));
+    var model =
+        mapper.treeToValue(
+            saved.at("/graph/identity/model/definitions"), WorkbenchDefinitions.Document.class);
+    var manual = WorkbenchDefinitions.active().document();
+    var beforeEtcher =
+        manual.currencies().stream()
+            .filter(c -> c.id() != WorkbenchCurrency.ARCANISTS_ETCHER)
+            .toList();
+    assertThat(beforeEtcher).hasSize(manual.currencies().size() - 1);
+    assertThat(model)
+        .isEqualTo(
+            new WorkbenchDefinitions.Document(
+                manual.schemaVersion(),
+                manual.ruleVersion(),
+                beforeEtcher,
+                manual.omens(),
+                manual.baseTargets()));
+    try (var restarted = service(repository)) {
+      var cancelled = restarted.get("owner", id);
+      var resumed =
+          restarted.control(
+              "owner",
+              id,
+              new AutomaticSearchService.Control(
+                  "resume-old", cancelled.revision(), cancelled.generation(), "RESUME"));
+      assertThat(resumed.status()).isEqualTo("READY");
     }
   }
 

@@ -69,13 +69,13 @@ it('keeps four infuser targets distinct', () => {
   expect(
     infuserSupportsBase(
       'Vaal_Arcanists_Infuser',
-      'Metadata/Items/Weapons/OneHandWeapons/Wands/Wand1',
+      'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3',
     ),
   ).toBe(true)
   expect(
     infuserSupportsBase(
       'Vaal_Blacksmiths_Infuser',
-      'Metadata/Items/Weapons/OneHandWeapons/Wands/Wand1',
+      'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3',
     ),
   ).toBe(false)
   expect(

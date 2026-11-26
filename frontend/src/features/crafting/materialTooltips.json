@@ -2196,6 +2196,13 @@
     ],
     "sourceUrl": "https://poe2db.tw/us/Blacksmiths_Whetstone"
   },
+  "Arcanists_Etcher": {
+    "name": "Arcanist's Etcher",
+    "lines": [
+      "Improves the quality of a wand, staff or sceptre"
+    ],
+    "sourceUrl": "https://poe2db.tw/us/Arcanists_Etcher"
+  },
   "Lesser_Desert_Rune": {
     "name": "Lesser Desert Rune",
     "lines": [

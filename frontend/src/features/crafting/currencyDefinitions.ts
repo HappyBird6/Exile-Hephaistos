@@ -79,6 +79,7 @@ export type WorkbenchAction =
   | 'VAAL_CATALYSING_INFUSER'
   | 'ARMOURERS_SCRAP'
   | 'BLACKSMITHS_WHETSTONE'
+  | 'ARCANISTS_ETCHER'
   | Action
   | `GREATER_${Exclude<Action, 'ANNULMENT'>}`
   | `PERFECT_${Exclude<Action, 'ANNULMENT'>}`
@@ -155,6 +156,7 @@ export const workbenchCurrencyActions: Record<string, WorkbenchAction> = {
   Vaal_Catalysing_Infuser: 'VAAL_CATALYSING_INFUSER',
   Armourers_Scrap: 'ARMOURERS_SCRAP',
   Blacksmiths_Whetstone: 'BLACKSMITHS_WHETSTONE',
+  Arcanists_Etcher: 'ARCANISTS_ETCHER',
   Ancient_Diluted_Liquid_Ire: 'ANCIENT_DILUTED_LIQUID_IRE',
   Ancient_Diluted_Liquid_Guilt: 'ANCIENT_DILUTED_LIQUID_GUILT',
   Ancient_Diluted_Liquid_Greed: 'ANCIENT_DILUTED_LIQUID_GREED',
@@ -315,6 +317,7 @@ export const workbenchActionNames: Record<WorkbenchAction, string> = {
   VAAL_BLACKSMITHS_INFUSER: "Vaal Blacksmith's Infuser",
   ARMOURERS_SCRAP: "Armourer's Scrap",
   BLACKSMITHS_WHETSTONE: "Blacksmith's Whetstone",
+  ARCANISTS_ETCHER: "Arcanist's Etcher",
   ANCIENT_DILUTED_LIQUID_IRE: 'Ancient Diluted Liquid Ire',
   ANCIENT_DILUTED_LIQUID_GUILT: 'Ancient Diluted Liquid Guilt',
   ANCIENT_DILUTED_LIQUID_GREED: 'Ancient Diluted Liquid Greed',

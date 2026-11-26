@@ -13,6 +13,8 @@ import {
 } from '@testing-library/react'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { CraftingPage } from './CraftingPage'
+import { MaterialDescription } from './MaterialTooltip'
+import { gameTerm, locales, setLocale } from '../../shared/i18n/i18n'
 import { useItemDraft } from './draft'
 import { currencies } from './currencies'
 import { additionalStashCurrencies, materials } from './materials'
@@ -160,6 +162,7 @@ describe('Material stash and shared favorites', () => {
   })
 
   it.each([
+    ['Currency', "Arcanist's Etcher"],
     ['Essence', 'Greater Essence of the Body'],
     ['Essence', 'Essence of Hysteria'],
     ['Alloy', 'Runic Alloy'],
@@ -244,6 +247,33 @@ describe('Material stash and shared favorites', () => {
     expect(right.queryByRole('button', { name: 'Chaos Orb' })).toBeNull()
     expect(currencyButton('Chaos Orb')).toBeVisible()
   })
+
+  it.each(locales)(
+    'shows the sourced Etcher name and target description in %s',
+    async (locale) => {
+      await setLocale(locale)
+      const term = gameTerm('Arcanists_Etcher', locale)
+      expect(term.fallback).toBe(false)
+      const { unmount } = render(
+        <MaterialDescription materialId="Arcanists_Etcher" />,
+      )
+      try {
+        const description = within(
+          screen.getByRole('region', { name: term.data!.name }),
+        )
+        expect(description.getByText(term.data!.lines[0]!)).toHaveAttribute(
+          'lang',
+          locale,
+        )
+        expect(
+          description.getByRole('link', { name: 'PoE2DB' }),
+        ).toHaveAttribute('href', term.data!.sourceUrl)
+      } finally {
+        unmount()
+        await setLocale('en')
+      }
+    },
+  )
 
   it('does not display native hover titles on empty or occupied favorites', () => {
     show()
@@ -356,11 +386,10 @@ describe('Material stash and shared favorites', () => {
     )
     expect(
       within(document.getElementById('material-list')!).getAllByRole('button'),
-    ).toHaveLength(15)
+    ).toHaveLength(16)
     for (const name of [
       'Mirror of Kalandra',
       'Orb of Chance',
-      "Arcanist's Etcher",
       "Glassblower's Bauble",
       "Gemcutter's Prism",
       "Lesser Jeweller's Orb",

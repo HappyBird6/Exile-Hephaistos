@@ -214,7 +214,13 @@ class RustedCuirassEssenceTest {
               m -> assertThat(catalog.find(m.modifierId()).orElseThrow().weight()).isPositive());
       assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     }
-    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(55);
+    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of()))
+        .hasSize(56)
+        .filteredOn(entry -> entry.action() == WorkbenchCurrency.ESSENCE_HYSTERIA)
+        .singleElement()
+        .satisfies(entry -> assertThat(entry.available()).isFalse());
+    assertThat(simulator.referenceEssenceTargets())
+        .containsEntry("ESSENCE_HYSTERIA", List.of("rusted-cuirass:prefix:edged"));
     assertThat(
             simulator
                 .apply(
@@ -244,8 +250,16 @@ class RustedCuirassEssenceTest {
     assertThat(service.initial("body", 82).ruleVersion())
         .isEqualTo(
             "equipment-currency-v1-body-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-unfractured-rounded-v3-user-selected-equipment-quality-maximum-v2-quality-infuser-once-plus-ten-v1-essence-full-side-v1-augment-weight-v1-resistance-magnitude-v1");
-    assertThat(service.initial("bow", 82).modifiers()).hasSize(161);
-    assertThat(service.initial("wand", 82).modifiers()).hasSize(204);
+    for (var prior : Map.of("bow", 161, "wand", 204).entrySet()) {
+      var modifiers = service.initial(prior.getKey(), 82).modifiers();
+      assertThat(modifiers).hasSize(prior.getValue() + 2);
+      assertThat(modifiers.values())
+          .filteredOn(d -> d.familyIds().contains("EssenceAbyss"))
+          .extracting(ModifierDefinition::affixType, ModifierDefinition::weight)
+          .containsExactlyInAnyOrder(
+              tuple(ModifierDefinition.AffixType.PREFIX, 0),
+              tuple(ModifierDefinition.AffixType.SUFFIX, 0));
+    }
     assertThat(service.initial("stocky", 82).modifiers()).hasSize(245);
     assertThat(service.initial("body", 82).metadata().sourceUrl())
         .isEqualTo("https://poe2db.tw/us/Body_Armours_str");

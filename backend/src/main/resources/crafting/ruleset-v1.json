@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "rulesetVersion": "reviewed-equipment-0.5.5-v17",
+  "rulesetVersion": "reviewed-equipment-0.5.5-v18",
   "gameSeason": "UNVERIFIED",
   "gamePatch": "UNVERIFIED",
   "provenance": "Bundled source-reviewed project snapshots; retrieval dates differ by resource. No verified current GGG season or patch mapping. See docs/catalog-data-maintenance.md.",
@@ -62,7 +62,7 @@
     "catalog/emerald-ring/catalog.json": "553e739d1e8f0851925b25d9e299507abc77d332ced5561ae0848b01faa9432f",
     "catalog/emerald/catalog.json": "0588611fbd1ab5cd1c2b36755a9242d3b42bc3d95521a9b09c5b633c20421b71",
     "catalog/engraved-crossbow/catalog.json": "40f81153decb7ad24fc786f1cbf0a4a00ec16fc4ecbe976a18a85df75a4b6770",
-    "catalog/equipment-currencies.json": "3160464fd8c4a15bf2adbe12a4bcfc8b649be02cf0d7c0750b59c3d06f63600d",
+    "catalog/equipment-currencies.json": "19f2f77c2e25640a95ee3e0d03e41caf84d42ea7c1101eb9d0fc9e662ceae8a8",
     "catalog/faithful-leggings/catalog.json": "6dc3243538c2e77b6a69c1ff620bdf765ffc9b01632d4942419cc099773bdccb",
     "catalog/falconers-jacket/catalog.json": "fc0068703439c32f18328e005814708f2c8fa169f60da5e92d6bf07feb1ff211",
     "catalog/fanatic-bow/catalog.json": "8532b097c52c979272fed6702147e5f20c7c76267e7e89fc1c76afe146b3603e",
@@ -188,7 +188,7 @@
     "catalog/time-lost-emerald/catalog.json": "42495c331e1922dbb730323ce8c4f7a94d05c20165cc02221dbbe4b6581a476b",
     "catalog/time-lost-ruby/catalog.json": "1e7b2d88f0f7837248fd7ddd61016f597e90cdc60cb985d157d9852ec1fa403d",
     "catalog/time-lost-sapphire/catalog.json": "3bb1b66a7b5f5dad8292c95bd30b01ceae473a416502637f36cf2a09547790f3",
-    "catalog/top-base-essences.json": "176934d591fc2a8ef5da0aa35ba1afb5b51c01280c4ce1c68b7f5bbc0ec8b5c1",
+    "catalog/top-base-essences.json": "7d499d54882bab4d4f4647046c7a6bc3fbf1bc3f8b6e81de0e3a8c2adba51866",
     "catalog/top-bases.json": "6816f004c91911021a0bc91685ad8612651a554e8c52050f5c765b25f8111d70",
     "catalog/topaz-ring/catalog.json": "af8919d06e8f5cde63c524aa919905d31f1272181fba93e449cbdda9336dab65",
     "catalog/toxic-quiver/catalog.json": "7341cf547d37d438a7721403881f05255959abd1937063a91ae8422a804004b2",
@@ -217,8 +217,8 @@
     "crafting/goalfilter/definitions-v3-readonly.json": "370f5d76382cd5735a1862ee5bd2ffd637f9150f777052b91849bd8417c50d48",
     "crafting/goalfilter/definitions-v4-readonly.json": "2eaf293caf99cd63415e4e52badd98cee3e2730d72c2fc4130ebcaa6454d6e36",
     "crafting/goalfilter/definitions-v5-readonly.json": "01f0dcb28e930f5c6c1e511dd177f54f4ee46a430c764929d632312e9599be07",
-    "crafting/registry-v2.json": "b50dd3578935532814aa47597e4ed46b309cc4c9eb88bf01e674b5b87615e5b7",
-    "crafting/supported-base-sets-v1.json": "8591ff24f67aef69a4358e804c32b4c885e3fbaa355093470799db86153b8b8b",
-    "crafting/workbench-definitions-v1.json": "aa48efd5891408d7f1ff902e4f0de290a2ca60aab06192338dd3ffb8942a2dcc"
+    "crafting/registry-v2.json": "38d154088bf05e04bb814bf4d09fd29e394e3ad02d27fb8e5e4621fa73f4cf06",
+    "crafting/supported-base-sets-v1.json": "b35b4a130df1903c95a6d94909cbabc0fa93e390f03cbb2bce743b061d43c664",
+    "crafting/workbench-definitions-v1.json": "36bbe8195797feb33ffe6645f5753bdff10cd514c979a8b826c036d484cc484d"
   }
 }

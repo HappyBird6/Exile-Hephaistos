@@ -79,6 +79,17 @@ export function baseClass(key: string): string {
     legacyEntries[key]?.initialText.match(/^Item Class: (.+)/)?.[1] ?? 'Amulet'
   )
 }
+export function equipmentQualityTarget(
+  baseId: string,
+  itemClass = basePolicy(baseId)?.itemClass,
+) {
+  if (!itemClass) return undefined
+  if (baseId.startsWith('Metadata/Items/Armours/')) return 'Armour'
+  if (!baseId.startsWith('Metadata/Items/Weapons/')) return undefined
+  return ['Wands', 'Staves', 'Sceptres'].includes(itemClass)
+    ? 'Caster Weapon'
+    : 'Martial Weapon'
+}
 export function sourcePropertyUnscaled(key: string): boolean {
   const base = topEntries[key]
   return !!base && familyPolicies[base.family]?.sourcePropertyUnscaled === true

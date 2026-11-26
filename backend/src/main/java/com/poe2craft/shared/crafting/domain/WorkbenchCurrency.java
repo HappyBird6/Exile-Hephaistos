@@ -12,8 +12,8 @@ import java.util.List;
  * 촉매 종류·정제형, LESSER_ESSENCE_* /ESSENCE_* /GREATER_ESSENCE_* / PERFECT_ESSENCE_*는 에센스 종류·등급,
  * *_ALLOY는 합금 종류다. TRANSMUTATION/AUGMENTATION/REGAL/ EXALTED/ANNULMENT/CHAOS와 GREATER_/PERFECT_형은
  * 변환/확장/제왕/고귀/소멸/혼돈 행동이다. ARTIFICER는 소켓 확장, DIVINE은 수치 재굴림, ALCHEMY는 연금, FRACTURING은 분열,
- * VAAL_*_INFUSER는 품질 주입, ARMOURERS_SCRAP/BLACKSMITHS_WHETSTONE은 장비 품질 재료다. 각 개별 ID의 실제 후보·수치·출처는
- * definitions JSON에서 조회한다. enum에 별도 인스턴스 필드는 없다.
+ * VAAL_*_INFUSER는 품질 주입, ARMOURERS_SCRAP/BLACKSMITHS_WHETSTONE/ARCANISTS_ETCHER는 장비 품질 재료다. 각 개별
+ * ID의 실제 후보·수치·출처는 definitions JSON에서 조회한다. enum에 별도 인스턴스 필드는 없다.
  *
  * <p>definition은 초기화된 WorkbenchDefinitions의 이 ID를 찾는다. essenceModifierIds/fixedModifierId는 추가 후보/단일
  * 후보, essenceChoiceSource는 후보 선택 근거다. baseAction/minimumModifierLevel은 기본 알고리즘/최소 옵션 레벨이다.
@@ -190,7 +190,8 @@ import java.util.List;
  *   <li>{@code VAAL_ARCANISTS_INFUSER}: INFUSER 구분값.
  *   <li>{@code VAAL_CATALYSING_INFUSER}: INFUSER 구분값.
  *   <li>{@code ARMOURERS_SCRAP}: SCRAP 구분값.
- *   <li>{@code BLACKSMITHS_WHETSTONE}: WHETSTONE 구분값.
+ *   <li>{@code BLACKSMITHS_WHETSTONE}: 무술 무기 품질용 숫돌.
+ *   <li>{@code ARCANISTS_ETCHER}: 마법봉·지팡이·셉터 품질용 식각기.
  *   <li>{@code PROTECTIVE_ALLOY}: 합금 구분값.
  *   <li>{@code CELESTIAL_ALLOY}: 합금 구분값.
  *   <li>{@code TRANSCENDENT_ALLOY}: 합금 구분값.
@@ -388,6 +389,7 @@ public enum WorkbenchCurrency {
   VAAL_CATALYSING_INFUSER,
   ARMOURERS_SCRAP,
   BLACKSMITHS_WHETSTONE,
+  ARCANISTS_ETCHER,
   PROTECTIVE_ALLOY,
   CELESTIAL_ALLOY,
   TRANSCENDENT_ALLOY,

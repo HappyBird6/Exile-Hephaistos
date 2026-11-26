@@ -106,6 +106,22 @@
       "action": null,
       "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
       "serviceScope": "DEFERRED"
+    },
+    "Arcanists_Etcher": {
+      "id": "Arcanists_Etcher",
+      "category": "CURRENCY",
+      "sourceUrl": "https://poe2db.tw/us/Stackable_Currency",
+      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
+      "sourceRetrievedAt": null,
+      "sourceSha256": null,
+      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
+      "effectStatus": "PENDING_RULE_VERIFICATION",
+      "solarStatus": "NOT_VALIDATED",
+      "action": null,
+      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
+      "serviceScope": "DEFERRED",
+      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability.",
+      "name": "Arcanist's Etcher"
     }
   },
   "serviceScope": {

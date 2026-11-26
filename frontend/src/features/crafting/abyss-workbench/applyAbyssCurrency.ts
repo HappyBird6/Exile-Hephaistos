@@ -9,6 +9,16 @@ import { rulesetHeaders, verifyRulesetResponse } from '../rulesetIdentity'
 import { supportsConcreteStateShape } from '../workbenchStateShape'
 import { storedAbyssItem } from '../workbenchHistory'
 import { preservesChaosJewelOverflow } from '../jewelChaos'
+import {
+  equipmentQualityRefusal,
+  isEquipmentQualityAction,
+} from '../qualityCurrency'
+import { maximumQuality } from '../qualityLimit'
+import {
+  sameItemState,
+  sameSlot,
+  sameRevealOffer,
+} from '../crafting-state/itemIdentity'
 
 export type AbyssCurrencyResult = {
   state: AbyssState
@@ -109,6 +119,24 @@ export async function applyAbyssCurrency(
         canonical(value.state) !== canonical(state)))
   )
     throw new Error(errorMessage)
+  if (value.applied && isEquipmentQualityAction(action)) {
+    const before = storedAbyssItem(state)
+    const expected = {
+      ...state.item,
+      equipmentQuality: maximumQuality(before, initial.modifiers),
+    }
+    if (
+      equipmentQualityRefusal(before, action) !== null ||
+      value.consumedOmens.length ||
+      !sameItemState(expected, next) ||
+      !sameRevealOffer(state.offer, value.state.offer) ||
+      state.slots.length !== value.state.slots.length ||
+      !state.slots.every((slot) =>
+        value.state.slots.some((candidate) => sameSlot(slot, candidate)),
+      )
+    )
+      throw new Error(errorMessage)
+  }
   if (
     value.applied &&
     action === 'ANNULMENT' &&

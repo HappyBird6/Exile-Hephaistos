@@ -55,18 +55,19 @@ class EquipmentCurrencyCoverageTest {
               .filter(d -> d.layer() == ModifierDefinition.Layer.EXPLICIT && d.weight() > 0)
               .findFirst()
               .orElseThrow();
-      var state =
-          new ItemState(
-              catalog.metadata().snapshotId(),
-              catalog.base().id(),
-              100,
-              ItemState.Rarity.RARE,
-              implicit,
-              List.of(minimum(ordinary)),
-              Set.of());
-      var simulator = service.simulator(state);
       for (var target : targets.entrySet()) {
         var action = WorkbenchCurrency.valueOf(target.getKey());
+        boolean addition = action.materialPolicy().mode() == WorkbenchDefinitions.MaterialMode.ADD;
+        var state =
+            new ItemState(
+                catalog.metadata().snapshotId(),
+                catalog.base().id(),
+                100,
+                addition ? ItemState.Rarity.MAGIC : ItemState.Rarity.RARE,
+                implicit,
+                List.of(minimum(ordinary)),
+                Set.of());
+        var simulator = service.simulator(state);
         assertThat(simulator.baseMaterialActions())
             .as(catalog.base().name() + " " + action)
             .contains(action);
@@ -85,8 +86,15 @@ class EquipmentCurrencyCoverageTest {
         assertThat(result.applied())
             .as(catalog.base().name() + " " + action + ": " + result.reason())
             .isTrue();
-        assertThat(result.events()).hasSize(2);
-        assertThat(result.events().getFirst().modifierId()).isEqualTo(ordinary.id());
+        assertThat(result.state().rarity()).isEqualTo(ItemState.Rarity.RARE);
+        if (addition) {
+          assertThat(result.state().explicits()).hasSize(2).containsAll(state.explicits());
+          assertThat(result.events()).hasSize(1);
+        } else {
+          assertThat(result.state().explicits()).hasSize(1);
+          assertThat(result.events()).hasSize(2);
+          assertThat(result.events().getFirst().modifierId()).isEqualTo(ordinary.id());
+        }
         assertThat(result.events().getLast().modifierId()).isIn(target.getValue());
         assertThat(result.state().implicits()).isEqualTo(state.implicits());
         assertThat(result.consumedOmens()).isEmpty();

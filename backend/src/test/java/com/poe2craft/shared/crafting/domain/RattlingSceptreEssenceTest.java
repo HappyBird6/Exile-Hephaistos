@@ -14,6 +14,7 @@ import java.util.*;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 /**
@@ -29,12 +30,11 @@ import org.junit.jupiter.params.provider.MethodSource;
  * <p>생성자·메서드:
  *
  * <ul>
- *   <li>{@code actions()}: 현재 상태에서 가능한 행동과 불가 이유를 조회한다. 반환: {@code Stream<WorkbenchCurrency>}.
  *   <li>{@code perfect()}: 완벽 값을 조회·구성한다. 반환: {@code Stream<WorkbenchCurrency>}.
  *   <li>{@code state(level, rarity, ids)}: 현재 상태 표현을 조회한다. 입력: {@code level}(레벨), {@code
  *       rarity}(희귀도), {@code ids}(식별자목록). 반환: {@code ItemState}.
- *   <li>{@code exactTargetsLevelsAtomicRefusalsAndNumericSource(action)}: 이름에 명시한 시나리오의 실제 결과·보존
- *       상태를 기대값과 비교한다. 입력: {@code action}(행동).
+ *   <li>{@code exactTargetsLevelsAtomicRefusalsAndNumericSource(action, suffixes)}: 이름에 명시한 시나리오의
+ *       실제 결과·보존 상태를 기대값과 비교한다. 입력: {@code action}(행동).
  *   <li>{@code crystallisationRemovalSidesLocksAndPairConflict(action)}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
  *       기대값과 비교한다. 입력: {@code action}(행동).
  *   <li>{@code completeWeightedPoolNoSpecialSpawnAndNoImplicitLottery()}: 이름에 명시한 시나리오의 실제 결과·보존
@@ -54,10 +54,6 @@ class RattlingSceptreEssenceTest {
               .map(ModifierDefinition::id)
               .collect(java.util.stream.Collectors.toSet()),
           SceptreEssenceTargets.VERIFIED);
-
-  static Stream<WorkbenchCurrency> actions() {
-    return Stream.concat(SceptreEssenceTargets.VERIFIED.keySet().stream(), perfect());
-  }
 
   static Stream<WorkbenchCurrency> perfect() {
     return Stream.of(WorkbenchCurrency.PERFECT_ESSENCE_COMMAND);
@@ -83,21 +79,37 @@ class RattlingSceptreEssenceTest {
   }
 
   @ParameterizedTest
-  @MethodSource("actions")
-  void exactTargetsLevelsAtomicRefusalsAndNumericSource(WorkbenchCurrency action) {
-    boolean replacement = !action.replacementModifiers().isEmpty();
-    var id =
-        replacement
-            ? action.replacementModifiers().getFirst()
-            : SceptreEssenceTargets.VERIFIED.get(action).getFirst();
-    var target = catalog.find(id).orElseThrow();
+  @CsvSource({
+    "LESSER_ESSENCE_COMMAND,prefix:agitative",
+    "ESSENCE_COMMAND,prefix:provocative",
+    "GREATER_ESSENCE_COMMAND,prefix:motivating",
+    "PERFECT_ESSENCE_COMMAND,suffix:essence-aura-magnitude",
+    "LESSER_ESSENCE_INFINITE,suffix:of-the-wrestler suffix:of-the-student",
+    "ESSENCE_INFINITE,suffix:of-the-lion suffix:of-the-augur",
+    "GREATER_ESSENCE_INFINITE,suffix:of-the-goliath suffix:of-the-sage"
+  })
+  void exactTargetsLevelsAtomicRefusalsAndNumericSource(WorkbenchCurrency action, String suffixes) {
+    boolean replacement = action == WorkbenchCurrency.PERFECT_ESSENCE_COMMAND;
+    var expected = Arrays.stream(suffixes.split(" ")).map(s -> "rattling-sceptre:" + s).toList();
+    var id = expected.getFirst();
+    var level = catalog.find(id).orElseThrow().requiredItemLevel();
     var rarity = replacement ? ItemState.Rarity.RARE : ItemState.Rarity.MAGIC;
-    var before = state(target.requiredItemLevel(), rarity, "rattling-sceptre:prefix:beryl");
+    var before = state(level, rarity, "rattling-sceptre:prefix:beryl");
+    var choices = new HashSet<String>();
+    for (int seed = 0; seed < 32; seed++) {
+      var result = simulator.apply(before, action, Set.of(), new Random(seed * 104729L));
+      assertThat(result.applied()).isTrue();
+      var selected = result.events().getLast();
+      choices.add(selected.modifierId());
+      assertThat(selected.selectionProbability()).isEqualTo(1.0 / expected.size());
+    }
+    assertThat(choices).containsExactlyInAnyOrderElementsOf(expected);
     var r = simulator.apply(before, action, Set.of(WorkbenchOmen.BLESSED.id()), new Random(17));
     assertThat(r.applied()).isTrue();
     assertThat(r.state().rarity()).isEqualTo(ItemState.Rarity.RARE);
-    assertThat(r.events().getLast().modifierId()).isEqualTo(id);
-    assertThat(r.events().getLast().selectionProbability()).isEqualTo(1);
+    var target = catalog.find(r.events().getLast().modifierId()).orElseThrow();
+    assertThat(expected).contains(target.id());
+    assertThat(target.requiredItemLevel()).isEqualTo(level);
     assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     assertThat(r.consumedOmens()).isEmpty();
     assertThat(r.remainingOmens()).containsExactly(WorkbenchOmen.BLESSED.id());
@@ -212,7 +224,14 @@ class RattlingSceptreEssenceTest {
               m -> assertThat(catalog.find(m.modifierId()).orElseThrow().weight()).isPositive());
       assertThat(new ItemStateValidator(catalog).validate(r.state())).isEmpty();
     }
-    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of())).hasSize(55);
+    assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL), Set.of()))
+        .hasSize(59)
+        .extracting(WorkbenchSimulator.Availability::action)
+        .containsOnlyOnce(
+            WorkbenchCurrency.ARCANISTS_ETCHER,
+            WorkbenchCurrency.LESSER_ESSENCE_INFINITE,
+            WorkbenchCurrency.ESSENCE_INFINITE,
+            WorkbenchCurrency.GREATER_ESSENCE_INFINITE);
     assertThat(
             simulator
                 .apply(
@@ -243,9 +262,16 @@ class RattlingSceptreEssenceTest {
     assertThat(service.initial("sceptre", 82).ruleVersion())
         .isEqualTo(
             "equipment-currency-v1-sceptre-workbench-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-unfractured-rounded-v3-user-selected-equipment-quality-maximum-v2-quality-infuser-once-plus-ten-v1-essence-full-side-v1-augment-weight-v1-resistance-magnitude-v1");
-    assertThat(service.initial("bow", 82).modifiers()).hasSize(161);
-    assertThat(service.initial("wand", 82).modifiers()).hasSize(204);
-    assertThat(service.initial("body", 82).modifiers()).hasSize(161);
+    for (var prior : Map.of("bow", 161, "wand", 204, "body", 161).entrySet()) {
+      var modifiers = service.initial(prior.getKey(), 82).modifiers();
+      assertThat(modifiers).hasSize(prior.getValue() + 2);
+      assertThat(modifiers.values())
+          .filteredOn(d -> d.familyIds().contains("EssenceAbyss"))
+          .extracting(ModifierDefinition::affixType, ModifierDefinition::weight)
+          .containsExactlyInAnyOrder(
+              tuple(ModifierDefinition.AffixType.PREFIX, 0),
+              tuple(ModifierDefinition.AffixType.SUFFIX, 0));
+    }
     assertThat(service.initial("stocky", 82).modifiers()).hasSize(245);
     assertThat(service.initial("solar", 82).modifiers()).hasSize(219);
     assertThat(

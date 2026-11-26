@@ -2,16 +2,17 @@ import type { AppliedItem, ConcreteItem, WorkbenchAction } from './workbenchApi'
 import type { Definition } from './craftingApi'
 import { maximumQuality } from './qualityLimit'
 import { sameItemState } from './crafting-state/itemIdentity'
+import { equipmentQualityTarget } from './baseRegistry'
 export const qualityInfuserPolicy = 'quality-infuser-once-plus-ten-v1'
 export const isQualityInfuser = (action: string) =>
   /^VAAL_(ARMOURERS|BLACKSMITHS|ARCANISTS|CATALYSING)_INFUSER$/.test(action)
 export function infuserSupportsBase(id: string, base: string) {
-  const caster = /\/(Wands|Staves|Sceptres)\//.test(base)
   if (id === 'Vaal_Armourers_Infuser')
-    return base.startsWith('Metadata/Items/Armours/')
+    return equipmentQualityTarget(base) === 'Armour'
   if (id === 'Vaal_Blacksmiths_Infuser')
-    return base.startsWith('Metadata/Items/Weapons/') && !caster
-  if (id === 'Vaal_Arcanists_Infuser') return caster
+    return equipmentQualityTarget(base) === 'Martial Weapon'
+  if (id === 'Vaal_Arcanists_Infuser')
+    return equipmentQualityTarget(base) === 'Caster Weapon'
   if (id === 'Vaal_Catalysing_Infuser')
     return /^Metadata\/Items\/(Rings|Amulets)\//.test(base)
   return false

@@ -4567,7 +4567,10 @@
     ]
   },
   "Arcanists_Etcher": {
-    "name": "Arcanist's Etcher"
+    "name": "Arcanist's Etcher",
+    "lines": [
+      "Improves the quality of a wand, staff or sceptre"
+    ]
   },
   "Scroll_of_Wisdom": {
     "name": "Scroll of Wisdom"

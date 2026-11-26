@@ -221,3 +221,16 @@ test('unhandled files fail instead of becoming unused second sources', t => {
   write(`${versionRoot}/game-data/crafting/essences/unhandled.json`, {})
   assert.throws(() => gameDataOutputs(path.join(root, versionRoot)), /Source has no generation rule/)
 })
+
+test('every published essence base has the same guaranteed targets in the workbench material picker', () => {
+  const load = file => JSON.parse(fs.readFileSync(path.join(repository, file), 'utf8'))
+  const crafting = versionRoot + '/game-data/crafting/'
+  const { entries } = load(crafting + 'registry-v2.json')
+  const { sets } = load(crafting + 'supported-base-sets-v1.json')
+  const { rows, byBase } = load('frontend/src/features/crafting/materialVerification.json')
+  for (const entry of entries.filter(entry => entry.category === 'ESSENCE' && entry.action)) {
+    const published = entry.supportedBases ?? sets[entry.supportedBaseSet]
+    const applicable = Object.keys(byBase).filter(base => rows[byBase[base]].targets[entry.action])
+    assert.deepEqual(new Set(published), new Set(applicable), entry.id)
+  }
+})

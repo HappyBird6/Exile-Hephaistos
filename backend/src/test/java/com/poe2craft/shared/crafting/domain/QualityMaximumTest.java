@@ -2,8 +2,11 @@ package com.poe2craft.shared.crafting.domain;
 
 import static org.assertj.core.api.Assertions.*;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemObservations;
 import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ItemStateWireDefaults;
 import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.item.QualitySanctification;
@@ -178,7 +181,10 @@ class QualityMaximumTest {
             Set.of());
     assertThat(QualityLimitRules.describe(state, catalog).maximumQuality()).isEqualTo(40);
     for (var action :
-        List.of(WorkbenchCurrency.ARMOURERS_SCRAP, WorkbenchCurrency.BLACKSMITHS_WHETSTONE)) {
+        List.of(
+            WorkbenchCurrency.ARMOURERS_SCRAP,
+            WorkbenchCurrency.BLACKSMITHS_WHETSTONE,
+            WorkbenchCurrency.ARCANISTS_ETCHER)) {
       var result =
           new WorkbenchSimulator(catalog, new CraftingEngine(catalog))
               .apply(state, action, Set.of("Omen_of_Sanctification"), new Random(1));
@@ -231,6 +237,113 @@ class QualityMaximumTest {
     assertThat(QualityCurrencyRules.refusal(unique, WorkbenchCurrency.ARMOURERS_SCRAP))
         .isNotEmpty();
     assertThat(QualityCurrencyRules.refusal(state, WorkbenchCurrency.DIVINE)).isNotEmpty();
+  }
+
+  /** 등록된 세 주문 무기 종류에서만 식각기를 적용하고 숫돌 및 두 바알 주입물의 경계를 대조한다. */
+  @Test
+  void etcherUsesRegisteredWeaponClassesIncludingTheSharedStaffMetadataDirectory() {
+    var etcher = WorkbenchCurrency.ARCANISTS_ETCHER;
+    var classes =
+        Map.of(
+            ItemCatalogLoader.loadWand(),
+            true,
+            ItemCatalogLoader.loadSceptre(),
+            true,
+            ItemCatalogLoader.loadTopBase("ravenous-staff"),
+            true,
+            ItemCatalogLoader.loadTopBase("bolting-quarterstaff"),
+            false,
+            ItemCatalogLoader.loadBow(),
+            false);
+    for (var entry : classes.entrySet()) {
+      var catalog = entry.getKey();
+      boolean caster = entry.getValue();
+      var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+      for (var rarity :
+          List.of(ItemState.Rarity.NORMAL, ItemState.Rarity.MAGIC, ItemState.Rarity.RARE)) {
+        var item = weapon(catalog, rarity);
+        assertThat(
+                simulator.actions(item, Set.of()).stream()
+                    .anyMatch(a -> a.action() == etcher && a.available()))
+            .isEqualTo(caster);
+        var result = simulator.apply(item, etcher, Set.of(), new Random(1));
+        assertThat(result.applied()).isEqualTo(caster);
+        assertThat(result.state()).isEqualTo(caster ? item.withEquipmentQuality(20) : item);
+        assertThat(
+                simulator
+                    .availability(item, WorkbenchCurrency.BLACKSMITHS_WHETSTONE, Set.of())
+                    .available())
+            .isEqualTo(!caster);
+        assertThat(
+                simulator
+                    .availability(item, WorkbenchCurrency.VAAL_BLACKSMITHS_INFUSER, Set.of())
+                    .available())
+            .isEqualTo(!caster);
+        assertThat(
+                simulator
+                    .availability(item, WorkbenchCurrency.VAAL_ARCANISTS_INFUSER, Set.of())
+                    .available())
+            .isEqualTo(caster);
+      }
+    }
+  }
+
+  /** 훼손 슬롯·징조를 보존하고, 저장 후 재사용 및 기존의 미확정·상한 이상·타락 품질은 거부한다. */
+  @Test
+  void etchingPersistsQualityAndAnUnrevealedSlotWithoutConsumingOmens() throws Exception {
+    var catalog = ItemCatalogLoader.loadTopBase("ravenous-staff");
+    var simulator = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    var etcher = WorkbenchCurrency.ARCANISTS_ETCHER;
+    var omens = Set.of("Omen_of_Whittling");
+    var item =
+        weapon(catalog, ItemState.Rarity.RARE)
+            .withDesecrated(
+                List.of(
+                    new ItemState.DesecratedSlot(
+                        "unrevealed", ModifierDefinition.AffixType.PREFIX, null)));
+    var applied =
+        new AbyssCurrencyExecutor(catalog, simulator)
+            .apply(AbyssCraftingState.from(item, catalog), etcher, omens, new Random(1));
+    assertThat(applied.applied()).isTrue();
+    assertThat(applied.consumedOmens()).isEmpty();
+    assertThat(applied.remainingOmens()).containsExactlyElementsOf(omens);
+    var result = applied.state().storedItem();
+    assertThat(result).isEqualTo(item.withEquipmentQuality(20));
+    var mapper = new ObjectMapper();
+    var saved = mapper.readTree(mapper.writeValueAsBytes(result));
+    var restored = mapper.treeToValue(ItemStateWireDefaults.normalized(saved), ItemState.class);
+    assertThat(restored).isEqualTo(result);
+    for (var blocked :
+        List.of(restored, restored.withEquipmentQuality(30), item.withEquipmentQuality(null))) {
+      var retry = simulator.apply(blocked, etcher, omens, new Random(1));
+      assertThat(retry.applied()).isFalse();
+      assertThat(retry.state()).isEqualTo(blocked);
+      assertThat(retry.remainingOmens()).containsExactlyElementsOf(omens);
+    }
+    var corrupted = item.withConditions(Set.of(ItemState.Condition.CORRUPTED));
+    assertThat(QualityCurrencyRules.refusal(corrupted, etcher)).isNotEmpty();
+    assertThatThrownBy(() -> simulator.apply(corrupted, etcher, omens, new Random(1)))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
+  /** 해당 베이스의 실제 내재 옵션을 가진 품질 7 무기를 지정 희귀도로 준비한다. */
+  private static ItemState weapon(ItemCatalog catalog, ItemState.Rarity rarity) {
+    var implicits = new ArrayList<ModifierInstance>();
+    if (catalog.base().hasImplicit()) {
+      var definition = catalog.find(catalog.base().implicitModifierId()).orElseThrow();
+      var values = new TreeMap<String, Long>();
+      definition.stats().forEach(stat -> values.put(stat.id(), stat.min()));
+      implicits.add(new ModifierInstance(definition.id(), values));
+    }
+    return new ItemState(
+            catalog.metadata().snapshotId(),
+            catalog.base().id(),
+            82,
+            rarity,
+            implicits,
+            List.of(),
+            Set.of())
+        .withEquipmentQuality(7);
   }
 
   @Test

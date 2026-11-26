@@ -77,6 +77,7 @@ class WorkbenchDefinitionsLoaderTest {
         if (Set.of(
                 "ARMOURERS_SCRAP",
                 "BLACKSMITHS_WHETSTONE",
+                "ARCANISTS_ETCHER",
                 "PROTECTIVE_ALLOY",
                 "CELESTIAL_ALLOY",
                 "TRANSCENDENT_ALLOY",
@@ -106,7 +107,7 @@ class WorkbenchDefinitionsLoaderTest {
     var expected = read(data());
     var actual = WorkbenchDefinitionsLoader.initialize();
     assertEquals(expected.document(), actual.document());
-    assertEquals(171, actual.document().currencies().size());
+    assertEquals(172, actual.document().currencies().size());
     assertEquals(20, actual.document().omens().size());
     for (var row : expected.document().currencies()) {
       var c = row.id();

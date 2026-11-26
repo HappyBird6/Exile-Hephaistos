@@ -15367,6 +15367,10 @@
           "life"
         ]
       },
+      "stocky-mitts:prefix:sanguine@2": {
+        "modifierId": "stocky-mitts:prefix:sanguine",
+        "weight": 0
+      },
       "stocky-mitts:prefix:scorching@1": {
         "modifierId": "stocky-mitts:prefix:scorching",
         "tags": [

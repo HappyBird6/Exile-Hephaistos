@@ -54,7 +54,8 @@ public final class AutomaticCurrencyPolicy {
   private static final Map<String, String> MANUAL_CURRENCY_POLICY_IDS =
       Map.of(
           WorkbenchCurrency.ARMOURERS_SCRAP.name(), "EXTRA:Armourers_Scrap",
-          WorkbenchCurrency.BLACKSMITHS_WHETSTONE.name(), "EXTRA:Blacksmiths_Whetstone");
+          WorkbenchCurrency.BLACKSMITHS_WHETSTONE.name(), "EXTRA:Blacksmiths_Whetstone",
+          WorkbenchCurrency.ARCANISTS_ETCHER.name(), "EXTRA:Arcanists_Etcher");
 
   // These additions are available only in the manual workbench; the approved roster stays frozen.
   private static final Set<String> MANUAL_ONLY_CURRENCIES =

@@ -156,7 +156,12 @@ class BowEssenceTest {
       assertThat(new ItemStateValidator(catalog).validate(result.state())).isEmpty();
     }
     assertThat(simulator.actions(state(82, ItemState.Rarity.NORMAL, List.of()), Set.of()))
-        .hasSize(79);
+        .hasSize(82)
+        .extracting(WorkbenchSimulator.Availability::action)
+        .containsOnlyOnce(
+            WorkbenchCurrency.LESSER_ESSENCE_INFINITE,
+            WorkbenchCurrency.ESSENCE_INFINITE,
+            WorkbenchCurrency.GREATER_ESSENCE_INFINITE);
     var solar = ItemCatalogLoader.loadDefault();
     var old = new WorkbenchSimulator(solar, new CraftingEngine(solar));
     assertThat(old.actions(SolarAmulet.initial(solar, 82, 15), Set.of())).hasSize(81);

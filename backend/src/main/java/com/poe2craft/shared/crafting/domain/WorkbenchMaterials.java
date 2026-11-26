@@ -71,18 +71,10 @@ final class WorkbenchMaterials {
           }
           replacements.put(action, List.copyOf(ids));
         });
-    EquipmentCurrencyCatalog.targets(catalog.base().id())
-        .forEach(
-            (action, ids) -> {
-              if (ids.stream().allMatch(id -> enriched.find(id).isPresent()))
-                replacements.put(WorkbenchCurrency.valueOf(action), ids);
-            });
-    this.replacementTargetOverrides = Map.copyOf(replacements);
     var reviewed = new EnumMap<WorkbenchCurrency, List<String>>(WorkbenchCurrency.class);
     essenceTargetOverrides.forEach(
         (action, ids) -> {
           if (action.materialPolicy().mode() != WorkbenchDefinitions.MaterialMode.ADD
-              || ids.isEmpty()
               || new HashSet<>(ids).size() != ids.size())
             throw new IllegalArgumentException(
                 "Only source-proven fixed basic essence overrides are supported");
@@ -97,10 +89,22 @@ final class WorkbenchMaterials {
           }
           reviewed.put(action, List.copyOf(ids));
         });
+    // 장비별 전용 옵션은 자연 추첨 가중치가 0이다. 고정 추가 에센스와 교체 재료의 적용 방식은 유지한다.
+    EquipmentCurrencyCatalog.targets(catalog.base().id())
+        .forEach(
+            (name, ids) -> {
+              if (ids.stream().allMatch(id -> enriched.find(id).isPresent())) {
+                var action = WorkbenchCurrency.valueOf(name);
+                if (action.materialPolicy().mode() == WorkbenchDefinitions.MaterialMode.ADD)
+                  additions.put(action, ids);
+                else replacements.put(action, ids);
+              }
+            });
+    this.replacementTargetOverrides = Map.copyOf(replacements);
     this.essenceTargetOverrides = Map.copyOf(reviewed);
 
     for (var action : WorkbenchCurrency.values()) {
-      additions.put(
+      additions.putIfAbsent(
           action, this.essenceTargetOverrides.getOrDefault(action, action.essenceModifierIds()));
       this.replacements.put(action, resolveReplacements(action));
     }

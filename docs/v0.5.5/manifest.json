@@ -31,8 +31,8 @@
     {
       "path": "mappings/actions.json",
       "domain": "actions",
-      "count": 171,
-      "sha256": "e627255c03af73eb49b2589af69aa107922d8c5b8564d83f924427451296b737"
+      "count": 172,
+      "sha256": "00441c71802b53e15c65f7d64f82a1c1cdfc06b9fe3d04f775972da4d9f76077"
     },
     {
       "path": "mappings/omens.json",
@@ -1704,7 +1704,7 @@
     },
     {
       "path": "game-data/crafting/essences/targets.json",
-      "sha256": "93eaf6cb99a799a52b85452ac24c8f1537559064d077b34414be53746053f3f3"
+      "sha256": "52d3cb9c56db52d7794f4379c76a9ab5b780cfdff788e6ca8fedd0105d30878d"
     },
     {
       "path": "game-data/crafting/goalfilter/base-inventory-v5-readonly.json",
@@ -1744,11 +1744,11 @@
     },
     {
       "path": "game-data/crafting/materials/execution.json",
-      "sha256": "9f78c11210f0818fdf5fbe479fc2fada4a2d2cdbf4e0eb60e34dc8e0bd4c5cf7"
+      "sha256": "b7a4a9ba6f95e6928d3627645dedd980702f5c7f127b79072fa465388060be04"
     },
     {
       "path": "game-data/crafting/materials/items.json",
-      "sha256": "c3a13abfe1ab314b1566532e7772edbad4c86cd9606be4196061a69111bbe444"
+      "sha256": "872b594789a4cc096db2891f9519539b8931322ab085f2a65b904ae10100fe82"
     },
     {
       "path": "game-data/crafting/materials/target-classes.json",
@@ -1760,7 +1760,7 @@
     },
     {
       "path": "game-data/crafting/policies/catalog-compatibility.json",
-      "sha256": "2843c37ec01ee5a931e32a9053c8636d4539c65bb84249217dfc5dc8b25acad9"
+      "sha256": "182a2d0c6fdda6b7b7a24a0fc30d789e5d3486351760bea7e64b5e3f5cef79b0"
     },
     {
       "path": "game-data/crafting/registry-v1.json",
@@ -1768,7 +1768,7 @@
     },
     {
       "path": "game-data/crafting/registry-v2.json",
-      "sha256": "995f07ae88ce191b0f10c57503aac1c9180fce274599582455bb5d4142226c94"
+      "sha256": "a5e96faa403e551b1040b1150749e26f9208fe11622bdaa64b00444877b33e55"
     },
     {
       "path": "game-data/crafting/reveal/options.json",
@@ -1776,15 +1776,15 @@
     },
     {
       "path": "game-data/crafting/ruleset-v1.json",
-      "sha256": "d30d029bef35dbc17d393414250fd2399ad4d9527c3c34cd387519c06e209185"
+      "sha256": "de47a6c185e5523411054d576b13e394f77bd23fe9aec1eb6bc205f131ed4911"
     },
     {
       "path": "game-data/crafting/supported-base-sets-v1.json",
-      "sha256": "8591ff24f67aef69a4358e804c32b4c885e3fbaa355093470799db86153b8b8b"
+      "sha256": "b35b4a130df1903c95a6d94909cbabc0fa93e390f03cbb2bce743b061d43c664"
     },
     {
       "path": "game-data/crafting/workbench-definitions-v1.json",
-      "sha256": "036029ad49f7ee9d596c24e3f5093d72c93affccc41c6c550170e66c68c84af0"
+      "sha256": "1636a7b06f24164e9185564bbf297a5a8b957b4725107ab1337970d50e320574"
     },
     {
       "path": "game-data/modifiers/amulets.json",
@@ -1852,7 +1852,7 @@
     },
     {
       "path": "game-data/modifiers/shared.json",
-      "sha256": "9c48ea959af5cb4511f23ebdfe49e1b4371cbfd36fe59d6d71d4b8f23ebf4121"
+      "sha256": "e48eb293d9d57a17d468d8b46d04703b4da29e7c7b94fdc2dabca0945fd81a12"
     },
     {
       "path": "game-data/modifiers/shields.json",
@@ -1880,7 +1880,7 @@
     },
     {
       "path": "game-data/sources.json",
-      "sha256": "07d061d5dc69c893bf4582aff966f3c91e01ade9030a02515d1ff00f7c4957bc"
+      "sha256": "00c6eeae8e0af3cff7abb11c3a19ad302a76ae2d062d261b54278d08e9ebb50b"
     },
     {
       "path": "i18n/augmentDisplay.json",
@@ -1924,7 +1924,7 @@
     },
     {
       "path": "i18n/materials/en.json",
-      "sha256": "afba73553143b2a150acdda26ba2abd7a822faa2ecbe8a33f649c9df1a627c36"
+      "sha256": "02da1a817edd2e027633bba6577d62ab5ba964dae6ca409e62863c93f0e3aa7f"
     },
     {
       "path": "i18n/messages.json",
@@ -2158,7 +2158,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/equipment-currencies.json",
-      "sha256": "3160464fd8c4a15bf2adbe12a4bcfc8b649be02cf0d7c0750b59c3d06f63600d"
+      "sha256": "19f2f77c2e25640a95ee3e0d03e41caf84d42ea7c1101eb9d0fc9e662ceae8a8"
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/faithful-leggings/catalog.json",
@@ -2662,7 +2662,7 @@
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/top-base-essences.json",
-      "sha256": "176934d591fc2a8ef5da0aa35ba1afb5b51c01280c4ce1c68b7f5bbc0ec8b5c1"
+      "sha256": "7d499d54882bab4d4f4647046c7a6bc3fbf1bc3f8b6e81de0e3a8c2adba51866"
     },
     {
       "runtimePath": "backend/src/main/resources/catalog/top-bases.json",
@@ -2790,19 +2790,19 @@
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/registry-v2.json",
-      "sha256": "b50dd3578935532814aa47597e4ed46b309cc4c9eb88bf01e674b5b87615e5b7"
+      "sha256": "38d154088bf05e04bb814bf4d09fd29e394e3ad02d27fb8e5e4621fa73f4cf06"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/ruleset-v1.json",
-      "sha256": "d30d029bef35dbc17d393414250fd2399ad4d9527c3c34cd387519c06e209185"
+      "sha256": "de47a6c185e5523411054d576b13e394f77bd23fe9aec1eb6bc205f131ed4911"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/supported-base-sets-v1.json",
-      "sha256": "8591ff24f67aef69a4358e804c32b4c885e3fbaa355093470799db86153b8b8b"
+      "sha256": "b35b4a130df1903c95a6d94909cbabc0fa93e390f03cbb2bce743b061d43c664"
     },
     {
       "runtimePath": "backend/src/main/resources/crafting/workbench-definitions-v1.json",
-      "sha256": "aa48efd5891408d7f1ff902e4f0de290a2ca60aab06192338dd3ffb8942a2dcc"
+      "sha256": "36bbe8195797feb33ffe6645f5753bdff10cd514c979a8b826c036d484cc484d"
     },
     {
       "runtimePath": "frontend/src/features/crafting/base-picker/baseImageSources.json",
@@ -2826,11 +2826,11 @@
     },
     {
       "runtimePath": "frontend/src/features/crafting/materialTooltips.json",
-      "sha256": "5606a11e50232c713d0c2df39d3a172c42a885bf8259b29dc06b5feddd3b3af2"
+      "sha256": "a93d655ad7fa7ff93b6d8c87acc4034cc0b2c645cee696ef07d76e23c97f012f"
     },
     {
       "runtimePath": "frontend/src/features/crafting/materialVerification.json",
-      "sha256": "e9a40732aea9387f41da60202dd4e141aba6a47cd1e413182b0cf7807c87f863"
+      "sha256": "b3e83ba32eb6e205d823016cdb9d3891aa2fa6ed1f7e5792bc226d8fefb61920"
     },
     {
       "runtimePath": "frontend/src/shared/i18n/augmentDisplay.json",

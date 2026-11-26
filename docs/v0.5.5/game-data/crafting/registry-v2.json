@@ -638,7 +638,7 @@
       "action": "ESSENCE_BODY",
       "reason": "Magic Solar or Stocky Mitts becomes Rare with one source-proven base-specific modifier. Catalog-level eligibility, family overlap and affix slots are checked. Low-level and overlapping-family interactions remain unsupported; other equipment is unverified.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "lesser-essence-of-the-body"
+      "supportedBaseSet": "essence-of-the-body"
     },
     {
       "id": "Essence_of_the_Mind",
@@ -1479,7 +1479,7 @@
       "ruleVerifiedAt": "2026-10-03",
       "implementationScope": "Stocky Mitts affix assignment only; Solar unsupported; no socket effect simulation.",
       "serviceScope": "ACTIVE",
-      "supportedBaseSet": "essence-of-horror"
+      "supportedBaseSet": "essence-of-horror-gloves-and-boots"
     },
     {
       "id": "Essence_of_Insanity",
@@ -3941,23 +3941,53 @@
         "akoyan-spear",
         "maji-talisman",
         "fungal-talisman",
-        "jade-talisman"
+        "jade-talisman",
+        "aegis-quarterstaff",
+        "bolting-quarterstaff",
+        "dreaming-quarterstaff"
       ]
     },
     {
       "id": "Arcanists_Etcher",
       "category": "CURRENCY",
-      "sourceRef": "src2983",
-      "sourcePage": "https://poe2db.tw/us/Stackable_Currency",
-      "sourceRetrievedAt": null,
-      "sourceSha256": null,
-      "registrationStatus": "DISCOVERED_PENDING_CANONICAL_ID",
-      "effectStatus": "PENDING_RULE_VERIFICATION",
-      "solarStatus": "NOT_VALIDATED",
-      "action": null,
-      "reason": "Public equipment-crafting index candidate; canonical identifier, availability, base applicability and effect require verification.",
-      "serviceScope": "DEFERRED",
-      "serviceScopeReason": "Deferred by explicit user scope instruction on 2026-10-04; retained code/catalog is not service availability."
+      "sourceRef": "src2984",
+      "sourcePage": "https://poe2db.tw/us/Arcanists_Etcher",
+      "sourceRetrievedAt": "2026-11-26T00:32:12+00:00",
+      "sourceSha256": "272ad765f2f6eb52ab32a2bb9b1427454a2466067908475d50be89a7800c09ab",
+      "registrationStatus": "REGISTERED",
+      "effectStatus": "IMPLEMENTED",
+      "solarStatus": "NOT_APPLICABLE",
+      "action": "ARCANISTS_ETCHER",
+      "reason": "Sets known wand, staff or sceptre quality to the current equipment cap under the same simulator policy as whetstones and scraps.",
+      "serviceScope": "ACTIVE",
+      "qualityPolicy": "user-selected-equipment-quality-maximum-v2",
+      "supportedBases": [
+        "acrid",
+        "wand",
+        "bone",
+        "critical",
+        "dueling",
+        "galvanic",
+        "offering",
+        "primordial",
+        "siphoning",
+        "volatile",
+        "dark-staff",
+        "perching-staff",
+        "permafrost-staff",
+        "ravenous-staff",
+        "reflecting-staff",
+        "sanctified-staff",
+        "clasped",
+        "hallowed",
+        "omen",
+        "sceptre",
+        "shrine-fire",
+        "shrine-ice",
+        "shrine-lightning",
+        "stoic",
+        "wrath"
+      ]
     },
     {
       "id": "Armourers_Scrap",
@@ -8136,14 +8166,14 @@
     }
   },
   "serviceScope": {
-    "date": "2026-11-11",
+    "date": "2026-11-26",
     "registered": 220,
-    "active": 177,
-    "implementedActive": 177,
-    "defaultImplemented": 170,
+    "active": 178,
+    "implementedActive": 178,
+    "defaultImplemented": 171,
     "optInLegacyImplemented": 7,
     "pending": 0,
-    "deferred": 43,
+    "deferred": 42,
     "previousDeferred": 65,
     "newDeferred": 11,
     "catalystService": "VERIFIED_RESTRICTED_BASE_APPLICATION",

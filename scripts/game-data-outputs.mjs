@@ -348,11 +348,20 @@ export function gameDataOutputs(directory) {
   )
   backend('catalog/top-base-essences.json', essences)
   const equipmentTargets = {}
+  const equipmentDefinitions = new Map()
   // Essence entries precede alloys: the legacy loader hashes their insertion order.
   for (const data of [essenceBindings, alloyBindings])
     for (const [id, row] of Object.entries(data))
-      if (row.additional)
-        equipmentTargets[id] = { ...equipmentTargets[id], ...row.additional }
+      for (const [action, options] of Object.entries(row.additional ?? {})) {
+        const outcomes = refs(options)
+        equipmentTargets[id] ??= {}
+        equipmentTargets[id][action] = outcomes.map((d) => d.id)
+        for (const d of outcomes) {
+          if (equipmentDefinitions.has(d.id))
+            assert.deepEqual(equipmentDefinitions.get(d.id), d)
+          equipmentDefinitions.set(d.id, d)
+        }
+      }
   backend('catalog/equipment-currencies.json', {
     definitions: refs([
       ...new Set([
@@ -537,7 +546,9 @@ export function gameDataOutputs(directory) {
         const augments = Object.values(augmentRules.pools[id] ?? {}).flatMap(
           Object.keys,
         )
-        for (const option of [...equipment, ...augments])
+        for (const option of equipment)
+          if (!catalog.has(option)) catalog.set(option, equipmentDefinitions.get(option))
+        for (const option of augments)
           if (!catalog.has(option)) catalog.set(option, resolve(option))
         const liquidTargets = new Map()
         for (const d of catalog.values()) {
@@ -565,7 +576,7 @@ export function gameDataOutputs(directory) {
             policy.kind === 'LIQUID'
               ? (liquidTargets.get(currency.replacementSource) ?? [])
               : policy.mode === 'ADD'
-                ? (essenceBindings[id]?.fixed?.[action] ??
+                ? (additional ?? essenceBindings[id]?.fixed?.[action] ??
                   currency.essenceModifierIds)
                 : (additional ??
                   essenceBindings[id]?.replacements?.[action] ??

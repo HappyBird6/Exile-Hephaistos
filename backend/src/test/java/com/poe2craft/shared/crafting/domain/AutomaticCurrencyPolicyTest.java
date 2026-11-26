@@ -98,6 +98,7 @@ class AutomaticCurrencyPolicyTest {
           switch (currency) {
             case ARMOURERS_SCRAP -> "EXTRA:Armourers_Scrap";
             case BLACKSMITHS_WHETSTONE -> "EXTRA:Blacksmiths_Whetstone";
+            case ARCANISTS_ETCHER -> "EXTRA:Arcanists_Etcher";
             default -> currency.name();
           };
       assertThat(policy.document().entries()).anyMatch(e -> e.id().equals(sourceId));
@@ -126,7 +127,10 @@ class AutomaticCurrencyPolicyTest {
   @Test
   void manualQualityEnumsUseAlreadyExcludedSupplementaryEntries() {
     for (var currency :
-        List.of(WorkbenchCurrency.ARMOURERS_SCRAP, WorkbenchCurrency.BLACKSMITHS_WHETSTONE)) {
+        List.of(
+            WorkbenchCurrency.ARMOURERS_SCRAP,
+            WorkbenchCurrency.BLACKSMITHS_WHETSTONE,
+            WorkbenchCurrency.ARCANISTS_ETCHER)) {
       assertThat(policy.evaluate(currency.name(), new Context("body", Purpose.ORDINARY, currency)))
           .isEqualTo(Verdict.EXCLUDED);
       assertThat(policy.candidates()).noneMatch(e -> e.id().equals(currency.name()));

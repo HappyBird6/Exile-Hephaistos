@@ -28,6 +28,7 @@ import java.util.*;
  * <ul>
  *   <li>{@code NO_TARGETS}: 대상목록 ({@code BaseTargets}).
  *   <li>{@code document}: 문서 ({@code Document}).
+ *   <li>{@code automaticDocument}: 저장된 자동 탐색 모델과 호환되는 불변 정의.
  *   <li>{@code currencies}: 화폐목록 ({@code Map<WorkbenchCurrency, Currency>}).
  *   <li>{@code omens}: 징조목록 ({@code Map<WorkbenchOmen, Omen>}).
  *   <li>{@code active}: 활성 ({@code WorkbenchDefinitions}).
@@ -44,6 +45,7 @@ import java.util.*;
  *       예외: {@code IllegalArgumentException}.
  *   <li>{@code targets(baseId)}: 대상목록 처리에서 {@code document.baseTargets}을(를) 사용한다. 입력: {@code
  *       baseId}(베이스·식별자). 반환: {@code BaseTargets}.
+ *   <li>{@code automaticDocument()}: 자동 탐색이 사용할 수 없는 신규 수동 화폐를 제외한 모델 정의를 반환한다.
  *   <li>{@code document()}: {@code document} 값을 조회한다. 반환: {@code Document}.
  *   <li>{@code currency(id)}: 화폐 처리에서 {@code currencies.get}을(를) 사용한다. 입력: {@code id}(식별자). 반환:
  *       {@code Currency}.
@@ -262,9 +264,8 @@ public final class WorkbenchDefinitions {
    * <ul>
    *   <li>{@code BaseTargets(fixed, replacements)}: 전달받은 값으로 구성원을 초기화한다. 입력: {@code fixed}(고정),
    *       {@code replacements}(교체목록).
-   *   <li>{@code copyTargets(source)}: copy·대상목록 처리에서 {@code source.forEach}, {@code
-   *       ids.isEmpty}을(를) 사용한다. 입력: {@code source}(출처). 반환: {@code Map<WorkbenchCurrency,
-   *       List<String>>}. 사용하는 예외: {@code IllegalArgumentException}.
+   *   <li>{@code copyTargets(source)}: 공통 화폐의 기본 옵션을 막는 빈 고정 목록까지 보존한다. 입력: {@code source}(출처). 반환:
+   *       {@code Map<WorkbenchCurrency, List<String>>}. 사용하는 예외: {@code IllegalArgumentException}.
    * </ul>
    */
   public record BaseTargets(
@@ -272,6 +273,8 @@ public final class WorkbenchDefinitions {
       Map<WorkbenchCurrency, List<String>> replacements) {
     public BaseTargets {
       fixed = copyTargets(fixed);
+      if (replacements.values().stream().anyMatch(List::isEmpty))
+        throw new IllegalArgumentException("Empty replacement target set");
       replacements = copyTargets(replacements);
     }
 
@@ -281,7 +284,7 @@ public final class WorkbenchDefinitions {
       source.forEach(
           (action, ids) -> {
             ids(ids);
-            if (ids.isEmpty()) throw new IllegalArgumentException("Empty base target set");
+            // 빈 고정 목록은 이 베이스에서 공통 에센스 결과 상속을 명시적으로 막는다.
             copy.put(action, List.copyOf(ids));
           });
       return Collections.unmodifiableMap(copy);
@@ -334,6 +337,7 @@ public final class WorkbenchDefinitions {
   }
 
   private final Document document;
+  private final Document automaticDocument;
   private final Map<WorkbenchCurrency, Currency> currencies;
   private final Map<WorkbenchOmen, Omen> omens;
   private static volatile WorkbenchDefinitions active;
@@ -451,6 +455,16 @@ public final class WorkbenchDefinitions {
           "Omen definitions must cover enum identities in API order");
     currencies = Collections.unmodifiableMap(currencyMap);
     omens = Collections.unmodifiableMap(omenMap);
+    // 자동 탐색에 참여하지 않는 식각기를 제외해 종전 작업의 커서를 그대로 재개한다.
+    automaticDocument =
+        new Document(
+            document.schemaVersion(),
+            document.ruleVersion(),
+            document.currencies().stream()
+                .filter(c -> c.id() != WorkbenchCurrency.ARCANISTS_ETCHER)
+                .toList(),
+            document.omens(),
+            document.baseTargets());
   }
 
   private static void ids(List<String> ids) {
@@ -469,6 +483,10 @@ public final class WorkbenchDefinitions {
 
   public Document document() {
     return document;
+  }
+
+  Document automaticDocument() {
+    return automaticDocument;
   }
 
   public Currency currency(WorkbenchCurrency id) {

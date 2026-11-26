@@ -35,6 +35,8 @@ import org.junit.jupiter.api.Test;
  *   <li>{@code canonical(node)}: 정규형 처리에서 {@code node.isObject}, {@code M.createObjectNode}을(를)
  *       사용한다. 입력: {@code node}(노드). 반환: {@code JsonNode}.
  *   <li>{@code digest(node)}: 공개 JSON의 배열 순서와 모든 값을 포함한 SHA-256을 반환한다.
+ *   <li>{@code beforeEssenceScopeExpansion(entries)}: v18에서 추가된 에센스 대상과 순서를 대조한 뒤 해당 베이스만 제외해 기존
+ *       등록부의 전체 해시를 확인할 수 있게 한다.
  *   <li>{@code publicRegistryRetainsEveryValueAndArrayOrder()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를 기대값과
  *       비교한다. 사용하는 예외: {@code Exception}.
  *   <li>{@code publicRegistryDoesNotExposeRetiredCollectionReports()}: 이름에 명시한 시나리오의 실제 결과·보존 상태를
@@ -124,6 +126,22 @@ class CraftingRegistryLoaderTest {
             MessageDigest.getInstance("SHA-256").digest(M.writeValueAsBytes(canonical(node))));
   }
 
+  private void beforeEssenceScopeExpansion(ArrayNode entries) throws IOException {
+    var byId = new HashMap<String, JsonNode>();
+    entries.forEach(entry -> byId.put(entry.path("id").asText(), entry));
+    var reviewed =
+        M.readTree(getClass().getResourceAsStream("/registry-v18-essence-additions.json"));
+    for (var group : reviewed) {
+      for (var id : group.get("essences")) {
+        var entry = (ObjectNode) byId.get(id.asText());
+        var current = entry.withArray("supportedBases");
+        var additions = group.get("addedBases");
+        for (int index = additions.size() - 1; index >= 0; index--)
+          assertEquals(additions.get(index), current.remove(current.size() - 1), id.asText());
+      }
+    }
+  }
+
   @Test
   void publicRegistryRetainsEveryValueAndArrayOrder() throws Exception {
     var registry = CraftingRegistryLoader.load();
@@ -147,12 +165,41 @@ class CraftingRegistryLoaderTest {
     ((ObjectNode) registry.path("workbenchBases").path("solar"))
         .put("ledgerVersion", "solar-uniform-assumptions-v10");
 
-    // These three public metadata records intentionally change for the new manual feature.
-    // Restore only their frozen fragments before checking every other value/order below.
+    // 수동 제작으로 승격된 재료의 등록 이전 행을 복원한 뒤 나머지 값과 순서를 비교한다.
     var originalFragments =
         M.readTree(
             getClass().getResourceAsStream("/crafting-registry-v25-original-fragments.json"));
     var entries = (ArrayNode) registry.path("entries");
+    beforeEssenceScopeExpansion(entries);
+    var etcher =
+        entries
+            .valueStream()
+            .filter(entry -> "Arcanists_Etcher".equals(entry.path("id").asText()))
+            .findFirst()
+            .orElseThrow();
+    assertEquals("ACTIVE", etcher.path("serviceScope").asText());
+    assertEquals("IMPLEMENTED", etcher.path("effectStatus").asText());
+    assertEquals("ARCANISTS_ETCHER", etcher.path("action").asText());
+    assertEquals(25, etcher.path("supportedBases").size());
+    // 완드·지팡이·셉터 대상 25개의 순서와 영문 출처·효과 설명까지 검증한다.
+    assertEquals(
+        "86f2c6ce23453f9ccd9fc16a7afd936ca955a939858b2c36655a9d5162d19839", digest(etcher));
+    assertEquals(178, registry.at("/serviceScope/active").intValue());
+    assertEquals(178, registry.at("/serviceScope/implementedActive").intValue());
+    assertEquals(171, registry.at("/serviceScope/defaultImplemented").intValue());
+    assertEquals(42, registry.at("/serviceScope/deferred").intValue());
+    var whetstone =
+        entries
+            .valueStream()
+            .filter(entry -> "Blacksmiths_Whetstone".equals(entry.path("id").asText()))
+            .findFirst()
+            .orElseThrow();
+    var weapons = whetstone.path("supportedBases").deepCopy();
+    assertEquals(27, weapons.size());
+    for (var staff : List.of("dreaming-quarterstaff", "bolting-quarterstaff", "aegis-quarterstaff"))
+      assertEquals(staff, ((ArrayNode) weapons).remove(weapons.size() - 1).asText());
+    assertEquals(
+        "c41fdf4e8b1300b04b8a0a014c70abbe65422354f73f29dd545f4b040a429432", digest(weapons));
     // v17에서 철 반지만 두 번째에 추가됐다. 나머지 대상 41개는 v16 공개 배열 그대로여야 한다.
     var breachBases =
         (ArrayNode)

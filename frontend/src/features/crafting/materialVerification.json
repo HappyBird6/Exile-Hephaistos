@@ -297,9 +297,9 @@
     "emerald-ring": 25,
     "gold-ring": 25,
     "unset-ring": 25,
-    "utzaal-cuirass": 44,
-    "abyssal-cuirass": 44,
-    "warlord-cuirass": 44,
+    "utzaal-cuirass": 0,
+    "abyssal-cuirass": 0,
+    "warlord-cuirass": 0,
     "mail-coat": 11,
     "wyrmscale-coat": 11,
     "corsair-coat": 11,
@@ -323,23 +323,23 @@
     "gloam-ring": 25,
     "penumbra-ring": 25,
     "tenebrous-ring": 25,
-    "solar": 45,
-    "stocky": 46,
-    "bow": 47,
+    "solar": 44,
+    "stocky": 2,
+    "bow": 24,
     "wand": 28,
     "body": 0,
     "sceptre": 27,
-    "belt": 48,
+    "belt": 45,
     "helmet": 1,
-    "ring": 49,
-    "ruby": 50,
-    "emerald": 51,
-    "sapphire": 52,
-    "diamond": 53,
-    "time-lost-ruby": 54,
-    "time-lost-emerald": 55,
-    "time-lost-sapphire": 56,
-    "time-lost-diamond": 57
+    "ring": 46,
+    "ruby": 47,
+    "emerald": 48,
+    "sapphire": 49,
+    "diamond": 50,
+    "time-lost-ruby": 51,
+    "time-lost-emerald": 52,
+    "time-lost-sapphire": 53,
+    "time-lost-diamond": 54
   },
   "rows": [
     {
@@ -362,6 +362,12 @@
           ],
           "level": 72
         },
+        "ESSENCE_HYSTERIA": {
+          "ids": [
+            "rusted-cuirass:prefix:edged"
+          ],
+          "level": 63
+        },
         "SOVEREIGN_ALLOY": {
           "ids": [
             "stocky-mitts:prefix:alloy-local-runic-ward"
@@ -379,6 +385,139 @@
             "equipment:suffix:alloy-reduced-slow-potency1"
           ],
           "level": 45
+        },
+        "ESSENCE_ABYSS": {
+          "ids": [
+            "stocky-mitts:prefix:essence-abyssal-mark",
+            "stocky-mitts:suffix:essence-abyssal-mark"
+          ],
+          "level": 1
+        },
+        "LESSER_ESSENCE_ENHANCEMENT": {
+          "ids": [
+            "rusted-cuirass:prefix:layered"
+          ],
+          "level": 16
+        },
+        "ESSENCE_ENHANCEMENT": {
+          "ids": [
+            "rusted-cuirass:prefix:buttressed"
+          ],
+          "level": 46
+        },
+        "GREATER_ESSENCE_ENHANCEMENT": {
+          "ids": [
+            "rusted-cuirass:prefix:thickened"
+          ],
+          "level": 54
+        },
+        "LESSER_ESSENCE_BODY": {
+          "ids": [
+            "rusted-cuirass:prefix:sanguine"
+          ],
+          "level": 16
+        },
+        "ESSENCE_BODY": {
+          "ids": [
+            "rusted-cuirass:prefix:rotund"
+          ],
+          "level": 46
+        },
+        "GREATER_ESSENCE_BODY": {
+          "ids": [
+            "rusted-cuirass:prefix:virile"
+          ],
+          "level": 54
+        },
+        "LESSER_ESSENCE_RUIN": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-lost"
+          ],
+          "level": 16
+        },
+        "ESSENCE_RUIN": {
+          "ids": [
+            "rusted-cuirass:suffix:of-banishment"
+          ],
+          "level": 30
+        },
+        "GREATER_ESSENCE_RUIN": {
+          "ids": [
+            "rusted-cuirass:suffix:of-expulsion"
+          ],
+          "level": 56
+        },
+        "LESSER_ESSENCE_INSULATION": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-salamander"
+          ],
+          "level": 12
+        },
+        "ESSENCE_INSULATION": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-kiln"
+          ],
+          "level": 36
+        },
+        "GREATER_ESSENCE_INSULATION": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-volcano"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_THAWING": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-penguin"
+          ],
+          "level": 14
+        },
+        "ESSENCE_THAWING": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-yeti"
+          ],
+          "level": 38
+        },
+        "GREATER_ESSENCE_THAWING": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-polar-bear"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_GROUNDING": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-squall"
+          ],
+          "level": 13
+        },
+        "ESSENCE_GROUNDING": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-thunderhead"
+          ],
+          "level": 37
+        },
+        "GREATER_ESSENCE_GROUNDING": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-maelstrom"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_INFINITE": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-wrestler"
+          ],
+          "level": 11
+        },
+        "ESSENCE_INFINITE": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-lion"
+          ],
+          "level": 33
+        },
+        "GREATER_ESSENCE_INFINITE": {
+          "ids": [
+            "rusted-cuirass:suffix:of-the-goliath"
+          ],
+          "level": 55
         }
       },
       "details": {
@@ -441,6 +580,26 @@
               "max": -15
             }
           ]
+        },
+        "stocky-mitts:prefix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:suffix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
         }
       },
       "coupled": true
@@ -452,6 +611,12 @@
             "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
           ],
           "level": 72
+        },
+        "ESSENCE_HYSTERIA": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-taskmaster"
+          ],
+          "level": 5
         },
         "SOVEREIGN_ALLOY": {
           "ids": [
@@ -476,6 +641,178 @@
             "equipment:suffix:alloy-spell-area-of-effect1"
           ],
           "level": 45
+        },
+        "ESSENCE_ABYSS": {
+          "ids": [
+            "stocky-mitts:prefix:essence-abyssal-mark",
+            "stocky-mitts:suffix:essence-abyssal-mark"
+          ],
+          "level": 1
+        },
+        "LESSER_ESSENCE_ENHANCEMENT": {
+          "ids": [
+            "rusted-greathelm:prefix:layered"
+          ],
+          "level": 16
+        },
+        "ESSENCE_ENHANCEMENT": {
+          "ids": [
+            "rusted-greathelm:prefix:buttressed"
+          ],
+          "level": 46
+        },
+        "GREATER_ESSENCE_ENHANCEMENT": {
+          "ids": [
+            "rusted-greathelm:prefix:thickened"
+          ],
+          "level": 54
+        },
+        "LESSER_ESSENCE_BODY": {
+          "ids": [
+            "rusted-greathelm:prefix:sanguine"
+          ],
+          "level": 16
+        },
+        "ESSENCE_BODY": {
+          "ids": [
+            "rusted-greathelm:prefix:rotund"
+          ],
+          "level": 46
+        },
+        "GREATER_ESSENCE_BODY": {
+          "ids": [
+            "rusted-greathelm:prefix:virile"
+          ],
+          "level": 54
+        },
+        "LESSER_ESSENCE_MIND": {
+          "ids": [
+            "rusted-greathelm:prefix:azure"
+          ],
+          "level": 16
+        },
+        "ESSENCE_MIND": {
+          "ids": [
+            "rusted-greathelm:prefix:aqua"
+          ],
+          "level": 38
+        },
+        "GREATER_ESSENCE_MIND": {
+          "ids": [
+            "rusted-greathelm:prefix:opalescent"
+          ],
+          "level": 46
+        },
+        "LESSER_ESSENCE_RUIN": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-lost"
+          ],
+          "level": 16
+        },
+        "ESSENCE_RUIN": {
+          "ids": [
+            "rusted-greathelm:suffix:of-banishment"
+          ],
+          "level": 30
+        },
+        "GREATER_ESSENCE_RUIN": {
+          "ids": [
+            "rusted-greathelm:suffix:of-expulsion"
+          ],
+          "level": 56
+        },
+        "LESSER_ESSENCE_INSULATION": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-salamander"
+          ],
+          "level": 12
+        },
+        "ESSENCE_INSULATION": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-kiln"
+          ],
+          "level": 36
+        },
+        "GREATER_ESSENCE_INSULATION": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-volcano"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_THAWING": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-penguin"
+          ],
+          "level": 14
+        },
+        "ESSENCE_THAWING": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-yeti"
+          ],
+          "level": 38
+        },
+        "GREATER_ESSENCE_THAWING": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-polar-bear"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_GROUNDING": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-squall"
+          ],
+          "level": 13
+        },
+        "ESSENCE_GROUNDING": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-thunderhead"
+          ],
+          "level": 37
+        },
+        "GREATER_ESSENCE_GROUNDING": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-maelstrom"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_OPULENCE": {
+          "ids": [
+            "rusted-greathelm:suffix:of-plunder"
+          ],
+          "level": 3
+        },
+        "ESSENCE_OPULENCE": {
+          "ids": [
+            "rusted-greathelm:suffix:of-raiding"
+          ],
+          "level": 24
+        },
+        "GREATER_ESSENCE_OPULENCE": {
+          "ids": [
+            "rusted-greathelm:suffix:of-archaeology"
+          ],
+          "level": 40
+        },
+        "LESSER_ESSENCE_INFINITE": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-wrestler",
+            "rusted-greathelm:suffix:of-the-student"
+          ],
+          "level": 11
+        },
+        "ESSENCE_INFINITE": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-lion",
+            "rusted-greathelm:suffix:of-the-augur"
+          ],
+          "level": 33
+        },
+        "GREATER_ESSENCE_INFINITE": {
+          "ids": [
+            "rusted-greathelm:suffix:of-the-goliath",
+            "rusted-greathelm:suffix:of-the-sage"
+          ],
+          "level": 55
         }
       },
       "details": {
@@ -526,6 +863,26 @@
               "id": "spell_area_of_effect_+%",
               "min": 10,
               "max": 15
+            }
+          ]
+        },
+        "stocky-mitts:prefix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:suffix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
             }
           ]
         }
@@ -2766,6 +3123,12 @@
           ],
           "level": 72
         },
+        "ESSENCE_HYSTERIA": {
+          "ids": [
+            "amulet:suffix:of-the-taskmaster"
+          ],
+          "level": 5
+        },
         "SOVEREIGN_ALLOY": {
           "ids": [
             "stocky-mitts:prefix:alloy-local-runic-ward"
@@ -2790,6 +3153,13 @@
           ],
           "level": 45
         },
+        "ESSENCE_ABYSS": {
+          "ids": [
+            "stocky-mitts:prefix:essence-abyssal-mark",
+            "stocky-mitts:suffix:essence-abyssal-mark"
+          ],
+          "level": 1
+        },
         "LESSER_ESSENCE_ENHANCEMENT": {
           "ids": [
             "polished-bracers:prefix:ghost-s"
@@ -2807,12 +3177,6 @@
             "polished-bracers:prefix:phantasm-s"
           ],
           "level": 54
-        },
-        "GREATER_ESSENCE_BATTLE": {
-          "ids": [
-            "stocky-mitts:prefix:hunter-s"
-          ],
-          "level": 58
         },
         "LESSER_ESSENCE_BODY": {
           "ids": [
@@ -3012,6 +3376,26 @@
               "max": 15
             }
           ]
+        },
+        "stocky-mitts:prefix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:suffix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
         }
       },
       "coupled": true
@@ -3023,6 +3407,12 @@
             "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
           ],
           "level": 72
+        },
+        "ESSENCE_HYSTERIA": {
+          "ids": [
+            "amulet:suffix:of-the-taskmaster"
+          ],
+          "level": 5
         },
         "SOVEREIGN_ALLOY": {
           "ids": [
@@ -3048,6 +3438,13 @@
           ],
           "level": 45
         },
+        "ESSENCE_ABYSS": {
+          "ids": [
+            "stocky-mitts:prefix:essence-abyssal-mark",
+            "stocky-mitts:suffix:essence-abyssal-mark"
+          ],
+          "level": 1
+        },
         "LESSER_ESSENCE_ENHANCEMENT": {
           "ids": [
             "blacksteel-gauntlets:prefix:brawler-s"
@@ -3065,12 +3462,6 @@
             "blacksteel-gauntlets:prefix:duelist-s"
           ],
           "level": 54
-        },
-        "GREATER_ESSENCE_BATTLE": {
-          "ids": [
-            "stocky-mitts:prefix:hunter-s"
-          ],
-          "level": 58
         },
         "LESSER_ESSENCE_BODY": {
           "ids": [
@@ -3273,6 +3664,26 @@
               "max": 15
             }
           ]
+        },
+        "stocky-mitts:prefix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:suffix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
         }
       },
       "coupled": true
@@ -3284,6 +3695,12 @@
             "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
           ],
           "level": 72
+        },
+        "ESSENCE_HYSTERIA": {
+          "ids": [
+            "amulet:suffix:of-the-taskmaster"
+          ],
+          "level": 5
         },
         "SOVEREIGN_ALLOY": {
           "ids": [
@@ -3309,6 +3726,13 @@
           ],
           "level": 45
         },
+        "ESSENCE_ABYSS": {
+          "ids": [
+            "stocky-mitts:prefix:essence-abyssal-mark",
+            "stocky-mitts:suffix:essence-abyssal-mark"
+          ],
+          "level": 1
+        },
         "LESSER_ESSENCE_ENHANCEMENT": {
           "ids": [
             "war-wraps:prefix:ethereal"
@@ -3326,12 +3750,6 @@
             "war-wraps:prefix:evanescent"
           ],
           "level": 54
-        },
-        "GREATER_ESSENCE_BATTLE": {
-          "ids": [
-            "stocky-mitts:prefix:hunter-s"
-          ],
-          "level": 58
         },
         "LESSER_ESSENCE_BODY": {
           "ids": [
@@ -3529,6 +3947,26 @@
               "id": "spell_area_of_effect_+%",
               "min": 10,
               "max": 15
+            }
+          ]
+        },
+        "stocky-mitts:prefix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:suffix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
             }
           ]
         }
@@ -4917,12 +5355,6 @@
           ],
           "level": 54
         },
-        "GREATER_ESSENCE_BATTLE": {
-          "ids": [
-            "stocky-mitts:prefix:hunter-s"
-          ],
-          "level": 58
-        },
         "LESSER_ESSENCE_BODY": {
           "ids": [
             "stocky-mitts:prefix:sanguine"
@@ -5204,12 +5636,6 @@
             "adherent-cuffs:prefix:inculcated"
           ],
           "level": 54
-        },
-        "GREATER_ESSENCE_BATTLE": {
-          "ids": [
-            "stocky-mitts:prefix:hunter-s"
-          ],
-          "level": 58
         },
         "LESSER_ESSENCE_BODY": {
           "ids": [
@@ -7317,6 +7743,24 @@
           ],
           "level": 58
         },
+        "LESSER_ESSENCE_INFINITE": {
+          "ids": [
+            "crude-bow:suffix:of-the-lynx"
+          ],
+          "level": 11
+        },
+        "ESSENCE_INFINITE": {
+          "ids": [
+            "crude-bow:suffix:of-the-falcon"
+          ],
+          "level": 33
+        },
+        "GREATER_ESSENCE_INFINITE": {
+          "ids": [
+            "crude-bow:suffix:of-the-leopard"
+          ],
+          "level": 55
+        },
         "PROTECTIVE_ALLOY": {
           "ids": [
             "equipment:suffix:alloy-maximum-runic-ward-weapon1"
@@ -8122,6 +8566,34 @@
           ],
           "level": 45
         },
+        "ESSENCE_ABYSS": {
+          "ids": [
+            "stocky-mitts:prefix:essence-abyssal-mark",
+            "stocky-mitts:suffix:essence-abyssal-mark"
+          ],
+          "level": 1
+        },
+        "LESSER_ESSENCE_INFINITE": {
+          "ids": [
+            "rattling-sceptre:suffix:of-the-wrestler",
+            "rattling-sceptre:suffix:of-the-student"
+          ],
+          "level": 11
+        },
+        "ESSENCE_INFINITE": {
+          "ids": [
+            "rattling-sceptre:suffix:of-the-lion",
+            "rattling-sceptre:suffix:of-the-augur"
+          ],
+          "level": 33
+        },
+        "GREATER_ESSENCE_INFINITE": {
+          "ids": [
+            "rattling-sceptre:suffix:of-the-goliath",
+            "rattling-sceptre:suffix:of-the-sage"
+          ],
+          "level": 55
+        },
         "PROTECTIVE_ALLOY": {
           "ids": [
             "equipment:suffix:alloy-maximum-runic-ward-weapon1"
@@ -8181,6 +8653,26 @@
           "stats": [
             {
               "id": "additional_maximum_infusion_stacks",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:prefix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:suffix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
               "min": 1,
               "max": 1
             }
@@ -8265,6 +8757,13 @@
           ],
           "level": 45
         },
+        "ESSENCE_ABYSS": {
+          "ids": [
+            "stocky-mitts:prefix:essence-abyssal-mark",
+            "stocky-mitts:suffix:essence-abyssal-mark"
+          ],
+          "level": 1
+        },
         "LESSER_ESSENCE_SORCERY": {
           "ids": [
             "attuned-wand:prefix:adept-s"
@@ -8300,6 +8799,24 @@
             "attuned-wand:suffix:of-legerdemain"
           ],
           "level": 60
+        },
+        "LESSER_ESSENCE_INFINITE": {
+          "ids": [
+            "attuned-wand:suffix:of-the-student"
+          ],
+          "level": 11
+        },
+        "ESSENCE_INFINITE": {
+          "ids": [
+            "attuned-wand:suffix:of-the-augur"
+          ],
+          "level": 33
+        },
+        "GREATER_ESSENCE_INFINITE": {
+          "ids": [
+            "attuned-wand:suffix:of-the-sage"
+          ],
+          "level": 55
         },
         "PROTECTIVE_ALLOY": {
           "ids": [
@@ -8382,6 +8899,26 @@
           "stats": [
             {
               "id": "additional_maximum_infusion_stacks",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:prefix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:suffix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
               "min": 1,
               "max": 1
             }
@@ -10052,6 +10589,12 @@
           ],
           "level": 54
         },
+        "LESSER_ESSENCE_BODY": {
+          "ids": [
+            "stocky-mitts:prefix:sanguine"
+          ],
+          "level": 16
+        },
         "LESSER_ESSENCE_RUIN": {
           "ids": [
             "stocky-mitts:suffix:of-the-lost"
@@ -10207,6 +10750,16 @@
               "id": "essence_abyss_guaranteed_pick",
               "min": 1,
               "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:prefix:sanguine": {
+          "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/436dd8d7a7bcc1bdfa78e9fba034f9ed8566831456e5894083e10e331e6c8c1a",
+          "stats": [
+            {
+              "id": "base_maximum_life",
+              "min": 30,
+              "max": 39
             }
           ]
         },
@@ -12797,115 +13350,6 @@
     },
     {
       "targets": {
-        "PERFECT_ESSENCE_BODY": {
-          "ids": [
-            "rusted-cuirass:prefix:essence-maximum-life-percent"
-          ],
-          "level": 72
-        },
-        "PERFECT_ESSENCE_RUIN": {
-          "ids": [
-            "rusted-cuirass:prefix:essence-physical-taken-as-chaos"
-          ],
-          "level": 72
-        },
-        "PERFECT_ESSENCE_SEEKING": {
-          "ids": [
-            "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage"
-          ],
-          "level": 72
-        },
-        "ESSENCE_HYSTERIA": {
-          "ids": [
-            "rusted-cuirass:prefix:edged"
-          ],
-          "level": 63
-        },
-        "SOVEREIGN_ALLOY": {
-          "ids": [
-            "stocky-mitts:prefix:alloy-local-runic-ward"
-          ],
-          "level": 25
-        },
-        "EXPANSIVE_ALLOY": {
-          "ids": [
-            "equipment:suffix:alloy-presence-area-of-effect1"
-          ],
-          "level": 25
-        },
-        "CYCLONIC_ALLOY": {
-          "ids": [
-            "equipment:suffix:alloy-reduced-slow-potency1"
-          ],
-          "level": 45
-        }
-      },
-      "details": {
-        "rusted-cuirass:prefix:essence-maximum-life-percent": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceIncreasedLifePercent1",
-          "stats": [
-            {
-              "id": "maximum_life_+%",
-              "min": 8,
-              "max": 10
-            }
-          ]
-        },
-        "rusted-cuirass:prefix:essence-physical-taken-as-chaos": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssencePhysicalDamageTakenAsChaos1",
-          "stats": [
-            {
-              "id": "physical_damage_taken_%_as_chaos",
-              "min": 10,
-              "max": 15
-            }
-          ]
-        },
-        "rusted-cuirass:suffix:essence-reduced-incoming-critical-damage": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceReducedCriticalDamageAgainstYou1",
-          "stats": [
-            {
-              "id": "base_self_critical_strike_multiplier_-%",
-              "min": 40,
-              "max": 50
-            }
-          ]
-        },
-        "stocky-mitts:prefix:alloy-local-runic-ward": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
-          "stats": [
-            {
-              "id": "local_ward_+%",
-              "max": 30,
-              "min": 24
-            }
-          ]
-        },
-        "equipment:suffix:alloy-presence-area-of-effect1": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyPresenceAreaOfEffect1",
-          "stats": [
-            {
-              "id": "presence_area_+%",
-              "min": 35,
-              "max": 50
-            }
-          ]
-        },
-        "equipment:suffix:alloy-reduced-slow-potency1": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyReducedSlowPotency1",
-          "stats": [
-            {
-              "id": "base_slow_potency_+%",
-              "min": -30,
-              "max": -15
-            }
-          ]
-        }
-      },
-      "coupled": true
-    },
-    {
-      "targets": {
         "ESSENCE_HYSTERIA": {
           "ids": [
             "amulet:suffix:of-suturing"
@@ -13198,694 +13642,15 @@
     },
     {
       "targets": {
-        "ESSENCE_HYSTERIA": {
-          "ids": [
-            "stocky-mitts:suffix:of-fury"
-          ],
-          "level": 45
-        },
-        "ESSENCE_HORROR": {
-          "ids": [
-            "stocky-mitts:suffix:essence-socketed-augment-effect"
-          ],
-          "level": 1
-        },
-        "PERFECT_ESSENCE_GROUNDING": {
-          "ids": [
-            "stocky-mitts:suffix:essence-lightning-recoup"
-          ],
-          "level": 72
-        },
-        "PERFECT_ESSENCE_OPULENCE": {
-          "ids": [
-            "stocky-mitts:suffix:essence-gold-quantity"
-          ],
-          "level": 72
-        },
-        "PRISMATIC_ALLOY": {
-          "ids": [
-            "stocky-mitts:prefix:alloy-elemental-penetration"
-          ],
-          "level": 45
-        },
-        "ADAPTIVE_ALLOY": {
-          "ids": [
-            "stocky-mitts:suffix:alloy-attack-speed-missing-ward"
-          ],
-          "level": 25
-        },
-        "SWIFT_ALLOY": {
-          "ids": [
-            "stocky-mitts:suffix:alloy-cast-speed"
-          ],
-          "level": 45
-        },
-        "SOVEREIGN_ALLOY": {
-          "ids": [
-            "stocky-mitts:prefix:alloy-local-runic-ward"
-          ],
-          "level": 25
-        },
-        "EXPANSIVE_ALLOY": {
-          "ids": [
-            "stocky-mitts:suffix:alloy-remnant-pickup-range"
-          ],
-          "level": 25
-        },
-        "CYCLONIC_ALLOY": {
-          "ids": [
-            "stocky-mitts:suffix:alloy-damaging-ailment-duration"
-          ],
-          "level": 45
-        },
-        "MYSTIC_ALLOY": {
-          "ids": [
-            "stocky-mitts:suffix:alloy-attack-area-of-effect"
-          ],
-          "level": 45
-        },
-        "ESSENCE_ABYSS": {
-          "ids": [
-            "stocky-mitts:prefix:essence-abyssal-mark",
-            "stocky-mitts:suffix:essence-abyssal-mark"
-          ],
-          "level": 1
-        },
-        "LESSER_ESSENCE_ENHANCEMENT": {
-          "ids": [
-            "stocky-mitts:prefix:layered"
-          ],
-          "level": 16
-        },
-        "ESSENCE_ENHANCEMENT": {
-          "ids": [
-            "stocky-mitts:prefix:buttressed"
-          ],
-          "level": 46
-        },
-        "GREATER_ESSENCE_ENHANCEMENT": {
-          "ids": [
-            "stocky-mitts:prefix:thickened"
-          ],
-          "level": 54
-        },
-        "GREATER_ESSENCE_BATTLE": {
-          "ids": [
-            "stocky-mitts:prefix:hunter-s"
-          ],
-          "level": 58
-        },
-        "LESSER_ESSENCE_BODY": {
-          "ids": [
-            "stocky-mitts:prefix:sanguine"
-          ],
-          "level": 16
-        },
-        "ESSENCE_BODY": {
-          "ids": [
-            "stocky-mitts:prefix:robust"
-          ],
-          "level": 38
-        },
-        "GREATER_ESSENCE_BODY": {
-          "ids": [
-            "stocky-mitts:prefix:rotund"
-          ],
-          "level": 46
-        },
-        "LESSER_ESSENCE_MIND": {
-          "ids": [
-            "stocky-mitts:prefix:azure"
-          ],
-          "level": 16
-        },
-        "ESSENCE_MIND": {
-          "ids": [
-            "stocky-mitts:prefix:aqua"
-          ],
-          "level": 38
-        },
-        "GREATER_ESSENCE_MIND": {
-          "ids": [
-            "stocky-mitts:prefix:opalescent"
-          ],
-          "level": 46
-        },
-        "LESSER_ESSENCE_RUIN": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-lost"
-          ],
-          "level": 16
-        },
-        "ESSENCE_RUIN": {
-          "ids": [
-            "stocky-mitts:suffix:of-banishment"
-          ],
-          "level": 30
-        },
-        "GREATER_ESSENCE_RUIN": {
-          "ids": [
-            "stocky-mitts:suffix:of-expulsion"
-          ],
-          "level": 56
-        },
-        "LESSER_ESSENCE_INSULATION": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-salamander"
-          ],
-          "level": 12
-        },
-        "ESSENCE_INSULATION": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-kiln"
-          ],
-          "level": 36
-        },
-        "GREATER_ESSENCE_INSULATION": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-volcano"
-          ],
-          "level": 60
-        },
-        "LESSER_ESSENCE_THAWING": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-penguin"
-          ],
-          "level": 14
-        },
-        "ESSENCE_THAWING": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-yeti"
-          ],
-          "level": 38
-        },
-        "GREATER_ESSENCE_THAWING": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-polar-bear"
-          ],
-          "level": 60
-        },
-        "LESSER_ESSENCE_GROUNDING": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-squall"
-          ],
-          "level": 13
-        },
-        "ESSENCE_GROUNDING": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-thunderhead"
-          ],
-          "level": 37
-        },
-        "GREATER_ESSENCE_GROUNDING": {
-          "ids": [
-            "stocky-mitts:suffix:of-the-maelstrom"
-          ],
-          "level": 60
-        },
-        "LESSER_ESSENCE_OPULENCE": {
-          "ids": [
-            "stocky-mitts:suffix:of-plunder"
-          ],
-          "level": 3
-        },
-        "ESSENCE_OPULENCE": {
-          "ids": [
-            "stocky-mitts:suffix:of-raiding"
-          ],
-          "level": 24
-        },
-        "GREATER_ESSENCE_OPULENCE": {
-          "ids": [
-            "stocky-mitts:suffix:of-archaeology"
-          ],
-          "level": 40
-        }
-      },
-      "details": {
-        "stocky-mitts:suffix:essence-socketed-augment-effect": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceLocalRuneAndSoulCoreEffect1",
-          "stats": [
-            {
-              "max": 60,
-              "min": 60,
-              "id": "local_socketed_items_effect_+%"
-            }
-          ]
-        },
-        "stocky-mitts:suffix:essence-lightning-recoup": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceLightningRecoupLife1",
-          "stats": [
-            {
-              "max": 30,
-              "min": 26,
-              "id": "lightning_damage_taken_goes_to_life_over_4_seconds_%"
-            }
-          ]
-        },
-        "stocky-mitts:suffix:essence-gold-quantity": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceGoldDropped1",
-          "stats": [
-            {
-              "max": 15,
-              "min": 10,
-              "id": "gold_+%_from_enemies"
-            }
-          ]
-        },
-        "stocky-mitts:prefix:alloy-elemental-penetration": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyElementalPenetration1",
-          "stats": [
-            {
-              "id": "reduce_enemy_elemental_resistance_%",
-              "max": 15,
-              "min": 9
-            }
-          ]
-        },
-        "stocky-mitts:suffix:alloy-attack-speed-missing-ward": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackSpeedIfMissingWardRecently1",
-          "stats": [
-            {
-              "id": "attack_speed_+%_while_missing_ward",
-              "max": 15,
-              "min": 10
-            }
-          ]
-        },
-        "stocky-mitts:suffix:alloy-cast-speed": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyCastSpeedGloves1",
-          "stats": [
-            {
-              "id": "base_cast_speed_+%",
-              "max": 12,
-              "min": 9
-            }
-          ]
-        },
-        "stocky-mitts:prefix:alloy-local-runic-ward": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLocalWardIncreasePercent1",
-          "stats": [
-            {
-              "id": "local_ward_+%",
-              "max": 30,
-              "min": 24
-            }
-          ]
-        },
-        "stocky-mitts:suffix:alloy-remnant-pickup-range": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRemnantPickupRange1",
-          "stats": [
-            {
-              "max": 50,
-              "id": "remnant_pickup_range_+%",
-              "min": 35
-            }
-          ]
-        },
-        "stocky-mitts:suffix:alloy-damaging-ailment-duration": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyDamagingAilmentDuration1",
-          "stats": [
-            {
-              "max": 25,
-              "id": "damaging_ailment_duration_+%",
-              "min": 20
-            }
-          ]
-        },
-        "stocky-mitts:suffix:alloy-attack-area-of-effect": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttackAreaOfEffect1",
-          "stats": [
-            {
-              "max": 15,
-              "id": "attack_area_of_effect_+%",
-              "min": 10
-            }
-          ]
-        },
-        "stocky-mitts:prefix:essence-abyssal-mark": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
-          "stats": [
-            {
-              "id": "essence_abyss_guaranteed_pick",
-              "min": 1,
-              "max": 1
-            }
-          ]
-        },
-        "stocky-mitts:suffix:essence-abyssal-mark": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
-          "stats": [
-            {
-              "id": "essence_abyss_guaranteed_pick",
-              "min": 1,
-              "max": 1
-            }
-          ]
-        }
-      },
-      "coupled": true
-    },
-    {
-      "targets": {
-        "LESSER_ESSENCE_ABRASION": {
-          "ids": [
-            "crude-bow:prefix:burnished"
-          ],
-          "level": 8
-        },
-        "ESSENCE_ABRASION": {
-          "ids": [
-            "crude-bow:prefix:gleaming"
-          ],
-          "level": 46
-        },
-        "GREATER_ESSENCE_ABRASION": {
-          "ids": [
-            "crude-bow:prefix:razor-sharp"
-          ],
-          "level": 60
-        },
-        "LESSER_ESSENCE_FLAMES": {
-          "ids": [
-            "crude-bow:prefix:smouldering"
-          ],
-          "level": 8
-        },
-        "ESSENCE_FLAMES": {
-          "ids": [
-            "crude-bow:prefix:flaming"
-          ],
-          "level": 46
-        },
-        "GREATER_ESSENCE_FLAMES": {
-          "ids": [
-            "crude-bow:prefix:incinerating"
-          ],
-          "level": 60
-        },
-        "LESSER_ESSENCE_ICE": {
-          "ids": [
-            "crude-bow:prefix:chilled"
-          ],
-          "level": 8
-        },
-        "ESSENCE_ICE": {
-          "ids": [
-            "crude-bow:prefix:freezing"
-          ],
-          "level": 46
-        },
-        "GREATER_ESSENCE_ICE": {
-          "ids": [
-            "crude-bow:prefix:glaciated"
-          ],
-          "level": 60
-        },
-        "LESSER_ESSENCE_ELECTRICITY": {
-          "ids": [
-            "crude-bow:prefix:buzzing"
-          ],
-          "level": 8
-        },
-        "ESSENCE_ELECTRICITY": {
-          "ids": [
-            "crude-bow:prefix:sparking"
-          ],
-          "level": 46
-        },
-        "GREATER_ESSENCE_ELECTRICITY": {
-          "ids": [
-            "crude-bow:prefix:shocking"
-          ],
-          "level": 60
-        },
-        "LESSER_ESSENCE_BATTLE": {
-          "ids": [
-            "crude-bow:prefix:focused"
-          ],
-          "level": 18
-        },
-        "ESSENCE_BATTLE": {
-          "ids": [
-            "crude-bow:prefix:consistent"
-          ],
-          "level": 36
-        },
-        "LESSER_ESSENCE_HASTE": {
-          "ids": [
-            "crude-bow:suffix:of-ease"
-          ],
-          "level": 11
-        },
-        "ESSENCE_HASTE": {
-          "ids": [
-            "crude-bow:suffix:of-mastery"
-          ],
-          "level": 22
-        },
-        "GREATER_ESSENCE_HASTE": {
-          "ids": [
-            "crude-bow:suffix:of-renown"
-          ],
-          "level": 30
-        },
-        "LESSER_ESSENCE_SEEKING": {
-          "ids": [
-            "crude-bow:suffix:of-havoc"
-          ],
-          "level": 20
-        },
-        "ESSENCE_SEEKING": {
-          "ids": [
-            "crude-bow:suffix:of-disaster"
-          ],
-          "level": 30
-        },
-        "GREATER_ESSENCE_SEEKING": {
-          "ids": [
-            "crude-bow:suffix:of-calamity"
-          ],
-          "level": 44
-        },
-        "PERFECT_ESSENCE_ABRASION": {
-          "ids": [
-            "crude-bow:prefix:essence-extra-physical-damage"
-          ],
-          "level": 72
-        },
-        "PERFECT_ESSENCE_FLAMES": {
-          "ids": [
-            "crude-bow:prefix:essence-extra-fire-damage"
-          ],
-          "level": 72
-        },
-        "PERFECT_ESSENCE_ICE": {
-          "ids": [
-            "crude-bow:prefix:essence-extra-cold-damage"
-          ],
-          "level": 72
-        },
-        "PERFECT_ESSENCE_ELECTRICITY": {
-          "ids": [
-            "crude-bow:prefix:essence-extra-lightning-damage"
-          ],
-          "level": 72
-        },
-        "PERFECT_ESSENCE_BATTLE": {
-          "ids": [
-            "crude-bow:suffix:essence-attack-skill-level"
-          ],
-          "level": 72
-        },
-        "PERFECT_ESSENCE_HASTE": {
-          "ids": [
-            "crude-bow:suffix:essence-onslaught-on-kill"
-          ],
-          "level": 72
-        },
-        "PRISMATIC_ALLOY": {
-          "ids": [
-            "equipment:suffix:alloy-ailment-magnitude1"
-          ],
-          "level": 45
-        },
-        "SOVEREIGN_ALLOY": {
-          "ids": [
-            "equipment:suffix:alloy-effect-of-socketed-augments1"
-          ],
-          "level": 65
-        },
-        "GREATER_ESSENCE_BATTLE": {
-          "ids": [
-            "crude-bow:prefix:hunter-s"
-          ],
-          "level": 58
-        },
-        "PROTECTIVE_ALLOY": {
-          "ids": [
-            "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-          ],
-          "level": 25
-        },
-        "CELESTIAL_ALLOY": {
-          "ids": [
-            "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
-          ],
-          "level": 65
-        },
-        "TRANSCENDENT_ALLOY": {
-          "ids": [
-            "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
-          ],
-          "level": 65
-        },
-        "THE_RUNEBINDERS_ALLOY": {
-          "ids": [
-            "equipment:suffix:alloy-mark-effect"
-          ],
-          "level": 65
-        }
-      },
-      "details": {
-        "crude-bow:prefix:essence-extra-physical-damage": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraPhysical1",
-          "stats": [
-            {
-              "id": "non_skill_base_all_damage_%_to_gain_as_physical",
-              "min": 15,
-              "max": 20
-            }
-          ]
-        },
-        "crude-bow:prefix:essence-extra-fire-damage": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraFire1",
-          "stats": [
-            {
-              "id": "non_skill_base_all_damage_%_to_gain_as_fire",
-              "min": 15,
-              "max": 20
-            }
-          ]
-        },
-        "crude-bow:prefix:essence-extra-cold-damage": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraCold1",
-          "stats": [
-            {
-              "id": "non_skill_base_all_damage_%_to_gain_as_cold",
-              "min": 15,
-              "max": 20
-            }
-          ]
-        },
-        "crude-bow:prefix:essence-extra-lightning-damage": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceDamageasExtraLightning1",
-          "stats": [
-            {
-              "id": "non_skill_base_all_damage_%_to_gain_as_lightning",
-              "min": 15,
-              "max": 20
-            }
-          ]
-        },
-        "crude-bow:suffix:essence-attack-skill-level": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAttackSkillLevel1H1",
-          "stats": [
-            {
-              "id": "attack_skill_gem_level_+",
-              "min": 2,
-              "max": 2
-            }
-          ]
-        },
-        "crude-bow:suffix:essence-onslaught-on-kill": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceOnslaughtonKill1",
-          "stats": [
-            {
-              "id": "local_chance_to_gain_onslaught_on_killing_blow_%",
-              "min": 20,
-              "max": 25
-            }
-          ]
-        },
-        "equipment:suffix:alloy-ailment-magnitude1": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAilmentMagnitude1",
-          "stats": [
-            {
-              "id": "ailment_effect_+%",
-              "min": 20,
-              "max": 30
-            }
-          ]
-        },
-        "equipment:suffix:alloy-effect-of-socketed-augments1": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyEffectOfSocketedAugments1",
-          "stats": [
-            {
-              "id": "local_socketed_items_effect_+%",
-              "min": 20,
-              "max": 30
-            }
-          ]
-        },
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMaximumRunicWardWeapon1",
-          "stats": [
-            {
-              "id": "base_maximum_ward",
-              "min": 51,
-              "max": 74
-            }
-          ]
-        },
-        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAccuracyAttackSpeedHybrid1",
-          "stats": [
-            {
-              "id": "accuracy_rating",
-              "min": 327,
-              "max": 427
-            },
-            {
-              "id": "local_attack_speed_+%",
-              "min": 5,
-              "max": 8
-            }
-          ]
-        },
-        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyAttributeIncreasedLocalPhysicalDamageHybrid1",
-          "stats": [
-            {
-              "id": "base_all_attributes",
-              "min": 7,
-              "max": 10
-            },
-            {
-              "id": "local_physical_damage_+%",
-              "min": 15,
-              "max": 20
-            }
-          ]
-        },
-        "equipment:suffix:alloy-mark-effect": {
-          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyMarkEffect",
-          "stats": [
-            {
-              "id": "mark_effect_+%",
-              "min": 40,
-              "max": 50
-            }
-          ]
-        }
-      },
-      "coupled": true
-    },
-    {
-      "targets": {
         "PERFECT_ESSENCE_INSULATION": {
           "ids": [
             "rawhide-belt:suffix:essence-fire-damage-recouped-as-life"
+          ],
+          "level": 72
+        },
+        "ESSENCE_HYSTERIA": {
+          "ids": [
+            "rawhide-belt:suffix:of-obsidian-skin"
           ],
           "level": 72
         },
@@ -13906,6 +13671,139 @@
             "equipment:prefix:alloy-effect-of-resistance-mods1"
           ],
           "level": 65
+        },
+        "ESSENCE_ABYSS": {
+          "ids": [
+            "stocky-mitts:prefix:essence-abyssal-mark",
+            "stocky-mitts:suffix:essence-abyssal-mark"
+          ],
+          "level": 1
+        },
+        "LESSER_ESSENCE_BODY": {
+          "ids": [
+            "rawhide-belt:prefix:sanguine"
+          ],
+          "level": 16
+        },
+        "ESSENCE_BODY": {
+          "ids": [
+            "rawhide-belt:prefix:rotund"
+          ],
+          "level": 46
+        },
+        "GREATER_ESSENCE_BODY": {
+          "ids": [
+            "rawhide-belt:prefix:virile"
+          ],
+          "level": 54
+        },
+        "LESSER_ESSENCE_MIND": {
+          "ids": [
+            "rawhide-belt:prefix:azure"
+          ],
+          "level": 16
+        },
+        "ESSENCE_MIND": {
+          "ids": [
+            "rawhide-belt:prefix:aqua"
+          ],
+          "level": 38
+        },
+        "GREATER_ESSENCE_MIND": {
+          "ids": [
+            "rawhide-belt:prefix:opalescent"
+          ],
+          "level": 46
+        },
+        "LESSER_ESSENCE_RUIN": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-lost"
+          ],
+          "level": 16
+        },
+        "ESSENCE_RUIN": {
+          "ids": [
+            "rawhide-belt:suffix:of-banishment"
+          ],
+          "level": 30
+        },
+        "GREATER_ESSENCE_RUIN": {
+          "ids": [
+            "rawhide-belt:suffix:of-expulsion"
+          ],
+          "level": 56
+        },
+        "LESSER_ESSENCE_INSULATION": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-salamander"
+          ],
+          "level": 12
+        },
+        "ESSENCE_INSULATION": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-kiln"
+          ],
+          "level": 36
+        },
+        "GREATER_ESSENCE_INSULATION": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-volcano"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_THAWING": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-penguin"
+          ],
+          "level": 14
+        },
+        "ESSENCE_THAWING": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-yeti"
+          ],
+          "level": 38
+        },
+        "GREATER_ESSENCE_THAWING": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-polar-bear"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_GROUNDING": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-squall"
+          ],
+          "level": 13
+        },
+        "ESSENCE_GROUNDING": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-thunderhead"
+          ],
+          "level": 37
+        },
+        "GREATER_ESSENCE_GROUNDING": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-maelstrom"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_INFINITE": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-wrestler"
+          ],
+          "level": 11
+        },
+        "ESSENCE_INFINITE": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-lion"
+          ],
+          "level": 33
+        },
+        "GREATER_ESSENCE_INFINITE": {
+          "ids": [
+            "rawhide-belt:suffix:of-the-goliath"
+          ],
+          "level": 55
         },
         "PROTECTIVE_ALLOY": {
           "ids": [
@@ -13955,6 +13853,26 @@
             }
           ]
         },
+        "stocky-mitts:prefix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:suffix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
         "equipment:prefix:alloy-recover-runic-ward-on-charm-use1": {
           "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyRecoverRunicWardOnCharmUse1",
           "stats": [
@@ -13975,6 +13893,12 @@
             "iron-ring:prefix:essence-increased-maximum-mana"
           ],
           "level": 72
+        },
+        "ESSENCE_HYSTERIA": {
+          "ids": [
+            "iron-ring:suffix:of-euphoria"
+          ],
+          "level": 55
         },
         "ESSENCE_BREACH": {
           "ids": [
@@ -13999,6 +13923,157 @@
             "equipment:prefix:alloy-effect-of-resistance-mods1"
           ],
           "level": 65
+        },
+        "ESSENCE_ABYSS": {
+          "ids": [
+            "stocky-mitts:prefix:essence-abyssal-mark",
+            "stocky-mitts:suffix:essence-abyssal-mark"
+          ],
+          "level": 1
+        },
+        "LESSER_ESSENCE_BODY": {
+          "ids": [
+            "iron-ring:prefix:healthy"
+          ],
+          "level": 6
+        },
+        "ESSENCE_BODY": {
+          "ids": [
+            "iron-ring:prefix:robust"
+          ],
+          "level": 38
+        },
+        "LESSER_ESSENCE_MIND": {
+          "ids": [
+            "iron-ring:prefix:azure"
+          ],
+          "level": 16
+        },
+        "ESSENCE_MIND": {
+          "ids": [
+            "iron-ring:prefix:opalescent"
+          ],
+          "level": 46
+        },
+        "GREATER_ESSENCE_MIND": {
+          "ids": [
+            "iron-ring:prefix:gentian"
+          ],
+          "level": 54
+        },
+        "LESSER_ESSENCE_RUIN": {
+          "ids": [
+            "iron-ring:suffix:of-the-lost"
+          ],
+          "level": 16
+        },
+        "ESSENCE_RUIN": {
+          "ids": [
+            "iron-ring:suffix:of-banishment"
+          ],
+          "level": 30
+        },
+        "GREATER_ESSENCE_RUIN": {
+          "ids": [
+            "iron-ring:suffix:of-expulsion"
+          ],
+          "level": 56
+        },
+        "LESSER_ESSENCE_INSULATION": {
+          "ids": [
+            "iron-ring:suffix:of-the-salamander"
+          ],
+          "level": 12
+        },
+        "ESSENCE_INSULATION": {
+          "ids": [
+            "iron-ring:suffix:of-the-kiln"
+          ],
+          "level": 36
+        },
+        "GREATER_ESSENCE_INSULATION": {
+          "ids": [
+            "iron-ring:suffix:of-the-volcano"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_THAWING": {
+          "ids": [
+            "iron-ring:suffix:of-the-penguin"
+          ],
+          "level": 14
+        },
+        "ESSENCE_THAWING": {
+          "ids": [
+            "iron-ring:suffix:of-the-yeti"
+          ],
+          "level": 38
+        },
+        "GREATER_ESSENCE_THAWING": {
+          "ids": [
+            "iron-ring:suffix:of-the-polar-bear"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_GROUNDING": {
+          "ids": [
+            "iron-ring:suffix:of-the-squall"
+          ],
+          "level": 13
+        },
+        "ESSENCE_GROUNDING": {
+          "ids": [
+            "iron-ring:suffix:of-the-thunderhead"
+          ],
+          "level": 37
+        },
+        "GREATER_ESSENCE_GROUNDING": {
+          "ids": [
+            "iron-ring:suffix:of-the-maelstrom"
+          ],
+          "level": 60
+        },
+        "LESSER_ESSENCE_OPULENCE": {
+          "ids": [
+            "iron-ring:suffix:of-plunder"
+          ],
+          "level": 3
+        },
+        "ESSENCE_OPULENCE": {
+          "ids": [
+            "iron-ring:suffix:of-raiding"
+          ],
+          "level": 24
+        },
+        "GREATER_ESSENCE_OPULENCE": {
+          "ids": [
+            "iron-ring:suffix:of-archaeology"
+          ],
+          "level": 40
+        },
+        "LESSER_ESSENCE_INFINITE": {
+          "ids": [
+            "iron-ring:suffix:of-the-wrestler",
+            "iron-ring:suffix:of-the-lynx",
+            "iron-ring:suffix:of-the-student"
+          ],
+          "level": 11
+        },
+        "ESSENCE_INFINITE": {
+          "ids": [
+            "iron-ring:suffix:of-the-lion",
+            "iron-ring:suffix:of-the-falcon",
+            "iron-ring:suffix:of-the-augur"
+          ],
+          "level": 33
+        },
+        "GREATER_ESSENCE_INFINITE": {
+          "ids": [
+            "iron-ring:suffix:of-the-goliath",
+            "iron-ring:suffix:of-the-leopard",
+            "iron-ring:suffix:of-the-sage"
+          ],
+          "level": 55
         }
       },
       "details": {
@@ -14049,6 +14124,26 @@
               "id": "heist_enchantment_resistance_mod_effect_+%",
               "min": 20,
               "max": 30
+            }
+          ]
+        },
+        "stocky-mitts:prefix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
+            }
+          ]
+        },
+        "stocky-mitts:suffix:essence-abyssal-mark": {
+          "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix",
+          "stats": [
+            {
+              "id": "essence_abyss_guaranteed_pick",
+              "min": 1,
+              "max": 1
             }
           ]
         }

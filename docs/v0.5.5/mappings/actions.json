@@ -857,6 +857,11 @@
       "id": "c004r",
       "sourceKey": "VAAL_CATALYSING_INFUSER",
       "retired": false
+    },
+    {
+      "id": "c004s",
+      "sourceKey": "ARCANISTS_ETCHER",
+      "retired": false
     }
   ]
 }

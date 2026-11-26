@@ -1,6 +1,7 @@
 package com.poe2craft.shared.crafting.domain;
 
 import com.poe2craft.shared.item.AugmentCraftingRules;
+import com.poe2craft.shared.item.BaseRegistry;
 import com.poe2craft.shared.item.ItemState;
 
 /**
@@ -23,8 +24,8 @@ import com.poe2craft.shared.item.ItemState;
  *   <li>{@code QualityCurrencyRules()}: 외부 인스턴스 생성이 필요 없는 유틸리티 생성자다.
  *   <li>{@code equipment(baseItemId)}: 장비 처리에서 {@code baseItemId.startsWith}을(를) 사용한다. 입력: {@code
  *       baseItemId}(베이스·아이템·식별자). 반환: {@code boolean}.
- *   <li>{@code martial(baseItemId)}: martial 처리에서 {@code baseItemId.startsWith}, {@code
- *       baseItemId.contains}을(를) 사용한다. 입력: {@code baseItemId}(베이스·아이템·식별자). 반환: {@code boolean}.
+ *   <li>{@code caster(baseItemId)}: 등록 장비 종류가 마법봉·지팡이·셉터인지 반환한다.
+ *   <li>{@code martial(baseItemId)}: 등록된 무술 무기인지 반환한다. 육척봉도 여기에 속한다.
  *   <li>{@code isQuality(action)}: 품질을(를) 여부를 판정한다. 입력: {@code action}(행동). 반환: {@code boolean}.
  *   <li>{@code refusal(state, action)}: refusal 처리에서 {@code state.conditions}, {@code
  *       state.rarity}을(를) 사용한다. 입력: {@code state}(상태), {@code action}(행동). 반환: {@code String}.
@@ -45,16 +46,23 @@ public final class QualityCurrencyRules {
         || baseItemId.startsWith("Metadata/Items/Weapons/");
   }
 
-  private static boolean martial(String baseItemId) {
+  static boolean caster(String baseItemId) {
+    return switch (BaseRegistry.itemClass(baseItemId)) {
+      case "Wands", "Staves", "Sceptres" -> true;
+      case null, default -> false;
+    };
+  }
+
+  static boolean martial(String baseItemId) {
     return baseItemId.startsWith("Metadata/Items/Weapons/")
-        && !baseItemId.contains("/Wands/")
-        && !baseItemId.contains("/Staves/")
-        && !baseItemId.contains("/Sceptres/");
+        && BaseRegistry.itemClass(baseItemId) != null
+        && !caster(baseItemId);
   }
 
   public static boolean isQuality(WorkbenchCurrency action) {
     return action == WorkbenchCurrency.ARMOURERS_SCRAP
-        || action == WorkbenchCurrency.BLACKSMITHS_WHETSTONE;
+        || action == WorkbenchCurrency.BLACKSMITHS_WHETSTONE
+        || action == WorkbenchCurrency.ARCANISTS_ETCHER;
   }
 
   public static String refusal(ItemState state, WorkbenchCurrency action) {
@@ -63,9 +71,9 @@ public final class QualityCurrencyRules {
     if (state.rarity() == ItemState.Rarity.UNIQUE)
       return "Unique equipment remains outside the supported quality scope.";
     boolean armour = state.baseItemId().startsWith("Metadata/Items/Armours/");
-    boolean martial = martial(state.baseItemId());
     if ((action == WorkbenchCurrency.ARMOURERS_SCRAP && !armour)
-        || (action == WorkbenchCurrency.BLACKSMITHS_WHETSTONE && !martial))
+        || (action == WorkbenchCurrency.BLACKSMITHS_WHETSTONE && !martial(state.baseItemId()))
+        || (action == WorkbenchCurrency.ARCANISTS_ETCHER && !caster(state.baseItemId())))
       return "This quality currency does not support this item class.";
     if (state.equipmentQuality() == null) return "The item's current equipment quality is unknown.";
     if (state.equipmentQuality() >= maximum(state))

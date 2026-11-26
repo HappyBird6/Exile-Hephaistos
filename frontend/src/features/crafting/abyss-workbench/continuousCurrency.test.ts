@@ -182,6 +182,76 @@ it('rejects failure responses that consume omens or change the state', async () 
   expect(hidden.slots[0]?.modifier).toBeNull()
 })
 
+it('verifies the Etcher cap, target, pending offer and preserved slots before recording a desecrated craft', async () => {
+  const action = 'ARCANISTS_ETCHER' as const
+  const active = ['Omen_of_Sanctification']
+  const wand: AbyssState = {
+    ...hidden,
+    item: {
+      ...hidden.item,
+      implicits: [],
+      equipmentQuality: 7,
+      baseItemId: 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3',
+    },
+    offer: {
+      slotId: 'hidden',
+      candidates: [5, 6, 7].map((strength) => ({
+        modifierId: 's',
+        values: { strength },
+      })),
+    },
+  }
+  const etched = { ...wand, item: { ...wand.item, equipmentQuality: 20 } }
+  const check = (
+    before: AbyssState,
+    next: AbyssState,
+    consumedOmens: string[] = [],
+  ) => {
+    vi.stubGlobal('fetch', () =>
+      Promise.resolve(
+        jsonResponse({
+          state: next,
+          action,
+          applied: true,
+          reason: '',
+          consumedOmens,
+          remainingOmens: active.filter((id) => !consumedOmens.includes(id)),
+        }),
+      ),
+    )
+    return applyAbyssCurrency(
+      before,
+      action,
+      active,
+      initialFixture,
+      signal(),
+      'unchanged',
+    )
+  }
+  await expect(check(wand, etched)).resolves.toMatchObject({
+    state: etched,
+    remainingOmens: active,
+  })
+  await expect(
+    check(wand, { ...etched, item: { ...etched.item, equipmentQuality: 8 } }),
+  ).rejects.toThrow('unchanged')
+  await expect(check(wand, { ...etched, offer: null })).rejects.toThrow(
+    'unchanged',
+  )
+  await expect(
+    check(wand, { ...etched, slots: [], offer: null }),
+  ).rejects.toThrow('unchanged')
+  await expect(check(wand, etched, active)).rejects.toThrow('unchanged')
+  const quarterstaff =
+    'Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame'
+  await expect(
+    check(
+      { ...wand, item: { ...wand.item, baseItemId: quarterstaff } },
+      { ...etched, item: { ...etched.item, baseItemId: quarterstaff } },
+    ),
+  ).rejects.toThrow('unchanged')
+})
+
 it('keeps a rejected result unchanged including a pending offer', async () => {
   const offered = {
     ...hidden,

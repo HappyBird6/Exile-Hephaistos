@@ -56,6 +56,12 @@ export const additionalStashCurrencies = [
     category: 'Currency',
     image: '/assets/currency/CurrencyWeaponQuality.webp',
   },
+  {
+    id: 'Arcanists_Etcher',
+    name: "Arcanist's Etcher",
+    category: 'Currency',
+    image: '/assets/currency/CurrencyWeaponMagicQuality.webp',
+  },
 ] as const
 export const materials: readonly Material[] = [
   ...augmentMaterials,

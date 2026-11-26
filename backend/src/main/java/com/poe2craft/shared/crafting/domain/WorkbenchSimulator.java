@@ -461,6 +461,10 @@ public final class WorkbenchSimulator {
         .filter(a -> !a.isLiquid() || BasicJewel.supportedCrafting(state.baseItemId()))
         .filter(
             a ->
+                a != WorkbenchCurrency.ARCANISTS_ETCHER
+                    || QualityCurrencyRules.caster(state.baseItemId()))
+        .filter(
+            a ->
                 a != WorkbenchCurrency.DIVINE
                     || BaseRegistry.policy(state.baseItemId()) == null
                     || BaseRegistry.policy(state.baseItemId()).divine())
@@ -556,10 +560,13 @@ public final class WorkbenchSimulator {
       var reason = AugmentSocketRules.refusal(state);
       return reason.isEmpty() ? new Availability(action, true, "") : blocked(action, reason);
     }
-    if (java.util.stream.Stream.concat(
-            materials.essenceTargets(action).stream(),
-            materials.replacementTargets(action).stream())
-        .anyMatch(id -> catalog.find(id).isEmpty()))
+    if ((action.materialPolicy().kind() == WorkbenchDefinitions.MaterialKind.ESSENCE
+            && materials.essenceTargets(action).isEmpty()
+            && materials.replacementTargets(action).isEmpty())
+        || java.util.stream.Stream.concat(
+                materials.essenceTargets(action).stream(),
+                materials.replacementTargets(action).stream())
+            .anyMatch(id -> catalog.find(id).isEmpty()))
       return blocked(action, "This material's results are not verified for this base.");
     var matches = WorkbenchOmens.matching(action, omens);
     if (WorkbenchOmen.verifiedDoubleAddition(matches)) {
@@ -652,7 +659,7 @@ public final class WorkbenchSimulator {
             "Essence results below the catalog modifier's item level need verification; this low-level scope is unsupported.");
       var rare =
           copy(state, action.materialPolicy().result(state), state.implicits(), state.explicits());
-      if (!pool(rare, action, null).containsAll(targets))
+      if (targets.stream().anyMatch(target -> !canAddFixed(rare, target)))
         return blocked(
             action,
             "An essence result conflicts with existing families or available affix slots; the overlap interaction is unsupported.");
@@ -924,7 +931,7 @@ public final class WorkbenchSimulator {
     return new AutomaticIdentity(
         ruleVersion(),
         ledgerVersion(),
-        WorkbenchDefinitions.active().document(),
+        WorkbenchDefinitions.active().automaticDocument(),
         materials.essenceTargetOverrides,
         materials.replacementTargetOverrides,
         qualityCapChangePolicy);

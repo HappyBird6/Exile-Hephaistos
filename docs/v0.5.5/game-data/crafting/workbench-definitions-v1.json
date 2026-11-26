@@ -2042,6 +2042,17 @@
       "replacementSource": null
     },
     {
+      "id": "ARCANISTS_ETCHER",
+      "baseAction": null,
+      "minimumModifierLevel": 0,
+      "fixedModifierId": null,
+      "essenceModifierIds": [],
+      "essenceChoiceSource": null,
+      "replacementModifiers": [],
+      "replacementEssenceSource": null,
+      "replacementSource": null
+    },
+    {
       "id": "PROTECTIVE_ALLOY",
       "baseAction": null,
       "minimumModifierLevel": 0,

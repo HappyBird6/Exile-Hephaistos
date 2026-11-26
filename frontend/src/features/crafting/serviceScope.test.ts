@@ -9,7 +9,6 @@ describe('current service scope', () => {
     expect(catalysts).toHaveLength(26)
     expect([...deferredServiceIds]).toEqual([
       'Liquid_Verisium',
-      'Arcanists_Etcher',
       'Essence_of_Delirium',
       'Essence_of_Insanity',
       'Scroll_of_Wisdom',
@@ -29,6 +28,7 @@ describe('current service scope', () => {
     expect(inServiceScope('Essence_of_Hysteria')).toBe(true)
     expect(inServiceScope('Armourers_Scrap')).toBe(true)
     expect(inServiceScope('Blacksmiths_Whetstone')).toBe(true)
+    expect(inServiceScope('Arcanists_Etcher')).toBe(true)
   })
   it('offers five scoped legacy effects behind the legacy identity set', () => {
     expect(legacyFiveIds).toHaveLength(5)

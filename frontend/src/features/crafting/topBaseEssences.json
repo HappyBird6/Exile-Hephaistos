@@ -318,12 +318,14 @@
       "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"],
       "LESSER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-plunder"],
       "ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-raiding"],
-      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"]
+      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"],
+      "GREATER_ESSENCE_BATTLE": []
     },
     "replacements": {
       "PERFECT_ESSENCE_THAWING": [
         "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
-      ]
+      ],
+      "ESSENCE_HYSTERIA": ["amulet:suffix:of-the-taskmaster"]
     }
   },
   "gladiatorial": {
@@ -366,12 +368,14 @@
       "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"],
       "LESSER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-plunder"],
       "ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-raiding"],
-      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"]
+      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"],
+      "GREATER_ESSENCE_BATTLE": []
     },
     "replacements": {
       "PERFECT_ESSENCE_THAWING": [
         "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
-      ]
+      ],
+      "ESSENCE_HYSTERIA": ["amulet:suffix:of-the-taskmaster"]
     }
   },
   "grinning": {
@@ -411,12 +415,14 @@
       "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"],
       "LESSER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-plunder"],
       "ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-raiding"],
-      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"]
+      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"],
+      "GREATER_ESSENCE_BATTLE": []
     },
     "replacements": {
       "PERFECT_ESSENCE_THAWING": [
         "rusted-greathelm:suffix:essence-cold-damage-recouped-as-life"
-      ]
+      ],
+      "ESSENCE_HYSTERIA": ["amulet:suffix:of-the-taskmaster"]
     }
   },
   "slipstrike": {
@@ -679,7 +685,8 @@
       "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"],
       "LESSER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-plunder"],
       "ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-raiding"],
-      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"]
+      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"],
+      "GREATER_ESSENCE_BATTLE": []
     },
     "replacements": {
       "PERFECT_ESSENCE_THAWING": [
@@ -729,7 +736,8 @@
       "GREATER_ESSENCE_GROUNDING": ["stocky-mitts:suffix:of-the-maelstrom"],
       "LESSER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-plunder"],
       "ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-raiding"],
-      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"]
+      "GREATER_ESSENCE_OPULENCE": ["stocky-mitts:suffix:of-archaeology"],
+      "GREATER_ESSENCE_BATTLE": []
     },
     "replacements": {
       "PERFECT_ESSENCE_THAWING": [
@@ -1019,7 +1027,10 @@
       "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
       "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
       "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
-      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"],
+      "LESSER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["crude-bow:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-leopard"]
     },
     "replacements": {
       "PERFECT_ESSENCE_ABRASION": [
@@ -1060,7 +1071,10 @@
       "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
       "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
       "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
-      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"],
+      "LESSER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["crude-bow:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-leopard"]
     },
     "replacements": {
       "PERFECT_ESSENCE_ABRASION": [
@@ -1101,7 +1115,10 @@
       "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
       "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
       "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
-      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"],
+      "LESSER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["crude-bow:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-leopard"]
     },
     "replacements": {
       "PERFECT_ESSENCE_ABRASION": [
@@ -1142,7 +1159,10 @@
       "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
       "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
       "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
-      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"],
+      "LESSER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["crude-bow:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-leopard"]
     },
     "replacements": {
       "PERFECT_ESSENCE_ABRASION": [
@@ -1183,7 +1203,10 @@
       "GREATER_ESSENCE_HASTE": ["crude-bow:suffix:of-renown"],
       "LESSER_ESSENCE_SEEKING": ["crude-bow:suffix:of-havoc"],
       "ESSENCE_SEEKING": ["crude-bow:suffix:of-disaster"],
-      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"]
+      "GREATER_ESSENCE_SEEKING": ["crude-bow:suffix:of-calamity"],
+      "LESSER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-lynx"],
+      "ESSENCE_INFINITE": ["crude-bow:suffix:of-the-falcon"],
+      "GREATER_ESSENCE_INFINITE": ["crude-bow:suffix:of-the-leopard"]
     },
     "replacements": {
       "PERFECT_ESSENCE_ABRASION": [
@@ -1984,7 +2007,19 @@
     "fixed": {
       "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
       "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
-      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"],
+      "LESSER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-wrestler",
+        "rattling-sceptre:suffix:of-the-student"
+      ],
+      "ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-lion",
+        "rattling-sceptre:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-goliath",
+        "rattling-sceptre:suffix:of-the-sage"
+      ]
     },
     "replacements": {
       "PERFECT_ESSENCE_COMMAND": [
@@ -2004,7 +2039,10 @@
       "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
       "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
       "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
-      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"]
     },
     "replacements": {
       "PERFECT_ESSENCE_SORCERY": [
@@ -2027,7 +2065,10 @@
       "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
       "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
       "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
-      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"]
     },
     "replacements": {
       "PERFECT_ESSENCE_SORCERY": [
@@ -2050,7 +2091,10 @@
       "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
       "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
       "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
-      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"]
     },
     "replacements": {
       "PERFECT_ESSENCE_SORCERY": [
@@ -2073,7 +2117,10 @@
       "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
       "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
       "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
-      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"]
     },
     "replacements": {
       "PERFECT_ESSENCE_SORCERY": [
@@ -2096,7 +2143,10 @@
       "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
       "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
       "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
-      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"]
     },
     "replacements": {
       "PERFECT_ESSENCE_SORCERY": [
@@ -2119,7 +2169,10 @@
       "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
       "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
       "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
-      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"]
     },
     "replacements": {
       "PERFECT_ESSENCE_SORCERY": [
@@ -2142,7 +2195,10 @@
       "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
       "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
       "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
-      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"]
     },
     "replacements": {
       "PERFECT_ESSENCE_SORCERY": [
@@ -2165,7 +2221,10 @@
       "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
       "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
       "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
-      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"]
     },
     "replacements": {
       "PERFECT_ESSENCE_SORCERY": [
@@ -2188,7 +2247,10 @@
       "GREATER_ESSENCE_SEEKING": ["attuned-wand:suffix:of-calamity"],
       "LESSER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-nimbleness"],
       "ESSENCE_ALACRITY": ["attuned-wand:suffix:of-expertise"],
-      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"]
+      "GREATER_ESSENCE_ALACRITY": ["attuned-wand:suffix:of-legerdemain"],
+      "LESSER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-student"],
+      "ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-augur"],
+      "GREATER_ESSENCE_INFINITE": ["attuned-wand:suffix:of-the-sage"]
     },
     "replacements": {
       "PERFECT_ESSENCE_SORCERY": [
@@ -2203,7 +2265,19 @@
     "fixed": {
       "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
       "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
-      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"],
+      "LESSER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-wrestler",
+        "rattling-sceptre:suffix:of-the-student"
+      ],
+      "ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-lion",
+        "rattling-sceptre:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-goliath",
+        "rattling-sceptre:suffix:of-the-sage"
+      ]
     },
     "replacements": {
       "PERFECT_ESSENCE_COMMAND": [
@@ -2215,7 +2289,19 @@
     "fixed": {
       "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
       "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
-      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"],
+      "LESSER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-wrestler",
+        "rattling-sceptre:suffix:of-the-student"
+      ],
+      "ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-lion",
+        "rattling-sceptre:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-goliath",
+        "rattling-sceptre:suffix:of-the-sage"
+      ]
     },
     "replacements": {
       "PERFECT_ESSENCE_COMMAND": [
@@ -2227,7 +2313,19 @@
     "fixed": {
       "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
       "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
-      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"],
+      "LESSER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-wrestler",
+        "rattling-sceptre:suffix:of-the-student"
+      ],
+      "ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-lion",
+        "rattling-sceptre:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-goliath",
+        "rattling-sceptre:suffix:of-the-sage"
+      ]
     },
     "replacements": {
       "PERFECT_ESSENCE_COMMAND": [
@@ -2239,7 +2337,19 @@
     "fixed": {
       "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
       "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
-      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"],
+      "LESSER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-wrestler",
+        "rattling-sceptre:suffix:of-the-student"
+      ],
+      "ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-lion",
+        "rattling-sceptre:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-goliath",
+        "rattling-sceptre:suffix:of-the-sage"
+      ]
     },
     "replacements": {
       "PERFECT_ESSENCE_COMMAND": [
@@ -2251,7 +2361,19 @@
     "fixed": {
       "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
       "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
-      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"],
+      "LESSER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-wrestler",
+        "rattling-sceptre:suffix:of-the-student"
+      ],
+      "ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-lion",
+        "rattling-sceptre:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-goliath",
+        "rattling-sceptre:suffix:of-the-sage"
+      ]
     },
     "replacements": {
       "PERFECT_ESSENCE_COMMAND": [
@@ -2263,7 +2385,19 @@
     "fixed": {
       "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
       "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
-      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"],
+      "LESSER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-wrestler",
+        "rattling-sceptre:suffix:of-the-student"
+      ],
+      "ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-lion",
+        "rattling-sceptre:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-goliath",
+        "rattling-sceptre:suffix:of-the-sage"
+      ]
     },
     "replacements": {
       "PERFECT_ESSENCE_COMMAND": [
@@ -2275,7 +2409,19 @@
     "fixed": {
       "LESSER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:agitative"],
       "ESSENCE_COMMAND": ["rattling-sceptre:prefix:provocative"],
-      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"]
+      "GREATER_ESSENCE_COMMAND": ["rattling-sceptre:prefix:motivating"],
+      "LESSER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-wrestler",
+        "rattling-sceptre:suffix:of-the-student"
+      ],
+      "ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-lion",
+        "rattling-sceptre:suffix:of-the-augur"
+      ],
+      "GREATER_ESSENCE_INFINITE": [
+        "rattling-sceptre:suffix:of-the-goliath",
+        "rattling-sceptre:suffix:of-the-sage"
+      ]
     },
     "replacements": {
       "PERFECT_ESSENCE_COMMAND": [
@@ -5880,7 +6026,29 @@
     }
   },
   "utzaal-cuirass": {
-    "fixed": {},
+    "fixed": {
+      "LESSER_ESSENCE_BODY": ["rusted-cuirass:prefix:sanguine"],
+      "LESSER_ESSENCE_ENHANCEMENT": ["rusted-cuirass:prefix:layered"],
+      "LESSER_ESSENCE_RUIN": ["rusted-cuirass:suffix:of-the-lost"],
+      "LESSER_ESSENCE_INFINITE": ["rusted-cuirass:suffix:of-the-wrestler"],
+      "ESSENCE_BODY": ["rusted-cuirass:prefix:rotund"],
+      "ESSENCE_ENHANCEMENT": ["rusted-cuirass:prefix:buttressed"],
+      "ESSENCE_RUIN": ["rusted-cuirass:suffix:of-banishment"],
+      "ESSENCE_INFINITE": ["rusted-cuirass:suffix:of-the-lion"],
+      "GREATER_ESSENCE_BODY": ["rusted-cuirass:prefix:virile"],
+      "GREATER_ESSENCE_ENHANCEMENT": ["rusted-cuirass:prefix:thickened"],
+      "GREATER_ESSENCE_RUIN": ["rusted-cuirass:suffix:of-expulsion"],
+      "GREATER_ESSENCE_INFINITE": ["rusted-cuirass:suffix:of-the-goliath"],
+      "LESSER_ESSENCE_INSULATION": ["rusted-cuirass:suffix:of-the-salamander"],
+      "ESSENCE_INSULATION": ["rusted-cuirass:suffix:of-the-kiln"],
+      "GREATER_ESSENCE_INSULATION": ["rusted-cuirass:suffix:of-the-volcano"],
+      "LESSER_ESSENCE_THAWING": ["rusted-cuirass:suffix:of-the-penguin"],
+      "ESSENCE_THAWING": ["rusted-cuirass:suffix:of-the-yeti"],
+      "GREATER_ESSENCE_THAWING": ["rusted-cuirass:suffix:of-the-polar-bear"],
+      "LESSER_ESSENCE_GROUNDING": ["rusted-cuirass:suffix:of-the-squall"],
+      "ESSENCE_GROUNDING": ["rusted-cuirass:suffix:of-the-thunderhead"],
+      "GREATER_ESSENCE_GROUNDING": ["rusted-cuirass:suffix:of-the-maelstrom"]
+    },
     "replacements": {
       "PERFECT_ESSENCE_BODY": [
         "rusted-cuirass:prefix:essence-maximum-life-percent"
@@ -5895,7 +6063,29 @@
     }
   },
   "abyssal-cuirass": {
-    "fixed": {},
+    "fixed": {
+      "LESSER_ESSENCE_BODY": ["rusted-cuirass:prefix:sanguine"],
+      "LESSER_ESSENCE_ENHANCEMENT": ["rusted-cuirass:prefix:layered"],
+      "LESSER_ESSENCE_RUIN": ["rusted-cuirass:suffix:of-the-lost"],
+      "LESSER_ESSENCE_INFINITE": ["rusted-cuirass:suffix:of-the-wrestler"],
+      "ESSENCE_BODY": ["rusted-cuirass:prefix:rotund"],
+      "ESSENCE_ENHANCEMENT": ["rusted-cuirass:prefix:buttressed"],
+      "ESSENCE_RUIN": ["rusted-cuirass:suffix:of-banishment"],
+      "ESSENCE_INFINITE": ["rusted-cuirass:suffix:of-the-lion"],
+      "GREATER_ESSENCE_BODY": ["rusted-cuirass:prefix:virile"],
+      "GREATER_ESSENCE_ENHANCEMENT": ["rusted-cuirass:prefix:thickened"],
+      "GREATER_ESSENCE_RUIN": ["rusted-cuirass:suffix:of-expulsion"],
+      "GREATER_ESSENCE_INFINITE": ["rusted-cuirass:suffix:of-the-goliath"],
+      "LESSER_ESSENCE_INSULATION": ["rusted-cuirass:suffix:of-the-salamander"],
+      "ESSENCE_INSULATION": ["rusted-cuirass:suffix:of-the-kiln"],
+      "GREATER_ESSENCE_INSULATION": ["rusted-cuirass:suffix:of-the-volcano"],
+      "LESSER_ESSENCE_THAWING": ["rusted-cuirass:suffix:of-the-penguin"],
+      "ESSENCE_THAWING": ["rusted-cuirass:suffix:of-the-yeti"],
+      "GREATER_ESSENCE_THAWING": ["rusted-cuirass:suffix:of-the-polar-bear"],
+      "LESSER_ESSENCE_GROUNDING": ["rusted-cuirass:suffix:of-the-squall"],
+      "ESSENCE_GROUNDING": ["rusted-cuirass:suffix:of-the-thunderhead"],
+      "GREATER_ESSENCE_GROUNDING": ["rusted-cuirass:suffix:of-the-maelstrom"]
+    },
     "replacements": {
       "PERFECT_ESSENCE_BODY": [
         "rusted-cuirass:prefix:essence-maximum-life-percent"
@@ -5910,7 +6100,29 @@
     }
   },
   "warlord-cuirass": {
-    "fixed": {},
+    "fixed": {
+      "LESSER_ESSENCE_BODY": ["rusted-cuirass:prefix:sanguine"],
+      "LESSER_ESSENCE_ENHANCEMENT": ["rusted-cuirass:prefix:layered"],
+      "LESSER_ESSENCE_RUIN": ["rusted-cuirass:suffix:of-the-lost"],
+      "LESSER_ESSENCE_INFINITE": ["rusted-cuirass:suffix:of-the-wrestler"],
+      "ESSENCE_BODY": ["rusted-cuirass:prefix:rotund"],
+      "ESSENCE_ENHANCEMENT": ["rusted-cuirass:prefix:buttressed"],
+      "ESSENCE_RUIN": ["rusted-cuirass:suffix:of-banishment"],
+      "ESSENCE_INFINITE": ["rusted-cuirass:suffix:of-the-lion"],
+      "GREATER_ESSENCE_BODY": ["rusted-cuirass:prefix:virile"],
+      "GREATER_ESSENCE_ENHANCEMENT": ["rusted-cuirass:prefix:thickened"],
+      "GREATER_ESSENCE_RUIN": ["rusted-cuirass:suffix:of-expulsion"],
+      "GREATER_ESSENCE_INFINITE": ["rusted-cuirass:suffix:of-the-goliath"],
+      "LESSER_ESSENCE_INSULATION": ["rusted-cuirass:suffix:of-the-salamander"],
+      "ESSENCE_INSULATION": ["rusted-cuirass:suffix:of-the-kiln"],
+      "GREATER_ESSENCE_INSULATION": ["rusted-cuirass:suffix:of-the-volcano"],
+      "LESSER_ESSENCE_THAWING": ["rusted-cuirass:suffix:of-the-penguin"],
+      "ESSENCE_THAWING": ["rusted-cuirass:suffix:of-the-yeti"],
+      "GREATER_ESSENCE_THAWING": ["rusted-cuirass:suffix:of-the-polar-bear"],
+      "LESSER_ESSENCE_GROUNDING": ["rusted-cuirass:suffix:of-the-squall"],
+      "ESSENCE_GROUNDING": ["rusted-cuirass:suffix:of-the-thunderhead"],
+      "GREATER_ESSENCE_GROUNDING": ["rusted-cuirass:suffix:of-the-maelstrom"]
+    },
     "replacements": {
       "PERFECT_ESSENCE_BODY": [
         "rusted-cuirass:prefix:essence-maximum-life-percent"

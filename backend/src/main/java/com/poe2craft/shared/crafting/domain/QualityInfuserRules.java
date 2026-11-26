@@ -50,14 +50,12 @@ public final class QualityInfuserRules {
     if (!state.conditions().isEmpty()) return "This item cannot be modified.";
     if (state.qualityInfused()) return "A quality infuser has already been used on this item.";
     String base = state.baseItemId();
-    boolean caster =
-        base.contains("/Wands/") || base.contains("/Staves/") || base.contains("/Sceptres/");
     boolean jewellery = action == WorkbenchCurrency.VAAL_CATALYSING_INFUSER;
     boolean matches =
         switch (action) {
           case VAAL_ARMOURERS_INFUSER -> base.startsWith("Metadata/Items/Armours/");
-          case VAAL_BLACKSMITHS_INFUSER -> base.startsWith("Metadata/Items/Weapons/") && !caster;
-          case VAAL_ARCANISTS_INFUSER -> caster;
+          case VAAL_BLACKSMITHS_INFUSER -> QualityCurrencyRules.martial(base);
+          case VAAL_ARCANISTS_INFUSER -> QualityCurrencyRules.caster(base);
           case VAAL_CATALYSING_INFUSER ->
               base.startsWith("Metadata/Items/Rings/")
                   || base.startsWith("Metadata/Items/Amulets/");

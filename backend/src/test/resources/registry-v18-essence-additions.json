@@ -1,0 +1,227 @@
+[
+  {
+    "essences": [
+      "Lesser_Essence_of_the_Body"
+    ],
+    "addedBases": [
+      "soldier",
+      "imperial",
+      "utzaal-cuirass",
+      "abyssal-cuirass",
+      "warlord-cuirass",
+      "body",
+      "belt",
+      "helmet",
+      "ring",
+      "tasalian-focus"
+    ]
+  },
+  {
+    "essences": [
+      "Lesser_Essence_of_the_Mind",
+      "Essence_of_the_Mind",
+      "Greater_Essence_of_the_Mind"
+    ],
+    "addedBases": [
+      "imperial",
+      "belt",
+      "helmet",
+      "ring"
+    ]
+  },
+  {
+    "essences": [
+      "Lesser_Essence_of_Enhancement",
+      "Essence_of_Enhancement",
+      "Greater_Essence_of_Enhancement"
+    ],
+    "addedBases": [
+      "soldier",
+      "imperial",
+      "utzaal-cuirass",
+      "abyssal-cuirass",
+      "warlord-cuirass",
+      "body",
+      "helmet"
+    ]
+  },
+  {
+    "essences": [
+      "Lesser_Essence_of_Ruin",
+      "Essence_of_the_Body",
+      "Essence_of_Ruin",
+      "Greater_Essence_of_Ruin",
+      "Lesser_Essence_of_Insulation",
+      "Essence_of_Insulation",
+      "Greater_Essence_of_Insulation",
+      "Lesser_Essence_of_Thawing",
+      "Essence_of_Thawing",
+      "Greater_Essence_of_Thawing",
+      "Lesser_Essence_of_Grounding",
+      "Essence_of_Grounding",
+      "Greater_Essence_of_Grounding"
+    ],
+    "addedBases": [
+      "soldier",
+      "imperial",
+      "utzaal-cuirass",
+      "abyssal-cuirass",
+      "warlord-cuirass",
+      "body",
+      "belt",
+      "helmet",
+      "ring"
+    ]
+  },
+  {
+    "essences": [
+      "Lesser_Essence_of_the_Infinite",
+      "Essence_of_the_Infinite",
+      "Greater_Essence_of_the_Infinite"
+    ],
+    "addedBases": [
+      "soldier",
+      "imperial",
+      "massive",
+      "sirenscale",
+      "adherent",
+      "warmonger",
+      "guardian",
+      "gemini",
+      "fanatic",
+      "obliterator",
+      "hallowed",
+      "bone",
+      "siphoning",
+      "volatile",
+      "galvanic",
+      "acrid",
+      "offering",
+      "critical",
+      "primordial",
+      "dueling",
+      "stoic",
+      "omen",
+      "shrine-fire",
+      "shrine-ice",
+      "shrine-lightning",
+      "clasped",
+      "wrath",
+      "utzaal-cuirass",
+      "abyssal-cuirass",
+      "warlord-cuirass",
+      "stocky",
+      "bow",
+      "wand",
+      "body",
+      "sceptre",
+      "belt",
+      "helmet",
+      "ring"
+    ]
+  },
+  {
+    "essences": [
+      "Greater_Essence_of_the_Body"
+    ],
+    "addedBases": [
+      "soldier",
+      "imperial",
+      "utzaal-cuirass",
+      "abyssal-cuirass",
+      "warlord-cuirass",
+      "body",
+      "belt",
+      "helmet"
+    ]
+  },
+  {
+    "essences": [
+      "Essence_of_Hysteria"
+    ],
+    "addedBases": [
+      "soldier",
+      "imperial",
+      "freebooter",
+      "gladiatorial",
+      "grinning",
+      "utzaal-cuirass",
+      "abyssal-cuirass",
+      "warlord-cuirass",
+      "body",
+      "belt",
+      "helmet",
+      "ring"
+    ]
+  },
+  {
+    "essences": [
+      "Essence_of_Horror"
+    ],
+    "addedBases": [
+      "massive",
+      "sirenscale",
+      "adherent",
+      "polished",
+      "blacksteel-gloves",
+      "war-wraps",
+      "tasalian",
+      "drakeskin",
+      "sekhema",
+      "blacksteel-boots",
+      "faithful",
+      "daggerfoot"
+    ]
+  },
+  {
+    "essences": [
+      "Essence_of_the_Abyss"
+    ],
+    "addedBases": [
+      "soldier",
+      "imperial",
+      "freebooter",
+      "gladiatorial",
+      "grinning",
+      "hallowed",
+      "bone",
+      "siphoning",
+      "volatile",
+      "galvanic",
+      "acrid",
+      "offering",
+      "critical",
+      "primordial",
+      "dueling",
+      "stoic",
+      "omen",
+      "shrine-fire",
+      "shrine-ice",
+      "shrine-lightning",
+      "clasped",
+      "wrath",
+      "utzaal-cuirass",
+      "abyssal-cuirass",
+      "warlord-cuirass",
+      "bow",
+      "wand",
+      "body",
+      "sceptre",
+      "belt",
+      "helmet",
+      "ring"
+    ]
+  },
+  {
+    "essences": [
+      "Lesser_Essence_of_Opulence",
+      "Essence_of_Opulence",
+      "Greater_Essence_of_Opulence"
+    ],
+    "addedBases": [
+      "imperial",
+      "helmet",
+      "ring"
+    ]
+  }
+]

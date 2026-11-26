@@ -37,6 +37,8 @@ import org.springframework.test.web.servlet.MockMvc;
  * <ul>
  *   <li>{@code compactRequestCraftsAndLegacyRequestStaysReadable()}: 실제 MVC 경계에서 짧은 ID로 제작하고 원문 응답과
  *       같은 상태로 복원되는지 검증한다. 사용하는 예외: {@code Exception}.
+ *   <li>{@code etcherCraftsTheSameWandThroughBothRepresentations()}: 긴 행동 이름과 발급된 짧은 ID로 완드의 품질이
+ *       동일하게 최대치에 도달하는지 검사한다.
  *   <li>{@code representationSpecificEtagAndVaryPreventCrossFormatCacheReuse()}: 짧은 ID와 원문 응답이 서로
  *       다른 ETag를 사용해 잘못된 304 응답을 막는지 검증한다. 사용하는 예외: {@code Exception}.
  * </ul>
@@ -97,6 +99,49 @@ class GameIdTransportHttpTest {
     assertThat(applied.has("snapshotId")).isFalse();
     assertThat(applied.path("state").path("snapshotId")).isEqualTo(state.path("snapshotId"));
     assertThat(applied.path("applied").asBoolean()).isTrue();
+  }
+
+  @Test
+  void etcherCraftsTheSameWandThroughBothRepresentations() throws Exception {
+    String initial =
+        mvc.perform(get("/api/v1/crafting/workbench/initial?base=wand"))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse()
+            .getContentAsString();
+    var state =
+        (com.fasterxml.jackson.databind.node.ObjectNode) json.readTree(initial).get("state");
+    state.putArray("explicits");
+    state.put("equipmentQuality", 1);
+    var body = json.valueToTree(Map.of("state", state, "action", "ARCANISTS_ETCHER"));
+    var compact = codec.encode(body);
+    assertThat(compact.path("action").asText()).isEqualTo("c004s");
+    var apply = "/api/v1/crafting/workbench/apply";
+    var legacy =
+        mvc.perform(
+                post(apply)
+                    .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                    .contentType("application/json")
+                    .content(json.writeValueAsBytes(body)))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse();
+    var encoded =
+        mvc.perform(
+                post(apply)
+                    .header(RulesetBoundary.HEADER, RulesetBoundary.identity())
+                    .header(GameIdMappings.HEADER, ids.identity())
+                    .header(GameIdTransport.BODY_HEADER, "compact")
+                    .contentType("application/json")
+                    .content(json.writeValueAsBytes(compact)))
+            .andExpect(status().isOk())
+            .andReturn()
+            .getResponse();
+    var expected = json.readTree(legacy.getContentAsString());
+    assertThat(expected.path("applied").asBoolean()).isTrue();
+    assertThat(expected.at("/state/equipmentQuality").intValue()).isEqualTo(20);
+    assertThat(codec.decode(json.readTree(encoded.getContentAsString())).path("state"))
+        .isEqualTo(expected.path("state"));
   }
 
   @Test

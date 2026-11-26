@@ -1,6 +1,15 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import type { AppliedItem, ConcreteItem, WorkbenchAction } from './workbenchApi'
 import { applyCurrency } from './workbenchApi'
+import { currentItemText } from './currentItemText'
+import { extractSessionNotation } from './session-notation/extractSessionNotation'
+import {
+  currentFilm,
+  emptyFilms,
+  LocalFilmRepository,
+  recordCraft,
+  startFilm,
+} from './workbenchHistory'
 import {
   equipmentQualityPolicy,
   equipmentQualityRefusal,
@@ -9,6 +18,11 @@ import {
 
 const armour = 'Metadata/Items/Armours/Gloves/FourGlovesStr1'
 const bow = 'Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1'
+const wand = 'Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3'
+const sceptre = 'Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1'
+const staff = 'Metadata/Items/Weapons/TwoHandWeapons/Staves/FourStaff13'
+const quarterstaff =
+  'Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff8Endgame'
 function state(
   baseItemId: string,
   rarity: ConcreteItem['rarity'],
@@ -60,6 +74,10 @@ describe('user-selected equipment quality maximum policy', () => {
       for (const [id, action] of [
         [armour, 'ARMOURERS_SCRAP'],
         [bow, 'BLACKSMITHS_WHETSTONE'],
+        [quarterstaff, 'BLACKSMITHS_WHETSTONE'],
+        [wand, 'ARCANISTS_ETCHER'],
+        [sceptre, 'ARCANISTS_ETCHER'],
+        [staff, 'ARCANISTS_ETCHER'],
       ] as const) {
         for (const amount of [0, 7, 19]) {
           const item = state(id, rarity, amount),
@@ -119,23 +137,61 @@ describe('user-selected equipment quality maximum policy', () => {
         'BLACKSMITHS_WHETSTONE',
       ),
     ).toBe('class')
-    for (const category of [
-      'OneHandWeapons/Wands',
-      'TwoHandWeapons/Staves',
-      'OneHandWeapons/Sceptres',
-    ])
+    for (const base of [wand, sceptre, staff])
       expect(
         equipmentQualityRefusal(
-          state(`Metadata/Items/Weapons/${category}/Test`, 'NORMAL', 0),
+          state(base, 'NORMAL', 0),
           'BLACKSMITHS_WHETSTONE',
         ),
       ).toBe('class')
+    for (const base of [armour, bow, quarterstaff])
+      expect(
+        equipmentQualityRefusal(state(base, 'NORMAL', 0), 'ARCANISTS_ETCHER'),
+      ).toBe('class')
+    expect(
+      equipmentQualityRefusal(state(wand, 'NORMAL', null), 'ARCANISTS_ETCHER'),
+    ).toBe('unknown')
+    expect(
+      equipmentQualityRefusal(state(wand, 'NORMAL', 30), 'ARCANISTS_ETCHER'),
+    ).toBe('maximum')
+    expect(
+      equipmentQualityRefusal(
+        { ...state(wand, 'NORMAL', 0), conditions: ['CORRUPTED'] },
+        'ARCANISTS_ETCHER',
+      ),
+    ).toBe('condition')
     expect(
       equipmentQualityRefusal(
         state('Metadata/Items/Armours/Gloves/Unreviewed', 'RARE', 0),
         'ARMOURERS_SCRAP',
       ),
     ).toBe('class')
+  })
+  it('restores the etched item, material receipt and copyable quality after reloading a saved session', () => {
+    const item = state(wand, 'MAGIC', 7)
+    const applied = result(item, 'ARCANISTS_ETCHER')
+    const history = recordCraft(
+      startFilm(emptyFilms(), item, 'etched-wand', applied.rulesetIdentity),
+      item,
+      applied,
+      'etched-wand',
+    )
+    const repository = new LocalFilmRepository(localStorage)
+    repository.save(history)
+    const restored = currentFilm(repository.load())!
+    expect(
+      restored.frames.map((frame) => frame.state.equipmentQuality),
+    ).toEqual([7, 20])
+    expect(extractSessionNotation(restored, 1).steps).toEqual([
+      expect.objectContaining({
+        currencyId: 'Arcanists_Etcher',
+        uses: 1,
+        consumedOmenIds: [],
+      }),
+    ])
+    expect(
+      currentItemText(restored.frames[1]!.state, {}, 'Attuned Wand', 'Wands'),
+    ).toContain('Quality: +20%')
   })
   it('rejects a forged target, consumed omen, or dropped socket/observation/slot/roll', () => {
     const item: ConcreteItem = {

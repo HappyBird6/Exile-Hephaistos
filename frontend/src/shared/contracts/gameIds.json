@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "identity": "game-ids-v1-9d379646350fcdba19eecf68368977cedf90db2fcf25bc248d74ae06c47845b8",
+  "identity": "game-ids-v1-301ba3fcab4a16c5dadd3514761d175d6e4b49b17c56ef6068d587ae804c528f",
   "domains": {
     "actions": {
       "c0001": "ADAPTIVE_ALLOY",
@@ -173,7 +173,8 @@
       "c004o": "VAAL_ARCANISTS_INFUSER",
       "c004p": "VAAL_ARMOURERS_INFUSER",
       "c004q": "VAAL_BLACKSMITHS_INFUSER",
-      "c004r": "VAAL_CATALYSING_INFUSER"
+      "c004r": "VAAL_CATALYSING_INFUSER",
+      "c004s": "ARCANISTS_ETCHER"
     },
     "augments": {
       "a0001": "Adept_Rune",

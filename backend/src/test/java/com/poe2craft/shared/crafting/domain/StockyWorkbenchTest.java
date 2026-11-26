@@ -164,11 +164,15 @@ class StockyWorkbenchTest {
           .containsExactly(action.fixedModifierId());
       assertThat(result.events()).hasSize(1);
     }
+    var infinite =
+        service.apply(magic, WorkbenchCurrency.ESSENCE_INFINITE, Set.of(), new Random(1));
+    assertThat(infinite.applied()).isTrue();
+    assertThat(infinite.state().explicits())
+        .extracting(ModifierInstance::modifierId)
+        .singleElement()
+        .isIn("stocky-mitts:suffix:of-the-lion", "stocky-mitts:suffix:of-the-falcon");
     for (var action :
-        List.of(
-            WorkbenchCurrency.ESSENCE_INFINITE,
-            WorkbenchCurrency.RUNIC_ALLOY,
-            WorkbenchCurrency.PERFECT_ESSENCE_ENHANCEMENT)) {
+        List.of(WorkbenchCurrency.RUNIC_ALLOY, WorkbenchCurrency.PERFECT_ESSENCE_ENHANCEMENT)) {
       var result = service.apply(magic, action, Set.of(), new Random(1));
       assertThat(result.applied()).isFalse();
       assertThat(result.state()).isEqualTo(magic);
@@ -225,7 +229,12 @@ class StockyWorkbenchTest {
         getClass().getResourceAsStream("/catalog/stocky-mitts/basic-essence-proof.json")) {
       var proofs = new com.fasterxml.jackson.databind.ObjectMapper().readTree(source);
       assertThat(proofs.size()).isEqualTo(21);
-      assertThat(StockyEssenceTargets.VERIFIED).hasSize(21);
+      assertThat(StockyEssenceTargets.VERIFIED)
+          .hasSize(24)
+          .containsKeys(
+              WorkbenchCurrency.LESSER_ESSENCE_INFINITE,
+              WorkbenchCurrency.ESSENCE_INFINITE,
+              WorkbenchCurrency.GREATER_ESSENCE_INFINITE);
       for (var proof : proofs) {
         var action = WorkbenchCurrency.valueOf(proof.get("action").asText());
         var target = StockyEssenceTargets.VERIFIED.get(action).getFirst();
@@ -292,7 +301,7 @@ class StockyWorkbenchTest {
         }
       }
     }
-    assertThat(service.actions(root, Set.of())).hasSize(89);
+    assertThat(service.actions(root, Set.of())).hasSize(92);
     assertThat(
             service.actions(
                 new ItemState(

@@ -257,8 +257,8 @@ class IronRingEssenceTest {
     assertThat(service.initial("ring", 82).ruleVersion())
         .isEqualTo(
             "equipment-currency-v1-ring-workbench-perfect-essence-v1-homogenising-legacy-v1-legacy-five-v1-omen-composition-v2-fracture-whittling-v2-catalyst-max-v1-refined-sapphire-v1-quality-cap-preserve-v2-sanctification-unfractured-rounded-v3-user-selected-equipment-quality-maximum-v2-quality-infuser-once-plus-ten-v1-essence-full-side-v1-augment-weight-v1-resistance-magnitude-v1");
-    assertThat(service.initial("bow", 82).modifiers()).hasSize(161);
-    assertThat(service.initial("wand", 82).modifiers()).hasSize(204);
+    assertThat(service.initial("bow", 82).modifiers()).hasSize(163);
+    assertThat(service.initial("wand", 82).modifiers()).hasSize(206);
     assertThat(service.initial("stocky", 82).modifiers()).hasSize(245);
     assertThat(service.initial("ring", 82).metadata().sourceUrl())
         .isEqualTo("https://poe2db.tw/us/Rings");

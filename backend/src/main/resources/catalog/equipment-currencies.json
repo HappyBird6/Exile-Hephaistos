@@ -1184,6 +1184,75 @@
       "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FAlloyLightningDamageIgnites1"
     },
     {
+      "id": "stocky-mitts:prefix:essence-abyssal-mark",
+      "name": "Abyssal",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssPrefix"
+    },
+    {
+      "id": "stocky-mitts:suffix:essence-abyssal-mark",
+      "name": "of the Abyss",
+      "layer": "EXPLICIT",
+      "affixType": "SUFFIX",
+      "familyIds": [
+        "EssenceAbyss"
+      ],
+      "requiredItemLevel": 1,
+      "weight": 0,
+      "tier": 1,
+      "text": "Bears the Mark of the Abyssal Lord",
+      "stats": [
+        {
+          "id": "essence_abyss_guaranteed_pick",
+          "min": 1,
+          "max": 1
+        }
+      ],
+      "tags": [],
+      "sourceUrl": "https://poe2db.tw/us/hover?s=Data%5CMods%2FEssenceAbyssSuffix"
+    },
+    {
+      "id": "stocky-mitts:prefix:sanguine",
+      "name": "Sanguine",
+      "layer": "EXPLICIT",
+      "affixType": "PREFIX",
+      "familyIds": [
+        "IncreasedLife"
+      ],
+      "requiredItemLevel": 16,
+      "weight": 0,
+      "tier": 7,
+      "text": "+(30—39) to maximum Life",
+      "stats": [
+        {
+          "id": "base_maximum_life",
+          "min": 30,
+          "max": 39
+        }
+      ],
+      "tags": [
+        "resource",
+        "life"
+      ],
+      "sourceUrl": "https://cdn.poe2db.tw/cache2/us/Poe_Data_Mods_hover/436dd8d7a7bcc1bdfa78e9fba034f9ed8566831456e5894083e10e331e6c8c1a"
+    },
+    {
       "id": "amulet:prefix:essence-maximum-quality",
       "name": "Breachlord's",
       "layer": "EXPLICIT",
@@ -1363,6 +1432,60 @@
         "stocky-mitts:prefix:alloy-local-runic-ward"
       ]
     },
+    "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:prefix:alloy-mana-cost-efficiency1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-archon-duration1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-spell-area-of-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
     "Metadata/Items/Armours/Boots/FourBootsStr6Endgame": {
       "ESSENCE_HORROR": [
         "stocky-mitts:suffix:essence-socketed-augment-effect"
@@ -1465,6 +1588,530 @@
         "stocky-mitts:prefix:alloy-local-runic-ward"
       ]
     },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Armours/Focii/FourFocus10Endgame": {
+      "LESSER_ESSENCE_BODY": [
+        "stocky-mitts:prefix:sanguine"
+      ],
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-totem-placement-speed1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr15": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
     "Metadata/Items/Armours/Gloves/FourGlovesStr1": {
       "ESSENCE_HORROR": [
         "stocky-mitts:suffix:essence-socketed-augment-effect"
@@ -1491,9 +2138,121 @@
         "stocky-mitts:prefix:alloy-local-runic-ward"
       ]
     },
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-ailment-magnitude1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-mark-effect"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-exposure-effect1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "CELESTIAL_ALLOY": [
+        "equipment:prefix:alloy-spell-level-mana-hybrid1"
+      ],
+      "TRANSCENDENT_ALLOY": [
+        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-elemental-skill-limit1"
+      ]
+    },
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "ADAPTIVE_ALLOY": [
+        "equipment:prefix:alloy-puppet-master-chance1"
+      ],
+      "PROTECTIVE_ALLOY": [
+        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
+      ],
+      "PRISMATIC_ALLOY": [
+        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
+      ],
+      "MYSTIC_ALLOY": [
+        "equipment:suffix:alloy-maximum-elemental-infusions1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "equipment:suffix:alloy-effect-of-socketed-augments1"
+      ],
+      "THE_RUNEBINDERS_ALLOY": [
+        "equipment:suffix:alloy-puppeteer-stacks1"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr1": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
+      "EXPANSIVE_ALLOY": [
+        "equipment:suffix:alloy-presence-area-of-effect1"
+      ],
+      "CYCLONIC_ALLOY": [
+        "equipment:suffix:alloy-reduced-slow-potency1"
+      ],
+      "SOVEREIGN_ALLOY": [
+        "stocky-mitts:prefix:alloy-local-runic-ward"
+      ]
+    },
     "Metadata/Items/Rings/FourRing1": {
       "ESSENCE_BREACH": [
         "amulet:prefix:essence-maximum-quality"
+      ],
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
       ],
       "RUNIC_ALLOY": [
         "equipment:prefix:alloy-maximum-runic-ward1"
@@ -1505,18 +2264,11 @@
         "equipment:prefix:alloy-effect-of-resistance-mods1"
       ]
     },
-    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-presence-area-of-effect1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-reduced-slow-potency1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
     "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
       "EXPANSIVE_ALLOY": [
         "equipment:prefix:alloy-mana-cost-efficiency1"
       ],
@@ -1530,35 +2282,29 @@
         "stocky-mitts:prefix:alloy-local-runic-ward"
       ]
     },
-    "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:prefix:alloy-mana-cost-efficiency1"
+    "Metadata/Items/Belts/FourBelt1": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
       ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-archon-duration1"
+      "RUNIC_ALLOY": [
+        "equipment:prefix:alloy-runic-ward-recharge-rate1"
       ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spell-area-of-effect1"
+      "PROTECTIVE_ALLOY": [
+        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
       ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:prefix:alloy-mana-cost-efficiency1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-archon-duration1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spell-area-of-effect1"
+      "SWIFT_ALLOY": [
+        "equipment:suffix:alloy-flask-charges-per-second1"
       ],
       "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
+        "equipment:prefix:alloy-effect-of-resistance-mods1"
       ]
     },
-    "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame": {
+    "Metadata/Items/Armours/Helmets/FourHelmetStr1": {
+      "ESSENCE_ABYSS": [
+        "stocky-mitts:prefix:essence-abyssal-mark",
+        "stocky-mitts:suffix:essence-abyssal-mark"
+      ],
       "EXPANSIVE_ALLOY": [
         "equipment:prefix:alloy-mana-cost-efficiency1"
       ],
@@ -1897,400 +2643,6 @@
       ],
       "SOVEREIGN_ALLOY": [
         "equipment:prefix:alloy-effect-of-resistance-mods1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-puppet-master-chance1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-puppeteer-stacks1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-puppet-master-chance1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-puppeteer-stacks1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-puppet-master-chance1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-puppeteer-stacks1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-puppet-master-chance1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-puppeteer-stacks1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-puppet-master-chance1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-puppeteer-stacks1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-puppet-master-chance1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-puppeteer-stacks1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-puppet-master-chance1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-puppeteer-stacks1"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-puppet-master-chance1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-puppeteer-stacks1"
       ]
     },
     "Metadata/Items/Belts/FourBelt2": {
@@ -2637,20 +2989,6 @@
       ],
       "SOVEREIGN_ALLOY": [
         "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/Focii/FourFocus10Endgame": {
-      "SWIFT_ALLOY": [
-        "equipment:suffix:alloy-totem-placement-speed1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
       ]
     },
     "Metadata/Items/Quivers/FourQuiver11": {
@@ -3334,39 +3672,6 @@
         "equipment:prefix:alloy-effect-of-resistance-mods1"
       ]
     },
-    "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-presence-area-of-effect1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-reduced-slow-potency1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/BodyArmours/FourBodyStr15": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-presence-area-of-effect1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-reduced-slow-potency1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-presence-area-of-effect1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-reduced-slow-potency1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
     "Metadata/Items/Armours/BodyArmours/FourBodyDex14": {
       "EXPANSIVE_ALLOY": [
         "equipment:suffix:alloy-presence-area-of-effect1"
@@ -3627,116 +3932,108 @@
       "SOVEREIGN_ALLOY": [
         "equipment:prefix:alloy-effect-of-resistance-mods1"
       ]
-    },
-    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1": {
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-ailment-magnitude1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-accuracy-attack-speed-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-attribute-increased-local-physical-damage-hybrid1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-mark-effect"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-damage-as-extra-fire-while-missing-runic-ward1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-exposure-effect1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "CELESTIAL_ALLOY": [
-        "equipment:prefix:alloy-spell-level-mana-hybrid1"
-      ],
-      "TRANSCENDENT_ALLOY": [
-        "equipment:suffix:alloy-cast-speed-damage-as-extra-cold-hybrid-one-hand1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-elemental-skill-limit1"
-      ]
-    },
-    "Metadata/Items/Armours/BodyArmours/FourBodyStr1": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:suffix:alloy-presence-area-of-effect1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-reduced-slow-potency1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
-    },
-    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1": {
-      "ADAPTIVE_ALLOY": [
-        "equipment:prefix:alloy-puppet-master-chance1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:suffix:alloy-maximum-runic-ward-weapon1"
-      ],
-      "PRISMATIC_ALLOY": [
-        "equipment:suffix:alloy-minion-damaging-ailment-magnitude1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-maximum-elemental-infusions1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:suffix:alloy-effect-of-socketed-augments1"
-      ],
-      "THE_RUNEBINDERS_ALLOY": [
-        "equipment:suffix:alloy-puppeteer-stacks1"
-      ]
-    },
-    "Metadata/Items/Belts/FourBelt1": {
-      "RUNIC_ALLOY": [
-        "equipment:prefix:alloy-runic-ward-recharge-rate1"
-      ],
-      "PROTECTIVE_ALLOY": [
-        "equipment:prefix:alloy-recover-runic-ward-on-charm-use1"
-      ],
-      "SWIFT_ALLOY": [
-        "equipment:suffix:alloy-flask-charges-per-second1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "equipment:prefix:alloy-effect-of-resistance-mods1"
-      ]
-    },
-    "Metadata/Items/Armours/Helmets/FourHelmetStr1": {
-      "EXPANSIVE_ALLOY": [
-        "equipment:prefix:alloy-mana-cost-efficiency1"
-      ],
-      "CYCLONIC_ALLOY": [
-        "equipment:suffix:alloy-archon-duration1"
-      ],
-      "MYSTIC_ALLOY": [
-        "equipment:suffix:alloy-spell-area-of-effect1"
-      ],
-      "SOVEREIGN_ALLOY": [
-        "stocky-mitts:prefix:alloy-local-runic-ward"
-      ]
     }
   },
   "previousSnapshots": {
     "Metadata/Items/Rings/FourRing1": [
-      "equipment-currency-814c7ff8809e4a58c4435d7b9a6f075d76d0e0a23080907eea0cb8dd2a9c9ebb"
+      "equipment-currency-814c7ff8809e4a58c4435d7b9a6f075d76d0e0a23080907eea0cb8dd2a9c9ebb",
+      "equipment-currency-b7cb6fd9dd765bfe6e77eaac704d263da6699792ca39d2a54f3cae6923848be3"
+    ],
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr3Endgame": [
+      "equipment-currency-04b37392e6460a747b9fdc0d3303ad44c14c8471d407722df3c9128a1044dc78"
+    ],
+    "Metadata/Items/Armours/Helmets/FourHelmetStr7Endgame": [
+      "equipment-currency-fa66e16bb2d6a52d1680f726afc76d7ea946693d9c62fc383f6fd9904c812cde"
+    ],
+    "Metadata/Items/Armours/Helmets/FourHelmetDex7Endgame": [
+      "equipment-currency-7fdaab2e4359f7c6bf5ca94e4955c6aaf79958228ee309150ad4ff1cb5ebaff3"
+    ],
+    "Metadata/Items/Armours/Helmets/FourHelmetStrDex6Endgame": [
+      "equipment-currency-b5a6159c5bd0b45032663e18056bd1cac5774aa43b3f3e7e5b86f862b9ad0083"
+    ],
+    "Metadata/Items/Armours/Helmets/FourHelmetDexInt6Endgame": [
+      "equipment-currency-35a9f16eab3a8365668f8bb279361a77d094c6ea1e14ee64863f0125506332ce"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre13": [
+      "equipment-currency-adf2a124e2835c1f1aa1232685c92e1e1ab933dbf791b4785e44f8f94075bece"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand2": [
+      "equipment-currency-1646e46f085e75d78dfa65dc406a82dcf9cc0508d7194f705f1b9217b7912ba2"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand4": [
+      "equipment-currency-baf1ecf9eb01f777a2f872296d531d1b854fee867fb4afd80fab89ceb4c77401"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand5": [
+      "equipment-currency-6e18676a3bc887d65a9bd15fe3aa0bc1f2261ab0f7d69eec643fb34765911d19"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand6": [
+      "equipment-currency-93c878e59c15d461483555f599be04189d266818bf6ec2ca1a96f9042c5d5190"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand7": [
+      "equipment-currency-710c3fe20ad6b1fb907212a7d9f1e3915e140d143c4ff7991c89ed09744c49e5"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand8": [
+      "equipment-currency-17e15dc8ab1575e99683e6e6f013b553a945696aa334421ac3670dc34bebb52f"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand11": [
+      "equipment-currency-eed629ba82e2717d396084dc860ee2b4ffa68c78e147a4d029b805937294376c"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand12": [
+      "equipment-currency-74521c95b43992f86bdb469546b1fd23a092b2c548cfb1aacb88216fafffba6d"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand13": [
+      "equipment-currency-c1bf94e1310838ac567e1e4f8e7022be500ca284a1b2a657c8aaa95ce11e1ec7"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre2": [
+      "equipment-currency-8b040a78590743edea667d9906939e1076c1d54e1789c27ac7885a0f97b95a5a"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre4": [
+      "equipment-currency-9bcd3f839dd994dfee6424ef8d41e795f482ec148504bff016e9f841f3372339"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a": [
+      "equipment-currency-d13e494d34cf256dc3a57f82a3746f5eae87040ea5389b391c22197bc13e825f"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b": [
+      "equipment-currency-77d24bae353e0ec83e0364758a887470dd6a4e764faa23f6e33e56c20749d804"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c": [
+      "equipment-currency-22626512817419c2a422b2a5e007bce0b1c07ebdf1baef923b20a9baa41c1031"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre8": [
+      "equipment-currency-f6519962bf79aa569dfce1f0ed91a7cd66bf7a518a2ecf78db97d0929d9df580"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre10": [
+      "equipment-currency-dfcdeac78e3ca72b36604db2a9cf071213eb2c7d8c5279746bbc87da8259e37b"
+    ],
+    "Metadata/Items/Armours/Focii/FourFocus10Endgame": [
+      "equipment-currency-39f42e228f4a10cddca953f2028e8f5b6f617d97c2ffef3c6f59b31c27274310"
+    ],
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr8Endgame": [
+      "equipment-currency-45c30c0f02084a0d35444246041f360e1562bd49961e119402cd1f41d2d33fee"
+    ],
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr15": [
+      "equipment-currency-c1cb758706d9dafa17f85f1672aa406c37e98e3d9b67b5e14690efdb33d8eae2"
+    ],
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr10Endgame": [
+      "equipment-currency-d8e4b84563c038e21e86775cc1998de1048a86a600222113e037cd2c16929e49"
+    ],
+    "Metadata/Items/Weapons/TwoHandWeapons/Bows/FourBow1": [
+      "equipment-currency-665adc8f08f4a9d4780b2dd4d7c9bc3a230c62c7c8e9ff53beba27175d4a6e38"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand3": [
+      "equipment-currency-e94f27ef9e7f263c451da8807cce3c323ae3e45d7a0a8a6c0477ab4c973002e7"
+    ],
+    "Metadata/Items/Armours/BodyArmours/FourBodyStr1": [
+      "equipment-currency-e1c6800d584cbfdcee48b5d7403979d533c8e0f943a82497f0b82c364c2895c0"
+    ],
+    "Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre1": [
+      "equipment-currency-a86519559c82298fa2e674a756e6de7316274151d7040038f02b12b2ab315873"
+    ],
+    "Metadata/Items/Belts/FourBelt1": [
+      "equipment-currency-8e70556c4a0fb1bd4061d7642e71d3313d6e17e6f3f676c59c3cfc5bf588c745"
+    ],
+    "Metadata/Items/Armours/Helmets/FourHelmetStr1": [
+      "equipment-currency-9291759b39a44ba6fc0ebee5b6d74cba7d6d4264316c660d93f6c0b47e14579c"
     ]
   }
 }

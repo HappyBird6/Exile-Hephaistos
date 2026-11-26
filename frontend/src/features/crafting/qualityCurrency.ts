@@ -2,6 +2,7 @@ import type { ConcreteItem, WorkbenchAction, AppliedItem } from './workbenchApi'
 import { equivalent, sameRolls } from './sanctification/equivalence'
 import { sameObservations } from './itemObservations'
 import { maximumQuality } from './qualityLimit'
+import { equipmentQualityTarget } from './baseRegistry'
 
 export const equipmentQualityPolicy =
   'user-selected-equipment-quality-maximum-v2'
@@ -13,7 +14,11 @@ function equipmentQualityMaximum(state: ConcreteItem): number | null {
 }
 
 export function isEquipmentQualityAction(action: WorkbenchAction) {
-  return action === 'ARMOURERS_SCRAP' || action === 'BLACKSMITHS_WHETSTONE'
+  return (
+    action === 'ARMOURERS_SCRAP' ||
+    action === 'BLACKSMITHS_WHETSTONE' ||
+    action === 'ARCANISTS_ETCHER'
+  )
 }
 
 export function equipmentQualityRefusal(
@@ -22,13 +27,11 @@ export function equipmentQualityRefusal(
 ): string | null {
   if (!isEquipmentQualityAction(action)) return 'action'
   if (state.conditions.length) return 'condition'
-  const armour = state.baseItemId.startsWith('Metadata/Items/Armours/')
-  const martial =
-    state.baseItemId.startsWith('Metadata/Items/Weapons/') &&
-    !/\/(Wands|Staves|Sceptres)\//.test(state.baseItemId)
+  const target = equipmentQualityTarget(state.baseItemId)
   if (
-    (action === 'ARMOURERS_SCRAP' && !armour) ||
-    (action === 'BLACKSMITHS_WHETSTONE' && !martial)
+    (action === 'ARMOURERS_SCRAP' && target !== 'Armour') ||
+    (action === 'BLACKSMITHS_WHETSTONE' && target !== 'Martial Weapon') ||
+    (action === 'ARCANISTS_ETCHER' && target !== 'Caster Weapon')
   )
     return 'class'
   if (state.equipmentQuality == null) return 'unknown'

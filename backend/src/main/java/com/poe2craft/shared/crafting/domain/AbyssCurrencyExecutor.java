@@ -140,8 +140,7 @@ public final class AbyssCurrencyExecutor {
     boolean valuesOnly =
         action == WorkbenchCurrency.DIVINE
             || QualityInfuserRules.supports(action)
-            || action == WorkbenchCurrency.ARMOURERS_SCRAP
-            || action == WorkbenchCurrency.BLACKSMITHS_WHETSTONE
+            || QualityCurrencyRules.isQuality(action)
             || action == WorkbenchCurrency.ARTIFICER
             || action.catalystType() != null;
     try {
