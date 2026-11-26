@@ -73,13 +73,13 @@ function Lines({
               <span className="item-card__affix" title={sideLabel}>
                 {sideLabel && (
                   <>
+                    <span className="sr-only">{sideLabel}</span>
                     <span aria-hidden="true">
                       {side === 'PREFIX' ? 'P' : 'S'}
                     </span>
-                    <span className="sr-only">{sideLabel}</span>
                   </>
                 )}
-                {sideLabel && line.affixLabel && ' · '}
+                {sideLabel && line.affixLabel && ' '}
                 {line.affixLabel}{' '}
               </span>
             )}

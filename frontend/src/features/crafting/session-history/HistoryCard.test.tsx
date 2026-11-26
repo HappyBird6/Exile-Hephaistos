@@ -3,6 +3,7 @@ import { cleanup, render, screen } from '@testing-library/react'
 import { afterEach, expect, it } from 'vitest'
 import { initialFixture } from '../../../shared/test/craftingFixtures'
 import { setLocale, type Locale } from '../../../shared/i18n/i18n'
+import { modifierPickerMessages } from '../goal-filter/modifierPickerMessages'
 import { itemCardMessages } from '../itemCardMessages'
 import type { Definition } from '../craftingApi'
 import { concreteInitial } from '../workbenchApi'
@@ -119,14 +120,15 @@ it('shows the saved slot side before and after a desecration reveal alongside a 
   const desecrated = () =>
     container.querySelector('.item-card__line--desecrated')!
   expect(desecrated()).toHaveTextContent('접미어')
+  expect(desecrated()).not.toHaveTextContent(/T\d+/)
   expect(desecrated().querySelector('[role="img"]')).toBeVisible()
   rerender(view(1))
-  expect(desecrated()).toHaveTextContent('접미어')
+  expect(desecrated()).toHaveTextContent('S T1')
   expect(desecrated().textContent).toContain('6')
   expect(desecrated().querySelector('.abyss-unrevealed-rune')).toBeNull()
   expect(
     container.querySelector('[data-fractured] .item-card__affix'),
-  ).toHaveTextContent('접두어')
+  ).toHaveTextContent('P T1')
   expect(
     container.querySelector('.item-card__line--implicit .item-card__affix'),
   ).toBeNull()
@@ -300,6 +302,9 @@ it.each(Object.entries(spiritSentences))(
     expect(
       await screen.findByText(itemCardMessages[locale].replaceable),
     ).toBeVisible()
+    expect(
+      screen.getByTitle(modifierPickerMessages[locale].prefix),
+    ).not.toHaveTextContent(/T\d+/)
     expect(screen.getByText('+7 to Strength')).toBeVisible()
     rendered.rerender(view(film, 2))
     expect(await screen.findByText(acquiredText)).toBeVisible()

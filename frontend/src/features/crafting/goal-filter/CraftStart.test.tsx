@@ -692,7 +692,9 @@ describe('Craft Support starting screen', () => {
     fireEvent.paste(input, {
       clipboardData: { getData: () => 'verified item' },
     })
-    expect(await within(preview).findByText('P')).toBeVisible()
+    expect(await within(preview).findByTitle('Prefix')).toHaveTextContent(
+      'P T1',
+    )
     expect(within(preview).getByText(source.raw)).toBeVisible()
   })
   it('keeps a late validation response from replacing a newly selected base', async () => {
@@ -1100,7 +1102,7 @@ it('allows exactly one explicit fracture and prevents rarity loss until it is sw
   const preview = screen.getByRole('region', { name: 'Starting item preview' })
   expect(
     preview.querySelector('[data-fractured] .item-card__affix'),
-  ).toHaveTextContent('Prefix')
+  ).toHaveTextContent('P T1')
   expect(
     preview.querySelector('.item-card__line--implicit .item-card__affix'),
   ).toBeNull()

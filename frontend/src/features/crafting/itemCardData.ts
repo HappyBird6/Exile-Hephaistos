@@ -1,4 +1,5 @@
 import type { Locale } from '../../shared/i18n/i18n'
+import { isWorkbenchJewel } from './basicJewel'
 import { isCraftedModifier } from './augmentRules'
 import type { Definition } from './craftingApi'
 import type { ConcreteItem } from './workbenchApi'
@@ -65,18 +66,26 @@ export function stateModifierAffix(
   modifier: ConcreteItem['explicits'][number],
   definition: Definition | undefined,
   implicit: boolean,
-): Pick<ItemCardLine, 'kind' | 'affixType'> {
+): Pick<ItemCardLine, 'kind' | 'affixType' | 'affixLabel'> {
   if (implicit) return { kind: 'implicit' }
   const slot = item.desecrated?.find(
     (s) => s.modifierId === modifier.modifierId,
   )
+  const side = slot?.side ?? definition?.affixType
   return {
     kind: slot
       ? 'desecrated'
       : isCraftedModifier(modifier, definition)
         ? 'crafted'
         : 'explicit',
-    affixType: slot?.side ?? definition?.affixType,
+    affixType: side,
+    affixLabel:
+      (side === 'PREFIX' || side === 'SUFFIX') &&
+      definition &&
+      definition.tier > 0 &&
+      !isWorkbenchJewel(item.baseItemId)
+        ? `T${definition.tier}`
+        : undefined,
   }
 }
 
@@ -118,8 +127,11 @@ export function toItemCard(item: Item): ItemCardData {
             : undefined,
         affixType: mod.affix ?? undefined,
         affixLabel:
-          mod.affix && isExplicitOption(kinds[mod.type])
-            ? `T${mod.tier ?? '?'}`
+          mod.affix &&
+          isExplicitOption(kinds[mod.type]) &&
+          mod.tier != null &&
+          mod.tier > 0
+            ? `T${mod.tier}`
             : undefined,
       },
     })),

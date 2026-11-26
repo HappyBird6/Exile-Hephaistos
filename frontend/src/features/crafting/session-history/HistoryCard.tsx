@@ -152,11 +152,6 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
               )
               const isDummy = preview?.dummyId === m.modifierId
               return {
-                ...(isDummy && definition
-                  ? {
-                      detail: localizedModifierText(definition, values, locale),
-                    }
-                  : {}),
                 id: `${i}`,
                 text: isDummy
                   ? itemCardMessages[locale].replaceable
@@ -181,6 +176,12 @@ export function HistoryCard({ film, frame }: { film: Film; frame: Frame }) {
                   definition,
                   i < state.implicits.length,
                 ),
+                ...(isDummy && definition
+                  ? {
+                      affixLabel: undefined,
+                      detail: localizedModifierText(definition, values, locale),
+                    }
+                  : {}),
                 lastCurrencyAffected: affected.has(m.modifierId),
               }
             })

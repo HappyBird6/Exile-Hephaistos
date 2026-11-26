@@ -2068,12 +2068,6 @@ function ReadyCraftingPage({
                     d,
                     i < concrete.implicits.length,
                   ),
-                  affixLabel:
-                    d.affixType === 'NONE' ||
-                    Object.hasOwn(workbenchJewelBases, catalogBase) ||
-                    d.tier === 0
-                      ? undefined
-                      : `T${d.tier}`,
                 }
               })
               .concat(

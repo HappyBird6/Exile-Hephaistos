@@ -222,7 +222,7 @@ export function startCard(
     ],
   }
 }
-/** Keep original pasted rows, including their metadata. Assign a side only to an exact, unambiguous line of the mapped state. */
+/** Keep original pasted rows, including their metadata. Fill missing side and tier labels only when the matching catalog lines agree. */
 export function mappedStartCard(
   card: ItemCardData,
   item: ConcreteItem,
@@ -233,7 +233,7 @@ export function mappedStartCard(
     if (!definition) return []
     return [
       {
-        side: stateModifierAffix(item, m, definition, false).affixType,
+        ...stateModifierAffix(item, m, definition, false),
         lines: localizedModifierText(definition, m.values, 'en').split('\n'),
       },
     ]
@@ -241,14 +241,28 @@ export function mappedStartCard(
   return {
     ...card,
     modifiers: card.modifiers.map((line) => {
-      if (line.affixType || !isExplicitOption(line.kind)) return line
-      const matches = options.filter((option) =>
-        option.lines.includes(line.text),
+      if (!isExplicitOption(line.kind) || (line.affixType && line.affixLabel))
+        return line
+      const matches = options.filter(
+        (option) =>
+          (!line.affixType || line.affixType === option.affixType) &&
+          option.lines.includes(line.text),
       )
-      const side = matches[0]?.side
-      return side && matches.every((option) => option.side === side)
-        ? { ...line, affixType: side }
-        : line
+      const first = matches[0]
+      if (
+        !first?.affixType ||
+        !matches.every((option) => option.affixType === first.affixType)
+      )
+        return line
+      return {
+        ...line,
+        affixType: first.affixType,
+        affixLabel:
+          line.affixLabel ??
+          (matches.every((option) => option.affixLabel === first.affixLabel)
+            ? first.affixLabel
+            : undefined),
+      }
     }),
   }
 }

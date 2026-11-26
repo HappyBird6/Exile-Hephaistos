@@ -42,6 +42,7 @@ describe('ItemCard', () => {
               text: '+17 to maximum Life',
               kind: 'explicit',
               affixType: 'PREFIX',
+              affixLabel: 'T1',
               fractured: true,
             },
             {
@@ -49,6 +50,7 @@ describe('ItemCard', () => {
               text: '+6 to Strength',
               kind: 'desecrated',
               affixType: 'SUFFIX',
+              affixLabel: 'T2',
             },
             { id: 'unknown', text: 'Unresolved attribute', kind: 'unknown' },
           ],
@@ -58,15 +60,19 @@ describe('ItemCard', () => {
         container.querySelector(
           '.item-card__line[data-fractured] .item-card__affix',
         ),
-      ).toHaveTextContent(messages.prefix)
+      ).toHaveTextContent('P T1')
       expect(
         container.querySelector(
           '.item-card__line--desecrated .item-card__affix',
         ),
-      ).toHaveTextContent(messages.suffix)
+      ).toHaveTextContent('S T2')
       expect(container.querySelectorAll('.item-card__affix')).toHaveLength(2)
-      expect(screen.getByText('P')).toBeVisible()
-      expect(screen.getByText('S')).toBeVisible()
+      expect(screen.getByTitle(messages.prefix)).toHaveTextContent(
+        messages.prefix,
+      )
+      expect(screen.getByTitle(messages.suffix)).toHaveTextContent(
+        messages.suffix,
+      )
     },
   )
   it.each(Object.entries(itemCardMessages))(
