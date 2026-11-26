@@ -61,6 +61,7 @@ import {
 } from './fixedRouteGrades'
 import { AcquisitionRouteActions } from './AcquisitionRouteActions'
 import { RouteGradePicker } from './RouteGradePicker'
+import { acquisitionGroupKey } from './acquisitionRouteGroups'
 import { AcquisitionRouteFilters } from './AcquisitionRouteFilters'
 import { graphStateMessages } from './graphStateMessages'
 import { planTitle } from './probabilityPresentation'
@@ -209,6 +210,13 @@ function RouteList({
     () => result.routes.map((route) => acquisitionRouteCost(route, market)),
     [result.routes, market],
   )
+  const groupKeys = useMemo(
+    () =>
+      result.routes.map((route) =>
+        acquisitionGroupKey(result, route, request.start.item, definitions),
+      ),
+    [result, request.start.item, definitions],
+  )
   const chance = (route: AcquisitionRoute) =>
     supportProbabilityText(
       {
@@ -236,6 +244,7 @@ function RouteList({
       route,
       active,
       summary,
+      group: entry ? index : (groupKeys[index] ?? index),
       lower,
       price,
       lucky: active?.lucky ?? route.lucky ?? false,
@@ -243,16 +252,24 @@ function RouteList({
   })
   const eligible = rows.filter((row) => showLucky || !row.lucky)
   eligible.sort((a, b) => b.lower - a.lower || a.index - b.index)
-  const cutoff = eligible[9]?.lower ?? 0
+  const priced = eligible.filter(
+    (row) =>
+      !Number.isFinite(priceCap) ||
+      (row.price !== undefined && row.price <= priceCap),
+  )
+  const groups = new Map<string | number, typeof rows>()
+  for (const row of priced) {
+    const group = groups.get(row.group)
+    if (group) group.push(row)
+    else groups.set(row.group, [row])
+  }
+  const rankedGroups = [...groups.values()]
+  const cutoff = rankedGroups[9]?.[0]?.lower ?? 0
   // Returning from an overview should reopen the route the user explicitly chose.
   const opening = eligible.find((row) => row.index === openingRoute)
   const lower = minimum ?? Math.min(cutoff, opening?.lower ?? cutoff)
-  const visible = eligible.filter((row) => {
-    if (
-      Number.isFinite(priceCap) &&
-      (row.price === undefined || row.price > priceCap)
-    )
-      return false
+  const visibleGroups = rankedGroups.filter(([row]) => {
+    if (!row) return false
     if (row.lower >= lower) return true
     // Keep the grade selector available while retrying a previously visible method.
     return (
@@ -263,6 +280,7 @@ function RouteList({
         lower
     )
   })
+  const visible = visibleGroups.flat()
   useEffect(() => {
     console.info('[API] 제작 경로 화면 필터', {
       request: request.clientRequestId,
@@ -561,13 +579,23 @@ function RouteList({
           </section>
         }
       >
-        {visible.map(({ index, route, active, summary }, rank) => {
+        {visibleGroups.map((group, rank) => {
+          const { index, route, active, summary } =
+            group.find((row) => row.index === selection) ?? group[0]!
+          // Show just the material positions that distinguish variants with the same goal order.
+          const differingSteps = route.steps.map((_, i) =>
+            group.some(
+              (row) =>
+                stepLabel(row.route.steps[i]!) !== stepLabel(route.steps[i]!),
+            ),
+          )
+
           const options = [
             title(route),
             ...route.steps.filter((s) => s.socketIndex != null).map(stepLabel),
           ].join(' · ')
           return (
-            <div role="listitem" key={index}>
+            <div role="listitem" key={group[0]!.index}>
               <SessionListCard
                 title={summary}
                 baseId={request.start.item.baseItemId}
@@ -595,6 +623,29 @@ function RouteList({
                   )
                 }
               />
+              {group.length > 1 && (
+                <label className="acquisition-route-variants">
+                  {copy.variants.replace('{n}', String(group.length))}
+                  <select
+                    value={index}
+                    onChange={(e) => select(Number(e.target.value))}
+                  >
+                    {group.map((row) => (
+                      <option key={row.index} value={row.index}>
+                        {[
+                          row.route.order.join(' → '),
+                          row.route.steps
+                            .filter((_, i) => differingSteps[i])
+                            .map(stepLabel)
+                            .join(' → '),
+                        ]
+                          .filter(Boolean)
+                          .join(' · ')}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
             </div>
           )
         })}

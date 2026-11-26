@@ -14,11 +14,13 @@ import type { Initial } from '../craftingApi'
 import { CurrencyPriceContext } from '../currency-prices/context'
 import { requestFixture } from '../path-tree/fixtures.test-support'
 import { rulesetHeader } from '../rulesetIdentity'
+import { acquisitionGroupKey } from './acquisitionRouteGroups'
 import { AcquisitionRouteResults } from './AcquisitionRouteResults'
 import { fixedRouteQuery } from './fixedRouteGrades'
 import {
   loadAcquisitionRoutes,
   type AcquisitionResult,
+  type AcquisitionRoute,
 } from './acquisitionRouteApi'
 
 afterEach(() => vi.unstubAllGlobals())
@@ -1338,3 +1340,127 @@ it.each([true, false])(
     }
   },
 )
+
+it('groups equal goal orders at their original chance and opens each original session', async () => {
+  await setLocale('en')
+  const cold = definitions.cold!
+  const life = definitions.life!
+  const states = [observed(17, null), observed(null, 6), observed(17, 6)]
+  const step = (n: number) => ({
+    action: 'EXALTED',
+    acquired: [n],
+    lost: [],
+    omens: [],
+    chance: { probability: 0.5 },
+  })
+  const routes = [
+    [1, 2],
+    [2, 1],
+  ].map((order, i) => ({
+    cardIndex: 0,
+    order,
+    steps: order.map(step),
+    stateIndices: [i, 2],
+    probability: 0.25,
+  }))
+  const result = {
+    cards: [
+      {
+        options: [
+          { number: 1, modifierIds: [life.id] },
+          { number: 2, modifierIds: [cold.id] },
+        ],
+      },
+    ],
+    states,
+    complete: true,
+    routes,
+  }
+  // Two same-side affixes can trade places. Different sides must stay distinct.
+  const key = (r: AcquisitionRoute, defs = definitions) =>
+    acquisitionGroupKey(result, r, request.start.item, defs)
+  expect(key(routes[0]!)).not.toEqual(key(routes[1]!))
+  const sameSide = {
+    ...definitions,
+    cold: { ...cold, affixType: 'PREFIX' as const },
+  }
+  expect(key(routes[0]!, sameSide)).toEqual(key(routes[1]!, sameSide))
+  expect(key({ ...routes[0]!, probability: 0.250001 }, sameSide)).not.toEqual(
+    key(routes[1]!, sameSide),
+  )
+  serve(result)
+  window.history.replaceState(null, '', '/support-test')
+  const client = new QueryClient()
+  render(
+    <QueryClientProvider client={client}>
+      <AcquisitionRouteResults
+        request={request}
+        definitions={sameSide}
+        baseName="Test"
+        active
+      />
+    </QueryClientProvider>,
+  )
+  const list = await screen.findByRole('list', { name: 'Crafting methods' })
+  expect(within(list).getAllByRole('listitem')).toHaveLength(1)
+  const variants = within(list).getByRole('combobox', { name: 'Orders (2)' })
+  fireEvent.change(variants, { target: { value: '1' } })
+  expect(new URLSearchParams(location.search).get('route')).toBe('1')
+  expect(
+    within(list).getByRole('button', { pressed: true }),
+  ).toHaveAccessibleName(/2 → 1.*25%$/)
+  expect(within(list).getByRole('link').getAttribute('href')).toContain(
+    'route=1',
+  )
+  window.history.replaceState(null, '', '/')
+})
+
+it('commutes a verified empty-slot reservation only when the Exalt keeps the same available sides', () => {
+  const start = { ...observed(null, null), desecrated: [] }
+  const slot = { id: 'hidden', side: 'PREFIX' as const, modifierId: null }
+  const bone = {
+    action: 'Preserved_Collarbone',
+    acquired: [],
+    lost: [],
+    omens: ['Omen_of_Sinistral_Necromancy'],
+    chance: { probability: 1 },
+  }
+  const exalt = {
+    action: 'PERFECT_EXALTED',
+    acquired: [1],
+    lost: [],
+    omens: [],
+    chance: { probability: 0.2 },
+  }
+  const hit = { ...observed(17, null), desecrated: [] }
+  const states = [
+    hit,
+    { ...start, desecrated: [slot] },
+    { ...hit, desecrated: [slot] },
+  ]
+  const routes = [
+    [exalt, bone],
+    [bone, exalt],
+  ].map((steps, i) => ({
+    cardIndex: 0,
+    order: [1],
+    steps,
+    probability: 0.2,
+    stateIndices: [i, 2],
+  }))
+  const result = {
+    routes,
+    states,
+    cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+    complete: true,
+  }
+  const keys = (commute: boolean) =>
+    routes.map((r) =>
+      acquisitionGroupKey(result, r, start, definitions, commute),
+    )
+  expect(new Set(keys(false)).size).toBe(2)
+  expect(new Set(keys(true)).size).toBe(1)
+  const filler = { modifierId: 'other', values: { life: 10 } }
+  states[1] = { ...states[1]!, explicits: [filler] }
+  expect(new Set(keys(true)).size).toBe(2)
+})

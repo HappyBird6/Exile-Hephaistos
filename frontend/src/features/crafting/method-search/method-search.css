@@ -766,3 +766,15 @@
   flex-direction: column;
   align-items: stretch;
 }
+
+.acquisition-route-variants {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.85em;
+}
+.acquisition-route-variants select {
+  flex: 1;
+  min-width: 0;
+}
