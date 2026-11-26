@@ -19,7 +19,10 @@ import type { Film } from '../workbenchHistory'
 import { sessionNotationMessages, workLabel } from './messages'
 import { historyMessages } from '../session-history/messages'
 import { localHistoryUrl } from '../session-history/transfer'
-import { extractSessionNotation } from './extractSessionNotation'
+import {
+  extractSessionNotation,
+  showsRepeatRange,
+} from './extractSessionNotation'
 import type { NotationStep } from './extractSessionNotation'
 import '../workbench-scrollbar.css'
 import './session-notation.css'
@@ -279,7 +282,7 @@ export function NotationResources({
             {chanceText(step.customExalt.probability, locale)}
           </span>
         )}
-        {step.expectedUses && (
+        {step.expectedUses != null && (
           <span
             className="wb-session-notation__uses"
             data-repeat-until-hit={step.repeatUntilHit}
@@ -301,7 +304,7 @@ export function NotationResources({
                 )}
           </span>
         )}
-        {step.maxUses && (
+        {showsRepeatRange(step) && (
           <span className="wb-session-notation__uses">×1–{step.maxUses}</span>
         )}
         {step.repeated && (

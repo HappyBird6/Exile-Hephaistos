@@ -1059,6 +1059,8 @@ public final class RecipeRoutePlanner {
     int evaluatedParents = 0;
     Boolean directCapRemoval = null;
     var divine = new DivineRepeatEstimate();
+    boolean finalDivine =
+        !path.isEmpty() && path.getLast().action().equals(WorkbenchCurrency.DIVINE.name());
     boolean atFixedEnd = fixedSteps != null && path.size() == fixedSteps.size();
     var required = fixedSteps == null || atFixedEnd ? null : fixedSteps.get(path.size());
     var selected = required == null ? null : required.move();
@@ -1149,7 +1151,8 @@ public final class RecipeRoutePlanner {
         continue;
       }
       liveMass = liveMass.plus(entry.getValue().weight);
-      if (atFixedEnd) continue;
+      // 신성한 오브에서 빗나간 질량은 이 단계의 반복 계산에만 들어간다.
+      if (atFixedEnd || finalDivine) continue;
       if (remaining == 0 || startingBudget - remaining >= stageAllowance) {
         complete = false;
         trace.budgetSkippedStates++;
@@ -1293,15 +1296,9 @@ public final class RecipeRoutePlanner {
           && !needsCleanup
           && before.size() == allowed.size()
           && !matchesGoal.test(item)) {
-        // 한 번 재굴림한 뒤에도 미달이면 이 실행열은 실패다. 무한 재시도의 성공률을 가정하지 않는다.
+        // 최종 희귀도에 도달한 아이템에서만 수치를 마무리한다.
         choices.addAll(RecipeMoves.rarityPreparation(0, item));
-        if (!presenceOnly
-            && !item.explicits().isEmpty()
-            && (required != null
-                || item.rarity() != ItemState.Rarity.MAGIC
-                || !matchesGoal.test(
-                    RecipeStateGroups.withAffixes(item, ItemState.Rarity.RARE, item.explicits())))
-            && (path.isEmpty() || !path.getLast().action().equals(WorkbenchCurrency.DIVINE.name())))
+        if (!presenceOnly && !item.explicits().isEmpty() && card.rarities().contains(item.rarity()))
           choices.add(new Choice(0, new Move(WorkbenchCurrency.DIVINE.name()), true, null));
       }
       if (essenceSlot != null && essenceSlot.disposable())
@@ -1351,7 +1348,7 @@ public final class RecipeRoutePlanner {
           successRange.displayed(current.factorLow, current.factorHigh, current.displayedCap);
       Double routeProbability =
           current.complete ? decimal(product(success, current.preparationFactor)) : null;
-      if (!path.isEmpty() && path.getLast().action().equals(WorkbenchCurrency.DIVINE.name())) {
+      if (finalDivine) {
         var steps = new ArrayList<>(path);
         var hit = current.complete ? ratio(success, current.parentLiveMass) : null;
         var reached =
@@ -1497,7 +1494,6 @@ public final class RecipeRoutePlanner {
       } else if (step.action().equals(WorkbenchCurrency.DIVINE.name())) {
         nextStates.divineUses = divine.expectedUses(live, nextStates.complete);
         nextStates.divineWithinLimit = divine.successWithinLimit(live, nextStates.complete);
-        step = step.measured(null, 1.0, null);
       }
       var assessment = omenChances.get(child.getKey());
       if (assessment != null) {

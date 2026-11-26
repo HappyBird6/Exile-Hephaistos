@@ -1146,6 +1146,38 @@ it('hides an opened lucky route without retaining its cutoff or reopening it on 
   }
 })
 
+it('shows only the expected Divine Orb count for the final adjustment', async () => {
+  await setLocale('ko')
+  serve({
+    cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+    states: [observed(12, null), observed(15, null)],
+    complete: true,
+    routes: [
+      {
+        cardIndex: 0,
+        order: [1],
+        stateIndices: [0, 1],
+        probability: 1,
+        steps: [
+          { action: 'REGAL', omens: [], acquired: [1], lost: [] },
+          {
+            action: 'DIVINE',
+            omens: [],
+            acquired: [],
+            lost: [],
+            maxUses: 1000,
+            expectedUses: 4,
+            chance: { probability: 0.25 },
+          },
+        ],
+      },
+    ],
+  })
+  show()
+  const expected = await screen.findByText('기대 4개')
+  expect(expected.closest('li')).not.toHaveTextContent('×1–1000')
+})
+
 it('shows the rounded icon multiplier and full cost for unlimited Chaos, and locks the verified 100% dummy independently of the route chance', async () => {
   await setLocale('en')
   serve({

@@ -2,6 +2,7 @@ package com.poe2craft.bootstrap;
 
 import static org.assertj.core.api.Assertions.*;
 
+import com.poe2craft.configuration.BackendSettings;
 import com.poe2craft.craftingsupport.goal.application.GoalFilterService;
 import com.poe2craft.craftingsupport.goal.domain.GoalCatalog;
 import com.poe2craft.craftingsupport.goal.domain.GoalCatalogIndex;
@@ -12,6 +13,7 @@ import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
 import com.poe2craft.craftingsupport.search.application.AutomaticKernelFactory;
 import com.poe2craft.craftingsupport.search.domain.AutomaticCraftingKernel;
 import com.poe2craft.craftingsupport.search.infrastructure.AutomaticCurrencyPolicyLoader;
+import com.poe2craft.craftingsupport.testroutes.application.RecipeRoutePlanner.Step;
 import com.poe2craft.shared.crafting.domain.AutomaticCraftingAction;
 import com.poe2craft.shared.crafting.domain.AutomaticCurrencyPolicy;
 import com.poe2craft.shared.crafting.domain.CoupledStatRollModel;
@@ -39,6 +41,70 @@ import org.junit.jupiter.api.Test;
  * </ul>
  */
 class ReviewedRingGoalTest {
+  /** 명시 카오스 저항 15를 노리는 자수정 반지는 목표 희귀도에 도달한 뒤에만 수치를 다시 굴린다. */
+  @Test
+  void divinesExplicitChaosResistanceOnlyAtTheRequestedFinalRarity() {
+    var cfg = new CatalogConfiguration();
+    var solar = cfg.itemCatalog(cfg.workbenchDefinitions());
+    var workbench =
+        cfg.workbenchService(solar, cfg.workbenchSimulator(solar, cfg.craftingEngine(solar)));
+    var support = new CraftingSupportConfiguration();
+    var goals = support.goalFilterService(workbench);
+    var routes = support.testRouteService(workbench, goals, BackendSettings.defaults());
+    var base = workbench.initial("amethyst", 82).state();
+    String chaos = "base_chaos_damage_resistance_%";
+    var start =
+        new ItemState(
+            base.snapshotId(),
+            base.baseItemId(),
+            82,
+            ItemState.Rarity.NORMAL,
+            List.of(new ModifierInstance("amethyst:implicit:chaosresistance", Map.of(chaos, 13L))),
+            List.of(),
+            Set.of());
+    var version =
+        goals.catalog(new Context(start.snapshotId(), start.baseItemId(), 82)).catalogVersion();
+    var row =
+        new Entry(
+            "chaos",
+            GoalCatalogIndex.id("explicit", chaos),
+            "percent",
+            new Range(BigDecimal.valueOf(15), null),
+            null,
+            false);
+    for (var rarity : List.of(ItemState.Rarity.MAGIC, ItemState.Rarity.RARE)) {
+      var goal =
+          new GoalFilter(
+              1,
+              version,
+              new General(start.baseItemId(), new Range(null, null), List.of(rarity)),
+              List.of(new Group("g", Type.AND, false, null, List.of(row))));
+      var result = routes.calculate(start, goal);
+      var expected =
+          rarity == ItemState.Rarity.RARE
+              ? List.of("TRANSMUTATION", "REGAL", "DIVINE")
+              : List.of("TRANSMUTATION", "DIVINE");
+      assertThat(result.routes())
+          .anySatisfy(
+              route -> {
+                assertThat(route.steps())
+                    .extracting(Step::action)
+                    .containsExactlyElementsOf(expected);
+                var adjustment = route.steps().getLast();
+                assertThat(adjustment.chance().probability()).isEqualTo(0.25);
+                assertThat(adjustment.expectedUses()).isEqualTo(4.0);
+              });
+      for (var route : result.routes()) {
+        var actions = route.steps().stream().map(Step::action).toList();
+        if (actions.contains("DIVINE")) {
+          assertThat(actions.indexOf("DIVINE")).isEqualTo(actions.size() - 1);
+          assertThat(result.states().get(route.stateIndices().get(actions.size() - 2)).rarity())
+              .isEqualTo(rarity);
+        }
+      }
+    }
+  }
+
   @Test
   void reviewedRingUsesItsExistingDeclaredJointModelAndConservesTheFullEligibleDenominator() {
     var cfg = new CatalogConfiguration();

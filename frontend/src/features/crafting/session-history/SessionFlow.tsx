@@ -13,7 +13,10 @@ import { Fragment, useLayoutEffect, useRef, useState } from 'react'
 import { useI18n } from '../../../shared/i18n/i18n'
 import type { Film } from '../workbenchHistory'
 import type { WorkbenchResource } from '../stash/stashTypes'
-import { extractSessionNotation } from '../session-notation/extractSessionNotation'
+import {
+  extractSessionNotation,
+  showsRepeatRange,
+} from '../session-notation/extractSessionNotation'
 import { NotationResources } from '../session-notation/SessionNotation'
 import { HistoryCard } from './HistoryCard'
 import { historyMessages } from './messages'
@@ -63,7 +66,7 @@ export function SessionFlow({
             )
       return (
         currency +
-        (step.expectedUses
+        (step.expectedUses != null
           ? ' ' +
             sessionNotationMessages[locale].expectedUses(
               formatExpectedUses(
@@ -73,7 +76,7 @@ export function SessionFlow({
                 step.repeatUntilHit,
               ),
             )
-          : step.maxUses
+          : showsRepeatRange(step)
             ? ` ×1–${step.maxUses}`
             : step.repeated || step.uses > 1
               ? ` × ${step.uses}`

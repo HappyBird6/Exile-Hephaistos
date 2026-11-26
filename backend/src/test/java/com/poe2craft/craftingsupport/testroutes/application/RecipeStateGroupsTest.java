@@ -99,13 +99,15 @@ class RecipeStateGroupsTest {
     assertThat(groups.key(fixed)).isNotEqualTo(groups.key(variable));
   }
 
-  /** 현재 수치가 통과한 마법 아이템에는 희귀 승급만 필요하고, 미달이라면 실제 Divine 수치 변경 후 승급 분기가 남는다. */
+  /** 희귀 목표는 먼저 승급하고 현재 수치가 미달할 때만 마지막에 신성한 오브를 쓴다. */
   @Test
   void rarityAloneDoesNotRequireADivine() {
     var source = new RouteCards.Source("B", null, RouteCards.Frequency.M);
     var card =
         new RouteCards.Card(
-            List.of(new RouteCards.Option(1, Map.of(fixture.life, List.of(source)))), 0);
+            List.of(new RouteCards.Option(1, Map.of(fixture.life, List.of(source)))),
+            0,
+            Set.of(ItemState.Rarity.RARE));
     var divine = new RecipeRoutePlanner.Step("DIVINE", List.of(), List.of(), List.of(), null);
     var regal = new RecipeRoutePlanner.Step("REGAL", List.of(), List.of(), List.of(), null);
     var shape = fixture.item(ItemState.Rarity.MAGIC, fixture.life);
@@ -134,9 +136,7 @@ class RecipeStateGroupsTest {
               null,
               List.of(divine, regal),
               Set.of("base_maximum_life"));
-      assertThat(result.routes())
-          .singleElement()
-          .satisfies(r -> assertThat(r.probability()).isEqualTo(1.0 / 15));
+      assertThat(result.routes()).isEmpty();
       var suggestions =
           RecipeRoutePlanner.calculate(
               fixture.workbench,
@@ -147,15 +147,16 @@ class RecipeStateGroupsTest {
               false,
               null,
               Set.of("base_maximum_life"));
-      assertThat(
-              suggestions.routes().stream()
-                  .anyMatch(
-                      r ->
-                          r.steps().stream()
-                              .map(RecipeRoutePlanner.Step::action)
-                              .toList()
-                              .equals(List.of("DIVINE", "REGAL"))))
-          .isEqualTo(value < 99);
+      var actions =
+          suggestions.routes().stream()
+              .map(r -> r.steps().stream().map(RecipeRoutePlanner.Step::action).toList())
+              .toList();
+      assertThat(actions).doesNotContain(List.of("DIVINE", "REGAL"));
+      if (value < 99) {
+        assertThat(actions).contains(List.of("REGAL", "DIVINE"));
+      } else {
+        assertThat(actions).contains(List.of("REGAL")).doesNotContain(List.of("REGAL", "DIVINE"));
+      }
     }
   }
 }

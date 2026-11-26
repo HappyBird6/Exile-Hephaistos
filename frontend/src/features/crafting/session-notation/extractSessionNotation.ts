@@ -27,6 +27,14 @@ export type NotationStep = {
   repeated: boolean
 }
 
+export function showsRepeatRange(step: NotationStep): boolean {
+  return (
+    step.maxUses !== undefined &&
+    step.expectedUses == null &&
+    step.currencyId !== 'Divine_Orb'
+  )
+}
+
 export type SessionNotationData = {
   steps: NotationStep[]
   /** Currency applications whose ID or successful-record evidence is missing. */

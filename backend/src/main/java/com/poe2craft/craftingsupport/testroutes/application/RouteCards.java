@@ -45,8 +45,13 @@ public final class RouteCards {
     }
   }
 
-  /** options는 동시에 유지할 옵션이고 requiredAstrids는 추가로 장착해야 할 제작 한도 증강물 수다. */
-  public record Card(List<Option> options, int requiredAstrids) {}
+  /** 동시에 유지할 옵션과 추가로 필요한 제작 한도 증강물 수, 목표가 허용하는 최종 희귀도다. */
+  public record Card(List<Option> options, int requiredAstrids, Set<ItemState.Rarity> rarities) {
+    /** 별도의 희귀도 조건 없이 옵션만 지정한 카드다. */
+    public Card(List<Option> options, int requiredAstrids) {
+      this(options, requiredAstrids, Set.of(ItemState.Rarity.values()));
+    }
+  }
 
   /** complete가 거짓이면 시간·개수 제한으로 확인하지 못한 카드가 남는다. */
   public record Result(List<Card> cards, boolean complete) {}
@@ -74,6 +79,9 @@ public final class RouteCards {
 
   /** 목표의 활성 그룹·수치 사전과 그 그룹에 기여하는 원본 수치 ID를 보관한다. */
   private final Map<String, GoalCatalog.Stat> stats = new HashMap<>();
+
+  /** 같은 요청의 카드가 공유하는 목표 희귀도다. */
+  private final Set<ItemState.Rarity> rarities;
 
   private final List<GoalFilter.Group> groups;
   private final Map<String, ModifierInstance> held = new HashMap<>();
@@ -144,6 +152,7 @@ public final class RouteCards {
       double lowProbability,
       double highProbability) {
     this.start = start;
+    rarities = Set.copyOf(goal.general().rarities());
     this.lowProbability = lowProbability;
     this.highProbability = highProbability;
     groups = goal.groups().stream().filter(g -> !g.disabled()).toList();
@@ -396,7 +405,7 @@ public final class RouteCards {
               !Collections.disjoint(f.key().stats(), upperBoundStats)));
     }
     int extra = Math.max(0, requiredCrafted - craftedLimit);
-    if (extra <= additionalAstrids) cards.add(new Card(List.copyOf(options), extra));
+    if (extra <= additionalAstrids) cards.add(new Card(List.copyOf(options), extra, rarities));
   }
 
   /** 분열 티어와 수치 범위에 맞으며 시작 상태부터 도달할 수 있는 티어만 남긴다. */
