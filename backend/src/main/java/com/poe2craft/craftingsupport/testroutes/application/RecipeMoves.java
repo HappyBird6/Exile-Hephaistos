@@ -121,8 +121,17 @@ final class RecipeMoves {
   private final WorkbenchSimulator simulator;
   private final ItemStateValidator validator;
 
-  /** simulator의 베이스 카탈로그로 슬롯과 재료 자격을 확인한다. */
+  /** 저장된 무징조 뼈 경로는 당시 선택한 방향 추첨 확률로 재생한다. */
+  private final boolean replay;
+
+  /** 새 경로 추천에는 목표 방향을 지정하는 뼈를 사용한다. */
   RecipeMoves(WorkbenchSimulator simulator) {
+    this(simulator, false);
+  }
+
+  /** simulator의 베이스 카탈로그로 슬롯과 재료 자격을 확인한다. */
+  RecipeMoves(WorkbenchSimulator simulator, boolean replay) {
+    this.replay = replay;
     this.simulator = simulator;
     validator = new ItemStateValidator(simulator.catalog());
   }
@@ -543,16 +552,19 @@ final class RecipeMoves {
       for (var entry : bones.entrySet()) {
         String id = entry.getKey();
         var tiers = Set.copyOf(entry.getValue());
-        addBone(result, target, new Move(id), tiers);
         // 한쪽만 비어 있으면 뼈 자체가 이미 방향을 정한다.
         if (prefixOpen != suffixOpen
-            || !RecipeTransitions.bothBoneSides(item, id, simulator.forItem(item).catalog()))
+            || !RecipeTransitions.bothBoneSides(item, id, simulator.forItem(item).catalog())) {
+          addBone(result, target, new Move(id), tiers);
           continue;
+        }
         var bySide = new EnumMap<AffixType, Set<String>>(AffixType.class);
         for (var tier : tiers) {
           var side = simulator.catalog().find(tier).orElseThrow().affixType();
           bySide.computeIfAbsent(side, ignored -> new TreeSet<>()).add(tier);
         }
+        // 두 방향 모두 목표 티어면 무징조도 유효하다. 단일 방향 목표는 해당 징조로 확정한다.
+        if (replay || bySide.size() > 1) addBone(result, target, new Move(id), tiers);
         bySide.forEach(
             (side, matching) ->
                 addBone(

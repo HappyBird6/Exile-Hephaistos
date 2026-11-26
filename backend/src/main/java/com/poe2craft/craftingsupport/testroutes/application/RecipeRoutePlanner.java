@@ -596,7 +596,7 @@ public final class RecipeRoutePlanner {
     slots = new ItemStateValidator(simulator.catalog());
     transitions =
         new RecipeTransitions(simulator, presenceOnly, numericSourceStatIds, card.options());
-    moves = new RecipeMoves(simulator);
+    moves = new RecipeMoves(simulator, fixedSteps != null);
     this.card = card;
     this.cardIndex = cardIndex;
     this.matchesGoal = matchesGoal;

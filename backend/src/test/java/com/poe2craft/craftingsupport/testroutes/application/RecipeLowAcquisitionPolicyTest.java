@@ -488,7 +488,8 @@ class RecipeLowAcquisitionPolicyTest {
             0);
     var choices = moves.choices(start, card, Map.of());
     assertThat(choices)
-        .hasSize(4)
+        .hasSize(2)
+        .allMatch(c -> c.move().boneOmen() != null)
         .allMatch(
             c -> c.purpose() == RecipeMoves.Purpose.BONE && c.move().action().equals(bone.id()));
     assertThat(choices)

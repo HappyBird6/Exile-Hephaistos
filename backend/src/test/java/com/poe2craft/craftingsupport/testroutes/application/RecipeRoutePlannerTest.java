@@ -39,7 +39,7 @@ class RecipeRoutePlannerTest {
     return ids.contains(life) && ids.contains(def);
   }
 
-  /** 양쪽이 열린 뼈를 바로 쓰거나, 좌측 강령술로 접두 훼손을 보장하는 두 전략만 반환한다. */
+  /** 양쪽이 열려 있고 접두만 목표이면 좌측 강령술로 확정하는 경로만 반환한다. */
   @Test
   void usesAPrefixNecromancyOmenOnTheBone() {
     String bone = "Preserved_Collarbone";
@@ -62,10 +62,11 @@ class RecipeRoutePlannerTest {
             null);
     assertThat(result.routes())
         .extracting(r -> r.steps().stream().map(RecipeRoutePlanner.Step::action).toList())
-        .containsExactlyInAnyOrder(List.of(bone, "REVEAL"), List.of(bone, "REVEAL"));
+        .containsExactly(List.of(bone, "REVEAL"));
     for (var route : result.routes()) {
       var use = route.steps().get(route.steps().size() - 2);
-      assertThat(use.chance().probability()).isEqualTo(use.omens().isEmpty() ? 0.5 : 1.0);
+      assertThat(use.omens()).containsExactly("Omen_of_Sinistral_Necromancy");
+      assertThat(use.chance().probability()).isOne();
       assertThat(route.lucky()).isFalse();
     }
   }
@@ -123,13 +124,12 @@ class RecipeRoutePlannerTest {
             null);
     assertThat(result.routes())
         .extracting(r -> r.steps().stream().map(RecipeRoutePlanner.Step::action).toList())
-        .containsExactlyInAnyOrder(
-            List.of(ancient, "REVEAL"), List.of(preserved, "REVEAL"), List.of(preserved, "REVEAL"));
+        .containsExactlyInAnyOrder(List.of(ancient, "REVEAL"), List.of(preserved, "REVEAL"));
     for (var route : result.routes()) {
-      boolean unprepared =
-          route.steps().getFirst().action().equals(preserved)
-              && route.steps().getFirst().omens().isEmpty();
-      assertThat(route.probability()).isEqualTo(unprepared ? .5 : 1.0);
+      var use = route.steps().getFirst();
+      if (use.action().equals(ancient)) assertThat(use.omens()).isEmpty();
+      else assertThat(use.omens()).containsExactly("Omen_of_Sinistral_Necromancy");
+      assertThat(route.probability()).isOne();
     }
   }
 

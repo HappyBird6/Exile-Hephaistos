@@ -358,13 +358,13 @@ class RecipeStepChanceTest {
             true,
             null);
     assertThat(result.routes())
-        .hasSize(2)
-        .allSatisfy(
+        .singleElement()
+        .satisfies(
             route -> {
               var bone = route.steps().getFirst();
-              double chance = bone.omens().isEmpty() ? 0.5 : 1.0;
-              assertThat(bone.chance().probability()).isEqualTo(chance);
-              assertThat(route.probability()).isEqualTo(chance);
+              assertThat(bone.omens()).containsExactly("Omen_of_Sinistral_Necromancy");
+              assertThat(bone.chance().probability()).isOne();
+              assertThat(route.probability()).isOne();
               assertThat(route.steps().getLast().chance().probability()).isEqualTo(1);
             });
   }
