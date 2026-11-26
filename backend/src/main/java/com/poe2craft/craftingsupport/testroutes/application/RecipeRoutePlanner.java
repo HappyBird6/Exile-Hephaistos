@@ -1164,7 +1164,9 @@ public final class RecipeRoutePlanner {
                   .noneMatch(m -> !m.fractured() && lowIds.contains(m.modifierId()));
       boolean repeat =
           seeking && !(capPresent && temporaryQualityCap) && OneOptionPreparation.ready(item);
-      var choices = new ArrayList<>(moves.choices(item, card, before, replayExalt));
+      var choices =
+          new ArrayList<>(
+              moves.choices(item, card, before, replayExalt, needsQuality && !capPresent));
       if (seeking) {
         // 증강물 풀에서만 얻는 목표도 같은 시작 아이템에 홈을 열고 장착한 뒤 반복할 수 있다.
         var installations =

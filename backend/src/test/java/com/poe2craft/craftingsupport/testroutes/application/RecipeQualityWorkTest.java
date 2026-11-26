@@ -353,6 +353,30 @@ class RecipeQualityWorkTest {
         .satisfies(r -> assertThat(r.steps()).isEmpty());
   }
 
+  /** 제작 한도가 하나면 새 제작 목표와 그 더미는 균열 작업이 끝난 후에만 준비한다. */
+  @Test
+  void reservesLastCraftedSlotUntilQualityWorkIsDone() {
+    var item = fixture.item(ItemState.Rarity.RARE);
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(
+                    1,
+                    Map.of(
+                        fixture.defences,
+                        List.of(new RouteCards.Source("C", "PERFECT_ESSENCE_ENHANCEMENT", null))))),
+            0);
+    var moves = new RecipeMoves(fixture.workbench);
+    assertThat(moves.choices(item, card, Map.of(), false, true))
+        .noneMatch(
+            c -> c.move().action().equals("PERFECT_ESSENCE_ENHANCEMENT") || c.followup() != null);
+    assertThat(moves.choices(item, card, Map.of(), false, false))
+        .anyMatch(
+            c ->
+                c.followup() != null
+                    && c.followup().action().equals("PERFECT_ESSENCE_ENHANCEMENT"));
+  }
+
   /** 임시 제작 접두를 지우고 다른 에센스를 쓰더라도 지정·임의 품질 작업은 다시 요구하지 않는다. */
   @Test
   void carriesQualityPastRemovalWhenAnotherCraftedModifierIsRequired() {

@@ -129,12 +129,16 @@ final class RecipeMoves {
 
   /** 목표를 아직 보유하지 않은 상태에서 사용할 직접 획득 및 필수 준비 후보를 만든다. */
   List<Choice> choices(ItemState item, RouteCards.Card card, Map<Integer, String> held) {
-    return choices(item, card, held, false);
+    return choices(item, card, held, false, false);
   }
 
   /** 고정 경로의 엑잘은 새 추천의 훼손 선호를 적용하기 전 기본·증강 추첨 후보로도 검증한다. */
   List<Choice> choices(
-      ItemState item, RouteCards.Card card, Map<Integer, String> held, boolean replayExalt) {
+      ItemState item,
+      RouteCards.Card card,
+      Map<Integer, String> held,
+      boolean replayExalt,
+      boolean reserveQualitySlot) {
     var result = new LinkedHashSet<Choice>();
     var slots = validator.slots(item);
     var pendingReveal = pendingReveal(item, card, false);
@@ -192,12 +196,18 @@ final class RecipeMoves {
             case "D", "O" ->
                 bones.computeIfAbsent(source.id(), k -> new TreeSet<>()).add(tier.getKey());
             case "C" -> {
+              long availableCrafts =
+                  AugmentCraftingRules.craftedLimit(item)
+                      - item.explicits().stream()
+                          .filter(m -> AugmentCraftingRules.crafted(m, simulator.catalog()))
+                          .count();
+              // 임시 품질 접두와 공존할 자리가 없으면 다른 제작 목표는 품질 작업 뒤에 얻는다.
+              if (reserveQualitySlot
+                  && availableCrafts <= 1
+                  && !tier.getKey().equals(QualityLimitRules.BREACH_ID)) continue;
               if (item.rarity() != ItemState.Rarity.RARE) {
                 result.addAll(rarityPreparation(target, item));
-              } else if (item.explicits().stream()
-                      .filter(m -> AugmentCraftingRules.crafted(m, simulator.catalog()))
-                      .count()
-                  >= AugmentCraftingRules.craftedLimit(item)) {
+              } else if (availableCrafts <= 0) {
                 install(result, target, item, "Astrids_Creativity");
                 for (var mod : item.explicits()) {
                   if (mod.fractured()
