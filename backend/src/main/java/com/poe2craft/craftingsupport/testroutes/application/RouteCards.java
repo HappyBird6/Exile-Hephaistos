@@ -297,10 +297,12 @@ public final class RouteCards {
       list.addAll(materialOptions.getOrDefault(d.id(), List.of()));
       boolean inPool =
           d.weight() > 0 || availablePools.values().stream().anyMatch(ids -> ids.contains(d.id()));
+      boolean otherworldly = d.tags().contains("otherworldly");
       for (var bone : DesecrationCurrency.sources(base, level, d, inPool)) {
-        boolean otherworldly = d.tags().contains("otherworldly");
-        if (bone.equals("Altered_Collarbone") == otherworldly)
-          list.add(new Source(otherworldly ? "O" : "D", bone, null));
+        if (otherworldly && bone.equals("Altered_Collarbone"))
+          list.add(new Source("O", bone, null));
+        else if (!otherworldly && bone.startsWith("Preserved_"))
+          list.add(new Source("D", bone, null));
       }
       for (var augment : availablePools.entrySet()) {
         if (augment.getValue().contains(d.id())) list.add(new Source("A", augment.getKey(), null));

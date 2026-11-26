@@ -10,6 +10,7 @@ import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.crafting.domain.DesecrationCurrency;
 import com.poe2craft.shared.crafting.domain.QualityLimitRules;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchDefinitions;
 import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.item.BasicJewel;
@@ -222,6 +223,20 @@ public final class RecipeRoutePlanner {
           || (!originalAction.isBlank()
               && !originalAction.equals(action)
               && base.equals(RecipeMoves.baseMove(new Move(originalAction))));
+    }
+
+    /** 엑잘 적중으로 기록한 목표를 바로 다음 교체 에센스의 제물로 다시 세는 경로인지 판정한다. */
+    private boolean sacrificesExaltedHit(Step previous) {
+      if (Collections.disjoint(previous.acquired(), lost)
+          || !RecipeMoves.baseMove(previous.move())
+              .action()
+              .equals(WorkbenchCurrency.EXALTED.name())) return false;
+      return WorkbenchDefinitions.active().document().currencies().stream()
+          .anyMatch(
+              c ->
+                  c.id().name().equals(action)
+                      && c.materialPolicy().kind() == WorkbenchDefinitions.MaterialKind.ESSENCE
+                      && c.materialPolicy().mode() == WorkbenchDefinitions.MaterialMode.REPLACE);
     }
 
     /** 같은 제작을 택한 상태 간에 공통인 행동과 관측 결과를 표현한다. */
@@ -1295,6 +1310,7 @@ public final class RecipeRoutePlanner {
     ordered.sort(Comparator.comparing(e -> e.getKey().acquired().isEmpty()));
     for (var child : ordered) {
       var step = child.getKey();
+      if (!path.isEmpty() && step.sacrificesExaltedHit(path.getLast())) continue;
       if (required != null
           && (!step.acquired().equals(required.acquired())
               || !step.lost().equals(required.lost())

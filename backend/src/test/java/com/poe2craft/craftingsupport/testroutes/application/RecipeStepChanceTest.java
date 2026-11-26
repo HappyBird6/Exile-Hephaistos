@@ -92,6 +92,80 @@ class RecipeStepChanceTest {
     assertThat(successful.routes().getFirst().probability()).isBetween(0.0, 1.0);
   }
 
+  /** 엑잘로 노린 목표는 바로 다음 에센스로 희생하지 않는다. 같은 제거 풀의 다른 옵션이 빠지는 확률은 그대로다. */
+  @Test
+  void fixedEssenceKeepsTheNewExaltedHitWithItsOriginalRemovalProbability() {
+    var item = fixture.item(ItemState.Rarity.RARE, "amulet:prefix:adept-s");
+    var essence = new RouteCards.Source("C", "PERFECT_ESSENCE_ENHANCEMENT", null);
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(1, Map.of(fixture.life, List.of(base))),
+                new RouteCards.Option(2, Map.of(fixture.defences, List.of(essence)))),
+            0);
+    var keep =
+        new RecipeRoutePlanner.Step(
+            essence.id(),
+            List.of("Omen_of_Sinistral_Crystallisation"),
+            List.of(2),
+            List.of(),
+            null);
+    var sacrifice =
+        new RecipeRoutePlanner.Step(keep.action(), keep.omens(), List.of(2), List.of(1), null);
+    var recover = new RecipeRoutePlanner.Step("EXALTED", List.of(), List.of(1), List.of(), null);
+    java.util.function.Predicate<ItemState> done =
+        state ->
+            state.explicits().stream()
+                .map(m -> m.modifierId())
+                .toList()
+                .containsAll(List.of(fixture.life, fixture.defences));
+    for (String action : List.of("EXALTED", "GREATER_EXALTED")) {
+      var draw =
+          new RecipeRoutePlanner.Step(
+              action,
+              List.of("Omen_of_Sinistral_Exaltation"),
+              List.of(1),
+              List.of(),
+              null,
+              null,
+              action.equals("EXALTED") ? null : "EXALTED",
+              false);
+      var retained =
+          RecipeRoutePlanner.evaluateFixed(
+              fixture.workbench, item, card, done, 1000, true, null, List.of(draw, keep));
+      var route = retained.routes().getFirst();
+      assertThat(route.steps().getLast().chance().probability()).isEqualTo(0.5);
+      assertThat(retained.states().get(route.stateIndices().getLast()).explicits())
+          .extracting(m -> m.modifierId())
+          .containsExactlyInAnyOrder(fixture.life, fixture.defences);
+      var lost =
+          RecipeRoutePlanner.evaluateFixed(
+              fixture.workbench,
+              item,
+              card,
+              done,
+              1000,
+              true,
+              null,
+              List.of(draw, sacrifice, recover));
+      assertThat(lost.routes()).isEmpty();
+    }
+    var alreadyHeld = fixture.item(ItemState.Rarity.RARE, "amulet:prefix:adept-s", fixture.life);
+    var recovered =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench,
+            alreadyHeld,
+            card,
+            done,
+            1000,
+            true,
+            null,
+            List.of(sacrifice, recover));
+    var route = recovered.routes().getFirst();
+    assertThat(route.order()).containsExactly(2, 1);
+    assertThat(route.steps().getFirst().chance().probability()).isEqualTo(0.5);
+  }
+
   /** 한 티어의 15가지 값은 획득에서 한 경계 상태다. 작은 예산에서도 전체 제왕 후보 풀의 원래 가중치를 유지한다. */
   @Test
   void aSingleBoundaryStateKeepsTheWholeTierMassWithASmallBudget() {

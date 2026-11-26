@@ -24,9 +24,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-/** 작업대의 실제 목걸이·장갑 카탈로그로 카드의 분열 고정, 여러 획득처, 제작 한도와 룬 장착을 검증한다. */
+/** 작업대의 목걸이·장갑·활 카탈로그로 카드의 분열 고정, 획득처, 제작 한도와 룬 장착을 검증한다. */
 class RouteCardsTest {
   /** 일반 최대 생명력의 원본 수치 ID다. */
   private static final String LIFE = "base_maximum_life";
@@ -265,6 +269,52 @@ class RouteCardsTest {
     assertThat(sources.stream().flatMap(List::stream).filter(s -> s.label().equals("B")))
         .isNotEmpty()
         .allMatch(s -> s.frequency() == RouteCards.Frequency.H);
+  }
+
+  /** 갉아먹힌·고대 뼈를 모두 쓸 수 있는 레벨에서 장비별 일반 공개 재료를 비교한다. */
+  private static Stream<Arguments> ordinaryRevealTargets() {
+    return Stream.of(
+        Arguments.of(
+            ItemCatalogLoader.loadDefault(), "amulet:prefix:athlete-s", "Preserved_Collarbone"),
+        Arguments.of(
+            ItemCatalogLoader.loadStocky(), "stocky-mitts:suffix:of-the-gorilla", "Preserved_Rib"),
+        Arguments.of(
+            ItemCatalogLoader.loadBow(), "crude-bow:suffix:of-the-panther", "Preserved_Jawbone"));
+  }
+
+  /** 작업대에서는 여러 등급을 쓸 수 있어도 제작지원의 일반 목표 카드에는 보존된 뼈 하나만 남는다. */
+  @ParameterizedTest(name = "{1} → {2}")
+  @MethodSource("ordinaryRevealTargets")
+  void ordinaryGoalsOfferOnlyThePreservedBone(
+      ItemCatalog original, String tierId, String preserved) {
+    var simulator = simulator(original);
+    var catalog = simulator.catalog();
+    int level = 64;
+    var start =
+        new ItemState(
+            catalog.metadata().snapshotId(),
+            catalog.base().id(),
+            level,
+            ItemState.Rarity.RARE,
+            original.base().implicitModifierId().isEmpty()
+                ? List.of()
+                : SolarAmulet.initial(catalog, level, 15).implicits(),
+            List.of(),
+            Set.of());
+    var tier = catalog.find(tierId).orElseThrow();
+    assertThat(DesecrationCurrency.sources(start.baseItemId(), level, tier, true))
+        .contains(
+            preserved,
+            preserved.replace("Preserved_", "Gnawed_"),
+            preserved.replace("Preserved_", "Ancient_"));
+    var goal = cards(simulator, start, tier.stats().getFirst().id());
+    assertThat(
+            goal.cards().stream()
+                .flatMap(card -> card.options().stream())
+                .flatMap(option -> option.tiers().getOrDefault(tierId, List.of()).stream())
+                .filter(RouteCards.Source::reveal)
+                .distinct())
+        .containsExactly(new RouteCards.Source("D", preserved, null));
   }
 
   /** 마법 목걸이에서 하위 에센스는 수동으로 사용할 수 있고 제작지원의 후보·고정 재생은 일반 등급부터 허용한다. */
