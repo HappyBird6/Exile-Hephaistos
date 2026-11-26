@@ -34,6 +34,33 @@ class RecipeQualityWorkTest {
         number, Map.of(tier, List.of(new RouteCards.Source("B", null, RouteCards.Frequency.M))));
   }
 
+  /** 희귀 빈 베이스에서 최대 품질용 더미의 방향은 어느 후속 경로에서도 징조를 요구하지 않는다. */
+  @Test
+  void freshRareUsesOnlyPlainExaltAndBreachForTheFirstQualitySlot() {
+    var found =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench,
+            fixture.item(ItemState.Rarity.RARE),
+            List.of(empty),
+            s -> true,
+            100000,
+            true,
+            40);
+    assertThat(found.routes())
+        .isNotEmpty()
+        .allSatisfy(
+            route -> {
+              var first = route.steps().getFirst();
+              var second = route.steps().get(1);
+              assertThat(first.action()).isEqualTo("EXALTED");
+              assertThat(first.dummy()).isTrue();
+              assertThat(second.action()).isEqualTo("ESSENCE_BREACH");
+              assertThat(first.omens()).isEmpty();
+              assertThat(second.omens()).isEmpty();
+              assertThat(second.chance().probability()).isOne();
+            });
+  }
+
   /** 소멸을 먼저 쓰면 나중에 뽑을 접두가 제거 후보에 섞이지 않는다. */
   @Test
   void searchOffersRemovingTheCapBeforeDrawingTheNextPrefix() {

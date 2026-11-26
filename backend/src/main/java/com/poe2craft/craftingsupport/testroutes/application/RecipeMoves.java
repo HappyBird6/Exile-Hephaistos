@@ -877,6 +877,13 @@ final class RecipeMoves {
       if (!heldGoals.contains(mod.modifierId())) expendableSides.add(side);
     }
     boolean roomForTarget = free(slots, targetSide) > 0;
+    // 제거할 수 있는 속성이 없으면 새로 붙인 한 칸만 에센스가 교체한다.
+    if (mutableSides.isEmpty() && item.desecrated().isEmpty() && roomForTarget) {
+      result.add(
+          new Choice(
+              target, new Move(WorkbenchCurrency.EXALTED.name()), true, new Move(currency.name())));
+      return;
+    }
     var safeSides =
         roomForTarget ? EnumSet.of(AffixType.PREFIX, AffixType.SUFFIX) : EnumSet.of(targetSide);
     safeSides.removeAll(protectedSides);

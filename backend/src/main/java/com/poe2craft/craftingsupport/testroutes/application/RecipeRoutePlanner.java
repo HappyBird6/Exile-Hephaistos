@@ -1224,7 +1224,17 @@ public final class RecipeRoutePlanner {
             moves.qualityPreparation(item, card, before, protectedIds, qualityCatalyst);
         // 실제 상한을 확보했을 때 작업한다. 확보 전에는 다른 목표를 먼저 얻을 수도 있다.
         if (capPresent) choices.clear();
-        choices.addAll(0, qualityChoices);
+        // 첫 카오스 준비에서 같은 엑잘을 쓰면 한 더미에서 두 후속 행동을 탐색한다.
+        var qualityAdditions = new ArrayList<>(qualityChoices);
+        qualityAdditions.removeIf(
+            q ->
+                q.followup() != null
+                    && choices.stream()
+                        .anyMatch(
+                            c ->
+                                c.purpose() == Purpose.LOW_PREPARATION
+                                    && c.move().equals(q.move())));
+        choices.addAll(0, qualityAdditions);
       }
       if (needsCleanup) {
         boolean firstChaosAvailable =
@@ -1268,6 +1278,15 @@ public final class RecipeRoutePlanner {
       }
       if (essenceSlot != null && essenceSlot.disposable())
         choices.removeIf(c -> !essenceSlot.replacements().contains(c.move()));
+      // 방금 붙인 더미만 제거 가능하면 방향 지정은 제거 후보를 줄이지 않는다.
+      if (!path.isEmpty()
+          && path.getLast().dummy()
+          && item.desecrated().isEmpty()
+          && item.explicits().stream().filter(m -> !m.fractured()).count() == 1)
+        choices.removeIf(
+            c ->
+                c.move().omens().contains(WorkbenchOmen.SINISTRAL_CRYSTALLISATION)
+                    || c.move().omens().contains(WorkbenchOmen.DEXTRAL_CRYSTALLISATION));
       trace.evaluatedChoices += choices.size();
       extend(
           item,
