@@ -59,6 +59,8 @@ final class RecipeMoves {
     LOW_PREPARATION,
     /** 균열 접두를 붙일 자리를 마련할 때 실제로 지정한 제작 옵션이 제거된 분기다. */
     QUALITY_CLEAR,
+    /** 품질 작업을 마친 뒤 임시 상한을 제거한다. 절사 카오스는 같은 사용으로 지정한 목표도 얻어야 한다. */
+    QUALITY_CAP_REMOVAL,
     LOW_CHAOS,
     LOW_EXALT,
     BONE,
@@ -105,7 +107,8 @@ final class RecipeMoves {
     if (choice.purpose() == Purpose.LOW_CHAOS
         || choice.purpose() == Purpose.LOW_EXALT
         || choice.purpose() == Purpose.LOW_REVEAL
-        || choice.purpose() == Purpose.DESECRATION) {
+        || choice.purpose() == Purpose.DESECRATION
+        || (choice.purpose() == Purpose.QUALITY_CAP_REMOVAL && choice.target() > 0)) {
       var acquired = after.get(choice.target());
       return acquired != null
           && choice.eligibleTiers().contains(acquired)
@@ -245,16 +248,7 @@ final class RecipeMoves {
     var catalog = workbench.catalog();
     var families = new HashSet<String>();
     for (var tier : option.tiers().entrySet()) {
-      boolean ordinary =
-          tier.getValue().stream()
-              .anyMatch(
-                  source ->
-                      source.frequency() != null
-                          && source.frequency() != RouteCards.Frequency.L
-                          && (source.label().equals("B")
-                              || source.label().equals("A")
-                                  && item.installedAugments().stream()
-                                      .anyMatch(a -> a.augmentId().equals(source.id()))));
+      boolean ordinary = whittlingTier(tier.getValue(), item, false);
       if (ordinary) families.addAll(catalog.find(tier.getKey()).orElseThrow().familyIds());
     }
     if (families.isEmpty()) return;
@@ -271,6 +265,20 @@ final class RecipeMoves {
           .anyMatch(m -> blockers.contains(m.modifierId())))
         add(result, option.number(), new Move(WorkbenchCurrency.CHAOS.name(), omens, null), false);
     }
+  }
+
+  /** 절사로 노릴 수 있는 일반·이미 장착한 증강물의 목표 티어인지, 목표 수치의 합산 빈도로 판정한다. */
+  private static boolean whittlingTier(
+      List<RouteCards.Source> sources, ItemState item, boolean allowLow) {
+    return sources.stream()
+        .anyMatch(
+            source ->
+                source.frequency() != null
+                    && (allowLow || source.frequency() != RouteCards.Frequency.L)
+                    && (source.label().equals("B")
+                        || source.label().equals("A")
+                            && item.installedAugments().stream()
+                                .anyMatch(a -> a.augmentId().equals(source.id()))));
   }
 
   /** 현재 미보유 목표에서 실제 공개할 수 있는 옵션을 골라, 다른 방법으로 가장 얻기 어려운 목표에 마지막 공개를 배정한다. */
@@ -644,6 +652,146 @@ final class RecipeMoves {
             .noneMatch(m -> m.modifierId().equals(QualityLimitRules.BREACH_ID))) return false;
     var limit = QualityLimitRules.describe(item, catalog);
     return limit != null && limit.maximumQuality() >= 40;
+  }
+
+  /** 품질 작업이 끝난 임시 상한을 소멸로 지우거나, 그 자리를 절사 카오스로 실제 추첨 가능한 목표로 교체한다. */
+  List<Choice> qualityCleanup(
+      ItemState item,
+      RouteCards.Card card,
+      Map<Integer, String> held,
+      boolean firstChaosAvailable) {
+    String cap = QualityLimitRules.BREACH_ID;
+    var workbench = simulator.forItem(item);
+    if (!qualityCapReady(item, workbench.catalog()) || held.containsValue(cap)) return List.of();
+    var slots = AbyssCraftingState.from(item, workbench.catalog());
+    var candidates = slots.removalCandidates(null);
+    var capSlot =
+        candidates.stream()
+            .filter(s -> s.modifier() != null && s.modifier().modifierId().equals(cap))
+            .findFirst();
+    if (capSlot.isEmpty()) return List.of();
+    var side = capSlot.get().side();
+    var result = new ArrayList<Choice>();
+    result.add(
+        new Choice(
+            0,
+            new Move(WorkbenchCurrency.ANNULMENT.name()),
+            true,
+            null,
+            Purpose.QUALITY_CAP_REMOVAL,
+            Set.of()));
+    if (candidates.stream().anyMatch(s -> s.side() != side)) {
+      var omen =
+          side == AffixType.PREFIX
+              ? WorkbenchOmen.SINISTRAL_ANNULMENT
+              : WorkbenchOmen.DEXTRAL_ANNULMENT;
+      result.add(
+          new Choice(
+              0,
+              new Move(WorkbenchCurrency.ANNULMENT, omen),
+              true,
+              null,
+              Purpose.QUALITY_CAP_REMOVAL,
+              Set.of()));
+    }
+    // 미공개 훼손 슬롯은 절사 제거에 필요한 등장 레벨을 알 수 없다. 소멸에서는 실제 한 칸으로 센다.
+    if (held.size() == card.options().size()
+        || item.desecrated().stream().anyMatch(s -> s.modifierId() == null)) return result;
+    var known = item.desecrated().isEmpty() ? item : slots.knownItem();
+    var lowFallbacks = new HashMap<Integer, Boolean>();
+    for (var omens : WhittlingRecovery.OMEN_COMBINATIONS) {
+      if (workbench.chaosRemovalCandidates(known, WorkbenchCurrency.CHAOS, omens).stream()
+          .noneMatch(m -> m.modifierId().equals(cap))) continue;
+      var pool = new HashSet<String>();
+      for (var branch : workbench.recipePlan(known, WorkbenchCurrency.CHAOS, omens).branches()) {
+        if (branch.remaining().explicits().stream().anyMatch(m -> m.modifierId().equals(cap)))
+          continue;
+        for (var candidate : branch.candidates())
+          if (candidate.weight() > 0) pool.add(candidate.id());
+      }
+      for (var option : card.options()) {
+        if (held.containsKey(option.number())) continue;
+        var eligible = new HashSet<String>();
+        for (var tier : option.tiers().entrySet()) {
+          if (!pool.contains(tier.getKey()) || !whittlingTier(tier.getValue(), item, true))
+            continue;
+          if (whittlingTier(tier.getValue(), item, false)
+              || lowFallbacks.computeIfAbsent(
+                  option.number(),
+                  unused ->
+                      !hasEarlierLowRoute(item, known, option, card, held, firstChaosAvailable)))
+            eligible.add(tier.getKey());
+        }
+        if (!eligible.isEmpty())
+          result.add(
+              new Choice(
+                  option.number(),
+                  new Move(WorkbenchCurrency.CHAOS.name(), omens, null),
+                  false,
+                  null,
+                  Purpose.QUALITY_CAP_REMOVAL,
+                  Set.copyOf(eligible)));
+      }
+    }
+    return result;
+  }
+
+  /** 같은 L 목표가 1옵션 카오스, 실제 완벽 엑잘 추첨 또는 아직 쓸 수 있는 훼손으로 가능하면 상한 절사를 미룬다. */
+  private boolean hasEarlierLowRoute(
+      ItemState item,
+      ItemState known,
+      RouteCards.Option goal,
+      RouteCards.Card card,
+      Map<Integer, String> held,
+      boolean firstChaosAvailable) {
+    var workbench = simulator.forItem(known);
+    var drawTiers = new HashSet<String>();
+    goal.tiers()
+        .forEach(
+            (id, sources) -> {
+              if (whittlingTier(sources, item, true)) drawTiers.add(id);
+            });
+    if (firstChaosAvailable) {
+      var empty =
+          RecipeStateGroups.withAffixes(
+              known,
+              ItemState.Rarity.RARE,
+              known.explicits().stream().filter(m -> m.fractured()).toList());
+      if (workbench.pool(empty, WorkbenchCurrency.CHAOS, null).stream()
+          .anyMatch(d -> d.weight() > 0 && drawTiers.contains(d.id()))) return true;
+    }
+    if (workbench.recipePlan(known, WorkbenchCurrency.PERFECT_EXALTED, Set.of()).branches().stream()
+        .flatMap(branch -> branch.candidates().stream())
+        .anyMatch(d -> d.weight() > 0 && drawTiers.contains(d.id()))) return true;
+    // 이 시점에 남은 훼손 슬롯이 있으면 이미 공개한 슬롯이다. 미공개일 때는 절사 전체가 불가능하다.
+    if (!item.desecrated().isEmpty()) return false;
+    var bones = new HashMap<String, Set<String>>();
+    goal.tiers()
+        .forEach(
+            (id, sources) -> {
+              for (var source : sources)
+                if (source.reveal())
+                  bones.computeIfAbsent(source.id(), key -> new HashSet<>()).add(id);
+            });
+    if (bones.isEmpty()) return false;
+    var protectedIds = new HashSet<String>();
+    // 임시 상한을 지우며 여는 뼈는 이 경로에서 허용한 제거 방법이 아니다.
+    protectedIds.add(QualityLimitRules.BREACH_ID);
+    for (var option : card.options()) {
+      var id = held.get(option.number());
+      if (id != null && low(option.tiers().get(id))) protectedIds.add(id);
+    }
+    return bones.entrySet().stream()
+        .anyMatch(
+            bone ->
+                !RecipeTransitions.reservableBoneTargets(
+                        item,
+                        bone.getKey(),
+                        workbench.catalog(),
+                        bone.getValue(),
+                        protectedIds,
+                        false)
+                    .isEmpty());
   }
 
   /** 실제 베이스·상한·제작 한도에서 균열 준비, 접두 획득, 품질 작업 중 다음 단계만 제공한다. */

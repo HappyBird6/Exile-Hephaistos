@@ -521,6 +521,9 @@ public final class RecipeRoutePlanner {
   private final boolean presenceOnly;
   private final Integer minimumQuality;
 
+  /** 최대 품질 접두 자체가 목표가 아니면 품질 작업을 끝낸 뒤 그 접두까지 제거한다. */
+  private final boolean temporaryQualityCap;
+
   /** 지정 기폭제는 작업대의 실제 종류·품질을 바꾸고, 미지정 작업은 경로의 달성 단계로만 기록한다. */
   private final WorkbenchCurrency qualityCatalyst;
 
@@ -587,6 +590,7 @@ public final class RecipeRoutePlanner {
     this.fixedSteps = fixedSteps;
     this.presenceOnly = presenceOnly;
     this.minimumQuality = minimumQuality;
+    temporaryQualityCap = Objects.equals(minimumQuality, 40) && !requiresQualityCap(card);
     this.qualityCatalyst = qualityCatalyst;
     this.simulator = simulator;
     slots = new ItemStateValidator(simulator.catalog());
@@ -626,7 +630,12 @@ public final class RecipeRoutePlanner {
                 .allMatch(RecipeRoutePlanner::requiresLow);
     stateGroups =
         new RecipeStateGroups(
-            simulator.catalog(), card, targets, presenceOnly, numericSourceStatIds);
+            simulator.catalog(),
+            card,
+            targets,
+            presenceOnly,
+            numericSourceStatIds,
+            temporaryQualityCap);
   }
 
   /** 모든 카드에 계산 기회를 나누고 완주 질량을 큰 순으로, 미확정 확률은 뒤에 둔다. */
@@ -695,8 +704,11 @@ public final class RecipeRoutePlanner {
               .map(m -> m.modifierId())
               .collect(java.util.stream.Collectors.toSet());
       for (int i = 0; i < cards.size(); i++)
-        if (cards.get(i).options().stream()
-            .allMatch(o -> !Collections.disjoint(ids, o.tiers().keySet())))
+        if ((!Objects.equals(minimumQuality, 40)
+                || !ids.contains(QualityLimitRules.BREACH_ID)
+                || requiresQualityCap(cards.get(i)))
+            && cards.get(i).options().stream()
+                .allMatch(o -> !Collections.disjoint(ids, o.tiers().keySet())))
           return new Result(
               List.of(new Route(i, List.of(), List.of(), 1.0, List.of())), true, List.of(), trace);
     }
@@ -708,7 +720,7 @@ public final class RecipeRoutePlanner {
     for (int i = 0; i < cards.size(); i++) {
       int share = budget / (cards.size() - i);
       var card = cards.get(i);
-      boolean canRepeat = canSeekChaos(card, start);
+      boolean canRepeat = canSeekChaos(card, start, minimumQuality);
       boolean chaosFirst = canRepeat && prefersFirstChaos(simulator, card, start);
       var modes = chaosFirst ? List.of(true) : canRepeat ? List.of(false, true) : List.of(false);
       int reserve = modes.size() == 2 ? share / 3 : 0;
@@ -820,7 +832,8 @@ public final class RecipeRoutePlanner {
   }
 
   /** 시작부터 지켜야 하는 비분열 L이 없고 새로 뽑을 일반·증강 목표가 있을 때에만 한 옵션 카오스를 준비한다. */
-  private static boolean canSeekChaos(RouteCards.Card card, ItemState start) {
+  private static boolean canSeekChaos(
+      RouteCards.Card card, ItemState start, Integer minimumQuality) {
     var held =
         start.explicits().stream()
             .map(m -> m.modifierId())
@@ -830,6 +843,10 @@ public final class RecipeRoutePlanner {
             .filter(m -> !m.fractured())
             .map(m -> m.modifierId())
             .collect(java.util.stream.Collectors.toSet());
+    // 직접 선택한 최대 품질 접두는 교체할 한 옵션으로 소비할 수 없다. 분열된 접두는 반복 중에도 유지된다.
+    if (Objects.equals(minimumQuality, 40)
+        && mutable.contains(QualityLimitRules.BREACH_ID)
+        && requiresQualityCap(card)) return false;
     boolean missing = false;
     for (var option : card.options()) {
       if (option.tiers().entrySet().stream()
@@ -916,13 +933,13 @@ public final class RecipeRoutePlanner {
     }
     var states = new LinkedHashMap<ItemState, Integer>();
     boolean explicitRepeat = selectedSteps.stream().anyMatch(Step::repeatingChaos);
-    if (explicitRepeat && !canSeekChaos(card, start))
+    if (explicitRepeat && !canSeekChaos(card, start, minimumQuality))
       return new Result(List.of(), true, List.of(), trace);
     var firstMove =
         selectedSteps.isEmpty() ? null : RecipeMoves.baseMove(selectedSteps.getFirst().move());
     boolean mayHitDuringSetup =
         !explicitRepeat
-            && canSeekChaos(card, start)
+            && canSeekChaos(card, start, minimumQuality)
             && firstMove != null
             && OneOptionPreparation.choices(start, 0, simulator, Set.of()).stream()
                 .anyMatch(c -> firstMove.equals(c.move()));
@@ -967,12 +984,12 @@ public final class RecipeRoutePlanner {
     return new Result(List.of(), verified, List.of(), trace);
   }
 
-  /** 같은 관측 경로의 상태 및 검색 우선순위. 보유 목표가 많은 경로부터 검사하고 동점이면 짧은 경로·등록 순서를 따른다. */
-  private record Pending(List<Step> path, Distribution current, int heldCount, long sequence) {}
+  /** 보유 옵션·품질 작업의 진행도가 높은 경로부터 검사하고, 동점이면 짧은 경로·등록 순서를 따른다. */
+  private record Pending(List<Step> path, Distribution current, int progress, long sequence) {}
 
   private void explore(List<Step> initialPath, Distribution initial) {
     var order =
-        Comparator.comparingInt(Pending::heldCount)
+        Comparator.comparingInt(Pending::progress)
             .reversed()
             .thenComparingInt(p -> p.path().size())
             .thenComparingLong(Pending::sequence);
@@ -1010,10 +1027,7 @@ public final class RecipeRoutePlanner {
                   seekFirstChaos,
                   depth,
                   next.path().stream().map(Step::action).toList(),
-                  next.path().isEmpty()
-                      ? held(next.current().masses.values().iterator().next().witness.state())
-                          .size()
-                      : next.heldCount(),
+                  held(next.current().masses.values().iterator().next().witness.state()).size(),
                   trace.evaluatedChoices - choicesBefore,
                   trace.budgetSkippedStates - skippedBefore);
         }
@@ -1099,13 +1113,25 @@ public final class RecipeRoutePlanner {
         before.values().removeIf(essenceSlot.modifierId()::equals);
       boolean needsQuality =
           qualityWork && !abstractQualityDone && !qualityHeld(item, qualityCatalyst);
-      if (!needsQuality && before.size() == allowed.size() && matchesGoal.test(item)) {
+      boolean capPresent = qualityWork && hasQualityCap(item);
+      boolean needsCleanup = temporaryQualityCap && !needsQuality && capPresent;
+      boolean preserveCap = capPresent && !temporaryQualityCap;
+      boolean mutableGoalCap =
+          preserveCap
+              && item.explicits().stream()
+                  .anyMatch(
+                      m -> !m.fractured() && m.modifierId().equals(QualityLimitRules.BREACH_ID));
+      if (!needsQuality
+          && !needsCleanup
+          && before.size() == allowed.size()
+          && matchesGoal.test(item)) {
         // 계획이 새로 연 슬롯을 끝까지 사용하지 않은 가지는 완주한 훼손 제작이 아니다.
         if (!path.isEmpty()
             && item.desecrated().stream().anyMatch(s -> s.modifierId() == null)
             && path.stream().anyMatch(s -> boneIds.contains(s.action()))) continue;
         var mass = entry.getValue();
         if (seekFirstChaos
+            && !mutableGoalCap
             && !hadChaos
             && item.explicits().stream()
                 .noneMatch(m -> !m.fractured() && lowIds.contains(m.modifierId()))) continue;
@@ -1129,12 +1155,15 @@ public final class RecipeRoutePlanner {
       }
       var protectedIds = new HashSet<>(before.values());
       protectedIds.retainAll(lowIds);
+      if (preserveCap) protectedIds.add(QualityLimitRules.BREACH_ID);
       boolean seeking =
           seekFirstChaos
+              && !mutableGoalCap
               && !hadChaos
               && item.explicits().stream()
                   .noneMatch(m -> !m.fractured() && lowIds.contains(m.modifierId()));
-      boolean repeat = seeking && OneOptionPreparation.ready(item);
+      boolean repeat =
+          seeking && !(capPresent && temporaryQualityCap) && OneOptionPreparation.ready(item);
       var choices = new ArrayList<>(moves.choices(item, card, before, replayExalt));
       if (seeking) {
         // 증강물 풀에서만 얻는 목표도 같은 시작 아이템에 홈을 열고 장착한 뒤 반복할 수 있다.
@@ -1186,26 +1215,31 @@ public final class RecipeRoutePlanner {
       if (required != null
           && required.repeatingChaos()
               != (repeat
+                  && selected.omens().isEmpty()
                   && RecipeMoves.baseMove(selected)
                       .action()
                       .equals(WorkbenchCurrency.CHAOS.name()))) continue;
-      if (needsQuality
-          && (!seeking
-              || item.explicits().stream()
-                  .anyMatch(m -> m.modifierId().equals(QualityLimitRules.BREACH_ID)))) {
-        // 품질 상한은 희귀에서 붙인다. 이때 실제 목표도 얻을 수 있는 진화·제왕·승급 에센스의 의도를 보존한다.
-        var upgradeEssences = new HashSet<String>();
-        if (item.rarity() == ItemState.Rarity.MAGIC)
-          for (var option : card.options())
-            for (var sources : option.tiers().values())
-              for (var source : sources)
-                if (source.label().equals("E")) upgradeEssences.add(source.id());
-        choices.removeIf(
-            c ->
-                c.purpose() != Purpose.DIRECT_UPGRADE
-                    && !upgradeEssences.contains(c.move().action()));
-        choices.addAll(moves.qualityPreparation(item, card, before, protectedIds, qualityCatalyst));
+      if (needsQuality && (!seeking || capPresent || item.rarity() == ItemState.Rarity.RARE)) {
+        var qualityChoices =
+            moves.qualityPreparation(item, card, before, protectedIds, qualityCatalyst);
+        // 실제 상한을 확보했을 때 작업한다. 확보 전에는 다른 목표를 먼저 얻을 수도 있다.
+        if (capPresent) choices.clear();
+        choices.addAll(0, qualityChoices);
       }
+      if (needsCleanup) {
+        boolean firstChaosAvailable =
+            !hadChaos
+                && !lowIds.isEmpty()
+                && canSeekChaos(card, item, minimumQuality)
+                && (OneOptionPreparation.ready(item) || prefersFirstChaos(simulator, card, item));
+        var cleanup = moves.qualityCleanup(item, card, before, firstChaosAvailable);
+        var cleanupMoves =
+            cleanup.stream().map(Choice::move).collect(java.util.stream.Collectors.toSet());
+        // 같은 소멸 또는 절사를 일반 준비로도 평가하면 다른 옵션을 지운 결과까지 정리 성공에 합쳐진다.
+        choices.removeIf(c -> cleanupMoves.contains(c.move()));
+        choices.addAll(0, cleanup);
+      }
+      if (needsQuality || needsCleanup) choices.removeIf(c -> c.move().action().equals("REVEAL"));
       if (!seeking
           && !qualityWork
           && minimumQuality != null
@@ -1216,7 +1250,11 @@ public final class RecipeRoutePlanner {
             choices.add(new Choice(0, new Move(currency.name()), true, null));
         }
       }
-      if (!seeking && !needsQuality && before.size() == allowed.size()) {
+      if (!seeking
+          && !needsQuality
+          && !needsCleanup
+          && before.size() == allowed.size()
+          && !matchesGoal.test(item)) {
         // 한 번 재굴림한 뒤에도 미달이면 이 실행열은 실패다. 무한 재시도의 성공률을 가정하지 않는다.
         choices.addAll(RecipeMoves.rarityPreparation(0, item));
         if (!presenceOnly
@@ -1418,7 +1456,17 @@ public final class RecipeRoutePlanner {
       }
       var next = new ArrayList<>(path);
       next.add(step);
-      int progress = held(child.getValue().masses.keySet().iterator().next().item()).size();
+      var nextItem = child.getValue().masses.keySet().iterator().next().item();
+      int progress = held(nextItem).size();
+      if (qualityWork) {
+        boolean done =
+            abstractQualityDone
+                || step.action().equals(RecipeMoves.QUALITY_WORK)
+                || qualityHeld(nextItem, qualityCatalyst);
+        // 품질 도달 및 임시 접두 제거도 진행한 단계다. 동일 보유 수의 다른 제작이 예산을 먼저 소진하지 않도록 한다.
+        if (done) progress += temporaryQualityCap && !hasQualityCap(nextItem) ? 2 : 1;
+        else if (hasQualityCap(nextItem)) progress++;
+      }
       pending.add(new Pending(List.copyOf(next), child.getValue(), progress, nextSequence++));
     }
   }
@@ -1462,6 +1510,23 @@ public final class RecipeRoutePlanner {
         }
         var item = parent.prior.witness.state;
         var heldGoals = Set.copyOf(parent.held.values());
+        String requiredRemoval =
+            parent.intents.stream().anyMatch(c -> c.purpose() == Purpose.QUALITY_CAP_REMOVAL)
+                ? QualityLimitRules.BREACH_ID
+                : null;
+        // 품질 정리 절사의 재시도에도 이 부모에서 노리기로 한 B/A 티어와 희소 목표 제한을 적용한다.
+        var retryInterests = interests;
+        if (requiredRemoval != null) {
+          retryInterests = new LinkedHashMap<>();
+          for (var interest : interests.entrySet()) {
+            var tiers = new HashSet<String>();
+            for (var intent : parent.intents)
+              if (interest.getKey().acquired().contains(intent.target()))
+                tiers.addAll(intent.eligibleTiers());
+            tiers.retainAll(interest.getValue());
+            retryInterests.put(interest.getKey(), tiers);
+          }
+        }
         var raw = WhittlingOutcomeLaw.calculate(simulator, item, move, omenBudget.left);
         omenBudget.left -= Math.max(1, raw.outcomes().size());
         if (!raw.complete()) interests.keySet().forEach(s -> result.get(s).complete = false);
@@ -1486,9 +1551,10 @@ public final class RecipeRoutePlanner {
                   false,
                   false);
           String added = WhittlingOutcomeLaw.addedId(item, outcome);
-          for (var interest : interests.entrySet()) {
+          for (var interest : retryInterests.entrySet()) {
             var counts = result.get(interest.getKey());
             if (interest.getKey().equals(observed)) counts.success = counts.success.plus(mass);
+            else if (interest.getValue().isEmpty()) counts.failure = counts.failure.plus(mass);
             else
               switch (WhittlingRecovery.classifyMiss(
                   simulator,
@@ -1498,7 +1564,8 @@ public final class RecipeRoutePlanner {
                   added,
                   outcome.removedModifierIds(),
                   heldGoals,
-                  interest.getValue())) {
+                  interest.getValue(),
+                  requiredRemoval)) {
                 case RECOVERABLE -> counts.recoverable = counts.recoverable.plus(mass);
                 case FAILURE -> counts.failure = counts.failure.plus(mass);
                 case UNKNOWN -> counts.complete = false;
@@ -1591,6 +1658,7 @@ public final class RecipeRoutePlanner {
             && Collections.disjoint(intent.eligibleTiers(), selectedTargets)) continue;
         boolean targetRepeat =
             repeat
+                && entry.getKey().omens().isEmpty()
                 && chaosLimit == null
                 && RecipeMoves.baseMove(entry.getKey())
                     .action()
@@ -1631,7 +1699,9 @@ public final class RecipeRoutePlanner {
       boolean replayHit = move.equals(selected) && !selectedTargets.isEmpty();
       var preparation = preparations.computeIfAbsent(trial, k -> new PreparationMass());
       Law law;
-      if (repeat && RecipeMoves.baseMove(move).action().equals(WorkbenchCurrency.CHAOS.name())) {
+      if (repeat
+          && move.omens().isEmpty()
+          && RecipeMoves.baseMove(move).action().equals(WorkbenchCurrency.CHAOS.name())) {
         // 무제한은 지정 번호가 나올 때만 멈추고, 구형 유한 반복은 원래의 동순위 적중 규칙을 보존한다.
         // 시작 M/H의 제거는 관측 결과 lost에 남긴다. 새 목표 전에 기존 M/H가 빠져도 반복은 이어진다.
         var interested = new HashSet<String>();
@@ -1667,6 +1737,8 @@ public final class RecipeRoutePlanner {
         }
         if (intents.stream().allMatch(c -> c.purpose() == Purpose.LOW_EXALT)
             || intents.stream()
+                .allMatch(c -> c.purpose() == Purpose.QUALITY_CAP_REMOVAL && c.target() > 0)
+            || intents.stream()
                 .anyMatch(
                     c ->
                         c.purpose() == Purpose.BONE
@@ -1674,6 +1746,7 @@ public final class RecipeRoutePlanner {
                             || c.purpose() == Purpose.DESECRATION)) {
           interested = new HashSet<>();
           for (var intent : intents) interested.addAll(intent.eligibleTiers());
+          if (replayHit) interested.retainAll(selectedTargets);
         }
         if (intents.stream().anyMatch(c -> c.purpose() == Purpose.BONE))
           law =
@@ -2017,6 +2090,17 @@ public final class RecipeRoutePlanner {
     if (!RecipeMoves.permits(
         choice, before, held(outcome.state()), outcome.removedModifierIds(), lowIds)) return false;
 
+    boolean removedCap = outcome.removedModifierIds().contains(QualityLimitRules.BREACH_ID);
+    if (choice.purpose() == Purpose.QUALITY_CAP_REMOVAL) {
+      if (!removedCap) return false;
+      if (choice.target() == 0) return true;
+      return outcome.state().explicits().stream()
+          .anyMatch(
+              m ->
+                  choice.eligibleTiers().contains(m.modifierId())
+                      && !before.containsValue(m.modifierId()));
+    }
+    if (Objects.equals(minimumQuality, 40) && removedCap) return false;
     if (choice.purpose() == Purpose.QUALITY_CLEAR) {
       return !Collections.disjoint(choice.eligibleTiers(), outcome.removedModifierIds());
     }
@@ -2080,6 +2164,18 @@ public final class RecipeRoutePlanner {
     return choice.target() == 0
         ? Set.of(QualityLimitRules.BREACH_ID)
         : allowed.get(choice.target());
+  }
+
+  /** 해당 카드가 최대 품질 접두 자체를 최종 명시 옵션으로 요구하는지 확인한다. */
+  private static boolean requiresQualityCap(RouteCards.Card card) {
+    return card.options().stream()
+        .anyMatch(o -> o.tiers().containsKey(QualityLimitRules.BREACH_ID));
+  }
+
+  /** 추상 품질 작업과 무관하게 실제 아이템에 남은 균열 접두를 검사한다. */
+  private static boolean hasQualityCap(ItemState item) {
+    return item.explicits().stream()
+        .anyMatch(m -> m.modifierId().equals(QualityLimitRules.BREACH_ID));
   }
 
   /** 실제 시작·후속 아이템이 요청한 종류로 품질 40을 이미 달성했는지 판정한다. */

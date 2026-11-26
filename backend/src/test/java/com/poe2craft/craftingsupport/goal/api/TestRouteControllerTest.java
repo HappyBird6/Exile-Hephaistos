@@ -19,6 +19,7 @@ import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
 import com.poe2craft.craftingsupport.testroutes.application.TestRouteService;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
+import com.poe2craft.shared.crafting.domain.QualityLimitRules;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.ids.GameIdCodec;
 import com.poe2craft.shared.ids.GameIdMappings;
@@ -523,6 +524,146 @@ class TestRouteControllerTest {
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.cards").isEmpty())
         .andExpect(jsonPath("$.complete").value(true));
+  }
+
+  /** 지정 기폭제로 품질 40에 도달했고 균열의 상한 접두만 남은 희귀 아이템이다. */
+  private ObjectNode alreadyAtFortyWithCap() {
+    var input = qualityOnlyRequest();
+    ((ObjectNode) input.at("/goal/general")).put("quality", 40);
+    input.put("qualityCatalyst", "Flesh_Catalyst");
+    var item = (ObjectNode) input.path("item");
+    item.putObject("catalystQuality").put("type", "FLESH").put("amount", 40);
+    item.putArray("explicits")
+        .add(
+            json.valueToTree(
+                new ModifierInstance(
+                    QualityLimitRules.BREACH_ID,
+                    Map.of(QualityLimitRules.STAT_ID, 20L),
+                    false,
+                    true)));
+    return input;
+  }
+
+  /** 빈 목표 카드에서는 이미 품질 40이어도 남은 접두를 제거하며, 그 전에 끝낸 등급 재생은 성공하지 않는다. */
+  @Test
+  void qualityOnlyAtFortyStillRemovesTheCapInSearchAndGradeReplay() throws Exception {
+    var input = alreadyAtFortyWithCap();
+    var result = response(request(input));
+    assertThat(result.at("/cards/0/options")).isEmpty();
+    assertThat(result.required("routes"))
+        .isNotEmpty()
+        .allSatisfy(
+            route -> {
+              assertThat(route.required("steps"))
+                  .singleElement()
+                  .satisfies(
+                      step -> assertThat(step.required("action").asText()).isEqualTo("ANNULMENT"));
+              var state =
+                  result.required("states").required(route.at("/stateIndices/0").intValue());
+              assertThat(state.required("explicits")).isEmpty();
+              assertThat(state.path("catalystQuality"))
+                  .isEqualTo(input.at("/item/catalystQuality"));
+            });
+
+    input.put("cardIndex", 0);
+    var steps = input.putArray("steps");
+    grade(input).andExpect(status().isOk()).andExpect(jsonPath("$.routes").isEmpty());
+    var cleanup = steps.addObject();
+    cleanup.put("action", "ANNULMENT");
+    cleanup.putArray("omens");
+    cleanup.putArray("acquired");
+    cleanup.putArray("lost");
+    grade(input)
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.routes[0].steps[0].action").value("ANNULMENT"))
+        .andExpect(jsonPath("$.routes[0].probability").value(1d));
+  }
+
+  /** 품질 40과 현재 상한 접두를 모두 유지하도록 요청한다. */
+  private ObjectNode explicitlyTargetedCapAtForty() {
+    var input = alreadyAtFortyWithCap();
+    var row =
+        new GoalFilter.Entry(
+            "cap",
+            GoalCatalogIndex.id("explicit", QualityLimitRules.STAT_ID),
+            "percent",
+            new GoalFilter.Range(null, null),
+            null,
+            false);
+    ((ObjectNode) input.path("goal"))
+        .withArray("groups")
+        .add(
+            json.valueToTree(
+                new GoalFilter.Group("keep-cap", GoalFilter.Type.AND, false, null, List.of(row))));
+    return input;
+  }
+
+  /** 상한 옵션 자체를 명시적으로 선택한 목표에서는 이미 보유한 상한과 품질 40을 그대로 인정한다. */
+  @Test
+  void explicitlyTargetedCapMayRemainAtForty() throws Exception {
+    var input = explicitlyTargetedCapAtForty();
+    request(input)
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.routes[0].steps").isEmpty())
+        .andExpect(jsonPath("$.routes[0].probability").value(1d));
+    input.put("cardIndex", 0);
+    input.putArray("steps");
+    grade(input)
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.routes[0].steps").isEmpty())
+        .andExpect(jsonPath("$.routes[0].probability").value(1d));
+  }
+
+  /** 현재 API 요청이 성공하면 JSON 응답을 읽는다. */
+  private JsonNode response(ResultActions call) throws Exception {
+    return json.readTree(
+        call.andExpect(status().isOk()).andReturn().getResponse().getContentAsByteArray());
+  }
+
+  /** 직접 목표인 상한을 보존하면서 희귀 정신력 접두를 얻는 경로를 검색하고 같은 단계로 다시 계산한다. */
+  @Test
+  void searchAndReplayKeepTheExplicitCapWhileAcquiringSpirit47() throws Exception {
+    var input = explicitlyTargetedCapAtForty();
+    var spirit =
+        new GoalFilter.Entry(
+            "spirit",
+            GoalCatalogIndex.id("explicit", SolarAmulet.SPIRIT_STAT),
+            "flat",
+            new GoalFilter.Range(BigDecimal.valueOf(47), null),
+            null,
+            false);
+    ((ObjectNode) input.at("/goal/groups/0")).withArray("entries").add(json.valueToTree(spirit));
+    var result = response(request(input));
+    assertThat(result.required("routes")).isNotEmpty();
+    var route = result.at("/routes/0");
+    assertThat(route.required("steps"))
+        .extracting(step -> step.required("action").textValue())
+        .containsExactly("Preserved_Collarbone", "REVEAL");
+    var cap = json.treeToValue(input.at("/item/explicits/0"), ModifierInstance.class);
+    var frames = route.required("stateIndices");
+    for (var frame : frames) {
+      var state = result.required("states").required(frame.intValue());
+      assertThat(json.treeToValue(state.required("explicits"), ModifierInstance[].class))
+          .contains(cap);
+      assertThat(state.path("catalystQuality")).isEqualTo(input.at("/item/catalystQuality"));
+    }
+    var end = result.required("states").required(frames.required(frames.size() - 1).intValue());
+    assertThat(end.required("explicits"))
+        .anyMatch(m -> m.path("values").path(SolarAmulet.SPIRIT_STAT).asInt() >= 47);
+    assertThat(route.required("probability").doubleValue()).isPositive();
+
+    input.set("cardIndex", route.required("cardIndex"));
+    var steps = input.putArray("steps");
+    for (var step : route.required("steps"))
+      steps.add(((ObjectNode) step).deepCopy().retain("action", "omens", "acquired", "lost"));
+    var replay = response(grade(input));
+    assertThat(replay.at("/routes/0/probability")).isEqualTo(route.required("probability"));
+    var replayFrames = replay.at("/routes/0/stateIndices");
+    assertThat(
+            replay
+                .required("states")
+                .required(replayFrames.required(replayFrames.size() - 1).intValue()))
+        .isEqualTo(end);
   }
 
   /** 기폭제 한 번으로 달성할 수 있는 품질 목표를 만든다. */

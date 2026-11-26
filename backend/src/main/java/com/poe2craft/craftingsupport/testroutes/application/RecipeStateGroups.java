@@ -17,13 +17,14 @@ final class RecipeStateGroups {
   /** 각 동등 클래스의 실제 대표 옵션을 상태 비교에만 사용한다. */
   private final Map<String, ModifierInstance> representatives = new HashMap<>();
 
-  /** 수치 목표·수치 보정·품질 한도·제작 옵션·주얼 특수 규칙 등 구체적 옵션을 읽는 경우에는 그대로 둔다. */
+  /** 수치·품질·제작 한도에 관여하는 옵션은 그대로 둔다. 임시 품질 상한을 절사할 때는 L 목표에도 제거 레벨 차이를 보존한다. */
   RecipeStateGroups(
       ItemCatalog catalog,
       RouteCards.Card card,
       Set<String> targets,
       boolean presenceOnly,
-      Set<String> numericStats) {
+      Set<String> numericStats,
+      boolean qualityWhittling) {
     if ((!presenceOnly && numericStats == null)
         || BasicJewel.supportedCrafting(catalog.base().id())) return;
     boolean hasWhittling =
@@ -33,7 +34,7 @@ final class RecipeStateGroups {
             .anyMatch(
                 s ->
                     (s.label().equals("B") || s.label().equals("A"))
-                        && s.frequency() != RouteCards.Frequency.L);
+                        && (qualityWhittling || s.frequency() != RouteCards.Frequency.L));
     var first = new HashMap<Equivalent, ModifierInstance>();
     for (var d : catalog.modifiers().values()) {
       if (d.layer() != ModifierDefinition.Layer.EXPLICIT

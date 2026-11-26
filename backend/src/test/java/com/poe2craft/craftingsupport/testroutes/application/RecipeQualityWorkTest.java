@@ -1,11 +1,14 @@
 package com.poe2craft.craftingsupport.testroutes.application;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 import com.poe2craft.shared.crafting.domain.QualityLimitRules;
 import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
+import com.poe2craft.shared.crafting.domain.WorkbenchOmen;
 import com.poe2craft.shared.item.CatalystQuality;
 import com.poe2craft.shared.item.ItemState;
+import com.poe2craft.shared.item.ModifierDefinition;
 import com.poe2craft.shared.item.ModifierInstance;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +28,198 @@ class RecipeQualityWorkTest {
     return new RecipeRoutePlanner.Step(action, List.of(), List.of(acquired), List.of(), null);
   }
 
-  /** 준비 중에는 실제로 붙은 상한을 확인하고 임의 작업은 아이템에 가상의 타입을 추가하지 않는다. */
+  /** 지정한 일반 티어 자체를 목표로 두어 뼈·에센스가 같은 행의 별도 후보를 만들지 않도록 한다. */
+  private RouteCards.Option baseOption(int number, String tier) {
+    return new RouteCards.Option(
+        number, Map.of(tier, List.of(new RouteCards.Source("B", null, RouteCards.Frequency.M))));
+  }
+
+  /** 소멸을 먼저 쓰면 나중에 뽑을 접두가 제거 후보에 섞이지 않는다. */
+  @Test
+  void searchOffersRemovingTheCapBeforeDrawingTheNextPrefix() {
+    var start = fixture.item(ItemState.Rarity.RARE, QualityLimitRules.BREACH_ID);
+    var card = new RouteCards.Card(List.of(baseOption(1, fixture.life)), 0);
+    var found =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench, start, List.of(card), s -> true, 12000, true, 40);
+    assertThat(found.routes())
+        .anySatisfy(
+            route -> {
+              assertThat(route.steps())
+                  .extracting(RecipeRoutePlanner.Step::action)
+                  .containsExactly("QUALITY_40", "ANNULMENT", "EXALTED");
+              var cleanup = route.steps().get(1);
+              assertThat(cleanup.omens()).isEmpty();
+              assertThat(cleanup.chance().probability()).isOne();
+              assertThat(found.states().get(route.stateIndices().get(1)).explicits()).isEmpty();
+              assertThat(found.states().get(route.stateIndices().getLast()).explicits())
+                  .extracting(ModifierInstance::modifierId)
+                  .containsExactly(fixture.life);
+            });
+  }
+
+  /** 단독 소멸은 전체 제거 후보를 세고, 접미가 있어서 제거 확률이 실제로 달라지는 경우에만 좌측 징조를 추가한다. */
+  @Test
+  void annulmentUsesTheActualCapRemovalPoolAndOnlyMeaningfulDirection() {
+    for (boolean hasSuffix : List.of(false, true)) {
+      var start =
+          hasSuffix
+              ? fixture.item(
+                  ItemState.Rarity.RARE,
+                  QualityLimitRules.BREACH_ID,
+                  fixture.life,
+                  fixture.strength)
+              : fixture.item(ItemState.Rarity.RARE, QualityLimitRules.BREACH_ID, fixture.life);
+      var found =
+          RecipeRoutePlanner.calculate(
+              fixture.workbench, start, List.of(empty), s -> true, 3000, true, 40);
+      var rates = new java.util.HashMap<List<String>, Double>();
+      for (var route : found.routes()) {
+        assertThat(route.steps())
+            .extracting(RecipeRoutePlanner.Step::action)
+            .containsExactly("QUALITY_40", "ANNULMENT");
+        var annul = route.steps().getLast();
+        assertThat(annul.chance().probability()).isEqualTo(route.probability());
+        rates.put(annul.omens(), annul.chance().probability());
+        assertThat(found.states().get(route.stateIndices().getLast()).explicits())
+            .containsExactlyElementsOf(
+                start.explicits().stream()
+                    .filter(m -> !m.modifierId().equals(QualityLimitRules.BREACH_ID))
+                    .toList());
+      }
+      var expected =
+          hasSuffix
+              ? Map.of(
+                  List.<String>of(), 1.0 / 3, List.of(WorkbenchOmen.SINISTRAL_ANNULMENT.id()), 0.5)
+              : Map.of(List.<String>of(), 0.5);
+      assertThat(rates).isEqualTo(expected);
+    }
+  }
+
+  /** 접두를 얻은 뒤에는 절사로 상한을 제거하면서 남은 접미를 직접 얻는 분기만 성공이다. */
+  @Test
+  void delayedWhittlingSplitsTheActualCapReplacementIntoThreeOutcomes() {
+    String cold = "amulet:suffix:of-the-yeti";
+    var start = fixture.item(ItemState.Rarity.RARE, QualityLimitRules.BREACH_ID);
+    var card = new RouteCards.Card(List.of(baseOption(1, fixture.life), baseOption(2, cold)), 0);
+    var whittle =
+        new RecipeRoutePlanner.Step(
+            "CHAOS", List.of(WorkbenchOmen.WHITTLING.id()), List.of(2), List.of(), null);
+    var replay =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench,
+            start,
+            card,
+            s -> true,
+            12000,
+            true,
+            40,
+            List.of(step("QUALITY_40"), step("EXALTED", 1), whittle));
+    var route = replay.routes().getFirst();
+    var afterFirst = replay.states().get(route.stateIndices().get(1));
+    assertThat(afterFirst.explicits())
+        .extracting(ModifierInstance::modifierId)
+        .containsExactlyInAnyOrder(QualityLimitRules.BREACH_ID, fixture.life);
+    var plan =
+        fixture.workbench.recipePlan(
+            afterFirst, WorkbenchCurrency.CHAOS, Set.of(WorkbenchOmen.WHITTLING));
+    assertThat(plan.branches()).hasSize(1);
+    var removal = plan.branches().getFirst();
+    assertThat(removal.remaining().explicits())
+        .extracting(ModifierInstance::modifierId)
+        .containsExactly(fixture.life);
+    var level = fixture.catalog.find(fixture.life).orElseThrow().requiredItemLevel();
+    long total = 0, hit = 0, failed = 0;
+    for (var candidate : removal.candidates()) {
+      total += candidate.weight();
+      if (candidate.id().equals(cold)) hit += candidate.weight();
+      // 새 접미는 접미 말소로 다시 제거 가능하다. 새 접두는 생명력보다 요구 레벨이 높으면 다시 지울 수 없다.
+      else if (candidate.affixType() == ModifierDefinition.AffixType.PREFIX
+          && candidate.requiredItemLevel() > level) failed += candidate.weight();
+    }
+    assertThat(hit).isPositive();
+    assertThat(failed).isPositive();
+    assertThat(total - hit - failed).isPositive();
+    var step = route.steps().getLast();
+    var odds = step.omenOutcomes();
+    assertThat(odds.success().probability()).isCloseTo((double) hit / total, offset(1e-14));
+    assertThat(odds.failure().probability()).isCloseTo((double) failed / total, offset(1e-14));
+    assertThat(odds.recoverable().probability())
+        .isCloseTo((double) (total - hit - failed) / total, offset(1e-14));
+    assertThat(step.chance()).isEqualTo(odds.success());
+    assertThat(route.probability())
+        .isCloseTo(route.steps().get(1).chance().probability() * hit / total, offset(1e-14));
+    assertThat(replay.states().get(route.stateIndices().getLast()).explicits())
+        .extracting(ModifierInstance::modifierId)
+        .containsExactlyInAnyOrder(fixture.life, cold);
+    var found =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench, start, List.of(card), s -> true, 12000, true, 40);
+    assertThat(found.routes())
+        .anySatisfy(
+            candidate -> {
+              assertThat(candidate.steps())
+                  .extracting(RecipeRoutePlanner.Step::action)
+                  .containsExactly("QUALITY_40", "EXALTED", "CHAOS");
+              assertThat(candidate.steps().get(1).acquired()).containsExactly(1);
+              assertThat(candidate.steps().getLast().omens())
+                  .containsExactly(WorkbenchOmen.WHITTLING.id());
+              assertThat(candidate.steps().getLast().acquired()).containsExactly(2);
+              assertThat(candidate.steps().getLast().omenOutcomes()).isEqualTo(odds);
+            });
+  }
+
+  /** 동률인 비목표 접두가 지워진 자리에서 목표를 뽑으면 여전히 상한이 남아 이번 절사 성공에 포함되지 않는다. */
+  @Test
+  void hittingTheTargetWithoutReplacingTheCapIsNotCleanupSuccess() {
+    var start =
+        fixture.item(ItemState.Rarity.RARE, QualityLimitRules.BREACH_ID, "amulet:prefix:hale");
+    String target = "amulet:suffix:of-the-yeti";
+    var card = new RouteCards.Card(List.of(baseOption(1, target)), 0);
+    var whittle =
+        new RecipeRoutePlanner.Step(
+            "CHAOS", List.of(WorkbenchOmen.WHITTLING.id()), List.of(1), List.of(), null);
+    var replay =
+        RecipeRoutePlanner.evaluateFixed(
+            fixture.workbench,
+            start,
+            card,
+            s -> true,
+            5000,
+            true,
+            40,
+            List.of(step("QUALITY_40"), whittle));
+    var plan =
+        fixture.workbench.recipePlan(
+            start, WorkbenchCurrency.CHAOS, Set.of(WorkbenchOmen.WHITTLING));
+    assertThat(plan.branches()).hasSize(2);
+    var removeCap =
+        plan.branches().stream()
+            .filter(
+                b ->
+                    b.remaining().explicits().stream()
+                        .noneMatch(m -> m.modifierId().equals(QualityLimitRules.BREACH_ID)))
+            .findFirst()
+            .orElseThrow();
+    assertThat(plan.branches())
+        .allSatisfy(
+            b -> assertThat(b.candidates()).extracting(ModifierDefinition::id).contains(target));
+    long total = removeCap.candidates().stream().mapToLong(ModifierDefinition::weight).sum();
+    long hit =
+        removeCap.candidates().stream()
+            .filter(d -> d.id().equals(target))
+            .mapToLong(ModifierDefinition::weight)
+            .sum();
+    var route = replay.routes().getFirst();
+    var odds = route.steps().getLast().omenOutcomes();
+    assertThat(odds.success().probability()).isCloseTo((double) hit / (2 * total), offset(1e-14));
+    assertThat(route.probability()).isEqualTo(odds.success().probability());
+    assertThat(replay.states().get(route.stateIndices().getLast()).explicits())
+        .extracting(ModifierInstance::modifierId)
+        .containsExactlyInAnyOrder("amulet:prefix:hale", target);
+  }
+
+  /** 임시 상한만 남은 경우 품질 작업 직후 단독 소멸이 확정이며 임의 작업은 가상 타입을 추가하지 않는다. */
   @Test
   void obtainsCapAndCompletesUntypedWorkOnce() {
     var start = fixture.item(ItemState.Rarity.RARE, fixture.strength);
@@ -33,32 +227,36 @@ class RecipeQualityWorkTest {
         RecipeRoutePlanner.calculate(
             fixture.workbench, start, List.of(empty), s -> true, 3000, true, 40);
     assertThat(found.routes())
+        .isNotEmpty()
+        .allSatisfy(
+            route ->
+                assertThat(found.states().get(route.stateIndices().getLast()).explicits())
+                    .extracting(ModifierInstance::modifierId)
+                    .doesNotContain(QualityLimitRules.BREACH_ID))
         .anySatisfy(
             route -> {
               assertThat(route.steps())
                   .extracting(RecipeRoutePlanner.Step::action)
-                  .containsExactly("ESSENCE_BREACH", "QUALITY_40");
+                  .containsExactly("ESSENCE_BREACH", "QUALITY_40", "ANNULMENT");
               assertThat(route.probability()).isEqualTo(1.0);
               var capped = found.states().get(route.stateIndices().getFirst());
               assertThat(capped.explicits())
                   .extracting(ModifierInstance::modifierId)
                   .contains(QualityLimitRules.BREACH_ID);
-              assertThat(found.states().get(route.stateIndices().getLast())).isEqualTo(capped);
+              assertThat(found.states().get(route.stateIndices().get(1))).isEqualTo(capped);
+              assertThat(found.states().get(route.stateIndices().getLast()).catalystQuality())
+                  .isNull();
+              assertThat(route.steps().getLast().omens()).isEmpty();
               assertThat(route.steps().getLast().chance().probability()).isEqualTo(1.0);
               assertThat(route.steps().getLast().expectedUses()).isNull();
             });
-    assertThat(
-            RecipeRoutePlanner.evaluateFixed(
-                    fixture.workbench,
-                    start,
-                    empty,
-                    s -> true,
-                    1000,
-                    true,
-                    40,
-                    List.of(step("QUALITY_40")))
-                .routes())
-        .isEmpty();
+    for (var incomplete :
+        List.of(List.of(step("QUALITY_40")), List.of(step("ESSENCE_BREACH"), step("QUALITY_40"))))
+      assertThat(
+              RecipeRoutePlanner.evaluateFixed(
+                      fixture.workbench, start, empty, s -> true, 1000, true, 40, incomplete)
+                  .routes())
+          .isEmpty();
   }
 
   /** 상한이 사라진 품질 40을 같은 종류로는 재작업하지 않으며 새 종류는 접두를 다시 붙여야 한다. */
@@ -100,14 +298,15 @@ class RecipeQualityWorkTest {
             1000,
             true,
             40,
-            List.of(step("ESSENCE_BREACH"), step(catalyst.name())),
+            List.of(step("ESSENCE_BREACH"), step(catalyst.name()), step("ANNULMENT")),
             null,
             catalyst);
     assertThat(result.routes())
         .singleElement()
         .satisfies(
             route -> {
-              assertThat(route.steps().getLast().expectedUses()).isEqualTo(40.0);
+              assertThat(route.steps().get(1).expectedUses()).isEqualTo(40.0);
+              assertThat(result.states().get(route.stateIndices().getLast()).explicits()).isEmpty();
               assertThat(result.states().get(route.stateIndices().getLast()).catalystQuality())
                   .isEqualTo(new CatalystQuality(CatalystQuality.Type.FLESH, 40));
             });
@@ -188,7 +387,9 @@ class RecipeQualityWorkTest {
                 List.of(),
                 List.of(),
                 null),
-            step("QUALITY_40"));
+            step("QUALITY_40"),
+            new RecipeRoutePlanner.Step(
+                "ANNULMENT", List.of("Omen_of_Sinistral_Annulment"), List.of(), List.of(), null));
     var result =
         RecipeRoutePlanner.evaluateFixed(
             fixture.workbench, start, card, s -> true, 2000, true, 40, steps);
@@ -200,7 +401,7 @@ class RecipeQualityWorkTest {
               assertThat(r.probability()).isEqualTo(1.0);
               assertThat(result.states().get(r.stateIndices().getLast()).explicits())
                   .extracting(ModifierInstance::modifierId)
-                  .containsExactlyInAnyOrder(cold, QualityLimitRules.BREACH_ID);
+                  .containsExactly(cold);
             });
   }
 
@@ -271,7 +472,8 @@ class RecipeQualityWorkTest {
                 List.of(),
                 List.of(),
                 null),
-            step("QUALITY_40"));
+            step("QUALITY_40"),
+            step("ANNULMENT"));
     var result =
         RecipeRoutePlanner.evaluateFixed(
             fixture.workbench, start, card, s -> true, 4000, true, 40, steps);
@@ -279,12 +481,13 @@ class RecipeQualityWorkTest {
         .singleElement()
         .satisfies(
             r -> {
-              assertThat(r.probability()).isEqualTo(1.0);
+              assertThat(r.probability()).isEqualTo(0.5);
+              assertThat(r.steps().getLast().chance().probability()).isEqualTo(0.5);
               assertThat(r.lucky()).isFalse();
               assertThat(r.order()).isEmpty();
               assertThat(result.states().get(r.stateIndices().getLast()).explicits())
                   .extracting(ModifierInstance::modifierId)
-                  .containsExactlyInAnyOrder(spirit, QualityLimitRules.BREACH_ID);
+                  .containsExactly(spirit);
             });
   }
 }

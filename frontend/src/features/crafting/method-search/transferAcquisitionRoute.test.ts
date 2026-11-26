@@ -471,6 +471,19 @@ it.each([true, false])(
         ? { type: 'FLESH' as const, amount: 40 }
         : null,
     }
+    const prices = {
+      league: 'Test',
+      updatedAt: '2026-11-09T00:00:00Z',
+      exaltedPerDivine: 100,
+      prices: {
+        'Flesh Catalyst': { name: 'Flesh Catalyst', divine: 0.02, exalted: 2 },
+        'Orb of Annulment': {
+          name: 'Orb of Annulment',
+          divine: 0.03,
+          exalted: 3,
+        },
+      },
+    }
     const route = {
       cardIndex: 0,
       order: [],
@@ -524,7 +537,20 @@ it.each([true, false])(
         expect(copy.frames[2]?.state.catalystQuality ?? null).toEqual(
           specified ? { type: 'FLESH', amount: 40 } : null,
         )
-        const first = extractSessionNotation(copy, 2).steps[0]
+        const [first, cleanup] = extractSessionNotation(copy, 2).steps
+        expect(copy.frames[1]?.state.explicits).toEqual(capped.explicits)
+        expect(copy.frames[2]?.state.explicits).toEqual([])
+        expect(cleanup).toMatchObject({
+          frameIndex: 2,
+          currencyId: 'Orb_of_Annulment',
+          consumedOmenIds: [],
+          uses: 1,
+        })
+        expect(craftingCost(copy, 1, prices).exalted).toBe(specified ? 80 : 0)
+        expect(craftingCost(copy, 2, prices)).toMatchObject({
+          exalted: specified ? 83 : 3,
+          incomplete: false,
+        })
         if (specified)
           expect(first).toMatchObject({
             currencyId: 'Flesh_Catalyst',

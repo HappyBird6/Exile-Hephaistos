@@ -43,6 +43,21 @@ final class WhittlingRecovery {
       Set<String> removedIds,
       Set<String> protectedIds,
       Set<String> targetIds) {
+    return classifyMiss(
+        simulator, currency, omens, after, addedId, removedIds, protectedIds, targetIds, null);
+  }
+
+  /** 제거할 옵션을 지정했는데 동률로 다른 옵션이 지워졌다면, 남은 지정 옵션을 실제로 교체할 수 있어야 복구 가능하다. */
+  static Kind classifyMiss(
+      WorkbenchSimulator simulator,
+      WorkbenchCurrency currency,
+      Set<WorkbenchOmen> omens,
+      ItemState after,
+      String addedId,
+      Set<String> removedIds,
+      Set<String> protectedIds,
+      Set<String> targetIds,
+      String requiredRemoval) {
     if (currency.baseAction() != CraftingAction.CHAOS || !OMEN_COMBINATIONS.contains(omens))
       return Kind.UNKNOWN;
     if (!Collections.disjoint(removedIds, protectedIds) || protectedIds.contains(addedId))
@@ -57,16 +72,20 @@ final class WhittlingRecovery {
         after.desecrated().isEmpty()
             ? after
             : AbyssCraftingState.from(after, workbench.catalog()).knownItem();
+    String retryRemoval =
+        requiredRemoval != null && !removedIds.contains(requiredRemoval)
+            ? requiredRemoval
+            : addedId;
     boolean uncertain = false;
     for (var retryOmens : OMEN_COMBINATIONS) {
-      // 새 옵션이 최저 요구 레벨 후보가 아니면 이 조합의 모든 교체 풀을 다시 만들 필요가 없다.
+      // 제거할 옵션이 최저 요구 레벨 후보가 아니면 이 조합의 모든 교체 풀을 다시 만들 필요가 없다.
       if (workbench.chaosRemovalCandidates(known, currency, retryOmens).stream()
-          .noneMatch(m -> m.modifierId().equals(addedId))) continue;
+          .noneMatch(m -> m.modifierId().equals(retryRemoval))) continue;
       var plan = workbench.recipePlan(known, currency, retryOmens);
       if (plan.status() == AutomaticCraftingPlan.Status.UNSUPPORTED) uncertain = true;
       for (var branch : plan.branches()) {
-        if (branch.remaining().explicits().stream().anyMatch(m -> m.modifierId().equals(addedId)))
-          continue;
+        if (branch.remaining().explicits().stream()
+            .anyMatch(m -> m.modifierId().equals(retryRemoval))) continue;
         if (branch.candidates().stream()
             .anyMatch(d -> d.weight() > 0 && targetIds.contains(d.id()))) return Kind.RECOVERABLE;
       }

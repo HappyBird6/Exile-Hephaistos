@@ -28,11 +28,17 @@ class RecipeStateGroupsTest {
         new RouteCards.Card(
             List.of(new RouteCards.Option(1, Map.of(fixture.defences, List.of(craft)))), 0);
     var writing =
-        new RecipeStateGroups(fixture.catalog, crafted, Set.of(fixture.defences), true, Set.of());
+        new RecipeStateGroups(
+            fixture.catalog, crafted, Set.of(fixture.defences), true, Set.of(), false);
     assertThat(writing.key(lower)).isEqualTo(writing.key(upper));
     var numeric =
         new RecipeStateGroups(
-            fixture.catalog, crafted, Set.of(fixture.defences), false, Set.of("base_maximum_life"));
+            fixture.catalog,
+            crafted,
+            Set.of(fixture.defences),
+            false,
+            Set.of("base_maximum_life"),
+            false);
     assertThat(numeric.key(lower)).isNotEqualTo(numeric.key(upper));
     var fracture = new ModifierInstance(fixture.life, lower.explicits().getFirst().values(), true);
     var original = RecipeStateGroups.withAffixes(lower, lower.rarity(), List.of(fracture));
@@ -42,8 +48,22 @@ class RecipeStateGroupsTest {
         new RouteCards.Card(
             List.of(new RouteCards.Option(1, Map.of(fixture.strength, List.of(draw)))), 0);
     var chaos =
-        new RecipeStateGroups(fixture.catalog, target, Set.of(fixture.strength), true, Set.of());
+        new RecipeStateGroups(
+            fixture.catalog, target, Set.of(fixture.strength), true, Set.of(), false);
     assertThat(chaos.key(lower)).isNotEqualTo(chaos.key(upper));
+  }
+
+  /** 남은 목표가 L뿐이어도 품질 상한을 절사할 수 있으면 다른 접두의 최저 레벨 동률을 구분해야 한다. */
+  @Test
+  void qualityWhittlingRetainsRemovalLevelsForALowTarget() {
+    var draw = new RouteCards.Source("B", null, RouteCards.Frequency.L);
+    var card =
+        new RouteCards.Card(
+            List.of(new RouteCards.Option(1, Map.of(fixture.strength, List.of(draw)))), 0);
+    var quality =
+        new RecipeStateGroups(
+            fixture.catalog, card, Set.of(fixture.strength), true, Set.of(), true);
+    assertThat(quality.key(lower)).isNotEqualTo(quality.key(upper));
   }
 
   /** 카오스 주문 레벨이 +7로 고정된 지팡이와 +5~6인 지팡이는 Divine 사용 가능 여부가 다르다. */
@@ -71,7 +91,7 @@ class RecipeStateGroupsTest {
     var variable = RecipeStateGroups.withAffixes(fixed, fixed.rarity(), List.of(variableMod));
     var groups =
         new RecipeStateGroups(
-            catalog, new RouteCards.Card(List.of(), 0), Set.of(), false, Set.of());
+            catalog, new RouteCards.Card(List.of(), 0), Set.of(), false, Set.of(), false);
     assertThat(workbench.availability(fixed, WorkbenchCurrency.DIVINE, Set.of()).available())
         .isFalse();
     assertThat(workbench.availability(variable, WorkbenchCurrency.DIVINE, Set.of()).available())
