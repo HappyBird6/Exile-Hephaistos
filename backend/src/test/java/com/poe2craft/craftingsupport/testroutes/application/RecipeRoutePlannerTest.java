@@ -39,6 +39,50 @@ class RecipeRoutePlannerTest {
     return ids.contains(life) && ids.contains(def);
   }
 
+  /** 엑잘의 가용 방향 또는 절사의 실제 제거 풀이 같을 때만 추가 방향 징조를 생략한다. */
+  @Test
+  void keepsOnlyOmensThatChangeTheDrawOrWhittlingRemoval() {
+    String cold = "amulet:suffix:of-the-seal";
+    var start =
+        fixture.item(
+            ItemState.Rarity.RARE,
+            "amulet:prefix:countess",
+            def,
+            "amulet:prefix:adept-s",
+            "amulet:suffix:of-the-overseer");
+    var card =
+        new RouteCards.Card(
+            List.of(
+                new RouteCards.Option(
+                    1,
+                    Map.of(
+                        cold, List.of(new RouteCards.Source("B", null, RouteCards.Frequency.M))))),
+            0);
+    var result =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench,
+            start,
+            List.of(card),
+            item -> item.explicits().stream().anyMatch(m -> m.modifierId().equals(cold)),
+            100000,
+            true,
+            null);
+    var steps =
+        result.routes().stream()
+            .filter(r -> r.steps().size() == 1)
+            .map(r -> r.steps().getFirst())
+            .toList();
+    assertThat(steps)
+        .filteredOn(s -> s.action().equals("EXALTED"))
+        .singleElement()
+        .satisfies(s -> assertThat(s.omens()).isEmpty());
+    assertThat(steps)
+        .filteredOn(s -> s.action().equals("CHAOS"))
+        .extracting(RecipeRoutePlanner.Step::omens)
+        .containsExactlyInAnyOrder(
+            List.of("Omen_of_Whittling"), List.of("Omen_of_Dextral_Erasure", "Omen_of_Whittling"));
+  }
+
   /** 양쪽이 열려 있고 접두만 목표이면 좌측 강령술로 확정하는 경로만 반환한다. */
   @Test
   void usesAPrefixNecromancyOmenOnTheBone() {

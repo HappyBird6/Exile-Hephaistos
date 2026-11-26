@@ -1055,6 +1055,9 @@ public final class RecipeRoutePlanner {
     var children = new LinkedHashMap<Step, Distribution>();
     var preparations = new HashMap<Trial, PreparationMass>();
     var omenParents = new LinkedHashMap<Move, List<OmenParent>>();
+    var equivalentDirections = new HashMap<Move, Integer>();
+    int evaluatedParents = 0;
+    Boolean directCapRemoval = null;
     var divine = new DivineRepeatEstimate();
     boolean atFixedEnd = fixedSteps != null && path.size() == fixedSteps.size();
     var required = fixedSteps == null || atFixedEnd ? null : fixedSteps.get(path.size());
@@ -1244,11 +1247,34 @@ public final class RecipeRoutePlanner {
                 && !lowIds.isEmpty()
                 && canSeekChaos(card, item, minimumQuality)
                 && (OneOptionPreparation.ready(item) || prefersFirstChaos(simulator, card, item));
-        var cleanup = moves.qualityCleanup(item, card, before, firstChaosAvailable);
+        if (directCapRemoval == null) {
+          var side =
+              simulator.catalog().find(QualityLimitRules.BREACH_ID).orElseThrow().affixType();
+          directCapRemoval =
+              fixedSteps == null
+                  && current.masses.values().stream()
+                      .map(m -> m.witness.state())
+                      .filter(RecipeRoutePlanner::hasQualityCap)
+                      .anyMatch(
+                          state ->
+                              !AbyssCraftingState.from(state, simulator.catalog())
+                                  .removalCandidates(
+                                      side == AffixType.PREFIX
+                                          ? AffixType.SUFFIX
+                                          : AffixType.PREFIX)
+                                  .isEmpty());
+        }
+        var cleanup =
+            moves.qualityCleanup(item, card, before, firstChaosAvailable, directCapRemoval);
         var cleanupMoves =
             cleanup.stream().map(Choice::move).collect(java.util.stream.Collectors.toSet());
         // 같은 소멸 또는 절사를 일반 준비로도 평가하면 다른 옵션을 지운 결과까지 정리 성공에 합쳐진다.
         choices.removeIf(c -> cleanupMoves.contains(c.move()));
+        if (directCapRemoval)
+          cleanup =
+              cleanup.stream()
+                  .filter(c -> !c.move().equals(new Move(WorkbenchCurrency.ANNULMENT.name())))
+                  .toList();
         choices.addAll(0, cleanup);
       }
       if (needsQuality || needsCleanup) choices.removeIf(c -> c.move().action().equals("REVEAL"));
@@ -1289,6 +1315,7 @@ public final class RecipeRoutePlanner {
             c ->
                 c.move().omens().contains(WorkbenchOmen.SINISTRAL_CRYSTALLISATION)
                     || c.move().omens().contains(WorkbenchOmen.DEXTRAL_CRYSTALLISATION));
+      evaluatedParents++;
       trace.evaluatedChoices += choices.size();
       extend(
           item,
@@ -1301,6 +1328,7 @@ public final class RecipeRoutePlanner {
           children,
           preparations,
           omenParents,
+          equivalentDirections,
           divine,
           selected,
           selectedTargets,
@@ -1362,6 +1390,13 @@ public final class RecipeRoutePlanner {
               representative.lucky));
     }
     // 유한 예산이어도 긴 반복 분기만 우선하지 않도록 직접 획득한 후보를 준비 후보보다 먼저 본다.
+    // 한 단계의 모든 부모 상태에서 동등한 경우에만 비싼 행동을 제거한다.
+    if (!skippedStates && current.complete && !equivalentDirections.isEmpty()) {
+      int parents = evaluatedParents;
+      children
+          .keySet()
+          .removeIf(step -> equivalentDirections.getOrDefault(step.move(), 0) == parents);
+    }
     var omenChances =
         measureWhittling(
             children, omenParents, required, liveMass, current.complete && !skippedStates);
@@ -1656,6 +1691,7 @@ public final class RecipeRoutePlanner {
       Map<Step, Distribution> children,
       Map<Trial, PreparationMass> preparations,
       Map<Move, List<OmenParent>> omenParents,
+      Map<Move, Integer> equivalentDirections,
       DivineRepeatEstimate divine,
       Move selected,
       Set<String> selectedTargets,
@@ -1801,6 +1837,29 @@ public final class RecipeRoutePlanner {
           if (law.outcomes().stream().anyMatch(o -> reaches(c, before, o, protectedIds)))
             safeTargets.add(c.target());
         }
+      }
+    }
+    if (selected == null) {
+      for (var entry : trials.entrySet()) {
+        var trial = entry.getKey();
+        var move = trial.move();
+        var cheaper = move.withoutDirection();
+        if (cheaper == move) continue;
+        var simpler = new Trial(cheaper, trial.target());
+        var law = laws.get(trial);
+        // 제거 후보·전이 질량뿐 아니라 준비 목적과 다음 화폐까지 일치해야 중복이다.
+        var simplerChoices = trials.getOrDefault(simpler, List.of());
+        boolean same =
+            law != null
+                && law.complete()
+                && law.equals(laws.get(simpler))
+                && (previousSlot == null
+                    || previousSlot.replacements().contains(move)
+                        == previousSlot.replacements().contains(cheaper))
+                && entry.getValue().size() == simplerChoices.size()
+                && entry.getValue().stream()
+                    .allMatch(c -> simplerChoices.contains(c.withMove(cheaper)));
+        if (same) equivalentDirections.merge(move, 1, Integer::sum);
       }
     }
     for (var entry : laws.entrySet()) {

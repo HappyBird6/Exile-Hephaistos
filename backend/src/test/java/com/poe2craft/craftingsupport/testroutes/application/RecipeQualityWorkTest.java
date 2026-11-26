@@ -61,6 +61,24 @@ class RecipeQualityWorkTest {
             });
   }
 
+  /** 품질 작업 전에 유일한 제작 접두를 치우는 소멸에는 좌측 징조가 필요 없다. */
+  @Test
+  void clearsTheOnlyCraftedAffixWithoutADirectionalOmen() {
+    var start = fixture.item(ItemState.Rarity.RARE, fixture.defences);
+    var result =
+        RecipeRoutePlanner.calculate(
+            fixture.workbench, start, List.of(empty), item -> true, 100000, true, 40);
+    assertThat(result.routes())
+        .isNotEmpty()
+        .allSatisfy(
+            route -> {
+              var clear = route.steps().getFirst();
+              assertThat(clear.action()).isEqualTo("ANNULMENT");
+              assertThat(clear.omens()).isEmpty();
+              assertThat(clear.chance().probability()).isOne();
+            });
+  }
+
   /** 소멸을 먼저 쓰면 나중에 뽑을 접두가 제거 후보에 섞이지 않는다. */
   @Test
   void searchOffersRemovingTheCapBeforeDrawingTheNextPrefix() {
@@ -116,8 +134,7 @@ class RecipeQualityWorkTest {
       }
       var expected =
           hasSuffix
-              ? Map.of(
-                  List.<String>of(), 1.0 / 3, List.of(WorkbenchOmen.SINISTRAL_ANNULMENT.id()), 0.5)
+              ? Map.of(List.of(WorkbenchOmen.SINISTRAL_ANNULMENT.id()), 0.5)
               : Map.of(List.<String>of(), 0.5);
       assertThat(rates).isEqualTo(expected);
     }

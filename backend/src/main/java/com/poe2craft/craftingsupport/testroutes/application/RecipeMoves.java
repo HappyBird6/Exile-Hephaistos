@@ -22,6 +22,14 @@ final class RecipeMoves {
       this(action, omens, socketIndex, null);
     }
 
+    /** 방향 징조만 제거하여 비교할 화폐 조합을 만든다. 절사 등 다른 징조는 유지한다. */
+    Move withoutDirection() {
+      if (omens.stream().noneMatch(o -> o.affix() != null)) return this;
+      var simpler = EnumSet.copyOf(omens);
+      simpler.removeIf(o -> o.affix() != null);
+      return new Move(action, Set.copyOf(simpler), socketIndex, boneOmen);
+    }
+
     /** 작업대의 뼈 전용 징조와 일반 화폐 징조를 동일한 기록 형식으로 반환한다. */
     List<String> omenIds() {
       return boneOmen == null
@@ -78,6 +86,11 @@ final class RecipeMoves {
       Set<String> eligibleTiers) {
     Choice(int target, Move move, boolean preparation, Move followup) {
       this(target, move, preparation, followup, Purpose.ORDINARY, Set.of());
+    }
+
+    /** 같은 준비 목적·티어·후속 행동을 가진 다른 징조 조합과 비교한다. */
+    Choice withMove(Move other) {
+      return new Choice(target, other, preparation, followup, purpose, eligibleTiers);
     }
 
     /** 교체 가능 옵션 하나로 시작하기 위한 준비 중 우연한 획득을 구분한다. */
@@ -681,7 +694,8 @@ final class RecipeMoves {
       ItemState item,
       RouteCards.Card card,
       Map<Integer, String> held,
-      boolean firstChaosAvailable) {
+      boolean firstChaosAvailable,
+      boolean directCapRemoval) {
     String cap = QualityLimitRules.BREACH_ID;
     var workbench = simulator.forItem(item);
     if (!qualityCapReady(item, workbench.catalog()) || held.containsValue(cap)) return List.of();
@@ -702,7 +716,7 @@ final class RecipeMoves {
             null,
             Purpose.QUALITY_CAP_REMOVAL,
             Set.of()));
-    if (candidates.stream().anyMatch(s -> s.side() != side)) {
+    if (directCapRemoval || candidates.stream().anyMatch(s -> s.side() != side)) {
       var omen =
           side == AffixType.PREFIX
               ? WorkbenchOmen.SINISTRAL_ANNULMENT
