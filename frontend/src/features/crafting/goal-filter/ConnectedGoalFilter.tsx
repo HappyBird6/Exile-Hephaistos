@@ -15,6 +15,8 @@ import {
 import { workspaceMessages } from '../method-search/workspaceMessages'
 import { useQuery } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
+import { SupportPresets } from './SupportPresets'
+import type { PresetEditor } from './supportPresetStorage'
 import { useStore } from 'zustand'
 import { concreteInitial } from '../workbenchApi'
 import type { ConcreteItem } from '../workbenchApi'
@@ -61,6 +63,7 @@ export function ConnectedGoalFilter({
   savedRequestGoal,
   allowQualityWork = true,
   testQuality,
+  presets,
   language,
   onSearchGoalChange,
   onResetGoal,
@@ -76,6 +79,7 @@ export function ConnectedGoalFilter({
   compact?: boolean
   allowQualityWork?: boolean
   testQuality?: TestQualityEditor | undefined
+  presets?: PresetEditor | undefined
   onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: (snapshot: SearchGoalSnapshot) => void
 }) {
@@ -233,6 +237,7 @@ export function ConnectedGoalFilter({
         activeOmens={activeOmens}
         maxMillis={maxMillis}
         testQuality={testQuality}
+        presets={presets}
         allowQualityWork={allowQualityWork}
         compact={compact}
       />
@@ -250,6 +255,7 @@ function ConnectedEditor({
   compact,
   allowQualityWork,
   testQuality,
+  presets,
   onSearchGoalChange,
   onResetGoal,
 }: {
@@ -266,6 +272,7 @@ function ConnectedEditor({
   compact: boolean
   allowQualityWork: boolean
   testQuality?: TestQualityEditor | undefined
+  presets?: PresetEditor | undefined
   onResetGoal?: (() => void) | undefined
   onSearchGoalChange?: ((snapshot: SearchGoalSnapshot) => void) | undefined
 }) {
@@ -309,6 +316,7 @@ function ConnectedEditor({
   const currentCatalog = useGoalFilterCatalog(adapter, context)
   const [resetGeneration, setResetGeneration] = useState(0)
   const [inputReady, setInputReady] = useState(false)
+  const [invalidNumber, setInvalidNumber] = useState(false)
   useEffect(() => {
     const catalog = currentCatalog.data
     onSearchGoalChange?.({
@@ -402,6 +410,7 @@ function ConnectedEditor({
         }
         key={resetGeneration}
         onSearchReadinessChange={setInputReady}
+        onInvalidInputChange={presets ? setInvalidNumber : undefined}
         presentStatIds={presentNumericStats(
           item,
           currentCatalog.data ?? initialCatalog,
@@ -415,6 +424,33 @@ function ConnectedEditor({
         allowQualityWork={allowQualityWork}
         compact={compact}
       />
+      {presets && (
+        <SupportPresets
+          locale={locale}
+          goal={goal}
+          start={
+            invalidNumber || goal.general.baseItemId !== context.baseItemId
+              ? null
+              : presets.start
+          }
+          onLoad={(preset) => {
+            const before = editor.getState().revision
+            return presets.restore(preset, (saved) => {
+              if (editor.getState().revision !== before)
+                throw new Error('Goal changed')
+              setInputReady(false)
+              editor.setState((state) => ({
+                goal: structuredClone(saved),
+                revision: state.revision + 1,
+                collapsedByGroupId: {},
+                presentedTypes: {},
+              }))
+              setStorageFailed(!saveSupport(storageKey, saved))
+              setResetGeneration((n) => n + 1)
+            })
+          }}
+        />
+      )}
     </div>
   )
 }

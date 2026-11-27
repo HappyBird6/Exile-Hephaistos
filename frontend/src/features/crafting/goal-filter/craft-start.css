@@ -534,3 +534,21 @@
   flex: none;
   white-space: nowrap;
 }
+
+.support-presets {
+  min-width: 0;
+  margin: 0.75rem 0 0;
+  border: 1px solid #3e3a30;
+  padding: 0.5rem;
+}
+.support-presets > div {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-block: 0.25rem;
+}
+.support-presets :is(input, select) {
+  flex: 1 1 9rem;
+  min-width: 0;
+  max-width: 100%;
+}

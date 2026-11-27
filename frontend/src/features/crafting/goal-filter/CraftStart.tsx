@@ -3,6 +3,8 @@ import { SupportToolbarContext } from '../supportToolbar'
 import { supportLayoutMessages } from '../supportLayoutMessages'
 import { resetMessages } from './resetMessages'
 import { hasActiveTotalGoal } from './types'
+import { currentPresetGoal, type PresetEditor } from './supportPresetStorage'
+import { accountScope } from '../../account/auth'
 import { restoredStart } from './savedStart'
 import { readSupport, saveSupport } from '../method-search/supportStorage'
 import { canonical } from '../path-tree/validation'
@@ -384,6 +386,62 @@ export function CraftStart({
       if (version === revision.current) setReloadingCatalog(false)
     }
   }
+  const restorePresetStart: PresetEditor['restore'] = async (
+    preset,
+    applyGoal,
+  ) => {
+    const { start } = preset
+    const base = inventory.data?.bases.find((b) => b[0] === start.base)
+    if (!base || !inventory.data) throw new Error('Unavailable base')
+    const version = revision.current
+    const owner = accountScope()
+    const previous = editor.getState()
+    const { snapshotId, baseItemId, itemLevel } = start.item
+    const context = { snapshotId, baseItemId, itemLevel }
+    const [initial, catalog] = await Promise.all([
+      client.fetchQuery(startInitialQuery(base[0], inventory.data.generation)),
+      client.fetchQuery({
+        queryKey: ['goalFilter', httpGoalFilterAdapter.id, 'catalog', context],
+        queryFn: ({ signal }) => httpGoalFilterAdapter.catalog(context, signal),
+        staleTime: 0,
+        retry: false,
+      }),
+    ])
+    const current = editor.getState()
+    if (
+      version !== revision.current ||
+      current.item !== previous.item ||
+      current.searchRequest !== previous.searchRequest ||
+      current.testQualityChoice !== previous.testQualityChoice ||
+      owner !== accountScope() ||
+      startItemIssues(initial, start.item).length
+    )
+      throw new Error('Unavailable preset')
+    const restoredGoal = currentPresetGoal(preset, catalog, locale)
+    const card = startCard(base, start.item, initial.modifiers)
+    applyGoal(restoredGoal)
+    cancel()
+    update({
+      base: start.base,
+      item: start.item,
+      text: start.text,
+      levelEdited: start.levelEdited,
+      rulesetIdentity: initial.rulesetIdentity,
+      testQualityChoice: start.testQualityChoice,
+      card,
+      issue: '',
+      started: false,
+      editing: true,
+      root: null,
+      rootItem: null,
+      rootDefinitions: null,
+      searchGoal: null,
+      abstractQuality40: false,
+      abstractQuality: 0,
+    })
+    persist()
+  }
+
   function resetStart() {
     if (!selected) return
     const item = {
@@ -460,7 +518,13 @@ export function CraftStart({
       })
     }
   }, [selected, editor])
-  useEffect(() => () => request.current?.abort(), [])
+  useEffect(
+    () => () => {
+      revision.current++
+      request.current?.abort()
+    },
+    [],
+  )
   useEffect(() => {
     if (!active) {
       revision.current++
@@ -1130,6 +1194,30 @@ export function CraftStart({
                         : storagePrefix + 'goal'
                     }
                     testQuality={testQuality}
+                    presets={
+                      TestResults
+                        ? {
+                            start:
+                              currentRules &&
+                              draft.item &&
+                              draft.rulesetIdentity &&
+                              !checking &&
+                              !levelConflict &&
+                              !stateIssues.length &&
+                              !draft.issue
+                                ? {
+                                    base: draft.base,
+                                    item: draft.item,
+                                    text: draft.text,
+                                    levelEdited: draft.levelEdited,
+                                    rulesetIdentity: draft.rulesetIdentity,
+                                    testQualityChoice: draft.testQualityChoice,
+                                  }
+                                : null,
+                            restore: restorePresetStart,
+                          }
+                        : undefined
+                    }
                     savedRequestGoal={
                       draft.searchRequest &&
                       (TestResults ||

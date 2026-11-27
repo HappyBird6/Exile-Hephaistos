@@ -106,6 +106,7 @@ export function GoalFilterPanel({
   recommendationGoal,
   onInputEdit,
   onSearchReadinessChange,
+  onInvalidInputChange,
   presentStatIds = new Set<string>(),
   compact = false,
   headerActions,
@@ -122,6 +123,7 @@ export function GoalFilterPanel({
   onEvaluate?: (goal: GoalFilter) => void
   onInputEdit?: () => void
   onSearchReadinessChange?: (ready: boolean) => void
+  onInvalidInputChange?: ((invalid: boolean) => void) | undefined
   evaluationPending?: boolean
   presentStatIds?: ReadonlySet<string>
   evaluationAvailable?: boolean
@@ -213,6 +215,9 @@ export function GoalFilterPanel({
   useEffect(() => {
     onSearchReadinessChange?.(searchReady)
   }, [searchReady, onSearchReadinessChange])
+  useEffect(() => {
+    onInvalidInputChange?.(invalidNumber)
+  }, [invalidNumber, onInvalidInputChange])
   const [search, setSearch] = useState('')
   const [searchOpen, setSearchOpen] = useState(false)
   const [activeStat, setActiveStat] = useState(0)
