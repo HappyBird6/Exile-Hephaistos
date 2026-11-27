@@ -209,6 +209,7 @@ class TestRouteControllerTest {
         .andExpect(jsonPath("$.routes[0].steps[0].action").value("GREATER_EXALTED"))
         .andExpect(jsonPath("$.routes[0].steps[0].originalAction").doesNotExist())
         .andExpect(jsonPath("$.routes[0].steps[0].chance.probability").isNumber())
+        .andExpect(jsonPath("$.routes[0].steps[0].reachChance.probability").isNumber())
         .andExpect(jsonPath("$.routes[0].stateIndices.length()").value(1));
     step.put("originalAction", "CHAOS");
     grade(input).andExpect(status().isBadRequest());
@@ -381,7 +382,9 @@ class TestRouteControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.routes.length()").value(1))
             .andExpect(jsonPath("$.routes[0].steps[0].chance.probability").value(1d))
+            .andExpect(jsonPath("$.routes[0].steps[0].reachChance.probability").value(1d))
             .andExpect(jsonPath("$.routes[0].steps[1].chance.probability").value(1d / 15d))
+            .andExpect(jsonPath("$.routes[0].steps[1].reachChance.probability").value(1d))
             .andExpect(jsonPath("$.routes[0].steps[1].expectedUses").value(15d))
             .andReturn()
             .getResponse();

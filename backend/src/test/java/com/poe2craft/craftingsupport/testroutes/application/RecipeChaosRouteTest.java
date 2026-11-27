@@ -440,6 +440,9 @@ class RecipeChaosRouteTest {
         .satisfies(
             route -> {
               assertThat(route.lucky()).isTrue();
+              assertThat(route.steps())
+                  .extracting(RecipeRoutePlanner.Step::lucky)
+                  .containsExactly(true, false);
               assertThat(route.probability()).isEqualTo(0.25);
               assertThat(route.steps().getFirst().dummy()).isFalse();
               assertThat(route.steps().getFirst().chance().probability()).isEqualTo(0.25);
@@ -629,6 +632,7 @@ class RecipeChaosRouteTest {
       boolean firstNumber = step.repeatTarget() == 1;
       assertThat(step.expectedUses()).isEqualTo(firstNumber ? 2d : 6d);
       assertThat(path.probability()).isCloseTo(firstNumber ? 1.0 / 3 : 1.0, offset(1e-12));
+      assertThat(step.reachChance().probability()).isEqualTo(path.probability());
       var replay =
           RecipeRoutePlanner.evaluateFixed(
               bench, start, options, goal, 18000, true, null, List.of(step));
@@ -779,6 +783,7 @@ class RecipeChaosRouteTest {
             r -> {
               var first = r.steps().getFirst();
               assertThat(first.chance().probability()).isCloseTo(1.0 / 2000, offset(1e-15));
+              assertThat(first.reachChance().probability()).isCloseTo(cumulative, offset(1e-14));
               assertThat(first.expectedUses()).isCloseTo(2000 * cumulative, offset(1e-10));
               assertThat(r.probability()).isCloseTo(cumulative, offset(1e-14));
             });

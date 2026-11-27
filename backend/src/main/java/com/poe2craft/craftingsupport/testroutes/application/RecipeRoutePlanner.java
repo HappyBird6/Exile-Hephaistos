@@ -31,7 +31,7 @@ public final class RecipeRoutePlanner {
   /** 미확정 확률이 포함되는 폐구간이다. lower·upper는 0 이상 1 이하다. */
   public record ProbabilityBounds(double lower, double upper) {}
 
-  /** probability는 해당 단계 시작 상태 분포에서의 적중 확률이며, 미확정은 null이다. */
+  /** probability는 검증된 확률이고 미확정이면 null이며, 확인한 하한·상한을 함께 반환한다. */
   public record Chance(
       @JsonInclude(JsonInclude.Include.ALWAYS) Double probability,
       @JsonInclude(JsonInclude.Include.NON_NULL) ProbabilityBounds probabilityBounds) {
@@ -54,7 +54,8 @@ public final class RecipeRoutePlanner {
 
   /**
    * action과 omens는 제작 선택, acquired·lost는 목표 번호다. 순수 더미를 붙이는 단계는 dummy와 100%를, 반복 Divine에는 예상 사용량을
-   * 담는다.
+   * 담는다. chance는 이 단계의 조건부 적중률, reachChance는 시작부터 이 결과까지의 누적 확률이다. lucky는 실제 예시의 이 단계에서 일어난 우연
+   * 적중이다.
    */
   public record Step(
       String action,
@@ -69,7 +70,9 @@ public final class RecipeRoutePlanner {
       @JsonInclude(JsonInclude.Include.NON_NULL) OmenOutcomes omenOutcomes,
       @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean repeatUntilHit,
       @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean dummy,
-      @JsonInclude(JsonInclude.Include.NON_NULL) Integer repeatTarget) {
+      @JsonInclude(JsonInclude.Include.NON_NULL) Integer repeatTarget,
+      @JsonInclude(JsonInclude.Include.NON_NULL) Chance reachChance,
+      @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean lucky) {
     /** 측정된 서버 응답에는 등급 비교용 입력의 원본 화폐를 포함하지 않는다. */
     public Step(
         String action,
@@ -93,7 +96,9 @@ public final class RecipeRoutePlanner {
           null,
           false,
           false,
-          null);
+          null,
+          null,
+          false);
     }
 
     /** 화폐 등급을 바꿔도 일반 추첨과 희소 티어를 노린 원래 추첨을 구별한다. */
@@ -118,7 +123,9 @@ public final class RecipeRoutePlanner {
           null,
           false,
           false,
-          null);
+          null,
+          null,
+          false);
     }
 
     /** 지정 번호가 없던 고정 경로도 실제 획득 기록으로 다시 계산한다. */
@@ -167,7 +174,9 @@ public final class RecipeRoutePlanner {
           null,
           repeatUntilHit,
           false,
-          repeatTarget);
+          repeatTarget,
+          null,
+          false);
     }
 
     /** 고정 경로 입력은 확률을 받지 않고 실제 작업대 분포에서 다시 계산한다. */
@@ -259,7 +268,9 @@ public final class RecipeRoutePlanner {
           null,
           repeatTarget != null,
           false,
-          repeatTarget);
+          repeatTarget,
+          null,
+          false);
     }
 
     /** 행동 전이를 묶은 후 해당 경로 분포의 확률과 기대 사용량을 붙인다. */
@@ -277,7 +288,9 @@ public final class RecipeRoutePlanner {
           null,
           repeatUntilHit,
           dummy,
-          repeatTarget);
+          repeatTarget,
+          reachChance,
+          lucky);
     }
 
     /** 실제로 목표를 얻지 않은 더미 추가는 등급을 선택하지 않고, 경로에는 조건부 준비 확률 1을 곱한다. */
@@ -295,7 +308,9 @@ public final class RecipeRoutePlanner {
           null,
           false,
           true,
-          null);
+          null,
+          reachChance,
+          lucky);
     }
 
     /** 표시용 3분류를 추가한다. 다음 단계나 전체 경로의 성공 확률은 별도로 유지한다. */
@@ -313,7 +328,29 @@ public final class RecipeRoutePlanner {
           results,
           repeatUntilHit,
           dummy,
-          repeatTarget);
+          repeatTarget,
+          reachChance,
+          lucky);
+    }
+
+    /** 같은 관측의 누적 도달 확률과 반환할 실제 예시의 해당 단계 우연 적중 여부를 기록한다. */
+    private Step withProgress(Chance reached, boolean luckyHit) {
+      return new Step(
+          action,
+          omens,
+          acquired,
+          lost,
+          socketIndex,
+          chance,
+          expectedUses,
+          maxUses,
+          originalAction,
+          omenOutcomes,
+          repeatUntilHit,
+          dummy,
+          repeatTarget,
+          reached,
+          luckyHit);
     }
 
     /** 클라이언트에서 돌아온 행동·징조와 실제 홈 위치만 재생 키에 포함한다. */
@@ -404,8 +441,9 @@ public final class RecipeRoutePlanner {
   /** 이 카드의 탐색과 다른 카드의 탐색이 합산하는 요청 전용 진단이다. */
   private final SearchTrace trace;
 
-  /** state와 parent는 같은 실제 분기의 연속 상태다. 시작 상태만 parent가 없다. */
-  private record Witness(ItemState state, Witness parent, boolean lucky, boolean chaosDummy) {
+  /** state와 parent는 같은 실제 분기의 연속 상태다. lucky는 경로의 우연 적중 이력, luckyHit는 이 상태로 오는 한 단계의 우연 적중이다. */
+  private record Witness(
+      ItemState state, Witness parent, boolean lucky, boolean luckyHit, boolean chaosDummy) {
     /** 시작 이후의 상태만 순서대로 공통 응답 사전에 등록하여 0 기반 번호로 반환한다. */
     List<Integer> indices(Map<ItemState, Integer> dictionary) {
       var frames = new ArrayDeque<ItemState>();
@@ -467,16 +505,17 @@ public final class RecipeRoutePlanner {
         RevealTierMass weight,
         Witness parent,
         StateKey stateKey,
-        boolean lucky,
+        boolean luckyHit,
         boolean chaosDummy) {
+      boolean lucky = luckyHit || (parent != null && parent.lucky);
       masses.compute(
           stateKey,
           (key, existing) -> {
             if (existing == null)
-              return new Mass(weight, new Witness(item, parent, lucky, chaosDummy));
+              return new Mass(weight, new Witness(item, parent, lucky, luckyHit, chaosDummy));
             var example =
                 existing.witness.lucky && !lucky
-                    ? new Witness(item, parent, false, chaosDummy)
+                    ? new Witness(item, parent, false, false, chaosDummy)
                     : existing.witness;
             return new Mass(existing.weight.plus(weight), example);
           });
@@ -1343,13 +1382,12 @@ public final class RecipeRoutePlanner {
             successfulMass, current.complete, current.rawCap, liveMass.minimum());
     var success = successfulMass.exact();
     if (representative != null && (fixedSteps == null || atFixedEnd)) {
-      var completed = path;
+      Step lastStep = path.isEmpty() ? null : path.getLast();
       var range =
           successRange.displayed(current.factorLow, current.factorHigh, current.displayedCap);
       Double routeProbability =
           current.complete ? decimal(product(success, current.preparationFactor)) : null;
       if (finalDivine) {
-        var steps = new ArrayList<>(path);
         var hit = current.complete ? ratio(success, current.parentLiveMass) : null;
         var reached =
             current.complete
@@ -1361,17 +1399,32 @@ public final class RecipeRoutePlanner {
                 : reached * current.divineWithinLimit;
         // 한 번 적중한 질량은 반복 완료의 하한이다. 이후 재시도의 상한은 첫 시도에 들어온 모든 질량이다.
         range = new RecipeProbabilityRange(range.lower(), current.parentDisplayedCap);
-        steps.set(
-            steps.size() - 1,
-            path.getLast()
-                .measured(
-                    Chance.measured(hit, successRange.given(current.parentLiveBounds)),
-                    current.divineUses,
-                    DivineRepeatEstimate.MAX_USES));
-        completed = List.copyOf(steps);
+        lastStep =
+            lastStep.measured(
+                Chance.measured(hit, successRange.given(current.parentLiveBounds)),
+                current.divineUses,
+                DivineRepeatEstimate.MAX_USES);
       }
       var order = path.stream().flatMap(s -> s.acquired().stream()).toList();
       if (routeProbability == null) routeProbability = decimal(range.exact());
+      var bounds = routeProbability == null ? range.wire() : null;
+      var completed = path;
+      if (lastStep != null) {
+        // 마지막 프레임은 수치 조건과 신성 반복 한도까지 만족한 실제 완주 사건이다.
+        var steps = new ArrayList<>(path);
+        int i = steps.size() - 1;
+        steps.set(
+            i,
+            lastStep.withProgress(new Chance(routeProbability, bounds), representative.luckyHit));
+        for (var frame = representative.parent; frame.lucky; frame = frame.parent) {
+          i--;
+          if (frame.luckyHit) {
+            var step = steps.get(i);
+            steps.set(i, step.withProgress(step.reachChance(), true));
+          }
+        }
+        completed = List.copyOf(steps);
+      }
       if (routeProbability == null
           || completed.stream()
               .anyMatch(s -> s.omenOutcomes() != null && !s.omenOutcomes().complete()))
@@ -1383,7 +1436,7 @@ public final class RecipeRoutePlanner {
               completed,
               routeProbability,
               representative.indices(stateIndices),
-              routeProbability == null ? range.wire() : null,
+              bounds,
               representative.lucky));
     }
     // 유한 예산이어도 긴 반복 분기만 우선하지 않도록 직접 획득한 후보를 준비 후보보다 먼저 본다.
@@ -1438,10 +1491,10 @@ public final class RecipeRoutePlanner {
           nextStates.factorHigh = product(current.factorHigh, high);
         }
       }
-      nextStates.displayedCap =
-          eventBounds
-              .displayed(nextStates.factorLow, nextStates.factorHigh, nextStates.parentDisplayedCap)
-              .upper();
+      var reachBounds =
+          eventBounds.displayed(
+              nextStates.factorLow, nextStates.factorHigh, nextStates.parentDisplayedCap);
+      nextStates.displayedCap = reachBounds.upper();
       if (step.repeatingChaos()) {
         boolean firstKnown = current.complete && !skippedStates && preparation.firstKnown;
         var firstWeight =
@@ -1506,6 +1559,10 @@ public final class RecipeRoutePlanner {
                     current.complete && !skippedStates && preparation.complete,
                     weight));
       }
+      // 표시용 단계 적중률과 달리, 이 경로에 도달한 모든 상태의 질량과 더미 준비 조건을 함께 반영한다.
+      var reach =
+          nextStates.complete ? product(weight.exact(), nextStates.preparationFactor) : null;
+      step = step.withProgress(Chance.measured(reach, reachBounds), false);
       var next = new ArrayList<>(path);
       next.add(step);
       var nextItem = child.getValue().masses.keySet().iterator().next().item();
@@ -1957,7 +2014,7 @@ public final class RecipeRoutePlanner {
               weight,
               prior.witness,
               new StateKey(stateGroups.key(outcome.state()), 0, slot),
-              prior.witness.lucky,
+              false,
               false);
           if (step.acquired().isEmpty()) continue;
         }
@@ -1966,15 +2023,14 @@ public final class RecipeRoutePlanner {
             children.computeIfAbsent(step, ignored -> new Distribution(preparations.get(trial)));
         child.complete &= parentComplete && law.complete();
 
-        boolean lucky =
-            prior.witness.lucky
-                || !step.acquired().isEmpty()
-                    && intents.stream()
-                        .noneMatch(
-                            c ->
-                                step.acquired().contains(c.target())
-                                    && (!c.preparation() || c.purpose() == Purpose.DIRECT_UPGRADE)
-                                    && reaches(c, before, outcome, protectedIds));
+        boolean luckyHit =
+            !step.acquired().isEmpty()
+                && intents.stream()
+                    .noneMatch(
+                        c ->
+                            step.acquired().contains(c.target())
+                                && (!c.preparation() || c.purpose() == Purpose.DIRECT_UPGRADE)
+                                && reaches(c, before, outcome, protectedIds));
         var key = childKey(outcome.state(), preparingFirstChaos);
         if (slot != null)
           key =
@@ -1982,7 +2038,7 @@ public final class RecipeRoutePlanner {
                   key.item(),
                   key.disposableCount(),
                   new EssenceSlot(slot.modifierId(), slot.replacements(), false));
-        child.add(outcome.state(), weight, prior.witness, key, lucky, dummy);
+        child.add(outcome.state(), weight, prior.witness, key, luckyHit, dummy);
       }
     }
   }

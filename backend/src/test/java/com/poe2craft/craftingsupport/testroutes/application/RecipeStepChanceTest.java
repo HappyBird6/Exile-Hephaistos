@@ -135,9 +135,41 @@ class RecipeStepChanceTest {
               fixture.workbench, item, card, done, 1000, true, null, List.of(draw, keep));
       var route = retained.routes().getFirst();
       assertThat(route.steps().getLast().chance().probability()).isEqualTo(0.5);
+      var firstReach = route.steps().getFirst().reachChance().probability();
+      assertThat(firstReach).isEqualTo(route.steps().getFirst().chance().probability());
+      assertThat(route.steps().getLast().reachChance().probability()).isEqualTo(firstReach * 0.5);
+      assertThat(route.probability())
+          .isEqualTo(route.steps().getLast().reachChance().probability());
       assertThat(retained.states().get(route.stateIndices().getLast()).explicits())
           .extracting(m -> m.modifierId())
           .containsExactlyInAnyOrder(fixture.life, fixture.defences);
+      // 같은 에센스 적중이 중간 단계인 경우에도 후속 신성 결과를 앞 단계에 곱하지 않는다.
+      var adjusted =
+          RecipeRoutePlanner.evaluateFixed(
+              fixture.workbench,
+              item,
+              card,
+              s ->
+                  done.test(s)
+                      && s.explicits().stream()
+                          .anyMatch(
+                              m ->
+                                  m.modifierId().equals(fixture.life)
+                                      && m.values().get("base_maximum_life") >= 90),
+              30000,
+              false,
+              null,
+              List.of(
+                  draw,
+                  keep,
+                  new RecipeRoutePlanner.Step("DIVINE", List.of(), List.of(), List.of(), null)));
+      var withDivine = adjusted.routes().getFirst();
+      assertThat(withDivine.steps().get(1).reachChance())
+          .isEqualTo(route.steps().getLast().reachChance());
+      assertThat(withDivine.steps().getLast().reachChance().probability())
+          .isEqualTo(withDivine.probability());
+      assertThat(withDivine.steps().getLast().chance().probability())
+          .isCloseTo(10d / 15, offset(1e-14));
       var lost =
           RecipeRoutePlanner.evaluateFixed(
               fixture.workbench,
@@ -650,6 +682,7 @@ class RecipeStepChanceTest {
     assertThat(misses).isNotEqualTo(Fraction.ONE);
     assertThat(route.steps().getFirst().dummy()).isTrue();
     assertThat(route.steps().getFirst().chance().probability()).isEqualTo(1);
+    assertThat(route.steps().getFirst().reachChance().probability()).isOne();
     assertThat(route.steps().getLast().chance().probability()).isCloseTo(chance, offset(1e-14));
     assertThat(route.probability()).isCloseTo(chance, offset(1e-14));
     var limited =
@@ -664,6 +697,9 @@ class RecipeStepChanceTest {
             route.steps());
     var incomplete = limited.routes().getFirst();
     assertThat(incomplete.probability()).isNull();
+    assertThat(incomplete.steps().getLast().reachChance().probability()).isNull();
+    assertThat(incomplete.steps().getLast().reachChance().probabilityBounds())
+        .isEqualTo(incomplete.probabilityBounds());
     assertThat(incomplete.probabilityBounds().lower()).isGreaterThan(0);
     assertThat(incomplete.probabilityBounds().upper()).isLessThan(1);
     assertThat(chance)
