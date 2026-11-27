@@ -1,3 +1,4 @@
+import { createPortal } from 'react-dom'
 import { craftingFetch as fetch } from '../../../shared/gameIdTransport'
 import { qualityWorkGoal } from './qualityWorkGoal'
 import {
@@ -424,33 +425,35 @@ function ConnectedEditor({
         allowQualityWork={allowQualityWork}
         compact={compact}
       />
-      {presets && (
-        <SupportPresets
-          locale={locale}
-          goal={goal}
-          start={
-            invalidNumber || goal.general.baseItemId !== context.baseItemId
-              ? null
-              : presets.start
-          }
-          onLoad={(preset) => {
-            const before = editor.getState().revision
-            return presets.restore(preset, (saved) => {
-              if (editor.getState().revision !== before)
-                throw new Error('Goal changed')
-              setInputReady(false)
-              editor.setState((state) => ({
-                goal: structuredClone(saved),
-                revision: state.revision + 1,
-                collapsedByGroupId: {},
-                presentedTypes: {},
-              }))
-              setStorageFailed(!saveSupport(storageKey, saved))
-              setResetGeneration((n) => n + 1)
-            })
-          }}
-        />
-      )}
+      {presets?.footer &&
+        createPortal(
+          <SupportPresets
+            locale={locale}
+            goal={goal}
+            start={
+              invalidNumber || goal.general.baseItemId !== context.baseItemId
+                ? null
+                : presets.start
+            }
+            onLoad={(preset) => {
+              const before = editor.getState().revision
+              return presets.restore(preset, (saved) => {
+                if (editor.getState().revision !== before)
+                  throw new Error('Goal changed')
+                setInputReady(false)
+                editor.setState((state) => ({
+                  goal: structuredClone(saved),
+                  revision: state.revision + 1,
+                  collapsedByGroupId: {},
+                  presentedTypes: {},
+                }))
+                setStorageFailed(!saveSupport(storageKey, saved))
+                setResetGeneration((n) => n + 1)
+              })
+            }}
+          />,
+          presets.footer,
+        )}
     </div>
   )
 }

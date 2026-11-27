@@ -19,7 +19,6 @@ export function SessionDetail({
   onNavigate,
   stepControls,
   pendingSteps,
-  throughFrame,
   disabled = false,
   resources,
   onNewCraft,
@@ -38,7 +37,6 @@ export function SessionDetail({
   onNavigate?: (cursor: number) => void
   stepControls?: (frameIndex: number) => ReactNode
   pendingSteps?: NotationStep[]
-  throughFrame?: number
   disabled?: boolean
   resources?: readonly WorkbenchResource[]
   onNewCraft?: () => void
@@ -143,7 +141,7 @@ export function SessionDetail({
   )
   const record = (
     <>
-      {throughFrame === undefined && <RouteChanceSummary film={film} />}
+      <RouteChanceSummary film={film} />
       {(film || !pendingSteps) && (
         <CraftingCostLine film={film ?? undefined} cursor={index}>
           {costControls}
@@ -159,7 +157,6 @@ export function SessionDetail({
           {...(onNavigate ? { onNavigate } : {})}
           {...(stepControls ? { stepControls } : {})}
           {...(pendingSteps ? { pendingSteps } : {})}
-          {...(throughFrame !== undefined ? { throughFrame } : {})}
           disabled={disabled}
           {...(onNewCraft ? { onNewCraft } : {})}
         />

@@ -19,6 +19,7 @@ export type PresetStart = {
 }
 export type SupportPreset = { start: PresetStart; goal: GoalFilter }
 export type PresetEditor = {
+  footer: HTMLElement | null
   start: PresetStart | null
   restore: (
     preset: SupportPreset,

@@ -535,9 +535,19 @@
   white-space: nowrap;
 }
 
+.craft-start-stats:has(> .craft-start-stats-footer) {
+  display: flex;
+  flex-direction: column;
+}
+.craft-start-stats-footer {
+  margin-top: auto;
+}
+.craft-start-stats-footer:not(:empty) {
+  padding-top: 0.75rem;
+}
 .support-presets {
   min-width: 0;
-  margin: 0.75rem 0 0;
+  margin: 0;
   border: 1px solid #3e3a30;
   padding: 0.5rem;
 }

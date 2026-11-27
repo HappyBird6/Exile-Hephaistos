@@ -105,7 +105,7 @@ function materialUses(step: AcquisitionStep) {
 }
 
 export function acquisitionRouteCost(
-  route: Pick<AcquisitionRoute, 'steps'>,
+  route: AcquisitionRoute,
   snapshot: PriceSnapshot | null | undefined,
 ) {
   return craftingStepCost(

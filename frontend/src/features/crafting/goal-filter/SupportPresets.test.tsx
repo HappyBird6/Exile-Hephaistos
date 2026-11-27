@@ -160,6 +160,10 @@ it('loads the live starting item, disabled row values and catalyst into the test
 
   const first = mount()
   const favorite = await screen.findByRole('group', { name: 'Favorite setups' })
+  expect(favorite.parentElement).toBe(
+    document.querySelector('.craft-start-stats > footer:last-child'),
+  )
+  expect(favorite.closest('.goal-filter-connected')).toBeNull()
   const level = screen.getByRole('spinbutton')
   fireEvent.change(level, { target: { value: '76' } })
   const source = await screen.findByRole('group', { name: 'Cold resistance' })

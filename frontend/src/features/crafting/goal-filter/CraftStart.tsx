@@ -103,6 +103,7 @@ export function CraftStart({
   const toolbar = useContext(SupportToolbarContext)
   const { t, locale, name } = useI18n()
   const client = useQueryClient()
+  const [presetFooter, setPresetFooter] = useState<HTMLElement | null>(null)
   const [reloadingCatalog, setReloadingCatalog] = useState(false)
   const [reloadFailed, setReloadFailed] = useState(false)
   const copy = craftStartMessages[locale]
@@ -1214,6 +1215,7 @@ export function CraftStart({
                                     testQualityChoice: draft.testQualityChoice,
                                   }
                                 : null,
+                            footer: presetFooter,
                             restore: restorePresetStart,
                           }
                         : undefined
@@ -1243,6 +1245,12 @@ export function CraftStart({
                     activeOmens={activeOmens}
                     maxMillis={maxMillis}
                     compact
+                  />
+                )}
+                {TestResults && (
+                  <footer
+                    ref={setPresetFooter}
+                    className="craft-start-stats-footer"
                   />
                 )}
               </section>

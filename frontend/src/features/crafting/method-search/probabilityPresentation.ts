@@ -54,20 +54,17 @@ export function materialQuantityText(
   return lower === upper ? lower : lower + ' – ' + upper
 }
 
-export function planCostText(cost: CraftingCost, locale: Locale) {
-  if (cost.retryMaterials?.length) return priceMessages[locale].unknownUses
-  const exalted =
-    cost.incomplete && !cost.exalted
-      ? '—'
-      : (cost.incomplete ? '≥ ' : '') +
-        formatCurrencyAmount(cost.exalted, 'Exalted_Orb', locale)
-  return `${exalted} ex`
-}
-
 export function planTitle(
   cost: CraftingCost,
   locale: Locale,
   probability: string,
 ) {
-  return `${planCostText(cost, locale)} · ${probability}`
+  if (cost.retryMaterials?.length)
+    return priceMessages[locale].unknownUses + ' · ' + probability
+  const exalted =
+    cost.incomplete && !cost.exalted
+      ? '—'
+      : (cost.incomplete ? '≥ ' : '') +
+        formatCurrencyAmount(cost.exalted, 'Exalted_Orb', locale)
+  return `${exalted} ex · ${probability}`
 }

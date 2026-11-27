@@ -3,10 +3,6 @@ import type { Locale } from '../../../shared/i18n/i18n'
 export const acquisitionRouteMessages: Record<
   Locale,
   {
-    sessionNumber: string
-    originalGrades: string
-    sessions: string
-    graph: string
     variants: string
     card: string
     order: string
@@ -23,10 +19,6 @@ export const acquisitionRouteMessages: Record<
   }
 > = {
   en: {
-    sessionNumber: 'Session {n}',
-    originalGrades: 'Restore original grades',
-    sessions: 'Sessions',
-    graph: 'Graph',
     variants: 'Orders ({n})',
     minimumChance: 'Minimum success chance',
     maximumPrice: 'Maximum cost (ex)',
@@ -42,10 +34,6 @@ export const acquisitionRouteMessages: Record<
     empty: 'No matching crafting route found.',
   },
   ko: {
-    sessionNumber: '세션 {n}',
-    originalGrades: '원래 등급 복원',
-    sessions: '세션',
-    graph: '그래프',
     variants: '제작 순서 {n}가지',
     minimumChance: '최소 성공 확률',
     maximumPrice: '최대 비용 (ex)',
@@ -61,10 +49,6 @@ export const acquisitionRouteMessages: Record<
     empty: '조건에 맞는 제작 경로를 찾지 못했습니다.',
   },
   'zh-CN': {
-    sessionNumber: '会话 {n}',
-    originalGrades: '恢复原始等级',
-    sessions: '会话',
-    graph: '图表',
     variants: '制作顺序（{n}）',
     minimumChance: '最低成功率',
     maximumPrice: '最高费用（ex）',
@@ -80,10 +64,6 @@ export const acquisitionRouteMessages: Record<
     empty: '未找到符合条件的制作路线。',
   },
   'zh-TW': {
-    sessionNumber: '工作階段 {n}',
-    originalGrades: '還原原始等級',
-    sessions: '工作階段',
-    graph: '圖表',
     variants: '製作順序（{n}）',
     minimumChance: '最低成功率',
     maximumPrice: '最高費用（ex）',
@@ -99,10 +79,6 @@ export const acquisitionRouteMessages: Record<
     empty: '未找到符合條件的製作路線。',
   },
   ja: {
-    sessionNumber: 'セッション {n}',
-    originalGrades: '元の等級に戻す',
-    sessions: 'セッション',
-    graph: 'グラフ',
     variants: '製作順序（{n}）',
     minimumChance: '最低成功率',
     maximumPrice: '費用の上限（ex）',
@@ -118,10 +94,6 @@ export const acquisitionRouteMessages: Record<
     empty: '条件に合う製作経路が見つかりませんでした。',
   },
   es: {
-    sessionNumber: 'Sesión {n}',
-    originalGrades: 'Restablecer grados originales',
-    sessions: 'Sesiones',
-    graph: 'Gráfico',
     variants: 'Órdenes ({n})',
     minimumChance: 'Probabilidad mínima de éxito',
     maximumPrice: 'Coste máximo (ex)',
@@ -138,10 +110,6 @@ export const acquisitionRouteMessages: Record<
       'No se ha encontrado ninguna ruta de fabricación para estos criterios.',
   },
   ru: {
-    sessionNumber: 'Сессия {n}',
-    originalGrades: 'Вернуть исходные ранги',
-    sessions: 'Сессии',
-    graph: 'Граф',
     variants: 'Варианты порядка ({n})',
     minimumChance: 'Минимальный шанс успеха',
     maximumPrice: 'Максимальная стоимость (ex)',
@@ -157,10 +125,6 @@ export const acquisitionRouteMessages: Record<
     empty: 'Подходящий путь создания не найден.',
   },
   th: {
-    sessionNumber: 'เซสชัน {n}',
-    originalGrades: 'คืนค่าระดับเดิม',
-    sessions: 'เซสชัน',
-    graph: 'กราฟ',
     variants: 'ลำดับการคราฟต์ ({n})',
     minimumChance: 'โอกาสสำเร็จขั้นต่ำ',
     maximumPrice: 'ค่าใช้จ่ายสูงสุด (ex)',

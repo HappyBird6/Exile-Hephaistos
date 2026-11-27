@@ -5,7 +5,6 @@ export function useGraphWheelZoom(
   host: RefObject<HTMLDivElement | null>,
   zoom: number,
   setZoom: Dispatch<SetStateAction<number>>,
-  minimum = 0.1,
 ) {
   const current = useRef(zoom)
   const anchor = useRef<{
@@ -45,7 +44,7 @@ export function useGraphWheelZoom(
               ? element.clientHeight
               : 1),
         next = Math.max(
-          minimum,
+          0.1,
           Math.min(2, current.current * Math.exp(-pixels * 0.002)),
         )
       if (next === current.current) return
@@ -64,5 +63,5 @@ export function useGraphWheelZoom(
     }
     element.addEventListener('wheel', wheel, { passive: false })
     return () => element.removeEventListener('wheel', wheel)
-  }, [host, zoom, setZoom, minimum])
+  }, [host, zoom, setZoom])
 }
