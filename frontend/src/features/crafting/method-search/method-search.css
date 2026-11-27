@@ -778,3 +778,28 @@
   flex: 1;
   min-width: 0;
 }
+
+.acquisition-route-views {
+  display: inline-flex;
+  gap: 0.25rem;
+  margin-block: 0.5rem;
+}
+
+.acquisition-route-views button[aria-pressed='true'] {
+  border-color: var(--gold, #b69a69);
+  color: var(--gold, #b69a69);
+}
+
+.acquisition-route-issues {
+  display: grid;
+  gap: 0.5rem;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.acquisition-route-issues li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}

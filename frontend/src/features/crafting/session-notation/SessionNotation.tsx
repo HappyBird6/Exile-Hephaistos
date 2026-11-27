@@ -35,6 +35,7 @@ export type SessionNotationProps = {
   onNavigate?: (frameIndex: number) => void
   stepControls?: (frameIndex: number) => ReactNode
   pendingSteps?: NotationStep[]
+  throughFrame?: number
   onNewCraft?: () => void
   disabled?: boolean
   showOverview?: boolean
@@ -106,6 +107,7 @@ export function SessionNotation({
   onNavigate,
   stepControls,
   pendingSteps,
+  throughFrame,
   onNewCraft,
   disabled = false,
   showOverview = true,
@@ -115,7 +117,11 @@ export function SessionNotation({
   const text = sessionNotationMessages[locale]
   const headingId = useId()
   const notation = extractSessionNotation(film, cursor)
-  const steps = !film && pendingSteps ? pendingSteps : notation.steps
+  const history = !film && pendingSteps ? pendingSteps : notation.steps
+  const steps =
+    throughFrame === undefined
+      ? history
+      : history.filter((step) => step.frameIndex <= throughFrame)
   const registry = new Map(resources.map((resource) => [resource.id, resource]))
   const currentFrameIndex = notation.steps.reduce(
     (current, step) => (step.frameIndex <= cursor ? step.frameIndex : current),

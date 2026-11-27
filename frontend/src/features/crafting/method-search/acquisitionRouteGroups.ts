@@ -149,7 +149,16 @@ export function acquisitionGroupKey(
   }
   function stepKey(s: AcquisitionStep) {
     return {
-      ...s,
+      // Group by the action itself; cumulative reach belongs to the ordered graph prefix.
+      action: s.action,
+      omens: s.omens,
+      socketIndex: s.socketIndex,
+      lost: s.lost,
+      chance: s.chance,
+      expectedUses: s.expectedUses,
+      maxUses: s.maxUses,
+      dummy: s.dummy,
+      repeatUntilHit: s.repeatUntilHit,
       acquired: s.acquired.map((n) => positions.get(n)),
       repeatTarget: positions.get(s.repeatTarget ?? -1),
     }

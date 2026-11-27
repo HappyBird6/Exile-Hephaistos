@@ -17,16 +17,22 @@ export interface RouteOption {
   modifierIds: string[]
 }
 
+export interface AcquisitionChance {
+  probability: number | null
+  probabilityBounds?: ProbabilityBounds
+}
+
 export interface AcquisitionStep {
   dummy?: boolean
+  /** The chosen example acquired a goal incidentally during this step's preparation. */
+  lucky?: boolean
   repeatUntilHit?: true
   repeatTarget?: number
   omenOutcomes?: ProjectedOmenOutcomes
   action: string
-  chance?: {
-    probability: number | null
-    probabilityBounds?: ProbabilityBounds
-  } | null
+  /** Cumulative probability of reaching this post-action outcome from the starting item. */
+  reachChance?: AcquisitionChance | null
+  chance?: AcquisitionChance | null
   expectedUses?: number | null
   maxUses?: number
   socketIndex?: number | null
