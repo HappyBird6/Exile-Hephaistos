@@ -170,6 +170,48 @@ class CraftingRegistryLoaderTest {
         M.readTree(
             getClass().getResourceAsStream("/crafting-registry-v25-original-fragments.json"));
     var entries = (ArrayNode) registry.path("entries");
+    // 분열에서 변경한 두 설명을 검증하고 이전 문구로 복원해 기존 전체 해시도 비교한다.
+    var fracture =
+        (ObjectNode)
+            registry
+                .path("entries")
+                .valueStream()
+                .filter(row -> "Fracturing_Orb".equals(row.path("id").asText()))
+                .findFirst()
+                .orElseThrow();
+    assertEquals(
+        "Supported Rare equipment with at least four occupied explicit slots and no existing"
+            + " fracture. Before reveal, a concealed desecrated slot counts toward four and is"
+            + " excluded from the uniform draw; a crafted winner retains its crafted status."
+            + " Uniform 1/N selection assumption. Locked option preserved by addition, Chaos,"
+            + " Annulment and Divine; Whittling plus fracture is blocked pending priority"
+            + " evidence.",
+        fracture.path("interactionScope").asText());
+    fracture.put(
+        "interactionScope",
+        "Rare Solar with four or more supported explicit modifiers, including verified essence"
+            + " results, and no existing fracture. Uniform 1/N selection assumption. Locked option"
+            + " preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is"
+            + " blocked pending priority evidence.");
+    var assumption =
+        (ObjectNode)
+            registry
+                .path("assumptionLedger")
+                .valueStream()
+                .filter(row -> "uniform-fracture-v1".equals(row.path("id").asText()))
+                .findFirst()
+                .orElseThrow();
+    assertEquals(
+        "Supported Rare equipment with at least four occupied explicit slots and no existing"
+            + " fracture. A concealed slot counts toward four but cannot fracture. Visible crafted"
+            + " modifiers are eligible and remain crafted. Implicit modifiers are excluded. Only"
+            + " one explicit fracture is supported.",
+        assumption.path("eligibility").asText());
+    assumption.put(
+        "eligibility",
+        "Validated Rare Solar with at least four supported explicit modifiers and no existing"
+            + " fracture, including verified essence results. Implicit modifiers are excluded. Only"
+            + " one explicit fracture is supported.");
     beforeEssenceScopeExpansion(entries);
     var etcher =
         entries
