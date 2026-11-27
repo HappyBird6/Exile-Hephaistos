@@ -31,8 +31,8 @@ import java.util.random.RandomGenerator;
  * <p>필드·상수:
  *
  * <ul>
- *   <li>{@code RULE_VERSION}: 버전; 초기값 {@code "solar-workbench-abyss-essence-v24"} ({@code String}).
- *   <li>{@code LEDGER_VERSION}: 버전; 초기값 {@code "solar-uniform-assumptions-v14"} ({@code String}).
+ *   <li>{@code RULE_VERSION}: 버전; 초기값 {@code "solar-workbench-abyss-essence-v25"} ({@code String}).
+ *   <li>{@code LEDGER_VERSION}: 버전; 초기값 {@code "solar-uniform-assumptions-v15"} ({@code String}).
  *   <li>{@code catalog}: 이 인스턴스가 사용하는 검증된 카탈로그 ({@code ItemCatalog}).
  *   <li>{@code MAX_SOCKET_SAMPLERS}: SAMPLERS; 초기값 {@code 32} ({@code int}).
  *   <li>{@code socketSamplers}: 최근 사용 순서로 보관하는 증강물 문맥별 실행기 캐시 ({@code Map<String,
@@ -194,8 +194,8 @@ import java.util.random.RandomGenerator;
  * </ul>
  */
 public final class WorkbenchSimulator {
-  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v24";
-  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v14";
+  public static final String RULE_VERSION = "solar-workbench-abyss-essence-v25";
+  public static final String LEDGER_VERSION = "solar-uniform-assumptions-v15";
   private final ItemCatalog catalog;
   private static final int MAX_SOCKET_SAMPLERS = 32;
   private final Map<String, WorkbenchSimulator> socketSamplers =
@@ -666,11 +666,14 @@ public final class WorkbenchSimulator {
       return new Availability(action, true, "");
     }
     if (action == WorkbenchCurrency.FRACTURING) {
-      if (state.rarity() != ItemState.Rarity.RARE || state.explicits().size() < 4)
+      // 공개 전 슬롯도 자리를 차지하지만 명시 옵션 값이 없어 분열 추첨에는 들어가지 않는다.
+      long concealed = state.desecrated().stream().filter(s -> s.modifierId() == null).count();
+      if (state.rarity() != ItemState.Rarity.RARE || state.explicits().size() + concealed < 4)
         return blocked(
             action, "Fracturing requires a Rare item with at least four explicit modifiers.");
       if (state.explicits().stream().anyMatch(ModifierInstance::fractured))
         return blocked(action, "Cannot fracture an already Fractured item.");
+      if (state.explicits().isEmpty()) return blocked(action, "No revealed explicit to fracture.");
       return new Availability(action, true, "");
     }
     if (action == WorkbenchCurrency.ALCHEMY) {
@@ -1194,6 +1197,30 @@ public final class WorkbenchSimulator {
    */
   public record ExaltChoice(String modifierId, double probability) {}
 
+  /** 제작지원에서 공개 전에 가능한 분열 결과를 전부 반환한다. 각 실물 명시 옵션은 같은 확률로 한 번씩 들어간다. */
+  public List<ItemState> fractureOutcomes(ItemState state) {
+    if (!state.conditions().isEmpty()
+        || state.desecrated().stream().anyMatch(slot -> slot.modifierId() != null)
+        || !availability(state, WorkbenchCurrency.FRACTURING, Set.of()).available())
+      return List.of();
+    var outcomes = new ArrayList<ItemState>();
+    for (int index = 0; index < state.explicits().size(); index++) {
+      var explicits = new ArrayList<>(state.explicits());
+      fractureAt(explicits, index);
+      var next = copy(state, state.rarity(), state.implicits(), explicits);
+      outcomes.add(qualityCapChangePolicy.afterAcceptedOperation(next, catalog));
+    }
+    return List.copyOf(outcomes);
+  }
+
+  /** 선택된 명시 옵션에서 분열만 켜고 실제 수치와 제작 출처를 그대로 둔다. */
+  private static ModifierInstance fractureAt(List<ModifierInstance> explicits, int index) {
+    var chosen = explicits.get(index);
+    explicits.set(
+        index, new ModifierInstance(chosen.modifierId(), chosen.values(), true, chosen.crafted()));
+    return chosen;
+  }
+
   /** Natural chance to see the selected tier in the operation, including a verified second draw. */
   public List<ExaltChoice> exaltChoices(
       ItemState state, WorkbenchCurrency action, Set<String> ids) {
@@ -1555,11 +1582,7 @@ public final class WorkbenchSimulator {
       explicits.add(rolled);
       events.add(new Event("ADD", definition.id(), rolled.values(), 1.0 / candidates.size()));
     } else if (action == WorkbenchCurrency.FRACTURING) {
-      int index = random.nextInt(explicits.size());
-      var chosen = explicits.get(index);
-      explicits.set(
-          index,
-          new ModifierInstance(chosen.modifierId(), chosen.values(), true, chosen.crafted()));
+      var chosen = fractureAt(explicits, random.nextInt(explicits.size()));
       events.add(
           new Event("FRACTURE", chosen.modifierId(), chosen.values(), 1.0 / explicits.size()));
       assumptions.add(

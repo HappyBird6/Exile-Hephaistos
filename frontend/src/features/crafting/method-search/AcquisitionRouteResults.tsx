@@ -61,6 +61,8 @@ import {
 } from './fixedRouteGrades'
 import { AcquisitionRouteActions } from './AcquisitionRouteActions'
 import { RouteGradePicker } from './RouteGradePicker'
+import { fractureSessions } from './fractureStrategy'
+import { fractureMessages } from './fractureMessages'
 import { acquisitionGroupKey } from './acquisitionRouteGroups'
 import { AcquisitionRouteFilters } from './AcquisitionRouteFilters'
 import { graphStateMessages } from './graphStateMessages'
@@ -164,6 +166,10 @@ function RouteList({
   const section = useRef<HTMLElement>(null)
   const cache = useQueryClient()
   const market = useCurrencyMarket()?.data?.snapshot
+  const strategies = useMemo(
+    () => fractureSessions(result, market),
+    [result, market],
+  )
   const [preferred, setSelection] = useState<number | null>(() => {
     const params = new URLSearchParams(location.search)
     const raw = params.get('route') ?? ''
@@ -192,7 +198,11 @@ function RouteList({
     step: number
   } | null>(null)
   const [showLucky, setShowLucky] = useState(
-    () => !!(preferred !== null && result.routes[preferred]?.lucky),
+    () =>
+      preferred !== null &&
+      (strategies.get(preferred)?.lucky ??
+        result.routes[preferred]?.lucky ??
+        false),
   )
   const [priceCap, setPriceCap] = useState(Infinity)
   const [minimum, setMinimum] = useState<number | null>(null)
@@ -210,10 +220,16 @@ function RouteList({
     () => result.routes.map((route) => acquisitionRouteCost(route, market)),
     [result.routes, market],
   )
+  const editedStrategies = new Set(
+    changedIndices.map((index) => strategies.get(index)?.key),
+  )
+  const fractureCopy = fractureMessages[locale]
   const groupKeys = useMemo(
     () =>
       result.routes.map((route) =>
-        acquisitionGroupKey(result, route, request.start.item, definitions),
+        route.fractureStrategy
+          ? null
+          : acquisitionGroupKey(result, route, request.start.item, definitions),
       ),
     [result, request.start.item, definitions],
   )
@@ -230,13 +246,33 @@ function RouteList({
   const rows = result.routes.map((route, index) => {
     const entry = updated.get(index)
     const active = entry ? entry.data?.routes[0] : route
-    const cost =
+    const originalStrategy = strategies.get(index)
+    const strategy =
+      originalStrategy && !editedStrategies.has(originalStrategy.key)
+        ? originalStrategy
+        : undefined
+    const branchCost =
       entry && active ? acquisitionRouteCost(active, market) : baseCosts[index]!
-    const lower = active?.probability ?? active?.probabilityBounds?.lower ?? 0
+    const cost = strategy?.cost ?? branchCost
+    const probability = strategy?.chance ?? active
+    const lower =
+      probability?.probability ?? probability?.probabilityBounds?.lower ?? 0
     const price = active && !cost.incomplete ? cost.exalted : undefined
     let summary = messages.unknown
-    if (active) summary = planTitle(cost, locale, chance(active))
-    else if (entry?.isPending) summary = messages.calculating
+    if (strategy) {
+      const odds = supportProbabilityText(
+        {
+          ...strategy.chance,
+          ...(strategy.assumesReveal ? { assumesEligibleReveal: true } : {}),
+        },
+        locale,
+      )
+      summary = fractureCopy.total + ' · ' + planTitle(cost, locale, odds)
+    } else if (active) {
+      summary = planTitle(cost, locale, chance(active))
+      if (route.fractureStrategy)
+        summary = fractureCopy.branch + ' · ' + summary
+    } else if (entry?.isPending) summary = messages.calculating
     else if (entry?.isError) summary = messages.error
     else if (entry?.data?.complete) summary = copy.empty
     return {
@@ -244,10 +280,14 @@ function RouteList({
       route,
       active,
       summary,
-      group: entry ? index : (groupKeys[index] ?? index),
+      strategy,
+      branchCost,
+      group:
+        strategy?.key ??
+        (entry || route.fractureStrategy ? index : (groupKeys[index] ?? index)),
       lower,
       price,
-      lucky: active?.lucky ?? route.lucky ?? false,
+      lucky: strategy?.lucky ?? active?.lucky ?? route.lucky ?? false,
     }
   })
   const eligible = rows.filter((row) => showLucky || !row.lucky)
@@ -460,7 +500,35 @@ function RouteList({
     if (example) cache.setQueryData(['plan-film', href(index)], example)
     select(index)
   }
-  const summary = rows[selection]!.summary
+  const selectedRow = rows[selection]!
+  const { summary, strategy } = selectedRow
+  const outcomes = strategy
+    ? visibleGroups.find((group) => group[0]?.strategy === strategy)
+    : undefined
+  const meta = selected?.fractureStrategy
+  const fractureIndex =
+    selected?.steps.findIndex((step) => step.action === 'FRACTURING') ?? -1
+  const fractureStep = selected?.steps[fractureIndex]
+  const beforeFracture = film?.frames[fractureIndex]?.state
+  function fractureLabel(route: AcquisitionRoute) {
+    const meta = route.fractureStrategy
+    if (!meta) return ''
+    const step = route.steps[meta.stepIndex]
+    const id = step?.fracturedModifierId
+    if (!id) return ''
+    const state = result.states[route.stateIndices[meta.stepIndex]!]
+    const instance = state?.explicits.find(
+      (mod) => mod.modifierId === id && mod.fractured,
+    )
+    const definition = definitions[id]
+    return definition && state && instance
+      ? localizedModifierText(
+          definition,
+          displayedModifierValues(state, definition, instance, 'explicits'),
+          locale,
+        )
+      : gameName(id, definition?.name ?? id, locale)
+  }
   const status = replay?.isError ? (
     <p role="alert">
       {messages.error}{' '}
@@ -494,6 +562,50 @@ function RouteList({
                 <h3>{selected ? summary : title(base)}</h3>
               </div>
             </div>
+            {strategy && outcomes && (
+              <label className="acquisition-route-variants">
+                {fractureCopy.outcome}
+                <select
+                  value={selection}
+                  onChange={(e) => select(Number(e.target.value))}
+                >
+                  {outcomes.map((row) => (
+                    <option key={row.index} value={row.index}>
+                      {fractureLabel(row.route)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            )}
+            {meta && strategy && (
+              <p>
+                {fractureCopy.baseline} ·{' '}
+                {supportProbabilityText(meta.baselineChance, locale)}
+              </p>
+            )}
+            {fractureStep?.chance && (
+              <p>
+                {fractureCopy.roll} ·{' '}
+                {beforeFracture &&
+                  fractureStep.chance.probability ===
+                    1 / beforeFracture.explicits.length && (
+                    <>1/{beforeFracture.explicits.length} · </>
+                  )}
+                {supportProbabilityText(fractureStep.chance, locale)}
+              </p>
+            )}
+            {meta && (
+              <p>
+                {fractureCopy.completion} ·{' '}
+                {supportProbabilityText(meta.conditionalChance, locale)}
+              </p>
+            )}
+            {strategy && selected && (
+              <p>
+                {fractureCopy.branch} ·{' '}
+                {planTitle(selectedRow.branchCost, locale, chance(selected))}
+              </p>
+            )}
             {film && <h4>{copy.example}</h4>}
             <SessionDetail
               film={film}
@@ -580,18 +692,24 @@ function RouteList({
         }
       >
         {visibleGroups.map((group, rank) => {
-          const { index, route, active, summary } =
+          const { index, route, active, summary, strategy } =
             group.find((row) => row.index === selection) ?? group[0]!
           // Show just the material positions that distinguish variants with the same goal order.
-          const differingSteps = route.steps.map((_, i) =>
-            group.some(
-              (row) =>
-                stepLabel(row.route.steps[i]!) !== stepLabel(route.steps[i]!),
-            ),
-          )
+          const differingSteps = strategy
+            ? []
+            : route.steps.map((_, i) =>
+                group.some(
+                  (row) =>
+                    stepLabel(row.route.steps[i]!) !==
+                    stepLabel(route.steps[i]!),
+                ),
+              )
 
           const options = [
             title(route),
+            ...(!strategy && route.fractureStrategy
+              ? [fractureLabel(route)]
+              : []),
             ...route.steps.filter((s) => s.socketIndex != null).map(stepLabel),
           ].join(' · ')
           return (
@@ -623,7 +741,7 @@ function RouteList({
                   )
                 }
               />
-              {group.length > 1 && (
+              {!strategy && group.length > 1 && (
                 <label className="acquisition-route-variants">
                   {copy.variants.replace('{n}', String(group.length))}
                   <select

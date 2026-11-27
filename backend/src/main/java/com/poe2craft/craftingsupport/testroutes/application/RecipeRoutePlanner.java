@@ -17,6 +17,7 @@ import com.poe2craft.shared.item.BasicJewel;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
+import com.poe2craft.shared.item.ModifierInstance;
 import com.poe2craft.shared.probability.Fraction;
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -72,7 +73,8 @@ public final class RecipeRoutePlanner {
       @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean dummy,
       @JsonInclude(JsonInclude.Include.NON_NULL) Integer repeatTarget,
       @JsonInclude(JsonInclude.Include.NON_NULL) Chance reachChance,
-      @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean lucky) {
+      @JsonInclude(JsonInclude.Include.NON_DEFAULT) boolean lucky,
+      @JsonInclude(JsonInclude.Include.NON_NULL) String fracturedModifierId) {
     /** 측정된 서버 응답에는 등급 비교용 입력의 원본 화폐를 포함하지 않는다. */
     public Step(
         String action,
@@ -98,7 +100,8 @@ public final class RecipeRoutePlanner {
           false,
           null,
           null,
-          false);
+          false,
+          null);
     }
 
     /** 화폐 등급을 바꿔도 일반 추첨과 희소 티어를 노린 원래 추첨을 구별한다. */
@@ -125,7 +128,8 @@ public final class RecipeRoutePlanner {
           false,
           null,
           null,
-          false);
+          false,
+          null);
     }
 
     /** 지정 번호가 없던 고정 경로도 실제 획득 기록으로 다시 계산한다. */
@@ -176,7 +180,8 @@ public final class RecipeRoutePlanner {
           false,
           repeatTarget,
           null,
-          false);
+          false,
+          null);
     }
 
     /** 고정 경로 입력은 확률을 받지 않고 실제 작업대 분포에서 다시 계산한다. */
@@ -216,6 +221,19 @@ public final class RecipeRoutePlanner {
     /** 선택한 반복 한도와 원본 화폐가 실제로 비교 가능한 제작인지 확인한다. */
     public boolean validGradeSelection() {
       if (action == null || action.isBlank()) return false;
+      if (action.equals(WorkbenchCurrency.FRACTURING.name())) {
+        return fracturedModifierId != null
+            && !fracturedModifierId.isBlank()
+            && acquired.isEmpty()
+            && lost.isEmpty()
+            && omens.isEmpty()
+            && socketIndex == null
+            && repeatTarget == null
+            && !repeatUntilHit
+            && maxUses == null
+            && originalAction == null;
+      }
+      if (fracturedModifierId != null) return false;
       if (repeatTarget != null
           && (!repeatUntilHit
               || repeatTarget < 1
@@ -270,7 +288,8 @@ public final class RecipeRoutePlanner {
           false,
           repeatTarget,
           null,
-          false);
+          false,
+          null);
     }
 
     /** 행동 전이를 묶은 후 해당 경로 분포의 확률과 기대 사용량을 붙인다. */
@@ -290,7 +309,8 @@ public final class RecipeRoutePlanner {
           dummy,
           repeatTarget,
           reachChance,
-          lucky);
+          lucky,
+          fracturedModifierId);
     }
 
     /** 실제로 목표를 얻지 않은 더미 추가는 등급을 선택하지 않고, 경로에는 조건부 준비 확률 1을 곱한다. */
@@ -310,7 +330,8 @@ public final class RecipeRoutePlanner {
           true,
           null,
           reachChance,
-          lucky);
+          lucky,
+          fracturedModifierId);
     }
 
     /** 표시용 3분류를 추가한다. 다음 단계나 전체 경로의 성공 확률은 별도로 유지한다. */
@@ -330,7 +351,8 @@ public final class RecipeRoutePlanner {
           dummy,
           repeatTarget,
           reachChance,
-          lucky);
+          lucky,
+          fracturedModifierId);
     }
 
     /** 같은 관측의 누적 도달 확률과 반환할 실제 예시의 해당 단계 우연 적중 여부를 기록한다. */
@@ -350,7 +372,30 @@ public final class RecipeRoutePlanner {
           dummy,
           repeatTarget,
           reached,
-          luckyHit);
+          luckyHit,
+          fracturedModifierId);
+    }
+
+    /** 분열로 고정된 실제 옵션을 기록한다. 같은 아이템을 계속 제작할 때의 관측·재생 키다. */
+    public Step withFracturedModifier(String modifierId) {
+      if (Objects.equals(fracturedModifierId, modifierId)) return this;
+      return new Step(
+          action,
+          omens,
+          acquired,
+          lost,
+          socketIndex,
+          chance,
+          expectedUses,
+          maxUses,
+          originalAction,
+          omenOutcomes,
+          repeatUntilHit,
+          dummy,
+          repeatTarget,
+          reachChance,
+          lucky,
+          modifierId);
     }
 
     /** 클라이언트에서 돌아온 행동·징조와 실제 홈 위치만 재생 키에 포함한다. */
@@ -376,7 +421,49 @@ public final class RecipeRoutePlanner {
       Double probability,
       List<Integer> stateIndices,
       @JsonInclude(JsonInclude.Include.NON_NULL) ProbabilityBounds probabilityBounds,
-      boolean lucky) {
+      boolean lucky,
+      @JsonInclude(JsonInclude.Include.NON_NULL)
+          FractureStrategies.Recommendation fractureStrategy) {
+    /** 일반 경로 또는 한 분열 결과의 개별 완주 질량을 기록한다. */
+    public Route(
+        int cardIndex,
+        List<Integer> order,
+        List<Step> steps,
+        Double probability,
+        List<Integer> stateIndices,
+        ProbabilityBounds probabilityBounds,
+        boolean lucky) {
+      this(cardIndex, order, steps, probability, stateIndices, probabilityBounds, lucky, null);
+    }
+
+    /** 배타적인 분열 결과마다 선택된 후속 경로에 같은 전략 비교 결과를 붙인다. */
+    Route withFractureStrategy(FractureStrategies.Recommendation recommendation) {
+      return new Route(
+          cardIndex,
+          order,
+          steps,
+          probability,
+          stateIndices,
+          probabilityBounds,
+          lucky,
+          recommendation);
+    }
+
+    /** 반환된 경로만 참조하는 응답 상태 사전의 번호로 실제 단계들을 다시 연결한다. */
+    private Route remapStates(Map<Integer, Integer> indices) {
+      return new Route(
+          cardIndex,
+          order,
+          steps,
+          probability,
+          stateIndices.stream()
+              .map(i -> indices.computeIfAbsent(i, unused -> indices.size()))
+              .toList(),
+          probabilityBounds,
+          lucky,
+          fractureStrategy);
+    }
+
     /** 시작부터 이미 달성한 경로 등 정확한 확률에는 추가 경계가 없다. */
     public Route(
         int cardIndex,
@@ -455,8 +542,8 @@ public final class RecipeRoutePlanner {
     }
   }
 
-  /** 같은 아이템에 도달한 모든 분기의 probability와, 그중 실제로 성립한 witness 한 개다. */
-  private record Mass(RevealTierMass weight, Witness witness) {}
+  /** 같은 계산 상태에 도달한 질량과 예시다. exactItem은 다른 실제 더미를 그 예시로 대신한 적이 없는지 나타낸다. */
+  private record Mass(RevealTierMass weight, Witness witness, boolean exactItem) {}
 
   /** 첫 카오스에서 지울 옵션 수와 다음 에센스로 교체할 칸의 역할까지 같을 때만 상태를 합친다. */
   private record StateKey(ItemState item, int disposableCount, EssenceSlot essenceSlot) {
@@ -496,7 +583,7 @@ public final class RecipeRoutePlanner {
 
     /** 미확정 질량은 null로 유지한다. 서로 배타적인 같은 상태 결과만 합친다. */
     void add(ItemState item, RevealTierMass weight, Witness parent, RecipeStateGroups groups) {
-      add(item, weight, parent, new StateKey(groups.key(item), 0), false, false);
+      add(item, weight, parent, new StateKey(groups.key(item), 0), false, false, true);
     }
 
     /** 동일한 실제 경로가 준비 적중과 직접 획득 둘 다 가능하면 직접 획득 예시를 우선한다. */
@@ -506,18 +593,23 @@ public final class RecipeRoutePlanner {
         Witness parent,
         StateKey stateKey,
         boolean luckyHit,
-        boolean chaosDummy) {
+        boolean chaosDummy,
+        boolean exactItem) {
       boolean lucky = luckyHit || (parent != null && parent.lucky);
       masses.compute(
           stateKey,
           (key, existing) -> {
             if (existing == null)
-              return new Mass(weight, new Witness(item, parent, lucky, luckyHit, chaosDummy));
+              return new Mass(
+                  weight, new Witness(item, parent, lucky, luckyHit, chaosDummy), exactItem);
             var example =
                 existing.witness.lucky && !lucky
                     ? new Witness(item, parent, false, false, chaosDummy)
                     : existing.witness;
-            return new Mass(existing.weight.plus(weight), example);
+            return new Mass(
+                existing.weight.plus(weight),
+                example,
+                existing.exactItem && exactItem && existing.witness.state.equals(item));
           });
     }
 
@@ -604,6 +696,10 @@ public final class RecipeRoutePlanner {
   private final OmenBudget omenBudget;
   private int remaining;
   private boolean complete = true;
+
+  /** 동등 상태로 압축한 더미의 실제 ID를 관측할 수 없어 분열 권고 검증을 유보했는지 기록한다. */
+  private boolean unexaminedFractures;
+
   private long nextSequence;
 
   /** simulator·card·matchesGoal을 같은 시작 상태에 적용하고 outcomeBudget만큼 결과를 열거한다. */
@@ -754,6 +850,7 @@ public final class RecipeRoutePlanner {
     var routes = new ArrayList<Route>();
     var stateIndices = new LinkedHashMap<ItemState, Integer>();
     boolean complete = true;
+    boolean unexaminedFractures = false;
     int budget = outcomeBudget;
     var omenBudget = new OmenBudget(outcomeBudget);
     for (int i = 0; i < cards.size(); i++) {
@@ -786,11 +883,20 @@ public final class RecipeRoutePlanner {
         search.explore(List.of(), root);
         routes.addAll(search.routes);
         complete &= search.complete;
+        unexaminedFractures |= search.unexaminedFractures;
         int used = allocation - search.remaining;
         budget -= used;
         share -= used;
       }
     }
+    var states = List.copyOf(stateIndices.keySet());
+    var selectedRoutes = FractureStrategies.recommend(start, routes, states, complete);
+    if (routes.size() != selectedRoutes.size()) {
+      // 추천에서 제외된 분기의 예시 프레임은 전송하지 않는다.
+      var indices = new LinkedHashMap<Integer, Integer>();
+      routes = new ArrayList<>(selectedRoutes.stream().map(r -> r.remapStates(indices)).toList());
+      states = indices.keySet().stream().map(states::get).toList();
+    } else routes = new ArrayList<>(selectedRoutes);
     routes.sort(
         Comparator.comparing(Route::probability, Comparator.nullsLast(Comparator.reverseOrder()))
             .thenComparing(
@@ -799,7 +905,7 @@ public final class RecipeRoutePlanner {
             .thenComparingInt(r -> r.steps().size())
             .thenComparingInt(Route::cardIndex)
             .thenComparing(r -> r.steps().toString()));
-    return new Result(List.copyOf(routes), complete, List.copyOf(stateIndices.keySet()), trace);
+    return new Result(List.copyOf(routes), complete && !unexaminedFractures, states, trace);
   }
 
   /** 분열만 유지한 희귀 풀에서 첫 L 후보 중 하나라도 실제로 뽑을 수 있으면 카오스 준비와 그 우연 적중부터 계산한다. */
@@ -1014,10 +1120,11 @@ public final class RecipeRoutePlanner {
       var initial = new Distribution(null);
       initial.add(start, RevealTierMass.known(Fraction.ONE), null, planner.stateGroups);
       planner.explore(List.of(), initial);
-      verified &= planner.complete;
+      boolean fullyEvaluated = planner.complete && !planner.unexaminedFractures;
+      verified &= fullyEvaluated;
       if (!planner.routes.isEmpty())
         return new Result(
-            List.copyOf(planner.routes), planner.complete, List.copyOf(states.keySet()), trace);
+            List.copyOf(planner.routes), fullyEvaluated, List.copyOf(states.keySet()), trace);
       available = planner.remaining;
     }
     return new Result(List.of(), verified, List.of(), trace);
@@ -1107,6 +1214,7 @@ public final class RecipeRoutePlanner {
         selected != null
             && RecipeMoves.baseMove(selected).action().equals(WorkbenchCurrency.EXALTED.name());
     boolean hadChaos = path.stream().anyMatch(Step::repeatingChaos);
+    boolean fracturedDuringRoute = path.stream().anyMatch(s -> s.fracturedModifierId() != null);
     boolean qualityWork = Objects.equals(minimumQuality, 40);
     boolean abstractQualityDone =
         qualityWork
@@ -1114,6 +1222,8 @@ public final class RecipeRoutePlanner {
             && path.stream().anyMatch(s -> s.action().equals(RecipeMoves.QUALITY_WORK));
     var selectedTargets = new HashSet<String>();
     if (required != null) {
+      if (required.fracturedModifierId() != null)
+        selectedTargets.add(required.fracturedModifierId());
       for (int number : required.acquired())
         selectedTargets.addAll(allowed.getOrDefault(number, Set.of()));
     }
@@ -1177,6 +1287,7 @@ public final class RecipeRoutePlanner {
         if (seekFirstChaos
             && !mutableGoalCap
             && !hadChaos
+            && !fracturedDuringRoute
             && item.explicits().stream()
                 .noneMatch(m -> !m.fractured() && lowIds.contains(m.modifierId()))) continue;
         if (representative == null
@@ -1205,6 +1316,7 @@ public final class RecipeRoutePlanner {
           seekFirstChaos
               && !mutableGoalCap
               && !hadChaos
+              && !fracturedDuringRoute
               && item.explicits().stream()
                   .noneMatch(m -> !m.fractured() && lowIds.contains(m.modifierId()));
       boolean repeat =
@@ -1340,6 +1452,31 @@ public final class RecipeRoutePlanner {
         if (!presenceOnly && !item.explicits().isEmpty() && card.rarities().contains(item.rarity()))
           choices.add(new Choice(0, new Move(WorkbenchCurrency.DIVINE.name()), true, null));
       }
+      // 새 권고는 단일 결정 상태에서 비교하고, 고정 재생은 지정 ID의 모든 실제 부모 질량을 합친다.
+      if (!seeking
+          && !fracturedDuringRoute
+          && before.size() >= 3
+          && (required == null
+              || required.fracturedModifierId() != null
+              || boneIds.contains(required.action()))) {
+        var extra = moves.fractureChoices(item, card, before);
+        boolean identifiable =
+            entry.getValue().exactItem
+                || item.explicits().stream().allMatch(m -> targets.contains(m.modifierId()));
+        if (identifiable && (fixedSteps != null || current.masses.size() == 1)) {
+          for (var choice : extra) if (!choices.contains(choice)) choices.add(choice);
+        } else {
+          for (var choice : extra) {
+            if (choices.contains(choice)) continue;
+            // 추첨할 실제 옵션을 식별할 수 없는 부모의 질량을 알려진 실패로 세지 않는다.
+            unexaminedFractures = true;
+            if (required != null && choice.move().equals(selected))
+              preparations.computeIfAbsent(new Trial(choice.move(), 0), k -> new PreparationMass())
+                      .complete =
+                  false;
+          }
+        }
+      }
       if (essenceSlot != null && essenceSlot.disposable())
         choices.removeIf(c -> !essenceSlot.replacements().contains(c.move()));
       // 방금 붙인 더미만 제거 가능하면 방향 지정은 제거 후보를 줄이지 않는다.
@@ -1458,6 +1595,7 @@ public final class RecipeRoutePlanner {
       if (required != null
           && (!step.acquired().equals(required.acquired())
               || !step.lost().equals(required.lost())
+              || !Objects.equals(step.fracturedModifierId(), required.fracturedModifierId())
               || (required.maxUses() != null
                   && !step.action().equals(WorkbenchCurrency.DIVINE.name())
                   && !Objects.equals(step.maxUses(), required.maxUses())))) continue;
@@ -1535,6 +1673,7 @@ public final class RecipeRoutePlanner {
                 eventBounds.given(liveBounds));
         step = step.measured(chance, qualityCatalyst == null ? null : 40.0, null);
       } else if (step.action().equals(WorkbenchCurrency.ESSENCE_BREACH.name())
+          || step.fracturedModifierId() != null
           || !step.acquired().isEmpty()
           || !step.lost().isEmpty()
           || step.action().equals("REVEAL")
@@ -1887,6 +2026,8 @@ public final class RecipeRoutePlanner {
       if (!protectedIds.isEmpty()
           && Collections.disjoint(law.removableModifierIds(), protectedIds)) {
         for (Choice c : intents) {
+          // 분열은 기존 목표의 보호 여부만 바꾸며 같은 번호의 소멸·품질 작업을 대체하지 않는다.
+          if (c.purpose() == Purpose.FRACTURE) continue;
           if (law.outcomes().stream().anyMatch(o -> reaches(c, before, o, protectedIds)))
             safeTargets.add(c.target());
         }
@@ -1941,9 +2082,11 @@ public final class RecipeRoutePlanner {
                           && trials.get(other.getKey()).stream()
                               .anyMatch(
                                   candidate ->
-                                      intents.stream()
-                                          .anyMatch(
-                                              intent -> intent.target() == candidate.target())))) {
+                                      candidate.purpose() != Purpose.FRACTURE
+                                          && intents.stream()
+                                              .anyMatch(
+                                                  intent ->
+                                                      intent.target() == candidate.target())))) {
         preparations.get(trial).complete = false;
         preparations.get(trial).firstKnown = false;
         continue;
@@ -2015,7 +2158,8 @@ public final class RecipeRoutePlanner {
               prior.witness,
               new StateKey(stateGroups.key(outcome.state()), 0, slot),
               false,
-              false);
+              false,
+              prior.exactItem);
           if (step.acquired().isEmpty()) continue;
         }
         if (repeatUntilHit) preparation.repeatHits = preparation.repeatHits.plus(weight);
@@ -2038,7 +2182,7 @@ public final class RecipeRoutePlanner {
                   key.item(),
                   key.disposableCount(),
                   new EssenceSlot(slot.modifierId(), slot.replacements(), false));
-        child.add(outcome.state(), weight, prior.witness, key, luckyHit, dummy);
+        child.add(outcome.state(), weight, prior.witness, key, luckyHit, dummy, prior.exactItem);
       }
     }
   }
@@ -2116,6 +2260,16 @@ public final class RecipeRoutePlanner {
         && outcome.state().desecrated().stream().noneMatch(s -> s.modifierId() == null))
       return null;
     if (intents.stream().noneMatch(c -> reaches(c, before, outcome, protectedIds))) return null;
+    if (move.action().equals(WorkbenchCurrency.FRACTURING.name())) {
+      var fixed =
+          outcome.state().explicits().stream().filter(ModifierInstance::fractured).findFirst();
+      return fixed
+          .map(
+              m ->
+                  new Step(move, List.of(), List.of(), null, null)
+                      .withFracturedModifier(m.modifierId()))
+          .orElse(null);
+    }
     if (dummy) {
       // 다음 반복이 바로 제거할 더미의 실제 ID는 물리 상태에만 남긴다.
       after.keySet().retainAll(before.keySet());

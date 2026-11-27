@@ -23,6 +23,8 @@ export interface AcquisitionChance {
 }
 
 export interface AcquisitionStep {
+  /** The explicit modifier locked by this particular Fracturing Orb outcome. */
+  fracturedModifierId?: string
   dummy?: boolean
   /** The chosen example acquired a goal incidentally during this step's preparation. */
   lucky?: boolean
@@ -41,7 +43,16 @@ export interface AcquisitionStep {
   lost: number[]
 }
 
+export interface FractureStrategy {
+  decisionId: string
+  stepIndex: number
+  successChance: AcquisitionChance
+  baselineChance: AcquisitionChance
+  conditionalChance: AcquisitionChance
+}
+
 export interface AcquisitionRoute {
+  fractureStrategy?: FractureStrategy
   lucky?: boolean
   cardIndex: number
   order: number[]

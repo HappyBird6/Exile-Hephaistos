@@ -18,6 +18,50 @@ class RecipeTransitionsTest {
   final String strength = "amulet:suffix:of-the-brute";
   final String defences = "amulet:prefix:essence-global-defences";
 
+  /** 분열은 후보별로 같은 실제 분모를 유지한다. 숨겨진 칸과 목표 적중만 남긴 작은 예산을 함께 확인한다. */
+  @Test
+  void fractureDrawsFromEveryKnownExplicitBeforeRevealAndKeepsTheDenominatorWhenLimited() {
+    var before =
+        item(ItemState.Rarity.RARE, life, strength, defences)
+            .withDesecrated(
+                List.of(
+                    new ItemState.DesecratedSlot(
+                        "bone", ModifierDefinition.AffixType.SUFFIX, null)));
+    var full = law.successors(before, "FRACTURING", Set.of(), Set.of(defences), 20);
+    assertThat(full.complete()).isTrue();
+    assertThat(full.outcomes())
+        .hasSize(3)
+        .allSatisfy(
+            o -> {
+              assertThat(o.probability()).isEqualTo(Fraction.of(1, 3));
+              assertThat(o.removedModifierIds()).isEmpty();
+              assertThat(o.state().desecrated()).isEqualTo(before.desecrated());
+            });
+    var limited = law.successors(before, "FRACTURING", Set.of(), Set.of(defences), 1);
+    assertThat(limited.complete()).isFalse();
+    assertThat(limited.outcomes())
+        .singleElement()
+        .satisfies(
+            hit -> {
+              assertThat(hit.probability()).isEqualTo(Fraction.of(1, 3));
+              assertThat(hit.state().explicits())
+                  .filteredOn(ModifierInstance::fractured)
+                  .extracting(ModifierInstance::modifierId)
+                  .containsExactly(defences);
+            });
+    var four =
+        item(ItemState.Rarity.RARE, life, strength, defences, "amulet:suffix:of-the-penguin");
+    assertThat(law.successors(four, "FRACTURING", Set.of(), Set.of(life), 20).outcomes())
+        .hasSize(4)
+        .allMatch(o -> o.probability().equals(Fraction.of(1, 4)));
+    var revealed =
+        four.withDesecrated(
+            List.of(
+                new ItemState.DesecratedSlot("bone", ModifierDefinition.AffixType.PREFIX, life)));
+    assertThat(law.successors(revealed, "FRACTURING", Set.of(), Set.of(life), 20).outcomes())
+        .isEmpty();
+  }
+
   /** 목표 티어의 가중치를 더하되 새 수치는 입력 방향과 그 화폐의 실제 후보에서 고른다. 시작 보유 수치는 보존한다. */
   @Test
   void eachAcquisitionUsesTheAvailableTierBoundaryAndKeepsOtherValues() {

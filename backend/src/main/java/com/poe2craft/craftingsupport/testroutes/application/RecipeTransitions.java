@@ -169,6 +169,26 @@ public final class RecipeTransitions {
             : Law.empty(true);
       return prepareDesecration(item, action, omens, targetModifierIds, remainingOutcomes);
     }
+    if (currency == WorkbenchCurrency.FRACTURING) {
+      if (!omens.isEmpty()) return Law.empty(true);
+      var outcomes = workbench.fractureOutcomes(item);
+      if (outcomes.isEmpty()) return Law.empty(true);
+      // 예산이 작아 목표 분기를 먼저 보더라도 확률 분모에는 모든 분열 후보가 남는다.
+      var p = Fraction.of(1, outcomes.size());
+      var measured =
+          outcomes.stream()
+              .sorted(
+                  Comparator.comparing(
+                      state ->
+                          state.explicits().stream()
+                              .noneMatch(
+                                  m ->
+                                      m.fractured() && targetModifierIds.contains(m.modifierId()))))
+              .limit(remainingOutcomes)
+              .map(state -> new Outcome(state, p, Set.of()))
+              .toList();
+      return new Law(measured, measured.size() == outcomes.size(), Set.of());
+    }
     var abyss = item.desecrated().isEmpty() ? null : AbyssCraftingState.from(item, catalog);
     var known = abyss == null ? item : abyss.knownItem();
     if (omens.contains(WorkbenchOmen.LIGHT)) return Law.empty(true);

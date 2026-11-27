@@ -96,7 +96,13 @@ class WorkbenchControllerTest {
   @Test
   void preparesTextOnceWithEquivalentMappingAndPreservesEditRules() throws Exception {
     String text =
-        "Item Class: Amulets\nRarity: Normal\nSolar Amulet\n--------\nItem Level: 82\n--------\n+15 to Spirit (implicit)";
+        "Item Class: Amulets\n"
+            + "Rarity: Normal\n"
+            + "Solar Amulet\n"
+            + "--------\n"
+            + "Item Level: 82\n"
+            + "--------\n"
+            + "+15 to Spirit (implicit)";
     var legacy =
         mapper.readTree(
             mvc.perform(
@@ -238,9 +244,26 @@ class WorkbenchControllerTest {
       throws Exception {
     for (String source :
         java.util.List.of(
-            "Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass\n--------\nSockets: S S S S\nItem Level: 82",
-            "Item Class: Sceptres\nRarity: Normal\nOmen Sceptre\n--------\nGrants Skill: Level 17 Malice\nItem Level: 82",
-            "Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass\n--------\nSockets: S S\nItem Level: 82\n--------\n20% increased Armour (rune)")) {
+            "Item Class: Body Armours\n"
+                + "Rarity: Normal\n"
+                + "Soldier Cuirass\n"
+                + "--------\n"
+                + "Sockets: S S S S\n"
+                + "Item Level: 82",
+            "Item Class: Sceptres\n"
+                + "Rarity: Normal\n"
+                + "Omen Sceptre\n"
+                + "--------\n"
+                + "Grants Skill: Level 17 Malice\n"
+                + "Item Level: 82",
+            "Item Class: Body Armours\n"
+                + "Rarity: Normal\n"
+                + "Soldier Cuirass\n"
+                + "--------\n"
+                + "Sockets: S S\n"
+                + "Item Level: 82\n"
+                + "--------\n"
+                + "20% increased Armour (rune)")) {
       var mapped =
           mapper.readTree(
               mvc.perform(
@@ -461,7 +484,7 @@ class WorkbenchControllerTest {
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.applied").value(true))
             .andExpect(jsonPath("$.events[0].kind").value("FRACTURE"))
-            .andExpect(jsonPath("$.ledgerVersion").value("solar-uniform-assumptions-v14"))
+            .andExpect(jsonPath("$.ledgerVersion").value("solar-uniform-assumptions-v15"))
             .andReturn();
     var state =
         mapper.treeToValue(
@@ -525,7 +548,16 @@ class WorkbenchControllerTest {
   @Test
   void mappingRetainsUnsupportedEvidenceAndOnlyEnablesValidatedSolarStates() throws Exception {
     String text =
-        "Item Class: Amulets\nRarity: Rare\nExample\nSolar Amulet\n--------\nItem Level: 82\n--------\n+15 to Spirit (implicit)\n--------\n+17 to maximum Life";
+        "Item Class: Amulets\n"
+            + "Rarity: Rare\n"
+            + "Example\n"
+            + "Solar Amulet\n"
+            + "--------\n"
+            + "Item Level: 82\n"
+            + "--------\n"
+            + "+15 to Spirit (implicit)\n"
+            + "--------\n"
+            + "+17 to maximum Life";
     mvc.perform(
             post("/api/v1/crafting/workbench/map-text")
                 .header("X-Crafting-Ruleset", RulesetBoundary.identity())
@@ -660,7 +692,12 @@ class WorkbenchControllerTest {
   @Test
   void importedEquipmentQualitySurvivesManualCurrencyAndJsonRestore() throws Exception {
     var text =
-        "Item Class: Body Armours\nRarity: Normal\nSoldier Cuirass\n--------\nQuality: +20%\nItem Level: 82";
+        "Item Class: Body Armours\n"
+            + "Rarity: Normal\n"
+            + "Soldier Cuirass\n"
+            + "--------\n"
+            + "Quality: +20%\n"
+            + "Item Level: 82";
     var mapped =
         mvc.perform(
                 post("/api/v1/crafting/workbench/map-text")

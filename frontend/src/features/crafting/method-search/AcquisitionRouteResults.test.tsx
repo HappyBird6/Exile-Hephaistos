@@ -70,6 +70,7 @@ const market = {
       prices: {
         'Flesh Catalyst': { name: 'Flesh Catalyst', exalted: 2, divine: 0.004 },
         'Exalted Orb': { name: 'Exalted Orb', exalted: 1, divine: 0.002 },
+        'Fracturing Orb': { name: 'Fracturing Orb', exalted: 10, divine: 0.02 },
         'Preserved Collarbone': {
           name: 'Preserved Collarbone',
           exalted: 8,
@@ -122,7 +123,7 @@ function serve(result: AcquisitionResult) {
   vi.stubGlobal('fetch', fetch)
   return fetch
 }
-function show() {
+function show(start = request) {
   const client = new QueryClient({
     defaultOptions: { queries: { retry: false } },
   })
@@ -135,7 +136,7 @@ function show() {
     <QueryClientProvider client={client}>
       <CurrencyPriceContext.Provider value={market}>
         <AcquisitionRouteResults
-          request={request}
+          request={start}
           definitions={definitions}
           baseName="Solar Amulet"
           active
@@ -1466,4 +1467,185 @@ it('commutes a verified empty-slot reservation only when the Exalt keeps the sam
   const filler = { modifierId: 'other', values: { life: 10 } }
   states[1] = { ...states[1]!, explicits: [filler] }
   expect(new Set(keys(true)).size).toBe(2)
+})
+
+function fractureExample() {
+  const input = structuredClone(request)
+  const explicitIds = ['life', 'cold', 'p', 's']
+  input.start.item = {
+    ...input.start.item,
+    rarity: 'RARE',
+    explicits: explicitIds.map((id, i) => ({
+      modifierId: id,
+      values: { [id]: 11 + i },
+      fractured: false,
+    })),
+  }
+  const states = input.start.item.explicits.map(({ modifierId }) => ({
+    ...input.start.item,
+    catalystQuality: null,
+    rarity: 'RARE' as const,
+    explicits: input.start.item.explicits.map((m) => ({
+      ...m,
+      fractured: m.modifierId === modifierId,
+    })),
+  }))
+  const result: AcquisitionResult = {
+    cards: [{ options: [{ number: 1, modifierIds: ['life'] }] }],
+    states,
+    complete: true,
+    routes: explicitIds.map((id, i) => ({
+      cardIndex: 0,
+      order: [1],
+      stateIndices: [i, i],
+      probability: [0.1, 0.15, 0.2, 0.25][i]!,
+      fractureStrategy: {
+        decisionId: 'decision-1',
+        stepIndex: 0,
+        successChance: { probability: 0.7 },
+        baselineChance: { probability: 0.4 },
+        conditionalChance: { probability: [0.4, 0.6, 0.8, 1][i]! },
+      },
+      steps: [
+        {
+          action: 'FRACTURING',
+          fracturedModifierId: id,
+          omens: [],
+          acquired: [],
+          lost: [],
+          chance: { probability: 0.25 },
+        },
+        {
+          action: i < 2 ? 'EXALTED' : 'CHAOS',
+          omens: [],
+          acquired: [1],
+          lost: [],
+        },
+      ],
+    })),
+  }
+  return { result, input }
+}
+it('shows one fracture strategy, filters by its weighted cost and overall chance, and opens the chosen actual history', async () => {
+  const { result, input } = fractureExample()
+  serve(result)
+  show(input)
+  const list = await screen.findByRole('list', { name: 'Crafting methods' })
+  expect(within(list).getAllByRole('listitem')).toHaveLength(1)
+  expect(
+    within(list).getByRole('button', { pressed: true }),
+  ).toHaveAccessibleName(/Fracture strategy.*70%/)
+  const cap = screen.getByRole('slider', { name: 'Maximum cost (ex)' })
+  fireEvent.change(cap, { target: { value: '1' } })
+  expect(cap).toHaveAttribute('aria-valuetext', '11.5 ex')
+  const minimum = screen.getByRole('slider', { name: 'Minimum success chance' })
+  fireEvent.change(minimum, { target: { value: '1' } })
+  expect(minimum).toHaveAttribute('aria-valuetext', '70%')
+  const select = screen.getByRole('combobox', { name: 'Fractured modifier' })
+  expect(select).toHaveValue('0')
+  expect(within(select).getAllByRole('option')).toHaveLength(4)
+  expect(screen.getByText('Without fracturing · 40%')).toBeVisible()
+  expect(screen.getByText('Chance of this fracture · 1/4 · 25%')).toBeVisible()
+  expect(screen.getByText('Completion after this fracture · 40%')).toBeVisible()
+  expect(screen.getByText('Selected branch · 11 ex · 10%')).toBeVisible()
+  fireEvent.change(select, { target: { value: '3' } })
+  expect(
+    screen.getByText('Completion after this fracture · 100%'),
+  ).toBeVisible()
+  expect(screen.getByText('Selected branch · 12 ex · 25%')).toBeVisible()
+  expect(within(list).getByRole('link')).toHaveAttribute(
+    'href',
+    '/support-test/overview?request=' +
+      encodeURIComponent(request.clientRequestId) +
+      '&route=3',
+  )
+  expect(within(list).getAllByRole('listitem')).toHaveLength(1)
+})
+it('keeps the lock witness on grade replay and rejects a reply that fractures another modifier', async () => {
+  const { result, input } = fractureExample()
+  const bad = structuredClone(result.routes[1]!)
+  bad.steps[1]!.action = 'PERFECT_EXALTED'
+  const fetch = serve({ ...result, routes: [bad] })
+  const query = fixedRouteQuery(input, result, 0, [1, 3])
+  const client = new QueryClient({
+    defaultOptions: { queries: { retry: false } },
+  })
+  await expect(client.fetchQuery(query)).rejects.toThrow('another method')
+  expect(
+    JSON.parse(fetch.mock.calls[0]![1].body).steps[0].fracturedModifierId,
+  ).toBe('life')
+})
+
+it('shows a regraded fracture outcome independently and restores the aggregate when the grade is reset', async () => {
+  const { result, input } = fractureExample()
+  const { fractureStrategy: original, ...branch } = result.routes[0]!
+  expect(original).toBeDefined()
+  const response = (data: AcquisitionResult) =>
+    new Response(JSON.stringify(data), {
+      headers: { [rulesetHeader]: input.start.provenance.rulesetIdentity },
+    })
+  const fetch = vi.fn(async (url: RequestInfo | URL) =>
+    String(url).endsWith('/grade')
+      ? response({
+          ...result,
+          routes: [
+            {
+              ...branch,
+              probability: 0.12,
+              steps: [
+                branch.steps[0]!,
+                { ...branch.steps[1]!, action: 'PERFECT_EXALTED' },
+              ],
+            },
+          ],
+        })
+      : response(result),
+  )
+  vi.stubGlobal('fetch', fetch)
+  show(input)
+  const list = await screen.findByRole('list', { name: 'Crafting methods' })
+  const history = () => within(screen.getByRole('region', { name: 'History' }))
+  const choose = (current: string, target: string) => {
+    fireEvent.click(
+      history().getByRole('button', { name: 'Step 2 · ' + current }),
+    )
+    fireEvent.click(history().getByRole('button', { name: target }))
+  }
+  choose('Exalted Orb', 'Perfect Exalted Orb')
+  await waitFor(() =>
+    expect(
+      within(list).getByRole('button', { pressed: true }),
+    ).toHaveAccessibleName(/Selected branch · 15 ex · 12%/),
+  )
+  expect(screen.queryByText(/Fracture strategy.*70%/)).toBeNull()
+  expect(screen.queryByText('Completion after this fracture · 40%')).toBeNull()
+  expect(
+    screen.queryByRole('combobox', { name: 'Fractured modifier' }),
+  ).toBeNull()
+  choose('Perfect Exalted Orb', 'Exalted Orb')
+  expect(within(list).getAllByRole('listitem')).toHaveLength(1)
+  expect(
+    screen.getByRole('combobox', { name: 'Fractured modifier' }),
+  ).toHaveValue('0')
+  expect(screen.getByText('Completion after this fracture · 40%')).toBeVisible()
+})
+it('filters the entire strategy when one possible continuation is unpriced or lucky', async () => {
+  const { result, input } = fractureExample()
+  result.routes[3]!.steps[1]!.action = 'DIVINE'
+  result.routes[3]!.lucky = true
+  serve(result)
+  show(input)
+  const list = await screen.findByRole('list', { name: 'Crafting methods' })
+  expect(within(list).queryAllByRole('listitem')).toHaveLength(0)
+  fireEvent.click(screen.getByRole('checkbox', { name: 'Show lucky routes' }))
+  expect(within(list).getAllByRole('listitem')).toHaveLength(1)
+  expect(
+    within(
+      screen.getByRole('combobox', { name: 'Fractured modifier' }),
+    ).getAllByRole('option'),
+  ).toHaveLength(4)
+  fireEvent.change(screen.getByRole('slider', { name: 'Maximum cost (ex)' }), {
+    target: { value: '0' },
+  })
+  expect(within(list).queryAllByRole('listitem')).toHaveLength(0)
 })

@@ -3,6 +3,7 @@ import { revealAction } from '../abyss-workbench/revealAction'
 import type { PriceSnapshot } from '../currency-prices/api'
 import { craftingStepCost } from '../currency-prices/cost'
 import { isBone } from '../desecrationCurrency'
+import { sameItemState } from '../crafting-state/itemIdentity'
 import { pathTreeMessages } from '../path-tree/messages'
 import type { CreateRequest } from '../path-tree/types'
 import {
@@ -158,6 +159,22 @@ export function acquisitionRouteFilm(
     )
       return null
     const previous = frames[index]!
+    if (step.action === 'FRACTURING') {
+      const locked = state.explicits.filter((mod) => mod.fractured)
+      if (
+        !step.fracturedModifierId ||
+        locked.length !== 1 ||
+        locked[0]?.modifierId !== step.fracturedModifierId ||
+        !sameItemState(previous.state, {
+          ...state,
+          explicits: state.explicits.map((mod) => ({
+            ...mod,
+            fractured: false,
+          })),
+        })
+      )
+        return null
+    }
     if (step.action === 'DIVINE') heldOptions.clear()
     else {
       for (const lost of step.lost) heldOptions.delete(lost)

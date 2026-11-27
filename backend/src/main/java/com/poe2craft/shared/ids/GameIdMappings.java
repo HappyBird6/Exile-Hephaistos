@@ -88,7 +88,7 @@ public final class GameIdMappings {
       String dictionary = "game-ids-v1-" + HexFormat.of().formatHex(digest.digest());
       if (!dictionary.equals(source.path("identity").asText()))
         throw new IllegalArgumentException("Identifier mapping digest mismatch");
-      identity = dictionary + "-fields3";
+      identity = dictionary + "-fields4";
     } catch (java.security.NoSuchAlgorithmException error) {
       throw new IllegalStateException(error);
     }

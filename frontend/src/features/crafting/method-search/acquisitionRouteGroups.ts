@@ -153,6 +153,7 @@ export function acquisitionGroupKey(
       action: s.action,
       omens: s.omens,
       socketIndex: s.socketIndex,
+      fracturedModifierId: s.fracturedModifierId,
       lost: s.lost,
       chance: s.chance,
       expectedUses: s.expectedUses,

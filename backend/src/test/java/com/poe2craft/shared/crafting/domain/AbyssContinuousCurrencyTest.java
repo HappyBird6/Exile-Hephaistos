@@ -59,6 +59,46 @@ class AbyssContinuousCurrencyTest {
         catalog);
   }
 
+  /** 미공개 훼손도 네 번째 칸으로 세지만, 실제 분열 수치·제작 표식은 보이는 세 후보 중 하나에만 고정된다. */
+  @Test
+  void fractureCountsTheHiddenFourthSlotButOnlyDrawsTheThreeKnownModifiers() {
+    var crafted = "amulet:prefix:essence-global-defences";
+    var known = f.rare(82, "", crafted, "amulet:prefix:hale", "amulet:suffix:of-the-brute");
+    known =
+        AbyssCraftingState.withExplicits(
+            known,
+            known.explicits().stream()
+                .map(m -> m.modifierId().equals(crafted) ? m.asCrafted() : m)
+                .toList());
+    var state =
+        DesecrationCurrency.apply(
+            known, "Ancient_Collarbone", AffixType.SUFFIX, null, Set.of(), catalog);
+    var item = state.storedItem();
+    var outcomes = f.simulator.fractureOutcomes(item);
+    assertThat(f.simulator.fractureOutcomes(known)).isEmpty();
+    assertThat(outcomes).hasSize(3).doesNotHaveDuplicates();
+    var seen = new HashSet<ItemState>();
+    for (int seed = 0; seed < 32; seed++) {
+      var roll = seed * 104729L;
+      var applied = executor.apply(state, WorkbenchCurrency.FRACTURING, Set.of(), new Random(roll));
+      assertThat(applied.applied()).isTrue();
+      var after = applied.state().storedItem();
+      var sample =
+          f.simulator.apply(item, WorkbenchCurrency.FRACTURING, Set.of(), new Random(roll));
+      assertThat(sample.state()).isEqualTo(after);
+      assertThat(sample.events().getFirst().selectionProbability()).isEqualTo(1.0 / 3);
+      assertThat(after.desecrated()).isEqualTo(item.desecrated());
+      assertThat(after.explicits()).filteredOn(ModifierInstance::fractured).hasSize(1);
+      assertThat(after.explicits())
+          .filteredOn(m -> m.modifierId().equals(crafted))
+          .singleElement()
+          .satisfies(m -> assertThat(m.crafted()).isTrue());
+      assertThat(f.simulator.fractureOutcomes(after)).isEmpty();
+      seen.add(after);
+    }
+    assertThat(seen).containsExactlyInAnyOrderElementsOf(outcomes);
+  }
+
   @Test
   void automaticSideUsesBothAvailableSidesButNeverRevealsAModifier() {
     var seen = new HashSet<AffixType>();

@@ -18,8 +18,10 @@ import com.poe2craft.craftingsupport.goal.domain.GoalFilter;
 import com.poe2craft.craftingsupport.goal.infrastructure.GoalDefinitionsLoader;
 import com.poe2craft.craftingsupport.testroutes.application.TestRouteService;
 import com.poe2craft.shared.crafting.application.CraftingOperations;
+import com.poe2craft.shared.crafting.domain.AbyssCraftingState;
 import com.poe2craft.shared.crafting.domain.CraftingEngine;
 import com.poe2craft.shared.crafting.domain.QualityLimitRules;
+import com.poe2craft.shared.crafting.domain.WorkbenchCurrency;
 import com.poe2craft.shared.crafting.domain.WorkbenchSimulator;
 import com.poe2craft.shared.ids.GameIdCodec;
 import com.poe2craft.shared.ids.GameIdMappings;
@@ -31,6 +33,7 @@ import com.poe2craft.shared.item.SolarAmulet;
 import com.poe2craft.shared.item.infrastructure.ItemCatalogLoader;
 import com.poe2craft.shared.ruleset.api.RulesetBoundary;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -419,6 +422,22 @@ class TestRouteControllerTest {
     grade(input).andExpect(status().isOk()).andExpect(jsonPath("$.routes").isEmpty());
   }
 
+  /** 분열 결과가 빠졌거나 일반 화폐 단계에 분열 대상을 넣은 고정 경로는 재생하지 않는다. */
+  @Test
+  void fixedReplayRequiresAnObservedModifierOnlyOnTheFracturingStep() throws Exception {
+    var input = hiddenLifeRequest(85, 99);
+    input.put("cardIndex", 0);
+    var step = input.putArray("steps").addObject();
+    step.put("action", "FRACTURING");
+    step.putArray("omens");
+    step.putArray("acquired");
+    step.putArray("lost");
+    grade(input).andExpect(status().isBadRequest());
+    step.put("action", "EXALTED");
+    step.put("fracturedModifierId", "amulet:prefix:rotund");
+    grade(input).andExpect(status().isBadRequest());
+  }
+
   /** 사용자가 선택한 화폐 등급의 고정 경로만 재검증하는 API에 JSON을 보낸다. */
   private ResultActions grade(ObjectNode data) throws Exception {
     return mvc.perform(
@@ -621,6 +640,107 @@ class TestRouteControllerTest {
   private JsonNode response(ResultActions call) throws Exception {
     return json.readTree(
         call.andExpect(status().isOk()).andReturn().getResponse().getContentAsByteArray());
+  }
+
+  /** 이미 최댓값인 세 옵션 중 하나를 분열하면 냉기 공개 뒤 디바인이 변경할 수 있는 수치가 줄어든다. */
+  @Test
+  void recommendsTheWeightedFractureAndReplaysEachProtectedModifier() throws Exception {
+    var held =
+        List.of(
+            new ModifierInstance("amulet:prefix:countess", Map.of(SolarAmulet.SPIRIT_STAT, 50L)),
+            new ModifierInstance("amulet:prefix:athlete-s", Map.of(LIFE, 149L)),
+            new ModifierInstance(
+                "amulet:suffix:of-tzteosh", Map.of("base_fire_damage_resistance_%", 45L)));
+    var input = body.deepCopy();
+    ((ObjectNode) input.required("item")).set("explicits", json.valueToTree(held));
+    var rows = ((ObjectNode) input.at("/goal/groups/0")).putArray("entries");
+    var minima =
+        Map.of(
+            SolarAmulet.SPIRIT_STAT,
+            50,
+            LIFE,
+            149,
+            "base_fire_damage_resistance_%",
+            45,
+            "base_cold_damage_resistance_%",
+            45);
+    minima.forEach(
+        (stat, min) -> {
+          var row = ((ObjectNode) body.at("/goal/groups/0/entries/0")).deepCopy();
+          row.put("id", stat)
+              .put("statId", GoalCatalogIndex.id("explicit", stat))
+              .put("unit", stat.endsWith("%") ? "percent" : "flat");
+          ((ObjectNode) row.required("range")).put("min", min);
+          rows.add(row);
+        });
+    var result = response(request(input));
+    // 네 티어 수치 범위는 4·30·5·5다. 분열하면 해당 티어의 최댓값은 1,000회 재굴림 동안 유지된다.
+    var denominators =
+        Map.of(
+            "amulet:prefix:countess",
+            750,
+            "amulet:prefix:athlete-s",
+            100,
+            "amulet:suffix:of-tzteosh",
+            600);
+    double baseline = 1 - Math.pow(1 - 1.0 / 3000, 1000);
+    double total =
+        denominators.values().stream()
+            .mapToDouble(d -> 1 - Math.pow(1 - 1.0 / d, 1000))
+            .average()
+            .orElseThrow();
+    var seen = new HashSet<String>();
+    var workbench = new WorkbenchSimulator(catalog, new CraftingEngine(catalog));
+    for (var route : result.required("routes")) {
+      if (!route.hasNonNull("fractureStrategy")) continue;
+      var strategy = route.required("fractureStrategy");
+      var steps = route.required("steps");
+      assertThat(steps)
+          .extracting(step -> step.required("action").asText())
+          .containsExactly("Preserved_Collarbone", "FRACTURING", "REVEAL", "DIVINE");
+      var fracture = steps.get(1);
+      var id = fracture.required("fracturedModifierId").asText();
+      assertThat(seen.add(id)).isTrue();
+      double conditional = 1 - Math.pow(1 - 1.0 / denominators.get(id), 1000);
+      var tolerance = org.assertj.core.data.Offset.offset(1e-12);
+      assertThat(fracture.at("/chance/probability").doubleValue()).isCloseTo(1.0 / 3, tolerance);
+      assertThat(strategy.at("/baselineChance/probability").doubleValue())
+          .isCloseTo(baseline, tolerance);
+      assertThat(strategy.at("/successChance/probability").doubleValue())
+          .isCloseTo(total, tolerance);
+      assertThat(strategy.at("/conditionalChance/probability").doubleValue())
+          .isCloseTo(conditional, tolerance);
+      assertThat(route.required("probability").doubleValue()).isCloseTo(conditional / 3, tolerance);
+      var frame = result.required("states").required(route.at("/stateIndices/1").asInt());
+      var item = json.treeToValue(frame, ItemState.class);
+      var slots = AbyssCraftingState.from(item, catalog);
+      var protectedSlot =
+          slots.slots().stream()
+              .filter(s -> s.modifier() != null && s.modifier().fractured())
+              .toList();
+      assertThat(protectedSlot)
+          .singleElement()
+          .satisfies(s -> assertThat(s.modifier().modifierId()).isEqualTo(id));
+      var annul = workbench.abyssPlan(slots, WorkbenchCurrency.ANNULMENT, Set.of());
+      assertThat(annul.branches())
+          .hasSize(3)
+          .noneMatch(b -> b.removedSlotId().equals(protectedSlot.getFirst().id()));
+      var fixed = input.deepCopy();
+      fixed.set("cardIndex", route.required("cardIndex"));
+      var selected = fixed.putArray("steps");
+      for (var step : steps)
+        selected.add(
+            ((ObjectNode) step)
+                .deepCopy()
+                .retain("action", "omens", "acquired", "lost", "fracturedModifierId"));
+      var replay = response(grade(fixed));
+      assertThat(replay.required("routes")).hasSize(1);
+      assertThat(replay.at("/routes/0/probability").doubleValue())
+          .isCloseTo(conditional / 3, tolerance);
+      assertThat(replay.required("states").required(replay.at("/routes/0/stateIndices/1").asInt()))
+          .isEqualTo(frame);
+    }
+    assertThat(seen).containsExactlyInAnyOrderElementsOf(denominators.keySet());
   }
 
   /** 직접 목표인 상한을 보존하면서 희귀 정신력 접두를 얻는 경로를 검색하고 같은 단계로 다시 계산한다. */

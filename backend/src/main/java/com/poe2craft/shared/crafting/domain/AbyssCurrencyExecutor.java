@@ -146,6 +146,12 @@ public final class AbyssCurrencyExecutor {
     try {
       if (action.baseAction() == CraftingAction.EXALTED)
         return exaltTransition(state, action, omens, random, null).outcome();
+      // 미공개 슬롯은 분열의 사용 조건에 필요하므로 실제 슬롯을 보존한 상태로 작업대에 전달한다.
+      if (hidden
+          && action == WorkbenchCurrency.FRACTURING
+          && state.offer() == null
+          && state.slots().stream().noneMatch(s -> s.desecrated() && s.modifier() != null))
+        return concreteTransition(state, action, omens, random, null).outcome();
       // The concrete sampler knows existing item values, quality, socket and omen rules.
       // Hidden slots are opaque and can only bypass it for operations that cannot change slots.
       if (!hidden || valuesOnly)
@@ -286,10 +292,14 @@ public final class AbyssCurrencyExecutor {
       Set<String> omens,
       RandomGenerator random,
       String selected) {
+    var input =
+        action == WorkbenchCurrency.FRACTURING && hasHidden(state)
+            ? state.storedItem()
+            : state.knownItem();
     var result =
         selected == null
-            ? simulator.apply(state.knownItem(), action, omens, random)
-            : simulator.applyCustomExalt(state.knownItem(), action, omens, random, selected);
+            ? simulator.apply(input, action, omens, random)
+            : simulator.applyCustomExalt(input, action, omens, random, selected);
     if (!result.applied())
       return new Transition(blocked(state, action, omens, result.reason()), null);
     var removed =

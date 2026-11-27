@@ -10,7 +10,7 @@ const forward = Object.fromEntries(
     ),
   ]),
 )
-export const gameIdIdentity = bundle.identity + '-fields3'
+export const gameIdIdentity = bundle.identity + '-fields4'
 export const gameIdHeader = 'X-Crafting-Ids'
 const bodyHeader = 'X-Crafting-Ids-Body'
 let negotiatedRuleset: string | null = null
@@ -49,6 +49,7 @@ function domain(
         : ''
     case 'baseItemId':
       return 'bases'
+    case 'fracturedModifierId':
     case 'modifierId':
     case 'implicitModifierId':
     case 'modifierIds':

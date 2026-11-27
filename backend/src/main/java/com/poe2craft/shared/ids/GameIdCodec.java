@@ -70,7 +70,7 @@ public final class GameIdCodec {
               ? "stats"
               : "";
       case "baseItemId" -> "bases";
-      case "modifierId", "implicitModifierId", "modifierIds" -> "modifiers";
+      case "fracturedModifierId", "modifierId", "implicitModifierId", "modifierIds" -> "modifiers";
       case "sourceStatId", "sourceStatIds", "statIds", "stat" -> "stats";
       case "familyIds" -> "families";
       case "tags" -> "tags";

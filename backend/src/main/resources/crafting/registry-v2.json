@@ -1,9 +1,9 @@
 {
   "version": "equipment-crafting-registry-v2",
-  "ledgerVersion": "solar-uniform-assumptions-v14",
+  "ledgerVersion": "solar-uniform-assumptions-v15",
   "scope": "Equipment crafting, excluding maps and skill gems. Inventory coverage is incomplete and pending a full source audit; registration is not implementation.",
   "inventoryComplete": false,
-  "ruleVersion": "solar-workbench-abyss-essence-v24",
+  "ruleVersion": "solar-workbench-abyss-essence-v25",
   "modifierWeightPolicy": "POE2DB_AS_PUBLISHED",
   "mixedKnownUnknownWeightPolicy": "BLOCK_UNTIL_POLICY_DECIDED",
   "entries": [
@@ -181,7 +181,7 @@
       "reason": "",
       "ruleSource": "https://poe2db.tw/us/Fractured_Modifiers",
       "ruleVerifiedAt": "2026-10-02",
-      "interactionScope": "Rare Solar with four or more supported explicit modifiers, including verified essence results, and no existing fracture. Uniform 1/N selection assumption. Locked option preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is blocked pending priority evidence.",
+      "interactionScope": "Supported Rare equipment with at least four occupied explicit slots and no existing fracture. Before reveal, a concealed desecrated slot counts toward four and is excluded from the uniform draw; a crafted winner retains its crafted status. Uniform 1/N selection assumption. Locked option preserved by addition, Chaos, Annulment and Divine; Whittling plus fracture is blocked pending priority evidence.",
       "serviceScope": "ACTIVE",
       "supportedBaseSet": "fracturing-orb",
       "name": "Fracturing Orb"
@@ -4534,7 +4534,7 @@
     {
       "id": "uniform-fracture-v1",
       "candidateUnit": "eligible explicit modifier instance",
-      "eligibility": "Validated Rare Solar with at least four supported explicit modifiers and no existing fracture, including verified essence results. Implicit modifiers are excluded. Only one explicit fracture is supported.",
+      "eligibility": "Supported Rare equipment with at least four occupied explicit slots and no existing fracture. A concealed slot counts toward four but cannot fracture. Visible crafted modifiers are eligible and remain crafted. Implicit modifiers are excluded. Only one explicit fracture is supported.",
       "n": "eligible explicit instance count",
       "probability": "1/N",
       "sourceUrls": [

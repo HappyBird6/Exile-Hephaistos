@@ -12,6 +12,7 @@ import com.poe2craft.shared.item.ItemCatalog;
 import com.poe2craft.shared.item.ItemState;
 import com.poe2craft.shared.item.ItemStateValidator;
 import com.poe2craft.shared.item.ModifierDefinition.AffixType;
+import com.poe2craft.shared.item.ModifierInstance;
 import java.util.*;
 
 /** 카드의 허용 출처와 현재 작업대 상태에서 다음 화폐·징조 또는 준비 행동을 만든다. Choice의 target은 시도 목적이고 실제 획득 번호는 전이 뒤에 결정한다. */
@@ -69,6 +70,8 @@ final class RecipeMoves {
     QUALITY_CLEAR,
     /** 품질 작업을 마친 뒤 임시 상한을 제거한다. 절사 카오스는 같은 사용으로 지정한 목표도 얻어야 한다. */
     QUALITY_CAP_REMOVAL,
+    /** 이미 확보한 실제 목표를 지키기 위해 한 번 분열한다. 어느 옵션이 고정되는지는 전이에서 판정한다. */
+    FRACTURE,
     LOW_CHAOS,
     LOW_EXALT,
     BONE,
@@ -154,6 +157,72 @@ final class RecipeMoves {
     return choices(item, card, held, false, false);
   }
 
+  /** 서로 다른 실제 목표 셋과 L이 있으면 분열을 고려한다. 세 칸이면 최종 공개에 쓸 자리만 미리 연다. */
+  List<Choice> fractureChoices(ItemState item, RouteCards.Card card, Map<Integer, String> held) {
+    if (item.rarity() != ItemState.Rarity.RARE
+        || held.size() < 3
+        || !item.conditions().isEmpty()
+        || item.explicits().stream().anyMatch(ModifierInstance::fractured)
+        || item.desecrated().stream().anyMatch(slot -> slot.modifierId() != null)
+        || Set.copyOf(held.values()).size() < 3) return List.of();
+    var protectedIds = heldLowTiers(card, held);
+    if (protectedIds.isEmpty()) return List.of();
+    var workbench = simulator.forItem(item);
+    if (workbench.availability(item, WorkbenchCurrency.FRACTURING, Set.of()).available())
+      return List.of(
+          new Choice(
+              0,
+              new Move(WorkbenchCurrency.FRACTURING.name()),
+              true,
+              null,
+              Purpose.FRACTURE,
+              Set.of()));
+    if (item.explicits().size() != 3 || !item.desecrated().isEmpty()) return List.of();
+
+    var reserved = preferredReveals(item, card, held, Set.of(), protectedIds);
+    var result = new LinkedHashSet<Choice>();
+    for (var option : card.options()) {
+      var tiers = reserved.get(option.number());
+      if (tiers == null) continue;
+      var bones = new LinkedHashMap<String, Set<String>>();
+      for (var tier : tiers)
+        for (var source : option.tiers().get(tier))
+          if (source.reveal())
+            bones.computeIfAbsent(source.id(), ignored -> new TreeSet<>()).add(tier);
+      addBoneChoices(result, item, option.number(), bones, false);
+    }
+    // 일부 베이스는 공개 슬롯을 열 수 있어도 분열을 지원하지 않는다. 실제 준비 결과에서 자격을 확인한다.
+    var transitions = new RecipeTransitions(workbench);
+    result.removeIf(
+        choice ->
+            transitions
+                .prepareBone(
+                    item,
+                    choice.move().action(),
+                    Set.copyOf(choice.move().omenIds()),
+                    choice.eligibleTiers(),
+                    2,
+                    false)
+                .outcomes()
+                .stream()
+                .noneMatch(
+                    outcome ->
+                        workbench
+                            .availability(outcome.state(), WorkbenchCurrency.FRACTURING, Set.of())
+                            .available()));
+    return List.copyOf(result);
+  }
+
+  /** 실제 보유한 티어의 카드별 합산 획득 빈도가 L인 목표만 보호한다. */
+  private static Set<String> heldLowTiers(RouteCards.Card card, Map<Integer, String> held) {
+    var protectedIds = new HashSet<String>();
+    for (var option : card.options()) {
+      var tier = held.get(option.number());
+      if (tier != null && low(option.tiers().get(tier))) protectedIds.add(tier);
+    }
+    return protectedIds;
+  }
+
   /** 고정 경로의 엑잘은 새 추천의 훼손 선호를 적용하기 전 기본·증강 추첨 후보로도 검증한다. */
   List<Choice> choices(
       ItemState item,
@@ -164,11 +233,7 @@ final class RecipeMoves {
     var result = new LinkedHashSet<Choice>();
     var slots = validator.slots(item);
     var pendingReveal = pendingReveal(item, card, false);
-    var protectedIds = new HashSet<String>();
-    for (var option : card.options()) {
-      var tier = held.get(option.number());
-      if (tier != null && low(option.tiers().get(tier))) protectedIds.add(tier);
-    }
+    var protectedIds = heldLowTiers(card, held);
     var mandatory =
         card.options().stream()
             .filter(o -> !held.containsKey(o.number()))
@@ -559,33 +624,7 @@ final class RecipeMoves {
       return;
     }
     if (item.desecrated().isEmpty()) {
-      var slots = validator.slots(item);
-      boolean prefixOpen = slots.remainingPrefixes() > 0;
-      boolean suffixOpen = slots.remainingSuffixes() > 0;
-      for (var entry : bones.entrySet()) {
-        String id = entry.getKey();
-        var tiers = Set.copyOf(entry.getValue());
-        // 한쪽만 비어 있으면 뼈 자체가 이미 방향을 정한다.
-        if (prefixOpen != suffixOpen
-            || !RecipeTransitions.bothBoneSides(item, id, simulator.forItem(item).catalog())) {
-          addBone(result, target, new Move(id), tiers);
-          continue;
-        }
-        var bySide = new EnumMap<AffixType, Set<String>>(AffixType.class);
-        for (var tier : tiers) {
-          var side = simulator.catalog().find(tier).orElseThrow().affixType();
-          bySide.computeIfAbsent(side, ignored -> new TreeSet<>()).add(tier);
-        }
-        // 두 방향 모두 목표 티어면 무징조도 유효하다. 단일 방향 목표는 해당 징조로 확정한다.
-        if (replay || bySide.size() > 1) addBone(result, target, new Move(id), tiers);
-        bySide.forEach(
-            (side, matching) ->
-                addBone(
-                    result,
-                    target,
-                    new Move(id, Set.of(), null, DesecrationCurrency.directionOmen(side)),
-                    Set.copyOf(matching)));
-      }
+      addBoneChoices(result, item, target, bones, true);
       return;
     }
     if (pendingReveal.isEmpty()) return;
@@ -601,6 +640,43 @@ final class RecipeMoves {
               null,
               low ? Purpose.LOW_REVEAL : Purpose.DESECRATION,
               Set.copyOf(eligible)));
+  }
+
+  /** 한쪽만 열리면 기본 뼈를 쓰고, 두 쪽이면 목표별 방향을 분리한다. 분열 준비에서는 항상 예약 방향을 고른다. */
+  private void addBoneChoices(
+      Set<Choice> result,
+      ItemState item,
+      int target,
+      Map<String, Set<String>> bones,
+      boolean allowRandomSides) {
+    var slots = validator.slots(item);
+    boolean prefixOpen = slots.remainingPrefixes() > 0;
+    boolean suffixOpen = slots.remainingSuffixes() > 0;
+    for (var entry : bones.entrySet()) {
+      String id = entry.getKey();
+      var tiers = Set.copyOf(entry.getValue());
+      // 한쪽만 비어 있으면 뼈 자체가 이미 방향을 정한다.
+      if (prefixOpen != suffixOpen
+          || !RecipeTransitions.bothBoneSides(item, id, simulator.forItem(item).catalog())) {
+        addBone(result, target, new Move(id), tiers);
+        continue;
+      }
+      var bySide = new EnumMap<AffixType, Set<String>>(AffixType.class);
+      for (var tier : tiers) {
+        var side = simulator.catalog().find(tier).orElseThrow().affixType();
+        bySide.computeIfAbsent(side, ignored -> new TreeSet<>()).add(tier);
+      }
+      // 두 방향 모두 목표 티어면 무징조도 유효하다. 단일 방향 목표는 해당 징조로 확정한다.
+      if (allowRandomSides && (replay || bySide.size() > 1))
+        addBone(result, target, new Move(id), tiers);
+      bySide.forEach(
+          (side, matching) ->
+              addBone(
+                  result,
+                  target,
+                  new Move(id, Set.of(), null, DesecrationCurrency.directionOmen(side)),
+                  Set.copyOf(matching)));
+    }
   }
 
   /** 무징조 또는 방향을 지정한 뼈를 동일한 작업대 전이로 검증한다. */
